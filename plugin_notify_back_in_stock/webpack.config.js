@@ -13,6 +13,15 @@ module.exports = [{
     output: {
         path: path.resolve('./cartridges/plugin_notify_back_in_stock/cartridge/static'),
         filename: '[name].js'
+    },
+    resolve: {
+        alias: {
+            jquery: path.resolve(__dirname, '../storefront-reference-architecture/node_modules/jquery'),
+            bootstrap: path.resolve(__dirname, '../storefront-reference-architecture/node_modules/bootstrap'),
+            lodash: path.resolve(__dirname, '../storefront-reference-architecture/node_modules/lodash'),
+            cleave: path.resolve(__dirname, '../storefront-reference-architecture/node_modules/cleave.js'),
+            'popper.js': path.resolve(__dirname, './node_modules/popper.js')
+        }
     }
 },
 {
