@@ -1,0 +1,7 @@
+<isif condition="${aCondition}">
+    <div class="info">
+</isif>
+        Some content
+<isif condition="${aCondition}">
+    </div>
+</isif>
