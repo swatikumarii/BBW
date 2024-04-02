@@ -1,0 +1,45 @@
+<isdecorate template="common/layout/page">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-4 mt-5">
+            <form action="${pdict.changeFreqURL}" class="changeFreq" method="POST" name="changeFreq-form">
+                <div class="form-group required">
+                    <select name="emailFrequency" class="form-control required" id="emailFrequency">
+                        <isloop items=${pdict.emailFrequency} var="emailFrequency">
+                            <option id="${emailFrequency.value}" value="${emailFrequency.value}">
+                                ${emailFrequency.displayValue}</option>
+                        </isloop>
+                    </select>
+                </div>
+                <iscomment>
+                    <div class="form-group required">
+                        <input type="email" class="form-control required" id="userEmail" name="userEmail"
+                            value="${pdict.email}" readonly>
+                    </div>
+                </iscomment>
+
+                <div class="form-group required">
+                    <input type="email" id="userEmail" required aria-required="true" class="form-control required"
+                        aria-describedby="form-email-error" name="userEmail" value="${pdict.email}"
+                        placeholder="${Resource.msg('label.input.unsubscribe.email', 'newsletter', null)}" readonly>
+                    <div class="invalid-feedback" id="form-email-error"></div>
+                </div>
+                <input type="hidden" name="userId" value="${pdict.id}" />
+                <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+                <button type="submit" class="btn btn-block btn-primary">${Resource.msg('button.change.frequency', 'newsletter', null)}</button>
+            </form>
+        </div>
+        <div class="col-sm-6 offset-sm-4 mt-5">
+            <form action="${pdict.actionUrl}" class="unsubscribe" method="POST" name="unsubscribe-form">
+                <div class="form-group required">
+                    <input type="email" id="userEmail" required aria-required="true" class="form-control required"
+                        aria-describedby="form-email-error" name="userEmail" value="${pdict.email}"
+                        placeholder="${Resource.msg('label.input.unsubscribe.email', 'newsletter', null)}" readonly>
+                    <div class="invalid-feedback" id="form-email-error"></div>
+                </div>
+                <input type="hidden" name="userId" value="${pdict.id}" />
+                <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+                <button type="submit" class="btn btn-block btn-primary">${Resource.msg('button.unsubscribe', 'newsletter', null)}</button>
+            </form>
+        </div>
+    </div>
+</isdecorate>
