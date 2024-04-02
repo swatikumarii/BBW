@@ -1,4 +1,3 @@
-
 'use strict';
 
 var server = require('server');
@@ -26,7 +25,9 @@ function getOnlineProductsByCategory(categoryName) {
  * @returns {dw.util.Collection} collection - Collection of online products.
  */
 function getGreetingCardProducts() {
-    var onlineProducts = getOnlineProductsByCategory(site.current.getCustomPreferenceValue('greetingCardCategoryName'));
+    var onlineProducts = getOnlineProductsByCategory(
+        site.current.getCustomPreferenceValue('greetingCardCategoryName')
+    );
     var products = [];
     for (var i = 0; i < onlineProducts.length; i++) {
         if (onlineProducts[i].availabilityModel.inStock) {
@@ -34,12 +35,14 @@ function getGreetingCardProducts() {
             var pid = onlineProducts[i].ID;
             var productTileParams = { pview: 'tile', pid: pid };
             var apiProduct = productMgr.getProduct(pid);
-            var options = productHelper.getConfig(apiProduct, productTileParams);
+            var options = productHelper.getConfig(
+                apiProduct,
+                productTileParams
+            );
             products.push(fullProduct(product, options.apiProduct, options));
         }
     }
     return products;
-
 }
 
 /**
@@ -48,14 +51,21 @@ function getGreetingCardProducts() {
  * @function
  * @memberof Cart
  */
-server.append('Show', function (req, res, next) {
-    var viewData = res.getViewData();
-    viewData.isGreetingCardEnable = site.current.getCustomPreferenceValue('isGreetingCardEnable');
-    viewData.greetingCardMessageLimit = site.current.getCustomPreferenceValue('greetingCardMessageLimit');
-    viewData.greetingCardProducts = getGreetingCardProducts();
-    res.setViewData(viewData);
-    next();
-}, pageMetaData.computedPageMetaData);
+server.append(
+    'Show',
+    function (req, res, next) {
+        var viewData = res.getViewData();
+        viewData.isGreetingCardEnable = site.current.getCustomPreferenceValue(
+            'isGreetingCardEnable'
+        );
+        viewData.greetingCardMessageLimit =
+            site.current.getCustomPreferenceValue('greetingCardMessageLimit');
+        viewData.greetingCardProducts = getGreetingCardProducts();
+        res.setViewData(viewData);
+        next();
+    },
+    pageMetaData.computedPageMetaData
+);
 
 /**
  * Cart-AddProduct : The Cart-MiniCart endpoint is responsible for displaying the cart icon in the header with the number of items in the current basket
@@ -70,26 +80,41 @@ server.append('AddProduct', function (req, res, next) {
 
     var currentBasket = BasketMgr.getCurrentOrNewBasket();
     var greetingCardProduct = null;
-    var greetingCardCategoryName = site.current.getCustomPreferenceValue('greetingCardCategoryName')
-    collections.forEach(currentBasket.getAllProductLineItems(), function (productLineItem) {
-        if (productLineItem.product && productLineItem.product.categories.length > 0) {
-            collections.forEach(productLineItem.product.categories, function (category) {
-                if (category.ID === greetingCardCategoryName) {
-                    greetingCardProduct = productLineItem.productID;
-                }
-            });
+    var greetingCardCategoryName = site.current.getCustomPreferenceValue(
+        'greetingCardCategoryName'
+    );
+    collections.forEach(
+        currentBasket.getAllProductLineItems(),
+        function (productLineItem) {
+            if (
+                productLineItem.product &&
+                productLineItem.product.categories.length > 0
+            ) {
+                collections.forEach(
+                    productLineItem.product.categories,
+                    function (category) {
+                        if (category.ID === greetingCardCategoryName) {
+                            greetingCardProduct = productLineItem.productID;
+                        }
+                    }
+                );
+            }
         }
-    });
+    );
 
     if (req.form.greetingCardMessage && greetingCardProduct) {
         var greetingCardMessage = req.form.greetingCardMessage;
-        collections.forEach(currentBasket.getAllProductLineItems(), function (productLineItem) {
-            Transaction.wrap(function () {
-                if (productLineItem.productID === greetingCardProduct) {
-                    productLineItem.custom.greetingCardMessage = greetingCardMessage;
-                }
-            });
-        });
+        collections.forEach(
+            currentBasket.getAllProductLineItems(),
+            function (productLineItem) {
+                Transaction.wrap(function () {
+                    if (productLineItem.productID === greetingCardProduct) {
+                        productLineItem.custom.greetingCardMessage =
+                            greetingCardMessage;
+                    }
+                });
+            }
+        );
     }
 
     next();
