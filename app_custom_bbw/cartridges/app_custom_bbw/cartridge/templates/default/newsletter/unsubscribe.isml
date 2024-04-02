@@ -1,8 +1,15 @@
 <isdecorate template="common/layout/page">
     <div class="row">
         <div class="col-sm-6 offset-sm-4 mt-5">
+            <h2>${Resource.msg('unsubscribe.heading', 'newsletter', null)}</h2>
+            <p>${Resource.msg('unsubscribe.sub1', 'newsletter', null)}</p>
+        </div>
+        <div class="col-sm-6 offset-sm-4">
             <form action="${pdict.changeFreqURL}" class="changeFreq" method="POST" name="changeFreq-form">
                 <div class="form-group required">
+                    <label for="email">
+                        ${Resource.msg('unsubscribe.sub2', 'newsletter', null)}
+                    </label>
                     <select name="emailFrequency" class="form-control required" id="emailFrequency">
                         <isloop items=${pdict.emailFrequency} var="emailFrequency">
                             <option id="${emailFrequency.value}" value="${emailFrequency.value}">
@@ -18,6 +25,9 @@
                 </iscomment>
 
                 <div class="form-group required">
+                    <label for="email">
+                        ${Resource.msg('label.input.unsubscribe.email', 'newsletter', null)}
+                    </label>
                     <input type="email" id="userEmail" required aria-required="true" class="form-control required"
                         aria-describedby="form-email-error" name="userEmail" value="${pdict.email}"
                         placeholder="${Resource.msg('label.input.unsubscribe.email', 'newsletter', null)}" readonly>
@@ -29,8 +39,15 @@
             </form>
         </div>
         <div class="col-sm-6 offset-sm-4 mt-5">
+            <h2>${Resource.msg('unsubscribe.sub3', 'newsletter', null)}</h2>
+            <p>${Resource.msg('unsubscribe.sub4', 'newsletter', null)}</p>
+        </div>
+        <div class="col-sm-6 offset-sm-4">
             <form action="${pdict.actionUrl}" class="unsubscribe" method="POST" name="unsubscribe-form">
                 <div class="form-group required">
+                    <label for="email">
+                        ${Resource.msg('label.input.unsubscribe.email', 'newsletter', null)}
+                    </label>
                     <input type="email" id="userEmail" required aria-required="true" class="form-control required"
                         aria-describedby="form-email-error" name="userEmail" value="${pdict.email}"
                         placeholder="${Resource.msg('label.input.unsubscribe.email', 'newsletter', null)}" readonly>
@@ -40,6 +57,9 @@
                 <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
                 <button type="submit" class="btn btn-block btn-primary">${Resource.msg('button.unsubscribe', 'newsletter', null)}</button>
             </form>
+        </div>
+        <div class="col-sm-6 offset-sm-4 mt-5">
+            <p>${Resource.msg('unsubscribe.sub5', 'newsletter', null)}</p>
         </div>
     </div>
 </isdecorate>
