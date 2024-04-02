@@ -1,0 +1,203 @@
+/**
+ * Mixin to apply absolute positioning to an element based on specified device breakpoints.
+ * Positions the element horizontally and vertically with options for center, left, or right alignment.
+ * Generates CSS for absolute positioning and alignment properties.
+ *
+ * @param {String} $index - Index value used to generate unique class names for positioned elements.
+ * @param {String} $device - Device breakpoint identifier ('d' for desktop, 'm' for mobile, etc.).
+ */
+
+@mixin absPositionedBlock($index, $device) {
+    // Define the selector for the positioned element
+    $positionedElement: ".b-positioned-#{$index}__el";
+
+    // Apply absolute positioning to the element
+    #{$positionedElement} {
+        position: absolute;
+    }
+
+    // Handle horizontal positioning
+    &.m-position-x-#{$device} {
+        // Center alignment
+        &--center {
+            justify-content: center;
+
+            // Center the element horizontally
+            #{$positionedElement} {
+                left: 50%;
+                transform: translate(-50%, 0);
+            }
+        }
+
+        // Left alignment
+        &--left {
+            #{$positionedElement} {
+                left: 0;
+            }
+        }
+
+        // Right alignment
+        &--right {
+            #{$positionedElement} {
+                right: 0;
+            }
+        }
+    }
+
+    // Handle vertical positioning
+    &.m-position-y-#{$device} {
+        // Center alignment
+        &--center {
+            #{$positionedElement} {
+                top: 50%;
+                transform: translate(0, -50%);
+            }
+
+            // Adjust for horizontal centering
+            &.m-position-x-#{$device}--center {
+                #{$positionedElement} {
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+
+        // Top alignment
+        &--top {
+            #{$positionedElement} {
+                top: 0;
+            }
+        }
+
+        // Bottom alignment
+        &--bottom {
+            #{$positionedElement} {
+                bottom: 0;
+            }
+        }
+    }
+}
+
+/**
+ * Mixin to apply static positioning to an element within a root container.
+ * Handles various alignment options based on specified device breakpoints.
+ * Generates CSS for static positioning and alignment properties.
+ *
+ * @param {String} $root - Selector for the root container element.
+ * @param {String} $device - Device breakpoint identifier ('d' for desktop, 'm' for mobile, etc.).
+ */
+
+@mixin staticPositionedBlock($root, $device) {
+    // Define the no-column class
+    $noColumnClass: ".m-pos-no-column";
+
+    // Check if device is desktop and adjust no-column class if needed
+    @if $device == "d" {
+        $noColumnClass: ".m-pos-no-column--desktop";
+    }
+
+    // Apply flexbox styles to inner and content elements within the root container
+    #{$root}__inner,
+    #{$root}__content {
+        display: flex;
+    }
+
+    // Flexbox styles for inner container
+    #{$root}__inner {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    // Handle vertical center alignment
+    &.m-position-y-#{$device}--center {
+        #{$root}__inner {
+            flex-direction: row;
+            align-items: center;
+        }
+
+        // Handle horizontal positioning
+        &.m-position-x-#{$device} {
+            &--left,
+            &--right {
+                #{$root}__image {
+                    flex: 1 1 auto;
+                }
+            }
+
+            // Left alignment with special case for no-column class
+            &--left {
+                &:not(#{$noColumnClass}) {
+                    #{$root}__inner {
+                        flex-direction: row-reverse;
+                    }
+                }
+            }
+
+            // Right alignment
+            &--right {
+                #{$root}__inner {
+                    flex-direction: row;
+                }
+
+                // Adjust for no-column class
+                &#{$noColumnClass} {
+                    #{$root}__inner {
+                        justify-content: flex-end;
+                    }
+                }
+            }
+        }
+    }
+
+    // Handle top or bottom alignment
+    &.m-position-y-#{$device}--top,
+    &.m-position-y-#{$device}--bottom {
+        #{$root}__inner {
+            flex-direction: column;
+        }
+
+        // Handle horizontal alignment
+        &.m-position-x-#{$device} {
+            &--center {
+                #{$root}__content {
+                    justify-content: center;
+                }
+            }
+
+            &--left {
+                #{$root}__content {
+                    justify-content: flex-start;
+                }
+            }
+
+            &--right {
+                #{$root}__content {
+                    justify-content: flex-end;
+                }
+            }
+        }
+    }
+
+    // Handle top or bottom alignment
+    &.m-position-y-#{$device} {
+        &--top {
+            #{$root}__inner {
+                flex-direction: column-reverse;
+            }
+        }
+
+        &--bottom {
+            #{$root}__inner {
+                flex-direction: column;
+            }
+        }
+    }
+
+    // Handle horizontal alignment
+    &.m-position-x-#{$device} {
+        &--center {
+            #{$root}__inner {
+                justify-content: center;
+            }
+        }
+    }
+}

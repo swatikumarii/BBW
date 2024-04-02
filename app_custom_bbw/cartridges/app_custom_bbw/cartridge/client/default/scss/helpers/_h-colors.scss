@@ -1,0 +1,42 @@
+/**
+ * Mixin to generate helper classes for text color, background color, and border color
+ * based on the provided CSS color value for different color variations.
+ *
+ * @param {String} $selectorSuffix - The suffix to be appended to helper class selectors.
+ * @param {String} $cssColorValue - The CSS color value to be applied.
+ */
+
+@mixin createColors($selectorSuffix, $cssColorValue) {
+    // Generate helper classes for text color with provided CSS color value
+    @include createHelperForEachMedia(".h-clr", #{$selectorSuffix}) {
+        color: $cssColorValue !important;
+    }
+
+    // Generate helper classes for background color with provided CSS color value
+    @include createHelperForEachMedia(".h-bg", #{$selectorSuffix}) {
+        background-color: $cssColorValue !important;
+    }
+
+    // Generate helper classes for border color with provided CSS color value
+    @include createHelperForEachMedia(".h-bdc", #{$selectorSuffix}) {
+        border-color: $cssColorValue !important;
+    }
+}
+
+// Loop through each color defined in the color map
+
+@each $colorName, $colorValue in $map-colors {
+    // Generate helper classes for the base color variation
+    @include createColors(#{"" + $colorName}, colour($colorName, "base"));
+
+    // Loop through each spectrum within the color
+    @each $spectrumName, $spectrumValue in $colorValue {
+        // Exclude the base spectrum and generate helper classes for other color variations
+        @if $spectrumName != "base" {
+            @include createColors(
+                #{"" + $colorName}-#{$spectrumName},
+                colour($colorName, $spectrumName)
+            );
+        }
+    }
+}
