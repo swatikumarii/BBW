@@ -18,6 +18,17 @@
     "compile:scss": "sgmf-scripts --compile css",
     "prepare": "cd .. && husky app_custom_bbw/.husky"
   },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint"
+    ],
+    "*.json": [
+      "prettier"
+    ],
+    "*.{css,scss}": [
+      "stylelint"
+    ]
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
     "chai": "^3.5.0",
@@ -27,8 +38,10 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsdoc": "^48.2.2",
     "husky": "^9.0.11",
     "isml-linter": "^5.26.4",
+    "lint-staged": "^15.2.2",
     "mini-css-extract-plugin": "^2.7.6",
     "mocha": "^10.0.0",
     "nyc": "^15.1.0",
@@ -39,8 +52,9 @@
     "sass-loader": "^13.3.2",
     "sgmf-scripts": "^3.0.0",
     "sinon": "^17.0.1",
-    "stylelint": "^15.4.0",
-    "stylelint-config-standard-scss": "^10.0.0",
+    "stylelint": "^16.3.1",
+    "stylelint-config-standard-scss": "^13.0.0",
+    "stylelint-prettier": "^5.0.0",
     "webpack-remove-empty-scripts": "^1.0.4"
   },
   "browserslist": [

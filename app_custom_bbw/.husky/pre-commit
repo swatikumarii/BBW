@@ -1,26 +1,36 @@
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
 cd app_custom_bbw
-npm run lint
+npx lint-staged
+# For now lint all isml files as lint-staged is not working for ismls
+npm run lint:isml
 
 cd ..
 cd plugin_notify_back_in_stock
-npm run lint
+npx lint-staged
+npm run lint:isml
 
 cd ..
 cd plugin_gift_wrap_greeting_card
-npm run lint
+npx lint-staged
+npm run lint:isml
 
 cd ..
 cd plugin_bundling
-npm run lint
+npx lint-staged
+npm run lint:isml
 
 cd ..
 cd plugin_popups
-npm run lint
+npx lint-staged
+npm run lint:isml
 
 cd ..
 cd plugin_marketing_tiles
-npm run lint
+npx lint-staged
+npm run lint:isml
 
 cd ..
 cd plugin_event_tracking
-npm run lint
+npx lint-staged
+npm run lint:isml
