@@ -5,11 +5,14 @@
  * @param {Object} message - Error message to display
  */
 function createErrorNotification(message) {
-    var errorHtml = '<div class="alert alert-danger alert-dismissible valid-cart-error '
-        + 'fade show" role="alert">'
-        + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
-        + '<span aria-hidden="true">&times;</span>'
-        + '</button>' + message + '</div>';
+    var errorHtml =
+        '<div class="alert alert-danger alert-dismissible valid-cart-error ' +
+        'fade show" role="alert">' +
+        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+        '<span aria-hidden="true">&times;</span>' +
+        '</button>' +
+        message +
+        '</div>';
 
     $('.cart-error').append(errorHtml);
 }
@@ -59,9 +62,13 @@ function addGreetingCardToCart(self) {
  */
 function appendToUrl(url, params) {
     var newUrl = url;
-    newUrl += (newUrl.indexOf('?') !== -1 ? '&' : '?') + Object.keys(params).map(function (key) {
-        return key + '=' + encodeURIComponent(params[key]);
-    }).join('&');
+    newUrl +=
+        (newUrl.indexOf('?') !== -1 ? '&' : '?') +
+        Object.keys(params)
+            .map(function (key) {
+                return key + '=' + encodeURIComponent(params[key]);
+            })
+            .join('&');
 
     return newUrl;
 }
@@ -101,10 +108,14 @@ function removeGreetingCardFromCart(actionUrl, uuid, pid) {
 function clearGreetingCardIsml() {
     $('.greeting-block-options').css('display', 'none');
     $('#addGreetingCardProduct').removeClass('update');
-    $('#addGreetingCardProduct').html($('#addGreetingCardProduct').data('add-text'));
+    $('#addGreetingCardProduct').html(
+        $('#addGreetingCardProduct').data('add-text')
+    );
     $('#greetingcard').prop('checked', false);
-    $("input:radio[name=greeting-card]:first").attr('checked', true);
-    $('.selected-greetingcard-price').html($('input[name="greeting-card"]:checked').data('price'));
+    $('input:radio[name=greeting-card]:first').attr('checked', true);
+    $('.selected-greetingcard-price').html(
+        $('input[name="greeting-card"]:checked').data('price')
+    );
     $('.js-personal-message-textarea').html('');
     $('.greetingCard-edit-product').css('display', 'none');
 }
@@ -118,46 +129,88 @@ function resetGreetingCardIsml() {
     var greetingCardPid = $('.greeting-card').data('pid');
     if (greetingCardPid) {
         $('#addGreetingCardProduct').addClass('update');
-        $('#addGreetingCardProduct').html($('#addGreetingCardProduct').data('update-text'));
+        $('#addGreetingCardProduct').html(
+            $('#addGreetingCardProduct').data('update-text')
+        );
         $('#greetingcard').prop('checked', true);
-        $("input:radio[value="+greetingCardPid+"]").prop("checked", true);
-        $('.selected-greetingcard-price').html($('.greeting-card').data('price'));
-        $('.js-personal-message-textarea').html($('.greeting-card').data('text'));
+        $('input:radio[value=' + greetingCardPid + ']').prop('checked', true);
+        $('.selected-greetingcard-price').html(
+            $('.greeting-card').data('price')
+        );
+        $('.js-personal-message-textarea').html(
+            $('.greeting-card').data('text')
+        );
     } else {
         clearGreetingCardIsml();
     }
-    var greetingCardMessageLimit = $(".js-personal-message-textarea").attr('maxLength');
-    $('.js-char-left').html('(' + (greetingCardMessageLimit - $('.js-personal-message-textarea').val().length) + ' / ' + greetingCardMessageLimit + ')');
+    var greetingCardMessageLimit = $('.js-personal-message-textarea').attr(
+        'maxLength'
+    );
+    $('.js-char-left').html(
+        '(' +
+            (greetingCardMessageLimit -
+                $('.js-personal-message-textarea').val().length) +
+            ' / ' +
+            greetingCardMessageLimit +
+            ')'
+    );
 }
 
 $(document).ready(function () {
-
     resetGreetingCardIsml();
-    var greetingCardMessageLimit = $(".js-personal-message-textarea").attr('maxLength');
+    var greetingCardMessageLimit = $('.js-personal-message-textarea').attr(
+        'maxLength'
+    );
     $('.js-personal-message-textarea').on('keyup', function () {
-        $('.js-char-left').html('(' + (greetingCardMessageLimit - $(this).val().length) + ' / ' + greetingCardMessageLimit + ')');
+        $('.js-char-left').html(
+            '(' +
+                (greetingCardMessageLimit - $(this).val().length) +
+                ' / ' +
+                greetingCardMessageLimit +
+                ')'
+        );
     });
 
     $(document).on('click', '#addGreetingCardProduct', function () {
         if ($('.js-personal-message-textarea').val().length === 0) {
-            createErrorNotification($('.js-personal-message-textarea').data('error-message-blank'));
+            createErrorNotification(
+                $('.js-personal-message-textarea').data('error-message-blank')
+            );
             return;
         }
-        if ($('.js-personal-message-textarea').val().length > greetingCardMessageLimit) {
-            createErrorNotification($('.js-personal-message-textarea').data('error-message-morethan').replace('#', greetingCardMessageLimit));
+        if (
+            $('.js-personal-message-textarea').val().length >
+            greetingCardMessageLimit
+        ) {
+            createErrorNotification(
+                $('.js-personal-message-textarea')
+                    .data('error-message-morethan')
+                    .replace('#', greetingCardMessageLimit)
+            );
             return;
         }
         if (!$('input[name="greeting-card"]:checked').val()) {
-            createErrorNotification($('.greetingCardProductOptions').data('error-message-select-radio'));
+            createErrorNotification(
+                $('.greetingCardProductOptions').data(
+                    'error-message-select-radio'
+                )
+            );
             return;
         }
         if ($(this).hasClass('update')) {
-            if ($('.greeting-card').data('pid') === $('input[name="greeting-card"]:checked').val()
-                && $('.greeting-card').data('text') === $('.js-personal-message-textarea').val()) {
+            if (
+                $('.greeting-card').data('pid') ===
+                    $('input[name="greeting-card"]:checked').val() &&
+                $('.greeting-card').data('text') ===
+                    $('.js-personal-message-textarea').val()
+            ) {
                 $('.greeting-block-options').css('display', 'none');
             } else {
-                removeGreetingCardFromCart($(this).data('removeurl'), $('.greeting-card').data('uuid'),
-                    $('.greeting-card').data('pid'));
+                removeGreetingCardFromCart(
+                    $(this).data('removeurl'),
+                    $('.greeting-card').data('uuid'),
+                    $('.greeting-card').data('pid')
+                );
                 addGreetingCardToCart($(this));
             }
         } else {
@@ -179,8 +232,11 @@ $(document).ready(function () {
         } else {
             $('.greeting-block-options').css('display', 'none');
             if ($('.greeting-card').data('pid')) {
-                removeGreetingCardFromCart($('#addGreetingCardProduct').data('removeurl'), $('.greeting-card').data('uuid'),
-                    $('.greeting-card').data('pid'));
+                removeGreetingCardFromCart(
+                    $('#addGreetingCardProduct').data('removeurl'),
+                    $('.greeting-card').data('uuid'),
+                    $('.greeting-card').data('pid')
+                );
                 clearGreetingCardIsml();
             }
         }
@@ -189,5 +245,4 @@ $(document).ready(function () {
     $(document).on('click', '.greetingCardProductOptionsRadio', function () {
         $('.selected-greetingcard-price').html($(this).data('price'));
     });
-
 });

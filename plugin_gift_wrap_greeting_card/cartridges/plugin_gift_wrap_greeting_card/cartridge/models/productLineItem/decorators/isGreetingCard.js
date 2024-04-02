@@ -5,7 +5,6 @@
  * 1.0    Custom  gift wrap check
  */
 
-
 'use strict';
 
 var site = require('dw/system/Site');
@@ -17,7 +16,9 @@ module.exports = function (object, apiProduct) {
         value: (function () {
             var isGreetingCardCategory = false;
             if (apiProduct && apiProduct.categories.length > 0) {
-                var categoryName = site.current.getCustomPreferenceValue('greetingCardCategoryName');
+                var categoryName = site.current.getCustomPreferenceValue(
+                    'greetingCardCategoryName'
+                );
                 collections.forEach(apiProduct.categories, function (category) {
                     if (category.ID === categoryName) {
                         isGreetingCardCategory = true;
@@ -25,6 +26,6 @@ module.exports = function (object, apiProduct) {
                 });
             }
             return isGreetingCardCategory;
-        }())
+        })()
     });
 };

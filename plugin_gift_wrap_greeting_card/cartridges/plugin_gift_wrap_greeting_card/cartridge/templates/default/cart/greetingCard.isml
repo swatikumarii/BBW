@@ -17,18 +17,21 @@
             <div class="greeting-block-options js-greetingcard-options">
                 <div class="giftwrap-block-personal-message js-greetingcard-block-personal-message">
                     <span id="gift-wrapping-card-title"
-                        class="gift-wrapping-card-title">${Resource.msg('choose.greeting.card', 'greetingCard', null)}(<span class="selected-greetingcard-price">${pdict.greetingCardProductPrice}</span>)</span>
+                        class="gift-wrapping-card-title">${Resource.msg('choose.greeting.card', 'greetingCard', null)}(<span
+                            class="selected-greetingcard-price">${pdict.greetingCardProductPrice}</span>)</span>
                     <span class="gift-wrapping-card-title">${Resource.msg('choose.greeting.card-theme', 'greetingCard', null)}</span>
                     <div class="greeting-card-selection js-greetingcard-select-card">
                         <isset name="isFirstIterationGreeting" value="${true}" scope="page" />
                         <isloop items="${pdict.greetingCardProducts}" var="greetingCardProduct" status="loopstate">
-                            <div class="greetingCardProductOptions" data-error-message-select-radio="${Resource.msg('error.radio.greetingcard', 'greetingCard', null)}">
+                            <div class="greetingCardProductOptions"
+                                data-error-message-select-radio="${Resource.msg('error.radio.greetingcard', 'greetingCard', null)}">
                                 <div class="imgGiftWrap">
                                     <img src="${greetingCardProduct.images.small[0].url}"
                                         alt="${greetingCardProduct.productName}" />
                                     <input class="greetingCardProductOptionsRadio" name="greeting-card"
                                         id="greetingCardProductOptionsRadio-${loopstate.count}" type="radio"
-                                        value="${greetingCardProduct.id}" data-price="${greetingCardProduct.price.sales.formatted}"/>
+                                        value="${greetingCardProduct.id}"
+                                        data-price="${greetingCardProduct.price.sales.formatted}" />
                                     <label class="greetingCardProductLabel"
                                         for="greetingCardProductOptionsRadio-${loopstate.count}"></label>
                                     <div class="gift-wrapping-card-description">

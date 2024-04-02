@@ -27,8 +27,7 @@ function createProductLineItemsObject(allLineItems, view) {
                 productName: item.productName,
                 UUID: item.UUID,
                 noProduct: true,
-                images:
-                {
+                images: {
                     small: [
                         {
                             url: URLUtils.staticURL('/images/noimagelarge.png'),
@@ -36,33 +35,43 @@ function createProductLineItemsObject(allLineItems, view) {
                             title: Resource.msgf('msg.no.image', 'common', null)
                         }
                     ]
-
                 }
-
             });
             return;
         }
-        var options = collections.map(item.optionProductLineItems, function (optionItem) {
-            return {
-                optionId: optionItem.optionID,
-                selectedValueId: optionItem.optionValueID
-            };
-        });
+        var options = collections.map(
+            item.optionProductLineItems,
+            function (optionItem) {
+                return {
+                    optionId: optionItem.optionID,
+                    selectedValueId: optionItem.optionValueID
+                };
+            }
+        );
 
         var bonusProducts = null;
 
-        if (!item.bonusProductLineItem
-                && item.custom.bonusProductLineItemUUID
-                && item.custom.preOrderUUID) {
+        if (
+            !item.bonusProductLineItem &&
+            item.custom.bonusProductLineItemUUID &&
+            item.custom.preOrderUUID
+        ) {
             bonusProducts = [];
             collections.forEach(allLineItems, function (bonusItem) {
-                if (!!item.custom.preOrderUUID && bonusItem.custom.bonusProductLineItemUUID === item.custom.preOrderUUID) {
-                    var bpliOptions = collections.map(bonusItem.optionProductLineItems, function (boptionItem) {
-                        return {
-                            optionId: boptionItem.optionID,
-                            selectedValueId: boptionItem.optionValueID
-                        };
-                    });
+                if (
+                    !!item.custom.preOrderUUID &&
+                    bonusItem.custom.bonusProductLineItemUUID ===
+                        item.custom.preOrderUUID
+                ) {
+                    var bpliOptions = collections.map(
+                        bonusItem.optionProductLineItems,
+                        function (boptionItem) {
+                            return {
+                                optionId: boptionItem.optionID,
+                                selectedValueId: boptionItem.optionValueID
+                            };
+                        }
+                    );
                     var params = {
                         pid: bonusItem.product.ID,
                         quantity: bonusItem.quantity.value,
@@ -89,10 +98,14 @@ function createProductLineItemsObject(allLineItems, view) {
         };
         var newLineItem = ProductFactory.get(params);
         newLineItem.bonusProducts = bonusProducts;
-        if (newLineItem.bonusProductLineItemUUID === 'bonus' || !newLineItem.bonusProductLineItemUUID) {
+        if (
+            newLineItem.bonusProductLineItemUUID === 'bonus' ||
+            !newLineItem.bonusProductLineItemUUID
+        ) {
             if (newLineItem.isGreetingCardCategory) {
                 if ('greetingCardMessage' in item.custom) {
-                    newLineItem.greetingCardMessage = item.custom.greetingCardMessage;
+                    newLineItem.greetingCardMessage =
+                        item.custom.greetingCardMessage;
                 }
                 greetingCardLineItem = newLineItem;
             } else {
