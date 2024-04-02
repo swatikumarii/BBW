@@ -13,7 +13,9 @@ var config = {
         'no-inline-style': {
             level: 'warning'
         },
-        'no-isscript': {},
+        'no-isscript': {
+            level: 'warning'
+        },
         'no-space-only-lines': {},
         'no-tabs': {},
         'no-trailing-spaces': {},
