@@ -1,0 +1,90 @@
+// Convert px to rem
+
+@function rem($px, $base: $base-html-font-size) {
+    $value: strip-unit($px);
+
+    @if $site-unit == "rem" and $value != 1 {
+        @return ($value / strip-unit($base)) * 1rem;
+    } @else {
+        @return $value * 1px;
+    }
+}
+
+// Remove the unit of a length
+// @param {Number} $number - Number to remove unit from
+// @return {Number} - Unitless number
+
+@function strip-unit($number) {
+    @if type-of($number) == "number" and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
+// Get baseline value
+
+@function get-baseline($default-value) {
+    @if variable-exists(baseline) {
+        @return $baseline;
+    } @else {
+        @return $default-value;
+    }
+}
+
+// Get value base on baseline
+
+@function sp($index: 1) {
+    @if $index == 0 {
+        @return rem(4);
+    }
+
+    @return rem($baseline * $index);
+}
+
+@function str-replace($string, $search, $replace: "") {
+    $index: str-index($string, $search);
+
+    @if $index {
+        // prettier-ignore
+        @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+
+    @return $string;
+}
+
+@function to-base64($url) {
+    // @return $url;
+    @return "b64---" + str-replace($url, "../") + "---";
+}
+
+@function colour(
+    $color-name: default,
+    $color-variant: null,
+    $opacity: null,
+    $palette: $map-colors
+) {
+    $color: null;
+    $color-spectrum: map-get($palette, $color-name);
+    $alpha: if(
+        type-of($opacity) == "number",
+        $opacity,
+        map-get($map-opacity, $opacity)
+    );
+
+    @if map-has-key($color-spectrum, $color-variant) {
+        $color: map-get($color-spectrum, $color-variant);
+    } @else {
+        $color: map-get($color-spectrum, base);
+    }
+
+    @if $opacity {
+        $color: rgba($color, $alpha);
+    }
+
+    @return $color;
+}
+
+// @function colour-cmp($color-name: default, $color-variant: null, $opacity: null, $palette: $color-cmp) {
+//     @return colour($color-name, $color-variant, $opacity, $palette);
+// }

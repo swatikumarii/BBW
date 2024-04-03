@@ -1,0 +1,34 @@
+// ----------------------------------------------------------------------
+// Fonts
+// ----------------------------------------------------------------------
+
+// font-awesome font file locations in relation to target location of the css file.
+$fa-font-path: "../fonts" !default;
+
+// flag icons location in relation to target location of the css file.
+$flag-icon-css-path: "../fonts/flags/" !default;
+
+// Base spacing size
+$baseline: 12px;
+$base-html-font-size: 16px;
+$site-unit: "px";
+
+// Letter spacing
+$letter-spacing: (
+    md: 0.2px rtl(normal),
+    lg: 0.4px rtl(normal),
+    xl: 1px rtl(normal)
+);
+
+// Font weight
+$font-weight: (
+    normal: 400,
+    medium: 500,
+    bold: 700
+);
+
+// Font style
+$font-style: (
+    normal: normal,
+    italic: italic rtl(normal)
+);

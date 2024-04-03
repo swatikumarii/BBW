@@ -1,0 +1,12 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/mixins/breakpoints";
+
+// Import all utility functions and mixins from the "util" directory
+
+@import "./util/all";
+
+// Import all variable definitions from the "var-settings" directory
+
+@import "./variables/var-settings/all";

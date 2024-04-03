@@ -1,0 +1,509 @@
+// ----------------------------------------------------------------------
+// CSS Helpers
+// ----------------------------------------------------------------------
+$site-unit: "px";
+$cssHelpers: (
+    ".h-hidden": (
+        props: (
+            "display"
+        ),
+        values: (
+            none
+        ),
+        onlyprefix: true,
+        devicebreakpoints: (
+            md,
+            lg
+        )
+    ),
+    ".h-invisible": (
+        props: (
+            "visibility"
+        ),
+        values: (
+            hidden
+        ),
+        onlyprefix: true
+    ),
+    ".h-opacity": (
+        props: (
+            "opacity"
+        ),
+        values: (
+            0,
+            1
+        )
+    ),
+    ".h-visually-hidden": (
+        mixin: "visually-hidden",
+        onlyprefix: true
+    ),
+    ".h-text-truncate": (
+        mixin: "text-truncate",
+        onlyprefix: true
+    ),
+    ".h-font-family": (
+        props: (
+            "font-family"
+        ),
+        values: (
+            oswald
+        )
+    ),
+    ".h-font-size": (
+        props: (
+            "font-size"
+        ),
+        values: (
+            auto
+        ),
+        range: (
+            0,
+            200
+        ),
+        step: 2,
+        unit: $site-unit
+    ),
+    ".h-disable-events": (
+        props: (
+            "pointer-events"
+        ),
+        onlyprefix: true,
+        values: (
+            none
+        )
+    ),
+    ".h-text-align": (
+        props: (
+            "text-align"
+        ),
+        values: (
+            left,
+            right,
+            center
+        )
+    ),
+    ".h-text-transform": (
+        props: (
+            "text-transform"
+        ),
+        values: (
+            capitalize,
+            uppercase,
+            lowercase,
+            none
+        )
+    ),
+    ".h-dsp": (
+        props: (
+            "display"
+        ),
+        values: (
+            block,
+            inline-block,
+            flex,
+            none,
+            table,
+            table-row,
+            table-cell,
+            grid
+        )
+    ),
+    ".h-pos": (
+        props: (
+            "position"
+        ),
+        values: (
+            relative,
+            static,
+            absolute,
+            fixed,
+            sticky
+        )
+    ),
+    ".h-float": (
+        props: (
+            "float"
+        ),
+        values: (
+            left,
+            right
+        )
+    ),
+    ".h-clear": (
+        props: (
+            "clear"
+        ),
+        values: (
+            none,
+            left,
+            right,
+            both
+        )
+    ),
+    ".h-white-space": (
+        props: (
+            "white-space"
+        ),
+        values: (
+            normal,
+            nowrap,
+            pre,
+            pre-wrap,
+            pre-line,
+            break-spaces
+        )
+    ),
+    ".h-flex-dir": (
+        props: (
+            "flex-direction"
+        ),
+        values: (
+            row,
+            row-reverse,
+            column,
+            column-reverse
+        )
+    ),
+    ".h-flex-ai": (
+        props: (
+            "align-items"
+        ),
+        values: (
+            stretch,
+            center,
+            start,
+            end
+        )
+    ),
+    ".h-flex-jc": (
+        props: (
+            "justify-content"
+        ),
+        values: (
+            flex-start,
+            flex-end,
+            center,
+            space-between,
+            space-around,
+            space-evenly
+        )
+    ),
+    ".h-flex-order": (
+        props: (
+            "order"
+        ),
+        range: (
+            0,
+            100
+        ),
+        step: 10,
+        rangestep: (
+            value: 10,
+            step: 1
+        )
+    ),
+    ".h-flex-wrap": (
+        props: (
+            "flex-wrap"
+        ),
+        values: (
+            wrap,
+            nowrap
+        )
+    ),
+    ".h-width": (
+        props: (
+            "width"
+        ),
+        values: (
+            auto
+        ),
+        range: (
+            0,
+            1000
+        ),
+        step: 50,
+        rangestep: (
+            value: 100,
+            step: 10
+        ),
+        unit: $site-unit
+    ),
+    ".h-maxwidth": (
+        props: (
+            "max-width"
+        ),
+        values: (
+            auto
+        ),
+        range: (
+            0,
+            1500
+        ),
+        step: 50,
+        unit: $site-unit
+    ),
+    ".h-maxheight": (
+        props: (
+            "max-height"
+        ),
+        values: (
+            auto
+        ),
+        range: (
+            0,
+            1500
+        ),
+        step: 50,
+        unit: $site-unit
+    ),
+    ".h-width-perc": (
+        props: (
+            "width"
+        ),
+        range: (
+            0,
+            200
+        ),
+        step: 5,
+        unit: "%"
+    ),
+    ".h-minheight": (
+        props: (
+            "min-height"
+        ),
+        values: (
+            auto
+        ),
+        range: (
+            0,
+            300
+        ),
+        step: 20,
+        rangestep: (
+            value: 100,
+            step: 10
+        ),
+        unit: $site-unit
+    ),
+    ".l-grid__row": (
+        mixin: "grid-row",
+        onlyprefix: true
+    ),
+    ".h-grid-gap": (
+        props: (
+            "gap"
+        ),
+        values: (
+            auto
+        ),
+        range: (
+            0,
+            100
+        ),
+        step: 5,
+        unit: $site-unit
+    ),
+    ".h-mx": (
+        props: (
+            "margin-left",
+            "margin-right"
+        ),
+        values: (
+            auto
+        ),
+        unit: $site-unit
+    ),
+    ".h-mt-perc": (
+        props: (
+            "margin-top"
+        ),
+        range: (
+            -200,
+            200
+        ),
+        rangestep: (
+            value: 50,
+            step: 5
+        ),
+        values: (
+            auto
+        ),
+        step: 10,
+        unit: "%"
+    ),
+    ".h-mt": (
+        props: (
+            "margin-top"
+        ),
+        range: (
+            -200,
+            200
+        ),
+        rangestep: (
+            value: 50,
+            step: 5
+        ),
+        values: (
+            auto
+        ),
+        step: 10,
+        unit: $site-unit
+    ),
+    ".h-mb": (
+        props: (
+            "margin-bottom"
+        ),
+        range: (
+            0,
+            200
+        ),
+        rangestep: (
+            value: 50,
+            step: 5
+        ),
+        values: (
+            auto
+        ),
+        step: 10,
+        unit: $site-unit
+    ),
+    ".h-ml": (
+        props: (
+            "margin-left"
+        ),
+        range: (
+            0,
+            200
+        ),
+        rangestep: (
+            value: 50,
+            step: 5
+        ),
+        values: (
+            auto
+        ),
+        step: 10,
+        unit: $site-unit
+    ),
+    ".h-mr": (
+        props: (
+            "margin-right"
+        ),
+        range: (
+            0,
+            200
+        ),
+        rangestep: (
+            value: 50,
+            step: 5
+        ),
+        values: (
+            auto
+        ),
+        step: 10,
+        unit: $site-unit
+    ),
+    ".h-py": (
+        props: (
+            "padding-bottom",
+            "padding-top"
+        ),
+        range: (
+            0,
+            200
+        ),
+        rangestep: (
+            value: 80,
+            step: 5
+        ),
+        step: 10,
+        unit: $site-unit
+    ),
+    ".h-pt": (
+        props: (
+            "padding-top"
+        ),
+        range: (
+            0,
+            200
+        ),
+        rangestep: (
+            value: 80,
+            step: 5
+        ),
+        step: 10,
+        unit: $site-unit
+    ),
+    ".h-pb": (
+        props: (
+            "padding-bottom"
+        ),
+        range: (
+            0,
+            200
+        ),
+        rangestep: (
+            value: 80,
+            step: 5
+        ),
+        step: 10,
+        unit: $site-unit
+    ),
+    ".h-px": (
+        props: (
+            "padding-left",
+            "padding-right"
+        ),
+        range: (
+            0,
+            200
+        ),
+        rangestep: (
+            value: 50,
+            step: 5
+        ),
+        values: (
+            auto
+        ),
+        step: 10,
+        unit: $site-unit
+    ),
+    ".h-pl": (
+        props: (
+            "padding-left"
+        ),
+        range: (
+            0,
+            200
+        ),
+        rangestep: (
+            value: 50,
+            step: 5
+        ),
+        values: (
+            auto
+        ),
+        step: 10,
+        unit: $site-unit
+    ),
+    ".h-pr": (
+        props: (
+            "padding-right"
+        ),
+        range: (
+            0,
+            200
+        ),
+        rangestep: (
+            value: 50,
+            step: 5
+        ),
+        values: (
+            auto
+        ),
+        step: 10,
+        unit: $site-unit
+    )
+);
