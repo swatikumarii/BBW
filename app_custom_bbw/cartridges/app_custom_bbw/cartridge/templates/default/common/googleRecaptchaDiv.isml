@@ -1,0 +1,3 @@
+<div class="g-recaptcha" data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
+    data-error-callback="${dataErrorCallback}" data-callback="${dataCallback}" data-size="invisible">
+</div>
