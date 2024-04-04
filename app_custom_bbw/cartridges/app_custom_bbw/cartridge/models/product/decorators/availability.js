@@ -1,15 +1,16 @@
 'use strict';
 
 var Resource = require('dw/web/Resource');
+var ProductMgr = require('dw/catalog/ProductMgr');
 
 module.exports = function (
     object,
     quantity,
     minOrderQuantity,
-    availabilityModel,
-    apiProduct
+    availabilityModel
 ) {
     // Adding code to integrate reserveOOS functionality with availability decorator.
+    var apiProduct = ProductMgr.getProduct(object.id);
     var productLevelReserveQty =
         'custom' in apiProduct &&
         'reserveQty' in apiProduct.custom &&
@@ -76,7 +77,7 @@ module.exports = function (
                     availability.messages.push(
                         Resource.msg('label.preorder', 'common', null)
                     );
-                } else {
+                } else{
                     availability.messages.push(
                         Resource.msgf(
                             'label.preorder.items',
