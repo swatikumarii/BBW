@@ -35,8 +35,9 @@ function displayMessage(data, button) {
 
 /**
  * ajax call for news letter
+ * @param {string} token - reCAPTCHA token
  */
-function newsLetter() {
+function newsLetter(token) {
     var url = $('.subscribe-email').data('href');
     var button = $('.subscribe-email');
     var emailId = $('input[name=hpEmailSignUp]').val();
@@ -47,7 +48,8 @@ function newsLetter() {
         type: 'post',
         dataType: 'json',
         data: {
-            emailId: emailId
+            emailId: emailId,
+            'g-recaptcha-response': token,
         },
         success: function (data) {
             displayMessage(data, button);
@@ -60,17 +62,11 @@ function newsLetter() {
 
 window.submitNewsLetter = function (token) {
     return new Promise(function (resolve, reject) {
-        if (grecaptcha === undefined) {
-            reject();
-        }
-
-        var response = grecaptcha.getResponse();
-
-        if (!response) {
+        if (!token) {
             reject();
         }
         if (token !== '') {
-            newsLetter();
+            newsLetter(token);
             resolve();
         }
         grecaptcha.reset();
@@ -96,6 +92,7 @@ function executeRecaptcha() {
     grecaptcha.execute();
 }
 window.initializeRecaptcha = function () {
+    $('.grecaptcha-badge').addClass('mc-recaptcha-btn');
     $('.newsletter #gcaptchabtn').on('click', executeRecaptcha);
     $('.newsletter').on('keypress', function (event) {
         // If the user presses the "Enter" key on the keyboard
@@ -103,7 +100,7 @@ window.initializeRecaptcha = function () {
             // Cancel the default action, if needed
             event.preventDefault();
             // Trigger the button element with a click
-            $('.contact-us #gcaptchabtn').click();
+            $('.newsletter #gcaptchabtn').click();
         }
     });
 };

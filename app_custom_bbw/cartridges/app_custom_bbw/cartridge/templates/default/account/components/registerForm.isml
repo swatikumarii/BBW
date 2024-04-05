@@ -98,7 +98,9 @@
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha') == true}">
-        <isinclude template="/common/googleRecaptchaDivRegister" />
+        <isset name="dataCallback" value="submitRegistration" scope="page" />
+        <isset name="dataErrorCallback" value="checkRecaptcha" scope="page" />
+        <isinclude template="/common/googleRecaptchaDiv" />
         <button id="gcaptchabtn" type="button"
             class="btn btn-block btn-primary">${Resource.msg('button.createaccount.registration', 'registration', null)}</button>
     <iselse/>
