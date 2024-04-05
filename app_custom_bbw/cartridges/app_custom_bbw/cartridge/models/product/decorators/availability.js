@@ -24,8 +24,8 @@ module.exports = function (
         availabilityModel.inventoryRecord.ATS
             ? availabilityModel.inventoryRecord.ATS
             : 0;
-    var instock = reserveOosQty
-        ? productAtsValue - reserveOosQty >=
+    var canBeAddedToCart = reserveOosQty
+        ? (productAtsValue - reserveOosQty) >=
           (parseFloat(quantity) || minOrderQuantity)
         : availabilityModel.isOrderable(
             parseFloat(quantity) || minOrderQuantity
@@ -49,7 +49,7 @@ module.exports = function (
                 availability.inStockDate = null;
             }
 
-            if (instock) {
+            if (canBeAddedToCart) {
                 if (availabilityModelLevels.inStock.value === productQuantity) {
                     availability.messages.push(
                         Resource.msg('label.instock', 'common', null)
@@ -64,9 +64,9 @@ module.exports = function (
                         )
                     );
                 }
-            } else {
+            } else if(availabilityModelLevels.notAvailable.value === 0) {
                 availability.messages.push(
-                    Resource.msg('label.not.available', 'common', null)
+                    Resource.msg('label.not.available.items', 'common', null)
                 );
             }
 
@@ -133,7 +133,7 @@ module.exports = function (
     Object.defineProperty(object, 'available', {
         enumerable: true,
         value: reserveOosQty
-            ? productAtsValue - reserveOosQty >
+            ? (productAtsValue - reserveOosQty) >=
               (parseFloat(quantity) || minOrderQuantity)
             : availabilityModel.isOrderable(
                 parseFloat(quantity) || minOrderQuantity
