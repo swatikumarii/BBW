@@ -10,3 +10,6 @@
 [submodule "dis-product-image-wrapper"]
 	path = dis-product-image-wrapper
 	url = https://github.com/SalesforceCommerceCloud/dis-product-image-wrapper.git
+[submodule "plugin_seo"]
+	path = plugin_seo
+	url = https://github.com/SalesforceCommerceCloud/plugin_seo.git
