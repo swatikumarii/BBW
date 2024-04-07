@@ -7,3 +7,6 @@
 [submodule "plugin_csvimpex"]
 	path = plugin_csvimpex
 	url = https://gitlab.com/ranosys/plugin_csvimpex.git
+[submodule "plugin_seo"]
+	path = plugin_seo
+	url = https://github.com/SalesforceCommerceCloud/plugin_seo.git
