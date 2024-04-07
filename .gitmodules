@@ -7,3 +7,6 @@
 [submodule "plugin_csvimpex"]
 	path = plugin_csvimpex
 	url = https://gitlab.com/ranosys/plugin_csvimpex.git
+[submodule "dis-product-image-wrapper"]
+	path = dis-product-image-wrapper
+	url = https://github.com/SalesforceCommerceCloud/dis-product-image-wrapper.git
