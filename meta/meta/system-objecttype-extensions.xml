@@ -13,6 +13,17 @@
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="maxOrderQty">
+                <display-name xml:lang="x-default">Max Order Quantity</display-name>
+                <type>double</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>true</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="inventoryLimit">
@@ -33,6 +44,14 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-value>0.0</min-value>
             </attribute-definition>
+            <attribute-definition attribute-id="maxOrderQty">
+                <display-name xml:lang="x-default">Max Order Quantity</display-name>
+                <description xml:lang="x-default">Site level Max Order Quantity for Products</description>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>0.0</min-value>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Storefront Configs">
@@ -43,6 +62,7 @@
                 <attribute attribute-id="customerServiceEmail"/>
                 <attribute attribute-id="mapAPI"/>
                 <attribute attribute-id="reserveQty"/>
+                <attribute attribute-id="maxOrderQty"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
