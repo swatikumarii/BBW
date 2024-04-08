@@ -1,0 +1,41 @@
+<isdecorate template="common/layout/page">
+    <div class="row">
+        <div class="col-md-8 offset-md-4 ">
+            <h1>FIND A FRAGRANCE</h1>
+            <p class="center text-live"> Two easy ways to shop your favorites!</p>
+        </div>
+        <div class="col-md-8 offset-md-2 ">
+            <h2 class="subtitle ml-2">By Category</h2>
+            <p class="note ml-2">Choose a fragrance category below to see all scents in that group.</p>
+            <ul class="clearfix" role="list">
+                <isloop iterator="${pdict.fragranceCategories}" alias="fragranceCategories" status="loopstate">
+                    <li class="new-row">
+                        <a href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceCategory', 'prefv1', fragranceCategories
+                                 .fragrance)}"><img alt="${fragranceCategories.fragrance}">
+                        </a>${fragranceCategories.fragrance}
+                    </li>
+                </isloop>
+            </ul>
+        </div>
+
+        <div class="col-md-8 offset-md-2 mt-5">
+            <h2 class="subtitle ml-2">By Name</h2>
+            <p class="note ml-2">Select a fragrance in our A-Z list to see every product available in your scent.</p>
+            <p class="note ml-2">Look for the stars—a.k.a. our top fragrances.</p>
+            <ul class="clearfix" role="list">
+                <isset name="previousAlphabet" value="0" scope="page" />
+                <isloop iterator="${pdict.fragranceNames}" alias="fragranceNames" status="loopstate">
+                    <isif condition="${previousAlphabet !== fragranceNames.alphabet}">${fragranceNames.alphabet}
+                    </isif>
+                    <li class="new-row">
+                        <a
+                            href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragranceNames.name)}">
+                        </a>${fragranceNames.name}
+                        <isif condition="${fragranceNames.topFragrance}"><i class="bi bi-star-fill">*</i></isif>
+                    </li>
+                    <isset name="previousAlphabet" value="${fragranceNames.alphabet}" scope="page" />
+                </isloop>
+            </ul>
+        </div>
+    </div>
+</isdecorate>
