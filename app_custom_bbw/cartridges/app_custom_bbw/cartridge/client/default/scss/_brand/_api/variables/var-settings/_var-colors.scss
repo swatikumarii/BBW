@@ -1,15 +1,29 @@
+// ==============================
+// Color Palette Configuration
+// ==============================
+// This section defines a comprehensive color palette for the brand, ensuring consistency and accessibility across the UI.
+// Colors are organized into semantic categories like black, white, blue, pink, gray, green, red, brown, and orange.
+// Each color category includes multiple shades for versatility in design applications.
+// The map-colors variable maps color names to their corresponding hexadecimal values, facilitating easy access and management.
+// Opacity levels are also defined for various design requirements, providing flexibility in visual styling.
+
 $clr-black: #000;
-$clr-black-1: #111;
+$clr-black-1: #1a1a1a;
 $clr-black-2: #1f1f21;
+$clr-black-3: #333;
 $clr-white: #fff;
-$clr-gray: #757575;
-$clr-gray-1: #ccc;
-$clr-gray-2: #e5e5e5;
-$clr-gray-3: #f5f5f5;
-$clr-gray-4: #fafafa;
-$clr-gray-5: #0e0b0b;
-$clr-gray-6: #181616;
-$clr-gray-7: #1f1e1e;
+$clr-blue: #005699;
+$clr-blue-1: #024a82;
+$clr-blue-2: #f0f8ff;
+$clr-pink: #e20887;
+$clr-gray: #666;
+$clr-gray-1: #f2f2f2;
+$clr-gray-2: #c2c2c2;
+$clr-gray-3: #aaa;
+$clr-gray-4: #4d4d4d;
+$clr-gray-5: #828282;
+$clr-gray-6: #e5e5e5;
+$clr-gray-7: #ccc;
 $clr-gray-8: #313030;
 $clr-gray-9: #464444;
 $clr-gray-10: #5d5a5a;
@@ -22,7 +36,7 @@ $clr-gray-16: #707072;
 $clr-gray-17: #d9d9d9;
 $clr-green: #36c981;
 $clr-green-1: #007d48;
-$clr-red: #f51330;
+$clr-red: #cb0100;
 $clr-red-1: #fe5000;
 $clr-red-2: #ff0015;
 $clr-red-3: #fa5400;
@@ -36,10 +50,20 @@ $orange-1: #df6e06;
 $map-colors: (
     black: (
         base: $clr-black,
-        1: $clr-black-1
+        1: $clr-black-1,
+        2: $clr-black-2,
+        3: $clr-black-3
     ),
     white: (
         base: $clr-white
+    ),
+    blue: (
+        base: $clr-blue,
+        1: $clr-blue-1,
+        2: $clr-blue-2
+    ),
+    pink: (
+        base: $clr-pink
     ),
     gray: (
         base: $clr-gray,
