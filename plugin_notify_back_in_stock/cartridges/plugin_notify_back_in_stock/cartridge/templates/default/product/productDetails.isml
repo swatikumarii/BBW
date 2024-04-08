@@ -123,7 +123,7 @@
                             </div>
 
                             <!-- Cart and [Optionally] Apple Pay -->
-                            <isif condition="${!product.isMaster && !product.available)}">
+                            <isif condition="${(!product.isMaster && !product.available)}">
                                 <isinclude template="product/components/notifyMe" />
                                 <isinclude template="product/components/requestUserEmailForOOSModal" />
                             <iselse/>
