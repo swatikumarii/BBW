@@ -1,0 +1,50 @@
+$color-cmp: (
+    text: (
+        base: colour(gray)
+    ),
+    secondary: (
+        base: colour(black)
+    ),
+    error: (
+        base: colour(red)
+    ),
+    disabled: (
+        base: colour(gray, 7)
+    ),
+    border: (
+        base: colour(gray, 3)
+    ),
+    divider: (
+        base: colour(gray, 1)
+    ),
+    inputborder: (
+        base: colour(gray, 5)
+    ),
+    inputbordernovalue: (
+        base: colour(gray, 8)
+    ),
+    menuborder: (
+        base: colour(gray, 8)
+    ),
+    placeholder: (
+        base: colour(black, 3)
+    ),
+    warning: (
+        base: colour(black, 1)
+    ),
+    alert: (
+        base: colour(red)
+    ),
+    success: (
+        base: colour(green)
+    ),
+    facebook: (
+        base: #33589d
+    ),
+    promo: (
+        base: #ffb737
+    ),
+    productImageBg: (
+        base: colour(gray, 3)
+    )
+);

@@ -23,10 +23,17 @@
         "ignoreAtRules": [
           "include",
           "each",
+          "use",
+          "while",
+          "at-root",
+          "for",
           "mixin",
+          "extend",
           "if",
           "else",
-          "content"
+          "content",
+          "function",
+          "return"
         ]
       }
     ],
@@ -36,6 +43,11 @@
     ],
     "scss/dollar-variable-no-missing-interpolation": true,
     "scss/media-feature-value-dollar-variable": "always",
-    "scss/selector-no-redundant-nesting-selector": true
+    "scss/selector-no-redundant-nesting-selector": true,
+    "scss/dollar-variable-pattern": "^[a-z]+(?:[A-Za-z0-9]+(?:-(?!-))?)*[A-Za-z0-9]+$",
+    "scss/no-global-function-names": null,
+    "selector-class-pattern": null,
+    "scss/at-mixin-pattern": null,
+    "no-descending-specificity": null
   }
 }
