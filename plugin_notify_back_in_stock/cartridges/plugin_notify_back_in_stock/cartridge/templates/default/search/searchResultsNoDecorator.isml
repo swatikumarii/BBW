@@ -4,8 +4,7 @@
 
 <!--- Search Results Banner --->
 <isif condition="${pdict.productSearch.isCategorySearch}">
-    <div class="hero slant-down search-banner" <iscomment> If no image, default is specified in search.scss >
-        .search-banner </iscomment>
+    <div class="hero slant-down search-banner"
         <isif condition="${pdict.productSearch.bannerImageUrl}">
             style="background-image: url(${pdict.productSearch.bannerImageUrl})"
         </isif>>
