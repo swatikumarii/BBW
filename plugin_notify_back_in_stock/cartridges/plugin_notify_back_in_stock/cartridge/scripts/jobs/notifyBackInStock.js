@@ -14,7 +14,6 @@ function sendEmail() {
     var NotifyObjectLogger = Logger.getLogger('NotifyBackInStock');
     var NotifyEmailLogger = Logger.getLogger('NotifyEmail');
     var Site = require('dw/system/Site');
-    // var URLUtils = require('dw/web/URLUtils');
     var HookMgr = require('dw/system/HookMgr');
     var ArrayList = require('dw/util/ArrayList');
     var emailsArray = {};
@@ -42,8 +41,6 @@ function sendEmail() {
             }
             if (threshold && product.availableToSell >= threshold) {
                 recordArray.push(record);
-            } else {
-                // do nothing
             }
         }
     }
@@ -62,8 +59,6 @@ function sendEmail() {
                     imageUrl: productInfo.images && 'large' in productInfo.images && productInfo.images.large.length ? productInfo.images.large[0].url : productInfo.images.small[0].url
                 };
                 count++;
-            } else {
-                // do nothing
             }
         }
         if (productDetails.length > 0) {
@@ -73,12 +68,10 @@ function sendEmail() {
                     HookMgr.callHook('notify.backInStock.email', 'sendMail', {
                         email: key,
                         product: productDetails
-                        // bgImage: URLUtils.httpStatic('/images/bg-white.jpg').toString()
                     });
                 });
             } catch (ex) {
                 NotifyEmailLogger.error('Error in Notify Mails => ' + ex);
-                // do nothing
             }
         }
     });

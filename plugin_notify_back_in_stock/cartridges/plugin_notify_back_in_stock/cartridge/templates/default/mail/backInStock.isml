@@ -1,17 +1,17 @@
 <isloop items="${pdict.product}" var="productDetail" status="productLoop">
-    <span style="width:39%;display:inline-block;text-align:center;margin:0 5%;padding: 15px 0">
+    <span>
         <div>
-            <div style="margin:20px auto;">
+            <div>
                 <a href="${URLUtils.https('Product-Show', 'pid', productDetail.id)}"
                     hreflang="${request.getLocale()}">
-                    <img style="max-width:100%" class="tile-image"
+                    <img class="tile-image"
                         src="${productDetail.imageUrl}" alt="${productDetail.name}"
                         title="${productDetail.name}" itemprop="image" />
                 </a>
             </div>
         </div>
-        <div height="50">
-            <a style="padding: 13px 29px; background:#000; color:#fff; text-decoration:none"
+        <div>
+            <a
                 href="${URLUtils.https('Product-Show', 'pid', productDetail.id)}"
                 hreflang="${request.getLocale()}">${Resource.msg('email.button', 'backInStock', null)}</a>
         </div>

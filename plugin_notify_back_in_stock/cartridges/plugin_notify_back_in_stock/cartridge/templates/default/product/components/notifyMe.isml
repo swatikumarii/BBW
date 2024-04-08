@@ -1,6 +1,6 @@
 <isif condition="${!product.available}">
     <div class="notify-me main-quantity-${product.id}">
-        <p class="notify-me-available-msg" style="display:none"></p>
+        <p class="notify-me-available-msg"></p>
         <input type="hidden" id="notify-list-msg" value="${Resource.msg('button.notifyInList', 'notifyMe', null)}" />
         <input type="hidden" id="notify-msg" value="${Resource.msg('button.notifyMe', 'notifyMe', null)}" />
         <isif condition="${product.enableNotifyMe}">

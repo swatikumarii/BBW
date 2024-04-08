@@ -29,7 +29,6 @@ function addToNotifyList(data, pId) {
                 .attr('disabled', 'disabled');
 
             $('#notify-me-email').val('');
-            // $('#notify-me-email').parents('.form-group').find('.form-control-label').removeClass('moveLabel');
             $('.notify-me-oos-success-msg').show();
             $('.notify-me-oos-success-msg').text(response.msg);
             if (response.status) {
@@ -38,7 +37,6 @@ function addToNotifyList(data, pId) {
                     $('.notify-me-oos-success-msg').fadeOut();
                 }, 5000);
             }
-            // var mainClass = '.main-quantity-' + pId;
         },
         error: function () {
             $('#submitNotifyMeButton').spinner().stop();
@@ -50,7 +48,6 @@ function addToNotifyList(data, pId) {
 $(document).on('click', '.notifyBackInStockButton', function (e) {
     var pId = $(this).attr('data-pid');
     var mainClass = '.main-quantity-' + pId;
-    // $.spinner().start();
     e.preventDefault();
     $.ajax({
         url: $(this).attr('data-url'),
@@ -58,7 +55,6 @@ $(document).on('click', '.notifyBackInStockButton', function (e) {
         dataType: 'json',
         data: { pid: pId },
         success: function (data) {
-            // $.spinner().stop();
             if (data.available) {
                 $(mainClass).find('.notify-me-available-msg').show();
                 $(mainClass)
@@ -90,9 +86,6 @@ $(document).on('click', '.notifyBackInStockButton', function (e) {
                 $('#requestUserEmailForOOSModal .notifyProductID').val(pId);
                 $('#requestUserEmailForOOSModal').modal('show');
             }
-        },
-        error: function () {
-            // $.spinner().stop();
         }
     });
 });
@@ -126,7 +119,6 @@ $('body').on('click', '#submitNotifyMeButton', function (e) {
     e.preventDefault();
 
     var pId = $('.outOfstockModal.show form.notify-me-form').attr('data-pid');
-    // var pId = $(this).find('.notifyProductID').val();
     addToNotifyList(
         $('.outOfstockModal.show form.notify-me-form').serialize(),
         pId

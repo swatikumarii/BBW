@@ -12,7 +12,6 @@
             <div class="notifyme-modal-body">
                 <div class="image-container">
                     <span class="product-name"></span>
-                    <iscomment> Find better alt name for images </iscomment>
                     <img class="lozad image dm-responsive-image js-dm-image dm-responsive-image-initialized"
                         alt="${Resource.msg('product.fragrance', 'notifyMe', null)}"
                         data-src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
