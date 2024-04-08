@@ -17,12 +17,6 @@
                         </isloop>
                     </select>
                 </div>
-                <iscomment>
-                    <div class="form-group required">
-                        <input type="email" class="form-control required" id="userEmail" name="userEmail"
-                            value="${pdict.email}" readonly>
-                    </div>
-                </iscomment>
 
                 <div class="form-group required">
                     <label for="email">

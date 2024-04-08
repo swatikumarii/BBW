@@ -12,7 +12,6 @@ var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var EncryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 var CustomObjectMgr = require('dw/object/CustomObjectMgr');
-var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var CustomerMgr = require('dw/customer/CustomerMgr');
 var URLUtils = require('dw/web/URLUtils');
 var Resource = require('dw/web/Resource');
@@ -38,7 +37,6 @@ function validateEmail(email) {
  * @param {serverfunction} - post
  */
 server.replace('Subscribe', function (req, res, next) {
-    var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
     var email = req.form.emailId;
 
     if (email && validateEmail(email)) {

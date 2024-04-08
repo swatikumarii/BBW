@@ -8,7 +8,6 @@ var Resource = require('dw/web/Resource');
  * @param  {Object} userObj contains user email and encrypted Id
  */
 function sendNewsLetterSubscribeEmail(userObj) {
-    var URLUtils = require('dw/web/URLUtils');
     var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
     var Site = require('dw/system/Site');
     userObj = {
