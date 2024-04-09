@@ -7,6 +7,7 @@
 
 'use strict';
 
+var site = require('dw/system/Site');
 var CatalogMgr = require('dw/catalog/CatalogMgr');
 var productMgr = require('dw/catalog/ProductMgr');
 var collections = require('*/cartridge/scripts/util/collections');
@@ -66,8 +67,54 @@ function fetchFullProducts(products) {
     return fullProducts;
 }
 
+/**
+ * Get full detail of all online products by category
+ * @param {string} categoryName - Category Name
+ * @returns {dw.util.Collection} collection - Collection of online products.
+ */
+function getFullOnlineProducts(categoryName) {
+    return fetchFullProducts(
+        getOnlineProductsByCategory(
+            site.current.getCustomPreferenceValue(categoryName)
+        )
+    );
+}
+/**
+ * Find ProductLineItem from productLineItems on category name match
+ * @param {dw.util.Collection<dw.order.ProductLineItem>} productLineItems : Product line items
+ * @param {string} categoryName : category name
+ * @returns {dw.order.ProductLineItem} : Retrun product line item is category matches else return null
+ */
+function getProductLineItemByCategory(productLineItems, categoryName) {
+    var productLineItem = null;
+    collections.forEach(productLineItems, function(pli) {
+        if (isCategoryMatches(pli.product, categoryName)) {
+            productLineItem = pli;
+        }
+    });
+    return productLineItem;
+}
+
+/**
+ *
+ * @param {dw.util.Collection<dw.order.ProductLineItem>} productLineItems : Product line items
+ * @returns {number} : Count of wrappable items from Product line items
+ */
+function getWrappableProductCount(productLineItems) {
+    var count = 0;
+    collections.forEach(productLineItems, function(productLineItem) {
+        if (productLineItem.product.custom.isGiftWrappable) {
+            count++;
+        }
+    });
+    return count;
+}
+
 module.exports = {
     isCategoryMatches: isCategoryMatches,
     getOnlineProductsByCategory: getOnlineProductsByCategory,
-    fetchFullProducts: fetchFullProducts
+    fetchFullProducts: fetchFullProducts,
+    getProductLineItemByCategory: getProductLineItemByCategory,
+    getFullOnlineProducts: getFullOnlineProducts,
+    getWrappableProductCount: getWrappableProductCount
 };

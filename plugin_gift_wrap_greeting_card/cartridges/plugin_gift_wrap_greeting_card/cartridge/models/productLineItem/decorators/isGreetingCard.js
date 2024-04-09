@@ -9,13 +9,14 @@
 
 var site = require('dw/system/Site');
 var commonHelpers = require('*/cartridge/models/scripts/util/commonHelpers');
+var customPreferenceNames = require('*/cartridge/config/customPreferenceNames');
 
 module.exports = function (object, apiProduct) {
     Object.defineProperty(object, 'isGreetingCardCategory', {
         enumerable: true,
         value: commonHelpers.isCategoryMatches(
             apiProduct,
-            site.current.getCustomPreferenceValue('greetingCardCategoryName')
+            site.current.getCustomPreferenceValue(customPreferenceNames.greetingCardCategoryName)
         )
     });
 };

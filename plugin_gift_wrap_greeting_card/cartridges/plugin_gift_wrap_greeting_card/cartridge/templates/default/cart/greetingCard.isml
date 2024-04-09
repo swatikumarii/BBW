@@ -64,8 +64,6 @@
                             data-error-message-blank="${Resource.msg('error.textarea.greetingcardmessage', 'greetingCard', null)}"
                             data-error-message-morethan="${Resource.msg('error.textarea.greetingcardmessage.can.not.more.than', 'greetingCard', null)}"></textarea>
                     </div>
-                    <input id="greetingCardMessageCounter" type="hidden"
-                        value="${dw.system.Site.getCurrent().getCustomPreferenceValue('greetingCardMessageCounter')}" />
                     <div class="character-counter">
                         <span class="js-char-left"></span>
                     </div>

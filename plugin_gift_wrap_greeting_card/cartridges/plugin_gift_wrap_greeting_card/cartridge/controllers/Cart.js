@@ -8,38 +8,9 @@ var URLUtils = require('dw/web/URLUtils');
 var BasketMgr = require('dw/order/BasketMgr');
 var productMgr = require('dw/catalog/ProductMgr');
 var Transaction = require('dw/system/Transaction');
-var collections = require('*/cartridge/scripts/util/collections');
 var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
 var commonHelpers = require('*/cartridge/models/scripts/util/commonHelpers');
-
-/**
- * Find ProductLineItem from productLineItems on category name match
- * @param {dw.util.Collection<dw.order.ProductLineItem>} productLineItems : Product line items
- * @param {string} categoryName : category name
- * @returns {dw.order.ProductLineItem} : Retrun product line item is category matches else return null
- */
-function getProductLineItemByCategory(productLineItems, categoryName) {
-    var productLineItem = null;
-    collections.forEach(productLineItems, function(pli) {
-        if (commonHelpers.isCategoryMatches(pli.product, categoryName)) {
-            productLineItem = pli;
-        }
-    });
-    return productLineItem;
-}
-
-/**
- * Get full detail of all online products by category
- * @param {string} categoryName - Category Name
- * @returns {dw.util.Collection} collection - Collection of online products.
- */
-function getFullOnlineProducts(categoryName) {
-    return commonHelpers.fetchFullProducts(
-        commonHelpers.getOnlineProductsByCategory(
-            site.current.getCustomPreferenceValue(categoryName)
-        )
-    );
-}
+var customPreferenceNames = require('*/cartridge/config/customPreferenceNames');
 
 /**
  * Cart-Show : The Cart-Show endpoint,
@@ -53,19 +24,20 @@ server.append(
     'Show',
     function (req, res, next) {
         var viewData = res.getViewData();
-        viewData.isGreetingCardEnable = site.current.getCustomPreferenceValue(
-            'isGreetingCardEnable'
-        );
 
         if (viewData.items.length > 0) {
+            viewData.isGreetingCardEnable = site.current.getCustomPreferenceValue(
+                customPreferenceNames.isGreetingCardEnable
+            );
             if (viewData.isGreetingCardEnable) {
                 viewData.greetingCardMessageLimit =
-                    site.current.getCustomPreferenceValue('greetingCardMessageLimit');
-                viewData.greetingCardProducts = getFullOnlineProducts(
-                    'greetingCardCategoryName'
-                );
+                    site.current.getCustomPreferenceValue(customPreferenceNames.greetingCardMessageLimit);
+                viewData.greetingCardProducts =
+                    commonHelpers.getFullOnlineProducts(
+                        customPreferenceNames.greetingCardCategoryName
+                    );
                 viewData.isGiftWrapEnable =
-                    site.current.getCustomPreferenceValue('isGiftWrapEnable');
+                    site.current.getCustomPreferenceValue(customPreferenceNames.isGiftWrapEnable);
             }
             if (viewData.isGiftWrapEnable) {
                 var wrappableProducts = [];
@@ -79,11 +51,12 @@ server.append(
                 } else {
                     viewData.wrapItemMethod =
                         site.current.getCustomPreferenceValue(
-                            'wrapItemMethod'
+                            customPreferenceNames.wrapItemMethod
                         ).value;
-                    viewData.giftWrapProducts = getFullOnlineProducts(
-                        'giftWrapCategoryName'
-                    );
+                    viewData.giftWrapProducts =
+                        commonHelpers.getFullOnlineProducts(
+                            customPreferenceNames.giftWrapCategoryName
+                        );
                     viewData.isDisableTogetherOption =
                         viewData.items.length !== wrappableProducts.length;
                     viewData.isDisableIndividualOption =
@@ -105,7 +78,7 @@ server.append(
  */
 server.prepend('AddProduct', function (req, res, next) {
     var giftWrapCategoryName = site.current.getCustomPreferenceValue(
-        'giftWrapCategoryName'
+        customPreferenceNames.giftWrapCategoryName
     );
     var currentBasket = BasketMgr.getCurrentBasket();
     if (!currentBasket) {
@@ -117,7 +90,7 @@ server.prepend('AddProduct', function (req, res, next) {
 
         return next();
     }
-    var giftWrapProductLineItem = getProductLineItemByCategory(
+    var giftWrapProductLineItem = commonHelpers.getProductLineItemByCategory(
         currentBasket.getAllProductLineItems(),
         giftWrapCategoryName
     );
@@ -149,7 +122,7 @@ server.append('AddProduct', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentOrNewBasket();
 
     var greetingCardCategoryName = site.current.getCustomPreferenceValue(
-        'greetingCardCategoryName'
+        customPreferenceNames.greetingCardCategoryName
     );
     if (req.form.greetingCardMessage) {
         var greetingCardMessage = req.form.greetingCardMessage;
@@ -173,9 +146,9 @@ server.append('AddProduct', function (req, res, next) {
 
     var giftWrapProduct = null;
     var giftWrapCategoryName = site.current.getCustomPreferenceValue(
-        'giftWrapCategoryName'
+        customPreferenceNames.giftWrapCategoryName
     );
-    var giftWrapProductLineItem = getProductLineItemByCategory(
+    var giftWrapProductLineItem = commonHelpers.getProductLineItemByCategory(
         currentBasket.getAllProductLineItems(),
         giftWrapCategoryName
     );
@@ -232,27 +205,13 @@ server.append('AddProduct', function (req, res, next) {
 });
 
 /**
- *
- * @param {dw.util.Collection<dw.order.ProductLineItem>} productLineItems : Product line items
- * @returns {number} : Count of wrappable items from Product line items
- */
-function getWrappableProductCount(productLineItems) {
-    var count = 0;
-    collections.forEach(productLineItems, function(productLineItem) {
-        if (productLineItem.product.custom.isGiftWrappable) {
-            count++;
-        }
-    });
-    return count;
-}
-/**
  * Cart-RemoveProductLineItem : The Cart-RemoveProductLineItem endpoint removes a product line item from the basket
  * @name Cart-RemoveProductLineItem
  */
 server.prepend('RemoveProductLineItem', function (req, res, next) {
 
     var giftWrapCategoryName = site.current.getCustomPreferenceValue(
-        'giftWrapCategoryName'
+        customPreferenceNames.giftWrapCategoryName
     );
     var currentBasket = BasketMgr.getCurrentBasket();
     if (!currentBasket) {
@@ -265,10 +224,11 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
         return next();
     }
     if (req.querystring.pid && req.querystring.uuid) {
-        var giftWrapProductLineItem = getProductLineItemByCategory(
-            currentBasket.getAllProductLineItems(),
-            giftWrapCategoryName
-        );
+        var giftWrapProductLineItem =
+            commonHelpers.getProductLineItemByCategory(
+                currentBasket.getAllProductLineItems(),
+                giftWrapCategoryName
+            );
         if (giftWrapProductLineItem) {
             // If removed product is GiftWrapCategoryProduct than reset gift wrap attribute
             Transaction.wrap(function () {
@@ -294,9 +254,10 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
                         productInCart.custom.isWrapped
                     ) {
                         // Get total wrappable items
-                        var productLineItemCount = getWrappableProductCount(
-                            currentBasket.getAllProductLineItems()
-                        );
+                        var productLineItemCount =
+                            commonHelpers.getWrappableProductCount(
+                                currentBasket.getAllProductLineItems()
+                            );
                         if (productLineItemCount === 1) {
                             // Fetch gift wrap category product
                             // RemoveProductLineItem
@@ -336,7 +297,7 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
 server.prepend('UpdateQuantity', function (req, res, next) {
 
     var giftWrapCategoryName = site.current.getCustomPreferenceValue(
-        'giftWrapCategoryName'
+        customPreferenceNames.giftWrapCategoryName
     );
     var currentBasket = BasketMgr.getCurrentBasket();
     if (!currentBasket) {
@@ -349,7 +310,7 @@ server.prepend('UpdateQuantity', function (req, res, next) {
         return next();
     }
     if (req.querystring.pid && req.querystring.uuid) {
-        var giftWrapProductLineItem = getProductLineItemByCategory(
+        var giftWrapProductLineItem = commonHelpers.getProductLineItemByCategory(
             currentBasket.getAllProductLineItems(),
             giftWrapCategoryName
         );
