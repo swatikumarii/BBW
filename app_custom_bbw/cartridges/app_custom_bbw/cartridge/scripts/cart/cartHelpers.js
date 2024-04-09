@@ -3,8 +3,6 @@
 var base = module.superModule;
 var Resource = require('dw/web/Resource');
 var ProductMgr = require('dw/catalog/ProductMgr');
-var collections = require('*/cartridge/scripts/util/collections');
-var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
 
 
 /**
@@ -14,10 +12,11 @@ var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
  * @param {string} productId - the productId of the product being added to the cart
  * @param {number} quantity - the number of products to the cart
  * @param {string[]} childProducts - the products' sub-products
- * @param {SelectedOption[]} options - product options
- *  @return {Object} returns an error object
+ * @param {object} options - product options
+ * @returns {object} returns an error object
  */
 function addProductToCart(currentBasket, productId, quantity, childProducts, options) {
+    var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
     var availableToSell;
     var defaultShipment = currentBasket.defaultShipment;
     var perpetual;
@@ -56,22 +55,20 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
 
     if (product.bundle) {
         canBeAdded = base.checkBundledProductCanBeAdded(childProducts, productLineItems, quantity);
-    } else {
-        if (maxOrderQty) {
-            totalQtyRequested = quantity + base.getQtyAlreadyInCart(productId, productLineItems);
-            perpetual = product.availabilityModel.inventoryRecord.perpetual;
-            canBeAdded = (perpetual
+    } else if (maxOrderQty) {
+        totalQtyRequested = quantity + base.getQtyAlreadyInCart(productId, productLineItems);
+        perpetual = product.availabilityModel.inventoryRecord.perpetual;
+        canBeAdded = (perpetual
                 || totalQtyRequested <= (product.availabilityModel.inventoryRecord.ATS.value - reserveOosQty)) && totalQtyRequested <= maxOrderQty;
-            errorType = 'maxOrderQty';
+        errorType = 'maxOrderQty';
             
-        } else {
-            totalQtyRequested = quantity + base.getQtyAlreadyInCart(productId, productLineItems);
-            perpetual = product.availabilityModel.inventoryRecord.perpetual;
-            canBeAdded = (perpetual
+    } else {
+        totalQtyRequested = quantity + base.getQtyAlreadyInCart(productId, productLineItems);
+        perpetual = product.availabilityModel.inventoryRecord.perpetual;
+        canBeAdded = (perpetual
                 || totalQtyRequested <= (product.availabilityModel.inventoryRecord.ATS.value - reserveOosQty));
-            errorType = 'reserveOosQty';
+        errorType = 'reserveOosQty';
             
-        }
     }
 
     if (!canBeAdded) {
@@ -82,14 +79,14 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
                 'product',
                 null,
                 maxOrderQty,
-                product.name)
+                product.name);
         } else {
             result.message = Resource.msgf(
                 'error.alert.selected.quantity.cannot.be.added.for',
                 'product',
                 null,
                 product.availabilityModel.inventoryRecord.ATS.value - reserveOosQty,
-                product.name)
+                product.name);
         }
         return result;
     }

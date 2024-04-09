@@ -2,22 +2,23 @@
 
 var base = module.superModule;
 var ProductMgr = require('dw/catalog/ProductMgr');
-var collections = require('*/cartridge/scripts/util/collections');
 var ProductInventoryMgr = require('dw/catalog/ProductInventoryMgr');
 var StoreMgr = require('dw/catalog/StoreMgr');
+var Logger = require('dw/system/Logger');
 
 /**
  * validates that the product line items exist, are online, and have available inventory.
  * @param {dw.order.Basket} basket - The current user's basket
- * @returns {Object} an error object
+ * @returns {object} an error object
  */
 function validateProducts(basket) {
+    var collections = require('*/cartridge/scripts/util/collections');
     var result = {
         error: false,
         hasInventory: true
     };
     var productLineItems = basket.productLineItems;
-
+    
     collections.forEach(productLineItems, function (item) {
         var apiProduct = ProductMgr.getProduct(item.productID);
         var productLevelMaxOrderQty =
@@ -52,10 +53,18 @@ function validateProducts(basket) {
                 && (storeInventory.getRecord(item.productID)
                 && storeInventory.getRecord(item.productID).ATS.value >= item.quantityValue);
         } else {
-            var availabilityLevels = item.product.availabilityModel
-                .getAvailabilityLevels(item.quantityValue + reserveOosQty);
-            result.hasInventory = result.hasInventory
-                && (availabilityLevels.notAvailable.value === 0) && (item.quantityValue <= maxOrderQty);
+            try {
+                var availabilityLevels = item.product.availabilityModel
+                    .getAvailabilityLevels(item.quantityValue + reserveOosQty);
+                result.hasInventory =
+                        result.hasInventory &&
+                        (availabilityLevels.notAvailable.value === 0) &&
+                        (maxOrderQty ? item.quantityValue <= maxOrderQty : true);
+            } catch (error) {
+                Logger.error(
+                    'Inventory check failed for max order qty for product: ' + item.productID + ' '
+                 + error);
+            }
         }
     });
 
