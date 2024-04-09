@@ -2,7 +2,7 @@
 
 /**
  * re-renders the order totals and the number of items in the cart
- * @param {Object} message - Error message to display
+ * @param {string} message - Error message to display
  */
 function createErrorNotification(message) {
     var errorHtml =
@@ -19,12 +19,9 @@ function createErrorNotification(message) {
 
 /**
  * Add greeting card to cart
- * @param {string} self - click btn to add product to cart
- * @param {string} btnId - clicked btn id
- * @param {string} productType - product type
  */
-function addGreetingCardToCart(self) {
-    var addToCartUrl = self.attr('data-actionurl');
+function addGreetingCardToCart() {
+    var addToCartUrl = $('#addGreetingCardProduct').attr('data-actionurl');
     var form;
     var pid = $('input[name="greeting-card"]:checked').val();
     var quantity = 1;
@@ -34,13 +31,13 @@ function addGreetingCardToCart(self) {
         quantity: quantity,
         greetingCardMessage: greetingCardMessage
     };
-    self.trigger('updateAddToCartFormData', form);
+    $('#addGreetingCardProduct').trigger('updateAddToCartFormData', form);
     if (addToCartUrl) {
         $.ajax({
             url: addToCartUrl,
             method: 'POST',
             data: form,
-            success: function (data) {
+            success: function () {
                 window.location.reload();
             },
             error: function (err) {
@@ -57,7 +54,7 @@ function addGreetingCardToCart(self) {
 /**
  * appends params to a url
  * @param {string} url - Original url
- * @param {Object} params - Parameters to append
+ * @param {object} params - Parameters to append
  * @returns {string} result url with appended parameters
  */
 function appendToUrl(url, params) {
@@ -89,7 +86,7 @@ function removeGreetingCardFromCart(actionUrl, uuid, pid) {
         url: url,
         type: 'get',
         dataType: 'json',
-        success: function (data) {
+        success: function () {
             window.location.reload();
         },
         error: function (err) {
@@ -211,10 +208,10 @@ $(document).ready(function () {
                     $('.greeting-card').data('uuid'),
                     $('.greeting-card').data('pid')
                 );
-                addGreetingCardToCart($(this));
+                addGreetingCardToCart();
             }
         } else {
-            addGreetingCardToCart($(this));
+            addGreetingCardToCart();
         }
     });
 

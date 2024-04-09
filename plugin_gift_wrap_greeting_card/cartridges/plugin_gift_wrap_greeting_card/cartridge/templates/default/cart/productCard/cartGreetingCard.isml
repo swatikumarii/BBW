@@ -35,9 +35,6 @@
 
                             <isinclude template="cart/productCard/cartProductCardAvailability" />
                             <span class="label">${lineItem.greetingCardMessage}</span>
-                            <iscomment>
-                                <isinclude template="cart/productCard/cartProductCardEdit" />
-                            </iscomment>
                         </div>
                     </div>
                 </div>

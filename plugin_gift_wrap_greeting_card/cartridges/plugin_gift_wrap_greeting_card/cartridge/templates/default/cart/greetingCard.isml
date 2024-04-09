@@ -16,9 +16,11 @@
             </div>
             <div class="greeting-block-options js-greetingcard-options">
                 <div class="giftwrap-block-personal-message js-greetingcard-block-personal-message">
-                    <span id="gift-wrapping-card-title"
-                        class="gift-wrapping-card-title">${Resource.msg('choose.greeting.card', 'greetingCard', null)}(<span
-                            class="selected-greetingcard-price">${pdict.greetingCardProductPrice}</span>)</span>
+                    <span id="gift-wrapping-card-title" class="gift-wrapping-card-title">
+                        ${Resource.msg('choose.greeting.card', 'greetingCard', null)}(
+                        <span class="selected-greetingcard-price">${pdict.greetingCardProductPrice}</span>
+                        )
+                    </span>
                     <span class="gift-wrapping-card-title">${Resource.msg('choose.greeting.card-theme', 'greetingCard', null)}</span>
                     <div class="greeting-card-selection js-greetingcard-select-card">
                         <isset name="isFirstIterationGreeting" value="${true}" scope="page" />

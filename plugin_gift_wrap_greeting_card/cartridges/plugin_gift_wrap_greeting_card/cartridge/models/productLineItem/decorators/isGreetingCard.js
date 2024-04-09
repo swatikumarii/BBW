@@ -1,6 +1,6 @@
 /**
- * @File Name          : isGreetingCard.js
- * @Description        : isGreetingCard.js file for product to check if is Greeting Card
+ * File Name          : isGreetingCard.js
+ * Description        : isGreetingCard.js file for product to check if is Greeting Card
  * Ver       Modification
  * 1.0    Custom  gift wrap check
  */
