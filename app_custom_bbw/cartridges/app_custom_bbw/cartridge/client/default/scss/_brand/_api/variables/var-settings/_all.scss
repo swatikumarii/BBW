@@ -1,5 +1,12 @@
+// ============================
+// Global Variable Imports
+// ============================
+// This section imports global variable files that define various aspects of the project's styling and configuration.
+// Each imported file contains variables related to specific aspects such as colors, fonts, typography, breakpoints, helpers, and layout.
+
+@import "./var-colors";
 @import "./var-fonts";
+@import "./var-typography";
 @import "./var-breakpoints";
 @import "./var-helpers";
 @import "./var-layout";
-@import "./var-colors";

@@ -1,0 +1,18 @@
+// Grid breakpoints - Override
+$grid-breakpoints: (
+    xs: 0,
+    sm: 360px,
+    md: 767px,
+    lg: 1025px,
+    xl: 1440px,
+    xxl: 1800px
+);
+$container-max-widths: (
+    sm: 100%,
+    md: 100%,
+    lg: 100%,
+    xl: 1320px
+);
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";

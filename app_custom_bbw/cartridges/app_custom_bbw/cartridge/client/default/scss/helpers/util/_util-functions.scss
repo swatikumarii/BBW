@@ -85,6 +85,11 @@
     @return $color;
 }
 
-// @function colour-cmp($color-name: default, $color-variant: null, $opacity: null, $palette: $color-cmp) {
-//     @return colour($color-name, $color-variant, $opacity, $palette);
-// }
+@function colour-cmp(
+    $color-name: default,
+    $color-variant: null,
+    $opacity: null,
+    $palette: $color-cmp
+) {
+    @return colour($color-name, $color-variant, $opacity, $palette);
+}
