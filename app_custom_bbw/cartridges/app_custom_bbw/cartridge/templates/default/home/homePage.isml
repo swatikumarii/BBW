@@ -40,7 +40,7 @@
                                     condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
                                     <isset name="dataCallback" value="submitNewsLetter" scope="page" />
                                     <isset name="dataErrorCallback" value="checkRecaptcha" scope="page" />
-                                    <isinclude template="/common/googleRecaptchaDiv" />
+                                    <isinclude template="/common/reCaptcha" />
                                     <button id="gcaptchabtn" type="button" class="btn btn-primary subscribe-email"
                                         data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
                                 <iselse/>

@@ -100,7 +100,7 @@
     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha') == true}">
         <isset name="dataCallback" value="submitRegistration" scope="page" />
         <isset name="dataErrorCallback" value="checkRecaptcha" scope="page" />
-        <isinclude template="/common/googleRecaptchaDiv" />
+        <isinclude template="/common/reCaptcha" />
         <button id="gcaptchabtn" type="button"
             class="btn btn-block btn-primary">${Resource.msg('button.createaccount.registration', 'registration', null)}</button>
     <iselse/>

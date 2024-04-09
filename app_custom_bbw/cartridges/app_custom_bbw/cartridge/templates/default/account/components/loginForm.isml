@@ -45,7 +45,7 @@
     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
         <isset name="dataCallback" value="submitLogin" scope="page" />
         <isset name="dataErrorCallback" value="checkRecaptcha" scope="page" />
-        <isinclude template="/common/googleRecaptchaDiv" />
+        <isinclude template="/common/reCaptcha" />
         <div class="login-btn register-btn">
             <button id="gcaptchabtn" type="button"
                 class="btn btn-block btn-primary">${Resource.msg('button.text.loginform', 'login', null)}</button>
