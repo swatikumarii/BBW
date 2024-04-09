@@ -1,7 +1,7 @@
 <isif condition="${pdict.productSearch.customTile && pdict.productSearch.customTile.length}">
     <isloop items="${pdict.productSearch.customTile}" var="promotionTile">
         <isif condition="${promotionTile.content && promotionTile.desktopIndex > pdict.productSearch.count && loopState.count == pdict
-                    .productSearch.productIds.length}">
+                .productSearch.productIds.length}">
             <div class="col-6 col-sm-4 marketing desktop" data-desktopindex="${promotionTile.desktopIndex}"
                 data-mobileindex="${promotionTile.mobileIndex}" data-index="${loopState.count}">
                 <div class="marketing-tile">
@@ -11,7 +11,7 @@
         </isif>
 
         <isif condition="${promotionTile.content && promotionTile.mobileIndex > pdict.productSearch.count && loopState.count == pdict.productSearch
-                    .productIds.length}">
+                .productIds.length}">
             <div class="col-12 col-sm-4 marketing mobile" data-desktopindex="${promotionTile.desktopIndex}"
                 data-mobileindex="${promotionTile.mobileIndex}" data-index="${loopState.count}">
                 <div class="marketing-tile">
