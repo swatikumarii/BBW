@@ -6,49 +6,11 @@ server.extend(module.superModule);
 var site = require('dw/system/Site');
 var URLUtils = require('dw/web/URLUtils');
 var BasketMgr = require('dw/order/BasketMgr');
-var CatalogMgr = require('dw/catalog/CatalogMgr');
 var productMgr = require('dw/catalog/ProductMgr');
 var Transaction = require('dw/system/Transaction');
 var collections = require('*/cartridge/scripts/util/collections');
-var fullProduct = require('*/cartridge/models/product/fullProduct');
-var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
 var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
 var commonHelpers = require('*/cartridge/models/scripts/util/commonHelpers');
-
-/**
- * Get online products by category category should not null
- * @param {string} categoryName The first number.
- * @returns {dw.util.Collection} collection - Collection of online products.
- */
-function getOnlineProductsByCategory(categoryName) {
-    var category = CatalogMgr.getCategory(categoryName);
-    return category ? category.onlineProducts : [];
-}
-
-/**
- * Get all online Gift wrap products
- * @param {dw.util.Collection} products : Products
- * @returns {Array} Full product information according to @link cartridge/models/product/fullProduct.
- */
-function fetchFullProducts(products) {
-    var fullProducts = [];
-    for (var i = 0; i < products.length; i++) {
-        if (products[i].availabilityModel.inStock) {
-            var product = Object.create(null);
-            var pid = products[i].ID;
-            var productTileParams = { pview: 'tile', pid: pid };
-            var apiProduct = productMgr.getProduct(pid);
-            var options = productHelper.getConfig(
-                apiProduct,
-                productTileParams
-            );
-            fullProducts.push(
-                fullProduct(product, options.apiProduct, options)
-            );
-        }
-    }
-    return fullProducts;
-}
 
 /**
  * Find ProductLineItem from productLineItems on category name match
@@ -67,25 +29,14 @@ function getProductLineItemByCategory(productLineItems, categoryName) {
 }
 
 /**
- * Get all online Gift wrap products
+ * Get full detail of all online products by category
+ * @param {string} categoryName - Category Name
  * @returns {dw.util.Collection} collection - Collection of online products.
  */
-function getGiftWrapProducts() {
-    return fetchFullProducts(
-        getOnlineProductsByCategory(
-            site.current.getCustomPreferenceValue('giftWrapCategoryName')
-        )
-    );
-}
-
-/**
- * Get all online Greeting card products
- * @returns {dw.util.Collection} collection - Collection of online products.
- */
-function getGreetingCardProducts() {
+function getFullOnlineProducts(categoryName) {
     return commonHelpers.fetchFullProducts(
         commonHelpers.getOnlineProductsByCategory(
-            site.current.getCustomPreferenceValue('greetingCardCategoryName')
+            site.current.getCustomPreferenceValue(categoryName)
         )
     );
 }
@@ -110,7 +61,9 @@ server.append(
             if (viewData.isGreetingCardEnable) {
                 viewData.greetingCardMessageLimit =
                     site.current.getCustomPreferenceValue('greetingCardMessageLimit');
-                viewData.greetingCardProducts = getGreetingCardProducts();
+                viewData.greetingCardProducts = getFullOnlineProducts(
+                    'greetingCardCategoryName'
+                );
                 viewData.isGiftWrapEnable =
                     site.current.getCustomPreferenceValue('isGiftWrapEnable');
             }
@@ -128,7 +81,9 @@ server.append(
                         site.current.getCustomPreferenceValue(
                             'wrapItemMethod'
                         ).value;
-                    viewData.giftWrapProducts = getGiftWrapProducts();
+                    viewData.giftWrapProducts = getFullOnlineProducts(
+                        'giftWrapCategoryName'
+                    );
                     viewData.isDisableTogetherOption =
                         viewData.items.length !== wrappableProducts.length;
                     viewData.isDisableIndividualOption =
