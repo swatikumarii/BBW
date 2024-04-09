@@ -1,0 +1,19 @@
+<isloop items="${pdict.product}" var="productDetail" status="productLoop">
+    <span>
+        <div>
+            <div>
+                <a href="${URLUtils.https('Product-Show', 'pid', productDetail.id)}"
+                    hreflang="${request.getLocale()}">
+                    <img class="tile-image"
+                        src="${productDetail.imageUrl}" alt="${productDetail.name}"
+                        title="${productDetail.name}" itemprop="image" />
+                </a>
+            </div>
+        </div>
+        <div>
+            <a
+                href="${URLUtils.https('Product-Show', 'pid', productDetail.id)}"
+                hreflang="${request.getLocale()}">${Resource.msg('email.button', 'backInStock', null)}</a>
+        </div>
+    </span>
+</isloop>

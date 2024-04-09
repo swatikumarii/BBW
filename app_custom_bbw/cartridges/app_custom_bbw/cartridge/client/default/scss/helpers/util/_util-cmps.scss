@@ -1,0 +1,187 @@
+@use "sass:map";
+@use "sass:string";
+@use "sass:list";
+
+$excludeRuleKeys: root, consts, config, configtags, mixinicon, mixintext;
+
+// =======================================
+// Merge Maps Function
+// =======================================
+
+// Function to merge two maps, prioritizing values from the first map.
+// Parameters:
+//   $map1: First map to merge.
+//   $map2: Second map to merge.
+// Returns:
+//   Merged map containing values from both input maps, with priority given to values from $map1.
+
+@function mergemaps($map1, $map2) {
+    $mergedValue: "";
+    $outputMap: ();
+
+    @each $key, $value in $map1 {
+        @if $key != null and type-of($value) == "map" {
+            @if map-has-key($map2, $key) {
+                $mergedValue: map.merge(
+                    map-get($map1, $key),
+                    map-get($map2, $key)
+                );
+            } @else {
+                $mergedValue: $value;
+            }
+
+            $outputMap: map.set($outputMap, $key, $mergedValue);
+        }
+    }
+
+    @each $key, $value in $map2 {
+        @if not map-has-key($map1, $key) {
+            $outputMap: map.set($outputMap, $key, $value);
+        }
+    }
+
+    @return $outputMap;
+}
+
+/**
+ * Apply Style Rules Mixin
+ *
+ * This mixin applies style rules based on the provided map.
+ * It supports nested states, pseudo-elements, media queries, class states,
+ * custom mixins for icons and text styles, and regular CSS properties.
+ *
+ * Parameters:
+ *   $mainMap: Main map containing the style rules.
+ *   $key: Key in the main map to apply styles for (optional).
+ *   $textType: Text type for additional comments (optional).
+ */
+
+@mixin applyStyleRules($mainMap, $key: null, $textType: null) {
+    $map: $mainMap;
+
+    @if $key != null and map-has-key($mainMap, $key) {
+        $map: map-get($mainMap, $key);
+    }
+
+    @each $rule in map-keys($map) {
+        @if str-index($rule, "state") {
+            $state: to-lower-case(string.slice($rule, 6));
+            $stateMap: map-get($map, $rule);
+
+            &:#{$state} {
+                @include applyStyleRules($stateMap, null);
+            }
+        } @else if str-index($rule, "pseudo") {
+            $pseudoName: to-lower-case(string.slice($rule, 7));
+            $pseudoElMap: map-get($map, $rule);
+
+            &::#{$pseudoName} {
+                @include applyStyleRules($pseudoElMap, null);
+            }
+        } @else if str-index($rule, "media") {
+            // $rule: mediamdup
+            $mediaDir: to-lower-case(string.slice($rule, 8)); // $mediaDir: "up"
+            $mediaBp: to-lower-case(
+                string.slice($rule, 6, 7)
+            ); // $mediaBp: "md"
+            $mediaMap: map-get($map, $rule);
+
+            @if $mediaDir == "up" {
+                @include media-up($mediaBp) {
+                    @include applyStyleRules($mediaMap, null);
+                }
+            } @else if $mediaDir == "down" {
+                @include media-down($mediaBp) {
+                    @include applyStyleRules($mediaMap, null);
+                }
+            }
+        } @else if str-index($rule, "classState") {
+            $stateClass: to-lower-case(
+                string.slice($rule, string.length("classState") + 1)
+            );
+            $stateClassMap: map-get($map, $rule);
+
+            &.m-#{$stateClass} {
+                @include applyStyleRules($stateClassMap, null);
+            }
+        } @else if str-index($rule, "mixinicon") {
+            $mixinIconMap: map-get($map, $rule);
+            $icon: map-get($mixinIconMap, "icon");
+            $pseudo: map-get($mixinIconMap, "pseudo");
+            $dirDependent: map-get($mixinIconMap, "dirDependent");
+
+            @include icon($icon, $pseudo, $dirDependent);
+        } @else if str-index($rule, "mixintext") {
+            $mixinTextMap: map-get($map, $rule);
+            $type: map-get($mixinTextMap, "type");
+
+            @include text($type);
+        } @else {
+            $comment: "";
+            @if not($textType) and $rule == "font-size" {
+                $comment: "/*!" + $textType + "*/";
+            }
+            @if not(index($excludeRuleKeys, $rule)) {
+                #{$rule}: map-get($map, $rule) #{$comment};
+            }
+        }
+    }
+}
+
+/**
+ * Text Mixin
+ *
+ * This mixin applies text styles based on the provided text type and text map.
+ *
+ * Parameters:
+ *   $textType: Text type to apply styles for (default: body).
+ *   $textMap: Text map containing the text styles (default: $brandTypography).
+ */
+
+@mixin text($textType: body, $textMap: $brandTypography) {
+    $mergedStyles: map.merge(
+        map-get($textMap, "root"),
+        map-get($textMap, #{$textType})
+    );
+
+    @include applyStyleRules($mergedStyles, null, $textType);
+}
+
+/**
+ * Create Components From Map Mixin
+ *
+ * This mixin generates CSS components based on the provided main map and class prefix.
+ *
+ * Parameters:
+ *   $mainMap: Main map containing component types and their respective styles.
+ *   $classPrefix: Prefix for the generated CSS class names.
+ */
+
+@mixin createComponentsFromMap($mainMap, $classPrefix) {
+    @each $cmpType in map-keys($mainMap) {
+        @if $cmpType != "root" {
+            $selector: ".#{$classPrefix}-#{$cmpType}";
+            $cmpTypeMap: map-get($mainMap, #{$cmpType});
+            $configTags: map-get(
+                $cmpTypeMap,
+                "configtags"
+            ); // Example: configTags: h1 or configTags: (h3, h4)
+
+            @if $configTags {
+                $selector: $selector + ", #{$configTags}";
+            }
+
+            #{$selector} {
+                @include text($cmpType, $mainMap);
+            }
+
+            @if $classPrefix == "b-text" {
+                $selector: ".h-text-fz--#{$cmpType}";
+
+                #{$selector} {
+                    font-size: fz($cmpType);
+                }
+            }
+        }
+    }
+}

@@ -69,10 +69,9 @@ module.exports = [{
                             implementation: require('sass'),
                             sassOptions: {
                                 includePaths: [
+                                    path.resolve(process.cwd(), '../storefront-reference-architecture/node_modules/'),
                                     path.resolve('node_modules'),
-                                    path.resolve(
-                                        'node_modules/flag-icon-css/sass'
-                                    )
+                                    path.resolve('node_modules/flag-icon-css/sass')
                                 ]
                             }
                         }
