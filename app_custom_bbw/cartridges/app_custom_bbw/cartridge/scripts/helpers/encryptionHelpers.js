@@ -10,9 +10,9 @@ var saltVector = Encoding.toBase64(saltVectorBytes);
 
 /**
  * Decode ID
- * @param pin{string} : ID to be decoded
- * @return result{string} : decoded ID
-*/
+ * @param {string} pin - ID to be decoded
+ * @returns {string} - return decoded ID
+ */
 function decryptPin(pin) {
     try {
         var Cipher = require('dw/crypto/Cipher');
@@ -26,9 +26,9 @@ function decryptPin(pin) {
 
 /**
  * Encode ID
- * @param pin{string} : ID to be encoded
- * @return result{string} : encoded ID
-*/
+ * @param {string} pin - ID to be encoded
+ * @returns {string} - return encoded ID
+ */
 function encryptPin(pin) {
     try {
         var Cipher = require('dw/crypto/Cipher');

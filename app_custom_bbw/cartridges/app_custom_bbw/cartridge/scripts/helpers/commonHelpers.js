@@ -1,16 +1,17 @@
 /* eslint-disable no-mixed-spaces-and-tabs */
+
 'use strict';
 
 var Resource = require('dw/web/Resource');
 
 /**
  * sendNewsLetterSubscribeEmail function is responsible to trigger email for newsletter subscription
- * @param  {Object} userObj contains user email and encrypted Id
+ * @param  {object} userObj contains user email and encrypted Id
  */
 function sendNewsLetterSubscribeEmail(userObj) {
     var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
     var Site = require('dw/system/Site');
-    userObj = {
+    var userData = {
         email: userObj.email,
         id : userObj.encryptedNewsletterId
     };
@@ -23,7 +24,7 @@ function sendNewsLetterSubscribeEmail(userObj) {
     };
 
     // send email
-    emailHelpers.sendEmail(emailObj, 'mail/newsletterSubscribe', userObj);
+    emailHelpers.sendEmail(emailObj, 'mail/newsletterSubscribe', userData);
 }
 
 

@@ -28,13 +28,6 @@ function validateEmail(email) {
 
 /**
  * EmailSubscribe-Subscribe : The EmailSubscribe-Subscribe enpoint allows the shopper to submit their eamil address to be added to a mailing list. OOB SFRA does not have a mailing list feature however this endpoint call a hook would allow for a customer to easily allow for custiomization
- * @name Base/EmailSubscribe-Subscribe
- * @function
- * @memberof EmailSubscribe
- * @param {httpparameter} - emailId - Input field, The shopper's email address
- * @param {category} - sensitive
- * @param {returns} - json
- * @param {serverfunction} - post
  */
 server.replace('Subscribe', function (req, res, next) {
     var email = req.form.emailId;
@@ -94,9 +87,6 @@ server.replace('Subscribe', function (req, res, next) {
 
 /**
  * EmailSubscribe-UnsubscribeShow : The EmailSubscribe-UnsubscribeShow is used for showing unsubscribe page to user
- * @name Base/EmailSubscribe-UnsubscribeShow
- * @function
- * @memberof Newsletter
  */
 server.get('UnsubscribeShow',
     consentTracking.consent,
@@ -143,16 +133,12 @@ server.get('UnsubscribeShow',
 
 /**
  * EmailSubscribe-Unsubscribe : The EmailSubscribe-Unsubscribe is used for unsubscribe user from newsletter
- * @name Base/EmailSubscribe-Unsubscribe
- * @function
- * @memberof Newsletter
  */
 server.post('Unsubscribe',
     server.middleware.https,
     csrfProtection.validateAjaxRequest,
     function( req, res, next) {
         var email = req.form.userEmail;
-        var id = req.form.userId;
         var customObject = CustomObjectMgr.getCustomObject('newsletterSubscriptions', email);
         if(customObject){
             Transaction.wrap(function () {
@@ -174,16 +160,12 @@ server.post('Unsubscribe',
 
 /**
  * EmailSubscribe-ChangeEmailFrequency : The EmailSubscribe-ChangeEmailFrequency change the frequency of the newsletter emails
- * @name Base/EmailSubscribe-ChangeEmailFrequency
- * @function
- * @memberof Newsletter
  */
 server.post('ChangeEmailFrequency',
     server.middleware.https,
     csrfProtection.validateAjaxRequest,
     function( req, res, next) {
         var email = req.form.userEmail;
-        var id = req.form.userId;
         var emailFrequency = req.form.emailFrequency;
         if(emailFrequency && email !== null){
             var customObject = CustomObjectMgr.getCustomObject('newsletterSubscriptions', email);
@@ -204,7 +186,6 @@ server.post('ChangeEmailFrequency',
  */
 server.prepend('Subscribe', function (req, res, next) {
     var Site = require('dw/system/Site');
-    var Resource = require('dw/web/Resource');
     var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
 
     var isReCaptchaEnable =
@@ -215,7 +196,7 @@ server.prepend('Subscribe', function (req, res, next) {
         var recaptchaResponse = req.httpParameterMap
             .get('g-recaptcha-response')
             .getStringValue();
-        
+
         var pageScore = verifyCaptchaHelper.pageScore('newsletter');
         var verifyCaptcha = verifyCaptchaHelper.verifyGoogleCaptcha(
             recaptchaResponse,
