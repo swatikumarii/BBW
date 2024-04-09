@@ -181,7 +181,7 @@ server.append('AddProduct', function (req, res, next) {
     if (giftWrapProductLineItem) {
         giftWrapProduct = giftWrapProductLineItem.productID;
     }
-
+    var productLineItems = currentBasket.getAllProductLineItems().toArray();
     if (
         req.form.toBeIndividuallyWrappedPids &&
         req.form.giftWrapType === 'INDIVIDUAL'
@@ -191,47 +191,39 @@ server.append('AddProduct', function (req, res, next) {
         );
         var pids = {};
         for (var j = 0; j < toBeIndividuallyWrappedPids.length; j++) {
-            if (
-                toBeIndividuallyWrappedPids[
-                    toBeIndividuallyWrappedPids[j]]
-            ) {
+            if (toBeIndividuallyWrappedPids[toBeIndividuallyWrappedPids[j]]) {
                 var i =
                     toBeIndividuallyWrappedPids[toBeIndividuallyWrappedPids[j]];
                 pids[i] = (pids[i] || 0) + 1;
             }
         }
-        collections.forEach(
-            currentBasket.getAllProductLineItems(),
-            function (productLineItem) {
-                Transaction.wrap(function () {
-                    if (productLineItem.productID !== giftWrapProduct) {
-                        if (pids[productLineItem.productID]) {
-                            productLineItem.custom.isWrapped = true;
-                            productLineItem.custom.wrappedQuantity =
-                                pids[productLineItem.productID];
-                        } else {
-                            productLineItem.custom.isWrapped = false;
-                            productLineItem.custom.wrappedQuantity = 0;
-                        }
+        Transaction.wrap(function () {
+            for (var k = 0; k < productLineItems.length; k++) {
+                var pli = productLineItems[k];
+                if (pli.productID !== giftWrapProduct) {
+                    if (pids[pli.productID]) {
+                        pli.custom.isWrapped = true;
+                        pli.custom.wrappedQuantity = pids[pli.productID];
+                    } else {
+                        pli.custom.isWrapped = false;
+                        pli.custom.wrappedQuantity = 0;
                     }
-                });
+                }
             }
-        );
+        });
     } else if (req.form.giftWrapType === 'TOGETHER') {
-        collections.forEach(
-            currentBasket.getAllProductLineItems(),
-            function (productLineItem) {
-                Transaction.wrap(function () {
-                    if (
-                        productLineItem.product.custom.isGiftWrappable &&
-                        productLineItem.productID !== giftWrapProduct
-                    ) {
-                        productLineItem.custom.isWrapped = true;
-                        productLineItem.custom.wrappedQuantity = 0;
-                    }
-                });
+        Transaction.wrap(function () {
+            for (var l = 0; l < productLineItems.length; l++) {
+                var pli = productLineItems[l];
+                if (
+                    pli.product.custom.isGiftWrappable &&
+                    pli.productID !== giftWrapProduct
+                ) {
+                    pli.custom.isWrapped = true;
+                    pli.custom.wrappedQuantity = 0;
+                }
             }
-        );
+        });
     }
 
     next();
@@ -279,13 +271,12 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
             // If removed product is GiftWrapCategoryProduct than reset gift wrap attribute
             Transaction.wrap(function () {
                 if (giftWrapProductLineItem.product.ID === req.querystring.pid) {
-                    collections.find(
-                        currentBasket.productLineItems,
-                        function(productLineItem) {
-                            productLineItem.custom.isWrapped = false;
-                            productLineItem.custom.wrappedQuantity = 0;
-                        }
-                    );
+                    var productLineItems = currentBasket.getProductLineItems().toArray();
+                    for (var j = 0; j < productLineItems.length; j++) {
+                        var pli = productLineItems[j];
+                        pli.custom.isWrapped = false;
+                        pli.custom.wrappedQuantity = 0;
+                    }
                 } else {
                     var base = require('app_storefront_base/cartridge/scripts/cart/cartHelpers');
                     var product = productMgr.getProduct(req.querystring.pid);

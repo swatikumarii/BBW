@@ -111,12 +111,10 @@ $(document).ready(function () {
             'input[type="checkbox"][name=individual-lineItem]'
         );
 
-        var checkallCheckbox = this.checked;
-
         // Iterate through each checkbox and set its checked property to true
-        checkboxes.forEach(function (cb) {
-            cb.checked = checkallCheckbox;
-        });
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = this.checked;
+        }
     });
 
     // click event to handle add to cart functionality for gift wrap
