@@ -123,12 +123,13 @@
                             </div>
 
                             <!-- Cart and [Optionally] Apple Pay -->
-                            <isif condition="${(!product.isMaster && !product.available)}">
-                                <isinclude template="product/components/notifyMe" />
-                                <isinclude template="product/components/requestUserEmailForOOSModal" />
-                            <iselse/>
-                                <isinclude template="product/components/addToCartProduct" />
-                            </isif>
+                            <div class="js-add-to-cart-button">
+                                <isif condition="${(!product.isMaster && !product.available)}">
+                                    <isinclude template="product/components/notifyMe" />
+                                <iselse/>
+                                    <isinclude template="product/components/addToCartProduct" />
+                                </isif>
+                            </div>
                         </div>
 
                         <!-- Social Sharing Icons -->
