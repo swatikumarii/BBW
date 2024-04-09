@@ -11,9 +11,10 @@
 
                     <section class="js-flyout-content generic-flyout-content">
                         <div id="giftwrap-container" class="giftwrap-container">
-                            <div class="giftwrap-title"><button type="button"
-                                    class="side--close icon-close greeting-card-close" tabindex="0"><span
-                                        class="sr-only"></span></button>
+                            <div class="giftwrap-title">
+                                <button type="button" class="side--close icon-close greeting-card-close" tabindex="0">
+                                    <span class="sr-only"></span>
+                                </button>
                                 <h2>${Resource.msg('individual.select.products', 'giftWrap', null)}</h2>
                                 <p>${Resource.msg('individual.wrapping.cost', 'giftWrap', null)}</br>
                                     ${Resource.msgf('individual.cost.per.item', 'giftWrap', null, giftWrapProductPrice)}
@@ -40,8 +41,7 @@
                                                     <figure>
                                                         <img src="${wrappableProduct.images.small[0].url}"
                                                             alt="${wrappableProduct.images.small[0].alt}"
-                                                            title="${wrappableProduct.images.small[0].title}" class=" dm-responsive-image js-dm-image
-                                                            dm-responsive-image-initialized" />
+                                                            title="${wrappableProduct.images.small[0].title}" class="dm-responsive-image js-dm-image dm-responsive-image-initialized" />
                                                     </figure>
                                                     <span class="tile-title">
                                                         <iscomment> <span
