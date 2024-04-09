@@ -80,7 +80,10 @@ $brandTypography: (
         color: colour(gray, 4)
     ),
     "body-34": (
-        font-size: 34px
+        font-size: 0.875rem,
+        line-height: 1rem,
+        letter-spacing: 0.02em,
+        font-weight: map-get($font-weight, bold)
     ),
     "body-24": (
         font-size: 24px
