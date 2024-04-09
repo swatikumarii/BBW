@@ -33,8 +33,7 @@
                             <div class="wishlist-item">
                                 <!-- Check if express shipping is available -->
                                 <isif
-                                    condition="${wishlistItem.product.ID == item.pid && wishlistItem.product.custom.expressShip === true}"
-                                >
+                                    condition="${wishlistItem.product.ID == item.pid && wishlistItem.product.custom.expressShip === true}">
                                     <span
                                         class="express-shipping-indication"
                                     >${Resource.msg('wishlist.expressShipping.available', 'wishlist', null)}</span>
