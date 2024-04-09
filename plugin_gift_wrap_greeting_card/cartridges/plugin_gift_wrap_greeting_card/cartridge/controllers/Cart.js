@@ -373,7 +373,6 @@ server.prepend('UpdateQuantity', function (req, res, next) {
                     errorMessage:
                         'You can not update quantity of gift wrap product.'
                 });
-
                 return this.emit('route:Complete', req, res);
             }
             var product = productMgr.getProduct(req.querystring.pid);
