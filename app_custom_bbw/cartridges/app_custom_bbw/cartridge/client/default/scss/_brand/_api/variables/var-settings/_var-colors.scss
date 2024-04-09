@@ -1,0 +1,122 @@
+// ==============================
+// Color Palette Configuration
+// ==============================
+// This section defines a comprehensive color palette for the brand, ensuring consistency and accessibility across the UI.
+// Colors are organized into semantic categories like black, white, blue, pink, gray, green, red, brown, and orange.
+// Each color category includes multiple shades for versatility in design applications.
+// The map-colors variable maps color names to their corresponding hexadecimal values, facilitating easy access and management.
+// Opacity levels are also defined for various design requirements, providing flexibility in visual styling.
+
+$clr-black: #000;
+$clr-black-1: #1a1a1a;
+$clr-black-2: #1f1f21;
+$clr-black-3: #333;
+$clr-white: #fff;
+$clr-blue: #005699;
+$clr-blue-1: #024a82;
+$clr-blue-2: #f0f8ff;
+$clr-pink: #e20887;
+$clr-gray: #666;
+$clr-gray-1: #f2f2f2;
+$clr-gray-2: #c2c2c2;
+$clr-gray-3: #aaa;
+$clr-gray-4: #4d4d4d;
+$clr-gray-5: #828282;
+$clr-gray-6: #e5e5e5;
+$clr-gray-7: #ccc;
+$clr-gray-8: #313030;
+$clr-gray-9: #464444;
+$clr-gray-10: #5d5a5a;
+$clr-gray-11: #767474;
+$clr-gray-12: #939090;
+$clr-gray-13: #b1afaf;
+$clr-gray-14: #d3cfcf;
+$clr-gray-15: #f5f4f4;
+$clr-gray-16: #707072;
+$clr-gray-17: #d9d9d9;
+$clr-green: #36c981;
+$clr-green-1: #007d48;
+$clr-red: #cb0100;
+$clr-red-1: #fe5000;
+$clr-red-2: #ff0015;
+$clr-red-3: #fa5400;
+$clr-red-4: #ff5000;
+$clr-red-5: #ee0005;
+$clr-red-6: #a70e00;
+$clr-brown: #aa8275;
+$clr-brown-1: #ba861e;
+$orange: #f89021;
+$orange-1: #df6e06;
+$map-colors: (
+    black: (
+        base: $clr-black,
+        1: $clr-black-1,
+        2: $clr-black-2,
+        3: $clr-black-3
+    ),
+    white: (
+        base: $clr-white
+    ),
+    blue: (
+        base: $clr-blue,
+        1: $clr-blue-1,
+        2: $clr-blue-2
+    ),
+    pink: (
+        base: $clr-pink
+    ),
+    gray: (
+        base: $clr-gray,
+        1: $clr-gray-1,
+        2: $clr-gray-2,
+        3: $clr-gray-3,
+        4: $clr-gray-4,
+        5: $clr-gray-5,
+        6: $clr-gray-6,
+        7: $clr-gray-7,
+        8: $clr-gray-8,
+        9: $clr-gray-9,
+        10: $clr-gray-10,
+        11: $clr-gray-11,
+        12: $clr-gray-12,
+        13: $clr-gray-13,
+        14: $clr-gray-14,
+        15: $clr-gray-15,
+        16: $clr-gray-16,
+        17: $clr-gray-17
+    ),
+    green: (
+        base: $clr-green,
+        1: $clr-green-1
+    ),
+    red: (
+        base: $clr-red,
+        1: $clr-red-1,
+        2: $clr-red-2,
+        3: $clr-red-3,
+        4: $clr-red-4,
+        5: $clr-red-5,
+        6: $clr-red-6
+    ),
+    brown: (
+        base: $clr-brown,
+        1: $clr-brown-1
+    ),
+    orange: (
+        base: $orange,
+        1: $orange-1
+    ),
+    none: (
+        base: transparent
+    )
+);
+$map-opacity: (
+    original: 1,
+    light: 0.7,
+    medium: 0.5,
+    small: 0.4,
+    smaller: 0.3,
+    xsmall: 0.2,
+    xsmaller: 0.1,
+    zero: 0
+);

@@ -1,0 +1,50 @@
+// ----------------------------------------------------------------------
+// Layout
+// ----------------------------------------------------------------------
+
+$max-layout-width: 1200px;
+$min-layout-width: 320px;
+$container-width-outer-margin: 24px;
+$container-width-outer-margin-d: 35px;
+$container-width: (
+    base: 1200px
+);
+
+// ----------------------------------------------------------------------
+// Grid
+// ----------------------------------------------------------------------
+
+$grid-cols-count: 12;
+$grid-gutter: (
+    base: 6px,
+    md: 6px
+);
+
+// If only l-grid__row class - default spacing applied
+// Custom grid gutter HTML: "l-grid__row l-grid__row--gap-1"
+// Note: Required to set all breakpoint to override another gutter
+
+$grid-gutters: (
+    default: (
+        base: 6px,
+        md: 6px
+    ),
+    gap-1: (
+        base: 6px,
+        md: 16px
+    ),
+    gap-form: (
+        base: 4px,
+        md: 10px
+    ),
+    gap-form-lg: (
+        base: 4px,
+        md: 38px
+    )
+);
+
+// ----------------------------------------------------------------------
+// Pages
+// ----------------------------------------------------------------------
+
+$pageTypes: ((homepage, ""));

@@ -64,6 +64,8 @@
     "querystringparameter": true,
     "renders": true,
     "serverfunction": true,
-    "httpparameter": true
+    "httpparameter": true,
+    "grecaptcha": true,
+    "Promise": true
   }
 }

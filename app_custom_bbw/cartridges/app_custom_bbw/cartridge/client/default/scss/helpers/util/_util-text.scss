@@ -1,0 +1,41 @@
+@mixin hover {
+    $hover: "hover";
+    $fine: "fine";
+    $minwidth-breakpoint: map-get($breakpoints, md);
+
+    @media (hover: $hover) and (pointer: $fine) and (min-width: $minwidth-breakpoint) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@mixin line-clamping($lines: 3) {
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin underline() {
+    text-decoration: underline;
+
+    @include hover {
+        text-decoration: none;
+    }
+}
+
+@mixin underline-hover() {
+    text-decoration: none;
+
+    @include hover {
+        text-decoration: underline;
+    }
+}

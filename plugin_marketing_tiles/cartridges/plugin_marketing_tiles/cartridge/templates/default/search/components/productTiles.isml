@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="${URLUtils.staticURL('/css/marketingTiles.css').toString()}" />
+<isloop items="${pdict.productSearch.productIds}" var="product" status="loopState">
+    <isinclude template="search/components/customPlpPromotionTilesBefore" />
+    <div class="col-6 col-sm-4">
+        <isobject object="${product.productSearchHit}" view="searchhit">
+            <isinclude
+                url="${URLUtils.url('Tile-Show', 'pid', product.productID, 'swatches', true, 'ratings', true)}" />
+        </isobject>
+    </div>
+    <isinclude template="search/components/customPlpPromotionTilesAfter" />
+</isloop>

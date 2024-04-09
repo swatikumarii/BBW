@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+
+    <type-extension type-id="Product">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="enableNotifyMe">
+                <display-name xml:lang="x-default">Enable NotifyMe Button?</display-name>
+                <type>boolean</type>
+                <site-specific-flag>true</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="notifyMeThreshold">
+                <display-name xml:lang="x-default">NotifyMe Threshold</display-name>
+                <type>double</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>true</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="notifyMe">
+                <display-name xml:lang="x-default">Notify me</display-name>
+                <attribute attribute-id="enableNotifyMe"/>
+                <attribute attribute-id="notifyMeThreshold"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="SitePreferences">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="disImageSourceEnvironment">
+                <display-name xml:lang="x-default">DIS Image Source Environment</display-name>
+                <description xml:lang="x-default">Defines which environment is used to actually load the product images from.</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Production</display>
+                        <value>PRD</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Staging</display>
+                        <value>STG</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Development</display>
+                        <value>DEV</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Sandbox 1</display>
+                        <value>s01</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Sandbox 2</display>
+                        <value>s02</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Sandbox 3</display>
+                        <value>s03</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Sandbox 4</display>
+                        <value>s04</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Sandbox 5</display>
+                        <value>s05</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="notifyEmailThreshold">
+                <display-name xml:lang="x-default">Notify Email Threshold</display-name>
+                <description xml:lang="x-default">Notify me Email Threshold for all the product which do not have the value explicitly defined.</description>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>0.0</min-value>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Dynamic Imaging Service">
+                <display-name xml:lang="x-default">Dynamic Imaging Service</display-name>
+                <attribute attribute-id="disImageSourceEnvironment"/>
+            </attribute-group>
+            <attribute-group group-id="Storefront Configs">
+                <display-name xml:lang="x-default">Storefront Configurations</display-name>
+                <attribute attribute-id="listPriceDefault"/>
+                <attribute attribute-id="GoogleVerificationTag"/>
+                <attribute attribute-id="countryCode"/>
+                <attribute attribute-id="customerServiceEmail"/>
+                <attribute attribute-id="mapAPI"/>
+                <attribute attribute-id="notifyEmailThreshold"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    
+    <type-extension type-id="Category">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="promotionEndingTileIndex">
+                <display-name xml:lang="x-default">Promotion Ending Tile Index</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>20.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionLeadingTileIndex">
+                <display-name xml:lang="x-default">Promotion Leading Tile Index</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>20.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent1">
+                <display-name xml:lang="x-default">Promotion Tile 1 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 1 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent10">
+                <display-name xml:lang="x-default">Promotion Tile 10 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 10 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent11">
+                <display-name xml:lang="x-default">Promotion Tile 11 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 11 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent12">
+                <display-name xml:lang="x-default">Promotion Tile 12 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 12 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent13">
+                <display-name xml:lang="x-default">Promotion Tile 13 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 13 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent14">
+                <display-name xml:lang="x-default">Promotion Tile 14 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 14 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent15">
+                <display-name xml:lang="x-default">Promotion Tile 15 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 15 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent16">
+                <display-name xml:lang="x-default">Promotion Tile 16 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 16 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent17">
+                <display-name xml:lang="x-default">Promotion Tile 17 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 17 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent18">
+                <display-name xml:lang="x-default">Promotion Tile 18 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 18 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent19">
+                <display-name xml:lang="x-default">Promotion Tile 19 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 19 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent2">
+                <display-name xml:lang="x-default">Promotion Tile 2 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 2 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent20">
+                <display-name xml:lang="x-default">Promotion Tile 20 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 20 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent3">
+                <display-name xml:lang="x-default">Promotion Tile 3 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 3 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent4">
+                <display-name xml:lang="x-default">Promotion Tile 4 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 4 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent5">
+                <display-name xml:lang="x-default">Promotion Tile 5 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 5 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent6">
+                <display-name xml:lang="x-default">Promotion Tile 6 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 6 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent7">
+                <display-name xml:lang="x-default">Promotion Tile 7 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 7 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent8">
+                <display-name xml:lang="x-default">Promotion Tile 8 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 8 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileContent9">
+                <display-name xml:lang="x-default">Promotion Tile 9 Content</display-name>
+                <description xml:lang="x-default">Promotion Tile 9 Content</description>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileIncrementalDesktopRange">
+                <display-name xml:lang="x-default">Promotion Tile Incremental Desktop Range</display-name>
+                <description xml:lang="x-default">Promotion Tile in desktop will disable after given range value</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileIncrementalMobileRange">
+                <display-name xml:lang="x-default">Promotion Tile Incremental Mobile Range</display-name>
+                <description xml:lang="x-default">Promotion Tile in mobile will disable after given range value</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop1">
+                <display-name xml:lang="x-default">Promotion Tile 1 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 1 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop10">
+                <display-name xml:lang="x-default">Promotion Tile 10 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 10 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop11">
+                <display-name xml:lang="x-default">Promotion Tile 11 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 11 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop12">
+                <display-name xml:lang="x-default">Promotion Tile 12 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 12 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop13">
+                <display-name xml:lang="x-default">Promotion Tile 13 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 13 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop14">
+                <display-name xml:lang="x-default">Promotion Tile 14 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 14 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop15">
+                <display-name xml:lang="x-default">Promotion Tile 15 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 15 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop16">
+                <display-name xml:lang="x-default">Promotion Tile 16 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 16 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop17">
+                <display-name xml:lang="x-default">Promotion Tile 17 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 17 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop18">
+                <display-name xml:lang="x-default">Promotion Tile 18 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 18 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop19">
+                <display-name xml:lang="x-default">Promotion Tile 19 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 19 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop2">
+                <display-name xml:lang="x-default">Promotion Tile 2 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 2 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop20">
+                <display-name xml:lang="x-default">Promotion Tile 20 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 20 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop3">
+                <display-name xml:lang="x-default">Promotion Tile 3 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 3 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop4">
+                <display-name xml:lang="x-default">Promotion Tile 4 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 4 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop5">
+                <display-name xml:lang="x-default">Promotion Tile 5 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 5 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop6">
+                <display-name xml:lang="x-default">Promotion Tile 6 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 6 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop7">
+                <display-name xml:lang="x-default">Promotion Tile 7 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 7 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop8">
+                <display-name xml:lang="x-default">Promotion Tile 8 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 8 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionDesktop9">
+                <display-name xml:lang="x-default">Promotion Tile 9 Desktop Position</display-name>
+                <description xml:lang="x-default">Promotion Tile 9 Desktop Position on PLP</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile1">
+                <display-name xml:lang="x-default">Promotion Tile 1 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile10">
+                <display-name xml:lang="x-default">Promotion Tile 10 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile11">
+                <display-name xml:lang="x-default">Promotion Tile 11 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile12">
+                <display-name xml:lang="x-default">Promotion Tile 12 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile13">
+                <display-name xml:lang="x-default">Promotion Tile 13 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile14">
+                <display-name xml:lang="x-default">Promotion Tile 14 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile15">
+                <display-name xml:lang="x-default">Promotion Tile 15 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile16">
+                <display-name xml:lang="x-default">Promotion Tile 16 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile17">
+                <display-name xml:lang="x-default">Promotion Tile 17 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile18">
+                <display-name xml:lang="x-default">Promotion Tile 18 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile19">
+                <display-name xml:lang="x-default">Promotion Tile 19 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile2">
+                <display-name xml:lang="x-default">Promotion Tile 2 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile20">
+                <display-name xml:lang="x-default">Promotion Tile 20 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile3">
+                <display-name xml:lang="x-default">Promotion Tile 3 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile4">
+                <display-name xml:lang="x-default">Promotion Tile 4 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile5">
+                <display-name xml:lang="x-default">Promotion Tile 5 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile6">
+                <display-name xml:lang="x-default">Promotion Tile 6 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile7">
+                <display-name xml:lang="x-default">Promotion Tile 7 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile8">
+                <display-name xml:lang="x-default">Promotion Tile 8 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTilePositionMobile9">
+                <display-name xml:lang="x-default">Promotion Tile 9 Mobile Position</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>1.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom1">
+                <display-name xml:lang="x-default">Promotion Tile 1 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom10">
+                <display-name xml:lang="x-default">Promotion Tile 10 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom11">
+                <display-name xml:lang="x-default">Promotion Tile 11 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom12">
+                <display-name xml:lang="x-default">Promotion Tile 12 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom13">
+                <display-name xml:lang="x-default">Promotion Tile 13 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom14">
+                <display-name xml:lang="x-default">Promotion Tile 14 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom15">
+                <display-name xml:lang="x-default">Promotion Tile 15 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom16">
+                <display-name xml:lang="x-default">Promotion Tile 16 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom17">
+                <display-name xml:lang="x-default">Promotion Tile 17 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom18">
+                <display-name xml:lang="x-default">Promotion Tile 18 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom19">
+                <display-name xml:lang="x-default">Promotion Tile 19 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom2">
+                <display-name xml:lang="x-default">Promotion Tile 2 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom20">
+                <display-name xml:lang="x-default">Promotion Tile 20 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom3">
+                <display-name xml:lang="x-default">Promotion Tile 3 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom4">
+                <display-name xml:lang="x-default">Promotion Tile 4 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom5">
+                <display-name xml:lang="x-default">Promotion Tile 5 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom6">
+                <display-name xml:lang="x-default">Promotion Tile 6 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom7">
+                <display-name xml:lang="x-default">Promotion Tile 7 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom8">
+                <display-name xml:lang="x-default">Promotion Tile 8 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionTileRandom9">
+                <display-name xml:lang="x-default">Promotion Tile 9 Random Index</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="promotionTileCommon">
+                <display-name xml:lang="x-default">Promotion Tile Common Attributes</display-name>
+                <attribute attribute-id="promotionTileIncrementalMobileRange"/>
+                <attribute attribute-id="promotionTileIncrementalDesktopRange"/>
+                <attribute attribute-id="promotionLeadingTileIndex"/>
+                <attribute attribute-id="promotionEndingTileIndex"/>
+            </attribute-group>
+            <attribute-group group-id="promotionTile">
+                <display-name xml:lang="x-default">Promotion Tile Attributes</display-name>
+                <attribute attribute-id="promotionTileContent1"/>
+                <attribute attribute-id="promotionTilePositionDesktop1"/>
+                <attribute attribute-id="promotionTilePositionMobile1"/>
+                <attribute attribute-id="promotionTileRandom1"/>
+                <attribute attribute-id="promotionTileContent2"/>
+                <attribute attribute-id="promotionTilePositionDesktop2"/>
+                <attribute attribute-id="promotionTilePositionMobile2"/>
+                <attribute attribute-id="promotionTileRandom2"/>
+                <attribute attribute-id="promotionTileContent3"/>
+                <attribute attribute-id="promotionTilePositionDesktop3"/>
+                <attribute attribute-id="promotionTilePositionMobile3"/>
+                <attribute attribute-id="promotionTileRandom3"/>
+                <attribute attribute-id="promotionTileContent4"/>
+                <attribute attribute-id="promotionTilePositionDesktop4"/>
+                <attribute attribute-id="promotionTilePositionMobile4"/>
+                <attribute attribute-id="promotionTileRandom4"/>
+                <attribute attribute-id="promotionTileContent5"/>
+                <attribute attribute-id="promotionTilePositionDesktop5"/>
+                <attribute attribute-id="promotionTilePositionMobile5"/>
+                <attribute attribute-id="promotionTileRandom5"/>
+                <attribute attribute-id="promotionTileContent6"/>
+                <attribute attribute-id="promotionTilePositionDesktop6"/>
+                <attribute attribute-id="promotionTilePositionMobile6"/>
+                <attribute attribute-id="promotionTileRandom6"/>
+                <attribute attribute-id="promotionTileContent7"/>
+                <attribute attribute-id="promotionTilePositionDesktop7"/>
+                <attribute attribute-id="promotionTilePositionMobile7"/>
+                <attribute attribute-id="promotionTileRandom7"/>
+                <attribute attribute-id="promotionTileContent8"/>
+                <attribute attribute-id="promotionTilePositionDesktop8"/>
+                <attribute attribute-id="promotionTilePositionMobile8"/>
+                <attribute attribute-id="promotionTileRandom8"/>
+                <attribute attribute-id="promotionTileContent9"/>
+                <attribute attribute-id="promotionTilePositionDesktop9"/>
+                <attribute attribute-id="promotionTilePositionMobile9"/>
+                <attribute attribute-id="promotionTileRandom9"/>
+                <attribute attribute-id="promotionTileContent10"/>
+                <attribute attribute-id="promotionTilePositionDesktop10"/>
+                <attribute attribute-id="promotionTilePositionMobile10"/>
+                <attribute attribute-id="promotionTileRandom10"/>
+                <attribute attribute-id="promotionTileContent11"/>
+                <attribute attribute-id="promotionTilePositionDesktop11"/>
+                <attribute attribute-id="promotionTilePositionMobile11"/>
+                <attribute attribute-id="promotionTileRandom11"/>
+                <attribute attribute-id="promotionTileContent12"/>
+                <attribute attribute-id="promotionTilePositionDesktop12"/>
+                <attribute attribute-id="promotionTilePositionMobile12"/>
+                <attribute attribute-id="promotionTileRandom12"/>
+                <attribute attribute-id="promotionTileContent13"/>
+                <attribute attribute-id="promotionTilePositionDesktop13"/>
+                <attribute attribute-id="promotionTilePositionMobile13"/>
+                <attribute attribute-id="promotionTileRandom13"/>
+                <attribute attribute-id="promotionTileContent14"/>
+                <attribute attribute-id="promotionTilePositionDesktop14"/>
+                <attribute attribute-id="promotionTilePositionMobile14"/>
+                <attribute attribute-id="promotionTileRandom14"/>
+                <attribute attribute-id="promotionTileContent15"/>
+                <attribute attribute-id="promotionTilePositionDesktop15"/>
+                <attribute attribute-id="promotionTilePositionMobile15"/>
+                <attribute attribute-id="promotionTileRandom15"/>
+                <attribute attribute-id="promotionTileContent16"/>
+                <attribute attribute-id="promotionTilePositionDesktop16"/>
+                <attribute attribute-id="promotionTilePositionMobile16"/>
+                <attribute attribute-id="promotionTileRandom16"/>
+                <attribute attribute-id="promotionTileContent17"/>
+                <attribute attribute-id="promotionTilePositionDesktop17"/>
+                <attribute attribute-id="promotionTilePositionMobile17"/>
+                <attribute attribute-id="promotionTileRandom17"/>
+                <attribute attribute-id="promotionTileContent18"/>
+                <attribute attribute-id="promotionTilePositionDesktop18"/>
+                <attribute attribute-id="promotionTilePositionMobile18"/>
+                <attribute attribute-id="promotionTileRandom18"/>
+                <attribute attribute-id="promotionTileContent19"/>
+                <attribute attribute-id="promotionTilePositionDesktop19"/>
+                <attribute attribute-id="promotionTilePositionMobile19"/>
+                <attribute attribute-id="promotionTileRandom19"/>
+                <attribute attribute-id="promotionTileContent20"/>
+                <attribute attribute-id="promotionTilePositionDesktop20"/>
+                <attribute attribute-id="promotionTilePositionMobile20"/>
+                <attribute attribute-id="promotionTileRandom20"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+</metadata>

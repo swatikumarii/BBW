@@ -1,0 +1,5 @@
+<isinclude template="popups/dynamicModel" />
+<isinclude template="popups/dynamicAllSiteModel" />
+<isinclude template="popups/dynamicExitIntentModal" />
+<link rel="stylesheet" href="${URLUtils.staticURL('/css/popups.css').toString()}" />
+<script defer="defer" src="${URLUtils.staticURL('/js/popups.js').toString()}"></script>

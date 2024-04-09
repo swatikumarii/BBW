@@ -1,0 +1,120 @@
+/**
+ * Get Font Family Function
+ *
+ * This function retrieves the font family based on the provided font type and RTL status.
+ *
+ * Parameters:
+ *   $fontType: Type of font family to retrieve. Default is "base".
+ *   $noRTL: Boolean indicating whether to exclude RTL support. Default is false.
+ *
+ * Returns:
+ *   Font family value based on the provided parameters.
+ */
+
+@function get-ff($fontType: "base", $noRTL: false) {
+    $typeValue: null;
+
+    @if $fontType == icon or $noRTL == true {
+        $typeValue: map-get($font-family, $fontType);
+    } @else {
+        $typeValue: map-get($font-family, $fontType);
+    }
+
+    @return $typeValue;
+}
+
+/**
+ * Typography Value Function
+ *
+ * This function retrieves the value of a specified typography property for a given text type and optional media breakpoint.
+ *
+ * Parameters:
+ *   $property: The typography property to retrieve.
+ *   $textType: The text type for which the typography property value is needed. Default is "default".
+ *   $media: Optional media breakpoint to retrieve typography property value for responsive designs.
+ *
+ * Returns:
+ *   The value of the specified typography property for the given text type and optional media breakpoint.
+ */
+
+@function typography-value($property, $textType: default, $media: null) {
+    $cssValue: null;
+    $typeValue: map-get($brandTypography, $textType);
+
+    @if $media {
+        $typeValue: map-get($typeValue, $media);
+    }
+
+    $comment: "/*!" + $textType + "*/";
+    $cssValue: map-get($typeValue, $property) #{$comment};
+
+    @return $cssValue;
+}
+
+/**
+ * Font Size Function (fz)
+ *
+ * This function retrieves the font size value for a given text type and optional media breakpoint using the `typography-value` function.
+ *
+ * Parameters:
+ *   $textType: The text type for which the font size value is needed. Default is "default".
+ *   $media: Optional media breakpoint to retrieve font size value for responsive designs.
+ *
+ * Returns:
+ *   The font size value for the specified text type and optional media breakpoint.
+ */
+
+@function fz($textType: default, $media: null) {
+    @return typography-value("font-size", $textType, $media: null);
+}
+
+/**
+ * Line Height Function (lh)
+ *
+ * This function retrieves the line height value for a given text type and optional media breakpoint using the `typography-value` function.
+ *
+ * Parameters:
+ *   $textType: The text type for which the line height value is needed. Default is "default".
+ *   $media: Optional media breakpoint to retrieve line height value for responsive designs.
+ *
+ * Returns:
+ *   The line height value for the specified text type and optional media breakpoint.
+ */
+
+@function lh($textType: default, $media: null) {
+    @return typography-value("line-height", $textType, $media: null);
+}
+
+/**
+ * Font Weight Function (fw)
+ *
+ * This function retrieves the font weight value for a given text type and optional media breakpoint using the `typography-value` function.
+ *
+ * Parameters:
+ *   $textType: The text type for which the font weight value is needed. Default is "default".
+ *   $media: Optional media breakpoint to retrieve font weight value for responsive designs.
+ *
+ * Returns:
+ *   The font weight value for the specified text type and optional media breakpoint.
+ */
+
+@function fw($textType: default, $media: null) {
+    @return typography-value("font-weight", $textType, $media: null);
+}
+
+/**
+ * Font Family Function (ff)
+ *
+ * This function retrieves the font family value for a given text type and optional media breakpoint using the `typography-value` function.
+ *
+ * Parameters:
+ *   $textType: The text type for which the font family value is needed. Default is "default".
+ *   $media: Optional media breakpoint to retrieve font family value for responsive designs.
+ *
+ * Returns:
+ *   The font family value for the specified text type and optional media breakpoint.
+ */
+
+@function ff($textType: default, $media: null) {
+    @return typographyValue("font-family", $textType, $media: null);
+}

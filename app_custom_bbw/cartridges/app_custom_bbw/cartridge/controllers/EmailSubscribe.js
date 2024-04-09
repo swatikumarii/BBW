@@ -50,16 +50,14 @@ server.replace('Subscribe', function (req, res, next) {
                 msg: Resource.msg('subscribe.email.exists', 'newsletter', null)
             });
         } else {
-            var query = "email = '" + email + "'";
+            var query = 'email = \'' + email + '\'';
             var getCustomerProfile = CustomerMgr.queryProfiles(query, null, null, 1, 1);
             if (getCustomerProfile.hasNext()) {
                 var customerProfile = getCustomerProfile.next();
-                // if (!customerProfile.custom.newsletterSubscriptionStatus && customerProfile.custom.newsletterSubscriptionStatus != null) {
-                    Transaction.wrap(function () {
-                        // assign values to the customer profile
-                        customerProfile.custom.newsletterSubscriptionStatus = true;
-                    });
-                // }
+                Transaction.wrap(function () {
+                    // assign values to the customer profile
+                    customerProfile.custom.newsletterSubscriptionStatus = true;
+                });
             }
 
             // create cutome object
@@ -105,43 +103,43 @@ server.get('UnsubscribeShow',
     server.middleware.https,
     csrfProtection.generateToken,
     function (req, res, next) {
-    var id = decodeURIComponent(req.querystring.id);
-    var renderTemplate = '/newsletter/unsubscribe';
-    var actionUrl = URLUtils.url('EmailSubscribe-Unsubscribe');
-    var changeFreqURL = URLUtils.url('EmailSubscribe-ChangeEmailFrequency');
-    var decryptedNewsletterId = EncryptionHelper.decryptPin(id);
-    var newsletterObject = CustomObjectMgr.describe('newsletterSubscriptions');
-    var emailFrequency;
+        var id = decodeURIComponent(req.querystring.id);
+        var renderTemplate = '/newsletter/unsubscribe';
+        var actionUrl = URLUtils.url('EmailSubscribe-Unsubscribe');
+        var changeFreqURL = URLUtils.url('EmailSubscribe-ChangeEmailFrequency');
+        var decryptedNewsletterId = EncryptionHelper.decryptPin(id);
+        var newsletterObject = CustomObjectMgr.describe('newsletterSubscriptions');
+        var emailFrequency;
 
-    if(decryptedNewsletterId){
-        var getCustomObject = CustomObjectMgr.queryCustomObject('newsletterSubscriptions', 'UUID ILIKE {0}', decryptedNewsletterId);
+        if(decryptedNewsletterId){
+            var getCustomObject = CustomObjectMgr.queryCustomObject('newsletterSubscriptions', 'UUID ILIKE {0}', decryptedNewsletterId);
 
-        if (getCustomObject) {
-            for (var index = 0; index < newsletterObject.attributeDefinitions.length; index++) {
-                if (newsletterObject.attributeDefinitions[index].ID === 'emailFrequency') {
-                    emailFrequency = newsletterObject.attributeDefinitions[index].values;
-                    break;
+            if (getCustomObject) {
+                for (var index = 0; index < newsletterObject.attributeDefinitions.length; index++) {
+                    if (newsletterObject.attributeDefinitions[index].ID === 'emailFrequency') {
+                        emailFrequency = newsletterObject.attributeDefinitions[index].values;
+                        break;
+                    }
                 }
-            }
 
-            res.render(renderTemplate, {
-                actionUrl: actionUrl,
-                changeFreqURL: changeFreqURL,
-                email: getCustomObject.custom.email,
-                id: getCustomObject.UUID,
-                emailFrequency: emailFrequency
-            });
-        } else {
+                res.render(renderTemplate, {
+                    actionUrl: actionUrl,
+                    changeFreqURL: changeFreqURL,
+                    email: getCustomObject.custom.email,
+                    id: getCustomObject.UUID,
+                    emailFrequency: emailFrequency
+                });
+            } else {
+                res.setStatusCode(404);
+                res.render('error/notFound');
+            }
+        }else{
             res.setStatusCode(404);
             res.render('error/notFound');
         }
-    }else{
-        res.setStatusCode(404);
-        res.render('error/notFound');
-    }
 
-    next();
-});
+        next();
+    });
 
 /**
  * EmailSubscribe-Unsubscribe : The EmailSubscribe-Unsubscribe is used for unsubscribe user from newsletter
@@ -153,26 +151,26 @@ server.post('Unsubscribe',
     server.middleware.https,
     csrfProtection.validateAjaxRequest,
     function( req, res, next) {
-    var email = req.form.userEmail;
-    var id = req.form.userId;
-    var customObject = CustomObjectMgr.getCustomObject('newsletterSubscriptions', email);
-    if(customObject){
-        Transaction.wrap(function () {
-            CustomObjectMgr.remove(customObject);
-        });
-        var query = "email = '" + email + "'";
-        var getCustomerProfile = CustomerMgr.queryProfiles(query, null, null, 1, 1);
-        if (getCustomerProfile.hasNext()) {
-            var customerProfile = getCustomerProfile.next();
+        var email = req.form.userEmail;
+        var id = req.form.userId;
+        var customObject = CustomObjectMgr.getCustomObject('newsletterSubscriptions', email);
+        if(customObject){
+            Transaction.wrap(function () {
+                CustomObjectMgr.remove(customObject);
+            });
+            var query = 'email = \'' + email + '\'';
+            var getCustomerProfile = CustomerMgr.queryProfiles(query, null, null, 1, 1);
+            if (getCustomerProfile.hasNext()) {
+                var customerProfile = getCustomerProfile.next();
                 Transaction.wrap(function () {
                     // assign values to the customer profile
                     customerProfile.custom.newsletterSubscriptionStatus = false;
                 });
+            }
         }
-    }
-    res.render('/newsletter/thankYou');
-    next();
-});
+        res.render('/newsletter/thankYou');
+        next();
+    });
 
 /**
  * EmailSubscribe-ChangeEmailFrequency : The EmailSubscribe-ChangeEmailFrequency change the frequency of the newsletter emails
@@ -184,20 +182,55 @@ server.post('ChangeEmailFrequency',
     server.middleware.https,
     csrfProtection.validateAjaxRequest,
     function( req, res, next) {
-    var email = req.form.userEmail;
-    var id = req.form.userId;
-    var emailFrequency = req.form.emailFrequency;
-    if(emailFrequency && email != null){
-        var customObject = CustomObjectMgr.getCustomObject('newsletterSubscriptions', email);
-        if(customObject){
-            Transaction.wrap(function () {
-                customObject.custom.emailFrequency = emailFrequency;
+        var email = req.form.userEmail;
+        var id = req.form.userId;
+        var emailFrequency = req.form.emailFrequency;
+        if(emailFrequency && email !== null){
+            var customObject = CustomObjectMgr.getCustomObject('newsletterSubscriptions', email);
+            if(customObject){
+                Transaction.wrap(function () {
+                    customObject.custom.emailFrequency = emailFrequency;
+                });
+            }
+        }
+        res.render('/newsletter/thankYou');
+        next();
+    });
+
+
+
+/**
+ * EmailSubscribe-Subscribe : The EmailSubscribe-Subscribe enpoint allows the shopper to submit their eamil address to be added to a mailing list. OOB SFRA does not have a mailing list feature however this endpoint call a hook would allow for a customer to easily allow for custiomization
+ */
+server.prepend('Subscribe', function (req, res, next) {
+    var Site = require('dw/system/Site');
+    var Resource = require('dw/web/Resource');
+    var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
+
+    var isReCaptchaEnable =
+        Site.getCurrent().getCustomPreferenceValue(
+            'enableGoogleRecaptcha'
+        );
+    if (isReCaptchaEnable) {
+        var recaptchaResponse = req.httpParameterMap
+            .get('g-recaptcha-response')
+            .getStringValue();
+        
+        var pageScore = verifyCaptchaHelper.pageScore('newsletter');
+        var verifyCaptcha = verifyCaptchaHelper.verifyGoogleCaptcha(
+            recaptchaResponse,
+            pageScore
+        );
+        if (!verifyCaptcha) {
+            res.json({
+                error: true,
+                msg: Resource.msg('error.message.recaptcha', 'homePage', null)
             });
+            this.emit('route:Complete', req, res);
+            return;
         }
     }
-    res.render('/newsletter/thankYou');
     next();
 });
-
 
 module.exports = server.exports();

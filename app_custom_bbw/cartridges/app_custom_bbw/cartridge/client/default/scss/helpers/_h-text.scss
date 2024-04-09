@@ -1,0 +1,59 @@
+@use "sass:map";
+
+/* Styles for basic link */
+.b-link {
+    /* Setting font weight to medium */
+    font-weight: map-get($font-weight, medium);
+
+    /* Setting letter spacing to large */
+    letter-spacing: map-get($letter-spacing, lg);
+
+    /* Setting color based on text component */
+    color: colour-cmp(text);
+
+    /* Styles for secondary link */
+    &-secondary {
+        padding: 2px 1px;
+
+        /* Setting color based on secondary component */
+        color: colour-cmp(secondary);
+
+        /* Adding bottom border */
+        border-bottom: 1px solid currentcolor;
+
+        /* Hover styles for secondary link */
+        @include hover {
+            /* Changing color on hover to text color */
+            color: colour-cmp(text);
+        }
+    }
+
+    /* Styles for underlined link */
+    &--underlined {
+        /* Including mixin to underline text */
+        @include underline;
+
+        display: inline-flex;
+
+        /* Setting font weight to medium */
+        font-weight: map-get($font-weight, medium);
+
+        /* Setting color based on text component */
+        color: colour-cmp(text);
+    }
+}
+
+/* Loop to create helper classes for font weight */
+
+@each $fwName, $fwValue in $font-weight {
+    @include createHelperForEachMedia(
+        ".h-fw",
+        #{"" + $fwName},
+        (
+            nobreakpoints: true
+        )
+    ) {
+        /* Setting font weight for each helper class */
+        font-weight: $fwValue !important;
+    }
+}
