@@ -1,6 +1,6 @@
 /**
- * @File Name          : isGiftWrapCategory.js
- * @Description        : isGiftWrapCategory.js file for product to check if is Gift Wrap product category
+ * File Name          : isGiftWrapCategory.js
+ * Description        : isGiftWrapCategory.js file for product to check if is Gift Wrap product category
  * Ver       Modification
  * 1.0    Custom gift wrap category product check
  */

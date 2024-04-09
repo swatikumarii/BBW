@@ -16,7 +16,7 @@ var ShippingHelpers = require('*/cartridge/scripts/checkout/shippingHelpers');
  * Generates an object of approaching discounts
  * @param {dw.order.Basket} basket - Current users's basket
  * @param {dw.campaign.DiscountPlan} discountPlan - set of applicable discounts
- * @returns {Object} an object of approaching discounts
+ * @returns {object} an object of approaching discounts
  */
 function getApproachingDiscounts(basket, discountPlan) {
     var approachingOrderDiscounts;
@@ -79,7 +79,7 @@ function getApproachingDiscounts(basket, discountPlan) {
 
 /**
  * Generates an object of URLs
- * @returns {Object} an object of URLs in string format
+ * @returns {object} an object of URLs in string format
  */
 function getCartActionUrls() {
     return {
@@ -96,11 +96,8 @@ function getCartActionUrls() {
 }
 
 /**
- * @constructor
  * @classdesc CartModel class that represents the current basket
- *
  * @param {dw.order.Basket} basket - Current users's basket
- * @param {dw.campaign.DiscountPlan} discountPlan - set of applicable discounts
  */
 function CartModel(basket) {
     var hooksHelper = require('*/cartridge/scripts/helpers/hooks');

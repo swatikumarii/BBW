@@ -127,10 +127,8 @@ function getTotalQuantity(items) {
 }
 
 /**
- * @constructor
  * @classdesc class that represents a collection of line items and total quantity of
  * items in current basket or per shipment
- *
  * @param {dw.util.Collection<dw.order.ProductLineItem>} productLineItems - the product line items
  *                                                       of the current line item container
  * @param {string} view - the view of the line item (basket or order)

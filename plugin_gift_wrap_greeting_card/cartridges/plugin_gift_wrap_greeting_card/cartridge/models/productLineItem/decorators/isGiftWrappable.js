@@ -1,6 +1,6 @@
 /**
- * @File Name          : giftwrap.js
- * @Description        : giftwrap.js file for product to check if is wrappable as gift
+ * File Name          : giftwrap.js
+ * Description        : giftwrap.js file for product to check if is wrappable as gift
  * Ver       Modification
  * 1.0    Custom  gift wrap check
  */

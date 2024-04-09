@@ -1,6 +1,6 @@
 /**
- * @File Name          : index.js
- * @Description        : index.js file for product badges and available to sell changes
+ * File Name          : index.js
+ * Description        : index.js file for product badges and available to sell changes
  * Ver       Modification
  * 1.0    Product decorator changes
  */

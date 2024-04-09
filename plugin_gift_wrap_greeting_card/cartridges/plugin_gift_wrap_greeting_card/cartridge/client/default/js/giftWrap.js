@@ -2,7 +2,7 @@
 
 /**
  * re-renders the order totals and the number of items in the cart
- * @param {Object} message - Error message to display
+ * @param {object} message - Error message to display
  */
 function createErrorNotification(message) {
     var errorHtml =
@@ -18,6 +18,39 @@ function createErrorNotification(message) {
 }
 
 /**
+ * This function will validate add form
+ * @param {number} pid - Product Id
+ * @param {string} giftWrapType - Gift Wrap Type
+ * @param {number[]} toBeIndividuallyWrappedPids - Individual wrappable product ids
+ * @returns {boolean} - If any error found then return false else true
+ */
+function validate(pid, giftWrapType, toBeIndividuallyWrappedPids) {
+    var isValid = true;
+    if (!pid) {
+        createErrorNotification('PID select');
+        isValid = false;
+    } else if (
+        !giftWrapType ||
+        !(giftWrapType === 'INDIVIDUAL' || giftWrapType === 'TOGETHER')
+    ) {
+        createErrorNotification('GWT select');
+        isValid = false;
+    } else if (giftWrapType === 'INDIVIDUAL') {
+        document
+            .querySelectorAll('input[name=individual-lineItem]:checked')
+            .forEach(function (element) {
+                toBeIndividuallyWrappedPids.push(element.value);
+            });
+        if (toBeIndividuallyWrappedPids.length === 0) {
+            createErrorNotification(
+                'toBeIndividuallyWrappedPids select'
+            );
+            isValid = false;
+        }
+    }
+    return isValid;
+}
+/**
  * add gift wrap product to cart
  */
 function addGiftWrapToCart() {
@@ -26,42 +59,27 @@ function addGiftWrapToCart() {
     var giftWrapType = $('input[name="giftwrap-type"]:checked').val();
     var toBeIndividuallyWrappedPids = [];
 
-    if (!pid) {
-        return createErrorNotification('PID select');
-    } else if (
-        !giftWrapType ||
-        !(giftWrapType === 'INDIVIDUAL' || giftWrapType === 'TOGETHER')
-    ) {
-        return createErrorNotification('GWT select');
-    } else if (giftWrapType === 'INDIVIDUAL') {
-        document
-            .querySelectorAll('input[name=individual-lineItem]:checked')
-            .forEach((element) => {
-                toBeIndividuallyWrappedPids.push(element.value);
+    if (validate(pid, giftWrapType, toBeIndividuallyWrappedPids)) {
+        var quantity = toBeIndividuallyWrappedPids.length || 1;
+        var form = {
+            pid: pid,
+            quantity: quantity,
+            giftWrapType: giftWrapType,
+            toBeIndividuallyWrappedPids: JSON.stringify(
+                toBeIndividuallyWrappedPids
+            )
+        };
+        $('#addGiftWrapProduct').trigger('updateAddToCartFormData', form);
+        if (addToCartUrl) {
+            $.ajax({
+                url: addToCartUrl,
+                method: 'POST',
+                data: form,
+                success: function () {
+                    window.location.reload();
+                }
             });
-        if (toBeIndividuallyWrappedPids.length == 0) {
-            return createErrorNotification(
-                'toBeIndividuallyWrappedPids select'
-            );
         }
-    }
-    var quantity = toBeIndividuallyWrappedPids.length || 1;
-    var form = {
-        pid: pid,
-        quantity: quantity,
-        giftWrapType: giftWrapType,
-        toBeIndividuallyWrappedPids: JSON.stringify(toBeIndividuallyWrappedPids)
-    };
-    $('#addGiftWrapProduct').trigger('updateAddToCartFormData', form);
-    if (addToCartUrl) {
-        $.ajax({
-            url: addToCartUrl,
-            method: 'POST',
-            data: form,
-            success: function (data) {
-                window.location.reload();
-            }
-        });
     }
 }
 
@@ -93,11 +111,11 @@ $(document).ready(function () {
             'input[type="checkbox"][name=individual-lineItem]'
         );
 
-        let checkallCheckbox = this.checked;
+        var checkallCheckbox = this.checked;
 
         // Iterate through each checkbox and set its checked property to true
-        checkboxes.forEach(function (checkbox) {
-            checkbox.checked = checkallCheckbox;
+        checkboxes.forEach(function (cb) {
+            cb.checked = checkallCheckbox;
         });
     });
 
