@@ -20,25 +20,29 @@
                 line-height: 1.6;
                 display: contents;
 
-                .content-title::before {
-                    background-color: $white;
-                    border-radius: 50%;
-                    content: "";
-                    display: inline-flex;
-                    font-weight: bold;
-                    height: 0.3125rem;
-                    width: 0.3125rem;
-                    margin-left: 0.375rem;
-                    margin-right: 0.375rem;
+                .content-title {
+                    &::before {
+                        background-color: $white;
+                        border-radius: 50%;
+                        content: "";
+                        display: inline-flex;
+                        font-weight: bold;
+                        height: 0.3125rem;
+                        width: 0.3125rem;
+                        margin-left: 0.375rem;
+                        margin-right: 0.375rem;
+                    }
                 }
 
                 .text-underline {
                     text-decoration: underline;
                 }
-            }
 
-            li:first-child .content-title::before {
-                content: none;
+                &:first-child .content-title {
+                    &::before {
+                        content: none;
+                    }
+                }
             }
         }
     }
