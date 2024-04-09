@@ -8,24 +8,14 @@
 'use strict';
 
 var site = require('dw/system/Site');
-var collections = require('*/cartridge/scripts/util/collections');
+var commonHelpers = require('*/cartridge/models/scripts/util/commonHelpers');
 
 module.exports = function (object, apiProduct) {
     Object.defineProperty(object, 'isGreetingCardCategory', {
         enumerable: true,
-        value: (function () {
-            var isGreetingCardCategory = false;
-            if (apiProduct && apiProduct.categories.length > 0) {
-                var categoryName = site.current.getCustomPreferenceValue(
-                    'greetingCardCategoryName'
-                );
-                collections.forEach(apiProduct.categories, function (category) {
-                    if (category.ID === categoryName) {
-                        isGreetingCardCategory = true;
-                    }
-                });
-            }
-            return isGreetingCardCategory;
-        })()
+        value: commonHelpers.isCategoryMatches(
+            apiProduct,
+            site.current.getCustomPreferenceValue('greetingCardCategoryName')
+        )
     });
 };

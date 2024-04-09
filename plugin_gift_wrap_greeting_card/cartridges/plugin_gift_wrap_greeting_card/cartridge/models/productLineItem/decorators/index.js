@@ -7,8 +7,8 @@
 
 'use strict';
 
-var index = require('app_storefront_base/cartridge/models/productLineItem/decorators/index');
+var base = module.superModule;
 
-index.isGreetingCard = require('*/cartridge/models/productLineItem/decorators/isGreetingCard');
+base.isGreetingCard = require('*/cartridge/models/productLineItem/decorators/isGreetingCard');
 
-module.exports = index;
+module.exports = base;
