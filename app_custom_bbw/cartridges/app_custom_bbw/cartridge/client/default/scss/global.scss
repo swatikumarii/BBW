@@ -1,3 +1,24 @@
 @charset "UTF-8";
 
-@import url("~base/global");
+// Font Awesome and Flag Icons
+
+@import "font-awesome/scss/font-awesome";
+@import "flag-icons/sass/flag-icons";
+
+/// # Helper Classes
+
+@import "_brand/_api/api";
+@import "helpers/all";
+@import "helpers/layout/all";
+
+// Vendors OR Third Party
+
+@import "vendors/bootstrap";
+
+/// # Fonts and other Global style
+
+@import "common/all";
+
+// Brand Components
+
+@import "_brand/components/all";

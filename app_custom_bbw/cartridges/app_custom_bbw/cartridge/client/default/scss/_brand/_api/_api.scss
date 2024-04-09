@@ -1,0 +1,13 @@
+// ============================
+// Utility and Variable Imports
+// ============================
+// This section imports utility functions, mixins, and variable definitions from specific directories.
+
+// Import all utility functions and mixins from the "util" directory
+
+@import "./util/all";
+
+// Import all variable definitions from the "var-settings" directory
+
+@import "./variables/var-settings/all";
+@import "./variables/var-components/all";

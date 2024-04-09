@@ -47,6 +47,33 @@ then
             echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
             npm run compile:js
         done
+
+elif [ "$1" = 'meta:import' ]
+then
+    echo "Approve 2 factor-Auth with Salesforce Authenticator."
+    SFCC_CI_AUTH_RES=$(sfcc-ci client:auth)
+    echo "$SFCC_CI_AUTH_RES"
+    if [ "$SFCC_CI_AUTH_RES" = 'Authentication succeeded' ]
+    then
+        echo "SFCC-CI Authenticated Successfully!"
+        SFCC_CI_AUTH_STATUS=true
+        OCAPIACCESS_TOKEN=$(sfcc-ci client:auth:token)
+        FOLDER_TO_UPLOAD="meta"
+        echo "Start Archiving $FOLDER_TO_UPLOAD folder into $FOLDER_TO_UPLOAD.zip"
+        zip -r -q $FOLDER_TO_UPLOAD.zip $FOLDER_TO_UPLOAD
+        SANDBOX_URL=$(cat dw.json | underscore select '.hostname' --outfmt text)
+        echo "$SANDBOX_URL"
+        IS_DATA_UPLOADED=$(sfcc-ci instance:upload $FOLDER_TO_UPLOAD.zip -i ${SANDBOX_URL})
+        if [ "$IS_DATA_UPLOADED" = 'Instance import file '$FOLDER_TO_UPLOAD'.zip uploaded to '${SANDBOX_URL} ]
+        then
+            IS_DATA_IMPORTED=$(sfcc-ci instance:import $FOLDER_TO_UPLOAD.zip -i ${SANDBOX_URL} -s)
+            echo "${IS_DATA_IMPORTED}"
+        else
+            echo "Metadata not uploaded."
+        fi
+    else
+    echo "Authentication Failed."
+    fi
 fi
 echo "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-"
 echo "Done!"

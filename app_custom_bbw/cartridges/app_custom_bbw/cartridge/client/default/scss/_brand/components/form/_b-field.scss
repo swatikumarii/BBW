@@ -1,0 +1,52 @@
+// ====================
+// Input Fields Styling
+// ====================
+// This section defines styles for various input fields and text areas.
+
+// Input Fields
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+textarea,
+.b-input-text {
+    @include text(forminput);
+
+    color: colour(black, 1);
+    padding: 0.3125rem 0.6875rem;
+    border: 1px solid colour(gray, 5);
+    text-indent: 0;
+    width: 100%;
+    border-radius: 0;
+
+    &:focus {
+        outline: 1px dotted colour(black);
+        outline-offset: 2px;
+        border-color: unset;
+        box-shadow: unset;
+        color: inherit;
+        background-color: transparent;
+    }
+
+    &.is-invalid {
+        &:focus {
+            box-shadow: unset;
+        }
+    }
+}
+
+.form-control-label {
+    @include text(formlabel);
+
+    color: colour(black, 3);
+    display: block;
+}
+
+// Invalid Message
+
+.invalid-feedback {
+    color: colour-cmp(error);
+    padding: 0 0 0.3125rem 0.625rem;
+}

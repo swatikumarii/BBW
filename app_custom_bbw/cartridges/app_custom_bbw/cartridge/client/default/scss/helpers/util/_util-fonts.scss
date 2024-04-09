@@ -1,0 +1,87 @@
+// =======================================
+// Font Face Mixin with Flexible Parameters
+// =======================================
+
+// Mixin for defining font face rules with flexible parameters.
+// Parameters:
+//   $fontname: Name of the font family.
+//   $fontfolder: Folder where font files are located (optional, default: "").
+//   $fontfilename: Filename of the font (optional, default: same as $fontname).
+//   $exts: List of font file extensions to include (optional, default: woff2).
+
+@mixin fontface($fontname, $fontfolder: "", $fontfilename: null, $exts: woff2) {
+    $src: null;
+    $path: "../fonts/#{$fontfolder}/#{$fontfilename}";
+    $formats: (
+        otf: "opentype",
+        ttf: "truetype",
+        woff: "woff"
+    );
+
+    @if not($fontfilename) {
+        $fontfilename: $fontname;
+    }
+
+    // Looping through each font file extension.
+    @each $ext in $exts {
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append(
+            $src,
+            url(quote($path + "." + $ext)) format(quote($format)),
+            comma
+        );
+    }
+
+    // Defining font face rules.
+    @font-face {
+        font-family: quote(#{$fontname});
+        src: $src;
+        @content;
+    }
+}
+
+// =======================================
+// Font Creation Mixin with Font Face Rules
+// =======================================
+
+// Mixin for creating font families and font face rules based on provided map.
+// Parameters:
+//   $fontsMap: Map containing font families and their properties.
+
+@mixin createFonts($fontsMap) {
+    // Loop through each font family and its properties.
+    @each $fontName, $fontProperties in $fontsMap {
+        // Loop through each font weight and its properties.
+        @each $weightName,
+            $weightProperties in map-get($fontProperties, "fontWeights")
+        {
+            $fontFaceParams: map-get($weightProperties, "fontFaceParams");
+            $fontFaceFilesName: "";
+            $fontTextExample: "Lorem ipsum dolor sit amet";
+            $fontTextExampleRTL: "";
+
+            // prettier-ignore
+            $fontFaceFilesName: $fontFaceFilesName + map-get($fontFaceParams, "fontFileName") + ",";
+            @include fontface(
+                map-get($fontFaceParams, "fontName"),
+                map-get($fontFaceParams, "fontFolder"),
+                map-get($fontFaceParams, "fontFileName"),
+                map-get($fontFaceParams, "ext")
+            ) {
+                font-weight: map-get($weightProperties, "weightValue");
+                font-style: map-get($weightProperties, "styleValue");
+            }
+
+            // Generate utility classes for each font type
+            $fontClass: m-font-#{$fontName}--#{$weightName};
+
+            .#{$fontClass} {
+                font-family: map-get($fontProperties, "fontFamily") !important;
+                font-weight: map-get(
+                    $weightProperties,
+                    "weightValue"
+                ) !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,233 @@
+// Loop through each grid column and calculate width based on grid count
+
+@for $i from 1 through $grid-cols-count {
+    // Calculate column width as a percentage of total grid width
+    $col-width: ((100 / $grid-cols-count) * $i) * 1%;
+
+    // Generate helper classes for each media query breakpoint
+    @include createHelperForEachMedia(".l-grid__col", #{$i}) {
+        // Set width and max-width for the grid column
+        width: $col-width;
+        max-width: $col-width;
+    }
+}
+
+/*
+  Styles for defining grid layouts.
+*/
+
+.l-grid {
+    /*
+      Styles for grid columns.
+    */
+    &__col {
+        width: 100%;
+    }
+
+    /*
+      Styles for columns with specific salutation.
+    */
+    &__col--salution {
+        max-width: 130px;
+    }
+
+    /*
+      Styles for a grid layout with 1 column on mobile and 2 columns on medium-sized screens.
+    */
+    &--1l-2r {
+        .l-grid__row {
+            @include media-up(md) {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 10px;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            > div {
+                margin-top: 10px;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                @include media-up(md) {
+                    padding: 0;
+                    max-width: 100%;
+                    width: auto;
+                    margin-top: 0;
+
+                    /*
+                    Uncomment the following line to span the first child element across two rows on medium-sized screens.
+                    */
+                    // grid-row-start: span 2;
+
+                    &:last-child {
+                        display: flex;
+                        align-items: flex-end;
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+      Styles for a collage layout with 2 columns on medium-sized screens.
+    */
+    &--collage {
+        .l-grid__row {
+            @include media-up(md) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+                grid-gap: 10px;
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            > div {
+                margin-top: 10px;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                /*
+                    Styles for adjusting image aspect ratio in the collage layout.
+                */
+                .b-picture__img {
+                    aspect-ratio: 0.67;
+                }
+
+                @include media-up(md) {
+                    padding: 0;
+                    max-width: 100%;
+                    width: auto;
+                    margin-top: 0;
+
+                    /*
+                        Adjust image aspect ratio for medium-sized screens.
+                    */
+                    .b-picture__img {
+                        aspect-ratio: 1.33;
+                    }
+
+                    /*
+                        Styles for spanning every other element across two rows in the collage layout on medium-sized screens.
+                    */
+                    &:nth-child(2n + 1) {
+                        grid-row-start: span 2;
+
+                        /*
+                            Adjust image aspect ratio for elements spanning two rows.
+                        */
+                        .b-picture__img {
+                            aspect-ratio: 0.95;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// This mixin creates helper classes for a grid layout with zero gutter spacing.
+
+@include createHelperForEachMedia(
+    ".l-grid--gutter-0",
+    $propertyConfig: (onlyprefix: true)
+) {
+    // Reset margin for grid rows to eliminate any horizontal spacing.
+    .l-grid__row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    // Reset padding for grid columns to eliminate any internal spacing.
+    [class*="l-grid__col"] {
+        padding: 0 !important;
+    }
+}
+
+// This mixin creates helper classes for grid columns with zero width.
+
+@include createHelperForEachMedia(".l-grid__col", "0") {
+    // Set width of grid columns to 'auto' to allow them to expand as needed.
+    width: auto;
+
+    // Remove any maximum width constraint on grid columns.
+    max-width: none;
+}
+
+/**
+ * Mixin to apply column spacing within a grid layout.
+ * @param {String} $gutterName - The name of the gutter.
+ * @param {Map} $gutterValue - Map containing gutter values for different breakpoints.
+ * @param {Boolean} $noSuffix - Indicates whether to include a suffix in the class name.
+ */
+
+@mixin gridColSpacing($gutterName, $gutterValue, $noSuffix: false) {
+    // Extracting base size from gutter values
+    $baseSize: map-get($gutterValue, base);
+
+    // Initializing suffix and selectorEnd variables
+    $suffix: "";
+    $selectorEnd: "";
+
+    // Checking if gutterName is not 'default' to add suffix
+    @if $gutterName != "default" {
+        $suffix: --#{$gutterName};
+    }
+
+    // Checking if noSuffix is true to modify suffix and selectorEnd
+    @if $noSuffix == true {
+        $suffix: "";
+        $selectorEnd: ":not([class*='l-grid__row--gap'])";
+    }
+
+    // Styling for grid rows
+    .l-grid__row#{$suffix}#{$selectorEnd} {
+        margin-left: -$baseSize;
+        margin-right: -$baseSize;
+
+        // Looping through gutter values for different breakpoints
+        @each $gridBpName, $bpValue in $gutterValue {
+            // Checking if breakpoint exists in breakpoints map
+            @if map-has-key($breakpoints, $gridBpName) {
+                @include media-up($gridBpName) {
+                    margin-left: -#{map-get($gutterValue, $gridBpName)};
+                    margin-right: -#{map-get($gutterValue, $gridBpName)};
+                }
+            }
+        }
+
+        // Styling for grid columns
+        > [class*="l-grid__col"] {
+            padding-left: $baseSize;
+            padding-right: $baseSize;
+
+            // Looping through gutter values for different breakpoints
+            @each $gridBpName, $bpValue in $gutterValue {
+                // Checking if breakpoint exists in breakpoints map
+                @if map-has-key($breakpoints, $gridBpName) {
+                    @include media-up($gridBpName) {
+                        padding-left: #{map-get($gutterValue, $gridBpName)};
+                        padding-right: #{map-get($gutterValue, $gridBpName)};
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Applying grid column spacing for each gutter defined in grid-gutters map
+
+@each $gutterName, $gutterValue in $grid-gutters {
+    @include gridColSpacing($gutterName, $gutterValue, false);
+}
+
+.h-bg-lg--none {
+    @include media-up(md) {
+        background: transparent !important;
+    }
+}
