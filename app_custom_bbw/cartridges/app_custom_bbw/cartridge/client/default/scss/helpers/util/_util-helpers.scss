@@ -1,0 +1,287 @@
+// @use "sass:list";
+
+@mixin grid-row() {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+}
+
+@mixin visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    font-size: 0;
+    height: 1px;
+    margin: -1px;
+    max-width: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+@mixin text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/**
+ * Mixin for creating helper classes with configurable properties.
+ * This mixin generates helper classes based on the provided configuration.
+ *
+ * @param {Map} $propertyConfig - Configuration map containing properties and values.
+ * @param {String} $propertyClass - Base class name for the helper classes.
+ */
+
+@mixin createHelper($propertyConfig, $propertyClass) {
+    // Extract properties and values from the configuration map
+    $props: map-get($propertyConfig, props);
+    $values: map-get($propertyConfig, values);
+
+    // Generate helper classes for individual values
+    @if map-has-key($propertyConfig, values) {
+        @include helperHandler(
+            $propertyClass,
+            $props,
+            $values,
+            "",
+            $propertyConfig
+        );
+    }
+
+    // Generate helper classes for value ranges
+    @if map-has-key($propertyConfig, range) {
+        $range: map-get($propertyConfig, range);
+        $step: map-get($propertyConfig, step);
+        $unit: map-get($propertyConfig, unit);
+        $value: nth($range, 1);
+        $rangeStep: null;
+        $rangeStepValue: null;
+
+        // Handle range values
+        @if map-has-key($propertyConfig, rangestep) {
+            $rangeStepConfig: map-get($propertyConfig, rangestep);
+            $rangeStepValue: map-get($rangeStepConfig, value);
+            $rangeStep: map-get($rangeStepConfig, step);
+        }
+
+        // Loop through the range and generate helper classes
+        @while $value <= nth($range, 2) {
+            @include helperHandler(
+                $propertyClass,
+                $props,
+                $value,
+                $unit,
+                $propertyConfig
+            );
+
+            $currentStep: $step;
+            $isNegativeNum: $value < 0;
+
+            // Handle range steps
+            @if $rangeStepValue {
+                $isProcessRangeValue: $value < $rangeStepValue;
+
+                @if $isNegativeNum {
+                    // prettier-ignore
+                    $isProcessRangeValue: $value > - $rangeStepValue and $value < 0;
+                }
+
+                @if $isProcessRangeValue {
+                    $currentStep: $rangeStep;
+                }
+            }
+
+            $value: $value + $currentStep;
+        }
+    }
+
+    // Generate helper classes for mixins
+    @if map-has-key($propertyConfig, mixin) {
+        @include createHelperForEachMedia($propertyClass, "", $propertyConfig) {
+            @if map-get($propertyConfig, mixin) == "visually-hidden" {
+                @include visually-hidden;
+            }
+
+            @if map-get($propertyConfig, mixin) == "text-truncate" {
+                @include text-truncate;
+            }
+
+            @if map-get($propertyConfig, mixin) == "grid-row" {
+                @include grid-row;
+            }
+        }
+    }
+}
+
+/**
+ * Mixin to handle helper class properties and values
+ *
+ * This mixin iterates over a list of property values and generates helper classes for each value.
+ * It includes the `createHelperForEachMedia` mixin to create helper classes for each media breakpoint,
+ * and then invokes the `helperHandlerValues` mixin to apply the property values to the generated classes.
+ *
+ * @param {String} $classname - The base class name for the helper classes
+ * @param {List} $properties - List of properties to apply to the helper classes
+ * @param {List} $values - List of values to apply to the helper classes
+ * @param {String} $unit - Optional unit for the property values (default: '')
+ * @param {Map} $propertyConfig - Optional configuration for generating helper classes (default: false)
+ */
+
+@mixin helperHandler(
+    $classname,
+    $properties,
+    $values,
+    $unit: "",
+    $propertyConfig: false
+) {
+    @each $value in $values {
+        @include createHelperForEachMedia($classname, $value, $propertyConfig) {
+            @include helperHandlerValues(
+                $classname,
+                $properties,
+                $values,
+                $value,
+                $unit
+            );
+        }
+    }
+}
+
+/**
+ * Mixin to handle a single property value for a helper class.
+ * If the value is zero, the unit is removed.
+ * If the unit is "rem" and the value is not zero, it is converted to "rem".
+ * Generates CSS with !important flag for specificity.
+ *
+ * @param {String} $property - The CSS property name.
+ * @param {Number} $value - The value of the CSS property.
+ * @param {String} $unit - The unit of measurement for the value.
+ */
+
+@mixin helperHandlerValue($property, $value, $unit) {
+    // Check if the value is zero
+    @if strip-unit($value) == 0 {
+        // Remove unit if value is zero
+        $unit: "";
+    }
+
+    // Check if the unit is "rem" and the value is not zero
+    @if $unit == "rem" and strip-unit($value) != 0 {
+        // Convert value to "rem" if unit is "rem" and value is not zero
+        #{$property}: rem($value * 1) !important;
+    } @else {
+        // Generate CSS with property, value, and unit
+        #{$property}: #{$value}#{$unit} !important;
+    }
+}
+
+// Mixin for handling multiple property values for a helper class
+
+@mixin helperHandlerValues($classname, $properties, $values, $value, $unit) {
+    // Check if $properties is a string
+    @if type-of($properties) == "string" {
+        // Include helperHandlerValue mixin for single property
+        @include helperHandlerValue($properties, $value, $unit);
+    }
+
+    // Check if $properties is a list
+    @else if type-of($properties) == "list" {
+        // Loop through each property in the list
+        @each $property in $properties {
+            // Include helperHandlerValue mixin for each property
+            @include helperHandlerValue($property, $value, $unit);
+        }
+    }
+}
+
+/**
+ * Mixin to create helper classes for each media breakpoint.
+ * Dynamically generates helper classes based on the provided parameters.
+ * Applies content within each generated helper class.
+ *
+ * @param {String} $classNameStart - The base class name for the helper classes.
+ * @param {String} $classNameEnd - The optional suffix for the helper class name.
+ * @param {Map} $propertyConfig - Configuration settings for the helper classes.
+ */
+
+@mixin createHelperForEachMedia(
+    $classNameStart,
+    $classNameEnd: "",
+    $propertyConfig: ()
+) {
+    // Define variables for helper class generation
+    $valueDivider: "--";
+    $onlyPrefix: map-get($propertyConfig, onlyprefix);
+    $noBreakpoints: map-get($propertyConfig, nobreakpoints);
+    $propDeviceBreakpoints: $devicebreakpoints;
+
+    // Adjust variables based on configuration settings
+    @if $onlyPrefix {
+        $classNameEnd: "";
+        $valueDivider: "";
+    }
+
+    @if map-get($propertyConfig, devicebreakpoints) {
+        $propDeviceBreakpoints: map-get($propertyConfig, devicebreakpoints);
+    }
+
+    @if type-of($classNameEnd) == "number" and $classNameEnd < 0 {
+        $valueDivider: $valueDivider + "neg";
+    }
+
+    // Generate selector for helper classes
+    $selector: #{$classNameStart}#{$valueDivider}#{$classNameEnd};
+    $isTextColorHelper: $classNameStart == ".h-clr";
+
+    // Append additional selectors for specific cases
+    @if $isTextColorHelper {
+        // prettier-ignore
+        $selector: $selector + ", #{$selector} a:not(.btn), #{$selector} .h-clr--inherit-parent";
+    }
+
+    // Apply content within the generated helper classes
+    #{$selector} {
+        @content;
+    }
+
+    // Generate helper classes for each media breakpoint
+    @if not($noBreakpoints) {
+        @each $bpName, $bpValue in $breakpoints {
+            // Generate selector for media-up breakpoint
+            $selectorMediaUp: #{$classNameStart}-#{$bpName}#{$valueDivider}#{$classNameEnd};
+
+            // Append additional selectors for specific cases in media-up
+            @if $isTextColorHelper {
+                // prettier-ignore
+                $selectorMediaUp: $selectorMediaUp + ", #{$selectorMediaUp} a:not(.btn)";
+            }
+
+            // Apply content within the media-up helper classes
+            #{$selectorMediaUp} {
+                @include media-up(#{$bpName}) {
+                    @content;
+                }
+            }
+
+            // Generate selector for media-down breakpoint
+
+            @if index($propDeviceBreakpoints, $bpName) {
+                $selectorMediaDown: #{$classNameStart}-#{$bpName}-down#{$valueDivider}#{$classNameEnd};
+
+                // Append additional selectors for specific cases in media-down
+                @if $isTextColorHelper {
+                    // prettier-ignore
+                    $selectorMediaDown: $selectorMediaDown + ", #{$selectorMediaDown} a";
+                }
+
+                // Apply content within the media-down helper classes
+                #{$selectorMediaDown} {
+                    @include media-down(#{$bpName}) {
+                        @content;
+                    }
+                }
+            }
+        }
+    }
+}

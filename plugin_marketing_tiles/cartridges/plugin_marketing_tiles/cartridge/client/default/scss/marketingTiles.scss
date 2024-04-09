@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+@import "variables";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
+.marketing {
+    &.mobile {
+        @include media-breakpoint-up(md) {
+            display: none;
+        }
+    }
+
+    &.desktop {
+        @include media-breakpoint-down(md) {
+            display: none;
+        }
+    }
+}

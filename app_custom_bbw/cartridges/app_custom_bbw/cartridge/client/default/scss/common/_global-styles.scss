@@ -1,0 +1,113 @@
+// ==================================
+// Importing Fonts and Creating Fonts
+// ==================================
+
+// Including mixin to create fonts based on the provided map.
+
+@include createFonts($fonts);
+
+// =========================
+// Disable Scroll Constants
+// =========================
+
+// Constant for disabling scroll.
+$const-disable-scroll: ".m-disable-scroll";
+
+// =========================
+// HTML and Body Styles
+// =========================
+
+// Setting base font size for HTML.
+html {
+    font-size: $base-html-font-size;
+}
+
+// Setting body styles.
+body {
+    overflow: hidden scroll; // Disabling horizontal overflow and enabling vertical scroll.
+    position: relative; // Setting position to relative.
+}
+
+// Applying scroll disable to HTML and Body when the appropriate class is applied.
+html,
+body {
+    &#{$const-disable-scroll} {
+        overflow: hidden; // Disabling scroll.
+    }
+}
+
+// =========================
+// Text and Link Styles
+// =========================
+
+// Setting default text color for body and links.
+body,
+a {
+    color: colour(black, 1);
+}
+
+// Link styles.
+a {
+    &:hover {
+        text-decoration: none; // Removing underline on hover.
+    }
+
+    &:focus {
+        outline: 1px dotted colour(black); // Adding outline on focus.
+        outline-offset: 2px;
+    }
+
+    @include hover {
+        text-decoration: none; // Removing underline on hover (using mixin).
+    }
+}
+
+// =========================
+// Paragraph Styles
+// =========================
+
+// Setting margin bottom for paragraphs.
+p {
+    margin-bottom: 16px;
+}
+
+// =========================
+// List Styles
+// =========================
+
+// Resetting padding and margin for lists.
+ol,
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+// List item styles.
+ol li,
+ul li {
+    font-size: 14px; // Setting font size for list items.
+    font-size: 0.875rem;
+    line-height: 24px; // Setting line height for list items.
+    line-height: 1.5rem;
+    color: colour(gray); // Setting text color for list items.
+}
+
+// =========================
+// Bold Text Styles
+// =========================
+
+// Setting font weight for bold text.
+b,
+ol li,
+strong,
+ul li {
+    font-weight: 400; // Setting font weight.
+}
+
+// ===================================
+// Creating Components from Typography
+// ===================================
+
+// Including mixin to create components from the brand typography map.
+
+@include createComponentsFromMap($brandTypography, "b-text");

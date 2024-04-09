@@ -1,0 +1,40 @@
+@use "sass:map";
+
+/**
+ * Iterate through each CSS helper class and create helper classes based on their configuration.
+ * For each helper class, calls the createHelper mixin to generate corresponding CSS rules.
+ * Additionally, generates media queries for absolute positioned blocks for two breakpoints: 'md' and 'md-down'.
+ * Applies absolute positioning styles using the absPositionedBlock mixin.
+ *
+ * @param {Map} $cssHelpers - Map containing CSS helper classes and their configurations.
+ */
+
+@each $propertyClass in map-keys($cssHelpers) {
+    // Retrieve the configuration for the current helper class
+    $propertyConfig: map-get($cssHelpers, $propertyClass);
+
+    // Generate helper classes based on the configuration
+    @include createHelper($propertyConfig, $propertyClass);
+}
+
+// Generate media queries for absolute positioned blocks
+
+@for $i from 1 through 2 {
+    // Media query for 'md' breakpoint
+    @include media-up(md) {
+        // Selector for absolute positioned block at 'md' breakpoint
+        .b-positioned-#{$i}-d {
+            // Apply absolute positioning styles using absPositionedBlock mixin
+            @include absPositionedBlock($i, "d");
+        }
+    }
+
+    // Media query for 'md-down' breakpoint
+    @include media-down(md) {
+        // Selector for absolute positioned block at 'md-down' breakpoint
+        .b-positioned-#{$i}-m {
+            // Apply absolute positioning styles using absPositionedBlock mixin
+            @include absPositionedBlock($i, "m");
+        }
+    }
+}
