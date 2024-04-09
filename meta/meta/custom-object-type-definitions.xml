@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <custom-type type-id="newsletterSubscriptions">
+        <display-name xml:lang="x-default">Newsletter Subscriptions</display-name>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="email">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="emailFrequency">
+                <display-name xml:lang="x-default">Email Frequency</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">All Emails</display>
+                        <value>all_emails</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Monthly</display>
+                        <value>monthly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Twice monthly</display>
+                        <value>twice_monthly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Twice weekly</display>
+                        <value>twice_weekly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Weekly</display>
+                        <value>weekly</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="objectCreationTime">
+                <display-name xml:lang="x-default">Object Creation Time</display-name>
+                <type>date</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="newsletterSubscriptions">
+                <display-name xml:lang="x-default">newsletterSubscriptions</display-name>
+                <attribute attribute-id="emailFrequency"/>
+                <attribute attribute-id="email"/>
+                <attribute attribute-id="creationDate" system="true"/>
+                <attribute attribute-id="lastModified" system="true"/>
+                <attribute attribute-id="objectCreationTime"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+</metadata>
