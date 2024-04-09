@@ -1,18 +1,17 @@
 'use strict';
 
 var Encoding = require('dw/crypto/Encoding');
-var Site = require('dw/system/Site');
 
-var encryptionKey = Site.current.getCustomPreferenceValue('encryptionKey');
+var encryptionKey = 'm375xGRfHcPXUsNyX4UX4uQZg9rW4Oe2';
 var transformation = 'AES/ECB/PKCS5Padding';
 
 var saltVectorBytes = Encoding.fromHex('00000000000000000000000000000000');
 var saltVector = Encoding.toBase64(saltVectorBytes);
 
 /**
- * Decode string for check ID
- * @param pin{string} : string to be decoded
- * @return result{string} : decodedCardPin
+ * Decode ID
+ * @param pin{string} : ID to be decoded
+ * @return result{string} : decoded ID
 */
 function decryptPin(pin) {
     try {
@@ -26,9 +25,9 @@ function decryptPin(pin) {
 }
 
 /**
- * Encode string for send ID in the email
- * @param pin{string} :string to be encoded
- * @return encodedCardPin
+ * Encode ID
+ * @param pin{string} : ID to be encoded
+ * @return result{string} : encoded ID
 */
 function encryptPin(pin) {
     try {

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<preferences xmlns="http://www.demandware.com/xml/impex/preferences/2007-03-31">
-    <custom-preferences>
-        <all-instances/>
-        <development>
-            <preference preference-id="encryptionKey">m375xGRfHcPXUsNyX4UX4uQZg9rW4Oe2</preference>
-        </development>
-    </custom-preferences>
-</preferences>
