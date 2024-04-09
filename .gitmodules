@@ -13,3 +13,9 @@
 [submodule "plugin_seo"]
 	path = plugin_seo
 	url = https://github.com/SalesforceCommerceCloud/plugin_seo.git
+[submodule "plugin_wishlists"]
+	path = plugin_wishlists
+	url = https://github.com/SalesforceCommerceCloud/plugin_wishlists.git
+[submodule "lib_productlist"]
+	path = lib_productlist
+	url = https://github.com/SalesforceCommerceCloud/lib_productlist.git

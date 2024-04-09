@@ -63,6 +63,7 @@
   ],
   "paths": {
     "base": "../storefront-reference-architecture/cartridges/app_storefront_base/",
-    "bbw": "../app_custom_bbw/cartridges/app_custom_bbw"
+    "bbw": "../app_custom_bbw/cartridges/app_custom_bbw",
+    "wishlist": "../plugin_wishlists/cartridges/plugin_wishlists/"
   }
 }
