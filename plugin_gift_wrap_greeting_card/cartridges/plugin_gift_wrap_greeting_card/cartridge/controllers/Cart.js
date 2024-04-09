@@ -6,7 +6,6 @@ server.extend(module.superModule);
 var site = require('dw/system/Site');
 var BasketMgr = require('dw/order/BasketMgr');
 var Transaction = require('dw/system/Transaction');
-var collections = require('*/cartridge/scripts/util/collections');
 var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
 var commonHelpers = require('*/cartridge/models/scripts/util/commonHelpers');
 
@@ -54,26 +53,24 @@ server.append('AddProduct', function (req, res, next) {
     );
     if (req.form.greetingCardMessage) {
         var greetingCardMessage = req.form.greetingCardMessage;
+        var productLineItems = currentBasket.getAllProductLineItems().toArray();;
         Transaction.wrap(function () {
-            collections.forEach(
-                currentBasket.getAllProductLineItems(),
-                function (productLineItem) {
+            for (var i = 0; i < productLineItems.length; i++) {
+                var pli = productLineItems[i];
+                if (
+                    pli.product &&
+                    pli.product.categories.length > 0
+                ) {
                     if (
-                        productLineItem.product &&
-                        productLineItem.product.categories.length > 0
+                        commonHelpers.isCategoryMatches(
+                            pli.product,
+                            greetingCardCategoryName
+                        )
                     ) {
-                        collections.forEach(
-                            productLineItem.product.categories,
-                            function (category) {
-                                if (category.ID === greetingCardCategoryName) {
-                                    productLineItem.custom.greetingCardMessage =
-                                        greetingCardMessage;
-                                }
-                            }
-                        );
+                        pli.custom.greetingCardMessage = greetingCardMessage;
                     }
                 }
-            );
+            }
         });
     }
 
