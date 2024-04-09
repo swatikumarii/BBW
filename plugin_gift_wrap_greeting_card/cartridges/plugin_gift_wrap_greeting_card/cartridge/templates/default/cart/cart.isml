@@ -70,8 +70,10 @@
                             </isif>
                         </isif>
                     </isloop>
+                    <isinclude template="cart/productCard/cartGreetingCard" />
                     <isinclude template="cart/productCard/cartGiftWrapProductCard" />
                     <isinclude template="cart/cartApproachingDiscount" />
+                    <isinclude template="cart/greetingCard" />
                     <isinclude template="cart/giftWrap" />
                 </div>
                 <!---totals, and checkout actions--->
@@ -91,10 +93,10 @@
                     </div>
                 </div>
             </div>
-            <isinclude template="cart/cartRemoveProductModal" />
+            <isinclude template="cart/cartRemoveProductModal"/>
         </div>
 
-        <isinclude template="cart/cartRemoveCouponModal" />
+        <isinclude template="cart/cartRemoveCouponModal"/>
     </isif>
     <div class="container">
         <isslot id="cart-recommendations-m" description="Recommended products" context="global" />

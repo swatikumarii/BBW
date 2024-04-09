@@ -1,5 +1,7 @@
 'use strict';
 
+var base = module.superModule;
+
 var collections = require('*/cartridge/scripts/util/collections');
 var ProductFactory = require('*/cartridge/scripts/factories/product');
 var URLUtils = require('dw/web/URLUtils');
@@ -15,7 +17,7 @@ var Resource = require('dw/web/Resource');
 function createProductLineItemsObject(allLineItems, view) {
     var lineItems = [];
     var giftWrapLineItem = null;
-
+    var greetingCardLineItem = null;
     collections.forEach(allLineItems, function (item) {
         // when item's category is unassigned, return a lineItem with limited attributes
         if (!item.product) {
@@ -102,28 +104,18 @@ function createProductLineItemsObject(allLineItems, view) {
         ) {
             if (newLineItem.isGiftWrapCategory) {
                 giftWrapLineItem = newLineItem;
+            } else if (newLineItem.isGreetingCardCategory) {
+                if ('greetingCardMessage' in item.custom) {
+                    newLineItem.greetingCardMessage =
+                        item.custom.greetingCardMessage;
+                }
+                greetingCardLineItem = newLineItem;
             } else {
                 lineItems.push(newLineItem);
             }
         }
     });
-    return [lineItems, giftWrapLineItem];
-}
-
-/**
- * Loops through all of the product line items and adds the quantities together.
- * @param {dw.util.Collection<dw.order.ProductLineItem>} items - All product
- * line items of the basket
- * @returns {number} a number representing all product line items in the lineItem container.
- */
-function getTotalQuantity(items) {
-    // TODO add giftCertificateLineItems quantity
-    var totalQuantity = 0;
-    collections.forEach(items, function (lineItem) {
-        totalQuantity += lineItem.quantity.value;
-    });
-
-    return totalQuantity;
+    return [lineItems, giftWrapLineItem, greetingCardLineItem];
 }
 
 /**
@@ -138,14 +130,16 @@ function ProductLineItems(productLineItems, view) {
         var allLineItems = createProductLineItemsObject(productLineItems, view);
         this.items = allLineItems[0];
         this.giftWrapItem = allLineItems[1];
-        this.totalQuantity = getTotalQuantity(productLineItems);
+        this.greetingCardItem = allLineItems[2];
+        this.totalQuantity = base.getTotalQuantity(productLineItems);
     } else {
         this.items = [];
         this.giftWrapItem = null;
+        this.greetingCardItem = null;
         this.totalQuantity = 0;
     }
 }
 
-ProductLineItems.getTotalQuantity = getTotalQuantity;
+ProductLineItems.getTotalQuantity = base.getTotalQuantity;
 
 module.exports = ProductLineItems;

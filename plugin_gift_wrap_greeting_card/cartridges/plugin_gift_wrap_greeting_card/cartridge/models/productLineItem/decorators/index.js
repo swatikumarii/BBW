@@ -1,15 +1,16 @@
 /**
  * File Name          : index.js
- * Description        : index.js file for product badges and available to sell changes
+ * Description        : index.js file for product badges and available to sell cahnges
  * Ver       Modification
  * 1.0    Product decorator changes
  */
 
 'use strict';
 
-var index = require('app_storefront_base/cartridge/models/productLineItem/decorators/index');
+var base = module.superModule;
 
-index.isGiftWrappable = require('*/cartridge/models/productLineItem/decorators/isGiftWrappable');
-index.isGiftWrapCategory = require('*/cartridge/models/productLineItem/decorators/isGiftWrapCategory');
+base.isGreetingCard = require('*/cartridge/models/productLineItem/decorators/isGreetingCard');
+base.isGiftWrappable = require('*/cartridge/models/productLineItem/decorators/isGiftWrappable');
+base.isGiftWrapCategory = require('*/cartridge/models/productLineItem/decorators/isGiftWrapCategory');
 
-module.exports = index;
+module.exports = base;

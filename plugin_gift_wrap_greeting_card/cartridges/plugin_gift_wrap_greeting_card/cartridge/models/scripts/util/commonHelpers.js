@@ -7,7 +7,11 @@
 
 'use strict';
 
+var CatalogMgr = require('dw/catalog/CatalogMgr');
+var productMgr = require('dw/catalog/ProductMgr');
 var collections = require('*/cartridge/scripts/util/collections');
+var fullProduct = require('*/cartridge/models/product/fullProduct');
+var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
 
 /**
  * This function macthes passing categoryName with all categories of products and return true is match else false
@@ -27,6 +31,43 @@ function isCategoryMatches(product, categoryName) {
     return isCatMatches;
 }
 
+/**
+ * Get online products by category category should not null
+ * @param {string} categoryName The first number.
+ * @returns {dw.util.Collection} collection - Collection of online products.
+ */
+function getOnlineProductsByCategory(categoryName) {
+    var category = CatalogMgr.getCategory(categoryName);
+    return category ? category.onlineProducts : [];
+}
+
+/**
+ * Get all online Gift wrap products
+ * @param {dw.util.Collection} products : Products
+ * @returns {Array} Full product information according to @link cartridge/models/product/fullProduct.
+ */
+function fetchFullProducts(products) {
+    var fullProducts = [];
+    for (var i = 0; i < products.length; i++) {
+        if (products[i].availabilityModel.inStock) {
+            var product = Object.create(null);
+            var pid = products[i].ID;
+            var productTileParams = { pview: 'tile', pid: pid };
+            var apiProduct = productMgr.getProduct(pid);
+            var options = productHelper.getConfig(
+                apiProduct,
+                productTileParams
+            );
+            fullProducts.push(
+                fullProduct(product, options.apiProduct, options)
+            );
+        }
+    }
+    return fullProducts;
+}
+
 module.exports = {
-    isCategoryMatches: isCategoryMatches
+    isCategoryMatches: isCategoryMatches,
+    getOnlineProductsByCategory: getOnlineProductsByCategory,
+    fetchFullProducts: fetchFullProducts
 };

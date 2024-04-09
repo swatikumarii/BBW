@@ -79,39 +79,63 @@ function getGiftWrapProducts() {
 }
 
 /**
+ * Get all online Greeting card products
+ * @returns {dw.util.Collection} collection - Collection of online products.
+ */
+function getGreetingCardProducts() {
+    return commonHelpers.fetchFullProducts(
+        commonHelpers.getOnlineProductsByCategory(
+            site.current.getCustomPreferenceValue('greetingCardCategoryName')
+        )
+    );
+}
+
+/**
  * Cart-Show : The Cart-Show endpoint,
  * This appand will use for
  * 1. Set isGiftWrapEnable according to custom preference
  * 2. Show Gift Wrap Products
+ * Cart-Show : The Cart-Show endpoint
  * @name Cart-Show
  */
 server.append(
     'Show',
     function (req, res, next) {
         var viewData = res.getViewData();
-        viewData.isGiftWrapEnable =
-            site.current.getCustomPreferenceValue('isGiftWrapEnable');
-        if (viewData.isGiftWrapEnable && viewData.items.length > 0) {
-            var wrappableProducts = [];
-            viewData.items.forEach(function(element) {
-                if (element.isGiftWrappable) {
-                    wrappableProducts.push(element);
+        viewData.isGreetingCardEnable = site.current.getCustomPreferenceValue(
+            'isGreetingCardEnable'
+        );
+
+        if (viewData.items.length > 0) {
+            if (viewData.isGreetingCardEnable) {
+                viewData.greetingCardMessageLimit =
+                    site.current.getCustomPreferenceValue('greetingCardMessageLimit');
+                viewData.greetingCardProducts = getGreetingCardProducts();
+                viewData.isGiftWrapEnable =
+                    site.current.getCustomPreferenceValue('isGiftWrapEnable');
+            }
+            if (viewData.isGiftWrapEnable) {
+                var wrappableProducts = [];
+                viewData.items.forEach(function(element) {
+                    if (element.isGiftWrappable) {
+                        wrappableProducts.push(element);
+                    }
+                });
+                if (wrappableProducts.length === 0) {
+                    viewData.isGiftWrapEnable = false;
+                } else {
+                    viewData.wrapItemMethod =
+                        site.current.getCustomPreferenceValue(
+                            'wrapItemMethod'
+                        ).value;
+                    viewData.giftWrapProducts = getGiftWrapProducts();
+                    viewData.isDisableTogetherOption =
+                        viewData.items.length !== wrappableProducts.length;
+                    viewData.isDisableIndividualOption =
+                        viewData.items.length === 1 &&
+                        viewData.items[0].quantity === 1;
+                    viewData.wrappableProducts = wrappableProducts;
                 }
-            });
-            if (wrappableProducts.length === 0) {
-                viewData.isGiftWrapEnable = false;
-            } else {
-                viewData.wrapItemMethod =
-                    site.current.getCustomPreferenceValue(
-                        'wrapItemMethod'
-                    ).value;
-                viewData.giftWrapProducts = getGiftWrapProducts();
-                viewData.isDisableTogetherOption =
-                    viewData.items.length !== wrappableProducts.length;
-                viewData.isDisableIndividualOption =
-                    viewData.items.length === 1 &&
-                    viewData.items[0].quantity === 1;
-                viewData.wrappableProducts = wrappableProducts;
             }
         }
         res.setViewData(viewData);
@@ -125,7 +149,6 @@ server.append(
  * @name Cart-AddProduct
  */
 server.prepend('AddProduct', function (req, res, next) {
-
     var giftWrapCategoryName = site.current.getCustomPreferenceValue(
         'giftWrapCategoryName'
     );
@@ -169,6 +192,30 @@ server.prepend('AddProduct', function (req, res, next) {
  */
 server.append('AddProduct', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentOrNewBasket();
+
+    var greetingCardCategoryName = site.current.getCustomPreferenceValue(
+        'greetingCardCategoryName'
+    );
+    if (req.form.greetingCardMessage) {
+        var greetingCardMessage = req.form.greetingCardMessage;
+        var productLineItemArray = currentBasket.getAllProductLineItems().toArray();
+        Transaction.wrap(function () {
+            for (var i = 0; i < productLineItemArray.length; i++) {
+                var pli = productLineItemArray[i];
+                if (pli.product && pli.product.categories.length > 0) {
+                    if (
+                        commonHelpers.isCategoryMatches(
+                            pli.product,
+                            greetingCardCategoryName
+                        )
+                    ) {
+                        pli.custom.greetingCardMessage = greetingCardMessage;
+                    }
+                }
+            }
+        });
+    }
+
     var giftWrapProduct = null;
     var giftWrapCategoryName = site.current.getCustomPreferenceValue(
         'giftWrapCategoryName'
@@ -327,11 +374,6 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
     return next();
 });
 
-/**
- * 1. Fetch productlineitem from cart
- * 2. Fetch
- * 2. If wrappedQuantity <
- */
 /**
  * Cart-UpdateQuantity : The Cart-UpdateQuantity endpoint handles updating the quantity of a product line item in the basket
  * @name Cart-UpdateQuantity
