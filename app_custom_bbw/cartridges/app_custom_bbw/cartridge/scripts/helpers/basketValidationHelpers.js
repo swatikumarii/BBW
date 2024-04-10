@@ -18,7 +18,6 @@ function validateProducts(basket) {
         hasInventory: true
     };
     var productLineItems = basket.productLineItems;
-    
     collections.forEach(productLineItems, function (item) {
         var apiProduct = ProductMgr.getProduct(item.productID);
         var productLevelMaxOrderQty =
@@ -37,18 +36,14 @@ function validateProducts(basket) {
         var globalLevelReserveQty = dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
         var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
         var maxOrderQty = productLevelMaxOrderQty || globalLevelMaxOrderQty;
-
-
         if (item.product === null || !item.product.online) {
             result.error = true;
             return;
         }
-
         if (Object.hasOwnProperty.call(item.custom, 'fromStoreId')
             && item.custom.fromStoreId) {
             var store = StoreMgr.getStore(item.custom.fromStoreId);
             var storeInventory = ProductInventoryMgr.getInventoryList(store.custom.inventoryListId);
-
             result.hasInventory = result.hasInventory
                 && (storeInventory.getRecord(item.productID)
                 && storeInventory.getRecord(item.productID).ATS.value >= item.quantityValue);

@@ -27,7 +27,7 @@ function sendEmail() {
             threshold = HookMgr.callHook(
                 'notify.backInStock.threshold',
                 'getThresholdWithReserveStock',
-                record.custom.productID
+                product
             );
         } else {
             threshold = product.notifyMeThreshold ? product.notifyMeThreshold : notifyEmailThreshold;

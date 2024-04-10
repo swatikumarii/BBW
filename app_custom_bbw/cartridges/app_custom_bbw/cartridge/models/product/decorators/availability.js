@@ -139,4 +139,8 @@ module.exports = function (
                 parseFloat(quantity) || minOrderQuantity
             )
     });
+    Object.defineProperty(object, 'reserveQty', {
+        enumerable: true,
+        value: productLevelReserveQty
+    });
 };
