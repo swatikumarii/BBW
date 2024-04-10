@@ -33,7 +33,6 @@
                             </isloop>
 
                             <isinclude template="cart/productCard/cartProductCardAvailability" />
-                            <isinclude template="cart/productCard/cartProductCardEdit" />
                         </div>
                     </div>
                 </div>
@@ -42,7 +41,7 @@
                 <hr class="line-item-divider" />
             </div>
 
-            <isinclude template="cart/productCard/cartProductCardProductPrice" />
+            <isinclude template="cart/productCard/cartGiftWrapProductPrice" />
 
             <isif condition="${!lineItem.isBonusProductLineItem}">
                 <div class="hidden-md-down">

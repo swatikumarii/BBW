@@ -4,6 +4,7 @@ var server = require('server');
 server.extend(module.superModule);
 
 var site = require('dw/system/Site');
+var Resource = require('dw/web/Resource');
 var URLUtils = require('dw/web/URLUtils');
 var BasketMgr = require('dw/order/BasketMgr');
 var productMgr = require('dw/catalog/ProductMgr');
@@ -136,9 +137,6 @@ server.prepend('AddProduct', function (req, res, next) {
     );
     if (giftWrapProductLineItem) {
         var product = productMgr.getProduct(req.form.pid);
-        if (!product) {
-            return 'error';
-        }
         var isGiftWrapProduct = commonHelpers.isCategoryMatches(
             product,
             giftWrapCategoryName
@@ -356,11 +354,11 @@ server.prepend('UpdateQuantity', function (req, res, next) {
         );
         if (giftWrapProductLineItem) {
             if (giftWrapProductLineItem.product.ID === req.querystring.pid) {
-                res.setStatusCode(500);
+                res.setStatusCode(400);
                 res.json({
                     error: true,
                     errorMessage:
-                        'You can not update quantity of gift wrap product.'
+                    Resource.msg('error.update.giftwrap.product.quantity', 'giftWrap', null)
                 });
                 return this.emit('route:Complete', req, res);
             }
@@ -395,11 +393,15 @@ server.prepend('UpdateQuantity', function (req, res, next) {
                                             req.querystring.quantity)
                                 );
                             } else {
-                                res.setStatusCode(500);
+                                // 'Gift wrap quantity can not be less than wrappable product quantity.';
+                                res.setStatusCode(400);
                                 res.json({
                                     error: true,
-                                    errorMessage:
-                                        'Gift wrap quantity can not be less than wrappable product quantity.'
+                                    errorMessage: Resource.msg(
+                                        'internal.server.error',
+                                        'common',
+                                        null
+                                    )
                                 });
 
                                 this.emit('route:Complete', req, res);
