@@ -2,4 +2,5 @@
 <p>${Resource.msg('subscribe.greetings.hi','newsletter',null)}</p>
 <p>${Resource.msg('subscribe.email.thankyou','newsletter',null)}</p>
 <p>${Resource.msg('subscribe.email.unsubscribe.section','newsletter',null)}
-<a href='${URLUtils.https('EmailSubscribe-UnsubscribeShow', 'id', ID)}'> ${Resource.msg('subscribe.email.unsubscribe','newsletter',null)}</a></p>
+    <a href='${URLUtils.https('EmailSubscribe-UnsubscribeShow', 'id', ID)}'> ${Resource.msg('subscribe.email.unsubscribe','newsletter',null)}</a>
+</p>
