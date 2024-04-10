@@ -1,0 +1,62 @@
+<footer id="footercontent">
+    <div class="container">
+        <div class="footer-container footer-details">
+            <div class="footer-item store pt-3">
+                <div class="user-info-heading">
+
+                    <div class="footer-tooltip-details">
+                        <div class="heading-text">
+                            Get email offers &amp; the latest news from Bath &amp; Body Works!
+                        </div>
+                        <div class="tooltip-container">
+                            <button type="button" class="btn btn-with-image ds-js-simple-tooltip ds-tooltip-button"
+                                data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
+                                aria-label="More information on email signup"
+                                aria-describedby="label_simpletooltip_footer_iroll_popover_emailcapture486"
+                                data-hashtooltip-id="footer_iroll_popover_emailcapture486">
+                            </button>
+                        </div>
+                    </div>
+                    <form action="#" class="suppress ds-user-info-collection-form" method="post" data-location="Footer"
+                        novalidate="novalidate">
+                        <div class="ds-input-field">
+                            <div data-required-text="">
+                                <label for="email-footer_social_emailcapture"><span>Enter Email</span></label> <br />
+                                <div class="field-wrapper ">
+                                    <input class="input-text " maxlength="64">
+                                </div>
+                                <div id="caption-email-footer_social_emailcapture" class="form-caption "></div>
+                            </div>
+                        </div>
+                        <div class="ds-buttons-container">
+                            <button class="btn submit-btn" type="submit" value="SUBMIT">
+                                SUBMIT
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+                <iscontentasset aid="footer-social-list" />
+            </div>
+            <div class="footer-list-details">
+                <div class="footer-item  collapsible-xs">
+                    <iscontentasset aid="footer-customer-care" />
+                </div>
+                <div class="footer-item collapsible-xs">
+                    <iscontentasset aid="footer-account" />
+                </div>
+                <div class="footer-item  collapsible-xs">
+                    <iscontentasset aid="footer-discover" />
+                </div>
+                <div class="footer-item  collapsible-xs">
+                    <iscontentasset aid="footer-locate-store" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 copyright-notice">
+            <iscontentasset aid="footer-copyright" />
+        </div>
+    </div>
+</footer>
