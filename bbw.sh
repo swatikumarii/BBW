@@ -11,8 +11,11 @@ elif [ "$1" = 'docker:up' ]
 then
     echo "Starting Docker"
     cd Docker
-    docker-compose up -d
-    docker exec -it -u $(id -u):$(id -g) bbw bash
+    export USER_INFO=$(id -u):$(id -g)
+    export USER_ID=$(id -u)
+    export GROUP_ID=$(id -g)
+    docker-compose build
+    USER_INFO=$(id -u):$(id -g) docker-compose run --rm bbw
 
 
 elif [ "$1" = 'docker:down' ]
