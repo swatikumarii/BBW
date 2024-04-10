@@ -269,6 +269,17 @@ $cssHelpers: (
         step: 5,
         unit: "%"
     ),
+    ".h-maxwidth-perc": (
+        props: (
+            "max-width"
+        ),
+        range: (
+            0,
+            100
+        ),
+        step: 5,
+        unit: "%"
+    ),
     ".h-minheight": (
         props: (
             "min-height"
