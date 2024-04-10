@@ -17,7 +17,8 @@
                                 </button>
                                 <h2>${Resource.msg('individual.select.products', 'giftWrap', null)}</h2>
                                 <p>${Resource.msg('individual.wrapping.cost', 'giftWrap', null)}</br>
-                                    ${Resource.msgf('individual.cost.per.item', 'giftWrap', null, giftWrapProductPrice)}
+                                    <span class="cost-per-item-message" data-cost-per-item-message="${Resource.msgf('individual.cost.per.item', 'giftWrap', null)}">
+                                    </span>
                                 </p>
                                 <div class="inline-alert notify">
                                     <span>${Resource.msg('msg.giftwrap.notify.modal', 'giftWrap', null)}</span>
@@ -41,7 +42,8 @@
                                                     <figure>
                                                         <img src="${wrappableProduct.images.small[0].url}"
                                                             alt="${wrappableProduct.images.small[0].alt}"
-                                                            title="${wrappableProduct.images.small[0].title}" class="dm-responsive-image js-dm-image dm-responsive-image-initialized" />
+                                                            title="${wrappableProduct.images.small[0].title}"
+                                                            class="dm-responsive-image js-dm-image dm-responsive-image-initialized" />
                                                     </figure>
                                                     <span class="tile-title">
                                                         <iscomment> <span

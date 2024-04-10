@@ -27,13 +27,19 @@ function createErrorNotification(message) {
 function validate(pid, giftWrapType, toBeIndividuallyWrappedPids) {
     var isValid = true;
     if (!pid) {
-        createErrorNotification('PID select');
+        createErrorNotification(
+            $('#addGiftWrapProduct').data(
+                'giftwrapproduct-error-message'
+            )
+        );
         isValid = false;
     } else if (
         !giftWrapType ||
         !(giftWrapType === 'INDIVIDUAL' || giftWrapType === 'TOGETHER')
     ) {
-        createErrorNotification('GWT select');
+        createErrorNotification(
+            $('#addGiftWrapProduct').data('wraptype-error-message')
+        );
         isValid = false;
     } else if (giftWrapType === 'INDIVIDUAL') {
         document
@@ -43,7 +49,9 @@ function validate(pid, giftWrapType, toBeIndividuallyWrappedPids) {
             });
         if (toBeIndividuallyWrappedPids.length === 0) {
             createErrorNotification(
-                'toBeIndividuallyWrappedPids select'
+                $('#addGiftWrapProduct').data(
+                    'select.wrappable.product-error-message'
+                )
             );
             isValid = false;
         }
@@ -84,9 +92,116 @@ function addGiftWrapToCart() {
 }
 
 /**
+ * Clear gift wrap card isml
+ */
+function clearGiftWrapCardIsml() {
+    $('.giftwrap-block-options').css('display', 'none');
+    $('#addGiftWrapProduct').html($('#addGiftWrapProduct').data('add-text'));
+    $('#giftwrap').prop('checked', false);
+    $('input:radio[name=gift-wrap-product]:first').attr('checked', true);
+    var price = $('input[name=gift-wrap-product]:checked').data('price');
+    $('.selected-giftwrap-product-price').html(
+        price
+    );
+    $('.cost-per-item-message').html(
+        $('.cost-per-item-message')
+            .data('cost-per-item-message')
+            .replace('#', price)
+    );
+    $('.giftWrap-edit-product').css('display', 'none');
+    if ($('#wrapTogether').is(':enabled')) {
+        $('#wrapTogether').attr('checked', true);
+    } else if ($('#wrapIndividually').is(':enabled')) {
+        $('#wrapIndividually').attr('checked', true);
+    }
+}
+
+/**
+ * Reset gift wrap card isml.
+ * This will hide products, select radio button and set greeting card message
+ */
+function resetGiftWrapIsml() {
+    $('.giftwrap-block-options').css('display', 'none');
+    var giftWrapCardPid = $('.gift-wrap-product-card').data('pid');
+    if (giftWrapCardPid) {
+        var giftCardPrice = $('.gift-wrap-product-card').data('price');
+        $('#addGiftWrapProduct').html(
+            $('#addGiftWrapProduct').data('update-text')
+        );
+        $('#giftwrap').prop('checked', true);
+        $('input:radio[value=' + giftWrapCardPid + ']').prop('checked', true);
+        $('.selected-giftwrap-product-price').html(giftCardPrice);
+        $('.cost-per-item-message').html(
+            $('.cost-per-item-message')
+                .data('cost-per-item-message')
+                .replace('#', giftCardPrice)
+        );
+        var wrapType = $('#addGiftWrapProduct').data('wrap-type');
+        if (wrapType) {
+            $('#' + wrapType).attr('checked', true);
+        } else if ($('#wrapTogether').is(':enabled')) {
+            $('#wrapTogether').attr('checked', true);
+        } else if ($('#wrapIndividually').is(':enabled')) {
+            $('#wrapIndividually').attr('checked', true);
+        }
+    } else {
+        clearGiftWrapCardIsml();
+    }
+}
+
+/**
+ * appends params to a url
+ * @param {string} url - Original url
+ * @param {object} params - Parameters to append
+ * @returns {string} result url with appended parameters
+ */
+function appendToUrl(url, params) {
+    var newUrl = url;
+    newUrl +=
+        (newUrl.indexOf('?') !== -1 ? '&' : '?') +
+        Object.keys(params)
+            .map(function (key) {
+                return key + '=' + encodeURIComponent(params[key]);
+            })
+            .join('&');
+
+    return newUrl;
+}
+
+/**
+ * Remove Gift wrap product
+ * @param {string} actionUrl - action Url for removing product from cart
+ * @param {string} uuid - product uuid
+ * @param {string} pid - product pid
+ */
+function removeGiftWrapProductFromCart(actionUrl, uuid, pid) {
+    var urlParams = {
+        pid: pid,
+        uuid: uuid
+    };
+    var url = appendToUrl(actionUrl, urlParams);
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        success: function () {
+            window.location.reload();
+        },
+        error: function (err) {
+            if (err.responseJSON.redirectUrl) {
+                window.location.href = err.responseJSON.redirectUrl;
+            } else {
+                createErrorNotification(err.responseJSON.errorMessage);
+            }
+        }
+    });
+}
+
+/**
  * On ready
  */
 $(document).ready(function () {
+    resetGiftWrapIsml();
     $(document).on('change', 'input[name=individual-lineItem]', function () {
         if (this.checked) {
             if (
@@ -104,21 +219,47 @@ $(document).ready(function () {
         }
     });
 
-    // click event to add and save all product details in individual wrapping functionality when select all is selected
     $(document).on('change', '#checkall', function () {
-        // Get all checkboxes with the specified name
         var checkboxes = document.querySelectorAll(
             'input[type="checkbox"][name=individual-lineItem]'
         );
 
-        // Iterate through each checkbox and set its checked property to true
         for (var i = 0; i < checkboxes.length; i++) {
             checkboxes[i].checked = this.checked;
         }
     });
 
-    // click event to handle add to cart functionality for gift wrap
     $(document).on('click', '#addGiftWrapProduct', function () {
         addGiftWrapToCart();
+    });
+
+    $(document).on('click', '.giftWrap-edit-product', function () {
+        $('.giftwrap-block-options').css('display', 'block');
+    });
+
+    $(document).on('click', '#giftwrap', function () {
+        if ($('#giftwrap').is(':checked')) {
+            $('.giftwrap-block-options').css('display', 'block');
+        } else {
+            $('.giftwrap-block-options').css('display', 'none');
+            if ($('.gift-wrap-product-card').data('pid')) {
+                removeGiftWrapProductFromCart(
+                    $('#addGiftWrapProduct').data('removeurl'),
+                    $('.gift-wrap-product-card').data('uuid'),
+                    $('.gift-wrap-product-card').data('pid')
+                );
+                clearGiftWrapCardIsml();
+            }
+        }
+    });
+
+    $(document).on('change', '.giftWrapProductOptionsRadio', function () {
+        var selectProductPrice = $(this).data('price');;
+        $('.selected-giftwrap-product-price').html(selectProductPrice);
+        $('.cost-per-item-message').html(
+            $('.cost-per-item-message')
+                .data('cost-per-item-message')
+                .replace('#', selectProductPrice)
+        );
     });
 });

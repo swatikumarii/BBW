@@ -13,6 +13,33 @@ var commonHelpers = require('*/cartridge/models/scripts/util/commonHelpers');
 var customPreferenceNames = require('*/cartridge/config/customPreferenceNames');
 
 /**
+ *
+ * @param {Array} wrappableProducts - Wrappable products
+ * @param {number} wrappedProductCount - Wrapped product count
+ * @param {Array} wrappedProductQuantity - Wrapped quantity array
+ * @returns {string} : Return wrap type
+ */
+function getWrapType(wrappableProducts, wrappedProductCount, wrappedProductQuantity) {
+    var wrapType = '';
+    if (wrappedProductCount > 0) {
+        if (wrappedProductCount === 1) {
+            if (
+                wrappedProductQuantity[0] === 0 ||
+                wrappableProducts[0].quantity === 1
+            ) {
+                wrapType = 'wrapTogether';
+            } else {
+                wrapType = 'wrapIndividually';
+            }
+        } else if (wrappedProductQuantity[0] === 0) {
+            wrapType = 'wrapTogether';
+        } else {
+            wrapType = 'wrapIndividually';
+        }
+    }
+    return wrapType;
+}
+/**
  * Cart-Show : The Cart-Show endpoint,
  * This appand will use for
  * 1. Set isGiftWrapEnable according to custom preference
@@ -41,9 +68,17 @@ server.append(
             }
             if (viewData.isGiftWrapEnable) {
                 var wrappableProducts = [];
+                var wrappedProductCount = 0;
+                var wrappedProductQuantity = [];
                 viewData.items.forEach(function(element) {
                     if (element.isGiftWrappable) {
                         wrappableProducts.push(element);
+                        if (element.wrap.isWrapped) {
+                            wrappedProductCount++;
+                            wrappedProductQuantity.push(
+                                element.wrap.wrappedQuantity
+                            );
+                        }
                     }
                 });
                 if (wrappableProducts.length === 0) {
@@ -63,6 +98,11 @@ server.append(
                         viewData.items.length === 1 &&
                         viewData.items[0].quantity === 1;
                     viewData.wrappableProducts = wrappableProducts;
+                    viewData.wrapType = getWrapType(
+                        wrappableProducts,
+                        wrappedProductCount,
+                        wrappedProductQuantity
+                    );
                 }
             }
         }
@@ -166,10 +206,10 @@ server.append('AddProduct', function (req, res, next) {
         );
         var pids = {};
         for (var j = 0; j < toBeIndividuallyWrappedPids.length; j++) {
-            if (toBeIndividuallyWrappedPids[toBeIndividuallyWrappedPids[j]]) {
-                var i =
-                    toBeIndividuallyWrappedPids[toBeIndividuallyWrappedPids[j]];
-                pids[i] = (pids[i] || 0) + 1;
+            if (pids[toBeIndividuallyWrappedPids[j]]) {
+                pids[toBeIndividuallyWrappedPids[j]] += 1;
+            } else {
+                pids[toBeIndividuallyWrappedPids[j]] = 1;
             }
         }
         Transaction.wrap(function () {
