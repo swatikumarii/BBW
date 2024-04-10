@@ -15,9 +15,20 @@ server.post('CheckLogin', function (req, res, next) {
     var productID = req.form.pid;
     var ProductMgr = require('dw/catalog/ProductMgr');
     var product = ProductMgr.getProduct(productID);
+    var ATS = product.availabilityModel.inventoryRecord.ATS;
+    var productLevelReserveQty =
+        'custom' in product &&
+        'reserveQty' in product.custom &&
+        product.custom.reserveQty
+            ? product.custom.reserveQty
+            : 0;
+    var globalLevelReserveQty =
+        dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
+    var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
+    var availableQty = reserveOosQty ? (ATS - reserveOosQty) : ATS;
 
     res.json({
-        available: product.availabilityModel.inStock,
+        available: availableQty > 0,
         message: Resource.msg('product.available', 'notifyMe', null),
         registered: req.currentCustomer.raw.registered,
         notifyURL: URLUtils.url('BackInStock-Notify')

@@ -1,3 +1,6 @@
+<isif condition="${typeof(product) == 'undefined'}">
+    <isset name="product" value="${pdict.product}" scope="page" />
+</isif>
 <isif condition="${!product.available}">
     <div class="notify-me main-quantity-${product.id}">
         <p class="notify-me-available-msg"></p>
@@ -9,4 +12,5 @@
             <button type="button" class="btn out-of-stock"> ${Resource.msg('button.outOfStock', 'notifyMe', null)} </button>
         </isif>
     </div>
+    <isinclude template="product/components/requestUserEmailForOOSModal" />
 </isif>
