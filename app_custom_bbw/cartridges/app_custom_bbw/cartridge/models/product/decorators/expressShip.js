@@ -8,7 +8,7 @@ module.exports = function (object, apiProduct) {
         value:
             'custom' in apiProduct &&
             'expressShip' in apiProduct.custom &&
-            apiProduct.custom.expressShip !== ''
+            apiProduct.custom.expressShip
                 ? apiProduct.custom.expressShip
                 : false
     });
