@@ -1,6 +1,11 @@
 <isif condition="${pdict.productSearch.customTile && pdict.productSearch.customTile.length}">
     <isloop items="${pdict.productSearch.customTile}" var="promotionTile">
+<<<<<<< HEAD
         <isif condition="${promotionTile.content && promotionTile.desktopIndex > pdict.productSearch.count && loopState.count == pdict.productSearch.productIds.length}">
+=======
+        <isif condition="${promotionTile.content && promotionTile.desktopIndex > pdict.productSearch.count && loopState.count == pdict
+                .productSearch.productIds.length}">
+>>>>>>> 1569ea2ed59da70e4c1888e6d581d3ee4d962e8b
             <div class="col-6 col-sm-4 marketing desktop" data-desktopindex="${promotionTile.desktopIndex}"
                 data-mobileindex="${promotionTile.mobileIndex}" data-index="${loopState.count}">
                 <div class="marketing-tile">
@@ -9,7 +14,12 @@
             </div>
         </isif>
 
+<<<<<<< HEAD
         <isif condition="${promotionTile.content && promotionTile.mobileIndex > pdict.productSearch.count && loopState.count == pdict.productSearch.productIds.length}">
+=======
+        <isif condition="${promotionTile.content && promotionTile.mobileIndex > pdict.productSearch.count && loopState.count == pdict.productSearch
+                .productIds.length}">
+>>>>>>> 1569ea2ed59da70e4c1888e6d581d3ee4d962e8b
             <div class="col-12 col-sm-4 marketing mobile" data-desktopindex="${promotionTile.desktopIndex}"
                 data-mobileindex="${promotionTile.mobileIndex}" data-index="${loopState.count}">
                 <div class="marketing-tile">
