@@ -191,54 +191,55 @@ server.append('AddProduct', function (req, res, next) {
         giftWrapCategoryName
     );
 
-    if (giftWrapProductLineItem) {
-        giftWrapProduct = giftWrapProductLineItem.productID;
-    }
-    var productLineItems = currentBasket.getAllProductLineItems().toArray();
     if (
-        req.form.toBeIndividuallyWrappedPids &&
-        req.form.giftWrapType === 'INDIVIDUAL'
+        giftWrapProductLineItem &&
+        giftWrapProductLineItem.product.ID === req.form.pid
     ) {
-        var toBeIndividuallyWrappedPids = JSON.parse(
-            req.form.toBeIndividuallyWrappedPids
-        );
-        var pids = {};
-        for (var j = 0; j < toBeIndividuallyWrappedPids.length; j++) {
-            if (pids[toBeIndividuallyWrappedPids[j]]) {
-                pids[toBeIndividuallyWrappedPids[j]] += 1;
-            } else {
-                pids[toBeIndividuallyWrappedPids[j]] = 1;
+        var productLineItems = currentBasket.getAllProductLineItems().toArray();
+        if (
+            req.form.toBeIndividuallyWrappedPids &&
+            req.form.giftWrapType === 'INDIVIDUAL'
+        ) {
+            var toBeIndividuallyWrappedPids = JSON.parse(
+                req.form.toBeIndividuallyWrappedPids
+            );
+            var pids = {};
+            for (var j = 0; j < toBeIndividuallyWrappedPids.length; j++) {
+                if (pids[toBeIndividuallyWrappedPids[j]]) {
+                    pids[toBeIndividuallyWrappedPids[j]] += 1;
+                } else {
+                    pids[toBeIndividuallyWrappedPids[j]] = 1;
+                }
             }
-        }
-        Transaction.wrap(function () {
-            for (var k = 0; k < productLineItems.length; k++) {
-                var pli = productLineItems[k];
-                if (pli.productID !== giftWrapProduct) {
-                    if (pids[pli.productID]) {
+            Transaction.wrap(function () {
+                for (var k = 0; k < productLineItems.length; k++) {
+                    var pli = productLineItems[k];
+                    if (pli.productID !== giftWrapProduct) {
+                        if (pids[pli.productID]) {
+                            pli.custom.isWrapped = true;
+                            pli.custom.wrappedQuantity = pids[pli.productID];
+                        } else {
+                            pli.custom.isWrapped = false;
+                            pli.custom.wrappedQuantity = 0;
+                        }
+                    }
+                }
+            });
+        } else if (req.form.giftWrapType === 'TOGETHER') {
+            Transaction.wrap(function () {
+                for (var l = 0; l < productLineItems.length; l++) {
+                    var pli = productLineItems[l];
+                    if (
+                        pli.product.custom.isGiftWrappable &&
+                        pli.productID !== giftWrapProduct
+                    ) {
                         pli.custom.isWrapped = true;
-                        pli.custom.wrappedQuantity = pids[pli.productID];
-                    } else {
-                        pli.custom.isWrapped = false;
                         pli.custom.wrappedQuantity = 0;
                     }
                 }
-            }
-        });
-    } else if (req.form.giftWrapType === 'TOGETHER') {
-        Transaction.wrap(function () {
-            for (var l = 0; l < productLineItems.length; l++) {
-                var pli = productLineItems[l];
-                if (
-                    pli.product.custom.isGiftWrappable &&
-                    pli.productID !== giftWrapProduct
-                ) {
-                    pli.custom.isWrapped = true;
-                    pli.custom.wrappedQuantity = 0;
-                }
-            }
-        });
+            });
+        }
     }
-
     next();
 });
 
