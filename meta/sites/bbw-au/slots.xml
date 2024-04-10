@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<slot-configurations xmlns="http://www.demandware.com/xml/impex/slot/2008-09-08">
+
+    <slot-configuration slot-id="header-banner-m" context="global" configuration-id="Gingham" assigned-to-site="true">
+        <template>slots/html/htmlSlotContainer.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <html>
+                <body xml:lang="x-default">&lt;div class="top-promo-header-banner d-flex h-width-perc--100" style="background-image: url(../images/header/gingham-pattern.svg?$staticlink$);"&gt;
+	&lt;div class="promo-text-wrap h-bg--white mx-auto h-maxwidth-perc--90"&gt;
+		&lt;p class="h-fw--bold text-center h-clr--blue h-font-size--12 h-font-size-lg--20"&gt;FREE SHIPPING ABOVE ₹1499&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</body>
+            </html>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="header-banner-m" context="global" configuration-id="Normal" default="true" assigned-to-site="true">
+        <template>slots/html/htmlSlotContainer.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <html>
+                <body xml:lang="x-default">&lt;div class="top-content-header-banner h-width-perc--100 h-bg--blue"&gt;
+&lt;div class="content-text-wrap mx-auto h-maxwidth-perc--90"&gt;
+&lt;ul class="text-center"&gt;
+&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;span class="content-title h-fw--bold h-text-fz--body "&gt;$5.95 All Body Care&lt;/span&gt;&lt;/li&gt;
+&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;span class="content-title h-fw--bold h-text-fz--body "&gt;Plus! Free Shipping with $50&lt;/span&gt;&lt;/li&gt;
+&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;span class="content-title h-fw--bold h-text-fz--body "&gt;Code:CELEBRATE &lt;span class="h-fw--normal"&gt;Limited time only!&lt;/span&gt;&lt;/li&gt;
+&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;a href=""&gt;&lt;span class="content-title text-underline h-text-fz--body "&gt;*Promo Details&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;</body>
+            </html>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="store-header-banner" context="global" configuration-id="Store-banner" default="true" assigned-to-site="true">
+        <template>slots/html/htmlSlotContainer.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <html>
+                <body xml:lang="x-default">&lt;div class="store-header-banner  h-bg--gray-1 h-width-perc--100"&gt;
+&lt;div class="store-header-wrap h-maxwidth-lg--1400 d-flex justify-content-between align-items-center mx-auto h-px-lg--25 h-px-sm--20 h-px--15"&gt;
+&lt;div class="store-header d-flex justify-content-between"&gt;
+&lt;span class="store-text b-text-body-14 text-uppercase h-clr--blue"&gt;&lt;img src="images/header/store.svg?$static-link" /&gt; Pick Up In Store&lt;/span&gt;
+&lt;a class="h-font-size--14 h-clr--black-1 ml-2" id="set-header-store" href="" &gt;Set Store&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class="rewards-header d-none d-lg-block d-md-block"&gt;
+&lt;span class="b-text-body-14 text-uppercase h-clr--pink"&gt;Points. Perks. Exclusives. &lt;/span&gt;
+&lt;a class="h-font-size--14 h-clr--black-1" href=""&gt;Join Rewards!&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</body>
+            </html>
+        </content>
+    </slot-configuration>
+
+</slot-configurations>
