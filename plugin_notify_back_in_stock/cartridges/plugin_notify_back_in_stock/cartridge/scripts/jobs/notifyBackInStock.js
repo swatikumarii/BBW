@@ -23,7 +23,15 @@ function sendEmail() {
     while (pendingList.hasNext()) {
         var record = pendingList.next();
         var product = ProductFactory.get({ pid: record.custom.productID });
-        threshold = product.notifyMeThreshold ? product.notifyMeThreshold : notifyEmailThreshold;
+        if (HookMgr.hasHook('notify.backInStock.threshold')) {
+            threshold = HookMgr.callHook(
+                'notify.backInStock.threshold',
+                'getThresholdWithReserveStock',
+                product
+            );
+        } else {
+            threshold = product.notifyMeThreshold ? product.notifyMeThreshold : notifyEmailThreshold;
+        }
         if (product.available && product.readyToOrder) {
             var userObj = JSON.parse(record.custom.user);
             var emailList = [];

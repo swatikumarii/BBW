@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
-
     <type-extension type-id="Product">
         <custom-attribute-definitions>
+            <attribute-definition attribute-id="reserveQty">
+                <display-name xml:lang="x-default">Reserve Inventory Quantity</display-name>
+                <type>double</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>true</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="enableNotifyMe">
                 <display-name xml:lang="x-default">Enable NotifyMe Button?</display-name>
                 <type>boolean</type>
+                <site-specific-flag>true</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="maxOrderQty">
+                <display-name xml:lang="x-default">Max Order Quantity</display-name>
+                <type>double</type>
+                <localizable-flag>false</localizable-flag>
                 <site-specific-flag>true</site-specific-flag>
                 <mandatory-flag>false</mandatory-flag>
                 <visible-flag>false</visible-flag>
@@ -26,6 +47,11 @@
             </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
+            <attribute-group group-id="inventoryLimit">
+                <display-name xml:lang="x-default">Inventory limit</display-name>
+                <attribute attribute-id="maxOrderQty"/>
+                <attribute attribute-id="reserveQty"/>
+            </attribute-group>
             <attribute-group group-id="notifyMe">
                 <display-name xml:lang="x-default">Notify me</display-name>
                 <attribute attribute-id="enableNotifyMe"/>
@@ -34,8 +60,42 @@
         </group-definitions>
     </type-extension>
 
+    <type-extension type-id="Profile">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="newsletterSubscriptionStatus">
+                <display-name xml:lang="x-default">Newsletter Subscription Status</display-name>
+                <description xml:lang="x-default">Newsletter Subscription Status</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Standard">
+                <display-name xml:lang="x-default">Profile Attributes</display-name>
+                <attribute attribute-id="newsletterSubscriptionStatus"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
     <type-extension type-id="SitePreferences">
         <custom-attribute-definitions>
+            <attribute-definition attribute-id="reserveQty">
+                <display-name xml:lang="x-default">Product Reserve Quantity</display-name>
+                <description xml:lang="x-default">Site level Reserve Quantity for Products</description>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>0.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="maxOrderQty">
+                <display-name xml:lang="x-default">Max Order Quantity</display-name>
+                <description xml:lang="x-default">Site level Max Order Quantity for Products</description>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>0.0</min-value>
+            </attribute-definition>
             <attribute-definition attribute-id="disImageSourceEnvironment">
                 <display-name xml:lang="x-default">DIS Image Source Environment</display-name>
                 <description xml:lang="x-default">Defines which environment is used to actually load the product images from.</description>
@@ -85,6 +145,40 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-value>0.0</min-value>
             </attribute-definition>
+            <attribute-definition attribute-id="enableGoogleRecaptcha">
+                <display-name xml:lang="x-default">rCAPTCHA enable</display-name>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="googleRecaptchaPageDefaultScore">
+                <display-name xml:lang="x-default">rCAPTCHA Page Default Score</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>0</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="googleRecaptchaPageScore">
+                <display-name xml:lang="x-default">rCAPTCHA Pages Score JSON</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="googleRecaptchaSceretKey">
+                <display-name xml:lang="x-default">rCAPTCHA SceretKey</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="googleRecaptchaSiteKey">
+                <display-name xml:lang="x-default">rCAPTCHA Site Key</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -98,7 +192,17 @@
                 <attribute attribute-id="countryCode"/>
                 <attribute attribute-id="customerServiceEmail"/>
                 <attribute attribute-id="mapAPI"/>
+                <attribute attribute-id="reserveQty"/>
+                <attribute attribute-id="maxOrderQty"/>
                 <attribute attribute-id="notifyEmailThreshold"/>
+            </attribute-group>
+            <attribute-group group-id="Google Recaptcha">
+                <display-name xml:lang="x-default">Google Recaptcha</display-name>
+                <attribute attribute-id="enableGoogleRecaptcha"/>
+                <attribute attribute-id="googleRecaptchaSiteKey"/>
+                <attribute attribute-id="googleRecaptchaSceretKey"/>
+                <attribute attribute-id="googleRecaptchaPageScore"/>
+                <attribute attribute-id="googleRecaptchaPageDefaultScore"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

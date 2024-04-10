@@ -1,0 +1,71 @@
+'use strict';
+
+var base = module.superModule;
+var ProductMgr = require('dw/catalog/ProductMgr');
+var ProductInventoryMgr = require('dw/catalog/ProductInventoryMgr');
+var StoreMgr = require('dw/catalog/StoreMgr');
+var Logger = require('dw/system/Logger');
+
+/**
+ * validates that the product line items exist, are online, and have available inventory.
+ * @param {dw.order.Basket} basket - The current user's basket
+ * @returns {object} an error object
+ */
+function validateProducts(basket) {
+    var collections = require('*/cartridge/scripts/util/collections');
+    var result = {
+        error: false,
+        hasInventory: true
+    };
+    var productLineItems = basket.productLineItems;
+    collections.forEach(productLineItems, function (item) {
+        var apiProduct = ProductMgr.getProduct(item.productID);
+        var productLevelMaxOrderQty =
+        'custom' in apiProduct &&
+        'maxOrderQty' in apiProduct.custom &&
+        apiProduct.custom.maxOrderQty
+            ? apiProduct.custom.maxOrderQty
+            : false;
+        var globalLevelMaxOrderQty = dw.system.Site.getCurrent().getCustomPreferenceValue('maxOrderQty');
+        var productLevelReserveQty =
+            'custom' in apiProduct &&
+            'reserveQty' in apiProduct.custom &&
+            apiProduct.custom.reserveQty
+                ? apiProduct.custom.reserveQty
+                : 0;
+        var globalLevelReserveQty = dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
+        var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
+        var maxOrderQty = productLevelMaxOrderQty || globalLevelMaxOrderQty;
+        if (item.product === null || !item.product.online) {
+            result.error = true;
+            return;
+        }
+        if (Object.hasOwnProperty.call(item.custom, 'fromStoreId')
+            && item.custom.fromStoreId) {
+            var store = StoreMgr.getStore(item.custom.fromStoreId);
+            var storeInventory = ProductInventoryMgr.getInventoryList(store.custom.inventoryListId);
+            result.hasInventory = result.hasInventory
+                && (storeInventory.getRecord(item.productID)
+                && storeInventory.getRecord(item.productID).ATS.value >= item.quantityValue);
+        } else {
+            try {
+                var availabilityLevels = item.product.availabilityModel
+                    .getAvailabilityLevels(item.quantityValue + reserveOosQty);
+                result.hasInventory =
+                        result.hasInventory &&
+                        (availabilityLevels.notAvailable.value === 0) &&
+                        (maxOrderQty ? item.quantityValue <= maxOrderQty : true);
+            } catch (error) {
+                Logger.error(
+                    'Inventory check failed for max order qty for product: ' + item.productID + ' '
+                 + error);
+            }
+        }
+    });
+
+    return result;
+}
+
+base.validateProducts = validateProducts;
+
+module.exports = base;

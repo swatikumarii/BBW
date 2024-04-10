@@ -3,8 +3,11 @@
     <custom-preferences>
         <all-instances/>
         <development>
+            <preference preference-id="reserveQty">5</preference>
             <preference preference-id="notifyEmailThreshold">5</preference>
         </development>
+        <staging/>
+        <production/>
     </custom-preferences>
 </preferences>
 
