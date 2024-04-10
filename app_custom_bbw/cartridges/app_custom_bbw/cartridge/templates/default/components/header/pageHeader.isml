@@ -5,7 +5,7 @@
                 <isslot id="header-banner-m" description="Slot above the site header" context="global" />
             </div>
 
-            <div class="content h-width-perc--100">
+            <div class="content h-width-perc--100 d-none d-md-block">
                 <isslot id="store-header-banner" description="Slot above the site header" context="global" />
             </div>
         </div>
