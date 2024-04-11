@@ -1,3 +1,5 @@
+'use strict';
+
 require('bootstrap/js/src/util.js');
 require('bootstrap/js/src/alert.js');
 // require('bootstrap/js/src/button.js');

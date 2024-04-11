@@ -1,5 +1,4 @@
 'use strict';
-alert("bshb")
 
 var scrollAnimate = require('base/components/scrollAnimate');
 
@@ -22,10 +21,10 @@ function displayMessage(data, button) {
     }
     $('.email-signup-message').append(
         '<div class="email-signup-alert text-center ' +
-            status +
-            '">' +
-            data.msg +
-            '</div>'
+        status +
+        '">' +
+        data.msg +
+        '</div>'
     );
 
     setTimeout(function () {
@@ -112,22 +111,18 @@ module.exports = function () {
     });
 };
 
-// footer popover 
-    $(document).ready(function(){
-        console.log("hbhdb")
-        $('[data-toggle="popover"]').popover({
-            placement : 'top',
-            html : true,
-            title : '<div class="header-content">BATH & BODY WORKS DIRECT, INC.</div> <a href="javascript:;" class="close" data-dismiss="alert"></a>',
+// Initialize popover 
+$('[data-toggle="popover"]').popover({
+    placement: 'top',
+    html: true,
+});
 
-            content : '<div class="ds-tooltip-content"><p>95 West Main Street,<br>New Albany, OH 43054<br>1-800-756-5005</p><p>You may withdraw your consent at anytime. View <a href="https://www.bathandbodyworks.com/customer-care/privacy-and-security.html">Privacy Policy</a></p><p><a href="https://customercare.bathandbodyworks.com/">Contact Us</a></p></div>'
-        });
+// Show popover on mouseenter
+$('[data-toggle="popover"]').on('mouseenter', function () {
+    $(this).popover('show');
+});
 
-        $('[data-toggle="popover"]').on("mouseenter", function() {
-            $(this).popover('show');
-        });
-
-        $(document).on("click", ".popover .close" , function(){
-            $(this).parents(".popover").popover('hide');
-        });
-    });
+// Close popover on close button click
+$(document).on('click', '.popover .close', function () {
+    $(this).parents('.popover').popover('hide');
+});

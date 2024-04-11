@@ -1,27 +1,36 @@
 <footer id="footercontent">
-    <div class="container">
+    <div class="container pt-3 pb-5">
         <div class="footer-container footer-details">
             <div class="footer-item store pt-3">
                 <div class="user-info-heading">
-
-                    <div class="footer-tooltip-details">
-                        <div class="heading-text">
-                            Get email offers &amp; the latest news from Bath &amp; Body Works!
+                    <!-- Footer tooltip details with margin bottom of 2 units and left-aligned text -->
+                    <div
+                        class="footer-tooltip-details d-flex align-items-center justify-content-between mb-2 mt-2 text-left">
+                        <!-- Heading text -->
+                        <div class="heading-text h-clr--black-3 mb-2 mr-3">${Resource.msg('footer.title', 'footer', null)}
                         </div>
+                        <!-- Tooltip container for more information -->
                         <div class="tooltip-container">
-                            <button type="button" class="btn btn-with-image ds-js-simple-tooltip ds-tooltip-button"
+                            <!-- Button to toggle tooltip -->
+                            <button type="button"
+                                class="btn btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button"
                                 data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
-                                aria-label="More information on email signup"
-                                aria-describedby="label_simpletooltip_footer_iroll_popover_emailcapture486"
-                                data-hashtooltip-id="footer_iroll_popover_emailcapture486">
+                                title="&lt;div class='popover-title header-content h-fw--bold'&gt;${Resource.msg('popover.tooltip.title', 'footer', null)}&lt;/div&gt; &lt;a href='javascript:;' class='close'&gt;&lt;/a&gt;"
+                                data-content="&lt;div class='popover-content ds-tooltip-content'&gt; &lt;p class='h-clr--black-3'&gt; ${Resource.msg('popover.tooltip.content1', 'footer', null)}&lt;/p&gt; &lt;p class='h-clr--black-3 mb-0'&gt;${Resource.msg('popover.tooltip.content2', 'footer', null)}&lt;/p&gt;&lt;a class='mb-2' href='#'&gt;${Resource.msg('popover.tooltip.list1', 'footer', null)}&lt;/a&gt;&lt;a href='#'&gt;${Resource.msg('popover.tooltip.list2', 'footer', null)}&lt;/a&gt;&lt;/div&gt;"
+                                data-html="true">
                             </button>
+
                         </div>
                     </div>
+                    <!-- Form for email subscription -->
                     <form action="#" class="suppress ds-user-info-collection-form" method="post" data-location="Footer"
                         novalidate="novalidate">
                         <div class="ds-input-field">
                             <div data-required-text="">
-                                <label for="email-footer_social_emailcapture"><span>Enter Email</span></label> <br />
+                                <label for="email-footer_social_emailcapture"
+                                    class="h-clr--black-3 h-fw--semibold h-auto mb-1">
+                                    ${Resource.msg('form.title', 'footer', null)}
+                                </label>
                                 <div class="field-wrapper ">
                                     <input class="input-text " maxlength="64">
                                 </div>
@@ -29,25 +38,30 @@
                             </div>
                         </div>
                         <div class="ds-buttons-container">
-                            <button class="btn submit-btn" type="submit" value="SUBMIT">
-                                SUBMIT
+                            <button class="btn submit-btn h-fw--semibold mt-3" type="submit" value="SUBMIT">
+                                ${Resource.msg('form.button', 'footer', null)}
                             </button>
                         </div>
                     </form>
-
                 </div>
+                <!-- Social list content -->
                 <iscontentasset aid="footer-social-list" />
             </div>
+            <!-- Footer list details -->
             <div class="footer-list-details">
+                <!-- Footer item for customer care -->
                 <div class="footer-item  collapsible-xs">
                     <iscontentasset aid="footer-customer-care" />
                 </div>
+                <!-- Footer item for account -->
                 <div class="footer-item collapsible-xs">
                     <iscontentasset aid="footer-account" />
                 </div>
+                <!-- Footer item for discovery -->
                 <div class="footer-item  collapsible-xs">
                     <iscontentasset aid="footer-discover" />
                 </div>
+                <!-- Footer item for store locator -->
                 <div class="footer-item  collapsible-xs">
                     <iscontentasset aid="footer-locate-store" />
                 </div>
@@ -55,6 +69,7 @@
         </div>
     </div>
     <div class="row">
+        <!--  copyright content-->
         <div class="col-sm-12 copyright-notice">
             <iscontentasset aid="footer-copyright" />
         </div>
