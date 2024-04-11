@@ -1,0 +1,22 @@
+<div class="site-search">
+    <form class="position-absolute" id="header-search" role="search" action="${URLUtils.url('Search-Show')}"
+        method="get" name="simpleSearch">
+        <fieldset class="position-relative d-flex">
+            <input class="form-control search-field h-text-fz--body-2" type="text" name="q" value=""
+                placeholder="${Resource.msg('label.header.searchwatermark', 'common', null)}" role="combobox"
+                aria-describedby="search-assistive-text" aria-haspopup="listbox" aria-owns="search-results"
+                aria-expanded="false" aria-autocomplete="list" aria-activedescendant="" aria-controls="search-results"
+                aria-label="${Resource.msg('simplesearch.searchtext', 'common', null)}" autocomplete="off" />
+            <button type="reset" name="reset-button" class="reset-button d-none border-0"
+                aria-label="${Resource.msg('label.header.search.clear', 'common', null)}"></button>
+            <button type="submit" name="search-button"
+                class="search-icon h-minheight--20 w-auto position-relative border-0"
+                aria-label="${Resource.msg('label.header.search.go', 'common', null)}">
+                <img src="${URLUtils.staticURL('/images/header/UI-Search-v2.svg')}"
+                    alt="${Resource.msg('global.storename', 'common', null)}" />
+            </button>
+            <div class="suggestions-wrapper" data-url="${URLUtils.url('SearchServices-GetSuggestions', 'q')}"></div>
+            <input type="hidden" value="${pdict.locale}" name="lang" />
+        </fieldset>
+    </form>
+</div>
