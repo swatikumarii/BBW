@@ -12,7 +12,7 @@
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
-    &lt;button class="title footer-list-title btn text-left btn-block d-md-none footer-collapse collapsed cursor-pointer " aria-expanded="false" aria-controls="collapsible-account" data-toggle="collapse" data-target="#collapsible-account"&gt;MY ACCOUNT&lt;/button&gt;&#13;
+    &lt;button class="title footer-list-title btn text-left btn-block d-md-none footer-collapse collapsed cursor-pointer h-font-size--14" aria-expanded="false" aria-controls="collapsible-account" data-toggle="collapse" data-target="#collapsible-account"&gt;MY ACCOUNT&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-account"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block  h-clr--black-1 h-fw--bold"&gt;MY ACCOUNT&lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16 "&gt;Sign In or Sign Up&lt;/a&gt;&#13;
@@ -109,7 +109,7 @@
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
-    &lt;button class="title btn text-left btn-block d-md-none footer-list-title footer-collapse collapsed cursor-pointer " aria-expanded="false" aria-controls="customer-service" data-toggle="collapse" data-target="#customer-service"&gt;CUSTOMER CARE&lt;/button&gt;&#13;
+    &lt;button class="title btn text-left btn-block d-md-none footer-list-title footer-collapse collapsed cursor-pointer h-font-size--14 " aria-expanded="false" aria-controls="customer-service" data-toggle="collapse" data-target="#customer-service"&gt;CUSTOMER CARE&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="customer-service"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;CUSTOMER CARE&lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Help &amp; FAQs&lt;/a&gt;&#13;
@@ -136,7 +136,7 @@
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
-    &lt;button class="title btn text-left btn-block d-md-none footer-list-title footer-collapse collapsed " aria-expanded="false" aria-controls="collapsible-discover" data-toggle="collapse" data-target="#collapsible-discover"&gt;DISCOVER&lt;/button&gt;&#13;
+    &lt;button class="title btn text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14 cursor-pointer" aria-expanded="false" aria-controls="collapsible-discover" data-toggle="collapse" data-target="#collapsible-discover"&gt;DISCOVER&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-discover"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;DISCOVER&lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;About Us&lt;/a&gt;&#13;
@@ -160,7 +160,7 @@
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div local-store"&gt;&#13;
-    &lt;button class="title btn text-left btn-block d-md-none footer-list-title footer-collapse collapsed" aria-expanded="false" aria-controls="collapsible-finds" data-toggle="collapse" data-target="#collapsible-finds"&gt;FIND US&lt;/button&gt;&#13;
+    &lt;button class="title btn text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14" aria-expanded="false" aria-controls="collapsible-finds" data-toggle="collapse" data-target="#collapsible-finds"&gt;FIND US&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-finds"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block  h-clr--black-1 h-fw--bold"&gt;FIND US&lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Store Locator&lt;/a&gt;&#13;
