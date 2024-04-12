@@ -1,3 +1,5 @@
+@import "~base/components/collapsibleItem";
+
 footer {
     border-top: 0.1875rem solid colour(gray, 1);
 
@@ -45,17 +47,19 @@ footer {
 
             .collapsible-xs .title {
                 &::after {
-                    display: block;
-                    clear: both;
-                    float: right;
-                    content: "\F078";
+                    background-image: url("../images/footer/up.svg");
+                    background-repeat: no-repeat;
+                    width: 24px;
+                    min-width: 24px;
+                    height: 24px;
+                    background-color: transparent;
+                    border: none;
                 }
             }
 
             .collapsible-xs.active .title {
                 &::after {
-                    content: "\F077";
-                    margin-top: -0.125em;
+                    transform: rotate(180deg);
                 }
             }
         }
@@ -86,11 +90,11 @@ footer {
                 padding: 1rem 0.5rem 1rem 1rem;
                 box-sizing: border-box;
                 height: 3rem;
-                border: 0.0625rem solid $clr-gray-5;
+                border: 0.0625rem solid colour(gray, 5);
                 text-indent: 0;
 
                 &:focus {
-                    outline: 0.0625rem dotted $clr-black;
+                    outline: 0.0625rem dotted colour(black);
                     outline-offset: 0.125rem;
                 }
             }
@@ -150,12 +154,12 @@ footer {
                     border-right: none;
 
                     @include media-up(sm) {
-                        border-right: 0.0625rem solid $clr-gray-5;
+                        border-right: 0.0625rem solid colour(gray, 5);
                     }
 
                     .ds-link {
                         letter-spacing: 0.015em;
-                        color: $clr-gray-4;
+                        color: colour(gray, 4);
                     }
                 }
             }
@@ -171,7 +175,7 @@ footer {
 }
 
 .popover {
-    background-color: $clr-white;
+    background-color: colour(white);
     height: auto;
     max-height: 25rem;
     overflow-y: auto;
@@ -188,12 +192,16 @@ footer {
         opacity: inherit;
         width: 2.5rem;
         background-image: url("../images/footer/cross.svg");
+
+        &:hover {
+            opacity: inherit;
+        }
     }
 
     .popover-header {
         background: $clr-white;
         align-items: center;
-        border-bottom: 0.0625rem solid $clr-gray-6;
+        border-bottom: 0.0625rem solid colour(gray, 6);
         display: flex;
         justify-content: space-between;
         padding: 8px 8px 8px 16px;
@@ -213,10 +221,10 @@ footer {
 
             a {
                 text-decoration: underline;
-                color: $clr-gray;
+                color: colour(gray);
 
                 &:hover {
-                    color: $clr-blue;
+                    color: colour(blue);
                     text-decoration: none;
                 }
             }

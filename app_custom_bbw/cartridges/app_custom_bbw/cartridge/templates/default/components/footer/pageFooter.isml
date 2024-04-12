@@ -11,38 +11,50 @@
                         </div>
                         <!-- Tooltip container for more information -->
                         <div class="tooltip-container">
-                            <!-- Button to toggle tooltip -->
-                            <button type="button"
-                                class="btn btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
-                                data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
-                                title="&lt;div class='popover-title header-content h-font-size--18 h-fw--bold d-flex align-items-center justify-space-between'&gt;${Resource.msg('popover.tooltip.title', 'footer', null)}&lt;/div&gt; &lt;a href='javascript:;' class='close'&gt;&lt;/a&gt;"
-                                data-content="&lt;div class='popover-content ds-tooltip-content'&gt; &lt;p class='h-clr--black-3 h-font-size--16'&gt; ${Resource.msg('popover.tooltip.content1', 'footer', null)}&lt;/p&gt; &lt;p class='h-clr--black-3 mb-0 h-font-size--18'&gt;${Resource.msg('popover.tooltip.content2', 'footer', null)}&lt;/p&gt;&lt;a class='mb-4 cursor-pointer d-block' href='#'&gt;${Resource.msg('popover.tooltip.list1', 'footer', null)}&lt;/a&gt;&lt;a class='cursor-pointer d-block'  href='#'&gt;${Resource.msg('popover.tooltip.list2', 'footer', null)}&lt;/a&gt;&lt;/div&gt;"
-                                data-html="true">
-                            </button>
-
+                            <!-- content assets for tooltip -->
+                            <iscontentasset aid="footer-tooltip-details" />
                         </div>
                     </div>
-                    <!-- Form for email subscription -->
-                    <form action="#" class="suppress ds-user-info-collection-form" method="post" data-location="Footer"
-                        novalidate="novalidate">
-                        <div class="ds-input-field">
-                            <div data-required-text="">
-                                <label for="email-footer_social_emailcapture"
-                                    class="h-clr--black-3 h-fw--semibold h-auto mb-1">
-                                    ${Resource.msg('form.title', 'footer', null)}
-                                </label>
-                                <div class="field-wrapper ">
-                                    <input class="input-text rounded-0 w-100" maxlength="64">
+                    <!-- Form for newsletter subscription -->
+                    <div class="home-email-signup">
+                        <div class="container">
+                            <form role="form" class="newsletter">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div data-required-text="">
+                                            <label for="email-footer_social_emailcapture"
+                                                class="h-clr--black-3 h-fw--semibold h-auto mb-1">
+                                                ${Resource.msg('form.title', 'footer', null)}
+                                            </label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-text rounded-0 w-100"
+                                                    name="hpEmailSignUp"
+                                                    placeholder="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}"
+                                                    aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" />
+                                                <span class="input-group-append">
+                                                    <isif
+                                                        condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
+                                                        <isset name="dataCallback" value="submitNewsLetter"
+                                                            scope="page" />
+                                                        <isset name="dataErrorCallback" value="checkRecaptcha"
+                                                            scope="page" />
+                                                        <isinclude template="/common/reCaptcha" />
+                                                        <button id="gcaptchabtn" type="button"
+                                                            class="btn btn-primary subscribe-email"
+                                                            data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
+                                                    <iselse/>
+                                                        <button type="button"
+                                                            class=" btn-primary subscribe-email btn submit-btn h-fw--semibold mt-3 h-font-size--16"
+                                                            data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
+                                                    </isif>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div id="caption-email-footer_social_emailcapture" class="form-caption "></div>
-                            </div>
+                            </form>
                         </div>
-                        <div class="ds-buttons-container">
-                            <button class="btn submit-btn h-fw--semibold mt-3 h-font-size--16" type="submit" value="SUBMIT">
-                                ${Resource.msg('form.button', 'footer', null)}
-                            </button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
                 <!-- Social list content -->
                 <iscontentasset aid="footer-social-list" />
