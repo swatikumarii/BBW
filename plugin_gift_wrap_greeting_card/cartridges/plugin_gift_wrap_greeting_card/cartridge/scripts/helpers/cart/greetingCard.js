@@ -45,6 +45,34 @@ function removeGreetingCardProductLineItem(currentBasket, pid) {
 }
 
 /**
+ * @param {dw.order.Basket} currentBasket - Current Basket
+ * @param {string} pid - product id
+ */
+function handleRemoveProduct(currentBasket, pid) {
+    var greetingCardCategoryName = site.current.getCustomPreferenceValue(
+        customPreferenceNames.greetingCardCategoryName
+    );
+    var greetingCardProductLineItem =
+        productHelpers.getProductLineItemByCategory(
+            currentBasket.getAllProductLineItems(),
+            greetingCardCategoryName
+        );
+    if (greetingCardProductLineItem) {
+        // If removed product is GiftWrapCategoryProduct than reset gift wrap attribute
+        Transaction.wrap(function () {
+            if (
+                greetingCardProductLineItem.product.ID !== pid &&
+                currentBasket.productLineItems.length === 2
+            ) {
+                currentBasket.removeProductLineItem(
+                    greetingCardProductLineItem
+                );
+            }
+        });
+    }
+}
+
+/**
  * @param {dw.util.Collection<dw.order.ProductLineItem>} productLineItems - the product line items
  *                                                       of the current line item container
  * @param {string} greetingCardMessage - Greeting card message
@@ -74,5 +102,6 @@ function updateGreetingCardMessage(productLineItems, greetingCardMessage) {
 
 module.exports = {
     removeGreetingCardProductLineItem: removeGreetingCardProductLineItem,
-    updateGreetingCardMessage: updateGreetingCardMessage
+    updateGreetingCardMessage: updateGreetingCardMessage,
+    handleRemoveProduct: handleRemoveProduct
 };

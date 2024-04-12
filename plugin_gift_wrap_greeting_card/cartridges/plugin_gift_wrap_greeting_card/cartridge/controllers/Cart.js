@@ -150,6 +150,10 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
             currentBasket,
             req.querystring.pid
         );
+        greetingCardCartHelpers.handleRemoveProduct(
+            currentBasket,
+            req.querystring.pid
+        );
     }
     return next();
 });
