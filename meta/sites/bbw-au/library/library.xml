@@ -5,23 +5,23 @@
         <page-attributes/>
     </folder>
 	
-     <content content-id="footer-account">
+   <content content-id="footer-account">
         <display-name xml:lang="x-default">footer account</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
-    &lt;button class="title footer-list-title btn text-left btn-block d-md-none footer-collapse collapsed " aria-expanded="false" aria-controls="collapsible-account" data-toggle="collapse" data-target="#collapsible-account"&gt;MY ACCOUNT&lt;/button&gt;&#13;
+    &lt;button class="title footer-list-title btn text-left btn-block d-md-none footer-collapse collapsed cursor-pointer " aria-expanded="false" aria-controls="collapsible-account" data-toggle="collapse" data-target="#collapsible-account"&gt;MY ACCOUNT&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-account"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block  h-clr--black-1 h-fw--bold"&gt;MY ACCOUNT&lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 "&gt;Sign In or Sign Up&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16 "&gt;Sign In or Sign Up&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1"&gt;Order Tracking&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Order Tracking&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1"&gt;My Account&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;My Account&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1"&gt;My Love-It List&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;My Love-It List&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
     &lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
@@ -35,8 +35,8 @@
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="sub-footer"&gt;&#13;
-    &lt;nav class="nav-link-list" aria-label="Footer Links"&gt;&#13;
-        &lt;ul class="sub-list-links"&gt;&#13;
+    &lt;nav class="nav-link-list ml-auto mr-auto mb-3" aria-label="Footer Links"&gt;&#13;
+        &lt;ul class="sub-list-links d-block d-md-flex justify-content-center h-flex-wrap-sm--wrap""&gt;&#13;
             &lt;li class="content pr-2 mb-2 mr-2" role="menu"&gt;&#13;
                 &lt;a class="ds-link" role="menuitem" href="/customer-care/terms-of-use.html"&#13;
                     data-analytics-trigger="link-list" data-module-name="link-group" data-slot-id="footer-legal-links"&#13;
@@ -102,34 +102,34 @@
         </custom-attributes>
     </content>
 
-     <content content-id="footer-customer-care">
+        <content content-id="footer-customer-care">
         <display-name xml:lang="x-default">footer customer care</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
-    &lt;button class="title btn text-left btn-block d-md-none footer-list-title footer-collapse collapsed " aria-expanded="false" aria-controls="customer-service" data-toggle="collapse" data-target="#customer-service"&gt;CUSTOMER CARE&lt;/button&gt;&#13;
+    &lt;button class="title btn text-left btn-block d-md-none footer-list-title footer-collapse collapsed cursor-pointer " aria-expanded="false" aria-controls="customer-service" data-toggle="collapse" data-target="#customer-service"&gt;CUSTOMER CARE&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="customer-service"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;CUSTOMER CARE&lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1"&gt;Help &amp; FAQs&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Help &amp; FAQs&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1"&gt;Shipping&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Shipping&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1"&gt;Returns &amp; Exchanges&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Returns &amp; Exchanges&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1"&gt;Order Tracking&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Order Tracking&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-          &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1"&gt;Corporate Sales &amp; Gifts&lt;/a&gt;&#13;
+          &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Corporate Sales &amp; Gifts&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-          &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1"&gt;Contact Us&lt;/a&gt;&#13;
+          &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Contact Us&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
     &lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
 
-      <content content-id="footer-discover">
+    <content content-id="footer-discover">
         <display-name xml:lang="x-default">footer discover</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
@@ -139,21 +139,21 @@
     &lt;button class="title btn text-left btn-block d-md-none footer-list-title footer-collapse collapsed " aria-expanded="false" aria-controls="collapsible-discover" data-toggle="collapse" data-target="#collapsible-discover"&gt;DISCOVER&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-discover"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;DISCOVER&lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1"&gt;About Us&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;About Us&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1"&gt;Careers&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Careers&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1"&gt;Gift Cards&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#13;
 &lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a class="footer-item-link h-clr--black-1" href="#"&gt;Diversity, Equity &amp; Inclusion&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a class="footer-item-link h-clr--black-1 h-font-size--16" href="#"&gt;Diversity, Equity &amp; Inclusion&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
     &lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
 
-     <content content-id="footer-locate-store">
+    <content content-id="footer-locate-store">
         <display-name xml:lang="x-default">footer locate store</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
@@ -163,9 +163,9 @@
     &lt;button class="title btn text-left btn-block d-md-none footer-list-title footer-collapse collapsed" aria-expanded="false" aria-controls="collapsible-finds" data-toggle="collapse" data-target="#collapsible-finds"&gt;FIND US&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-finds"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block  h-clr--black-1 h-fw--bold"&gt;FIND US&lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1"&gt;Store Locator&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Store Locator&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1"&gt;Global Locations&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Global Locations&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
     &lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
@@ -179,9 +179,9 @@
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="socials mb-5"&gt;&#13;
-    &lt;h3 class="social-header text-capitalize mb-4 font-weight-bold text-start"&gt;Get connected&lt;/h3&gt;&#13;
+    &lt;h6 class="social-header text-capitalize mb-4 font-weight-bold text-start"&gt;Get connected&lt;/h6&gt;&#13;
 &#13;
-    &lt;ul class="social-links d-flex"&gt;&#13;
+    &lt;ul class="social-links d-flex m-0"&gt;&#13;
         &lt;li&gt;&#13;
             &lt;a class="facebook" href="https://www.facebook.com/bathandbodyworks" target="_blank"&#13;
                 title="Go to facebook"&gt;&lt;img alt="" src="images/footer/social-icon/Social-fb-black.svg?$staticlink$" title="facebook" /&gt;&lt;/a&gt;&#13;

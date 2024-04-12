@@ -1,6 +1,6 @@
 <footer id="footercontent">
     <div class="container pt-3 pb-5">
-        <div class="footer-container footer-details">
+        <div class="footer-container footer-details p-sm-0">
             <div class="footer-item store pt-3">
                 <div class="user-info-heading">
                     <!-- Footer tooltip details with margin bottom of 2 units and left-aligned text -->
@@ -13,10 +13,10 @@
                         <div class="tooltip-container">
                             <!-- Button to toggle tooltip -->
                             <button type="button"
-                                class="btn btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button"
+                                class="btn btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
                                 data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
-                                title="&lt;div class='popover-title header-content h-fw--bold'&gt;${Resource.msg('popover.tooltip.title', 'footer', null)}&lt;/div&gt; &lt;a href='javascript:;' class='close'&gt;&lt;/a&gt;"
-                                data-content="&lt;div class='popover-content ds-tooltip-content'&gt; &lt;p class='h-clr--black-3'&gt; ${Resource.msg('popover.tooltip.content1', 'footer', null)}&lt;/p&gt; &lt;p class='h-clr--black-3 mb-0'&gt;${Resource.msg('popover.tooltip.content2', 'footer', null)}&lt;/p&gt;&lt;a class='mb-2' href='#'&gt;${Resource.msg('popover.tooltip.list1', 'footer', null)}&lt;/a&gt;&lt;a href='#'&gt;${Resource.msg('popover.tooltip.list2', 'footer', null)}&lt;/a&gt;&lt;/div&gt;"
+                                title="&lt;div class='popover-title header-content h-font-size--18 h-fw--bold d-flex align-items-center justify-space-between'&gt;${Resource.msg('popover.tooltip.title', 'footer', null)}&lt;/div&gt; &lt;a href='javascript:;' class='close'&gt;&lt;/a&gt;"
+                                data-content="&lt;div class='popover-content ds-tooltip-content'&gt; &lt;p class='h-clr--black-3 h-font-size--16'&gt; ${Resource.msg('popover.tooltip.content1', 'footer', null)}&lt;/p&gt; &lt;p class='h-clr--black-3 mb-0 h-font-size--18'&gt;${Resource.msg('popover.tooltip.content2', 'footer', null)}&lt;/p&gt;&lt;a class='mb-4 cursor-pointer d-block' href='#'&gt;${Resource.msg('popover.tooltip.list1', 'footer', null)}&lt;/a&gt;&lt;a class='cursor-pointer d-block'  href='#'&gt;${Resource.msg('popover.tooltip.list2', 'footer', null)}&lt;/a&gt;&lt;/div&gt;"
                                 data-html="true">
                             </button>
 
@@ -32,13 +32,13 @@
                                     ${Resource.msg('form.title', 'footer', null)}
                                 </label>
                                 <div class="field-wrapper ">
-                                    <input class="input-text " maxlength="64">
+                                    <input class="input-text rounded-0 w-100" maxlength="64">
                                 </div>
                                 <div id="caption-email-footer_social_emailcapture" class="form-caption "></div>
                             </div>
                         </div>
                         <div class="ds-buttons-container">
-                            <button class="btn submit-btn h-fw--semibold mt-3" type="submit" value="SUBMIT">
+                            <button class="btn submit-btn h-fw--semibold mt-3 h-font-size--16" type="submit" value="SUBMIT">
                                 ${Resource.msg('form.button', 'footer', null)}
                             </button>
                         </div>
