@@ -1,6 +1,6 @@
 <footer id="footercontent">
     <div class="container pt-3 pb-5">
-        <div class="footer-container footer-details p-sm-0">
+        <div class="footer-container footer-details p-sm-0 h-dsp--grid">
             <div class="footer-item store pt-3">
                 <div class="user-info-heading">
                     <!-- Footer tooltip details with margin bottom of 2 units and left-aligned text -->
@@ -48,7 +48,7 @@
                 <iscontentasset aid="footer-social-list" />
             </div>
             <!-- Footer list details -->
-            <div class="footer-list-details">
+            <div class="footer-list-details h-dsp--grid">
                 <!-- Footer item for customer care -->
                 <div class="footer-item  collapsible-xs">
                     <iscontentasset aid="footer-customer-care" />
