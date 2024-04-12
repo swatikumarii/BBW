@@ -1,10 +1,12 @@
 'use strict';
 
 var server = require('server');
-// server.extend(module.superModule);
+
 var Site = require('dw/system/Site');
 
-
+/**
+ * Fragrance-Show : The Fragrance-Show enpoint show the fragrance categories and fragrance name
+ */
 server.get('Show', function(req, res, next) {
     var fragranceCategories = Site.current.getCustomPreferenceValue('fragranceCategories');
     var fragranceNamesList = Site.current.getCustomPreferenceValue('fragranceNames');

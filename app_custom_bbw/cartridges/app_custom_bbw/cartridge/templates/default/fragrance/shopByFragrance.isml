@@ -6,12 +6,12 @@
     </isscript>
     <div class="row">
         <div class="col-md-8 offset-md-4 ">
-            <h1>${Resource.msg('shop.by.fragrance.title', 'search', null)}</h1>
-            <p class="center text-live">${Resource.msg('shop.by.fragrance.sub', 'search', null)}</p>
+            <h1>${Resource.msg('shop.by.fragrance.title', 'fragrance', null)}</h1>
+            <p class="center text-live">${Resource.msg('shop.by.fragrance.sub', 'fragrance', null)}</p>
         </div>
         <div class="col-md-8 offset-md-2">
-            <h2 class="subtitle ml-2">${Resource.msg('shop.by.fragrance.categories.title', 'search', null)}</h2>
-            <p class="note ml-2">${Resource.msg('shop.by.fragrance.categories.sub', 'search', null)}</p>
+            <h2 class="subtitle ml-2">${Resource.msg('shop.by.fragrance.categories.title', 'fragrance', null)}</h2>
+            <p class="note ml-2">${Resource.msg('shop.by.fragrance.categories.sub', 'fragrance', null)}</p>
             <ul class="clearfix" role="list">
                 <isloop iterator="${pdict.fragranceCategories}" alias="fragranceCategories" status="loopstate">
                     <li class="new-row">
@@ -23,11 +23,11 @@
         </div>
 
         <div class="col-md-8 offset-md-2 mt-5">
-            <h2 class="subtitle ml-2">${Resource.msg('shop.by.fragrance.name.title', 'search', null)}</h2>
-            <p class="note ml-2">${Resource.msg('shop.by.fragrance.name.sub1', 'search', null)}</p>
+            <h2 class="subtitle ml-2">${Resource.msg('shop.by.fragrance.name.title', 'fragrance', null)}</h2>
+            <p class="note ml-2">${Resource.msg('shop.by.fragrance.name.sub1', 'fragrance', null)}</p>
             <p class="note ml-2">
                 <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, '/images/shop-by-fragrance/top-badge-lrg-2.svg')}"
-                alt="top-fragrance"> ${Resource.msg('shop.by.fragrance.name.sub2', 'search', null)}</p>
+                alt="top-fragrance"> ${Resource.msg('shop.by.fragrance.name.sub2', 'fragrance', null)}</p>
             <div class="fragrance-header-search">
                 <div class="fragrance-search search-wrapper">
                     <fieldset>
@@ -58,7 +58,7 @@
                     <isset name="previousAlphabet" value="${fragranceNames.alphabet}" scope="page" />
                 </isloop>
             </ul>
-            <div class="noresult" id="noresult">${Resource.msg('shop.by.fragrance.name.noresult', 'search', null)}</div>
+            <div class="noresult" id="noresult">${Resource.msg('shop.by.fragrance.name.noresult', 'fragrance', null)}</div>
         </div>
     </div>
 </isdecorate>
