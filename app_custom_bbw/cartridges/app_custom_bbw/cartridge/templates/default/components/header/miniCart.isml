@@ -1,0 +1,11 @@
+<div class="minicart-total hide-link-med position-relative">
+    <a class="minicart-link" href="${URLUtils.https('Cart-Show')}"
+        title="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}"
+        aria-label="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}" aria-haspopup="true">
+        <div class="cart-icon"></div>
+        <span class="minicart-quantity h-font-size--10 h-clr--blue position-absolute text-center h-font-size--10 h-font-size-sm--14">
+            <isprint value="${pdict.quantityTotal}" formatter="##" />
+        </span>
+    </a>
+</div>
+<div class="popover popover-bottom"></div>

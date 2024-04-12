@@ -153,4 +153,14 @@ $('form.notify-me-form').on('submit', function (e) {
     );
 });
 
+$('body').on('product:afterAttributeSelect',
+    function (e, param) {
+        e.preventDefault();
+        $('body')
+            .find('.js-add-to-cart-button')
+            .empty()
+            .append(param.data.product.addToCartHtml);
+    }
+);
+
 module.exports = {};

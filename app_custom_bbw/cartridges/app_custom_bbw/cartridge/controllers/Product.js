@@ -1,0 +1,28 @@
+'use strict';
+
+var server = require('server');
+var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
+
+server.extend(module.superModule);
+
+server.append('Show', function (req, res, next) {
+    var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
+        type: 10
+    });
+    var pid = req.querystring.pid || req.form.pid;
+    var optionId = req.querystring.optionId || req.form.optionId  || null;
+    var optionVal = req.querystring.optionVal || req.form.optionVal || null;
+
+    var config = {
+        qty: 1,
+        optionId: optionId,
+        optionValue: optionVal,
+        req: req,
+        type: 10
+    };
+    var itemExist = productListHelper.itemExists(list, pid, config);
+    res.setViewData({itemExist: itemExist});
+    next();
+});
+
+module.exports = server.exports();

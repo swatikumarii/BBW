@@ -1,0 +1,64 @@
+<header>
+    <div class="header-banner slide-up d-none">
+        <div class="container-fluid px-0">
+            <div class="content h-width-perc--100">
+                <isslot id="header-banner-m" description="Slot above the site header" context="global" />
+            </div>
+
+            <div class="content h-width-perc--100 d-none d-md-block">
+                <isslot id="store-header-banner" description="Slot above the site header" context="global" />
+            </div>
+        </div>
+    </div>
+    <nav class="bbw-nav">
+        <div class="header bbw-nav-wrap h-maxwidth--1400 mx-auto position-relative">
+            <div class="navbar-header brand primary-logo">
+                <a class="logo-home d-block" href="${URLUtils.url('Home-Show')}"
+                    title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
+                        'global.home', 'common', null))}">
+                    <img class="hidden-md-down img-fluid w-100"
+                        src="${URLUtils.staticURL('/images/header/Logos-main.svg')}"
+                        alt="${Resource.msg('global.storename', 'common', null)}" />
+                </a>
+            </div>
+            <div class="navbar-header icon-items h-float-md--right">
+                <iscomment>Menu Hamburger</iscomment>
+                <button class="navbar-toggler b-nav-toggler d-md-none border-0 fa-pull-left" type="button"
+                    aria-controls="sg-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <img class="hidden-md-down img-fluid w-100"
+                        src="${URLUtils.staticURL('/images/header/UI-Menu-v2.svg')}" alt="" />
+                </button>
+                <iscomment>Mobile Menu</iscomment>
+                <div class="mobile-custom-search d-md-none hidden-md-up fa-pull-left m-0 text-center">
+                    <a href="" role="button">
+                        <img class="" src="${URLUtils.staticURL('/images/header/UI-Search-v2.svg')}" alt="" />
+                    </a>
+                </div>
+                <iscomment>Minicart</iscomment>
+                <div class="minicart fa-pull-right position-relative"
+                    data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+                    <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
+                </div>
+                <iscomment>Offers</iscomment>
+                <div class="offers d-md-none fa-pull-right m-0">
+                    <a href="#" title="offers">
+                        <img class="" src="${URLUtils.staticURL('/images/header/UI-Tag-v2.svg')}" alt="" />
+                    </a>
+                </div>
+                <iscomment>Login</iscomment>
+                <div class="d-none d-md-block utility-user position-relative fa-pull-right">
+                    <isinclude url="${URLUtils.url('Account-Header')}" />
+                    <isinclude url="${URLUtils.url('Page-Locale')}" />
+                </div>
+                <iscomment>Search</iscomment>
+                <div class="search custom-search d-none d-md-block position-absolute w-100 m-0 fa-pull-right">
+                    <isinclude template="components/header/search" />
+                </div>
+            </div>
+        </div>
+        <div class="bbw-menu mx-auto h-maxwidth--1400 main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown d-none d-md-block"
+            id="sg-navbar-collapse">
+            <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
+        </div>
+    </nav>
+</header>

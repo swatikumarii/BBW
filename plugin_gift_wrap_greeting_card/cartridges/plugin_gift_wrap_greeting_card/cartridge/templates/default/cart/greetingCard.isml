@@ -1,0 +1,87 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/greetingCard.css');
+</isscript>
+<isif condition="${pdict.isGreetingCardEnable}">
+    <div class="greeting-block js-greetingcard">
+        <div class="js-greetingcard-block">
+            <div class="greeting-block-toggle">
+                <input type="checkbox" id="greetingcard" class="js-greetingcard-checkbox" />
+                <label for="greetingcard">${Resource.msg('add.greeting.card', 'greetingCard', null)}</label>
+            </div>
+            <div class="greetingCard-edit-product addGreetingCardProduct">
+                <div class="js-greetingcard-edit" hreflang="${request.getLocale()}">
+                    ${Resource.msg('edit.label', 'common', null)}
+                </div>
+            </div>
+            <div class="greeting-block-options js-greetingcard-options">
+                <div class="giftwrap-block-personal-message js-greetingcard-block-personal-message">
+                    <span id="gift-wrapping-card-title" class="gift-wrapping-card-title">
+                        ${Resource.msg('choose.greeting.card', 'greetingCard', null)}(
+                        <span class="selected-greetingcard-price">${pdict.greetingCardProductPrice}</span>
+                        )
+                    </span>
+                    <span class="gift-wrapping-card-title">${Resource.msg('choose.greeting.card-theme', 'greetingCard', null)}</span>
+                    <div class="greeting-card-selection js-greetingcard-select-card">
+                        <isset name="isFirstIterationGreeting" value="${true}" scope="page" />
+                        <isloop items="${pdict.greetingCardProducts}" var="greetingCardProduct" status="loopstate">
+                            <div class="greetingCardProductOptions"
+                                data-error-message-select-radio="${Resource.msg('error.radio.greetingcard', 'greetingCard', null)}">
+                                <div class="imgGiftWrap">
+                                    <img src="${greetingCardProduct.images.small[0].url}"
+                                        alt="${greetingCardProduct.productName}" />
+                                    <input class="greetingCardProductOptionsRadio" name="greeting-card"
+                                        id="greetingCardProductOptionsRadio-${loopstate.count}" type="radio"
+                                        value="${greetingCardProduct.id}"
+                                        data-price="${greetingCardProduct.price.sales.formatted}" />
+                                    <label class="greetingCardProductLabel"
+                                        for="greetingCardProductOptionsRadio-${loopstate.count}"></label>
+                                    <div class="gift-wrapping-card-description">
+                                        <h5 class="gift-wrapping-card-name js-card-name">
+                                            ${greetingCardProduct.productName}
+                                        </h5>
+                                    </div>
+                                </div>
+                                <isset name="isFirstIterationGreeting" value="${false}" scope="page" />
+                            </div>
+                        </isloop>
+                    </div>
+                    <div class="giftwrap-block-textarea">
+                        <span class="lines-wrap js-textarea-lines">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </span>
+                        <textarea rows="4" maxlength="${pdict.greetingCardMessageLimit}"
+                            placeholder="${Resource.msg('greeting.card.placeholder', 'greetingCard', null)}"
+                            name="giftwrap-message" class="js-personal-message-textarea"
+                            data-error-message-blank="${Resource.msg('error.textarea.greetingcardmessage', 'greetingCard', null)}"
+                            data-error-message-morethan="${Resource.msg('error.textarea.greetingcardmessage.can.not.more.than', 'greetingCard', null)}"></textarea>
+                    </div>
+                    <input id="greetingCardMessageCounter" type="hidden"
+                        value="${dw.system.Site.getCurrent().getCustomPreferenceValue('greetingCardMessageCounter')}" />
+                    <div class="character-counter">
+                        <span class="js-char-left"></span>
+                    </div>
+                    <div class="buttons">
+                        <button type="button" class="btn btn--secondary js-greetingcard-cancel">
+                            ${Resource.msg('cancel.label', 'common', null)}
+                        </button>
+                        <button id="addGreetingCardProduct" type="button" class="btn btn--submit js-greetingcard-add"
+                            data-actionurl="${URLUtils.url('Cart-AddProduct')}"
+                            data-removeurl="${URLUtils.url('Cart-RemoveProductLineItem')}"
+                            data-add-text="${Resource.msg('add.label', 'common', null)}"
+                            data-update-text="${Resource.msg('update.label', 'common', null)}">
+                            ${Resource.msg('add.label', 'common', null)}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</isif>
