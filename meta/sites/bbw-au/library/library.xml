@@ -179,7 +179,7 @@
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="socials mb-5"&gt;&#13;
-    &lt;h6 class="social-header text-capitalize mb-4 font-weight-bold text-start"&gt;Get connected&lt;/h6&gt;&#13;
+    &lt;h6 class="social-header text-capitalize mb-4 font-weight-bold text-start h-clr--black-1 h-font-size--16"&gt;Get connected&lt;/h6&gt;&#13;
 &#13;
     &lt;ul class="social-links d-flex m-0"&gt;&#13;
         &lt;li&gt;&#13;
