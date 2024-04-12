@@ -148,7 +148,3 @@ module.exports = {
     createStoresResultsHtml: createStoresResultsHtml,
     getStores: getStores
 };
-exports = {
-    createStoresResultsHtml: createStoresResultsHtml,
-    getStores: getStores
-};

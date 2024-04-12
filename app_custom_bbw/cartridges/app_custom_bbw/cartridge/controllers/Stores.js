@@ -7,16 +7,12 @@
 var server = require('server');
 server.extend(module.superModule);
 
-var cache = require('*/cartridge/scripts/middleware/cache');
-var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var storeHelpers = require('*/cartridge/scripts/helpers/storeHelpers');
 
 /**
  * Stores-Find : This endpoint is used to load the Find Stores page
  * @function
  * @memberof Stores
- * @param {middleware} server.middleware.https
- * @param {middleware} cache.applyDefaultCache
  * @param {middleware} consentTracking
  * @param {querystringparameter} radius - The radius that the shopper selected to refine the search
  * @param {querystringparameter} postalCode - The postal code that the shopper used to search
@@ -29,9 +25,6 @@ var storeHelpers = require('*/cartridge/scripts/helpers/storeHelpers');
  */
 server.append(
     'Find',
-    server.middleware.https,
-    cache.applyDefaultCache,
-    consentTracking.consent,
     function (req, res, next) {
         var viewData = res.getViewData;        
         var radius = req.querystring.radius;

@@ -1,6 +1,6 @@
-/* globals google */
-
 'use strict';
+
+var baseStore = require('base/storeLocator/storeLocator');
 
 /**
  * appends params to a url
@@ -116,96 +116,8 @@ function updateStoresResults(data) {
     }
 }
 
-/**
- * Search for stores with new zip code
- * @param {HTMLElement} element - the target html element
- * @returns {boolean} false to prevent default event
- */
-function search(element) {
-    var dialog = element.closest('.in-store-inventory-dialog');
-    var spinner = dialog.length ? dialog.spinner() : $.spinner();
-    spinner.start();
-    var $form = element.closest('.store-locator');
-    var radius = $('.results').data('radius');
-    var url = $form.attr('action');
-    var urlParams = { radius: radius };
 
-    var payload = $form.is('form') ? $form.serialize() : { postalCode: $form.find('[name="postalCode"]').val() };
-
-    url = appendToUrl(url, urlParams);
-
-    $.ajax({
-        url: url,
-        type: $form.attr('method'),
-        data: payload,
-        dataType: 'json',
-        success: function (data) {
-            spinner.stop();
-            updateStoresResults(data);
-            $('.select-store').prop('disabled', true);
-        }
-    });
-    return false;
-}
-
-module.exports = {
-    init: function () {
-        if ($('.map-canvas').data('has-google-api')) {
-            maps();
-        } else {
-            $('.store-locator-no-api-key').show();
-        }
-
-        if (!$('.results').data('has-results')) {
-            $('.store-locator-no-results').show();
-        }
-    },
-
-    detectLocation: function () {
-        // clicking on detect location.
-        $('.detect-location').on('click', function () {
-            $.spinner().start();
-            if (!navigator.geolocation) {
-                $.spinner().stop();
-                return;
-            }
-
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var $detectLocationButton = $('.detect-location');
-                var url = $detectLocationButton.data('action');
-                var radius = $('.results').data('radius');
-                var urlParams = {
-                    radius: radius,
-                    lat: position.coords.latitude,
-                    long: position.coords.longitude
-                };
-
-                url = appendToUrl(url, urlParams);
-                $.ajax({
-                    url: url,
-                    type: 'get',
-                    dataType: 'json',
-                    success: function (data) {
-                        $.spinner().stop();
-                        updateStoresResults(data);
-                        $('.select-store').prop('disabled', true);
-                    }
-                });
-            });
-        });
-    },
-
-    search: function () {
-        $('.store-locator-container form.store-locator').submit(function (e) {
-            e.preventDefault();
-            search($(this));
-        });
-        $('.store-locator-container .btn-storelocator-search[type="button"]').click(function (e) {
-            e.preventDefault();
-            search($(this));
-        });
-    },
-
+module.exports = $.extend({}, baseStore, {    
     changeRadius: function () {
         $('.store-locator-container .radius').change(function () {
             var radius = $(this).val();
@@ -248,25 +160,5 @@ module.exports = {
                 }
             });
         });
-    },
-    selectStore: function () {
-        $('.store-locator-container').on('click', '.select-store', (function (e) {
-            e.preventDefault();
-            var selectedStore = $(':checked', '.results-card .results');
-            var data = {
-                storeID: selectedStore.val(),
-                searchRadius: $('#radius').val(),
-                searchPostalCode: $('.results').data('search-key').postalCode,
-                storeDetailsHtml: selectedStore.siblings('label').find('.store-details').html(),
-                event: e
-            };
-
-            $('body').trigger('store:selected', data);
-        }));
-    },
-    updateSelectStoreButton: function () {
-        $('body').on('change', '.select-store-input', (function () {
-            $('.select-store').prop('disabled', false);
-        }));
     }
-};
+});
