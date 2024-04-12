@@ -1,11 +1,11 @@
 'use strict';
 
 var server = require('server');
-server.extend(module.superModule);
+// server.extend(module.superModule);
 var Site = require('dw/system/Site');
 
 
-server.get('Fragrance', function(req, res, next) {
+server.get('Show', function(req, res, next) {
     var fragranceCategories = Site.current.getCustomPreferenceValue('fragranceCategories');
     var fragranceNamesList = Site.current.getCustomPreferenceValue('fragranceNames');
     var topFragrancesList = Site.current.getCustomPreferenceValue('topFragrances');
@@ -34,7 +34,7 @@ server.get('Fragrance', function(req, res, next) {
     }
 
 
-    res.render('search/shopByFragrance', {
+    res.render('fragrance/shopByFragrance', {
         fragranceCategories: byCategories,
         fragranceNames: fragranceNamesArray,
         currentSite: currentSite

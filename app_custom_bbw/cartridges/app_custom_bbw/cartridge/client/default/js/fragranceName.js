@@ -1,59 +1,53 @@
 'use strict';
 
 $(document).ready(function () {
-    var noresultDiv = document.getElementById('noresult');
-    noresultDiv.style.display = 'none';
+    $('#noresult').hide();
+
     $('#search-input').on('change keyup', function (event) {
-        var searchTerm = event.currentTarget;
-        var searchPhrase = $(searchTerm).val();
-        var liElements = document.querySelectorAll('li.level-2');
+        var searchTerm = $(event.currentTarget);
+        var searchPhrase = searchTerm.val();
+        var liElements = $('li.level-2');
         var showAlphabets = [];
         var hideAlphabets = [];
-        var showAlphabet;
-        var hideAlphabet;
 
-        for (var index = 0; index < liElements.length; index++) {
-            var a = liElements[index].querySelector('a');
+        liElements.each(function (index, element) {
+            var a = $(element).find('a');
+            var fragranceName = a.data('fragrancename');
 
-            var fragranceName = a.getAttribute('data-fragrancename');
-
-            if (
-                fragranceName.toLowerCase().includes(searchPhrase.toLowerCase())
-            ) {
-                liElements[index].style.display = 'block';
-                showAlphabet = fragranceName.charAt(0);
-                if (!showAlphabets.includes(showAlphabet)) {
+            if (fragranceName.toLowerCase().includes(searchPhrase.toLowerCase())) {
+                $(element).show();
+                var showAlphabet = fragranceName.charAt(0);
+                if (showAlphabets.indexOf(showAlphabet) === -1) {
                     showAlphabets.push(showAlphabet);
                 }
             } else {
-                liElements[index].style.display = 'none';
-                hideAlphabet = fragranceName.charAt(0);
-                if (!hideAlphabets.includes(hideAlphabet)) {
+                $(element).hide();
+                var hideAlphabet = fragranceName.charAt(0);
+                if (hideAlphabets.indexOf(hideAlphabet) === -1) {
                     hideAlphabets.push(hideAlphabet);
                 }
             }
-        }
+        });
 
-        if (hideAlphabets.length){
+        if (hideAlphabets.length) {
             for (var position = 0; position < hideAlphabets.length; position++) {
-                if (!showAlphabets.includes(hideAlphabets[position])) {
-
-                    document.getElementById(hideAlphabets[position]).style.display =
-                        'none';
+                var alphabetDiv = $('#' + hideAlphabets[position]);
+                if (showAlphabets.indexOf(hideAlphabets[position]) === -1) {
+                    alphabetDiv.hide();
                 } else {
-                    document.getElementById(hideAlphabets[position]).style.display =
-                        'block';
+                    alphabetDiv.show();
                 }
             }
-        }else{
+        } else {
             for (var i = 0; i < showAlphabets.length; i++) {
-                document.getElementById(showAlphabets[i]).style.display = 'block';
+                $('#' + showAlphabets[i]).show();
             }
         }
+
         if (!showAlphabets.length) {
-            noresultDiv.style.display = 'block';
-        }else{
-            noresultDiv.style.display = 'none';
+            $('#noresult').show();
+        } else {
+            $('#noresult').hide();
         }
     });
 });
