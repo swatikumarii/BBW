@@ -14,6 +14,30 @@ var productHelpers = require('*/cartridge/scripts/helpers/product');
 var customPreferenceNames = require('*/cartridge/config/customPreferenceNames');
 
 /**
+ * @returns {JSON} - Greeting card config
+ */
+function getGreetingCardConfig() {
+    var isGreetingCardEnable = site.current.getCustomPreferenceValue(
+        customPreferenceNames.isGreetingCardEnable
+    );
+    if (isGreetingCardEnable) {
+        var greetingCardMessageLimit =
+            site.current.getCustomPreferenceValue(
+                customPreferenceNames.greetingCardMessageLimit
+            );
+        var greetingCardProducts = productHelpers.getFullOnlineProducts(
+            customPreferenceNames.greetingCardCategoryName
+        );
+        return {
+            isGreetingCardEnable: isGreetingCardEnable,
+            greetingCardMessageLimit: greetingCardMessageLimit,
+            greetingCardProducts: greetingCardProducts
+        };
+    }
+    return { isGreetingCardEnable: isGreetingCardEnable };
+}
+
+/**
  * @param {dw.order.Basket} currentBasket - Current Basket
  * @param {string} pid - product id
  */
@@ -101,6 +125,7 @@ function updateGreetingCardMessage(productLineItems, greetingCardMessage) {
 }
 
 module.exports = {
+    getGreetingCardConfig: getGreetingCardConfig,
     removeGreetingCardProductLineItem: removeGreetingCardProductLineItem,
     updateGreetingCardMessage: updateGreetingCardMessage,
     handleRemoveProduct: handleRemoveProduct

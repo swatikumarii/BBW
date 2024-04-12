@@ -8,7 +8,6 @@ var Resource = require('dw/web/Resource');
 var URLUtils = require('dw/web/URLUtils');
 var BasketMgr = require('dw/order/BasketMgr');
 var productHelpers = require('*/cartridge/scripts/helpers/product');
-var giftWrapHelpers = require('*/cartridge/scripts/helpers/giftWrap');
 var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
 var giftWrapCartHelpers = require('*/cartridge/scripts/helpers/cart/giftWrap');
 var greetingCardCartHelpers = require('*/cartridge/scripts/helpers/cart/greetingCard');
@@ -28,58 +27,8 @@ server.append(
         var viewData = res.getViewData();
 
         if (viewData.items.length > 0) {
-            viewData.isGreetingCardEnable = site.current.getCustomPreferenceValue(
-                customPreferenceNames.isGreetingCardEnable
-            );
-            if (viewData.isGreetingCardEnable) {
-                viewData.greetingCardMessageLimit =
-                    site.current.getCustomPreferenceValue(customPreferenceNames.greetingCardMessageLimit);
-                viewData.greetingCardProducts =
-                    productHelpers.getFullOnlineProducts(
-                        customPreferenceNames.greetingCardCategoryName
-                    );
-                viewData.isGiftWrapEnable =
-                    site.current.getCustomPreferenceValue(customPreferenceNames.isGiftWrapEnable);
-            }
-            if (viewData.isGiftWrapEnable) {
-                var wrappableProducts = [];
-                var wrappedProductCount = 0;
-                var wrappedProductQuantity = [];
-                viewData.items.forEach(function(element) {
-                    if (element.isGiftWrappable) {
-                        wrappableProducts.push(element);
-                        if (element.wrap.isWrapped) {
-                            wrappedProductCount++;
-                            wrappedProductQuantity.push(
-                                element.wrap.wrappedQuantity
-                            );
-                        }
-                    }
-                });
-                if (wrappableProducts.length === 0) {
-                    viewData.isGiftWrapEnable = false;
-                } else {
-                    viewData.wrapItemMethod =
-                        site.current.getCustomPreferenceValue(
-                            customPreferenceNames.wrapItemMethod
-                        ).value;
-                    viewData.giftWrapProducts =
-                        productHelpers.getFullOnlineProducts(
-                            customPreferenceNames.giftWrapCategoryName
-                        );
-                    viewData.isDisableTogetherOption =
-                        viewData.items.length !== wrappableProducts.length;
-                    viewData.isDisableIndividualOption =
-                        viewData.items.length === 1 &&
-                        viewData.items[0].quantity === 1;
-                    viewData.wrappableProducts = wrappableProducts;
-                    viewData.wrapType = giftWrapHelpers.getWrapType(
-                        wrappableProducts,
-                        wrappedProductCount,
-                        wrappedProductQuantity
-                    );
-                }
-            }
+            res.setViewData(greetingCardCartHelpers.getGreetingCardConfig(viewData));
+            res.setViewData(giftWrapCartHelpers.getGiftWrapConfig(viewData.items));
         }
         res.setViewData(viewData);
         next();

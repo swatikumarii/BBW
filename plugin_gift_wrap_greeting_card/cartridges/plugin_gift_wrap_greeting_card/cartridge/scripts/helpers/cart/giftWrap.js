@@ -16,6 +16,60 @@ var giftWrapHelpers = require('*/cartridge/scripts/helpers/giftWrap');
 var customPreferenceNames = require('*/cartridge/config/customPreferenceNames');
 
 /**
+ * 
+ * @param {*} items - Product line items
+ * @returns {JSON} - Gift wrap config
+ */
+function getGiftWrapConfig(items) {
+    var isGiftWrapEnable = site.current.getCustomPreferenceValue(
+        customPreferenceNames.isGiftWrapEnable
+    );
+    if (isGiftWrapEnable) {
+        var wrappableProducts = [];
+        var wrappedProductCount = 0;
+        var wrappedProductQuantity = [];
+        items.forEach(function (element) {
+            if (element.isGiftWrappable) {
+                wrappableProducts.push(element);
+                if (element.wrap.isWrapped) {
+                    wrappedProductCount++;
+                    wrappedProductQuantity.push(element.wrap.wrappedQuantity);
+                }
+            }
+        });
+        if (wrappableProducts.length === 0) {
+            isGiftWrapEnable = false;
+        } else {
+            var wrapItemMethod = site.current.getCustomPreferenceValue(
+                customPreferenceNames.wrapItemMethod
+            ).value;
+            var giftWrapProducts = productHelpers.getFullOnlineProducts(
+                customPreferenceNames.giftWrapCategoryName
+            );
+            var isDisableTogetherOption =
+                items.length !== wrappableProducts.length;
+            var isDisableIndividualOption =
+                items.length === 1 && items[0].quantity === 1;
+            var wrapType = giftWrapHelpers.getWrapType(
+                wrappableProducts,
+                wrappedProductCount,
+                wrappedProductQuantity
+            );
+            return {
+                isGiftWrapEnable: isGiftWrapEnable,
+                wrapItemMethod: wrapItemMethod,
+                giftWrapProducts: giftWrapProducts,
+                isDisableTogetherOption: isDisableTogetherOption,
+                isDisableIndividualOption: isDisableIndividualOption,
+                wrappableProducts: wrappableProducts,
+                wrapType: wrapType
+            };
+        }
+    }
+    return { isGiftWrapEnable: isGiftWrapEnable };
+}
+
+/**
  * @param {dw.order.Basket} currentBasket - Current Basket
  * @param {string} pid - product id
  */
@@ -89,7 +143,7 @@ function updateProductLineItemForIndividual(
 }
 
 /**
- * 
+ *
  * @param {dw.order.ProductLineItem[]} productLineItems - Product Line Item Array
  * @param {string} giftWrapProductId - Gift wrap product Id
  */
@@ -169,7 +223,7 @@ function handleRemoveProduct(currentBasket, pid) {
                     pli.custom.wrappedQuantity = 0;
                 }
             } else {
-                var base = require('app_storefront_base/cartridge/scripts/cart/cartHelpers');
+                var base = require('*/cartridge/scripts/cart/cartHelpers');
                 var product = productMgr.getProduct(pid);
                 var productInCart = base.getExistingProductLineItemInCart(
                     product,
@@ -218,7 +272,6 @@ function handleRemoveProduct(currentBasket, pid) {
 }
 
 /**
- * 
  * @param {dw.order.Basket} currentBasket - Current Basket
  * @param {dw.order.ProductLineItem} giftWrapProductLineItem - Gift wrap product line item
  * @param {string} pid - product id
@@ -226,11 +279,12 @@ function handleRemoveProduct(currentBasket, pid) {
  */
 function handleUpdateQuantity(
     currentBasket,
-    giftWrapProductLineItem, pid,
+    giftWrapProductLineItem,
+    pid,
     quantity
 ) {
     var product = productMgr.getProduct(pid);
-    var base = require('app_storefront_base/cartridge/scripts/cart/cartHelpers');
+    var base = require('*/cartridge/scripts/cart/cartHelpers');
     var productInCart = base.getExistingProductLineItemInCart(
         product,
         pid,
@@ -239,10 +293,7 @@ function handleUpdateQuantity(
     Transaction.wrap(function () {
         // If wrappable product
         // Than check is wrapped
-        if (
-            product.custom.isGiftWrappable &&
-            productInCart.custom.isWrapped
-        ) {
+        if (product.custom.isGiftWrappable && productInCart.custom.isWrapped) {
             if (productInCart.custom.wrappedQuantity > 0) {
                 //  Update Quantity of giftWrapped category product
                 if (productInCart.custom.wrappedQuantity > quantity) {
@@ -264,6 +315,7 @@ function handleUpdateQuantity(
 }
 
 module.exports = {
+    getGiftWrapConfig: getGiftWrapConfig,
     removeGiftWrapLineItem: removeGiftWrapLineItem,
     updateWrapForAllProductLineItem: updateWrapForAllProductLineItem,
     handleRemoveProduct: handleRemoveProduct,
