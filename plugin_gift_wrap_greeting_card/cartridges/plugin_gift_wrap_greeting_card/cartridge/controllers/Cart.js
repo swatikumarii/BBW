@@ -7,8 +7,6 @@ var site = require('dw/system/Site');
 var Resource = require('dw/web/Resource');
 var URLUtils = require('dw/web/URLUtils');
 var BasketMgr = require('dw/order/BasketMgr');
-var productMgr = require('dw/catalog/ProductMgr');
-var Transaction = require('dw/system/Transaction');
 var productHelpers = require('*/cartridge/scripts/helpers/product');
 var giftWrapHelpers = require('*/cartridge/scripts/helpers/giftWrap');
 var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
@@ -137,10 +135,6 @@ server.append('AddProduct', function (req, res, next) {
  * @name Cart-RemoveProductLineItem
  */
 server.prepend('RemoveProductLineItem', function (req, res, next) {
-
-    var giftWrapCategoryName = site.current.getCustomPreferenceValue(
-        customPreferenceNames.giftWrapCategoryName
-    );
     var currentBasket = BasketMgr.getCurrentBasket();
     if (!currentBasket) {
         res.setStatusCode(500);
@@ -152,68 +146,10 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
         return next();
     }
     if (req.querystring.pid && req.querystring.uuid) {
-        var giftWrapProductLineItem =
-            productHelpers.getProductLineItemByCategory(
-                currentBasket.getAllProductLineItems(),
-                giftWrapCategoryName
-            );
-        if (giftWrapProductLineItem) {
-            // If removed product is GiftWrapCategoryProduct than reset gift wrap attribute
-            Transaction.wrap(function () {
-                if (giftWrapProductLineItem.product.ID === req.querystring.pid) {
-                    var productLineItems = currentBasket.getProductLineItems().toArray();
-                    for (var j = 0; j < productLineItems.length; j++) {
-                        var pli = productLineItems[j];
-                        pli.custom.isWrapped = false;
-                        pli.custom.wrappedQuantity = 0;
-                    }
-                } else {
-                    var base = require('app_storefront_base/cartridge/scripts/cart/cartHelpers');
-                    var product = productMgr.getProduct(req.querystring.pid);
-                    var productInCart = base.getExistingProductLineItemInCart(
-                        product,
-                        req.querystring.pid,
-                        currentBasket.productLineItems
-                    );
-                    // If wrappable product
-                    // Than check is wrapped
-                    if (
-                        product.custom.isGiftWrappable &&
-                        productInCart.custom.isWrapped
-                    ) {
-                        // Get total wrappable items
-                        var productLineItemCount =
-                            giftWrapHelpers.getWrappableProductCount(
-                                currentBasket.getAllProductLineItems()
-                            );
-                        if (productLineItemCount === 1) {
-                            // Fetch gift wrap category product
-                            // RemoveProductLineItem
-                            currentBasket.removeProductLineItem(
-                                giftWrapProductLineItem
-                            );
-                        } else if (productInCart.custom.wrappedQuantity > 0) {
-                            // Update Quantity of giftWrapped category product
-                            if (
-                                giftWrapProductLineItem.quantityValue >
-                                productInCart.custom.wrappedQuantity
-                            ) {
-                                // UpdateQuantity
-                                giftWrapProductLineItem.setQuantityValue(
-                                    giftWrapProductLineItem.quantityValue -
-                                        productInCart.custom.wrappedQuantity
-                                );
-                            } else {
-                                // RemoveProductLineItem
-                                currentBasket.removeProductLineItem(
-                                    giftWrapProductLineItem
-                                );
-                            }
-                        }
-                    }
-                }
-            });
-        }
+        giftWrapCartHelpers.handleRemoveProduct(
+            currentBasket,
+            req.querystring.pid
+        );
     }
     return next();
 });
@@ -247,63 +183,19 @@ server.prepend('UpdateQuantity', function (req, res, next) {
                 res.setStatusCode(400);
                 res.json({
                     error: true,
-                    errorMessage:
-                    Resource.msg('error.update.giftwrap.product.quantity', 'giftWrap', null)
+                    errorMessage: Resource.msg(
+                        'error.update.giftwrap.product.quantity',
+                        'giftWrap',
+                        null
+                    )
                 });
                 return this.emit('route:Complete', req, res);
             }
-            var product = productMgr.getProduct(req.querystring.pid);
-            var base = require('app_storefront_base/cartridge/scripts/cart/cartHelpers');
-            var productInCart = base.getExistingProductLineItemInCart(
-                product,
+            giftWrapCartHelpers.handleUpdateQuantity(
+                currentBasket, giftWrapProductLineItem,
                 req.querystring.pid,
-                currentBasket.productLineItems
+                req.querystring.quantity
             );
-            Transaction.wrap(function () {
-                // If wrappable product
-                // Than check is wrapped
-                if (
-                    product.custom.isGiftWrappable &&
-                    productInCart.custom.isWrapped
-                ) {
-                    if (productInCart.custom.wrappedQuantity > 0) {
-                        //  Update Quantity of giftWrapped category product
-                        if (
-                            productInCart.custom.wrappedQuantity >
-                            req.querystring.quantity
-                        ) {
-                            if (
-                                giftWrapProductLineItem.quantityValue >
-                                productInCart.custom.wrappedQuantity -
-                                    req.querystring.quantity
-                            ) {
-                                giftWrapProductLineItem.setQuantityValue(
-                                    giftWrapProductLineItem.quantityValue -
-                                        (productInCart.custom.wrappedQuantity -
-                                            req.querystring.quantity)
-                                );
-                            } else {
-                                // 'Gift wrap quantity can not be less than wrappable product quantity.';
-                                res.setStatusCode(400);
-                                res.json({
-                                    error: true,
-                                    errorMessage: Resource.msg(
-                                        'internal.server.error',
-                                        'common',
-                                        null
-                                    )
-                                });
-
-                                this.emit('route:Complete', req, res);
-                                return;
-                            }
-                            productInCart.custom.wrappedQuantity = Number(
-                                req.querystring.quantity
-                            );
-                        }
-                    }
-                }
-            });
         }
     }
     return next();

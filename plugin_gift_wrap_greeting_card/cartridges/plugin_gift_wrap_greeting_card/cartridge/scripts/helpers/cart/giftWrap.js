@@ -12,6 +12,7 @@ var productMgr = require('dw/catalog/ProductMgr');
 var Transaction = require('dw/system/Transaction');
 var constants = require('*/cartridge/config/constants.js');
 var productHelpers = require('*/cartridge/scripts/helpers/product');
+var giftWrapHelpers = require('*/cartridge/scripts/helpers/giftWrap');
 var customPreferenceNames = require('*/cartridge/config/customPreferenceNames');
 
 /**
@@ -49,11 +50,12 @@ function removeGiftWrapLineItem(currentBasket, pid) {
  */
 function getProductCountArray(productIds) {
     var pids = [];
-    for (var j = 0; j < productIds.length; j++) {
-        if (pids[productIds[j]]) {
-            pids[productIds[j]] += 1;
+    var prodtIdArray = JSON.parse(productIds);
+    for (var j = 0; j < prodtIdArray.length; j++) {
+        if (pids[prodtIdArray[j]]) {
+            pids[prodtIdArray[j]] += 1;
         } else {
-            pids[productIds[j]] = 1;
+            pids[prodtIdArray[j]] = 1;
         }
     }
     return pids;
@@ -142,7 +144,128 @@ function updateWrapForAllProductLineItem(
     }
 }
 
+/**
+ * @param {dw.order.Basket} currentBasket - Current Basket
+ * @param {string} pid - product id
+ */
+function handleRemoveProduct(currentBasket, pid) {
+    var giftWrapCategoryName = site.current.getCustomPreferenceValue(
+        customPreferenceNames.giftWrapCategoryName
+    );
+    var giftWrapProductLineItem = productHelpers.getProductLineItemByCategory(
+        currentBasket.getAllProductLineItems(),
+        giftWrapCategoryName
+    );
+    if (giftWrapProductLineItem) {
+        // If removed product is GiftWrapCategoryProduct than reset gift wrap attribute
+        Transaction.wrap(function () {
+            if (giftWrapProductLineItem.product.ID === pid) {
+                var productLineItems = currentBasket
+                    .getProductLineItems()
+                    .toArray();
+                for (var j = 0; j < productLineItems.length; j++) {
+                    var pli = productLineItems[j];
+                    pli.custom.isWrapped = false;
+                    pli.custom.wrappedQuantity = 0;
+                }
+            } else {
+                var base = require('app_storefront_base/cartridge/scripts/cart/cartHelpers');
+                var product = productMgr.getProduct(pid);
+                var productInCart = base.getExistingProductLineItemInCart(
+                    product,
+                    pid,
+                    currentBasket.productLineItems
+                );
+                // If wrappable product
+                // Than check is wrapped
+                if (
+                    product.custom.isGiftWrappable &&
+                    productInCart.custom.isWrapped
+                ) {
+                    // Get total wrappable items
+                    var productLineItemCount =
+                        giftWrapHelpers.getWrappableProductCount(
+                            currentBasket.getAllProductLineItems()
+                        );
+                    if (productLineItemCount === 1) {
+                        // Fetch gift wrap category product
+                        // RemoveProductLineItem
+                        currentBasket.removeProductLineItem(
+                            giftWrapProductLineItem
+                        );
+                    } else if (productInCart.custom.wrappedQuantity > 0) {
+                        // Update Quantity of giftWrapped category product
+                        if (
+                            giftWrapProductLineItem.quantityValue >
+                            productInCart.custom.wrappedQuantity
+                        ) {
+                            // UpdateQuantity
+                            giftWrapProductLineItem.setQuantityValue(
+                                giftWrapProductLineItem.quantityValue -
+                                    productInCart.custom.wrappedQuantity
+                            );
+                        } else {
+                            // RemoveProductLineItem
+                            currentBasket.removeProductLineItem(
+                                giftWrapProductLineItem
+                            );
+                        }
+                    }
+                }
+            }
+        });
+    }
+}
+
+/**
+ * 
+ * @param {dw.order.Basket} currentBasket - Current Basket
+ * @param {dw.order.ProductLineItem} giftWrapProductLineItem - Gift wrap product line item
+ * @param {string} pid - product id
+ * @param {number} quantity - quantity
+ */
+function handleUpdateQuantity(
+    currentBasket,
+    giftWrapProductLineItem, pid,
+    quantity
+) {
+    var product = productMgr.getProduct(pid);
+    var base = require('app_storefront_base/cartridge/scripts/cart/cartHelpers');
+    var productInCart = base.getExistingProductLineItemInCart(
+        product,
+        pid,
+        currentBasket.productLineItems
+    );
+    Transaction.wrap(function () {
+        // If wrappable product
+        // Than check is wrapped
+        if (
+            product.custom.isGiftWrappable &&
+            productInCart.custom.isWrapped
+        ) {
+            if (productInCart.custom.wrappedQuantity > 0) {
+                //  Update Quantity of giftWrapped category product
+                if (productInCart.custom.wrappedQuantity > quantity) {
+                    if (
+                        giftWrapProductLineItem.quantityValue >
+                        productInCart.custom.wrappedQuantity - quantity
+                    ) {
+                        giftWrapProductLineItem.setQuantityValue(
+                            giftWrapProductLineItem.quantityValue -
+                                (productInCart.custom.wrappedQuantity -
+                                    quantity)
+                        );
+                    }
+                    productInCart.custom.wrappedQuantity = Number(quantity);
+                }
+            }
+        }
+    });
+}
+
 module.exports = {
     removeGiftWrapLineItem: removeGiftWrapLineItem,
-    updateWrapForAllProductLineItem: updateWrapForAllProductLineItem
+    updateWrapForAllProductLineItem: updateWrapForAllProductLineItem,
+    handleRemoveProduct: handleRemoveProduct,
+    handleUpdateQuantity: handleUpdateQuantity
 };
