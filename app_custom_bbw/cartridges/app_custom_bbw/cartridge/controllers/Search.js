@@ -12,33 +12,35 @@ server.get('Fragrance', function(req, res, next) {
     var byCategories = JSON.parse(fragranceCategories);
     var isTopFragrance = false;
     var fragranceNamesArray = [];
-
+    var topFragrancesLists;
+    var currentSite = Site.current.ID;
+    if (topFragrancesList) {
+        topFragrancesLists = topFragrancesList.split(', ');
+    }
     if(fragranceNamesList){
         var fragranceNames = fragranceNamesList.split(', ');
-        for (let i = 0; i < fragranceNames.length; i++) {
-            var firstLetter = fragranceNames[i][0].toUpperCase();
-            if(topFragrancesList){
-                const topFragrancesSet = new Set(topFragrancesList.split(', '));
-                isTopFragrance = topFragrancesSet.has(fragranceNames[i]);
+        for (var index = 0; index < fragranceNames.length; index++) {
+            var firstLetter = fragranceNames[index][0].toUpperCase();
+            if (topFragrancesLists) {
+                isTopFragrance = topFragrancesLists.includes(fragranceNames[index]);
             }
 
-            fragranceNamesArray[i] = {
+            fragranceNamesArray[index] = {
                 alphabet: firstLetter,
-                name: fragranceNames[i],
-                topFragrance: isTopFragrance,
+                name: fragranceNames[index],
+                topFragrance: isTopFragrance
             };
         }
     }
 
 
-    res.render('product/shopByFragrance', {
+    res.render('search/shopByFragrance', {
         fragranceCategories: byCategories,
-        fragranceNames : fragranceNamesArray
+        fragranceNames: fragranceNamesArray,
+        currentSite: currentSite
     });
 
     next();
 });
-
-
 
 module.exports = server.exports();

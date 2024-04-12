@@ -23,17 +23,20 @@ function getFragranceNames() {
             }
         }
 
-        if(allFragrances.length > 0){
-            var fragranceNamesArray = Object.values(allFragrances).reduce((acc, fragrances) => {
-                fragrances.split(',').forEach(fragrance => {
-                    acc.add(fragrance.trim());
+        if (allFragrances.length > 0) {
+            var fragranceNamesArray = [];
 
-                });
+            for (var index = 0; index < Object.values(allFragrances).length; index++) {
 
-                return acc;
+                var fragrances = Object.values(allFragrances)[index];
 
-            }, new Set());
+                var fragranceArray = fragrances.split(',');
 
+                for (var position = 0; position < fragranceArray.length; position++) {
+                    fragranceNamesArray.push(fragranceArray[position].trim());
+                }
+
+            }
 
             // sort the fragranceNames array in ascending order
             var sortedFragranceNames = Array.from(fragranceNamesArray).sort();
@@ -42,7 +45,7 @@ function getFragranceNames() {
             // push all unique strings in the first index of the array in comma-separated format
             var allFragranceNames = [sortedFragranceNames.join(', ')];
             Site.current.setCustomPreferenceValue('fragranceNames', allFragranceNames[0]);
-        }else{
+        } else {
             Site.current.setCustomPreferenceValue('fragranceNames', '');
         }
 
@@ -55,4 +58,3 @@ function getFragranceNames() {
 module.exports = {
     getFragranceNames: getFragranceNames
 };
-
