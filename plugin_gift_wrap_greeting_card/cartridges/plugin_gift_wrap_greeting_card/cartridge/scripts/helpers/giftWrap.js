@@ -7,6 +7,7 @@
 
 'use strict';
 
+var constants = require('*/cartridge/config/constants.js');
 var collections = require('*/cartridge/scripts/util/collections');
 
 /**
@@ -43,14 +44,14 @@ function getWrapType(
                 wrappedProductQuantity[0] === 0 ||
                 wrappableProducts[0].quantity === 1
             ) {
-                wrapType = 'wrapTogether';
+                wrapType = constants.WRAP_TOGETHER_ID;
             } else {
-                wrapType = 'wrapIndividually';
+                wrapType = constants.WRAP_INDIVIDUAL_ID;
             }
         } else if (wrappedProductQuantity[0] === 0) {
-            wrapType = 'wrapTogether';
+            wrapType = constants.WRAP_TOGETHER_ID;
         } else {
-            wrapType = 'wrapIndividually';
+            wrapType = constants.WRAP_INDIVIDUAL_ID;
         }
     }
     return wrapType;

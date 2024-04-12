@@ -1,5 +1,7 @@
 'use strict';
 
+var constants = require('../../../../cartridge/config/constants.js');
+
 /**
  * re-renders the order totals and the number of items in the cart
  * @param {object} message - Error message to display
@@ -35,13 +37,13 @@ function validate(pid, giftWrapType, toBeIndividuallyWrappedPids) {
         isValid = false;
     } else if (
         !giftWrapType ||
-        !(giftWrapType === 'INDIVIDUAL' || giftWrapType === 'TOGETHER')
+        !(giftWrapType === constants.WRAP_INDIVIDUAL_VALUE || giftWrapType === constants.WRAP_TOGETHER_VALUE)
     ) {
         createErrorNotification(
             $('#addGiftWrapProduct').data('wraptype-error-message')
         );
         isValid = false;
-    } else if (giftWrapType === 'INDIVIDUAL') {
+    } else if (giftWrapType === constants.WRAP_INDIVIDUAL_VALUE) {
         if (toBeIndividuallyWrappedPids.length === 0) {
             createErrorNotification(
                 $('#addGiftWrapProduct').data(
@@ -106,10 +108,10 @@ function clearGiftWrapCardIsml() {
             .replace('#', price)
     );
     $('.giftWrap-edit-product').css('display', 'none');
-    if ($('#wrapTogether').is(':enabled')) {
-        $('#wrapTogether').attr('checked', true);
-    } else if ($('#wrapIndividually').is(':enabled')) {
-        $('#wrapIndividually').attr('checked', true);
+    if ($('#' + constants.WRAP_TOGETHER_ID).is(':enabled')) {
+        $('#' + constants.WRAP_TOGETHER_ID).attr('checked', true);
+    } else if ($('#' + constants.WRAP_INDIVIDUAL_ID).is(':enabled')) {
+        $('#' + constants.WRAP_INDIVIDUAL_ID).attr('checked', true);
     }
 }
 
@@ -136,10 +138,10 @@ function resetGiftWrapIsml() {
         var wrapType = $('#addGiftWrapProduct').data('wrap-type');
         if (wrapType) {
             $('#' + wrapType).attr('checked', true);
-        } else if ($('#wrapTogether').is(':enabled')) {
-            $('#wrapTogether').attr('checked', true);
-        } else if ($('#wrapIndividually').is(':enabled')) {
-            $('#wrapIndividually').attr('checked', true);
+        } else if ($('#' + constants.WRAP_TOGETHER_ID).is(':enabled')) {
+            $('#' + constants.WRAP_TOGETHER_ID).attr('checked', true);
+        } else if ($('#' + constants.WRAP_INDIVIDUAL_ID).is(':enabled')) {
+            $('#' + constants.WRAP_INDIVIDUAL_ID).attr('checked', true);
         }
     } else {
         clearGiftWrapCardIsml();

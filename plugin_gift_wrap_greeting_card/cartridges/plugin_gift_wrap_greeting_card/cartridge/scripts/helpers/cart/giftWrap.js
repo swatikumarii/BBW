@@ -10,6 +10,7 @@
 var site = require('dw/system/Site');
 var productMgr = require('dw/catalog/ProductMgr');
 var Transaction = require('dw/system/Transaction');
+var constants = require('*/cartridge/config/constants.js');
 var productHelpers = require('*/cartridge/scripts/helpers/product');
 var customPreferenceNames = require('*/cartridge/config/customPreferenceNames');
 
@@ -127,7 +128,7 @@ function updateWrapForAllProductLineItem(
 
     if (giftWrapProductLineItem && giftWrapProductLineItem.product.ID === pid) {
         var productLineItems = allProductLineItems.toArray();
-        if (giftWrapType === 'INDIVIDUAL') {
+        if (giftWrapType === constants.WRAP_INDIVIDUAL_VALUE) {
             if (wrappingProductIds) {
                 updateProductLineItemForIndividual(
                     productLineItems,
@@ -135,7 +136,7 @@ function updateWrapForAllProductLineItem(
                     pid
                 );
             }
-        } else if (giftWrapType === 'TOGETHER') {
+        } else if (giftWrapType === constants.WRAP_TOGETHER_VALUE) {
             updateProductLineItemForTogether(productLineItems, pid);
         }
     }

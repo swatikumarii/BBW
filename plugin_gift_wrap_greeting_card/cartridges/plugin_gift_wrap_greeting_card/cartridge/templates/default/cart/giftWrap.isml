@@ -1,4 +1,5 @@
 <isscript>
+    var constants = require("*/cartridge/config/constants.js");
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addJs('/js/giftWrap.js');
 </isscript>
@@ -22,15 +23,15 @@
                 <div class="giftwrap-block-options js-giftwrap-options">
                     <div class="giftwrap-block-radio-wrapper">
                         <isif
-                            condition="${pdict.wrapItemMethod == 'wrapTogether' || pdict.wrapItemMethod == 'wrapIndividualTogether'}">
+                            condition="${pdict.wrapItemMethod == ${constants.WRAP_TOGETHER_CUSTOM_PREFERENCE_VALUE} || pdict.wrapItemMethod == ${constants.WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}}">
                             <div id="giftwrap-block-radio" class="giftwrap-block-radio gift-wrap-toggle">
                                 <isif condition="${pdict.isDisableTogetherOption}">
-                                    <input type="radio" name="giftwrap-type" id="wrapTogether" value="TOGETHER"
+                                    <input type="radio" name="giftwrap-type" id="${constants.WRAP_TOGETHER_ID}" value="${constants.WRAP_TOGETHER_VALUE}"
                                         disabled />
                                 <iselse/>
-                                    <input type="radio" name="giftwrap-type" id="wrapTogether" value="TOGETHER" />
+                                    <input type="radio" name="giftwrap-type" id="${constants.WRAP_TOGETHER_ID}" value="${constants.WRAP_TOGETHER_VALUE}" />
                                 </isif>
-                                <label for="wrapTogether">
+                                <label for="${constants.WRAP_TOGETHER_ID}">
                                     <span>${Resource.msg('wrap.everything.together', 'giftWrap', null)}</span>
                                     <span class="gift-wrap-price disabled"> (
                                         <span class="selected-giftwrap-product-price"></span> )</span>
@@ -39,15 +40,15 @@
                         </isif>
 
                         <isif
-                            condition="${pdict.wrapItemMethod == 'wrapIndividual' || pdict.wrapItemMethod == 'wrapIndividualTogether'}">
+                            condition="${pdict.wrapItemMethod == WRAP_INDIVIDUAL_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == ${constants.WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}}">
                             <div class="giftwrap-block-radio greeting-card-toggle" data-error-message="">
                                 <isif condition="${pdict.isDisableIndividualOption}">
-                                    <input type="radio" name="giftwrap-type" id="wrapIndividually" value="INDIVIDUAL"
+                                    <input type="radio" name="giftwrap-type" id="${constants.WRAP_INDIVIDUAL_ID}" value="${constants.WRAP_INDIVIDUAL_VALUE}"
                                         disabled />
                                 <iselse/>
-                                    <input type="radio" name="giftwrap-type" id="wrapIndividually" value="INDIVIDUAL" />
+                                    <input type="radio" name="giftwrap-type" id="${constants.WRAP_INDIVIDUAL_ID}" value="${constants.WRAP_INDIVIDUAL_VALUE}" />
                                 </isif>
-                                <label class="wrapIndividuallyLabel" for="wrapIndividually">
+                                <label class="wrapIndividuallyLabel" for="${constants.WRAP_INDIVIDUAL_ID}">
                                     <span>${Resource.msg('wrap.items.individually', 'giftWrap', null)}</span>
                                     <span class="gift-wrap-price disabled">(
                                         <span class="selected-giftwrap-product-price"></span>
