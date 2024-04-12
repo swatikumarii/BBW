@@ -19,9 +19,9 @@ function createErrorNotification(message) {
 
 /**
  * This function will validate add form
- * @param {number} pid - Product Id
+ * @param {string} pid - Product Id
  * @param {string} giftWrapType - Gift Wrap Type
- * @param {number[]} toBeIndividuallyWrappedPids - Individual wrappable product ids
+ * @param {string[]} toBeIndividuallyWrappedPids - Individual wrappable product ids
  * @returns {boolean} - If any error found then return false else true
  */
 function validate(pid, giftWrapType, toBeIndividuallyWrappedPids) {
@@ -42,11 +42,6 @@ function validate(pid, giftWrapType, toBeIndividuallyWrappedPids) {
         );
         isValid = false;
     } else if (giftWrapType === 'INDIVIDUAL') {
-        document
-            .querySelectorAll('input[name=individual-lineItem]:checked')
-            .forEach(function (element) {
-                toBeIndividuallyWrappedPids.push(element.value);
-            });
         if (toBeIndividuallyWrappedPids.length === 0) {
             createErrorNotification(
                 $('#addGiftWrapProduct').data(
@@ -65,8 +60,10 @@ function addGiftWrapToCart() {
     var pid = $('input[name="gift-wrap-product"]:checked').val();
     var addToCartUrl = $('#addGiftWrapProduct').attr('data-actionurl');
     var giftWrapType = $('input[name="giftwrap-type"]:checked').val();
-    var toBeIndividuallyWrappedPids = [];
-
+    var toBeIndividuallyWrappedPids = $('input[name=individual-lineItem]:checked')
+        .map(function () {
+            return $(this).val();
+        }).get();
     if (validate(pid, giftWrapType, toBeIndividuallyWrappedPids)) {
         var quantity = toBeIndividuallyWrappedPids.length || 1;
         var form = {
@@ -208,25 +205,15 @@ $(document).ready(function () {
                 $('input[name=individual-lineItem]:checked').length ===
                 $('.giftservice-products').children().length
             ) {
-                document.querySelector(
-                    'input[type="checkbox"][name=checkall]'
-                ).checked = true;
+                $('#checkall').prop('checked', true);
             }
         } else {
-            document.querySelector(
-                'input[type="checkbox"][name=checkall]'
-            ).checked = false;
+            $('#checkall').prop('checked', false);
         }
     });
 
     $(document).on('change', '#checkall', function () {
-        var checkboxes = document.querySelectorAll(
-            'input[type="checkbox"][name=individual-lineItem]'
-        );
-
-        for (var i = 0; i < checkboxes.length; i++) {
-            checkboxes[i].checked = this.checked;
-        }
+        $('.input-wrap-individual').prop('checked', this.checked);
     });
 
     $(document).on('click', '#addGiftWrapProduct', function () {

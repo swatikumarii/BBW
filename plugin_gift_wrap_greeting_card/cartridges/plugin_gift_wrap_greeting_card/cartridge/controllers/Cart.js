@@ -9,37 +9,13 @@ var URLUtils = require('dw/web/URLUtils');
 var BasketMgr = require('dw/order/BasketMgr');
 var productMgr = require('dw/catalog/ProductMgr');
 var Transaction = require('dw/system/Transaction');
+var productHelpers = require('*/cartridge/scripts/helpers/product');
+var giftWrapHelpers = require('*/cartridge/scripts/helpers/giftWrap');
 var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
-var commonHelpers = require('*/cartridge/models/scripts/util/commonHelpers');
+var giftWrapCartHelpers = require('*/cartridge/scripts/helpers/cart/giftWrap');
+var greetingCardCartHelpers = require('*/cartridge/scripts/helpers/cart/greetingCard');
 var customPreferenceNames = require('*/cartridge/config/customPreferenceNames');
 
-/**
- *
- * @param {Array} wrappableProducts - Wrappable products
- * @param {number} wrappedProductCount - Wrapped product count
- * @param {Array} wrappedProductQuantity - Wrapped quantity array
- * @returns {string} : Return wrap type
- */
-function getWrapType(wrappableProducts, wrappedProductCount, wrappedProductQuantity) {
-    var wrapType = '';
-    if (wrappedProductCount > 0) {
-        if (wrappedProductCount === 1) {
-            if (
-                wrappedProductQuantity[0] === 0 ||
-                wrappableProducts[0].quantity === 1
-            ) {
-                wrapType = 'wrapTogether';
-            } else {
-                wrapType = 'wrapIndividually';
-            }
-        } else if (wrappedProductQuantity[0] === 0) {
-            wrapType = 'wrapTogether';
-        } else {
-            wrapType = 'wrapIndividually';
-        }
-    }
-    return wrapType;
-}
 /**
  * Cart-Show : The Cart-Show endpoint,
  * This appand will use for
@@ -61,7 +37,7 @@ server.append(
                 viewData.greetingCardMessageLimit =
                     site.current.getCustomPreferenceValue(customPreferenceNames.greetingCardMessageLimit);
                 viewData.greetingCardProducts =
-                    commonHelpers.getFullOnlineProducts(
+                    productHelpers.getFullOnlineProducts(
                         customPreferenceNames.greetingCardCategoryName
                     );
                 viewData.isGiftWrapEnable =
@@ -90,7 +66,7 @@ server.append(
                             customPreferenceNames.wrapItemMethod
                         ).value;
                     viewData.giftWrapProducts =
-                        commonHelpers.getFullOnlineProducts(
+                        productHelpers.getFullOnlineProducts(
                             customPreferenceNames.giftWrapCategoryName
                         );
                     viewData.isDisableTogetherOption =
@@ -99,7 +75,7 @@ server.append(
                         viewData.items.length === 1 &&
                         viewData.items[0].quantity === 1;
                     viewData.wrappableProducts = wrappableProducts;
-                    viewData.wrapType = getWrapType(
+                    viewData.wrapType = giftWrapHelpers.getWrapType(
                         wrappableProducts,
                         wrappedProductCount,
                         wrappedProductQuantity
@@ -118,9 +94,6 @@ server.append(
  * @name Cart-AddProduct
  */
 server.prepend('AddProduct', function (req, res, next) {
-    var giftWrapCategoryName = site.current.getCustomPreferenceValue(
-        customPreferenceNames.giftWrapCategoryName
-    );
     var currentBasket = BasketMgr.getCurrentBasket();
     if (!currentBasket) {
         res.setStatusCode(500);
@@ -131,24 +104,11 @@ server.prepend('AddProduct', function (req, res, next) {
 
         return next();
     }
-    var giftWrapProductLineItem = commonHelpers.getProductLineItemByCategory(
-        currentBasket.getAllProductLineItems(),
-        giftWrapCategoryName
+    giftWrapCartHelpers.removeGiftWrapLineItem(currentBasket, req.form.pid);
+    greetingCardCartHelpers.removeGreetingCardProductLineItem(
+        currentBasket,
+        req.form.pid
     );
-    if (giftWrapProductLineItem) {
-        var product = productMgr.getProduct(req.form.pid);
-        var isGiftWrapProduct = commonHelpers.isCategoryMatches(
-            product,
-            giftWrapCategoryName
-        );
-        if (isGiftWrapProduct) {
-            // If removed product is GiftWrapCategoryProduct than reset gift wrap attribute
-            Transaction.wrap(function () {
-                // RemoveProductLineItem
-                currentBasket.removeProductLineItem(giftWrapProductLineItem);
-            });
-        }
-    }
     return next();
 });
 
@@ -159,87 +119,16 @@ server.prepend('AddProduct', function (req, res, next) {
 server.append('AddProduct', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentOrNewBasket();
 
-    var greetingCardCategoryName = site.current.getCustomPreferenceValue(
-        customPreferenceNames.greetingCardCategoryName
-    );
-    if (req.form.greetingCardMessage) {
-        var greetingCardMessage = req.form.greetingCardMessage;
-        var productLineItemArray = currentBasket.getAllProductLineItems().toArray();
-        Transaction.wrap(function () {
-            for (var i = 0; i < productLineItemArray.length; i++) {
-                var pli = productLineItemArray[i];
-                if (pli.product && pli.product.categories.length > 0) {
-                    if (
-                        commonHelpers.isCategoryMatches(
-                            pli.product,
-                            greetingCardCategoryName
-                        )
-                    ) {
-                        pli.custom.greetingCardMessage = greetingCardMessage;
-                    }
-                }
-            }
-        });
-    }
+    var productLineItems = currentBasket.getAllProductLineItems();
 
-    var giftWrapProduct = null;
-    var giftWrapCategoryName = site.current.getCustomPreferenceValue(
-        customPreferenceNames.giftWrapCategoryName
-    );
-    var giftWrapProductLineItem = commonHelpers.getProductLineItemByCategory(
-        currentBasket.getAllProductLineItems(),
-        giftWrapCategoryName
+    greetingCardCartHelpers.updateGreetingCardMessage(
+        productLineItems, req.form.greetingCardMessage
     );
 
-    if (
-        giftWrapProductLineItem &&
-        giftWrapProductLineItem.product.ID === req.form.pid
-    ) {
-        var productLineItems = currentBasket.getAllProductLineItems().toArray();
-        if (
-            req.form.toBeIndividuallyWrappedPids &&
-            req.form.giftWrapType === 'INDIVIDUAL'
-        ) {
-            var toBeIndividuallyWrappedPids = JSON.parse(
-                req.form.toBeIndividuallyWrappedPids
-            );
-            var pids = {};
-            for (var j = 0; j < toBeIndividuallyWrappedPids.length; j++) {
-                if (pids[toBeIndividuallyWrappedPids[j]]) {
-                    pids[toBeIndividuallyWrappedPids[j]] += 1;
-                } else {
-                    pids[toBeIndividuallyWrappedPids[j]] = 1;
-                }
-            }
-            Transaction.wrap(function () {
-                for (var k = 0; k < productLineItems.length; k++) {
-                    var pli = productLineItems[k];
-                    if (pli.productID !== giftWrapProduct) {
-                        if (pids[pli.productID]) {
-                            pli.custom.isWrapped = true;
-                            pli.custom.wrappedQuantity = pids[pli.productID];
-                        } else {
-                            pli.custom.isWrapped = false;
-                            pli.custom.wrappedQuantity = 0;
-                        }
-                    }
-                }
-            });
-        } else if (req.form.giftWrapType === 'TOGETHER') {
-            Transaction.wrap(function () {
-                for (var l = 0; l < productLineItems.length; l++) {
-                    var pli = productLineItems[l];
-                    if (
-                        pli.product.custom.isGiftWrappable &&
-                        pli.productID !== giftWrapProduct
-                    ) {
-                        pli.custom.isWrapped = true;
-                        pli.custom.wrappedQuantity = 0;
-                    }
-                }
-            });
-        }
-    }
+    giftWrapCartHelpers.updateWrapForAllProductLineItem(
+        currentBasket.getAllProductLineItems(), req.form.pid,
+        req.form.giftWrapType, req.form.toBeIndividuallyWrappedPids
+    );
     next();
 });
 
@@ -264,7 +153,7 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
     }
     if (req.querystring.pid && req.querystring.uuid) {
         var giftWrapProductLineItem =
-            commonHelpers.getProductLineItemByCategory(
+            productHelpers.getProductLineItemByCategory(
                 currentBasket.getAllProductLineItems(),
                 giftWrapCategoryName
             );
@@ -294,7 +183,7 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
                     ) {
                         // Get total wrappable items
                         var productLineItemCount =
-                            commonHelpers.getWrappableProductCount(
+                            giftWrapHelpers.getWrappableProductCount(
                                 currentBasket.getAllProductLineItems()
                             );
                         if (productLineItemCount === 1) {
@@ -349,7 +238,7 @@ server.prepend('UpdateQuantity', function (req, res, next) {
         return next();
     }
     if (req.querystring.pid && req.querystring.uuid) {
-        var giftWrapProductLineItem = commonHelpers.getProductLineItemByCategory(
+        var giftWrapProductLineItem = productHelpers.getProductLineItemByCategory(
             currentBasket.getAllProductLineItems(),
             giftWrapCategoryName
         );

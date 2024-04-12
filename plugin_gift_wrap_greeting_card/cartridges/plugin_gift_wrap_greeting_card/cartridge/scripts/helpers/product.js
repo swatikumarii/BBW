@@ -1,6 +1,6 @@
 /**
- * File Name          : commonHelpers.js
- * Description        : commonHelpers.js
+ * File Name          : product.js
+ * Description        : productHelpers.js
  * Ver          Modification
  * 1.0          Common functions
  */
@@ -95,26 +95,10 @@ function getProductLineItemByCategory(productLineItems, categoryName) {
     return productLineItem;
 }
 
-/**
- *
- * @param {dw.util.Collection<dw.order.ProductLineItem>} productLineItems : Product line items
- * @returns {number} : Count of wrappable items from Product line items
- */
-function getWrappableProductCount(productLineItems) {
-    var count = 0;
-    collections.forEach(productLineItems, function(productLineItem) {
-        if (productLineItem.product.custom.isGiftWrappable) {
-            count++;
-        }
-    });
-    return count;
-}
-
 module.exports = {
     isCategoryMatches: isCategoryMatches,
     getOnlineProductsByCategory: getOnlineProductsByCategory,
     fetchFullProducts: fetchFullProducts,
     getProductLineItemByCategory: getProductLineItemByCategory,
-    getFullOnlineProducts: getFullOnlineProducts,
-    getWrappableProductCount: getWrappableProductCount
+    getFullOnlineProducts: getFullOnlineProducts
 };
