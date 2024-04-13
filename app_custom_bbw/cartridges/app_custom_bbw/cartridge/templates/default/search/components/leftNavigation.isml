@@ -1,0 +1,15 @@
+<div class="active-sub-category">
+    <isloop items="${pdict.productSearch.levelOneCategory.onlineSubCategories}" var="levelTwoCategory">
+        <h2 class="toggle">
+            <span>${levelTwoCategory.displayName}</span>
+        </h2>
+        <ul class="category-level-2">
+            <isloop items="${levelTwoCategory.onlineSubCategories}" var="levelThreeCategory">
+                <li>
+                    <a class="${pdict.productSearch.category.id === levelThreeCategory.ID ? 'active' : ''}"
+                        href="${URLUtils.url('Search-Show', 'cgid', levelThreeCategory.ID)}">${levelThreeCategory.displayName}</a>
+                </li>
+            </isloop>
+        </ul>
+    </isloop>
+</div>
