@@ -141,6 +141,7 @@ function CartModel(basket) {
             );
         }
         this.items = productLineItemsModel.items;
+        this.giftWrapItem = productLineItemsModel.giftWrapItem;
         this.greetingCardItem = productLineItemsModel.greetingCardItem;
         this.numItems = productLineItemsModel.totalQuantity;
         this.valid = hooksHelper(
@@ -152,6 +153,7 @@ function CartModel(basket) {
         );
     } else {
         this.items = [];
+        this.giftWrapItem = null;
         this.greetingCardItem = null;
         this.numItems = 0;
     }

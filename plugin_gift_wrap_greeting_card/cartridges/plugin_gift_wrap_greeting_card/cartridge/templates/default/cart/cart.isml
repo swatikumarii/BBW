@@ -2,7 +2,6 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addCss('/css/cart.css');
-        assets.addJs('/js/cart.js');
     </isscript>
 
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
@@ -21,22 +20,24 @@
     </div>
 
     <div class="container">
-        <h1 class="page-title">${Resource.msg('title.cart','cart',null)}</h1>
+        <h1 class="page-title">${Resource.msg('title.cart', 'cart', null)}</h1>
         <div class="row cart-header">
             <div class="col-sm-4 hidden-xs-down">
-                <a class="continue-shopping-link" href="${URLUtils.url('Home-Show')}" title="${Resource.msg('link.continue.shopping','cart',null)}">
-                    ${Resource.msg('link.continue.shopping','cart',null)}
+                <a class="continue-shopping-link" href="${URLUtils.url('Home-Show')}"
+                    title="${Resource.msg('link.continue.shopping', 'cart', null)}">
+                    ${Resource.msg('link.continue.shopping', 'cart', null)}
                 </a>
             </div>
             <div class="col-sm-3 text-center">
-                <h2 class="number-of-items">${Resource.msgf('label.number.items.in.cart','cart', null, pdict.numItems)}</h2>
+                <h2 class="number-of-items">${Resource.msgf('label.number.items.in.cart', 'cart', null, pdict.numItems)}
+                </h2>
             </div>
             <div class="col-sm-5 text-right hidden-xs-down">
                 <div>
-                    <span>${Resource.msg('info.need.help','cart',null)}</span>
+                    <span>${Resource.msg('info.need.help', 'cart', null)}</span>
                     <span>
-                        <a class="help-phone-number" href="tel:${Resource.msg('info.phone.number','common',null)}">
-                            ${Resource.msg('info.phone.number','common',null)}
+                        <a class="help-phone-number" href="tel:${Resource.msg('info.phone.number', 'common', null)}">
+                            ${Resource.msg('info.phone.number', 'common', null)}
                         </a>
                     </span>
                 </div>
@@ -49,7 +50,7 @@
         <div class="container cart-empty">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h1>${Resource.msg('info.cart.empty.msg','cart',null)}</h1>
+                    <h1>${Resource.msg('info.cart.empty.msg', 'cart', null)}</h1>
                 </div>
             </div>
         </div>
@@ -70,8 +71,10 @@
                         </isif>
                     </isloop>
                     <isinclude template="cart/productCard/cartGreetingCard" />
+                    <isinclude template="cart/productCard/cartGiftWrapProductCard" />
                     <isinclude template="cart/cartApproachingDiscount" />
                     <isinclude template="cart/greetingCard" />
+                    <isinclude template="cart/giftWrap" />
                 </div>
                 <!---totals, and checkout actions--->
                 <div class="col-sm-5 col-md-4 totals">
