@@ -86,4 +86,13 @@
             <iscontentasset aid="footer-copyright" />
         </div>
     </div>
+        <iscomment> Back to Top - Button </iscomment>
+        <div class="scroll-to-top-link js-scrolltotop">
+            <div class="scroll-to-top-wrapper">
+                <button id="backtotop" aria-label="${Resource.msg('aria.label.title', 'footer', null)}" data-once="backtotop sprinklr-back-to-top"
+                    class="sprinklr-enabled d-flex align-items-center bg-transparent">
+                    ${Resource.msg('aria.label.title', 'footer', null)}
+                </button>
+            </div>
+        </div>
 </footer>

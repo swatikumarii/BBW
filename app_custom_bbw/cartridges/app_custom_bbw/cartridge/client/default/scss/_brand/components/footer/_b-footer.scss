@@ -231,3 +231,26 @@ footer {
         }
     }
 }
+
+// Back to top button
+.scroll-to-top-link {
+    font-size: 0.5rem;
+
+    .sprinklr-enabled {
+        bottom: 1.625rem;
+        right: 1.25rem;
+        position: fixed;
+        border: none;
+        flex-direction: column-reverse;
+        row-gap: 0.3rem;
+
+        &::after {
+            background-image: url("../images/footer/up-arrow.png");
+            background-repeat: no-repeat;
+            width: 32px;
+            content: "";
+            min-width: 32px;
+            height: 32px;
+        }
+    }
+}
