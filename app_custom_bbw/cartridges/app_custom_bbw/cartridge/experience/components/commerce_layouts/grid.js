@@ -1,4 +1,4 @@
-
+'use strict';
 
 var Template = require('dw/util/Template');
 var HashMap = require('dw/util/HashMap');

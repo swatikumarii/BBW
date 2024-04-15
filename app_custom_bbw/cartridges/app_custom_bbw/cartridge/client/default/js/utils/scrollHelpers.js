@@ -1,3 +1,5 @@
+'use strict';
+
 var roundedTop = 0;
 var i = false;
 

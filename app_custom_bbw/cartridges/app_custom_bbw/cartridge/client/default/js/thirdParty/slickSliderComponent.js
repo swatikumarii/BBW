@@ -1,6 +1,7 @@
+'use strict';
 
-import $ from 'jquery';
-import 'slick-carousel';
+var $ = require('jquery');
+require('slick-carousel');
 var debounce = require('lodash/debounce');
 
 window.addEventListener('orientationchange', debounce(function () {}, 600));

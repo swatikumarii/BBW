@@ -1,4 +1,6 @@
-const helpers = {
+'use strict';
+
+var helpers = {
     $win: $(window),
     $html: $('html'),
     $body: $('body'),
@@ -81,7 +83,7 @@ const helpers = {
      * @param {string} exdays - expire days
      */
     setCookies: function (cookies, exdays) {
-        const exseconds = exdays * 24 * 60 * 60;
+        var exseconds = exdays * 24 * 60 * 60;
 
         cookies.forEach(function (cookie) {
             helpers.setCookie(cookie.name, cookie.value, {
@@ -98,13 +100,13 @@ const helpers = {
      */
     setCookie: function (name, value, options) {
         // Create a local copy of options to avoid direct modification
-        let localOptions = Object.assign({}, options || {});
+        var localOptions = Object.assign({}, options || {});
         localOptions.path = localOptions.path || '/';
 
         // Handle expires option
         if (typeof localOptions.expires === 'number' && localOptions.expires) {
             if (localOptions.expires !== -1) {
-                const d = new Date();
+                var d = new Date();
                 d.setTime(d.getTime() + localOptions.expires * 1000);
                 localOptions.expires = d;
             }
@@ -114,21 +116,22 @@ const helpers = {
         }
 
         // Encode the value
-        let encodedValue = encodeURIComponent(value);
+        var encodedValue = encodeURIComponent(value);
 
         // Start constructing the cookie string
-        let updatedCookie = name + '=' + encodedValue + ';secure';
+        var updatedCookie = name + '=' + encodedValue + ';secure';
 
         // Append additional options to the cookie string
-        Object.keys(localOptions).forEach((propName) => {
+        Object.keys(localOptions).forEach(function (propName) {
             if (Object.prototype.hasOwnProperty.call(localOptions, propName)) {
                 updatedCookie += '; ' + propName;
-                const propValue = localOptions[propName];
+                var propValue = localOptions[propName];
                 if (propValue !== true) {
                     updatedCookie += '=' + propValue;
                 }
             }
         });
+
 
         // Set the cookie
         document.cookie = updatedCookie;
@@ -140,7 +143,7 @@ const helpers = {
      * @returns {string|undefined} cookie value or undefined
      */
     getCookie: function (name) {
-        const matches = document.cookie.match(new RegExp(
+        var matches = document.cookie.match(new RegExp(
             "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)" /* eslint-disable-line */
         ));
         return matches ? decodeURIComponent(matches[1]) : undefined; // eslint-disable-line

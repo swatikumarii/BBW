@@ -1,10 +1,12 @@
-const viewportWidth = {
+'use strict';
+
+var viewportWidth = {
     mobile: { maxWidth: window.MEDIA_BREAKPOINTS.md - 2, minWidth: 320 },
     tablet: { maxWidth: window.MEDIA_BREAKPOINTS.lg - 1, minWidth: window.MEDIA_BREAKPOINTS.md - 1 },
     largeTablet: { maxWidth: 1366, minWidth: window.MEDIA_BREAKPOINTS.md - 1 }
 };
 
-const layout = {
+var layout = {
     viewPorts: viewportWidth,
     isMobile: function() {
         return window.matchMedia('(max-width: ' + (viewportWidth.mobile.maxWidth) + 'px)').matches;
