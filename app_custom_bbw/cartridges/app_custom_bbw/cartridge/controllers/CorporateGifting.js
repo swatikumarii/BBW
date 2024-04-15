@@ -64,6 +64,7 @@ server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentT
         });
         next();
     }
+    res.render('/corporateGifting/thankYou');
     next();
 });
 
