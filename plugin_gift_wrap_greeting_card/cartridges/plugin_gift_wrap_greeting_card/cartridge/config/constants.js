@@ -1,0 +1,11 @@
+'use strict';
+
+module.exports = {
+    WRAP_TOGETHER_VALUE: 'TOGETHER',
+    WRAP_INDIVIDUAL_VALUE: 'INDIVIDUAL',
+    WRAP_TOGETHER_ID: 'wrapTogether',
+    WRAP_INDIVIDUAL_ID: 'wrapIndividually',
+    WRAP_TOGETHER_CUSTOM_PREFERENCE_VALUE: 'wrapTogether',
+    WRAP_INDIVIDUAL_CUSTOM_PREFERENCE_VALUE: 'wrapIndividual',
+    WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE: 'wrapIndividualTogether'
+};

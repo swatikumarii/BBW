@@ -21,10 +21,10 @@ function displayMessage(data, button) {
     }
     $('.email-signup-message').append(
         '<div class="email-signup-alert text-center ' +
-            status +
-            '">' +
-            data.msg +
-            '</div>'
+        status +
+        '">' +
+        data.msg +
+        '</div>'
     );
 
     setTimeout(function () {
@@ -110,3 +110,19 @@ module.exports = function () {
         scrollAnimate();
     });
 };
+
+// Initialize popover 
+$('[data-toggle="popover"]').popover({
+    placement: 'top',
+    html: true,
+});
+
+// Show popover on mouseenter
+$('[data-toggle="popover"]').on('mouseenter', function () {
+    $(this).popover('show');
+});
+
+// Close popover on close button click
+$(document).on('click', '.popover .close', function () {
+    $(this).parents('.popover').popover('hide');
+});

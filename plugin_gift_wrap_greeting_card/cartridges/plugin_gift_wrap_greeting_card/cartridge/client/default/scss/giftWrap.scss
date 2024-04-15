@@ -1,0 +1,33 @@
+#rit-giftwrap-individual-modal {
+    position: fixed;
+    top: 0;
+    left: auto;
+    display: inline-block;
+    overflow-y: auto;
+    bottom: 0;
+    z-index: 999;
+    width: 100%;
+    max-width: 340px;
+    transition: right 0.5s ease-in-out;
+
+    .rit-giftwrap-individual-modal {
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            z-index: 2;
+        }
+
+        &::before {
+            top: 0;
+            height: 60px;
+        }
+    }
+
+    .modal-content {
+        height: 100%;
+        overflow-x: hidden;
+    }
+}
