@@ -50,6 +50,48 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--- corporate gifting us phone --->
+                            <div class="row corporate-gifting-phone">
+                                <div class="col">
+                                    <div class="form-group required">
+                                        <label class="form-control-label" for="corporate-gifting-phone">
+                                            ${Resource.msg('label.input.corporate-gifting-phone', 'corporateGifting', null)}
+                                        </label>
+                                        <input type="phone" required class="form-control required"
+                                            aria-describedby="form-corporate-gifting-phone-error" id="corporate-gifting-phone"
+                                            name="corporateGiftingPhone">
+                                        <div class="invalid-feedback" id="form-corporate-gifting-phone-error"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--- corporate gifting us company name --->
+                            <div class="row corporate-gifting-company-name">
+                                <div class="col">
+                                    <div class="form-group required">
+                                        <label class="form-control-label" for="corporate-gifting-company-name">
+                                            ${Resource.msg('label.input.corporate-gifting-company-name', 'corporateGifting', null)}
+                                        </label>
+                                        <input type="company-name" required class="form-control required"
+                                            aria-describedby="form-corporate-gifting-company-name-error" id="corporate-gifting-company-name"
+                                            name="corporateGiftingCompanyName">
+                                        <div class="invalid-feedback" id="form-corporate-gifting-company-name-error"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--- corporate gifting us VAT --->
+                            <div class="row corporate-gifting-vat">
+                                <div class="col">
+                                    <div class="form-group required">
+                                        <label class="form-control-label" for="corporate-gifting-vat">
+                                            ${Resource.msg('label.input.corporate-gifting-vat', 'corporateGifting', null)}
+                                        </label>
+                                        <input type="vat" required class="form-control required"
+                                            aria-describedby="form-corporate-gifting-vat-error" id="corporate-gifting-vat"
+                                            name="corporateGiftingVat">
+                                        <div class="invalid-feedback" id="form-corporate-gifting-vat-error"></div>
+                                    </div>
+                                </div>
+                            </div>
                             <!--- corporate gifting us topic --->
                             <div class="row corporate-gifting-topic">
                                 <div class="col">
@@ -81,14 +123,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--- corporate gifting us comment --->
-                            <div class="row corporate-gifting-comment">
+                            <!--- corporate gifting us question --->
+                            <div class="row corporate-gifting-question">
                                 <div class="col">
                                     <div class="form-group">
-                                        <label class="form-control-label" for="corporate-gifting-comment">
-                                            ${Resource.msg('label.input.corporate-gifting-comment', 'corporateGifting', null)}
+                                        <label class="form-control-label" for="corporate-gifting-question">
+                                            ${Resource.msg('label.input.corporate-gifting-question', 'corporateGifting', null)}
                                         </label>
-                                        <textarea class="form-control" id="corporate-gifting-comment" name="corporateGiftingComment" rows="4"
+                                        <textarea class="form-control" id="corporate-gifting-question" name="corporateGiftingQuestion" rows="4"
                                             maxlength="250"></textarea>
                                     </div>
                                 </div>

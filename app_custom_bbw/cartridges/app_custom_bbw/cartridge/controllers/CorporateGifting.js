@@ -48,8 +48,11 @@ server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentT
             corporateGiftingDetails.custom.firstName = form.corporateGiftingFirstName ? form.corporateGiftingFirstName : '';
             corporateGiftingDetails.custom.lastName = form.corporateGiftingLastName ? form.corporateGiftingLastName : '';
             corporateGiftingDetails.custom.email = form.corporateGiftingEmail ? form.corporateGiftingEmail : '';
+            corporateGiftingDetails.custom.phone = form.corporateGiftingPhone ? form.corporateGiftingPhone : '';
+            corporateGiftingDetails.custom.company = form.corporateGiftingCompanyName ? form.corporateGiftingCompanyName : '';
+            corporateGiftingDetails.custom.vat = form.corporateGiftingVat ? form.corporateGiftingVat : '';
             corporateGiftingDetails.custom.topic = form.corporateGiftingTopic ? form.corporateGiftingTopic : '';
-            corporateGiftingDetails.custom.comment = form.corporateGiftingComment ? form.corporateGiftingComment : '';
+            corporateGiftingDetails.custom.question = form.corporateGiftingQuestion ? form.corporateGiftingQuestion : '';
         });
     }
     catch(e){
