@@ -1,89 +1,33 @@
 <footer id="footercontent">
-    <div class="container pt-3 pb-5">
-        <div class="footer-container footer-details p-sm-0 h-dsp--grid">
-            <div class="footer-item store pt-3">
-                <div class="user-info-heading">
-                    <!-- Footer tooltip details with margin bottom of 2 units and left-aligned text -->
-                    <div
-                        class="footer-tooltip-details d-flex align-items-center justify-content-between mb-2 mt-2 text-left">
-                        <!-- Heading text -->
-                        <div class="heading-text h-clr--black-3 mb-2 mr-3">${Resource.msg('footer.title', 'footer', null)}
-                        </div>
-                        <!-- Tooltip container for more information -->
-                        <div class="tooltip-container">
-                            <!-- content assets for tooltip -->
-                            <iscontentasset aid="footer-tooltip-details" />
-                        </div>
-                    </div>
-                    <!-- Form for newsletter subscription -->
-                    <div class="home-email-signup">
-                        <div class="container">
-                            <form role="form" class="newsletter">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <div data-required-text="">
-                                            <label for="email-footer_social_emailcapture"
-                                                class="h-clr--black-3 h-fw--semibold h-auto mb-1">
-                                                ${Resource.msg('form.title', 'footer', null)}
-                                            </label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control input-text rounded-0 w-100"
-                                                    name="hpEmailSignUp"
-                                                    placeholder="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}"
-                                                    aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" />
-                                                <span class="input-group-append">
-                                                    <isif
-                                                        condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
-                                                        <isset name="dataCallback" value="submitNewsLetter"
-                                                            scope="page" />
-                                                        <isset name="dataErrorCallback" value="checkRecaptcha"
-                                                            scope="page" />
-                                                        <isinclude template="/common/reCaptcha" />
-                                                        <button id="gcaptchabtn" type="button"
-                                                            class="btn btn-primary subscribe-email"
-                                                            data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
-                                                    <iselse/>
-                                                        <button type="button"
-                                                            class=" btn-primary subscribe-email btn submit-btn h-fw--semibold mt-3 h-font-size--16"
-                                                            data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
-                                                    </isif>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!-- Social list content -->
-                <iscontentasset aid="footer-social-list" />
+    <div class="container">
+        <div class="footer-container row">
+            <div class="footer-item col-sm-3 store">
+                <iscontentasset aid="footer-locate-store" />
             </div>
-            <!-- Footer list details -->
-            <div class="footer-list-details h-dsp--grid">
-                <!-- Footer item for customer care -->
-                <div class="footer-item  collapsible-xs">
-                    <iscontentasset aid="footer-customer-care" />
-                </div>
-                <!-- Footer item for account -->
-                <div class="footer-item collapsible-xs">
-                    <iscontentasset aid="footer-account" />
-                </div>
-                <!-- Footer item for discovery -->
-                <div class="footer-item  collapsible-xs">
-                    <iscontentasset aid="footer-discover" />
-                </div>
-                <!-- Footer item for store locator -->
-                <div class="footer-item  collapsible-xs">
-                    <iscontentasset aid="footer-locate-store" />
-                </div>
+            <div class="footer-item col-sm-3 collapsible-xs">
+                <iscontentasset aid="footer-account" />
+            </div>
+            <div class="footer-item col-sm-3 collapsible-xs">
+                <iscontentasset aid="footer-support" />
+            </div>
+            <div class="footer-item col-sm-3 collapsible-xs">
+                <iscontentasset aid="footer-about" />
             </div>
         </div>
-    </div>
-    <div class="row">
-        <!--  copyright content-->
-        <div class="col-sm-12 copyright-notice">
-            <iscontentasset aid="footer-copyright" />
+        <hr class="hidden-xs-down" />
+        <div class="row">
+            <div class="col-lg-4 col-sm-5 push-sm-7 push-lg-8 social">
+                <isslot id="footer-column-m" description="Content in column 1 of the Footer" context="global" />
+                <button class="back-to-top" title="${Resource.msg('button.back_to_top', 'common', null)}" aria-label="${Resource.msg('button.back_to_top', 'common', null)}">
+                    <span class="fa-stack fa-lg" aria-hidden="true">
+                        <i class="fa fa-circle fa-inverse fa-stack-2x"></i>
+                        <i class="fa fa-arrow-up fa-stack-1x"></i>
+                    </span>
+                </button>
+            </div>
+            <div class="col-lg-8 col-sm-7 pull-sm-5 pull-lg-4 copyright-notice">
+                <iscontentasset aid="footer-copy" />
+            </div>
         </div>
     </div>
 </footer>
