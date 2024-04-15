@@ -6,7 +6,7 @@
     </folder>
 	
    <content content-id="footer-account">
-        <display-name xml:lang="x-default">footer account</display-name>
+        <display-name xml:lang="x-default">My account</display-name>
         <online-flag>true</online-flag>
         <page-attributes/>
         <custom-attributes>
@@ -28,7 +28,7 @@
     </content>
 
      <content content-id="footer-copyright">
-        <display-name xml:lang="x-default">footer</display-name>
+        <display-name xml:lang="x-default">Copyright</display-name>
         <online-flag>true</online-flag>
         <page-attributes/>
         <custom-attributes>
@@ -101,7 +101,7 @@
     </content>
 
         <content content-id="footer-customer-care">
-        <display-name xml:lang="x-default">footer customer care</display-name>
+        <display-name xml:lang="x-default">Customer Care</display-name>
         <online-flag>true</online-flag>
         <page-attributes/>
         <custom-attributes>
@@ -127,7 +127,7 @@
     </content>
 
     <content content-id="footer-discover">
-        <display-name xml:lang="x-default">footer discover</display-name>
+        <display-name xml:lang="x-default">Discover</display-name>
         <online-flag>true</online-flag>
         <page-attributes/>
         <custom-attributes>
@@ -150,7 +150,7 @@
     </content>
 
     <content content-id="footer-locate-store">
-        <display-name xml:lang="x-default">footer locate store</display-name>
+        <display-name xml:lang="x-default">Find Us</display-name>
         <online-flag>true</online-flag>
         <page-attributes/>
         <custom-attributes>
@@ -168,7 +168,7 @@
     </content>
 
     <content content-id="footer-social-list">
-        <display-name xml:lang="x-default">footer social</display-name>
+        <display-name xml:lang="x-default">Social List</display-name>
         <online-flag>true</online-flag>
         <page-attributes/>
         <custom-attributes>
@@ -208,7 +208,7 @@
     </content>
 
         <content content-id="footer-tooltip-details">
-        <display-name xml:lang="x-default">footer tooltip details</display-name>
+        <display-name xml:lang="x-default">Tooltip Details</display-name>
         <online-flag>true</online-flag>
         <page-attributes/>
         <custom-attributes>
