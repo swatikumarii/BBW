@@ -6,6 +6,20 @@
             <preference preference-id="reserveQty">5</preference>
             <preference preference-id="notifyEmailThreshold">5</preference>
             <preference preference-id="mapAPI">AIzaSyAzRo8iHR1RuFsw-MuDf6sshGtsFW-HuDc</preference>
+            <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
+            <preference preference-id="AdyenCardHolderName_enabled">true</preference>
+            <preference preference-id="AdyenLevel23DataEnabled">true</preference>
+            <preference preference-id="Adyen_API_Key">WxH7rsW/bZpBGzfDdGmSwu8YiTosY7oHUsLgCFjEOUCy1V4ubZ2BPbz3jFdXCfXWs3W+zWeGwH3fba9e8cW3cv4hsi+mP8OCvbDFg9bW2djr2PEeFc/zFOq5kekqnXGcfcbucfy85cq4Upzp461jatpwIPgLd+hFc7dqOrP9IONPGfDCFOL+/1t0kzx8O9BDsTZfvElQwR2y/GweaU2aUzqOt8H5lG4M83c+h5rtlrOjyG7XscdBEiHc0KKr48lW</preference>
+            <preference preference-id="Adyen_ClientKey">test_JNWE6YYQEVESRDDDWXJDE2FBGQGZ6UU7</preference>
+            <preference preference-id="Adyen_Frontend_Region">AU</preference>
+            <preference preference-id="Adyen_Mode">TEST</preference>
+            <preference preference-id="Adyen_SFRA6_Compatibility">true</preference>
+            <preference preference-id="Adyen_merchantCode">BBW_AU</preference>
+            <preference preference-id="Adyen_notification_password">rZv15VjL2ilSWEo0pSN3eXB3v3a7dOhpl8MDcCEfRFMSuGFhtiuxJG0Z1kyFcqCS</preference>
+            <preference preference-id="Adyen_notification_user">admin</preference>
+            <preference preference-id="AmazonPayExpress_Enabled">false</preference>
+            <preference preference-id="ApplePayExpress_Enabled">true</preference>
+            <preference preference-id="ExpressPayments_enabled">true</preference>
         </development>
         <staging/>
         <production/>
