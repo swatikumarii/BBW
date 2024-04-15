@@ -357,6 +357,8 @@ module.exports = function () {
                     updateApproachingDiscounts(data.basket.approachingDiscounts);
                     $('body').trigger('setShippingMethodSelection', data.basket);
                     validateBasket(data.basket);
+                    $('.gift-wrap-card-div').empty()
+                        .html(data.giftWrapLineItem);
                 }
 
                 $('body').trigger('cart:update', data);

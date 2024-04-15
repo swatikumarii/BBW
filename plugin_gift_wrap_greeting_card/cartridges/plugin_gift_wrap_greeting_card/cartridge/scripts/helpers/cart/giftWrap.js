@@ -44,6 +44,27 @@ function getProductLineItemModelForCart(productLineItem) {
 
 /**
  * 
+ * @param {dw.order.Basket} currentBasket - Current Basket
+ * @returns {object} - Return isml
+ */
+function getGiftWrapLineItemCart(currentBasket) {
+    var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
+    var giftWrapProductLineItem = getGiftWrapLineItem(currentBasket);
+    if (giftWrapProductLineItem) {
+        var giftWrapItem = getProductLineItemModelForCart(giftWrapProductLineItem);
+        var context = {
+            giftWrapItem: giftWrapItem
+        };
+        return renderTemplateHelper.getRenderedHtml(
+            context,
+            'cart/productCard/cartGiftWrapProductCard'
+        );
+    }
+    return null;
+}
+
+/**
+ * 
  * @param {*} items - Product line items
  * @returns {JSON} - Gift wrap config
  */
@@ -348,5 +369,6 @@ module.exports = {
     removeGiftWrapLineItem: removeGiftWrapLineItem,
     updateWrapForAllProductLineItem: updateWrapForAllProductLineItem,
     handleRemoveProduct: handleRemoveProduct,
-    handleUpdateQuantity: handleUpdateQuantity
+    handleUpdateQuantity: handleUpdateQuantity,
+    getGiftWrapLineItemCart: getGiftWrapLineItemCart
 };

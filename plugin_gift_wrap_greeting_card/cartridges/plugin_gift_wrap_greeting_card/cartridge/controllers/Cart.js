@@ -160,24 +160,28 @@ server.prepend('UpdateQuantity', function (req, res, next) {
 server.append(
     'UpdateQuantity',
     function (req, res, next) {
-        var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
         var currentBasket = BasketMgr.getCurrentBasket();
         var viewData = res.getViewData();
-        var giftWrapProductLineItem = giftWrapCartHelpers.getGiftWrapLineItem(currentBasket);
-        if (giftWrapProductLineItem) {
-            var giftWrapItem =
-                giftWrapCartHelpers.getProductLineItemModelForCart(
-                    giftWrapProductLineItem
-                );
-            var context = {
-                giftWrapItem: giftWrapItem
-            };
-            viewData.giftWrapLineItem = renderTemplateHelper.getRenderedHtml(
-                context,
-                'cart/productCard/cartGiftWrapProductCard'
-            );
-            res.setViewData(viewData);
-        }
+        viewData.giftWrapLineItem =
+            giftWrapCartHelpers.getGiftWrapLineItemCart(currentBasket);
+        res.setViewData(viewData);
+        next();
+    },
+    pageMetaData.computedPageMetaData
+);
+
+/**
+ * Cart-RemoveProductLineItem : The Cart-RemoveProductLineItem endpoint handles delete product line item from the basket
+ * @name Cart-RemoveProductLineItem
+ */
+server.append(
+    'RemoveProductLineItem',
+    function (req, res, next) {
+        var currentBasket = BasketMgr.getCurrentBasket();
+        var viewData = res.getViewData();
+        viewData.giftWrapLineItem =
+            giftWrapCartHelpers.getGiftWrapLineItemCart(currentBasket);
+        res.setViewData(viewData);
         next();
     },
     pageMetaData.computedPageMetaData
