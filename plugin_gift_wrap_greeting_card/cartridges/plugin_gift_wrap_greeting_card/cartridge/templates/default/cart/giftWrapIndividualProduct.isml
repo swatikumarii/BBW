@@ -7,7 +7,6 @@
                     class=" js-generic-flyout js-flyout-container generic-dialog-flyout open checkout-v3 giftwrap-flyout">
                     <span class="sr-only flyout-sr-only js-genericflyout-skip-to-content" tabindex="0"
                         aria-hidden="true"></span>
-                    <isset name="giftWrapProductPrice" value="${pdict.giftWrapProductPrice}" scope="page" />
 
                     <section class="js-flyout-content generic-flyout-content">
                         <div id="giftwrap-container" class="giftwrap-container">
