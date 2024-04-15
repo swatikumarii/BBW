@@ -231,3 +231,28 @@ footer {
         }
     }
 }
+
+// Back to top button 
+.scroll-to-top-link {
+    font-size: .5rem;
+
+    .sprinklr-enabled {
+        bottom: 1.625rem;
+        right: 1.25rem;
+        position: fixed;
+        border: none;
+        flex-direction: column-reverse;
+        row-gap: 0.5rem;
+
+        &::after {
+            background-image: url("../images/footer/up.svg");
+            background-repeat: no-repeat;
+            width: 24px;
+            content: "";
+            min-width: 24px;
+            height: 24px;
+            background-color: transparent;
+            transform: rotate(180deg);
+        }
+    }
+}

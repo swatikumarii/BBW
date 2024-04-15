@@ -86,4 +86,13 @@
             <iscontentasset aid="footer-copyright" />
         </div>
     </div>
+        <iscomment> Back to Top - Button </iscomment>
+        <div class="scroll-to-top-link js-scrolltotop">
+            <div class="scroll-to-top-wrapper">
+                <button id="backtotop" aria-label="Back to top" data-once="backtotop sprinklr-back-to-top"
+                    class="sprinklr-enabled d-flex align-items-center">
+                    Back to top
+                </button>
+            </div>
+        </div>
 </footer>

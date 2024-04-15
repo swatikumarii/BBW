@@ -126,3 +126,25 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
 $(document).on('click', '.popover .close', function () {
     $(this).parents('.popover').popover('hide');
 });
+
+/**
+ * Back To Top - Click
+ */
+
+var scrolltotop = $('.js-scrolltotop');
+
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 100) { // Adjust the value according to requirement
+        scrolltotop.fadeIn();
+    } else {
+        scrolltotop.fadeOut();
+    }
+});
+
+// Scroll to top when the button is clicked
+
+$('.js-scrolltotop').on('click', function () {
+    $('html, body').animate({
+        scrollTop: $('body').offset().top
+    }, 800);
+});
