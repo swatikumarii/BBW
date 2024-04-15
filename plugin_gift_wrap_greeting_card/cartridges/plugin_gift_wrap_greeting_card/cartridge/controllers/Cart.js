@@ -15,7 +15,7 @@ var customPreferenceNames = require('*/cartridge/config/customPreferenceNames');
 
 /**
  * Cart-Show : The Cart-Show endpoint,
- * This appand will use for
+ * This append will use for
  * 1. Set isGiftWrapEnable according to custom preference
  * 2. Show Gift Wrap Products
  * Cart-Show : The Cart-Show endpoint
@@ -30,7 +30,6 @@ server.append(
             res.setViewData(greetingCardCartHelpers.getGreetingCardConfig(viewData));
             res.setViewData(giftWrapCartHelpers.getGiftWrapConfig(viewData.items));
         }
-        res.setViewData(viewData);
         next();
     },
     pageMetaData.computedPageMetaData
@@ -153,5 +152,35 @@ server.prepend('UpdateQuantity', function (req, res, next) {
     }
     return next();
 });
+
+/**
+ * Cart-UpdateQuantity : The Cart-UpdateQuantity endpoint handles updating the quantity of a product line item in the basket
+ * @name Cart-UpdateQuantity
+ */
+server.append(
+    'UpdateQuantity',
+    function (req, res, next) {
+        var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
+        var currentBasket = BasketMgr.getCurrentBasket();
+        var viewData = res.getViewData();
+        var giftWrapProductLineItem = giftWrapCartHelpers.getGiftWrapLineItem(currentBasket);
+        if (giftWrapProductLineItem) {
+            var giftWrapItem =
+                giftWrapCartHelpers.getProductLineItemModelForCart(
+                    giftWrapProductLineItem
+                );
+            var context = {
+                giftWrapItem: giftWrapItem
+            };
+            viewData.giftWrapLineItem = renderTemplateHelper.getRenderedHtml(
+                context,
+                'cart/productCard/cartGiftWrapProductCard'
+            );
+            res.setViewData(viewData);
+        }
+        next();
+    },
+    pageMetaData.computedPageMetaData
+);
 
 module.exports = server.exports();

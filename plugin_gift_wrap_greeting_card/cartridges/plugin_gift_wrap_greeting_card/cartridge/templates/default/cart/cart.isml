@@ -71,7 +71,9 @@
                         </isif>
                     </isloop>
                     <isinclude template="cart/productCard/cartGreetingCard" />
-                    <isinclude template="cart/productCard/cartGiftWrapProductCard" />
+                    <div class="gift-wrap-card-div">
+                        <isinclude template="cart/productCard/cartGiftWrapProductCard" />
+                    </div>
                     <isinclude template="cart/cartApproachingDiscount" />
                     <isinclude template="cart/greetingCard" />
                     <isinclude template="cart/giftWrap" />

@@ -3,7 +3,7 @@
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addJs('/js/giftWrap.js');
 </isscript>
-<isif condition="${pdict.isGiftWrapEnable && pdict.wrapItemMethod}">
+<isif condition="${pdict.isGiftWrapEnable && pdict.wrapItemMethod && pdict.wrappableProducts}">
     <div class="giftWrapIndividualProductParent">
         <isinclude template="cart/giftWrapIndividualProduct" />
     </div>
@@ -19,71 +19,67 @@
                     <span>${Resource.msg('edit.label', 'common', null)}</span>
                 </div>
             </div>
-            <isif condition="${pdict.items.length >= 1}">
-                <div class="giftwrap-block-options js-giftwrap-options">
-                    <div class="giftwrap-block-radio-wrapper">
-                        <isif
-                            condition="${pdict.wrapItemMethod == constants.WRAP_TOGETHER_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == constants.WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}">
-                            <div id="giftwrap-block-radio" class="giftwrap-block-radio gift-wrap-toggle">
-                                <isif condition="${pdict.isDisableTogetherOption}">
-                                    <input type="radio" name="giftwrap-type" id="${constants.WRAP_TOGETHER_ID}" value="${constants.WRAP_TOGETHER_VALUE}"
-                                        disabled />
-                                <iselse/>
-                                    <input type="radio" name="giftwrap-type" id="${constants.WRAP_TOGETHER_ID}" value="${constants.WRAP_TOGETHER_VALUE}" />
-                                </isif>
-                                <label for="${constants.WRAP_TOGETHER_ID}">
-                                    <span>${Resource.msg('wrap.everything.together', 'giftWrap', null)}</span>
-                                    <span class="gift-wrap-price disabled"> (
-                                        <span class="selected-giftwrap-product-price"></span> )</span>
-                                </label>
-                            </div>
-                        </isif>
-
-                        <isif
-                            condition="${pdict.wrapItemMethod == constants.WRAP_INDIVIDUAL_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == constants.WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}">
-                            <div class="giftwrap-block-radio greeting-card-toggle" data-error-message="">
-                                <isif condition="${pdict.isDisableIndividualOption}">
-                                    <input type="radio" name="giftwrap-type" id="${constants.WRAP_INDIVIDUAL_ID}" value="${constants.WRAP_INDIVIDUAL_VALUE}"
-                                        disabled />
-                                <iselse/>
-                                    <input type="radio" name="giftwrap-type" id="${constants.WRAP_INDIVIDUAL_ID}" value="${constants.WRAP_INDIVIDUAL_VALUE}" />
-                                </isif>
-                                <label class="wrapIndividuallyLabel" for="${constants.WRAP_INDIVIDUAL_ID}">
-                                    <span>${Resource.msg('wrap.items.individually', 'giftWrap', null)}</span>
-                                    <span class="gift-wrap-price disabled">(
-                                        <span class="selected-giftwrap-product-price"></span>
-                                        ${Resource.msg('individual.per.item', 'giftWrap', null)})</span>
-                                </label>
-                            </div>
-                        </isif>
-                        <div class="giftWrapProductOptions">
-                            <isloop items="${pdict.giftWrapProducts}" var="giftWrapProduct" status="loopstate">
-                                <isif condition="${giftWrapProduct !== null}">
-                                    <div class="imgGiftWrap">
-                                        <img src="${giftWrapProduct.images.large[0].url}"
-                                            alt="${giftWrapProduct.productName}" />
-                                        <input class="giftWrapProductOptionsRadio" name="gift-wrap-product"
-                                            id="giftWrapProductOptionsRadio-${loopstate.count}" type="radio"
-                                            value="${giftWrapProduct.id}" data-price="${giftWrapProduct.price.sales.formatted}"/>
-                                        <label class="giftWrapProductLabel"
-                                            for="giftWrapProductOptionsRadio-${loopstate.count}"></label>
-                                    </div>
-                                </isif>
-                            </isloop>
+            <div class="giftwrap-block-options js-giftwrap-options">
+                <div class="giftwrap-block-radio-wrapper">
+                    <isif
+                        condition="${pdict.wrapItemMethod == constants.WRAP_TOGETHER_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == constants.WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}">
+                        <div id="giftwrap-block-radio" class="giftwrap-block-radio gift-wrap-toggle">
+                            <isif condition="${pdict.isDisableTogetherOption}">
+                                <input type="radio" name="giftwrap-type" id="${constants.WRAP_TOGETHER_ID}" value="${constants.WRAP_TOGETHER_VALUE}"
+                                    disabled />
+                            <iselse/>
+                                <input type="radio" name="giftwrap-type" id="${constants.WRAP_TOGETHER_ID}" value="${constants.WRAP_TOGETHER_VALUE}" />
+                            </isif>
+                            <label for="${constants.WRAP_TOGETHER_ID}">
+                                <span>${Resource.msg('wrap.everything.together', 'giftWrap', null)}</span>
+                                <span class="gift-wrap-price disabled"> (
+                                    <span class="selected-giftwrap-product-price"></span> )</span>
+                            </label>
                         </div>
-                        <button id="addGiftWrapProduct" type="button" class="btn"
-                            data-wraptype-error-message="${Resource.msg('error.select.giftwraptype', 'giftWrap', null)}"
-                            data-select.wrappable.product-error-message="${Resource.msg('error.select.wrappable.product', 'giftWrap', null)}"
-                            data-giftwrapproduct-error-message="${Resource.msg('error.select.giftwrap.product', 'giftWrap', null)}"
-                            data-actionurl="${URLUtils.url('Cart-AddProduct')}"
-                            data-removeurl="${URLUtils.url('Cart-RemoveProductLineItem')}"
-                            data-add-text="${Resource.msg('add.label', 'common', null)}"
-                            data-update-text="${Resource.msg('update.label', 'common', null)}"
-                            data-wrap-type="${pdict.wrapType}">
-                            ${Resource.msg('add.label', 'common', null)}</button>
+                    </isif>
+
+                    <isif
+                        condition="${pdict.wrapItemMethod == constants.WRAP_INDIVIDUAL_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == constants.WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}">
+                        <div class="giftwrap-block-radio greeting-card-toggle" data-error-message="">
+                            <isif condition="${pdict.isDisableIndividualOption}">
+                                <input type="radio" name="giftwrap-type" id="${constants.WRAP_INDIVIDUAL_ID}" value="${constants.WRAP_INDIVIDUAL_VALUE}"
+                                    disabled />
+                            <iselse/>
+                                <input type="radio" name="giftwrap-type" id="${constants.WRAP_INDIVIDUAL_ID}" value="${constants.WRAP_INDIVIDUAL_VALUE}" />
+                            </isif>
+                            <label class="wrapIndividuallyLabel" for="${constants.WRAP_INDIVIDUAL_ID}">
+                                <span>${Resource.msg('wrap.items.individually', 'giftWrap', null)}</span>
+                                <span class="gift-wrap-price disabled">(
+                                    <span class="selected-giftwrap-product-price"></span>
+                                    ${Resource.msg('individual.per.item', 'giftWrap', null)})</span>
+                            </label>
+                        </div>
+                    </isif>
+                    <div class="giftWrapProductOptions">
+                        <isloop items="${pdict.giftWrapProducts}" var="giftWrapProduct" status="loopstate">
+                            <div class="imgGiftWrap">
+                                <img src="${giftWrapProduct.images.large[0].url}"
+                                    alt="${giftWrapProduct.productName}" />
+                                <input class="giftWrapProductOptionsRadio" name="gift-wrap-product"
+                                    id="giftWrapProductOptionsRadio-${loopstate.count}" type="radio"
+                                    value="${giftWrapProduct.id}" data-price="${giftWrapProduct.price.sales.formatted}"/>
+                                <label class="giftWrapProductLabel"
+                                    for="giftWrapProductOptionsRadio-${loopstate.count}"></label>
+                            </div>
+                        </isloop>
                     </div>
+                    <button id="addGiftWrapProduct" type="button" class="btn"
+                        data-wraptype-error-message="${Resource.msg('error.select.giftwraptype', 'giftWrap', null)}"
+                        data-select.wrappable.product-error-message="${Resource.msg('error.select.wrappable.product', 'giftWrap', null)}"
+                        data-giftwrapproduct-error-message="${Resource.msg('error.select.giftwrap.product', 'giftWrap', null)}"
+                        data-actionurl="${URLUtils.url('Cart-AddProduct')}"
+                        data-removeurl="${URLUtils.url('Cart-RemoveProductLineItem')}"
+                        data-add-text="${Resource.msg('add.label', 'common', null)}"
+                        data-update-text="${Resource.msg('update.label', 'common', null)}"
+                        data-wrap-type="${pdict.wrapType}">
+                        ${Resource.msg('add.label', 'common', null)}</button>
                 </div>
-            </isif>
+            </div>
         </div>
     </div>
 </isif>

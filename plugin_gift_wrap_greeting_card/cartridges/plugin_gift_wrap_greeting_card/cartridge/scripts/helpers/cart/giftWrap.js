@@ -16,6 +16,33 @@ var giftWrapHelpers = require('*/cartridge/scripts/helpers/giftWrap');
 var customPreferenceNames = require('*/cartridge/config/customPreferenceNames');
 
 /**
+ * @param {dw.order.Basket} currentBasket - Current Basket
+ * @returns {dw.order.ProductLineItem} productLineItem
+ */
+function getGiftWrapLineItem(currentBasket) {
+    return productHelpers.getProductLineItemByCategory(
+        currentBasket.getAllProductLineItems(),
+        site.current.getCustomPreferenceValue(customPreferenceNames.giftWrapCategoryName)
+    );
+}
+
+/**
+ * @param {dw.order.ProductLineItem} productLineItem - Product line item from basket
+ * @returns {object} Gift wrap item from ProductLineItemsModel
+ */
+function getProductLineItemModelForCart(productLineItem) {
+    var ProductLineItemsModel = require('*/cartridge/models/productLineItems');
+    var ArrayList = require('dw/util/ArrayList');
+    var productLineItems = new ArrayList();
+    productLineItems.add(productLineItem);
+    var productLineItemsModel = new ProductLineItemsModel(
+        productLineItems,
+        'basket'
+    );
+    return productLineItemsModel.giftWrapItem;
+}
+
+/**
  * 
  * @param {*} items - Product line items
  * @returns {JSON} - Gift wrap config
@@ -315,6 +342,8 @@ function handleUpdateQuantity(
 }
 
 module.exports = {
+    getProductLineItemModelForCart: getProductLineItemModelForCart,
+    getGiftWrapLineItem: getGiftWrapLineItem,
     getGiftWrapConfig: getGiftWrapConfig,
     removeGiftWrapLineItem: removeGiftWrapLineItem,
     updateWrapForAllProductLineItem: updateWrapForAllProductLineItem,
