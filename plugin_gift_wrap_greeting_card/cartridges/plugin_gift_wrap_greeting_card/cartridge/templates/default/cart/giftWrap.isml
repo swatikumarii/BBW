@@ -1,9 +1,9 @@
-<isscript>
-    var constants = require("*/cartridge/config/constants.js");
-    var assets = require('*/cartridge/scripts/assets.js');
-    assets.addJs('/js/giftWrap.js');
-</isscript>
 <isif condition="${pdict.isGiftWrapEnable && pdict.wrapItemMethod && pdict.wrappableProducts}">
+    <isscript>
+        var constants = require("*/cartridge/config/constants.js");
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/giftWrap.js');
+    </isscript>
     <div class="giftWrapIndividualProductParent">
         <isinclude template="cart/giftWrapIndividualProduct" />
     </div>

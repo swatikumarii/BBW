@@ -76,7 +76,9 @@
                     </div>
                     <isinclude template="cart/cartApproachingDiscount" />
                     <isinclude template="cart/greetingCard" />
-                    <isinclude template="cart/giftWrap" />
+                    <div class="gift-wrap-choose-div">
+                        <isinclude template="cart/giftWrap" />
+                    </div>
                 </div>
                 <!---totals, and checkout actions--->
                 <div class="col-sm-5 col-md-4 totals">

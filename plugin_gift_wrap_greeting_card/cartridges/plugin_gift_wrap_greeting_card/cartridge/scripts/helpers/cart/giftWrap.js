@@ -340,10 +340,12 @@ function getGiftWrapLineItemCart(currentBasket) {
     var giftWrapProductCard = null;
     if (basketModel.items.length > 0) {
         var giftWrapConfig = getGiftWrapConfig(basketModel.items);
-        individuallyWrappableUI = renderTemplateHelper.getRenderedHtml(
-            { wrappableProducts: giftWrapConfig.wrappableProducts },
-            'cart/giftWrapIndividualProduct'
-        );
+        if (giftWrapConfig.wrappableProducts) {
+            individuallyWrappableUI = renderTemplateHelper.getRenderedHtml(
+                { wrappableProducts: giftWrapConfig.wrappableProducts },
+                'cart/giftWrapIndividualProduct'
+            );
+        }
     }
     if (basketModel.giftWrapItem) {
         var context = {

@@ -366,12 +366,15 @@ $(document).ready(function () {
         );
     });
 
-    $('body').on('cart:update', function (data) {
+    $('body').on('cart:update', function (e, data) {
         $('.gift-wrap-card-div')
             .empty()
             .html(data.giftWrapProductCard);
         $('.giftWrapIndividualProductParent')
             .empty()
             .html(data.individuallyWrappableUI);
+        if (!data.individuallyWrappableUI) {
+            $('.gift-wrap-choose-div').empty();
+        }
     });
 });
