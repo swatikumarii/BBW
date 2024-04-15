@@ -1796,4 +1796,68 @@
             </attribute-group>
         </group-definitions>
     </type-extension>
+    <type-extension type-id="ProductLineItem">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="greetingCardMessage">
+                <display-name xml:lang="x-default">greetingCardMessage</display-name>
+                <description xml:lang="x-default">Greeting Card Message for the Product</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <field-length>50</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="isWrapped">
+                <display-name xml:lang="x-default">Is Wrapped</display-name>
+                <description xml:lang="x-default">True : If current product is wrapped False : If current product is not wrapped</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="wrappedQuantity">
+                <display-name xml:lang="x-default">Wrapped Quantity</display-name>
+                <description xml:lang="x-default">This attribute stores how many quantity is wrapped.</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="wrappedQuantity">
+                <display-name xml:lang="x-default">Wrapped Quantity</display-name>
+                <description xml:lang="x-default">This attribute stores how many quantity is wrapped.</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="giftWrapAttributes">
+                <display-name xml:lang="x-default">Gift Wrap Attributes</display-name>
+                <attribute attribute-id="isWrapped"/>
+                <attribute attribute-id="wrappedQuantity"/>
+            </attribute-group>
+            <attribute-group group-id="greetingCardAttributes">
+                <display-name xml:lang="x-default">Greeting Card Attributes</display-name>
+                <attribute attribute-id="greetingCardMessage"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    <type-extension type-id="Product">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="isGiftWrappable">
+                <display-name xml:lang="x-default">Gift Wrappable</display-name>
+                <type>boolean</type>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="giftWrapAttributes">
+                <display-name xml:lang="x-default">Gift Wrap Attributes</display-name>
+                <attribute attribute-id="isGiftWrappable"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
 </metadata>
