@@ -2,12 +2,15 @@ version: '3.2' # Specify a suitable compose file version
 
 services:
   bbw:
-    image: bbw:v1  # Make sure this matches your image tag
-    container_name: bbw # Optional, but provides a name
+    build:
+      context: .
+      args:
+        USER_ID: "${USER_ID}"
+        GROUP_ID: "${GROUP_ID}"
     tty: true
     stdin_open: true
     volumes:
       - type: bind
         source: ../
         target: /home/bath-and-body-works
-    command: /bin/bash # Default command to start Bash
+    user: "${USER_INFO}"

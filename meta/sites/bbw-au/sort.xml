@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sort xmlns="http://www.demandware.com/xml/impex/sort/2009-05-15">
+    <sorting-rule rule-id="best-sellers">
+        <description>Best Sellers</description>
+        <sorting-attributes>
+            <availability-status/>
+        </sorting-attributes>
+    </sorting-rule>
+
+    <sorting-rule rule-id="new-arrivals">
+        <description>New Arrivals</description>
+        <sorting-attributes>
+            <attribute>
+                <attribute-path>product.custom.isNew</attribute-path>
+                <direction>descending</direction>
+                <include-text-relevance>false</include-text-relevance>
+            </attribute>
+        </sorting-attributes>
+    </sorting-rule>
+
+    <sorting-rule rule-id="price-high-to-low">
+        <description>Sorts by price descending</description>
+        <sorting-attributes>
+            <price>
+                <direction>descending</direction>
+            </price>
+        </sorting-attributes>
+    </sorting-rule>
+
+    <sorting-rule rule-id="price-low-to-high">
+        <description>Sorts by price ascending</description>
+        <sorting-attributes>
+            <price>
+                <direction>ascending</direction>
+            </price>
+        </sorting-attributes>
+    </sorting-rule>
+
+    <sorting-rule rule-id="product-position">
+        <description>Product position</description>
+        <sorting-attributes>
+            <category-position/>
+        </sorting-attributes>
+    </sorting-rule>
+
+    <sorting-rule rule-id="text-relevance">
+        <description>Text relevance</description>
+        <sorting-attributes>
+            <text-relevance/>
+        </sorting-attributes>
+    </sorting-rule>
+
+    <sorting-rule rule-id="top-rated">
+        <description>Top Rated</description>
+        <sorting-attributes>
+            <availability-status/>
+        </sorting-attributes>
+    </sorting-rule>
+
+    <sorting-rule-assignment category-id="root" rule-id="product-position" rule-context="site"/>
+
+    <sorting-options>
+        <sorting-option option-id="product-position">
+            <rule-id>product-position</rule-id>
+            <rule-context>site</rule-context>
+            <display-name xml:lang="x-default">Product Position</display-name>
+        </sorting-option>
+        <sorting-option option-id="new-arrivals">
+            <rule-id>new-arrivals</rule-id>
+            <rule-context>site</rule-context>
+            <display-name xml:lang="x-default">New Arrivals</display-name>
+        </sorting-option>
+        <sorting-option option-id="best-sellers">
+            <rule-id>best-sellers</rule-id>
+            <rule-context>site</rule-context>
+            <display-name xml:lang="x-default">Best Sellers</display-name>
+        </sorting-option>
+        <sorting-option option-id="price-low-to-high">
+            <rule-id>price-low-to-high</rule-id>
+            <rule-context>site</rule-context>
+            <display-name xml:lang="x-default">Price Low To High</display-name>
+        </sorting-option>
+        <sorting-option option-id="price-high-to-low">
+            <rule-id>price-high-to-low</rule-id>
+            <rule-context>site</rule-context>
+            <display-name xml:lang="x-default">Price High to Low</display-name>
+        </sorting-option>
+        <sorting-option option-id="top-rated">
+            <rule-id>top-rated</rule-id>
+            <rule-context>site</rule-context>
+            <display-name xml:lang="x-default">Top Rated</display-name>
+        </sorting-option>
+    </sorting-options>
+
+    <keyword-search-sorting-rule-assignment rule-id="text-relevance" rule-context="site"/>
+
+</sort>
