@@ -1,6 +1,6 @@
 'use strict';
 
-var scrollAnimate = require('base/components/scrollAnimate');
+// var scrollAnimate = require('base/components/scrollAnimate');
 
 /**
  * appends params to a url
@@ -105,7 +105,7 @@ window.initializeRecaptcha = function () {
     });
 };
 
-// Initialize popover 
+// Initialize popover
 $('[data-toggle="popover"]').popover({
     placement: 'top',
     html: true,
