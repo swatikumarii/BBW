@@ -1,0 +1,31 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets');
+    assets.addJs('/js/slickSlider.js');
+    assets.addCss('/css/experience/components/commerceAssets/slickSlider.css');
+</isscript>
+
+<iscomment> Slick - Slider </iscomment>
+<isset name="sliderId" value="${'slider-' + String.split(Math.random(), '.')[1]}" scope="page" />
+<section class="pd-slick-slider-section js-slick-slider-section ${pdict.sliderCustomClass}">
+    <div class="pd-slick-wrapper">
+        <isprint value="${pdict.regions.slides
+        .setClassName("pd-slick-slider js-slider arrow-"+ pdict.arrowStyle)
+        .setComponentClassName("slick-slide")
+        .setAttribute('id',sliderId)
+        .setAttribute('style','--slides-gap-md: ' + pdict.gapDesktop + 'px; --slides-gap-sm: ' + pdict.gapMobile + 'px;')
+        .setAttribute('data-custom-indicator',pdict.displayControls)
+        .setAttribute('data-slide-to-show-dekstop',pdict.slideToShowDesktop)
+        .setAttribute('data-slide-to-show-mobile',pdict.slideToShowMobile)
+        .setAttribute('data-custom-dots',pdict.displayIndicators)
+        .setAttribute('data-slick-loop',pdict.infinityLoop)
+        .setAttribute('data-slide-animation',pdict.slideAnimation)
+        .setAttribute('data-auto-play',pdict.autoplay)
+        .setAttribute('data-autoplay-speed',pdict.autoPlaySpeed)
+        .setAttribute('data-prev',Resource.msg('button.previous', 'common',null))
+        .setAttribute('data-next', Resource.msg('button.next', 'common', null)).render()}" encoding="off" />
+    </div>
+    <isif condition="${pdict.displayIndicators === 'true'}">
+        <div class="slider-bar js-slider-bar"></div>
+        <div class="slider-dots"></div>
+    </isif>
+</section>
