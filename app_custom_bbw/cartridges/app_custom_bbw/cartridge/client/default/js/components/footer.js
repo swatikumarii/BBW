@@ -21,10 +21,10 @@ function displayMessage(data, button) {
     }
     $('.email-signup-message').append(
         '<div class="email-signup-alert text-center ' +
-            status +
-            '">' +
-            data.msg +
-            '</div>'
+        status +
+        '">' +
+        data.msg +
+        '</div>'
     );
 
     setTimeout(function () {
@@ -105,8 +105,40 @@ window.initializeRecaptcha = function () {
     });
 };
 
-module.exports = function () {
-    $('.back-to-top').click(function () {
-        scrollAnimate();
-    });
-};
+// Initialize popover 
+$('[data-toggle="popover"]').popover({
+    placement: 'top',
+    html: true,
+});
+
+// Show popover on mouseenter
+$('[data-toggle="popover"]').on('mouseenter', function () {
+    $(this).popover('show');
+});
+
+// Close popover on close button click
+$(document).on('click', '.popover .close', function () {
+    $(this).parents('.popover').popover('hide');
+});
+
+/**
+ * Back To Top - Click
+ */
+
+var scrolltotop = $('.js-scrolltotop');
+
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 100) { // Adjust the value according to requirement
+        scrolltotop.fadeIn();
+    } else {
+        scrolltotop.fadeOut();
+    }
+});
+
+// Scroll to top when the button is clicked
+
+$('.js-scrolltotop').on('click', function () {
+    $('html, body').animate({
+        scrollTop: $('body').offset().top
+    }, 800);
+});

@@ -11,5 +11,7 @@ var productLineItemDecorators = require('*/cartridge/models/productLineItem/deco
 module.exports = function productLineItem(product, apiProduct, options) {
     base.call(this, product, apiProduct, options);
     productLineItemDecorators.isGreetingCard(product, apiProduct);
+    productLineItemDecorators.isGiftWrappable(product, apiProduct);
+    productLineItemDecorators.isGiftWrapCategory(product, apiProduct);
     return product;
 };

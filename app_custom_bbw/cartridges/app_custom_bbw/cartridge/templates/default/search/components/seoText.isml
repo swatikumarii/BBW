@@ -1,0 +1,8 @@
+<isif condition="${pdict.productSearch && pdict.productSearch.category && pdict.productSearch.category.id}">
+    <isinclude template="/components/modules" sf-toolkit="off" />
+    <div class="seo-wrapper">
+        <div class="inner-wrapper">
+            <iscontentasset aid="${'bottom-seo-' + pdict.productSearch.category.id}" />
+        </div>
+    </div>
+</isif>

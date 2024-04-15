@@ -1,0 +1,9 @@
+<div class="pdp-link">
+    <a class="link" href="${pdict.urls.product}">${product.productName}
+        <isif condition="${product.titlePartB}">
+            <p class="product-type">
+                ${product.titlePartB}
+            </p>
+        </isif>
+    </a>
+</div>
