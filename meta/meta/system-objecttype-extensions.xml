@@ -1534,6 +1534,39 @@
         </group-definitions>
     </type-extension>
 
+    <type-extension type-id="Folder">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="customCSSFile">
+                <display-name xml:lang="x-default">Custom CSS File</display-name>
+                <description xml:lang="x-default">Use this attribute to apply custom styles for this category.</description>
+                <type>image</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="image">
+                <display-name xml:lang="x-default">Image</display-name>
+                <type>image</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="isShow">
+                <display-name xml:lang="x-default">Is Show</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="custom">
+                <display-name xml:lang="x-default">Custom</display-name>
+                <attribute attribute-id="image"/>
+                <attribute attribute-id="isShow"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
     <type-extension type-id="PaymentTransaction">
         <system-attribute-definitions>
             <attribute-definition attribute-id="UUID">
