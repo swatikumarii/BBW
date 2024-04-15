@@ -217,9 +217,6 @@
                 <attribute attribute-id="fragranceCategories"/>
                 <attribute attribute-id="fragranceNames"/>
                 <attribute attribute-id="topFragrances"/>
-                <attribute attribute-id="fragranceCategories"/>
-                <attribute attribute-id="fragranceNames"/>
-                <attribute attribute-id="topFragrances"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
