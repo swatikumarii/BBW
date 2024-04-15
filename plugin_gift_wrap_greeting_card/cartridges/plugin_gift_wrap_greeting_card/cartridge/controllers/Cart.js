@@ -161,10 +161,9 @@ server.append(
     'UpdateQuantity',
     function (req, res, next) {
         var currentBasket = BasketMgr.getCurrentBasket();
-        var viewData = res.getViewData();
-        viewData.giftWrapLineItem =
-            giftWrapCartHelpers.getGiftWrapLineItemCart(currentBasket);
-        res.setViewData(viewData);
+        res.setViewData(
+            giftWrapCartHelpers.getGiftWrapLineItemCart(currentBasket)
+        );
         next();
     },
     pageMetaData.computedPageMetaData
@@ -178,10 +177,7 @@ server.append(
     'RemoveProductLineItem',
     function (req, res, next) {
         var currentBasket = BasketMgr.getCurrentBasket();
-        var viewData = res.getViewData();
-        viewData.giftWrapLineItem =
-            giftWrapCartHelpers.getGiftWrapLineItemCart(currentBasket);
-        res.setViewData(viewData);
+        res.setViewData(giftWrapCartHelpers.getGiftWrapLineItemCart(currentBasket));
         next();
     },
     pageMetaData.computedPageMetaData

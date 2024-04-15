@@ -519,6 +519,70 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="greetingCardCategoryName">
+                <display-name xml:lang="x-default">Greeting Card Category Name</display-name>
+                <description xml:lang="x-default">This attribute uses for greeting card configurable.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <default-value>greetingCards</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="greetingCardMessageLimit">
+                <display-name xml:lang="x-default">Greeting Card Message Limit</display-name>
+                <description xml:lang="x-default">This attribute help to set max limit of greeting card message</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <unit xml:lang="x-default">Characters</unit>
+                <min-value>0.0</min-value>
+                <max-value>1000.0</max-value>
+                <default-value>240</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="isGiftWrapEnable">
+                <display-name xml:lang="x-default">Is Gift Wrap Enable</display-name>
+                <description xml:lang="x-default">This attribute help us to enable or disable gift wrap functionality on storefront. If true than only enable else disable.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="isGreetingCardEnable">
+                <display-name xml:lang="x-default">Is Greeting Card Enable</display-name>
+                <description xml:lang="x-default">This attribute help us to enable or disable greeting card functionality on storefront. If true than only enable else disable.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="giftWrapCategoryName">
+                <display-name xml:lang="x-default">Gift Wrap Category Name</display-name>
+                <description xml:lang="x-default">This attribute uses for gift wrap configurable.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <default-value>giftWraps</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="wrapItemMethod">
+                <display-name xml:lang="x-default">Wrap Method Type</display-name>
+                <description xml:lang="x-default">This attribute contant which wrapping method allows.</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Wrap Items Together</display>
+                        <value>wrapTogether</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wrap Items Individual</display>
+                        <value>wrapIndividual</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Wrap Items Individual and Together</display>
+                        <value>wrapIndividualTogether</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -585,6 +649,15 @@
                 <attribute attribute-id="fragranceCategories"/>
                 <attribute attribute-id="fragranceNames"/>
                 <attribute attribute-id="topFragrances"/>
+            </attribute-group>
+            <attribute-group group-id="Greeting Card and Gift Wrap">
+                <display-name xml:lang="x-default">Greeting Card and Gift Wrap</display-name>
+                <attribute attribute-id="isGreetingCardEnable"/>
+                <attribute attribute-id="greetingCardMessageLimit"/>
+                <attribute attribute-id="greetingCardCategoryName"/>
+                <attribute attribute-id="isGiftWrapEnable"/>
+                <attribute attribute-id="giftWrapCategoryName"/>
+                <attribute attribute-id="wrapItemMethod"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -1824,13 +1897,6 @@
                 <display-name xml:lang="x-default">Is Wrapped</display-name>
                 <description xml:lang="x-default">True : If current product is wrapped False : If current product is not wrapped</description>
                 <type>boolean</type>
-                <mandatory-flag>false</mandatory-flag>
-                <externally-managed-flag>false</externally-managed-flag>
-            </attribute-definition>
-            <attribute-definition attribute-id="wrappedQuantity">
-                <display-name xml:lang="x-default">Wrapped Quantity</display-name>
-                <description xml:lang="x-default">This attribute stores how many quantity is wrapped.</description>
-                <type>int</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>

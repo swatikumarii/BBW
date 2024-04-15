@@ -13,6 +13,7 @@ var Transaction = require('dw/system/Transaction');
 var constants = require('*/cartridge/config/constants.js');
 var productHelpers = require('*/cartridge/scripts/helpers/product');
 var giftWrapHelpers = require('*/cartridge/scripts/helpers/giftWrap');
+var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
 var customPreferenceNames = require('*/cartridge/config/customPreferenceNames');
 
 /**
@@ -22,49 +23,14 @@ var customPreferenceNames = require('*/cartridge/config/customPreferenceNames');
 function getGiftWrapLineItem(currentBasket) {
     return productHelpers.getProductLineItemByCategory(
         currentBasket.getAllProductLineItems(),
-        site.current.getCustomPreferenceValue(customPreferenceNames.giftWrapCategoryName)
+        site.current.getCustomPreferenceValue(
+            customPreferenceNames.giftWrapCategoryName
+        )
     );
 }
 
 /**
- * @param {dw.order.ProductLineItem} productLineItem - Product line item from basket
- * @returns {object} Gift wrap item from ProductLineItemsModel
- */
-function getProductLineItemModelForCart(productLineItem) {
-    var ProductLineItemsModel = require('*/cartridge/models/productLineItems');
-    var ArrayList = require('dw/util/ArrayList');
-    var productLineItems = new ArrayList();
-    productLineItems.add(productLineItem);
-    var productLineItemsModel = new ProductLineItemsModel(
-        productLineItems,
-        'basket'
-    );
-    return productLineItemsModel.giftWrapItem;
-}
-
-/**
- * 
- * @param {dw.order.Basket} currentBasket - Current Basket
- * @returns {object} - Return isml
- */
-function getGiftWrapLineItemCart(currentBasket) {
-    var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
-    var giftWrapProductLineItem = getGiftWrapLineItem(currentBasket);
-    if (giftWrapProductLineItem) {
-        var giftWrapItem = getProductLineItemModelForCart(giftWrapProductLineItem);
-        var context = {
-            giftWrapItem: giftWrapItem
-        };
-        return renderTemplateHelper.getRenderedHtml(
-            context,
-            'cart/productCard/cartGiftWrapProductCard'
-        );
-    }
-    return null;
-}
-
-/**
- * 
+ *
  * @param {*} items - Product line items
  * @returns {JSON} - Gift wrap config
  */
@@ -362,8 +328,39 @@ function handleUpdateQuantity(
     });
 }
 
+/**
+ *
+ * @param {dw.order.Basket} currentBasket - Current Basket
+ * @returns {object} - Return isml
+ */
+function getGiftWrapLineItemCart(currentBasket) {
+    var CartModel = require('*/cartridge/models/cart');
+    var basketModel = new CartModel(currentBasket);
+    var individuallyWrappableUI = null;
+    var giftWrapProductCard = null;
+    if (basketModel.items.length > 0) {
+        var giftWrapConfig = getGiftWrapConfig(basketModel.items);
+        individuallyWrappableUI = renderTemplateHelper.getRenderedHtml(
+            { wrappableProducts: giftWrapConfig.wrappableProducts },
+            'cart/giftWrapIndividualProduct'
+        );
+    }
+    if (basketModel.giftWrapItem) {
+        var context = {
+            giftWrapItem: basketModel.giftWrapItem
+        };
+        giftWrapProductCard = renderTemplateHelper.getRenderedHtml(
+            context,
+            'cart/productCard/cartGiftWrapProductCard'
+        );
+    }
+    return {
+        individuallyWrappableUI: individuallyWrappableUI,
+        giftWrapProductCard: giftWrapProductCard
+    };
+}
+
 module.exports = {
-    getProductLineItemModelForCart: getProductLineItemModelForCart,
     getGiftWrapLineItem: getGiftWrapLineItem,
     getGiftWrapConfig: getGiftWrapConfig,
     removeGiftWrapLineItem: removeGiftWrapLineItem,
