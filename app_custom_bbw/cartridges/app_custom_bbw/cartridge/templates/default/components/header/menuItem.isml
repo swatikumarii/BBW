@@ -1,0 +1,27 @@
+<div class="menu-wrap dropdown-menu position-absolute w-100 h-bg--white">
+    <div class="level-2-ul-wrap h-maxwidth--1500 text-left d-flex justify-content-between h-grid-gap--60">
+        <ul class="level-2-ul col d-flex" role="menu" aria-hidden="true" aria-label="${category.id}">
+            <isloop items="${menuItem.subCategories}" var="category">
+                <isif condition="${category.subCategories}">
+                    <li class="dropdown-item dropdown level-2-li" role="presentation">
+                        <a href="${category.url}" id="${category.id}"
+                            class="level-2-link dropdown-link dropdown-toggle h-font-size--14 h-fw--semibold text-uppercase"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            tabindex="0">${category.name}</a>
+                        <isset name="menuItem" value="${category}" scope="page" />
+                        <isinclude template="components/header/menuItemsItem" />
+                    </li>
+                <iselse/>
+                    <li class="dropdown-item" role="presentation">
+                        <a href="${category.url}" id="${category.id}" role="menuitem" class="dropdown-link"
+                            tabindex="0">${category.name}</a>
+                    </li>
+                </isif>
+            </isloop>
+        </ul>
+        <iscomment>Menu right with images and text</iscomment>
+        <div class="menu-right w-100">
+            <isslot id="menu-image-and-text" description="Slot inside the site menu" context="global" />
+        </div>
+    </div>
+</div>

@@ -35,7 +35,7 @@
                             <input type="text" class="form-control" name="hpEmailSignUp"
                                 placeholder="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}"
                                 aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" />
-                            <span class="input-group-append">
+                            <span>
                                 <isif
                                     condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
                                     <isset name="dataCallback" value="submitNewsLetter" scope="page" />
