@@ -242,17 +242,15 @@ footer {
         position: fixed;
         border: none;
         flex-direction: column-reverse;
-        row-gap: 0.5rem;
+        row-gap: 0.3rem;
 
         &::after {
-            background-image: url("../images/footer/up.svg");
+            background-image: url("../images/footer/up-arrow.png");
             background-repeat: no-repeat;
-            width: 24px;
+            width: 32px;
             content: "";
-            min-width: 24px;
-            height: 24px;
-            background-color: transparent;
-            transform: rotate(180deg);
+            min-width: 32px;
+            height: 32px;
         }
     }
 }

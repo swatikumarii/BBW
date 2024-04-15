@@ -105,12 +105,6 @@ window.initializeRecaptcha = function () {
     });
 };
 
-module.exports = function () {
-    $('.back-to-top').click(function () {
-        scrollAnimate();
-    });
-};
-
 // Initialize popover 
 $('[data-toggle="popover"]').popover({
     placement: 'top',
