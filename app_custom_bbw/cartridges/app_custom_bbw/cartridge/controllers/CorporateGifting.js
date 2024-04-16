@@ -7,6 +7,7 @@
 var server = require('server');
 var cache = require('*/cartridge/scripts/middleware/cache');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
+var Template = require('dw/util/Template');
 
 /**
  * CorporateGifting-Landing : This endpoint is used to load the Corporate Gifting page
@@ -15,23 +16,26 @@ var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
  * @param {middleware} server.middleware.https
  * @param {middleware} cache.applyDefaultCache
  * @param {middleware} consentTracking
- * @param {querystringparameter} radius - The radius that the shopper selected to refine the search
- * @param {querystringparameter} postalCode - The postal code that the shopper used to search
- * @param {querystringparameter} lat - The latitude of the shopper position
- * @param {querystringparameter} long - The longitude of the shopper position
- * @param {querystringparameter} showMap - A flag indicating whether or not map is to be shown
- * @param {querystringparameter} horizontalView - Boolean value to show map in Horizontal View
- * @param {querystringparameter} isForm - Boolean value to show (or not) the form to Find Stores
  * @param {serverfunction} get
  */
 server.get('Landing', server.middleware.https, cache.applyDefaultCache, consentTracking.consent, function (req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
     res.render('corporateGifting/corporateGifting', {
+        isSubmitted: req.querystring.isSubmitted,
         actionUrl: URLUtils.url('CorporateGifting-Submit').toString()
     });
     next();
 });
 
+/**
+ * CorporateGifting-Submit : This endpoint is used submit Corporate Gifting form
+ * @name CorporateGifting-Submit
+ * @function
+ * @param {middleware} server.middleware.https
+ * @param {middleware} cache.applyDefaultCache
+ * @param {middleware} consentTracking
+ * @param {serverfunction} post
+ */
 server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentTracking.consent, function (req, res, next) {
     var Resource = require('dw/web/Resource');
     var Transaction = require('dw/system/Transaction');
@@ -67,7 +71,13 @@ server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentT
         });
         next();
     }
-    res.render('/corporateGifting/thankYou');
+    var template = new Template('/corporateGifting/thankYou');
+    var content = template.render().text;
+    res.setViewData({ isSubmitted: true, htmlcontent: content});
+    res.json({
+        success: true,
+        error: false
+    });
     next();
 });
 

@@ -1,7 +1,5 @@
-<isdecorate template="common/layout/page">
-    <div class="row">
-        <div class="col-sm-6 offset-sm-4">
-            <p>${Resource.msg('thank.you', 'corporateGifting', null)}</p>
-        </div>
+<div class="row">
+    <div class="col-sm-6 offset-sm-4">
+        <p>${Resource.msg('thank.you', 'corporateGifting', null)}</p>
     </div>
-</isdecorate>
+</div>
