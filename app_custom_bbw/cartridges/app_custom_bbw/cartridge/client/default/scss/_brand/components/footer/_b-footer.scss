@@ -40,6 +40,10 @@ footer {
 
         .local-store {
             border-bottom: 0.0625rem solid colour(gray, 1);
+
+            @include media-up(sm) {
+              border-bottom: none;
+            }
         }
 
         .footer-item {
