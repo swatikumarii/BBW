@@ -1,0 +1,17 @@
+<isset name="AdyenHelper" value="${require('*/cartridge/scripts/util/adyenHelper')}" scope="pdict" />
+<isset name="AdyenConfigs" value="${require('*/cartridge/scripts/util/adyenConfigs')}" scope="pdict" />
+<script src="${pdict.AdyenHelper.getCheckoutUrl()}"></script>
+<isset name="adyenPaymentFields" value="${pdict.forms.billingForm.adyenPaymentFields}" scope="page" />
+<isloop items="${pdict.order.billing.payment.applicablePaymentMethods}" var="paymentOption">
+    <isif condition="${paymentOption.ID === 'AdyenComponent'}">
+        <isinclude template="checkout/billing/paymentOptions/adyenComponentContent" />
+    <iselseif condition="${paymentOption.ID === 'AdyenPOS'}" />
+        <isinclude template="checkout/billing/paymentOptions/adyenPosContent" />
+    <iselseif condition="${paymentOption.ID === 'AFTERPAY' && pdict.priceContext.apApplicable}" />
+        <isinclude template="checkout/billing/paymentOptions/afterpayContent" />
+    <iselseif condition="${paymentOption.ID === 'CLEARPAY' && pdict.priceContext.apApplicable}" />
+        <isinclude template="checkout/billing/paymentOptions/clearpayContent" />
+    <iselseif condition="${paymentOption.ID === 'CASHAPPPAY' && pdict.priceContext.cashAppApplicable}" />
+        <isinclude template="checkout/billing/paymentOptions/cashAppContent" />
+    </isif>
+</isloop>
