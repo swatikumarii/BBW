@@ -572,6 +572,12 @@
                 <min-length>0</min-length>
                 <default-value>giftWraps</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="header_image">
+                <display-name xml:lang="x-default">Header Image</display-name>
+                <type>image</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="wrapItemMethod">
                 <display-name xml:lang="x-default">Wrap Method Type</display-name>
                 <description xml:lang="x-default">This attribute contant which wrapping method allows.</description>
@@ -609,6 +615,7 @@
                 <attribute attribute-id="reserveQty"/>
                 <attribute attribute-id="maxOrderQty"/>
                 <attribute attribute-id="notifyEmailThreshold"/>
+                <attribute attribute-id="header_image"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
