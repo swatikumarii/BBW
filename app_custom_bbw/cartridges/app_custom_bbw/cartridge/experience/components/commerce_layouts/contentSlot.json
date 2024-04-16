@@ -1,0 +1,22 @@
+{
+    "name": "CMP:Content Slot",
+    "description": "This is a Component to add content Slot in Page Designer",
+    "group": "commerce_layouts",
+    "attribute_definition_groups": [
+        {
+            "id": "contentSlotpd",
+            "name": "Content Slot",
+            "description": "Component to select contentSlot.",
+            "attribute_definitions": [
+                {
+                    "id": "contentSlotpd",
+                    "name": "Content Slot ID",
+                    "description": "The ID of the content Slot to be displayed.",
+                    "type": "string",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

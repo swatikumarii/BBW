@@ -1,0 +1,2 @@
+<h2>${pdict.carouselTitle}</h2>
+<h3>${pdict.shopButtonText}</h3>

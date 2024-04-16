@@ -55,11 +55,29 @@
             </run-once>
         </triggers>
     </job>
-    <job job-id="AfterpayOrderProcess" priority="1">
+    <job job-id="getFragranceNames">
         <description/>
         <parameters/>
         <flow>
             <context site-id="bbw-au"/>
+            <step step-id="getFragranceNames" type="custom.GetFragranceNames" enforce-restart="false">
+                <description>Get products list and extract fragrance names list and Ingredient list.</description>
+                <parameters/>
+            </step>
+        </flow>
+        <rules/>
+        <triggers>
+            <run-once enabled="false">
+                <date>2024-04-04Z</date>
+                <time>05:25:00.000Z</time>
+            </run-once>
+        </triggers>
+    </job>
+    <job job-id="AfterpayOrderProcess" priority="1">
+        <description/>
+        <parameters/>
+        <flow>
+            <context site-id="RefArch"/>
             <step step-id="AfterpayOrderProcess" type="ExecuteScriptModule" enforce-restart="false">
                 <description/>
                 <parameters>

@@ -1,0 +1,53 @@
+{
+    "name": "CMP: Top Offer Swiper",
+    "description": "This is a component to add Top Offer Swiper in page Designer",
+    "group": "commerce_layouts",
+    "attribute_definition_groups": [
+        {
+            "id": "contentAssetpd",
+            "name": "Content Asset",
+            "description": "Component to select contentAsset.",
+            "attribute_definitions": [
+                {
+                    "id": "title",
+                    "name": "Title",
+                    "description": "Add Swiper title",
+                    "type": "text",
+                    "required": false
+                },
+                {
+                    "id": "columnGapMobile",
+                    "name": "Mobile Column Gap (px)",
+                    "type": "integer",
+                    "required": true
+                },
+                {
+                    "id": "columnGapDesktop",
+                    "name": "Desktop Column Gap (px)",
+                    "type": "integer",
+                    "required": true
+                },
+                {
+                    "id": "columnGapTablet",
+                    "name": "Tablet Column Gap (px)",
+                    "type": "integer",
+                    "required": true
+                },
+                {
+                    "id": "customClass",
+                    "name": "Custom Class",
+                    "description": "Add Custom Class Here",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": [
+        {
+            "id": "items",
+            "name": "Items",
+            "component_type_exclusions": []
+        }
+    ]
+}
