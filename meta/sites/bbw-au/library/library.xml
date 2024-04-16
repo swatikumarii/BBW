@@ -4,32 +4,11 @@
         <online-flag>true</online-flag>
         <page-attributes/>
     </folder>
-	
-   <content content-id="footer-account">
-        <display-name xml:lang="x-default">My account</display-name>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
-    &lt;button class="title footer-list-title h-fw--bold h-clr--black text-left btn-block d-md-none footer-collapse collapsed cursor-pointer h-font-size--14" aria-expanded="false" aria-controls="collapsible-account" data-toggle="collapse" data-target="#collapsible-account"&gt;MY ACCOUNT&lt;/button&gt;&#13;
-    &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-account"&gt;&#13;
-        &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block  h-clr--black-1 h-fw--bold"&gt;MY ACCOUNT&lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16 "&gt;Sign In or Sign Up&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Order Tracking&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;My Account&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;My Love-It List&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-    &lt;/ul&gt;&#13;
-&lt;/div&gt;</custom-attribute>
-        </custom-attributes>
-    </content>
 
-     <content content-id="footer-copyright">
+    <content content-id="footer-copyright">
         <display-name xml:lang="x-default">Copyright</display-name>
         <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="sub-footer"&gt;&#13;
@@ -100,9 +79,10 @@
         </custom-attributes>
     </content>
 
-        <content content-id="footer-customer-care">
+    <content content-id="footer-customer-care">
         <display-name xml:lang="x-default">Customer Care</display-name>
         <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
@@ -126,9 +106,10 @@
         </custom-attributes>
     </content>
 
-    <content content-id="footer-discover">
+        <content content-id="footer-discover">
         <display-name xml:lang="x-default">Discover</display-name>
         <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
@@ -152,6 +133,7 @@
     <content content-id="footer-locate-store">
         <display-name xml:lang="x-default">Find Us</display-name>
         <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div local-store"&gt;&#13;
@@ -170,6 +152,7 @@
     <content content-id="footer-social-list">
         <display-name xml:lang="x-default">Social List</display-name>
         <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="socials mb-5"&gt;&#13;
@@ -207,9 +190,10 @@
         </custom-attributes>
     </content>
 
-        <content content-id="footer-tooltip-details">
+    <content content-id="footer-tooltip-details">
         <display-name xml:lang="x-default">Tooltip Details</display-name>
         <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;button type="button"&#13;
