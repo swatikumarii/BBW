@@ -13,10 +13,24 @@ var Transaction = require('dw/system/Transaction');
 var constants = require('*/cartridge/config/constants.js');
 var productHelpers = require('*/cartridge/scripts/helpers/product');
 var giftWrapHelpers = require('*/cartridge/scripts/helpers/giftWrap');
+var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
 var customPreferenceNames = require('*/cartridge/config/customPreferenceNames');
 
 /**
- * 
+ * @param {dw.order.Basket} currentBasket - Current Basket
+ * @returns {dw.order.ProductLineItem} productLineItem
+ */
+function getGiftWrapLineItem(currentBasket) {
+    return productHelpers.getProductLineItemByCategory(
+        currentBasket.getAllProductLineItems(),
+        site.current.getCustomPreferenceValue(
+            customPreferenceNames.giftWrapCategoryName
+        )
+    );
+}
+
+/**
+ *
  * @param {*} items - Product line items
  * @returns {JSON} - Gift wrap config
  */
@@ -314,10 +328,46 @@ function handleUpdateQuantity(
     });
 }
 
+/**
+ *
+ * @param {dw.order.Basket} currentBasket - Current Basket
+ * @returns {object} - Return isml
+ */
+function getGiftWrapLineItemCart(currentBasket) {
+    var CartModel = require('*/cartridge/models/cart');
+    var basketModel = new CartModel(currentBasket);
+    var individuallyWrappableUI = null;
+    var giftWrapProductCard = null;
+    if (basketModel.items.length > 0) {
+        var giftWrapConfig = getGiftWrapConfig(basketModel.items);
+        if (giftWrapConfig.wrappableProducts) {
+            individuallyWrappableUI = renderTemplateHelper.getRenderedHtml(
+                { wrappableProducts: giftWrapConfig.wrappableProducts },
+                'cart/giftWrapIndividualProduct'
+            );
+        }
+    }
+    if (basketModel.giftWrapItem) {
+        var context = {
+            giftWrapItem: basketModel.giftWrapItem
+        };
+        giftWrapProductCard = renderTemplateHelper.getRenderedHtml(
+            context,
+            'cart/productCard/cartGiftWrapProductCard'
+        );
+    }
+    return {
+        individuallyWrappableUI: individuallyWrappableUI,
+        giftWrapProductCard: giftWrapProductCard
+    };
+}
+
 module.exports = {
+    getGiftWrapLineItem: getGiftWrapLineItem,
     getGiftWrapConfig: getGiftWrapConfig,
     removeGiftWrapLineItem: removeGiftWrapLineItem,
     updateWrapForAllProductLineItem: updateWrapForAllProductLineItem,
     handleRemoveProduct: handleRemoveProduct,
-    handleUpdateQuantity: handleUpdateQuantity
+    handleUpdateQuantity: handleUpdateQuantity,
+    getGiftWrapLineItemCart: getGiftWrapLineItemCart
 };

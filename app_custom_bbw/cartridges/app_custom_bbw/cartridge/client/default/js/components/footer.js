@@ -1,7 +1,5 @@
 'use strict';
 
-var scrollAnimate = require('base/components/scrollAnimate');
-
 /**
  * appends params to a url
  * @param {string} data - data returned from the server's ajax call
@@ -105,12 +103,6 @@ window.initializeRecaptcha = function () {
     });
 };
 
-module.exports = function () {
-    $('.back-to-top').click(function () {
-        scrollAnimate();
-    });
-};
-
 // Initialize popover 
 $('[data-toggle="popover"]').popover({
     placement: 'top',
@@ -125,4 +117,26 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
 // Close popover on close button click
 $(document).on('click', '.popover .close', function () {
     $(this).parents('.popover').popover('hide');
+});
+
+/**
+ * Back To Top - Click
+ */
+
+var scrolltotop = $('.js-scrolltotop');
+
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 100) { // Adjust the value according to requirement
+        scrolltotop.fadeIn();
+    } else {
+        scrolltotop.fadeOut();
+    }
+});
+
+// Scroll to top when the button is clicked
+
+$('.js-scrolltotop').on('click', function () {
+    $('html, body').animate({
+        scrollTop: $('body').offset().top
+    }, 800);
 });
