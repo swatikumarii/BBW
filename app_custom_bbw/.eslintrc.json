@@ -66,6 +66,7 @@
     "serverfunction": true,
     "httpparameter": true,
     "grecaptcha": true,
-    "Promise": true
+    "Promise": true,
+    "google":true
   }
 }
