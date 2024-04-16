@@ -1,0 +1,25 @@
+@import "../../../_brand/_api/api";
+
+.top {
+    flex-direction: column;
+}
+
+.bottom {
+    flex-direction: column-reverse;
+}
+
+.left {
+    flex-direction: column;
+
+    @include media-up(md) {
+        flex-direction: row;
+    }
+}
+
+.right {
+    flex-direction: column-reverse;
+
+    @include media-up(md) {
+        flex-direction: row-reverse;
+    }
+}
