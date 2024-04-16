@@ -1,0 +1,7 @@
+<isinclude template="/components/modules" sf-toolkit="off" />
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+</isscript>
+<div class="${pdict.contentAssetPdCustomClass}">
+    <iscontentasset aid="${pdict.contentAssetpd}" />
+</div>
