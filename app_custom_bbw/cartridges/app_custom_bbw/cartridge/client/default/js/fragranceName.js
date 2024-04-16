@@ -14,9 +14,7 @@ $(document).ready(function () {
             var a = $(element).find('a');
             var fragranceName = a.data('fragrancename');
 
-            if (
-                fragranceName.toLowerCase().includes(searchPhrase.toLowerCase())
-            ) {
+            if (fragranceName.toLowerCase().includes(searchPhrase.toLowerCase())) {
                 $(element).show();
                 var showAlphabet = fragranceName.charAt(0);
                 if (showAlphabets.indexOf(showAlphabet) === -1) {
@@ -32,11 +30,7 @@ $(document).ready(function () {
         });
 
         if (hideAlphabets.length) {
-            for (
-                var position = 0;
-                position < hideAlphabets.length;
-                position++
-            ) {
+            for (var position = 0; position < hideAlphabets.length; position++) {
                 var alphabetDiv = $('#' + hideAlphabets[position]);
                 if (showAlphabets.indexOf(hideAlphabets[position]) === -1) {
                     alphabetDiv.hide();
@@ -69,23 +63,15 @@ $(document).ready(function () {
             var a = $(element).find('a');
             var ingredientName = a.data('ingredientname');
 
-            if (
-                ingredientName
-                    .toLowerCase()
-                    .includes(searchPhrase.toLowerCase())
-            ) {
+            if (ingredientName.toLowerCase().includes(searchPhrase.toLowerCase())) {
                 $(element).show();
-                var showAlphabet = ingredientName
-                    .match(/[a-z]/i)[0]
-                    .toUpperCase();
+                var showAlphabet = ingredientName.match(/[a-z]/i)[0].toUpperCase();
                 if (showAlphabets.indexOf(showAlphabet) === -1) {
                     showAlphabets.push(showAlphabet);
                 }
             } else {
                 $(element).hide();
-                var hideAlphabet = ingredientName
-                    .match(/[a-z]/i)[0]
-                    .toUpperCase();
+                var hideAlphabet = ingredientName.match(/[a-z]/i)[0].toUpperCase();
                 if (hideAlphabets.indexOf(hideAlphabet) === -1) {
                     hideAlphabets.push(hideAlphabet);
                 }
@@ -93,11 +79,7 @@ $(document).ready(function () {
         });
 
         if (hideAlphabets.length) {
-            for (
-                var position = 0;
-                position < hideAlphabets.length;
-                position++
-            ) {
+            for (var position = 0; position < hideAlphabets.length; position++) {
                 var alphabetDiv = $('#' + hideAlphabets[position]);
                 if (showAlphabets.indexOf(hideAlphabets[position]) === -1) {
                     alphabetDiv.hide();

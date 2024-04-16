@@ -654,12 +654,6 @@
                 <attribute attribute-id="ApplePayExpress_Enabled"/>
                 <attribute attribute-id="AmazonPayExpress_Enabled"/>
             </attribute-group>
-             <attribute-group group-id="Fragrance Search">
-                <display-name xml:lang="x-default">Fragrance Search</display-name>
-                <attribute attribute-id="fragranceCategories"/>
-                <attribute attribute-id="fragranceNames"/>
-                <attribute attribute-id="topFragrances"/>
-            </attribute-group>
             <attribute-group group-id="Greeting Card and Gift Wrap">
                 <display-name xml:lang="x-default">Greeting Card and Gift Wrap</display-name>
                 <attribute attribute-id="isGreetingCardEnable"/>
