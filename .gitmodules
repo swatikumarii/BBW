@@ -19,3 +19,6 @@
 [submodule "lib_productlist"]
 	path = lib_productlist
 	url = https://github.com/SalesforceCommerceCloud/lib_productlist.git
+[submodule "afterpay-salesforce-commerce-cloud"]
+	path = afterpay-salesforce-commerce-cloud
+	url = https://github.com/afterpay/afterpay-salesforce-commerce-cloud.git
