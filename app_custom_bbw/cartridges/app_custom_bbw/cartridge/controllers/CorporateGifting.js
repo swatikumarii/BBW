@@ -21,10 +21,9 @@ var Template = require('dw/util/Template');
 server.get('Landing', server.middleware.https, cache.applyDefaultCache, consentTracking.consent, function (req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
     res.render('corporateGifting/corporateGifting', {
-        isSubmitted: req.querystring.isSubmitted,
         actionUrl: URLUtils.url('CorporateGifting-Submit').toString()
     });
-    next();
+    return next();
 });
 
 /**
@@ -69,7 +68,7 @@ server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentT
                 null
             )
         });
-        next();
+        return next();
     }
     var template = new Template('/corporateGifting/thankYou');
     var content = template.render().text;
@@ -78,7 +77,7 @@ server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentT
         success: true,
         error: false
     });
-    next();
+    return next();
 });
 
 module.exports = server.exports();
