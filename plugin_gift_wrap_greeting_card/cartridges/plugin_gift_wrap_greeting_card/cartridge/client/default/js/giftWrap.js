@@ -357,12 +357,24 @@ $(document).ready(function () {
     });
 
     $(document).on('change', '.giftWrapProductOptionsRadio', function () {
-        var selectProductPrice = $(this).data('price');;
+        var selectProductPrice = $(this).data('price');
         $('.selected-giftwrap-product-price').html(selectProductPrice);
         $('.cost-per-item-message').html(
             $('.cost-per-item-message')
                 .data('cost-per-item-message')
                 .replace('#', selectProductPrice)
         );
+    });
+
+    $('body').on('cart:update', function (e, data) {
+        $('.gift-wrap-card-div')
+            .empty()
+            .html(data.giftWrapProductCard);
+        $('.giftWrapIndividualProductParent')
+            .empty()
+            .html(data.individuallyWrappableUI);
+        if (!data.individuallyWrappableUI) {
+            $('.gift-wrap-choose-div').empty();
+        }
     });
 });

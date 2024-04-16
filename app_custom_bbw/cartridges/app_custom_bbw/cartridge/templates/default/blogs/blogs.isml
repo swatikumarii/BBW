@@ -1,0 +1,42 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/blogs.js');
+    </isscript>
+    <div class="folder_content row">
+        <isloop items="${pdict.blog.onlineSubFolders}" var="list" status="loopstatus" begin=0>
+            <div class="folder_list mt-5 col-md-2">
+                <isif condition="${list.custom.isShow === true}">
+                    <img class="list_content " width="100%" src="${list.custom.image.absURL}" alt="${list.displayName}"/>
+                    <h2>${list.displayName}</h2>
+                </isif>
+            </div>
+        </isloop>
+    </div>
+    <div class="m-grid-contain">
+        <isloop items="${pdict.blog.onlineSubFolders}" var="folder" status="loopstatus" begin=0>
+            <div class="blog_list mt-5">
+                <isif condition= "${folder.custom.isShow === true}">
+                    <img class="folder_content col-md-2" width="100%" src="${folder.custom.image.absURL}" alt="${folder.displayName}"/>
+                </isif>
+                <span>${folder.displayName}</span>
+                <div class="m-grid-contain-childblog d-flex flex-wrap">
+                    <isloop items="${folder.onlineContent}" var="content" status="loopstatus" begin=0>
+                        <div class="blog_child_content col-md-6">
+                            <img class="blogImage w-100" src="${content.custom.image.absURL}" alt="${content.name}"/>
+                            <h1>${content.name}</h1>
+                            <p>${content.description}</p>
+                            <a class="btn btn-primary border read-button"
+                                href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
+                                <span>${Resource.msg('button.read.more', 'common', null)}</span>
+                            </a>
+                        </div>
+                    </isloop>
+                </div>
+                <isif condition="${folder.onlineContent.length > 4}">
+                    <button type="button" class="btn btn-primary show-more-btn">${Resource.msg('button.show.more', 'common', null)}</button>
+                </isif>
+            </div>
+        </isloop>
+    </div>
+</isdecorate>

@@ -5,6 +5,7 @@
         <development>
             <preference preference-id="reserveQty">5</preference>
             <preference preference-id="notifyEmailThreshold">5</preference>
+            <preference preference-id="mapAPI">AIzaSyAzRo8iHR1RuFsw-MuDf6sshGtsFW-HuDc</preference>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
             <preference preference-id="AdyenCardHolderName_enabled">true</preference>
             <preference preference-id="AdyenLevel23DataEnabled">true</preference>
@@ -19,6 +20,10 @@
             <preference preference-id="AmazonPayExpress_Enabled">false</preference>
             <preference preference-id="ApplePayExpress_Enabled">true</preference>
             <preference preference-id="ExpressPayments_enabled">true</preference>
+            <preference preference-id="greetingCardMessageLimit">500</preference>
+            <preference preference-id="isGiftWrapEnable">true</preference>
+            <preference preference-id="isGreetingCardEnable">true</preference>
+            <preference preference-id="wrapItemMethod">wrapIndividualTogether</preference>
         </development>
         <staging/>
         <production/>
