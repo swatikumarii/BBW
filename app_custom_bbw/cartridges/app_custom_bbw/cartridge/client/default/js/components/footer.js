@@ -1,3 +1,5 @@
+// Required
+
 'use strict';
 
 var scrollAnimate = require('base/components/scrollAnimate');
