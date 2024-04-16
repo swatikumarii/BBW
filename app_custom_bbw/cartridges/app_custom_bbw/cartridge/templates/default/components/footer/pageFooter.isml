@@ -137,5 +137,8 @@
                     ${Resource.msg('aria.label.title', 'footer', null)}
                 </button>
             </div>
+            <div class="col-lg-8 col-sm-7 pull-sm-5 pull-lg-4 copyright-notice">
+                <iscontentasset aid="footer-copy" />
+            </div>
         </div>
 </footer>
