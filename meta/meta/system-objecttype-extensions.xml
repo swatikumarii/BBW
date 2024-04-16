@@ -159,6 +159,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-value>0.0</min-value>
             </attribute-definition>
+            <attribute-definition attribute-id="productIngredients">
+                <display-name xml:lang="x-default">Products Ingredients</display-name>
+                <description xml:lang="x-default">Contain all products Ingredients</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="enableGoogleRecaptcha">
                 <display-name xml:lang="x-default">rCAPTCHA enable</display-name>
                 <type>boolean</type>
@@ -168,18 +175,21 @@
             </attribute-definition>
             <attribute-definition attribute-id="fragranceCategories">
                 <display-name xml:lang="x-default">Fragrance Categories</display-name>
+                <description xml:lang="x-default">Fragrance Categories</description>
                 <type>text</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
             <attribute-definition attribute-id="fragranceNames">
                 <display-name xml:lang="x-default">Fragrance names</display-name>
+                <description xml:lang="x-default">All Products fragrance names</description>
                 <type>text</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
             <attribute-definition attribute-id="topFragrances">
                 <display-name xml:lang="x-default">Top Fragrances</display-name>
+                <description xml:lang="x-default">All Top fragrances</description>
                 <type>text</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -644,12 +654,6 @@
                 <attribute attribute-id="ApplePayExpress_Enabled"/>
                 <attribute attribute-id="AmazonPayExpress_Enabled"/>
             </attribute-group>
-             <attribute-group group-id="Fragrance Search">
-                <display-name xml:lang="x-default">Fragrance Search</display-name>
-                <attribute attribute-id="fragranceCategories"/>
-                <attribute attribute-id="fragranceNames"/>
-                <attribute attribute-id="topFragrances"/>
-            </attribute-group>
             <attribute-group group-id="Greeting Card and Gift Wrap">
                 <display-name xml:lang="x-default">Greeting Card and Gift Wrap</display-name>
                 <attribute attribute-id="isGreetingCardEnable"/>
@@ -658,6 +662,13 @@
                 <attribute attribute-id="isGiftWrapEnable"/>
                 <attribute attribute-id="giftWrapCategoryName"/>
                 <attribute attribute-id="wrapItemMethod"/>
+            </attribute-group>
+            <attribute-group group-id="Fragrance and Ingredient Search">
+                <display-name xml:lang="x-default">Fragrance and Ingredient Search</display-name>
+                <attribute attribute-id="fragranceCategories"/>
+                <attribute attribute-id="fragranceNames"/>
+                <attribute attribute-id="topFragrances"/>
+                <attribute attribute-id="productIngredients"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
