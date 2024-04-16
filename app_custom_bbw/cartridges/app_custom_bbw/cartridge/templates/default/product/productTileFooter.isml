@@ -1,6 +1,9 @@
 <div class="row tile-body-footer">
-    <!-- Cart and [Optionally] Apple Pay -->
-    <isinclude template="product/components/addToCartProduct" />
+    <button class="add-to-cart btn btn-primary" data-toggle="modal" data-target="#chooseBonusProductModal"
+        data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+        <i class="fa fa-shopping-bag"></i>
+        ${Resource.msg('button.addtocart', 'common', null)}
+    </button>
     <div class="ratings col-xs-12 col-sm-6">
         <span class="sr-only">${Resource.msgf('label.product.ratings', 'common', null, product.rating)}</span>
         <isinclude template="product/components/ratings" />
