@@ -27,8 +27,7 @@
             <h2 class="subtitle ml-2">${Resource.msg('shop.by.fragrance.name.title', 'fragrance', null)}</h2>
             <p class="note ml-2">${Resource.msg('shop.by.fragrance.name.sub1', 'fragrance', null)}</p>
             <p class="note ml-2">
-                <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, '/images/shop-by-fragrance/top-badge-lrg-2.svg')}"
-                    alt="top-fragrance"> ${Resource.msg('shop.by.fragrance.name.sub2', 'fragrance', null)}</p>
+                <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, '/images/shop-by-fragrance/top-badge-lrg-2.svg')}" alt="top-fragrance"> ${Resource.msg('shop.by.fragrance.name.sub2', 'fragrance', null)}</p>
             <div class="fragrance-header-search">
                 <div class="fragrance-search search-wrapper">
                     <fieldset>
@@ -54,7 +53,8 @@
                             href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragranceNames.name)}" data-fragrancename="${fragranceNames.name}">
                             ${fragranceNames.name}</a>
                         <isif condition="${fragranceNames.topFragrance}">
-                            <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, '/images/shop-by-fragrance/top-badge-lrg-2.svg')}" alt="top-fragrance"></isif>
+                            <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, '/images/shop-by-fragrance/top-badge-lrg-2.svg')}" alt="top-fragrance">
+                        </isif>
                     </li>
                     <isset name="previousAlphabet" value="${fragranceNames.alphabet}" scope="page" />
                 </isloop>
