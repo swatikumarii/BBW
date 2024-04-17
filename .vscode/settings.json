@@ -6,8 +6,8 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true,
-        "source.addMissingImports": true
+        "source.fixAll.eslint": "explicit",
+        "source.addMissingImports": "explicit"
     },
     "eslint.enable": true,
     "eslint.format.enable": true,
@@ -15,5 +15,21 @@
     "files.insertFinalNewline": true,
     "[isml]": {
         "editor.defaultFormatter": "SqrTT.prophet"
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/.apivcs": true,
+        "**/.gitignore": true,
+        "**/.designer.json": true,
+        "**/.exchange.xml": true,
+        "**/.vscode": true,
+        "**/.mvn": true,
+        "**/.exchange_modules_tmp": true,
+        ".mule": true
     }
 }
