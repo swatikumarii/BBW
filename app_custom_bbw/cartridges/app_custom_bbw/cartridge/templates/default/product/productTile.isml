@@ -1,0 +1,37 @@
+<div class="product-tile" itemscope itemtype="http://schema.org/Product">
+    <!-- dwMarker="product" dwContentID="${product.uuid}" -->
+    <isinclude template="product/components/productTileImage" />
+    <div class="tile-body">
+        <isif condition="${pdict.display.swatches !== false}">
+            <isinclude template="product/components/productTileSwatch" />
+        </isif>
+
+        <isinclude template="product/components/productTileName" />
+        <isset name="price" value="${product.price}" scope="page" />
+        <isif condition="${product.productType === 'set'}">
+            <isinclude template="product/components/pricing/setPrice" />
+        <iselse/>
+            <isinclude template="product/components/pricing/main" />
+        </isif>
+        <isscript>
+            var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
+            var afterpayPLPEnable = sitePreferences.isDisplayPlpInfo()  && sitePreferences.isAfterpayEnabled();
+        </isscript>
+        <isif condition="${afterpayPLPEnable}">
+            <isinclude template="util/modulesAfterpay" />
+
+            <isafterpaymessage
+                classname="${pdict.classname}"
+                totalprice="${pdict.totalPrice}"
+                eligible="${pdict.apEligible}"
+                mpid="${pdict.apMpid}"
+                approductids="${pdict.apProductIDs}"
+            />
+        </isif>
+
+        <isif condition="${pdict.display.ratings !== false}">
+            <isinclude template="product/productTileFooter" />
+        </isif>
+    </div>
+    <!-- END_dwmarker -->
+</div>

@@ -1,0 +1,256 @@
+@import "~base/components/collapsibleItem";
+
+footer {
+    border-top: 0.1875rem solid colour(gray, 1);
+
+    .footer-container {
+        @include media-up(sm) {
+            grid-template-columns: 1fr 2fr;
+            column-gap: 1.5rem;
+        }
+
+        @include media-btw(sm, md) {
+            column-gap: 16px;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .footer-list-details {
+            @include media-up(sm) {
+                column-gap: 2rem;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+
+            @include media-btw(sm, md) {
+                grid-template-columns: 1fr 1fr;
+                column-gap: 1rem;
+            }
+        }
+    }
+
+    .footer-details {
+        .footer-inner-div {
+            padding: 0.5rem 0;
+            border-top: 0.0625rem solid colour(gray, 1);
+        }
+
+        .local-store {
+            border-bottom: 0.0625rem solid colour(gray, 1);
+        }
+
+        .footer-item {
+            .title {
+                padding: 0.5rem 0;
+                line-height: 1rem;
+                font-weight: map-get($font-weight, bold);
+                letter-spacing: 0.02em;
+            }
+
+            .collapsible-xs .title {
+                &::after {
+                    background-image: url("../images/footer/up.svg");
+                    background-repeat: no-repeat;
+                    width: 24px;
+                    min-width: 24px;
+                    height: 24px;
+                    background-color: transparent;
+                    border: none;
+                }
+            }
+
+            .collapsible-xs.active .title {
+                &::after {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        .user-info-heading {
+            margin-bottom: 2.5rem;
+
+            .heading-text {
+                letter-spacing: 0.01em;
+            }
+
+            .tooltip-container {
+                button {
+                    background-image: url("../images/footer/tooltip.svg");
+                    content: "";
+                    background-repeat: no-repeat;
+                    width: 1.5rem;
+                    height: 1.5rem;
+                }
+            }
+
+            label {
+                letter-spacing: 0.01em;
+                line-height: 1.25rem;
+            }
+
+            .input-text {
+                padding: 1rem 0.5rem 1rem 1rem;
+                box-sizing: border-box;
+                height: 3rem;
+                border: 0.0625rem solid colour(gray, 5);
+                text-indent: 0;
+
+                &:focus {
+                    outline: 0.0625rem dotted colour(black);
+                    outline-offset: 0.125rem;
+                }
+            }
+
+            .submit-btn {
+                padding: 0 2rem;
+            }
+        }
+
+        .socials {
+            .social-header {
+                line-height: 1.25rem;
+                letter-spacing: 0.01em;
+            }
+
+            .social-links {
+                column-gap: 1rem;
+                list-style: none;
+            }
+        }
+
+        .footer-list {
+            list-style: none;
+            margin: 1rem 0 0;
+
+            .footer-list-title {
+                line-height: 1rem;
+                letter-spacing: 0.02em;
+            }
+
+            .footer-list-item {
+                a {
+                    letter-spacing: 0.01em;
+                }
+            }
+        }
+    }
+}
+
+.copyright-notice {
+    .sub-footer {
+        background-color: colour(gray, 1);
+        padding: 1.5rem 1rem;
+        padding-bottom: 3.5rem;
+
+        .nav-link-list {
+            max-width: 73rem;
+
+            .sub-list-links {
+                list-style: none;
+
+                @include media-up(sm) {
+                    list-style: none;
+                }
+
+                .content {
+                    border-right: none;
+
+                    @include media-up(sm) {
+                        border-right: 0.0625rem solid colour(gray, 5);
+                    }
+
+                    .ds-link {
+                        letter-spacing: 0.015em;
+                        color: colour(gray, 4);
+                    }
+                }
+            }
+        }
+
+        .under-footer {
+            .copyright {
+                letter-spacing: 0.015em;
+                color: colour(gray, 4);
+            }
+        }
+    }
+}
+
+.popover {
+    background-color: colour(white);
+    height: auto;
+    max-height: 25rem;
+    overflow-y: auto;
+    text-align: left;
+    width: 14.5rem;
+    box-shadow: 0 0 8px rgba(51, 51, 51, 15%);
+    border: 0.0625rem solid colour(gray, 1);
+    border-radius: 4px;
+
+    .close {
+        background-position: 50%;
+        background-repeat: no-repeat;
+        height: 2.5rem;
+        opacity: inherit;
+        width: 2.5rem;
+        background-image: url("../images/footer/cross.svg");
+
+        &:hover {
+            opacity: inherit;
+        }
+    }
+
+    .popover-header {
+        background: $clr-white;
+        align-items: center;
+        border-bottom: 0.0625rem solid colour(gray, 6);
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 8px 8px 16px;
+
+        .header-content {
+            line-height: 1.25rem;
+        }
+    }
+
+    .popover-body {
+        padding: 1rem;
+
+        .ds-tooltip-content {
+            p {
+                letter-spacing: 0.01em;
+            }
+
+            a {
+                text-decoration: underline;
+                color: colour(gray);
+
+                &:hover {
+                    color: colour(blue);
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+// Back to top button
+.scroll-to-top-link {
+    font-size: 0.5rem;
+
+    .sprinklr-enabled {
+        bottom: 1.625rem;
+        right: 1.25rem;
+        position: fixed;
+        border: none;
+        flex-direction: column-reverse;
+        row-gap: 0.3rem;
+
+        &::after {
+            background-image: url("../images/footer/up-arrow.png");
+            background-repeat: no-repeat;
+            width: 32px;
+            content: "";
+            min-width: 32px;
+            height: 32px;
+        }
+    }
+}

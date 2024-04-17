@@ -12,7 +12,7 @@ $cssHelpers: (
         ),
         onlyprefix: true,
         devicebreakpoints: (
-            md,
+            sm,
             lg
         )
     ),
@@ -47,7 +47,7 @@ $cssHelpers: (
             "font-family"
         ),
         values: (
-            oswald
+            $ff-base
         )
     ),
     ".h-font-size": (
@@ -119,6 +119,10 @@ $cssHelpers: (
             absolute,
             fixed,
             sticky
+        ),
+        devicebreakpoints: (
+            sm,
+            lg
         )
     ),
     ".h-float": (

@@ -7,15 +7,15 @@
             data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}" <isprint
             value="${pdict.profileForm.customer.salutation.attributes}" encoding="off" />>
-        <option value=""> ${Resource.msg('label.select.salutation.profile', 'forms', null)} </option>
-        <option value="Mr" <isif condition="${pdict.profileForm.salutation.htmlValue == "Mr"}">selected</isif>
+            <option value=""> ${Resource.msg('label.select.salutation.profile', 'forms', null)} </option>
+            <option value="Mr" <isif condition="${pdict.profileForm.salutation.htmlValue == "Mr"}">selected</isif>
             >${Resource.msg('label.select.mr.salutation.profile', 'forms', null)}
-        </option>
-        <option value="Mrs" <isif condition="${pdict.profileForm.salutation.htmlValue == "Mrs"}">
+            </option>
+            <option value="Mrs" <isif condition="${pdict.profileForm.salutation.htmlValue == "Mrs"}">
             selected</isif>>${Resource.msg('label.select.mrs.salutation.profile', 'forms', null)}</option>
-        <option value="Miss" <isif condition="${pdict.profileForm.salutation.htmlValue == "Miss"}">selected</isif>>
+            <option value="Miss" <isif condition="${pdict.profileForm.salutation.htmlValue == "Miss"}">selected</isif>>
             ${Resource.msg('label.select.miss.salutation.profile', 'forms', null)}
-        </option>
+            </option>
         </select>
         <div class="invalid-feedback" id="form-salutation-error"></div>
     </div>
@@ -117,15 +117,15 @@
             data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}" <isprint
             value="${pdict.profileForm.customer.gender.attributes}" encoding="off" />>
-        <option value=""> ${Resource.msg('label.select.gender.profile', 'forms', null)} </option>
-        <option value="Male" <isif condition="${pdict.profileForm.gender.htmlValue == " Male"}">selected</isif>
+            <option value=""> ${Resource.msg('label.select.gender.profile', 'forms', null)} </option>
+            <option value="Male" <isif condition="${pdict.profileForm.gender.htmlValue == " Male"}">selected</isif>
             >${Resource.msg('label.select.male.gender.profile', 'forms', null)}
-        </option>
-        <option value="Female" <isif condition="${pdict.profileForm.gender.htmlValue == " Female"}">
+            </option>
+            <option value="Female" <isif condition="${pdict.profileForm.gender.htmlValue == " Female"}">
             selected</isif>>${Resource.msg('label.select.female.gender.profile', 'forms', null)}</option>
-        <option value="Prefer Not To Say" <isif condition="${pdict.profileForm.gender.htmlValue == " Prefer Not To Say"}">selected</isif>>
+            <option value="Prefer Not To Say" <isif condition="${pdict.profileForm.gender.htmlValue == " Prefer Not To Say"}">selected</isif>>
             ${Resource.msg('label.select.notToSay.gender.profile', 'forms', null)}
-        </option>
+            </option>
         </select>
         <div class="invalid-feedback" id="form-gender-error"></div>
     </div>
@@ -133,8 +133,7 @@
         <label class="form-control-label" for="registration-form-dob">
             <isprint value="${pdict.profileForm.customer.dob.label}" encoding="htmlcontent" />
         </label>
-        <input type="text" class="form-control
-                    datepicker" id="registration-form-dob" data-mask="99/99/9999" data-min-age="0" placeholder="DD/MM/YYYY"
+        <input type="text" class="form-control datepicker" id="registration-form-dob" data-mask="99/99/9999" data-min-age="0" placeholder="DD/MM/YYYY"
             data-missing-error="${Resource.msg('error.message.dob.required', 'forms', null)}"
             data-pattern-mismatch="${Resource.msg('error.message.parse.dob', 'forms', null)}" <isprint
             value=${pdict.profileForm.customer.dob.attributes} encoding="off" />>
