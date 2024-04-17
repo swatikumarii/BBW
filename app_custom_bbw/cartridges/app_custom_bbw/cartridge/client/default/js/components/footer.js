@@ -1,6 +1,6 @@
-'use strict';
+// Required
 
-var scrollAnimate = require('base/components/scrollAnimate');
+'use strict';
 
 /**
  * appends params to a url

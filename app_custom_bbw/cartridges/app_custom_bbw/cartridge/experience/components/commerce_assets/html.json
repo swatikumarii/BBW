@@ -1,0 +1,19 @@
+{
+    "name": "CMP:HTML",
+    "group": "commerce_assets",
+    "attribute_definition_groups": [
+        {
+            "id": "content",
+            "name": "Content",
+            "attribute_definitions": [
+                {
+                    "id": "html",
+                    "name": "HTML",
+                    "type": "text",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

@@ -18,8 +18,8 @@
                 <a class="logo-home d-block" href="${URLUtils.url('Home-Show')}"
                     title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
                         'global.home', 'common', null))}">
-                    <img class="hidden-md-down img-fluid w-100"
-                        src="${URLUtils.staticURL('/images/header/Logos-main.svg')}"
+                    <isset name="headerImage" value="${require('dw/system/Site').getCurrent().getCustomPreferenceValue('header_image')}" scope="page" />
+                    <img class="hidden-md-down img-fluid w-100" src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/header/Logos-main.svg')}"
                         alt="${Resource.msg('global.storename', 'common', null)}" />
                 </a>
             </div>
