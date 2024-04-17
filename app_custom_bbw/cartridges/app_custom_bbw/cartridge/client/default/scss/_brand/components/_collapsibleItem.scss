@@ -1,0 +1,49 @@
+@each $size in map-keys($grid-breakpoints) {
+    @include media-breakpoint-down($size) {
+        .collapsible-#{$size} {
+            .title {
+                line-height: 2.5rem; /* 40/16 */
+
+                @include clearfix;
+
+                &::after {
+                    background-image: url("../images/footer/up.svg") !important;
+                    background-repeat: no-repeat;
+                    width: 24px;
+                    min-width: 24px;
+                    height: 24px;
+                    background-color: transparent;
+                    border: none;
+                }
+            }
+
+            .content,
+            .card-body {
+                display: none;
+            }
+
+            &.active {
+                .title::after {
+                    transform: rotate(180deg);
+                    margin-top: -0.125em; /* 2/16 */
+                }
+
+                .content,
+                .card-body {
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .container div.collapsible-#{$size} button.title {
+        color: colour(black);
+        text-decoration: none;
+        border: none;
+        background-color: transparent;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

@@ -1,45 +1,157 @@
 <footer id="footercontent">
-    <div class="loginPopup">
-        <isinclude url="${URLUtils.url('Login-Popup')}" />
-    </div>
-    <div class="container">
-        <div class="footer-container row">
-            <div class="footer-item col-sm-3 store">
-                <iscontentasset aid="footer-locate-store" />
+    <div class="container pt-3 pb-5">
+        <div class="footer-container footer-details p-sm-0 pb-4 h-dsp--grid">
+            <div class="footer-item store pt-1">
+                <div class="user-info-heading">
+                    <!-- Footer tooltip details with margin bottom of 2 units and left-aligned text -->
+                    <div
+                        class="footer-tooltip-details d-flex align-items-center justify-content-between mb-2 mt-2 text-left">
+                        <!-- Heading text -->
+                        <div class="heading-text h-clr--black-3 mr-3">${Resource.msg('footer.title', 'footer', null)}
+                        </div>
+                        <!-- Tooltip container for more information -->
+                        <div class="tooltip-container">
+                            <!-- content assets for tooltip -->
+                            <iscontentasset aid="footer-tooltip-details" />
+                        </div>
+                    </div>
+                    <!-- Form for newsletter subscription -->
+                    <div class="home-email-signup">
+                        <div class="container">
+                            <form role="form" class="newsletter">
+                                <div class="row">
+                                    <div class="col-12 p-0">
+                                        <div data-required-text="">
+                                            <label for="email-footer_social_emailcapture"
+                                                class="h-clr--black-3 h-fw--semibold h-auto mb-1">
+                                                ${Resource.msg('form.title', 'footer', null)}
+                                            </label>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-text rounded-0 w-100"
+                                                    name="hpEmailSignUp"
+                                                    placeholder="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}"
+                                                    aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" />
+                                                <span class="input-group-append">
+                                                    <isif
+                                                        condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
+                                                        <isset name="dataCallback" value="submitNewsLetter"
+                                                            scope="page" />
+                                                        <isset name="dataErrorCallback" value="checkRecaptcha"
+                                                            scope="page" />
+                                                        <isinclude template="/common/reCaptcha" />
+                                                        <button id="gcaptchabtn" type="button"
+                                                            class="btn btn-primary subscribe-email"
+                                                            data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form', 'footer', null)}</button>
+                                                    <iselse/>
+                                                        <button type="button"
+                                                            class=" btn-primary btn-hover subscribe-email btn submit-btn h-fw--semibold mt-3 h-font-size--16"
+                                                            data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form', 'footer', null)}</button>
+                                                    </isif>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Social list content -->
+                <iscontentasset aid="footer-social-list" />
             </div>
-            <div class="footer-item col-sm-3 collapsible-xs">
-                <iscontentasset aid="footer-account" />
-            </div>
-            <div class="footer-item col-sm-3 collapsible-xs">
-                <iscontentasset aid="footer-support" />
-            </div>
-            <div class="footer-item col-sm-3 collapsible-xs">
-                <iscontentasset aid="footer-about" />
+            <!-- Footer list details -->
+            <div class="footer-list-details h-dsp--grid">
+                <!-- Footer item for customer care -->
+                <div class="footer-item  collapsible-xs">
+                    <iscontentasset aid="footer-customer-care" />
+                </div>
+                <!-- Footer item for account -->
+                <div class="footer-item collapsible-xs">
+                    <div class="footer-inner-div">
+                        <button
+                            class="text-uppercase title text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14 h-fw--bold h-clr--black d-flex align-items-center justify-content-between"
+                            aria-expanded="false" aria-controls="collapsible-account" data-toggle="collapse"
+                            data-target="#collapsible-account">${Resource.msg('my.account.title', 'footer', null)}</button>
+                        <ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block"
+                            id="collapsible-account">
+                            <isif condition="${pdict.navTabValue === 'login'}">
+                                <!-- If customer is 'login' -->
+                                <li
+                                    class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold text-uppercase">
+                                    ${Resource.msg('my.account.title', 'footer', null)}</li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="#"
+                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
+                                </li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="#"
+                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.myorders', 'footer', null)}</a>
+                                </li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="#"
+                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.love-list', 'footer', null)}</a>
+                                </li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="#"
+                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.sign-out', 'footer', null)}</a>
+                                </li>
+                            <iselse/>
+                                <!-- If customer is not 'login', assuming it's 'register' -->
+                                <li
+                                    class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold text-uppercase">
+                                    ${Resource.msg('my.account.title', 'footer', null)}
+                                </li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="#"
+                                        class="footer-item-link h-clr--black-1 h-font-size--16 ">${Resource.msg('account.sign-in', 'footer', null)}</a>
+                                </li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="#"
+                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.order-tracking', 'footer', null)}</a>
+                                </li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="#"
+                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
+                                </li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="#"
+                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.love-list', 'footer', null)}</a>
+                                </li>
+                            </isif>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Footer item for discovery -->
+                <div class="footer-item  collapsible-xs">
+                    <iscontentasset aid="footer-discover" />
+                </div>
+                <!-- Footer item for store locator -->
+                <div class="footer-item  collapsible-xs">
+                    <iscontentasset aid="footer-locate-store" />
+                </div>
             </div>
         </div>
-        <hr class="hidden-xs-down" />
-        <div class="row">
-            <div class="col-lg-4 col-sm-5 push-sm-7 push-lg-8 social">
-                <isslot id="footer-column-m" description="Content in column 1 of the Footer" context="global" />
-                <button class="back-to-top" title="${Resource.msg('button.back_to_top', 'common', null)}" aria-label="${Resource.msg('button.back_to_top', 'common', null)}">
-                    <span class="fa-stack fa-lg" aria-hidden="true">
-                        <i class="fa fa-circle fa-inverse fa-stack-2x"></i>
-                        <i class="fa fa-arrow-up fa-stack-1x"></i>
-                    </span>
-                </button>
-            </div>
-            <div class="col-lg-8 col-sm-7 pull-sm-5 pull-lg-4 copyright-notice">
-                <iscontentasset aid="footer-copy" />
-            </div>
+    </div>
+    <div class="row">
+        <!--  copyright content-->
+        <div class="col-sm-12 copyright-notice pr-0">
+            <iscontentasset aid="footer-copyright" />
         </div>
     </div>
     <iscomment> Back to Top - Button </iscomment>
     <div class="scroll-to-top-link js-scrolltotop">
         <div class="scroll-to-top-wrapper">
-            <button id="backtotop" aria-label="${Resource.msg('aria.label.title', 'footer', null)}" data-once="backtotop sprinklr-back-to-top"
+            <button id="backtotop" aria-label="${Resource.msg('aria.label.title', 'footer', null)}"
+                data-once="backtotop sprinklr-back-to-top"
                 class="sprinklr-enabled d-flex align-items-center bg-transparent">
                 ${Resource.msg('aria.label.title', 'footer', null)}
             </button>
         </div>
+        <div class="col-lg-8 col-sm-7 pull-sm-5 pull-lg-4 copyright-notice">
+            <iscontentasset aid="footer-copy" />
+        </div>
     </div>
 </footer>
+<div class="loginPopup">
+    <isinclude url="${URLUtils.url('Login-Popup')}" />
+</div>
