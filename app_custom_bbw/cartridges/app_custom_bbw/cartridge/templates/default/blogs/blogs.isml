@@ -3,40 +3,67 @@
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/blogs.js');
     </isscript>
-    <div class="folder_content row">
-        <isloop items="${pdict.blog.onlineSubFolders}" var="list" status="loopstatus" begin=0>
-            <div class="folder_list mt-5 col-md-2">
-                <isif condition="${list.custom.isShow === true}">
-                    <img class="list_content " width="100%" src="${list.custom.image.absURL}" alt="${list.displayName}"/>
-                    <h2>${list.displayName}</h2>
-                </isif>
-            </div>
-        </isloop>
-    </div>
-    <div class="m-grid-contain">
-        <isloop items="${pdict.blog.onlineSubFolders}" var="folder" status="loopstatus" begin=0>
-            <div class="blog_list mt-5">
-                <isif condition= "${folder.custom.isShow === true}">
-                    <img class="folder_content col-md-2" width="100%" src="${folder.custom.image.absURL}" alt="${folder.displayName}"/>
-                </isif>
-                <span>${folder.displayName}</span>
-                <div class="m-grid-contain-childblog d-flex flex-wrap">
-                    <isloop items="${folder.onlineContent}" var="content" status="loopstatus" begin=0>
-                        <div class="blog_child_content col-md-6">
-                            <img class="blogImage w-100" src="${content.custom.image.absURL}" alt="${content.name}"/>
-                            <h1>${content.name}</h1>
-                            <p>${content.description}</p>
-                            <a class="btn btn-primary border read-button"
-                                href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
-                                <span>${Resource.msg('button.read.more', 'common', null)}</span>
-                            </a>
-                        </div>
-                    </isloop>
+    <div class="container">
+        <div class="header_img">
+            <img class="mob-only"
+                src="//storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/banners/Get-Inspired/get-inspire/getinspire_header_mob.jpg"
+                width="100%" alt="get inspired" />
+            <img class="desk-only" alt="get inspired"
+                src="//storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/banners/Get-Inspired/get-inspire/getinspire_header_desk.jpg"
+                width="100%" />
+        </div>
+        <div class="header_section">
+            <p class="text-center h-font-size--16 mt-5">Fresh ideas. Fun how-tos. Fragrance guides. It all starts here.
+            </p>
+        </div>
+        <div class="folder_content navi-list d-flex justify-content-between flex-wrap">
+            <isloop items="${pdict.blog.onlineSubFolders}" var="list" status="loopstatus" begin=0>
+                <div class="folder_list mt-5">
+                    <isif condition="${list.custom.isShow === true}">
+                        <a href="#">
+                            <img class="list_content d-block" width="100%" src="${list.custom.image.absURL}"
+                                alt="${list.displayName}" />
+                        </a>
+                        <p class="navi_content text-center mb-0 h-font-size--16 h-fw--semibold mt-4 text-uppercase"><a
+                                href="#">${list.displayName}</a></p>
+                    </isif>
                 </div>
-                <isif condition="${folder.onlineContent.length > 4}">
-                    <button type="button" class="btn btn-primary show-more-btn">${Resource.msg('button.show.more', 'common', null)}</button>
-                </isif>
-            </div>
-        </isloop>
+            </isloop>
+        </div>
+        <div class="m-grid-contain">
+            <isloop items="${pdict.blog.onlineSubFolders}" var="folder" status="loopstatus" begin=0>
+                <div class="blog_list mt-5">
+                    <isif condition="${folder.custom.isShow === true}">
+                        <div class="head-img d-flex align-items-center">
+                            <img class="folder_content" width="100%" src="${folder.custom.image.absURL}"
+                                alt="${folder.displayName}" />
+                            <h2 class="head-feature">${folder.displayName}</h2>
+                        </div>
+                    </isif>
+
+                    <div class="m-grid-contain-childblog d-flex flex-wrap justify-content-between">
+                        <isloop items="${folder.onlineContent}" var="content" status="loopstatus" begin=0>
+                            <div class="blog_child_content mt-2 mb-2">
+                                <img class="blogImage w-100"
+                                    src="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/banners/Get-Inspired/get-inspire/featured/Featured_tile_01.jpg"
+                                    alt="${content.name}" />
+                                <h3>${content.name}</h3>
+                                <p class="mb-0">${content.description}</p>
+                                <a class="btn btn-primary read-button"
+                                    href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
+                                    <span>${Resource.msg('button.read.more', 'common', null)}</span>
+                                </a>
+                            </div>
+                        </isloop>
+                    </div>
+                    <isif condition="${folder.onlineContent.length > 4}">
+                        <div class="text-center">
+                            <button type="button"
+                                class="btn btn-primary show-more-btn">${Resource.msg('button.show.more', 'common', null)}</button>
+                        </div>
+                    </isif>
+                </div>
+            </isloop>
+        </div>
     </div>
 </isdecorate>
