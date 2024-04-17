@@ -1,6 +1,6 @@
 <footer id="footercontent">
     <div class="loginPopup">
-        <isinclude url="${URLUtils.url('LoginPopup-Show')}" />
+        <isinclude url="${URLUtils.url('Login-Popup')}" />
     </div>
     <div class="container">
         <div class="footer-container row">

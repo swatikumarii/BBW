@@ -24,9 +24,9 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="login-form-nav">
-                            <div>Sign Up</div>
+                            <div>${Resource.msg('msg.signup', 'login', null)}</div>
                             <div>
-                                <p>Create an account to access the best of your favorite store</p>
+                                <p>${Resource.msg('msg.signup.overview', 'login', null)}</p>
                             </div>
                             <div>
                                 <a href="${URLUtils.https('Login-CreateAccount')}" role="button"
