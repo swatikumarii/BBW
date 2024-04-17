@@ -42,7 +42,7 @@ footer {
             border-bottom: 0.0625rem solid colour(gray, 1);
 
             @include media-up(sm) {
-              border-bottom: none;
+                border-bottom: none;
             }
         }
 
@@ -65,7 +65,7 @@ footer {
             .tooltip-container {
                 button {
                     background-image: url("../images/footer/tooltip.svg");
-                    min-height: 0px;
+                    min-height: 0;
                     height: 24px;
                     width: 24px;
                     background-repeat: no-repeat;
@@ -190,8 +190,12 @@ footer {
         width: 2.5rem;
         background-image: url("../images/footer/cross.svg");
 
-        &:not(:disabled):not(.disabled):hover {
-            opacity: inherit;
+        &:not(:disabled) {
+            &:not(.disabled) {
+                &:hover {
+                    opacity: inherit;
+                }
+            }
         }
     }
 
