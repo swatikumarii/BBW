@@ -1,0 +1,13 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+<isif condition="${slotcontent}">
+    <isloop items="${slotcontent.content}" var="product" begin="0" end="6">
+        <div class="item">
+            <div class="product" data-pid="${product.ID}">
+                <isobject object="${product}" view="recommendation">
+                    <isinclude
+                        url="${URLUtils.url('Tile-Show', 'pid', product.ID)}" />
+                </isobject>
+            </div>
+        </div>
+    </isloop>
+</isif>
