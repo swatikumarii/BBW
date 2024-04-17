@@ -1,0 +1,11 @@
+<isif condition="${lineItem.isBonusProductLineItem}" >
+    <div class="d-block">${Resource.msg('msg.bonus.product','cart',null)}</div>
+</isif>
+<div class="line-item-header">
+    <div class="line-item-name">
+        ${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}
+    </div>
+    <div class="line-item-name-partB">
+        ${lineItem.titlePartB ? lineItem.titlePartB : ''}
+    </div>
+</div>

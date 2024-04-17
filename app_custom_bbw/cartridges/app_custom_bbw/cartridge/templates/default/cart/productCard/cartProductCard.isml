@@ -1,0 +1,54 @@
+<isset name="hasEmbeddedBonusProducts" value="${lineItem.bonusProductLineItemUUID === 'bonus'}" scope="page" />
+<isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}" scope="page" />
+<isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page" />
+
+<div class="card product-info ${bonusproductlineitem} uuid-${lineItem.UUID}">
+    <!--- name and remove buttons --->
+
+    <div class="line-item">
+        <div class="item-image">
+            <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
+                title="${lineItem.images.small[0].title}">
+        </div>
+        <div class="item-attributes d-flex flex-column">
+            <isinclude template="cart/productCard/cartProductCardHeader" />
+            <isloop items="${lineItem.variationAttributes}" var="attribute">
+                <p class="line-item-attributes ${attribute.displayName}-${lineItem.UUID}">${attribute.displayName}:
+                    ${attribute.displayValue}</p>
+            </isloop>
+            <isloop items="${lineItem.options}" var="option">
+                <isif condition="${!!option}" >
+                    <div class="lineItem-options-values" data-option-id="${option.optionId}"
+                        data-value-id="${option.selectedValueId}">
+                        <p class="line-item-attributes">${option.displayName}</p>
+                    </div>
+                </isif>
+            </isloop>
+            <!--- promotions --->
+            <div class="line-item-promo item-${lineItem.UUID}">
+                <isinclude template="checkout/productCard/productCardProductPromotions" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 d-flex flex-row">
+            </div>
+        </div>
+    </div>
+
+    <iscomment> Price, Qty, Total Price </iscomment>
+
+    <isinclude template="cart/productCard/cartProductCardProductPrice" />
+
+    <isif condition="${!lineItem.isBonusProductLineItem}">
+        <div class="line-item-remove">
+            <span class="cart-delete-confirmation-btn" data-pid="${lineItem.id}" data-name="${lineItem.productName}"
+                data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}">
+                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
+            </span>
+        </div>
+    </isif>
+
+    <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
+        <isinclude template="cart/productCard/cartEmbeddedBonusProducts" />
+    </isif>
+</div>

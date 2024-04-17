@@ -1,0 +1,250 @@
+@charset "UTF-8";
+
+@import "_brand/_api/api";
+
+.continue-shopping-link {
+    display: inline-block;
+    margin: 10px 0 10px 25px;
+    color: $clr-gray-4;
+    text-decoration: underline;
+    font-family: $ff-base;
+    font-size: 14px;
+}
+
+.cartContainer {
+    max-width: 955px;
+    margin: auto;
+
+    .cart-page {
+        padding: 0;
+
+        .shoppingBagTitle {
+            width: 100%;
+            max-width: 955px;
+            margin: 0 auto;
+            padding: 0 0 15px;
+            border-bottom: 1px solid $clr-black-3;
+        }
+
+        .cartActionMessages {
+            width: 100%;
+            margin: 40px 0 16px;
+        }
+
+        .html-slot-container {
+            width: 100%;
+            max-width: 955px;
+            margin: 0 auto;
+        }
+
+        .cartDetailsHeader {
+            .cartDetailsHeading {
+                display: grid;
+                align-items: center;
+                margin: 10px 0 0;
+                min-height: 35px;
+                background-color: $clr-gray-1;
+                color: $clr-black-1;
+                font-family: $ff-base;
+                font-size: 18px;
+                line-height: 20px;
+                letter-spacing: 0.1px;
+                font-weight: 700;
+            }
+
+            .cartDetailsContent {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 15px 0;
+                border-bottom: 3px solid $clr-gray-1;
+                margin-bottom: 10px;
+
+                .content {
+                    padding: 20px 15px 0 0;
+                    font-size: 16px;
+                    font-family: $ff-base;
+                    font-weight: 700;
+                    color: $clr-blue;
+                }
+            }
+        }
+
+        .itemsHeader {
+            display: flex;
+            background-color: $clr-gray-1;
+            font-size: 18px;
+            font-weight: 700;
+            font-family: $ff-base;
+            color: $clr-black-1;
+            line-height: 20px;
+
+            .headerItem {
+                width: 400px;
+                max-width: 400px;
+                padding: 10px 0 10px 15px;
+            }
+
+            .headerPrice {
+                width: 84px;
+                padding: 10px 0;
+            }
+
+            .headerQty {
+                width: 240px;
+                padding: 10px 0;
+            }
+
+            .headerTotal {
+                width: 160px;
+                padding: 10px 0;
+                text-align: right;
+            }
+        }
+
+        .card {
+            border: unset;
+            border-bottom: 1px solid $clr-gray;
+
+            &.product-info {
+                display: flex;
+                flex-direction: row;
+                margin: 0;
+                padding: 20px 0;
+
+                .line-item {
+                    width: 400px;
+                    max-width: 400px;
+                    display: flex;
+
+                    .item-attributes {
+                        padding-top: 10px;
+
+                        .line-item-name {
+                            font-family: $ff-base;
+                            font-weight: 600;
+                            font-size: 16px;
+                            line-height: 20px;
+                            color: $clr-black-1;
+                        }
+
+                        .line-item-name-partB {
+                            font-family: $ff-base;
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 16px;
+                            color: $clr-gray-4;
+                        }
+                    }
+
+                    .item-image {
+                        .product-image {
+                            max-width: 150px;
+                            max-height: 160px;
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                .line-item-price {
+                    width: 84px;
+                    font-size: 16px;
+                    line-height: 20px;
+                    font-weight: 600;
+                    font-family: $ff-base;
+                    padding-top: 10px;
+                }
+
+                .line-item-quantity {
+                    width: 240px;
+                    padding-top: 10px;
+
+                    .line-item-availability {
+                        padding-top: 20px;
+
+                        .line-item-attributes {
+                            margin: 0;
+                            color: $clr-green-2;
+                            font-size: 16px;
+                            font-family: $ff-base;
+                            font-weight: 400;
+                            line-height: 20px;
+                        }
+                    }
+                }
+
+                .line-item-total-price {
+                    width: 160px;
+                    font-size: 16px;
+                    line-height: 20px;
+                    font-weight: 600;
+                    font-family: $ff-base;
+                    text-align: right;
+                    padding-top: 10px;
+                }
+
+                .line-item-remove {
+                    margin-left: auto;
+                    min-width: 25px;
+                    padding-right: 10px;
+                    padding-top: 5px;
+                }
+            }
+        }
+
+        .cartFooter {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+
+            .cartPromoCodeWrap {
+                width: 45%;
+
+                .cartPromo {
+                    padding: 22px 20px 30px;
+                    border: 1px solid $clr-gray-6;
+
+                    .promoCodeLabel {
+                        font-size: 18px;
+                        line-height: 20px;
+                        font-weight: 600;
+                        font-family: $ff-base;
+                    }
+
+                    .couponForm {
+                        display: flex;
+
+                        #coupon-code {
+                            width: 70%;
+                            height: 48px;
+                        }
+
+                        .promo-code-btn {
+                            width: 30%;
+                            height: 48px;
+                            text-transform: uppercase;
+                            font-size: 16px;
+                            line-height: 20px;
+                            font-weight: 600;
+                            font-family: $ff-base;
+                        }
+                    }
+                }
+            }
+
+            .cartTotalsWrap {
+                width: 53%;
+                padding: 15px 25px;
+                background-color: $clr-gray-1;
+
+                .hide-order-discount {
+                    display: none;
+                }
+
+                .hide-shipping-discount {
+                    display: none;
+                }
+            }
+        }
+    }
+}
