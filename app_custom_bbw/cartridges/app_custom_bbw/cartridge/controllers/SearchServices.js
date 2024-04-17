@@ -43,10 +43,7 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
     popularSuggestions = new SearchPhraseSuggestions(suggestions.popularSearchPhrases, maxSuggestions);
     brandSuggestions = new SearchPhraseSuggestions(suggestions.brandSuggestions, maxSuggestions);
 
-    var total =
-        recentSuggestions.phrases.length +
-        popularSuggestions.phrases.length +
-        brandSuggestions.phrases.length;
+    var total = 0;
     if (searchTerms && searchTerms.length >= minChars) {
         categorySuggestions = new CategorySuggestions(suggestions, maxSuggestions);
         contentSuggestions = new ContentSuggestions(suggestions, maxSuggestions);
@@ -57,8 +54,13 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
             || recentSuggestions.available
             || popularSuggestions.available
             || brandSuggestions.available) {
-            total += productSuggestions.products.length + contentSuggestions.contents.length
-                + categorySuggestions.categories.length;
+            total =
+                productSuggestions.products.length +
+                contentSuggestions.contents.length +
+                categorySuggestions.categories.length +
+                recentSuggestions.phrases.length +
+                popularSuggestions.phrases.length +
+                brandSuggestions.phrases.length;
             res.render('search/suggestions', {
                 suggestions: {
                     product: productSuggestions,
@@ -87,6 +89,9 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
             popularSuggestions.available ||
             brandSuggestions.available
     ) {
+        total = recentSuggestions.phrases.length +
+            popularSuggestions.phrases.length +
+            brandSuggestions.phrases.length;
         res.render('search/suggestions', {
             suggestions: {
                 recent: recentSuggestions,
