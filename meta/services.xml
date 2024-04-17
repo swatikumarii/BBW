@@ -111,6 +111,37 @@
         <password/>
     </service-credential>
 
+
+    <service-credential service-credential-id="afterpay.credentials.AU.v2">
+        <url>https://global-api-sandbox.afterpay.com/v2/</url>
+        <user-id/>
+        <password masked="true">********</password>
+    </service-credential>
+
+    <service-credential service-credential-id="afterpay.credentials.CA.v2">
+        <url>https://global-api-sandbox.afterpay.com/v2/</url>
+        <user-id/>
+        <password masked="true">********</password>
+    </service-credential>
+
+    <service-credential service-credential-id="afterpay.credentials.NZ.v2">
+        <url>https://global-api-sandbox.afterpay.com/v2/</url>
+        <user-id/>
+        <password masked="true">********</password>
+    </service-credential>
+
+    <service-credential service-credential-id="afterpay.credentials.US.v2">
+        <url>https://global-api-sandbox.afterpay.com/v2/</url>
+        <user-id/>
+        <password masked="true">********</password>
+    </service-credential>
+
+    <service-credential service-credential-id="clearpay.credentials.GB.v2">
+        <url>https://global-api-sandbox.afterpay.com/v2/</url>
+        <user-id/>
+        <password masked="true">********</password>
+    </service-credential>
+
     <service-profile service-profile-id="Adyen">
         <timeout-millis>30000</timeout-millis>
         <cb-enabled>false</cb-enabled>
@@ -118,6 +149,16 @@
     <service-profile service-profile-id="AdyenPOS">
         <timeout-millis>100000</timeout-millis>
         <cb-enabled>false</cb-enabled>
+    </service-profile>
+
+    <service-profile service-profile-id="afterpay.profile">
+        <timeout-millis>30000</timeout-millis>
+        <rate-limit-enabled>false</rate-limit-enabled>
+        <rate-limit-calls>0</rate-limit-calls>
+        <rate-limit-millis>0</rate-limit-millis>
+        <cb-enabled>true</cb-enabled>
+        <cb-calls>10</cb-calls>
+        <cb-millis>15000</cb-millis>
     </service-profile>
 
     <service service-id="AdyenPayment">
@@ -228,46 +269,6 @@
         <profile-id>Adyen</profile-id>
         <credential-id>AdyenCheckBalance</credential-id>
     </service>
-
-    <service-credential service-credential-id="afterpay.credentials.AU.v2">
-        <url>https://global-api-sandbox.afterpay.com/v2/</url>
-        <user-id/>
-        <password masked="true">********</password>
-    </service-credential>
-
-    <service-credential service-credential-id="afterpay.credentials.CA.v2">
-        <url>https://global-api-sandbox.afterpay.com/v2/</url>
-        <user-id/>
-        <password masked="true">********</password>
-    </service-credential>
-
-    <service-credential service-credential-id="afterpay.credentials.NZ.v2">
-        <url>https://global-api-sandbox.afterpay.com/v2/</url>
-        <user-id/>
-        <password masked="true">********</password>
-    </service-credential>
-
-    <service-credential service-credential-id="afterpay.credentials.US.v2">
-        <url>https://global-api-sandbox.afterpay.com/v2/</url>
-        <user-id/>
-        <password masked="true">********</password>
-    </service-credential>
-
-    <service-credential service-credential-id="clearpay.credentials.GB.v2">
-        <url>https://global-api-sandbox.afterpay.com/v2/</url>
-        <user-id/>
-        <password masked="true">********</password>
-    </service-credential>
-
-    <service-profile service-profile-id="afterpay.profile">
-        <timeout-millis>30000</timeout-millis>
-        <rate-limit-enabled>false</rate-limit-enabled>
-        <rate-limit-calls>0</rate-limit-calls>
-        <rate-limit-millis>0</rate-limit-millis>
-        <cb-enabled>true</cb-enabled>
-        <cb-calls>10</cb-calls>
-        <cb-millis>15000</cb-millis>
-    </service-profile>
 
     <service service-id="afterpay.service.AU.v2">
         <service-type>HTTP</service-type>
