@@ -21,7 +21,7 @@ $view-modes: (
         media: unquote("(min-width: #{map-get($breakpoints, sm)})")
     ),
     sm_down: (
-        media: unquote("(max-width: #{map-get($breakpoints, sm)})")
+        media: unquote("(max-width: #{map-get($breakpoints, sm) - 1})")
     ),
     md_up: (
         media: unquote("(min-width: #{map-get($breakpoints, md)})")

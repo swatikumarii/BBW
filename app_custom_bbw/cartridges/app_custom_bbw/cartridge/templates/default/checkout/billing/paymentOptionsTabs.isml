@@ -1,0 +1,13 @@
+<isloop items="${pdict.order.billing.payment.applicablePaymentMethods}" var="paymentOption">
+    <isif condition="${paymentOption.ID === 'AdyenComponent'}">
+        <isinclude template="checkout/billing/paymentOptions/adyenComponentTab" />
+    <iselseif condition="${paymentOption.ID === 'AdyenPOS'}" />
+        <isinclude template="checkout/billing/paymentOptions/adyenPosTab" />
+    <iselseif condition="${(paymentOption.ID.toLowerCase() == 'afterpay' && pdict.priceContext.apApplicable)}" />
+        <isinclude template="checkout/billing/paymentOptions/afterpayTab" />
+    <iselseif condition="${(paymentOption.ID.toLowerCase() == 'clearpay' && pdict.priceContext.apApplicable)}" />
+        <isinclude template="checkout/billing/paymentOptions/clearpayTab" />
+    <iselseif condition="${(paymentOption.ID.toLowerCase() == 'cashapppay' && pdict.priceContext.cashAppApplicable)}" />
+        <isinclude template="checkout/billing/paymentOptions/cashAppTab" />
+    </isif>
+</isloop>

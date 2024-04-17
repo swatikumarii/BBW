@@ -3,7 +3,9 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets');
         assets.addJs('/js/productDetail.js');
+        assets.addJs('/js/afterpay.js');
         assets.addCss('/css/product/detail.css');
+        assets.addCss('/css/afterpaystyle.css');
     </isscript>
 
     <isset name="product" value="${pdict.product}" scope="page" />
@@ -150,6 +152,18 @@
                                     <iscomment> Show Express ship icon </iscomment>
                                 </isif>
                             </div>
+                            <iscomment>Afterpay</iscomment>
+                            <isscript>
+                                var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
+                                var afterpayPDPEnable = sitePreferences.isDisplayPdpInfo() && sitePreferences.isAfterpayEnabled();
+                            </isscript>
+                            <isif condition="${afterpayPDPEnable}">
+                                <input type="hidden" class="updated-widget" value="${URLUtils.https('AfterpayWidget-GetUpdatedWidget')}" />
+                                <div class="afterpay-widget">
+                                    <isinclude url="${URLUtils.url('AfterpayWidget-IncludeAfterpayMessage', 'pid', product.id)}" />
+                                </div>
+                            </isif>
+
                             <!-- Cart and [Optionally] Apple Pay -->
                             <div class="js-add-to-cart-button">
                                 <isif condition="${(!product.isMaster && !product.available)}">
