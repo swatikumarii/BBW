@@ -1,5 +1,7 @@
 'use strict';
 
+var layout = require('../utils/layout');
+
 /* Responsive menu slide panel */
 
 $('#mobile-slide-search').on('click', function () {
@@ -14,9 +16,7 @@ $('.mobile-slide-cancel').on('click', function () {
 });
 
 /* Responsive menu and its sub-menues */
-
-var newWindowWidth = $(window).width();
-if (newWindowWidth < 767) {
+if (layout.isMobile()) {
     $('.level-1-li').on('click', function () {
         if ($(this).hasClass('active')) {
             $(this).children('.level-2-ul').removeClass('active');
@@ -48,4 +48,3 @@ if (newWindowWidth < 767) {
 $('.mobile-menu-overlay').on('click', function () {
     $('.bbw-menu').removeClass('in');
 });
-

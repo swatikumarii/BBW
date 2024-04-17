@@ -1,8 +1,9 @@
 'use strict';
 
+var layout = require('../utils/layout');
+
 /* Desktop & Ipad */
-var newWindowWidth = $(window).width();
-if (newWindowWidth > 768) {
+if (layout.isDesktop()) {
     $('#header-search').on('click', function (e) {
         $('form').addClass('expand-towards-right');
         $('.utility-user, .minicart').addClass('d-lg-none d-md-none');
@@ -54,7 +55,7 @@ $('#ticker').easyTicker({
     interval: 3000
 });
 
-// ** Stick Header - On Scroll** //
+/* Stick Header - On Scroll */
 var t = 0;
 $(window).scroll(function () {
     var e = $(this).scrollTop();
