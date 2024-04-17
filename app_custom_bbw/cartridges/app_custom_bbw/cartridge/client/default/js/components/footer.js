@@ -2,6 +2,8 @@
 
 'use strict';
 
+// var scrollAnimate = require('base/components/scrollAnimate');
+
 /**
  * appends params to a url
  * @param {string} data - data returned from the server's ajax call
@@ -105,7 +107,7 @@ window.initializeRecaptcha = function () {
     });
 };
 
-// Initialize popover 
+// Initialize popover
 $('[data-toggle="popover"]').popover({
     placement: 'top',
     html: true,

@@ -4,6 +4,7 @@
  * jQuery - Easy Ticker plugin - v3.5.0
  */
 
+/* eslint-disable */
 (function ($, window, document, undefined) {
     var name = 'easyTicker',
         defaults = {
