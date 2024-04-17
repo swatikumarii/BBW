@@ -6,7 +6,7 @@
         <isif condition="${'titlePartB' in onlineProduct.custom}">
             <span>${onlineProduct.custom.titlePartB}</span>
         </isif>
-        <a href="">Add to bag</a>
+        <a href="${URLUtils.url('Product-Show', 'pid', onlineProduct.ID)}">Add to bag</a>
     </div>
 </isloop>
 <a href="${pdict.shopButtonLink}">${pdict.shopButtonText}</a>
