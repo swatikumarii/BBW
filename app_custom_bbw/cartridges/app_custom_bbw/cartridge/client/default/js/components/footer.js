@@ -38,27 +38,32 @@ function displayMessage(data, button) {
  * @param {string} token - reCAPTCHA token
  */
 function newsLetter(token) {
-    var url = $('.subscribe-email').data('href');
+    var url = $('.newsletter').data('href');
     var button = $('.subscribe-email');
     var emailId = $('input[name=hpEmailSignUp]').val();
+    var data = { emailId: emailId };
+    if (token) {
+        data = {
+            emailId: emailId,
+            'g-recaptcha-response': token
+        };
+    }
     $.spinner().start();
     $('form.newsletter').attr('disabled', true);
     $.ajax({
         url: url,
         type: 'post',
         dataType: 'json',
-        data: {
-            emailId: emailId,
-            'g-recaptcha-response': token,
-        },
-        success: function (data) {
-            displayMessage(data, button);
+        data: data,
+        success: function (dataRes) {
+            displayMessage(dataRes, button);
         },
         error: function (err) {
             displayMessage(err, button);
         }
     });
 }
+
 
 window.submitNewsLetter = function (token) {
     return new Promise(function (resolve, reject) {
@@ -70,38 +75,6 @@ window.submitNewsLetter = function (token) {
             resolve();
         }
         grecaptcha.reset();
-    });
-};
-
-/**
- * In case of failure
- */
-window.checkRecaptcha = function () {
-    // Re-initialize reCaptcha
-    grecaptcha.reset();
-    // Fire reCaptcha
-    grecaptcha.execute();
-    // Fire desired behavior AFTER reCaptcha is complete
-    window.submitNewsLetter();
-};
-
-/**
- * to execute reCAPTCHA
- */
-function executeRecaptcha() {
-    grecaptcha.execute();
-}
-window.initializeRecaptcha = function () {
-    $('.grecaptcha-badge').addClass('mc-recaptcha-btn');
-    $('.newsletter #gcaptchabtn').on('click', executeRecaptcha);
-    $('.newsletter').on('keypress', function (event) {
-        // If the user presses the "Enter" key on the keyboard
-        if (event.key === 'Enter') {
-            // Cancel the default action, if needed
-            event.preventDefault();
-            // Trigger the button element with a click
-            $('.newsletter #gcaptchabtn').click();
-        }
     });
 };
 
@@ -142,3 +115,10 @@ $('.js-scrolltotop').on('click', function () {
         scrollTop: $('body').offset().top
     }, 800);
 });
+
+module.exports = function () {
+    $('.subscribe-email').on('click', function (e) {
+        e.preventDefault();
+        newsLetter();
+    });
+};
