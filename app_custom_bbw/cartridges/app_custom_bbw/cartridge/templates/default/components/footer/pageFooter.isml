@@ -152,3 +152,6 @@
         </div>
     </div>
 </footer>
+<div class="loginPopup">
+    <isinclude url="${URLUtils.url('Login-Popup')}" />
+</div>

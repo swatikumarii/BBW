@@ -31,7 +31,7 @@ server.prepend('Subscribe', function (req, res, next) {
         if (!verifyCaptcha) {
             res.json({
                 error: true,
-                msg: Resource.msg('error.message.recaptcha', 'contactUs', null)
+                msg: Resource.msg('error.message.recaptcha', 'common', null)
             });
             this.emit('route:Complete', req, res);
             return;
