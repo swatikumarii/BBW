@@ -2,6 +2,7 @@
 
 window.jQuery = require('jquery');
 window.$ = require('jquery');
+window.MEDIA_BREAKPOINTS = require('./config/config.json').breakpoints;
 var processInclude = require('base/util');
 
 $(document).ready(function () {
@@ -17,5 +18,6 @@ $(document).ready(function () {
     processInclude(require('base/components/toolTip'));
 });
 
-require('base/thirdParty/bootstrap');
+require('./thirdParty/bootstrap');
 require('base/components/spinner');
+

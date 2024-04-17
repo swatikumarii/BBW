@@ -1,0 +1,45 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceAssets/cardOffer.css');
+</isscript>
+
+<div class="card-offers">
+    <div class="card-offers__tile d-flex flex-row text-center h-100">
+        <a class="card-offers__link w-100"
+            href="${pdict.linkUmpParameter ? pdict.link + pdict.linkUmpParameter : pdict.link}">
+            <div class="card-offers__wrapper w-100 h-100 ${pdict.imagePositionClass == 'left' ||  pdict.imagePositionClass == 'right' ? 'h-dsp--grid' : 'd-flex justify-content-center'} ${pdict.imagePositionClass} ${pdict.customClass}">
+                <div class="card-offers__image-wrapper h-dsp--inline-block h-pos--relative">
+                    <picture class="w-100 d-block content-image-block">
+                        <source srcset="${pdict.useImgURL ? pdict.desktopImgUrl : pdict.desktopImage.src.desktop}"
+                            media="(min-width: 769px)" />
+                        <img class="w-100 d-block lazy-grid card-offers__image h-dsp--inline-block h-pos--relative"
+                            src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}"
+                            alt="${pdict.alt}" />
+                    </picture>
+                </div>
+                <div class="card-offers__tile-copy">
+                    <isif condition="${pdict.offersUrgency}">
+                        <div class="card-offers__urgency h-fw--bold h-font-size--18">
+                            <isprint value="${pdict.offersUrgency}" encoding="off" />
+                        </div>
+                    </isif>
+                    <isif condition="${pdict.offersCategory}">
+                        <div class="card-offers__category">
+                            <isprint value="${pdict.offersCategory}" encoding="off" />
+                        </div>
+                    </isif>
+                    <isif condition="${pdict.offersPrice}">
+                        <div class="card-offers__price h-fw--bold h-font-size--18">
+                            <isprint value="${pdict.offersPrice}" encoding="off" />
+                        </div>
+                    </isif>
+                    <isif condition="${pdict.offersDetails}">
+                        <div class="card-offers__details ">
+                            <isprint value="${pdict.offersDetails}" encoding="off" />
+                        </div>
+                    </isif>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

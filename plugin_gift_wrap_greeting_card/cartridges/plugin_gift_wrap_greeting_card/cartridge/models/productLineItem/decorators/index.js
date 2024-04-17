@@ -10,5 +10,7 @@
 var base = module.superModule;
 
 base.isGreetingCard = require('*/cartridge/models/productLineItem/decorators/isGreetingCard');
+base.isGiftWrappable = require('*/cartridge/models/productLineItem/decorators/isGiftWrappable');
+base.isGiftWrapCategory = require('*/cartridge/models/productLineItem/decorators/isGiftWrapCategory');
 
 module.exports = base;

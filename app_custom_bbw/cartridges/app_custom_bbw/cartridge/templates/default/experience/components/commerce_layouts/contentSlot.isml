@@ -1,0 +1,11 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs('/js/slickSliderComponent.js');
+    assets.addCss('/css/slickSlider/slick.css');
+    assets.addCss('/css/slickSlider/slick-theme.css');
+</isscript>
+<div class="content-slot-component">
+    <div class="container einstein-recom">
+        <isslot id="trending-now-product" description="Trending Now Products" context="global" />
+    </div>
+</div>

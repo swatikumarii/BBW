@@ -18,5 +18,81 @@
             </run-once>
         </triggers>
     </job>
-
+    <job job-id="Process" priority="0">
+        <description/>
+        <parameters/>
+        <split sequential="false">
+            <flow>
+                <context site-id="RefArch"/>
+                <template-ref template-id="template_48"/>
+            </flow>
+            <flow-template template-id="template_48">
+                <step step-id="Process" type="ExecuteScriptModule" enforce-restart="false">
+                    <description/>
+                    <parameters>
+                        <parameter name="ExecuteScriptModule.Module">int_adyen_overlay/cartridge/scripts/job/notifications.js</parameter>
+                        <parameter name="ExecuteScriptModule.FunctionName">processNotifications</parameter>
+                        <parameter name="ExecuteScriptModule.Transactional">false</parameter>
+                        <parameter name="ExecuteScriptModule.TimeoutInSeconds">3600</parameter>
+                    </parameters>
+                </step>
+                <step step-id="Clean" type="ExecuteScriptModule" enforce-restart="false">
+                    <description/>
+                    <parameters>
+                        <parameter name="ExecuteScriptModule.Module">int_adyen_overlay/cartridge/scripts/job/notifications.js</parameter>
+                        <parameter name="ExecuteScriptModule.FunctionName">clearNotifications</parameter>
+                        <parameter name="ExecuteScriptModule.Transactional">false</parameter>
+                        <parameter name="ExecuteScriptModule.TimeoutInSeconds">3600</parameter>
+                    </parameters>
+                </step>
+            </flow-template>
+        </split>
+        <rules/>
+        <triggers>
+            <run-once enabled="true">
+                <date>2018-03-01Z</date>
+                <time>18:55:46.000Z</time>
+            </run-once>
+        </triggers>
+    </job>
+    <job job-id="getFragranceNames">
+        <description/>
+        <parameters/>
+        <flow>
+            <context site-id="bbw-au"/>
+            <step step-id="getFragranceNames" type="custom.GetFragranceNames" enforce-restart="false">
+                <description>Get products list and extract fragrance names list and Ingredient list.</description>
+                <parameters/>
+            </step>
+        </flow>
+        <rules/>
+        <triggers>
+            <run-once enabled="false">
+                <date>2024-04-04Z</date>
+                <time>05:25:00.000Z</time>
+            </run-once>
+        </triggers>
+    </job>
+    <job job-id="AfterpayOrderProcess" priority="1">
+        <description/>
+        <parameters/>
+        <flow>
+            <context site-id="RefArch"/>
+            <step step-id="AfterpayOrderProcess" type="ExecuteScriptModule" enforce-restart="false">
+                <description/>
+                <parameters>
+                    <parameter name="ExecuteScriptModule.Module">int_afterpay_core/cartridge/scripts/job/afterpayCheckPaymentStatus.js</parameter>
+                    <parameter name="ExecuteScriptModule.FunctionName">execute</parameter>
+                    <parameter name="ExecuteScriptModule.Transactional">false</parameter>
+                </parameters>
+            </step>
+        </flow>
+        <rules/>
+        <triggers>
+            <run-once enabled="true">
+                <date>2018-03-27Z</date>
+                <time>21:14:58.000Z</time>
+            </run-once>
+        </triggers>
+    </job>
 </jobs>
