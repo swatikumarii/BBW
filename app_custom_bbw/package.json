@@ -70,6 +70,7 @@
     "adyen": "../adyen-salesforce-commerce-cloud/cartridges/int_adyen_SFRA"
   },
   "dependencies": {
+    "intl-tel-input": "^21.1.4",
     "@devmobiliza/videojs-vimeo": "^0.6.0",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.1.0",
