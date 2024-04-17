@@ -211,7 +211,7 @@
             }
 
             &.active .level-1-link.dropdown-toggle {
-                border-left: 0.25rem solid #005699;
+                border-left: 0.25rem solid colour(blue);
 
                 &::after {
                     transform: rotate(1turn);
