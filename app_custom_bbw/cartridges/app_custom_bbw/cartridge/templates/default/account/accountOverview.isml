@@ -1,0 +1,49 @@
+<iscomment>
+    <isdecorate template="account/pt_account" />
+</iscomment>
+<iscomment>
+    <isinclude template="components/modules" />
+</iscomment>
+
+<isslot id="account-banner" description="Banner for My Account pages" context="global" />
+<div class="account-profile">
+    <div class="profile-heading">
+        <h1 class="title mb-0">
+            ${Resource.msg('account.header', 'account', null)}
+            <isprint value="${pdict.CurrentCustomer.profile.firstName}" />
+        </h1>
+        <p class="nav-item" role="presentation">
+            <a href="${URLUtils.url('Login-Logout')}" role="menuitem" tabindex="0">${Resource.msg('link.account.logout', 'account', null)}</a>
+        </p>
+    </div>
+    <div class="content-asset">
+        <ul class="account-options">
+            <li>
+                <a title="${Resource.msg('label.info.title', 'account', null)}" href="${URLUtils.url('Account-EditProfile')}">
+                    ${Resource.msg('label.info', 'account', null)}</a>
+                <p>${Resource.msg('label.info.title', 'account', null)}</p>
+            </li>
+            <li>
+                <a title="${Resource.msg('label.orderhistory.title', 'account', null)}" href="${URLUtils.url('Order-History')}">
+                    ${Resource.msg('label.orderhistory', 'account', null)}</a>
+                <p>${Resource.msg('label.orderhistory.title', 'account', null)}</p>
+            </li>
+            <li>
+                <a title="${Resource.msg('label.payment.title', 'account', null)}"
+                    href="${URLUtils.url('Order-History')}">
+                    ${Resource.msg('label.payment', 'account', null)}</a>
+                <p>${Resource.msg('label.payment.title', 'account', null)}</p>
+            </li>
+            <li>
+                <a title="${Resource.msg('label.address.title', 'account', null)}" href="${URLUtils.url('Address-List')}">
+                    ${Resource.msg('label.address', 'account', null)}</a>
+                <p>${Resource.msg('label.address.title', 'account', null)}</span></p>
+            </li>
+            <li>
+                <a title="${Resource.msg('label.wishlist.title', 'account', null)}" href="${URLUtils.url('Account-EditProfile')}">
+                    ${Resource.msg('label.wishlist', 'account', null)}</a>
+                <p>${Resource.msg('label.wishlist.title', 'account', null)}</span></p>
+            </li>
+        </ul>
+    </div>
+</div>

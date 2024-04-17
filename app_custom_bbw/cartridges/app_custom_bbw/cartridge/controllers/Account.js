@@ -7,6 +7,82 @@
 var server = require('server');
 server.extend(module.superModule);
 
+var URLUtils = require('dw/web/URLUtils');
+var Resource = require('dw/web/Resource');
+
+/**
+ * Append Account-Show controller: Update breadcrumbs
+ */
+server.append('Show', function (req, res, next) {
+    var viewData = res.getViewData();
+    var breadcrumbs = [
+        {
+            htmlValue: Resource.msg('global.home', 'common', null),
+            url: URLUtils.home().toString()
+        },
+        {
+            htmlValue: Resource.msg('page.title.myaccount', 'account', null),
+            url: URLUtils.url('Account-Show').toString()
+        }
+    ];
+    viewData.breadcrumbs = breadcrumbs;
+
+    res.setViewData(viewData);
+
+    next();
+});
+
+/**
+ * Account-EditProfile : The Account-EditProfile endpoint is use with append function to append
+ * custom profile param to load on profile page
+ */
+
+server.append('EditProfile', function (req, res, next) {
+    var viewData = res.getViewData();
+
+   
+    // function setValueForm(profile) {
+    //     var value = {
+    //         birthday: profile.birthday,
+    //         emailconfirm: profile.email
+    //     };
+    //     return value;
+    // }
+
+    // var accountHelpers = require('*/cartridge/scripts/account/accountHelpers');
+    // var accountModel = accountHelpers.getAccountModel(req);
+
+    // var viewData = res.getViewData();
+    // var profileModel = setValueForm(accountModel.profile);
+
+    // var pageMetaData = req.pageMetaData;
+    // var updatedPageMetaData = commonFunctions.updatePageMetaData(
+    //     pageMetaData,
+    //     'account.profile.title'
+    // );
+
+
+    var breadcrumbs = [
+        {
+            htmlValue: Resource.msg('global.home', 'common', null),
+            url: URLUtils.home().toString()
+        },
+        {
+            htmlValue: Resource.msg('page.title.myaccount', 'account', null),
+            url: URLUtils.url('Account-Show').toString()
+        },
+        {
+            htmlValue: Resource.msg('label.profile.info', 'account', null),
+            url: URLUtils.url('Account-EditProfile').toString()
+        }
+    ];
+
+    viewData.breadcrumbs = breadcrumbs;
+    res.setViewData(viewData);
+
+    next();
+});
+
 
 /**
  * Account-Login : The Account-Login endpoint will render the shopper's account page. Once a shopper logs in they will see is a dashboard that displays profile, address, payment and order information.

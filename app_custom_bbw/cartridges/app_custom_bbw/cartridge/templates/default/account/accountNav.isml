@@ -1,0 +1,36 @@
+<ul>
+    <li>
+        <span></span>
+            ${Resource.msg('label.myaccount', 'account', null)}
+    </li>
+    <li>
+        <span></span>
+        <a title="${Resource.msg('label.info.title', 'account', null)}" href="${URLUtils.url('Account-EditProfile')}">
+            ${Resource.msg('label.info', 'account', null)}
+        </a>
+    </li>
+    <li>
+        <span></span>
+        <a title="${Resource.msg('label.orderhistory.title', 'account', null)}" href="${URLUtils.url('Order-History')}">
+            ${Resource.msg('label.orderhistory', 'account', null)}
+        </a>
+    </li>
+    <li>
+        <span></span>
+        <a title="${Resource.msg('label.payment.title', 'account', null)}" href="${URLUtils.url('Order-History')}">
+            ${Resource.msg('label.payment', 'account', null)}
+        </a>
+    </li>
+    <li>
+        <span></span>
+        <a title="${Resource.msg('label.address.title', 'account', null)}" href="${URLUtils.url('Address-List')}">
+            ${Resource.msg('label.address', 'account', null)}
+        </a>
+    </li>
+    <li>
+        <span></span>
+        <a title="${Resource.msg('label.wishlist.title', 'account', null)}" href="${URLUtils.url('Account-EditProfile')}">
+            ${Resource.msg('label.wishlist', 'account', null)}
+        </a>
+    </li>
+</ul>
