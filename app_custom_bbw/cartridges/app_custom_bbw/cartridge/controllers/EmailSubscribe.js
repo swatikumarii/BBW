@@ -48,7 +48,7 @@ server.replace('Subscribe', function (req, res, next) {
         if (!verifyCaptcha) {
             res.json({
                 error: true,
-                msg: Resource.msg('error.message.recaptcha', 'homePage', null)
+                msg: Resource.msg('error.message.recaptcha', 'common', null)
             });
             this.emit('route:Complete', req, res);
             return;

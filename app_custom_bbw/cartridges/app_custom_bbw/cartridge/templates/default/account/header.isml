@@ -1,9 +1,6 @@
 <isif condition="${pdict.name === null}">
     <div class="user hidden-md-down">
-        <a href="${URLUtils.https('Login-Show')}" role="button"
-            aria-label="${Resource.msg('label.header.loginbutton', 'account', null)}">
-            <img class="w-100" src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
-                alt="${Resource.msg('global.storename', 'common', null)}" /> </a>
+        <button id="loginPopupBtn" type="button" class="btn btn-block btn-primary">${Resource.msg('button.text.loginform', 'login', null)}</button>
     </div>
 <iselse/>
     <div class="user hidden-md-down nav-item">
@@ -30,4 +27,7 @@
             </ul>
         </div>
     </div>
+</isif>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha') == true}">
+    <isinclude template="/common/googleRecaptcha" />
 </isif>

@@ -14,10 +14,11 @@ $(document).ready(function () {
     processInclude(require('./components/footer'));
     processInclude(require('base/components/miniCart'));
     processInclude(require('base/components/collapsibleItem'));
-    processInclude(require('base/components/search'));
+    processInclude(require('./components/search'));
     processInclude(require('base/components/clientSideValidation'));
     processInclude(require('base/components/countrySelector'));
     processInclude(require('base/components/toolTip'));
+    processInclude(require('./components/header'));
 });
 
 require('./thirdParty/bootstrap');
