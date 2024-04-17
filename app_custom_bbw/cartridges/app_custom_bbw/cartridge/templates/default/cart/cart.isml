@@ -4,7 +4,6 @@
         assets.addJs('/js/afterpay.js');
         assets.addCss('/css/cart.css');
         assets.addCss('/css/afterpaystyle.css');
-        assets.addJs('/js/cart.js');
     </isscript>
 
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
