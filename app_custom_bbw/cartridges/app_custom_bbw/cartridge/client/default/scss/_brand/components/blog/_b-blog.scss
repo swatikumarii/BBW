@@ -4,7 +4,7 @@
         height: auto;
 
         @include media-up(sm) {
-            width: 95%;
+            width: 100%;
         }
     }
 
@@ -86,8 +86,6 @@
             font-size: 1.5rem;
             line-height: 1.75;
             margin: 10px auto;
-            font-weight: 800;
-            text-transform: uppercase;
             color: colour(black);
             letter-spacing: 5px;
             width: 95%;
@@ -108,20 +106,15 @@
 
             h3 {
                 font-size: 1.2rem;
-                text-transform: uppercase;
                 line-height: 1.125;
                 margin: 10px 0;
-                font-weight: 600;
             }
 
             p {
-                font-size: 1rem;
                 line-height: 1.75;
-                color: #666;
-                font-weight: 400;
-                margin-top: 10px;
-                height: 55px;
-                max-height: 60px;
+                margin-top: 0.625rem;
+                height: 3.4375rem;
+                max-height: 3.75rem;
             }
 
             .read-button {
@@ -148,13 +141,9 @@
         border: 3px solid colour(black);
         padding: 0;
         margin: 3% auto;
-        height: 40px;
-        line-height: 35px;
-        text-transform: uppercase;
-        font-size: 16px;
-        font-weight: 600;
-        text-align: center;
-        letter-spacing: 1px;
+        height: 2.5rem;
+        line-height: 2.1875rem;
+        letter-spacing: 0.0625rem;
         background-color: transparent;
         color: colour(black, 3);
 
@@ -163,13 +152,9 @@
             padding: 0;
             margin: 3% auto;
             width: 11%;
-            height: 40px;
-            line-height: 35px;
-            text-transform: uppercase;
-            font-size: 16px;
-            font-weight: 600;
-            text-align: center;
-            letter-spacing: 1px;
+            height: 2.5rem;
+            line-height: 2.1875rem;
+            letter-spacing: 0.0625rem;
             background-color: transparent;
             color: colour(black, 3);
         }
@@ -182,9 +167,13 @@
 
 // ------/safe-shopping-guidelines--------
 .safety-content {
-    padding: 0 0 20px 0;
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
+
+    @include media-up(sm) {
+        padding: 0 0 20px;
+        width: 80%;
+        margin: 0 auto;
+    }
 
     .safety-image {
         .desk_view {
@@ -202,5 +191,375 @@
                 display: none;
             }
         }
+    }
+}
+
+// -------ootd-fragrance------
+.body-care-content {
+    .stephead {
+        width: 85%;
+        margin: 0 auto;
+        padding: 2%;
+
+        .stephead-p {
+            margin: 0 auto;
+            line-height: 1.5;
+            color: colour(gray);
+            width: 80%;
+            letter-spacing: 0.3px;
+
+            .anchor-list {
+                text-decoration: underline;
+            }
+        }
+
+        .shop-cta {
+            background: #b79051;
+            border: 1px solid #b79051;
+            color: colour(black);
+            text-decoration: none;
+            padding: 10px 40px;
+            margin: 2% auto;
+            width: 30%;
+
+            &:hover {
+                border: 1px solid colour(black);
+            }
+        }
+    }
+}
+
+// -------home-decor--------
+.bodycare-text-section {
+    .bc-description {
+        h2 {
+            font-size: 1.5rem;
+            line-height: 1.125;
+            margin: 20px 0;
+        }
+
+        p {
+            line-height: 1.75;
+            color: colour(gray);
+
+            a {
+                text-decoration: underline;
+            }
+        }
+
+        .desc_subhead {
+            line-height: 1.75;
+            color: colour(black, 3);
+            margin-top: 10px;
+
+            a {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+// -----------cny-wellness-collection----
+.shop-by-fragnance-submain {
+    .headparagraph {
+        font-size: 1.625rem;
+        margin: 5% auto;
+        color: colour(black);
+        width: 78%;
+        line-height: 1.2;
+    }
+}
+
+.stepcontent {
+    width: 100%;
+
+    @include media-up(sm) {
+        width: 85%;
+        margin: 0 auto;
+        padding: 4% 0;
+    }
+
+    .stepcontent-sec {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+
+        @include media-up(sm) {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 0 auto;
+        }
+
+        .img {
+            width: 100%;
+
+            @include media-up(sm) {
+                width: 44%;
+            }
+        }
+
+        .txt {
+            width: 100%;
+            margin: 0 auto;
+            padding: 8% 5%;
+
+            @include media-up(sm) {
+                width: 56%;
+                margin: 0 auto;
+                padding: 8% 5%;
+            }
+
+            .txt-h {
+                font-size: 1.625rem;
+                letter-spacing: -0.5px;
+                color: #b21e34;
+            }
+
+            .txt-p {
+                color: colour(black, 3);
+                line-height: 1.5;
+
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .flexrev {
+        display: flex;
+        flex-direction: column-reverse;
+
+        @include media-up(sm) {
+            flex-direction: row;
+        }
+    }
+}
+
+.shop-by-fragrance-section1 {
+    .stephead {
+        width: 100%;
+
+        @include media-up(sm) {
+            width: 85%;
+            margin: 0 auto;
+            padding: 2%;
+        }
+
+        .stephead-p {
+            margin: 0 auto;
+            line-height: 1.5;
+            color: colour(gray);
+            width: 80%;
+            letter-spacing: 0.3px;
+        }
+
+        .shop-cta {
+            background: #b79051;
+            border: 1px solid #b79051;
+            color: colour(black);
+            text-decoration: none;
+            padding: 10px 40px;
+            margin: 2% auto;
+            width: 30%;
+
+            &:hover {
+                border: 1px solid colour(black);
+            }
+        }
+    }
+}
+
+// -----------Choose-your-scent-----
+.description-list {
+    li {
+        line-height: 1.75;
+        color: colour(black, 3);
+        margin-top: 0.625rem;
+        margin-left: 3.125rem;
+    }
+}
+
+.obsession-list {
+    color: colour(gray);
+}
+
+// ------find-your-wellness-----
+.content {
+    display: block;
+
+    @include media-up(sm) {
+        display: flex;
+        justify-content: center;
+    }
+
+    img {
+        margin: 20px;
+    }
+
+    .sub-content {
+        .sub {
+            margin: 1% 15%;
+        }
+
+        .start {
+            margin: 2%;
+            color: #102818;
+            text-decoration: underline;
+        }
+    }
+}
+
+// ------fine-fragrance-mist------
+.bodycare-text-section {
+    margin-bottom: 50px;
+    width: 98%;
+
+    @include media-up(sm) {
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 100px;
+    }
+
+    .fragrance-desc {
+        max-width: 100%;
+
+        @include media-up(sm) {
+            max-width: 90%;
+            margin: 0 auto;
+        }
+    }
+}
+
+// ---------tbc day-------
+.shop-by-fragrance-section1 {
+    width: 85%;
+    margin: 0 auto;
+    padding: 0;
+    margin-bottom: 10px;
+
+    .contentsection {
+        z-index: 1;
+        top: 0;
+
+        h2 {
+            font-size: 115px;
+            margin: 3% 6%;
+            min-height: 44px;
+            line-height: 0.2;
+            color: colour(black, 3);
+            margin-top: 7%;
+        }
+
+        .head2 {
+            font-size: 50px;
+            margin: 0 auto;
+            line-height: 0;
+            color: #dd0493;
+            letter-spacing: 4px;
+        }
+    }
+
+    .headparagraph {
+        margin: 5% auto;
+        width: 78%;
+        line-height: 1.2;
+    }
+}
+
+.stephead {
+    margin: 0 auto;
+    padding: 2%;
+
+    .stephead-h {
+        margin: 0 auto;
+        line-height: 1.1;
+        color: #cb1595;
+    }
+
+    .stephead-p {
+        margin: 0 auto;
+        line-height: 1.5;
+        width: 80%;
+        letter-spacing: 0.3px;
+    }
+}
+
+.stephead2 {
+    width: 73%;
+    background: unset;
+
+    .stephead-h {
+        color: #dd0493;
+        line-height: 1.7;
+        letter-spacing: -1px;
+    }
+
+    .stephead-p {
+        line-height: 1.5;
+    }
+}
+
+.stepcontent-sec {
+    .splcase1 {
+        padding-bottom: 15%;
+    }
+
+    .heading-txt {
+        color: #dd0493;
+        letter-spacing: 2px;
+        line-height: 2.125rem;
+    }
+
+    .col-list {
+        li {
+            line-height: 1.5;
+            list-style-type: disc;
+            list-style-position: inside;
+        }
+    }
+}
+
+.container_imge {
+    gap: 0;
+
+    @include media-up(sm) {
+        gap: 18px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+.finalstep {
+    .signup-btn {
+        padding: 1.5%;
+        border: 1px solid #dd0493;
+        margin: 2% auto;
+        width: 30%;
+        background: #dd0493;
+        letter-spacing: 2px;
+
+        &:hover {
+            background: colour(black);
+            border: 1px solid colour(black);
+        }
+    }
+}
+
+// ---------discover the charm-------
+.pink-text {
+    color: #ec3fa8 !important;
+}
+
+.fragrance-cta {
+    background: #ec3fa8;
+    padding: 10px 40px;
+    margin: 2% auto;
+    width: 30%;
+
+    &:hover {
+        border: 1px solid colour(black);
     }
 }

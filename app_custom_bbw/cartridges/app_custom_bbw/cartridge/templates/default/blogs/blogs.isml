@@ -38,7 +38,7 @@
                         <div class="head-img d-flex align-items-center">
                             <img class="folder_content" width="100%" src="${folder.custom.image.absURL}"
                                 alt="${folder.displayName}" />
-                            <h2 class="head-feature">${folder.displayName}</h2>
+                            <h2 class="head-feature text-uppercase  h-fw--bold">${folder.displayName}</h2>
                         </div>
                     </isif>
 
@@ -48,8 +48,8 @@
                                 <img class="blogImage w-100"
                                     src="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/banners/Get-Inspired/get-inspire/featured/Featured_tile_01.jpg"
                                     alt="${content.name}" />
-                                <h3>${content.name}</h3>
-                                <p class="mb-0">${content.description}</p>
+                                <h3 class="text-uppercase h-fw--semibold">${content.name}</h3>
+                                <p class="mb-0 h-clr--gray h-fw--normal h-font-size--16">${content.description}</p>
                                 <a class="btn btn-primary read-button"
                                     href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
                                     <span>${Resource.msg('button.read.more', 'common', null)}</span>
@@ -60,7 +60,7 @@
                     <isif condition="${folder.onlineContent.length > 4}">
                         <div class="text-center">
                             <button type="button"
-                                class="btn btn-primary show-more-btn">${Resource.msg('button.show.more', 'common', null)}</button>
+                                class="btn btn-primary show-more-btn h-font-size--16 text-uppercase h-fw--semibold text-center">${Resource.msg('button.show.more', 'common', null)}</button>
                         </div>
                     </isif>
                 </div>
