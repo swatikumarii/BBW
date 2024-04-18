@@ -1,6 +1,6 @@
 'use strict';
 
-var base = require('base/product/base');
+var base = require('./base');
 
 /**
  * Generates the modal window on the first call.

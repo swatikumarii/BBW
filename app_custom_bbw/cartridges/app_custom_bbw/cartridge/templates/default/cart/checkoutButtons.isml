@@ -102,7 +102,7 @@
     var isExpressCheckoutFinalize = require('*/cartridge/scripts/util/afterpaySession').isExpressCheckoutFinalizeFlow();
     var afterpayExpressCheckoutCartEnabled = sitePreferences.isExpressCheckoutCartEnabled();
     var AfterpayCOHelpers = require('*/cartridge/scripts/checkout/afterpayCheckoutHelpers');
-    var afterpayExpressPickupEnabled = require('~/cartridge/scripts/checkout/afterpayRefArchCheckoutHelpers').shouldEnableExpressPickupMode();
+    var afterpayExpressPickupEnabled = require('*/cartridge/scripts/checkout/afterpayRefArchCheckoutHelpers').shouldEnableExpressPickupMode();
     var afterpayExpressCheckoutBuyNowEnabled = sitePreferences.isExpressCheckoutBuyNowEnabled();
     var afterpayExpressCheckoutShippingStrategy = sitePreferences.getExpressCheckoutShippingStrategy() == 'integrated';
     var disableAfterpayPaymentMethod = ! AfterpayCOHelpers.isBasketAmountWithinThreshold();
