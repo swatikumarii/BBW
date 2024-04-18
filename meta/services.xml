@@ -111,11 +111,10 @@
         <password/>
     </service-credential>
 
-
     <service-credential service-credential-id="afterpay.credentials.AU.v2">
         <url>https://global-api-sandbox.afterpay.com/v2/</url>
-        <user-id/>
-        <password masked="true">********</password>
+        <user-id>41184</user-id>
+        <password>ca07875d7fce2af76540b96a0fc5b4702d8b0cfd840ffd75ea49c76727a9f88813191cbadec00756432ecc41c90b04507f28a8c81dc5b8d9b97b21e037013cd4</password>
     </service-credential>
 
     <service-credential service-credential-id="afterpay.credentials.CA.v2">
