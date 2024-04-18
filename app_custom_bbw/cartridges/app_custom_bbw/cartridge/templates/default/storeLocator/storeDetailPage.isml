@@ -1,0 +1,52 @@
+<isdecorate template="storeLocator/layout/storeDetailLayout">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        if (pdict.googleMapsApi) {
+            assets.addJs(pdict.googleMapsApi);
+        }
+        assets.addJs('/js/storeLocatorDetailPage.js');
+        assets.addCss('/css/storeLocator.css');
+    </isscript>
+    <isif condition="${pdict.showMap == true}">
+        <div>
+            <div class="jumbotron map-canvas" id="mapfordetail" data-has-google-api="${pdict.googleMapsApi ? true : false}"
+                data-locations="${pdict.storeDetail.locations}" data-latitude="${pdict.storeDetail.latitude}" data-longitude="${pdict.storeDetail.longitude}">
+                <div class="container">
+                    <div class="row">
+                        <p class="store-locator-no-api-key alert alert-danger">
+                            ${Resource.msg('error.no.api.key', 'storeLocator', null)}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="store-details" data-store-id="${pdict.storeDetail.ID}">
+            <div class="store-name">${pdict.storeDetail.name}</div>
+                <address>
+                    <a class="store-map" target='_blank' href="https://maps.google.com/?daddr=${pdict.storeDetail.latitude},${pdict.storeDetail.longitude}">
+                        ${pdict.storeDetail.address1}
+                        <isif condition="${pdict.storeDetail.address2}">
+                            ${pdict.storeDetail.address2}
+                        </isif>
+                        <isif condition="${pdict.storeDetail.city}">
+                            ${pdict.storeDetail.city},
+                        </isif>
+                        <isif condition="${pdict.storeDetail.stateCode}">
+                            ${pdict.storeDetail.stateCode}
+                        </isif>
+                        ${pdict.storeDetail.postalCode}
+                    </a>
+                    <div class="store-hours">
+                        <isif condition="${pdict.storeDetail.storeHours}">
+                            <isprint value="${pdict.storeDetail.storeHours}" encoding="off"/>
+                        </isif>
+                    </div>
+                    <p>
+                        <isif condition="${pdict.storeDetail.phone}">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span><a class="storelocator-phone" href="tel:${pdict.storeDetail.phone}">${pdict.storeDetail.phone}</a></span>
+                        </isif>
+                    </p>
+                </address>
+            </div>
+        </div>
+    </isif>
+</isdecorate>
