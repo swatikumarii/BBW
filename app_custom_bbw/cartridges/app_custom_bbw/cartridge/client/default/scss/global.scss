@@ -14,6 +14,8 @@
 // Vendors OR Third Party
 
 @import "vendors/bootstrap";
+@import "vendors/slickSlider/slick-theme";
+@import "vendors/slickSlider/slick";
 
 /// # Fonts and other Global style
 
@@ -22,3 +24,5 @@
 // Brand Components
 
 @import "_brand/components/all";
+
+@import "intl-tel-input/build/css/intlTelInput.css";

@@ -231,3 +231,13 @@
         background: transparent !important;
     }
 }
+
+// Container Helper Class
+.h-container {
+    margin: auto auto 48px;
+    padding: 0 16px;
+
+    @include media-up(md) {
+        margin-bottom: 56px;
+    }
+}

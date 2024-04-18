@@ -28,14 +28,8 @@
         </div>
 
         <div class="pull-right forgot-password text-right">
-            <a class="d-sm-none" href="${URLUtils.url('Account-PasswordReset')}"
+            <a class="d-sm" href="${URLUtils.url('Account-PasswordReset')}"
                 title="${Resource.msg('link.login.forgotpassword', 'login', null)}">
-                ${Resource.msg('link.login.forgotpassword', 'login', null)}
-            </a>
-
-            <a id="password-reset" class="hidden-xs-down"
-                title="${Resource.msg('link.login.forgotpassword', 'login', null)}" data-toggle="modal"
-                href="${URLUtils.url('Account-PasswordResetDialogForm')}" data-target="#requestPasswordResetModal">
                 ${Resource.msg('link.login.forgotpassword', 'login', null)}
             </a>
         </div>
@@ -43,19 +37,16 @@
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
-        <isset name="dataCallback" value="submitLogin" scope="page" />
-        <isset name="dataErrorCallback" value="checkRecaptcha" scope="page" />
-        <isinclude template="/common/reCaptcha" />
         <div class="login-btn register-btn">
-            <button id="gcaptchabtn" type="button"
-                class="btn btn-block btn-primary">${Resource.msg('button.text.loginform', 'login', null)}</button>
+            <button 
+                data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}" 
+                data-callback="submitLogin" 
+                data-action="submit"
+                class="btn btn-block btn-primary g-recaptcha">${Resource.msg('button.text.loginform', 'login', null)}</button>
         </div>
     <iselse/>
         <div class="login-btn register-btn">
-            <button type="button" class="btn btn-block btn-primary">${Resource.msg('button.text.loginform', 'login', null)}</button>
+            <button type="submit" class="btn btn-block btn-primary">${Resource.msg('button.text.loginform', 'login', null)}</button>
         </div>
     </isif>
 </form>
-<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha') == true}">
-    <isinclude template="/common/googleRecaptcha" />
-</isif>

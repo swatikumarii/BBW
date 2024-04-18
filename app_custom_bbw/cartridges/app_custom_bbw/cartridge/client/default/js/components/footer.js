@@ -1,6 +1,8 @@
+// Required
+
 'use strict';
 
-var scrollAnimate = require('base/components/scrollAnimate');
+// var scrollAnimate = require('base/components/scrollAnimate');
 
 /**
  * appends params to a url
@@ -38,27 +40,32 @@ function displayMessage(data, button) {
  * @param {string} token - reCAPTCHA token
  */
 function newsLetter(token) {
-    var url = $('.subscribe-email').data('href');
+    var url = $('.newsletter').data('href');
     var button = $('.subscribe-email');
     var emailId = $('input[name=hpEmailSignUp]').val();
+    var data = { emailId: emailId };
+    if (token) {
+        data = {
+            emailId: emailId,
+            'g-recaptcha-response': token
+        };
+    }
     $.spinner().start();
     $('form.newsletter').attr('disabled', true);
     $.ajax({
         url: url,
         type: 'post',
         dataType: 'json',
-        data: {
-            emailId: emailId,
-            'g-recaptcha-response': token,
-        },
-        success: function (data) {
-            displayMessage(data, button);
+        data: data,
+        success: function (dataRes) {
+            displayMessage(dataRes, button);
         },
         error: function (err) {
             displayMessage(err, button);
         }
     });
 }
+
 
 window.submitNewsLetter = function (token) {
     return new Promise(function (resolve, reject) {
@@ -105,12 +112,7 @@ window.initializeRecaptcha = function () {
     });
 };
 
-module.exports = function () {
-    $('.back-to-top').click(function () {
-        scrollAnimate();
-    });
-};
-
+// Initialize popover
 // Initialize popover 
 $('[data-toggle="popover"]').popover({
     placement: 'top',
@@ -126,3 +128,32 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
 $(document).on('click', '.popover .close', function () {
     $(this).parents('.popover').popover('hide');
 });
+
+/**
+ * Back To Top - Click
+ */
+
+var scrolltotop = $('.js-scrolltotop');
+
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 100) { // Adjust the value according to requirement
+        scrolltotop.fadeIn();
+    } else {
+        scrolltotop.fadeOut();
+    }
+});
+
+// Scroll to top when the button is clicked
+
+$('.js-scrolltotop').on('click', function () {
+    $('html, body').animate({
+        scrollTop: $('body').offset().top
+    }, 800);
+});
+
+module.exports = function () {
+    $('.subscribe-email').on('click', function (e) {
+        e.preventDefault();
+        newsLetter();
+    });
+};

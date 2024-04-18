@@ -1,0 +1,65 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/login.css');
+        assets.addJs('/js/fragranceName.js');
+    </isscript>
+    <div class="row">
+        <div class="col-md-8 offset-md-4 ">
+            <h1>${Resource.msg('shop.by.fragrance.title', 'fragrance', null)}</h1>
+            <p class="center text-live">${Resource.msg('shop.by.fragrance.sub', 'fragrance', null)}</p>
+        </div>
+        <div class="col-md-8 offset-md-2">
+            <h2 class="subtitle ml-2">${Resource.msg('shop.by.fragrance.categories.title', 'fragrance', null)}</h2>
+            <p class="note ml-2">${Resource.msg('shop.by.fragrance.categories.sub', 'fragrance', null)}</p>
+            <ul class="clearfix" role="list">
+                <isloop iterator="${pdict.fragranceCategories}" alias="fragranceCategories" status="loopstate">
+                    <li class="new-row">
+                        <a href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceCategory', 'prefv1', fragranceCategories.fragrance)}">
+                            <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, fragranceCategories.image)}" alt="${fragranceCategories.fragrance}">
+                        </a>
+                    </li>
+                </isloop>
+            </ul>
+        </div>
+
+        <div class="col-md-8 offset-md-2 mt-5">
+            <h2 class="subtitle ml-2">${Resource.msg('shop.by.fragrance.name.title', 'fragrance', null)}</h2>
+            <p class="note ml-2">${Resource.msg('shop.by.fragrance.name.sub1', 'fragrance', null)}</p>
+            <p class="note ml-2">
+                <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, '/images/shop-by-fragrance/top-badge-lrg-2.svg')}"
+                alt="top-fragrance"> ${Resource.msg('shop.by.fragrance.name.sub2', 'fragrance', null)}</p>
+            <isif condition="${!empty(pdict.fragranceNames)}">
+                <div class="fragrance-header-search">
+                    <div class="fragrance-search search-wrapper">
+                        <fieldset>
+                            <input type="text" id="search-input" name="search-input" autocomplete="off" />
+                        </fieldset>
+                    </div>
+                </div>
+                <ul class="clearfix" role="list">
+                    <isset name="previousAlphabet" value="0" scope="page" />
+                    <isloop iterator="${pdict.fragranceNames}" alias="fragranceNames" status="loopstate">
+                        <isif condition="${previousAlphabet !== fragranceNames.alphabet}">
+                            <div id="${fragranceNames.alphabet}" class="level-1-${fragranceNames.alphabet}">
+                                <h3 class="title">${fragranceNames.alphabet}</h3>
+                                <div class="alphabet-border"></div>
+                            </div>
+                        </isif>
+                            <li class="level-2">
+                                <a
+                                    href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragranceNames.name)}" data-fragrancename="${fragranceNames.name}">
+                                    ${fragranceNames.name}</a>
+                                <isif condition="${fragranceNames.topFragrance}">
+                                <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, '/images/shop-by-fragrance/top-badge-lrg-2.svg')}" alt="top-fragrance"></isif>
+                            </li>
+                        <isset name="previousAlphabet" value="${fragranceNames.alphabet}" scope="page" />
+                    </isloop>
+                </ul>
+                <div class="noresult" id="noresult">${Resource.msg('shop.by.fragrance.name.noresult', 'fragrance', null)}</div>
+            <iselse>
+                <div class="nofragrance">${Resource.msg('shop.by.fragrance.name.empty', 'fragrance', null)}</div>
+            </isif>
+        </div>
+    </div>
+</isdecorate>

@@ -1,3 +1,4 @@
+<script defer type="text/javascript" src="${URLUtils.staticURL('/js/login.js')}"></script>
 <div class="modal fade hide" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -11,22 +12,13 @@
                 <div class="col-sm-8 col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <div class="login-form-nav">
-                                <isinclude template="account/components/navTabs" />
-                                <div class="tab-content">
-                                    <div class="tab-pane ${pdict.navTabValue === 'login' ? 'active' : ''}" id="login"
-                                        role="tabpanel" aria-labelledby="login-tab">
-                                        <iscomment>
-                                            <isinclude template="account/components/loginForm" />
-                                            <isinclude template="account/password/requestPasswordResetModal" />
-                                            <isinclude template="account/components/oauth" />
-                                        </iscomment>
-                                    </div>
-                                    <div class="tab-pane ${pdict.navTabValue === " register" ? 'active' : ''}"
-                                        id="register" role="tabpanel" aria-labelledby="register-tab">
-                                        <isinclude template="account/components/registerForm" />
-                                    </div>
-                                </div>
+                            <isinclude template="account/components/loginForm" />
+                            <a href="${'#'}">
+                                ${Resource.msg('link.privacypolicy.registration', 'registration', null)}
+                            </a>
+                            <div>
+                                <a href="${URLUtils.https('Login-Show')}" role="button"
+                                aria-label="${Resource.msg('label.header.signup', 'common', null)}" >${Resource.msg('label.header.signup', 'common', null)}</a>
                             </div>
                         </div>
                     </div>
