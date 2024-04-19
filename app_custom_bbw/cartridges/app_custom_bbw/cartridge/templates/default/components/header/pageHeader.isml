@@ -63,9 +63,9 @@
             <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
         </div>
     </nav>
-    <div class="ticker-wrapper w-100 text-center h-font-size--16 h-bg--blue-3 h-clr--blue-4">
-        <iscontentasset aid="header-ticker" />
-    </div>
 </header>
+<div class="ticker-wrapper w-100 text-center h-font-size--16 h-bg--blue-3 h-clr--blue-4">
+    <iscontentasset aid="header-ticker" />
+</div>
 <div class="search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>
 <iscomment> <div class="mobile-search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>/ </iscomment>
