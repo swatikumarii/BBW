@@ -1,6 +1,9 @@
 'use strict';
 
 var baselogin = require('base/login/login');
+var formValidation = require('../components/formValidation');
+var createErrorNotification = require('base/components/errorNotification');
+var location = window.location;
 
 window.submitLogin = function (token) {
     return new Promise(function (resolve, reject) {
@@ -28,42 +31,47 @@ window.submitRegistration = function (token) {
     });
 };
 
-window.checkRecaptcha = function () {
-    grecaptcha.reset();
-    // Fire reCaptcha
-    grecaptcha.execute();
-    // Fire desired behavior AFTER reCaptcha is complete
-    window.submitRegistration();
-    window.submitLogin();
-};
 /**
- * To execute reCAPTCHA
+ *  To register user
  */
-function executeRecaptcha() {
-    grecaptcha.execute();
+function register() {
+    $('form.registration').submit(function (e) {
+        var form = $(this);
+        e.preventDefault();
+        var url = form.attr('action');
+        form.spinner().start();
+        $('form.registration').trigger('login:register', e);
+        $.ajax({
+            url: url,
+            type: 'post',
+            dataType: 'json',
+            data: form.serialize(),
+            success: function (data) {
+                form.spinner().stop();
+                if (!data.success) {
+                    $('form.registration').trigger('login:register:error', data);
+                    formValidation(form, data);
+                } else {
+                    $('form.registration').trigger('login:register:success', data);
+                    location.href = data.redirectUrl;
+                }
+            },
+            error: function (err) {
+                if (err.responseJSON.redirectUrl) {
+                    window.location.href = err.responseJSON.redirectUrl;
+                } else {
+                    createErrorNotification($('.error-messaging'), err.responseJSON.errorMessage);
+                }
+
+                form.spinner().stop();
+            }
+        });
+        return false;
+    });
 }
-window.initializeRecaptcha = function () {
-    $('.login #gcaptchabtn').on('click', executeRecaptcha);
-    $('.login').on('keypress', function (event) {
-        // If the user presses the "Enter" key on the keyboard
-        if (event.key === 'Enter') {
-            // Cancel the default action, if needed
-            event.preventDefault();
-            // Trigger the button element with a click
-            $('.loginForm #gcaptchabtn').click();
-        }
-    });
-    $('.registration #gcaptchabtn').on('click', executeRecaptcha);
-    $('.registration').on('keypress', function (event) {
-        // If the user presses the "Enter" key on the keyboard
-        if (event.key === 'Enter') {
-            // Cancel the default action, if needed
-            event.preventDefault();
-            // Trigger the button element with a click
-            $('.registration #gcaptchabtn').click();
-        }
-    });
-};
-var exportDetails = $.extend({}, baselogin);
+
+var exportDetails = $.extend({}, baselogin, {
+    register: register
+});
 
 module.exports = exportDetails;

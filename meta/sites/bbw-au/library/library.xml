@@ -4,32 +4,11 @@
         <online-flag>true</online-flag>
         <page-attributes/>
     </folder>
-	
-   <content content-id="footer-account">
-        <display-name xml:lang="x-default">My account</display-name>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
-    &lt;button class="title footer-list-title h-fw--bold h-clr--black text-left btn-block d-md-none footer-collapse collapsed cursor-pointer h-font-size--14" aria-expanded="false" aria-controls="collapsible-account" data-toggle="collapse" data-target="#collapsible-account"&gt;MY ACCOUNT&lt;/button&gt;&#13;
-    &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-account"&gt;&#13;
-        &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block  h-clr--black-1 h-fw--bold"&gt;MY ACCOUNT&lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16 "&gt;Sign In or Sign Up&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Order Tracking&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;My Account&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;My Love-It List&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-    &lt;/ul&gt;&#13;
-&lt;/div&gt;</custom-attribute>
-        </custom-attributes>
-    </content>
 
-     <content content-id="footer-copyright">
+    <content content-id="footer-copyright">
         <display-name xml:lang="x-default">Copyright</display-name>
         <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="sub-footer"&gt;&#13;
@@ -100,13 +79,14 @@
         </custom-attributes>
     </content>
 
-        <content content-id="footer-customer-care">
+    <content content-id="footer-customer-care">
         <display-name xml:lang="x-default">Customer Care</display-name>
         <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
-    &lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed cursor-pointer h-font-size--14 " aria-expanded="false" aria-controls="customer-service" data-toggle="collapse" data-target="#customer-service"&gt;CUSTOMER CARE&lt;/button&gt;&#13;
+    &lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed cursor-pointer h-font-size--14 d-flex align-items-center justify-content-between " aria-expanded="false" aria-controls="customer-service" data-toggle="collapse" data-target="#customer-service"&gt;CUSTOMER CARE&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="customer-service"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;CUSTOMER CARE&lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Help &amp; FAQs&lt;/a&gt;&#13;
@@ -126,13 +106,14 @@
         </custom-attributes>
     </content>
 
-    <content content-id="footer-discover">
+        <content content-id="footer-discover">
         <display-name xml:lang="x-default">Discover</display-name>
         <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
-    &lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14 cursor-pointer" aria-expanded="false" aria-controls="collapsible-discover" data-toggle="collapse" data-target="#collapsible-discover"&gt;DISCOVER&lt;/button&gt;&#13;
+    &lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14 cursor-pointer d-flex align-items-center justify-content-between" aria-expanded="false" aria-controls="collapsible-discover" data-toggle="collapse" data-target="#collapsible-discover"&gt;DISCOVER&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-discover"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;DISCOVER&lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;About Us&lt;/a&gt;&#13;
@@ -152,10 +133,11 @@
     <content content-id="footer-locate-store">
         <display-name xml:lang="x-default">Find Us</display-name>
         <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div local-store"&gt;&#13;
-    &lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14" aria-expanded="false" aria-controls="collapsible-finds" data-toggle="collapse" data-target="#collapsible-finds"&gt;FIND US&lt;/button&gt;&#13;
+    &lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14 d-flex align-items-center justify-content-between" aria-expanded="false" aria-controls="collapsible-finds" data-toggle="collapse" data-target="#collapsible-finds"&gt;FIND US&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-finds"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block  h-clr--black-1 h-fw--bold"&gt;FIND US&lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Store Locator&lt;/a&gt;&#13;
@@ -170,6 +152,7 @@
     <content content-id="footer-social-list">
         <display-name xml:lang="x-default">Social List</display-name>
         <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="socials mb-5"&gt;&#13;
@@ -207,16 +190,17 @@
         </custom-attributes>
     </content>
 
-        <content content-id="footer-tooltip-details">
+    <content content-id="footer-tooltip-details">
         <display-name xml:lang="x-default">Tooltip Details</display-name>
         <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;button type="button"&#13;
     class="btn btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
     data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"&#13;
-    title="&amp;lt;div class='popover-title header-content h-font-size--18 h-fw--bold d-flex align-items-center justify-space-between'&amp;gt;BATH &amp; BODY WORKS DIRECT,INC.&amp;lt;/div&amp;gt; &amp;lt;a href='javascript:;' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
-    data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt; &amp;lt;p class='h-clr--black-3 h-font-size--16'&amp;gt; 95 West Main Street,New Albany, OH 430541-800-756-5005&amp;lt;/p&amp;gt; &amp;lt;p class='h-clr--black-3 mb-0 h-font-size--18'&amp;gt;You may withdraw your consent at anytime. View&amp;lt;/p&amp;gt;&amp;lt;a class='mb-4 cursor-pointer d-block' href='#'&amp;gt;Privacy Policy&amp;lt;/a&amp;gt;&amp;lt;a class='cursor-pointer d-block'  href='#'&amp;gt;Contact Us&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;"&#13;
+    title="&amp;lt;div class='popover-title header-content h-font-size--18 h-fw--bold d-flex align-items-center justify-space-between'&amp;gt;BATH &amp;amp; BODY WORKS DIRECT,INC.&amp;lt;/div&amp;gt; &amp;lt;a href='#' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
+    data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt; &amp;lt;p class='h-clr--black-3 h-font-size--16 mb-0'&amp;gt; 95 West Main Street, &amp;lt;br /&amp;gt; New Albany, OH 43054 &amp;lt;br /&amp;gt; 1-800-756-5005&amp;lt;/p&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;p class='h-clr--black-3 mb-0 h-font-size--16'&amp;gt;You may withdraw your &amp;lt;br /&amp;gt; consent at anytime. View&amp;lt;/p&amp;gt;&amp;lt;a class=' cursor-pointer d-block h-font-size--16' href='#'&amp;gt;Privacy Policy&amp;lt;/a&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;a class='cursor-pointer d-block h-font-size--16' href='#'&amp;gt;Contact Us&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;"&#13;
     data-html="true"&gt;&#13;
 &lt;/button&gt;</custom-attribute>
         </custom-attributes>
@@ -1857,5 +1841,39 @@
         </folder-links>
     </content>
 
+    <content content-id="navigation-image-section">
+        <display-name xml:lang="x-default">Navigation Image Section</display-name>
+        <description xml:lang="x-default">Navigation Image Section</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="menu-image d-flex"&gt;&#13;
+&lt;div class="col-6 menu-large-img"&gt;&lt;img class="img-fluid w-100" alt="" src="images/header/menu/Screenshot1.png?$staticlink$" title="" /&gt;&lt;p class="pt-2 h-clr--gray text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="col-6 menu-small-img h-dsp--grid"&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot2.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand soaps&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$10&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot3.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand sanitizers&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$6&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot3.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand sanitizers&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$6&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="top-header-ticker-promo">
+        <display-name xml:lang="x-default">Top Header Promo</display-name>
+        <description xml:lang="x-default">Top header promotions in ticker slider</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div id="ticker"&gt;&#13;
+	&lt;div class="ticker-inner w-100 text-center"&gt;&#13;
+		&lt;div class="header-promotion ticker-item"&gt;Earn 100 bonus points when you download and sign in to the app for the first time&lt;/div&gt;&#13;
+                &lt;div class="header-promotion ticker-item"&gt;Sign in to the app for the first time&lt;/div&gt;	&#13;
+	&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
     
 </library>

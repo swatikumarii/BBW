@@ -77,7 +77,7 @@
         <description/>
         <parameters/>
         <flow>
-            <context site-id="RefArch"/>
+            <context site-id="bbw-au"/>
             <step step-id="AfterpayOrderProcess" type="ExecuteScriptModule" enforce-restart="false">
                 <description/>
                 <parameters>

@@ -65,9 +65,12 @@
   "paths": {
     "base": "../storefront-reference-architecture/cartridges/app_storefront_base/",
     "bbw": "../app_custom_bbw/cartridges/app_custom_bbw",
-    "wishlist": "../plugin_wishlists/cartridges/plugin_wishlists/"
+    "wishlist": "../plugin_wishlists/cartridges/plugin_wishlists/",
+    "afterpay": "../afterpay-salesforce-commerce-cloud/cartridges/int_afterpay_sfra_6",
+    "adyen": "../adyen-salesforce-commerce-cloud/cartridges/int_adyen_SFRA"
   },
   "dependencies": {
+    "intl-tel-input": "^21.1.4",
     "@devmobiliza/videojs-vimeo": "^0.6.0",
     "modal-video": "^2.4.8",
     "popper.js": "^1.16.1",

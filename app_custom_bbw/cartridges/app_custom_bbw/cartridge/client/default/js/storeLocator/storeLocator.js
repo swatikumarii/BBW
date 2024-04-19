@@ -162,3 +162,16 @@ module.exports = $.extend({}, baseStore, {
         });
     }
 });
+
+/** Map and list view in responsive */
+$('.map-view').click(function () {
+    $(this).addClass('active');
+    $('.list-view').removeClass('active');
+    $('.map-canvas').removeClass('d-none');
+});
+
+$('.list-view').click(function () {
+    $(this).addClass('active');
+    $('.map-view').removeClass('active');
+    $('.map-canvas').addClass('d-none');
+});
