@@ -50,13 +50,13 @@
         </content>
     </slot-configuration>
 
-    <slot-configuration slot-id="menu-image-and-text" context="global" configuration-id="menu-image" default="true" assigned-to-site="true">
-        <description>Menu images from content asset</description>
+    <slot-configuration slot-id="navigation-image-text" context="global" configuration-id="nav-image" default="true" assigned-to-site="false">
+        <description>Navigation imgaes from content asset</description>
         <template>slots/content/contentAssetBody.isml</template>
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-image"/>
+                <content-asset content-id="navigation-image-section"/>
             </content-assets>
         </content>
     </slot-configuration>

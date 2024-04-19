@@ -80,38 +80,6 @@ window.submitNewsLetter = function (token) {
     });
 };
 
-/**
- * In case of failure
- */
-window.checkRecaptcha = function () {
-    // Re-initialize reCaptcha
-    grecaptcha.reset();
-    // Fire reCaptcha
-    grecaptcha.execute();
-    // Fire desired behavior AFTER reCaptcha is complete
-    window.submitNewsLetter();
-};
-
-/**
- * to execute reCAPTCHA
- */
-function executeRecaptcha() {
-    grecaptcha.execute();
-}
-window.initializeRecaptcha = function () {
-    $('.grecaptcha-badge').addClass('mc-recaptcha-btn');
-    $('.newsletter #gcaptchabtn').on('click', executeRecaptcha);
-    $('.newsletter').on('keypress', function (event) {
-        // If the user presses the "Enter" key on the keyboard
-        if (event.key === 'Enter') {
-            // Cancel the default action, if needed
-            event.preventDefault();
-            // Trigger the button element with a click
-            $('.newsletter #gcaptchabtn').click();
-        }
-    });
-};
-
 // Initialize popover
 // Initialize popover 
 $('[data-toggle="popover"]').popover({
