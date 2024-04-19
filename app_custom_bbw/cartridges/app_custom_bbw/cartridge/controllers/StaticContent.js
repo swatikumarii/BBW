@@ -2,6 +2,10 @@
 
 var server = require('server');
 
+/**
+ * StaticContent-Folders : Show folder heirarchy on UI
+ * @name StaticContent-Folders
+ */
 server.get('Folders', function (req, res, next) {
     var ContentMgr = require('dw/content/ContentMgr');
     var folders = [];
