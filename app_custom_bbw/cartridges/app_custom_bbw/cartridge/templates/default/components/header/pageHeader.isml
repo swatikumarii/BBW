@@ -35,6 +35,7 @@
                     </a>
                 </div>
                 <iscomment>Minicart</iscomment>
+                <div class="minicart-overlay"></div>
                 <div class="minicart fa-pull-right position-relative"
                     data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
                     <isinclude url="${URLUtils.url('Cart-MiniCart')}" />

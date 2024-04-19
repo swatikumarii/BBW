@@ -302,6 +302,17 @@ $cssHelpers: (
         ),
         unit: $site-unit
     ),
+    ".h-minheight-perc": (
+        props: (
+            "min-height"
+        ),
+        range: (
+            0,
+            100
+        ),
+        step: 5,
+        unit: "%"
+    ),
     ".l-grid__row": (
         mixin: "grid-row",
         onlyprefix: true

@@ -18,7 +18,7 @@ module.exports = function () {
         }
     });
 
-    $('.minicart').on('mouseenter focusin touchstart', function () {
+    $('.minicart').on('click', function () {
         if ($('.search:visible').length === 0) {
             return;
         }
@@ -28,10 +28,14 @@ module.exports = function () {
         if (count !== 0 && $('.minicart .popover.show').length === 0) {
             if (!updateMiniCart) {
                 $('.minicart .popover').addClass('show');
+                $('.minicart-overlay').addClass('show');
+                $('body').addClass('overflow-hidden');
                 return;
             }
 
             $('.minicart .popover').addClass('show');
+            $('.minicart-overlay').addClass('show');
+            $('body').addClass('overflow-hidden');
             $('.minicart .popover').spinner().start();
             $.get(url, function (data) {
                 $('.minicart .popover').empty();
@@ -41,22 +45,23 @@ module.exports = function () {
             });
         }
     });
-    $('body').on('touchstart click', function (e) {
+    $('body, .minicart-overlay').on('touchstart click', function (e) {
         if ($('.minicart').has(e.target).length <= 0) {
             $('.minicart .popover').removeClass('show');
+            $('.minicart-overlay').removeClass('show');
+            $('body').removeClass('overflow-hidden');
         }
     });
-    $('.minicart').on('mouseleave focusout', function (event) {
-        if ((event.type === 'focusout' && $('.minicart').has(event.target).length > 0)
-            || (event.type === 'mouseleave' && $(event.target).is('.minicart .quantity'))
-            || $('body').hasClass('modal-open')) {
-            event.stopPropagation();
-            return;
-        }
+    $(document).on('click', '.minicart-close-icon', function () {
         $('.minicart .popover').removeClass('show');
+        $('.minicart-overlay').removeClass('show');
+        $('body').removeClass('overflow-hidden');
     });
     $('body').on('change', '.minicart .quantity', function () {
-        if ($(this).parents('.bonus-product-line-item').length && $('.cart-page').length) {
+        if (
+            $(this).parents('.bonus-product-line-item').length &&
+            $('.cart-page').length
+        ) {
             location.reload();
         }
     });

@@ -13,6 +13,7 @@ var productDecorators = require('*/cartridge/models/product/decorators/index');
 module.exports = function productLineItem(product, apiProduct, options) {
     base.call(this, product, apiProduct, options);
     productDecorators.titlePartB(product, apiProduct);
+    productDecorators.volume(product, apiProduct);
     productDecorators.fragrance(product, apiProduct);
     // productLineItemDecorators.priceTotal(product, options.lineItem);
     return product;
