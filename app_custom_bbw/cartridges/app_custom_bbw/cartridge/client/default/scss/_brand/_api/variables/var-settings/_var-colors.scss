@@ -25,6 +25,7 @@ $clr-gray-3: #aaa;
 $clr-gray-4: #4d4d4d;
 $clr-gray-5: #828282;
 $clr-gray-6: #e5e5e5;
+$grey6: #4d4d4d;
 $clr-gray-7: #ccc;
 $clr-gray-8: #313030;
 $clr-gray-9: #464444;
@@ -38,6 +39,7 @@ $clr-gray-16: #707072;
 $clr-gray-17: #d9d9d9;
 $clr-green: #36c981;
 $clr-green-1: #007d48;
+$clr-green-2: #007a14;
 $clr-red: #cb0100;
 $clr-red-1: #fe5000;
 $clr-red-2: #ff0015;
@@ -91,7 +93,8 @@ $map-colors: (
     ),
     green: (
         base: $clr-green,
-        1: $clr-green-1
+        1: $clr-green-1,
+        2: $clr-green-2
     ),
     red: (
         base: $clr-red,
