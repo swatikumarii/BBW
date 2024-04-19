@@ -60,6 +60,7 @@
     "window": true,
     "location": true,
     "$": true,
+    "jQuery": true,
     "middleware": true,
     "querystringparameter": true,
     "renders": true,

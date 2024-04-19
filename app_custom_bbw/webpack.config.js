@@ -35,7 +35,11 @@ module.exports = [
                 ),
                 'popper.js': path.resolve(
                     __dirname,
-                    '../storefront-reference-architecture/node_modules/popper.js'
+                    './node_modules/popper.js'
+                ),
+                'utils.js': path.resolve(
+                    __dirname,
+                    './node_modules/intl-tel-input/build/js/utils.js'
                 )
             }
         }
