@@ -13,7 +13,7 @@ var DIRECTION_UP = -1;
  * @returns {object} - (JQuery).suggestions-wrapper element
  */
 function getSuggestionsWrapper(scope) {
-    return $(scope).siblings('.suggestions-wrapper');
+    return $(scope).find('.suggestions-wrapper');
 }
 
 /**
@@ -118,12 +118,13 @@ function positionSuggestions(scope) {
  *                                   suggestions template contents
  */
 function processResponse(response) {
-    var $suggestionsWrapper = getSuggestionsWrapper(this).empty();
+    var $suggestionsWrapper = getSuggestionsWrapper('.search-suggestions').empty();
 
     $.spinner().stop();
-    
     if (typeof (response) !== 'object') {
-        $suggestionsWrapper.append(response).show();
+        $suggestionsWrapper.append(response).addClass('active');
+        $suggestionsWrapper.parent().addClass('active');
+        $suggestionsWrapper.find('.suggestions').addClass('active');
         $(this).siblings('.reset-button').addClass('d-sm-block');
         positionSuggestions(this);
 
@@ -235,13 +236,13 @@ module.exports = function () {
 
     $('body').on('click', function (e) {
         if (!$('.suggestions').has(e.target).length && !$(e.target).hasClass('search-field')) {
-            $('.suggestions').hide();
+            $('.suggestions').removeClass('active');
         }
     });
 
     $('body').on('click touchend', '.search-mobile button.fa-close', function (e) {
         e.preventDefault();
-        $('.suggestions').hide();
+        $('.suggestions').removeClass('active');
         toggleSuggestionsIcon('search');
         tearDownSuggestions();
     });
