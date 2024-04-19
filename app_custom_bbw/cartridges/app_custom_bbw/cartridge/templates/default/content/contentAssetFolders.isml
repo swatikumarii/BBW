@@ -1,36 +1,8 @@
-
-<isloop items="${pdict.folders}" var="folder">
-    <h2 class="toggle">
-        <span>${folder.displayName}</span>
-    </h2>
-    <isif condition="${folder.onlineContent.length > 0}">
-        <isloop items="${folder.onlineContent}" var="content">
-            <li>
-                <a class=""
-                    href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
-                    <span>${content.name}</span>
-                </a>
-            </li>
-        </isloop>
-    <iselse/>
-        <isloop items="${folder.onlineSubFolders}" var="subFolder">
-            <ul class="category-level-2">${subFolder.displayName}
-                <isif condition="${pdict.level > 2}">
-                    <isloop items="${subFolder.onlineContent}" var="content">
-                        <li>
-                            ${content.name}
-                        </li>
-                    </isloop>
-                </isif>
-            </ul>
-        </isloop>
-    </isif>
-</isloop>
-<isloop items="${pdict.contents}" var="content">
-    <li>
-        <a class=""
-            href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
-            <span>${content.name}</span>
-        </a>
-    </li>
-</isloop>
+<isset name="level" value="${pdict.level}" scope="page" />
+<isif condition="${pdict.folders.length > 0}">
+    <isset name="folders" value="${pdict.folders}" scope="page" />
+    <isinclude template="content/contentFolder" />
+<iselseif condition="${pdict.contents}"/>
+    <isset name="contents" value="${pdict.contents}" scope="page" />
+    <isinclude template="/content/contentHyperlink" />
+</isif>
