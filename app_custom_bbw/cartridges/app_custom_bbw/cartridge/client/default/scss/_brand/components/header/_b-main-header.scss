@@ -200,13 +200,18 @@ header {
                         transition: color 0.5s ease;
                         margin-left: 0.8125rem;
 
-                        a img {
+                        .user-btn {
                             height: 2.25rem;
                             width: 2.25rem;
 
-                            &:hover > img {
-                                transition: opacity 0.5s ease-out;
-                                opacity: 0.65;
+                            img {
+                                height: 2.25rem;
+                                width: 2.25rem;
+
+                                &:hover > img {
+                                    transition: opacity 0.5s ease-out;
+                                    opacity: 0.65;
+                                }
                             }
                         }
                     }
