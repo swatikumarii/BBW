@@ -9,8 +9,10 @@ $(document).ready(function () {
     processInclude(require('base/components/menu'));
     processInclude(require('base/components/cookie'));
     processInclude(require('base/components/consentTracking'));
+    processInclude(require('./components/header'));
+    processInclude(require('./components/menu'));
     processInclude(require('./components/footer'));
-    processInclude(require('base/components/miniCart'));
+    processInclude(require('./components/miniCart'));
     processInclude(require('base/components/collapsibleItem'));
     processInclude(require('./components/search'));
     processInclude(require('base/components/clientSideValidation'));
@@ -21,4 +23,4 @@ $(document).ready(function () {
 
 require('./thirdParty/bootstrap');
 require('base/components/spinner');
-
+require('./thirdParty/jqueryTicker');

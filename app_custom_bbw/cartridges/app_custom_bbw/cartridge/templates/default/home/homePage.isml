@@ -26,30 +26,7 @@
     <div class="homepage shop-the-style">
         <isslot id="home-product-set-m" description="Link to a Product Set." context="global" />
     </div>
-    <div class="home-email-signup">
-        <div class="container">
-            <form role="form" class="newsletter" data-href="${URLUtils.url('EmailSubscribe-Subscribe')}" >
-                <div class="row">
-                    <div class="col-sm-5">
-                        <div class="input-group">
-                            <input type="text" class="form-control" name="hpEmailSignUp"
-                                placeholder="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}"
-                                aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" />
-                            <span class="input-group-append">
-                                <isif
-                                    condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
-                                    <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}" class="btn btn-primary g-recaptcha" data-callback="submitNewsLetter" data-action="submit"
-                                        >${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
-                                <iselse/>
-                                    <button type="button" class="btn btn-primary subscribe-email"
-                                        data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
-                                </isif>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-sm-7 email-description">${Resource.msg('description.form.emailsignup', 'homePage', null)}</div>
-                </div>
-            </form>
-        </div>
-    </div>
+    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha') == true}">
+        <isinclude template="/common/googleRecaptcha" />
+    </isif>
 </isdecorate>
