@@ -1,3 +1,6 @@
+@import "../../_brand/_api/api";
+@import "modal-video/css/modal-video.min";
+
 .header_img {
     img {
         width: 100%;
@@ -60,6 +63,10 @@
 
             a {
                 letter-spacing: 0.075rem;
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
@@ -128,8 +135,8 @@
                 }
 
                 &:hover {
-                    background-color: #fff;
-                    color: #333;
+                    background-color: colour(white);
+                    color: colour(black, 3);
                     border: none;
                 }
             }
@@ -214,8 +221,8 @@
         }
 
         .shop-cta {
-            background: #b79051;
-            border: 1px solid #b79051;
+            background: $orange-2;
+            border: 1px solid $orange-2;
             color: colour(black);
             text-decoration: none;
             padding: 10px 40px;
@@ -314,7 +321,7 @@
             .txt-h {
                 font-size: 1.625rem;
                 letter-spacing: -0.5px;
-                color: #b21e34;
+                color: $clr-red-7;
             }
 
             .txt-p {
@@ -357,8 +364,8 @@
         }
 
         .shop-cta {
-            background: #b79051;
-            border: 1px solid #b79051;
+            background: $orange-2;
+            border: 1px solid $orange-2;
             color: colour(black);
             text-decoration: none;
             padding: 10px 40px;
@@ -406,14 +413,14 @@
 
         .start {
             margin: 2%;
-            color: #102818;
+            color: $clr-black-4;
             text-decoration: underline;
         }
     }
 }
 
 // ------fine-fragrance-mist------
-.bodycare-text-section {
+.bodycare-text-data {
     margin-bottom: 50px;
     width: 98%;
 
@@ -434,7 +441,7 @@
 }
 
 // ---------tbc day-------
-.shop-by-fragrance-section1 {
+.shop-by-data {
     width: 85%;
     margin: 0 auto;
     padding: 0;
@@ -457,7 +464,7 @@
             font-size: 50px;
             margin: 0 auto;
             line-height: 0;
-            color: #dd0493;
+            color: $clr-pink-1;
             letter-spacing: 4px;
         }
     }
@@ -476,7 +483,7 @@
     .stephead-h {
         margin: 0 auto;
         line-height: 1.1;
-        color: #cb1595;
+        color: $clr-pink-3;
     }
 
     .stephead-p {
@@ -492,7 +499,7 @@
     background: unset;
 
     .stephead-h {
-        color: #dd0493;
+        color: $clr-pink-1;
         line-height: 1.7;
         letter-spacing: -1px;
     }
@@ -508,7 +515,7 @@
     }
 
     .heading-txt {
-        color: #dd0493;
+        color: $clr-pink-1;
         letter-spacing: 2px;
         line-height: 2.125rem;
     }
@@ -535,10 +542,10 @@
 .finalstep {
     .signup-btn {
         padding: 1.5%;
-        border: 1px solid #dd0493;
+        border: 1px solid $clr-pink-1;
         margin: 2% auto;
         width: 30%;
-        background: #dd0493;
+        background: $clr-pink-1;
         letter-spacing: 2px;
 
         &:hover {
@@ -550,16 +557,193 @@
 
 // ---------discover the charm-------
 .pink-text {
-    color: #ec3fa8 !important;
+    color: $clr-pink-2 !important;
 }
 
 .fragrance-cta {
-    background: #ec3fa8;
+    background: $clr-pink-2;
     padding: 10px 40px;
     margin: 2% auto;
     width: 30%;
 
     &:hover {
         border: 1px solid colour(black);
+    }
+}
+
+// -------mens ------
+
+.sub-content {
+    .sub {
+        font-size: 15px;
+        margin: 1% 23%;
+    }
+}
+
+.mens-list {
+    li {
+        line-height: 1.75;
+        margin-top: 10px;
+        margin-left: 50px;
+    }
+}
+
+.fragrence-data {
+    color: darkolivegreen;
+    margin: 2%;
+}
+
+.fragrance {
+    font-size: 35px;
+}
+
+// -------videos-----
+.collection-videos {
+    max-width: none;
+    padding: 40px 80px;
+
+    .video-container {
+        margin: 0 auto 26px;
+        max-width: 520px;
+
+        @include media-up(sm) {
+            width: 48.5981%;
+            margin-right: 2.6168%;
+            float: left;
+        }
+
+        .video-thumbnail {
+            max-height: none;
+            cursor: pointer;
+
+            &::after {
+                background-color: rgba(0, 0, 0, 65%);
+                border-radius: 50%;
+                box-sizing: border-box;
+                color: colour(white);
+                content: "\25ba";
+                font-size: 54px;
+                height: 94px;
+                left: 50%;
+                line-height: 1.75;
+                padding-left: 10px;
+                position: absolute;
+                text-align: center;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 94px;
+            }
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 80%);
+            }
+
+            img {
+                border: 1px solid colour(black, 3);
+                box-sizing: border-box;
+            }
+        }
+
+        .text-container {
+            margin: 15px 0;
+            min-height: 78px;
+
+            .video-title {
+                width: 70%;
+                float: left;
+                letter-spacing: -0.05em;
+            }
+
+            .video-description {
+                width: 65%;
+                float: left;
+                margin: 4px 0 0;
+                line-height: 1.2em;
+            }
+
+            a {
+                font-size: 11px;
+                top: 0;
+                min-height: 35px;
+                max-height: 35px;
+                right: 0;
+            }
+        }
+    }
+}
+
+.demo-videos {
+    padding: 40px 10px;
+
+    h2 {
+        color: colour(blue);
+        line-height: 1;
+        border-bottom: colour(blue) 3px solid;
+        padding-bottom: 24px;
+
+        .cursive {
+            color: colour(blue);
+            font-size: 74px;
+            line-height: 0.8em;
+        }
+
+        .splap {
+            position: absolute;
+            left: 50%;
+            margin-top: 9px;
+            margin-left: -43px;
+            text-align: left;
+        }
+    }
+
+    .video-thumbnail-container {
+        float: left;
+        width: 49%;
+        margin-right: 1.179%;
+        max-width: 258px;
+
+        .video-thumbnail {
+            max-height: none;
+
+            &::after {
+                border-radius: 50%;
+                box-sizing: border-box;
+                color: colour(black, 3);
+                content: "\25ba";
+                font-size: 54px;
+                height: 94px;
+                left: 50%;
+                line-height: 1.75;
+                padding-left: 10px;
+                position: absolute;
+                text-align: center;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 94px;
+                background-color: rgba(255, 255, 255, 65%);
+            }
+
+            img {
+                border: 1px solid colour(black, 3);
+            }
+        }
+
+        .thumbnail-title {
+            background: rgba(0, 0, 0, 75%);
+            padding: 10px;
+            margin: 0 0 0 1px;
+            box-sizing: border-box;
+        }
+    }
+}
+
+.seo-copy-block {
+    max-width: 720px;
+    margin: 20px auto 0;
+    padding: 40px 10px;
+    display: inline-block;
+
+    p {
+        line-height: 20px;
     }
 }

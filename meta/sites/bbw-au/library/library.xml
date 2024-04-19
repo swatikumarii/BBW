@@ -227,6 +227,7 @@
         <description xml:lang="x-default">Check out our specially curated list of fragrance based on your Chinese zodiac sign for the Year of the Dragon.</description>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
         <page-attributes>
             <page-title xml:lang="x-default">How To Choose the Right Fragrance to Glam Up (and Get Lucky) This Chinese New Year?</page-title>
             <page-description xml:lang="x-default">Check out our specially curated list of fragrance based on your Chinese zodiac sign for the Year of the Dragon.</page-description>
@@ -310,6 +311,7 @@
         <description xml:lang="x-default">Let's welcome the year by treating your special someone to the fragrant bliss of Bath &amp; Body Works' latest Wellness collection.</description>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
         <page-attributes>
             <page-title xml:lang="x-default">Share the Gift of Health &amp; Wellness This Chinese New Year!</page-title>
             <page-description xml:lang="x-default">content="Let's welcome the year by treating your special someone to the fragrant bliss of Bath &amp; Body Works' latest Wellness collection."</page-description>
@@ -397,6 +399,7 @@
         <description xml:lang="x-default">A guide to help you immerse your home with enticing scents for a truly captivating celebration.</description>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
         <page-attributes>
             <page-title xml:lang="x-default">Get Your Home Ready &amp; Roaring for the Year of The Dragon!</page-title>
             <page-description xml:lang="x-default">A guide to help you immerse your home with enticing scents for a truly captivating celebration.</page-description>
@@ -466,6 +469,7 @@
         <description xml:lang="x-default">See how we’re keeping you (and our associates) safe as we welcome you back to stores.</description>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
         <page-attributes>
             <page-title xml:lang="x-default">Safe Shopping Guidelines</page-title>
             <page-description xml:lang="x-default">Safe Shopping Guidelines</page-description>
@@ -554,6 +558,7 @@
         <description xml:lang="x-default">Our step-by-step breakdown for discovering your true (fragrance) loves.</description>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
         <page-attributes>
             <page-title xml:lang="x-default">How to Find Your Perfect Scent Ã¢â‚¬â€œ Bath &amp; Body Works</page-title>
             <page-description xml:lang="x-default">Do you prefer floral fragrances, sweet scents or something completely different? This step-by-step guide will help you find your perfect scent in a matter of minutes.</page-description>
@@ -636,6 +641,7 @@
         <description xml:lang="x-default">Four reasons this bright, sunny fragrance family is the season’s hottest.</description>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
         <page-attributes>
             <page-title xml:lang="x-default">New Trend: Summer Citrus Scents &amp; Fragrances</page-title>
             <page-description xml:lang="x-default">What's the best fragrance family for the summer. Citrus! Check out our top 4 reasons you'll want to grab a couple citrus scents this season.</page-description>
@@ -689,6 +695,7 @@
         <description xml:lang="x-default">See why this minty, soothing icon is way more than just a koala’s favorite snack.</description>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
         <page-attributes>
             <page-title xml:lang="x-default">Eucalyptus Fragrance</page-title>
             <page-description xml:lang="x-default">Minty, fresh and super relaxing. Eucalyptus is one of our most favorite aromatherapy fragrances ever. Find out why (and how itÃ¢â‚¬â„¢s used) now!</page-description>
@@ -749,6 +756,7 @@
         <description xml:lang="x-default">Our love letter to one of the most popular (and timeless) floral notes ever.</description>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
         <page-attributes>
             <page-title xml:lang="x-default">Jasmine Fragrance</page-title>
             <page-description xml:lang="x-default">Timeless, captivating and romantic. JasmineÃ¢â‚¬â„¢s fragrance is one of the most popular scents ever. Find out why (and how) now!</page-description>
@@ -797,6 +805,7 @@
         <description xml:lang="x-default">Get the inside scoop on this enchanting, tropical icon.</description>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
         <page-attributes>
             <page-title xml:lang="x-default">Coconut Scent &amp; Fragrance</page-title>
             <page-description xml:lang="x-default">Get the inside scoop on this enchanting, tropical icon. We’re breaking down what makes coconut fragrances shine and why we love them year-round.</page-description>
@@ -857,6 +866,7 @@
         <description xml:lang="x-default">Sit back, relax and let us guide you through two curated collections for body &amp; home that just might make your perfect self-care pair.</description>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
         <page-attributes>
             <page-title xml:lang="x-default">Find Your Wellness Guide</page-title>
             <page-description xml:lang="x-default">Sit back, relax and let us guide you through two curated collections for body &amp; home that just might make your perfect self-care pair.</page-description>
@@ -1016,6 +1026,7 @@
         <description xml:lang="x-default">Why this light, airy, layerable mist is everyone’s favorite way to fragrance.</description>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
         <page-attributes>
             <page-title xml:lang="x-default">Fine Fragrance Mist 101 |</page-title>
             <page-description xml:lang="x-default">Our fine fragrance mists are a favorite! HereÃ¢â‚¬â„¢s everything you need to know about these light-as-air body mists (and then some). Happy spritzing!</page-description>
@@ -1029,7 +1040,7 @@
 &#13;
 &lt;div class="body-care-content"&gt;&#13;
 &#13;
-&lt;div class="bodycare-text-section"&gt;&#13;
+&lt;div class="bodycare-text-section bodycare-text-data"&gt;&#13;
 &lt;div class="bc-description fragrance-desc"&gt;&#13;
 &lt;h2 class="h-fw--semibold"&gt;​Fine fragrance mist: Light, airy and oh-so-great.&lt;/h2&gt;&#13;
 &lt;p class="h-font-size--16"&gt;There’s a reason our &lt;a class="h-clr--black" href="/body-care/body-spray-and-mists"&gt;fine fragrance mist&lt;/a&gt; is an all-time customer favorite: it’s super light, super layerable and available in enough scents to keep your shelf stocked forever. Take a peek at what this most-loved mist can do for you – and why you need a few in your shopping bag ASAP.&lt;/p&gt;&#13;
@@ -1071,6 +1082,7 @@
         <description xml:lang="x-default">Enter Body Care Day—one of the biggest and newest of them all.</description>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
         <page-attributes>
             <page-title xml:lang="x-default">Body Care Day 2023</page-title>
             <page-description xml:lang="x-default">Say hello to the body care version of Candle Day (a.k.a. the best time to stock up on everything from body mists to lotion to shower gel).</page-description>
@@ -1080,7 +1092,7 @@
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
 		&lt;div class="htmlbucket"&gt;&#13;
-			&lt;div class="shop-by-fragrance-section1"&gt;&#13;
+			&lt;div class="shop-by-fragrance-section1 shop-by-data"&gt;&#13;
 				&lt;div class="shop-by-fragnance-submain position-relative"&gt;&#13;
 					&lt;div class="imgsection d-block w-100 position-relative"&gt;&#13;
 						&lt;picture&gt;&#13;
@@ -1229,6 +1241,7 @@
         <description xml:lang="x-default">Get ready to feel fantastic all week long as you immerse yourself in the timeless charm of our Fine Fragrance Mists.</description>
         <online-flag>true</online-flag>
         <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
         <page-attributes>
             <page-title xml:lang="x-default">Discover the Charm of Fine Fragrance Mists</page-title>
             <page-description xml:lang="x-default">Fall in love with fragrances tailored just for you to elevate each day to scented bliss.</page-description>
@@ -1365,5 +1378,484 @@
         </folder-links>
     </content>
 
+	    <content content-id="Videos">
+        <display-name xml:lang="x-default">VIDEOS</display-name>
+        <description xml:lang="x-default">Take a peek at all the collections, products and fragrances we’re loving right now.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">BBW Video</page-title>
+            <page-description xml:lang="x-default">video-page</page-description>
+            <page-keywords xml:lang="x-default">BBW Video</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;style&gt;&#13;
+&#13;
+      .collection-videos {&#13;
+        max-width: none;&#13;
+        padding: 40px 80px;&#13;
+    }&#13;
+&#13;
+    @media screen and (min-width: 768px) {&#13;
+        .videowall_hp section.collection-videos .video-container {&#13;
+            width: 48.5981308%;&#13;
+            margin-right: 2.6168224%;&#13;
+            float: left;&#13;
+        }&#13;
+    }&#13;
+&#13;
+    .videowall_hp section.collection-videos .video-container {&#13;
+        margin: 0 auto 26px;&#13;
+        max-width: 520px;&#13;
+    }&#13;
+&#13;
+&#13;
+&lt;/style&gt;&#13;
+&lt;div class="container"&gt;&#13;
+    &lt;div class="controlcontent_r"&gt;&#13;
+        &lt;div class="htmlbucket"&gt;&#13;
+            &lt;section class="video-page"&gt;&#13;
+                &lt;div class="content-asset"&gt;&#13;
+                    &lt;div class="videowall_hp"&gt;&#13;
+                        &lt;section class="header text-center py-3"&gt;&#13;
+                            &lt;h1 class="b-0 text-uppercase h-font-size--22 m-0 p-0"&gt;&lt;span&#13;
+                                    class="cursive d-block h-font-size--74 m-font-justlovely--normal h-clr--blue"&gt;Videos,&#13;
+                                    News &amp;amp; How-Tos&lt;/span&gt;&lt;/h1&gt;&#13;
+                            &lt;p class="h-font-size--16 pt-2 h-clr--blue"&gt;Go behind the scenes with the best in body care,&#13;
+                                &lt;span class="h-fw--medium h-font-size--16 h-clr--blue"&gt;home fragrance and&#13;
+                                    gifting.&lt;/span&gt;&lt;/p&gt;&#13;
+                        &lt;/section&gt;&#13;
+                        &lt;section class="featured-video" style="display: none;"&gt;&#13;
+                            &lt;div class="wrap"&gt;&#13;
+                                &lt;h2 class="title"&gt;Featured Video&lt;/h2&gt;&#13;
+                                &lt;div class="video-container"&gt;&lt;a aria-label="Watch: You Are The One"&#13;
+                                        class="video-thumbnail video_14 d-block"&gt; &lt;img alt="You Are The One"&#13;
+                                            src="blogs/details/YTO-thumbnail.jpg"&gt; &lt;/a&gt;&#13;
+                                    &lt;div class="text-container position-relative"&gt;&#13;
+                                        &lt;h3&#13;
+                                            class="video-title m-font-trendsansone--normal h-font-size--18 m-0 h-fw--semibold"&gt;&#13;
+                                            NEW YOU’RE THE ONE&lt;/h3&gt;&#13;
+                                        &lt;p class="video-description h-font-size--14 h-fw--medium"&gt;Sparkling. Confident.&#13;
+                                            Beautiful. With soft rose,&#13;
+                                            winter woods &amp;amp; a drop of strawberry nectar, it’s our merriest fragrance&#13;
+                                            ever.&lt;/p&gt;&#13;
+                                        &lt;a class="button h-clr--white m-0 h-fw--bold position-absolute   btn"&#13;
+                                            href="/body-care/youre-the-one"&#13;
+                                            manual_cm_re="videos-_-cta_peony-_-godensunflower"&gt;Shop&lt;/a&gt;&#13;
+                                    &lt;/div&gt;&#13;
+                                &lt;/div&gt;&#13;
+                            &lt;/div&gt;&#13;
+                        &lt;/section&gt;&#13;
+                        &lt;section class="collection-videos h-bg--gray-1  d-block position-relative"&gt;&#13;
+                            &lt;div class="wrap row"&gt;&#13;
+                                &lt;div class="video-container col-md-6"&gt;&#13;
+                                    &lt;button aria-label="Watch: Try It To Believe It"&#13;
+                                        class="video-thumbnail cursor-pointer js-modal-btn d-block w-auto h-auto p-0 m-0 border-0 position-relative video_2" data-video-url="https://youtube.com/embed/IyTUyckaPjg"&gt;&#13;
+                                        &lt;img class="w-100 h-auto d-block" alt="NEW SPRING ARRIVALS"&#13;
+                                            src="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/non-com-img/video-page/new-images/HAPPY-BRIGHT-FRAGRANCES.jpg"&gt;&#13;
+                                    &lt;/button&gt;&#13;
+                                    &lt;div class="text-container position-relative"&gt;&#13;
+                                        &lt;h3&#13;
+                                            class="video-title m-font-trendsansone--normal h-font-size--18 m-0 h-fw--semibold"&gt;&#13;
+                                            HAPPY BRIGHT&#13;
+                                            FRAGRANCES&lt;/h3&gt;&#13;
+                                        &lt;p class="video-description h-font-size--14 h-fw--medium "&gt;A rainbow of&#13;
+                                            must-have scents, right this way.&lt;/p&gt;&#13;
+                                        &lt;a class="button h-clr--white m-0 h-fw--bold position-absolute   btn"&#13;
+                                            href="https://www.bathandbodyworks.com.au/body-care"&#13;
+                                            manual_cm_re="videos-_-cta_new3w-_-new3wick"&gt;Shop&lt;/a&gt;&#13;
+                                    &lt;/div&gt;&#13;
+                                &lt;/div&gt;&#13;
+&#13;
+                                &lt;div class="video-container col-md-6"&gt;&#13;
+                                    &lt;button aria-label="Watch: New Into the Night."&#13;
+                                        class="video-thumbnail js-modal-btn d-block w-auto h-auto p-0 m-0 border-0 position-relative video_4" data-video-url="https://www.youtube.com/embed/pkWY9HZWTqM"&gt;&#13;
+                                        &lt;img class="w-100 h-auto d-block" alt="New Into the Night"&#13;
+                                            src="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/non-com-img/video-page/fbc_atb-itn_xm1_0_atb.jpg"&gt;&#13;
+                                    &lt;/button&gt;&#13;
+                                    &lt;div class="text-container position-relative"&gt;&#13;
+                                        &lt;h3&#13;
+                                            class="video-title m-font-trendsansone--normal h-font-size--18 m-0 h-fw--semibold"&gt;&#13;
+                                            New Into the Night&lt;/h3&gt;&#13;
+                                        &lt;p class="video-description h-font-size--14 h-fw--medium"&gt;Timeless. Feminine.&#13;
+                                            Alluring. Try a little sparkle.&#13;
+                                        &lt;/p&gt;&#13;
+                                        &lt;a class="button h-clr--white m-0 h-fw--bold position-absolute   btn"&#13;
+                                            href="https://www.bathandbodyworks.com.au/bodycare/into-the-night"&#13;
+                                            manual_cm_re="videos-_-cta_itn-_-itn"&gt;Shop&lt;/a&gt;&#13;
+                                    &lt;/div&gt;&#13;
+                                &lt;/div&gt;&#13;
+&#13;
+                                &lt;div class="video-container col-md-6"&gt;&#13;
+                                    &lt;button aria-label="Watch: FRESH. VIBRANT. HAPPY."&#13;
+                                        class="video-thumbnail js-modal-btn d-block w-auto h-auto p-0 m-0 border-0 position-relative video_5"  data-video-url="https://youtube.com/embed/YqkqnKkNKFo"&gt;&#13;
+                                        &lt;img class="w-100 h-auto d-block"&#13;
+                                            alt="Our latest fragrances, straight from the islands."&#13;
+                                            src="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/non-com-img/video-page/new-images/A-THOUSAND-WISHES.jpg"&gt;&#13;
+                                &lt;/button&gt;&#13;
+                                    &lt;div class="text-container position-relative"&gt;&#13;
+                                        &lt;h3&#13;
+                                            class="video-title m-font-trendsansone--normal h-font-size--18 m-0 h-fw--semibold"&gt;&#13;
+                                            A THOUSAND WISHES&lt;/h3&gt;&#13;
+                                        &lt;p class="video-description h-font-size--14 h-fw--medium"&gt;Warm your heart a&#13;
+                                            thousand times over with our&#13;
+                                            dazzling scent, A Thousand Wishes.&lt;/p&gt;&#13;
+                                        &lt;a class="button h-clr--white m-0 h-fw--bold position-absolute   btn"&#13;
+                                            href="https://www.bathandbodyworks.com.au/bodycare/a-thousand-wishes"&#13;
+                                            manual_cm_re="videos-_-cta_ging-_-gingham"&gt;Shop&lt;/a&gt;&#13;
+                                    &lt;/div&gt;&#13;
+                                &lt;/div&gt;&#13;
+&#13;
+                                &lt;div class="video-container col-md-6"&gt;&#13;
+                                    &lt;button aria-label="Watch: In the Stars Video"&#13;
+                                        class="video-thumbnail js-modal-btn d-block w-auto h-auto p-0 m-0 border-0 position-relative video_8" data-video-url="https://www.youtube.com/embed/_7GDQCD0I5c"&gt;&#13;
+                                        &lt;img class="w-100 h-auto d-block" alt="New Summer Fragrances"&#13;
+                                            src="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/non-com-img/video-page/ITS_video_poster.jpg"&gt;&#13;
+                                &lt;/button&gt;&#13;
+                                    &lt;div class="text-container position-relative"&gt;&#13;
+                                        &lt;h3&#13;
+                                            class="video-title m-font-trendsansone--normal h-font-size--18 m-0 h-fw--semibold"&gt;&#13;
+                                            NEW! IN THE STARS&lt;/h3&gt;&#13;
+                                        &lt;p class="video-description h-font-size--14 h-fw--medium"&gt;Our latest fragrance&#13;
+                                            is sparkling, warm,&#13;
+                                            captivating and unlike anything on Earth.&lt;/p&gt;&#13;
+                                        &lt;a class="button h-clr--white m-0 h-fw--bold position-absolute   btn" href="/"&#13;
+                                            manual_cm_re="videos-_-cta_its-_-ITS"&gt;Shop&lt;/a&gt;&#13;
+                                    &lt;/div&gt;&#13;
+                                &lt;/div&gt;&#13;
+&#13;
+                                &lt;div class="video-container col-md-6"&gt;&#13;
+                                    &lt;a href="#" aria-label="Watch: New Perfect Peony"&#13;
+                                        class="video-thumbnail js-modal-btn d-block w-auto h-auto p-0 m-0 border-0 position-relative video_1" data-video-url="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/BBWVideos/NEW_Golden_Sunflower-2-2.mp4"&gt;&#13;
+                                        &lt;img class="w-100 h-auto d-block" alt="New Perfect Peony"&#13;
+                                            src="blogs/details/FOG-Thumbnails.jpg?$staticlink$"&gt; &lt;/a&gt;&#13;
+                                    &lt;div class="text-container position-relative"&gt;&#13;
+                                        &lt;h3&#13;
+                                            class="video-title m-font-trendsansone--normal h-font-size--18 m-0 h-fw--semibold"&gt;&#13;
+                                            NEW GOLDEN SUNFLOWER&lt;/h3&gt;&#13;
+                                        &lt;p class="video-description h-font-size--14 h-fw--medium"&gt;Feel the kiss of the&#13;
+                                            sun with radiant sunflower&#13;
+                                            petals, orange flower &amp;amp; fresh vanilla as they wrap you in the feeling of&#13;
+                                            a perfect late summer day.&lt;/p&gt;&#13;
+                                        &lt;a class="button h-clr--white m-0 h-fw--bold position-absolute   btn"&#13;
+                                            href="https://www.bathandbodyworks.com.au/new-arrivals?PageNo=2"&#13;
+                                            manual_cm_re="videos-_-cta_peony-_-perfectpeony"&gt;Shop&lt;/a&gt;&#13;
+                                    &lt;/div&gt;&#13;
+                                &lt;/div&gt;&#13;
+&#13;
+                                &lt;div class="video-container col-md-6"&gt;&#13;
+                                    &lt;button aria-label="Watch: New Perfect Peony"&#13;
+                                        class="video-thumbnail js-modal-btn d-block w-auto h-auto p-0 m-0 border-0 position-relative video_13" data-video-url="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/BBWVideos/NEW_Perfect_Peony.mp4"&gt;&#13;
+                                        &lt;img class="w-100 h-auto d-block" alt="New Perfect Peony"&#13;
+                                            src="   https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/non-com-img/video-page/new-images/videopage_perfect_peony_thumbnail.jpg"&gt;&#13;
+                                    &lt;/button&gt;&#13;
+                                    &lt;div class="text-container position-relative"&gt;&#13;
+                                        &lt;h3&#13;
+                                            class="video-title m-font-trendsansone--normal h-font-size--18 m-0 h-fw--semibold"&gt;&#13;
+                                            NEW PERFECT PEONY&lt;/h3&gt;&#13;
+                                        &lt;p class="video-description h-font-size--14 h-fw--medium"&gt;Beautiful. Airy.&#13;
+                                            Delicate. This new fragrance&#13;
+                                            captures the beauty of bright peonies dancing in a sun-soaked field.&lt;/p&gt;&#13;
+                                        &lt;a class="button h-clr--white m-0 h-fw--bold position-absolute   btn"&#13;
+                                            href="https://www.bathandbodyworks.com.au/new-arrivals?PageNo=2"&#13;
+                                            manual_cm_re="videos-_-cta_peony-_-perfectpeony"&gt;Shop&lt;/a&gt;&#13;
+                                    &lt;/div&gt;&#13;
+                                &lt;/div&gt;&#13;
+                            &lt;/div&gt;&#13;
+                        &lt;/section&gt;&#13;
+                        &lt;section class="demo-videos"&gt;&#13;
+                            &lt;h2 class="text-center"&gt;&lt;span class="cursive text-captialize d-block"&gt;How-To's&lt;/span&gt; &lt;span class="splap"&gt;Learn how to reboot your&#13;
+                                    beauty routine &lt;span class="wrap-it"&gt;&amp;amp; fill your home with&#13;
+                                        fragrance!&lt;/span&gt;&lt;/span&gt;&lt;/h2&gt;&#13;
+                            &lt;div class="wrap  demo-data"&gt;&#13;
+                                &lt;div class="video-thumbnail-container d-block position-relative mb-3"&gt;&#13;
+                                    &lt;button  aria-label="How-To: Body Lotion" data-video-url="https://storage.sg.content-cdn.io/in-resources/4208d84b-6450-47bd-9bca-64978d0f04fc/Images/bathandbodyID/Body%20Lotion.mp4"&#13;
+                                        class="video-thumbnail js-modal-btn d-block w-auto p-0 m-0  cursor-pointer  border-0 video_9"&gt; &lt;img alt="Body Lotion" class="d-block w-100"&#13;
+                                            src="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/non-com-img/video-page/thumb-howto-lotion.jpg"&gt;&#13;
+                                    &lt;/button&gt;&#13;
+                                    &lt;p class="thumbnail-title h-clr--white h-font-size--16 text-uppercase w-100 position-absolute"&gt;Body Lotion&lt;/p&gt;&#13;
+                                &lt;/div&gt;&#13;
+                                &lt;div class="video-thumbnail-container d-block position-relative mb-3"&gt;&#13;
+                                    &lt;button aria-label="How-To: Creamy Body Wash" data-video-url="https://storage.sg.content-cdn.io/in-resources/4208d84b-6450-47bd-9bca-64978d0f04fc/Images/bathandbodyID/Creamy%20Body%20Wash.mp4"&#13;
+                                        class="video-thumbnail js-modal-btn d-block w-auto p-0 m-0  cursor-pointer  border-0 video_10"&gt; &lt;img alt="Creamy Body Wash" class="d-block w-100"&#13;
+                                            src="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/non-com-img/video-page/thumb-howto-wash.jpg"&gt;&#13;
+                                    &lt;/button&gt;&#13;
+                                    &lt;p class="thumbnail-title h-clr--white h-font-size--16 text-uppercase w-100 position-absolute"&gt;Creamy Body Wash&lt;/p&gt;&#13;
+                                &lt;/div&gt;&#13;
+                                &lt;div class="video-thumbnail-container d-block position-relative mb-3"&gt;&#13;
+                                    &lt;button data-video-url="https://storage.sg.content-cdn.io/in-resources/4208d84b-6450-47bd-9bca-64978d0f04fc/Images/bathandbodyID/Hand%20Soap.mp4"&#13;
+                                        aria-label="How-To: Foaming Hand Soap" class="video-thumbnail js-modal-btn d-block w-auto p-0 m-0  cursor-pointer  border-0 video_12"&gt; &lt;img&#13;
+                                            alt="Foaming Hand Soap" class="d-block w-100"&#13;
+                                            src="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/non-com-img/video-page/thumb-howto-soap.jpg"&gt;&#13;
+                                    &lt;/button&gt;&#13;
+                                    &lt;p class="thumbnail-title h-clr--white h-font-size--16 text-uppercase w-100 position-absolute"&gt;Foaming Hand Soap&lt;/p&gt;&#13;
+                                &lt;/div&gt;&#13;
+                                &lt;div class="video-thumbnail-container d-block position-relative mb-3"&gt;&#13;
+                                    &lt;button data-video-url="https://storage.sg.content-cdn.io/in-resources/4208d84b-6450-47bd-9bca-64978d0f04fc/Images/bathandbodyID/Fine%20Fragrance%20Mist.mp4"&#13;
+                                        aria-label="How-To: Fine Fragrance Mist" class="video-thumbnail js-modal-btn d-block w-auto p-0 m-0  cursor-pointer  border-0 video_11"&gt; &lt;img&#13;
+                                            alt="Fine Fragrance Mist" class="d-block w-100"&#13;
+                                            src="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/non-com-img/video-page/thumb-howto-mist.jpg"&gt;&#13;
+                                    &lt;/button&gt;&#13;
+                                    &lt;p class="thumbnail-title h-clr--white h-font-size--16 text-uppercase w-100 position-absolute"&gt;Fine Fragrance Mist&lt;/p&gt;&#13;
+                                &lt;/div&gt;&#13;
+                            &lt;/div&gt;&#13;
+                        &lt;/section&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/section&gt;&#13;
+            &lt;section class="seo-copy-block"&gt;&#13;
+                &lt;h2 class="h-font-size--16 h-fw--bold h-clr--black-3"&gt;Bath and Body Works Videos&lt;/h2&gt;&#13;
+                &lt;p class="h-clr--black-3 h-fw--medium "&gt;Watch our beauty videos to see how to make the most of your Bath and Body&#13;
+                    Works haul all&#13;
+                    year long!&lt;/p&gt;&#13;
+            &lt;/section&gt;&#13;
+&#13;
+        &lt;/div&gt;&#13;
+    &lt;/div&gt;&#13;
+    &lt;div class="r_bottom"&gt;&#13;
+        &lt;div class="l_bottom"&gt;&#13;
+        &lt;/div&gt;&#13;
+    &lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="video"/>
+        </folder-links>
+    </content>
 
+ <content content-id="mens-skincare-faq">
+        <display-name xml:lang="x-default">WHERE DO I START WITH MEN'S BODY CARE</display-name>
+        <description xml:lang="x-default">Hint: it all begins with the fragrances.​</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+		  <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Men’s Body Care: Easier than you think</page-title>
+            <page-description xml:lang="x-default">Body care doesn’t have to be super complex: all you need is the right fragrance, a good routine and a few skin-loving ingredients. But how do you find your signature scent? Which products do you use when? How do you even get a routine started in the first place? We’re breaking down some of your most frequently asked questions – and showing off a few essentials from our men’s body care collection – right here, right now.</page-description>
+            <page-keywords xml:lang="x-default">Men Skincare routine, Bath and Body Works</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+    &lt;div class="controlcontent_r"&gt;&#13;
+        &lt;div class="htmlbucket"&gt;&#13;
+            &lt;div class="bc-image"&gt;&#13;
+                &lt;picture&gt;&#13;
+                    &lt;source media="(max-width: 767px)"&#13;
+                        srcset="blogs/details/Mens-BC-Q&amp;amp;A_fa2_Get-Inspired_m-header.jpg?$staticlink$"&gt; &lt;img&#13;
+                        src="blogs/details/Mens-BC-Q&amp;amp;A_fa2_Get-Inspired_header.jpg?$staticlink$" width="100%"&gt;&#13;
+                &lt;/picture&gt;&#13;
+            &lt;/div&gt;&#13;
+&#13;
+            &lt;div class="body-care-content"&gt;&#13;
+                &lt;div class="bodycare-text-section"&gt;&#13;
+                    &lt;div class="bc-description"&gt;&#13;
+                        &lt;p class="h-font-size--16 h-fw--normal mt-3"&gt;Body care doesn’t have to be super complex: all you need is the right fragrance, a good&#13;
+                            routine and a few skin-loving ingredients. But how do you find your signature scent? Which&#13;
+                            products do you use when? How do you even get a routine started in the first place? We’re&#13;
+                            breaking down some of your most frequently asked questions – and showing off a few&#13;
+                            essentials from our &lt;a class="h-clr--black" href="/body-care/all-men-collection"&gt;men’s body care collection&lt;/a&gt; –&#13;
+                            right here, right now.&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-head h-fw--semibold mb-0 h-font-size--16"&gt;Which should I choose first: fragrance, ingredient or product type?&#13;
+                        &lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16 h-fw--normal"&gt;Any of these options are fine, but it depends on whether you’re&#13;
+                            starting a routine from scratch or just switching up a step or two.&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16 h-fw--normal"&gt;If you’re building an entirely new collection, we like starting with the fragrance. Trying a&#13;
+                            few options is the best way to decide which scents you love, so you can build your routine&#13;
+                            from there. (Hint, hint: everyone loves a matching fragrance set.)&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16 h-fw--normal"&gt;On the other hand, if you’re targeting a specific skincare issue (dryness, we’re looking at&#13;
+                            you), starting with the product or ingredient type is usually the best route. We like body&#13;
+                            lotions and moisturizing body washes especially for this; they’re easy ways to keep your&#13;
+                            skin hydrated and balanced without adding a ton of extra time to your morning routine.&lt;/p&gt;&#13;
+&#13;
+                        &lt;p class="first-sub-head h-fw--semibold mb-0 h-font-size--16"&gt;Which men’s fragrance is best?&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16 h-fw--normal"&gt;They’re all fantastic, but you’ll probably lean toward specific scent&#13;
+                            profiles. Guys who like bold, fresh and modern fragrances will love Graphite; this blend of&#13;
+                            sage, bergamot spice and leather feels both timeless and on trend. The mariner of the group&#13;
+                            will definitely want to dive into Ocean, a blue cypress and vetiver fragrance for men who’d&#13;
+                            rather be at the coast than anywhere else. We also love Bourbon for anyone who’s into cozy,&#13;
+                            warm cocktails; it’s a blend of dark amber, white pepper and Kentucky oak that goes&#13;
+                            perfectly with a generous pour. And we didn’t forget about the guys who love woodsy scents,&#13;
+                            athletic-inspired blends or anything else – we have a fragrance for every guy, everywhere.&#13;
+                        &lt;/p&gt;&#13;
+                        &lt;p class="first-sub-head h-fw--semibold mb-0 h-font-size--16"&gt;What are the essential body care products for men?&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16 h-fw--normal"&gt;It all starts with a cleanser, a moisturizer and a finishing&#13;
+                            fragrance. Our 2-in-1 Hair + Body Wash is fabulous for a quick, convenient clean, but if&#13;
+                            your skin is drier than most – or if it’s winter and you need a little TLC – a moisturizing&#13;
+                            body wash is the way to go. This lotion-like cleanser is clinically tested to moisturize&#13;
+                            after just one shower, which makes hydration so easy.&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16 h-fw--normal"&gt;You’ll also want either a body lotion or body cream to lock in that hydration – it all&#13;
+                            depends on how dry your skin feels – and a deodorizing body spray or cologne to tie it all&#13;
+                            together. We’re also into shave gels and aftershave balms for super-close (and&#13;
+                            super-refreshing) shaves, if you’re trimming away a little facial hair.&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16 h-fw--normal"&gt;&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-head h-fw--semibold mb-0 h-font-size--16"&gt;What ingredients should be in my men’s body care?&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16 h-fw--normal"&gt;Always check for skin-loving components, like:&lt;/p&gt;&#13;
+                        &lt;ul class="mens-list"&gt;&#13;
+                            &lt;li class="h-fw--medium mb-0 h-font-size--16"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;Super-nutritious &lt;/span&gt;&lt;a class="h-clr--black" href="/coconut-scent"&gt;coconut oil&lt;/a&gt;...it can keep&#13;
+                                your skin glowing and hydrated.&lt;/li&gt;&#13;
+                            &lt;li class="h-fw--medium mb-0 h-font-size--16"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;Fluffy and moisturizing &lt;/span&gt;&lt;a class="h-clr--black" href="/shea-butter-benefits"&gt;shea&#13;
+                                    butter&lt;/a&gt;...it’s full of vitamins that help smooth dry or cracked skin.&lt;/li&gt;&#13;
+                            &lt;li class="h-fw--medium mb-0 h-font-size--16"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;Supremely softening &lt;/span&gt;vitamin E...it helps keep your skin protected and soft.&#13;
+                            &lt;/li&gt;&#13;
+                            &lt;li class="h-fw--medium mb-0 h-font-size--16"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;Creamy and rich cocoa butter&lt;/span&gt;...it’s not for eating, but it can soften, firm&#13;
+                                and smooth skin.&lt;/li&gt;&#13;
+                            &lt;li class="h-fw--medium mb-0 h-font-size--16"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;Light, soothing aloe&lt;/span&gt;...it has some anti-inflammatory properties (bye, bye&#13;
+                                sunburn) and can be anti-aging.&lt;/li&gt;&#13;
+                            &lt;li class="h-fw--medium mb-0 h-font-size--16"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;Skin-protecting witch hazel&lt;/span&gt;...it can reduce skin irritation and improve&#13;
+                                skin tone.&lt;/li&gt;&#13;
+                            &lt;li class="h-fw--medium mb-0 h-font-size--16"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;And, &lt;/span&gt;of course, great fragrance!&lt;/li&gt;&#13;
+                        &lt;/ul&gt;&#13;
+                        &lt;p class="first-sub-head h-fw--semibold mb-0 h-font-size--16"&gt;HoIs a body care routine for men actually important?&lt;/p&gt;&#13;
+                            truly don’t need a 17-step process to get there. You can easily reap the benefits just by&#13;
+                            adding a few goodies to your morning, like a good body cream or body oil, and tacking on a&#13;
+                            scrub or balm every few days. As long as you’re using high-quality products – and using them&#13;
+                            consistently – you’ll feel (and smell) great.&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-head h-fw--semibold mb-0 h-font-size--16"&gt;Is there an easy-to-follow men’s body care guide?&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16 h-fw--normal"&gt;Definitely. You can easily skip or swap these steps to fit your&#13;
+                            routine (and your skin’s needs), but this is an ideal place to start.&lt;/p&gt;&#13;
+                        &lt;ul class="mens-list"&gt;&#13;
+                            &lt;li class="h-font-size--16"&gt;&lt;a class="h-clr--black-3 h-fw--normal" href="/body-care/body-scrub"&gt;Exfoliate&lt;/a&gt;: Start with a body scrub that buffs away&#13;
+                                dead skin, lifts dirt from your pores and leaves your skin feeling fresh. You don’t have&#13;
+                                to do this daily, but it’s a great primer for the rest of your routine...and we’re&#13;
+                                obsessed with the aromatherapy essential oil blends.&lt;/li&gt;&#13;
+                            &lt;li class="h-font-size--16"&gt;&lt;a class="h-clr--black-3 h-fw--normal" href="/body-care/men-collection/bath-shower"&gt;Cleanse&lt;/a&gt;: We love the 2-in-1 Hair +&#13;
+                                Body Wash for this; it keeps your skin and hair fresh, clean and smelling so great.&#13;
+                                Plus, it eliminates an extra product, so you can say goodbye to that crowded shower&#13;
+                                shelf.&lt;/li&gt;&#13;
+                            &lt;li class="h-font-size--16"&gt;&lt;a class="h-clr--black-3 h-fw--normal" href="/body-care/men-collection/moisturizers"&gt;Moisturize&lt;/a&gt;: Right after you hop out&#13;
+                                of the shower, lock in the hydration with a super-smooth body lotion or extra-soft body&#13;
+                                cream.&lt;/li&gt;&#13;
+                            &lt;li class="h-font-size--16"&gt;&lt;a class="h-clr--black-3 h-fw--normal" href="/mens-shop/mens-grooming"&gt;Shave&lt;/a&gt;: We recommend picking up a matching shave&#13;
+                                gel and light-weight aftershave balm if a smooth face is your thing.&lt;/li&gt;&#13;
+                            &lt;li class="h-font-size--16"&gt;&lt;a class="h-clr--black-3 h-fw--normal" href="/body-care/men-collection/body-spray-cologne"&gt;Spray&lt;/a&gt;: A few spritzes of&#13;
+                                deodorizing body spray can help you stay fresh all day, especially if you’re headed to&#13;
+                                the gym. You can even layer it with a matching cologne for a powerful, all-day&#13;
+                                fragrance.&lt;/li&gt;&#13;
+                            &lt;li class="h-font-size--16"&gt;Do a little extra: Stash a &lt;a class="h-clr--black-3 h-fw--normal" style="text-decoration: underline;" href="/body-care/hand-care"&gt;hand cream&lt;/a&gt; in your work&#13;
+                                bag to prevent dry digits. De-stress with body and massage oils in the best aromatherapy&#13;
+                                blends. And grab travel-size everything so you can take your routine with you from&#13;
+                                vacation to business trip. It’s never a bad thing to add an extra step here and&#13;
+                                there...especially when the steps are this good.&lt;/li&gt;&#13;
+                        &lt;/ul&gt;&#13;
+                        &lt;p class="h-font-size--16"&gt;Ready to gather all the ingredients for a perfect routine? Shop &lt;a&#13;
+                                class="h-clr--black" href="/body-care/all-men-collection"&gt;men’s body care&lt;/a&gt; ASAP.&lt;/p&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+            &lt;p&gt;&lt;/p&gt;&#13;
+        &lt;/div&gt;&#13;
+    &lt;/div&gt;&#13;
+    &lt;div class="r_bottom"&gt;&#13;
+        &lt;div class="l_bottom"&gt;&#13;
+        &lt;/div&gt;&#13;
+    &lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="body-care"/>
+        </folder-links>
+    </content>
+
+<content content-id="mens-cologne-faq">
+        <display-name xml:lang="x-default">COLOGNE 101: HOW TO SMELL GREAT ALL DAY.</display-name>
+        <description xml:lang="x-default">Our men’s cologne: the finest ingredients &amp; longest-lasting fragrance.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+          <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Our Men’s Cologne: the Finest Ingredients &amp; Longest-lasting Fragrance</page-title>
+            <page-description xml:lang="x-default">content="One the greatest luxuries a man can have: an exclusive cologne that’s long-lasting and always smells amazing. But we know it can be tricky to find one that suits your style – and when you do, it’s hard to know how to get the most out of it. Hope you’re ready to dive in because we’re breaking down everything you need to know right now."</page-description>
+            <page-keywords xml:lang="x-default">Our Men’s Cologne, Fragrance, Bath And Body Works</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+    &lt;div class="controlcontent_r"&gt;&#13;
+        &lt;div class="htmlbucket"&gt;&#13;
+            &lt;div class="bc-image"&gt;&#13;
+                &lt;picture&gt;&#13;
+                    &lt;source media="(max-width: 767px)"&#13;
+                        srcset="blogs/details/Mens-Cologne_101_fa2_Get-Inspired_m-header.jpg?$staticlink$"&gt; &lt;img&#13;
+                        src="blogs/details/Mens-Cologne_101_fa2_Get-Inspired_header.jpg?$staticlink$" width="100%"&gt;&#13;
+                &lt;/picture&gt;&#13;
+            &lt;/div&gt;&#13;
+&#13;
+            &lt;div class="body-care-content"&gt;&#13;
+                &lt;div class="bodycare-text-section"&gt;&#13;
+                    &lt;div class="bc-description"&gt;&#13;
+                        &lt;h2 class="h-fw--semibold "&gt;Our men’s cologne: the finest ingredients &amp;amp; longest-lasting fragrance.&lt;/h2&gt;&#13;
+                        &lt;p class="first-sub-head h-fw--semibold h-font-size--16 mb-0"&gt;What exactly is cologne?&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16"&gt;Cologne is a long-lasting, more concentrated fragrance typically&#13;
+                            designed for men. It has more fragrance oils than a traditional body spray, which means&#13;
+                            it’ll last much longer on the skin and has a more intense fragrance. If you’re wondering how&#13;
+                            it compares to eau de parfum, it’s actually the opposite! Perfume has way more fragrance&#13;
+                            oils than cologne does. Super interesting, right?&lt;/p&gt;&#13;
+&#13;
+                        &lt;p class="first-sub-head h-fw--semibold h-font-size--16 mb-0"&gt;Why do people love Bath &amp;amp; Body Works cologne so much?&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16"&gt;Not to brag, but it’s all about our unique fragrance blends. Our&#13;
+                            master perfumers have created a collection of colognes for every man’s style, from woodsy&#13;
+                            and warm to fresh and bright. And if that wasn’t amazing enough…they're all long-lasting,&#13;
+                            made with the finest ingredients and look super-sleek on any shelf, too.&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-head h-fw--semibold h-font-size--16 mb-0"&gt;Speaking of, what fragrances can I get in cologne?&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16"&gt;Honestly, quite a few. Whether you’re looking for a clean scent to&#13;
+                            match your sporty lifestyle, a tribute to one of your favorite comforting cocktails or just&#13;
+                            something woodsy to wear on special occasions, there’s plenty to choose from. And if you&#13;
+                            don’t know where to start, we suggest taking a peek at our guide: &lt;a class="h-clr--black-3"&#13;
+                                href="/choose-your-scent"&gt;How to Find Your Perfect Scent&lt;/a&gt;.&lt;/p&gt;&#13;
+                        &lt;p&gt;&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-head h-fw--semibold h-font-size--16 mb-0"&gt;What are your most popular men’s fragrances?&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16"&gt;All of our fragrances are iconic, but here are a few of tried-and-true&#13;
+                            men’s favourites:&lt;/p&gt;&#13;
+                        &lt;ul class="mens-list"&gt;&#13;
+                            &lt;li class="h-font-size--16 h-fw--normal"&gt;&lt;span&gt;&lt;a class="h-clr--black-3 h-fw--semibold" style="text-decoration: underline;" href="/fragrance/ocean"&gt;Ocean: &lt;/a&gt;&lt;/span&gt;an invigorating blend of blue&#13;
+                                cypress, vetiver and coastal air.&lt;/li&gt;&#13;
+                            &lt;li class="h-font-size--16 h-fw--normal"&gt;&lt;span&gt;&lt;a class="h-clr--black-3 h-fw--semibold" style="text-decoration: underline;" href="/fragrance/bourbon"&gt;Bourbon: &lt;/a&gt;&lt;/span&gt;a smooth blend of white pepper,&#13;
+                                dark amber and Kentucky oak.&lt;/li&gt;&#13;
+                            &lt;li class="h-font-size--16 h-fw--normal"&gt;&lt;span&gt;&lt;a class="h-clr--black-3 h-fw--semibold" style="text-decoration: underline;" href="/fragrance/noir"&gt;Noir: &lt;/a&gt;&lt;/span&gt;an exotic blend of black cardamon,&#13;
+                                smokey vanilla and a hint of vanilla.&lt;/li&gt;&#13;
+                            &lt;li class="h-font-size--16 h-fw--normal"&gt;&lt;span&gt;&lt;a class="h-clr--black-3 h-fw--semibold" style="text-decoration: underline;" href="/fragrance/mahogany-teakwood"&gt;Teakwood: &lt;/a&gt;&lt;/span&gt;a striking blend&#13;
+                                mahogany, black teakwood and lavender.&lt;/li&gt;&#13;
+                        &lt;/ul&gt;&#13;
+                        &lt;p class="first-sub-head h-fw--semibold h-font-size--16 mb-0"&gt;What’s the best way to apply cologne?&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16"&gt;There’s not necessarily a wrong way, but this short step-by-step guide&#13;
+                            will have you smelling amazing in seconds.&lt;/p&gt;&#13;
+                        &lt;ul class="mens-list"&gt;&#13;
+                            &lt;li class="h-font-size--16 h-fw--normal"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;First: &lt;/span&gt;Apply it directly to your skin (before you get dressed) at arm’s&#13;
+                                length away. Start with one spritz and slowly build up from there…keeping in mind you&#13;
+                                can’t take any away if you hit the point of fragrance overload.&lt;/li&gt;&#13;
+                            &lt;li class="h-font-size--16 h-fw--normal"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;Then: &lt;/span&gt;Dab it onto your body’s pulse points (neck, inner elbows, back of the&#13;
+                                knees and chest).&lt;/li&gt;&#13;
+                            &lt;li class="h-font-size--16 h-fw--normal"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;Pro tip: &lt;/span&gt;the best time to apply it is right after the shower.&lt;/li&gt;&#13;
+                        &lt;/ul&gt;&#13;
+                        &lt;p class="first-sub-head h-fw--semibold h-font-size--16 mb-0"&gt;How should I properly store cologne?&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16"&gt;The most import part is to keep your bottles away from any direct&#13;
+                            sunlight and humidity. That means no bathroom storage if you can avoid it – the fluctuating&#13;
+                            temperatures and humidity levels can ruin the quality of your cologne. Beyond that, pretty&#13;
+                            much anything goes (but we recommend keeping it on your dresser to use while you’re getting&#13;
+                            ready for the day).&lt;/p&gt;&#13;
+&#13;
+                        &lt;p class="first-sub-head h-fw--semibold h-font-size--16 mb-0"&gt;How do I know if I’ve used too much cologne?&lt;/p&gt;&#13;
+                        &lt;p class="first-sub-desc h-font-size--16"&gt;The best trick to keep in mind is to spritz yourself at arm’s length –&#13;
+                            even if you’re touching up over your clothes. If someone can smell you from an arm’s length&#13;
+                            away, no need to add any extra spritzes.&lt;/p&gt;&#13;
+                        &lt;p class="h-font-size--16 "&gt;Now that you know everything about cologne, shop it: &lt;a class="h-clr--black-3"&#13;
+                                href="/body-care/men-collection/body-spray-cologne"&gt;here&lt;/a&gt;.&lt;/p&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+            &lt;p&gt;&lt;/p&gt;&#13;
+        &lt;/div&gt;&#13;
+    &lt;/div&gt;&#13;
+    &lt;div class="r_bottom"&gt;&#13;
+        &lt;div class="l_bottom"&gt;&#13;
+        &lt;/div&gt;&#13;
+    &lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="body-care"/>
+        </folder-links>
+    </content>
+
+    
 </library>
