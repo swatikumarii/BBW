@@ -1,5 +1,6 @@
 header {
-    z-index: auto;
+    position: relative;
+    z-index: 1;
 
     &.fixed-header {
         animation: scrollTop 0.4s ease;
