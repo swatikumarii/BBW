@@ -39,7 +39,7 @@
                         </a>
                     </div>
 
-                    <div class="store-events h-clr--blue-3">
+                    <div class="store-events h-clr--blue-4">
                         <span>${Resource.msg('label.store.pickup', 'storeLocator', null)}</span>
                     </div>
                 </div>
