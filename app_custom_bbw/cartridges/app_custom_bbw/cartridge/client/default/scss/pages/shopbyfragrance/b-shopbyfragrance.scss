@@ -1,0 +1,109 @@
+@import "../../_brand/_api/api";
+
+.shop-fragrance_content {
+    width: 90%;
+    margin: auto;
+    position: relative;
+    margin-bottom: 6.25rem;
+
+    .fragrance-topbanner {
+        margin: 45px 0;
+    }
+
+    .fragrance-list {
+        padding: 10px 0;
+        border-bottom: none;
+        border-right: none;
+        border-left: none;
+        border-top: 1px solid colour(gray,6);
+
+        @include media-up(sm) {
+            border: 1px solid colour(gray,6);
+            padding: 28px 42px;
+            margin: 0;
+            position: relative;
+        }
+
+        .subtitle {
+            padding: 0 15px;
+            top: -11px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+        .note {
+            margin: 20px 0 22px;
+
+
+            @include media-up(sm) {
+                line-height: 1rem;
+                margin: 0 0 22px;
+                padding: 0 15px;
+            }
+        }
+
+        ul {
+            .new-row {
+                float: inherit;
+                width: inherit;
+                margin-left: 2.44%;
+                margin-bottom: 19px;
+
+                @include media-up(sm) {
+                    float: left;
+                    width: 22.167%;
+                    margin-left: 2.44%;
+                    margin-bottom: 19px;
+                }
+            }
+        }
+
+        .mobile-only {
+            line-height: 2.0625rem;
+            padding: 0 1.0625em;
+            transition: all .3s ease;
+            max-height: 35px;
+            letter-spacing: .12em;
+        }
+
+        .name-list {
+            margin-top: 36px;
+            column-count: 4;
+            column-gap: 20px;
+
+            &::before {
+                content: " ";
+                display: table;
+            }
+
+            .static-level {
+                background: transparent;
+                border-bottom: 1px solid colour(gray,6);
+                padding: 0 0 6px;
+                margin-bottom: 10px;
+
+                li {
+                    text-align: inherit;
+                }
+            }
+        }
+    }
+}
+
+// --------fina a fragrance content section------
+.search-promo {
+    border-top: 1px solid colour(black, 3);
+    padding: 20px;
+
+    .html-slot-container {
+        max-width: 51.25rem;
+
+        h2 {
+            margin: 4px 0 20px;
+        }
+
+        p {
+            line-height: 1.75;
+        }
+    }
+}
