@@ -44,7 +44,7 @@ server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentT
     try{
         Transaction.wrap(function () {
             corporateGiftingDetails = CustomObjectMgr.createCustomObject(
-                'corporate-gifting',
+                'corporateGifting',
                 UUIDUtils.createUUID()
             );
             corporateGiftingDetails.custom.firstName = form.corporateGiftingFirstName ? form.corporateGiftingFirstName : '';
