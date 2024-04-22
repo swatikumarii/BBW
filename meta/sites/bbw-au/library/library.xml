@@ -1875,5 +1875,111 @@
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
+
+     <content content-id="rose">
+        <display-name xml:lang="x-default">FRAGRANCE OBSESSION: ROSE</display-name>
+        <description xml:lang="x-default">A behind-the-scents peek at why this romantic flower has serious staying power.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Rose Fragrance</page-title>
+            <page-description xml:lang="x-default">EveryoneÃ¢â‚¬â„¢s obsessed with rose fragrances (us too). Learn all about this floral scent and why itÃ¢â‚¬â„¢s so loved in rose perfume, rose essential oils and more.</page-description>
+            <page-keywords xml:lang="x-default">Rose Fragrance | Bath &amp; Body Works</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+&lt;div class="controlcontent_r"&gt;&#13;
+&lt;div class="htmlbucket"&gt;&#13;
+&lt;div class="bc-image"&gt;&#13;
+&lt;picture&gt;&#13;
+&lt;source media="(max-width: 767px)" srcset="blogs/details/F1_rose_mgh.jpg?$staticlink$"&gt;&#13;
+&lt;img src="blogs/details/F1_rose_gh.jpg?$staticlink$" width="100%"&gt;&#13;
+&lt;/picture&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div class="body-care-content"&gt;&#13;
+&lt;div class="bodycare-text-section"&gt;&#13;
+&lt;div class="bc-description"&gt;&#13;
+&lt;h2 class="h-fw--semibold"&gt;​Everything’s coming up roses&lt;/h2&gt;&#13;
+&lt;p class="h-font-size--16 "&gt;Confession: we’re a little obsessed with rose. It’s the romantic icon,&#13;
+the Valentine’s Day staple,&#13;
+the classic flower for literally every special occasion. And while we’re all about a bouquet on February 14th,&#13;
+we’re feeling the fragrance version all year round. Why do we adore it? Let us count the ways.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It has a rich history. &lt;/span&gt;Rose has been used in beauty so long,&#13;
+no wonder it’s become a worldwide scent-sation (get it?). In fact,&#13;
+during the 17th century,&#13;
+some nobles used rose water as legal currency because it was that popular.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It’s a fave of the original beauty queen. &lt;/span&gt;Cleopatra absolutely loved roses. Legend has it that she even decorated her chambers with the romantic petals when Marc Anthony visited. Swoon.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It’s an updated classic. &lt;/span&gt;Rose has been a go-to for centuries,&#13;
+but our playful,&#13;
+modern,&#13;
+airy version feels so perfect right now. It’s special,&#13;
+but versatile. Subtle,&#13;
+but lively. Exactly what you want to wear every day,&#13;
+everywhere,&#13;
+from head to toe.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It’s on trend. &lt;/span&gt;You’ve probably noticed that rose is the hottest floral this side of a garden party. Even “rose just isn’t my thing” types are falling in love with our spin on the scent. (The super-pretty, Instagram-worthy packaging is a bonus, too.)&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It’s incredibly versatile. &lt;/span&gt;From light-as-air fragrance mists to luscious hair oils,&#13;
+fun and fresh &lt;a class="h-clr--black-3" href="/body-care/bubble-bath"&gt;bubble bath&lt;/a&gt;to moisturizing &lt;a class="h-clr--black-3" href="/body-care/body-lotion"&gt;body lotions&lt;/a&gt;,&#13;
+rose is the first stop for beauty lovers everywhere…especially when it’s time to unwind.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It has mood-boosting powers. &lt;/span&gt;Rose essential oil: the queen of lifting spirits and moods. When it’s mixed with the right aromatherapy formula,&#13;
+this petal-powered oil can help relieve stress,&#13;
+create positive emotions and inspire a little love.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It’s made of thousands of petals. &lt;/span&gt;Yeah,&#13;
+that’s a lot of petals. A 5mL bottle of pure rose oil requires over 10,&#13;
+000 petals to make. Talk about liquid gold.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It’s perfect no matter where it is. &lt;/span&gt;The body-care versions are definitely must-haves,&#13;
+but rose is actually amazing for any room,&#13;
+any season,&#13;
+any day. Whether it’s a &lt;a class="h-clr--black-3" href="/home-fragrance/wallflowers-plugs"&gt;Wallflowers plug&lt;/a&gt;,&#13;
+a 3-wick &lt;a class="h-clr--black-3" href="/home-fragrance/3-wick-candles"&gt;candle&lt;/a&gt;or a concentrated &lt;a class="h-clr--black-3" href="/home-fragrance/room-spray-and-mist"&gt;room spray&lt;/a&gt;,&#13;
+one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;Can’t wait to try it? Explore our entire &lt;a class="h-clr--black-3" href="/all-products?Rfs=attrZZCU00388442-005VPYQCU00388442-005-27"&gt;rose collection.&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;p class="h-font-size--16 "&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="r_bottom"&gt;&lt;div class="l_bottom"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="behind-the-scents"/>
+        </folder-links>
+    </content>
+
+    
+ <content content-id="lavender">
+        <display-name xml:lang="x-default">FRAGRANCE OBSESSION: LAVENDER</display-name>
+        <description xml:lang="x-default">Floral fans: here’s why you need this gentle scent in your rotation, stat.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Lavender Essential Oils and Fragrance</page-title>
+            <page-description xml:lang="x-default">ThereÃ¢â‚¬â„¢s a reason lavender is so popular Ã¢â‚¬â€œ from the benefits to using lavender essential oils to the amazing fragrance Ã¢â‚¬â€œ learn about one of the most versatile flowers.</page-description>
+            <page-keywords xml:lang="x-default">Lavender Essential Oils and Fragrance | Bath &amp; Body Works</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+&lt;div class="controlcontent_r"&gt;&#13;
+&lt;div class="htmlbucket"&gt;&#13;
+&lt;div class="bc-image"&gt;&lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/C1_LAVENDER-AT_mgh.jpg?$staticlink$"&gt; &lt;img src="blogs/details/C1_LAVENDER-AT_gh.jpg?$staticlink$" width="100%"&gt; &lt;/picture&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="body-care-content"&gt;&#13;
+&#13;
+&lt;div class="bodycare-text-section"&gt;&#13;
+&lt;div class="bc-description"&gt;&#13;
+&lt;h2 class="h-fw--semibold"&gt;​WE LOVE WALKING INTO FIELDS OF LAVENDER&lt;/h2&gt;&#13;
+&lt;p class="h-font-size--16 h-clr--gray"&gt;It’s no secret we’re totally into lavender. Beautiful, petite flowers and relaxing, rejuvenating fragrances are always welcome in our books (and products). You’re probably familiar with lavender (especially since it’s such an ingredient trend right now), but why do we love it so much? Here’s a little peek.&lt;/p&gt;&#13;
+&lt;p class="h-clr--gray h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It has an elegant history. &lt;/span&gt;Originally from the Mediterranean, Middle East and India, these beautiful stalks quickly became the perfect ingredient for teas, body care, home fragrance and more. Lavender was even considered a holy plant by the ancient Greeks, which explains why it’s such a holy grail these days.&lt;/p&gt;&#13;
+&lt;p class="h-clr--gray h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It’s meaningful. &lt;/span&gt;The purple petals of the lavender flower have long been associated with royalty and majesty. Add in more symbolism, like healing, femininity, purity and calmness, and no wonder people have loved lavender for ages.&lt;/p&gt;&#13;
+&lt;p class="h-clr--gray h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It’s timeless in all things. &lt;/span&gt;Always popular, always fragrant and always on-trend. Lavender was originally found in the homes of ancient civilizations, and due to its amazing smell and wondrous properties, it’s made a name for itself through the ages. And as we’ve continued to explore fragrance over the years, we keep finding new ways to highlight the lavender scent.&lt;/p&gt;&#13;
+&lt;p class="h-clr--gray h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It’s beautiful. &lt;/span&gt;The scent is gorgeous, of course, but the flower itself is seriously lovely. There’s a reason lavender gets tucked into bridal bouquets or shown off in gorgeous glass vases. Artists have even incorporated the flower into their works, whether it’s painted, printed or pressed.&lt;/p&gt;&#13;
+&lt;p class=" h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It’s completely seasonless. &lt;/span&gt;Sure, floral fragrances are usually at the forefront in spring or early summer (before we get in the mode for something fruity and tropical, of course), but lavender is the exception. Give us a spritz for New Year’s Eve (or any other party you’re attending). Light a lavender &lt;a class="h-clr--black-3" href="/home-fragrance/3-wick-candles"&gt;candle&lt;/a&gt; on a cozy fall night. She’s definitely a year-round girl.&lt;/p&gt;&#13;
+&lt;p class="h-clr--gray h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It plays well with others. &lt;/span&gt;Lavender is amazing on its own, but we’ve created a few blends that make it even better. Lavender and vanilla: the ultimate sweet treat. Lavender and woodsy scents: an instant escape to a relaxing retreat. Lavender and linen: so fresh and clean. The fragrance combinations are actually endless (and we love that).&lt;/p&gt;&#13;
+&lt;p class="h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It’s extra relaxing. &lt;/span&gt;Lavender essential oils are soothing, calming and utterly tranquil. Our &lt;a class="h-clr--black-3" href="/bodycare/aromatherapy"&gt;aromatherapy collection&lt;/a&gt; features so many lotions, scrubs and body washes with lavender in the mix to help you sleep tight every night. And speaking of options…&lt;/p&gt;&#13;
+&lt;p class="h-clr--gray h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It comes in so many forms. &lt;/span&gt;Think lavender-based body scrubs, body lotions, creams, bubble baths…you get the idea. We even created Bath &amp;amp; Body Works pillow mists to inspire a few lavender dreams. Plus, you’ll find lavender essential oils in candles and concentrated room sprays. We just love it that much.&lt;/p&gt;&#13;
+&lt;p class="h-clr--gray h-font-size--16"&gt;Permission to explore lavender further – granted. Take a stroll through our lavender collection.&lt;/p&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;p&gt;&lt;/p&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div class="r_bottom"&gt;&#13;
+&lt;div class="l_bottom"&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="behind-the-scents"/>
+        </folder-links>
+    </content>
     
 </library>

@@ -15,13 +15,8 @@
             <ul class="clearfix" role="list">
                 <isloop iterator="${pdict.fragranceCategories}" alias="fragranceCategories" status="loopstate">
                     <li class="new-row">
-<<<<<<< HEAD
                         <a
-                            href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceCategory', 'prefv1', fragranceCategories
-                                  .fragrance)}">
-=======
-                        <a href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceCategory', 'prefv1', fragranceCategories.fragrance)}">
->>>>>>> 4bf2c5adc0260a022bc87efd37d02b317618e638
+                            href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceCategory', 'prefv1', fragranceCategories.fragrance)}">
                             <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, fragranceCategories.image)}"
                                 alt="${fragranceCategories.fragrance}">
                         </a>
