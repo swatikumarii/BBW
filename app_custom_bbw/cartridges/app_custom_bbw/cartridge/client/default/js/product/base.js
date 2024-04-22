@@ -185,7 +185,7 @@ module.exports = $.extend({}, base, {
     addToCart: function () {
         $(document).on(
             'click',
-            'button.add-to-cart, button.add-to-cart-global, button.checkclick',
+            'button.add-to-cart, button.add-to-cart-global',
             function () {
                 var addToCartUrl;
                 var pid;
