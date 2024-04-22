@@ -90,6 +90,7 @@
                             <div class="row product-grid" itemtype="http://schema.org/SomeProducts" itemid="#product">
                                 <isinclude template="search/productGrid" />
                                 <isinclude template="product/components/requestUserEmailForOOSModal" />
+                                <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
                             </div>
                         </div>
                     </div>

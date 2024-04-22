@@ -103,13 +103,10 @@
                                     <div class="form-group">
                                         <isif
                                             condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
-                                            <isset name="dataCallback" value="submitContactUs" scope="page" />
-                                            <isset name="dataErrorCallback" value="checkRecaptcha" scope="page" />
-                                            <isinclude template="/common/reCaptcha" />
-                                            <button id="gcaptchabtn" type="button"
-                                                class="btn btn-block btn-primary subscribe-contact-us">${Resource.msg('label.input.contact-us-submit', 'contactUs', null)}</button>
+                                            <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}" data-callback="submitContactUs" data-action="submit"
+                                                class="btn btn-block btn-primary subscribe-contact-us g-recaptcha">${Resource.msg('label.input.contact-us-submit', 'contactUs', null)}</button>
                                         <iselse/>
-                                            <button type="button"
+                                            <button type="submit"
                                                 class="btn btn-block btn-primary subscribe-contact-us">${Resource.msg('label.input.contact-us-submit', 'contactUs', null)}</button>
                                         </isif>
                                     </div>
@@ -121,7 +118,4 @@
             </div>
         </div>
     </div>
-    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha') == true}">
-        <isinclude template="/common/googleRecaptcha" />
-    </isif>
 </isdecorate>

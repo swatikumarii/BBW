@@ -1,0 +1,58 @@
+<isset name="STORE_DETAIL_URL" value="${URLUtils.http(new dw.web.URLAction('Stores-Detail'))}" scope="PAGE" />
+<div class="card store-details border-0 p-0" data-store-id="${store.ID}">
+    <div class="card-head" id="${store.ID}">
+        <a href="${STORE_DETAIL_URL}?storeId=${store.ID}" class="mb-0 store-name collapsed h-font-size--18 h-fw--bold h-clr--black-1 text-uppercase cursor-pointer"
+            data-toggle="collapse" data-target="${'#collapse' + store.ID}" aria-expanded="true"
+            aria-controls="collapseOne">
+            ${store.name}
+        </a>
+    </div>
+    <div id="${'collapse' + store.ID}" class="collapse" aria-labelledby="${store.ID}" data-parent="#accordion">
+        <div class="card-body h-font-size--16">
+            <div class="row">
+                <div class="col">
+                    <div class="store-address">
+                        <span class="text-uppercase">
+                            ${store.address1}
+                            <isif condition="${store.address2}">
+                                ${store.address2}
+                            </isif>
+                            <isif condition="${store.city}">
+                                ${store.city},
+                            </isif>
+                            <isif condition="${store.stateCode}">
+                                ${store.stateCode}
+                            </isif>
+                            ${store.postalCode}
+                        </span>
+                    </div>
+
+                    <div class="store-phone">
+                        <isif condition="${store.phone}">
+                            <span>${store.phone}</span>
+                        </isif>
+                    </div>
+
+                    <div class="store-direction">
+                        <a class="h-fw--semibold h-clr--black-1" target='_blank'
+                            href="https://maps.google.com/?daddr=${store.latitude},${store.longitude}">
+                            ${Resource.msg('label.get.directions', 'storeLocator', null)}
+                        </a>
+                    </div>
+
+                    <div class="store-events h-clr--blue-3">
+                        <span>${Resource.msg('label.store.pickup', 'storeLocator', null)}</span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="store-hours d-block">
+                        <isif condition="${store.storeHours}">
+                            <isprint value="${store.storeHours}" encoding="off" />
+                        </isif>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

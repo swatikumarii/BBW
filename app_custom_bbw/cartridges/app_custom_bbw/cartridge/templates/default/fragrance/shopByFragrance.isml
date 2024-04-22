@@ -3,63 +3,88 @@
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addCss('/css/login.css');
         assets.addJs('/js/fragranceName.js');
+          assets.addCss('/css/pages/shopbyfragrance/b-shopbyfragrance.css');
     </isscript>
-    <div class="row">
-        <div class="col-md-8 offset-md-4 ">
-            <h1>${Resource.msg('shop.by.fragrance.title', 'fragrance', null)}</h1>
-            <p class="center text-live">${Resource.msg('shop.by.fragrance.sub', 'fragrance', null)}</p>
-        </div>
-        <div class="col-md-8 offset-md-2">
-            <h2 class="subtitle ml-2">${Resource.msg('shop.by.fragrance.categories.title', 'fragrance', null)}</h2>
-            <p class="note ml-2">${Resource.msg('shop.by.fragrance.categories.sub', 'fragrance', null)}</p>
-            <ul class="clearfix" role="list">
-                <isloop iterator="${pdict.fragranceCategories}" alias="fragranceCategories" status="loopstate">
-                    <li class="new-row">
-                        <a href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceCategory', 'prefv1', fragranceCategories.fragrance)}">
-                            <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, fragranceCategories.image)}" alt="${fragranceCategories.fragrance}">
-                        </a>
-                    </li>
-                </isloop>
-            </ul>
-        </div>
-
-        <div class="col-md-8 offset-md-2 mt-5">
-            <h2 class="subtitle ml-2">${Resource.msg('shop.by.fragrance.name.title', 'fragrance', null)}</h2>
-            <p class="note ml-2">${Resource.msg('shop.by.fragrance.name.sub1', 'fragrance', null)}</p>
-            <p class="note ml-2">
-                <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, '/images/shop-by-fragrance/top-badge-lrg-2.svg')}" alt="top-fragrance"> ${Resource.msg('shop.by.fragrance.name.sub2', 'fragrance', null)}</p>
-            <div class="fragrance-header-search">
-                <div class="fragrance-search search-wrapper">
-                    <fieldset>
-                        <input type="text" id="search-input" name="search-input" autocomplete="off" />
-                    </fieldset>
-                </div>
-                <input type="hidden" id="fragranceAjaxURL" name="fragranceAjaxURL"
-                    value="${URLUtils.url('Search-FragranceAjax')}" />
-                <ul id="searchResult"></ul>
-                <div class="fragrance-search-suggestions"></div>
+    <div class="container">
+        <div class="shop-fragrance_content">
+            <div class="fragrance-topbanner text-center">
+                <h1 class="h-fw--bold h-font-size-md--100 h-font-size-sm--50 text-center">
+                    ${Resource.msg('shop.by.fragrance.title', 'fragrance', null)}
+                </h1>
+                <p class="text-center text-live h-font-size--28 h-clr--black-3 mt-5">
+                    ${Resource.msg('shop.by.fragrance.sub', 'fragrance', null)}</p>
             </div>
-            <ul class="clearfix" role="list">
-                <isset name="previousAlphabet" value="0" scope="page" />
-                <isloop iterator="${pdict.fragranceNames}" alias="fragranceNames" status="loopstate">
-                    <isif condition="${previousAlphabet !== fragranceNames.alphabet}">
-                        <div id="${fragranceNames.alphabet}" class="level-1-${fragranceNames.alphabet}">
-                            <h3 class="title">${fragranceNames.alphabet}</h3>
-                            <div class="alphabet-border"></div>
+            <div class="fragrance-list fr-category col-md-12">
+                <h2 class="subtitle h-font-size--18 m-0 position-absolute text-uppercase h-bg--gray-1 h-fw--bold">
+                    ${Resource.msg('shop.by.fragrance.categories.title', 'fragrance', null)}</h2>
+                <p class="note h-font-size--16 text-center  h-clr--gray">
+                    ${Resource.msg('shop.by.fragrance.categories.sub', 'fragrance', null)}</p>
+                <ul class="clearfix list-unstyled w-100 position-relative p-0 m-0" role="list">
+                    <isloop iterator="${pdict.fragranceCategories}" alias="fragranceCategories" status="loopstate">
+                        <li class="new-row">
+                            <a href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceCategory', 'prefv1', fragranceCategories
+                                     .fragrance)}">
+                                <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, fragranceCategories.image)}"
+                                    alt="${fragranceCategories.fragrance}">
+                            </a>
+                        </li>
+                    </isloop>
+                </ul>
+            </div>
+
+            <div class="fragrance-list fr-category col-md-12">
+                <h2 class="subtitle h-font-size--18 m-0 position-absolute text-uppercase h-bg--gray-1 h-fw--bold">
+                    ${Resource.msg('shop.by.fragrance.name.title', 'fragrance', null)}</h2>
+                <p class="note h-font-size--16 text-center  h-clr--gray">${Resource.msg('shop.by.fragrance.name.sub1', 'fragrance', null)}</p>
+                <p class="note h-font-size--16 text-center  h-clr--gray">
+                    <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, '/images/shop-by-fragrance/top-badge-lrg-2.svg')}"
+                        alt="top-fragrance"> ${Resource.msg('shop.by.fragrance.name.sub2', 'fragrance', null)}
+                </p>
+                <div class="mobile-only button filter-show d-md-none h-bg--black-3 cursor-pointer h-bdc--black-3 h-clr--white text-center h-font-size--12 h-fw--normal" role="button" tabindex="0">
+                    ${Resource.msg('shop.by.fragrance.button', 'fragrance', null)}
+                </div>
+                <isif condition="${!empty(pdict.fragranceNames)}">
+                    <div class="fragrance-header-search d-none d-md-block">
+                        <div class="fragrance-search search-wrapper">
+                            <fieldset>
+                                <input type="text" id="search-input" name="search-input" autocomplete="off" />
+                            </fieldset>
                         </div>
-                    </isif>
-                    <li class="level-2">
-                        <a
-                            href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragranceNames.name)}" data-fragrancename="${fragranceNames.name}">
-                            ${fragranceNames.name}</a>
-                        <isif condition="${fragranceNames.topFragrance}">
-                            <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, '/images/shop-by-fragrance/top-badge-lrg-2.svg')}" alt="top-fragrance">
-                        </isif>
-                    </li>
-                    <isset name="previousAlphabet" value="${fragranceNames.alphabet}" scope="page" />
-                </isloop>
-            </ul>
-            <div class="noresult" id="noresult">${Resource.msg('shop.by.fragrance.name.noresult', 'fragrance', null)}</div>
+                    </div>
+                    <ul class="clearfix list-unstyled w-100 position-relative name-list d-none d-md-block" role="list">
+                        <isset name="previousAlphabet" value="0" scope="page" />
+                        <isloop iterator="${pdict.fragranceNames}" alias="fragranceNames" status="loopstate">
+                            <isif condition="${previousAlphabet !== fragranceNames.alphabet}">
+                                <div id="${fragranceNames.alphabet}"
+                                    class="level-1-${fragranceNames.alphabet} static-level h-width-perc--80 text-justify">
+                                    <h3 class="title m-0 p-0">${fragranceNames.alphabet}</h3>
+                                    <div class="alphabet-border"></div>
+                                </div>
+                            </isif>
+                            <li class="level-2 text-justify mt-3 mb-3">
+                                <a class="h-clr--black-3"
+                                    href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragranceNames.name)}"
+                                    data-fragrancename="${fragranceNames.name}">
+                                    ${fragranceNames.name}</a>
+                                <isif condition="${fragranceNames.topFragrance}">
+                                    <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, '/images/shop-by-fragrance/top-badge-lrg-2.svg')}"
+                                        alt="top-fragrance"></isif>
+                            </li>
+                            <isset name="previousAlphabet" value="${fragranceNames.alphabet}" scope="page" />
+                        </isloop>
+                    </ul>
+                    <div class="noresult" id="noresult">${Resource.msg('shop.by.fragrance.name.noresult', 'fragrance', null)}
+                    </div>
+                <iselse/>
+                    <div class="nofragrance">${Resource.msg('shop.by.fragrance.name.empty', 'fragrance', null)}</div>
+                </isif>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Find a Fragrance -->
+            <div class="col-sm-12">
+                <iscontentasset aid="find-fragrance" />
+            </div>
         </div>
     </div>
 </isdecorate>

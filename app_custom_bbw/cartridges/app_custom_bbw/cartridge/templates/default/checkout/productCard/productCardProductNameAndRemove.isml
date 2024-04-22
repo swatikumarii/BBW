@@ -1,0 +1,15 @@
+<div class="line-item-name h-pb--10">
+    <span class="d-block h-fw--semibold h-clr--black-1 h-font-size--15">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</span>
+    <span class="d-block h-font-size--12">${lineItem.titlePartB ? lineItem.titlePartB : ''}</span>
+    <span class="d-block h-font-size--10">${lineItem.volume ? lineItem.volume : ''}</span>
+</div>
+<isif condition="${!lineItem.isBonusProductLineItem}">
+    <div class="remove-line-item h-pos--absolute">
+        <span type="button" class="cart-delete-confirmation-btn" data-pid="${lineItem.id}"
+            data-name="${lineItem.productName}" data-action="${pdict.actionUrls.removeProductLineItemUrl}"
+            data-uuid="${lineItem.UUID}"
+            aria-label="${Resource.msgf('text.remove.line.item', 'cart', null, lineItem.productName)}">
+            <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
+        </span>
+    </div>
+</isif>
