@@ -21,8 +21,8 @@
         right: 0;
         display: none;
         min-height: 100%;
-        min-width: 450px;
-        max-width: 450px;
+        min-width: 425px;
+        max-width: 425px;
         position: fixed;
         overflow-x: hidden;
 
@@ -36,7 +36,7 @@
         }
 
         .mini-cart-content {
-            max-height: 90vh;
+            max-height: 80vh;
             overflow: hidden;
             overflow-y: scroll;
 
@@ -47,6 +47,43 @@
 
         &::-webkit-scrollbar {
             width: 0;
+        }
+
+        .minicart-login {
+            padding: 0 25px;
+
+            .minicart-login-btn {
+                width: 45%;
+                padding: 6px 0;
+                border: 1px solid;
+                text-transform: uppercase;
+            }
+        }
+
+        .promo-details {
+            text-decoration: underline;
+        }
+
+        .minicart-footer {
+            padding: 0 15px;
+
+            .sub-total-wrap {
+                padding: 15px 0;
+            }
+
+            .estimated-total {
+                padding: 20px 0;
+                margin-bottom: 25px;
+            }
+
+            .minicart-buttons {
+                text-transform: uppercase;
+
+                .btn-block {
+                    font-size: 13px;
+                    line-height: 44px;
+                }
+            }
         }
     }
 }

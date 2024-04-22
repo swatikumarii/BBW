@@ -8,19 +8,19 @@
             <span type="button" class="minicart-close-icon h-pos--absolute">
                 <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
             </span>
-            <h1 class="text-center h-fw--semibold">${Resource.msg('title.my.shopping.cart', 'cart', null)}</h1>
+            <h1 class="text-center h-fw--semibold">${Resource.msgf('title.my.shopping.cart', 'cart', null, pdict.numItems)}</h1>
         </div>
         <isslot id="minicart-top-slot" context="global" description="This slot will apper on the top of minicart" />
 
         <iscomment> Motivator to be added here </iscomment>
 
         <isif condition="${!session.isCustomerAuthenticated()}">
-            <div class="minicart-login row">
-                <div class="col-8">${Resource.msg('minicart.login.message', 'cart', null)}</div>
-                <div class="col-4">
-                    <a href="${URLUtils.url('Login-Show')}" class="border h-bdc--blue h-clr--blue d-block text-center">${Resource.msg('action.customer.login', 'checkout', null)}</a>
-                </div>
-
+            <div class="minicart-login d-flex justify-content-between align-items-center">
+                <span class="d-block h-font-size--12 h-fw--semibold">
+                    ${Resource.msg('minicart.login.message', 'cart', null)}
+                </span>
+                <a href="${URLUtils.url('Login-Show')}"
+                    class="minicart-login-btn h-bdc--blue h-clr--blue d-block h-fw--bold text-center">${Resource.msg('action.customer.login', 'checkout', null)}</a>
             </div>
         </isif>
         <iscomment> Motivator to be added here </iscomment>
@@ -35,7 +35,7 @@
             </isif>
         </div>
 
-        <div class="product-summary">
+        <div class="product-summary border-top mt-3">
             <isloop items="${pdict.items}" var="lineItem">
                 <div class="row">
                     <div class="col-12">
@@ -68,18 +68,20 @@
     <isinclude template="cart/cartRemoveProductModal" />
 
     <div class="minicart-footer">
-        <div class="row estimated-total">
-            <div class="col-8">
-                <p class="sub-total-label">${Resource.msg('label.estimatedtotal', 'cart', null)}</p>
-            </div>
-            <div class="col-4">
-                <p class="text-right sub-total">${pdict.totals.subTotal}</p>
-            </div>
+        <div class="sub-total-wrap d-flex justify-content-between border-bottom">
+            <p class="sub-total-label m-0 h-font-size--14 h-clr--black-1">${Resource.msg('label.sub.total', 'cart', null)}</p>
+            <p class="text-right sub-total m-0 h-font-size--14 h-clr--black-1">${pdict.totals.subTotal}</p>
         </div>
-        <div class="row">
-            <div class="col-12 checkout-continue">
-                <isinclude template="cart/checkoutButtons" />
-            </div>
+        <div class="estimated-total d-flex justify-content-between border-bottom">
+            <p class="estimated-total-label m-0 h-font-size--22 h-fw--semibold h-clr--black-1">${Resource.msg('label.estimatedtotal', 'cart', null)}</p>
+            <p class="text-right sub-total m-0 h-font-size--22 h-fw--semibold h-clr--blue-1">${pdict.totals.subTotal}</p>
         </div>
+        <div class="checkout-continue">
+            <isinclude template="cart/checkoutButtons" />
+        </div>
+        <isslot id="minicart-footer-payment-methods" context="global" description="This slot renders in the footer section of minicart and is primarily designated to show acceptable payments" />
+        <isslot id="minicart-footer-help" context="global" description="This slot renders in the footer section of minicart and is primarily designated to show need help section" />
+        <isslot id="minicart-footer-bottom" context="global" description="This slot renders at the bottom of the footer section of minicart" />
+
     </div>
 </div>
