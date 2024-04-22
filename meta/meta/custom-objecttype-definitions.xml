@@ -571,7 +571,7 @@
         </group-definitions>
     </custom-type>
 
-    <custom-type type-id="corporate-gifting">
+    <custom-type type-id="corporateGifting">
         <display-name xml:lang="x-default">Corporate Gifting</display-name>
         <description xml:lang="x-default">corporates query for corporate gifting purposes</description>
         <staging-mode>no-staging</staging-mode>
