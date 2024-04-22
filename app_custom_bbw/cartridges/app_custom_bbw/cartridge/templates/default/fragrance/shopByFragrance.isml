@@ -1,4 +1,6 @@
 <isdecorate template="common/layout/page">
+<isinclude template="/components/modules" sf-toolkit="off" />
+
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addCss('/css/login.css');
@@ -8,11 +10,7 @@
     <div class="container">
         <div class="shop-fragrance_content">
             <div class="fragrance-topbanner text-center">
-                <h1 class="h-fw--bold h-font-size-md--100 h-font-size-sm--50 text-center">
-                    ${Resource.msg('shop.by.fragrance.title', 'fragrance', null)}
-                </h1>
-                <p class="text-center text-live h-font-size--28 h-clr--black-3 mt-5">
-                    ${Resource.msg('shop.by.fragrance.sub', 'fragrance', null)}</p>
+                    <iscontentasset aid="fragrance-finder" />
             </div>
             <div class="fragrance-list fr-category col-md-12">
                 <h2 class="subtitle h-font-size--18 m-0 position-absolute text-uppercase h-bg--gray-1 h-fw--bold">

@@ -42,18 +42,21 @@
         }
 
         ul {
+            column-count: 4;
+                column-gap: 20px;
             .new-row {
-                float: inherit;
-                width: inherit;
-                margin-left: 2.44%;
-                margin-bottom: 19px;
+               
+                // float: inherit;
+                // width: inherit;
+                // margin-left: 2.44%;
+                // margin-bottom: 19px;
 
-                @include media-up(sm) {
-                    float: left;
-                    width: 22.167%;
-                    margin-left: 2.44%;
-                    margin-bottom: 19px;
-                }
+                // @include media-up(sm) {
+                //     float: left;
+                //     width: 22.167%;
+                //     margin-left: 2.44%;
+                //     margin-bottom: 19px;
+                // }
             }
         }
 
@@ -104,5 +107,52 @@
         p {
             line-height: 1.75;
         }
+    }
+}
+
+.fragrance-top-banner {
+    .fragrance-landing-header {
+        font-size: 45px;
+        line-height: 1;
+        letter-spacing: 0;
+    }
+
+    .fragrance-landing-subheader {
+        line-height: 19px;
+    }
+}
+
+.all-fragrance-header {
+    margin-top: 80px;
+    margin-bottom: 15px;
+    border-top: 2px solid $clr-gray-18;
+
+    .top-fr-head-container {
+        margin-top: 42px;
+
+        @include media-up(sm) {
+            margin-top: -12px;
+        }
+
+        h2 {
+            letter-spacing: normal;
+            padding-left: 160px;
+            padding-right: 160px;
+        }
+    }
+
+    p {
+        letter-spacing: 0;
+        line-height: 19px;
+    }
+
+    .icon {
+        padding-left: 5px;
+        padding-right: 7px;
+    }
+
+    .svg-top-badge-lrg-2-dims {
+        width: 29px;
+        height: 27px;
     }
 }
