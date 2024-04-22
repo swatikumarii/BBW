@@ -9,6 +9,7 @@ header {
         right: 0;
         top: 0;
         transition: 0.5s linear all;
+        z-index: 9;
     }
 
     @include media-up(sm) {
