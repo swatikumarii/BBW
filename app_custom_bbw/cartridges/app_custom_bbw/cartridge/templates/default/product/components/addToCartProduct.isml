@@ -1,17 +1,11 @@
-<isif condition="${typeof(product) == 'undefined'}">
-    <isset name="product" value="${pdict.product}" scope="page" />
-</isif>
 <div class="row cart-and-ipay">
     <div class="col-sm-12">
         <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
-        <button class="add-to-cart btn btn-primary"
-            data-toggle="modal" data-target="#chooseBonusProductModal"
-            data-pid="${product.id}"
-            ${!product.readyToOrder || !product.available ? "disabled" : ""}>
-            <i class="fa fa-shopping-bag"></i>
+        <button class="add-to-cart btn btn-primary" data-toggle="modal" data-target="#chooseBonusProductModal"
+            data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
             ${Resource.msg('button.addtocart', 'common', null)}
         </button>
         <span class="add-to-cart-error"></span>
-        <isinclude template="product/components/addToCartButtonExtension"/>
+        <isinclude template="product/components/addToCartButtonExtension" />
     </div>
 </div>

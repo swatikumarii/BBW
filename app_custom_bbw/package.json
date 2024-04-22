@@ -72,10 +72,11 @@
   "dependencies": {
     "intl-tel-input": "^21.1.4",
     "@devmobiliza/videojs-vimeo": "^0.6.0",
+    "modal-video": "^2.4.8",
+    "popper.js": "^1.16.1",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.1.0",
     "video.js": "^8.10.0",
-    "videojs-youtube": "^3.0.1",
-    "popper.js": "^1.16.1"
+    "videojs-youtube": "^3.0.1"
   }
 }
