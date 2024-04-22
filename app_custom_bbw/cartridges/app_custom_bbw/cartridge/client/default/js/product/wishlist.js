@@ -3,20 +3,6 @@
 var base = require('base/product/base');
 
 /**
- * re-renders the order totals and the number of items in the cart
- * @param {object} message - Error message to display
- */
-function createErrorNotification(message) {
-    var errorHtml = '<div class="alert alert-danger alert-dismissible valid-cart-error '
-        + 'fade show" role="alert">'
-        + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
-        + '<span aria-hidden="true">&times;</span>'
-        + '</button>' + message + '</div>';
-
-    $('.cart-error').append(errorHtml);
-}
-
-/**
  * Updates the Mini-Cart quantity value after the customer has pressed the "Add to Cart" button
  * @param {string} response - ajax response from clicking the add to cart button
  */
@@ -142,13 +128,9 @@ module.exports = {
                         );
                     },
                     error: function (err) {
-                        if (err.responseJSON.redirectUrl) {
-                            window.location.href = err.responseJSON.redirectUrl;
-                        } else {
-                            createErrorNotification(
-                                err.responseJSON.errorMessage
-                            );
-                        }
+                        $('.add-to-cart-error').text(
+                            err.responseJSON.errorMessage
+                        );
                         $.spinner().stop();
                     }
                 });
