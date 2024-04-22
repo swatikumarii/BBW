@@ -15,8 +15,8 @@ var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
  * @name Order-Failed
  * @function
  * @memberof Order
- * @param {middleware} - consentTracking.consent
- * @param {middleware} - server.middleware.https
+ * @param {middleware} middleware - consentTracking.consent
+ * @param {middleware} middleware - server.middleware.https
  */
 server.get(
     'Failed',
@@ -24,7 +24,7 @@ server.get(
     server.middleware.https,
     function (req, res, next) {
         var OrderMgr = require('dw/order/OrderMgr');
-        var OrderModel = require('*/cartridge/models/order');
+        // var OrderModel = require('*/cartridge/models/order');
 
         var order;
         var orderID = session.privacy.orderNo;
@@ -56,8 +56,8 @@ server.get(
  * @name Order-Pending
  * @function
  * @memberof Order
- * @param {middleware} - consentTracking.consent
- * @param {middleware} - server.middleware.https
+ * @param {middleware} middleware - consentTracking.consent
+ * @param {middleware} middleware - server.middleware.https
  */
 server.get(
     'Pending',
@@ -65,7 +65,7 @@ server.get(
     server.middleware.https,
     function (req, res, next) {
         var OrderMgr = require('dw/order/OrderMgr');
-        var OrderModel = require('*/cartridge/models/order');
+        // var OrderModel = require('*/cartridge/models/order');
 
         var order;
         var orderID = session.privacy.orderNo;
