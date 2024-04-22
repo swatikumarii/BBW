@@ -13,6 +13,6 @@
         </span>
     </a>
     <isif condition="${pdict.display.showQuickView !== false}">
-        <a class="b-product-tile__quickview quickview hidden-sm-down position-absolute" href="${pdict.urls.quickView}" title="${Resource.msg('button.quickview', 'common', null)}">Quicklook</a>
+        <a class="b-product-tile__quickview quickview hidden-sm-down position-absolute" href="${pdict.urls.quickView}" title="${Resource.msg('label.btn.quicklook', 'search', null)}">${Resource.msg('label.btn.quicklook', 'search', null)}</a>
     </isif>
 </div>

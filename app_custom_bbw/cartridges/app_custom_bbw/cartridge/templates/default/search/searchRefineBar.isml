@@ -2,10 +2,12 @@
 <div class="filter-header h-px--15">
     <div class="header-bar d-md-none clearfix">
         <div class="pull-left d-md-none result-count">
-            <span class="h-font-size--18 h-fw--bold h-clr--blue">Filter By:</span>
+            <span class="h-font-size--18 h-fw--bold h-clr--blue">${Resource.msg('label.refinements', 'search', null)}</span>
         </div>
         <button class="pull-right close">
-            <img alt="${Resource.msg('button.close', 'search', null)}" src="${URLUtils.staticURL('/images/icons/UI-Close-blue.svg')}" class="refinement-close" width="20px" height="20px"/>
+            <img alt="${Resource.msg('button.close', 'search', null)}"
+                src="${URLUtils.staticURL('/images/icons/UI-Close-blue.svg')}" class="refinement-close" width="20px"
+                height="20px" />
         </button>
     </div>
 </div>
@@ -16,7 +18,8 @@
             <div
                 class="card collapsible-sm refinement refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')} border-0">
                 <div class="card-header col-sm-12 d-md-none">
-                    <button class="title text-left d-md-none px-0 d-flex align-items-center w-100 h-font-size--18 h-fw--bold h-clr--black-1"
+                    <button
+                        class="title text-left d-md-none px-0 d-flex align-items-center w-100 h-font-size--18 h-fw--bold h-clr--black-1"
                         aria-controls="refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')}"
                         aria-expanded="false">
                         <span>${refinement.displayName}</span>
@@ -42,7 +45,6 @@
                     <isif condition="${refinement.isPriceRefinement}">
                         <isinclude template="search/refinements/prices" />
                     </isif>
-
                 </div>
             </div>
         </isloop>

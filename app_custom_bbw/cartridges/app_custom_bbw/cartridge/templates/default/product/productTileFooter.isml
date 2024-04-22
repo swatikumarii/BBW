@@ -10,13 +10,13 @@
     </div>
     <div class="b-product-tile__availability b-text-a text-decoration-none">
         <div class="b-product-tile__shipping-availability">
-            <span class="b-product-tile__availability-message product-available h-clr--blue h-fw--bold">Available</span>
-            for shipping
+            <span class="b-product-tile__availability-message product-available h-clr--blue h-fw--bold">${Resource.msg('product-tile-shipping-availability-msg1', 'search', null)}</span>
+            ${Resource.msg('product-tile-shipping-availability-msg2', 'search', null)}
         </div>
-        <div class="b-product-tile__in-store-availability">
+        <iscomment> <div class="b-product-tile__in-store-availability">
             <span class="b-product-tile__set-store b-text-a text-decoration-none h-fw--bold h-clr--black-3">To See Availability</span>
             <a class="b-product-tile__choose-store b-text-a" href="javascript:void(0)"
                 role="button">Set Store</a>
-        </div>
+        </div> </iscomment>
     </div>
 </div>
