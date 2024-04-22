@@ -1,0 +1,13 @@
+<div class="form-group">
+    <label class="form-control-label h-font-size--16 h-fw--bold h-clr--gray-4 text-capitalize"
+        for="radius">${Resource.msg('field.distance', 'storeLocator', null)}</label>
+    <div class="b-select-wrap w-100 position-relative">
+        <select
+            class="form-control b-select custom-select radius cursor-pointer h-font-size--18 h-clr--black-1 border-0"
+            id="radius" name="radius" data-action-url="${pdict.stores.actionUrl}">
+            <isloop items="${pdict.stores.radiusOptions}" var="option">
+                <option>${StringUtils.formatInteger(option)}</option>
+            </isloop>
+        </select>
+    </div>
+</div>

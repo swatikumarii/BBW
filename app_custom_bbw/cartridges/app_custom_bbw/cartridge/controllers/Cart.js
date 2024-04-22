@@ -1,0 +1,128 @@
+'use strict';
+
+/**
+ * @namespace Cart
+ */
+
+var server = require('server');
+server.extend(module.superModule);
+
+var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
+var BasketMgr = require('dw/order/BasketMgr');
+var cartHelper = require('*/cartridge/scripts/cart/cartHelpers');
+
+/**
+ * Cart-AddCoupon : The Cart-AddCoupon endpoint is responsible for adding a coupon to a basket
+ * querystringparameters are:
+ * couponCode - the coupon code to be applied
+ * csrf_token - hidden input field csrf token
+ * Middlewares used: server.middleware.https, and csrfProtection.validateAjaxRequest
+ * This is a sensitive category function and uses Get Method
+ * @name Cart-AddCoupon
+ * @function
+ * @memberof Cart
+ * @returns {object} - json
+ */
+server.replace(
+    'AddCoupon',
+    server.middleware.https,
+    csrfProtection.validateAjaxRequest,
+    function (req, res, next) {
+        var Resource = require('dw/web/Resource');
+        var Transaction = require('dw/system/Transaction');
+        var URLUtils = require('dw/web/URLUtils');
+        var CartModel = require('*/cartridge/models/cart');
+        var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
+
+        var currentBasket = BasketMgr.getCurrentBasket();
+
+        if (!currentBasket) {
+            res.setStatusCode(500);
+            res.json({
+                error: true,
+                redirectUrl: URLUtils.url('Cart-Show').toString()
+            });
+
+            return next();
+        }
+
+        if (!currentBasket) {
+            res.setStatusCode(500);
+            res.json({
+                errorMessage: Resource.msg('error.add.coupon', 'cart', null)
+            });
+            return next();
+        }
+
+        var error = false;
+        var errorMessage;
+
+        try {
+            Transaction.wrap(function () {
+                return currentBasket.createCouponLineItem(
+                    req.querystring.couponCode,
+                    true
+                );
+            });
+        } catch (e) {
+            error = true;
+            errorMessage = cartHelper.checkCouponCodeError(
+                req.querystring.couponCode, e.errorCode
+            );
+        }
+
+        if (error) {
+            res.json({
+                error: error,
+                errorMessage: errorMessage
+            });
+            return next();
+        }
+
+        Transaction.wrap(function () {
+            basketCalculationHelpers.calculateTotals(currentBasket);
+        });
+
+        var basketModel = new CartModel(currentBasket);
+
+        res.json(basketModel);
+        return next();
+    }
+);
+
+server.append('UpdateQuantity', function (req, res, next) {
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var CartModel = require('*/cartridge/models/cart');
+    var Template = require('dw/util/Template');
+    var template = new Template('cart/productCard/cartProductCardAjax');
+    var HashMap = require('dw/util/HashMap');
+    var viewData = res.getViewData();
+    var changes = cartHelper.createFreeLineItem(currentBasket, 0);
+    if (!viewData.errorMessage) {
+        var basketModel = new CartModel(currentBasket);
+        if (viewData.items.length !== basketModel.items.length || changes) {
+            basketModel.refreshItems = true;
+            var context = new HashMap();
+            Object.keys(basketModel).forEach(function (key) {
+                context.put(key, basketModel[key]);
+            });
+            basketModel.refreshItemsTemplate = template.render(context).text;
+        }
+        res.setViewData(basketModel);
+    }
+    next();
+});
+
+server.append('RemoveProductLineItem', function (req, res, next) {
+    var currentBasket = BasketMgr.getCurrentBasket();
+    cartHelper.createFreeLineItem(currentBasket, 0);
+    next();
+});
+
+server.append('AddProduct', function (req, res, next) {
+    var currentBasket = BasketMgr.getCurrentBasket();
+    cartHelper.createFreeLineItem(currentBasket, 0);
+    next();
+});
+
+module.exports = server.exports();
