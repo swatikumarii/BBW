@@ -14,7 +14,7 @@
 
                     <div class="row d-none" id="corporate-thanks-element" >
                         <div class="col-sm-6 offset-sm-4">
-                            <iscontentasset aid="coroporate-gifting" />
+                            <iscontentasset aid="corporateGifting" />
                         </div>
                     </div>
                     <div class="card-body" id="corporate-gifting-form-card">

@@ -11,10 +11,8 @@ $('#corporate-gifting-form').submit(function (e) {
         data: form.serialize(), // serializes the form's elements.
         success: function (data) {
             if(data.isSubmitted){
-                var f = document.getElementById('corporate-gifting-form');
-                f.parentNode.removeChild(f);
-                var g = document.getElementById('corporate-thanks-element');
-                g.classList.remove('d-none');
+                $('#corporate-gifting-form').remove();
+                $('#corporate-thanks-element').removeClass('d-none');
             }
         }
     });
