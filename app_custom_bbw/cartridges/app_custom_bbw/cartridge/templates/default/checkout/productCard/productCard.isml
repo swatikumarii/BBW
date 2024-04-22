@@ -14,8 +14,8 @@
                 <iscomment> Display Name </iscomment>
                 <isif condition="${miniCart}">
                     <isinclude template="checkout/productCard/productCardProductNameAndRemove" />
-                <iselse>
-                    <isinclude template="checkout/productCard/productCardProductName" />
+                    <iselse>
+                        <isinclude template="checkout/productCard/productCardProductName" />
                 </isif>
                 <iscomment> Variation Attributes </iscomment>
                 <div class="item-attributes">
@@ -51,6 +51,14 @@
                             <isinclude template="checkout/productCard/productCardProductTotalPrice" />
                         </div>
                     </div>
+                </div>
+                <div class="product-availability pt-2">
+                    <span>
+                        ${Resource.msg('label.availability', 'common', null)}
+                    </span>
+                    <span class="${lineItem.available ? 'h-clr--green' : 'h-clr--red'}">
+                        ${lineItem.availability.messages[0]}
+                    </span>
                 </div>
             </div>
         </div>
