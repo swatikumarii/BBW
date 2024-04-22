@@ -24,7 +24,6 @@
         min-width: 425px;
         max-width: 425px;
         position: fixed;
-        overflow-x: hidden;
 
         &.show {
             display: block;
@@ -84,6 +83,16 @@
                     line-height: 44px;
                 }
             }
+        }
+
+        .minicart-recommendation-slider {
+            position: absolute;
+            top: 15px;
+            left: -59%;
+            max-width: 250px;
+            overflow-x: hidden;
+            height: 100%;
+            background: white;
         }
     }
 }
