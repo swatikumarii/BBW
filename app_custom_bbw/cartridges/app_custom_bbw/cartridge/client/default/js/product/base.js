@@ -4,6 +4,20 @@
 var base = require('base/product/base');
 
 /**
+ * re-renders the order totals and the number of items in the cart
+ * @param {object} message - Error message to display
+ */
+function createErrorNotification(message) {
+    var errorHtml = '<div class="alert alert-danger alert-dismissible valid-cart-error '
+        + 'fade show" role="alert">'
+        + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
+        + '<span aria-hidden="true">&times;</span>'
+        + '</button>' + message + '</div>';
+
+    $('.cart-error').append(errorHtml);
+}
+
+/**
  * Retrieves the relevant pid value
  * @param {jQuery} $el - DOM container for a given add to cart button
  * @returns {string} - value to be used when adding product to cart
@@ -185,7 +199,7 @@ module.exports = $.extend({}, base, {
     addToCart: function () {
         $(document).on(
             'click',
-            'button.add-to-cart, button.add-to-cart-global',
+            'button.add-to-cart, button.add-to-cart-global, button.checkclick',
             function () {
                 var addToCartUrl;
                 var pid;
@@ -246,7 +260,15 @@ module.exports = $.extend({}, base, {
                             $.spinner().stop();
                             base.miniCartReportingUrl(data.reportingURL);
                         },
-                        error: function () {
+                        error: function (err) {
+                            if (err.responseJSON.redirectUrl) {
+                                window.location.href =
+                                    err.responseJSON.redirectUrl;
+                            } else {
+                                createErrorNotification(
+                                    err.responseJSON.errorMessage
+                                );
+                            }
                             $.spinner().stop();
                         }
                     });
