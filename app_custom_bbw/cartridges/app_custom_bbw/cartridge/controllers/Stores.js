@@ -6,6 +6,8 @@
 
 var server = require('server');
 server.extend(module.superModule);
+var cache = require('*/cartridge/scripts/middleware/cache');
+var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 
 var storeHelpers = require('*/cartridge/scripts/helpers/storeHelpers');
 
@@ -31,9 +33,10 @@ server.append(
         var postalCode = req.querystring.postalCode;
         var lat = req.querystring.lat;
         var long = req.querystring.long;
-        var showMap = req.querystring.showMap || false;
-        var horizontalView = req.querystring.horizontalView || false;
-        var isForm = req.querystring.isForm || false;
+        var showMap = 'true';
+        var horizontalView = 'true';
+        var isForm = 'true';
+        
         var storeType = req.querystring.storeType;
 
         var stores = storeHelpers.getStores(
@@ -78,7 +81,7 @@ server.append('FindStores', function (req, res, next) {
     var lat = req.querystring.lat;
     var long = req.querystring.long;
     var storeType = req.querystring.storeType;
-    var showMap = req.querystring.showMap || false;
+    var showMap = 'true';
 
     var stores = storeHelpers.getStores(
         radius,
@@ -94,4 +97,30 @@ server.append('FindStores', function (req, res, next) {
     next();
 });
 
+/**
+ * Stores-Detail : The Stores-FindStores endpoint returns a store and renders a store detail template that meet the searching criteria
+ * @function
+ * @memberof Stores
+ * @param {middleware} https- server.middleware.https
+ * @param {middleware} applyDefaultCache- cache.applyDefaultCache
+ * @param {middleware} consentTracking- consentTracking
+ * @param {querystringparameter} storeId - storeId to get a particular store detail
+ * @param {serverfunction} get
+ */
+server.get('Detail', server.middleware.https, cache.applyDefaultCache, consentTracking.consent, function(req, res, next){
+    var storeId = req.querystring.storeId;
+    var StoreMgr = require('dw/catalog/StoreMgr');
+    var Site = require('dw/system/Site');
+    var storeMgrResult = StoreMgr.getStore(storeId);
+    var StoreModel = require('*/cartridge/models/store');
+    var storeModel = new StoreModel(storeMgrResult);  
+    var apiKey = Site.getCurrent().getCustomPreferenceValue('mapAPI');
+    var viewData = {
+        storeDetail: storeModel,
+        showMap: true,
+        googleMapsApi: 'https://maps.googleapis.com/maps/api/js?key=' + apiKey
+    };
+    res.render('storeLocator/storeDetailPage', viewData);
+    next();
+});
 module.exports = server.exports();
