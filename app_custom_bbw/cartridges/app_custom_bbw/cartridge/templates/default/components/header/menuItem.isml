@@ -21,7 +21,7 @@
         </ul>
         <iscomment>Menu right with images and text</iscomment>
         <div class="menu-right w-100">
-            <isslot id="menu-image-and-text" description="Slot inside the site menu" context="global" />
+            <isslot id="navigation-image-text" description="Slot inside the site menu" context="global" />
         </div>
     </div>
 </div>

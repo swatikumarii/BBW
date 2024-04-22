@@ -18,7 +18,7 @@
                     <!-- Form for newsletter subscription -->
                     <div class="home-email-signup">
                         <div class="container">
-                            <form role="form" class="newsletter">
+                            <form role="form" class="newsletter"  data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">
                                 <div class="row">
                                     <div class="col-12 p-0">
                                         <div data-required-text="">
@@ -32,20 +32,13 @@
                                                     placeholder="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}"
                                                     aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" />
                                                 <span class="input-group-append">
-                                                    <isif
-                                                        condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
-                                                        <isset name="dataCallback" value="submitNewsLetter"
-                                                            scope="page" />
-                                                        <isset name="dataErrorCallback" value="checkRecaptcha"
-                                                            scope="page" />
-                                                        <isinclude template="/common/reCaptcha" />
-                                                        <button id="gcaptchabtn" type="button"
-                                                            class="btn btn-primary subscribe-email"
-                                                            data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form', 'footer', null)}</button>
+                                                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
+                                                        <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
+                                                            class="btn btn-primary g-recaptcha" data-callback="submitNewsLetter"
+                                                            data-action="submit">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
                                                     <iselse/>
-                                                        <button type="button"
-                                                            class=" btn-primary btn-hover subscribe-email btn submit-btn h-fw--semibold mt-3 h-font-size--16"
-                                                            data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form', 'footer', null)}</button>
+                                                        <button type="button" class="btn btn-primary subscribe-email"
+                                                            data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
                                                     </isif>
                                                 </span>
                                             </div>

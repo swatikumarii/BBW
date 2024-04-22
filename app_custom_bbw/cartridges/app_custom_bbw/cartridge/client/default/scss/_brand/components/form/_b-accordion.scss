@@ -1,0 +1,32 @@
+// ====================
+// Accordion Styling
+// ====================
+// This section defines styles for accordion.
+
+// Accordion
+
+.accordion {
+    .card {
+        margin-bottom: 1.25rem;
+
+        .card-head {
+            .collapsed::after {
+                transition: all 0.5s ease-out;
+                transform: rotate(0deg);
+            }
+
+            h2::after {
+                transition: all 0.5s ease-out;
+                transform: rotate(180deg);
+                background: url("../images/UI-Carat.svg") no-repeat 50%;
+                content: "";
+                position: absolute;
+                width: 2.5rem;
+                height: 1.375rem;
+                top: 2.9375rem;
+                right: 3.5%;
+                background-size: 1.25rem;
+            }
+        }
+    }
+}

@@ -206,24 +206,9 @@
         </custom-attributes>
     </content>
 
-    <content content-id="header-ticker">
-        <display-name xml:lang="x-default">top-header-promo</display-name>
-        <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
-        <page-attributes/>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div id="ticker"&gt;&#13;
-	&lt;div class="ticker-inner w-100 text-center"&gt;&#13;
-		&lt;div class="header-promotion ticker-item"&gt;Earn 100 bonus points when you download and sign in to the app for the first time&lt;/div&gt;&#13;
-                &lt;div class="header-promotion ticker-item"&gt;Sign in to the app for the first time&lt;/div&gt;	&#13;
-	&lt;/div&gt;&#13;
-&lt;/div&gt;</custom-attribute>
-        </custom-attributes>
-    </content>
-
-    <content content-id="menu-image">
-        <display-name xml:lang="x-default">menu-image</display-name>
-        <description xml:lang="x-default">menu-image</description>
+    <content content-id="navigation-image-section">
+        <display-name xml:lang="x-default">Navigation Image Section</display-name>
+        <description xml:lang="x-default">Navigation Image Section</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
@@ -236,6 +221,22 @@
 &lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot3.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand sanitizers&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$6&lt;/p&gt;&lt;/div&gt;&#13;
 &lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot3.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand sanitizers&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$6&lt;/p&gt;&lt;/div&gt;&#13;
 &lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="top-header-ticker-promo">
+        <display-name xml:lang="x-default">Top Header Promo</display-name>
+        <description xml:lang="x-default">Top header promotions in ticker slider</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div id="ticker"&gt;&#13;
+	&lt;div class="ticker-inner w-100 text-center"&gt;&#13;
+		&lt;div class="header-promotion ticker-item"&gt;Earn 100 bonus points when you download and sign in to the app for the first time&lt;/div&gt;&#13;
+                &lt;div class="header-promotion ticker-item"&gt;Sign in to the app for the first time&lt;/div&gt;	&#13;
+	&lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
