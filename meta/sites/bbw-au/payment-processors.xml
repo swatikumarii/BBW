@@ -18,5 +18,21 @@
             <production/>
         </preferences>
     </payment-processor>
+        <payment-processor processor-id="AFTERPAY_CREDIT">
+        <preferences>
+            <all-instances/>
+            <development/>
+            <staging/>
+            <production/>
+        </preferences>
+    </payment-processor>
+    <payment-processor processor-id="CASHAPP_CREDIT">
+        <preferences>
+            <all-instances/>
+            <development/>
+            <staging/>
+            <production/>
+        </preferences>
+    </payment-processor>
 </payment-processors>
 

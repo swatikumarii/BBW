@@ -1,0 +1,12 @@
+<div class="row search__breadcrumb-wrapper no-gutters h-maxwidth--1400 mx-auto">
+    <div class="col-12">
+        <div class="search__breadcrumb d-flex">
+            <div class="search__breadcrumb__home-link">
+                <a class="b-link--underlined h-clr--gray-4" href="${URLUtils.url('Home-Show')}">${Resource.msg('breadcrumb.link.home', 'search', null)}</a>
+            </div>
+            <div class="search__breadcrumb__category-name">
+                <span class="h-clr--gray-4">${pdict.productSearch.category.name}</span>
+            </div>
+        </div>
+    </div>
+</div>

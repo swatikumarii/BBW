@@ -1,0 +1,11 @@
+.grid-footer {
+    .b-pagination {
+        border-bottom: 1px solid colour(black, 3);
+        padding-bottom: 21px;
+        padding-top: 11px;
+
+        &__count {
+            display: none;
+        }
+    }
+}
