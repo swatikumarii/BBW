@@ -174,3 +174,11 @@
         }
     }
 }
+
+.store-details-bottom-wrapper {
+    a {
+        &:hover {
+            color: colour(white);
+        }
+    }
+}

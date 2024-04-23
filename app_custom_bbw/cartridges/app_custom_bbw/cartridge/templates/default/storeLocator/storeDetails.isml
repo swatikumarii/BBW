@@ -1,8 +1,8 @@
+<isset name="STORE_DETAIL_URL" value="${URLUtils.url('Page-Show', 'cid', store.ID)}" scope="PAGE" />
 <div class="card store-details border-0 p-0" data-store-id="${store.ID}">
     <div class="card-head" id="${store.ID}">
         <h2 class="mb-0 store-name collapsed h-font-size--18 h-fw--bold h-clr--black-1 text-uppercase cursor-pointer"
-            data-toggle="collapse" data-target="${'#collapse' + store.ID}" aria-expanded="true"
-            aria-controls="collapseOne">
+            data-toggle="collapse" data-target="${'#collapse' + store.ID}" aria-expanded="true" aria-controls="collapseOne">
             ${store.name}
         </h2>
     </div>
@@ -37,9 +37,12 @@
                             href="https://maps.google.com/?daddr=${store.latitude},${store.longitude}">
                             ${Resource.msg('label.get.directions', 'storeLocator', null)}
                         </a>
+                        <a class="h-fw--semibold h-clr--black-1 mt-1 d-block" target='_blank' href="${STORE_DETAIL_URL}?storeId=${store.ID}">
+                            ${Resource.msg('label.get.details', 'storeLocator', null)}
+                        </a>
                     </div>
 
-                    <div class="store-events h-clr--blue-3">
+                    <div class="store-events h-clr--blue-4">
                         <span>${Resource.msg('label.store.pickup', 'storeLocator', null)}</span>
                     </div>
                 </div>
