@@ -1,0 +1,60 @@
+<div class="filter-bar-desktop h-hidden-sm-down">
+    <div class="row justify-content-between align-items-center">
+        <div class="filter-bar-desktop__filters col-10 no-gutters d-flex h-bg--gray-1 w-100 flex-nowrap h-clr--black-1 align-items-center"
+            id="filters-refinements">
+            <div class="filters-title filters-title b-text-h2 h-fw--bold col-1">Filter By:</div>
+            <div class="filters-refinements row no-gutters h-grid-gap--20 w-100">
+                <iscomment>id="${refinementDesktop.displayName.toLowerCase().replace(/ /g, '-')}"</iscomment>
+                <isloop items="${pdict.productSearch.refinements}" var="refinement">
+                    <div class="filter-type filter-${refinement.displayName.toLowerCase().replace(/ /g, '-')} position-relative" id="filter-${refinement.displayName.toLowerCase().replace(/ /g, '-')}">
+                        <h3 class="ref-toggle mb-0 b-text-body-2-bold d-flex align-items-center justify-content-between"
+                            aria-label="filter" tabindex="0" data-toggle="collapse" data-target="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-')}"
+                            aria-expanded="false" aria-controls="filter">
+                            ${refinement.displayName}
+                            <i class="ref-toggle__icon d-inline-block"></i>
+                        </h3>
+                        <div id="${refinement.displayName.toLowerCase().replace(/ /g, '-')}" class="fliter-list-wrapper collapse h-bg--white position-absolute w-100"
+                            aria-labelledby="" data-parent="#filters-refinements">
+
+                            <iscomment> <ul
+                                class="fliter-list values content list-unstyled h-px--10 h-maxheight--200 overflow-auto mb-3">
+                                <li class="col-sm-4 col-md-12 px-0">
+                                    <a data-href="" data-seo-href=""
+                                        class="fliter-link selected d-block h-fw--bold b-text-h2">
+                                        <i class="filter-uncheck"></i>
+                                        <span class="h-clr--gray h-ml--5" aria-hidden="true">
+                                            Ultimate Hydration Body Cream
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul> </iscomment>
+                            <isinclude template="search/refinements/attributes" />
+                            <div class="close-button w-100 h-pb--15">
+                                <button
+                                    class="btn btn-hover d-flex align-items-center justify-content-center h-font-size--16 h-fw--600 text-uppercase mx-auto w-100">Done
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </isloop>
+                <iscomment>
+                    <div class="filter-type filter-fragranceName position-relative"></div>
+                    <div class="filter-type filter-fragranceCategory position-relative"></div>
+                </iscomment>
+            </div>
+        </div>
+        <div class="filter-bar-desktop__sortby col-2">
+            <isif condition="${pdict.productSearch.productIds.length > 0}">
+                <select name="sort-order" class="w-100 sort-filter b-text-body-2-bold h-clr--black-1 text-capitalize"
+                    aria-label="${Resource.msg('label.sort.by', 'search', null)}">
+                    <isloop items="${pdict.productSearch.productSort.options}" var="option">
+                        <option class="${option.id}" value="${option.url}" data-id="${option.id}"
+                            ${pdict.productSearch.productSort.ruleId === option.id ? 'selected' : ''}>
+                            ${option.displayName}
+                        </option>
+                    </isloop>
+                </select>
+            </isif>
+        </div>
+    </div>
+</div>
