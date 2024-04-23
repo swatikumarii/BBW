@@ -3,33 +3,33 @@
         <span></span>
             ${Resource.msg('label.myaccount', 'account', null)}
     </li>
-    <li>
+    <li <isif condition="${pdict.action == 'Account-EditProfile'}"> class="active" </isif>>
         <span></span>
         <a title="${Resource.msg('label.info.title', 'account', null)}" href="${URLUtils.url('Account-EditProfile')}">
             ${Resource.msg('label.info', 'account', null)}
         </a>
     </li>
-    <li>
+    <li <isif condition="${pdict.action == 'Order-History'}"> class="active" </isif>>
         <span></span>
         <a title="${Resource.msg('label.orderhistory.title', 'account', null)}" href="${URLUtils.url('Order-History')}">
             ${Resource.msg('label.orderhistory', 'account', null)}
         </a>
     </li>
-    <li>
+    <li <isif condition="${pdict.action == 'PaymentInstruments-AddPayment'}"> class="active" </isif>>
         <span></span>
-        <a title="${Resource.msg('label.payment.title', 'account', null)}" href="${URLUtils.url('Order-History')}">
+        <a title="${Resource.msg('label.payment.title', 'account', null)}" href="${URLUtils.url('PaymentInstruments-AddPayment')}">
             ${Resource.msg('label.payment', 'account', null)}
         </a>
     </li>
-    <li>
+    <li <isif condition="${pdict.action == 'Address-List'}"> class="active" </isif>>
         <span></span>
         <a title="${Resource.msg('label.address.title', 'account', null)}" href="${URLUtils.url('Address-List')}">
             ${Resource.msg('label.address', 'account', null)}
         </a>
     </li>
-    <li>
+    <li <isif condition="${pdict.action == 'Wishlist-Show'}"> class="active" </isif>>
         <span></span>
-        <a title="${Resource.msg('label.wishlist.title', 'account', null)}" href="${URLUtils.url('Account-EditProfile')}">
+        <a title="${Resource.msg('label.wishlist.title', 'account', null)}" href="${URLUtils.url('Wishlist-Show')}">
             ${Resource.msg('label.wishlist', 'account', null)}
         </a>
     </li>

@@ -30,19 +30,19 @@
             </li>
             <li>
                 <a title="${Resource.msg('label.payment.title', 'account', null)}"
-                    href="${URLUtils.url('Order-History')}">
+                    href="${URLUtils.url('PaymentInstruments-AddPayment')}">
                     ${Resource.msg('label.payment', 'account', null)}</a>
                 <p>${Resource.msg('label.payment.title', 'account', null)}</p>
             </li>
             <li>
                 <a title="${Resource.msg('label.address.title', 'account', null)}" href="${URLUtils.url('Address-List')}">
                     ${Resource.msg('label.address', 'account', null)}</a>
-                <p>${Resource.msg('label.address.title', 'account', null)}</span></p>
+                <p>${Resource.msg('label.address.title', 'account', null)}</p>
             </li>
             <li>
-                <a title="${Resource.msg('label.wishlist.title', 'account', null)}" href="${URLUtils.url('Account-EditProfile')}">
+                <a title="${Resource.msg('label.wishlist.title', 'account', null)}" href="${URLUtils.url('Wishlist-Show')}">
                     ${Resource.msg('label.wishlist', 'account', null)}</a>
-                <p>${Resource.msg('label.wishlist.title', 'account', null)}</span></p>
+                <p>${Resource.msg('label.wishlist.title', 'account', null)}</p>
             </li>
         </ul>
     </div>

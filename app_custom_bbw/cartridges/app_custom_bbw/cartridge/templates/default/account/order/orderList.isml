@@ -1,0 +1,10 @@
+<div id="accordion" class="accordion">
+    <input type="hidden" class="add-order-to-cart-url" value="${URLUtils.url('Cart-AddProductFromOrder')}" />
+    <isloop items="${pdict.orders}" var="order">
+        <div class="row list-item">
+            <div class="col-12 padding-0">
+                <isinclude template="account/order/orderHistoryCard" />
+            </div>
+        </div>
+    </isloop>
+</div>

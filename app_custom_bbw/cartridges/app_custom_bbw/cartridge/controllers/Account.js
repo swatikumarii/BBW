@@ -10,6 +10,8 @@ var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 
 var URLUtils = require('dw/web/URLUtils');
 var Resource = require('dw/web/Resource');
+var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
+var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 
 /**
  * Append Account-Show controller: Update breadcrumbs
@@ -50,6 +52,10 @@ server.append('EditProfile', function (req, res, next) {
         zip: accountModel.profile.zipCode,
         emailconfirm: accountModel.profile.email
     };
+    viewData.successMessage = false;
+    if (req.querystring.profile && req.querystring.profile === 'success') {
+        viewData.successMessage = true;
+    }
 
     var breadcrumbs = [
         {
@@ -145,8 +151,7 @@ server.replace(
         };
         if (profileForm.valid) {
             res.setViewData(result);
-            this.on('route:BeforeComplete', function (req, res) {
-                // eslint-disable-line no-shadow
+            this.on('route:BeforeComplete', function (req, res) {  // eslint-disable-line no-shadow
                 var formInfo = res.getViewData();
                 var customer = CustomerMgr.getCustomerByCustomerNumber(
                     req.currentCustomer.profile.customerNo
@@ -199,9 +204,12 @@ server.replace(
                     res.json({
                         success: true,
                         redirectUrl: URLUtils.url(
-                            'Account-EditProfile'
+                            'Account-EditProfile',
+                            'profile',
+                            'success'
                         ).toString()
                     });
+
                 } else {
                     if (!status.error) {
                         formInfo.profileForm.customer.email.valid = false;
@@ -316,7 +324,11 @@ server.replace(
 
                     res.json({
                         success: true,
-                        redirectUrl: URLUtils.url('Account-Show').toString()
+                        redirectUrl: URLUtils.url(
+                            'Account-EditProfile',
+                            'profile',
+                            'success'
+                        ).toString()
                     });
                 }
             });
@@ -637,4 +649,34 @@ server.replace(
     }
 );
 
+
+server.get(
+    'Orders',
+    server.middleware.https,
+    csrfProtection.generateToken,
+    userLoggedIn.validateLoggedIn,
+    consentTracking.consent,
+    function (req, res, next) {
+        var OrderHelpers = require('*/cartridge/scripts/order/orderHelpers');
+        var ordersResult = OrderHelpers.getOrders(
+            req.currentCustomer,
+            req.querystring,
+            req.locale.id
+        );
+        var orderModel = [];
+        var orders = ordersResult.orders;
+
+        if (orders && orders.length) {
+            orders.forEach(function (item, index) {
+                req.querystring.orderID = orders[index].orderNumber;
+                orderModel.push(OrderHelpers.getOrderDetails(req));
+            });
+        }
+
+        var viewData = res.getViewData();
+        viewData.orders = orders;
+        res.setViewData(viewData);
+        next();
+    }
+);
 module.exports = server.exports();

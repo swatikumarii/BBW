@@ -23,6 +23,12 @@
                 <h1 class="page-title">${Resource.msg('label.required', 'account', null)}</h1>
             </div>
         </div>
+        <isif condition="${pdict.successMessage}">
+            <div class="profile-heading-message">
+                <h1 class="page-title">${Resource.msg('success.profile.message', 'account', null)}</h1>
+            </div>
+        </isif>
+        <iscomment> <isprint value="${pdict.profile.outerObject.innerObject.key}" /> </iscomment>
         <div class="row justify-content-center">
             <div class="col-sm-8 col-md-6">
                 <div class="card">

@@ -125,4 +125,66 @@ server.append('AddProduct', function (req, res, next) {
     next();
 });
 
+
+server.post('AddProductFromOrder', function (req, res, next) {
+    var Resource = require('dw/web/Resource');
+    var Logger = require('dw/system/Logger');
+    var logger = Logger.getLogger('CartControllerAddProductFromOrder');;
+    var currentBasket = BasketMgr.getCurrentOrNewBasket();
+
+    var URLUtils = require('dw/web/URLUtils');
+    var Transaction = require('dw/system/Transaction');
+    var OrderMgr = require('dw/order/OrderMgr');
+    var order = OrderMgr.getOrder(req.form.orderNumber);
+    var productLineItems = order.getProductLineItems();
+    var result;
+
+    if (currentBasket) {
+        Transaction.wrap(function () {
+            result = {
+                error: false,
+                message: Resource.msg('text.alert.addedtobasket', 'product', null)
+            };
+
+            var childProducts = [];
+            logger.info('Product line item count {0}', productLineItems.getLength());
+            for (var i = 0; i < productLineItems.getLength(); i++) {
+                var pli = productLineItems[i];
+                logger.info('pli.bonusProductLineItem ' + pli.bonusProductLineItem);
+                logger.info('pli.productID ' + pli.productID);
+                logger.info('pli.product ' + pli.product);
+                logger.info('pli.product.primaryCategory ' + ((pli.product.primaryCategory) ? pli.product.primaryCategory : 'pli.product.primaryCategory not exist'));
+                logger.info('pli.product.primaryCategory.ID ' + ((pli.product.primaryCategory && pli.product.primaryCategory.ID) ? pli.product.primaryCategory.ID : 'pli.product.primaryCategory.ID not exist'));
+                logger.info('pli.product.primaryCategory.ID check if giftWrapProducts ' + ((pli.product.primaryCategory && pli.product.primaryCategory.ID) ? (pli.product.primaryCategory.ID !== 'giftWrapProducts') : 'pli.product.primaryCategory.ID not exist'));
+                logger.info('(!pli.product.primaryCategory || !pli.product.primaryCategory.ID || pli.product.primaryCategory.ID !== giftWrapProducts) ' + (!pli.product.primaryCategory || !pli.product.primaryCategory.ID || pli.product.primaryCategory.ID !== 'giftWrapProducts'));
+                if (!pli.bonusProductLineItem && (!pli.product.primaryCategory || !pli.product.primaryCategory.ID || pli.product.primaryCategory.ID !== 'giftWrapProducts')) {
+                    var pidOptions = {};
+                    var PIDObjResult = cartHelper.addProductToCart(
+                        currentBasket,
+                        pli.productID,
+                        pli.quantity.value,
+                        childProducts,
+                        pidOptions,
+                        false
+                    );
+                    logger.info('addProductToCart ' + PIDObjResult.error);
+                    if (PIDObjResult.error) {
+                        result.error = PIDObjResult.error;
+                        result.message = PIDObjResult.message;
+                    }
+                }
+            }
+        });
+    }
+
+    var redirectUrl = URLUtils.url('Cart-Show');
+    res.json({
+        redirectUrl: redirectUrl.toString(),
+        error: result.error,
+        message: result.message
+    });
+
+    next();
+});
+
 module.exports = server.exports();

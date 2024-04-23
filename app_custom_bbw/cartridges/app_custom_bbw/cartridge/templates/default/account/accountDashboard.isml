@@ -16,7 +16,6 @@
     <div class="container">
         <!---Breadcrumbs--->
         <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
-        <isinclude template="account/dashboardProfileCards"/>
         <div class="row">
             <div class="col-md-3 col-sm-3 p-0 order-lg-0 order-md-0  order-sm-0 order-1 mb-5">
                 <div class="my-account-nav">

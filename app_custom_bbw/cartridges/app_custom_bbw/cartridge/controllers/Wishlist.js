@@ -27,10 +27,32 @@ server.prepend('AddProduct', function (req, res, next) {
 });
 
 server.append('Show', function (req, res, next) {
+    var URLUtils = require('dw/web/URLUtils');
+    var Resource = require('dw/web/Resource');
+
     var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
         type: 10
     });
     var expressShip = list.productItems;
+    var viewData = res.getViewData();
+
+    var breadcrumbs = [
+        {
+            htmlValue: Resource.msg('global.home', 'common', null),
+            url: URLUtils.home().toString()
+        },
+        {
+            htmlValue: Resource.msg('page.title.myaccount', 'account', null),
+            url: URLUtils.url('Account-Show').toString()
+        },
+        {
+            htmlValue: Resource.msg('label.wishlist', 'account', null),
+            url: URLUtils.url('Wishlist-Show').toString()
+        }
+    ];
+    viewData.breadcrumbs = breadcrumbs;
+
+    res.setViewData(viewData);
     res.setViewData({expressShip: expressShip});
     next();
 });
