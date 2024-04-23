@@ -9,7 +9,7 @@ header {
         right: 0;
         top: 0;
         transition: 0.5s linear all;
-        z-index: 9;
+        z-index: 99;
     }
 
     @include media-up(sm) {
@@ -294,13 +294,18 @@ header {
 .ticker-wrapper {
     padding: 0.75rem 1rem;
     font-weight: map-get($font-weight, semibold);
+    min-height: 4.0625rem;
+
+    @include media-up(sm) {
+        min-height: auto;
+    }
 }
 
 .search-fly-out-opacity {
     top: 0;
     background: rgba(51, 51, 51, 60%);
     left: 0;
-    z-index: 1;
+    z-index: 2;
 
     @include media-up(sm) {
         top: 14.5rem;
