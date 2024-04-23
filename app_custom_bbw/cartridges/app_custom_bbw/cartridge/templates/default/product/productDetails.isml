@@ -12,7 +12,7 @@
     <isset name="isQuickView" value="${false}" scope="page" />
     <isset name="isProductSet" value="${pdict.product.productType === 'set'}" scope="page" />
     <isobject object="${product.raw}" view="detail">
-        <div class="container product-detail product-wrapper" data-pid="${product.id}">
+        <div class="container product-detail product-wrapper pb-5" data-pid="${product.id}">
             <div class="row">
                 <div class="col-12">
                     <!--Breadcrumbs-->
@@ -52,8 +52,8 @@
                         </div>
                     </isif>
 
-
-                    <div class="row">
+                    <iscomment>This should come from Bazaar voice</iscomment>
+                    <iscomment> <div class="row">
                         <div class="col rating-review">
                             <div class="pull-left">
                                 <isinclude template="product/components/pidRating" />
@@ -62,7 +62,7 @@
                                 <a class="h-clr--blue" href="#">${Resource.msg('label.rating-review', 'product', null)}</a>
                             </div>
                         </div>
-                    </div>
+                    </div> </iscomment>
 
                     <div class="prices-add-to-cart-actions">
                         <div class="row">
@@ -129,10 +129,12 @@
                                 notice. Selection may vary by store, pick up in store, and online.&ZeroWidthSpace; </p></div>"
                                 data-html="true" data-original-title="" aria-describedby="popover14574">
                             </button>
+
+
                         </div>
 
-                        <iscomment> Bopis Options </iscomment>
-                        <div class="bopis-delivery-options border-left-0 border-right-0">
+                        <iscomment> Hiding Bopis Options for now </iscomment>
+                        <iscomment> <div class="bopis-delivery-options border-left-0 border-right-0">
                             <fieldset>
                                 <legend class="delivery-options h-clr--black-1 h-font-size--16 h-fw--semibold">
                                     ${Resource.msg('bopis.heading', 'product', null)}</legend>
@@ -170,7 +172,7 @@
                                     </div>
                                 </div>
                             </fieldset>
-                        </div>
+                        </div> </iscomment>
 
                         <!-- Attributes and Quantity -->
                         <isinclude template="product/components/mainAttributes" />
@@ -227,9 +229,7 @@
                         </isif>
 
                         <!-- Product Availability -->
-                        <iscomment>
-                            <isinclude template="product/components/productAvailability" />
-                        </iscomment>
+                        <isinclude template="product/components/productAvailability" />
 
                         <iscomment> Product Description </iscomment>
                         <isinclude template="product/components/descriptionAndDetails" />

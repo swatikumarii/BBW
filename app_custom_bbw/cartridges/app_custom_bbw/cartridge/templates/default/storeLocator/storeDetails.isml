@@ -37,7 +37,7 @@
                             href="https://maps.google.com/?daddr=${store.latitude},${store.longitude}">
                             ${Resource.msg('label.get.directions', 'storeLocator', null)}
                         </a>
-                        <a class="h-fw--semibold h-clr--black-1 mt-1 d-block" target='_blank' href="${STORE_DETAIL_URL}?storeId=${store.ID}">
+                        <a class="h-fw--semibold h-clr--black-1 mt-1 d-block" target='_blank' href="${STORE_DETAIL_URL}">
                             ${Resource.msg('label.get.details', 'storeLocator', null)}
                         </a>
                     </div>
