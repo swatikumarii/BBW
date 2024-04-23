@@ -18,7 +18,7 @@
                             </a>
                             <div>
                                 <a href="${URLUtils.https('Login-Show')}" role="button"
-                                aria-label="${Resource.msg('label.header.signup', 'common', null)}" >${Resource.msg('label.header.signup', 'common', null)}</a>
+                                    aria-label="${Resource.msg('label.header.signup', 'common', null)}" >${Resource.msg('label.header.signup', 'common', null)}</a>
                             </div>
                         </div>
                     </div>

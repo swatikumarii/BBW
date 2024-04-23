@@ -38,9 +38,9 @@
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
         <div class="login-btn register-btn">
-            <button 
-                data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}" 
-                data-callback="submitLogin" 
+            <button
+                data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
+                data-callback="submitLogin"
                 data-action="submit"
                 class="btn btn-block btn-primary g-recaptcha">${Resource.msg('button.text.loginform', 'login', null)}</button>
         </div>
