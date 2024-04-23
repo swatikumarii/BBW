@@ -2,5 +2,3 @@
     data-href="${URLUtils.url('Wishlist-AddProduct')}">
     <i class="fa fa-heart"></i> <span>${Resource.msg('button.add_to_love_list.txt', 'wishlist', null)}</span>
 </span>
-
-<isinclude template="account/loginpopup" />

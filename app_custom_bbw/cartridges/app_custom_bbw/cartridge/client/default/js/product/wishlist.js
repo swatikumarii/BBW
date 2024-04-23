@@ -39,8 +39,7 @@ module.exports = {
             var url = $(this).data('href');
             var pid = $(this)
                 .closest('.product-detail')
-                .find('.product-id')
-                .html();
+                .data('pid');
             var optionId = $(this)
                 .closest('.product-detail')
                 .find('.product-option')

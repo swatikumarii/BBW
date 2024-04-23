@@ -3,4 +3,3 @@
     <img alt="Image" width="40px" height="40px" src="${URLUtils.staticURL('images/pdp/PDP-Wishlist-2.svg')}" />
 </button>
 
-<isinclude template="account/loginpopup" />
