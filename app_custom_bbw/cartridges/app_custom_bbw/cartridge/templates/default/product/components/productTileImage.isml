@@ -1,10 +1,10 @@
 <div class="image-container b-product-tile__img-wrapper position-relative">
     <a class="d-block" href="${pdict.urls.product}">
         <img class="tile-image b-product-tile__image mx-auto w-100"
-             src="${product.images.medium[0].url}"
-             alt="${product.productName}"
-             title="${product.images.medium[0].title}"
-             itemprop="image"/>
+            src="${product.images.medium[0].url}"
+            alt="${product.productName}"
+            title="${product.images.medium[0].title}"
+            itemprop="image"/>
     </a>
     <a class="b-product-tile__wishlistTile wishlistTile position-absolute" href="${URLUtils.url('Wishlist-AddProduct')}" title="${Resource.msg('wishlist.addto.wishlist.heart', 'wishlist', null)}">
         <span class="fa-stack fa-lg">

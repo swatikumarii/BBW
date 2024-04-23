@@ -36,12 +36,12 @@
                     </isif>
 
                     <isif condition="${(status.count > 1 && status.count < minPagesToDisplayDots && currentPageNo < minPagesToDisplayDots) || (status.count >
-                                    maxPageNoToDisplay && currentPageNo > maxPageNoToDisplay && status.count < pageCount) || (status.count >= (
-                                        minPagesToDisplayDots - 1) && status.count <= (maxPageNoToDisplay + 1) && currentPageNo >=
-                                    minPagesToDisplayDots && currentPageNo <= maxPageNoToDisplay && ((status.count === currentPageNo - 1) || status
-                                        .count === currentPageNo || (status.count === currentPageNo + 1))) || ((currentPageNo === (
-                                    minPagesToDisplayDots - 1) || currentPageNo === (maxPageNoToDisplay + 1)) && ((status.count === currentPageNo -
-                                    1) || (status.count === currentPageNo + 1)))}">
+                            maxPageNoToDisplay && currentPageNo > maxPageNoToDisplay && status.count < pageCount) || (status.count >= (
+                            minPagesToDisplayDots - 1) && status.count <= (maxPageNoToDisplay + 1) && currentPageNo >=
+                            minPagesToDisplayDots && currentPageNo <= maxPageNoToDisplay && ((status.count === currentPageNo - 1) || status
+                            .count === currentPageNo || (status.count === currentPageNo + 1))) || ((currentPageNo === (
+                            minPagesToDisplayDots - 1) || currentPageNo === (maxPageNoToDisplay + 1)) && ((status.count === currentPageNo -
+                            1) || (status.count === currentPageNo + 1)))}">
                         <a href="${paginationLink.url}"
                             class="b-pagination__links__link-number pagination-link b-text-h2 h-fw--semibold d-flex align-items-center justify-content-center ${paginationLink.active ? 'active h-clr--black-1 h-bg--gray-1' : 'h-clr--gray-4'}">
                             ${status.count}
