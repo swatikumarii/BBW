@@ -105,6 +105,12 @@ $brandTypography: (
         line-height: 24px,
         font-weight: map-get($font-weight, medium)
     ),
+    "body-2-bold": (
+        font-size: 1.125rem,
+        line-height: 1.25rem,
+        letter-spacing: 0.005em,
+        font-weight: map-get($font-weight, bold)
+    ),
     "body-3": (
         font-size: 14px,
         line-height: 21px

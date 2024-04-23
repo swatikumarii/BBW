@@ -96,3 +96,110 @@
         }
     }
 }
+
+// Mobile Filters
+.filter-bar-mobile {
+    .filter-results {
+        border: 1px solid colour(black, 3);
+        background-repeat: no-repeat;
+        background-color: colour(white);
+        background-image: url("../../images/icons/filter-button-icon.svg");
+        background-position: right 10px top 50%;
+        background-size: 13px 10px;
+        padding: 10px;
+        max-height: none;
+        letter-spacing: 0.01em;
+        flex: 0 1 50%;
+    }
+
+    .sort-filter {
+        padding: 10px 20px 10px 10px;
+        letter-spacing: 0.01em;
+        background-image: url("../../images/icons/filter-carat.svg"),
+            linear-gradient(180deg, #fff 0, #fff);
+        background-position:
+            right 10px top 50%,
+            0 0;
+        background-repeat: no-repeat, repeat;
+        background-size:
+            15px 9px,
+            100%;
+        border-radius: 0;
+        text-overflow: ellipsis;
+        appearance: none;
+    }
+}
+
+// Desktop Filters
+.filter-bar-desktop {
+    &__filters {
+        padding: 18px 15px;
+
+        .filters-title {
+            margin-right: 18px;
+            letter-spacing: 0.16px;
+        }
+
+        .filters-refinements {
+            .filter-type {
+                width: 31%;
+
+                .ref-toggle {
+                    border-bottom: 3px solid colour(black, 3);
+                    padding: 3px 0;
+                    text-transform: capitalize;
+
+                    &__icon {
+                        width: 15px;
+                        height: 15px;
+                        margin: 2px 2px 0;
+                        background: url("../../images/icons/filter-carat.svg")
+                            no-repeat 50%;
+                        background-size: 15px;
+                        transition: all 0.5s ease-out;
+                    }
+                }
+
+                .fliter-list-wrapper {
+                    z-index: 1;
+                    padding: 15px 0 0;
+                    background-color: colour(black, 3);
+                    transition: all 0.3s ease-in-out;
+
+                    .fliter-list {
+                        .fliter-link {
+                            padding: 6px 0;
+                        }
+
+                        .selected {
+                            .filter-uncheck {
+                                background-color: colour(black, 3);
+                            }
+                        }
+
+                        .filter-uncheck {
+                            display: inline-block;
+                            width: 14px;
+                            height: 14px;
+                            border: 1px solid colour(black, 3);
+                            position: relative;
+                        }
+                    }
+                }
+
+                .close-button {
+                    border-bottom: 3px solid colour(black, 3);
+
+                    .btn {
+                        min-height: 48px;
+                        padding: 0 32px;
+                        max-width: 182px;
+                        transition: all 0.3s ease;
+                        letter-spacing: 0.015em;
+                        line-height: 1.25rem;
+                    }
+                }
+            }
+        }
+    }
+}

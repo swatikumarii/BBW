@@ -13,10 +13,10 @@
 </div>
 
 <div class="refinements-wrapper">
-    <div class="refinements">
+    <div class="refinements d-md-none">
         <isloop items="${pdict.productSearch.refinements}" var="refinement">
             <div
-                class="card collapsible-sm refinement refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')} border-0">
+                class="card collapsible-sm d-md-none refinement refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')} border-0">
                 <div class="card-header col-sm-12 d-md-none">
                     <button
                         class="title text-left d-md-none px-0 d-flex align-items-center w-100 h-font-size--18 h-fw--bold h-clr--black-1"

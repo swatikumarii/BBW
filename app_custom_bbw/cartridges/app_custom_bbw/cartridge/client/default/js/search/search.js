@@ -45,7 +45,7 @@ function parseResults(response) {
         '.grid-header',
         '.header-bar',
         '.header.page-title',
-        '.product-grid',
+        '.product-grid-wrapper',
         '.show-more',
         '.filter-bar'
     ].forEach(function (selector) {
@@ -143,7 +143,7 @@ module.exports = {
                 data: { selectedUrl: this.value },
                 method: 'GET',
                 success: function (response) {
-                    $('.product-grid').empty().html(response);
+                    $('.product-grid-wrapper').empty().html(response);
                     $.spinner().stop();
                 },
                 error: function () {
@@ -182,7 +182,7 @@ module.exports = {
         // Handle refinement value selection and reset click
         $('.container').on(
             'click',
-            '.refinements li button, .refinement-bar button.reset, .filter-value button, .swatch-filter button',
+            '.refinements li button, .filter-bar-desktop__filters li button, .refinement-bar button.reset, .filter-value button, .swatch-filter button',
             function (e) {
                 e.preventDefault();
                 e.stopPropagation();
