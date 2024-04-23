@@ -1,0 +1,34 @@
+{
+    "name":"Product Bundle",
+    "description":"Product Bundle",
+    "region_definitions":[
+      {
+        "id":"head",
+        "name":"Head Region",
+        "component_type_inclusions": [
+          { "type_id": "vs_components.contentAssetPd" }
+        ],
+        "default_component_constructors": [
+          { "type_id": "vs_components.contentAssetPd", "name": "Header Content Asset"}
+        ]
+      },
+      {
+        "id":"main",
+        "name":"Main Region",
+        "component_type_inclusions": [
+          { "type_id": "product_bundle.singleProduct" },
+          { "type_id": "product_bundle.multiProduct" }
+        ]
+      },
+      {
+        "id":"footer",
+        "name":"Footer Region",
+        "component_type_inclusions": [
+          { "type_id": "product_bundle.addToCartButton" }
+        ],
+        "default_component_constructors": [
+          { "type_id": "product_bundle.addToCartButton", "name": "Add To Cart Button"}
+        ]
+      }
+    ]
+}
