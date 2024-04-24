@@ -1,8 +1,6 @@
 {
     "version": "0.1.0",
     "configurations": [
-      
-      
       {
           "type": "prophet",
           "request": "launch",
