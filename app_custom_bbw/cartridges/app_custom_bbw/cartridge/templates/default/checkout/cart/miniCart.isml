@@ -10,7 +10,7 @@
             <span type="button" class="minicart-close-icon h-pos--absolute">
                 <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
             </span>
-            <h1 class="text-center h-fw--semibold">${Resource.msgf('title.my.shopping.cart', 'cart', null, pdict.numItems)}</h1>
+            <h1 class="text-center h-fw--semibold"><isprint value="${Resource.msgf('title.my.shopping.cart', 'cart', null, pdict.numItems)}" encoding="off" /></h1>
         </div>
         <isslot id="minicart-top-slot" context="global" description="This slot will apper on the top of minicart" />
 
