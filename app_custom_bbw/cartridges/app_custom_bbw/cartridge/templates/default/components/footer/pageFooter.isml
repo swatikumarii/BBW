@@ -37,8 +37,8 @@
                                                             class="btn btn-primary g-recaptcha" data-callback="submitNewsLetter"
                                                             data-action="submit">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
                                                     <iselse/>
-                                                        <button type="button" class="btn btn-primary subscribe-email"
-                                                            data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
+                                                        <button type="submit" class="btn btn-primary subscribe-email btn-hover  submit-btn h-fw--semibold mt-3 h-font-size--16"
+                                                            data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form', 'footer', null)}</button>
                                                     </isif>
                                                 </span>
                                             </div>
@@ -125,7 +125,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row no-gutters">
         <!--  copyright content-->
         <div class="col-sm-12 copyright-notice pr-0">
             <iscontentasset aid="footer-copyright" />

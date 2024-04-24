@@ -1,0 +1,100 @@
+.b-product-tile {
+    &__img-wrapper {
+        &:hover {
+            .b-product-tile__quickview {
+                display: block;
+                transition: opacity 0.3s;
+            }
+        }
+    }
+
+    &__image {
+        max-width: 195px;
+        max-height: 195px;
+        object-fit: contain;
+
+        @include media-up(md) {
+            max-height: 300px;
+            max-width: 100%;
+        }
+    }
+
+    &__badge {
+        line-height: 1.2;
+        margin: 2px 0 0;
+    }
+
+    &__product-type {
+        margin-top: 3px;
+    }
+
+    &__price-link {
+        margin-top: 12px;
+    }
+
+    &__social-badge-text {
+        border-radius: 2px;
+        margin-bottom: 32px;
+        padding: 4px 8px;
+        letter-spacing: 0.015em;
+    }
+
+    &__ratings {
+        margin: 6px 0 10px;
+    }
+
+    &__quickview {
+        right: 0;
+        bottom: 0;
+        width: 65px;
+        height: 65px;
+        line-height: 80px;
+        transition: opacity 0.3s;
+        display: none;
+        font-size: 12px;
+        text-decoration: underline;
+        border: none;
+        text-transform: none;
+        text-align: center;
+        letter-spacing: normal;
+        padding: 0;
+        max-height: none;
+        border-radius: 50%;
+        margin: 0 10px 10px 0;
+        color: colour(black, 3);
+        border-color: colour(gray, 1);
+        background-color: hsla(0deg, 0%, 100%, 75%);
+
+        &::before {
+            display: block;
+            content: " ";
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 12px;
+            background-size: cover;
+            background-image: url("../../images/icons/quicklookeye.svg");
+        }
+
+        &:hover {
+            text-decoration: none;
+            border-color: transparent;
+            background-color: colour(white);
+            opacity: 0.75;
+            color: colour(gray, 3);
+        }
+    }
+
+    &__wishlistTile {
+        top: 0;
+        right: 0;
+    }
+
+    &__choose-store {
+        &:hover {
+            color: colour(gray);
+        }
+    }
+}

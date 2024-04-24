@@ -6,6 +6,14 @@ var ProductMgr = require('dw/catalog/ProductMgr');
 var Transaction = require('dw/system/Transaction');
 var BasketMgr = require('dw/order/BasketMgr');
 
+/**
+ * @param {number} pid - ProductId
+ * @returns {number} price of product
+ */
+function getProductPrice(pid) {
+    var product = ProductMgr.getProduct(pid);
+    return product.priceModel.price.value;
+}
 
 /**
  * Adds a product to the cart. If the product is already in the cart it increases the quantity of
@@ -472,4 +480,5 @@ function checkCouponCodeError (couponCode, errorCode) {
 base.createFreeLineItem = createFreeLineItem;
 base.checkCouponCodeError = checkCouponCodeError;;
 base.addProductToCart = addProductToCart;
+base.getProductPrice = getProductPrice;
 module.exports = base;
