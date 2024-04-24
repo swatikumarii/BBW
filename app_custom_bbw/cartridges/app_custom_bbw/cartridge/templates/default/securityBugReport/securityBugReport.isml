@@ -1,0 +1,110 @@
+<isdecorate template="common/layout/page">
+<isinclude template="/components/modules"/>
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/securityBugReport.js');
+    </isscript>
+    <div class="hero">
+        <h1 class="page-title">${Resource.msg('title.hero.text','securityBugReport',null)}</h1>
+    </div>
+    <div class="container bug-report-landing-page">
+        <div class="row justify-content-center">
+            <div class="col-sm-8 col-md-6">
+                <div class="card">
+                    <div class="row d-none" id="sbr-thanks-element" >
+                        <div class="col-sm-6 offset-sm-4">
+                            <iscontentasset aid="security-bug-report" />
+                        </div>
+                    </div>
+                    <div class="card-body" id="bug-report-form-card">
+                        <form id="bug-report-form" action="${pdict.actionUrl}" class="bug-report" method="POST" name="bug-report">
+                            <!--- SBR us name, --->
+                            <div class="row bug-report-name">
+                                <div class="col-sm-6">
+                                    <div class="form-group required">
+                                        <label class="form-control-label" for="bug-report-name">
+                                            ${Resource.msg('label.input.bug-report-name', 'securityBugReport', null)}
+                                        </label>
+                                        <input type="text" required class="form-control required"
+                                            aria-describedby="form-bug-report-name-error" id="bug-report-name"
+                                            name="bugReportName">
+                                        <div class="invalid-feedback" id="form-bug-report-name-error"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--- SBR us email --->
+                            <div class="row bug-report-email">
+                                <div class="col">
+                                    <div class="form-group required">
+                                        <label class="form-control-label" for="bug-report-email">
+                                            ${Resource.msg('label.input.bug-report-email', 'securityBugReport', null)}
+                                        </label>
+                                        <input type="email" required class="form-control required"
+                                            aria-describedby="form-bug-report-email-error" id="bug-report-email"
+                                            name="bugReportEmail">
+                                        <div class="invalid-feedback" id="form-bug-report-email-error"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--- SBR us phone --->
+                            <div class="row bug-report-phone">
+                                <div class="col">
+                                    <div class="form-group required">
+                                        <label class="form-control-label" for="bug-report-phone">
+                                            ${Resource.msg('label.input.bug-report-phone', 'securityBugReport', null)}
+                                        </label>
+                                        <input type="phone" required class="form-control required"
+                                            aria-describedby="form-bug-report-phone-error" id="bug-report-phone"
+                                            name="bugReportPhone">
+                                        <div class="invalid-feedback" id="form-bug-report-phone-error"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--- SBR us company name --->
+                            <div class="row bug-report-page-url">
+                                <div class="col">
+                                    <div class="form-group required">
+                                        <label class="form-control-label" for="bug-report-page-url">
+                                            ${Resource.msg('label.input.bug-report-page-url', 'securityBugReport', null)}
+                                        </label>
+                                        <input type="page-url" required class="form-control required"
+                                            aria-describedby="form-bug-report-page-url-error" id="bug-report-page-url"
+                                            name="bugReportPageUrl">
+                                        <div class="invalid-feedback" id="form-bug-report-page-url-error"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--- SBR us company name --->
+                            <div class="row bug-report-image-upload">
+                                <div class="col">
+                                    <div class="form-group required">
+                                        <label class="form-control-label" for="bug-report-image-upload">
+                                            ${Resource.msg('label.input.bug-report-image-upload', 'securityBugReport', null)}
+                                        </label>
+                                        <input type="file" required class="form-control required"
+                                            aria-describedby="form-bug-report-image-upload-error" id="bug-report-image-upload"
+                                            name="bugReportImage" accept="image/*">
+                                        <div class="invalid-feedback" id="form-bug-report-image-upload-error"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--- SBR us submit --->
+                            <div class="row security-bug-report-submit">
+                                <div class="col-sm-6">
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <button class="btn btn-block btn-primary subscribe-security-bug-report" type="submit"
+                                            name="submit" value="submit">
+                                            ${Resource.msg('label.input.bug-report-submit', 'securityBugReport', null)}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>
