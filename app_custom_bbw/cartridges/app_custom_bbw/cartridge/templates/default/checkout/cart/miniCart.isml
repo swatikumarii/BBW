@@ -78,6 +78,29 @@
             <p class="estimated-total-label m-0 h-font-size--22 h-fw--semibold h-clr--black-1">${Resource.msg('label.estimatedtotal', 'cart', null)}</p>
             <p class="text-right sub-total m-0 h-font-size--22 h-fw--semibold h-clr--blue-1">${pdict.totals.subTotal}</p>
         </div>
+        <!--- Afterpay Widget --->
+ <isscript>
+    var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
+    var afterpayPDPEnable = sitePreferences.isDisplayCartInfo() && sitePreferences.isAfterpayEnabled();
+</isscript>
+<isif condition="${afterpayPDPEnable == true}">
+    <div class="row text-center">
+        <div class="col-12">
+            <isinclude template="util/modulesAfterpay"/>
+            <input type="hidden" class="updated-widget" value="${URLUtils.https('AfterpayWidget-GetUpdatedWidget')}" />
+            <div class="afterpay-widget">
+                <isafterpaymessage
+                    classname="${pdict.classname}"
+                    totalprice="${pdict.totalPrice}"
+                    eligible="${pdict.apEligible}"
+                    mpid="${pdict.apMpid}"
+                    approductids="${pdict.apProductIDs}"
+                    size="xs"
+                />
+            </div>
+        </div>
+    </div>
+</isif>
         <div class="checkout-continue">
             <isinclude template="cart/checkoutButtons" />
         </div>
