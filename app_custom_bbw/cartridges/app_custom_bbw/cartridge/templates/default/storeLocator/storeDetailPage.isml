@@ -1,6 +1,6 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
-
 <script defer type="text/javascript" src="${pdict.googleMapsApi}"></script>
+<script defer type="text/javascript" src="${URLUtils.staticURL('/js/storeLocatorDetail.js').toString()}"></script>
 <link rel="stylesheet" href="${URLUtils.staticURL('/css/storeLocator.css').toString()}" />
 <div class="container">
     <div class="row my-3 my-md-5">
@@ -62,4 +62,3 @@
         </div>
     </div>
 </div>
-<script defer type="text/javascript" src="${URLUtils.staticURL('/js/storeLocatorDetailPage.js').toString()}"></script>
