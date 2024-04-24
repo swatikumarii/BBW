@@ -90,6 +90,7 @@ $('[data-toggle="popover"]').popover({
 // Show popover on mouseenter
 $('[data-toggle="popover"]').on('mouseenter', function () {
     $(this).popover('show');
+    $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
 });
 
 // Close popover on close button click

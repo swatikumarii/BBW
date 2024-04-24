@@ -8,7 +8,7 @@ $(document).ready(function () {
 });
 
 /* Zoom Image */
-$('.zoomImage-link').on('click', function () {
+$('.zoomImage-link, .carousel-item').on('click', function () {
     $('.zoomImage-sec').css('display', 'block');
 });
 $('.zoomOut-link').on('click', function () {
