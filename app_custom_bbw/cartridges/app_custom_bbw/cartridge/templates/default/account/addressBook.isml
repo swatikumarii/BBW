@@ -27,7 +27,15 @@
         <isloop items="${pdict.addressBook}" var="address">
             <div class="row justify-content-center" id="uuid-${address.address.UUID}">
                 <div class="col-sm-8 col-md-6">
-                 <h2>${address.address.ID == pdict.addressBook[0].address.ID ? Resource.msg('label.addressbook.defaultaddress','account',null): Resource.msg('label.addressbook.otheraddress','account',null)}</h2>
+                <isif condition="${address.address.ID == pdict.addressBook[0].address.ID}">
+                    <h2>${Resource.msg('label.addressbook.defaultaddress','account',null)}</h2>
+                    <isset name="prevoiusAddress" value="${Resource.msg('label.addressbook.defaultaddress','account',null)}" scope="page"/>
+                </isif>
+                <isif condition="${address.address.ID != pdict.addressBook[0].address.ID && prevoiusAddress != Resource.msg('label.addressbook.otheraddress','account',null)}">
+                    <h2>${Resource.msg('label.addressbook.otheraddress', 'account', null)}</h2>
+                    <isset name="prevoiusAddress" value="${Resource.msg('label.addressbook.otheraddress','account',null)}" scope="page"/>
+                 </isif>
+                 <iscomment> <h2>${address.address.ID == pdict.addressBook[0].address.ID ? Resource.msg('label.addressbook.defaultaddress','account',null): Resource.msg('label.addressbook.otheraddress','account',null)}</h2> </iscomment>
                     <div class="card">
                         <div class="card-header">
                             <iscomment> <h2 class="address-heading pull-left">${address.address.ID}</h2> </iscomment>
