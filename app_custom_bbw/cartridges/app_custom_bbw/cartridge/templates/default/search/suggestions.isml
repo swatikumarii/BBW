@@ -31,16 +31,16 @@
             </li>
             <li class="row justify-content-end items">
                 <ul class="col-12 list">
-                <isloop items="${pdict.suggestions.product.products}" var="product" status="listindex">
-                    <li class="col-12 item" id="product-${listindex.index}" role="option">
-                        <a href="${product.url}" aria-label="${product.name}" class="link">
-                            <div class="col-xs-12 ellipsis">
-                                <img class="swatch-circle hidden-xs-down" alt="${Resource.msg('label.suggest.imagethumb', 'search', null)} ${product.name}" src="${product.imageUrl}" />
-                                <span class="name">${product.name}</span>
-                            </div>
-                        </a>
-                    </li>
-                </isloop>
+                    <isloop items="${pdict.suggestions.product.products}" var="product" status="listindex">
+                        <li class="col-12 item" id="product-${listindex.index}" role="option">
+                            <a href="${product.url}" aria-label="${product.name}" class="link">
+                                <div class="col-xs-12 ellipsis">
+                                    <img class="swatch-circle hidden-xs-down" alt="${Resource.msg('label.suggest.imagethumb', 'search', null)} ${product.name}" src="${product.imageUrl}" />
+                                    <span class="name">${product.name}</span>
+                                </div>
+                            </a>
+                        </li>
+                    </isloop>
                 </ul>
             </li>
         </isif>
@@ -52,21 +52,21 @@
             </li>
             <li class="row items">
                 <ul class="col-12 list">
-                <isloop items="${pdict.suggestions.category.categories}" var="category" status="listindex">
-                    <li class="col-12 item" id="category-${listindex.index}" role="option">
-                        <a href="${category.url}" class="link">
-                            <div class="col-xs-12 ellipsis">
-                                <isif condition="${category.imageUrl != ''}">
-                                    <img class="swatch-circle hidden-xs-down" alt="${category.name}" src="${category.imageUrl}" />
-                                    <span class="name">${category.name}</span>
-                                    <isif condition="${category.parentID !== 'root'}">
-                                        <span class="category-parent"> ${Resource.msg('label.suggest.in', 'search', null)} ${category.parentName}</span>
+                    <isloop items="${pdict.suggestions.category.categories}" var="category" status="listindex">
+                        <li class="col-12 item" id="category-${listindex.index}" role="option">
+                            <a href="${category.url}" class="link">
+                                <div class="col-xs-12 ellipsis">
+                                    <isif condition="${category.imageUrl != ''}">
+                                        <img class="swatch-circle hidden-xs-down" alt="${category.name}" src="${category.imageUrl}" />
+                                        <span class="name">${category.name}</span>
+                                        <isif condition="${category.parentID !== 'root'}">
+                                            <span class="category-parent"> ${Resource.msg('label.suggest.in', 'search', null)} ${category.parentName}</span>
+                                        </isif>
                                     </isif>
-                                </isif>
-                            </div>
-                        </a>
-                    </li>
-                </isloop>
+                                </div>
+                            </a>
+                        </li>
+                    </isloop>
                 </ul>
             </li>
         </isif>

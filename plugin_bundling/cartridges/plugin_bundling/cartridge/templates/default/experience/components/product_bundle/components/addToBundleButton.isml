@@ -1,0 +1,19 @@
+<div class="row m-0 justify-content-center">
+    <div class="text-center">
+        <input type="hidden" value="${product.ID}" />
+        <isif condition="${product.canBeAdded}">
+            <button class="btn--secondary add-to-bundle btn btn-block btn-sm" data-pid="${product.id}">
+                ${Resource.msg('button.add_to_bundle', 'productBundle', null)}
+            </button>
+            <button class="btn--secondary added-to-bundle btn btn-block btn-sm d-none" data-pid="${product.id}"
+                disabled>
+                <i class="fa fa-check"></i>
+                ${Resource.msg('button.added.to.bundle', 'productBundle', null)}
+            </button>
+        <iselse/>
+            <button class="btn--secondary added-to-bundle btn btn-block btn-sm" data-pid="${product.id}" disabled>
+                ${Resource.msg('notAvailable.title', 'productBundle', null)}
+            </button>
+        </isif>
+    </div>
+</div>

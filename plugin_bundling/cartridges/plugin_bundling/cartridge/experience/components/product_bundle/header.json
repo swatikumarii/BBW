@@ -1,0 +1,19 @@
+{
+  "name": "Header",
+  "description": "This is the main header for the bundle",
+  "group": "product_bundle",
+  "attribute_definition_groups": [
+    {
+      "id": "header_details",
+      "attribute_definitions": [
+        {
+          "id": "header",
+          "name": "Bundle Header",
+          "type": "markup",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

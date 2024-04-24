@@ -18,7 +18,7 @@ function getPidValue($el) {
     } else {
         pid =
             $('.product-detail:not(".bundle-item")').data('pid') ||
-            $el.data('pid');
+            ($el && $el.data('pid'));
     }
 
     return pid;
@@ -192,6 +192,7 @@ module.exports = $.extend({}, base, {
                 var pidsObj;
                 var setPids;
 
+                var currentAction = $(this);
                 $('body').trigger('product:beforeAddToCart', this);
 
                 if (
@@ -246,13 +247,15 @@ module.exports = $.extend({}, base, {
                             $.spinner().stop();
                             base.miniCartReportingUrl(data.reportingURL);
                         },
-                        error: function () {
+                        error: function (err) {
+                            currentAction
+                                .siblings('.add-to-cart-error')
+                                .text(err.responseJSON.errorMessage);
                             $.spinner().stop();
                         }
                     });
                 }
             }
         );
-    },
-    getPidValue: getPidValue
+    }
 });

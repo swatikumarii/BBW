@@ -1,0 +1,53 @@
+{
+  "name": "Multiple Product",
+  "description": "Select multiple products and assigned them under one head",
+  "group": "product_bundle",
+  "attribute_definition_groups": [
+    {
+      "id": "product_details",
+      "attribute_definitions": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "string",
+          "required": true
+        },
+        {
+            "id": "imageURL",
+            "name": "Category Image Scene7 URL",
+            "type": "string",
+            "required": false
+        },
+        {
+          "id": "image",
+          "name": "Category Image Library URL",
+          "type": "image",
+          "required": false
+        },
+        {
+          "id": "productID",
+          "name": "Selected Product",
+          "description": "Comma separated Product ID",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "desktopTiles",
+          "name": "Number of desktop tiles per row",
+          "description": "Number of tiles to show per row in desktop",
+          "type": "enum",
+          "values": [3, 4, 6],
+          "required": true
+        },
+        {
+          "id": "showPrice",
+          "name": "Show Price",
+          "description": "show products price or not?",
+          "type": "boolean",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

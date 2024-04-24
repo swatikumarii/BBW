@@ -69,9 +69,9 @@
 &#13;
 &#13;
 &#13;
-    &lt;div class="under-footer text-center py-4"&gt;&#13;
+    &lt;div class="under-footer  py-4"&gt;&#13;
                 &lt;p class="copyright h-fw--normal"&gt;©&#13;
-                    &lt;script&gt;document.write(new Date().getFullYear());&lt;/script&gt;2024 Bath &amp;amp; Body Works Direct, Inc.&#13;
+                   2024 Bath &amp;amp; Body Works Direct, Inc.&#13;
                     &lt;span&gt;All Rights Reserved.&lt;/span&gt;&#13;
                 &lt;/p&gt;&#13;
     &lt;/div&gt;&#13;
@@ -1875,6 +1875,23 @@
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
+    
+    <content content-id="store-detail">
+        <display-name xml:lang="x-default">Store Detail</display-name>
+        <description xml:lang="x-default">Store Detail asset to add shop now button</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="store-details-bottom-wrapper text-center my-5"&gt;&#13;
+&lt;h1 class="h-fw--semibold"&gt;Can’t wait?&lt;/h1&gt;&#13;
+&lt;p class="h-clr--black-1 h-font-size--16"&gt;Shop your favourite products online.&lt;/p&gt;&#13;
+&lt;div class="wrapper__buttons"&gt;&#13;
+&lt;a href="$url('Home-Show','cid','home-show)$" class="btn btn-submit "&gt;Shop Now&lt;/a&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
 
      <content content-id="rose">
         <display-name xml:lang="x-default">FRAGRANCE OBSESSION: ROSE</display-name>
@@ -1931,7 +1948,6 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
             <classification-link folder-id="behind-the-scents"/>
         </folder-links>
     </content>
-
     
  <content content-id="lavender">
         <display-name xml:lang="x-default">FRAGRANCE OBSESSION: LAVENDER</display-name>

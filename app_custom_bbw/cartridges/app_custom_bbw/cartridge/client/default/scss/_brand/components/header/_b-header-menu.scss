@@ -19,6 +19,11 @@
                             line-height: 1.25rem;
                             letter-spacing: 0.01em;
                             border-bottom: 0.1875rem solid transparent;
+                            transition: border 0.3s ease-out;
+
+                            &:hover {
+                                color: colour(black, 1);
+                            }
 
                             @include media-up(sm) {
                                 &::after {
@@ -35,7 +40,7 @@
                             z-index: 110;
                             top: auto;
                             left: 0;
-                            margin-top: 0.125rem;
+                            margin-top: 0;
 
                             .level-2-ul-wrap {
                                 margin: 1.3125rem auto;
@@ -108,10 +113,6 @@
         a:focus {
             outline: 0;
         }
-    }
-
-    .bbw-menu.in {
-        left: 0;
 
         .mobile-navbar {
             overflow-y: auto;
@@ -191,6 +192,20 @@
         }
 
         .level-1-li {
+            transition: max-height 0.5s ease-out;
+            max-height: 58px;
+
+            &::before {
+                content: "";
+                width: 0;
+                height: 3.5rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: colour(blue);
+                z-index: 30;
+            }
+
             .level-1-link.dropdown-toggle {
                 padding: 1.25rem 0.9375rem;
                 line-height: 1.25rem;
@@ -210,13 +225,12 @@
                 }
             }
 
-            &.active .level-1-link.dropdown-toggle {
-                border-left: 0.25rem solid colour(blue);
+            &.active {
+                max-height: 156.25rem;
 
-                &::after {
-                    transform: rotate(1turn);
-                    transform-origin: center center;
-                    top: 1.125rem;
+                &::before {
+                    width: 0.25rem;
+                    transition: all 0.3s ease-out;
                 }
             }
         }
@@ -229,61 +243,78 @@
             transition-property: visibility, opacity, top;
             transition-duration: 0.5s;
             transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: block;
 
             &.active {
                 top: 0;
                 opacity: 1;
                 pointer-events: auto;
                 visibility: visible;
-                display: block;
                 border: 0;
+            }
 
-                .level-2-li {
-                    background-color: transparent;
+            .level-2-li {
+                background-color: transparent;
 
-                    .level-2-link {
-                        line-height: 1.25rem;
-                        letter-spacing: 0.01em;
-                        height: 2.75rem;
-                        padding: 0.5625rem 0.3125rem 0.5625rem 2.1875rem;
-                        display: inherit;
-                        outline: 0;
+                .level-2-link {
+                    line-height: 1.25rem;
+                    letter-spacing: 0.01em;
+                    height: 2.75rem;
+                    padding: 0.5625rem 0.3125rem 0.5625rem 2.1875rem;
+                    display: inherit;
+                    outline: 0;
 
-                        &::after {
-                            content: url("../images/header/megamenu-mobile_secondary-carat.svg");
-                            width: auto;
-                            height: auto;
-                            position: absolute;
-                            top: 0.5rem;
-                            right: 0.9375rem;
-                            z-index: 30;
-                            border: 0;
-                            transition: all 0.3s ease-out;
-                        }
+                    &::after {
+                        content: url("../images/header/megamenu-mobile_secondary-carat.svg");
+                        width: auto;
+                        height: auto;
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 0.9375rem;
+                        z-index: 30;
+                        border: 0;
+                        transition: all 0.3s ease-out;
                     }
+                }
 
-                    &.active .level-2-link {
-                        &::after {
-                            transform: rotate(180deg);
-                            transform-origin: center center;
-                        }
+                &.active {
+                    &::after {
+                        transform: rotate(180deg);
+                        transform-origin: center center;
                     }
 
                     .level-3-ul {
-                        &.active {
-                            top: 0;
-                            opacity: 1;
-                            pointer-events: auto;
-                            visibility: visible;
-                            display: block;
-                            border: 0;
-                        }
+                        top: 0;
+                        opacity: 1;
+                        pointer-events: auto;
+                        visibility: visible;
+                        transition: all 0.5s ease-out;
+                    }
+                }
 
-                        li a {
-                            letter-spacing: 0.01em;
-                            padding: 8px 15px 8px 55px;
-                            line-height: 1.25rem;
-                        }
+                .level-3-ul {
+                    position: relative;
+                    top: -8px;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: max-height 0.5s ease-out;
+                    max-height: 0;
+                    display: block;
+
+                    &.active {
+                        top: 0;
+                        opacity: 1;
+                        pointer-events: auto;
+                        visibility: visible;
+                        display: block;
+                        border: 0;
+                        max-height: 31.25rem;
+                    }
+
+                    li a {
+                        letter-spacing: 0.01em;
+                        padding: 8px 15px 8px 55px;
+                        line-height: 1.25rem;
                     }
                 }
             }
@@ -293,6 +324,11 @@
                 display: none;
             }
         }
+    }
+
+    .bbw-menu.in {
+        left: 0;
+        transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
         .mobile-menu-overlay {
             visibility: visible;
@@ -313,4 +349,8 @@
             visibility 0s 0.5s,
             opacity 0.5s linear;
     }
+}
+
+.input-group-append .btn {
+    z-index: auto;
 }

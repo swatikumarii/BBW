@@ -53,4 +53,10 @@
     <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
         <isinclude template="cart/productCard/cartEmbeddedBonusProducts" />
     </isif>
+
+    <isif condition="${lineItem.customBundle}">
+        <div class="currentCustomBundle">
+            ${dw.experience.PageMgr.getPage(lineItem.customBundle).name} ${Resource.msg('bundle', 'productBundle', null)}
+        </div>
+    </isif>
 </div>

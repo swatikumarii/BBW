@@ -12,34 +12,47 @@
     }
 
     .top-content-header-banner {
-        .content-text-wrap ul {
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
+        max-height: 100%;
 
-            li {
-                line-height: 1.6;
-                display: contents;
+        @include media-up(sm) {
+            max-height: 2.75rem;
+        }
 
-                .content-title {
-                    &::before {
-                        background-color: colour(white);
-                        border-radius: 50%;
-                        content: "";
-                        display: inline-flex;
-                        height: 0.3125rem;
-                        width: 0.3125rem;
-                        margin-left: 0.375rem;
-                        margin-right: 0.375rem;
+        .content-text-wrap {
+            .content-text-wrap-link {
+                top: 0;
+                left: 0;
+                right: 0;
+            }
+
+            ul {
+                padding: 0.625rem 1rem;
+
+                li {
+                    line-height: 1.6;
+                    display: contents;
+
+                    .content-title {
+                        &::before {
+                            background-color: colour(white);
+                            border-radius: 50%;
+                            content: "";
+                            display: inline-flex;
+                            height: 0.3125rem;
+                            width: 0.3125rem;
+                            margin-left: 0.375rem;
+                            margin-right: 0.375rem;
+                        }
                     }
-                }
 
-                .text-underline {
-                    text-decoration: underline;
-                }
+                    .text-underline {
+                        text-decoration: underline;
+                    }
 
-                &:first-child .content-title {
-                    &::before {
-                        content: none;
+                    &:first-child .content-title {
+                        &::before {
+                            content: none;
+                        }
                     }
                 }
             }

@@ -7,7 +7,6 @@
 var server = require('server');
 var cache = require('*/cartridge/scripts/middleware/cache');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
-var Template = require('dw/util/Template');
 
 /**
  * CorporateGifting-Landing : This endpoint is used to load the Corporate Gifting page
@@ -45,7 +44,7 @@ server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentT
     try{
         Transaction.wrap(function () {
             corporateGiftingDetails = CustomObjectMgr.createCustomObject(
-                'corporate-gifting',
+                'corporateGifting',
                 UUIDUtils.createUUID()
             );
             corporateGiftingDetails.custom.firstName = form.corporateGiftingFirstName ? form.corporateGiftingFirstName : '';
@@ -70,9 +69,7 @@ server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentT
         });
         return next();
     }
-    var template = new Template('/corporateGifting/thankYou');
-    var content = template.render().text;
-    res.setViewData({ isSubmitted: true, htmlcontent: content});
+    res.setViewData({ isSubmitted: true});
     res.json({
         success: true,
         error: false
