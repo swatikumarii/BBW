@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <iscomment> Promotion callout </iscomment>
-                <isif condition="${minicart}">
+                <isif condition="${miniCart}">
                     <div class="line-item-promo item-${lineItem.UUID} h-pb--10">
                         <isinclude template="checkout/productCard/productCardProductPromotions" />
                     </div>
