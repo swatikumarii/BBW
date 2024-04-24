@@ -25,6 +25,7 @@ $clr-pink: #e20887;
 $clr-pink-1: #dd0493;
 $clr-pink-2: #ec3fa8;
 $clr-pink-3: #cb1595;
+$clr-pink-4: #ed088c;
 $clr-gray: #666;
 $clr-gray-1: #f2f2f2;
 $clr-gray-2: #c2c2c2;
@@ -88,7 +89,8 @@ $map-colors: (
         base: $clr-pink,
         1: $clr-pink-1,
         2: $clr-pink-2,
-        3: $clr-pink-3
+        3: $clr-pink-3,
+        4: $clr-pink-4
     ),
     gray: (
         base: $clr-gray,
