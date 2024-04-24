@@ -21,10 +21,6 @@
                 <p>${Resource.msg('label.orderhistory.ordernumber','account',null)} <isprint value="${order.orderNumber}"/></p>
                 <p>${Resource.msg('label.orderhistory.ordertotal', 'account', null)} : ${order.priceTotal}
                 </p>
-                <p>${Resource.msg('label.orderhistory.totalitems', 'account', null)}</p>
-                <p class="dashboard-order-card-footer-value">
-                    <isprint value="${order.productQuantityTotal}" formatter="#" />
-                </p>
             </div>
         </div>
     </div>

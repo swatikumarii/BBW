@@ -1,0 +1,49 @@
+<isset name="miniCart" value="${false}" scope="page" />
+<div class="card order-product-summary">
+    <div class="card-header">
+        <span class="your-item">${Resource.msg('label.order.your.items','order', null)}</span>
+         <p>${Resource.msg('label.order.shipping', 'order', null)} ${shippingMethod}</p>
+    </div>
+    <div class="card-body">
+        <table>
+            <thead>
+                <tr>
+                    <th>${Resource.msg('label.item.description', 'order', null)}</th>
+                    <th>${Resource.msg('label.qty', 'order', null)}</th>
+                    <th>${Resource.msg('label.price', 'order', null)}</th>
+                </tr>
+            </thead>
+            <tbody>
+            <isloop items="${pdict.order.shipping}" var="shippingModel">
+                <isloop items="${shippingModel.productLineItems.items}" var="lineItem">
+                    <tr>
+                        <td>
+                        <div class="item-image">
+                            <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
+                                title="${lineItem.images.small[0].title}" width="100" />
+                        </div>
+                        <div class="line-item-name">
+                            <span class="product-name"><a title="${lineItem.productName}"
+                                    href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}"><span>${lineItem.productName}</span></a></span>
+                            <span class="product-number">${Resource.msg('lable.orderDetail.item.id', 'order', null)} : ${lineItem.id}</span>
+                            <span class="order-email">${Resource.msg('label.bracket.open', 'order', null)}${orderEmail}${Resource.msg('label.bracket.close', 'order', null)}</span>
+                        </div>
+                        </td>
+                        <td>
+                            <span class="pricing qty-card-quantity-count">
+                                <isprint value="${lineItem.quantity}" formatter="##" /></span>
+                        </td>
+                        <td>
+                            <isif condition="${lineItem.isBonusProductLineItem}">
+                                ${Resource.msg('lable.orderDetail.items.bonus', 'order', null)}
+                            <iselse/>
+                                ${lineItem.priceTotal.price}
+                            </isif>
+                        </td>
+                    </tr>
+                </isloop>
+                </isloop>
+            </tbody>
+        </table>
+    </div>
+</div>
