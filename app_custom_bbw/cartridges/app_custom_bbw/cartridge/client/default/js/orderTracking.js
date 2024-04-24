@@ -1,23 +1,60 @@
 'use strict';
 
 /**
- * @param {string} orderNumber - Order number
- * @param {string} orderEmail - Email address
- * @param {string} billingZipCode - Shipping zip code
+ * @returns {boolean} True is valid else False
+ */
+function validateOrderNumber() {
+    if (!$('#orderNumber').val()) {
+        $('#orderNumber-error').html($('#orderNumber').data('required'));
+        return false;
+    }
+    $('#orderNumber-error').empty();
+    return true;
+}
+
+/**
+ * @returns {boolean} True is valid else False
+ */
+function validateEmail() {
+    var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+    if (!$('#orderEmail').val()) {
+        $('#orderEmail-error').html($('#orderEmail').data('required'));
+        return false;
+    } if (!pattern.test($('#orderEmail').val())) {
+        $('#orderEmail-error').html($('#orderEmail').data('invalidemail'));
+        return false;
+    }
+    $('#orderEmail-error').empty();
+    return true;
+}
+
+/**
+ * @returns {boolean} True is valid else False
+ */
+function validateBillingZipCode() {
+    if (!$('#billingZipCode').val()) {
+        $('#billingZipCode-error').html($('#billingZipCode').data('required'));
+        return false;
+    } if ($('#billingZipCode').val().length > 10) {
+        $('#billingZipCode-error').html($('#billingZipCode').data('maxlength'));
+        return false;
+    }
+    $('#billingZipCode-error').empty();
+    return true;
+}
+
+/**
  * @returns {boolean} - True is valid else false
  */
-function validate(orderNumber, orderEmail, billingZipCode) {
+function validateCheckStatus() {
     var isValid = true;
-    if (!orderNumber) {
-        $('#orderNumber-error').html($('#orderNumber').data('required'));
+    if (!validateOrderNumber()) {
         isValid = false;
     }
-    if (!orderEmail) {
-        $('#orderEmail-error').html($('#orderEmail').data('required'));
+    if (!validateEmail()) {
         isValid = false;
     }
-    if (!billingZipCode) {
-        $('#billingZipCode-error').html($('#billingZipCode').data('required'));
+    if (!validateBillingZipCode()) {
         isValid = false;
     }
     return isValid;
@@ -30,7 +67,7 @@ function checkStatus() {
     var orderNumber = $('#orderNumber').val();
     var orderEmail = $('#orderEmail').val();
     var billingZipCode = $('#billingZipCode').val();
-    if (validate(orderNumber, orderEmail, billingZipCode)) {
+    if (validateCheckStatus()) {
         var actionUrl = $('#checkStatus').data('actionurl');
         var form = {
             orderNumber: orderNumber,
@@ -46,11 +83,20 @@ function checkStatus() {
                     window.location.href = data.redirectUrl;
                 },
                 error: function (err) {
-                    // TODO: Need to change
-                    if (err.responseJSON.redirectUrl) {
-                        $('#orderNumber-error').html(
-                            $('#orderNumber').data('required')
-                        );
+                    $('.error-class').empty();
+                    if (err.responseJSON.fieldErrors) {
+                        for (
+                            var i = 0;
+                            i < err.responseJSON.fieldErrors.length;
+                            i++
+                        ) {
+                            var fieldError = err.responseJSON.fieldErrors[i];
+                            $('#' + fieldError.key + '-error').html(
+                                fieldError.message
+                            );
+                        }
+                    } else {
+                        $('#form-error').html(err.responseJSON.message);
                     }
                 }
             });
@@ -65,6 +111,18 @@ $(document).ready(function () {
 
     $(document).on('click', '#checkStatus', function () {
         checkStatus();
+    });
+
+    $(document).on('focusout', '#orderNumber', function () {
+        validateOrderNumber();
+    });
+
+    $(document).on('focusout', '#orderEmail', function () {
+        validateEmail();
+    });
+
+    $(document).on('focusout', '#billingZipCode', function () {
+        validateBillingZipCode();
     });
 
 });

@@ -8,7 +8,9 @@ var server = require('server');
 server.extend(module.superModule);
 
 var Resource = require('dw/web/Resource');
+var URLUtils = require('dw/web/URLUtils');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
+var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 
 /**
  * Order-Failed : This endpoint is invoked when the shopper's Order is Placed and Failed
@@ -109,32 +111,37 @@ server.get(
  * This Route is to render order tracking form page
  */
 server.get(
-    'TrackingUrl',
+    'Tracking',
     consentTracking.consent,
     server.middleware.https,
     function (req, res, next) {
         var OrderMgr = require('dw/order/OrderMgr');
         var Locale = require('dw/util/Locale');
         var OrderModel = require('*/cartridge/models/order');
-        var orderId = req.querystring.orderId;
-        var order = OrderMgr.getOrder(orderId);
-        if (order) {
-            var currentLocale = Locale.getLocale(req.locale.id);
+        var orderId = encryptionHelper.decryptPin(
+            decodeURIComponent(req.querystring.token)
+        );
+        if (orderId) {
+            var order = OrderMgr.getOrder(orderId);
+            if (order) {
+                var currentLocale = Locale.getLocale(req.locale.id);
 
-            var config = {
-                numberOfLineItems: 'single'
-            };
+                var config = {
+                    numberOfLineItems: 'single'
+                };
 
-            var orderModel = new OrderModel(order, {
-                config: config,
-                countryCode: currentLocale.country
-            });
-            res.render('account/orderDetail', {
-                order: orderModel,
-                accountlanding: false
-            });
-            return next();
+                var orderModel = new OrderModel(order, {
+                    config: config,
+                    countryCode: currentLocale.country
+                });
+                res.render('account/orderDetail', {
+                    order: orderModel,
+                    accountlanding: false
+                });
+                return next();
+            }
         }
+        res.redirect(URLUtils.url('Home-Show'));
         return next();
     }
 );
@@ -144,26 +151,28 @@ server.get(
  * @name Order-Tracking
  */
 server.post(
-    'Tracking',
+    'Check',
     consentTracking.consent,
     server.middleware.https,
     function (req, res, next) {
         var OrderMgr = require('dw/order/OrderMgr');
-        var URLUtils = require('dw/web/URLUtils');
-        if (req.form.orderEmail &&
-            req.form.orderNumber &&
-            req.form.billingZipCode
-        ) {
+        var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
+        var error = orderHelpers.validateTrackingData(
+            req.form.orderNumber, req.form.orderEmail, req.form.billingZipCode
+        );
+        if (error && error.length === 0) {
             var order = OrderMgr.getOrder(req.form.orderNumber);
-            if (order && order.customerEmail === req.form.orderEmail.trim() &&
+            if (
+                order &&
+                order.customerEmail === req.form.orderEmail.trim() &&
                 order.shipments[0].shippingAddress.postalCode ===
                     req.form.billingZipCode.trim()
             ) {
                 res.json({
                     redirectUrl: URLUtils.url(
-                        'Order-TrackingUrl',
-                        'orderId',
-                        req.form.orderNumber
+                        'Order-Tracking',
+                        'token',
+                        encryptionHelper.encryptPin(req.form.orderNumber)
                     ).toString()
                 });
             } else {
@@ -181,7 +190,7 @@ server.post(
             res.setStatusCode(400);
             res.json({
                 error: true,
-                message: Resource.msg('order.status.not.found', 'order', null)
+                fieldErrors: error
             });
         }
         next();
