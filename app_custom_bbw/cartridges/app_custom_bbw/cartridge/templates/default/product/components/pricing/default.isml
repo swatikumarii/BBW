@@ -19,8 +19,23 @@
     </isif>
 
     <isset name="price" value="${finalOrigPrice.sales}" scope="page" />
-    <span class="sales">
-        <a class="b-product-tile__price-link d-block h-fw--semibold h-font-size--18" href="${pdict.urls.product}">
+    <isif condition="${pdict.urls.product}">
+        <span class="sales">
+            <a class="b-product-tile__price-link d-block h-fw--semibold h-font-size--18" href="${pdict.urls.product}">
+                <isif condition="${isLowPrice == 'range-low'}">
+                    <span class="value" content="${price.decimalPrice}"></span>
+                </isif>
+                <isif condition="${isLowPrice == 'range-high'}">
+                    <span class="value" content="${price.decimalPrice}"></span>
+                </isif>
+                <isif condition="${isLowPrice == null}">
+                    <span class="value" data-url="${pdict.urls.product}" content="${price.decimalPrice}"></span>
+                </isif>
+                <isinclude template="/product/components/pricing/formatted" />
+            </a>
+        </span>
+    <iselse/>
+        <span class="sales h-clr--black-1">
             <isif condition="${isLowPrice == 'range-low'}">
                 <span class="value" content="${price.decimalPrice}"></span>
             </isif>
@@ -31,6 +46,6 @@
                 <span class="value" data-url="${pdict.urls.product}" content="${price.decimalPrice}"></span>
             </isif>
             <isinclude template="/product/components/pricing/formatted" />
-        </a>
-    </span>
+        </span>
+    </isif>
 </span>
