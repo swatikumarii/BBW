@@ -104,6 +104,29 @@ ul li {
     font-weight: 400; // Setting font weight.
 }
 
+// =========================
+// Scrollbar Styles
+// =========================
+
+::-webkit-scrollbar {
+    width: 0.625rem;
+    height: 0.625rem;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: colour(gray, 1);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0.625rem;
+    background-color: colour(gray, 2);
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece {
+    background-color: colour(gray, 1);
+}
+
 // ===================================
 // Creating Components from Typography
 // ===================================

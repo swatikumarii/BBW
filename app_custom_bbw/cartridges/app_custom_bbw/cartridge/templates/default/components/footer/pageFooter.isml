@@ -29,15 +29,15 @@
                                             <div class="input-group">
                                                 <input type="text" class="form-control input-text rounded-0 w-100"
                                                     name="hpEmailSignUp"
-                                                    placeholder="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}"
+                                                    
                                                     aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" />
-                                                <span class="input-group-append">
+                                                <span class="input-group-append ml-0">
                                                     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
                                                         <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
                                                             class="btn btn-primary g-recaptcha" data-callback="submitNewsLetter"
                                                             data-action="submit">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
                                                     <iselse/>
-                                                        <button type="submit" class="btn btn-primary subscribe-email btn-hover  submit-btn h-fw--semibold mt-3 h-font-size--16"
+                                                        <button type="submit" class="btn btn-primary subscribe-email btn-hover text-uppercase submit-btn h-fw--semibold mt-3 h-font-size--16"
                                                             data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form', 'footer', null)}</button>
                                                     </isif>
                                                 </span>

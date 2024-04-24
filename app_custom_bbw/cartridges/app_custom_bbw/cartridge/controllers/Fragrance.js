@@ -16,25 +16,37 @@ server.get('Show', function(req, res, next) {
     var fragranceNamesArray = [];
     var topFragrancesLists;
     var currentSite = Site.current.ID;
+    var fragranceObj = {};
     if (topFragrancesList) {
         topFragrancesLists = topFragrancesList.split(', ');
     }
-    if(fragranceNamesList){
+    if (fragranceNamesList) {
         var fragranceNames = fragranceNamesList.split(', ');
         for (var index = 0; index < fragranceNames.length; index++) {
-            var firstLetter = fragranceNames[index][0].toUpperCase();
+            var alphabet = fragranceNames[index][0].toUpperCase();
             if (topFragrancesLists) {
-                isTopFragrance = topFragrancesLists.includes(fragranceNames[index]);
+                isTopFragrance = topFragrancesLists.includes(
+                    fragranceNames[index]
+                );
             }
 
-            fragranceNamesArray[index] = {
-                alphabet: firstLetter,
-                name: fragranceNames[index],
-                topFragrance: isTopFragrance
-            };
+            if (!fragranceObj[alphabet]) {
+                fragranceObj[alphabet] = [];
+            }
+
+            fragranceObj[alphabet].push({
+                topFragrance: isTopFragrance,
+                name: fragranceNames[index]
+            });
         }
     }
-
+    if (fragranceObj) {
+        fragranceNamesArray = Object.entries(fragranceObj).map(
+            function (entry) {
+                return { key: entry[0], value: entry[1] };
+            }
+        );
+    }
 
     res.render('fragrance/shopByFragrance', {
         fragranceCategories: byCategories,
@@ -49,8 +61,7 @@ server.get('Show', function(req, res, next) {
  * Fragrance-Ingredient : The Fragrance-Ingredient enpoint show the ingredients of proudcts
  */
 server.get('Ingredient', function (req, res, next) {
-    var productsIngredients =
-        Site.current.getCustomPreferenceValue('productIngredients');
+    var productsIngredients = Site.current.getCustomPreferenceValue('productIngredients');
     var ingredientNamesArray = [];
     var ingredientsNames;
 
