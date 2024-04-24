@@ -19,6 +19,7 @@ $(document).ready(function () {
     processInclude(require('base/components/countrySelector'));
     processInclude(require('base/components/toolTip'));
     processInclude(require('./components/header'));
+    processInclude(require('./wishlist'));
 });
 
 require('./thirdParty/bootstrap');
