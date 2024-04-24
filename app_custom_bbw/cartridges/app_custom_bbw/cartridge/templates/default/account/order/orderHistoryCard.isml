@@ -32,9 +32,6 @@
                     aria-label="${Resource.msgf('label.orderhistory.vieworderdetails', 'account', null, order.orderNumber)}">${Resource.msg('order.link.view', 'account', null)}</a>
             </div>
             <div class="col-7 dashboard-order-card-footer-columns card-info-group">
-                <iscomment> <a href="${URLUtils.url('Order-Details', 'orderID', order.orderNumber, 'orderFilter', pdict.orderFilter)}"
-                    class="pull-right"
-                    aria-label="${Resource.msgf('label.orderhistory.vieworderdetails', 'account', null, order.orderNumber)}">${Resource.msg('order.link.view', 'account', null)}</a> </iscomment>
                     <div class="reorder-btn">
                         <button class="add-order-to-cart no-spinner" title="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}"
                             data-oid="${order.orderNumber}" aria-label="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}"

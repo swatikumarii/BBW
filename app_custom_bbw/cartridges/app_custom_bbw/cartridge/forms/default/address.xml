@@ -23,9 +23,6 @@
               parse-error="error.message.parse.fname" 
               range-error="error.message.50orless.fname"/>
 
-
-    <!-- <field formid="firstName" label="label.input.firstname.profile" type="string" mandatory="true" binding="firstName"
-           max-length="50" missing-error="address.firstname.missing" range-error="error.message.50orless"/> -->
        <field formid="lastName"
               label="label.input.lastname.profile" 
               type="string" 
@@ -72,12 +69,6 @@
     <include formid="states" name="states" missing-error="address.state.missing" parse-error="error.message.required" value-error="error.message.required"/>
 
     <!-- phone is mandatory for addresses -->
-    <!-- <field formid="phone" label="label.input.phonenumber" description="address.phone.example" type="string" mandatory="true"
-           binding="phone" min-length="10" max-length="20"
-           missing-error="address.phone.missing"
-           range-error="error.message.between10and20"
-           parse-error="error.message.parse.phone"/> -->
-       
        <field formid="phone" label="label.input.phonenumber" description="address.phone.example" type="string" mandatory="true"
            binding="phone" min-length="6" max-length="12"
            regexp="^((?!(0))[0-9]{8,12})$"

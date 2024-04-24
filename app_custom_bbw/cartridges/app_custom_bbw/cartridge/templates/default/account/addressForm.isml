@@ -9,9 +9,6 @@
         <label class="form-control-label" for="addressId">
             <isprint value="${pdict.addressForm.addressId.label}" encoding="htmlcontent" />
         </label>
-        <iscomment> <input type="text" class="form-control" id="addressId"
-            <isprint value="${pdict.addressForm.addressId.attributes}" encoding="off" />>
-        <div class="invalid-feedback"> </iscomment>
         <input type="text" class="form-control" id="addressId"
             data-missing-error="${Resource.msg('error.adddress.title', 'forms', null)}"
             data-range-error="${Resource.msg('error.address.title.error', 'forms', null)}" <isprint
@@ -28,10 +25,6 @@
                 <label class="form-control-label" for="firstName">
                     <isprint value="${pdict.addressForm.firstName.label}" encoding="htmlcontent" />
                 </label>
-                <iscomment> <input type="text" class="form-control" id="firstName"
-                    <isprint value="${pdict.addressForm.firstName.attributes}" encoding="off" />
-                    autocomplete="given-name">
-                <div class="invalid-feedback"></div> </iscomment>
                 <input type="text" class="form-control" id="firstName"
                     data-missing-error="${Resource.msg('error.first.name', 'forms', null)}"
                     data-range-error="${Resource.msg('error.message.50orless.fname','forms',null)}"
@@ -49,10 +42,6 @@
                 <label class="form-control-label" for="lastName">
                     <isprint value="${pdict.addressForm.lastName.label}" encoding="htmlcontent" />
                 </label>
-                <iscomment> <input type="text" class="form-control" id="lastName"
-                    <isprint value="${pdict.addressForm.lastName.attributes}" encoding="off" />
-                    autocomplete="family-name">
-                <div class="invalid-feedback"></div> </iscomment>
                 <input type="text" class="form-control" id="lastName"
                     data-missing-error="${Resource.msg('error.last.name', 'forms', null)}"
                     data-range-error="${Resource.msg('error.message.50orless.lname','forms',null)}"
@@ -70,10 +59,6 @@
         <label class="form-control-label" for="address1">
             <isprint value="${pdict.addressForm.address1.label}" encoding="htmlcontent" />
         </label>
-        <iscomment> <input type="text" class="form-control" id="address1"
-            <isprint value="${pdict.addressForm.address1.attributes}" encoding="off" />
-            autocomplete="address-line1">
-        <div class="invalid-feedback"></div> </iscomment>
         <input type="text" class="form-control" id="address1"
             data-missing-error="${Resource.msg('error.address.line-1', 'forms', null)}"
             data-range-error="${Resource.msg('addressForm.address1.range', 'forms', null)}" <isprint
@@ -156,10 +141,6 @@
                 <label class="form-control-label" for="zipCode">
                     <isprint value="${pdict.addressForm.postalCode.label}" encoding="htmlcontent" />
                 </label>
-                <iscomment> <input type="text" class="form-control" id="zipCode"
-                    <isprint value="${pdict.addressForm.postalCode.attributes}" encoding="off" />
-                    autocomplete="postal-code">
-                <div class="invalid-feedback"></div> </iscomment>
                 <input type="text" class="form-control" id="zipCode"
                     data-missing-error="${Resource.msg('error.zip.code', 'forms', null)}"
                     data-range-error="${Resource.msg('error.message.between5and10', 'forms', null)}" <isprint
@@ -176,10 +157,6 @@
         <label class="form-control-label" for="phone">
             <isprint value="${pdict.addressForm.phone.label}" encoding="htmlcontent" />
         </label>
-        <iscomment> <input type="text" class="form-control" id="phone"
-            <isprint value="${pdict.addressForm.phone.attributes}" encoding="off" />
-            autocomplete="tel">
-        <div class="invalid-feedback"></div> </iscomment>
         <input type="text" class="form-control" id="phone"
             data-pattern-mismatch="${Resource.msg('error.message.pattern.phone', 'forms', null)}"
             data-missing-error="${Resource.msg('error.phone.number', 'forms', null)}"

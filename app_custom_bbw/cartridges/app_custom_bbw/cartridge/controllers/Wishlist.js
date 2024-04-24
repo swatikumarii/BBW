@@ -26,6 +26,10 @@ server.prepend('AddProduct', function (req, res, next) {
     next();
 });
 
+/**
+ * Wishlist-Show : The Wishlist-Show append to update breadcrumbs
+ * @name Wishlist-Show
+ */
 server.append('Show', function (req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
     var Resource = require('dw/web/Resource');

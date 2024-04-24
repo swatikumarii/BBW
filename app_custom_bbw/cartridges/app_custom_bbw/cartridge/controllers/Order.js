@@ -12,7 +12,10 @@ var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var URLUtils = require('dw/web/URLUtils');
 var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 
-
+/**
+ * Order-History : The Order-History append to update breadcrumbs
+ * @name Order-History
+ */
 server.append(
     'History',
     consentTracking.consent,
@@ -47,6 +50,10 @@ server.append(
     }
 );
 
+/**
+ * Order-InvoiceDownload : The Order-InvoiceDownload endpoint get order details to download invoice
+ * @name Order-AddProductFromOrder
+ */
 server.get('InvoiceDownload', function (req, res, next) {
     var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
     var OrderMgr = require('dw/order/OrderMgr');

@@ -21,33 +21,11 @@
                 <h2>${Resource.msg('label.orderhistory','account',null)}</h2>
             </div>
             <h1></h1>
-            <iscomment> <div class="col-12 col-sm-4 col-md-3">
-                <div class="form-group">
-                    <select class="form-control custom-select order-history-select" aria-label="${Resource.msg('label.filter.order.history','account',null)}">
-                        <isloop items="${pdict.filterValues}" var="filterValue">
-                            <option
-                                value="${filterValue.optionValue}"
-                                <isif condition="${pdict.orderFilter === filterValue.displayValue
-                                    || pdict.filterValues === Resource.msg('orderhistory.sixmonths.option','order',null)
-                                    || pdict.filterValues === Resource.msg('orderhistory.twelvemonths.option','order',null)}"> selected</isif>>
-                                    ${filterValue.displayValue}
-                            </option>
-                        </isloop>
-                    </select>
-                </div>
-            </div> </iscomment>
         </div>
         <div class="row justify-content-center">
             <div class="container order-list-container">
                 <isinclude template="account/order/orderList"/>
             </div>
         </div>
-        <iscomment> <div class="row justify-content-center">
-            <div class="col-sm-8 col-md-6 text-center">
-                <a href="${URLUtils.url('Account-Show')}" class="normal">
-                    ${Resource.msg('link.profile.backtomyaccount','account',null)}
-                </a>
-            </div>
-        </div> </iscomment>
     </div>
 </isdecorate>

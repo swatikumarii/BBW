@@ -36,8 +36,7 @@ server.append('Show', function (req, res, next) {
 });
 
 /**
- * Account-EditProfile : The Account-EditProfile endpoint is use with append function to append
- * custom profile param to load on profile page
+ * Account-EditProfile : The Account-EditProfile to get the birthday and zipcode
  */
 
 server.append('EditProfile', function (req, res, next) {
@@ -649,34 +648,4 @@ server.replace(
     }
 );
 
-
-server.get(
-    'Orders',
-    server.middleware.https,
-    csrfProtection.generateToken,
-    userLoggedIn.validateLoggedIn,
-    consentTracking.consent,
-    function (req, res, next) {
-        var OrderHelpers = require('*/cartridge/scripts/order/orderHelpers');
-        var ordersResult = OrderHelpers.getOrders(
-            req.currentCustomer,
-            req.querystring,
-            req.locale.id
-        );
-        var orderModel = [];
-        var orders = ordersResult.orders;
-
-        if (orders && orders.length) {
-            orders.forEach(function (item, index) {
-                req.querystring.orderID = orders[index].orderNumber;
-                orderModel.push(OrderHelpers.getOrderDetails(req));
-            });
-        }
-
-        var viewData = res.getViewData();
-        viewData.orders = orders;
-        res.setViewData(viewData);
-        next();
-    }
-);
 module.exports = server.exports();

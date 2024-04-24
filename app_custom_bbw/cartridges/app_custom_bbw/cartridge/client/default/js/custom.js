@@ -1,14 +1,11 @@
 'use strict';
 
+// Download invoice from order listing page
 $(document).on('click', '#invoiceDownload', function () {
     var invoiceUrl = $(this).data('action');
-    // Make an AJAX request to retrieve the file data
     $.ajax({
         url: invoiceUrl,
         method: 'GET',
-        // xhrFields: {
-        //     responseType: 'blob'
-        // },
         success: function (data) {
             if (data) {
                 var printDiv = data;
@@ -23,4 +20,28 @@ $(document).on('click', '#invoiceDownload', function () {
             }
         }
     });
+});
+
+$(document).on('click', 'button.add-order-to-cart', function (event) {
+    event.stopPropagation();
+    var thisData = this;
+    $(thisData).spinner().start();
+    var form = {
+        orderNumber: $(thisData).data('oid')
+    };
+    var addToCartUrl = $('.add-order-to-cart-url').val();
+    if (addToCartUrl) {
+        $.ajax({
+            url: addToCartUrl,
+            method: 'POST',
+            data: form,
+            success: function (data) {
+                window.location.href = data.redirectUrl;
+                $(thisData).spinner().stop();
+            },
+            error: function () {
+                $(thisData).spinner().stop();
+            }
+        });
+    }
 });

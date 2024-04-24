@@ -1,10 +1,3 @@
-<iscomment>
-    <isdecorate template="account/pt_account" />
-</iscomment>
-<iscomment>
-    <isinclude template="components/modules" />
-</iscomment>
-
 <isslot id="account-banner" description="Banner for My Account pages" context="global" />
 <div class="account-profile">
     <div class="profile-heading">

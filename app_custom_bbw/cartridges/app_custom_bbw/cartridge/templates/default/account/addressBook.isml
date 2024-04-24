@@ -35,10 +35,8 @@
                     <h2>${Resource.msg('label.addressbook.otheraddress', 'account', null)}</h2>
                     <isset name="prevoiusAddress" value="${Resource.msg('label.addressbook.otheraddress','account',null)}" scope="page"/>
                  </isif>
-                 <iscomment> <h2>${address.address.ID == pdict.addressBook[0].address.ID ? Resource.msg('label.addressbook.defaultaddress','account',null): Resource.msg('label.addressbook.otheraddress','account',null)}</h2> </iscomment>
                     <div class="card">
-                        <div class="card-header">
-                            <iscomment> <h2 class="address-heading pull-left">${address.address.ID}</h2> </iscomment>
+                        <div class="card-header">app_custom_bbw/cartridges/app_custom_bbw/cartridge/templates/default/account/addressForm.isml
                             <a href="${URLUtils.url('Address-EditAddress', 'addressId', address.address.ID)}" class="pull-right" aria-label="${Resource.msg('label.addressbook.editaddress','account',null)} : ${address.address.ID == pdict.addressBook[0].address.ID ? pdict.addressBook[0].address.ID+' ('+Resource.msg('label.addressbook.defaultaddress','account',null)+')' : address.address.ID}">${Resource.msg('link.edit','account',null)}</a>
                         </div>
                         <div class="card-body card-body-positioning">
