@@ -8,7 +8,7 @@
     <div class="mini-cart-content">
         <div class="minicart-header h-pos--relative">
             <span type="button" class="minicart-close-icon h-pos--absolute">
-                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
+                <img src="${URLUtils.staticURL('/images/close-icon-blue.svg')}" alt="close icon" width="20" />
             </span>
             <h1 class="text-center h-fw--semibold"><isprint value="${Resource.msgf('title.my.shopping.cart', 'cart', null, pdict.numItems)}" encoding="off" /></h1>
         </div>
