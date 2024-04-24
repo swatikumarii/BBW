@@ -47,7 +47,7 @@
                 <isslot id="cart-page-top-1" context="global"
                     description="This slot displays on cart page top section above product cards" />
                 <div class="cartDetailsHeader">
-                    <div class="cartDetailsHeading">${Resource.msg('label.your.cart', 'cart', null)}</div>
+                    <div class="cartDetailsHeading text-center">${Resource.msg('label.your.cart', 'cart', null)}</div>
                     <div class="cartDetailsContent">
                         <div class="content number-of-items">
                             <isif condition="${pdict.numItems === 1}">
