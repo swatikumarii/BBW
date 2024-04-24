@@ -37,6 +37,9 @@
                 <h1 class="shoppingBagTitle h-clr--black1 h-fw--bold h-font-size--24">
                     ${Resource.msg('label.shopping.bag', 'cart', null)}</h1>
                 <div class="cartActionMessages"></div>
+                <div class="item-removed-message h-font-size--16 h-bg--blue-3 h-clr--green-2 p-3 mb-2 d-none">
+                    ${Resource.msg('cart.item.remove.msg', 'cart', null)}
+                </div>
                 <isslot id="cart-page-top-1" context="global"
                     description="This slot displays on cart page top section above product cards" />
                 <div class="cartDetailsHeader">
