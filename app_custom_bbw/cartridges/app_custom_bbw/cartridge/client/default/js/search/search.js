@@ -48,7 +48,8 @@ function parseResults(response) {
         '.header.page-title',
         '.product-grid-wrapper',
         '.show-more',
-        '.filter-bar'
+        '.filter-bar',
+        '.filter-bar-desktop'
     ].forEach(function (selector) {
         updateDom($results, selector);
     });
@@ -102,7 +103,7 @@ function searchAlphabetSort() {
         var textA = $(a).find('span[aria-hidden="true"]').text().trim().toUpperCase();
         var textB = $(b).find('span[aria-hidden="true"]').text().trim().toUpperCase();
         return textA.localeCompare(textB);
-    }).appendTo('.filter-list');
+    }).appendTo('#fragrance-name .filter-list');
 
     // Hide all list items
     $('#fragrance-name .filter-list li').hide();
