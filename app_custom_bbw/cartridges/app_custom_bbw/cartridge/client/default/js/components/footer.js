@@ -80,7 +80,6 @@ window.submitNewsLetter = function (token) {
     });
 };
 
-// Initialize popover
 // Initialize popover 
 $('[data-toggle="popover"]').popover({
     placement: 'top',
@@ -90,6 +89,10 @@ $('[data-toggle="popover"]').popover({
 // Show popover on mouseenter
 $('[data-toggle="popover"]').on('mouseenter', function () {
     $(this).popover('show');
+    // Automatically hide the popover after 5 seconds (5000 milliseconds)
+    setTimeout(function () {
+        $('[data-toggle="popover"]').popover('hide');
+    }, 1000);
 });
 
 // Close popover on close button click

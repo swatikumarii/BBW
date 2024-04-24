@@ -17,8 +17,8 @@
             content: "";
             width: 1.25rem;
             height: 1.25rem;
-            background: url("../../images/pdp/svgexport-12.svg") no-repeat
-                center;
+            background: url("../../images/pdp/svgexport-12.svg");
+            background-repeat: no-repeat;
             background-size: contain;
             right: 0;
             bottom: 3.3125rem;
@@ -40,8 +40,8 @@
                     height: 2rem;
                     z-index: 3;
                     border-radius: 50%;
-                    background: url("../../images/pdp/forgot-password-close.svg")
-                        no-repeat center;
+                    background: url("../../images/pdp/forgot-password-close.svg");
+                    background-repeat: no-repeat;
                     background-size: 0.875rem;
                     cursor: pointer;
                 }
@@ -155,8 +155,8 @@
 
                             &::before {
                                 content: "";
-                                background: url("../../images/pdp/bopis-shipping.svg")
-                                    no-repeat;
+                                background: url("../../images/pdp/bopis-shipping.svg");
+                                background-repeat: no-repeat;
                                 background-size: 1.5625rem 0.8rem;
                                 width: 1.5625rem;
                                 height: 0.8rem;
@@ -179,8 +179,8 @@
                             }
 
                             .pdp-pick-up-icon::before {
-                                background: url("../../images/pdp/bopis-icon-small.svg")
-                                    no-repeat;
+                                background: url("../../images/pdp/bopis-icon-small.svg");
+                                background-repeat: no-repeat;
                                 background-size: 1.5625rem 0.8rem;
                                 content: "";
                                 display: flex;
