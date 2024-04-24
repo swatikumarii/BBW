@@ -105,6 +105,7 @@
         .card {
             border: unset;
             border-bottom: 1px solid $clr-gray;
+            border-radius: unset;
 
             &.product-info {
                 display: flex;
