@@ -1,0 +1,32 @@
+.b-pagination {
+    &__prev-wrapper {
+        &__first,
+        &__prev-step {
+            position: relative;
+            padding: 5px 12px;
+            transform: rotate(180deg);
+        }
+    }
+
+    &__next-wrapper {
+        &__last,
+        &__next-step {
+            position: relative;
+            padding: 5px 12px;
+        }
+    }
+
+    &__links {
+        &__link-number {
+            padding: 5px 8px;
+
+            &.active {
+                padding: 5px 0;
+                width: 32px;
+                height: 32px;
+                text-align: center;
+                border-radius: 30px;
+            }
+        }
+    }
+}

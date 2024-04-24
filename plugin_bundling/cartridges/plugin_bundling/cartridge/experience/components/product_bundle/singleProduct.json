@@ -1,0 +1,33 @@
+{
+  "name": "Single Product",
+  "description": "This product is part of bundle i.e. it is the main product.",
+  "group": "product_bundle",
+  "attribute_definition_groups": [
+    {
+      "id": "product_details",
+      "attribute_definitions": [
+        {
+          "id": "product",
+          "name": "Single Product",
+          "type": "product",
+          "required": true
+        },
+        {
+          "id": "showProduct",
+          "name": "Show Product?",
+          "description": "show products not?",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "id": "showPrice",
+          "name": "Show Price",
+          "description": "show products price or not?",
+          "type": "boolean",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

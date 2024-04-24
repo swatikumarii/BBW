@@ -14,7 +14,7 @@
                 <iscomment> Display Name </iscomment>
                 <isif condition="${miniCart}">
                     <isinclude template="checkout/productCard/productCardProductNameAndRemove" />
-                <iselse>
+                <iselse/>
                     <isinclude template="checkout/productCard/productCardProductName" />
                 </isif>
                 <iscomment> Variation Attributes </iscomment>
@@ -39,7 +39,7 @@
                 <iscomment> Quantity </iscomment>
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="line-item-quantity">
-                        <isif condition=${miniCart}>
+                        <isif condition="${miniCart && !lineItem.customBundle}">
                             <isinclude template="checkout/productCard/productCardQuantitySelector" />
                         <iselse/>
                             <isinclude template="checkout/productCard/productCardQuantityDisplay" />
@@ -52,6 +52,19 @@
                         </div>
                     </div>
                 </div>
+                <div class="product-availability pt-2">
+                    <span>
+                        ${Resource.msg('label.availability', 'common', null)}
+                    </span>
+                    <span class="${lineItem.available ? 'h-clr--green' : 'h-clr--red'}">
+                        ${lineItem.availability.messages[0]}
+                    </span>
+                </div>
+                <isif condition="${lineItem.customBundle}">
+                    <div class="currentCustomBundle">
+                        ${dw.experience.PageMgr.getPage(lineItem.customBundle).name} ${Resource.msg('bundle', 'productBundle', null)}
+                    </div>
+                </isif>
             </div>
         </div>
     </div>

@@ -119,6 +119,28 @@ server.append('RemoveProductLineItem', function (req, res, next) {
     next();
 });
 
+/**
+ * Cart-AddProduct : The Cart-AddProduct endpoint check product price and retrun if price is zero
+ * @name Cart-AddProduct
+ */
+server.prepend('AddProduct', function (req, res, next) {
+    var Resource = require('dw/web/Resource');
+    var price = cartHelper.getProductPrice(req.form.pid);
+    if (price === 0) {
+        res.setStatusCode(400);
+        res.json({
+            error: true,
+            errorMessage: Resource.msg(
+                'error.can.not.add.zero.price.item',
+                'product',
+                null
+            )
+        });
+        return this.emit('route:Complete', req, res);
+    }
+    return next();
+});
+
 server.append('AddProduct', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
     cartHelper.createFreeLineItem(currentBasket, 0);

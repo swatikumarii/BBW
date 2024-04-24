@@ -1,6 +1,9 @@
 <isif condition="${pdict.name === null}">
     <div class="user hidden-md-down">
-        <button class="user-btn border-0 h-bg--white" id="loginPopupBtn" type="button"><img class="w-100" src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}" alt="${Resource.msg('global.storename', 'common', null)}" /></button>
+        <button class="user-btn border-0 h-bg--white" id="loginPopupBtn" type="button">
+            <img class="w-100" src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
+                alt="${Resource.msg('global.storename', 'common', null)}" />
+        </button>
     </div>
 <iselse/>
     <div class="user hidden-md-down nav-item">

@@ -9,10 +9,10 @@ function addToCart() {
     $(document).on('click', 'button.add-order-to-cart', function (event) {
         event.stopPropagation();
 
-        var _this = this;
-        $(_this).spinner().start();
+        var thisData = this;
+        $(thisData).spinner().start();
         var form = {
-            orderNumber: $(this).data('oid')
+            orderNumber: $(thisData).data('oid')
         };
         var addToCartUrl = $('.add-order-to-cart-url').val();
         if (addToCartUrl) {
@@ -22,10 +22,10 @@ function addToCart() {
                 data: form,
                 success: function (data) {
                     window.location.href = data.redirectUrl;
-                    $(_this).spinner().stop();
+                    $(thisData).spinner().stop();
                 },
                 error: function () {
-                    $(_this).spinner().stop();
+                    $(thisData).spinner().stop();
                 }
             });
         }
@@ -37,3 +37,12 @@ var exportDetails = $.extend({}, detail, {
 });
 
 module.exports = exportDetails;
+var base = require('./base');
+
+module.exports = $.extend({}, detail, {
+    availability: base.availability,
+
+    addToCart: base.addToCart,
+
+    focusChooseBonusProductModal: base.focusChooseBonusProductModal()
+});

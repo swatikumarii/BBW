@@ -1,0 +1,7 @@
+<isif condition="${folder.onlineSubFolders && folder.onlineSubFolders.length > 0}">
+    <isset name="folders" value="${folder.onlineSubFolders}" scope="page" />
+    <isinclude template="/content/contentFolder" />
+<iselseif condition="${folder.onlineContent}"/>
+    <isset name="contents" value="${folder.onlineContent}" scope="page" />
+    <isinclude template="/content/contentHyperlink" />
+</isif>

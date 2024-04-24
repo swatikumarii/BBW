@@ -1,9 +1,9 @@
 <isif condition="${lineItem.appliedPromotions}">
     <isloop items="${lineItem.appliedPromotions}" var="appliedPromotion">
-        <div class="h-font-size--14 h-fw--semibold h-clr--red">
+        <div class="h-font-size--12">
             <isprint value="${appliedPromotion.callOutMsg}" encoding="off" />
         </div>
-        <div class="info-icon">
+        <div class="info-icon promo-details h-font-size--12">
             ${Resource.msg('label.promo.details', 'cart', null)}
             <div class="tooltip d-none">
                 <isprint value="${appliedPromotion.details}" encoding="off" />

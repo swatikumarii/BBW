@@ -789,6 +789,18 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="showShippingExcludingTaxes">
+                <display-name xml:lang="x-default">Show shipping Excluding Taxes</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="showTotalsExcludingTaxes">
+                <display-name xml:lang="x-default">Show totals excluding taxes</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -888,6 +900,11 @@
                 <attribute attribute-id="apEnableExpressCheckoutPdp"/>
                 <attribute attribute-id="apEnableExpressCheckoutCart"/>
                 <attribute attribute-id="apRestrictedProducts"/>
+            </attribute-group>
+            <attribute-group group-id="taxation">
+                <display-name xml:lang="x-default">Taxation</display-name>
+                <attribute attribute-id="showTotalsExcludingTaxes"/>
+                <attribute attribute-id="showShippingExcludingTaxes"/>
             </attribute-group>
             <attribute-group group-id="Nationality">
                 <display-name xml:lang="x-default">Nationality</display-name>
@@ -1702,7 +1719,7 @@
                 <attribute attribute-id="storeType"/>
             </attribute-group>
         </group-definitions>
-    </type-extension>    
+    </type-extension>
     <type-extension type-id="Order">
         <custom-attribute-definitions>
             <attribute-definition attribute-id="Adyen_eventCode">
@@ -2219,6 +2236,12 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <field-length>50</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="isFreeItem">
+                <display-name xml:lang="x-default">Is a free item (not GWP)</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
             <attribute-definition attribute-id="isWrapped">
                 <display-name xml:lang="x-default">Is Wrapped</display-name>
