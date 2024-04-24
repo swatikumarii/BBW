@@ -253,3 +253,30 @@
         }
     }
 }
+
+.cart-empty-msg-wrap {
+    border-bottom: 1px solid $clr-black-1;
+    margin-bottom: 30px;
+
+    .cart-empty-msg {
+        line-height: 28px;
+    }
+}
+
+.empty-cart-continue {
+    text-transform: uppercase;
+    min-height: 48px;
+    line-height: 44px;
+    padding: 0 32px;
+    margin-bottom: 64px;
+
+    &:hover {
+        color: $clr-white;
+        opacity: 0.9;
+    }
+}
+
+.empty-cart-recommendations {
+    margin: 56px 85px 0;
+    padding: 24px 0;
+}
