@@ -4,7 +4,4 @@
         <span class="sr-only">${Resource.msgf('label.product.ratings', 'common', null, product.rating)}</span>
         <isinclude template="product/components/productRating" />
     </div>
-    <iscomment> <div class="total-rating h-font-size--13 h-clr--blue">
-        <a>4.8 (4)</a>
-    </div> </iscomment>
 </div>

@@ -8,7 +8,11 @@
 
 <!--- quantity --->
 <div class="line-item-quantity">
-    <isinclude template="checkout/productCard/productCardQuantitySelector" />
+    <isif condition="${lineItem.customBundle}">
+        <isinclude template="checkout/productCard/productCardQuantityDisplay" />
+    <iselse/>
+        <isinclude template="checkout/productCard/productCardQuantitySelector" />
+    </isif>
     <iscomment> availability </iscomment>
     <isinclude template="cart/productCard/cartProductCardAvailability" />
 </div>

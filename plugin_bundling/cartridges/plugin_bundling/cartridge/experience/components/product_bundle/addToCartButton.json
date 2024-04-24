@@ -1,0 +1,27 @@
+{
+  "name": "Add To Cart Button",
+  "description": "This button will add the product bundle to the cart",
+  "group": "product_bundle",
+  "attribute_definition_groups": [
+    {
+      "id": "button_details",
+      "attribute_definitions": [
+        {
+          "id": "bundleBuyLimit",
+          "name": "Buy Limit",
+          "description": "Enter buy limit per order",
+          "type": "integer",
+          "required": true
+        },
+        {
+            "id": "oosContetnt",
+            "name": "Out of Stock Content",
+            "description": "Content to show when bundle is oos",
+            "type": "string",
+            "required": false
+          }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

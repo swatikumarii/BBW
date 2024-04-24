@@ -1,6 +1,5 @@
-<button type="submit" class="btn btn-block btn-outline-primary add-to-wish-list ${pdict.itemExist ? 'added' : ''}"
+<button type="submit" class="border-0 h-bg--white add-to-wish-list ${pdict.itemExist ? 'added' : ''}"
     data-href="${URLUtils.url('Wishlist-AddProduct')}" >
-    <i class="fa fa-heart"></i> <span>${Resource.msg('button.add_to_wishlist.txt', 'wishlist', null)}</span>
+    <img alt="Image" width="40px" height="40px" src="${URLUtils.staticURL('images/pdp/PDP-Wishlist-2.svg')}" />
 </button>
 
-<isinclude template="account/loginpopup" />

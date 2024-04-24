@@ -1,5 +1,6 @@
 header {
-    z-index: auto;
+    position: relative;
+    z-index: 1;
 
     &.fixed-header {
         animation: scrollTop 0.4s ease;
@@ -8,7 +9,7 @@ header {
         right: 0;
         top: 0;
         transition: 0.5s linear all;
-        z-index: 9;
+        z-index: 99;
     }
 
     @include media-up(sm) {
@@ -119,7 +120,7 @@ header {
                         transition: all 0.3s ease;
 
                         @include media-up(md) {
-                            width: 25.6rem;
+                            width: 25.5rem;
                             right: 0;
                         }
                     }
@@ -131,6 +132,7 @@ header {
                         height: 3.375rem;
                         left: 0;
                         position: fixed;
+                        transition: all 0.3s ease;
 
                         @include media-up(sm) {
                             top: -1.0625rem;
@@ -293,13 +295,18 @@ header {
 .ticker-wrapper {
     padding: 0.75rem 1rem;
     font-weight: map-get($font-weight, semibold);
+    min-height: 4.0625rem;
+
+    @include media-up(sm) {
+        min-height: auto;
+    }
 }
 
 .search-fly-out-opacity {
     top: 0;
     background: rgba(51, 51, 51, 60%);
     left: 0;
-    z-index: 1;
+    z-index: 2;
 
     @include media-up(sm) {
         top: 14.5rem;

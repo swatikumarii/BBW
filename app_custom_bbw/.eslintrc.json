@@ -68,6 +68,8 @@
     "httpparameter": true,
     "grecaptcha": true,
     "Promise": true,
-    "google":true
+    "google":true,
+    "SelectedOption": true,
+    "Object": true
   }
 }

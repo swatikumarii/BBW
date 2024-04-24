@@ -14,7 +14,7 @@
             <option value="Mrs" <isif condition="${pdict.profileForm.salutation.htmlValue == "Mrs"}">
             selected</isif>>${Resource.msg('label.select.mrs.salutation.profile', 'forms', null)}</option>
             <option value="Miss" <isif condition="${pdict.profileForm.salutation.htmlValue == "Miss"}">selected</isif>>
-            ${Resource.msg('label.select.miss.salutation.profile', 'forms', null)}
+                ${Resource.msg('label.select.miss.salutation.profile', 'forms', null)}
             </option>
         </select>
         <div class="invalid-feedback" id="form-salutation-error"></div>
@@ -124,7 +124,7 @@
             <option value="Female" <isif condition="${pdict.profileForm.gender.htmlValue == " Female"}">
             selected</isif>>${Resource.msg('label.select.female.gender.profile', 'forms', null)}</option>
             <option value="Prefer Not To Say" <isif condition="${pdict.profileForm.gender.htmlValue == " Prefer Not To Say"}">selected</isif>>
-            ${Resource.msg('label.select.notToSay.gender.profile', 'forms', null)}
+                ${Resource.msg('label.select.notToSay.gender.profile', 'forms', null)}
             </option>
         </select>
         <div class="invalid-feedback" id="form-gender-error"></div>
@@ -155,14 +155,14 @@
         <label class="form-control-label" for="registration-form-nationality">
             <isprint value="${pdict.profileForm.customer.nationality.label}" encoding="htmlcontent" />
         </label>
-        <select class="form-control gender selectric-dropdown gender-hide" id="registration-form-nationality" <isprint 
+        <select class="form-control gender selectric-dropdown gender-hide" id="registration-form-nationality" <isprint
             value="${pdict.profileForm.customer.nationality.attributes}" encoding="off" />>
-        <isloop items=${pdict.nationalities} var="nationality">
-            <option id="${nationality}" value="${nationality.toLowerCase().trim()}" <isif
-                condition="${pdict.nationality.toLowerCase().trim() == nationality.toLowerCase().trim()}">
-                selected
-                </isif>>${nationality}</option>
-        </isloop>
+            <isloop items=${pdict.nationalities} var="nationality">
+                <option id="${nationality}" value="${nationality.toLowerCase().trim()}" <isif
+                    condition="${pdict.nationality.toLowerCase().trim() == nationality.toLowerCase().trim()}">
+                    selected
+                    </isif>>${nationality}</option>
+            </isloop>
         </select>
         <div class="invalid-feedback" id="form-gender-error"></div>
     </div>
@@ -177,7 +177,7 @@
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha') == true}">
-        <button  data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}" data-callback="submitRegistration" data-action="submit" 
+        <button  data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}" data-callback="submitRegistration" data-action="submit"
             class="btn btn-block btn-primary g-recaptcha">
             ${Resource.msg('button.createaccount.registration', 'registration', null)}
         </button>

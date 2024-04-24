@@ -11,7 +11,7 @@ module.exports = function (object, apiProduct) {
     Object.defineProperty(object, 'isGiftWrappable', {
         enumerable: true,
         value:
-            apiProduct && apiProduct.custom.isGiftWrappable
+            apiProduct && apiProduct.custom && 'isGiftWrappable' in apiProduct.custom && apiProduct.custom.isGiftWrappable
                 ? apiProduct.custom.isGiftWrappable
                 : false
     });

@@ -15,7 +15,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="login-form-nav">
-                        <isinclude template="account/components/loginForm" />
+                            <isinclude template="account/components/loginForm" />
                         </div>
                     </div>
                 </div>

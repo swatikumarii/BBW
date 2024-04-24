@@ -5,7 +5,7 @@
             data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
             ${Resource.msg('button.addtocart', 'common', null)}
         </button>
-
+        <span class="add-to-cart-error text-danger"></span>
         <isinclude template="product/components/addToCartButtonExtension" />
     </div>
 </div>

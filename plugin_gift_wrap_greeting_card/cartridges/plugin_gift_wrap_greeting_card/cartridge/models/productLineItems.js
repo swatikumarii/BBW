@@ -111,10 +111,12 @@ function createProductLineItemsObject(allLineItems, view) {
                 }
                 greetingCardLineItem = newLineItem;
             } else {
-                newLineItem.wrap = {
-                    isWrapped: item.custom.isWrapped,
-                    wrappedQuantity: item.custom.wrappedQuantity
-                };
+                if ('isWrapped' in item.custom && 'wrappedQuantity' in item.custom) {
+                    newLineItem.wrap = {
+                        isWrapped: item.custom.isWrapped,
+                        wrappedQuantity: item.custom.wrappedQuantity
+                    };
+                }
                 lineItems.push(newLineItem);
             }
         }

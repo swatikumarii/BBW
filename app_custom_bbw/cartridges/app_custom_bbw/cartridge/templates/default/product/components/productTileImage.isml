@@ -1,0 +1,18 @@
+<div class="image-container b-product-tile__img-wrapper position-relative">
+    <a class="d-block" href="${pdict.urls.product}">
+        <img class="tile-image b-product-tile__image mx-auto w-100"
+             src="${product.images.medium[0].url}"
+             alt="${product.productName}"
+             title="${product.images.medium[0].title}"
+             itemprop="image"/>
+    </a>
+    <a class="b-product-tile__wishlistTile wishlistTile position-absolute add-to-wish-list" href="${URLUtils.url('Wishlist-AddProduct')}" title="${Resource.msg('wishlist.addto.wishlist.heart', 'wishlist', null)}">
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-inverse fa-stack-2x"></i>
+            <i class="fa fa-heart-o fa-stack-1x"></i>
+        </span>
+    </a>
+    <isif condition="${pdict.display.showQuickView !== false}">
+        <a class="b-product-tile__quickview quickview hidden-sm-down position-absolute" href="${pdict.urls.quickView}" data-toggle="modal" data-target="#quickViewModal" title="${Resource.msg('label.btn.quicklook', 'search', null)}" aria-label="${Resource.msgf('button.quickview', 'common', null, product.productName)}">${Resource.msg('label.btn.quicklook', 'search', null)}</a>
+    </isif>
+</div>
