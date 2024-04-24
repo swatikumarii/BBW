@@ -49,7 +49,7 @@
                         <isloop items="${folder.onlineContent}" var="content" status="loopstatus" begin=0>
                             <div class="blog_child_content mt-2 mb-2">
                                 <img class="blogImage w-100"
-                                    src="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/banners/Get-Inspired/get-inspire/featured/Featured_tile_01.jpg"
+                                    src="${content.custom.image.absURL}"
                                     alt="${content.name}" />
                                 <h3 class="text-uppercase h-fw--semibold">${content.name}</h3>
                                 <p class="mb-0 h-clr--gray h-fw--normal h-font-size--16">${content.description}</p>
