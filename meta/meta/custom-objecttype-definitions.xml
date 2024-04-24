@@ -371,4 +371,130 @@
             </attribute-group>
         </group-definitions>
     </custom-type>
+
+    <custom-type type-id="careers">
+        <display-name xml:lang="x-default">Job Id</display-name>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="jobId">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="ccEmail">
+                <display-name xml:lang="x-default">Email for CC</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="city">
+                <display-name xml:lang="x-default">City</display-name>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="country">
+                <display-name xml:lang="x-default">Country</display-name>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="emailId">
+                <display-name xml:lang="x-default">Email</display-name>
+                <description xml:lang="x-default">Job-based email id</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="job">
+                <display-name xml:lang="x-default">Job</display-name>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="jobDescription">
+                <display-name xml:lang="x-default">Job Description</display-name>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="careerGroup">
+                <display-name xml:lang="x-default">Career Group</display-name>
+                <attribute attribute-id="city"/>
+                <attribute attribute-id="country"/>
+                <attribute attribute-id="jobId"/>
+                <attribute attribute-id="job"/>
+                <attribute attribute-id="jobDescription"/>
+                <attribute attribute-id="ccEmail"/>
+                <attribute attribute-id="emailId"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
+    <custom-type type-id="jobCandidate">
+        <display-name xml:lang="x-default">Candidate</display-name>
+        <description xml:lang="x-default">Candidate for jobs</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>organization</storage-scope>
+        <key-definition attribute-id="email">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="aboutCandidate">
+                <display-name xml:lang="x-default">About Candidate</display-name>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="candidateName">
+                <display-name xml:lang="x-default">Candidate Name</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="candidateNumber">
+                <display-name xml:lang="x-default">Candidate Number</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="candidateResume">
+                <display-name xml:lang="x-default">Candidate Resume</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="custom_objects">
+                <display-name xml:lang="x-default">Custom Objects</display-name>
+                <attribute attribute-id="candidateNumber"/>
+                <attribute attribute-id="candidateResume"/>
+                <attribute attribute-id="aboutCandidate"/>
+                <attribute attribute-id="candidateName"/>
+                <attribute attribute-id="email"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
 </metadata>

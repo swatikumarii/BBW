@@ -1,0 +1,70 @@
+<isdecorate template="common/layout/page">
+    <isinclude template="/components/modules" sf-toolkit="off" />
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/careers.js');
+        assets.addCss('/css/careers.css');
+    </isscript>
+    <div class="career-section">
+        <h1 class="entry-title">${Resource.msg('text.careers', 'careers', null)}</h1>
+
+        <iscontentasset aid="bbw-careers-content-asset" />
+
+        <div class="job-heading">
+            <h2>${Resource.msg('text.available.position', 'careers', null)}</h2>
+        </div>
+        <isif condition="${pdict.careers.length == 0}">
+            <iscontentasset aid="no-job-available-text" />
+        <iselse/>
+            <!-- Accordion -->
+            <div class="accordion-container careers_jobs">
+                <div class="row main-container">
+
+                    <div class="col-12 accordion" id="accordion">
+                        <div class="panel-group " id="accordioncontent">
+                            <isloop items="${pdict.careers}" var="career" status="loopstatus">
+                                <div class="panel panel-default firstItem">
+                                    <div class="panel-heading collapsed" data-toggle="collapse"
+                                        href="${'#' + career.country}" aria-expanded="true"
+                                        aria-controls="${'#' + career.country}" hreflang="${request.getLocale()}">
+                                        <h3>
+                                            <span class="headeing_main_c"> ${career.country} </span>
+                                        </h3>
+                                    </div>
+                                    <div id="${career.country}" data-parent="#accordioncontent"
+                                        class="panel-collapse collapse" aria-expanded="false" role="tablist">
+                                        <div class="panel-body menu_list">
+                                            <isloop items="${career.data.cities}" var="location" status="loopstatus">
+                                                <ul>
+                                                    <li class="icon location_name_c"
+                                                        data-location="${location.replace(/\s/g, '')}">
+                                                        <span>${loopstatus.count}</span>${location}</li>
+                                                    <div class="location_name_jobs ${location.replace(/\s/g, '')}"
+                                                        aria-expanded="true" role="tablist">
+                                                        <isloop items="${career.data[location]}" var="job"
+                                                            status="loopstatuscity">
+                                                            <ul>
+                                                                <li><a href="${URLUtils.url('Careers-ApplyForJob', 'jobName', job.jobName, 'jobId', job.id)}"
+                                                                        hreflang="${request.getLocale()}"><span>
+                                                                            ${job.jobName} </span></a>
+                                                                </li>
+                                                            </ul>
+                                                        </isloop>
+                                                    </div>
+                                                </ul>
+                                            </isloop>
+                                        </div>
+                                    </div>
+                                </div>
+                            </isloop>
+                            <!-- /.panel-default -->
+                        </div>
+                        <!-- /.panel-default -->
+                    </div>
+                    <!--end of /.panel-group-->
+                </div>
+                <!-- {# accordion #} -->
+            </div>
+        </isif>
+    </div>
+</isdecorate>
