@@ -50,28 +50,33 @@
                             </fieldset>
                         </div>
                     </div>
-                    <ul class="clearfix list-unstyled w-100 position-relative name-list d-none d-md-block" role="list">
-                        <isset name="previousAlphabet" value="0" scope="page" />
-                        <isloop iterator="${pdict.fragranceNames}" alias="fragranceNames" status="loopstate">
-                            <isif condition="${previousAlphabet !== fragranceNames.alphabet}">
-                                <div id="${fragranceNames.alphabet}"
-                                    class="level-1-${fragranceNames.alphabet} static-level h-width-perc--80 text-justify">
-                                    <h3 class="title m-0 p-0">${fragranceNames.alphabet}</h3>
-                                    <div class="alphabet-border"></div>
+                    <div class="row">
+                        <div class="col-12 ">
+                            <isloop iterator="${pdict.fragranceNames}" alias="fragranceGroup" status="loopstate">
+                                <div id="${fragranceGroup.key}" class="alphabet-group-${fragranceGroup.key}">
+                                    <div
+                                        class="level-1-${fragranceGroup.key} static-level h-width-perc--80 text-justify">
+                                        <h3 class="title m-0 p-0">${fragranceGroup.key}</h3>
+                                        <div class="alphabet-border"></div>
+                                    </div>
+                                    <ul>
+                                        <isloop iterator="${fragranceGroup.value}" alias="fragrance" status="loopstate">
+                                            <li class="level-2 text-justify mt-3 mb-3">
+                                                <a class="h-clr--black-3"
+                                                    href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragrance.name)}"
+                                                    data-fragrancename="${fragrance.name}">
+                                                    ${fragrance.name}</a>
+                                                <isif condition="${fragrance.topFragrance}">
+                                                    <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, '/images/shop-by-fragrance/top-badge-lrg-2.svg')}"
+                                                        alt="top-fragrance">
+                                                </isif>
+                                            </li>
+                                        </isloop>
+                                    </ul>
                                 </div>
-                            </isif>
-                            <li class="level-2 text-justify mt-3 mb-3">
-                                <a class="h-clr--black-3"
-                                    href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragranceNames.name)}"
-                                    data-fragrancename="${fragranceNames.name}">
-                                    ${fragranceNames.name}</a>
-                                <isif condition="${fragranceNames.topFragrance}">
-                                    <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, '/images/shop-by-fragrance/top-badge-lrg-2.svg')}"
-                                        alt="top-fragrance"></isif>
-                            </li>
-                            <isset name="previousAlphabet" value="${fragranceNames.alphabet}" scope="page" />
-                        </isloop>
-                    </ul>
+                            </isloop>
+                        </div>
+                    </div>
                     <div class="noresult" id="noresult">${Resource.msg('shop.by.fragrance.name.noresult', 'fragrance', null)}
                     </div>
                 <iselse/>
