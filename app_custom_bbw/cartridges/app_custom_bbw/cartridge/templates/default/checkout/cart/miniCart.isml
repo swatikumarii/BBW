@@ -38,10 +38,10 @@
         </div>
 
         <div class="product-summary border-top mt-3">
-            <isloop items="${pdict.items}" var="lineItem">
+            <isloop items="${pdict.items}" var="lineItem" status="loopstatus">
                 <div class="row">
                     <div class="col-12">
-                        <div class="border-bottom">
+                        <div class="${loopstatus.index < pdict.items.length - 1 && miniCart ? 'border-bottom' : ''}">
                             <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
                                 <div
                                     class="card border-0 ${miniCart ? 'bonus-product-line-item' : ''} uuid-${lineItem.UUID}">
@@ -69,7 +69,7 @@
 
     <isinclude template="cart/cartRemoveProductModal" />
 
-    <div class="minicart-footer">
+    <div class="minicart-footer border-top">
         <div class="sub-total-wrap d-flex justify-content-between border-bottom">
             <p class="sub-total-label m-0 h-font-size--14 h-clr--black-1">${Resource.msg('label.sub.total', 'cart', null)}</p>
             <p class="text-right sub-total m-0 h-font-size--14 h-clr--black-1">${pdict.totals.subTotal}</p>
