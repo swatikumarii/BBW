@@ -6,5 +6,5 @@
             ${lineItem.priceTotal.nonAdjustedPrice}
         </div>
     </isif>
-    <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID} h-font-size--14 h-fw--semibold h-clr--black-1">${lineItem.priceTotal.price}</div>
+    <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID} h-font-size--14 h-fw--semibold h-clr--${'nonAdjustedPrice' in lineItem.priceTotal ? 'red' : 'black-1'}">${lineItem.priceTotal.price}</div>
 </isif>

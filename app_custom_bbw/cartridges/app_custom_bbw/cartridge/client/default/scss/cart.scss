@@ -182,6 +182,10 @@
                     font-family: $ff-base;
                     text-align: right;
                     padding-top: 10px;
+
+                    .strike-through {
+                        text-decoration: line-through;
+                    }
                 }
 
                 .line-item-remove {
