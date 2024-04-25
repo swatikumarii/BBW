@@ -15,7 +15,9 @@ module.exports = $.extend({}, wishlist, {
             var pid =
                 $(this).closest('.product-detail').length > 0
                     ? $(this).closest('.product-detail').attr('data-pid')
-                    : $(this).closest('.product').attr('data-pid');
+                    : $(this)
+                        .closest('.product, .product-line-item')
+                        .attr('data-pid');
             var optionId = $(this).closest('.product-detail').attr('data-option-id');
             var optionVal = $(this).closest('.product-detail').attr('data-value-id');
             optionId = optionId || null;

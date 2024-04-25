@@ -115,8 +115,10 @@
         }
 
         .mobile-navbar {
-            overflow-y: auto;
+            overflow: hidden auto;
             z-index: 113;
+            background: colour(gray, 1);
+            padding-bottom: 6.25rem;
         }
 
         .close-menu {
@@ -191,9 +193,58 @@
             transition: all 0.3s ease-out;
         }
 
+        .level-1-ul .nav-top-offers a {
+            padding-left: 49px;
+            position: relative;
+
+            &::after {
+                position: absolute;
+                width: 19px;
+                height: 19px;
+                fill: #005699;
+                padding: 11px 0 0 15px;
+                left: 0;
+                content: url("../images/header/UI-Tag-v2.svg");
+                top: 0;
+            }
+        }
+
+        .level-1-ul .nav-store-locator a {
+            padding-left: 49px;
+            position: relative;
+
+            &::after {
+                position: absolute;
+                width: 19px;
+                height: 19px;
+                fill: #005699;
+                padding: 11px 0 0 15px;
+                left: 0;
+                content: url("../images/header/UI-StoreLocator-v2.svg");
+                top: 0;
+            }
+        }
+
+        .level-1-ul .nav-my-account .level-1-link {
+            padding-left: 49px;
+            position: relative;
+
+            &::before {
+                position: absolute;
+                width: 19px;
+                height: 19px;
+                fill: #005699;
+                padding: 11px 0 0 15px;
+                left: 0;
+                content: url("../images/header/UI-MyAccount-v2.svg");
+                top: 5px;
+            }
+        }
+
         .level-1-li {
             transition: max-height 0.5s ease-out;
             max-height: 58px;
+            border-top: 0.0625rem solid colour(gray, 6);
 
             &::before {
                 content: "";
@@ -206,11 +257,17 @@
                 z-index: 30;
             }
 
-            .level-1-link.dropdown-toggle {
+            .level-1-link {
                 padding: 1.25rem 0.9375rem;
                 line-height: 1.25rem;
                 letter-spacing: 0.005em;
 
+                &:hover {
+                    color: colour(black, 1);
+                }
+            }
+
+            .level-1-link.dropdown-toggle {
                 &::after {
                     content: url("../images/header/megamenu-mobile_primary-carat.svg");
                     width: auto;
@@ -263,7 +320,9 @@
                     padding: 0.5625rem 0.3125rem 0.5625rem 2.1875rem;
                     display: inherit;
                     outline: 0;
+                }
 
+                .level-2-link.dropdown-toggle {
                     &::after {
                         content: url("../images/header/megamenu-mobile_secondary-carat.svg");
                         width: auto;
@@ -353,4 +412,22 @@
 
 .input-group-append .btn {
     z-index: auto;
+}
+
+.utility-links-container {
+    .utility-links {
+        padding-top: 0.75rem;
+        background: colour(gray, 1);
+        padding-bottom: 6.25rem;
+
+        li a {
+            font-weight: map-get($font-weight, bold);
+            font-size: 1rem;
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+            padding: 12px 15px;
+            color: colour(gray);
+            display: block;
+        }
+    }
 }

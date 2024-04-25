@@ -5,7 +5,6 @@
         assets.addJs('/js/afterpay.js');
         assets.addCss('/css/search.css');
         assets.addCss('/css/afterpaystyle.css');
-        assets.addJs('/js/wishlist.js');
     </isscript>
 
     <isinclude template="search/searchResultsNoDecorator" />
