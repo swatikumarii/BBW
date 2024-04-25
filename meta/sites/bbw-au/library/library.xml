@@ -2025,7 +2025,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </custom-attributes>
 </content>
 
- <content content-id="fragrance-finder">
+    <content content-id="fragrance-finder">
         <display-name xml:lang="x-default">Find a Fragrance</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -2039,20 +2039,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                 &lt;p class="fragrance-landing-subheader h-clr--black-3 h-font-size--16  "&gt;Your signature scent’s a click&#13;
                     away.&lt;/p&gt;&#13;
             &lt;/div&gt;&#13;
-            &lt;div class="all-fragrance-header"&gt;&#13;
-                &lt;div class="top-fr-head-container d-flex justify-content-center align-items-center mb-3"&gt;&#13;
-                    &lt;h2 class="top-fr-header h-clr--black-3 h-font-size--36 text-center h-bg--gray-1 "&gt;ALL FRAGRANCES&lt;/h2&gt;&#13;
-                &lt;/div&gt;&#13;
-                &lt;p class="top-fr-subheader h-clr--black-3 h-font-size--16 h-fw--bold mt-0 text-center"&gt;Everything we have to offer from A-Z. (Yep, even that one.)&lt;/p&gt;&#13;
-                &lt;div class="top-fr-head d-flex justify-content-center align-items-center"&gt;&#13;
-                    &lt;img class="icon top-badge-lrg-2 svg-top-badge-lrg-2-dims frag-icon"&#13;
-                        src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.21a/on/demandware.static/Sites-BathAndBodyWorks-Site/-/default/dw99d74f6f/images/svg-icons/top-badge-lrg-2.svg?yocs=w_A_"&#13;
-                        role="img" alt="" aria-label="top fragrance icon"&gt;&#13;
-            &#13;
-            &#13;
-                    &lt;span class="top-fr-subheader h-font-size--14"&gt;Look for the stars—a.k.a. our top fragrances.&lt;/span&gt;&#13;
-                &lt;/div&gt;&#13;
-            &lt;/div&gt;&#13;
+&#13;
         &lt;/div&gt;&#13;
     &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
