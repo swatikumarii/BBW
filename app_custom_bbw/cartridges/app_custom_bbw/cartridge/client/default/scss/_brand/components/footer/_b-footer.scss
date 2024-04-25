@@ -133,13 +133,13 @@ footer {
                 background-color: transparent;
                 border: none;
                 padding-bottom: 8px;
-                color: $clr-red-9;
+                color: colour(red, 9);
             }
 
             .alert-success {
                 background-color: transparent;
                 border: none;
-                color: $clr-green-3;
+                color: colour(green, 3);
             }
         }
     }
@@ -315,7 +315,7 @@ footer {
         padding: 20px 0 0;
 
         .email-fld {
-            color: $clr-gray-19;
+            color: colour(gray, 19);
             border: 1px solid colour(gray, 1);
         }
     }
@@ -330,7 +330,7 @@ footer {
         &:hover {
             background: colour(gray, 1);
             color: colour(black, 3);
-            border: 1px solid $clr-gray-20;
+            border: 1px solid colour(gray 20);
         }
     }
 
