@@ -417,11 +417,7 @@ var history = window.history;
 
                 $('body').on('click', '.submit-customer-login', function (e) {
                     e.preventDefault();
-                    members.nextStage();
-                });
-
-                $('body').on('click', '.submit-customer', function (e) {
-                    e.preventDefault();
+                    members.currentStage = checkoutStages.indexOf('customer');
                     members.nextStage();
                 });
 
@@ -603,7 +599,6 @@ var exports = {
                 data.options
             );
             billingHelpers.methods.updatePaymentInformation(data.order, data.options);
-            summaryHelpers.updateOrderProductSummaryInformation(data.order, data.options);
         });
     },
 

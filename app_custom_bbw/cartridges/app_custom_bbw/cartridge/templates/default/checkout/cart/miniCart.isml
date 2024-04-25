@@ -8,9 +8,9 @@
     <div class="mini-cart-content">
         <div class="minicart-header h-pos--relative">
             <span type="button" class="minicart-close-icon h-pos--absolute">
-                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
+                <img src="${URLUtils.staticURL('/images/close-icon-blue.svg')}" alt="close icon" width="20" />
             </span>
-            <h1 class="text-center h-fw--semibold">${Resource.msgf('title.my.shopping.cart', 'cart', null, pdict.numItems)}</h1>
+            <h1 class="text-center h-fw--semibold"><isprint value="${Resource.msgf('title.my.shopping.cart', 'cart', null, pdict.numItems)}" encoding="off" /></h1>
         </div>
         <isslot id="minicart-top-slot" context="global" description="This slot will apper on the top of minicart" />
 
@@ -38,10 +38,10 @@
         </div>
 
         <div class="product-summary border-top mt-3">
-            <isloop items="${pdict.items}" var="lineItem">
+            <isloop items="${pdict.items}" var="lineItem" status="loopstatus">
                 <div class="row">
                     <div class="col-12">
-                        <div class="border-bottom">
+                        <div class="${loopstatus.index < pdict.items.length - 1 && miniCart ? 'border-bottom' : ''}">
                             <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
                                 <div
                                     class="card border-0 ${miniCart ? 'bonus-product-line-item' : ''} uuid-${lineItem.UUID}">
@@ -69,7 +69,7 @@
 
     <isinclude template="cart/cartRemoveProductModal" />
 
-    <div class="minicart-footer">
+    <div class="minicart-footer border-top">
         <div class="sub-total-wrap d-flex justify-content-between border-bottom">
             <p class="sub-total-label m-0 h-font-size--14 h-clr--black-1">${Resource.msg('label.sub.total', 'cart', null)}</p>
             <p class="text-right sub-total m-0 h-font-size--14 h-clr--black-1">${pdict.totals.subTotal}</p>
@@ -78,6 +78,29 @@
             <p class="estimated-total-label m-0 h-font-size--22 h-fw--semibold h-clr--black-1">${Resource.msg('label.estimatedtotal', 'cart', null)}</p>
             <p class="text-right sub-total m-0 h-font-size--22 h-fw--semibold h-clr--blue-1">${pdict.totals.subTotal}</p>
         </div>
+        <!--- Afterpay Widget --->
+ <isscript>
+    var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
+    var afterpayPDPEnable = sitePreferences.isDisplayCartInfo() && sitePreferences.isAfterpayEnabled();
+</isscript>
+<isif condition="${afterpayPDPEnable == true}">
+    <div class="row text-center">
+        <div class="col-12">
+            <isinclude template="util/modulesAfterpay"/>
+            <input type="hidden" class="updated-widget" value="${URLUtils.https('AfterpayWidget-GetUpdatedWidget')}" />
+            <div class="afterpay-widget">
+                <isafterpaymessage
+                    classname="${pdict.classname}"
+                    totalprice="${pdict.totalPrice}"
+                    eligible="${pdict.apEligible}"
+                    mpid="${pdict.apMpid}"
+                    approductids="${pdict.apProductIDs}"
+                    size="xs"
+                />
+            </div>
+        </div>
+    </div>
+</isif>
         <div class="checkout-continue">
             <isinclude template="cart/checkoutButtons" />
         </div>

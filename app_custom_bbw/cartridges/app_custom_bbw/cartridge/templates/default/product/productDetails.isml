@@ -116,7 +116,6 @@
                                         data-content="<a href='#' class='close cursor-pointer'></a><div class='popover-content pdp-pop-content ds-tooltip-content'>${promotion.details}</div><div class='arrow-fill'></div>"
                                         data-html="true" data-original-title="" aria-describedby="popover14574">
                                     </button> 
-
                             </div>
                         </isloop>
 
