@@ -21,7 +21,7 @@
     <isset name="price" value="${finalOrigPrice.sales}" scope="page" />
     <isif condition="${pdict.urls.product}">
         <span class="sales">
-            <a class="b-product-tile__price-link d-block h-fw--semibold h-font-size--18" href="${pdict.urls.product}">
+            <a class="b-product-tile__price-link d-block h-fw--semibold h-font-size--18 mt-0" href="${pdict.urls.product}">
                 <isif condition="${isLowPrice == 'range-low'}">
                     <span class="value" content="${price.decimalPrice}"></span>
                 </isif>
