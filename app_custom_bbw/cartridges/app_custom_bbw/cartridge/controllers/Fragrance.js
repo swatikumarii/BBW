@@ -64,15 +64,26 @@ server.get('Ingredient', function (req, res, next) {
     var productsIngredients = Site.current.getCustomPreferenceValue('productIngredients');
     var ingredientNamesArray = [];
     var ingredientsNames;
+    var ingredientObj = {};
 
     if (productsIngredients) {
         ingredientsNames = productsIngredients.split(', ');
         for (var index = 0; index < ingredientsNames.length; index++) {
             var firstLetter = ingredientsNames[index].match(/[a-z]/i)[0].toUpperCase();
-            ingredientNamesArray[index] = {
-                alphabet: firstLetter,
+            if (!ingredientObj[firstLetter]) {
+                ingredientObj[firstLetter] = [];
+            }
+
+            ingredientObj[firstLetter].push({
                 name: ingredientsNames[index]
-            };
+            });
+        }
+        if (ingredientObj) {
+            ingredientNamesArray = Object.entries(ingredientObj).map(
+                function (entry) {
+                    return { key: entry[0], value: entry[1] };
+                }
+            );
         }
     }
 
