@@ -50,7 +50,8 @@ $clr-gray-20: #e6e6e6;
 $clr-green: #36c981;
 $clr-green-1: #007d48;
 $clr-green-2: #007a14;
-$clr-green-3: #1d6b49;
+$clr-green-3: #00570b;
+$clr-green-4: #1d6b49;
 $clr-red: #cb0100;
 $clr-red-1: #fe5000;
 $clr-red-2: #ff0015;
@@ -120,7 +121,8 @@ $map-colors: (
         base: $clr-green,
         1: $clr-green-1,
         2: $clr-green-2,
-        3: $clr-green-3
+        3: $clr-green-3,
+        4: $clr-green-4
     ),
     red: (
         base: $clr-red,

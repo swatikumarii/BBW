@@ -87,7 +87,7 @@ function updateBillingAddressSelector(order, customer) {
             order.billing.billingAddress.address)
     ) {
         // show
-        $(form).attr('data-address-mode', 'edit');
+        $(form).attr('data-address-mode', 'details');
     } else {
         $(form).attr('data-address-mode', 'new');
     }
@@ -289,7 +289,7 @@ module.exports = {
         $('.btn-hide-billing-details').on('click', function () {
             $(this)
                 .parents('[data-address-mode]')
-                .attr('data-address-mode', 'shipment');
+                .attr('data-address-mode', 'details');
         });
     },
 
@@ -304,7 +304,7 @@ module.exports = {
                 $(form).attr('data-address-mode', 'new');
             } else {
                 // Hide Address
-                $(form).attr('data-address-mode', 'shipment');
+                $(form).attr('data-address-mode', 'details');
             }
 
             // Copy fields
