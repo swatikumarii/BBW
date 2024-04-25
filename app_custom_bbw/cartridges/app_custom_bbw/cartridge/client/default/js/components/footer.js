@@ -89,6 +89,7 @@ $('[data-toggle="popover"]').popover({
 // Show popover on mouseenter
 $('[data-toggle="popover"]').on('mouseenter', function () {
     $(this).popover('show');
+    $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
     // Automatically hide the popover after 5 seconds (5000 milliseconds)
     setTimeout(function () {
         $('[data-toggle="popover"]').popover('hide');
