@@ -1,108 +1,257 @@
 @import "../../_brand/_api/api";
 
-.shop-fragrance_content {
-    width: 90%;
-    margin: auto;
-    position: relative;
-    margin-bottom: 6.25rem;
+body {
+    background: none;
 
-    .fragrance-topbanner {
-        margin: 45px 0;
-    }
+    .shop-fragrance_content {
+        width: 100%;
+        margin: auto;
+        position: relative;
+        margin-bottom: 6.25rem;
 
-    .fragrance-list {
-        padding: 10px 0;
-        border-bottom: none;
-        border-right: none;
-        border-left: none;
-        border-top: 1px solid colour(gray, 6);
-
-        @include media-up(sm) {
-            border: 1px solid colour(gray, 6);
-            padding: 28px 42px;
-            margin: 0;
-            position: relative;
+        .fragrance-topbanner {
+            margin: 45px 0;
         }
 
-        .subtitle {
-            padding: 0 15px;
-            top: -11px;
-            left: 50%;
-            transform: translate(-50%);
-        }
-
-        .note {
-            margin: 20px 0 22px;
+        .fragrance-list {
+            padding: 10px 0;
+            border-bottom: none;
+            border-right: none;
+            border-left: none;
+            border-top: 1px solid colour(gray, 6);
 
             @include media-up(sm) {
-                line-height: 1rem;
-                margin: 0 0 22px;
-                padding: 0 15px;
+                border: 1px solid colour(gray, 6);
+                padding: 28px 42px;
+                margin: 0;
+                position: relative;
             }
-        }
 
-        ul {
-            .new-row {
-                float: inherit;
-                width: inherit;
-                margin-left: 2.44%;
-                margin-bottom: 19px;
+            .subtitle {
+                padding: 0 15px;
+                top: -11px;
+                left: 50%;
+                transform: translate(-50%);
+            }
+
+            .note {
+                margin: 20px 0 22px;
 
                 @include media-up(sm) {
-                    float: left;
-                    width: 22.167%;
-                    margin-left: 2.44%;
-                    margin-bottom: 19px;
+                    line-height: 1rem;
+                    margin: 0 0 22px;
+                    padding: 0 15px;
+                }
+            }
+
+            ul {
+                .new-row {
+                    display: inline-block;
+                    margin: 8px;
+                }
+            }
+
+            .mobile-only {
+                line-height: 2.0625rem;
+                padding: 0 1.0625em;
+                transition: all 0.3s ease;
+                max-height: 35px;
+                letter-spacing: 0.12em;
+            }
+
+            .name-list {
+                margin-top: 36px;
+                column-count: 4;
+                column-gap: 20px;
+
+                &::before {
+                    content: " ";
+                    display: table;
+                }
+
+                .static-level {
+                    background: transparent;
+                    border-bottom: 1px solid colour(gray, 6);
+                    padding: 0 0 6px;
+                    margin-bottom: 10px;
+
+                    li {
+                        text-align: inherit;
+                    }
                 }
             }
         }
 
-        .mobile-only {
-            line-height: 2.0625rem;
-            padding: 0 1.0625em;
-            transition: all 0.3s ease;
-            max-height: 35px;
-            letter-spacing: 0.12em;
-        }
+        .fr-category {
+            .fragrance-header-search {
+                display: block;
+                padding: 0;
 
-        .name-list {
-            margin-top: 36px;
-            column-count: 4;
-            column-gap: 20px;
+                @include media-up(sm) {
+                    display: flex;
+                    justify-content: end;
+                }
 
-            &::before {
-                content: " ";
-                display: table;
+                .search-input-box {
+                    &:focus {
+                        outline: 1px dotted colour(black);
+                    }
+                }
+
+                .search-icon-details {
+                    position: absolute;
+                    right: 10px;
+                    top: 68%;
+                    transform: translateY(-50%);
+                }
             }
 
-            .static-level {
-                background: transparent;
-                border-bottom: 1px solid colour(gray, 6);
-                padding: 0 0 6px;
-                margin-bottom: 10px;
+            .fragrance-list-data {
+                display: block;
+                padding-top: 18px;
+                width: 100%;
 
-                li {
-                    text-align: inherit;
+                @include media-up(sm) {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 40px;
+                }
+
+                @include media-btw(sm, lg) {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 40px;
+                }
+
+                .alphabetically-data {
+                    width: 100%;
+                    position: relative;
+
+                    .static-level {
+                        .title {
+                            font-size: 21px;
+                        }
+
+                        .alphabet-border {
+                            border: 1px solid colour(pink, 4);
+                            margin: -5px 20px 15px;
+                        }
+                    }
+
+                    .frg-listing {
+                        padding: 40px 0 50px;
+                        margin: auto;
+
+                        &:not(:nth-last-child(-n+3))::after {
+                                background: none;
+                            }
+
+                        @include media-up(sm) {
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                background: $clr-gray-21;
+                                margin-left: -44px;
+                                width: 22vw;
+                                display: block;
+                                bottom: 0;
+                                height: 2px;
+                            }
+                        }
+
+                        @include media-btw(sm, lg) {
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                background: $clr-gray-21;
+                                margin-left: -21px;
+                                width: 33vw;
+                                display: block;
+                                bottom: 0;
+                                height: 2px;
+
+                            }
+                        }
+
+                        .level-2 {
+                            a {
+                                line-height: 1.125rem;
+                            }
+                        }
+                    }
                 }
             }
         }
     }
-}
 
-// --------fina a fragrance content section------
-.search-promo {
-    border-top: 1px solid colour(black, 3);
-    padding: 20px;
+    // --------fina a fragrance content section------
+    .search-promo {
+        border-top: 1px solid colour(black, 3);
+        padding: 20px;
 
-    .html-slot-container {
-        max-width: 51.25rem;
+        .html-slot-container {
+            max-width: 51.25rem;
 
-        h2 {
-            margin: 4px 0 20px;
+            h2 {
+                margin: 4px 0 20px;
+            }
+
+            p {
+                line-height: 1.75;
+            }
+        }
+    }
+
+    .fragrance-top-banner {
+        .fragrance-landing-header {
+            font-size: 45px;
+            line-height: 1;
+            letter-spacing: 0;
+        }
+
+        .fragrance-landing-subheader {
+            line-height: 19px;
+        }
+    }
+
+    .all-fragrance-header {
+        margin-top: 80px;
+        margin-bottom: 15px;
+        border-top: 2px solid $clr-gray-21;
+
+        .top-fr-head-container {
+            margin-top: 42px;
+
+            @include media-up(sm) {
+                margin-top: -12px;
+            }
+
+            h2 {
+                letter-spacing: normal;
+                padding-left: 0;
+                padding-right: 0;
+
+                @include media-up(sm) {
+                    letter-spacing: normal;
+                    padding-left: 10rem;
+                    padding-right: 10rem;
+                }
+            }
         }
 
         p {
-            line-height: 1.75;
+            letter-spacing: 0;
+            line-height: 19px;
+        }
+
+        .icon {
+            padding-left: 5px;
+            padding-right: 7px;
+        }
+
+        .svg-top-badge-lrg-2-dims {
+            width: 29px;
+            height: 27px;
         }
     }
 }
