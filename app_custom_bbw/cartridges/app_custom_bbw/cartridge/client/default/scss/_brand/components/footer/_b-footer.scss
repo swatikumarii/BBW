@@ -126,6 +126,22 @@ footer {
                 }
             }
         }
+
+        // -----subscribe email------------
+        .email-signup-message {
+            .alert-danger {
+                background-color: transparent;
+                border: none;
+                padding-bottom: 8px;
+                color: colour(red, 9);
+            }
+
+            .alert-success {
+                background-color: transparent;
+                border: none;
+                color: colour(green, 4);
+            }
+        }
     }
 }
 
@@ -269,4 +285,65 @@ footer {
             height: 32px;
         }
     }
+}
+
+// ---------unsubscribe email-----------
+.unsubscribe-email {
+    h2 {
+        line-height: 19px;
+        letter-spacing: 1px;
+    }
+
+    p {
+        line-height: 15px;
+        letter-spacing: 1px;
+    }
+
+    .received-email-section {
+        label {
+            font-size: 12px;
+            line-height: 25px;
+        }
+
+        select {
+            font-size: 12px;
+            padding: 3px;
+        }
+    }
+
+    .email-field-section {
+        padding: 20px 0 0;
+
+        .email-fld {
+            color: colour(gray, 19);
+            border: 1px solid colour(gray, 1);
+        }
+    }
+
+    .email-submit-btn {
+        padding: 5px 20px;
+        min-height: 30px;
+        max-height: 17px;
+        letter-spacing: 1px;
+        line-height: normal;
+
+        &:hover {
+            background: colour(gray, 1);
+            color: colour(black, 3);
+            border: 1px solid colour(gray 20);
+        }
+    }
+
+    .unsubscribe-msg {
+        font-size: 11px;
+        line-height: 15px;
+        padding: 15px 0 0;
+        letter-spacing: 0;
+    }
+}
+
+.unsubscribe-img {
+    background-image: url("../images/footer/unsubscribe-bg.jpg");
+    background-repeat: repeat-y;
+    height: 120vh;
 }
