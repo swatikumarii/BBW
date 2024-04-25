@@ -1,6 +1,6 @@
 <ul class="list-unstyled h-mb--15 h-mt--15">
     <isloop items="${pdict.productSearch.selectedFilters}" var="selectedfilter">
-        ${JSON.parse(selectedfilter)}-----${JSON.parse(refinement)}-----<isif condition="${selectedfilter.type === 'color'}">
+        <isif condition="${selectedfilter.type === 'color'}">
             <li class="swatch-filter swatch-filter-${selectedfilter.presentationId}">
                 <button data-href="${selectedfilter.url}"
                     data-seo-href="${selectedfilter.seoRefineUrl || selectedfilter.url}" class="btn">
@@ -10,9 +10,9 @@
                 </button>
             </li>
         <iselse/>
-            <isif condition="${selectedfilter.id.toLowerCase().replace(/\s+/g, '') == refinement.displayName.toLowerCase().replace(/\s+/g, '')}">
+            <isif condition="${selectedfilter.id == refinement.id}">
                 <li class="filter-value filter-selected">
-                    <button data-href="${selectedfilter.url}" data-ref=""
+                    <button data-href="${selectedfilter.url}" data-seo-href="${selectedfilter.seoRefineUrl}"
                         data-fil="${selectedfilter.presentationId} ${refinement.displayName}"
                         class="text-left btn-no-style filter-selected__btn position-relative  h-bg-md-down--gray-1 h-bg-md--white h-clr--black-3 h-font-size--14 h-mb--10">
                         <div class="d-flex align-items-center justify-content-between">

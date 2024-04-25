@@ -1,4 +1,6 @@
-<input type="text" id="filterInput" class="frag-search mb-2" placeholder="Search for fragrance..."/>
+<isif condition="${refinement.values && refinement.values[0].id === 'fragranceName'}">
+    <input type="text" id="filterInput" class="frag-search mb-2" placeholder="Search for fragrance..." />
+</isif>
 <ul class="filter-list values content list-unstyled h-px--10 h-maxheight-lg--200 overflow-auto mb-3">
     <isloop items="${refinement.values}" var="refinementValue">
         <isif condition="${refinementValue.type === 'color'}">
