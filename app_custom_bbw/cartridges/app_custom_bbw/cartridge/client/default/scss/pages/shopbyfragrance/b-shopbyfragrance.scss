@@ -93,8 +93,8 @@ body {
                 }
 
                 .search-input-box {
-                   &:focus {
-                    outline: 1px dotted colour(black);
+                    &:focus {
+                        outline: 1px dotted colour(black);
                     }
                 }
 
@@ -125,8 +125,7 @@ body {
 
                 .alphabetically-data {
                     width: 100%;
-                        border-bottom: 1px solid black;
-                            padding-right: 40px;
+                    position: relative;
 
                     .static-level {
                         .title {
@@ -134,7 +133,7 @@ body {
                         }
 
                         .alphabet-border {
-                            border: 1px solid $clr-pink-4;
+                            border: 1px solid colour(pink, 4);
                             margin: -5px 20px 15px;
                         }
                     }
@@ -142,6 +141,33 @@ body {
                     .frg-listing {
                         padding: 40px 0 50px;
                         margin: auto;
+
+                    @include media-up(sm) {
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            background: colour(gray, 19);
+                            margin-left: -44px;
+                            width: 22vw;
+                            display: block;
+                            bottom: 0;
+                            height: 2px;
+                        }
+                    }
+
+                        @include media-btw(sm, lg) {
+                            &::after {
+                                    content: "";
+                                    position: absolute;
+                                    background: colour(gray, 19);
+                                    margin-left: -21px;
+                                    width: 33vw;
+                                    display: block;
+                                    bottom: 0;
+                                    height: 2px;
+                            
+                                }
+                        }
 
                         .level-2 {
                             a {
@@ -187,7 +213,7 @@ body {
     .all-fragrance-header {
         margin-top: 80px;
         margin-bottom: 15px;
-        border-top: 2px solid $clr-gray-19;
+        border-top: 2px solid colour(gray, 19);
 
         .top-fr-head-container {
             margin-top: 42px;
@@ -203,8 +229,8 @@ body {
 
                 @include media-up(sm) {
                     letter-spacing: normal;
-                    padding-left: 160px;
-                    padding-right: 160px;
+                    padding-left: 10rem;
+                    padding-right: 10rem;
                 }
             }
         }
