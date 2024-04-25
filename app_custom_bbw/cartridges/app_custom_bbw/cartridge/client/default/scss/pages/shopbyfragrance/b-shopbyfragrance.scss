@@ -150,7 +150,7 @@ body {
                             &::after {
                                 content: "";
                                 position: absolute;
-                                background: $clr-gray-21;
+                                background: colour(gray, 21);
                                 margin-left: -44px;
                                 width: 22vw;
                                 display: block;
@@ -163,7 +163,7 @@ body {
                             &::after {
                                 content: "";
                                 position: absolute;
-                                background: $clr-gray-21;
+                                background: colour(gray, 21);
                                 margin-left: -21px;
                                 width: 33vw;
                                 display: block;
@@ -217,7 +217,7 @@ body {
     .all-fragrance-header {
         margin-top: 80px;
         margin-bottom: 15px;
-        border-top: 2px solid $clr-gray-21;
+        border-top: 2px solid colour(gray, 21);
 
         .top-fr-head-container {
             margin-top: 42px;
