@@ -298,3 +298,26 @@
         text-decoration: underline;
     }
 }
+
+.cart-checkout-btn {
+    line-height: 44px;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    background-color: $clr-green-2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        color: $clr-white;
+        background-color: $clr-green-3;
+    }
+
+    .checkout-button-lock {
+        background: url("../images/lock-filled.svg");
+        background-size: contain;
+        display: inline-block;
+        height: 16px;
+        width: 16px;
+    }
+}
