@@ -1,14 +1,21 @@
 <isif condition="${lineItem.appliedPromotions}">
     <isloop items="${lineItem.appliedPromotions}" var="appliedPromotion">
-        <div class="h-font-size--12">
+        <div class="h-font-size--${miniCart ? '12' : '14'}">
             <isprint value="${appliedPromotion.callOutMsg}" encoding="off" />
         </div>
+        <isset name="showDescription" value="${false}" scope="page" />
         <isif condition="${miniCart}">
-            <div class="info-icon promo-details h-font-size--12">
+            <isset name="showDescription" value="${true}" scope="page" />
+        <iselseif condition="${cartPage}" />
+            <isset name="showDescription" value="${true}" scope="page" />
+        </isif>
+
+        <isif condition="${showDescription}">
+            <div class="info-icon promo-details h-font-size--${miniCart ? '12' : '14'}">
                 ${Resource.msg('label.promo.details', 'cart', null)}
-                <div class="tooltip d-none">
-                    <isprint value="${appliedPromotion.details}" encoding="off" />
-                </div>
+            </div>
+            <div class="tooltip d-none">
+                <isprint value="${appliedPromotion.details}" encoding="off" />
             </div>
         </isif>
     </isloop>

@@ -143,7 +143,12 @@
                             max-width: 150px;
                             max-height: 160px;
                             object-fit: cover;
+                            margin-right: 42px;
                         }
+                    }
+
+                    .line-item-promo {
+                        margin-top: 10px;
                     }
                 }
 
@@ -279,4 +284,16 @@
 .empty-cart-recommendations {
     margin: 56px 85px 0;
     padding: 24px 0;
+}
+
+.promo-details {
+    text-decoration: underline;
+}
+
+.add-to-wish-list {
+    margin-top: 30px;
+
+    span {
+        text-decoration: underline;
+    }
 }
