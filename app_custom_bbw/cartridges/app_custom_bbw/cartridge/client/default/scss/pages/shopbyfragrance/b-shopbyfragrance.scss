@@ -142,31 +142,35 @@ body {
                         padding: 40px 0 50px;
                         margin: auto;
 
-                    @include media-up(sm) {
-                        &::after {
-                            content: "";
-                            position: absolute;
-                            background: colour(gray, 19);
-                            margin-left: -44px;
-                            width: 22vw;
-                            display: block;
-                            bottom: 0;
-                            height: 2px;
+                        &:not(:nth-last-child(-n+3))::after {
+                                background: none;
+                            }
+
+                        @include media-up(sm) {
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                background: colour(gray, 19);
+                                margin-left: -44px;
+                                width: 22vw;
+                                display: block;
+                                bottom: 0;
+                                height: 2px;
+                            }
                         }
-                    }
 
                         @include media-btw(sm, lg) {
                             &::after {
-                                    content: "";
-                                    position: absolute;
-                                    background: colour(gray, 19);
-                                    margin-left: -21px;
-                                    width: 33vw;
-                                    display: block;
-                                    bottom: 0;
-                                    height: 2px;
-                            
-                                }
+                                content: "";
+                                position: absolute;
+                                background: colour(gray, 19);
+                                margin-left: -21px;
+                                width: 33vw;
+                                display: block;
+                                bottom: 0;
+                                height: 2px;
+
+                            }
                         }
 
                         .level-2 {
