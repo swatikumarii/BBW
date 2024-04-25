@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <!-- Form for newsletter subscription -->
-                    <div class="home-email-signup">
+                    <div class="home-email-signup bg-transparent">
                         <div class="container">
                             <form role="form" class="newsletter"  data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">
                                 <div class="row">
@@ -33,7 +33,7 @@
                                                     aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" />
                                                     <div class="newletter-msg js-newsletter-msg bg-transparent h-font-size--14 m-0"></div>
                                                </div>
-                                                <span class="input-group-append">
+                                                <span class="input-group-append ml-0">
                                                     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
                                                         <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
                                                             class="btn btn-primary g-recaptcha" data-callback="submitNewsLetter"
