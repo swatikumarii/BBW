@@ -1,0 +1,7 @@
+<p class="line-item-quantity-info h-font-size--12 mb-0">
+    <span class="line-item-total-text qty-card-quantity-label">
+        ${Resource.msg('field.selectquantity', 'cart', null)}
+    </span>
+    <span class="pricing qty-card-quantity-count">
+        <isprint value="${lineItem.quantity}" formatter="##" /></span>
+</p>
