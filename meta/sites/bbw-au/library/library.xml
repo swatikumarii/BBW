@@ -69,9 +69,9 @@
 &#13;
 &#13;
 &#13;
-    &lt;div class="under-footer text-center py-4"&gt;&#13;
+    &lt;div class="under-footer  py-4"&gt;&#13;
                 &lt;p class="copyright h-fw--normal"&gt;©&#13;
-                    &lt;script&gt;document.write(new Date().getFullYear());&lt;/script&gt;2024 Bath &amp;amp; Body Works Direct, Inc.&#13;
+                   2024 Bath &amp;amp; Body Works Direct, Inc.&#13;
                     &lt;span&gt;All Rights Reserved.&lt;/span&gt;&#13;
                 &lt;/p&gt;&#13;
     &lt;/div&gt;&#13;

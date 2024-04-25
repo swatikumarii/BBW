@@ -104,6 +104,29 @@ ul li {
     font-weight: 400; // Setting font weight.
 }
 
+// =========================
+// Scrollbar Styles
+// =========================
+
+::-webkit-scrollbar {
+    width: 0.625rem;
+    height: 0.625rem;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: colour(gray, 1);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0.625rem;
+    background-color: colour(gray, 2);
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-piece {
+    background-color: colour(gray, 1);
+}
+
 // ===================================
 // Creating Components from Typography
 // ===================================
@@ -111,3 +134,29 @@ ul li {
 // Including mixin to create components from the brand typography map.
 
 @include createComponentsFromMap($brandTypography, "b-text");
+
+// ===================================
+// Breadcrumbs
+// ===================================
+
+.breadcrumb {
+    .breadcrumb-item a {
+        font-size: 1rem;
+        line-height: 1.25rem;
+        letter-spacing: 0.01em;
+        color: colour(gray, 4);
+        text-transform: capitalize;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    a[aria-current="page"] {
+        color: colour(black, 1);
+        text-decoration: none;
+        cursor: text;
+        pointer-events: none;
+    }
+}

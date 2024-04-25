@@ -13,12 +13,12 @@ $(document).ready(function () {
     });
 
     // When the show more button is clicked
-    $('.show-more-btn').on('click', function (event) {
+    $('.text-center .show-more-btn').on('click', function (event) {
         // Prevent default behavior
         event.preventDefault();
 
         // Toggle the visibility of childcontent items
-        var showBlog = $(this).parent('.blog_list').find('.blog_child_content');
+        var showBlog = $(this).parents('.blog_list').find('.blog_child_content');
 
         showBlog.show();
         $(this).remove();

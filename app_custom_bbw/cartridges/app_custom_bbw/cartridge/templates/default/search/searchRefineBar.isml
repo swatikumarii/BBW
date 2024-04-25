@@ -1,8 +1,17 @@
 <!--- Close button --->
-<div class="filter-header h-px--15">
+<div class="filter-header">
     <div class="header-bar d-md-none clearfix">
         <div class="pull-left d-md-none result-count">
-            <span class="h-font-size--18 h-fw--bold h-clr--blue">${Resource.msg('label.refinements', 'search', null)}</span>
+            <div class="d-flex flex-norwrap align-items-center">
+                <span class="h-font-size--20 h-fw--bold h-clr--blue">${Resource.msg('label.refinements', 'search', null)}</span>
+                <isif condition="${pdict.productSearch.selectedFilters.length > 0}">
+                    <div class="reset reset-filters text-center h-font-size--12 h-ml--5"
+                        data-href="${pdict.productSearch.resetLink}"
+                        data-seo-href="${pdict.productSearch.resetLinkSeo || pdict.productSearch.resetLink}">
+                        ${Resource.msg('link.reset', 'search', null)}
+                    </div>
+                </isif>
+            </div>
         </div>
         <button class="pull-right close">
             <img alt="${Resource.msg('button.close', 'search', null)}"
@@ -13,11 +22,11 @@
 </div>
 
 <div class="refinements-wrapper">
-    <div class="refinements">
+    <div class="refinements d-md-none">
         <isloop items="${pdict.productSearch.refinements}" var="refinement">
             <div
-                class="card collapsible-sm refinement refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')} border-0">
-                <div class="card-header col-sm-12 d-md-none">
+                class="card collapsible-sm d-md-none refinement refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')} border-0 mb-0">
+                <div class="card-header col-sm-12 d-md-none h-bg--white">
                     <button
                         class="title text-left d-md-none px-0 d-flex align-items-center w-100 h-font-size--18 h-fw--bold h-clr--black-1"
                         aria-controls="refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')}"

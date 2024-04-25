@@ -30,7 +30,7 @@
                 }
 
                 &:first-child {
-                    &__title {
+                    .left-navigation-item__title {
                         @include media-up(sm) {
                             margin-top: 0;
                         }
