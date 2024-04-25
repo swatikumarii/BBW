@@ -13,7 +13,7 @@
                 aria-labelledby="product-tab">
                 <isif condition="${pdict.productSearch.productIds.length > 0}">
                     <!--- Refinement bar --->
-                    <div class="row no-gutters h-grid-gap--40 h-grid-gap-lg--55 flex-nowrap">
+                    <div class="row no-gutters h-grid-gap--40 h-grid-gap-lg--50 h-pl-lg-25 flex-nowrap">
                         <div class="left-navigation-bar col-md-3 col-lg-2 px-md-0 h-hidden-sm-down">
                             <isinclude template="search/components/leftNavigation" />
                         </div>
@@ -24,11 +24,6 @@
 
                         <div class="col-12 col-lg-10 col-md-9">
                             <isinclude template="search/components/categorySlider" />
-
-                            <!--- Selected filters bar --->
-                            <div class="row filter-bar d-md-none">
-                                <isinclude template="search/filterBar" />
-                            </div>
 
                             <!--- Product Grid --->
                             <isinclude template="search/productGrid" />

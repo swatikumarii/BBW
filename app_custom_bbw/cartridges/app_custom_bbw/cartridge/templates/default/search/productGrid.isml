@@ -6,13 +6,16 @@
     <isif condition="${pdict.productSearch.productIds.length > 0}">
         <div class="row filter-bar-mobile d-md-none no-gutters h-mb--25">
             <div class="col-6 col-sm-3 text-right d-md-none order-sm-3">
-                <button type="button" class="filter-results h-100 col-12 b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize text-left">
+                <button type="button"
+                    class="filter-results h-100 col-12 b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize text-left">
                     ${Resource.msg('button.filter', 'search', null)}
                 </button>
             </div>
             <div class="col-6 col-sm-3 order-sm-1">
                 <isif condition="${pdict.productSearch.productIds.length > 0}">
-                    <select name="sort-order" class="w-100 sort-filter b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize" aria-label="${Resource.msg('label.sort.by', 'search', null)}">
+                    <select name="sort-order"
+                        class="w-100 sort-filter b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize border-left-0"
+                        aria-label="${Resource.msg('label.sort.by', 'search', null)}">
                         <isloop items="${pdict.productSearch.productSort.options}" var="option">
                             <option class="${option.id}" value="${option.url}" data-id="${option.id}"
                                 ${pdict.productSearch.productSort.ruleId === option.id ? 'selected' : ''}>
@@ -22,7 +25,8 @@
                     </select>
                 </isif>
             </div>
-            <div class="result-count text-center col-12 col-md-9 col-sm-6 order-sm-2 h-pt--15 pb-0">
+
+            <div class="result-count text-center col-12 col-md-9 col-sm-6 order-sm-2 h-pt--10 pb-0">
                 <isinclude template="search/resultsCount" />
             </div>
         </div>
@@ -45,8 +49,9 @@
                         height="19px" />
                 </div>
                 <div class="selected-store-container h-font-size--16">
-                    <a class="choose-store b-text-a h-clr--black-1 h-fw--semibold h-font-size--16" href="javascript:void(0)"
-                        role="button" tabindex="0">Set Store</a> <span class="h-font-size--16">to check availability</span>
+                    <a class="choose-store b-text-a h-clr--black-1 h-fw--semibold h-font-size--16"
+                        href="javascript:void(0)" role="button" tabindex="0">Set Store</a> <span
+                        class="h-font-size--16">to check availability</span>
                 </div>
             </div>
         </div>

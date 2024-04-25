@@ -69,6 +69,10 @@ footer {
                     height: 24px;
                     width: 24px;
                     background-repeat: no-repeat;
+
+                    &:hover {
+                        background-image: url("../images/footer/popup.svg");
+                    }
                 }
             }
 
@@ -122,6 +126,22 @@ footer {
                 }
             }
         }
+
+        // -----subscribe email------------
+        .email-signup-message {
+            .alert-danger {
+                background-color: transparent;
+                border: none;
+                padding-bottom: 8px;
+                color: colour(red, 9);
+            }
+
+            .alert-success {
+                background-color: transparent;
+                border: none;
+                color: colour(green, 4);
+            }
+        }
     }
 }
 
@@ -157,6 +177,10 @@ footer {
                     .ds-link {
                         letter-spacing: 0.015em;
                         color: colour(gray, 4);
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
             }
@@ -164,8 +188,13 @@ footer {
 
         .under-footer {
             .copyright {
-                letter-spacing: 0.015em;
-                color: colour(gray, 4);
+                text-align: left;
+
+                @include media-up(sm) {
+                    letter-spacing: 0.015em;
+                    color: colour(gray, 4);
+                    text-align: center;
+                }
             }
         }
     }
@@ -224,6 +253,7 @@ footer {
             a {
                 text-decoration: underline;
                 color: colour(gray);
+                width: fit-content;
 
                 &:hover {
                     color: colour(blue);
@@ -247,12 +277,74 @@ footer {
         row-gap: 0.3rem;
 
         &::after {
-            background-image: url("../images/footer/up-arrow.png");
+            background-image: url("../images/footer/up-arrow.svg");
             background-repeat: no-repeat;
             width: 32px;
             content: "";
             min-width: 32px;
             height: 32px;
+            background-size: contain;
         }
     }
+}
+
+// ---------unsubscribe email-----------
+.unsubscribe-email {
+    h2 {
+        line-height: 19px;
+        letter-spacing: 1px;
+    }
+
+    p {
+        line-height: 15px;
+        letter-spacing: 1px;
+    }
+
+    .received-email-section {
+        label {
+            font-size: 12px;
+            line-height: 25px;
+        }
+
+        select {
+            font-size: 12px;
+            padding: 3px;
+        }
+    }
+
+    .email-field-section {
+        padding: 20px 0 0;
+
+        .email-fld {
+            color: colour(gray, 19);
+            border: 1px solid colour(gray, 1);
+        }
+    }
+
+    .email-submit-btn {
+        padding: 5px 20px;
+        min-height: 30px;
+        max-height: 17px;
+        letter-spacing: 1px;
+        line-height: normal;
+
+        &:hover {
+            background: colour(gray, 1);
+            color: colour(black, 3);
+            border: 1px solid colour(gray, 20);
+        }
+    }
+
+    .unsubscribe-msg {
+        font-size: 11px;
+        line-height: 15px;
+        padding: 15px 0 0;
+        letter-spacing: 0;
+    }
+}
+
+.unsubscribe-img {
+    background-image: url("../images/footer/unsubscribe-bg.jpg");
+    background-repeat: repeat-y;
+    height: 120vh;
 }

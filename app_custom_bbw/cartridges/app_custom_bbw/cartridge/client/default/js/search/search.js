@@ -1,6 +1,7 @@
 'use strict';
 
 var helpers = require('../utils/scrollHelpers');
+var debounce = require('lodash/debounce');
 
 /**
  * Update DOM elements with Ajax results
@@ -47,7 +48,8 @@ function parseResults(response) {
         '.header.page-title',
         '.product-grid-wrapper',
         '.show-more',
-        '.filter-bar'
+        '.filter-bar-desktop',
+        '.selected-filter-mobile'
     ].forEach(function (selector) {
         updateDom($results, selector);
     });
@@ -92,13 +94,63 @@ function updateSortOptions(response) {
     });
 }
 
+/**
+ * Sorts and groups list items alphabetically based on the text content of a specified element.
+ * @function searchAlphabetSort
+ */
+function searchAlphabetSort() {
+
+    // Sort list items alphabetically
+    var sortedItems = $('.fragrance-name .filter-list li').sort(function (a, b) {
+        var textA = $(a).find('span[aria-hidden="true"]').text().trim().toUpperCase();
+        var textB = $(b).find('span[aria-hidden="true"]').text().trim().toUpperCase();
+        return textA.localeCompare(textB);
+    });
+
+    // Create an object to store unique text values
+    var uniqueItems = {};
+
+    // Filter out duplicate items and store them in uniqueItems
+    sortedItems.each(function () {
+        var text = $(this).find('span[aria-hidden="true"]').text().trim();
+        uniqueItems[text] = this;
+    });
+
+    // Clear the sorted items
+    $('.fragrance-name .filter-list').empty();
+
+    // Append the unique sorted items to the filter list and show them
+    $.each(uniqueItems, function (index, item) {
+        $('.fragrance-name .filter-list').append(item);
+    });
+
+    // Variable to keep track of the current letter
+    var currentLetter = '';
+
+    // Iterate through sorted list items and group by first letter
+    $('.fragrance-name .filter-list li').each(function () {
+        var text = $(this).find('span[aria-hidden="true"]').text().trim();
+        var firstLetter = text[0].toUpperCase();
+
+        // Check if we need to add a new header
+        if (firstLetter !== currentLetter) {
+            currentLetter = firstLetter;
+            $('<li class="fragrance-filter-header h-bg--gray-1 h-pl--25"></li>').text(currentLetter).css('font-weight', 'bold').insertBefore(this);
+        }
+    });
+}
+
 module.exports = {
     categorySwiper: function () {
         helpers.dragScroll();
     },
+    searchAlphabetSort: function () {
+        searchAlphabetSort();
+    },
     filter: function () {
         // Display refinements bar when Menu icon clicked
         $('.container').on('click', 'button.filter-results', function () {
+            helpers.disableScroll();
             $('.refinement-bar, .modal-background').show();
             $('.refinement-bar').siblings().attr('aria-hidden', true);
             $('.refinement-bar').closest('.row').siblings().attr('aria-hidden', true);
@@ -117,6 +169,7 @@ module.exports = {
             $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', false);
             $('.refinement-bar').closest('.container.search-results').siblings().attr('aria-hidden', false);
             $('.btn.filter-results').focus();
+            helpers.enableScroll();
         });
     },
 
@@ -182,7 +235,7 @@ module.exports = {
         // Handle refinement value selection and reset click
         $('.container').on(
             'click',
-            '.refinements li button, .filter-bar-desktop__filters li button, .refinement-bar button.reset, .filter-value button, .swatch-filter button',
+            '.refinements li button, .filter-bar-desktop__filters li button, .refinement-bar button.reset, .reset-filters ,.filter-value button, .swatch-filter button',
             function (e) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -206,6 +259,7 @@ module.exports = {
                     method: 'GET',
                     success: function (response) {
                         parseResults(response);
+                        searchAlphabetSort();
                         $.spinner().stop();
                         $(attributeId).parent('button').focus();
                     },
@@ -236,6 +290,38 @@ module.exports = {
     onPopState: function () {
         $(window).on('popstate', function () {
             window.location = window.location.href;
+        });
+    },
+
+    searchFilter: function () {
+        $('.fragrance-name .js-frag-search').on('keyup', debounce(function () {
+            var filter = $(this).val().toUpperCase();
+            $('.fragrance-name .filter-list li').each(function () {
+                // Skip headers
+                if ($(this).hasClass('fragrance-filter-header')) return;
+
+                var text = $(this).find('span[aria-hidden="true"]').text().toUpperCase();
+                if (text.indexOf(filter) > -1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+            });
+
+            // Hide headers that have no visible items underneath
+            $('.fragrance-name .filter-list li.fragrance-filter-header').each(function () {
+                var header = $(this);
+                var nextItems = header.nextUntil('.fragrance-filter-header');
+                var visibleItems = nextItems.filter(':visible');
+                header.toggle(visibleItems.length > 0);
+            });
+        }, 500));
+    },
+
+    closeFilter: function () {
+        $(document).on('click', '.filter-close', function () {
+            var filterParentId = $(this).data('parent');
+            $(filterParentId).collapse('toggle');
         });
     }
 };
