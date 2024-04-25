@@ -46,6 +46,24 @@ server.prepend(
 );
 
 /**
+ * Account-Login : The Account-Login endpoint will render the shopper's account page. Once a shopper logs in they will see is a dashboard that displays profile, address, payment and order information.
+ */
+server.append(
+    'Login',
+    function (req, res, next) {
+        var Transaction = require('dw/system/Transaction');
+        var cartHelpers = require('*/cartridge/scripts/cart/cartHelpers');
+        var viewData = res.getViewData();
+        if (viewData.authenticatedCustomer) {
+            Transaction.wrap(function () {
+                cartHelpers.mergeCart();
+            });
+        }
+        next();
+    }
+);
+
+/**
  * Account-SubmitRegistration : The Account-SubmitRegistration endpoint is the endpoint that gets hit when a shopper submits their registration for a new account
  */
 server.replace(
