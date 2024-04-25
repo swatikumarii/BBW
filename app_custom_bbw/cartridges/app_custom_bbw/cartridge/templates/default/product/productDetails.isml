@@ -39,18 +39,19 @@
                         <div class="col">
                             <h1 class="product-name hidden-sm-down text-capitalize h-clr--black-1 h-fw--bold mt-0">
                                 ${product.fragranceName ? product.fragranceName : product.name}
-                                <span class="small-title h-font-size--16 h-fw--normal h-clr--gray-4 d-block">Body
-                                    Wash</span>
+                                <iscomment> <span class="small-title h-font-size--16 h-fw--normal h-clr--gray-4 d-block">Body
+                                    Wash</span> </iscomment>
+                                <isif condition="${product.titlePartB}">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="titlePartB-name small-title h-font-size--16 h-fw--normal h-clr--gray-4 d-block">${product.titlePartB}</span>
+                                        </div>
+                                    </div>
+                                </isif>
                             </h1>
                         </div>
                     </div>
-                    <isif condition="${product.titlePartB}">
-                        <div class="row">
-                            <div class="col">
-                                <h3 class="titlePartB-name hidden-sm-down">${product.titlePartB}</h3>
-                            </div>
-                        </div>
-                    </isif>
+                    
 
                     <iscomment>This should come from Bazaar voice</iscomment>
                     <iscomment> <div class="row">
@@ -106,32 +107,17 @@
                         </isif>
 
                         <!-- Applicable Promotions -->
-                        <div class="row">
-                            <div class="col-12 promotions">
-                                <isinclude template="product/components/promotions" />
+                        <isloop items="${product.promotions}" var="promotion" status="loopstatus">
+                            <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
+                                <span class="callout-message"><isprint value="${promotion.calloutMsg}"></span>    
+                                <button type="button"
+                                        class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
+                                        data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486" title="&lt;div class='pdp-title'&gt;&lt;/div&gt;&gt;"
+                                        data-content="<a href='#' class='close cursor-pointer'></a><div class='popover-content pdp-pop-content ds-tooltip-content'><isprint value="${promotion.details}"></div><div class='arrow-fill'></div>"
+                                        data-html="true" data-original-title="" aria-describedby="popover14574">
+                                    </button> 
                             </div>
-                        </div>
-                        <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
-                            <span class="callout-message">Mix &amp; Match All Body, Skin &amp; Hair Care: Buy 3, Get 3
-                                FREE or Buy 2, Get 1 FREE</span>
-
-
-                           <button type="button"
-                                class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
-                                data-toggle="popover" data-placement="bottom" id="tooltip-footer_iroll_popover_emailcapture486" title="&lt;div class='pdp-title'&gt;&lt;/div&gt;&gt;"
-                                data-content="<a href='#' class='close cursor-pointer'></a><div class='popover-content pdp-pop-content ds-tooltip-content'><p class=' h-fw--semibold h-clr--black-1'>In Stores &amp; Online - Buy 3, Get 3 Free All Full-Size Body, Skin &amp; Hair Care on
-                                    April 13, 2024 at 6:00 AM ET to April 22, 2024 at 5:59 AM ET.</p>
-                                <p class='h-clr--black-1'>Eligible items can be found at www.bathandbodyworks.com/c/body-care/body-care-promotion. No code required. Must add 6
-                                items to bag. Shipping and handling apply to free items.&ZeroWidthSpace; Free items are the 3 lowest priced items in
-                                each set of 6. Price of free items will be prorated as a discount across all items. Single item purchases are at regular
-                                price. Offer is not valid toward previous purchases or on product purchased through third parties (including, but not
-                                limited to, Instacart). Offer subject to adjustment due to returns, cancellations and exchanges. Refer to the return
-                                policy for more information. No rain checks issued. Other restrictions may apply. Offer subject to change without
-                                notice. Selection may vary by store, pick up in store, and online.&ZeroWidthSpace; </p></div><div class='arrow-fill'></div>"
-                                data-html="true" data-original-title="" aria-describedby="popover14574">
-                            </button> 
-
-                        </div>
+                        </isloop>
 
                         <iscomment> Hiding Bopis Options for now </iscomment>
                         <iscomment> <div class="bopis-delivery-options border-left-0 border-right-0">
