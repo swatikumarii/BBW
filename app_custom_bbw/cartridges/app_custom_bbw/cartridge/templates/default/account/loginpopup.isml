@@ -9,10 +9,10 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="col-sm-8 col-md-6">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <isinclude template="account/components/loginForm" />
+                            <isinclude template="account/components/loginModalForm" />
                             <a href="${'#'}">
                                 ${Resource.msg('link.privacypolicy.registration', 'registration', null)}
                             </a>
