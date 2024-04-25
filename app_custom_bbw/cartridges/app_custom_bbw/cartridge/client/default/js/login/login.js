@@ -70,8 +70,69 @@ function register() {
     });
 }
 
+
+baselogin.login = function () {
+    $('form.login').submit(function (e) {
+        var form = $(this);
+        e.preventDefault();
+        var url = form.attr('action');
+        form.spinner().start();
+        $('form.login').trigger('login:submit', e);
+        $.ajax({
+            url: url,
+            type: 'post',
+            dataType: 'json',
+            data: form.serialize(),
+            success: function (data) {
+                form.spinner().stop();
+                if (!data.success) {
+                    formValidation(form, data);
+                    $('form.login').trigger('login:error', data);
+                } else {
+                    $('form.login').trigger('login:success', data);
+                    $('.loginPopup').find('#loginModal').modal('hide');
+                    $('.loginPopup').find('#isMergeCartModal').modal('show');
+                }
+            },
+            error: function (data) {
+                if (data.responseJSON.redirectUrl) {
+                    window.location.href = data.responseJSON.redirectUrl;
+                } else {
+                    $('form.login').trigger('login:error', data);
+                    form.spinner().stop();
+                }
+            }
+        });
+        return false;
+    });
+};
+
+/**
+ *
+ */
+function cartMerge() {
+    $('.merge').on('click',function () {
+        var redirectUrl = $('.redirect-url').val();
+        var cartMergeUrl = $('.cart-merge-url').val();
+        $.ajax({
+            url: cartMergeUrl,
+            type: 'get',
+        });
+        window.location.href = redirectUrl;
+        return false;
+    });
+    $('.dont-merge').on('click', function () {
+        window.location.reload();
+        return false;
+    });
+    $('#isMergeCartModal').on('hidden.bs.modal', function () {
+        window.location.reload();
+        return false;
+    });
+};
 var exportDetails = $.extend({}, baselogin, {
-    register: register
+    register: register,
+    cartMerge: cartMerge
 });
 
 module.exports = exportDetails;

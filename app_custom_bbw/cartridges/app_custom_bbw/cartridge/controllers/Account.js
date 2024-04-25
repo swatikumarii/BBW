@@ -51,14 +51,9 @@ server.prepend(
 server.append(
     'Login',
     function (req, res, next) {
-        var Transaction = require('dw/system/Transaction');
-        var cartHelpers = require('*/cartridge/scripts/cart/cartHelpers');
+        var loginRedirectUrl = req.form.loginRedirectUrl;
         var viewData = res.getViewData();
-        if (viewData.authenticatedCustomer) {
-            Transaction.wrap(function () {
-                cartHelpers.mergeCart();
-            });
-        }
+        viewData.redirectUrl = loginRedirectUrl;
         next();
     }
 );

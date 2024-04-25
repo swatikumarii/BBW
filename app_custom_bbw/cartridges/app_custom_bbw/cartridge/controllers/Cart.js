@@ -147,4 +147,16 @@ server.append('AddProduct', function (req, res, next) {
     next();
 });
 
+
+server.get('Merge', function (req, res, next) {
+    var Transaction = require('dw/system/Transaction');
+    var cartHelpers = require('*/cartridge/scripts/cart/cartHelpers');
+    if (req.currentCustomer.raw.authenticated) {
+        Transaction.wrap(function () {
+            cartHelpers.mergeCart();
+        });
+    }
+    next();
+});
+
 module.exports = server.exports();
