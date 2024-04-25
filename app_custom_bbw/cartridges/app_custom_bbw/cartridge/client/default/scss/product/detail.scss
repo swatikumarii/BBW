@@ -24,6 +24,8 @@
         }
 
         .carousel-indicators {
+            z-index: 0;
+
             li {
                 width: 2.375rem;
             }
@@ -365,15 +367,17 @@
 
     .pdp-wishlist {
         .add-to-wish-list {
-            position: absolute;
-            top: 0;
-            right: 0;
-            z-index: 1;
+            float: right;
+            margin-right: -0.1875rem;
             padding: 0;
 
+            @include media-up(sm) {
+                margin-right: -0.625rem;
+            }
+
             img {
-                width: 38px;
-                height: 36px;
+                width: 2.375rem;
+                height: 2.25rem;
                 cursor: pointer;
             }
         }
@@ -385,7 +389,9 @@
     box-shadow: 0 0 13px 0 rgba(0, 0, 0, 15%);
     color: colour(black, 1);
     padding: 1.5rem 0.5rem 1.5rem 0;
-    overflow-y: hidden;
+    overflow-y: initial;
+    left: 5% !important;
+    border-radius: 0;
 
     .popover-body {
         overflow-y: scroll;
@@ -397,14 +403,8 @@
         display: none;
     }
 
-    .arrow-fill {
-        border-left: 0.5625rem solid transparent;
-        border-right: 0.5625rem solid transparent;
-        border-top: 0.5rem solid colour(white);
-        content: "";
-        position: absolute;
-        bottom: 0;
-        border-bottom: 0.5625rem solid transparent;
+    .arrow {
+        left: 14px !important;
     }
 
     .close {
