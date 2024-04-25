@@ -277,12 +277,13 @@ footer {
         row-gap: 0.3rem;
 
         &::after {
-            background-image: url("../images/footer/up-arrow.png");
+            background-image: url("../images/footer/up-arrow.svg");
             background-repeat: no-repeat;
             width: 32px;
             content: "";
             min-width: 32px;
             height: 32px;
+            background-size: contain;
         }
     }
 }

@@ -48,8 +48,8 @@ function parseResults(response) {
         '.header.page-title',
         '.product-grid-wrapper',
         '.show-more',
-        '.filter-bar',
-        '.filter-bar-desktop'
+        '.filter-bar-desktop',
+        '.selected-filter-mobile'
     ].forEach(function (selector) {
         updateDom($results, selector);
     });
@@ -99,32 +99,44 @@ function updateSortOptions(response) {
  * @function searchAlphabetSort
  */
 function searchAlphabetSort() {
-    $('#fragrance-name .filter-list li').sort(function (a, b) {
+
+    // Sort list items alphabetically
+    var sortedItems = $('.fragrance-name .filter-list li').sort(function (a, b) {
         var textA = $(a).find('span[aria-hidden="true"]').text().trim().toUpperCase();
         var textB = $(b).find('span[aria-hidden="true"]').text().trim().toUpperCase();
         return textA.localeCompare(textB);
-    }).appendTo('#fragrance-name .filter-list');
+    });
 
-    // Hide all list items
-    $('#fragrance-name .filter-list li').hide();
+    // Create an object to store unique text values
+    var uniqueItems = {};
+
+    // Filter out duplicate items and store them in uniqueItems
+    sortedItems.each(function () {
+        var text = $(this).find('span[aria-hidden="true"]').text().trim();
+        uniqueItems[text] = this;
+    });
+
+    // Clear the sorted items
+    $('.fragrance-name .filter-list').empty();
+
+    // Append the unique sorted items to the filter list and show them
+    $.each(uniqueItems, function (index, item) {
+        $('.fragrance-name .filter-list').append(item);
+    });
 
     // Variable to keep track of the current letter
     var currentLetter = '';
 
     // Iterate through sorted list items and group by first letter
-    $('#fragrance-name .filter-list li').each(function () {
+    $('.fragrance-name .filter-list li').each(function () {
         var text = $(this).find('span[aria-hidden="true"]').text().trim();
         var firstLetter = text[0].toUpperCase();
 
         // Check if we need to add a new header
         if (firstLetter !== currentLetter) {
             currentLetter = firstLetter;
-            $('<li class="header"></li>').text(currentLetter).css('font-weight', 'bold').appendTo('.filter-list');
+            $('<li class="fragrance-filter-header h-bg--gray-1 h-pl--25"></li>').text(currentLetter).css('font-weight', 'bold').insertBefore(this);
         }
-
-        // Append the list item
-        $(this).appendTo('#fragrance-name .filter-list');
-        $(this).show();
     });
 }
 
@@ -138,6 +150,7 @@ module.exports = {
     filter: function () {
         // Display refinements bar when Menu icon clicked
         $('.container').on('click', 'button.filter-results', function () {
+            helpers.disableScroll();
             $('.refinement-bar, .modal-background').show();
             $('.refinement-bar').siblings().attr('aria-hidden', true);
             $('.refinement-bar').closest('.row').siblings().attr('aria-hidden', true);
@@ -156,6 +169,7 @@ module.exports = {
             $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', false);
             $('.refinement-bar').closest('.container.search-results').siblings().attr('aria-hidden', false);
             $('.btn.filter-results').focus();
+            helpers.enableScroll();
         });
     },
 
@@ -280,11 +294,11 @@ module.exports = {
     },
 
     searchFilter: function () {
-        $('#fragrance-name #filterInput').on('keyup', debounce(function () {
+        $('.fragrance-name .js-frag-search').on('keyup', debounce(function () {
             var filter = $(this).val().toUpperCase();
-            $('#fragrance-name .filter-list li').each(function () {
+            $('.fragrance-name .filter-list li').each(function () {
                 // Skip headers
-                if ($(this).hasClass('header')) return;
+                if ($(this).hasClass('fragrance-filter-header')) return;
 
                 var text = $(this).find('span[aria-hidden="true"]').text().toUpperCase();
                 if (text.indexOf(filter) > -1) {
@@ -295,12 +309,19 @@ module.exports = {
             });
 
             // Hide headers that have no visible items underneath
-            $('#fragrance-name .filter-list li.header').each(function () {
+            $('.fragrance-name .filter-list li.fragrance-filter-header').each(function () {
                 var header = $(this);
-                var nextItems = header.nextUntil('.header');
+                var nextItems = header.nextUntil('.fragrance-filter-header');
                 var visibleItems = nextItems.filter(':visible');
                 header.toggle(visibleItems.length > 0);
             });
         }, 500));
+    },
+
+    closeFilter: function () {
+        $(document).on('click', '.filter-close', function () {
+            var filterParentId = $(this).data('parent');
+            $(filterParentId).collapse('toggle');
+        });
     }
 };

@@ -5,7 +5,7 @@ var i = false;
 
 module.exports = {
     enableScroll: function validateATextbox() {
-        $('body').removeAttr('style').removeClass('no-scroll');
+        $('body').removeAttr('style').removeClass('m-disable-scroll');
         $('html').removeAttr('style');
         i = false;
         if (roundedTop !== 0) {
@@ -15,7 +15,7 @@ module.exports = {
         }
     },
     argenableScroll: function validateATextbox(t) {
-        $('body').removeAttr('style').removeClass('no-scroll');
+        $('body').removeAttr('style').removeClass('m-disable-scroll');
         $('html').removeAttr('style');
         if (t !== 0) {
             $(window).scrollTop(t);
@@ -28,7 +28,7 @@ module.exports = {
             roundedTop = $(window).scrollTop();
             $('body').css({
                 top: -roundedTop + 'px'
-            }).addClass('no-scroll');
+            }).addClass('m-disable-scroll');
             $('html').css({
                 height: '100vh'
             });
@@ -40,7 +40,7 @@ module.exports = {
             roundedTop = $(window).scrollTop();
             $('body').css({
                 top: -roundedTop + 'px'
-            }).addClass('no-scroll');
+            }).addClass('m-disable-scroll');
             $('html').css({
                 height: '100vh'
             });
