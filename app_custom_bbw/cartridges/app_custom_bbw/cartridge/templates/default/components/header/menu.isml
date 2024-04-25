@@ -108,19 +108,15 @@
         <div class="utility-links-container d-block d-md-none">
             <ul class="utility-links mobile-only">
                 <li class="link">
-                    <a href="/customer-care/order-status" manual_cm_sp="FO-_-Auxillary-_-order-tracking">Order Tracking</a>
+                    <a href="#">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a>
                 </li>
                 <li class="link">
-                    <a href="https://customercare.bathandbodyworks.com/hc/en-us"
-                        manual_cm_sp="FO-_-Auxillary-_-shipping-returns">Shipping &amp; Returns</a>
+                    <a href="#">${Resource.msg('mobile.menu.shipping', 'common', null)}</a>
                 </li>
                 <li class="link">
-                    <a href="/g/fragrance" manual_cm_sp="FO-_-Auxillary-_-shop-by-fragrance">Shop by Fragrance</a>
+                    <a href="#">${Resource.msg('mobile.menu.shopByFragrance', 'common', null)}</a>
                 </li>
             </ul>
-        
-            <div class="bopis-join-loyalty-container mobile-only"></div>
-        
         </div>
     </div>
 </nav>

@@ -1,10 +1,6 @@
 
 <isif condition="${pdict.name === null}">
     <div class="user">
-        <iscomment> <button class="user-btn border-0 h-bg--white p-0" id="loginPopupBtn" type="button">
-            <img src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
-                alt="${Resource.msg('global.storename', 'common', null)}" />
-        </button> </iscomment>
          <div class="dropdown">
             <button class="user-btn border-0 h-bg--white p-0 dropdown-toggle" type="button" data-toggle="dropdown">
                 <img src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
