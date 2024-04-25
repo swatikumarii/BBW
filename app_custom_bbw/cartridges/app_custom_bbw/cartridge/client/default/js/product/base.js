@@ -18,7 +18,7 @@ function getPidValue($el) {
     } else {
         pid =
             $('.product-detail:not(".bundle-item")').data('pid') ||
-            $el.data('pid');
+            ($el && $el.data('pid'));
     }
 
     return pid;
@@ -257,6 +257,5 @@ module.exports = $.extend({}, base, {
                 }
             }
         );
-    },
-    getPidValue: getPidValue
+    }
 });

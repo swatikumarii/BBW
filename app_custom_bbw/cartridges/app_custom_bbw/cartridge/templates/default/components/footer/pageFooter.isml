@@ -30,7 +30,6 @@
                                                <div class="w-100">
                                                 <input type="text" class="form-control input-text rounded-0 w-100"
                                                     name="hpEmailSignUp"
-                                                    placeholder="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}"
                                                     aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" />
                                                     <div class="newletter-msg js-newsletter-msg bg-transparent h-font-size--14 m-0"></div>
                                                </div>

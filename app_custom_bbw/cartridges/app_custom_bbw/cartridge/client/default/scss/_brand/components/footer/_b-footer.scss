@@ -69,6 +69,10 @@ footer {
                     height: 24px;
                     width: 24px;
                     background-repeat: no-repeat;
+
+                    &:hover {
+                        background-image: url("../images/footer/popup.svg");
+                    }
                 }
             }
 
@@ -173,6 +177,10 @@ footer {
                     .ds-link {
                         letter-spacing: 0.015em;
                         color: colour(gray, 4);
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
             }
@@ -180,8 +188,13 @@ footer {
 
         .under-footer {
             .copyright {
-                letter-spacing: 0.015em;
-                color: colour(gray, 4);
+                text-align: left;
+
+                @include media-up(sm) {
+                    letter-spacing: 0.015em;
+                    color: colour(gray, 4);
+                    text-align: center;
+                }
             }
         }
     }
@@ -240,6 +253,7 @@ footer {
             a {
                 text-decoration: underline;
                 color: colour(gray);
+                width: fit-content;
 
                 &:hover {
                     color: colour(blue);

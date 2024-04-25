@@ -9,7 +9,4 @@
     </isscript>
 
     <isinclude template="search/searchResultsNoDecorator" />
-    <div class="loginPopup">
-        <isinclude template="account/loginpopup" />
-    </div>
 </isdecorate>
