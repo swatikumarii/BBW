@@ -7,8 +7,7 @@
                     <isif condition="${category.subCategories}">
                         <li class="nav-item dropdown level-1-li" role="presentation">
                             <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
-                                id="${category.id}" class="level-1-link nav-link h-font-size--14 h-fw--semibold
-                                    text-uppercase dropdown-toggle"
+                                id="${category.id}" class="level-1-link nav-link h-font-size--14 h-fw--semibold text-capitalize dropdown-toggle"
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                 tabindex="0">${category.name}</a>
                             <isset name="menuItem" value="${category}" scope="page" />
@@ -29,8 +28,8 @@
 </nav>
 
 <iscomment>Mobile Menu</iscomment>
-<nav class="navbar mobile-navbar navbar-expand-md bg-inverse p-0 w-100 d-block d-md-none h-100 h-bg--white">
-    <div class="close-menu clearfix w-100">
+<nav class="navbar mobile-navbar navbar-expand-md bg-inverse p-0 w-100 d-block d-md-none h-100">
+    <div class="close-menu clearfix w-100 h-bg--white">
         <div class="back pull-left">
             <span class="h-clr--blue h-font-size--18 h-fw--bold">${Resource.msg('label.header.menu.title', 'common', null)}</span>
         </div>
@@ -41,7 +40,7 @@
             </button>
         </div>
     </div>
-    <div class="menu-group w-100" role="navigation">
+    <div class="menu-group w-100 h-bg--white" role="navigation">
         <div class="mobile-slide-menu-search position-relative">
             <form role="search">
                 <fieldset>
@@ -54,7 +53,12 @@
                 </fieldset>
             </form>
         </div>
+
         <ul class="nav navbar-nav justify-content-between level-1-ul" role="menu">
+            <li class="nav-top-offers nav-item level-1-li" role="presentation">
+                <a href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold"
+                >${Resource.msg('mobile.menu.topOffers', 'common', null)}</a>
+            </li>
             <isif condition="${pdict.categories}">
                 <isloop items="${pdict.categories}" var="category">
                     <isif condition="${category.subCategories}">
@@ -76,9 +80,48 @@
                     </isif>
                 </isloop>
             </isif>
+            <li class="nav-store-locator nav-item level-1-li" role="presentation">
+                <a href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold">${Resource.msg('mobile.menu.storeLocator', 'common', null)}</a>
+            </li>
+            <li class="nav-my-account nav-item level-1-li dropdown" role="presentation">
+                <a href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
 
+                <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true" aria-label="${category.id}">
+                    <li class="level-2-li p-0" role="presentation">
+                        <a href="#" class="level-2-link h-clr--gray h-font-size--16"
+                                    role="button">${Resource.msg('mobile.menu.signIn', 'common', null)}</a>
+                    </li>
+                    <li class="level-2-li p-0" role="presentation">
+                        <a href="#" class="level-2-link h-clr--gray h-font-size--16" role="button">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a>
+                    </li>
+                    <li class="level-2-li p-0" role="presentation">
+                        <a href="#" class="level-2-link h-clr--gray h-font-size--16" role="button">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
+                    </li>
+                    <li class="level-2-li p-0" role="presentation">
+                        <a href="#" class="level-2-link h-clr--gray h-font-size--16" role="button">${Resource.msg('mobile.menu.myLoveItList', 'common', null)}</a>
+                    </li>
+                </ul>
+            </li>
             <isinclude url="${URLUtils.url('Page-Locale', 'mobile', true)}" />
         </ul>
+
+        <div class="utility-links-container d-block d-md-none">
+            <ul class="utility-links mobile-only">
+                <li class="link">
+                    <a href="/customer-care/order-status" manual_cm_sp="FO-_-Auxillary-_-order-tracking">Order Tracking</a>
+                </li>
+                <li class="link">
+                    <a href="https://customercare.bathandbodyworks.com/hc/en-us"
+                        manual_cm_sp="FO-_-Auxillary-_-shipping-returns">Shipping &amp; Returns</a>
+                </li>
+                <li class="link">
+                    <a href="/g/fragrance" manual_cm_sp="FO-_-Auxillary-_-shop-by-fragrance">Shop by Fragrance</a>
+                </li>
+            </ul>
+        
+            <div class="bopis-join-loyalty-container mobile-only"></div>
+        
+        </div>
     </div>
 </nav>
 <div class="mobile-menu-overlay position-fixed h-bg--black-3 h-100 w-100 d-block d-md-none"></div>

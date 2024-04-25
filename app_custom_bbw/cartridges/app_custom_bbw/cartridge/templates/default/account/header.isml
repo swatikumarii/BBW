@@ -1,10 +1,25 @@
+
 <isif condition="${pdict.name === null}">
-    <div class="user hidden-md-down">
-        <button class="user-btn border-0 h-bg--white" id="loginPopupBtn" type="button">
-            <img class="w-100" src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
+    <div class="user">
+        <iscomment> <button class="user-btn border-0 h-bg--white p-0" id="loginPopupBtn" type="button">
+            <img src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
                 alt="${Resource.msg('global.storename', 'common', null)}" />
-        </button>
+        </button> </iscomment>
+         <div class="dropdown">
+            <button class="user-btn border-0 h-bg--white p-0 dropdown-toggle" type="button" data-toggle="dropdown">
+                <img src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
+                    alt="${Resource.msg('global.storename', 'common', null)}" />
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li><button class="border-0 bg-white" id="loginPopupBtn">${Resource.msg('mobile.menu.signIn', 'common', null)}</button></li>
+                <li><a href="google.com">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a></li>
+                <li><a href="google.com">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a></li>
+                <li><a href="google.com">${Resource.msg('mobile.menu.myLoveItList', 'common', null)}</a></li>
+            </ul>
+        </div>
     </div>
+
+    
 <iselse/>
     <div class="user hidden-md-down nav-item">
         <a href="${'#'}" id="myaccount" aria-haspopup="true"

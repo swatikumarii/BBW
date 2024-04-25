@@ -19,10 +19,10 @@ function displayMessage(data, button) {
     }
 
     if ($('.email-signup-message').length === 0) {
-        $('body').append('<div class="email-signup-message"></div>');
+        $('.js-newsletter-msg').append('<div class="email-signup-message"></div>');
     }
     $('.email-signup-message').append(
-        '<div class="email-signup-alert text-center ' +
+        '<div class="email-signup-alert text-justify ' +
         status +
         '">' +
         data.msg +
@@ -80,7 +80,6 @@ window.submitNewsLetter = function (token) {
     });
 };
 
-// Initialize popover
 // Initialize popover 
 $('[data-toggle="popover"]').popover({
     placement: 'top',
@@ -88,9 +87,29 @@ $('[data-toggle="popover"]').popover({
 });
 
 // Show popover on mouseenter
-$('[data-toggle="popover"]').on('mouseenter', function () {
-    $(this).popover('show');
-});
+$('[data-toggle="popover"]')
+    .on('mouseenter', function () {
+        $(this).popover('show');
+        $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
+    });
+    
+
+var timer;
+$('body').on(
+    'mouseleave',
+    '[data-toggle="popover"], .pdp-popover',
+    function () {
+        timer = setTimeout(function () {
+            $('.pdp-popover').popover('hide');
+        }, 50);
+    }).on(
+    'mouseenter',
+    '[data-toggle="popover"], .pdp-popover',
+    function () {
+        clearTimeout(timer);
+    }
+);
+
 
 // Close popover on close button click
 $(document).on('click', '.popover .close', function () {

@@ -9,7 +9,7 @@ header {
         right: 0;
         top: 0;
         transition: 0.5s linear all;
-        z-index: 99;
+        z-index: 1;
     }
 
     @include media-up(sm) {
@@ -120,7 +120,7 @@ header {
                         transition: all 0.3s ease;
 
                         @include media-up(md) {
-                            width: 25.6rem;
+                            width: 25.5rem;
                             right: 0;
                         }
                     }
@@ -132,6 +132,7 @@ header {
                         height: 3.375rem;
                         left: 0;
                         position: fixed;
+                        transition: all 0.3s ease;
 
                         @include media-up(sm) {
                             top: -1.0625rem;
@@ -153,6 +154,10 @@ header {
                             text-overflow: ellipsis;
                             white-space: nowrap;
                             padding: 0 2.5rem 0 0.75rem;
+                        }
+
+                        input::placeholder {
+                            color: colour(black, 3);
                         }
 
                         .reset-button {
@@ -215,6 +220,45 @@ header {
                                 &:hover > img {
                                     transition: opacity 0.5s ease-out;
                                     opacity: 0.65;
+                                }
+                            }
+                        }
+
+                        .dropdown {
+                            .dropdown-toggle {
+                                &::after {
+                                    content: none;
+                                }
+                            }
+
+                            .dropdown-menu {
+                                border: 1px solid colour(gray, 3);
+                                border-radius: 0;
+                                margin-top: 0.3125rem;
+                                padding: 1em;
+                                width: 14.25rem;
+                                transition:
+                                    width 0.8s,
+                                    visibility 20ms,
+                                    opacity 0.5s;
+                                transition-timing-function: cubic-bezier(
+                                    0.075,
+                                    0.82,
+                                    0.165,
+                                    1
+                                );
+
+                                li {
+                                    padding-left: 0.5rem;
+
+                                    a,
+                                    button {
+                                        line-height: 1rem;
+                                        letter-spacing: 0.015em;
+                                        color: colour (gray);
+                                        display: block;
+                                        padding: 10px 0;
+                                    }
                                 }
                             }
                         }

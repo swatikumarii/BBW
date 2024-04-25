@@ -10,7 +10,7 @@
             <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.merchandise.subtotal.excluding.taxes', 'cart', null)}</p>
         </div>
         <div class="col-4">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold subtotal">${pdict.totals.subTotalExclTax}
+            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sub-total">${pdict.totals.subTotalExclTax}
             </p>
         </div>
     </div>
@@ -20,7 +20,7 @@
             <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.merchandise.subtotal', 'cart', null)}</p>
         </div>
         <div class="col-4">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold subtotal">${pdict.totals.subTotal}</p>
+            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sub-total">${pdict.totals.subTotal}</p>
         </div>
     </div>
 </isif>

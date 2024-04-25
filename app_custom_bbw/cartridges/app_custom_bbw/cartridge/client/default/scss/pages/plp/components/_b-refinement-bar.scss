@@ -1,3 +1,21 @@
+/* Sort By Dropdown mixin */
+
+@mixin customBackground {
+    background-image: url("../../images/icons/filter-carat.svg"),
+        linear-gradient(180deg, #fff 0, #fff);
+    background-position:
+        right 10px top 50%,
+        0 0;
+    background-repeat: no-repeat, repeat;
+    background-size:
+        15px 9px,
+        100%;
+    text-overflow: ellipsis;
+    appearance: none;
+    border-radius: 0;
+}
+
+// Mobile Refinement - Panel
 .refinement-bar {
     overflow: auto;
     background-color: colour(white);
@@ -16,6 +34,19 @@
         flex: auto;
     }
 
+    .filter-header {
+        padding: 23.5px 15px;
+
+        .reset-filters {
+            cursor: pointer;
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
     ul {
         padding-left: 0;
     }
@@ -23,15 +54,47 @@
     .refinements-wrapper {
         .refinements {
             ul {
-                li {
-                    padding: 10px 0;
+                li:not(.filter-value),
+                li:not(.fragrance-filter-header, .filter-value) {
+                    padding: 10px 22px;
+                }
+            }
+
+            .filter-list-wrapper {
+                padding: 16px 0 15px;
+
+                .filter-list {
+                    .filter-list-item {
+                        .filter-link {
+                            padding: 6px 0;
+                        }
+                    }
+                }
+            }
+
+            .selected-filter-mobile {
+                .list-unstyled {
+                    padding: 15px;
+                    border-top: 1px solid colour(gray, 6);
                 }
             }
 
             .refinement {
+                &.active {
+                    .card-header {
+                        background-color: colour(gray, 1);
+                    }
+
+                    .fragrance-name {
+                        padding-top: 0;
+                        border-top: 1px solid colour(gray, 5);
+                    }
+                }
+
                 .card-header {
+                    background: colour(white);
                     border-top: 1px solid colour(gray, 6);
-                    border-bottom: 1px solid colour(gray, 6);
+                    border-bottom: 0;
                     padding: 20px 15px;
                     margin: 0;
 
@@ -46,6 +109,12 @@
                             height: 16px;
                             transition: all 0.5s ease-out;
                         }
+                    }
+                }
+
+                &:last-child {
+                    .card-header {
+                        border-bottom: 1px solid colour(gray, 6);
                     }
                 }
 
@@ -115,34 +184,26 @@
     .sort-filter {
         padding: 10px 20px 10px 10px;
         letter-spacing: 0.01em;
-        background-image: url("../../images/icons/filter-carat.svg"),
-            linear-gradient(180deg, #fff 0, #fff);
-        background-position:
-            right 10px top 50%,
-            0 0;
-        background-repeat: no-repeat, repeat;
-        background-size:
-            15px 9px,
-            100%;
-        border-radius: 0;
-        text-overflow: ellipsis;
-        appearance: none;
+        @include customBackground;
     }
 }
 
 // Desktop Filters
 .filter-bar-desktop {
     &__filters {
-        padding: 18px 15px;
+        padding: 18px;
+        max-width: 78.799%;
 
         .filters-title {
             margin-right: 18px;
             letter-spacing: 0.16px;
+            padding-top: 3px;
         }
 
         .filters-refinements {
             .filter-type {
                 width: 31%;
+                cursor: pointer;
 
                 .ref-toggle {
                     border-bottom: 3px solid colour(black, 3);
@@ -160,40 +221,35 @@
                     }
                 }
 
-                .fliter-list-wrapper {
+                .filter-list-wrapper {
                     z-index: 1;
-                    padding: 15px 0 0;
+                    padding-bottom: 15px;
                     background-color: colour(black, 3);
                     transition: all 0.3s ease-in-out;
+                    border: 1px solid colour(gray, 1);
+                    border-bottom: 3px solid colour(black, 3);
 
-                    .fliter-list {
-                        .fliter-link {
+                    .filter-list {
+                        .filter-link {
                             padding: 6px 0;
                         }
 
-                        .selected {
-                            .filter-uncheck {
-                                background-color: colour(black, 3);
-                            }
+                        .filter-list-item {
+                            padding-left: 12px;
                         }
 
-                        .filter-uncheck {
-                            display: inline-block;
-                            width: 14px;
-                            height: 14px;
-                            border: 1px solid colour(black, 3);
-                            position: relative;
+                        .fragrance-filter-header {
+                            line-height: normal;
+                            margin: 0 -10px;
                         }
                     }
                 }
 
                 .close-button {
-                    border-bottom: 3px solid colour(black, 3);
-
                     .btn {
                         min-height: 48px;
                         padding: 0 32px;
-                        max-width: 182px;
+                        max-width: 214px;
                         transition: all 0.3s ease;
                         letter-spacing: 0.015em;
                         line-height: 1.25rem;
@@ -201,5 +257,101 @@
                 }
             }
         }
+
+        .reset-filters {
+            border: 1px solid transparent;
+            line-height: 32px;
+            width: 70px;
+            background: colour(black, 3);
+            color: colour(white);
+
+            &:hover {
+                background: colour(white);
+                color: colour(black, 3);
+                border-color: colour(gray, 6);
+            }
+        }
     }
+
+    &__sortby {
+        max-width: 15.625%;
+        padding: 18px 0;
+
+        .sort-filter {
+            border: none;
+            border-bottom: 3px solid colour(black, 3);
+            padding: 2px 1rem 0 0;
+            height: 48px;
+            cursor: pointer;
+            margin-top: -18px;
+            @include customBackground;
+
+            &:focus {
+                outline: 1px dotted colour(black);
+                outline-offset: 2px;
+            }
+        }
+    }
+}
+
+// Selected Filter Button
+.filter-selected {
+    &__btn {
+        border: 1px solid colour(gray, 6);
+        padding: 8px 10px;
+        line-height: normal;
+    }
+}
+
+.filter-uncheck {
+    display: inline-block;
+    width: 14px;
+    min-width: 14px;
+    height: 14px;
+    border: 1px solid colour(black, 3);
+    position: relative;
+    box-sizing: content-box;
+}
+
+.selected {
+    .filter-uncheck {
+        background-color: colour(black, 3);
+    }
+}
+
+.filter-input-wrapper {
+    &::after {
+        content: "";
+        background: url("../../images/icons/UI-Search.svg") no-repeat scroll 50%;
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        right: 23px;
+        top: 15px;
+    }
+}
+
+input.frag-search {
+    @include media-down(sm) {
+        border: 0;
+        margin-bottom: 0;
+    }
+
+    letter-spacing: 0.005em;
+    background: transparent;
+    background-size: 20px;
+    position: relative;
+    z-index: 11;
+    height: 50px;
+    border-bottom-color: colour(black, 3);
+    padding-left: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 20px;
+}
+
+.fragrance-filter-header {
+    line-height: normal;
+    margin: 0 -10px;
 }

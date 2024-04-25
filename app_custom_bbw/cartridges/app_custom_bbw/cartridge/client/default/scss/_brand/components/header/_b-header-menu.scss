@@ -19,6 +19,11 @@
                             line-height: 1.25rem;
                             letter-spacing: 0.01em;
                             border-bottom: 0.1875rem solid transparent;
+                            transition: border 0.3s ease-out;
+
+                            &:hover {
+                                color: colour(black, 1);
+                            }
 
                             @include media-up(sm) {
                                 &::after {
@@ -35,7 +40,7 @@
                             z-index: 110;
                             top: auto;
                             left: 0;
-                            margin-top: 0.125rem;
+                            margin-top: 0;
 
                             .level-2-ul-wrap {
                                 margin: 1.3125rem auto;
@@ -108,14 +113,12 @@
         a:focus {
             outline: 0;
         }
-    }
-
-    .bbw-menu.in {
-        left: 0;
 
         .mobile-navbar {
-            overflow-y: auto;
+            overflow: hidden auto;
             z-index: 113;
+            background: colour(gray, 1);
+            padding-bottom: 6.25rem;
         }
 
         .close-menu {
@@ -190,9 +193,58 @@
             transition: all 0.3s ease-out;
         }
 
+        .level-1-ul .nav-top-offers a {
+            padding-left: 49px;
+            position: relative;
+
+            &::after {
+                position: absolute;
+                width: 19px;
+                height: 19px;
+                fill: #005699;
+                padding: 11px 0 0 15px;
+                left: 0;
+                content: url("../images/header/UI-Tag-v2.svg");
+                top: 0;
+            }
+        }
+
+        .level-1-ul .nav-store-locator a {
+            padding-left: 49px;
+            position: relative;
+
+            &::after {
+                position: absolute;
+                width: 19px;
+                height: 19px;
+                fill: #005699;
+                padding: 11px 0 0 15px;
+                left: 0;
+                content: url("../images/header/UI-StoreLocator-v2.svg");
+                top: 0;
+            }
+        }
+
+        .level-1-ul .nav-my-account .level-1-link {
+            padding-left: 49px;
+            position: relative;
+
+            &::before {
+                position: absolute;
+                width: 19px;
+                height: 19px;
+                fill: #005699;
+                padding: 11px 0 0 15px;
+                left: 0;
+                content: url("../images/header/UI-MyAccount-v2.svg");
+                top: 5px;
+            }
+        }
+
         .level-1-li {
             transition: max-height 0.5s ease-out;
             max-height: 58px;
+            border-top: 0.0625rem solid colour(gray, 6);
 
             &::before {
                 content: "";
@@ -205,11 +257,17 @@
                 z-index: 30;
             }
 
-            .level-1-link.dropdown-toggle {
+            .level-1-link {
                 padding: 1.25rem 0.9375rem;
                 line-height: 1.25rem;
                 letter-spacing: 0.005em;
 
+                &:hover {
+                    color: colour(black, 1);
+                }
+            }
+
+            .level-1-link.dropdown-toggle {
                 &::after {
                     content: url("../images/header/megamenu-mobile_primary-carat.svg");
                     width: auto;
@@ -262,7 +320,9 @@
                     padding: 0.5625rem 0.3125rem 0.5625rem 2.1875rem;
                     display: inherit;
                     outline: 0;
+                }
 
+                .level-2-link.dropdown-toggle {
                     &::after {
                         content: url("../images/header/megamenu-mobile_secondary-carat.svg");
                         width: auto;
@@ -323,6 +383,11 @@
                 display: none;
             }
         }
+    }
+
+    .bbw-menu.in {
+        left: 0;
+        transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
         .mobile-menu-overlay {
             visibility: visible;
@@ -342,5 +407,27 @@
         transition:
             visibility 0s 0.5s,
             opacity 0.5s linear;
+    }
+}
+
+.input-group-append .btn {
+    z-index: auto;
+}
+
+.utility-links-container {
+    .utility-links {
+        padding-top: 0.75rem;
+        background: colour(gray, 1);
+        padding-bottom: 6.25rem;
+
+        li a {
+            font-weight: map-get($font-weight, bold);
+            font-size: 1rem;
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+            padding: 12px 15px;
+            color: colour(gray);
+            display: block;
+        }
     }
 }

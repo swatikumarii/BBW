@@ -1,5 +1,5 @@
 <button type="submit" class="border-0 h-bg--white add-to-wish-list ${pdict.itemExist ? 'added' : ''}"
     data-href="${URLUtils.url('Wishlist-AddProduct')}" >
-    <img alt="Image" width="40px" height="40px" src="${URLUtils.staticURL('images/pdp/PDP-Wishlist-2.svg')}" />
+    <img alt="Image" src="${URLUtils.staticURL('images/pdp/PDP-Wishlist-2.svg')}" />
 </button>
 

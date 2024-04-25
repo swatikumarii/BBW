@@ -1,11 +1,31 @@
 @import "../_brand/_api/api";
 
 .product-detail {
+    padding: 0 15px;
+
+    @include media-up(sm) {
+        padding: 0 20px;
+    }
+
     .carousel {
-        .carousel-control-next, .carousel-control-prev {
-            z-index: 0;
+        &:hover .carousel-control-next,
+        &:hover .carousel-control-prev {
+            display: flex;
         }
+
+        .carousel-control-next,
+        .carousel-control-prev {
+            display: flex;
+            z-index: 0;
+
+            @include media-up(sm) {
+                display: none;
+            }
+        }
+
         .carousel-indicators {
+            z-index: 0;
+
             li {
                 width: 2.375rem;
             }
@@ -15,8 +35,8 @@
             content: "";
             width: 1.25rem;
             height: 1.25rem;
-            background: url("../../images/pdp/svgexport-12.svg") no-repeat
-                center;
+            background: url("../../images/pdp/svgexport-12.svg");
+            background-repeat: no-repeat;
             background-size: contain;
             right: 0;
             bottom: 3.3125rem;
@@ -38,8 +58,8 @@
                     height: 2rem;
                     z-index: 3;
                     border-radius: 50%;
-                    background: url("../../images/pdp/forgot-password-close.svg")
-                        no-repeat center;
+                    background: url("../../images/pdp/forgot-password-close.svg");
+                    background-repeat: no-repeat;
                     background-size: 0.875rem;
                     cursor: pointer;
                 }
@@ -49,6 +69,9 @@
                     padding: 0.9375rem;
 
                     .carousel-item {
+                        margin-right: 0;
+                        width: auto;
+
                         img {
                             height: calc(100vh - 45px);
                             max-width: none;
@@ -58,6 +81,12 @@
                 }
             }
         }
+    }
+
+    .brand-name {
+        line-height: 1.25rem;
+        letter-spacing: 0.01em;
+        padding-bottom: 0.3125rem;
     }
 
     .product-name {
@@ -102,6 +131,12 @@
             line-height: 1.25rem;
             letter-spacing: 0.005em;
             color: colour(black, 1);
+
+            .b-product-tile__price-link {
+                &:hover {
+                    color: colour(black, 1);
+                }
+            }
         }
     }
 
@@ -118,13 +153,19 @@
             width: 79%;
             margin-bottom: 0.75rem;
 
-            .callout-detail::after {
-                font-size: 0.875rem;
-                line-height: 1rem;
-                color: colour(gray, 4);
-                margin-top: 0.3125rem;
-                text-decoration: underline;
-                content: "Detail";
+            .callout-detail {
+                &::after {
+                    font-size: 0.875rem;
+                    line-height: 1rem;
+                    color: colour(gray, 4);
+                    margin-top: 0.3125rem;
+                    text-decoration: underline;
+                    content: "Detail";
+                }
+
+                .popover-header {
+                    display: none;
+                }
             }
         }
 
@@ -153,8 +194,8 @@
 
                             &::before {
                                 content: "";
-                                background: url("../../images/pdp/bopis-shipping.svg")
-                                    no-repeat;
+                                background: url("../../images/pdp/bopis-shipping.svg");
+                                background-repeat: no-repeat;
                                 background-size: 1.5625rem 0.8rem;
                                 width: 1.5625rem;
                                 height: 0.8rem;
@@ -177,8 +218,8 @@
                             }
 
                             .pdp-pick-up-icon::before {
-                                background: url("../../images/pdp/bopis-icon-small.svg")
-                                    no-repeat;
+                                background: url("../../images/pdp/bopis-icon-small.svg");
+                                background-repeat: no-repeat;
                                 background-size: 1.5625rem 0.8rem;
                                 content: "";
                                 display: flex;
@@ -198,6 +239,14 @@
                         }
                     }
                 }
+            }
+        }
+
+        .product-availability {
+            .list-unstyled {
+                border-bottom: 0.0625rem solid colour(gray, 6);
+                margin-bottom: 1.5625rem;
+                padding-bottom: 1.375rem;
             }
         }
 
@@ -271,7 +320,11 @@
         .social-container {
             .social-icons {
                 padding: 1.0625rem 0 0.1875rem;
-                width: 66%;
+                width: 100%;
+
+                @include media-up(sm) {
+                    width: 66%;
+                }
 
                 li {
                     list-style: none;
@@ -314,10 +367,52 @@
 
     .pdp-wishlist {
         .add-to-wish-list {
-            position: absolute;
-            top: 1.3125rem;
-            right: 0;
-            z-index: 1;
+            float: right;
+            margin-right: -0.1875rem;
+            padding: 0;
+
+            @include media-up(sm) {
+                margin-right: -0.625rem;
+            }
+
+            img {
+                width: 2.375rem;
+                height: 2.25rem;
+                cursor: pointer;
+            }
         }
+    }
+}
+
+.pdp-popover {
+    border: 1px solid colour(gray);
+    box-shadow: 0 0 13px 0 rgba(0, 0, 0, 15%);
+    color: colour(black, 1);
+    padding: 1.5rem 0.5rem 1.5rem 0;
+    overflow-y: initial;
+    left: 5% !important;
+    border-radius: 0;
+
+    .popover-body {
+        overflow-y: scroll;
+        max-height: 6.25rem;
+        padding: 0 1rem;
+    }
+
+    .popover-header {
+        display: none;
+    }
+
+    .arrow {
+        left: 14px !important;
+    }
+
+    .close {
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background-size: 0.8125rem;
     }
 }
