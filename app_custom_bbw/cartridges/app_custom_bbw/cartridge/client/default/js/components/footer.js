@@ -19,10 +19,10 @@ function displayMessage(data, button) {
     }
 
     if ($('.email-signup-message').length === 0) {
-        $('body').append('<div class="email-signup-message"></div>');
+        $('.js-newsletter-msg').append('<div class="email-signup-message"></div>');
     }
     $('.email-signup-message').append(
-        '<div class="email-signup-alert text-center ' +
+        '<div class="email-signup-alert text-justify ' +
         status +
         '">' +
         data.msg +

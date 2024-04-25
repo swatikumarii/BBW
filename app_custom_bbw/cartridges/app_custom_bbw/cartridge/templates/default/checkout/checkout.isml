@@ -1,0 +1,140 @@
+<isdecorate template="common/layout/checkout">
+
+    <iscomment> Load Static Assets </iscomment>
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/checkout.js');
+        assets.addCss('/css/checkout/checkout.css');
+    </isscript>
+
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+    <div class="container">
+        <div class="checkout-steps d-flex justify-content-between">
+            <div class="step-1 h-width-perc--100 step-connect">
+                <span class="step-text h-font-size--14 d-block">${Resource.msg('checkout.step.shipping', 'checkout', null)}</span>
+                <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}">
+                    <span class="d-block step-count h-fw--semibold">
+                        ${Resource.msg('checkout.step.1', 'checkout', null)}
+                    </span>
+                </a>
+            </div>
+            <div class="step-2 h-width-perc--100 step-connect">
+                <span class="step-text h-font-size--14 d-block">${Resource.msg('checkout.step.billing', 'checkout', null)}</span>
+                <span class="d-block step-count h-fw--semibold">
+                    ${Resource.msg('checkout.step.2', 'checkout', null)}
+                </span>
+            </div>
+            <div class="step-3 h-width-perc--100">
+                <span class="step-text h-font-size--14 d-block">${Resource.msg('checkout.step.review', 'checkout', null)}</span>
+                <span class="d-block step-count h-fw--semibold ">
+                    ${Resource.msg('checkout.step.3', 'checkout', null)}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="checkout-main"
+        class="container data-checkout-stage ${pdict.order.usingMultiShipping && pdict.order.shipping.length > 1 ? 'multi-ship' : ''}"
+        data-customer-type="${pdict.customer.registeredUser ? 'registered' : 'guest'}"
+        data-checkout-stage="${pdict.currentStage}" data-checkout-get-url="${URLUtils.https('CheckoutServices-Get')}">
+
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="h-maxwidth-perc--75">
+
+
+                    <iscomment> Checkout Forms: Shipping, Payment, Coupons, Billing, etc </iscomment>
+
+
+                    <div class="alert alert-danger error-message" role="alert">
+                        <p class="error-message-text"></p>
+                    </div>
+
+                    <iscomment> Step 1: Customer </iscomment>
+                    <iscomment>We only allow edits for non-registered customers</iscomment>
+                    <div class="checkout-blocks">
+                        <div class="h-maxwidth-perc--90">
+                            <isinclude template="checkout/customer/customer" />
+                        </div>
+                    </div>
+
+                    <iscomment> Step 2: Shipping </iscomment>
+                    <div class="checkout-blocks">
+                        <div class="h-maxwidth-perc--90">
+                            <isinclude template="checkout/shipping/shipping" />
+                        </div>
+                    </div>
+
+                    <iscomment> Step 3: Payment and Billing </iscomment>
+                    <div class="checkout-blocks">
+                        <div class="h-maxwidth-perc--90">
+                            <isinclude template="checkout/billing/billing" />
+                        </div>
+                    </div>
+                    <div class="card payment-summary">
+                        <div class="card-header clearfix">
+                            <h2 class="pull-left card-header-custom">${Resource.msg('heading.payment', 'checkout', null)}
+                            </h2>
+                            <button class="edit-button pull-right"
+                                aria-label="${Resource.msg('action.edit.step.msg.payment', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
+                        </div>
+
+                        <div class="card-body">
+                            <isinclude template="checkout/billing/billingSummary" />
+                        </div>
+                    </div>
+
+
+                    <iscomment> Checkout Workflow Buttons </iscomment>
+
+                    <div class="row">
+                        <div class="col-12 next-step-button h-pos--relative">
+                            <div class="mb-sm-3">
+                                <button class="btn btn-primary h-clr--white h-fw--semibold h-font-size--16 submit-shipping" type="submit" name="submit"
+                                    value="submit-shipping" ${pdict.order.usingMultiShipping && !pdict.order.shippable ? 'disabled' : ''}>
+                                    ${Resource.msg('button.next.payment', 'checkout', null)}
+                                </button>
+
+                                <button class="btn btn-primary h-clr--white h-fw--semibold h-font-size--16 submit-payment" type="submit" name="submit"
+                                    value="submit-payment">
+                                    ${Resource.msg('button.next.place.order', 'checkout', null)}
+                                </button>
+
+                                <button class="btn btn-primary h-clr--white h-fw--semibold h-font-size--16 place-order"
+                                    data-action="${URLUtils.url('CheckoutServices-PlaceOrder')}" type="submit"
+                                    name="submit" value="place-order">${Resource.msg('button.place.order', 'checkout', null)}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <iscomment> Order Totals, Details and Summary </iscomment>
+
+            <div class="col-sm-4">
+                <div class="card order-summary">
+                    <div class="order-product-summary-wrap">
+                        <isinclude template="checkout/orderProductSummary" />
+                    </div>
+                    <div class="order-total-summary-wrap">
+                        <isinclude template="checkout/orderTotalSummary" />
+                    </div>
+                </div>
+                <div class="shipping-summary card">
+                    <div class="d-flex justify-content-between shipping-summary-header">
+                        <h2 class="h-font-size--18 h-fw--bold h-clr--black-1 ">${Resource.msg('heading.checkout.shipping', 'checkout', null)}</h2>
+                        <button class="edit-button pull-right"
+                            aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
+                    </div>
+                    <isinclude template="checkout/shipping/shippingSummary" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <isinclude template="checkout/shipping/shippingAddressTemplate" />
+
+</isdecorate>

@@ -357,6 +357,7 @@ module.exports = function () {
                     updateApproachingDiscounts(data.basket.approachingDiscounts);
                     $('body').trigger('setShippingMethodSelection', data.basket);
                     validateBasket(data.basket);
+                    $('.item-removed-message').removeClass('d-none');
                 }
 
                 $('body').trigger('cart:update', data);
