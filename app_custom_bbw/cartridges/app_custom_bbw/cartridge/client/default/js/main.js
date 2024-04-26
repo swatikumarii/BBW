@@ -23,5 +23,5 @@ $(document).ready(function () {
 });
 
 require('./thirdParty/bootstrap');
-require('base/components/spinner');
+require('./components/spinner');
 require('./thirdParty/jqueryTicker');
