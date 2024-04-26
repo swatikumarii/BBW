@@ -27,9 +27,9 @@
         }
 
         .sub-heading {
-            line-height: 1.5rem;
+            line-height: 24px;
             letter-spacing: 0.005em;
-            padding: 0 0 0.25rem;
+            padding-bottom: 12px;
             margin: 0 0 0.9375rem;
             border-bottom: 1px solid colour(gray, 1);
         }
@@ -60,6 +60,7 @@
                     label {
                         letter-spacing: 0.01em;
                         padding: 0 0.625em;
+                        line-height: 20px;
                     }
                 }
             }

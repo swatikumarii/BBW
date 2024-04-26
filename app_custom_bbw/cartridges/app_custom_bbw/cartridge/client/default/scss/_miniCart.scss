@@ -59,8 +59,12 @@
             }
         }
 
-        .promo-details {
-            text-decoration: underline;
+        .promo-details-wrap {
+            width: fit-content;
+
+            .promo-details {
+                text-decoration: underline;
+            }
         }
 
         .minicart-footer {
@@ -102,6 +106,74 @@
         .add-to-wish-list {
             span {
                 text-decoration: underline;
+            }
+        }
+    }
+}
+
+.promo-details-tooltip {
+    border: 1px solid;
+    width: 260px;
+    display: block;
+    min-width: 260px;
+    max-height: 400px;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: $clr-white;
+    padding: 24px 0;
+    z-index: 9;
+
+    .promo-details-content {
+        padding: 0 24px 0 16px;
+        overflow-y: scroll;
+    }
+
+    .tooltip-arrow {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #000;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: -11px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid white;
+        }
+    }
+}
+
+.empty-minicart {
+    padding: 30px 42px;
+    letter-spacing: 0.2px;
+}
+
+.empty-minicart-footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    .minicart-login {
+        padding: 25px;
+
+        .minicart-login-btn {
+            color: $clr-blue;
+
+            &:hover {
+                color: $clr-white;
+                background: $clr-blue;
             }
         }
     }

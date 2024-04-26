@@ -1,12 +1,17 @@
 <div class="row search__breadcrumb-wrapper no-gutters h-maxwidth--1400 mx-auto">
     <div class="col-12">
         <div class="search__breadcrumb d-flex">
-            <div class="search__breadcrumb__home-link">
-                <a class="b-link--underlined h-clr--gray-4" href="${URLUtils.url('Home-Show')}">${Resource.msg('breadcrumb.link.home', 'search', null)}</a>
-            </div>
-            <div class="search__breadcrumb__category-name">
-                <span class="h-clr--gray-4">${pdict.productSearch.category.name}</span>
-            </div>
+            <isloop items="${pdict.breadcrumbs}" var="breadcrumbValue" status="loopState">
+                <isif condition="${loopState.last}">
+                    <div class="search__breadcrumb__category-name">
+                        <span class="h-clr--gray-4">${breadcrumbValue.htmlValue}</span>
+                    </div>
+                <iselse/>
+                    <div class="search__breadcrumb__home-link">
+                        <a class="b-link--underlined h-clr--gray-4" href="${breadcrumbValue.url}" hreflang="${request.getLocale()}">${breadcrumbValue.htmlValue}</a>
+                    </div>
+                </isif>
+            </isloop>
         </div>
     </div>
 </div>

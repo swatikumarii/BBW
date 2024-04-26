@@ -52,3 +52,7 @@
         </isloop>
     </div>
 </div>
+
+<div class="refinements-close-wrapper">
+    <button class="close w-100 btn h-bg--black-3 h-clr--white h-fw--semibold h-font-size--16">${Resource.msg('label.btn.done', 'search', null)}</button>
+</div>

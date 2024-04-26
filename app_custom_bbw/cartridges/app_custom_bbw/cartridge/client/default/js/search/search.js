@@ -135,9 +135,29 @@ function searchAlphabetSort() {
         // Check if we need to add a new header
         if (firstLetter !== currentLetter) {
             currentLetter = firstLetter;
-            $('<li class="fragrance-filter-header h-bg--gray-1 h-pl--25"></li>').text(currentLetter).css('font-weight', 'bold').insertBefore(this);
+            $('<li class="fragrance-filter-header h-bg--gray-1 h-pl--25 h-fw--bold"></li>').text(currentLetter).css('font-weight', 'bold').insertBefore(this);
         }
     });
+}
+
+/**
+ * Checks the current active item in a carousel slider and adjusts control visibility accordingly.
+ * @param {jQuery|string|Element} slider - The jQuery object, selector, or DOM element of the slider.
+ */
+function checkitem(slider) {
+    if ($(slider).find('.carousel-inner .carousel-item:first').hasClass('active')) {
+        // But show right arrow
+        $(slider).find('.carousel-control-next').show();
+        // Hide left arrow
+        $(slider).find('.carousel-control-prev').hide();
+    } else if ($(slider).find('.carousel-inner .carousel-item:last').hasClass('active')) {
+        // Hide right arrow
+        $(slider).find('.carousel-control-prev').show();
+        // But show left arrow
+        $(slider).find('.carousel-control-next').hide();
+    } else {
+        $(slider).find('.slider-control').show();
+    }
 }
 
 module.exports = {
@@ -151,7 +171,7 @@ module.exports = {
         // Display refinements bar when Menu icon clicked
         $('.container').on('click', 'button.filter-results', function () {
             helpers.disableScroll();
-            $('.refinement-bar, .modal-background').show();
+            $('.refinement-bar, .modal-background').addClass('active');
             $('.refinement-bar').siblings().attr('aria-hidden', true);
             $('.refinement-bar').closest('.row').siblings().attr('aria-hidden', true);
             $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', true);
@@ -163,7 +183,7 @@ module.exports = {
     closeRefinements: function () {
         // Refinements close button
         $('.container').on('click', '.refinement-bar button.close, .modal-background', function () {
-            $('.refinement-bar, .modal-background').hide();
+            $('.refinement-bar, .modal-background').removeClass('active');
             $('.refinement-bar').siblings().attr('aria-hidden', false);
             $('.refinement-bar').closest('.row').siblings().attr('aria-hidden', false);
             $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', false);
@@ -323,5 +343,27 @@ module.exports = {
             var filterParentId = $(this).data('parent');
             $(filterParentId).collapse('toggle');
         });
+    },
+
+    hideCarouselArrow: function () {
+        $('.b-product-tile__carousel').each(function () {
+            var sliderId = '#' + $(this).attr('id');
+            $(sliderId).on('slid.bs.carousel', function () {
+                checkitem(sliderId);
+            });
+            checkitem(sliderId);
+        });
+        $('.b-product-tile__carousel').carousel({
+            wrap: false
+        });
+    },
+
+    handleOutSideClick: function () {
+        $(document).on('mouseleave', '.js-product-tile', debounce(function () {
+            if ($(this).find('.js-product-carousel').length > 0) {
+                var sliderId = '#' + $(this).find('.js-product-carousel').attr('id');
+                $(sliderId).carousel(0);
+            }
+        }, 500));
     }
 };
