@@ -30,6 +30,7 @@
             background: colour(black, 3);
             box-shadow: 0 0 8px rgba(51, 51, 51, 15%);
             border-color: colour(black, 3);
+            order: -1;
 
             .plp-category-swiper__name {
                 color: colour(white);
