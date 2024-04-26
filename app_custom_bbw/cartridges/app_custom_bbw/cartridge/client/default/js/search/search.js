@@ -338,13 +338,6 @@ module.exports = {
         }, 500));
     },
 
-    closeFilter: function () {
-        $(document).on('click', '.filter-close', function () {
-            var filterParentId = $(this).data('parent');
-            $(filterParentId).collapse('toggle');
-        });
-    },
-
     hideCarouselArrow: function () {
         $('.b-product-tile__carousel').each(function () {
             var sliderId = '#' + $(this).attr('id');
