@@ -35,13 +35,15 @@
         <div class="m-grid-contain">
             <isloop items="${pdict.blog.onlineSubFolders}" var="folder" status="loopstatus" begin=0>
                 <div class="blog_list mt-5">
+                   <div class="head-img d-flex align-items-center"> 
                     <isif condition="${folder.custom.isShow === true}">
-                        <div class="head-img d-flex align-items-center">
-                            <img class="folder_content" width="100%" src="${folder.custom.image.absURL}"
-                                alt="${folder.displayName}" />
-                            <h2 class="head-feature text-uppercase  h-fw--bold">${folder.displayName}</h2>
+                        <div class=" d-flex align-items-center">
+                            <img class="folder_content" width="100%" src="${folder.custom.image.absURL}" alt="${folder.displayName}" />
                         </div>
                     </isif>
+                    <h2 class="head-feature text-uppercase  h-fw--bold">${folder.displayName}</h2>
+                   </div>
+
 
                     <div class="m-grid-contain-childblog d-flex flex-wrap justify-content-between">
                         <isloop items="${folder.onlineContent}" var="content" status="loopstatus" begin=0>

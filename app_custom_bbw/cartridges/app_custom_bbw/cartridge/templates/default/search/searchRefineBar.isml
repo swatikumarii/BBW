@@ -26,36 +26,33 @@
         <isloop items="${pdict.productSearch.refinements}" var="refinement">
             <div
                 class="card collapsible-sm d-md-none refinement refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')} border-0 mb-0">
-                <div class="card-header col-sm-12 d-md-none h-bg--white">
+                <div class="card-header col-sm-12 d-md-none">
                     <button
                         class="title text-left d-md-none px-0 d-flex align-items-center w-100 h-font-size--18 h-fw--bold h-clr--black-1"
-                        aria-controls="refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')}"
+                        aria-controls="${refinement.displayName.toLowerCase().replace(/ /g, '-')}"
                         aria-expanded="false">
                         <span>${refinement.displayName}</span>
                     </button>
                     <h2 aria-label="${refinement.displayName}" class="d-none d-md-block">
                         ${refinement.displayName}</h2>
                 </div>
-                <div class="card-body content value p-md-0"
-                    id="refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')}">
-                    <!--- CATEGORY REFINEMENTS --->
 
-                    <isif condition="${refinement.isCategoryRefinement}">
-                        <isset name="categories" value="${refinement.values}" scope="page" />
-                        <isinclude template="search/refinements/categories" />
-                    </isif>
-
-                    <!--- ATTRIBUTE REFINEMENTS --->
+                <div id="${refinement.displayName.toLowerCase().replace(/ /g, '-')}"
+                    class="filter-list-wrapper card-body content value p-md-0 ${refinement.displayName.toLowerCase().replace(/ /g, '-')}" aria-labelledby="" data-parent="#filters-refinements">
                     <isif condition="${refinement.isAttributeRefinement || refinement.isPromotionRefinement}">
                         <isinclude template="search/refinements/attributes" />
                     </isif>
-
-                    <!--- PRICE REFINEMENTS --->
-                    <isif condition="${refinement.isPriceRefinement}">
-                        <isinclude template="search/refinements/prices" />
-                    </isif>
                 </div>
+            </div>
+            <!--- Mobile - Selected filters bar --->
+            <div
+                class="col-12 d-md-none selected-filter-mobile px-0 ${pdict.productSearch.selectedFilters.length > 0 ? 'd-block' : 'd-none'}">
+                <isinclude template="search/filterBar" />
             </div>
         </isloop>
     </div>
+</div>
+
+<div class="refinements-close-wrapper">
+    <button class="close w-100 btn h-bg--black-3 h-clr--white h-fw--semibold h-font-size--16">${Resource.msg('label.btn.done', 'search', null)}</button>
 </div>
