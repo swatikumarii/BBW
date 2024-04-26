@@ -6,10 +6,10 @@
 var server = require('server');
 
 /**
- * Site-Map : The Site-Map endpoint will show categories list
- * @name Site-Map
+ * Site-Show : The Site-Show endpoint will show categories list
+ * @name Site-Show
  */
-server.get('Map', function (req, res, next) {
+server.get('Show', function (req, res, next) {
     var catalogMgr = require('dw/catalog/CatalogMgr');
     var siteRootCategory = catalogMgr.getSiteCatalog().getRoot();
 
@@ -17,7 +17,7 @@ server.get('Map', function (req, res, next) {
         ? siteRootCategory.getOnlineSubCategories()
         : null;
 
-    res.render('/site/siteMap', { categories: topLevelCategories });
+    res.render('/sitemap/siteMap', { categories: topLevelCategories });
     next();
 });
 
