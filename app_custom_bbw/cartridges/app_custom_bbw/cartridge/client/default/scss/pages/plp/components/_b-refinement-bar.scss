@@ -20,13 +20,13 @@
     overflow: auto;
     background-color: colour(white);
     box-shadow: none;
+    bottom: -100%;
     width: 100%;
     height: 100%;
-    display: none;
     left: 0;
-    top: 0;
     z-index: 1;
     position: fixed;
+    transition: bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     @include media-up(sm) {
         display: none !important;
@@ -54,9 +54,10 @@
     .refinements-wrapper {
         .refinements {
             ul {
-                li:not(.filter-value),
-                li:not(.fragrance-filter-header, .filter-value) {
-                    padding: 10px 22px;
+                li {
+                    &:not(.fragrance-filter-header, .filter-value) {
+                        padding: 10px 22px;
+                    }
                 }
             }
 
@@ -164,6 +165,28 @@
             }
         }
     }
+
+    &.active {
+        bottom: 0;
+
+        // Mobile Refinement - Done Button
+        .refinements-close-wrapper {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            padding: 20px;
+            width: 100%;
+            border-top: 1px solid colour(gray, 6);
+            background: colour(white);
+            box-sizing: border-box;
+
+            .btn {
+                letter-spacing: 0.015em;
+                text-transform: uppercase;
+                opacity: 1;
+            }
+        }
+    }
 }
 
 // Mobile Filters
@@ -239,7 +262,7 @@
                         }
 
                         .fragrance-filter-header {
-                            line-height: normal;
+                            line-height: 1.125rem;
                             margin: 0 -10px;
                         }
                     }
