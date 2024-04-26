@@ -11,11 +11,16 @@
         </isif>
 
         <isif condition="${showDescription}">
-            <div class="info-icon promo-details h-font-size--${miniCart ? '12' : '14'}">
-                ${Resource.msg('label.promo.details', 'cart', null)}
-            </div>
-            <div class="tooltip d-none">
-                <isprint value="${appliedPromotion.details}" encoding="off" />
+            <div class="h-pos--relative d-flex flex-column justify-content-center promo-details-wrap">
+                <span class="callout-detail promo-details h-font-size--${miniCart ? '12' : '14'} p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block">
+                    ${Resource.msg('label.promo.details', 'cart', null)}
+                </span>
+                <span class="promo-details-tooltip" style="display:none">
+                    <div class="tooltip-arrow"></div>
+                    <div class="promo-details-content">
+                        <isprint value="${appliedPromotion.details}" encoding="off" />
+                    </div>
+                </span>
             </div>
         </isif>
     </isloop>

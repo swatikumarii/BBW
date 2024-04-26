@@ -71,4 +71,26 @@ module.exports = function () {
     $('body').on('cart:update', function () {
         updateMiniCart = true;
     });
+
+    $(document).on(
+        'mouseenter',
+        '.promo-details, .promo-details-tooltip',
+        function () {
+            var tooltip = $(this)
+                .closest('.promo-details-wrap')
+                .find('.promo-details-tooltip');
+            tooltip.show();
+        }
+    );
+
+    $(document).on(
+        'mouseleave',
+        '.promo-details, .promo-details-tooltip',
+        function () {
+            var tooltip = $(this)
+                .closest('.promo-details-wrap')
+                .find('.promo-details-tooltip');
+            tooltip.hide();
+        }
+    );
 };

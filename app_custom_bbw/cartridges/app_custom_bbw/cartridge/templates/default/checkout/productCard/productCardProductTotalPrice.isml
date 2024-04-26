@@ -2,7 +2,7 @@
     <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID} h-font-size--14 h-fw--bold h-clr--black-1">${Resource.msg('label.free.price', 'cart', null)}</div>
 <iselse/>
     <isif condition="${'nonAdjustedPrice' in lineItem.priceTotal}">
-        <div class="strike-through">
+        <div class="strike-through h-clr--black-1">
             ${lineItem.priceTotal.nonAdjustedPrice}
         </div>
     </isif>
