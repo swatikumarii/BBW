@@ -15,25 +15,29 @@
                         </fieldset>
                     </div>
                 </div>
-                <ul class="clearfix" role="list">
-                    <isset name="previousAlphabet" value="0" scope="page" />
-                    <isloop iterator="${pdict.ingredientsNames}" alias="ingredientsNames" status="loopstate">
-                        <isif condition="${previousAlphabet !== ingredientsNames.alphabet}">
-                            <div id="${ingredientsNames.alphabet}" class="level-1-${ingredientsNames.alphabet}">
-                                <h3 class="title">${ingredientsNames.alphabet}</h3>
-                                <div class="alphabet-border"></div>
+                <div class="row">
+                    <div class="col-12 ">
+                        <isloop iterator="${pdict.ingredientsNames}" alias="ingredientGroup" status="loopstate">
+                            <div id="${ingredientGroup.key}" class="alphabet-group-${ingredientGroup.key}">
+                                <div class="level-1-${ingredientGroup.key} static-level h-width-perc--80 text-justify">
+                                    <h3 class="title m-0 p-0">${ingredientGroup.key}</h3>
+                                    <div class="alphabet-border"></div>
+                                </div>
+                                <ul>
+                                    <isloop iterator="${ingredientGroup.value}" alias="ingredient" status="loopstate">
+                                        <li class="level-2 text-justify mt-3 mb-3">
+                                            <a class="h-clr--black-3"
+                                                href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'ingredients', 'prefv1', ingredient.name)}"
+                                                data-ingredientname="${ingredient.name}">
+                                                ${ingredient.name}</a>
+                                        </li>
+                                    </isloop>
+                                </ul>
                             </div>
-                        </isif>
-                        <li class="level-2">
-                            <a href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'ingredients', 'prefv1', ingredientsNames.name)}"
-                                data-ingredientname="${ingredientsNames.name}">
-                                ${ingredientsNames.name}</a>
-                        </li>
-                        <isset name="previousAlphabet" value="${ingredientsNames.alphabet}" scope="page" />
-                    </isloop>
-                </ul>
-                <div class="noresult" id="noresult">${Resource.msg('ingredient.name.noresult', 'fragrance', null)}
+                        </isloop>
+                    </div>
                 </div>
+                <div class="noresult" id="noresult">${Resource.msg('ingredient.name.noresult', 'fragrance', null)}</div>
             <iselse>
                 <div class="nofragrance">${Resource.msg('ingredient.name.empty', 'fragrance', null)}</div>
             </isif>

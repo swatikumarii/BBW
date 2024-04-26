@@ -1,0 +1,56 @@
+<div class="filter-bar-desktop h-hidden-sm-down">
+    <div class="row justify-content-between ${pdict.productSearch.selectedFilters.length > 0 ? 'align-items-start' : 'align-items-center'} no-gutters">
+        <div class="filter-bar-desktop__filters no-gutters d-flex h-bg--gray-1 w-100 flex-nowrap h-clr--black-1 ${pdict.productSearch.selectedFilters.length > 0 ? 'align-items-start' : 'align-items-center'}"
+            id="filters-refinements">
+            <div class="filters-title filters-title b-text-h2 h-fw--bold col-1">
+                ${Resource.msg('label.refinements', 'search', null)}
+                <isif condition="${pdict.productSearch.selectedFilters.length > 0}">
+                    <button class="reset reset-filters text-center h-font-size--14 h-mt--10" data-href="${pdict.productSearch.resetLink}" data-seo-href="${pdict.productSearch.resetLinkSeo || pdict.productSearch.resetLink}">
+                        ${Resource.msg('link.reset', 'search', null)}
+                    </button>
+                </isif>
+            </div>
+            <div class="filters-refinements row no-gutters h-grid-gap--20 w-100">
+                <isloop items="${pdict.productSearch.refinements}" var="refinement">
+                    <div class="filter-type filter-${refinement.displayName.toLowerCase().replace(/ /g, '-')} position-relative"
+                        id="filter-${refinement.displayName.toLowerCase().replace(/ /g, '-')}">
+                        <h3 class="ref-toggle mb-0 b-text-body-2-bold d-flex align-items-center justify-content-between"
+                            aria-label="filter" tabindex="0" data-toggle="collapse"
+                            data-target="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-')}"
+                            aria-expanded="false" aria-controls="filter">
+                            ${refinement.displayName}
+                            <i class="ref-toggle__icon d-inline-block"></i>
+                        </h3>
+                        <div id="${refinement.displayName.toLowerCase().replace(/ /g, '-')}"
+                            class="filter-list-wrapper collapse h-bg--white position-absolute w-100 ${refinement.displayName.toLowerCase().replace(/ /g, '-')}" aria-labelledby=""
+                            data-parent="#filters-refinements">
+                            <isinclude template="search/refinements/attributes" />
+                            <div class="close-button w-100">
+                                <button
+                                    class="btn btn-hover d-flex align-items-center justify-content-center h-font-size--16 h-fw--semibold text-uppercase mx-auto w-100 filter-close" data-parent="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-')}">
+                                    ${Resource.msg('label.btn.done', 'search', null)}
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-12 filter-bar px-0 ${pdict.productSearch.selectedFilters.length > 0 ? 'd-block' : 'd-none'}">
+                            <isinclude template="search/filterBar" />
+                        </div>
+                    </div>
+                </isloop>
+            </div>
+        </div>
+        <div class="filter-bar-desktop__sortby col-2">
+            <isif condition="${pdict.productSearch.productIds.length > 0}">
+                <select name="sort-order" class="w-100 sort-filter b-text-body-2-bold h-clr--black-1 text-capitalize"
+                    aria-label="${Resource.msg('label.sort.by', 'search', null)}">
+                    <isloop items="${pdict.productSearch.productSort.options}" var="option">
+                        <option class="${option.id}" value="${option.url}" data-id="${option.id}"
+                            ${pdict.productSearch.productSort.ruleId === option.id ? 'selected' : ''}>
+                            ${option.displayName}
+                        </option>
+                    </isloop>
+                </select>
+            </isif>
+        </div>
+    </div>
+</div>

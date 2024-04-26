@@ -1,0 +1,26 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+<isif condition="${slotcontent}">
+    <div class="minicart-recommendation-slider">
+        <div class="minicart-recommendation">
+            <div class="recommendations">
+                <span class="slot-callout">${slotcontent.calloutMsg}</span>
+                <button type="button" class="collapse-arrow" tabindex="-1">
+                    <span class="sr-only">${Resource.msg('minicart.flyout.close', 'cart', null)}</span>
+                </button>
+                <div class="sidepanel-product-listing">
+                    <isloop items="${slotcontent.content}" var="product" begin="0" end="6">
+                        <div class="item">
+                            <div class="product" data-pid="${product.ID}">
+                                <isobject object="${product}" view="recommendation">
+                                    <isinclude
+                                        url="${URLUtils.url('Tile-Show', 'pid', product.ID)}" />
+                                </isobject>
+                            </div>
+                        </div>
+                    </isloop>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</isif>

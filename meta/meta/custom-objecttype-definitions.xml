@@ -570,4 +570,96 @@
             </attribute-group>
         </group-definitions>
     </custom-type>
+
+    <custom-type type-id="corporateGifting">
+        <display-name xml:lang="x-default">Corporate Gifting</display-name>
+        <description xml:lang="x-default">corporates query for corporate gifting purposes</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="id">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="company">
+                <display-name xml:lang="x-default">Company Name</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="email">
+                <display-name xml:lang="x-default">Email</display-name>
+                <type>email</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="firstName">
+                <display-name xml:lang="x-default">First Name</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastName">
+                <display-name xml:lang="x-default">Last Name</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="phone">
+                <display-name xml:lang="x-default">Phone Number</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="question">
+                <display-name xml:lang="x-default">Question</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="topic">
+                <display-name xml:lang="x-default">Topic</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="vat">
+                <display-name xml:lang="x-default">VAT</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="attributes">
+                <display-name xml:lang="x-default">Attributes</display-name>
+                <attribute attribute-id="id"/>
+                <attribute attribute-id="lastModified" system="true"/>
+                <attribute attribute-id="firstName"/>
+                <attribute attribute-id="creationDate" system="true"/>
+                <attribute attribute-id="email"/>
+                <attribute attribute-id="lastName"/>
+                <attribute attribute-id="topic"/>
+                <attribute attribute-id="vat"/>
+                <attribute attribute-id="phone"/>
+                <attribute attribute-id="company"/>
+                <attribute attribute-id="question"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
 </metadata>

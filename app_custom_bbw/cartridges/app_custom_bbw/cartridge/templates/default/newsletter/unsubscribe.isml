@@ -1,59 +1,108 @@
 <isdecorate template="common/layout/page">
-    <div class="row">
-        <div class="col-sm-6 offset-sm-4 mt-5">
-            <h2>${Resource.msg('unsubscribe.heading', 'newsletter', null)}</h2>
-            <p>${Resource.msg('unsubscribe.sub1', 'newsletter', null)}</p>
-        </div>
-        <div class="col-sm-6 offset-sm-4">
-            <form action="${pdict.changeFreqURL}" class="changeFreq" method="POST" name="changeFreq-form">
-                <div class="form-group required">
-                    <label for="email">
-                        ${Resource.msg('unsubscribe.sub2', 'newsletter', null)}
-                    </label>
-                    <select name="emailFrequency" class="form-control required" id="emailFrequency">
-                        <isloop items=${pdict.emailFrequency} var="emailFrequency">
-                            <option id="${emailFrequency.value}" value="${emailFrequency.value}">
-                                ${emailFrequency.displayValue}</option>
-                        </isloop>
-                    </select>
-                </div>
+    <div class="py-5" style="text-align: -webkit-center">
+        <table border="0" cellpadding="0" cellspacing="0" width="875">
+            <tbody>
+                <tr>
+                    <td width="638" align="left" valign="top" style="border: 1px solid #cccccc;" class="p-5">
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tbody>
+                                <tr>
+                                    <td width="558" align="left" valign="top" class="unsubscribe-email">
+                                        <h2 class="h-font-size--28 h-fw--bold">${Resource.msg('unsubscribe.heading', 'newsletter', null)}</h2>
+                                        <p class="h-clr--black-3 h-font-size--18">${Resource.msg('unsubscribe.sub1', 'newsletter', null)}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="558" align="left" valign="top" class="unsubscribe-email"
+                                        style="font-family: Trade Gothic LT Std, Arial, Helvetica, sans-serif; font-size:12px; line-height:15px; color:#333333; font-weight:light; padding:15px 0px 5px 0px;">
+                                        <form action="${pdict.changeFreqURL}" class="changeFreq" method="POST"
+                                            name="changeFreq-form">
+                                            <div class="form-group received-email-section required">
+                                                <label for="email" class="h-clr--black-3 mb-0">
+                                                    ${Resource.msg('unsubscribe.sub2', 'newsletter', null)}
+                                                </label>
+                                                <select name="emailFrequency"
+                                                    class="form-control h-clr--black-3 h-auto h-width-perc--20 h-bdc--black required"
+                                                    id="emailFrequency">
+                                                    <isloop items=${pdict.emailFrequency} var="emailFrequency">
+                                                        <option id="${emailFrequency.value}"
+                                                            value="${emailFrequency.value}">
+                                                            ${emailFrequency.displayValue}</option>
+                                                    </isloop>
+                                                </select>
+                                            </div>
 
-                <div class="form-group required">
-                    <label for="email">
-                        ${Resource.msg('label.input.unsubscribe.email', 'newsletter', null)}
-                    </label>
-                    <input type="email" id="userEmail" required aria-required="true" class="form-control required"
-                        aria-describedby="form-email-error" name="userEmail" value="${pdict.email}"
-                        placeholder="${Resource.msg('label.input.unsubscribe.email', 'newsletter', null)}" readonly>
-                    <div class="invalid-feedback" id="form-email-error"></div>
-                </div>
-                <input type="hidden" name="userId" value="${pdict.id}" />
-                <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
-                <button type="submit" class="btn btn-block btn-primary">${Resource.msg('button.change.frequency', 'newsletter', null)}</button>
-            </form>
-        </div>
-        <div class="col-sm-6 offset-sm-4 mt-5">
-            <h2>${Resource.msg('unsubscribe.sub3', 'newsletter', null)}</h2>
-            <p>${Resource.msg('unsubscribe.sub4', 'newsletter', null)}</p>
-        </div>
-        <div class="col-sm-6 offset-sm-4">
-            <form action="${pdict.actionUrl}" class="unsubscribe" method="POST" name="unsubscribe-form">
-                <div class="form-group required">
-                    <label for="email">
-                        ${Resource.msg('label.input.unsubscribe.email', 'newsletter', null)}
-                    </label>
-                    <input type="email" id="userEmail" required aria-required="true" class="form-control required"
-                        aria-describedby="form-email-error" name="userEmail" value="${pdict.email}"
-                        placeholder="${Resource.msg('label.input.unsubscribe.email', 'newsletter', null)}" readonly>
-                    <div class="invalid-feedback" id="form-email-error"></div>
-                </div>
-                <input type="hidden" name="userId" value="${pdict.id}" />
-                <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
-                <button type="submit" class="btn btn-block btn-primary">${Resource.msg('button.unsubscribe', 'newsletter', null)}</button>
-            </form>
-        </div>
-        <div class="col-sm-6 offset-sm-4 mt-5">
-            <p>${Resource.msg('unsubscribe.sub5', 'newsletter', null)}</p>
-        </div>
+                                            <div class="form-group required email-field-section">
+                                                <label for="email" class="h-font-size--18 mb-1 h-clr--black-3">
+                                                    ${Resource.msg('label.input.unsubscribe.email', 'newsletter', null)}
+                                                </label>
+                                                <input type="email" id="userEmail" required aria-required="true"
+                                                    class="form-control h-font-size--16 email-fld h-width-perc--45 bg-transparent required"
+                                                    aria-describedby="form-email-error" name="userEmail"
+                                                    value="${pdict.email}"
+                                                    placeholder="${Resource.msg('label.input.unsubscribe.email', 'newsletter', null)}"
+                                                    readonly>
+                                                <div class="invalid-feedback" id="form-email-error"></div>
+                                            </div>
+                                            <input type="hidden" name="userId" value="${pdict.id}" />
+                                            <input type="hidden" name="${pdict.csrf.tokenName}"
+                                                value="${pdict.csrf.token}" />
+                                            <button type="submit"
+                                                class=" h-width-perc--20  email-submit-btn text-uppercase btn btn-block btn-primary">${Resource.msg('button.change.frequency', 'newsletter', null)}</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="558" align="left" valign="top" class="unsubscribe-email"
+                                        style="padding: 20px 0px 0px 0px;">
+                                        <h2 class="h-font-size--18 h-fw--normal h-clr--black-3 mt-3">
+                                            ${Resource.msg('unsubscribe.sub3', 'newsletter', null)}
+                                        </h2>
+                                        <p class="h-clr--black-3">${Resource.msg('unsubscribe.sub4', 'newsletter', null)}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="558" align="left" valign="top" class="unsubscribe-email">
+                                        <form action="${pdict.actionUrl}" class="unsubscribe" method="POST"
+                                            name="unsubscribe-form">
+                                            <div class="form-group required email-field-section">
+                                                <label for="email" class="h-font-size--18 mb-1 h-clr--black-3">
+                                                    ${Resource.msg('label.input.unsubscribe.email', 'newsletter', null)}
+                                                </label>
+                                                <input type="email" id="userEmail" required aria-required="true"
+                                                    class="form-control h-font-size--16 email-fld h-width-perc--45 bg-transparent required"
+                                                    aria-describedby="form-email-error" name="userEmail"
+                                                    value="${pdict.email}"
+                                                    placeholder="${Resource.msg('label.input.unsubscribe.email', 'newsletter', null)}"
+                                                    readonly>
+                                                <div class="invalid-feedback" id="form-email-error"></div>
+                                            </div>
+                                            <input type="hidden" name="userId" value="${pdict.id}" />
+                                            <input type="hidden" name="${pdict.csrf.tokenName}"
+                                                value="${pdict.csrf.token}" />
+                                            <button type="submit"
+                                                class="h-width-perc--25  email-submit-btn text-uppercase btn btn-block btn-primary">${Resource.msg('button.unsubscribe', 'newsletter', null)}</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="558" align="left" valign="top" class="unsubscribe-email applelinks"
+                                        style="font-family: Trade Gothic LT Std, Arial, Helvetica, sans-serif; font-size:11px; line-height:15px; color:#333333; font-weight:light; padding:15px 0px 0px 0px;">
+                                        <p class="unsubscribe-msg h-clr--black-3 h-fw--normal">
+                                            ${Resource.msg('unsubscribe.sub5', 'newsletter', null)}</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </td>
+                    <td width="223" align="left" valign="top"
+                        style="border: 1px solid #cccccc; background-image:url(https://image.e2.bathandbodyworks.com/lib/fe9213737561047a72/m/1/20150604_bww_gingham.jpg); background-repeat:repeat-y;">
+                        <img alt="" src="https://image.e2.bathandbodyworks.com/lib/fe9213737561047a72/m/1/spacer.gif"
+                            width="223" height="10" border="0" style="display: block;">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </isdecorate>

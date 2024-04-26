@@ -1,11 +1,32 @@
 <form action="${pdict.createAccountUrl}" class="registration" method="POST" name="${pdict.profileForm.htmlName}">
+    <div class="form-group <isif condition=" ${!!pdict.profileForm.customer.salutation.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-salutation">
+            <isprint value="${pdict.profileForm.customer.salutation.label}" encoding="htmlcontent" />
+        </label>
+        <select class="form-control salutation selectric-dropdown salutation-hide" id="registration-form-salutation"
+            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}" <isprint
+            value="${pdict.profileForm.customer.salutation.attributes}" encoding="off" />>
+            <option value=""> ${Resource.msg('label.select.salutation.profile', 'forms', null)} </option>
+            <option value="Mr" <isif condition="${pdict.profileForm.salutation.htmlValue == "Mr"}">selected</isif>
+            >${Resource.msg('label.select.mr.salutation.profile', 'forms', null)}
+            </option>
+            <option value="Mrs" <isif condition="${pdict.profileForm.salutation.htmlValue == "Mrs"}">
+            selected</isif>>${Resource.msg('label.select.mrs.salutation.profile', 'forms', null)}</option>
+            <option value="Miss" <isif condition="${pdict.profileForm.salutation.htmlValue == "Miss"}">selected</isif>>
+                ${Resource.msg('label.select.miss.salutation.profile', 'forms', null)}
+            </option>
+        </select>
+        <div class="invalid-feedback" id="form-salutation-error"></div>
+    </div>
     <div class="form-group <isif condition=" ${!!pdict.profileForm.customer.firstname.mandatory === true}">required</isif>">
         <label class="form-control-label" for="registration-form-fname">
             <isprint value="${pdict.profileForm.customer.firstname.label}" encoding="htmlcontent" />
         </label>
         <input type="text" class="form-control" id="registration-form-fname"
-            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
-            data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
+            data-missing-error="${Resource.msg('error.message.fname.required', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.fname.2orGreater', 'forms', null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.parse.fname', 'forms', null)}"
             aria-describedby="form-fname-error" <isprint value=${pdict.profileForm.customer.firstname.attributes}
             encoding="off" /> />
         <div class="invalid-feedback" id="form-fname-error"></div>
@@ -16,8 +37,9 @@
             <isprint value="${pdict.profileForm.customer.lastname.label}" encoding="htmlcontent" />
         </label>
         <input type="text" class="form-control" id="registration-form-lname"
-            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
-            data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
+            data-missing-error="${Resource.msg('error.message.lname.required', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.lname.2orGreater', 'forms', null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.parse.lname', 'forms', null)}"
             aria-describedby="form-lname-error" <isprint value=${pdict.profileForm.customer.lastname.attributes}
             encoding="off" />/>
         <div class="invalid-feedback" id="form-lname-error"></div>
@@ -28,6 +50,7 @@
             <isprint value="${pdict.profileForm.customer.phone.label}" encoding="htmlcontent" />
         </label>
         <input type="tel" class="form-control" id="registration-form-phone"
+            initOptions.allowDropdown="true"
             data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
             data-pattern-mismatch="${Resource.msg('error.message.parse.phone.profile.form', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
@@ -42,9 +65,9 @@
             <isprint value="${pdict.profileForm.customer.email.label}" encoding="htmlcontent" />
         </label>
         <input type="text" class="form-control" id="registration-form-email"
-            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
-            data-pattern-mismatch="${Resource.msg('error.message.parse.email.profile.form', 'forms', null)}"
-            data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
+            data-missing-error="${Resource.msg('error.message.email.required', 'forms', null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.parse.email', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.email.50orless', 'forms', null)}"
             aria-describedby="form-email-error" <isprint value=${pdict.profileForm.customer.email.attributes}
             encoding="off" />>
         <div class="invalid-feedback" id="form-email-error"></div>
@@ -55,9 +78,9 @@
             <isprint value="${pdict.profileForm.customer.emailconfirm.label}" encoding="htmlcontent" />
         </label>
         <input type="text" class="form-control" id="registration-form-email-confirm"
-            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
-            data-pattern-mismatch="${Resource.msg('error.message.parse.email.profile.form', 'forms', null)}"
-            data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
+            data-missing-error="${Resource.msg('error.message.email.required', 'forms', null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.parse.email', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.email.50orless', 'forms', null)}"
             aria-describedby="form-email-confirm-error" <isprint
             value=${pdict.profileForm.customer.emailconfirm.attributes} encoding="off" />/>
         <div class="invalid-feedback" id="form-email-confirm-error"></div>
@@ -68,8 +91,8 @@
             <isprint value="${pdict.profileForm.login.password.label}" encoding="htmlcontent" />
         </label>
         <input type="password" class="form-control" id="registration-form-password"
-            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
-            data-range-error="${Resource.msg('error.message.8_255characters', 'forms', null)}"
+            data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.password.8_50characters', 'forms', null)}"
             aria-describedby="form-password-error" autocomplete="off" <isprint
             value=${pdict.profileForm.login.password.attributes} encoding="off" />/>
         <div class="invalid-feedback" id="form-password-error"></div>
@@ -80,13 +103,69 @@
             <isprint value="${pdict.profileForm.login.passwordconfirm.label}" encoding="htmlcontent" />
         </label>
         <input type="password" class="form-control" id="registration-form-password-confirm"
-            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
-            data-range-error="${Resource.msg('error.message.8_255characters', 'forms', null)}"
+            data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.password.8_50characters', 'forms', null)}"
             aria-describedby="form-password-confirm-error" autocomplete="off" <isprint
             value=${pdict.profileForm.login.passwordconfirm.attributes} encoding="off" />/>
         <div class="invalid-feedback" id="form-password-confirm-error"></div>
     </div>
-
+    <div class="form-group  <isif condition=" ${!!pdict.profileForm.customer.gender.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-gender">
+            <isprint value="${pdict.profileForm.customer.gender.label}" encoding="htmlcontent" />
+        </label>
+        <select class="form-control gender selectric-dropdown gender-hide" id="registration-form-gender"
+            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}" <isprint
+            value="${pdict.profileForm.customer.gender.attributes}" encoding="off" />>
+            <option value=""> ${Resource.msg('label.select.gender.profile', 'forms', null)} </option>
+            <option value="Male" <isif condition="${pdict.profileForm.gender.htmlValue == " Male"}">selected</isif>
+            >${Resource.msg('label.select.male.gender.profile', 'forms', null)}
+            </option>
+            <option value="Female" <isif condition="${pdict.profileForm.gender.htmlValue == " Female"}">
+            selected</isif>>${Resource.msg('label.select.female.gender.profile', 'forms', null)}</option>
+            <option value="Prefer Not To Say" <isif condition="${pdict.profileForm.gender.htmlValue == " Prefer Not To Say"}">selected</isif>>
+                ${Resource.msg('label.select.notToSay.gender.profile', 'forms', null)}
+            </option>
+        </select>
+        <div class="invalid-feedback" id="form-gender-error"></div>
+    </div>
+    <div class="form-group <isif condition=" ${!!pdict.profileForm.customer.dob.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-dob">
+            <isprint value="${pdict.profileForm.customer.dob.label}" encoding="htmlcontent" />
+        </label>
+        <input type="text" class="form-control datepicker" id="registration-form-dob" data-mask="99/99/9999" data-min-age="0" placeholder="DD/MM/YYYY"
+            data-missing-error="${Resource.msg('error.message.dob.required', 'forms', null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.parse.dob', 'forms', null)}" <isprint
+            value=${pdict.profileForm.customer.dob.attributes} encoding="off" />>
+        <div class="invalid-feedback" id="form-dob-error"></div>
+    </div>
+    <div class="form-group <isif condition=" ${!!pdict.profileForm.customer.zip.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-zip">
+            <isprint value="${pdict.profileForm.customer.zip.label}" encoding="htmlcontent" />
+        </label>
+        <input type="text" class="form-control" id="registration-form-zip"
+            data-missing-error="${Resource.msg('error.message.zip.required', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.zip.10orless', 'forms', null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.parse.zip', 'forms', null)}"
+            aria-describedby="form-zip-error" <isprint value=${pdict.profileForm.customer.zip.attributes}
+            encoding="off" /> />
+        <div class="invalid-feedback" id="form-zip-error"></div>
+    </div>
+    <div class="form-group  <isif condition=" ${!!pdict.profileForm.customer.nationality.mandatory === true}">required</isif>">
+        <label class="form-control-label" for="registration-form-nationality">
+            <isprint value="${pdict.profileForm.customer.nationality.label}" encoding="htmlcontent" />
+        </label>
+        <select class="form-control gender selectric-dropdown gender-hide" id="registration-form-nationality" <isprint
+            value="${pdict.profileForm.customer.nationality.attributes}" encoding="off" />>
+            <isloop items=${pdict.nationalities} var="nationality">
+                <option id="${nationality}" value="${nationality.toLowerCase().trim()}" <isif
+                    condition="${pdict.nationality.toLowerCase().trim() == nationality.toLowerCase().trim()}">
+                    selected
+                    </isif>>${nationality}</option>
+            </isloop>
+        </select>
+        <div class="invalid-feedback" id="form-gender-error"></div>
+    </div>
     <div class="form-group custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="add-to-email-list" <isprint
             value=${pdict.profileForm.customer.addtoemaillist.attributes} encoding="off" />
@@ -98,11 +177,10 @@
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha') == true}">
-        <isset name="dataCallback" value="submitRegistration" scope="page" />
-        <isset name="dataErrorCallback" value="checkRecaptcha" scope="page" />
-        <isinclude template="/common/reCaptcha" />
-        <button id="gcaptchabtn" type="button"
-            class="btn btn-block btn-primary">${Resource.msg('button.createaccount.registration', 'registration', null)}</button>
+        <button  data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}" data-callback="submitRegistration" data-action="submit"
+            class="btn btn-block btn-primary g-recaptcha">
+            ${Resource.msg('button.createaccount.registration', 'registration', null)}
+        </button>
     <iselse/>
         <button type="submit" class="btn btn-block btn-primary">
             ${Resource.msg('button.createaccount.registration', 'registration', null)}
@@ -115,6 +193,3 @@
         </a>
     </div>
 </form>
-<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha') == true}">
-    <isinclude template="/common/googleRecaptcha" />
-</isif>

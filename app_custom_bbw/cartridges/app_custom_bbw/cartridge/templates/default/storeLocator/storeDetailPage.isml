@@ -1,0 +1,64 @@
+<isinclude template="/components/modules" sf-toolkit="off" />
+<script defer type="text/javascript" src="${pdict.googleMapsApi}"></script>
+<script defer type="text/javascript" src="${URLUtils.staticURL('/js/storeLocatorDetail.js').toString()}"></script>
+<link rel="stylesheet" href="${URLUtils.staticURL('/css/storeLocator.css').toString()}" />
+<div class="container">
+    <div class="row my-3 my-md-5">
+        <div class="col-md-6">
+            <div class="jumbotron map-canvas" id="mapfordetail"
+                data-has-google-api="${pdict.googleMapsApi ? true : false}"
+                data-locations="${pdict.storeDetail.locations}" data-latitude="${pdict.storeDetail.latitude}"
+                data-longitude="${pdict.storeDetail.longitude}">
+                <div class="container">
+                    <div class="row">
+                        <p class="store-locator-no-api-key alert alert-danger">
+                            ${Resource.msg('error.no.api.key', 'storeLocator', null)}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 store-details" data-store-id="${pdict.storeDetail.ID}">
+            <div class="store-map-details">
+                <div class="store-name h-font-size--18 h-fw--bold h-clr--black-1 text-uppercase mb-4">
+                    ${pdict.storeDetail.name}</div>
+                <address>
+                    <a class="store-map text-uppercase h-clr--gray-4" target='_blank'
+                        href="https://maps.google.com/?daddr=${pdict.storeDetail.latitude},${pdict.storeDetail.longitude}">
+                        ${pdict.storeDetail.address1}
+                        <isif condition="${pdict.storeDetail.address2}">
+                            ${pdict.storeDetail.address2}
+                        </isif>
+                        <isif condition="${pdict.storeDetail.city}">
+                            ${pdict.storeDetail.city},
+                        </isif>
+                        <isif condition="${pdict.storeDetail.stateCode}">
+                            ${pdict.storeDetail.stateCode}
+                        </isif>
+                        ${pdict.storeDetail.postalCode}
+                    </a>
+                    <div class="store-hours mt-2">
+                        <isif condition="${pdict.storeDetail.storeHours}">
+                            <isprint value="${pdict.storeDetail.storeHours}" encoding="off" />
+                        </isif>
+                    </div>
+                    <p>
+                        <isif condition="${pdict.storeDetail.phone}">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span>
+                                <a class="storelocator-phone"
+                                    href="tel:${pdict.storeDetail.phone}">${pdict.storeDetail.phone}</a>
+                            </span>
+                        </isif>
+                    </p>
+                </address>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-md-12 h-bg--gray-1">
+            <iscontentasset aid="store-detail" />
+        </div>
+    </div>
+</div>

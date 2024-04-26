@@ -60,6 +60,7 @@
     "window": true,
     "location": true,
     "$": true,
+    "jQuery": true,
     "middleware": true,
     "querystringparameter": true,
     "renders": true,
@@ -67,6 +68,8 @@
     "httpparameter": true,
     "grecaptcha": true,
     "Promise": true,
-    "google":true
+    "google":true,
+    "SelectedOption": true,
+    "Object": true
   }
 }

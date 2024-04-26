@@ -1,0 +1,10 @@
+.search-results__top-header {
+    border-bottom: 1px solid colour(black, 3);
+    padding-bottom: 16px;
+    margin: 5px 0 32px;
+
+    &__category-name {
+        line-height: 28px;
+        letter-spacing: 0;
+    }
+}

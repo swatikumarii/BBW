@@ -2,6 +2,8 @@
 
 'use strict';
 
+// var scrollAnimate = require('base/components/scrollAnimate');
+
 /**
  * appends params to a url
  * @param {string} data - data returned from the server's ajax call
@@ -17,10 +19,10 @@ function displayMessage(data, button) {
     }
 
     if ($('.email-signup-message').length === 0) {
-        $('body').append('<div class="email-signup-message"></div>');
+        $('.js-newsletter-msg').append('<div class="email-signup-message"></div>');
     }
     $('.email-signup-message').append(
-        '<div class="email-signup-alert text-center ' +
+        '<div class="email-signup-alert text-justify ' +
         status +
         '">' +
         data.msg +
@@ -38,27 +40,32 @@ function displayMessage(data, button) {
  * @param {string} token - reCAPTCHA token
  */
 function newsLetter(token) {
-    var url = $('.subscribe-email').data('href');
+    var url = $('.newsletter').data('href');
     var button = $('.subscribe-email');
     var emailId = $('input[name=hpEmailSignUp]').val();
+    var data = { emailId: emailId };
+    if (token) {
+        data = {
+            emailId: emailId,
+            'g-recaptcha-response': token
+        };
+    }
     $.spinner().start();
     $('form.newsletter').attr('disabled', true);
     $.ajax({
         url: url,
         type: 'post',
         dataType: 'json',
-        data: {
-            emailId: emailId,
-            'g-recaptcha-response': token,
-        },
-        success: function (data) {
-            displayMessage(data, button);
+        data: data,
+        success: function (dataRes) {
+            displayMessage(dataRes, button);
         },
         error: function (err) {
             displayMessage(err, button);
         }
     });
 }
+
 
 window.submitNewsLetter = function (token) {
     return new Promise(function (resolve, reject) {
@@ -73,38 +80,6 @@ window.submitNewsLetter = function (token) {
     });
 };
 
-/**
- * In case of failure
- */
-window.checkRecaptcha = function () {
-    // Re-initialize reCaptcha
-    grecaptcha.reset();
-    // Fire reCaptcha
-    grecaptcha.execute();
-    // Fire desired behavior AFTER reCaptcha is complete
-    window.submitNewsLetter();
-};
-
-/**
- * to execute reCAPTCHA
- */
-function executeRecaptcha() {
-    grecaptcha.execute();
-}
-window.initializeRecaptcha = function () {
-    $('.grecaptcha-badge').addClass('mc-recaptcha-btn');
-    $('.newsletter #gcaptchabtn').on('click', executeRecaptcha);
-    $('.newsletter').on('keypress', function (event) {
-        // If the user presses the "Enter" key on the keyboard
-        if (event.key === 'Enter') {
-            // Cancel the default action, if needed
-            event.preventDefault();
-            // Trigger the button element with a click
-            $('.newsletter #gcaptchabtn').click();
-        }
-    });
-};
-
 // Initialize popover 
 $('[data-toggle="popover"]').popover({
     placement: 'top',
@@ -112,9 +87,29 @@ $('[data-toggle="popover"]').popover({
 });
 
 // Show popover on mouseenter
-$('[data-toggle="popover"]').on('mouseenter', function () {
-    $(this).popover('show');
-});
+$('[data-toggle="popover"]')
+    .on('mouseenter', function () {
+        $(this).popover('show');
+        $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
+    });
+    
+
+var timer;
+$('body').on(
+    'mouseleave',
+    '[data-toggle="popover"], .pdp-popover',
+    function () {
+        timer = setTimeout(function () {
+            $('.pdp-popover').popover('hide');
+        }, 50);
+    }).on(
+    'mouseenter',
+    '[data-toggle="popover"], .pdp-popover',
+    function () {
+        clearTimeout(timer);
+    }
+);
+
 
 // Close popover on close button click
 $(document).on('click', '.popover .close', function () {
@@ -142,3 +137,10 @@ $('.js-scrolltotop').on('click', function () {
         scrollTop: $('body').offset().top
     }, 800);
 });
+
+module.exports = function () {
+    $('.subscribe-email').on('click', function (e) {
+        e.preventDefault();
+        newsLetter();
+    });
+};
