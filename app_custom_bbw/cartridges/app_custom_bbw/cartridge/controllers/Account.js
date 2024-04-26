@@ -51,8 +51,15 @@ server.prepend(
 server.append(
     'Login',
     function (req, res, next) {
-        var URLUtils = require('dw/web/URLUtils');
+        var URLUtils = require('dw/web/URLUtils');  
+        var BasketMgr = require('dw/order/BasketMgr');
         var loginRedirectExceptions = require('*/cartridge/config/loginRedirectExceptions');
+        var storedBasket = BasketMgr.getStoredBasket();
+        var currentBasket = BasketMgr.getCurrentOrNewBasket();
+        var storedBasketProductQuantities =
+            storedBasket ? storedBasket.getAllProductQuantities().length : 0;
+        var currentBasketProductQuantities =
+            currentBasket ? currentBasket.getAllProductQuantities().length : 0;
         var loginRedirectUrl = req.form.loginRedirectUrl;
         loginRedirectUrl = loginRedirectExceptions.includes(loginRedirectUrl)
             ? 'Account-Show'
@@ -60,6 +67,8 @@ server.append(
         loginRedirectUrl = URLUtils.url(loginRedirectUrl.trim());;
         var viewData = res.getViewData();
         viewData.redirectUrl = loginRedirectUrl.toString();
+        viewData.showCartMergePopup =
+            storedBasketProductQuantities && currentBasketProductQuantities;
         next();
     }
 );

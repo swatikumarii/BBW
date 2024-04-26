@@ -90,9 +90,13 @@ baselogin.login = function () {
                     $('form.login').trigger('login:error', data);
                 } else {
                     $('form.login').trigger('login:success', data);
-                    $('.loginPopup').find('#loginModal').modal('hide');
-                    $('.redirect-url').val(data.redirectUrl);
-                    $('.loginPopup').find('#isMergeCartModal').modal('show');
+                    if (data.showCartMergePopup) {
+                        $('.loginPopup').find('#loginModal').modal('hide');
+                        $('.redirect-url').val(data.redirectUrl);
+                        $('.loginPopup').find('#isMergeCartModal').modal('show');
+                    } else {
+                        window.location.href = data.redirectUrl;
+                    }
                 }
             },
             error: function (data) {
@@ -118,8 +122,13 @@ function cartMerge() {
         $.ajax({
             url: cartMergeUrl,
             type: 'get',
+            success: function () {
+                window.location.href = redirectUrl;
+            },
+            error: function () {
+                window.location.href = redirectUrl;
+            }
         });
-        window.location.href = redirectUrl;
         return false;
     });
     $('.dont-merge').on('click', function () {
