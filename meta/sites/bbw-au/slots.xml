@@ -51,5 +51,16 @@
             </content-assets>
         </content>
     </slot-configuration>
-    
+
+    <slot-configuration slot-id="site-map-customer-care" context="global" configuration-id="site-map-customer-care" assigned-to-site="true">
+        <description>Site map customer care</description>
+        <template>slots/content/contentAssetBody.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <content-assets>
+                <content-asset content-id="site-map-customer-care"/>
+            </content-assets>
+        </content>
+    </slot-configuration>
+
 </slot-configurations>
