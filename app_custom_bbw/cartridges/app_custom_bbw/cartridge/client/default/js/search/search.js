@@ -314,7 +314,7 @@ module.exports = {
     },
 
     searchFilter: function () {
-        $('.fragrance-name .js-frag-search').on('keyup', debounce(function () {
+        $(document).on('keyup', '.fragrance-name .js-frag-search', debounce(function () {
             var filter = $(this).val().toUpperCase();
             $('.fragrance-name .filter-list li').each(function () {
                 // Skip headers
