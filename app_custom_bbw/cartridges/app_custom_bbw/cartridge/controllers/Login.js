@@ -64,9 +64,12 @@ server.get(
 
 server.get('Popup', csrfProtection.generateToken, function (req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
+    var loginRedirectExceptions = require('*/cartridge/config/loginRedirectExceptions');
     var target = req.querystring.rurl || 1;
     var loginRedirectRoute = req.querystring.loginRedirect;
-    var loginRedirectUrl = URLUtils.url(loginRedirectRoute.trim());
+    loginRedirectRoute = loginRedirectExceptions.includes(loginRedirectRoute)
+        ? 'Account-Show'
+        : loginRedirectRoute;
     var rememberMe = false;
     var userName = '';
     var actionUrl = URLUtils.url('Account-Login', 'rurl', target);
@@ -79,7 +82,7 @@ server.get('Popup', csrfProtection.generateToken, function (req, res, next) {
         rememberMe: rememberMe,
         userName: userName,
         actionUrl: actionUrl,
-        loginRedirectUrl: loginRedirectUrl
+        loginRedirectUrl: loginRedirectRoute
     });
 
     next();

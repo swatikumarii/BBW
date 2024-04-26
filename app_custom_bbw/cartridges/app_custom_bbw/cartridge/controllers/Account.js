@@ -51,9 +51,15 @@ server.prepend(
 server.append(
     'Login',
     function (req, res, next) {
+        var URLUtils = require('dw/web/URLUtils');
+        var loginRedirectExceptions = require('*/cartridge/config/loginRedirectExceptions');
         var loginRedirectUrl = req.form.loginRedirectUrl;
+        loginRedirectUrl = loginRedirectExceptions.includes(loginRedirectUrl)
+            ? 'Account-Show'
+            : loginRedirectUrl;
+        loginRedirectUrl = URLUtils.url(loginRedirectUrl.trim());;
         var viewData = res.getViewData();
-        viewData.redirectUrl = loginRedirectUrl;
+        viewData.redirectUrl = loginRedirectUrl.toString();
         next();
     }
 );

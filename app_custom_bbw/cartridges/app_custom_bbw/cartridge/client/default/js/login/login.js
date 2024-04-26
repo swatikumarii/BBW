@@ -91,6 +91,7 @@ baselogin.login = function () {
                 } else {
                     $('form.login').trigger('login:success', data);
                     $('.loginPopup').find('#loginModal').modal('hide');
+                    $('.redirect-url').val(data.redirectUrl);
                     $('.loginPopup').find('#isMergeCartModal').modal('show');
                 }
             },
@@ -122,11 +123,13 @@ function cartMerge() {
         return false;
     });
     $('.dont-merge').on('click', function () {
-        window.location.reload();
+        var redirectUrl = $('.redirect-url').val();
+        window.location.href = redirectUrl;
         return false;
     });
     $('#isMergeCartModal').on('hidden.bs.modal', function () {
-        window.location.reload();
+        var redirectUrl = $('.redirect-url').val();
+        window.location.href = redirectUrl;
         return false;
     });
 };
