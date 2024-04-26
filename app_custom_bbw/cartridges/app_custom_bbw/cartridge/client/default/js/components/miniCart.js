@@ -23,27 +23,23 @@ module.exports = function () {
             return;
         }
         var url = $('.minicart').data('action-url');
-        var count = parseInt($('.minicart .minicart-quantity').text(), 10);
-
-        if (count !== 0 && $('.minicart .popover.show').length === 0) {
-            if (!updateMiniCart) {
-                $('.minicart .popover').addClass('show');
-                $('.minicart-overlay').addClass('show');
-                $('body').addClass('overflow-hidden');
-                return;
-            }
-
+        if (!updateMiniCart) {
             $('.minicart .popover').addClass('show');
             $('.minicart-overlay').addClass('show');
             $('body').addClass('overflow-hidden');
-            $('.minicart .popover').spinner().start();
-            $.get(url, function (data) {
-                $('.minicart .popover').empty();
-                $('.minicart .popover').append(data);
-                updateMiniCart = false;
-                $.spinner().stop();
-            });
+            return;
         }
+
+        $('.minicart .popover').addClass('show');
+        $('.minicart-overlay').addClass('show');
+        $('body').addClass('overflow-hidden');
+        $('.minicart .popover').spinner().start();
+        $.get(url, function (data) {
+            $('.minicart .popover').empty();
+            $('.minicart .popover').append(data);
+            updateMiniCart = false;
+            $.spinner().stop();
+        });
     });
     $('body, .minicart-overlay').on('touchstart click', function (e) {
         if ($('.minicart').has(e.target).length <= 0) {
