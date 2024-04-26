@@ -1,41 +1,55 @@
 <isdecorate template="common/layout/page">
+<isinclude template="/components/modules" sf-toolkit="off" />
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addCss('/css/login.css');
     </isscript>
 
-    <div class="hero slant-down login-banner">
-        <h1 class="page-title">${Resource.msg('header.hero.image.login', 'login', null)}</h1>
-    </div>
+    <div class="hero slant-down login-banner bg-white">
+
     <div class="container login-page">
         <!---Breadcrumbs--->
         <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
         <div class="row justify-content-center equal-height">
-            <div class="col-sm-8 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="login-form-nav">
-                            <isinclude template="account/components/loginForm" />
-                        </div>
+        <div class="col-md-12">
+                <h1 class="page-title text-justify h-font-size--24 h-clr--black-3">${Resource.msg('header.hero.image.login', 'login', null)}</h1>
+        </div>
+        </div>
+        <div class="login-page-setion">
+            <div class="login-section">
+                <div class="login-form-nav login-account">
+                    <h2 class="h-clr--black-3 h-font-size--16">${Resource.msg('login.label', 'login', null)}</h2>
+                    <p class="h-clr--gray">${Resource.msg('login.para', 'login', null)}</p>
+                    <div class="login-box">
+                        <isinclude template="account/components/loginForm" />
                     </div>
                 </div>
             </div>
-            <div class="col-sm-8 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="login-form-nav">
-                            <div>${Resource.msg('msg.signup', 'login', null)}</div>
-                            <div>
-                                <p>${Resource.msg('msg.signup.overview', 'login', null)}</p>
-                            </div>
-                            <div>
-                                <a href="${URLUtils.https('Login-CreateAccount')}" role="button"
-                                    aria-label="${Resource.msg('label.header.signup', 'common', null)}">${Resource.msg('label.header.signup', 'common', null)}</a>
-                            </div>
-                        </div>
+        <div class="spacer ">
+            <div class="line"></div>
+            <div class="or h-clr--gray h-bg--white h-font-size--14 text-center position-absolute text-uppercase">OR</div>
+        </div>
+            <div class="login-section">
+                <div class="login-form-nav login-form-nav login-account">
+                    <h2 class="h-clr--black-3 h-font-size--16">${Resource.msg('msg.signup', 'login', null)}</h2>
+                    <p class="h-clr--gray">${Resource.msg('msg.signup.overview', 'login', null)}</p>
+                    <div class="signup-img">
+                        <img src="${URLUtils.staticURL('/images/login/login-img.jpg')}"
+                            alt="Join the VIPs. My Bath & Body Works Rewards. Available nationwide! Now everyone can earn FREE products (up to $16.95) for doing what they love! "
+                            class="w-100" />
                     </div>
+                    <a href="${URLUtils.https('Login-CreateAccount')}" role="button"
+                        aria-label="${Resource.msg('header.hero.image.login', 'login', null)}">
+                        <button type="submit" class="btn btn-block btn-primary text-uppercase signin-btn sign-in-btn w-auto">
+                            ${Resource.msg('header.hero.image.login', 'login', null)}
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
+        <div class="signin-question">
+        <iscontentasset aid="myAccount-help" />
+        </div>
     </div>
+        </div>
 </isdecorate>

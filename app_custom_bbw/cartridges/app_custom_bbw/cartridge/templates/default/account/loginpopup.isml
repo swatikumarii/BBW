@@ -1,26 +1,45 @@
 <script defer type="text/javascript" src="${URLUtils.staticURL('/js/login.js')}"></script>
 <div class="modal fade hide" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog login-modal-view text-left" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+            <div class="modal-header border-0">
+                <button type="button" class="close close-icon-btn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                    <iscomment> &times; </iscomment>
+                        <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
+                    </span>
                 </button>
+
             </div>
             <div class="modal-body">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <isinclude template="account/components/loginModalForm" />
-                            <a href="${'#'}">
-                                ${Resource.msg('link.privacypolicy.registration', 'registration', null)}
-                            </a>
-                            <div>
-                                <a href="${URLUtils.https('Login-Show')}" role="button"
-                                    aria-label="${Resource.msg('label.header.signup', 'common', null)}" >${Resource.msg('label.header.signup', 'common', null)}</a>
-                            </div>
+                    <h4 class="h-font-size--18 h-clr--black-1 h-fw--bold">${Resource.msg('login.label', 'login', null)}
+                    </h4>
+                    <p class="h-font-size--16 login-para h-clr--gray pt-2 ">
+                        ${Resource.msg('login.para', 'login', null)}
+                    </p>
+                    <isinclude template="account/components/loginModalForm" />
+                  <div class="privacy-block w-100 text-center h-clr--black-3 h-font-size--14">
+                    <a href="${'#'}" class="text-center">
+                        ${Resource.msg('link.privacypolicy.registration', 'login', null)}
+                    </a>
+                    </div>
+                    <iscomment>
+                        <div>
+                            <a href="${URLUtils.https('Login-Show')}" role="button"
+                                aria-label="${Resource.msg('label.header.signup', 'common', null)}">${Resource.msg('label.header.signup', 'common', null)}</a>
                         </div>
+                    </iscomment>
+                    <div class="register">
+                        <h3 class="h-clr--pink h-font-size--18 h-fw--bold">
+                            ${Resource.msg('join.title', 'login', null)}
+                        </h3>
+                        <p class="h-font-size--16 ">
+                            ${Resource.msg('join.para', 'login', null)}
+                            <a href="${URLUtils.https('Login-Show')}" role="button" class="h-clr--black-3 h-font-size--16"
+                                aria-label="${Resource.msg('label.header.signup', 'common', null)}">${Resource.msg('label.header.signup', 'common', null)}</a>
+                        </p>
                     </div>
                 </div>
             </div>
