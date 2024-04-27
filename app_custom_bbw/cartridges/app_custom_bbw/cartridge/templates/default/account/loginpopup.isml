@@ -1,5 +1,5 @@
 <script defer type="text/javascript" src="${URLUtils.staticURL('/js/login.js')}"></script>
-<div class="modal fade hide" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+<div class="modal fade hide" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle"
     aria-hidden="true">
     <div class="modal-dialog login-modal-view text-left" role="document">
         <div class="modal-content">
@@ -42,6 +42,28 @@
                         </p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade hide" id="isMergeCartModal" tabindex="-1" role="dialog" aria-labelledby="isMergeCartModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" class="cart-merge-url" value="${URLUtils.url('Cart-Merge')}">
+                <input type="hidden" class="redirect-url" value="${pdict.loginRedirectUrl}">
+                <button type="button" class="merge" data-dismiss="modal" aria-label="Close">
+                    Merge
+                </button>
+                <button type="button" class="dont-merge" data-dismiss="modal" aria-label="Close">
+                    Dont Merge
+                </button>
             </div>
         </div>
     </div>
