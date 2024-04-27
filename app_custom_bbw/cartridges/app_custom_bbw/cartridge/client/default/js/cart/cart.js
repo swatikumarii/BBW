@@ -312,6 +312,7 @@ module.exports = function () {
             pid: productID,
             uuid: uuid
         };
+        var isMiniCart = $(this).parents('.mini-cart-content').length > 0;
 
         url = appendToUrl(url, urlParams);
 
@@ -327,20 +328,29 @@ module.exports = function () {
             dataType: 'json',
             success: function (data) {
                 if (data.basket.items.length === 0) {
-                    $('.cart').empty().append('<div class="row"> '
-                        + '<div class="col-12 text-center"> '
-                        + '<h1>' + data.basket.resources.emptyCartMsg + '</h1> '
-                        + '</div> '
-                        + '</div>');
+                    if (isMiniCart) {
+                        var minicartURL = $('.minicart').data('action-url');
+                        $.get(
+                            minicartURL,
+                            function (dataMinicart) {
+                                $('.minicart .popover')
+                                    .empty()
+                                    .append(dataMinicart);
+                            }
+                        );
+                    } else {
+                        $('.cart').empty().append('<div class="row"> '
+                            + '<div class="col-12 text-center"> '
+                            + '<h1>' + data.basket.resources.emptyCartMsg + '</h1> '
+                            + '</div> '
+                            + '</div>');
+                    }
                     $('.number-of-items').empty().append(data.basket.resources.numberOfItems);
                     $('.minicart-quantity').empty().append(data.basket.numItems);
                     $('.minicart-link').attr({
                         'aria-label': data.basket.resources.minicartCountOfItems,
                         title: data.basket.resources.minicartCountOfItems
                     });
-                    $('.minicart .popover').empty();
-                    $('.minicart .popover').removeClass('show');
-                    $('body').removeClass('modal-open');
                     $('html').removeClass('veiled');
                 } else {
                     if (data.toBeDeletedUUIDs && data.toBeDeletedUUIDs.length > 0) {
