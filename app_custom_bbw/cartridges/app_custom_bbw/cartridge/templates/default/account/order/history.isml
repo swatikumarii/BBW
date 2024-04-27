@@ -2,29 +2,39 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/orderHistory.js');
-        assets.addCss('/css/account/profile.css');
+        assets.addJs('/js/custom.js');
+        assets.addCss('/css/account/account.css');
     </isscript>
 
-    <div class="hero slant-down account-image">
-        <h1 class="page-title">${Resource.msg('page.title.myaccount','account',null)}</h1>
-    </div>
-    <div class="container">
+
+    <div class="h-maxwidth--1400 mx-auto my-account">
         <!---Breadcrumbs--->
-        <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
-        <div class="col-md-3 col-sm-3 p-0 order-lg-0 order-md-0  order-sm-0 order-1 mb-5">
-            <div class="my-account-nav">
-                <isinclude template="account/accountNav" />
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+        <div class="row">
+            <div class="col mobile-my-account h-font-size--14 h-bg--gray-1 h-clr--black-1 text-uppercase">
+                ${Resource.msg('label.myaccount', 'account', null)}
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <div class="my-account-nav">
+                    <isinclude template="account/accountNav" />
+                </div>
+            </div>
+
+            <div class="col-lg-10 col-md-8">
+                <div class="my-account-description">
+                    <div class="account-profile">
+                        <div class="profile-heading">
+                            <h1>${Resource.msg('label.orderhistory', 'account', null)}</h1>
+                            <div class="h-font-size--12">${Resource.msg('label.noOrder', 'account', null)}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-4 col-md-3">
-                <h2>${Resource.msg('label.orderhistory','account',null)}</h2>
-            </div>
-            <h1></h1>
-        </div>
+
         <div class="row justify-content-center">
             <div class="container order-list-container">
-                <isinclude template="account/order/orderList"/>
+                <isinclude template="account/order/orderList" />
             </div>
         </div>
     </div>

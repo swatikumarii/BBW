@@ -255,11 +255,22 @@ header {
                                     button {
                                         line-height: 1rem;
                                         letter-spacing: 0.015em;
-                                        color: colour (gray);
+                                        color: colour(gray);
                                         display: block;
                                         padding: 10px 0;
+
+                                        &:hover {
+                                            color: colour(blue);
+                                        }
                                     }
                                 }
+                            }
+                        }
+
+                        &:hover {
+                            img {
+                                transition: opacity 0.5s ease-out;
+                                opacity: 0.65;
                             }
                         }
                     }

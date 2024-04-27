@@ -6,7 +6,6 @@ window.MEDIA_BREAKPOINTS = require('./config/config.json').breakpoints;
 var processInclude = require('base/util');
 
 $(document).ready(function () {
-    processInclude(require('base/components/menu'));
     processInclude(require('base/components/cookie'));
     processInclude(require('base/components/consentTracking'));
     processInclude(require('./components/header'));

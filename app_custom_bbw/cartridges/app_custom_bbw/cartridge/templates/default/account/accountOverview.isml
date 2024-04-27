@@ -1,42 +1,80 @@
 <isslot id="account-banner" description="Banner for My Account pages" context="global" />
 <div class="account-profile">
     <div class="profile-heading">
-        <h1 class="title mb-0">
+        <h1 class="title text-capitalize">
             ${Resource.msg('account.header', 'account', null)}
             <isprint value="${pdict.CurrentCustomer.profile.firstName}" />
+
+            <a class="pull-right h-font-size--12 h-clr--black-3" href="${URLUtils.url('Login-Logout')}" role="menuitem"
+                tabindex="0">${Resource.msg('link.account.logout', 'account', null)}</a>
         </h1>
-        <p class="nav-item" role="presentation">
-            <a href="${URLUtils.url('Login-Logout')}" role="menuitem" tabindex="0">${Resource.msg('link.account.logout', 'account', null)}</a>
-        </p>
     </div>
     <div class="content-asset">
-        <ul class="account-options">
+        <ul class="account-options h-dsp--grid">
             <li>
-                <a title="${Resource.msg('label.info.title', 'account', null)}" href="${URLUtils.url('Account-EditProfile')}">
-                    ${Resource.msg('label.info', 'account', null)}</a>
-                <p>${Resource.msg('label.info.title', 'account', null)}</p>
+                <a title="${Resource.msg('label.info.title', 'account', null)} ${Resource.msg('label.info.title.span', 'account', null)}"
+                    href="${URLUtils.url('Account-EditProfile')}">
+                    <img class="pull-left" src="${URLUtils.staticURL('/images/account/account-your-info-icon.svg')}"
+                        alt="${Resource.msg('label.info', 'account', null)}" />
+                    <div class="info h-font-size--11 h-clr--gray">
+                        <h3 class="h-font-size--16">${Resource.msg('label.info', 'account', null)}</h3>
+                        <p class="m-0">${Resource.msg('label.info.title', 'account', null)}<span
+                                class="d-block">${Resource.msg('label.info.title.span', 'account', null)}</span></p>
+                    </div>
+                </a>
             </li>
+
             <li>
-                <a title="${Resource.msg('label.orderhistory.title', 'account', null)}" href="${URLUtils.url('Order-History')}">
-                    ${Resource.msg('label.orderhistory', 'account', null)}</a>
-                <p>${Resource.msg('label.orderhistory.title', 'account', null)}</p>
+                <a title="${Resource.msg('label.orderhistory.title', 'account', null)}"
+                    href="${URLUtils.url('Order-History')}">
+                    <img class="pull-left" src="${URLUtils.staticURL('/images/account/account-orders-icon.svg')}"
+                        alt="${Resource.msg('label.orderhistory', 'account', null)}" />
+                    <div class="info h-font-size--11 h-clr--gray">
+                        <h3 class="h-font-size--16">${Resource.msg('label.orderhistory', 'account', null)}</h3>
+                        <p class="m-0">${Resource.msg('label.orderhistory.title', 'account', null)}</p>
+                    </div>
+                </a>
             </li>
+
             <li>
                 <a title="${Resource.msg('label.payment.title', 'account', null)}"
                     href="${URLUtils.url('PaymentInstruments-AddPayment')}">
-                    ${Resource.msg('label.payment', 'account', null)}</a>
-                <p>${Resource.msg('label.payment.title', 'account', null)}</p>
+                    <img class="pull-left"
+                        src="${URLUtils.staticURL('/images/account/desktop-my-payment-methods-icon.svg')}"
+                        alt="${Resource.msg('label.payment', 'account', null)}" />
+                    <div class="info h-font-size--11 h-clr--gray">
+                        <h3 class="h-font-size--16">${Resource.msg('label.payment', 'account', null)}</h3>
+                        <p class="m-0">${Resource.msg('label.payment.title', 'account', null)}</p>
+                    </div>
+                </a>
             </li>
+
             <li>
-                <a title="${Resource.msg('label.address.title', 'account', null)}" href="${URLUtils.url('Address-List')}">
-                    ${Resource.msg('label.address', 'account', null)}</a>
-                <p>${Resource.msg('label.address.title', 'account', null)}</p>
+                <a title="${Resource.msg('label.address.title', 'account', null)}"
+                    href="${URLUtils.url('Address-List')}">
+                    <img class="pull-left" src="${URLUtils.staticURL('/images/account/account-addresses-icon.svg')}"
+                        alt="${Resource.msg('label.address', 'account', null)}" />
+                    <div class="info h-font-size--11 h-clr--gray">
+                        <h3 class="h-font-size--16">${Resource.msg('label.address', 'account', null)}</h3>
+                        <p class="m-0">${Resource.msg('label.address.title', 'account', null)}</p>
+                    </div>
+                </a>
             </li>
+
             <li>
-                <a title="${Resource.msg('label.wishlist.title', 'account', null)}" href="${URLUtils.url('Wishlist-Show')}">
-                    ${Resource.msg('label.wishlist', 'account', null)}</a>
-                <p>${Resource.msg('label.wishlist.title', 'account', null)}</p>
+                <a title="${Resource.msg('label.wishlist.title', 'account', null)}"
+                    href="${URLUtils.url('Wishlist-Show')}">
+                    <img class="pull-left" src="${URLUtils.staticURL('/images/account/account-wish-list-icon.svg')}"
+                        alt="${Resource.msg('label.wishlist', 'account', null)}" />
+                    <div class="info h-font-size--11 h-clr--gray">
+                        <h3 class="h-font-size--16">${Resource.msg('label.wishlist', 'account', null)}</h3>
+                        <p class="m-0">${Resource.msg('label.wishlist.title', 'account', null)}</p>
+                    </div>
+                </a>
             </li>
+
         </ul>
+
+        <iscontentasset aid="myAccount-help" />
     </div>
 </div>
