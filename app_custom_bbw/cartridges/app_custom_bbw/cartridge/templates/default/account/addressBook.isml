@@ -66,7 +66,6 @@
                     </isif>
                     <div class="card">
                         <div class="card-header">
-                            app_custom_bbw/cartridges/app_custom_bbw/cartridge/templates/default/account/addressForm.isml
                             <a href="${URLUtils.url('Address-EditAddress', 'addressId', address.address.ID)}"
                                 class="pull-right"
                                 aria-label="${Resource.msg('label.addressbook.editaddress', 'account', null)} : ${address.address.ID == pdict.addressBook[0].address.ID ? pdict.addressBook[0].address.ID + ' (' + Resource.msg(

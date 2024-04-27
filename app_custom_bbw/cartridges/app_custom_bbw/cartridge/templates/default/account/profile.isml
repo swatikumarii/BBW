@@ -50,6 +50,18 @@
                     <div class="account-profile">
                         <div class="profile-heading">
                             <h3 class="account-info-header h-clr--black-3 h-font-size--14 text-uppercase">
+                                ${Resource.msg('label.profile.youremail', 'account', null)}</h3>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="account-info">
+                            <isinclude template="account/changeEmailForm" />
+                        </div>
+                    </div>
+
+                    <div class="account-profile">
+                        <div class="profile-heading">
+                            <h3 class="account-info-header h-clr--black-3 h-font-size--14 text-uppercase">
                                 ${Resource.msg('label.profile.changepassword', 'account', null)}</h3>
                         </div>
                     </div>
