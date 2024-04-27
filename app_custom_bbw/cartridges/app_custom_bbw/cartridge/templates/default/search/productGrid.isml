@@ -27,7 +27,7 @@
             </div>
             <iscomment> Selected Mobile Filters </iscomment>
             <div class="mobile-filters h-mt--15 d-md-none">
-                <isinclude template="search/components/searchFilterMobile" />
+                <isinclude template="search/components/selectedFilterMobile" />
             </div>
             <div class="result-count text-center col-12 col-md-9 col-sm-6 order-sm-2 h-pt--10 pb-0">
                 <isinclude template="search/resultsCount" />
