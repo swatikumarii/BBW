@@ -14,13 +14,13 @@ $(document).ready(function () {
     });
 });
 // Add this script to your page
-document.addEventListener('DOMContentLoaded', function() {
-    var passwordInput = document.getElementById('login-form-password');
-    var showButton = document.querySelector('.login-modal-hide');
+$(document).ready(function() {
+    var passwordInput = $('#login-form-password');
+    var showButton = $('.login-modal-hide');
 
-    showButton.addEventListener('click', function() {
-        var type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        this.querySelector('.show').textContent = type === 'password' ? 'Show' : 'Hide';
+    showButton.on('click', function() {
+        var type = passwordInput.attr('type') === 'password' ? 'text' : 'password';
+        passwordInput.attr('type', type);
+        $(this).find('.show').text(type === 'password' ? 'Show' : 'Hide');
     });
 });

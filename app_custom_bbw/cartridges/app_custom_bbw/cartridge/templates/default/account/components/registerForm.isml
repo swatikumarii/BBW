@@ -104,9 +104,9 @@
             value=${pdict.profileForm.login.password.attributes} encoding="off" />/>
         <div class="invalid-feedback" id="form-password-error"></div>
         <button type="button"
-            class="hide-show register-hide border-0 d-flex justify-content-center align-items-center text-captialize h-50 position-absolute p-0 h-clr--black-3"
+            class="register-hide border-0 d-flex justify-content-center align-items-center text-captialize h-50 position-absolute p-0 h-clr--black-3"
             aria-label="Show Password">
-            <span class="show h-font-size--16">Show</span>
+             <span class="show h-font-size--16">${Resource.msg('password.show.label', 'login', null)}</span>
         </button>
     </div>
 
@@ -172,11 +172,7 @@
         </select>
         <div class="invalid-feedback" id="form-gender-error"></div>
     </div>
-    <div class="register-form text-center" >
-    <img src="${URLUtils.staticURL('/images/login/register.jpg')}" alt="Join Today! All New
-                Rewards My Bath & Body Works"
-       />
-    </div>
+  <iscontentasset aid="register-form" />
     <div class="form-group register-form text-center custom-control custom-checkbox">
         <input type="checkbox" class="custom-control-input" id="add-to-email-list" <isprint
             value=${pdict.profileForm.customer.addtoemaillist.attributes} encoding="off" />
