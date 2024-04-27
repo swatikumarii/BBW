@@ -35,7 +35,7 @@
         }
 
         .mini-cart-content {
-            max-height: 80vh;
+            max-height: calc(100vh - 120px);
             overflow: hidden;
             overflow-y: scroll;
 
