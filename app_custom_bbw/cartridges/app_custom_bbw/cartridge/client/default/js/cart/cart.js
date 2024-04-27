@@ -385,6 +385,18 @@ module.exports = function () {
         });
     });
 
+    $(document).on('click', '.quantity-form > .quantity-plus', function () {
+        var quantity = Number($(this).siblings('.quantity').val());
+        quantity += 1;
+        $(this).siblings('.quantity').val(quantity).trigger('change');
+    });
+
+    $(document).on('click', '.quantity-form > .quantity-minus', function () {
+        var quantity = Number($(this).siblings('.quantity').val());
+        quantity -= 1;
+        $(this).siblings('.quantity').val(quantity).trigger('change');
+    });
+
     $('body').on('change', '.quantity-form > .quantity', function () {
         var preSelectQty = $(this).data('pre-select-qty');
         var quantity = $(this).val();

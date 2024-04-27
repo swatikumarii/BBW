@@ -178,3 +178,42 @@
         }
     }
 }
+
+.product-line-item {
+    .quantity-form {
+        display: flex;
+        align-items: center;
+
+        .quantity {
+            height: 48px;
+            width: 35px;
+            padding: 5px;
+            background: $clr-gray-1;
+            border-color: $clr-gray-1;
+            border-left: 1px solid $clr-white;
+            border-right: 1px solid $clr-white;
+            text-align: center;
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                /* stylelint-disable property-no-vendor-prefix */
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            -moz-appearance: textfield;
+        }
+
+        .quantity-plus,
+        .quantity-minus {
+            width: 35px;
+            height: 48px;
+            background: $clr-gray-1;
+            border-color: $clr-gray-1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+    }
+}
