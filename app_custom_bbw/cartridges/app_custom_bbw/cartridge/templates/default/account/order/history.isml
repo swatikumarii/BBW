@@ -29,12 +29,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="container order-list-container">
-                <isinclude template="account/order/orderList" />
+                <div class="order-list-container">
+                    <isinclude template="account/order/orderList" />
+                </div>
             </div>
         </div>
     </div>

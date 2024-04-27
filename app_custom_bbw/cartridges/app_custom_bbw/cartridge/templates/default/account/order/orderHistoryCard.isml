@@ -1,46 +1,30 @@
 <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/custom.js');
+        assets.addCss('/css/account/account.css');
     </isscript>
-    <div class="card">
-    <isif condition="${pdict.accountlanding}">
-        <div class="card-header clearfix">
-            <h2 class="pull-left">${Resource.msg('label.orderhistory','account',null)}</h2>
-            <a href="${URLUtils.url('Order-History')}" class="pull-right"  aria-label="${Resource.msg('label.orderhistory.vieworderhistory','account',null)}">${Resource.msg('link.view','account',null)}--------</a>
-        </div>
-    </isif>
-    <div class="card-body card-info-group">
-        <div class="row">
-            <div class="col-4 hidden-xs-down">
-                <img class="img-fluid" src="${order.firstLineItem.imageURL}" alt="${order.firstLineItem.alt}" title="${order.firstLineItem.title}">
-            </div>
-            <div class="col-sm-8 col-12">
+
+<div class="card">
+    <div class="card-head card-info-group">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="">
                 <p>${Resource.msg('label.orderhistory.dateordered', 'account', null)}
-                    <isprint value="${order.creationDate}" />
+                    <span class="h-clr--black">
+                        <isprint value="${order.creationDate}" /></span>
                 </p>
-                <p>${Resource.msg('label.orderhistory.ordernumber','account',null)} <isprint value="${order.orderNumber}"/></p>
-                <p>${Resource.msg('label.orderhistory.ordertotal', 'account', null)} : ${order.priceTotal}
+                <p>${Resource.msg('label.orderhistory.ordernumber', 'account', null)}
+                    <span class="h-clr--black">
+                        <isprint value="${order.orderNumber}" /></span>
+                </p>
+                <p>${Resource.msg('label.orderhistory.ordertotal', 'account', null)} : <span
+                        class="h-clr--black">${order.priceTotal}</span>
                 </p>
             </div>
-        </div>
-    </div>
-    <div class="card-footer">
-        <div class="row">
-            <div class="col-7 dashboard-order-card-footer-columns card-info-group">
-                <a href="${URLUtils.url('Order-Details', 'orderID', order.orderNumber, 'orderFilter', pdict.orderFilter)}"
+            <div class="">
+                <a class="btn btn-hover"
+                    href="${URLUtils.url('Order-Details', 'orderID', order.orderNumber, 'orderFilter', pdict.orderFilter)}"
                     class="pull-right"
                     aria-label="${Resource.msgf('label.orderhistory.vieworderdetails', 'account', null, order.orderNumber)}">${Resource.msg('order.link.view', 'account', null)}</a>
-            </div>
-            <div class="col-7 dashboard-order-card-footer-columns card-info-group">
-                    <div class="reorder-btn">
-                        <button class="add-order-to-cart no-spinner" title="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}"
-                            data-oid="${order.orderNumber}" aria-label="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}"
-                            tabindex="0">
-                            <span>${Resource.msg('label.reorder.btn', 'order', null)}</span>
-                        </button>
-                    </div>
-                    <button id="invoiceDownload" class="btn-transparent"
-                        data-action="${order.invoiceDownloadUrl}">${Resource.msg('account.download', 'account', null)} </button> </span>
             </div>
         </div>
     </div>

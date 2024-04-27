@@ -1,0 +1,143 @@
+.order-list-container {
+    .card {
+        background-color: colour(gray, 1);
+        border: 0;
+        border-radius: 0;
+
+        .card-head {
+            padding: 40px 30px;
+
+            p {
+                font-size: 15px;
+                margin-bottom: 4px;
+            }
+
+            a.btn {
+                line-height: 2;
+                padding: 3px 25px;
+                min-height: auto;
+                text-transform: uppercase;
+
+                &:hover {
+                    color: colour(white);
+                }
+            }
+        }
+    }
+}
+
+.confirm-details {
+    .card {
+        border-radius: 0;
+
+        .card-head {
+            padding: 40px 30px;
+            background-color: colour(gray, 1);
+
+            p {
+                font-size: 15px;
+                margin-bottom: 4px;
+            }
+
+            .order-detail-with-image {
+                width: 100%;
+
+                @include media-up(sm) {
+                    width: 50%;
+                }
+
+                .image-space-1 {
+                    border-top: 2px solid blue;
+                    width: 38px;
+                    display: block;
+                    margin-left: 15px;
+                }
+
+                .image-space-2 {
+                    border-top: 2px solid blue;
+                    width: 38px;
+                    display: block;
+                    margin-left: 15px;
+                    margin-right: 15px;
+                }
+            }
+        }
+
+        .summary-details {
+            .address-summary {
+                text-transform: capitalize;
+                line-height: 1.5;
+
+                .address1,
+                .address2,
+                .city,
+                .stateCode {
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+
+    .checkout-order-total-summary {
+        .card-head {
+            padding: 15px;
+
+            .payment-summary {
+                text-align: center;
+                color: colour(black, 1);
+                font-size: 18px;
+                text-transform: uppercase;
+                border-bottom: 1px solid colour(gray, 2);
+                padding-bottom: 20px;
+                padding-top: 10px;
+                margin-bottom: 20px;
+            }
+
+            .grand-total {
+                border-top: 1px solid colour(gray, 2);
+                color: colour(black, 1);
+                padding-bottom: 10px;
+                padding-top: 10px;
+                text-transform: uppercase;
+                font-weight: 700;
+                margin-top: 15px;
+
+                p {
+                    color: colour(black, 1);
+                    margin-bottom: 7px;
+                }
+            }
+        }
+    }
+}
+
+.order-product-summary {
+    table {
+        border-bottom: 1px solid colour(gray, 1);
+
+        th {
+            border-bottom: 1px solid colour(gray, 1);
+        }
+    }
+
+    .order-description {
+        width: 60%;
+    }
+
+    .order-qty,
+    .order-price {
+        width: 20%;
+    }
+}
+
+.order-btn .btn {
+    line-height: 2;
+    padding: 3px 25px;
+    min-height: auto;
+    text-transform: uppercase;
+    width: 170px;
+
+    &:hover {
+        color: colour(white);
+    }
+}

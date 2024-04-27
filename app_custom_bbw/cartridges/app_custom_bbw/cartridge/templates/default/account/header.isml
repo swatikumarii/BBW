@@ -22,7 +22,7 @@
                 <img src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
                     alt="${Resource.msg('global.storename', 'common', null)}" />
             </a>
-            
+
             <ul class=" dropdown-menu dropdown-menu-right" role="menu"
                 aria-label="${Resource.msg('label.profile.myaccountlink', 'account', null)}" aria-hidden="true">
                 <li class="nav-item" role="presentation">
@@ -42,7 +42,7 @@
                         tabindex="0">${Resource.msg('link.header.logout', 'account', null)}</a>
                 </li>
             </ul>
-            
+
         </div>
     </div>
 </isif>
