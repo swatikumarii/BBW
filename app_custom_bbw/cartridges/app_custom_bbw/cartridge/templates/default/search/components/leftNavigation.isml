@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-body content value p-md-0"
                     id="refinement-${levelTwoCategory.displayName.toLowerCase().replace(/ /g, '-')}">
-                    <ul class="category-level-2 h-mb-md--45">
+                    <ul class="category-level-2 h-mb-md--45 list-unstyled">
                         <isloop items="${levelTwoCategory.onlineSubCategories}" var="levelThreeCategory">
                             <li>
                                 <a class="${pdict.productSearch.category.id === levelThreeCategory.ID ? 'active' : ''} h-font-size--16 d-block"

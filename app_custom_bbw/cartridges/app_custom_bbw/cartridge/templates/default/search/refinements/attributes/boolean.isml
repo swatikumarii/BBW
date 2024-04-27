@@ -1,6 +1,6 @@
-<li class="col-sm-4 col-md-12 ${!refinementValue.selectable ? 'disabled' : ''} px-0">
+<li class="col-sm-4 col-md-12 filter-list-item ${!refinementValue.selectable ? 'disabled' : ''}">
     <button data-href="${refinementValue.url}" data-seo-href="${refinementValue.seoRefineUrl || refinementValue.url}"
-        class="d-block btn-no-style h-fw--bold b-text-h2 fliter-link ${refinementValue.selected && refinementValue.selectable ? 'selected' : ''} ${!refinementValue.selectable ? 'disabled' : ''}"
+        class="d-flex align-items-center h-grid-gap--10 h-clr--gray-4 btn-no-style h-fw--bold b-text-h2 filter-link ${refinementValue.selected && refinementValue.selectable ? 'selected' : ''} ${!refinementValue.selectable ? 'disabled' : ''}"
         <isif condition="${!refinementValue.selectable}">disabled</isif>>
         <iscomment>Checkbox</iscomment>
         <i class="filter-uncheck"></i>

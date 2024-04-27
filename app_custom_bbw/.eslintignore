@@ -5,3 +5,5 @@ doc/
 bin/
 codecept.conf.js
 ismllinter.config.js
+storeLocatorDetail.js
+productSearch.js

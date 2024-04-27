@@ -1998,13 +1998,51 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </folder-links>
     </content>
 
-    <content content-id="register-form">
-        <display-name xml:lang="x-default">create account form</display-name>
+   <content content-id="find-fragrance">
+        <display-name xml:lang="x-default">Find a Fragrance</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="search-promo text-justify"&gt;&#13;
+    &lt;div class="html-slot-container"&gt;&#13;
+        &lt;h2 class="h-font-size--24 h-clr--black-3"&gt;Find a Fragrance from Bath &amp;amp; Body Works&lt;/h2&gt;&#13;
+        &lt;p class=" h-clr--gray h-font-size--16 "&gt;Hey! Welcome to the Fragrance Finder: The page where you can find our top scents &lt;i&gt;and&lt;/i&gt; browse all of our&#13;
+            fragrance categories. Why is this &lt;i&gt;so&lt;/i&gt; amazing? It makes it way easier to explore our goodies and&#13;
+            discover new ones. All you have to do is select an olfactory category and you’ll be instantly transported to&#13;
+            a world of fragrance. &lt;/p&gt;&#13;
+&#13;
+        &lt;p class=" h-clr--gray h-font-size--16 "&gt;Take a stroll through the sweetest gourmands. Chill with a fresh scent. Explore the mystery of a woodsy&#13;
+            fragrance. Relax with something floral and green. Spend time with a lovely fruity note. Basically, if&#13;
+            there’s a type of fragrance you like, you can find ways to enjoy it right here.&lt;/p&gt;&#13;
+&#13;
+        &lt;p class=" h-clr--gray h-font-size--16 "&gt;Need help choosing a fragrance family that’s so you? Check out our guide on &lt;a&#13;
+                href="$url('Page-Show','cid','choose-your-scent')$"&gt;How to Find Your Perfect Scent&lt;/a&gt;. That guide has everything you need&#13;
+            to know about our olfactory spaces, from fresh and citrusy to woodsy and gourmand. Happy fragrance hunting!&#13;
+        &lt;/p&gt;&#13;
+    &lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+</content>
+
+    <content content-id="fragrance-finder">
+        <display-name xml:lang="x-default">Find a Fragrance</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="register-form text-center"&gt;&lt;img alt="Join the VIPs. My Bath &amp;amp; Body Works Rewards. Available nationwide! Now everyone can earn FREE products (up to $16.95) for doing what they love!" src="images/Login-Signup/register.jpg?$staticlink$" title="" /&gt;&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+    &lt;div class="row"&gt;&#13;
+        &lt;div class="col-12 col-sm-12 col-md-12 col-lg-12"&gt;&#13;
+            &lt;div class="fragrance-top-banner text-center"&gt;&#13;
+                &lt;h1 class="fragrance-landing-header h-clr--black-3 h-fw--normal pb-0 mt-3 mb-4"&gt;FRAGRANCE FINDER&lt;/h1&gt;&#13;
+                &lt;p class="fragrance-landing-subheader h-clr--black-3 h-font-size--16  "&gt;Your signature scent’s a click&#13;
+                    away.&lt;/p&gt;&#13;
+            &lt;/div&gt;&#13;
+&#13;
+        &lt;/div&gt;&#13;
+    &lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
 
@@ -2026,4 +2064,17 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
+
+
+    <content content-id="register-form">
+        <display-name xml:lang="x-default">create account form</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="register-form text-center"&gt;&lt;img alt="Join the VIPs. My Bath &amp;amp; Body Works Rewards. Available nationwide! Now everyone can earn FREE products (up to $16.95) for doing what they love!" src="images/Login-Signup/register.jpg?$staticlink$" title="" /&gt;&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    
 </library>

@@ -1,0 +1,72 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/orderTracking.js');
+    </isscript>
+
+    <div class="hero slant-down">
+        <h1 class="page-title">${Resource.msg('label.order.tracking', 'order', null)}</h1>
+    </div>
+    <div class="row justify-content-center equal-height">
+        <div class="col-sm-8 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form class="order-tracking" name="orderTracking">
+                        <div class="order-tracking-block">
+                            <div class="form-group">
+                                <label class="form-control-label" for="order-tracking-form-ordernumber">
+                                    ${Resource.msg('label.order.number', 'order', null)}
+                                </label>
+                                <input type="text" class="form-control" id="orderNumber"
+                                data-required="${Resource.msg('error.order.number.required', 'order', null)}" />
+                                <div class="text-danger error-class" id="orderNumber-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="order-tracking-form-orderemail">
+                                    ${Resource.msg('label.order.email', 'order', null)}
+                                </label>
+                                <input type="text" class="form-control" id="orderEmail"
+                                data-required="${Resource.msg('error.order.email.required', 'order', null)}"
+                                data-invalidemail="${Resource.msg('error.order.email.format', 'order', null)}" />
+                                <div class="text-danger error-class" id="orderEmail-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="order-tracking-form-billing-zip-code">
+                                    ${Resource.msg('label.billing.zip.code', 'order', null)}
+                                </label>
+                                <input type="text" class="form-control" id="billingZipCode"
+                                data-required="${Resource.msg('error.billing.zip.code.required', 'order', null)}" 
+                                data-maxlength="${Resource.msg('error.billing.zip.code.maxlength', 'order', null)}" />
+                                <div class="text-danger error-class" id="billingZipCode-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <span>${Resource.msg('label.privacy.policy', 'common', null)}</span>
+                            </div>
+
+                            <button id="checkStatus" type="button" class="btn"
+                                data-actionurl="${URLUtils.url('Order-Check')}">
+                                ${Resource.msg('text.btn.check.status', 'order', null)}
+                            </button>
+                            <div class="text-danger error-class" id="form-error"></div>
+
+                            <div class="form-group">
+                                <span>${Resource.msg('label.or', 'common', null)}</span>
+                            </div>
+
+                            <div class="form-group">
+                                <span>${Resource.msg('label.sign.in', 'order', null)}</span>
+                            </div>
+
+                            <div class="form-group">
+                                <span>${Resource.msg('label.order.info', 'order', null)}</span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>
