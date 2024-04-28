@@ -477,8 +477,62 @@ function checkCouponCodeError (couponCode, errorCode) {
     return errorMessage;
 }
 
+/**
+ * Function mergeCart merges the items from the stored basket to the currentBasket.
+ * @returns {object} resultObj - contain updated basket and boolean value
+ */
+function mergeCart() {
+    var Logger = require('dw/system/Logger');
+    var storedBasket = BasketMgr.getStoredBasket();
+    var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
+    var currentBasket = BasketMgr.getCurrentOrNewBasket();
+    var isCartMerged = false;
+    var resultObj = {};
+
+    try {
+        if (currentBasket && storedBasket) {
+            var productLineItemItr = storedBasket
+                .getAllProductLineItems()
+                .iterator();
+            while (productLineItemItr.hasNext()) {
+                var pli = productLineItemItr.next();
+                if (!pli.bundledProductLineItem && !pli.optionProductLineItem) {
+                    var childProducts = [];
+                    var optionProducts = [];
+                    var mergeQty = pli.quantityValue;
+                    if (!pli.bonusProductLineItem) {
+                        var result = base.addProductToCart(
+                            currentBasket,
+                            pli.productID,
+                            mergeQty,
+                            childProducts,
+                            optionProducts
+                        );
+                        if (!result.error) {
+                            isCartMerged = true;
+                        }
+                    }
+                }
+            }
+            basketCalculationHelpers.calculateTotals(currentBasket);
+        }
+    } catch (e) {
+        isCartMerged = false;
+        Logger.error(
+            'Exception occoured while executing merge cart function: {0}' +
+                e.message
+        );
+    }
+
+    resultObj.isCartMerged = isCartMerged;
+    resultObj.currentBasket = currentBasket;
+
+    return resultObj;
+}
+
 base.createFreeLineItem = createFreeLineItem;
 base.checkCouponCodeError = checkCouponCodeError;;
 base.addProductToCart = addProductToCart;
 base.getProductPrice = getProductPrice;
+base.mergeCart = mergeCart;
 module.exports = base;

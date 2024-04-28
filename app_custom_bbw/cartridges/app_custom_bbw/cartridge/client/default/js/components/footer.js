@@ -97,14 +97,14 @@ $('[data-toggle="popover"]')
 var timer;
 $('body').on(
     'mouseleave',
-    '[data-toggle="popover"], .pdp-popover',
+    '[data-toggle="popover"], .popover',
     function () {
         timer = setTimeout(function () {
-            $('.pdp-popover').popover('hide');
+            $('.popover').popover('hide');
         }, 50);
     }).on(
     'mouseenter',
-    '[data-toggle="popover"], .pdp-popover',
+    '[data-toggle="popover"], .popover',
     function () {
         clearTimeout(timer);
     }

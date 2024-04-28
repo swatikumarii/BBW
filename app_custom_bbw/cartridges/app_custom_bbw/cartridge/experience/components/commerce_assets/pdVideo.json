@@ -1,0 +1,65 @@
+{
+  "name": "CMP: Video",
+  "description": "Video Component.",
+  "group": "commerce_assets",
+  "attribute_definition_groups": [
+    {
+      "id": "cmpConfig",
+      "name": "Component Configuration",
+      "description": "Component Configuration",
+      "attribute_definitions": [
+        {
+          "id": "video_url",
+          "name": "Video URL",
+          "description": "CDN or YouTube / Vimeo URL",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "img",
+          "name": "Poster",
+          "type": "image",
+          "required": false
+        },
+        {
+          "id": "urlDesktop",
+          "name": "Video URL (Desktop)",
+          "description": "CDN or YouTube / Vimeo URL",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "imgDesktop",
+          "name": "Poster (Desktop)",
+          "type": "image",
+          "required": false
+        },
+        {
+          "id": "optionDisableAutoplay",
+          "name": "Disable autoplay",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "id": "optionDisableLoop",
+          "name": "Disable loop",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "id": "optionEnableControls",
+          "name": "Enable controls",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "id": "optionEnableSound",
+          "name": "Enable sound",
+          "type": "boolean",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

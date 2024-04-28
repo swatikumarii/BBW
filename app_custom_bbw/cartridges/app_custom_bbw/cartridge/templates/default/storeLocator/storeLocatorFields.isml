@@ -17,6 +17,7 @@
                 type="${pdict.isForm === 'true' ? 'submit' : 'button'}">
                 ${Resource.msg('button.find.stores', 'storeLocator', null)}
             </button>
+            <div class="invalid-feedback" id="no-stores-result">${Resource.msg('msg.no.result','storeLocator',null)}</div>
         </div>
         <div class="refine-store">
             <p class="sub-heading h-font-size--18 h-fw--bold mb-0 h-clr--black-1 text-capitalize">
