@@ -2,25 +2,28 @@
     <h2 class="card-header-custom h-font-size--20 h-fw--bold h-clr--black-1 billing-address-heading">
         ${Resource.msg('heading.billing.address', 'checkout', null)}</h2>
     <form autocomplete="on" method="POST" action="${URLUtils.url('CheckoutServices-SubmitPayment')}"
-        data-address-mode="${!pdict.order.billing.billingAddress.address ? 'new' : 'details'}" <isprint
+        data-address-mode="${!pdict.order.billing.billingAddress.address ? 'new' : 'edit'}" <isprint
         value=${pdict.forms.billingForm.attributes} encoding="off" /> novalidate>
+
 
         <fieldset class="billing-address-block">
             <!-------------------------------------------------------------------------->
-            <!-- Billing Address Selector                                             -->
+            <!-- Billing Address Display                                             -->
             <!-------------------------------------------------------------------------->
-            <fieldset class="address-selector-block">
-                <div class="form-group">
+            <isinclude template="checkout/billing/billingAddressSummary" />
 
-                    <isinclude template="checkout/billing/addressSelector" />
-                    <div class="invalid-feedback"></div>
-                </div>
-            </fieldset>
 
             <!-------------------------------------------------------------------------->
             <!-- Billing Address                                                      -->
             <!-------------------------------------------------------------------------->
             <fieldset class="billing-address">
+                <fieldset class="address-selector-block">
+                    <div class="form-group">
+
+                        <isinclude template="checkout/billing/addressSelector" />
+                        <div class="invalid-feedback"></div>
+                    </div>
+                </fieldset>
                 <isinclude template="checkout/billing/billingAddress" />
             </fieldset>
 
@@ -32,7 +35,10 @@
         <!-------------------------------------------------------------------------->
         <!-- Contact Info (Email and Phone)                                       -->
         <!-------------------------------------------------------------------------->
+
         <fieldset class="contact-info-block">
+            <h2 class="card-header-custom h-font-size--20 h-fw--bold h-clr--black-1 billing-address-heading pt-0">
+                ${Resource.msg('heading.contact.info', 'checkout', null)}</h2>
             <div class="row d-none">
                 <div class="col-sm-12">
                     <div class="form-group
@@ -68,6 +74,8 @@
         <!-- Payment Options                                                      -->
         <!-------------------------------------------------------------------------->
         <fieldset>
+            <h2 class="card-header-custom h-font-size--20 h-fw--bold h-clr--black-1 billing-address-heading">
+                ${Resource.msg('heading.payment.methods', 'checkout', null)}</h2>
             <isinclude template="checkout/billing/paymentOptions" />
         </fieldset>
 
