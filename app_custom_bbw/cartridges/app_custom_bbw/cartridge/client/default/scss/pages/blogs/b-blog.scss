@@ -39,7 +39,7 @@
 
     @include media-up(sm) {
         margin: 40px auto;
-        width: 85%;
+        width: 89%;
     }
 
     .folder_list {
@@ -127,6 +127,9 @@
             .read-button {
                 width: 40%;
                 float: right;
+                max-height: 35px;
+                min-height: 36px;
+                margin-top: 1rem;
 
                 @include media-up(sm) {
                     float: right;
@@ -134,10 +137,15 @@
                     width: 20%;
                 }
 
+                @include media-btw(sm, lg) {
+                    width: 30%;
+                }
+
                 &:hover {
                     background-color: colour(white);
                     color: colour(black, 3);
                     border: none;
+                    transition: none;
                 }
             }
         }
@@ -164,6 +172,10 @@
             letter-spacing: 0.0625rem;
             background-color: transparent;
             color: colour(black, 3);
+        }
+
+        @include media-btw(sm, lg) {
+            width: 20%;
         }
 
         &:hover {
@@ -380,12 +392,24 @@
 }
 
 // -----------Choose-your-scent-----
-.description-list {
-    li {
+.bc-description {
+    h2 {
+        text-transform: none;
+        line-height: 1.125;
+        margin: 20px 0;
+    }
+
+    p {
         line-height: 1.75;
-        color: colour(black, 3);
-        margin-top: 0.625rem;
-        margin-left: 3.125rem;
+    }
+
+    .description-list {
+        li {
+            line-height: 1.75;
+            color: colour(black, 3);
+            margin-top: 0.625rem;
+            margin-left: 3.125rem;
+        }
     }
 }
 
