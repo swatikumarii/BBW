@@ -94,8 +94,10 @@ function updateStoresResults(data) {
 
     if (!hasResults) {
         $('.store-locator-no-results').removeClass('d-none');
+        $('#no-stores-result').show();
     } else {
         $('.store-locator-no-results').addClass('d-none');
+        $('#no-stores-result').hide();
     }
 
     $resultsDiv.empty()
