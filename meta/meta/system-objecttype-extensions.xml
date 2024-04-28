@@ -1716,6 +1716,10 @@
         <group-definitions>
             <attribute-group group-id="Details">
                 <display-name xml:lang="x-default">Store Details</display-name>
+                <attribute attribute-id="storeHours" system="true"/>
+                <attribute attribute-id="storeEvents" system="true"/>
+                <attribute attribute-id="image" system="true"/>
+                <attribute attribute-id="posEnabled" system="true"/>
                 <attribute attribute-id="storeType"/>
             </attribute-group>
         </group-definitions>
