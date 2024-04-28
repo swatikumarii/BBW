@@ -130,11 +130,11 @@ $(document).ready(function () {
         $(this).on('click', function () {
             var e = $(this).data('btn-id');
             if ($('#' + e).hasClass('unmuted')) {
-                if ($('[data-btn-id="' + e + '"] .icon-sound i').hasClass('fa-volume-xmark')) {
-                    $('[data-btn-id="' + e + '"]').find('.icon-sound i').removeClass('fa-volume-xmark').addClass('fa-volume');
+                if ($('[data-btn-id="' + e + '"] .icon-sound').hasClass('sound-off')) {
+                    $('[data-btn-id="' + e + '"]').find('.icon-sound').removeClass('sound-off').addClass('sound-on');
                     $('#' + e).prop('muted', false);
                 } else {
-                    $('[data-btn-id="' + e + '"]').find('.icon-sound i').removeClass('fa-volume').addClass('fa-volume-xmark');
+                    $('[data-btn-id="' + e + '"]').find('.icon-sound').removeClass('sound-on').addClass('sound-off');
                     $('#' + e).prop('muted', true);
                 }
             }
@@ -152,8 +152,8 @@ $(document).ready(function () {
                     // Current Slide Video Id
                     var videoId = $(this).find('.slick-slide[data-slick-index="' + currentSlide + '"] .experience-rituals_components-pageBanner .js-responsive-vol-controls .js-responsive-vol-control-button').data('btn-id');
 
-                    if (!$('[data-btn-id="' + videoId + '"] .icon-sound i').hasClass('fa-volume-xmark')) {
-                        $('[data-btn-id="' + videoId + '"]').find('.icon-sound i').removeClass('fa-volume').addClass('fa-volume-xmark');
+                    if (!$('[data-btn-id="' + videoId + '"] .icon-sound').hasClass('sound-off')) {
+                        $('[data-btn-id="' + videoId + '"]').find('.icon-sound').removeClass('sound-on').addClass('sound-off');
 
                         // Mute Video Before Slide Change
                         $('#' + videoId).prop('muted', true);
@@ -185,8 +185,8 @@ $(document).ready(function () {
         }
         if (opts.playWhenInView) {
             n = q;
-            $(window).on('load scroll', function () {
-                var e = $(n).parents('.experience-rituals_components-pageBanner').find('.js-responsive-video-controls');
+            $(window).on('load scroll', debounce(function () {
+                var e = $(n).parents('.js-banner-wrapper').find('.video-controls-wrapper .js-responsive-video-controls');
                 var t = $(n).parent().css('opacity') === '0';
                 if (viewportCheck(n, 0) && !t) {
                     if (!(e.hasClass('was-paused') || e.hasClass('is-playing'))) {
@@ -200,7 +200,7 @@ $(document).ready(function () {
                     videoPause(n);
                     e.removeClass('is-playing');
                 }
-            });
+            }, 700));
         }
     });
 

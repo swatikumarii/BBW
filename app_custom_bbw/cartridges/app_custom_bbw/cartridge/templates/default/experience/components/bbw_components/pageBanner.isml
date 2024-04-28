@@ -3,128 +3,131 @@
     assets.addJs('/js/pageBanner.js');
     assets.addCss('/css/experience/components/bbw_components/pageBanner.css');
 </isscript>
+<div class="js-banner-wrapper pd-banner-wrapper w-100">
+    <section class="content-banner banner-pagedesigner js-banner js-dm-image
+            ${pdict.bannerheight == 'Banner Small' ? 'banner-small' : ''}
+            ${pdict.bannerheight === 'Default' ? 'default-banner' : ''}
+            ${pdict.bannerheight == 'Banner Tall' ? 'banner-tall' : ''}
+            ${pdict.contentPositionDesktop == 'left' ? 'banner-left-aligned-desktop' : ''}
+            ${pdict.contentPositionDesktop == 'right' ? 'banner-right-aligned-desktop' : ''}
+            ${pdict.contentPositionDesktop == 'center' ? 'banner-center-aligned-desktop' : ''}
+            ${pdict.contentAlignmentTablet == 'left' ? 'banner-left-aligned-tablet' : ''}
+            ${pdict.contentAlignmentTablet == 'right' ? 'banner-right-aligned-tablet' : ''}
+            ${pdict.contentAlignmentTablet == 'center' ? 'banner-center-aligned-tablet' : ''}
+            ${pdict.contentPositionTablet == 'bottom' ? 'banner-bottom-aligned-tablet' : ''}
+            ${pdict.contentPositionTablet == 'middle' ? 'banner-middle-aligned-tablet' : ''}
+            ${pdict.contentPositionTablet == 'top' ? 'banner-top-aligned-tablet' : ''}
+            ${pdict.contentAlignmentMobile == 'left' ? 'banner-left-aligned-mobile' : ''}
+            ${pdict.contentAlignmentMobile == 'right' ? 'banner-right-aligned-mobile' : ''}
+            ${pdict.contentAlignmentMobile == 'center' ? 'banner-center-aligned-mobile' : ''}
+            ${pdict.contentPositionMobile == 'bottom' ? 'banner-bottom-aligned-mobile' : ''}
+            ${pdict.contentPositionMobile == 'middle' ? 'banner-middle-aligned-mobile' : ''}
+            ${pdict.contentPositionMobile == 'top' ? 'banner-top-aligned-mobile' : ''}">
 
-<section class="content-banner banner-pagedesigner js-banner js-dm-image
-        ${pdict.bannerheight == 'Banner Small' ? 'banner-small' : ''}
-        ${pdict.bannerheight === 'Default' ? 'default-banner' : ''}
-        ${pdict.bannerheight == 'Banner Tall' ? 'banner-tall' : ''}
-        ${pdict.contentPositionDesktop == 'left' ? 'banner-left-aligned-desktop' : ''}
-        ${pdict.contentPositionDesktop == 'right' ? 'banner-right-aligned-desktop' : ''}
-        ${pdict.contentPositionDesktop == 'center' ? 'banner-center-aligned-desktop' : ''}
-        ${pdict.contentAlignmentTablet == 'left' ? 'banner-left-aligned-tablet' : ''}
-        ${pdict.contentAlignmentTablet == 'right' ? 'banner-right-aligned-tablet' : ''}
-        ${pdict.contentAlignmentTablet == 'center' ? 'banner-center-aligned-tablet' : ''}
-        ${pdict.contentPositionTablet == 'bottom' ? 'banner-bottom-aligned-tablet' : ''}
-        ${pdict.contentPositionTablet == 'middle' ? 'banner-middle-aligned-tablet' : ''}
-        ${pdict.contentPositionTablet == 'top' ? 'banner-top-aligned-tablet' : ''}
-        ${pdict.contentAlignmentMobile == 'left' ? 'banner-left-aligned-mobile' : ''}
-        ${pdict.contentAlignmentMobile == 'right' ? 'banner-right-aligned-mobile' : ''}
-        ${pdict.contentAlignmentMobile == 'center' ? 'banner-center-aligned-mobile' : ''}
-        ${pdict.contentPositionMobile == 'bottom' ? 'banner-bottom-aligned-mobile' : ''}
-        ${pdict.contentPositionMobile == 'middle' ? 'banner-middle-aligned-mobile' : ''}
-        ${pdict.contentPositionMobile == 'top' ? 'banner-top-aligned-mobile' : ''}">
+        <iscomment> Image - Banner - Image </iscomment>
+        <div class="js-banner-image image-holder dm-responsive-image js-dm-image none dm-responsive-image-initialized ${pdict.desktopBannerOverlay ? pdict.desktopBannerOverlay : ''} ${pdict.tabletBannerOverlay ? pdict.tabletBannerOverlay : ''} ${pdict.mobileBannerOverlay ? pdict.mobileBannerOverlay : ''}"
+            data-desktopv="${pdict.useBannerImgURL ? pdict.desktopBannerImageUrl : (pdict.desktopBannerImage && pdict.desktopBannerImage.src ? pdict.desktopBannerImage.src.desktop : '')}"
+            data-mobilev="${pdict.useBannerImgURL ? pdict.mobileBannerImageUrl : (pdict.mobileBannerImage && pdict.mobileBannerImage.src ? pdict.mobileBannerImage.src.mobile : '')}"
+            data-tabletv="${pdict.useBannerImgURL ? pdict.tabletBannerImageUrl : (pdict.tabletBannerImage && pdict.tabletBannerImage.src ? pdict.tabletBannerImage.src.tablet : '')}"
+            alt="${pdict.bannerImgAlt}" title="">
 
-    <iscomment> Image - Banner - Image </iscomment>
-    <div class="js-banner-image image-holder dm-responsive-image js-dm-image none dm-responsive-image-initialized ${pdict.desktopBannerOverlay ? pdict.desktopBannerOverlay : ''} ${pdict.tabletBannerOverlay ? pdict.tabletBannerOverlay : ''} ${pdict.mobileBannerOverlay ? pdict.mobileBannerOverlay : ''}"
-        data-desktopv="${pdict.useBannerImgURL ? pdict.desktopBannerImageUrl : (pdict.desktopBannerImage && pdict.desktopBannerImage.src ? pdict.desktopBannerImage.src.desktop : '')}"
-        data-mobilev="${pdict.useBannerImgURL ? pdict.mobileBannerImageUrl : (pdict.mobileBannerImage && pdict.mobileBannerImage.src ? pdict.mobileBannerImage.src.mobile : '')}"
-        data-tabletv="${pdict.useBannerImgURL ? pdict.tabletBannerImageUrl : (pdict.tabletBannerImage && pdict.tabletBannerImage.src ? pdict.tabletBannerImage.src.tablet : '')}"
-        alt="${pdict.bannerImgAlt}" title="">
-
-        <iscomment> Video Holder </iscomment>
-        <isset name="randomvalue" value="${String.split(Math.random(), '.')[1]}" scope="page" />
-        <isif condition="${pdict.videoEnable == 'yes'}">
-            <div
-                class="video-holder active js-video-holder none ${pdict.desktopBannerOverlay ? pdict.desktopBannerOverlay : ''} ${pdict.mobileBannerOverlay ? pdict.mobileBannerOverlay : ''} ${pdict.tabletBannerOverlay ? pdict.tabletBannerOverlay : ''}">
-                <div class="background-video is-dam js-responsive-video ${pdict.videoHideonMobile} ${pdict.videoHideonTablet}"
-                    data-video-id="${randomvalue}"
-                    data-responsive-video-options='{"hideOnMobile":1,"playWhenInView":1,"skipOnLoad":0}'>
-                    <div class="responsive-video">
-                        <video id="${randomvalue}" preload="auto" class="video-element js-bannersmall-video ${pdict.videoSoundEnable}" autoplay ${pdict.videoLoop} muted playsinline>
-                            <source data-src="${pdict.usevideoURL ? pdict.videoDesktop : (pdict.videoFileDesktop ? pdict.videoFileDesktop.getAbsURL() : '')}" type="video/mp4"
-                            data-desktopv="${pdict.usevideoURL ? pdict.videoDesktop : (pdict.videoFileDesktop ? pdict.videoFileDesktop.getAbsURL() : '')}"
-                            data-tabletv="${pdict.usevideoURL ? pdict.videoTablet : (pdict.videoFileTablet ? pdict.videoFileTablet.getAbsURL() : '')}"
-                            data-mobilev="${pdict.usevideoURL ? pdict.videoMobile : (pdict.videoFileMobile ? pdict.videoFileMobile.getAbsURL() : '')}">
-                        </video>
+            <iscomment> Video Holder </iscomment>
+            <isset name="randomvalue" value="${String.split(Math.random(), '.')[1]}" scope="page" />
+            <isif condition="${pdict.videoEnable == 'yes'}">
+                <div
+                    class="video-holder active js-video-holder none ${pdict.desktopBannerOverlay ? pdict.desktopBannerOverlay : ''} ${pdict.mobileBannerOverlay ? pdict.mobileBannerOverlay : ''} ${pdict.tabletBannerOverlay ? pdict.tabletBannerOverlay : ''}">
+                    <div class="background-video is-dam js-responsive-video ${pdict.videoHideonMobile} ${pdict.videoHideonTablet}"
+                        data-video-id="${randomvalue}"
+                        data-responsive-video-options='{"hideOnMobile":1,"playWhenInView":1,"skipOnLoad":0}'>
+                        <div class="responsive-video">
+                            <video id="${randomvalue}" preload="auto" class="video-element js-bannersmall-video ${pdict.videoSoundEnable}" autoplay ${pdict.videoLoop} muted playsinline>
+                                <source data-src="${pdict.usevideoURL ? pdict.videoDesktop : (pdict.videoFileDesktop ? pdict.videoFileDesktop.getAbsURL() : '')}" type="video/mp4"
+                                data-desktopv="${pdict.usevideoURL ? pdict.videoDesktop : (pdict.videoFileDesktop ? pdict.videoFileDesktop.getAbsURL() : '')}"
+                                data-tabletv="${pdict.usevideoURL ? pdict.videoTablet : (pdict.videoFileTablet ? pdict.videoFileTablet.getAbsURL() : '')}"
+                                data-mobilev="${pdict.usevideoURL ? pdict.videoMobile : (pdict.videoFileMobile ? pdict.videoFileMobile.getAbsURL() : '')}">
+                            </video>
+                        </div>
                     </div>
                 </div>
+            </isif>
+        </div>
+
+        <iscomment> Text Block </iscomment>
+
+        <div class="text-holder">
+            <div class="inner-wrapper">
+                <div class="inner-indented">
+                    <iscomment> Custom Content </iscomment>
+                    <isif condition="${pdict.customContent}">
+                        <isprint value="${pdict.customContent}" encoding="off" />
+                    </isif>
+
+                    <iscomment> Logo/Image </iscomment>
+                    <isif condition="${pdict.contentLogoUrl !== '' || pdict.contentLogo !== null }">
+                        <span class="ico icon-logo" style="background-image: url(${pdict.useContentImgURL ? pdict.contentLogoUrl : pdict.contentLogo.src.mobile});"></span>
+                    </isif>
+
+                    <iscomment> Banner - Sub-Title </iscomment>
+                    <isif condition="${pdict.contentsubTitle !== ''}">
+                        <h4 class="heading-h3 txt--${pdict.contentsubTitleColor}">
+                            <isprint value="${pdict.contentsubTitle}" encoding="off" />
+                        </h4>
+                    </isif>
+
+                    <iscomment> Banner - Title </iscomment>
+                    <isif condition="${pdict.contenttitle !== ''}">
+                        <h1 class="heading-h1 txt--${pdict.contentTitleColor}">
+                            <isprint value="${pdict.contenttitle}" encoding="off" />
+                        </h1>
+                    </isif>
+
+                    <iscomment> Banner - Description </iscomment>
+                    <isif condition="${pdict.contentdescription !== ''}">
+                        <div class="banner-description txt--${pdict.descriptionColor}">
+                            <isprint value="${pdict.contentdescription}" encoding="off" />
+                        </div>
+                    </isif>
+
+                    <iscomment> Banner - CTA </iscomment>
+                    <isif condition="${pdict.buttonLink !== ''}">
+                        <div class="content-banner-btn-wrapper">
+                            <a href="${pdict.buttonLink}" hreflang="${request.getLocale()}"
+                                class="clpShopNowBtn btn ${pdict.buttonColor == 'white' ? 'btn--white-filled' : ''} ${pdict.buttonColor == 'black' ? 'btn--banner' : ''} ${pdict.buttonColor == 'transparent' ? 'btn--white-black' : ''} ${pdict.buttonColor == 'tertiary' ? 'btn--tertiary' : ''} ${pdict.buttonColor == 'transparentWhite' ? 'btn--transparent-white' : ''}"
+                                data-scroll-linkid ="${pdict.buttonLinkScrollId}">
+                                <span>${pdict.button}</span>
+                            </a>
+                        </div>
+                    </isif>
+                </div>
             </div>
-        </isif>
-    </div>
-
-    <iscomment> Text Block </iscomment>
-
-    <div class="text-holder">
-        <div class="inner-wrapper">
-            <div class="inner-indented">
-                <iscomment> Custom Content </iscomment>
-                <isif condition="${pdict.customContent}">
-                    <isprint value="${pdict.customContent}" encoding="off" />
-                </isif>
-
-                <iscomment> Logo/Image </iscomment>
-                <isif condition="${pdict.contentLogoUrl !== '' || pdict.contentLogo !== null }">
-                    <span class="ico icon-logo" style="background-image: url(${pdict.useContentImgURL ? pdict.contentLogoUrl : pdict.contentLogo.src.mobile});"></span>
-                </isif>
-
-                <iscomment> Banner - Sub-Title </iscomment>
-                <isif condition="${pdict.contentsubTitle !== ''}">
-                    <h4 class="heading-h3 txt--${pdict.contentsubTitleColor}">
-                        <isprint value="${pdict.contentsubTitle}" encoding="off" />
-                    </h4>
-                </isif>
-
-                <iscomment> Banner - Title </iscomment>
-                <isif condition="${pdict.contenttitle !== ''}">
-                    <h1 class="heading-h1 txt--${pdict.contentTitleColor}">
-                        <isprint value="${pdict.contenttitle}" encoding="off" />
-                    </h1>
-                </isif>
-
-                <iscomment> Banner - Description </iscomment>
-                <isif condition="${pdict.contentdescription !== ''}">
-                    <div class="banner-description txt--${pdict.descriptionColor}">
-                        <isprint value="${pdict.contentdescription}" encoding="off" />
+        </div>
+    </section>
+    <isif condition="${pdict.videoEnable == 'yes'}">
+        <div class="video-controls-wrapper">
+            <iscomment> Video Control </iscomment>
+            <isif condition="${pdict.videoEnable == 'yes'}">
+                <div class="video-controls_bottom-right js-responsive-video-controls is-playing">
+                    <div class="buttons-wrapper">
+                        <button class="js-responsive-video-control-button video-control-button" type="button"
+                            data-target='[data-video-id="${randomvalue}"]' data-btn-id="${randomvalue}">
+                            <span class="icon icon-play iconfont"><span class="sr-only">${Resource.msg('lable.play.video', 'common', null)}</span></span>
+                            <span class="icon icon-pause iconfont"><span class="sr-only">${Resource.msg('lable.pause.video', 'common', null)}</span></span>
+                        </button>
                     </div>
-                </isif>
+                </div>
+            </isif>
 
-                <iscomment> Banner - CTA </iscomment>
-                <isif condition="${pdict.buttonLink !== ''}">
-                    <div class="content-banner-btn-wrapper">
-                        <a href="${pdict.buttonLink}" hreflang="${request.getLocale()}"
-                            class="clpShopNowBtn btn ${pdict.buttonColor == 'white' ? 'btn--white-filled' : ''} ${pdict.buttonColor == 'black' ? 'btn--banner' : ''} ${pdict.buttonColor == 'transparent' ? 'btn--white-black' : ''} ${pdict.buttonColor == 'tertiary' ? 'btn--tertiary' : ''} ${pdict.buttonColor == 'transparentWhite' ? 'btn--transparent-white' : ''}"
-                            data-scroll-linkid ="${pdict.buttonLinkScrollId}">
-                            <span>${pdict.button}</span>
-                        </a>
+            <iscomment> Video Sound</iscomment>
+            <isif condition="${pdict.videoSoundEnable === 'unmuted' && pdict.videoEnable == 'yes'}">
+                <div class="video-controls_bottom-right vol-controls-bottom-right js-responsive-vol-controls">
+                    <div class="buttons-wrapper">
+                        <button class="js-responsive-vol-control-button vol-control-button" type="button"
+                            data-target='[data-video-id="${randomvalue}"]' data-btn-id="${randomvalue}">
+                            <span class="icon icon-sound sound-off"></span>
+                        </button>
                     </div>
-                </isif>
-            </div>
+                </div>
+            </isif>
         </div>
-    </div>
-</section>
-<iscomment> Video Control </iscomment>
-<isif condition="${pdict.videoEnable == 'yes'}">
-    <div class="video-controls_bottom-right js-responsive-video-controls is-playing">
-        <div class="buttons-wrapper">
-            <button class="js-responsive-video-control-button video-control-button" type="button"
-                data-target='[data-video-id="${randomvalue}"]' data-btn-id="${randomvalue}">
-                <span class="icon icon-play iconfont"><span class="sr-only">${Resource.msg('lable.play.video', 'common', null)}</span></span>
-                <span class="icon icon-pause iconfont"><span class="sr-only">${Resource.msg('lable.pause.video', 'common', null)}</span></span>
-            </button>
-        </div>
-    </div>
-</isif>
-
-<iscomment> Video Sound</iscomment>
-<isif condition="${pdict.videoSoundEnable === 'unmuted' && pdict.videoEnable == 'yes'}">
-    <div class="video-controls_bottom-right vol-controls-bottom-right js-responsive-vol-controls">
-        <div class="buttons-wrapper">
-            <button class="js-responsive-vol-control-button vol-control-button" type="button"
-                data-target='[data-video-id="${randomvalue}"]' data-btn-id="${randomvalue}">
-                <span class="icon icon-sound">
-                    <i class="fa-thin fa-volume-xmark"></i>
-                </span>
-            </button>
-        </div>
-    </div>
-</isif>
+    </isif>
+</div>
