@@ -1,7 +1,7 @@
 <script defer type="text/javascript" src="${URLUtils.staticURL('/js/login.js')}"></script>
-<div class="modal fade hide" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+<div class="modal fade hide " id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
-    <div class="modal-dialog login-modal-view text-left" role="document">
+    <div class="modal-dialog modal-dialog-bottom login-modal-view text-left" role="document">
         <div class="modal-content">
             <div class="modal-header border-0">
                 <button type="button" class="close close-icon-btn" data-dismiss="modal" aria-label="Close">

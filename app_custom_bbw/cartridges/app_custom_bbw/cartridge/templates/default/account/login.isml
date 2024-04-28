@@ -19,8 +19,8 @@
             <div class="login-page-setion">
                 <div class="login-section">
                     <div class="login-form-nav login-account">
-                        <h2 class="h-clr--black-3 h-font-size--16">${Resource.msg('login.label', 'login', null)}</h2>
-                        <p class="h-clr--gray">${Resource.msg('login.para', 'login', null)}</p>
+                        <h2 class="h-clr--black-3 h-font-size--16 text-center">${Resource.msg('login.label', 'login', null)}</h2>
+                        <p class="h-clr--gray text-cente">${Resource.msg('login.para', 'login', null)}</p>
                         <div class="login-box">
                             <isinclude template="account/components/loginForm" />
                         </div>
@@ -33,7 +33,25 @@
                         ${Resource.msg('login.or.separator', 'login', null)}
                     </div>
                 </div>
-                <iscontentasset aid="login-signup-form" />
+                <div class="login-section">
+                    <div class="login-form-nav login-form-nav login-account">
+                        <h2 class="h-clr--black-3 h-font-size--16 text-center">${Resource.msg('msg.signup', 'login', null)}</h2>
+                        <p class="h-clr--gray text-center">${Resource.msg('msg.signup.overview', 'login', null)}</p>
+                        <div class="signup-img">
+                            <img src="${URLUtils.staticURL('/images/login/login-img.jpg')}"
+                                alt="${Resource.msg('login.image.message', 'login', null)} "
+                                class="w-100" />
+                        </div>
+                       <div class="d-flex justify-content-center">
+                        <a href="${URLUtils.https('Login-CreateAccount')}" role="button"
+                            aria-label="${Resource.msg('header.hero.image.login', 'login', null)}">
+                            <button type="submit" class="btn btn-block btn-primary text-uppercase signin-btn sign-in-btn w-auto">
+                                ${Resource.msg('header.hero.image.login', 'login', null)}
+                            </button>
+                        </a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="signin-question">
                 <iscontentasset aid="myAccount-help" />
