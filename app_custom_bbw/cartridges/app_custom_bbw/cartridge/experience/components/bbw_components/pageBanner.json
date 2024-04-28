@@ -1,0 +1,357 @@
+{
+    "name": "CMP: Page Banner",
+    "description": "Page Banner with Text Block",
+    "group": "bbw_components",
+    "attribute_definition_groups": [
+        {
+            "id": "bannerConfiguration",
+            "attribute_definitions": [
+                {
+                    "id": "enableBreadcrumb",
+                    "name": "Enable Breadcrumb",
+                    "description": "Enable/Disable Breadcrumb",
+                    "type": "boolean",
+                    "required": true
+                },
+                {
+                    "id": "bannerheight",
+                    "name": "Banner Height",
+                    "description": "Set Banner Height",
+                    "type": "enum",
+                    "values": [
+                        "Default",
+                        "Banner Small",
+                        "Banner Tall"
+                    ],
+                    "required": true
+                },
+                {
+                    "id": "useBannerImgURL",
+                    "name": "Use Banner Image URL",
+                    "description": "Use Banner Image From URL",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "desktopBannerImageUrl",
+                    "name": "Desktop Banner Image URL",
+                    "description": "Add Desktop Banner Image URL Here",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "tabletBannerImageUrl",
+                    "name": "Tablet Banner Image URL",
+                    "description": "Add Tablet Banner Image URL Here",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "mobileBannerImageUrl",
+                    "name": "Mobile Banner Image URL",
+                    "description": "Add Mobile Banner Image URL Here",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "desktop_banner_image",
+                    "name": "Desktop Banner Image",
+                    "description": "Add Desktop Banner Image Here",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "tablet_banner_image",
+                    "name": "Tablet Banner Image",
+                    "description": "Add Tablet Banner Image Here",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "mobile_banner_image",
+                    "name": "Mobile Banner Image",
+                    "description": "Add Mobile Banner Image Here",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "bannerImgAlt",
+                    "name": "Image Banner Alt Text",
+                    "description": "The Banner image alt text shown by the component.",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "desktopBannerOverlay",
+                    "name": "Desktop Banner Overlay",
+                    "description": "Enable/Disable Desktop Banner Overlay",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "tabletBannerOverlay",
+                    "name": "Tablet Banner Overlay",
+                    "description": "Enable/Disable Tablet Banner Overlay",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "mobileBannerOverlay",
+                    "name": "Mobile Banner Overlay",
+                    "description": "Enable/Disable Mobile Banner Overlay",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "useContentImgURL",
+                    "name": "Use Content Image URL",
+                    "description": "Use Content Image From URL",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "contentLogoUrl",
+                    "name": "Add content Image URL",
+                    "type": "url",
+                    "required": false
+                },
+                {
+                    "id": "contentLogo",
+                    "name": "Content Image",
+                    "description": "Add Content Image Here",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "contentsubTitle",
+                    "name": "Sub Title",
+                    "type": "text",
+                    "required": false
+                },
+                {
+                    "id": "contentsubTitleColor",
+                    "name": "Content Sub Title Color",
+                    "type": "enum",
+                    "values": [
+                        "white",
+                        "black"
+                    ],
+                    "required": false
+                },
+                {
+                    "id": "contenttitle",
+                    "name": "Title",
+                    "type": "text",
+                    "required": false
+                },
+                {
+                    "id": "contentTitleColor",
+                    "name": "Content Title Color",
+                    "type": "enum",
+                    "values": [
+                        "white",
+                        "black"
+                    ],
+                    "required": false
+                },
+                {
+                    "id": "contentdescription",
+                    "name": "Description",
+                    "type": "text",
+                    "required": false
+                },
+                {
+                    "id": "descriptionColor",
+                    "name": "Description Title Color",
+                    "type": "enum",
+                    "values": [
+                        "white",
+                        "black"
+                    ],
+                    "required": false
+                },
+                {
+                    "id": "button",
+                    "name": "Button Text",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "buttonColor",
+                    "name": "Button Color",
+                    "type": "enum",
+                    "values": [
+                        "white",
+                        "black",
+                        "transparent",
+                        "tertiary",
+                        "transparentWhite"
+                    ],
+                    "required": false
+                },
+                {
+                    "id": "buttonLink",
+                    "name": "Button Link",
+                    "type": "url",
+                    "required": false
+                },
+                {
+                    "id": "buttonLinkScrollId",
+                    "name": "Button Link Scroll Id",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "customContent",
+                    "name": "Add Custom HTML",
+                    "type": "text",
+                    "required": false
+                },
+                {
+                    "id": "contentPositionDesktop",
+                    "name": "Desktop Banner Content Position",
+                    "type": "enum",
+                    "values": [
+                        "left",
+                        "right",
+                        "center"
+                    ],
+                    "required": true
+                },
+                {
+                    "id": "contentAlignmentTablet",
+                    "name": "Tablet Banner Content Alignment",
+                    "type": "enum",
+                    "values": [
+                        "right",
+                        "left",
+                        "center"
+                    ],
+                    "required": false
+                },
+                {
+                    "id": "contentPositionTablet",
+                    "name": "Tablet Banner Content Position",
+                    "type": "enum",
+                    "values": [
+                        "middle",
+                        "bottom",
+                        "top"
+                    ],
+                    "required": false
+                },
+                {
+                    "id": "contentAlignmentMobile",
+                    "name": "Mobile Banner Content Alignment",
+                    "type": "enum",
+                    "values": [
+                        "right",
+                        "left",
+                        "center"
+                    ],
+                    "required": true
+                },
+                {
+                    "id": "contentPositionMobile",
+                    "name": "Mobile Banner Content Position",
+                    "type": "enum",
+                    "values": [
+                        "middle",
+                        "bottom",
+                        "top"
+                    ],
+                    "required": true
+                }
+            ]
+        },
+        {
+            "id": "videoConfigurations",
+            "name": "Video Banner Configuration",
+            "description": "Video banner Settings",
+            "attribute_definitions": [
+                {
+                    "id": "videoEnable",
+                    "name": "Video Banner Enabled/Disable",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "usevideoURL",
+                    "name": "Use Banner Video From URL",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "videoSoundEnable",
+                    "name": "Video Sound Enabled/Disable",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "videoDesktop",
+                    "name": "Desktop Video Banner",
+                    "type": "url",
+                    "required": false
+                },
+                {
+                    "id": "videoTablet",
+                    "name": "Tablet Video Banner",
+                    "type": "url",
+                    "required": false
+                },
+                {
+                    "id": "videoMobile",
+                    "name": "Mobile Video Banner",
+                    "type": "url",
+                    "required": false
+                },
+                {
+                    "id": "videoFileDesktop",
+                    "name": "Desktop Video File",
+                    "description": "Add Desktop Video File Here",
+                    "type": "file",
+                    "required": false
+                },
+                {
+                    "id": "videoFileTablet",
+                    "name": "Tablet Video File",
+                    "description": "Add Tablet Video File Here",
+                    "type": "file",
+                    "required": false
+                },
+                {
+                    "id": "videoFileMobile",
+                    "name": "Mobile Video File",
+                    "description": "Add Mobile Video File Here",
+                    "type": "file",
+                    "required": false
+                },
+                {
+                    "id": "videoAlt",
+                    "name": "Video Banner Alt Text",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "videoHideonMobile",
+                    "name": "Video Hide on Mobile",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "videoHideonTablet",
+                    "name": "Video Hide on Tablet",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "videoLoop",
+                    "name": "Video Loop",
+                    "type": "boolean",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

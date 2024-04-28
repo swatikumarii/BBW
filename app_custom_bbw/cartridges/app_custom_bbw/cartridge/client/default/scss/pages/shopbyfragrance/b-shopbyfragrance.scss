@@ -151,7 +151,7 @@ body {
                         }
                     }
 
-                    &:not(:nth-last-child(-n+3))::after {
+                    &:not(:nth-last-child(-n + 3))::after {
                         background: none;
                     }
 

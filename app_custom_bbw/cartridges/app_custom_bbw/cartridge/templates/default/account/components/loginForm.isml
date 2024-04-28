@@ -5,7 +5,7 @@
         </label>
         <input type="email" id="login-form-email" required aria-required="true" class="form-control login-form-input required"
             aria-describedby="form-email-error" name="loginEmail" value="${pdict.userName}">
-        <div class="invalid-feedback" id="form-email-error"></div>
+        <div class="invalid-feedback text-left" id="form-email-error"></div>
     </div>
 
     <div class="form-group required password-box position-relative">
@@ -14,7 +14,7 @@
         </label>
         <input type="password" id="login-form-password" required aria-required="true" class="form-control required login-form-input"
             aria-describedby="form-password-error" name="loginPassword">
-        <div class="invalid-feedback" id="form-password-error"></div>
+        <div class="invalid-feedback text-left" id="form-password-error"></div>
         <button type="button" class="hide-show border-0 d-flex justify-content-center align-items-center text-captialize h-50 position-absolute p-0 h-clr--black-3" aria-label="Show Password">
            <span class="show h-font-size--16">${Resource.msg('password.show.label', 'login', null)}</span>
         </button>
@@ -56,7 +56,7 @@
                 class="btn btn-block btn-primary g-recaptcha">${Resource.msg('button.text.loginform', 'login', null)}</button>
         </div>
     <iselse/>
-        <div class="login-btn register-btn">
+        <div class="login-btn register-btn text-center">
             <button type="submit" class="btn btn-block btn-primary text-uppercase signin-btn sign-in-btn w-auto">${Resource.msg('button.text.loginform', 'login', null)}</button>
         </div>
     </isif>

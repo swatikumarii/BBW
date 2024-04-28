@@ -25,7 +25,7 @@
                             <a class="text-center"
                                 href="${pdict.linkUmpParameter ? pdict.link + pdict.linkUmpParameter : pdict.link}" hreflang="${request.getLocale()}">
                                 <span>
-                                    <isprint value="${pdict.linkText ? pdict.linkText : ''}" />
+                                    <isprint value="${pdict.linkText ? pdict.linkText : ''}" encoding="off" />
                                 </span>
                             </a>
                         </isif>

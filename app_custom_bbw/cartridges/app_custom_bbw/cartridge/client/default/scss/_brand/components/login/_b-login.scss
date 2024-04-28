@@ -369,6 +369,7 @@
     .login-modal-hide {
         top: 29px;
         min-height: 46px;
+        max-height: 15px;
         right: 1px;
         z-index: 5;
         letter-spacing: normal;
@@ -383,6 +384,7 @@
     .register-hide {
         top: 32px;
         min-height: 46px;
+        max-height: 15px;
         background: white;
         right: 1px;
         z-index: 5;
@@ -401,6 +403,7 @@
 
     .hide-show {
         min-height: 46px;
+        max-height: 15px;
         background: white;
         right: 1px;
         top: 23px;
@@ -417,4 +420,44 @@
             padding: 0 12px;
         }
     }
+}
+
+// -----login modal-----
+.modal-body {
+    overflow-y: auto;
+    max-height: calc(114vh - 64px);
+}
+
+.modal {
+    background: rgba(26, 26, 26, .6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-right: 0;
+}
+
+.modal.fade .modal-dialog {
+    transition: transform .3s ease-out;
+    transform: translate(0, 50px);
+}
+
+.modal-dialog {
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+    right: 0%;
+    margin-bottom: 0;
+    animation: e .2s;
+    animation-timing-function: cubic-bezier(.2, .05, .55, .2);
+
+}
+
+.modal.show .modal-dialog {
+    transform: none;
+}
+
+.modal-content {
+    border-radius: 0;
 }

@@ -28,6 +28,8 @@ var storeHelpers = require('*/cartridge/scripts/helpers/storeHelpers');
 server.append(
     'Find',
     function (req, res, next) {
+        var URLUtils = require('dw/web/URLUtils');
+        var Resource = require('dw/web/Resource');
         var viewData = res.getViewData;        
         var radius = req.querystring.radius;
         var postalCode = req.querystring.postalCode;
@@ -48,11 +50,25 @@ server.append(
             storeType,
             showMap
         );
+
+        var breadcrumbs = [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            },
+            {
+
+                htmlValue: Resource.msg('store.heading', 'storeLocator', null)
+            }
+        ];
+        var userLoc = req.geolocation;
         viewData = {
             stores: stores,
             horizontalView: horizontalView,
             isForm: isForm,
-            showMap: showMap
+            showMap: showMap,
+            userLoc: userLoc,
+            breadcrumbs : breadcrumbs
         };
 
         res.render('storeLocator/storeLocator', viewData);
