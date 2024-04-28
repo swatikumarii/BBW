@@ -108,7 +108,6 @@ baselogin.login = function () {
                 }
             }
         });
-        return false;
     });
 };
 
@@ -134,12 +133,10 @@ function cartMerge() {
     $('.dont-merge').on('click', function () {
         var redirectUrl = $('.redirect-url').val();
         window.location.href = redirectUrl;
-        return false;
     });
     $('#isMergeCartModal').on('hidden.bs.modal', function () {
         var redirectUrl = $('.redirect-url').val();
         window.location.href = redirectUrl;
-        return false;
     });
 };
 var exportDetails = $.extend({}, baselogin, {
