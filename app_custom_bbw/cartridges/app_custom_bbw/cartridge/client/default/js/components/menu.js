@@ -48,3 +48,20 @@ if (layout.isMobile()) {
 $('.mobile-menu-overlay').on('click', function () {
     $('.bbw-menu').removeClass('in');
 });
+
+/* Header my account dropdown */
+$('.account-dropdown').on('click', function (e) {
+    if($(this).find('.dropdown-menu').hasClass('show')){
+        $(this).find('.dropdown-menu').removeClass('show');
+    }else{
+        $(this).find('.dropdown-menu').addClass('show');
+    }
+    e.stopPropagation();
+});
+
+$('body').on('click', function () {
+    var accountDropdownMenu = $('.account-dropdown').find('.dropdown-menu');
+    if (accountDropdownMenu && accountDropdownMenu.hasClass('show')) {
+        accountDropdownMenu.removeClass('show');
+    }
+});
