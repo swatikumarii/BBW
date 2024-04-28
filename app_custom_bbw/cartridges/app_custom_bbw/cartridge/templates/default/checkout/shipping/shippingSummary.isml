@@ -8,6 +8,7 @@
                 <isset name="address" value="${{}}" scope="page"/>
             </isif>
             <div class="summary-details shipping h-font-size--16 h-clr--black-1">
+                <h2>Ship to</h2>
                 <isinclude template="checkout/addressSummary" />
                 <div class="shipping-phone">
                     ${shippingModel.shippingAddress && shippingModel.shippingAddress.phone ? shippingModel.shippingAddress.phone : ''}
@@ -15,8 +16,9 @@
             </div>
 
             <!--- Shipping information --->
-            <div class="row summary-details leading-lines mt-3">
+            <div class="row summary-details leading-lines">
                 <div class="col-12 start-lines">
+                    <h2>Shipping method</h2>
                     <p class="shipping-method h-font-size--16 h-clr--black-1">
                         <span class="shipping-method-title">${shippingModel.selectedShippingMethod.displayName}</span>
                         <span class="shipping-method-arrival-time">
@@ -29,6 +31,8 @@
                 </div>
             </div>
             <isinclude template="checkout/shipping/giftMessageSummary" />
+            <button class="edit-button pull-right"
+                aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
         </div>
     </isif>
 </isloop>
