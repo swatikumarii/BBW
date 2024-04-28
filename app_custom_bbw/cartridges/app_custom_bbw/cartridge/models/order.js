@@ -1,0 +1,26 @@
+'use strict';
+
+var base = module.superModule;
+
+var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
+var URLUtils = require('dw/web/URLUtils');
+
+
+/**
+ * Order class that represents the current order
+ * @param {dw.order.LineItemCtnr} lineItemContainer - Current users's basket/order
+ * @param {object} options - The current order's line items
+ * @param {object} options.config - Object to help configure the orderModel
+ * @param {string} options.config.numberOfLineItems - helps determine the number of lineitems needed
+ * @param {string} options.countryCode - the current request country code
+ * @class
+ */
+function OrderModel(lineItemContainer, options) {
+    base.call(this, lineItemContainer, options);
+    if (lineItemContainer) {
+        var encrptedOrderNumber = encodeURIComponent( encryptionHelper.encryptPin(this.orderNumber));
+        this.invoiceDownloadUrl = URLUtils.https('Order-InvoiceDownload', 'token', encrptedOrderNumber).toString();
+    }
+}
+
+module.exports = OrderModel;

@@ -314,7 +314,7 @@ module.exports = {
     },
 
     searchFilter: function () {
-        $('.fragrance-name .js-frag-search').on('keyup', debounce(function () {
+        $(document).on('keyup', '.fragrance-name .js-frag-search', debounce(function () {
             var filter = $(this).val().toUpperCase();
             $('.fragrance-name .filter-list li').each(function () {
                 // Skip headers
@@ -336,13 +336,6 @@ module.exports = {
                 header.toggle(visibleItems.length > 0);
             });
         }, 500));
-    },
-
-    closeFilter: function () {
-        $(document).on('click', '.filter-close', function () {
-            var filterParentId = $(this).data('parent');
-            $(filterParentId).collapse('toggle');
-        });
     },
 
     hideCarouselArrow: function () {
