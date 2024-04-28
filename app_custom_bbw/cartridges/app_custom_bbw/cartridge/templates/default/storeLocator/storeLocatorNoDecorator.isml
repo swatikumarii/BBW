@@ -30,7 +30,7 @@
 
     <div class="row">
         <div class="col-sm-12 results-card store-result-wrap">
-            <p class="store-locator-no-results">
+            <p class="store-locator-no-results d-none">
                 <span
                     class="store-error-header d-block h-font-size--20 h-fw--bold h-clr--black-1 mb-0 text-capitalize">${Resource.msg('error.no.results.header', 'storeLocator', null)}</span>
                 <span class="store-error-body d-block h-font-size--18">${Resource.msg('error.no.results', 'storeLocator', null)}</span>
