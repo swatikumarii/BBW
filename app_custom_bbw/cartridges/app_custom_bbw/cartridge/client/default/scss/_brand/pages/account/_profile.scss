@@ -1,0 +1,96 @@
+.profile {
+    .account-profile {
+        .profile-required {
+            right: 0;
+            line-height: 1rem;
+            letter-spacing: 0.015em;
+            bottom: -2.5625em;
+
+            &::before {
+                content: "*";
+                color: colour(red);
+                position: relative;
+                left: -1px;
+            }
+        }
+    }
+
+    .account-info-header {
+        padding: 16px 0 7px;
+        border-bottom: 1px solid $clr-gray-6;
+    }
+
+    .account-info {
+        width: 300px;
+
+        .form-group {
+            margin: 0.625rem 0 1.875rem;
+
+            .form-control-label {
+                margin-bottom: 1.25rem;
+            }
+
+            input {
+                font-size: 18px;
+                color: colour(black, 1);
+                line-height: 1;
+                height: 3rem;
+                border: 1px solid colour(gray, 5);
+                text-transform: capitalize;
+            }
+
+            .form-caption {
+                margin-top: 10px;
+                font-size: 0.75rem;
+                line-height: 1rem;
+            }
+
+            .birthday-label {
+                font-size: 0.875rem;
+                color: colour(black, 3);
+            }
+
+            .birthday-date {
+                p {
+                    padding: 0.3125rem 0.6875rem;
+                    height: 3rem;
+                    font-size: 1.125rem;
+                    color: colour(black, 3);
+                    border: 1px solid colour(white, 1);
+                }
+            }
+
+            .password-btn-wrap {
+                position: relative;
+
+                button {
+                    align-items: center;
+                    background: transparent;
+                    border: none;
+                    color: colour(black, 3);
+                    display: flex;
+                    min-height: 46px;
+                    padding: 0;
+                    position: absolute;
+                    right: 1px;
+                    top: 1px;
+                    letter-spacing: normal;
+
+                    span {
+                        border-left: 1px solid colour(gray, 22);
+                        line-height: 24px;
+                        padding: 0 12px;
+                    }
+                }
+            }
+
+            a {
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

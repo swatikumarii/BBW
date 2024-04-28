@@ -1,0 +1,156 @@
+.my-account {
+    padding: 0.5rem 15px 1.6875rem;
+
+    .mobile-my-account {
+        display: block;
+        padding: 1.4375rem 0.9375rem;
+        margin: 0.3125rem 0 12px;
+        letter-spacing: 0.02em;
+
+        @include media-up(sm) {
+            display: none;
+        }
+
+        &::after {
+            content: "";
+            width: 18px;
+            height: 18px;
+            float: right;
+            background: url("../../images/UI-Carat.svg") no-repeat;
+            background-position-x: 50%;
+            transition: transform 0.5s ease-out;
+        }
+
+        &.in {
+            &::after {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .my-account-nav {
+        display: block;
+        padding: 0;
+
+        @include media-down(sm) {
+            display: none;
+            padding: 20px 0;
+        }
+
+        h1 {
+            margin: 0 0 20px;
+
+            @include media-up(sm) {
+                line-height: 0.625rem;
+                margin-bottom: 1.375rem;
+            }
+        }
+
+        ul {
+            li {
+                margin: 0;
+                padding: 10px 15px;
+                list-style: none;
+
+                @include media-up(sm) {
+                    margin: 20px 0 23px;
+                    line-height: 1.25rem;
+                    padding: 0;
+                }
+
+                a {
+                    letter-spacing: 0.01em;
+                    color: colour(gray);
+
+                    &:hover {
+                        color: colour(blue);
+                    }
+                }
+            }
+        }
+    }
+
+    .my-account-description {
+        .account-profile {
+            .profile-heading {
+                h1 {
+                    border-bottom: 1px solid colour(black, 3);
+                    padding-bottom: 0.625em;
+                    margin-bottom: 1.5625em;
+
+                    @include media-down(sm) {
+                        font-size: 1rem;
+                        border-bottom: 0;
+                    }
+
+                    a {
+                        text-decoration: underline;
+
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+            ul.account-options {
+                grid-template-columns: auto;
+                gap: 41px;
+                margin-bottom: 2.5625rem;
+
+                @include media-up(sm) {
+                    gap: 41px 20px;
+                    grid-template-columns: auto auto;
+                }
+
+                li {
+                    list-style: none;
+
+                    a {
+                        img {
+                            width: 5.25rem;
+                            height: 5.25rem;
+                            margin-right: 1.875rem;
+                        }
+
+                        .info {
+                            line-height: 1rem;
+
+                            h3 {
+                                margin: 0.3125rem 0;
+                            }
+
+                            p {
+                                line-height: 1.25rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .account-nav-help {
+                p {
+                    line-height: 1.6em;
+                }
+            }
+        }
+    }
+
+    .btn-save {
+        margin-bottom: 15px;
+        font-size: 11px;
+        padding: 0 1.25em;
+        max-height: 35px;
+        text-transform: uppercase;
+        min-height: auto;
+        letter-spacing: 0.12em;
+
+        &:hover {
+            color: colour(white);
+        }
+
+        @include media-down(sm) {
+            width: 100%;
+        }
+    }
+}

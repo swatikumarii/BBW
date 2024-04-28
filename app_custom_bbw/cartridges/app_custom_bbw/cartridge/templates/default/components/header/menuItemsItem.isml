@@ -1,4 +1,4 @@
-<div class="menu-wrap dropdown-menu border-0">
+<div class="menu-wrap dropdown-menu border-0 menu-wrap-level-3">
     <ul class="level-3-ul" role="menu" aria-hidden="true" aria-label="${category.id}">
         <isloop items="${menuItem.subCategories}" var="category">
             <isif condition="${category.subCategories}">
