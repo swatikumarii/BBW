@@ -5,5 +5,11 @@
         <iselseif condition="${payment.paymentMethod === 'CASHAPPPAY' || payment.paymentMethod === 'CLEARPAY' || payment.paymentMethod === 'AFTERPAY'}" />
             <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
         </isif>
+        <isif condition="${payment.amoun}">
+            <div class="payment-amount">
+                <span class="label">${Resource.msg('lable.payment.amount', 'order',null)}
+                <isprint value="${payment.amount}"/> </span>
+            </div>
+        </isif>
     </isloop>
 </div>

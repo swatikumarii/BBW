@@ -147,7 +147,6 @@ server.append('AddProduct', function (req, res, next) {
     next();
 });
 
-
 server.get('Merge', function (req, res, next) {
     var Transaction = require('dw/system/Transaction');
     var cartHelpers = require('*/cartridge/scripts/cart/cartHelpers');
@@ -156,6 +155,60 @@ server.get('Merge', function (req, res, next) {
             cartHelpers.mergeCart();
         });
     }
+    next();
+});
+
+/**
+ * Cart-AddProductFromOrder : The Cart-AddProductFromOrder endpoint add products to cart from order listing page
+ * @name Cart-AddProductFromOrder
+ */
+server.post('AddProductFromOrder', function (req, res, next) {
+    var Resource = require('dw/web/Resource');
+    var currentBasket = BasketMgr.getCurrentOrNewBasket();
+
+    var URLUtils = require('dw/web/URLUtils');
+    var Transaction = require('dw/system/Transaction');
+    var OrderMgr = require('dw/order/OrderMgr');
+    var order = OrderMgr.getOrder(req.form.orderNumber);
+    var productLineItems = order.getProductLineItems();
+    var result;
+
+    if (currentBasket) {
+        Transaction.wrap(function () {
+            result = {
+                error: false,
+                message: Resource.msg('text.alert.addedtobasket', 'product', null)
+            };
+
+            var childProducts = [];
+            for (var i = 0; i < productLineItems.getLength(); i++) {
+                var pli = productLineItems[i];
+                if (!pli.bonusProductLineItem && (!pli.product.primaryCategory || !pli.product.primaryCategory.ID || pli.product.primaryCategory.ID !== 'giftWrapProducts')) {
+                    var pidOptions = {};
+                    var PIDObjResult = cartHelper.addProductToCart(
+                        currentBasket,
+                        pli.productID,
+                        pli.quantity.value,
+                        childProducts,
+                        pidOptions,
+                        false
+                    );
+                    if (PIDObjResult.error) {
+                        result.error = PIDObjResult.error;
+                        result.message = PIDObjResult.message;
+                    }
+                }
+            }
+        });
+    }
+
+    var redirectUrl = URLUtils.url('Cart-Show');
+    res.json({
+        redirectUrl: redirectUrl.toString(),
+        error: result.error,
+        message: result.message
+    });
+
     next();
 });
 
