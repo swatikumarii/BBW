@@ -75,14 +75,12 @@
         <isprint value="${pdict.profileForm.login.password.label}" encoding="htmlcontent" />
     </label>
     <div class="invalid-feedback"></div>
-    <div class="password-btn-wrap">
         <input type="password" class="form-control" id="password"
             data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.password.8_50characters', 'forms', null)}"
             aria-describedby="form-password-error" autocomplete="off" <isprint
             value=${pdict.profileForm.login.password.attributes} encoding="off" />/>
         <button type="button" class="hide-show" aria-label="Show Password"><span class="show">Show</span></button>
-    </div>
     <div class="invalid-feedback" id="form-password-error"></div>
     <p class="form-caption">${Resource.msg('form.password.caption', 'forms', null)}</p>
 </div>
