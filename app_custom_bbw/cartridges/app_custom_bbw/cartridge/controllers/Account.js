@@ -342,6 +342,37 @@ server.replace(
 );
 
 /**
+ * Account-Login : The Account-Login endpoint will render the shopper's account page. Once a shopper logs in they will see is a dashboard that displays profile, address, payment and order information.
+ */
+server.append(
+    'Login',
+    function (req, res, next) {
+        var URLUtils = require('dw/web/URLUtils');  
+        var BasketMgr = require('dw/order/BasketMgr');
+        var loginRedirectExceptions = require('*/cartridge/config/loginRedirectExceptions');
+        var storedBasket = BasketMgr.getStoredBasket();
+        var currentBasket = BasketMgr.getCurrentOrNewBasket();
+        var storedBasketProductQuantities =
+            storedBasket ? storedBasket.getAllProductQuantities().length : 0;
+        var currentBasketProductQuantities =
+            currentBasket ? currentBasket.getAllProductQuantities().length : 0;
+        var loginRedirectUrl = req.form.loginRedirectUrl;
+        var loginRedirectQueryString = req.form.loginRedirectQueryString || false;
+        var queryStringArr =
+            loginRedirectQueryString ? loginRedirectQueryString.split('=') : [];
+        loginRedirectUrl = loginRedirectExceptions.includes(loginRedirectUrl)
+            ? 'Account-Show'
+            : loginRedirectUrl;
+        loginRedirectUrl = URLUtils.url(loginRedirectUrl, queryStringArr);;
+        var viewData = res.getViewData();
+        viewData.redirectUrl = loginRedirectUrl.toString();
+        viewData.showCartMergePopup =
+            storedBasketProductQuantities && currentBasketProductQuantities;
+        next();
+    }
+);
+
+/**
  * Account-SubmitRegistration : The Account-SubmitRegistration endpoint is the endpoint that gets hit when a shopper submits their registration for a new account
  */
 server.replace(
