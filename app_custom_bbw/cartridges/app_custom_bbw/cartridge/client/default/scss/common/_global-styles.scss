@@ -143,6 +143,8 @@ ul li {
 // ===================================
 
 .breadcrumb {
+    padding: 0.5rem 0.9375rem 1.6875rem;
+
     .breadcrumb-item a {
         font-size: 1rem;
         line-height: 1.25rem;
@@ -153,6 +155,14 @@ ul li {
 
         &:hover {
             text-decoration: none;
+        }
+    }
+
+    .breadcrumb-item {
+        padding-left: 0;
+
+        &::before {
+            padding: 0 10px 0 13px;
         }
     }
 

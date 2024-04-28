@@ -1,0 +1,21 @@
+<isinclude template="/components/modules" sf-toolkit="off" />
+<isset name="templateHelpers" value="${require('*/cartridge/scripts/helpers/templateHelpers')}" scope="page" />
+
+<div class="b-respvideo js-respvideo">
+    <isif condition="${pdict.videoUrl}">
+        <isvideo
+            video_config="${templateHelpers.getVideoConfig(pdict.videoUrl, pdict.videoConfig)}"
+            video_id="${pdict.id}"
+            video_poster="${pdict.img && pdict.img.src && pdict.img.src.mobile ? pdict.img.src.mobile : null}"
+            video_container_class="${pdict.videoUrlDesktop ? 'h-hidden-md' : ''}"
+            />
+    </isif>
+    <isif condition="${pdict.videoUrlDesktop}">
+        <isvideo
+            video_config="${templateHelpers.getVideoConfig(pdict.videoUrlDesktop, pdict.videoConfig)}"
+            video_id="${'desktop-' + pdict.id}"
+            video_poster="${pdict.img__desktop && pdict.img__desktop.src && pdict.img__desktop.src.desktop ? pdict.img__desktop.src.desktop : null}"
+            video_container_class="${'h-hidden-md-down'}"
+        />
+    </isif>
+</div>

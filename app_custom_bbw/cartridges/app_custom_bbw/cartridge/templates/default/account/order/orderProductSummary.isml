@@ -1,0 +1,59 @@
+<isset name="miniCart" value="${false}" scope="page" />
+
+<div class="account-profile">
+    <div class="profile-heading">
+        <h1 class="mb-2">${Resource.msg('label.order.your.items', 'order', null)}</h1>
+    </div>
+    <div class="d-flex align-items-center">
+        <img width="70px" height="70px" alt="" src="${URLUtils.staticURL('/images/account/shipping-truck-32.svg')}" />
+        <p class="your-item h-font-size--16 px-2 mb-0"><span
+                class="pr-2 h-clr-blue h-fw--semibold text-uppercase">${Resource.msg('label.shipping', 'order', null)}</span>${Resource.msg('label.order.shipping', 'order', null)}</p>
+    </div>
+</div>
+
+<div class="order-product-summary mb-5">
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th class="order-description border-top-0">${Resource.msg('label.item.description', 'order', null)}</th>
+                <th class="order-qty border-top-0">${Resource.msg('label.qty', 'order', null)}</th>
+                <th class="order-price border-top-0">${Resource.msg('label.price', 'order', null)}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <isloop items="${pdict.order.shipping}" var="shippingModel">
+                <isloop items="${shippingModel.productLineItems.items}" var="lineItem">
+                    <tr>
+                        <td>
+                            <div class="d-flex">
+                                <div class="item-image">
+                                    <img class="product-image" src="${lineItem.images.small[0].url}"
+                                        alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}"
+                                        width="100" />
+                                </div>
+                                <div class="line-item-name">
+                                    <a class="product-name text-uppercase" title="${lineItem.productName}"
+                                        href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}"><span>${lineItem.productName}</span></a>
+                                    <span
+                                        class="product-number d-block mb-4">${Resource.msg('lable.orderDetail.item.id', 'order', null)} : ${lineItem.id}</span>
+                                    <span class="order-email">${Resource.msg('label.bracket.open', 'order', null)}${orderEmail}${Resource.msg('label.bracket.close', 'order', null)}</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="pricing qty-card-quantity-count">
+                                <isprint value="${lineItem.quantity}" formatter="##" /></span>
+                        </td>
+                        <td>
+                            <isif condition="${lineItem.isBonusProductLineItem}">
+                                ${Resource.msg('lable.orderDetail.items.bonus', 'order', null)}
+                            <iselse/>
+                                ${lineItem.priceTotal.price}
+                            </isif>
+                        </td>
+                    </tr>
+                </isloop>
+            </isloop>
+        </tbody>
+    </table>
+</div>

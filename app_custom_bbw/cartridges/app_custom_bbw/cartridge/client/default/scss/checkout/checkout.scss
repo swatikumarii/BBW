@@ -84,6 +84,38 @@ span.ship-to-city-st-zip {
     }
 }
 
+.review-shipping-summary {
+    display: none;
+    padding: 20px 30px 30px;
+
+    .single-shipping {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+.review-billing-summary {
+    display: none;
+    padding: 20px 30px 30px;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+
+    .summary-details {
+        &.billing {
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+.review-product-summary {
+    display: none;
+}
+
 .data-checkout-stage {
     // Initial states ------------------------
     &[data-checkout-stage] {
@@ -258,17 +290,21 @@ span.ship-to-city-st-zip {
         .customer-section,
         .shipping-section,
         .card.payment-form,
-        .card.ghost {
+        .card.ghost,
+        .checkout-blocks,
+        .order-product-summary {
             display: none;
         }
 
-        .card.payment-summary,
-        .shipping-summary {
+        button.place-order,
+        .review-shipping-summary,
+        .review-shipping-summary.shipping-summary,
+        .review-product-summary {
             display: block;
         }
 
-        button.place-order {
-            display: block;
+        .review-billing-summary {
+            display: flex;
         }
     }
 
@@ -488,4 +524,11 @@ input[type="password"],
     min-height: 64px;
     border-top: 3px solid $clr-gray-1;
     padding: 32px 0 48px;
+}
+
+.summary-details {
+    &.billing {
+        margin: 0 0 42px;
+        padding: 30px 15px;
+    }
 }

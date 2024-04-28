@@ -45,6 +45,8 @@
     </div>
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+    <input type="hidden" name="loginRedirectUrl" value="${pdict.loginRedirectUrl}" />
+    <input type="hidden" name="loginRedirectQueryString" value="${pdict.loginRedirectQueryString}" />
     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
         <div class="login-btn register-btn">
             <button

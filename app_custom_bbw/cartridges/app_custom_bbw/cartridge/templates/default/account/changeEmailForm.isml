@@ -1,0 +1,6 @@
+<form>
+    <div class="form-group">
+        <input type="email" id="email" name="email" value="${pdict.profile.email}" readonly>
+        <p class="form-caption">${Resource.msg('form.youremail.caption', 'forms', null)}</p>
+    </div>
+</form>

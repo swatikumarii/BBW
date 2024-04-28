@@ -192,6 +192,10 @@ function updateBillingAddressSummary(order) {
         '.billing .address-summary',
         order.billing.billingAddress.address
     );
+    addressHelpers.methods.populateAddressSummary(
+        '.billing-address-block .summary-details.billing',
+        order.billing.billingAddress.address
+    );
 
     // update billing parts of order summary
     $('.order-summary-email').text(order.orderEmail);
@@ -387,6 +391,13 @@ module.exports = {
             e.preventDefault();
             var methodID = $(this).data('method-id');
             $('.payment-information').data('payment-method-id', methodID);
+        });
+    },
+
+    editBillingAddress: function () {
+        $('.edit-billing-address').on('click', function () {
+            $(this).parents('form').attr('data-address-mode', 'details');
+            $(this).parents('.summary-details.billing').hide();
         });
     }
 };
