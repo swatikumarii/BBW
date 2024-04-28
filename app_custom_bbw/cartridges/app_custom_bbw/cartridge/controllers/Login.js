@@ -67,6 +67,7 @@ server.get('Popup', csrfProtection.generateToken, function (req, res, next) {
     var loginRedirectExceptions = require('*/cartridge/config/loginRedirectExceptions');
     var target = req.querystring.rurl || 1;
     var loginRedirectRoute = req.querystring.loginRedirect;
+    var loginRedirectQueryString = req.querystring.queryString;
     loginRedirectRoute = loginRedirectExceptions.includes(loginRedirectRoute)
         ? 'Account-Show'
         : loginRedirectRoute;
@@ -82,7 +83,8 @@ server.get('Popup', csrfProtection.generateToken, function (req, res, next) {
         rememberMe: rememberMe,
         userName: userName,
         actionUrl: actionUrl,
-        loginRedirectUrl: loginRedirectRoute
+        loginRedirectUrl: loginRedirectRoute,
+        loginRedirectQueryString: loginRedirectQueryString
     });
 
     next();

@@ -61,10 +61,13 @@ server.append(
         var currentBasketProductQuantities =
             currentBasket ? currentBasket.getAllProductQuantities().length : 0;
         var loginRedirectUrl = req.form.loginRedirectUrl;
+        var loginRedirectQueryString = req.form.loginRedirectQueryString || false;
+        var queryStringArr =
+            loginRedirectQueryString ? loginRedirectQueryString.split('=') : [];
         loginRedirectUrl = loginRedirectExceptions.includes(loginRedirectUrl)
             ? 'Account-Show'
             : loginRedirectUrl;
-        loginRedirectUrl = URLUtils.url(loginRedirectUrl.trim());;
+        loginRedirectUrl = URLUtils.url(loginRedirectUrl, queryStringArr);;
         var viewData = res.getViewData();
         viewData.redirectUrl = loginRedirectUrl.toString();
         viewData.showCartMergePopup =
