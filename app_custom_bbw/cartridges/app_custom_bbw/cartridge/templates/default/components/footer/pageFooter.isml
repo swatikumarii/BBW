@@ -149,5 +149,5 @@
     </div>
 </footer>
 <div class="loginPopup">
-    <isinclude url="${URLUtils.url('Login-Popup','loginRedirect',pdict.action)}" />
+    <isinclude url="${URLUtils.url('Login-Popup','loginRedirect',pdict.action,'queryString',pdict.queryString)}" />
 </div>
