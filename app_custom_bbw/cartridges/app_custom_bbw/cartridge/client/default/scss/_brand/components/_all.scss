@@ -15,6 +15,8 @@
 // Importing form components.
 
 @import "./form/b-field";
+@import "./form/b-select";
+@import "./form/b-accordion";
 
 // =========================
 // Login and Register Import
@@ -34,6 +36,10 @@
 @import "./header/b-main-header";
 @import "./header/b-header-menu";
 @import "./header/b-headerSearch";
+
+// Product
+
+@import "./global/product/b-product-tile";
 
 // Importing footer
 

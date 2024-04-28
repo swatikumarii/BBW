@@ -36,7 +36,8 @@
                 <div class="h-100 p-2">
                     <div class="list h-dsp--grid h-grid-gap-md--30 suggestions__product-list">
                         <isloop items="${pdict.suggestions.product.products}" var="product" status="listindex">
-                            <div class="item position-relative d-flex flex-column" id="product-${listindex.index}" role="option">
+                            <div class="item position-relative d-flex flex-column" id="product-${listindex.index}"
+                                role="option">
                                 <div class="position-absolute suggestions__wishlist-icon-wrapper">
                                     <button class="suggestions__wishlist-btn btn-nostyle"
                                         data-href="${URLUtils.url('Wishlist-AddProduct')}">
@@ -56,10 +57,13 @@
                                 <div class="suggestions__product-badge h-clr--blue">Product Type</div>
                                 <div class="suggestions__product-name h-clr--black-1 my-1">${product.name}</div>
                                 <div class="suggestions__product-price h-clr--black-1 h-fw--bold mt-2">$25.00</div>
-                                <div class="suggestions__product-promotext h-clr--pink my-1 mb-3">Mix & Match All Body, Skin
+                                <div class="suggestions__product-promotext h-clr--pink my-1 mb-3">Mix & Match All Body,
+                                    Skin
                                     & Hair Care: Buy 3, Get 3 FREE or Buy 2, Get 1 FREE</div>
                                 <div class="suggestions__btn-add-to-cart mt-auto mb-4">
-                                    <button class="add-to-cart btn btn-white h-width-perc--80" data-toggle="modal" data-target="#chooseBonusProductModal" data-pid="${product.id}" ${!product.available ? "disabled" : ""}>Add to bag</button>
+                                    <button class="add-to-cart btn btn-white h-width-perc--80" data-toggle="modal"
+                                        data-target="#chooseBonusProductModal" data-pid="${product.id}"
+                                        ${!product.available ? "disabled" : ""}>Add to bag</button>
                                 </div>
                             </div>
                         </isloop>
@@ -122,21 +126,68 @@
                     </li>
                 </isif>
             </iscomment>
-            <isif condition="${pdict.suggestions.content && pdict.suggestions.content.available}">
+            <isif condition="${pdict.suggestions.product && pdict.suggestions.product.available}">
+                <li class="row justify-content-end header">
+                    <div class="col-xs-12 col-sm-10">${Resource.msg('label.suggest.products', 'search', null)}</div>
+                </li>
+                <li class="row justify-content-end items">
+                    <ul class="col-12 list">
+                        <isloop items="${pdict.suggestions.product.products}" var="product" status="listindex">
+                            <li class="col-12 item" id="product-${listindex.index}" role="option">
+                                <a href="${product.url}" aria-label="${product.name}" class="link">
+                                    <div class="col-xs-12 ellipsis">
+                                        <img class="swatch-circle hidden-xs-down"
+                                            alt="${Resource.msg('label.suggest.imagethumb', 'search', null)} ${product.name}"
+                                            src="${product.imageUrl}" />
+                                        <span class="name">${product.name}</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </isloop>
+                    </ul>
+                </li>
+            </isif>
+            <isif condition="${pdict.suggestions.category && pdict.suggestions.category.available}">
                 <li class="row justify-content-end header">
                     <div class="col-xs-12 col-sm-10">
-                        ${Resource.msg('label.suggest.content', 'search', null)}
+                        ${Resource.msg('label.suggest.categories', 'search', null)}
                     </div>
                 </li>
                 <li class="row items">
-                    <isloop items="${pdict.suggestions.content.contents}" var="content" status="listindex">
-                        <div class="col-12 item" id="content-${listindex.index}" role="option">
+                    <ul class="col-12 list">
+                        <isloop items="${pdict.suggestions.category.categories}" var="category" status="listindex">
+                            <li class="col-12 item" id="category-${listindex.index}" role="option">
+                                <a href="${category.url}" class="link">
+                                    <div class="col-xs-12 ellipsis">
+                                        <isif condition="${category.imageUrl != ''}">
+                                            <img class="swatch-circle hidden-xs-down" alt="${category.name}"
+                                                src="${category.imageUrl}" />
+                                            <span class="name">${category.name}</span>
+                                            <isif condition="${category.parentID !== 'root'}">
+                                                <span class="category-parent"> ${Resource.msg('label.suggest.in', 'search', null)} ${category.parentName}</span>
+                                            </isif>
+                                        </isif>
+                                    </div>
+                                </a>
+                            </li>
+                        </isloop>
+                    </ul>
+                </li>
+            </isif>
+            <isif condition="${pdict.suggestions.recent && pdict.suggestions.recent.available}">
+                <li class="row justify-content-end header">
+                    <div class="col-xs-12 col-sm-10">
+                        ${Resource.msg('label.suggest.recent', 'search', null)}
+                    </div>
+                </li>
+                <li class="row items">
+                    <isloop items="${pdict.suggestions.recent.phrases}" var="phrase" status="listindex">
+                        <div class="col-12 item" id="phrase-2-${listindex.index}" role="option">
                             <div class="row">
                                 <div class="col-xs-12 offset-sm-2 col-sm-10 name">
-                                    <a href="${content.url}">${content.name}</a>
+                                    <a href="${phrase.url}">${phrase.value}</a>
                                 </div>
                             </div>
-                        </div>
                     </isloop>
                 </li>
             </isif>

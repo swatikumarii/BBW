@@ -1,0 +1,23 @@
+<div class="col-8">
+    <p class="h-font-size--16 h-clr--black-1 accordion-item" data-toggle="collapse" data-target="#allDiscounts"
+        aria-expanded="false" aria-controls="allDiscounts" role="button">${Resource.msg('label.order.discount', 'common', null)}</p>
+</div>
+<div class="col-4">
+    <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold order-discount-total">
+        ${pdict.order.totals.totalDiscountFormatted}</p>
+</div>
+<isif condition="${pdict.order.totals.allDiscounts.length > 0}">
+    <div class="accordion-collapse collapse col-12" id="allDiscounts">
+        <isloop items="${pdict.order.totals.allDiscounts}" var="discount" status="loopstatus">
+            <div class="row">
+                <div class="col-8">
+                    <p class="h-font-size--11 h-clr--black-1">${discount.promotion}</p>
+                </div>
+                <div class="col-4">
+                    <p class="text-right h-font-size--11 h-clr--black-1 h-fw--semibold order-discount-total">
+                        ${discount.discount}</p>
+                </div>
+            </div>
+        </isloop>
+    </div>
+</isif>

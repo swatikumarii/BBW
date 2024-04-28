@@ -6,8 +6,6 @@
                 aria-describedby="search-assistive-text" aria-haspopup="listbox" aria-owns="search-results"
                 aria-expanded="false" aria-autocomplete="list" aria-activedescendant="" aria-controls="search-results"
                 aria-label="${Resource.msg('simplesearch.searchtext', 'common', null)}" autocomplete="off" />
-            <button type="reset" name="reset-button" class="reset-button d-none border-0"
-                aria-label="${Resource.msg('label.header.search.clear', 'common', null)}"></button>
             <button type="submit" name="search-button"
                 class="search-icon h-minheight--20 w-auto position-relative border-0"
                 aria-label="${Resource.msg('label.header.search.go', 'common', null)}">

@@ -16,9 +16,9 @@
                         </div>
                     </div>
                     <!-- Form for newsletter subscription -->
-                    <div class="home-email-signup">
+                    <div class="home-email-signup bg-transparent">
                         <div class="container">
-                            <form role="form" class="newsletter">
+                            <form role="form" class="newsletter"  data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">
                                 <div class="row">
                                     <div class="col-12 p-0">
                                         <div data-required-text="">
@@ -27,24 +27,20 @@
                                                 ${Resource.msg('form.title', 'footer', null)}
                                             </label>
                                             <div class="input-group">
+                                               <div class="w-100">
                                                 <input type="text" class="form-control input-text rounded-0 w-100"
                                                     name="hpEmailSignUp"
-                                                    placeholder="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}"
                                                     aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" />
-                                                <span class="input-group-append">
-                                                    <isif
-                                                        condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
-                                                        <isset name="dataCallback" value="submitNewsLetter"
-                                                            scope="page" />
-                                                        <isset name="dataErrorCallback" value="checkRecaptcha"
-                                                            scope="page" />
-                                                        <isinclude template="/common/reCaptcha" />
-                                                        <button id="gcaptchabtn" type="button"
-                                                            class="btn btn-primary subscribe-email"
-                                                            data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form', 'footer', null)}</button>
+                                                    <div class="newletter-msg js-newsletter-msg bg-transparent h-font-size--14 m-0"></div>
+                                               </div>
+                                                <span class="input-group-append ml-0">
+                                                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
+                                                        <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
+                                                            class="btn btn-primary g-recaptcha" data-callback="submitNewsLetter"
+                                                            data-action="submit">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
                                                     <iselse/>
-                                                        <button type="button"
-                                                            class=" btn-primary btn-hover subscribe-email btn submit-btn h-fw--semibold mt-3 h-font-size--16"
+                                                        <button type="submit"
+                                                            class="btn btn-primary subscribe-email btn-hover text-uppercase submit-btn h-fw--semibold mt-3 h-font-size--16"
                                                             data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form', 'footer', null)}</button>
                                                     </isif>
                                                 </span>
@@ -132,7 +128,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
+    <div class="row no-gutters">
         <!--  copyright content-->
         <div class="col-sm-12 copyright-notice pr-0">
             <iscontentasset aid="footer-copyright" />
@@ -153,5 +149,5 @@
     </div>
 </footer>
 <div class="loginPopup">
-    <isinclude url="${URLUtils.url('Login-Popup')}" />
+    <isinclude url="${URLUtils.url('Login-Popup','loginRedirect',pdict.action,'queryString',pdict.queryString)}" />
 </div>

@@ -23,6 +23,13 @@
                     "required": true
                 },
                 {
+                    "id": "tileLimit",
+                    "name": "Tile Limit",
+                    "description": "The product tile count to show in the carousel, if inserted negative or 0 it will show all product tiles of the category",
+                    "type": "integer",
+                    "required": false
+                },
+                {
                     "id": "shopButtonText",
                     "name": "Shop Button Text",
                     "description": "Shop Now Button Text",

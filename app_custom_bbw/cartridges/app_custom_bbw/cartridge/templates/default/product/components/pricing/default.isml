@@ -1,0 +1,51 @@
+<span>
+    <isset name="finalOrigPrice" value="${price}" scope="page" />
+
+    <isif condition="${finalOrigPrice.list !== null}">
+        <isset name="price" value="${finalOrigPrice.list}" scope="page" />
+        <del>
+            <span class="strike-through list">
+                <span class="value" content="${price.decimalPrice}">
+                    <span class="sr-only">
+                        ${Resource.msg('label.price.reduced.from', 'pricing', null)}
+                    </span>
+                    <isinclude template="/product/components/pricing/formatted" />
+                    <span class="sr-only">
+                        ${Resource.msg('label.price.to', 'pricing', null)}
+                    </span>
+                </span>
+            </span>
+        </del>
+    </isif>
+
+    <isset name="price" value="${finalOrigPrice.sales}" scope="page" />
+    <isif condition="${pdict.urls.product}">
+        <span class="sales">
+            <a class="b-product-tile__price-link d-block h-fw--semibold h-font-size--18 mt-0" href="${pdict.urls.product}">
+                <isif condition="${isLowPrice == 'range-low'}">
+                    <span class="value" content="${price.decimalPrice}"></span>
+                </isif>
+                <isif condition="${isLowPrice == 'range-high'}">
+                    <span class="value" content="${price.decimalPrice}"></span>
+                </isif>
+                <isif condition="${isLowPrice == null}">
+                    <span class="value" data-url="${pdict.urls.product}" content="${price.decimalPrice}"></span>
+                </isif>
+                <isinclude template="/product/components/pricing/formatted" />
+            </a>
+        </span>
+    <iselse/>
+        <span class="sales h-clr--black-1">
+            <isif condition="${isLowPrice == 'range-low'}">
+                <span class="value" content="${price.decimalPrice}"></span>
+            </isif>
+            <isif condition="${isLowPrice == 'range-high'}">
+                <span class="value" content="${price.decimalPrice}"></span>
+            </isif>
+            <isif condition="${isLowPrice == null}">
+                <span class="value" data-url="${pdict.urls.product}" content="${price.decimalPrice}"></span>
+            </isif>
+            <isinclude template="/product/components/pricing/formatted" />
+        </span>
+    </isif>
+</span>

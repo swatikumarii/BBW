@@ -12,15 +12,17 @@ $(document).ready(function () {
     processInclude(require('./components/header'));
     processInclude(require('./components/menu'));
     processInclude(require('./components/footer'));
-    processInclude(require('base/components/miniCart'));
+    processInclude(require('./components/miniCart'));
     processInclude(require('base/components/collapsibleItem'));
     processInclude(require('./components/search'));
     processInclude(require('base/components/clientSideValidation'));
     processInclude(require('base/components/countrySelector'));
     processInclude(require('base/components/toolTip'));
     processInclude(require('./components/header'));
+    processInclude(require('./wishlist'));
+    processInclude(require('./components/video'));
 });
 
 require('./thirdParty/bootstrap');
-require('base/components/spinner');
+require('./components/spinner');
 require('./thirdParty/jqueryTicker');

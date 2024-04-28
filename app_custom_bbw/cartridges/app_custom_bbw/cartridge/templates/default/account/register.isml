@@ -1,24 +1,29 @@
 <isdecorate template="common/layout/page">
+    <isinclude template="/components/modules" sf-toolkit="off" />
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
-        assets.addCss('/css/login.css');
     </isscript>
 
-    <div class="hero slant-down login-banner">
-        <h1 class="page-title">${Resource.msg('header.hero.image.login', 'login', null)}</h1>
-    </div>
-    <div class="container login-page">
-        <!---Breadcrumbs--->
-        <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
-        <div class="row justify-content-center equal-height">
-            <div class="col-sm-8 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="login-form-nav">
+    <div class="hero slant-down login-banner bg-white">
+        <div class="container login-page">
+            <!---Breadcrumbs--->
+            <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+            <img src="${URLUtils.staticURL('/images/login/create-account_d.png')}"
+                alt="${Resource.msg('login.create.account-image', 'login', null)}" class="w-100" />
+            <div class="mt-5 w-100">
+                <h1 class="page-title text-justify h-font-size--24 h-clr--black-3 mb-0">
+                    ${Resource.msg('header.hero.image.login', 'login', null)}</h1>
+                <p class="required-field-para w-100 d-flex justify-content-end h-clr--black-1 mb-0">${Resource.msg('required.field.label', 'login', null)}</p>
+            </div>
+            <div class="row justify-content-center equal-height">
+                <div class="col-sm-8 col-md-4">
+                    <div class="login-form-nav">
                         <isinclude template="account/components/registerForm" />
-                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="my-5">
+                <iscontentasset aid="myAccount-help" />
             </div>
         </div>
     </div>

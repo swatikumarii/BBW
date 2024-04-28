@@ -19,10 +19,10 @@ function displayMessage(data, button) {
     }
 
     if ($('.email-signup-message').length === 0) {
-        $('body').append('<div class="email-signup-message"></div>');
+        $('.js-newsletter-msg').append('<div class="email-signup-message"></div>');
     }
     $('.email-signup-message').append(
-        '<div class="email-signup-alert text-center ' +
+        '<div class="email-signup-alert text-justify ' +
         status +
         '">' +
         data.msg +
@@ -80,39 +80,6 @@ window.submitNewsLetter = function (token) {
     });
 };
 
-/**
- * In case of failure
- */
-window.checkRecaptcha = function () {
-    // Re-initialize reCaptcha
-    grecaptcha.reset();
-    // Fire reCaptcha
-    grecaptcha.execute();
-    // Fire desired behavior AFTER reCaptcha is complete
-    window.submitNewsLetter();
-};
-
-/**
- * to execute reCAPTCHA
- */
-function executeRecaptcha() {
-    grecaptcha.execute();
-}
-window.initializeRecaptcha = function () {
-    $('.grecaptcha-badge').addClass('mc-recaptcha-btn');
-    $('.newsletter #gcaptchabtn').on('click', executeRecaptcha);
-    $('.newsletter').on('keypress', function (event) {
-        // If the user presses the "Enter" key on the keyboard
-        if (event.key === 'Enter') {
-            // Cancel the default action, if needed
-            event.preventDefault();
-            // Trigger the button element with a click
-            $('.newsletter #gcaptchabtn').click();
-        }
-    });
-};
-
-// Initialize popover
 // Initialize popover 
 $('[data-toggle="popover"]').popover({
     placement: 'top',
@@ -120,9 +87,29 @@ $('[data-toggle="popover"]').popover({
 });
 
 // Show popover on mouseenter
-$('[data-toggle="popover"]').on('mouseenter', function () {
-    $(this).popover('show');
-});
+$('[data-toggle="popover"]')
+    .on('mouseenter', function () {
+        $(this).popover('show');
+        $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
+    });
+    
+
+var timer;
+$('body').on(
+    'mouseleave',
+    '[data-toggle="popover"], .popover',
+    function () {
+        timer = setTimeout(function () {
+            $('.popover').popover('hide');
+        }, 50);
+    }).on(
+    'mouseenter',
+    '[data-toggle="popover"], .popover',
+    function () {
+        clearTimeout(timer);
+    }
+);
+
 
 // Close popover on close button click
 $(document).on('click', '.popover .close', function () {

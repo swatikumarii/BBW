@@ -12,61 +12,88 @@
     <isset name="isQuickView" value="${false}" scope="page" />
     <isset name="isProductSet" value="${pdict.product.productType === 'set'}" scope="page" />
     <isobject object="${product.raw}" view="detail">
-        <div class="container product-detail product-wrapper" data-pid="${product.id}">
+        <div class="h-maxwidth--1400 product-detail product-wrapper pb-5 mx-auto" data-pid="${product.id}">
             <div class="row">
                 <div class="col-12">
                     <!--Breadcrumbs-->
-                    <div class="product-breadcrumb d-md-none">
+                    <div class="product-breadcrumb">
                         <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
-                    </div>
-
-                    <!-- Product Name -->
-                    <div class="row">
-                        <div class="d-md-none col-sm-12">
-                            <h1 class="product-name">${product.productName}</h1>
-                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row mb-5">
                 <!-- Product Images Carousel -->
                 <isinclude template="product/components/imageCarousel" />
 
                 <div class="col-12 col-sm-6">
-                    <!--Breadcrumbs-->
-                    <div class="row">
-                        <div class="product-breadcrumb col hidden-sm-down">
-                            <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
-                        </div>
-                    </div>
-
                     <!-- Product Name -->
                     <isif condition="${product.brand}">
                         <div class="row">
                             <div class="col">
-                                <h3 class="brand-name hidden-sm-down">${product.brand}</h3>
+                                <h3 class="brand-name h-font-size--16 h-clr--black-1 text-capitalize mb-0">${product.brand}</h3>
                             </div>
                         </div>
                     </isif>
                     <div class="row">
                         <div class="col">
-                            <h1 class="product-name hidden-sm-down">${product.fragranceName ? product.fragranceName : product.name}</h1>
+                            <h1 class="product-name hidden-sm-down text-capitalize h-clr--black-1 h-fw--bold mt-0">
+                                ${product.fragranceName ? product.fragranceName : product.name}
+                                <iscomment> <span class="small-title h-font-size--16 h-fw--normal h-clr--gray-4 d-block">Body
+                                    Wash</span> </iscomment>
+                                <isif condition="${product.titlePartB}">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span class="titlePartB-name small-title h-font-size--16 h-fw--normal h-clr--gray-4 d-block">${product.titlePartB}</span>
+                                        </div>
+                                    </div>
+                                </isif>
+                            </h1>
                         </div>
                     </div>
-                    <isif condition="${product.titlePartB}">
-                        <div class="row">
-                            <div class="col">
-                                <h3 class="titlePartB-name hidden-sm-down">${product.titlePartB}</h3>
+                    
+
+                    <iscomment>This should come from Bazaar voice</iscomment>
+                    <iscomment> <div class="row">
+                        <div class="col rating-review">
+                            <div class="pull-left">
+                                <isinclude template="product/components/pidRating" />
+                            </div>
+                            <div class="review h-font-size--13">
+                                <a class="h-clr--blue" href="#">${Resource.msg('label.rating-review', 'product', null)}</a>
                             </div>
                         </div>
-                    </isif>
+                    </div> </iscomment>
 
-
-                    <div class="row">
-                        <div class="col">
-                            <isinclude template="product/components/pidRating" />
+                    <div class="prices-add-to-cart-actions">
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- Prices -->
+                                <div class="prices">
+                                    <isset name="price" value="${product.price}" scope="page" />
+                                    <isinclude template="product/components/pricing/main" />
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="ship-it-icon">
+                            <isif condition="${product.expressShip}">
+                                <iscomment> Show Express ship icon </iscomment>
+                            </isif>
+                        </div>
+                        <iscomment>Afterpay</iscomment>
+                        <isscript>
+                                                    var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
+                                                    var afterpayPDPEnable = sitePreferences.isDisplayPdpInfo() && sitePreferences.isAfterpayEnabled();
+                                                </isscript>
+                        <isif condition="${afterpayPDPEnable}">
+                            <input type="hidden" class="updated-widget"
+                                value="${URLUtils.https('AfterpayWidget-GetUpdatedWidget')}" />
+                            <div class="afterpay-widget">
+                                <isinclude
+                                    url="${URLUtils.url('AfterpayWidget-IncludeAfterpayMessage', 'pid', product.id)}" />
+                            </div>
+                        </isif>
                     </div>
 
                     <div class="attributes">
@@ -74,18 +101,71 @@
                         <isif condition="${product.volume}">
                             <div class="row">
                                 <div class="col">
-                                    <h3 class="volume-name hidden-sm-down">${product.volume}</h3>
+                                    <h3 class="volume-name h-font-size--14 h-clr--gray-4">${product.volume}</h3>
                                 </div>
                             </div>
                         </isif>
+
+                        <!-- Applicable Promotions -->
+                        <isloop items="${product.promotions}" var="promotion" status="loopstatus">
+                            <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
+                                <span class="callout-message"><isprint value="${promotion.calloutMsg}"></span>    
+                                <button type="button"
+                                        class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
+                                        data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486" title="&lt;div class='pdp-title'&gt;&lt;/div&gt;&gt;"
+                                        data-content="<a href='#' class='close cursor-pointer'></a><div class='popover-content pdp-pop-content ds-tooltip-content'><isprint value="${promotion.details}"></div><div class='arrow-fill'></div>"
+                                        data-html="true" data-original-title="" aria-describedby="popover14574">
+                                    </button> 
+                            </div>
+                        </isloop>
+
+                        <iscomment> Hiding Bopis Options for now </iscomment>
+                        <iscomment> <div class="bopis-delivery-options border-left-0 border-right-0">
+                            <fieldset>
+                                <legend class="delivery-options h-clr--black-1 h-font-size--16 h-fw--semibold">
+                                    ${Resource.msg('bopis.heading', 'product', null)}</legend>
+
+                                <div class="bopis-eligible-for-pickup">
+                                    <input class="bopis-shipping-option bopis-delivery-option-input" type="radio"
+                                        value="shipping" checked="" />
+                                    <label class="ship-it-msg mb-0 h-clr--black-1 h-fw--bold" for="pdp-shippingOption">
+                                        <span class="ship-it-truck-icon"></span>
+                                        <span>${Resource.msg('bopis.label.ship', 'product', null)}</span>
+                                    </label>
+                                    <div class="availability-web">
+                                        <div class="availability-msg">
+                                            <div class="in-stock-msg h-clr--green-2">
+                                                Available
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bopis-pfs-with-store-container">
+                                        <div class="bopis-pfs-option-main-container">
+                                            <input class="bopis-pick-from-store-option bopis-delivery-option-input"
+                                                type="radio" value="pickfromstore" />
+                                            <label
+                                                class="bopis-pick-from-store-option-label h-fw--bold mb-0 h-clr--blue"
+                                                for="pdp-pickFromStoreOption">
+                                                <span class="pdp-pick-up-icon"></span>
+                                                <span class="pick-up-in-store-msg ">${Resource.msg('bopis.label.pick', 'product', null)}</span>
+                                            </label>
+                                        </div>
+                                        <div class="bopis-set-store-container bopis-pdp-set-store">
+                                            <a href=""
+                                                class="h-fw--semibold h-clr--black-1">${Resource.msg('bopis.label.set.store', 'product', null)}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div> </iscomment>
 
                         <!-- Attributes and Quantity -->
                         <isinclude template="product/components/mainAttributes" />
 
                         <isset name="isBundle" value="${false}" scope="page" />
                         <isset name="loopState" value="${{
-                                count: 1}}"
-                            scope="page" />
+                                                       count: 1}}" scope="page" />
                         <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
                             <div class="row" data-attr="${attr.id}">
                                 <div class="col-8">
@@ -101,15 +181,26 @@
                             </div>
                         </isloop>
 
-                        <isif condition="${!product.variationAttributes}">
-                            <div class="row">
-                                <div class="col-12">
+                        <!-- Product Availability -->
+                        <isinclude template="product/components/productAvailability" />
+
+                        <div class="row">
+                            <div class="d-flex quantity-cart-wrap">
+                                <isif condition="${!product.variationAttributes}">
                                     <div class="simple-quantity">
                                         <isinclude template="product/components/quantity" />
                                     </div>
+                                </isif>
+                                <!-- Cart and [Optionally] Apple Pay -->
+                                <div class="js-add-to-cart-button">
+                                    <isif condition="${(!product.isMaster && !product.available)}">
+                                        <isinclude template="product/components/notifyMe" />
+                                    <iselse/>
+                                        <isinclude template="product/components/addToCartProduct" />
+                                    </isif>
                                 </div>
                             </div>
-                        </isif>
+                        </div>
 
                         <div class="product-options">
                             <isif condition="${product.options && product.options.length > 0}">
@@ -126,53 +217,8 @@
                             </div>
                         </isif>
 
-                        <!-- Product Availability -->
-                        <isinclude template="product/components/productAvailability" />
-
-                        <!-- Applicable Promotions -->
-                        <div class="row">
-                            <div class="col-12 promotions">
-                                <isinclude template="product/components/promotions" />
-                            </div>
-                        </div>
-
-                        <div class="prices-add-to-cart-actions">
-                            <div class="row">
-                                <div class="col-12">
-                                    <!-- Prices -->
-                                    <div class="prices">
-                                        <isset name="price" value="${product.price}" scope="page" />
-                                        <isinclude template="product/components/pricing/main" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="ship-it-icon">
-                                <isif condition="${product.expressShip}">
-                                    <iscomment> Show Express ship icon </iscomment>
-                                </isif>
-                            </div>
-                            <iscomment>Afterpay</iscomment>
-                            <isscript>
-                                var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
-                                var afterpayPDPEnable = sitePreferences.isDisplayPdpInfo() && sitePreferences.isAfterpayEnabled();
-                            </isscript>
-                            <isif condition="${afterpayPDPEnable}">
-                                <input type="hidden" class="updated-widget" value="${URLUtils.https('AfterpayWidget-GetUpdatedWidget')}" />
-                                <div class="afterpay-widget">
-                                    <isinclude url="${URLUtils.url('AfterpayWidget-IncludeAfterpayMessage', 'pid', product.id)}" />
-                                </div>
-                            </isif>
-
-                            <!-- Cart and [Optionally] Apple Pay -->
-                            <div class="js-add-to-cart-button">
-                                <isif condition="${(!product.isMaster && !product.available)}">
-                                    <isinclude template="product/components/notifyMe" />
-                                <iselse/>
-                                    <isinclude template="product/components/addToCartProduct" />
-                                </isif>
-                            </div>
-                        </div>
+                        <iscomment> Product Description </iscomment>
+                        <isinclude template="product/components/descriptionAndDetails" />
 
                         <!-- Social Sharing Icons -->
                         <div class="row">
@@ -188,9 +234,8 @@
             </div>
 
             <isset name="loopState" value="${{
-                    count: 1}}"
-                scope="page" />
-            <isinclude template="product/components/descriptionAndDetails" />
+                                           count: 1}}" scope="page" />
+
 
             <div class="recommendations">
                 <isslot id="product-recommendations-m" description="Recommended products" context="global"
