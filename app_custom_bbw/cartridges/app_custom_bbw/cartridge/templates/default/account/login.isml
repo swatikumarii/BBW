@@ -2,7 +2,6 @@
     <isinclude template="/components/modules" sf-toolkit="off" />
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
-        assets.addCss('/css/login.css');
     </isscript>
 
     <div class="hero slant-down login-banner bg-white">

@@ -375,14 +375,14 @@
         letter-spacing: normal;
 
         .show {
-            border-left: 1px solid colour(white, 2);
+            border-left: 1px solid colour(gray, 22);
             line-height: 24px;
             padding: 0 12px;
         }
     }
 
     .register-hide {
-        top: 32px;
+        top: 33px;
         min-height: 46px;
         max-height: 15px;
         background: white;
@@ -395,7 +395,7 @@
         }
 
         .show {
-            border-left: 1px solid colour(white, 2);
+            border-left: 1px solid colour(gray, 22);
             line-height: 24px;
             padding: 0 12px;
         }
@@ -415,7 +415,7 @@
         }
 
         .show {
-            border-left: 1px solid colour(white, 2);
+            border-left: 1px solid colour(gray, 22);
             line-height: 24px;
             padding: 0 12px;
         }
