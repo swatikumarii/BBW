@@ -10,8 +10,6 @@ var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 
 var URLUtils = require('dw/web/URLUtils');
 var Resource = require('dw/web/Resource');
-var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
-var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 
 /**
  * Append Account-Show controller: Update breadcrumbs
@@ -44,17 +42,19 @@ server.append('EditProfile', function (req, res, next) {
     var accountModel = accountHelpers.getAccountModel(req);
 
     var viewData = res.getViewData();
+    var birthday = '-';
+
+    if (accountModel.profile.birthday) {
+        var dob = accountModel.profile.birthday.toLocaleString('en-US', { month: 'long' });
+        var birthdayArray = dob.split(', ');
+        birthday = birthdayArray[0];
+    }
+
     var profileModel = {
-        dob: accountModel.profile.birthday
-            ? Date(accountModel.profile.birthday)
-            : '-',
+        dob: birthday,
         zip: accountModel.profile.zipCode,
         emailconfirm: accountModel.profile.email
     };
-    viewData.successMessage = false;
-    if (req.querystring.profile && req.querystring.profile === 'success') {
-        viewData.successMessage = true;
-    }
 
     var breadcrumbs = [
         {

@@ -34,7 +34,7 @@
                         tabindex="0">${Resource.msg('label.myorders', 'account', null)}</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a href="${URLUtils.url('Order-History')}" role="menuitem"
+                    <a href="${URLUtils.url('Wishlist-Show')}" role="menuitem"
                         tabindex="0">${Resource.msg('label.loveItList', 'account', null)}</a>
                 </li>
                 <li class="nav-item" role="presentation">
