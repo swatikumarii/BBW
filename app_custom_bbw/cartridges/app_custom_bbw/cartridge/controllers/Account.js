@@ -47,7 +47,7 @@ server.append('EditProfile', function (req, res, next) {
     var profileModel = {
         dob: accountModel.profile.birthday
             ? Date(accountModel.profile.birthday)
-            : '',
+            : '-',
         zip: accountModel.profile.zipCode,
         emailconfirm: accountModel.profile.email
     };
@@ -251,17 +251,6 @@ server.replace(
 
         var profileForm = server.forms.getForm('profile');
         var newPasswords = profileForm.login.newpasswords;
-        // form validation
-        // if (newPasswords.newpassword.value !== newPasswords.newpasswordconfirm.value) {
-        //     profileForm.valid = false;
-        //     newPasswords.newpassword.valid = false;
-        //     newPasswords.newpasswordconfirm.valid = false;
-        //     newPasswords.newpasswordconfirm.error = Resource.msg(
-        //         'error.message.mismatch.newpassword',
-        //         'forms',
-        //         null
-        //     );
-        // }
 
         var result = {
             currentPassword: profileForm.login.currentpassword.value,

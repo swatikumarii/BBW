@@ -46,12 +46,12 @@
 <div class="form-group
             <isif condition=" ${pdict.profileForm.customer.dob.mandatory === true}">required</isif>">
     <label class="birthday-label form-control-label" for="dob">
-        <isprint value="${pdict.profileForm.customer.dob.label}" encoding="htmlcontent" />
+        <isprint value="${Resource.msg('label.input.birthday', 'forms', null)}" encoding="htmlcontent" />
     </label>
     <div class="birthday-date">
         <p>${pdict.profileForm.customer.dob.value}</p>
     </div>
-    <p class="form-caption">${Resource.msg('form.birthday.caption', 'forms', null)}</p>
+<p class="form-caption">${Resource.msg('form.birthday.caption', 'forms', null)}</p>
 </div>
 
 
