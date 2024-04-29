@@ -8,6 +8,12 @@
     }
 
     .carousel {
+        @include media-up(sm) {
+            width: 350px;
+            float: right;
+            margin-right: 0;
+        }
+
         &:hover .carousel-control-next,
         &:hover .carousel-control-prev {
             display: flex;
@@ -31,6 +37,14 @@
                 margin-right: 45px;
             }
         }
+
+        @include media-up(sm) {
+            &.zoom-carousel {
+                    width: auto;
+                    float: none;
+                }
+            }
+        
 
         .zoomImage-link {
             content: "";

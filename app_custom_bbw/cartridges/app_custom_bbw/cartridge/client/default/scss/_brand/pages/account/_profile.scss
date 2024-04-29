@@ -94,7 +94,7 @@
     .wishlist-owner {
         display: block;
         font-size: 14px;
-        color: #666;
+        color: colour(gray);
         text-transform: initial;
     }
 
@@ -109,7 +109,7 @@
 
     .wishlistItemCards {
         table tr {
-            border-bottom: 1px solid #666;
+            border-bottom: 1px solid colour(gray);
 
             &:first-child td {
                 padding-top: 0;
@@ -140,8 +140,8 @@
 
             td.item-details {
                 .line-item-name {
-                    color: #1a1a1a;
-                    font-weight: 600;
+                    color: colour(black, 1);
+                    font-weight: map-get($font-weight, semibold);
                     letter-spacing: 0.01em;
                     max-width: 200px;
                 }
@@ -164,7 +164,7 @@
                         font-weight: 600;
                         line-height: 1.25rem;
                         letter-spacing: 0.005em;
-                        color: #333;
+                        color: colour(black, 3);
                     }
                 }
 
@@ -175,7 +175,7 @@
 
                 .createDate {
                     font-size: 0.6875rem;
-                    color: #666;
+                    color: colour(gray);
                 }
             }
 
@@ -238,18 +238,18 @@
     }
 
     .wishlist-heading h1 {
-        border-bottom: 1px solid #333;
+        border-bottom: 1px solid colour(black, 3);
         margin-bottom: 1.5625em;
         padding-bottom: 0.625em;
     }
 
     @include media-down(sm) {
         .wishlist-heading {
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid colour(gray, 6);
 
             h1 {
                 font-size: 1.5rem;
-                border-bottom: 1px solid #333;
+                border-bottom: 1px solid colour(black, 3);
                 margin-bottom: 63px;
 
                 .share-love-it-list {

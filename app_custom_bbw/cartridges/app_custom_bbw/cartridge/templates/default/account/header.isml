@@ -7,9 +7,9 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
                 <li><button class="border-0 bg-white" id="loginPopupBtn">${Resource.msg('mobile.menu.signIn', 'common', null)}</button></li>
-                <li><a href="google.com">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a></li>
-                <li><a href="google.com">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a></li>
-                <li><a href="google.com">${Resource.msg('mobile.menu.myLoveItList', 'common', null)}</a></li>
+                <li><a href="${URLUtils.url('Home-Show')}">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a></li>
+                <li><a href="${URLUtils.url('Home-Show')}">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a></li>
+                <li><a href="${URLUtils.url('Wishlist-Show')}">${Resource.msg('mobile.menu.myLoveItList', 'common', null)}</a></li>
             </ul>
         </div>
     </div>

@@ -382,7 +382,6 @@
         min-height: 46px;
         max-height: 15px;
         right: 1px;
-        z-index: 5;
         letter-spacing: normal;
 
         .show {
@@ -394,7 +393,7 @@
 
     .register-hide {
         top: 33px;
-        min-height: 46px;
+        min-height: 43px;
         max-height: 15px;
         background: colour(white);
         right: 1px;
@@ -418,7 +417,6 @@
         background: white;
         right: 1px;
         top: 23px;
-        z-index: 5;
         letter-spacing: normal;
 
         &:hover {

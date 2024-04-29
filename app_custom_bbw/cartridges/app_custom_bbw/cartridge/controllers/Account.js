@@ -351,7 +351,7 @@ server.append(
         loginRedirectUrl = loginRedirectExceptions.includes(loginRedirectUrl)
             ? 'Account-Show'
             : loginRedirectUrl;
-        loginRedirectUrl = URLUtils.url(loginRedirectUrl, queryStringArr);;
+        loginRedirectUrl = URLUtils.url(loginRedirectUrl, queryStringArr);
         var viewData = res.getViewData();
         viewData.redirectUrl = loginRedirectUrl.toString();
         viewData.showCartMergePopup =
