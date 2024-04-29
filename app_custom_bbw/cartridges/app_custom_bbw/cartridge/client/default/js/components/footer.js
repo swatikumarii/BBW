@@ -97,14 +97,14 @@ $('[data-toggle="popover"]')
 var timer;
 $('body').on(
     'mouseleave',
-    '[data-toggle="popover"], .pdp-popover',
+    '[data-toggle="popover"], .popover',
     function () {
         timer = setTimeout(function () {
-            $('.pdp-popover').popover('hide');
+            $('.popover').popover('hide');
         }, 50);
     }).on(
     'mouseenter',
-    '[data-toggle="popover"], .pdp-popover',
+    '[data-toggle="popover"], .popover',
     function () {
         clearTimeout(timer);
     }
@@ -134,7 +134,7 @@ $(window).scroll(function () {
 
 $('.js-scrolltotop').on('click', function () {
     $('html, body').animate({
-        scrollTop: $('body').offset().top
+        scrollTop: 0 // Scroll to top of the page
     }, 800);
 });
 

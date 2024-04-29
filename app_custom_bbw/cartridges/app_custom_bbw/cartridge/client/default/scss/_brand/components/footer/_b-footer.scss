@@ -1,6 +1,7 @@
 @import "../collapsibleItem";
 
 footer {
+    margin-top: 96px;
     border-top: 0.1875rem solid colour(gray, 1);
 
     .footer-container {
@@ -96,6 +97,7 @@ footer {
 
             .submit-btn {
                 padding: 0 2rem;
+                width: 124px;
             }
         }
 

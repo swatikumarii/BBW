@@ -1,5 +1,7 @@
 @include media-up(sm) {
     .bbw-menu {
+        max-width: 1400px;
+
         .navbar {
             position: inherit;
 
@@ -19,7 +21,7 @@
                             line-height: 1.25rem;
                             letter-spacing: 0.01em;
                             border-bottom: 0.1875rem solid transparent;
-                            transition: border 0.3s ease-out;
+                            transition: border 0.5s ease-out;
 
                             &:hover {
                                 color: colour(black, 1);
@@ -34,6 +36,17 @@
                             &:focus {
                                 outline: 0;
                             }
+                        }
+
+                        .menu-wrap-level-1 {
+                            max-height: 500px;
+                            overflow: hidden;
+                            object-fit: contain;
+                            box-shadow: 0 12px 20px rgba(0, 0, 0, 15%);
+                            visibility: hidden;
+                            opacity: 0;
+                            transition: all 0.5s ease 0.15s;
+                            display: block;
                         }
 
                         .menu-wrap {
@@ -91,6 +104,40 @@
                                 }
                             }
                         }
+
+                        .menu-wrap-level-1.show {
+                            opacity: 1;
+                            visibility: visible;
+                            transition: all 0.5s ease 0.15s;
+                        }
+                    }
+                }
+            }
+
+            .level-1-li {
+                .level-2-ul {
+                    display: block;
+                    opacity: 0;
+                    pointer-events: none;
+                    top: -15px;
+                    transition-duration: 0.5s;
+                    transition-property: visibility, opacity, top;
+                    transition-timing-function: cubic-bezier(
+                        0.25,
+                        0.46,
+                        0.45,
+                        0.94
+                    );
+                    visibility: hidden;
+                }
+
+                &:hover {
+                    .level-2-ul {
+                        border: 0;
+                        opacity: 1;
+                        pointer-events: auto;
+                        top: 0;
+                        visibility: visible;
                     }
                 }
             }
@@ -100,6 +147,7 @@
 
 @include media-breakpoint-down(sm) {
     .bbw-menu {
+        max-width: 350px;
         position: fixed;
         top: 0;
         bottom: 0;

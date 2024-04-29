@@ -109,7 +109,7 @@
                         <!-- Applicable Promotions -->
                         <isloop items="${product.promotions}" var="promotion" status="loopstatus">
                             <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
-                                <span class="callout-message"><isprint value="${promotion.calloutMsg}"></span>    
+                                <span class="callout-message"><isprint value="${promotion.calloutMsg}" encoding="off"></span>    
                                 <button type="button"
                                         class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
                                         data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486" title="&lt;div class='pdp-title'&gt;&lt;/div&gt;&gt;"
