@@ -179,6 +179,27 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="hardTimeout">
+                <display-name xml:lang="x-default">Hard Timeout</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+             <attribute-definition attribute-id="popupDuration">
+                <display-name xml:lang="x-default">Popup Duration</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="softTimeout">
+                <display-name xml:lang="x-default">Soft Timeout</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -203,6 +224,12 @@
                 <attribute attribute-id="googleRecaptchaSceretKey"/>
                 <attribute attribute-id="googleRecaptchaPageScore"/>
                 <attribute attribute-id="googleRecaptchaPageDefaultScore"/>
+            </attribute-group>
+            <attribute-group group-id="BBWConfigurations">
+                <display-name xml:lang="x-default">BBW Configurations</display-name>
+                <attribute attribute-id="hardTimeout"/>
+                <attribute attribute-id="softTimeout"/>
+                <attribute attribute-id="popupDuration"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
