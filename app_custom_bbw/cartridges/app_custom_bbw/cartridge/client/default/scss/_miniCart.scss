@@ -87,6 +87,13 @@
                     font-size: 13px;
                     line-height: 44px;
                 }
+
+                a {
+                    &:hover {
+                        color: $clr-white;
+                        opacity: 0.9;
+                    }
+                }
             }
         }
 
