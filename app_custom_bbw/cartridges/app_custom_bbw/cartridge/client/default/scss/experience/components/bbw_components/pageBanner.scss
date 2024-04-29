@@ -842,6 +842,20 @@ $pd-content-banner-after-bg: linear-gradient(
     }
 }
 
+.pd-banner-wrapper {
+    &:hover {
+        .video-controls-wrapper {
+            pointer-events: auto;
+            opacity: 1;
+            visibility: visible;
+            transition:
+                visibility 2s,
+                opacity 2s,
+                trasform 2s;
+        }
+    }
+}
+
 .content-banner.banner-center-aligned-desktop.banner-pagedesigner {
     .badge {
         height: 73px;
@@ -1417,7 +1431,6 @@ $pd-content-banner-after-bg: linear-gradient(
     right: 10px;
     margin: 10px;
     overflow: hidden;
-    z-index: 3;
     opacity: 1;
 
     .icon {
@@ -1459,11 +1472,33 @@ $pd-content-banner-after-bg: linear-gradient(
                 outline: none;
             }
 
-            .icon-sound-off {
-                display: block;
-
+            .icon-sound {
                 &.sound-off {
-                    display: block;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    &::before {
+                        content: "";
+                        background: url("../../../../images/icons/volume-off-32.svg")
+                            no-repeat scroll 50%;
+                        background-size: contain;
+                        position: absolute;
+                        height: 24px;
+                        width: 24px;
+                    }
+                }
+
+                &.sound-on {
+                    &::before {
+                        content: "";
+                        background: url("../../../../images/icons/volume-on-32.svg")
+                            no-repeat scroll 50%;
+                        background-size: contain;
+                        position: absolute;
+                        height: 24px;
+                        width: 24px;
+                    }
                 }
             }
         }
@@ -1511,6 +1546,15 @@ $pd-content-banner-after-bg: linear-gradient(
     .icon-pause-large {
         display: none;
     }
+}
+
+.video-controls-wrapper {
+    visibility: visible;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        visibility 1s,
+        opacity 1s;
 }
 
 .video-controls_bottom-right.is-playing {

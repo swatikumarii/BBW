@@ -2,7 +2,6 @@
     <isinclude template="/components/modules" sf-toolkit="off" />
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
-        assets.addCss('/css/login.css');
     </isscript>
 
     <div class="hero slant-down login-banner bg-white">
@@ -20,7 +19,7 @@
                 <div class="login-section">
                     <div class="login-form-nav login-account">
                         <h2 class="h-clr--black-3 h-font-size--16 text-center">${Resource.msg('login.label', 'login', null)}</h2>
-                        <p class="h-clr--gray text-cente">${Resource.msg('login.para', 'login', null)}</p>
+                        <p class="h-clr--gray text-center">${Resource.msg('login.para', 'login', null)}</p>
                         <div class="login-box">
                             <isinclude template="account/components/loginForm" />
                         </div>
