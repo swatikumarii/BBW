@@ -7,7 +7,8 @@
         height: auto;
 
         @include media-up(sm) {
-            width: 100%;
+           width: 1144px;
+        height: 120.67px;
         }
     }
 
@@ -75,11 +76,13 @@
 .m-grid-contain {
     .head-img {
         width: 95%;
+        margin: 10px auto;
         border-bottom: 3px solid colour(black);
 
         @include media-up(sm) {
             border-bottom: 3px solid colour(black);
-            width: 99%;
+            width: 1144px;
+                margin: 10px auto;
         }
 
         .folder_content {
@@ -100,7 +103,7 @@
     }
 
     .m-grid-contain-childblog {
-        width: 95%;
+        width: 1144px;
         position: relative;
         margin: 0 auto;
 
@@ -109,6 +112,8 @@
 
             @include media-up(sm) {
                 width: 49%;
+                margin-top: 10px;
+    margin-bottom: 10px;
             }
 
             h3 {
@@ -129,12 +134,11 @@
                 float: right;
                 max-height: 35px;
                 min-height: 36px;
-                margin-top: 1rem;
 
                 @include media-up(sm) {
                     float: right;
-                    min-height: 36px;
-                    width: 20%;
+                    min-height: 35px;
+                    width: 112.11px;
                 }
 
                 @include media-btw(sm, lg) {
@@ -172,6 +176,7 @@
             letter-spacing: 0.0625rem;
             background-color: transparent;
             color: colour(black, 3);
+            transition: all .3s ease;
         }
 
         @include media-btw(sm, lg) {
