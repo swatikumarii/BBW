@@ -93,9 +93,11 @@ function updateStoresResults(data) {
     var hasResults = data.stores.length > 0;
 
     if (!hasResults) {
-        $('.store-locator-no-results').show();
+        $('.store-locator-no-results').removeClass('d-none');
+        $('#no-stores-result').show();
     } else {
-        $('.store-locator-no-results').hide();
+        $('.store-locator-no-results').addClass('d-none');
+        $('#no-stores-result').hide();
     }
 
     $resultsDiv.empty()
@@ -116,8 +118,52 @@ function updateStoresResults(data) {
     }
 }
 
+/**
+ * Search for stores with new zip code
+ * @param {HTMLElement} element - the target html element
+ * @returns {boolean} false to prevent default event
+ */
+function search(element) {
+    var dialog = element.closest('.in-store-inventory-dialog');
+    var spinner = dialog.length ? dialog.spinner() : $.spinner();
+    spinner.start();
+    var $form = element.closest('.store-locator');
+    var radius = $('.results').data('radius');
+    var url = $form.attr('action');
+    var urlParams = { radius: radius };
 
-module.exports = $.extend({}, baseStore, {    
+    var payload = $form.is('form') ? $form.serialize() : { postalCode: $form.find('[name="postalCode"]').val() };
+
+    url = appendToUrl(url, urlParams);
+
+    $.ajax({
+        url: url,
+        type: $form.attr('method'),
+        data: payload,
+        dataType: 'json',
+        success: function (data) {
+            spinner.stop();
+            updateStoresResults(data);
+            $('.select-store').prop('disabled', true);
+        }
+    });
+    return false;
+}
+
+module.exports = $.extend({}, baseStore, {
+    search: function () {
+        $('.store-locator-container form.store-locator').submit(function (e) {
+            e.preventDefault();
+            search($(this));
+        });
+        $(
+            '.store-locator-container .btn-storelocator-search[type="button"]'
+        ).click(function (e) {
+            e.preventDefault();
+            search($(this));
+        });
+    },
+
     changeRadius: function () {
         $('.store-locator-container .radius').change(function () {
             var radius = $(this).val();
@@ -132,7 +178,7 @@ module.exports = $.extend({}, baseStore, {
                     postalCode: searchKeys.postalCode,
                     storeType: searchKeys.storeType
                 };
-            } else if(searchKeys.postalCode){
+            } else if (searchKeys.postalCode) {
                 urlParams = {
                     radius: radius,
                     postalCode: searchKeys.postalCode

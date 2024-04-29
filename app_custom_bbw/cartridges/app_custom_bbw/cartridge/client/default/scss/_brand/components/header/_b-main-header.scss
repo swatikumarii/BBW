@@ -9,11 +9,6 @@ header {
         right: 0;
         top: 0;
         transition: 0.5s linear all;
-        z-index: 1;
-    }
-
-    @include media-up(sm) {
-        z-index: 2;
     }
 
     .bbw-nav {

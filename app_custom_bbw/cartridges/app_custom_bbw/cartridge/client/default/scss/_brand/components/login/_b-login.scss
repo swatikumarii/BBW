@@ -197,6 +197,13 @@
                     padding-top: 24px;
                     max-width: 290px;
                     margin: auto;
+
+                    .login-form {
+                        .required-indicator {
+                            margin-right: 0.125em;
+                            color: colour(red, 9);
+                        }
+                    }
                 }
             }
 
@@ -337,6 +344,10 @@
         letter-spacing: 0.12em;
     }
 
+    .reset-password-form {
+        margin: 0 auto;
+    }
+
     .required-field-para {
         float: right;
         font-style: italic;
@@ -369,21 +380,23 @@
     .login-modal-hide {
         top: 29px;
         min-height: 46px;
+        max-height: 15px;
         right: 1px;
         z-index: 5;
         letter-spacing: normal;
 
         .show {
-            border-left: 1px solid colour(white, 2);
+            border-left: 1px solid colour(gray, 22);
             line-height: 24px;
             padding: 0 12px;
         }
     }
 
     .register-hide {
-        top: 32px;
+        top: 33px;
         min-height: 46px;
-        background: white;
+        max-height: 15px;
+        background: colour(white);
         right: 1px;
         z-index: 5;
         letter-spacing: normal;
@@ -393,7 +406,7 @@
         }
 
         .show {
-            border-left: 1px solid colour(white, 2);
+            border-left: 1px solid colour(gray, 22);
             line-height: 24px;
             padding: 0 12px;
         }
@@ -401,10 +414,10 @@
 
     .hide-show {
         min-height: 46px;
+        max-height: 15px;
         background: white;
         right: 1px;
         top: 23px;
-        z-index: 5;
         letter-spacing: normal;
 
         &:hover {
@@ -412,9 +425,48 @@
         }
 
         .show {
-            border-left: 1px solid colour(white, 2);
+            border-left: 1px solid colour(gray, 22);
             line-height: 24px;
             padding: 0 12px;
         }
     }
+}
+
+// -----login modal-----
+.modal-body {
+    overflow-y: auto;
+    max-height: calc(114vh - 64px);
+}
+
+.modal {
+    background: rgba(26, 26, 26, 60%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-right: 0;
+}
+
+.modal.fade .modal-dialog {
+    transition: transform 0.3s ease-out;
+    transform: translate(0, 50px);
+}
+
+.modal-dialog {
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+    right: 0%;
+    margin-bottom: 0;
+    animation: e 0.2s;
+    animation-timing-function: cubic-bezier(0.2, 0.05, 0.55, 0.2);
+}
+
+.modal.show .modal-dialog {
+    transform: none;
+}
+
+.modal-content {
+    border-radius: 0;
 }

@@ -10,7 +10,8 @@ $(document).ready(function () {
     intlTelInput(phone, {
         utilsScript: utils,
         showFlags: true,
-        showSelectedDialCode: true
+        showSelectedDialCode: true,
+        initialCountry: 'au',
     });
 });
 // Add this script to your page
