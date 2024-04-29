@@ -123,12 +123,10 @@ $(document).on('click', '.popover .close', function () {
 var scrolltotop = $('.js-scrolltotop');
 
 $(window).scroll(function () {
-    console.log("Scroll Top: " + $(this).scrollTop());
     if ($(this).scrollTop() > 100) { // Adjust the value according to requirement
         console.log("Fading In");
         scrolltotop.fadeIn();
     } else {
-        console.log("Fading Out");
         scrolltotop.fadeOut();
     }
 });

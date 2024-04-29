@@ -5,7 +5,7 @@
         assets.addCss('/css/pages/blogs/b-blog.css');
     </isscript>
     <div class="container">
-    <div class="pt-4"></div>
+        <div class="pt-4"></div>
         <div class="header_img">
             <img class="mob-only"
                 src="//storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/banners/Get-Inspired/get-inspire/getinspire_header_mob.jpg"
@@ -20,8 +20,8 @@
         </div>
         <div class="folder_content navi-list d-flex justify-content-between flex-wrap">
             <isloop items="${pdict.blog.onlineSubFolders}" var="list" status="loopstatus" begin=0>
-                <div class="folder_list mt-5">
-                    <isif condition="${list.custom.isShow === true}">
+                <isif condition="${list.custom.isShow === true}">
+                    <div class="folder_list mt-5">
                         <a href="#">
                             <img class="list_content d-block" width="100%" src="${list.custom.image.absURL}"
                                 alt="${list.displayName}" />
@@ -29,28 +29,28 @@
                         <p class="navi_content text-center mb-0 h-font-size--16 h-fw--semibold mt-4 text-uppercase">
                             <a class="h-clr--black-3" href="#">${list.displayName}</a>
                         </p>
-                    </isif>
-                </div>
+                    </div>
+                </isif>
             </isloop>
         </div>
         <div class="m-grid-contain">
             <isloop items="${pdict.blog.onlineSubFolders}" var="folder" status="loopstatus" begin=0>
                 <div class="blog_list">
-                   <div class="head-img d-flex align-items-center"> 
-                    <isif condition="${folder.custom.isShow === true}">
-                        <div class=" d-flex align-items-center">
-                            <img class="folder_content" width="100%" src="${folder.custom.image.absURL}" alt="${folder.displayName}" />
-                        </div>
-                    </isif>
-                    <h2 class="head-feature text-uppercase  h-fw--bold">${folder.displayName}</h2>
-                   </div>
+                    <div class="head-img d-flex align-items-center">
+                        <isif condition="${folder.custom.isShow === true}">
+                            <div class=" d-flex align-items-center">
+                                <img class="folder_content" width="100%" src="${folder.custom.image.absURL}"
+                                    alt="${folder.displayName}" />
+                            </div>
+                        </isif>
+                        <h2 class="head-feature text-uppercase  h-fw--bold">${folder.displayName}</h2>
+                    </div>
 
 
                     <div class="m-grid-contain-childblog d-flex flex-wrap justify-content-between">
                         <isloop items="${folder.onlineContent}" var="content" status="loopstatus" begin=0>
                             <div class="blog_child_content">
-                                <img class="blogImage w-100"
-                                    src="${content.custom.image.absURL}"
+                                <img class="blogImage w-100" src="${content.custom.image.absURL}"
                                     alt="${content.name}" />
                                 <h3 class="text-uppercase h-fw--semibold">${content.name}</h3>
                                 <p class="mb-0 h-clr--gray h-fw--normal h-font-size--16">${content.description}</p>
