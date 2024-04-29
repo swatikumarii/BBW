@@ -344,10 +344,18 @@ header {
 .ticker-wrapper {
     padding: 0.75rem 1rem;
     font-weight: map-get($font-weight, semibold);
-    min-height: 4.0625rem;
+    min-height: 47px;
 
     @include media-up(sm) {
         min-height: auto;
+    }
+
+    .header-promotion {
+        min-height: 47px;
+
+        @include media-up(sm) {
+            min-height: auto;
+        }
     }
 }
 
