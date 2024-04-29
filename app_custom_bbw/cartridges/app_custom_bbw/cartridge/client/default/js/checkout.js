@@ -2,6 +2,7 @@
 
 var processInclude = require('base/util');
 var adyenCheckout = require('adyen/adyenCheckout');
+var addressAutocomplete = require('./checkout/addressAutocomplete');
 // Compatibility Adyen SFRA 5.x.x & 6.x.x
 var checkout =
     window.AdyenSFRA6Enabled !== 'null'
@@ -30,6 +31,7 @@ $(document).ready(function () {
     $('#selectedPaymentOption').val(
         $('.payment-options .nav-item .active').parent().attr('data-method-id')
     );
+    google.maps.event.addDomListener(window, 'load', addressAutocomplete.initialize);
 });
 $('.payment-options .nav-link').click(function setAttr() {
     $('#selectedPaymentOption').val($(this).parent().attr('data-method-id'));

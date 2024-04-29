@@ -5,14 +5,14 @@
 			<option optionid="" 	label="resource.select" 		value=""/>
 
 			<!-- regular AU states -->
-			<option optionid="ACT" 	label="Australian Captial Territory" 		value="ACT"/>
-			<option optionid="NSW" 	label="New South Wales" 		value="NSW"/>
-			<option optionid="NT" 	label="Northern Territory" 		value="NT"/>
-			<option optionid="QLD" 	label="Queensland" 		value="QLD"/>
-			<option optionid="SA" 	label="South Australia" 		value="SA"/>
-			<option optionid="TAS" 	label="Tasmania" 		value="TAS"/>
-			<option optionid="VIC" 	label="Victoria" 		value="VIC"/>
-			<option optionid="WA" 	label="Western Australia" 		value="WA"/>
+			<option label="Australian Captial Territory" 		value="Australian Captial Territory"/>
+			<option label="New South Wales" 		value="New South Wales"/>
+			<option label="Northern Territory" 		value="Northern Territory"/>
+			<option label="Queensland" 		value="Queensland"/>
+			<option label="South Australia" 		value="South Australia"/>
+			<option label="Tasmania" 		value="Tasmania"/>
+			<option label="Victoria" 		value="Victoria"/>
+			<option label="Western Australia" 		value="Western Australia"/>
 		</options>
 	</field>
 </form>
