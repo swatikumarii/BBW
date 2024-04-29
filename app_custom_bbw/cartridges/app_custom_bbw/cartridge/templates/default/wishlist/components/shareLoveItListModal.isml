@@ -9,10 +9,11 @@
         </button>
       </div>
       <div class="modal-body">
-          <p class="h-font-size--18 h-fw--bold h-clr--black-3">${Resource.msg('share.love.it.list', 'wishlist', null)}</p>
+        <p class="h-font-size--18 h-fw--bold h-clr--black-3">${Resource.msg('share.love.it.list', 'wishlist', null)}</p>
       </div>
       <div class="modal-footer border-top-0">
-        <button type="button" class="btn btn-secondary border-0 h-font-size--16 text-uppercase" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary border-0 h-font-size--16 text-uppercase"
+          data-dismiss="modal">Close</button>
         <iscomment> <button type="button" class="btn btn-primary">Save changes</button> </iscomment>
       </div>
     </div>
