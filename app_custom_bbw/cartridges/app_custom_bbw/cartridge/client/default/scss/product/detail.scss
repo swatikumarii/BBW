@@ -38,6 +38,14 @@
             }
         }
 
+        @include media-up(sm) {
+            &.zoom-carousel {
+                    width: auto;
+                    float: none;
+                }
+            }
+        
+
         .zoomImage-link {
             content: "";
             width: 1.25rem;
