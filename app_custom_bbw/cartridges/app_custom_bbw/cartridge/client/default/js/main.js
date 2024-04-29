@@ -15,6 +15,8 @@ $(document).ready(function () {
     processInclude(require('base/components/clientSideValidation'));
     processInclude(require('base/components/countrySelector'));
     processInclude(require('base/components/toolTip'));
+    // Session Out Popup js
+    processInclude(require('./components/autoLogout'));
 });
 
 require('base/thirdParty/bootstrap');
