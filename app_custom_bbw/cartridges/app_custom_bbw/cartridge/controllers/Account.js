@@ -336,7 +336,6 @@ server.replace(
 server.append(
     'Login',
     function (req, res, next) {
-        var URLUtils = require('dw/web/URLUtils');  
         var BasketMgr = require('dw/order/BasketMgr');
         var loginRedirectExceptions = require('*/cartridge/config/loginRedirectExceptions');
         var storedBasket = BasketMgr.getStoredBasket();
@@ -352,7 +351,7 @@ server.append(
         loginRedirectUrl = loginRedirectExceptions.includes(loginRedirectUrl)
             ? 'Account-Show'
             : loginRedirectUrl;
-        loginRedirectUrl = URLUtils.url(loginRedirectUrl, queryStringArr);;
+        loginRedirectUrl = URLUtils.url(loginRedirectUrl, queryStringArr);
         var viewData = res.getViewData();
         viewData.redirectUrl = loginRedirectUrl.toString();
         viewData.showCartMergePopup =
