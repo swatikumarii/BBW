@@ -1,6 +1,7 @@
 <form action="${pdict.actionUrl}" class="login" method="POST" name="login-form">
     <div class="form-group required">
-        <label class="form-control-label text-justify" for="login-form-email">
+        <label class="form-control-label login-form text-justify" for="login-form-email">
+        <span class="required-indicator">*</span>
             ${Resource.msg('label.login.email', 'login', null)}
         </label>
         <input type="email" id="login-form-email" required aria-required="true" class="form-control login-form-input required"
@@ -9,7 +10,8 @@
     </div>
 
     <div class="form-group required password-box position-relative">
-        <label class="form-control-label text-justify" for="login-form-password">
+        <label class="form-control-label login-form text-justify" for="login-form-password">
+            <span class="required-indicator">*</span>
             ${Resource.msg('label.input.login.password', 'login', null)}
         </label>
         <input type="password" id="login-form-password" required aria-required="true" class="form-control required login-form-input"

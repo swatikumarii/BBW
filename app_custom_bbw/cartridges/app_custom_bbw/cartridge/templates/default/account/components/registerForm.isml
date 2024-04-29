@@ -208,9 +208,11 @@
             ${Resource.msg('button.createaccount.registration', 'registration', null)}
         </button>
     <iselse/>
+       <div class="d-flex justify-content-center">
         <button type="submit" class="btn btn-block btn-primary changepassowrd-btn text-uppercase w-auto create-btn">
             ${Resource.msg('button.createaccount.registration', 'registration', null)}
         </button>
+       </div>
     </isif>
     <iscomment> <div class="privacy-policy">
         ${Resource.msg('description.privacypolicy.registration', 'registration', null)}
