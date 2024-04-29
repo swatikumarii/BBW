@@ -134,7 +134,7 @@ $(window).scroll(function () {
 
 $('.js-scrolltotop').on('click', function () {
     $('html, body').animate({
-        scrollTop: $('body').offset().top
+        scrollTop: 0 // Scroll to top of the page
     }, 800);
 });
 
