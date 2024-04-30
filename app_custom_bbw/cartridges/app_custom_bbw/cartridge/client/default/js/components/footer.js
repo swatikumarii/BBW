@@ -31,7 +31,7 @@ function displayMessage(data, button) {
 
     setTimeout(function () {
         $('.email-signup-message').remove();
-        button.removeAttr('disabled');
+        $('.subscribe-email').removeAttr('disabled');
     }, 3000);
 }
 
@@ -52,6 +52,7 @@ function newsLetter(token) {
     }
     $.spinner().start();
     $('form.newsletter').attr('disabled', true);
+    $('.subscribe-email').attr('disabled', true);
     $.ajax({
         url: url,
         type: 'post',
@@ -92,7 +93,7 @@ $('[data-toggle="popover"]')
         $(this).popover('show');
         $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
     });
-    
+
 
 var timer;
 $('body').on(
@@ -103,16 +104,17 @@ $('body').on(
             $('.popover').popover('hide');
         }, 50);
     }).on(
-    'mouseenter',
-    '[data-toggle="popover"], .popover',
-    function () {
-        clearTimeout(timer);
-    }
-);
+        'mouseenter',
+        '[data-toggle="popover"], .popover',
+        function () {
+            clearTimeout(timer);
+        }
+    );
 
 
 // Close popover on close button click
-$(document).on('click', '.popover .close', function () {
+$(document).on('click', '.popover .close', function (e) {
+    e.preventDefault(); // Prevent default behavior of anchor tag
     $(this).parents('.popover').popover('hide');
 });
 
@@ -122,21 +124,33 @@ $(document).on('click', '.popover .close', function () {
 
 var scrolltotop = $('.js-scrolltotop');
 
-$(window).scroll(function () {
-    if ($(this).scrollTop() > 100) { // Adjust the value according to requirement
+// Function to handle scroll event
+function handleScroll() {
+    var windowHeight = $(window).height();
+    var scrollThreshold = 7.7 * windowHeight; // 70% of window height
+
+    if ($(window).scrollTop() > scrollThreshold) {
         scrolltotop.fadeIn();
     } else {
         scrolltotop.fadeOut();
     }
+}
+
+// Bind scroll event handler
+$(window).scroll(handleScroll);
+
+// Trigger scroll event initially
+$(document).ready(function () {
+    handleScroll();
 });
 
 // Scroll to top when the button is clicked
-
 $('.js-scrolltotop').on('click', function () {
     $('html, body').animate({
-        scrollTop: $('body').offset().top
+        scrollTop: 0 // Scroll to the top of the page
     }, 800);
 });
+
 
 module.exports = function () {
     $('.subscribe-email').on('click', function (e) {

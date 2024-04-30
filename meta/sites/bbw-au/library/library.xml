@@ -86,44 +86,54 @@
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
-    &lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed cursor-pointer h-font-size--14 d-flex align-items-center justify-content-between " aria-expanded="false" aria-controls="customer-service" data-toggle="collapse" data-target="#customer-service"&gt;CUSTOMER CARE&lt;/button&gt;&#13;
-    &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="customer-service"&gt;&#13;
-        &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;CUSTOMER CARE&lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Help &amp; FAQs&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Shipping&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Returns &amp; Exchanges&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Order Tracking&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-          &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Corporate Sales &amp; Gifts&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-          &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Contact Us&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-    &lt;/ul&gt;&#13;
+  &lt;button&#13;
+    class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed cursor-pointer h-font-size--14  d-flex align-items-center justify-content-between"&#13;
+    aria-expanded="false" aria-controls="customer-service" data-toggle="collapse"&#13;
+    data-target="#customer-service"&gt;CUSTOMER CARE&lt;/button&gt;&#13;
+  &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="customer-service"&gt;&#13;
+    &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;&#13;
+      CUSTOMER CARE&lt;/li&gt;&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+        class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Help &amp; FAQs&lt;/a&gt;&#13;
+    &lt;/li&gt;&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+        class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Shipping&lt;/a&gt;&#13;
+    &lt;/li&gt;&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+        class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Returns &amp; Exchanges&lt;/a&gt;&#13;
+    &lt;/li&gt;&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+        class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Order Tracking&lt;/a&gt;&#13;
+    &lt;/li&gt;&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+        class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Corporate Sales &amp; Gifts&lt;/a&gt;&#13;
+    &lt;/li&gt;&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+        class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Contact Us&lt;/a&gt;&#13;
+    &lt;/li&gt;&#13;
+  &lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
 
-        <content content-id="footer-discover">
+    <content content-id="footer-discover">
         <display-name xml:lang="x-default">Discover</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
-    &lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14 cursor-pointer d-flex align-items-center justify-content-between" aria-expanded="false" aria-controls="collapsible-discover" data-toggle="collapse" data-target="#collapsible-discover"&gt;DISCOVER&lt;/button&gt;&#13;
+    &lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14 d-flex align-items-center justify-content-between cursor-pointer" aria-expanded="false" aria-controls="collapsible-discover" data-toggle="collapse" data-target="#collapsible-discover"&gt;DISCOVER&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-discover"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;DISCOVER&lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;About Us&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;About Us&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Careers&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Careers&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#13;
 &lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a class="footer-item-link h-clr--black-1 h-font-size--16" href="#"&gt;Diversity, Equity &amp; Inclusion&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a class="footer-item-link h-clr--black-1 h-font-size--16" href="$url('Home-Show')$"&gt;Diversity, Equity &amp; Inclusion&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
     &lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
@@ -137,55 +147,35 @@
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div local-store"&gt;&#13;
-    &lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14 d-flex align-items-center justify-content-between" aria-expanded="false" aria-controls="collapsible-finds" data-toggle="collapse" data-target="#collapsible-finds"&gt;FIND US&lt;/button&gt;&#13;
+    &lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse d-flex align-items-center justify-content-between collapsed h-font-size--14" aria-expanded="false" aria-controls="collapsible-finds" data-toggle="collapse" data-target="#collapsible-finds"&gt;FIND US&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-finds"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block  h-clr--black-1 h-fw--bold"&gt;FIND US&lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Store Locator&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Store Locator&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="#" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Global Locations&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Global Locations&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
     &lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
 
-    <content content-id="footer-social-list">
+      <content content-id="footer-social-list">
         <display-name xml:lang="x-default">Social List</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="socials mb-5"&gt;&#13;
-    &lt;h6 class="social-header text-capitalize mb-4 font-weight-bold text-start h-clr--black-1 h-font-size--16"&gt;Get connected&lt;/h6&gt;&#13;
+&lt;h6 class="social-header text-capitalize mb-4 font-weight-bold text-start h-clr--black-1 h-font-size--16"&gt;Get connected&lt;/h6&gt;&#13;
 &#13;
-    &lt;ul class="social-links d-flex m-0"&gt;&#13;
-        &lt;li&gt;&#13;
-            &lt;a class="facebook" href="https://www.facebook.com/bathandbodyworks" target="_blank"&#13;
-                title="Go to facebook"&gt;&lt;img alt="" src="images/footer/social-icon/Social-fb-black.svg?$staticlink$" title="facebook" /&gt;&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-        &lt;li&gt;&#13;
-            &lt;a class="twitter" href="https://twitter.com/bathbodyworks" target="_blank" title="Go to twitter"&gt;&#13;
-                &lt;img alt="" src="images/footer/social-icon/Social-twitter-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-        &lt;li&gt;&#13;
-            &lt;a class="instagram" href="https://www.instagram.com/bathandbodyworks/" target="_blank"&#13;
-                title="Go to instagram"&gt;&lt;img alt="" src="images/footer/social-icon/Social-ig-black.svg?$staticlink$" title="" /&gt;&#13;
-            &lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-        &lt;li&gt;&#13;
-            &lt;a class="tiktok" href="https://www.tiktok.com/@bathandbodyworks" target="_blank" title="Go to tiktok"&gt;&#13;
-                &lt;img alt="" src="images/footer/social-icon/Social-tiktok-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-        &lt;li&gt;&#13;
-            &lt;a class="youtube" href="https://www.youtube.com/user/bathandbodyworks/" target="_blank"&#13;
-                title="Go to youtube"&gt;&lt;img alt="" src="images/footer/social-icon/Social-youtube-black.svg?$staticlink$" title="" /&gt;&#13;
-            &lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-        &lt;li&gt;&#13;
-            &lt;a class="pinterest" href="https://www.pinterest.com/bathbodyworks/" target="_blank"&#13;
-                title="Go to pinterest"&gt;&lt;img alt="" src="images/footer/social-icon/Social-pinterest-black.svg?$staticlink$" title="" /&gt;&lt;/a&gt;&#13;
-        &lt;/li&gt;&#13;
-    &lt;/ul&gt;&#13;
+&lt;ul class="social-links d-flex m-0"&gt;&#13;
+	&lt;li&gt;&lt;a class="facebook" href="https://www.facebook.com/bathandbodyworks" target="_blank" title="Go to facebook"&gt;&lt;img alt="" src="images/footer/social-icon/Social-fb-black.svg?$staticlink$" title="facebook" /&gt;&lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li&gt;&lt;a class="twitter" href="https://twitter.com/bathbodyworks" target="_blank" title="Go to twitter"&gt;&lt;img alt="" src="images/footer/social-icon/social-x-24.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li&gt;&lt;a class="instagram" href="https://www.instagram.com/bathandbodyworks/" target="_blank" title="Go to instagram"&gt;&lt;img alt="" src="images/footer/social-icon/Social-ig-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li&gt;&lt;a class="tiktok" href="https://www.tiktok.com/@bathandbodyworks" target="_blank" title="Go to tiktok"&gt;&lt;img alt="" src="images/footer/social-icon/Social-tiktok-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li&gt;&lt;a class="youtube" href="https://www.youtube.com/user/bathandbodyworks/" target="_blank" title="Go to youtube"&gt;&lt;img alt="" src="images/footer/social-icon/Social-youtube-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li&gt;&lt;a class="pinterest" href="https://www.pinterest.com/bathbodyworks/" target="_blank" title="Go to pinterest"&gt;&lt;img alt="" src="images/footer/social-icon/Social-pinterest-black.svg?$staticlink$" title="" /&gt;&lt;/a&gt;&lt;/li&gt;&#13;
+&lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
