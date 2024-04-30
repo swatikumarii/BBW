@@ -45,7 +45,7 @@ function getGiftWrapConfig(items) {
         items.forEach(function (element) {
             if (element.isGiftWrappable) {
                 wrappableProducts.push(element);
-                if (element.wrap.isWrapped) {
+                if (element.wrap && element.wrap.isWrapped) {
                     wrappedProductCount++;
                     wrappedProductQuantity.push(element.wrap.wrappedQuantity);
                 }

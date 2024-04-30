@@ -27,6 +27,17 @@ module.exports = $.extend({}, detail, {
             }
         });
     },
+
+    beforeAddToCartEventUpdate: function () {
+        $('body').on(
+            'product:beforeAddToCart',
+            function (e) {
+                $.spinner().stop();
+                e.stopPropagation();
+            }
+        );
+    },
+
     availability: base.availability,
 
     addToCart: base.addToCart,

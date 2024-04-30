@@ -7,8 +7,8 @@
         height: auto;
 
         @include media-up(sm) {
-           width: 1144px;
-        height: 120.67px;
+            width: 1144px;
+            height: 120.67px;
         }
     }
 
@@ -82,7 +82,7 @@
         @include media-up(sm) {
             border-bottom: 3px solid colour(black);
             width: 1144px;
-                margin: 10px auto;
+            margin: 10px auto;
         }
 
         .folder_content {
@@ -113,7 +113,7 @@
             @include media-up(sm) {
                 width: 49%;
                 margin-top: 10px;
-    margin-bottom: 10px;
+                margin-bottom: 10px;
             }
 
             h3 {
@@ -176,7 +176,7 @@
             letter-spacing: 0.0625rem;
             background-color: transparent;
             color: colour(black, 3);
-            transition: all .3s ease;
+            transition: all 0.3s ease;
         }
 
         @include media-btw(sm, lg) {

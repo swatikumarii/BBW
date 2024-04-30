@@ -178,7 +178,7 @@
                     color: colour(gray, 4);
                     margin-top: 0.3125rem;
                     text-decoration: underline;
-                    content: "Detail";
+                    content: "Details";
                 }
 
                 .popover-header {
@@ -306,6 +306,15 @@
                         }
                     }
                 }
+            }
+        }
+
+        .afterPayExtension {
+            padding-top: 7px;
+            width: 100%;
+
+            @include media-up(sm) {
+                width: 403px;
             }
         }
 
