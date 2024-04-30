@@ -322,7 +322,7 @@
             margin-top: 1.5625rem;
             width: 100%;
 
-            @include media-up(sm) {
+            @include media-up(md) {
                 width: 66%;
             }
 
@@ -349,7 +349,7 @@
                 padding: 1.0625rem 0 0.1875rem;
                 width: 100%;
 
-                @include media-up(sm) {
+                @include media-up(md) {
                     width: 66%;
                 }
 
