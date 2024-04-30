@@ -7,11 +7,9 @@ function validateOrderNumber() {
     var orderNumberInput = $('#orderNumber');
     if (!orderNumberInput.val()) {
         $('#orderNumber-error').html(orderNumberInput.data('required'));
-        orderNumberInput.addClass('error-border'); // Add error class
         return false;
     }
     $('#orderNumber-error').empty();
-    orderNumberInput.removeClass('error-border'); // Remove error class
     return true;
 }
 
@@ -23,16 +21,13 @@ function validateEmail() {
     var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
     if (!emailInput.val()) {
         $('#orderEmail-error').html(emailInput.data('required'));
-        emailInput.addClass('error-border'); // Add error class
         return false;
     }
     if (!pattern.test(emailInput.val())) {
         $('#orderEmail-error').html(emailInput.data('invalidemail'));
-        emailInput.addClass('error-border'); // Add error class
         return false;
     }
     $('#orderEmail-error').empty();
-    emailInput.removeClass('error-border'); // Remove error class
     return true;
 }
 
@@ -43,16 +38,13 @@ function validateBillingZipCode() {
     var billingZipCodeInput = $('#billingZipCode');
     if (!billingZipCodeInput.val()) {
         $('#billingZipCode-error').html(billingZipCodeInput.data('required'));
-        billingZipCodeInput.addClass('error-border'); // Add error class
         return false;
     }
     if (billingZipCodeInput.val().length > 10) {
         $('#billingZipCode-error').html(billingZipCodeInput.data('maxlength'));
-        billingZipCodeInput.addClass('error-border'); // Add error class
         return false;
     }
     $('#billingZipCode-error').empty();
-    billingZipCodeInput.removeClass('error-border'); // Remove error class
     return true;
 }
 
@@ -129,4 +121,29 @@ $(document).ready(function () {
         validateBillingZipCode();
     });
 
+});
+
+// ---validation on blur----
+$(document).ready(function () {
+    var form = $('#myForm');
+
+    // Validate input fields on blur event
+    form.on('blur', 'input', function () {
+        if (!$(this).prop('checkValidity')) return;
+
+        if (!this.checkValidity()) {
+            $(this).addClass('is-invalid');
+        } else {
+            $(this).removeClass('is-invalid');
+        }
+    });
+
+    // Prevent form submission if it's invalid
+    form.on('submit', function (event) {
+        if (!form[0].checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        form.addClass('was-validated');
+    });
 });
