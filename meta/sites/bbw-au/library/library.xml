@@ -20,11 +20,7 @@
         <description xml:lang="x-default">3 Wick Candles content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Buy Scented Candles | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">From relaxing days to cozy nights, our candles are basically perfect for every occasion. Up to 45 hours of room-filling fragrance goodness and over 50 exclusive scents to choose from!</page-description>
-            <page-keywords xml:lang="x-default">3 - WICK CANDLES</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -63,11 +59,7 @@
         <description xml:lang="x-default">A Thousand Wishes content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Fragrance -  A Thousand Wishes | Bath &amp;  Body Works Australia Official Site</page-title>
-            <page-description xml:lang="x-default">Beautiful. Airy. Delicate. We created this new fragrance to capture the beauty of bright peonies dancing in a sun-soaked field.</page-description>
-            <page-keywords xml:lang="x-default">A Thousand Wishes</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -112,11 +104,7 @@
         <description xml:lang="x-default">All Candles content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">All Candles | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Our Bath &amp; Body Works 3-Wick Candles and Single Wick Candles are made using the highest concentration of fragrance oils. Browse a variety of scents for your home now!</page-description>
-            <page-keywords xml:lang="x-default">All Candles | Bath &amp;  Body Works Australia Official Site</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -151,11 +139,7 @@
         <description xml:lang="x-default">All Men Collection content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">All Men's | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">All Men's | Bath &amp; Body Works Australia</page-description>
-            <page-keywords xml:lang="x-default">All Men's | Bath &amp; Body Works Australia</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -189,11 +173,7 @@
         <description xml:lang="x-default">All Wallflowers content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Buy Wallflowers Fragrance Air Freshener Plug In | Bath &amp; Body Works</page-title>
-            <page-description xml:lang="x-default">Order Online Wallflowers Fragrance Refill. The latest collection at the best discount price with a variety of designs and premium quality. Free Shipping above $90</page-description>
-            <page-keywords xml:lang="x-default">Buy Wallflowers Fragrance Air Freshener Plug In | Bath &amp; Body Works</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -227,11 +207,7 @@
         <description xml:lang="x-default">Aromatherapy content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Aromatherapy &amp; Essential Oils for Skin Care | Bath &amp; Body Works</page-title>
-            <page-description xml:lang="x-default">Boost your mood with our Aromatherapy skincare collection at Bath &amp; Body Works. Shop stress relief lotions, plus products for sleep, energy, and more.</page-description>
-            <page-keywords xml:lang="x-default">Aromatherapy</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -265,11 +241,7 @@
         <description xml:lang="x-default">Body and Massage oil content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Scented Body Oil | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Our mood-boosting massage oils &amp; scented body oils leave skin feeling beautifully moisturized and soft as silk. Shop at Bath &amp; Body Works now!</page-description>
-            <page-keywords xml:lang="x-default">BODY &amp; MASSAGE OIL</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -302,11 +274,7 @@
         <description xml:lang="x-default">Body Care Content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Body Care | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Shop Bath and Body Works skin care products, from shower gels and body lotions to fine fragrance mists and body creams (plus way more) in our exclusive fragrances.</page-description>
-            <page-keywords xml:lang="x-default">Body Care | Bath &amp; Body Works Australia</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -342,11 +310,7 @@
         <description xml:lang="x-default">Body Cream and Butter content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Hydrating Ultra Shea Body Cream | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Need a way to keep your skin soft every day? Shop our super-hydrating body cream. You'll love the nourishing ingredients, 24-hour moisture and amazing scents.</page-description>
-            <page-keywords xml:lang="x-default">BODY CREAM &amp; BUTTER</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -379,11 +343,7 @@
         <description xml:lang="x-default">Body Lotion content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Body Lotions and Moisturizers | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Treat yourself to Body Lotion at Bath &amp; Body Works. Super Smooth Body Lotion provides 24 hours of nourishing moisture — guaranteed!</page-description>
-            <page-keywords xml:lang="x-default">BODY LOTION</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -416,11 +376,7 @@
         <description xml:lang="x-default">Body scrub content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Exfoliating Body Scrubs | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Take your shower game to the next level with body wash and shower gel from Bath &amp; Body Works. Shop these cleansing goodies in all of your favorite scents.</page-description>
-            <page-keywords xml:lang="x-default">Exfoliating Body Scrubs | Bath &amp; Body Works Australia</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -453,11 +409,7 @@
         <description xml:lang="x-default">Body Spray and Mists content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Body Spray &amp; Fragrance Mists | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Buy refreshing body sprays and mists from Bath and Body Works for both men and women. Shop from an exclusive range of body sprays &amp; mists online at the best prices.</page-description>
-            <page-keywords xml:lang="x-default">BODY SPRAY &amp; MISTS</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -490,11 +442,7 @@
         <description xml:lang="x-default">Body wash and shower gel content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Body Wash &amp; Shower Gel | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Take your shower game to the next level with our moisturising body wash and/or shower gel from Bath &amp; Body Works. Shop these cleansing goodies in all of your favourite scents!</page-description>
-            <page-keywords xml:lang="x-default">BODY WASH &amp; SHOWER GEL</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -527,11 +475,7 @@
         <description xml:lang="x-default">Bubble bath content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Bubble Bath | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Bubble Bath from Bath &amp; Body Works. Who's ready for a relaxing night in? Break out the face masks, put the latest podcast on blast, grab a glass of wine and run</page-description>
-            <page-keywords xml:lang="x-default">BATH FIZZIES &amp; BUBBLE BATH</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -543,7 +487,7 @@
 					&lt;p&gt;What’s a bath fizzy? So glad you asked: our version of a bath bomb, jam-packed with amazing fragrances, essential oils, fizzing agents (enter the fun bubbly feeling) and shea to get you moisturised to the max.&lt;/p&gt;&#13;
 					&lt;p&gt;Pick your favourite fragrance, available in calming &lt;a href="$url('Search-Show','cgid','aromatherapy')$"&gt;Aromatherapy&lt;/a&gt; blends to sweet and sugary treats. Is it holiday time? Even better. Immerse yourself in the season with exclusive holiday scents, available for a limited time.&lt;/p&gt;&#13;
 					&lt;p&gt;Once you’ve picked that signature scent, simply fill up your bathtub halfway, put the fizzy below the faucet while it’s running and watch the fizzing begin. And don’t worry if your fizzy has colour in it – it’s just for fun and it won’t stain your tub! Fizz? Foam? Fun? Check, check, check!&lt;/p&gt;&#13;
-					&lt;p&gt;Sometimes we need to take a deep breath, but we just aren’t in the mood for something fizzy. Grab a bottle of our fluffy, luxe bubble bath and soak away. Don’t forget to light a &lt;a href="$url('Search-Show','cgid','all-candles')$"a&gt;candle&lt;/a&gt; or two and pick up your favourite book – your night is off to a super-relaxing, majorly fragrant start. Hello, best evening ever.&lt;/p&gt;&#13;
+					&lt;p&gt;Sometimes we need to take a deep breath, but we just aren’t in the mood for something fizzy. Grab a bottle of our fluffy, luxe bubble bath and soak away. Don’t forget to light a &lt;a href="$url('Search-Show','cgid','all-candles')$"&gt;candle&lt;/a&gt; or two and pick up your favourite book – your night is off to a super-relaxing, majorly fragrant start. Hello, best evening ever.&lt;/p&gt;&#13;
 					&lt;p&gt;&lt;/p&gt;&#13;
 				&lt;/div&gt;&#13;
 			&lt;/div&gt;&#13;
@@ -565,11 +509,7 @@
         <description xml:lang="x-default">Candle Holders And Accessories content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Buy Candle Holders &amp; Accessories| Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Step up your home's style with Bath &amp; Body Works candle holders and accessories: candle pedestals, magnets, candle rings and more. Shop now.</page-description>
-            <page-keywords xml:lang="x-default">CANDLE HOLDERS &amp; ACCESSORIES</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -604,11 +544,7 @@
         <description xml:lang="x-default">Car Fragrance content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Car Fragrance | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Want your car to smell as fabulous as you? Choose a fun Car Fragrance Holder &amp; pair it with a Car Fragrance Refill in your favourite Bath &amp; Body Works scent to freshen your car for weeks!</page-description>
-            <page-keywords xml:lang="x-default">Car Fragrance| Bath &amp; Body Works Australia</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -642,11 +578,7 @@
         <description xml:lang="x-default">Champagnetoast content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Champagne Toast | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">A little festive. A little indulgent. This Bath &amp; Body Works icon is a bright and bubbly celebration of life, and its energetic attitude is one of our favourite ways to start the party, no matter the time of year.</page-description>
-            <page-keywords xml:lang="x-default">Champagne Toast, Fragrance, Bath &amp; Body Works Australia</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -686,11 +618,7 @@
         <description xml:lang="x-default">Chasing Fireflies content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Chasing Fireflies | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">A captivating blend of fruity, floral, and enchanting notes, the Chasing Fireflies Collection ignites your senses and sparks joy. Shop Now!</page-description>
-            <page-keywords xml:lang="x-default">Fragrance, Chasing Fireflies, Bath and Body Works</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -719,11 +647,7 @@
         <description xml:lang="x-default">Customer favorites content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Best Scents &amp; Customer Favorites | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Shop the best of the best from Bath &amp; Body Works. You can't miss this iconic selection of 5-star customer favorites that work with every season.</page-description>
-            <page-keywords xml:lang="x-default">Customer Favorites</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -732,7 +656,7 @@
 				&lt;div class="bc-description"&gt;&#13;
 					&lt;h2&gt;Best Bath &amp;amp; Body Works Scents&lt;/h2&gt;&#13;
 					&lt;p&gt;You know a good thing when you see it (and smell it, and use it, and love it!), so we pay attention when you rave about any of our products or fragrances. That’s why we put all of our customer favourites in one spot – because if others love them, we’re pretty sure you’ll love them, too&lt;/p&gt;&#13;
-					&lt;p&gt;From &lt;a href="$url('Search-Show','cgid','body-cream-and-butter')$"&gt;body creams&lt;/a&gt; and &lt;a href="$url('Search-Show','cgid','body-wash-and-shower-gel')$"&gt;shower gel&lt;/a&gt; to &lt;a href="$url('Search-Show','cgid','bubble-bath')$"&gt;bubble baths&lt;/a&gt; and &lt;a href="$url('Search-Show','cgid','body-spray-and-mists')$"body-spray-and-mists"&gt;body sprays&lt;/a&gt; (for both men and women) and everything in between, you won’t regret picking up any of these super-loved goodies.&lt;/p&gt;&#13;
+					&lt;p&gt;From &lt;a href="$url('Search-Show','cgid','body-cream-and-butter')$"&gt;body creams&lt;/a&gt; and &lt;a href="$url('Search-Show','cgid','body-wash-and-shower-gel')$"&gt;shower gel&lt;/a&gt; to &lt;a href="$url('Search-Show','cgid','bubble-bath')$"&gt;bubble baths&lt;/a&gt; and &lt;a href="$url('Search-Show','cgid','body-spray-and-mists')$"&gt;body sprays&lt;/a&gt; (for both men and women) and everything in between, you won’t regret picking up any of these super-loved goodies.&lt;/p&gt;&#13;
 					&lt;p&gt;Plus, with a good variety of year-round and seasonal scents, there’s always a reason to check back – especially once the holidays hit. Why’s that? Gifting! If you’re ever at a loss for what to get your mum, coworker, neighbour, teacher, best friend or anyone else, this is a great page to check. With only the best Bath &amp;amp; Body Works scents in one place, there should be something for everyone on the list.&lt;/p&gt;&#13;
 					&lt;p&gt;&lt;/p&gt;&#13;
 				&lt;/div&gt;&#13;
@@ -755,11 +679,7 @@
         <description xml:lang="x-default">Gift Sets content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Gifts Sets| Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Shop beautiful, pre-wrapped and ready-to-go gift sets perfect for gifting on their birthday, anniversary or favorite holiday.</page-description>
-            <page-keywords xml:lang="x-default">Gifts Sets</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -794,11 +714,7 @@
         <description xml:lang="x-default">Gift Wrap content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Gift Wrap and Gift Bags | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Bath &amp; Body Works Clear Gift Wrap Kit makes the perfect gift for family, friends, co-workers, or that special someone. Shop online today!</page-description>
-            <page-keywords xml:lang="x-default">Gift Wrap</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -837,11 +753,7 @@
         <description xml:lang="x-default">Gifts content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Buy Gift Items Online | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Find the perfect gift for everyone on your list with ready-to-give gift sets, exclusive holiday fragrances and their favorite body care from Bath &amp; Body Works.</page-description>
-            <page-keywords xml:lang="x-default">Gift</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="body-care-content"&gt;&#13;
 	&lt;div class="bodycare-text-section"&gt;&#13;
@@ -863,11 +775,7 @@
         <description xml:lang="x-default">Gifts For Her content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Gifts for Her | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Looking for the perfect gift or a treat for yourself? Shop Gifts For Her at Bath &amp; Body Works now! Free Shipping above $120.</page-description>
-            <page-keywords xml:lang="x-default">GIFTS FOR HER</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -901,11 +809,7 @@
         <description xml:lang="x-default">Gifts For Him content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Gifts for Him | Presents &amp; Ideas for Men | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Explore Gifts for Men at Bath &amp; Body Works. Find the perfect gift for him from our selection, including all body care products. Free Shipping above $120.</page-description>
-            <page-keywords xml:lang="x-default">Gifts For Him</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -939,11 +843,7 @@
         <description xml:lang="x-default">Gifts For Home content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Shop for Gift Sets Online |   Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Shop from our superb range of beauty gift sets online only at Bath &amp; Body Works. Visit the online store to buy beauty care products at the best deals.</page-description>
-            <page-keywords xml:lang="x-default">Shop for Gift Sets Online |   Bath &amp; Body Works Australia</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -978,11 +878,7 @@
         <description xml:lang="x-default">Gifts Under 70 content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Gifts Under $45.95 | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Best collection of bath essentials, additives and accessories at great prices. Buy now! Best Deals. Top Brands. No Cost EMI Available. Great Offers.</page-description>
-            <page-keywords xml:lang="x-default">Gifts Under $45.95 | Bath &amp;  Body Works Australia Official Site</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1015,11 +911,7 @@
         <description xml:lang="x-default">Hand Care content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Hand Care Products | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Keep hands clean and moisturized with Bath &amp; Body Works hand care products. Stock up on hand creams, soaps and sanitizers to gently wash away dirt and germs!</page-description>
-            <page-keywords xml:lang="x-default">Hand Care Products | Bath &amp; Body Works Australia</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1052,11 +944,7 @@
         <description xml:lang="x-default">Home Fragrance content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Home Fragrance Products | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Home Fragrance Products Online from Bath &amp; Body Works Australia at best price. We have so many ways to fill your house (and heart) with wonderful fragrance.</page-description>
-            <page-keywords xml:lang="x-default">Home Fragrance</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1089,11 +977,7 @@
         <description xml:lang="x-default">Into The Night content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Body Care Products - Into The Night | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Meet Into the Night, a night-out fragrance you’ll wear all day. Blended with dark berries, midnight jasmine and rich amber – you’ll instantly fall in love.</page-description>
-            <page-keywords xml:lang="x-default">Into The Night</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1135,11 +1019,7 @@
         <description xml:lang="x-default">Japanese Cherry Blossom content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Japanese Cherry Blossom | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Japanese Cherry Blossom from Bath &amp; Body Works Japanese Cherry Blossom. America's most beloved fragrance loved for its timeless, authentic beauty.</page-description>
-            <page-keywords xml:lang="x-default">Japanese Cherry Blossom</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1183,11 +1063,7 @@
         <description xml:lang="x-default">Lavender Vanilla content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Lavender Vanilla | Bath &amp;  Body Works Australia Official Site</page-title>
-            <page-description xml:lang="x-default">Lavender Vanilla</page-description>
-            <page-keywords xml:lang="x-default">Lavender Vanilla</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1226,11 +1102,7 @@
         <description xml:lang="x-default">Mahogany Teakwood content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Mahogany Teakwood | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Designed to capture the clean, verdant scents of the forest. This combination of rich woods is both refreshing and aromatic. A warm, everyday fragrance that instantly connects you to nature.</page-description>
-            <page-keywords xml:lang="x-default">Mahogany Teakwood</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1270,11 +1142,7 @@
         <description xml:lang="x-default">Mens Body Care content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Men's Body Care| Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Men's body care: Easier than you think. Body care doesn't have to be super complex: all you need is the right fragrance, a good routine and a few skin-loving</page-description>
-            <page-keywords xml:lang="x-default">Bath &amp; Body Works Men'S</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1310,11 +1178,7 @@
         <description xml:lang="x-default">New Arrivals content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">New Arrivals 2023 Body and Skin Care | Bath &amp; Body Works</page-title>
-            <page-description xml:lang="x-default">&amp;quot;Looking for the perfect gift or a treat for yourself? We've got you covered!  Check out our new arrivals in body care products ranging from shower gels, body lotions, fine fragrance mists and more at Bath &amp; Body Works Australia! Grab them while you can!&amp;quot;</page-description>
-            <page-keywords xml:lang="x-default">New Arrivals:  Body and Skin Care | Bath &amp; Body Works Australia</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1345,11 +1209,7 @@
         <description xml:lang="x-default">New Bodycare list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">New Body Care 2024 | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Looking for something new? Shop our latest arrivals of the season in every form, from body wash to fine fragrance mists to body lotions and more!</page-description>
-            <page-keywords xml:lang="x-default">New Body Care</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1389,11 +1249,7 @@
         <description xml:lang="x-default">New Home Fragrance content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Shop New Home Fragrances you'll love | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Our Home Fragrance products are a go-to place for gifts and goodies that surprise and delight for that special someone! Free shipping above $120.</page-description>
-            <page-keywords xml:lang="x-default">Shop New Home Fragrances you'll love | Bath &amp; Body Works Australia</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1425,11 +1281,7 @@
         <description xml:lang="x-default">Perfect Peony content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Perfect peony | Bath &amp; Body Works Australia Official Site</page-title>
-            <page-description xml:lang="x-default">Perfect peony | Bath &amp; Body Works Australia Official Site</page-description>
-            <page-keywords xml:lang="x-default">Perfect peony | Bath &amp; Body Works Australia Official Site</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1470,11 +1322,7 @@
         <description xml:lang="x-default">Perfume and Cologne content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Perfume &amp; Cologne - Long Lasting Women's Perfumes | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">ndulge yourself with luxurious, long-lasting fragrance. Shop our collection of Eau de Parfums, Perfumes &amp; Colognes in Bath &amp; Body Works exclusive scents.</page-description>
-            <page-keywords xml:lang="x-default">Perfume &amp; Cologne - Long Lasting Women's Perfumes | Bath &amp; Body Works Australia</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1483,7 +1331,7 @@
 				&lt;div class="bc-description"&gt;&#13;
 					&lt;h2&gt;About Perfume &amp;amp; Cologne From Bath &amp;amp; Body Works&lt;/h2&gt;&#13;
 					&lt;p&gt;Meet the most timeless, collectable and insanely gorgeous line of eau de perfumes and colognes we’ve ever made. If you’re looking for the perfect way to spoil yourself or you loved one with the most exclusive fragrances available, look no further. We’ve put your favourite, iconic fragrances and scents into bottles that deserve to be shown off.&lt;/p&gt;&#13;
-					&lt;p&gt;Each bottle of our luxe perfumes is blended by a master of fragrance – with a higher concentration of fragrance oils. These luscious goodies are more intense and longer-lasting than their &lt;a href="https://www.bathandbodyworks.com.au/body-care/body-spray-and-mists"&gt;fine fragrance mist&lt;/a&gt;. counterparts. Use them every now and then, for a special occasion or spray every day – these incredible fragrances keep you smelling amazing all day.&lt;/p&gt;&#13;
+					&lt;p&gt;Each bottle of our luxe perfumes is blended by a master of fragrance – with a higher concentration of fragrance oils. These luscious goodies are more intense and longer-lasting than their &lt;a href="$url('Search-Show','cgid','body-spray-and-mists')$"&gt;fine fragrance mist&lt;/a&gt;. counterparts. Use them every now and then, for a special occasion or spray every day – these incredible fragrances keep you smelling amazing all day.&lt;/p&gt;&#13;
 					&lt;p&gt;For switching up your scents on the regular, grab a few of our super-luxe mini perfume sprays. They may be small, but these minis pack a powerful punch. Easy to travel with, you should always take some on the go. Holiday-approved and touch-up ready, it’s super easy to grab a ton of scents to stock up on and experiment with. You never know which fragrance is for you – maybe they all are!&lt;/p&gt;&#13;
 					&lt;p&gt;By the way, we didn’t forget our men’s cologne collection. We created an extensive line of indulgent fragrances that fit every lifestyle. With a scent for modern man, the sporty type, the ocean lover and more – there’s a cologne for every aesthetic. Hint, hint: &lt;a href="$url('Search-Show','cgid','mens-body-care')$"&gt;Father’s Day&lt;/a&gt;.&lt;/p&gt;&#13;
 					&lt;p&gt;Speaking of gifts, you’ve come to the right page. Don’t forget to grab a matching &lt;a href="$url('Search-Show','cgid','body-wash-and-shower-gel')$"&gt;body wash&lt;/a&gt; or &lt;a href="$url('Search-Show','cgid','all-candles')$"&gt;candle&lt;/a&gt; to go along with their new bottle of perfume or cologne. With pairs this perfect, no wonder we’re a fragrance expert.&lt;/p&gt;&#13;
@@ -1508,11 +1356,7 @@
         <description xml:lang="x-default">Room Spray And Mist content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Room Sprays &amp; Mists Online | Bath &amp; Body Works Australia</page-title>
-            <page-keywords xml:lang="x-default">Buy Room Sprays &amp; Mists Online | Bath &amp; Body Works Australia</page-keywords>
-            <page-url xml:lang="x-default">Shop our Concentrated Room Spray at Bath &amp; Body Works. Fill your home with the most irresistible, beautiful fragrance today! Free Shipping above $120</page-url>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1546,11 +1390,7 @@
         <description xml:lang="x-default">Single Wick Candles content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Buy Single Wick Candles| Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Shop Bath &amp; Body Works single wick candles. These small candles come in amazing fragrances and adorable packaging – the perfect gift for any space.</page-description>
-            <page-keywords xml:lang="x-default">Single Wick Candles</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1584,11 +1424,7 @@
         <description xml:lang="x-default">The White Barn Shop content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">The White Barn Shop | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Welcome to the White Barn Shop! Here you can find our the best smelling candles, foaming handsoaps, wallflower plugs/refills, car fragrance holders/refills and more!</page-description>
-            <page-keywords xml:lang="x-default">The White Barn Shop | Bath &amp;  Body Works Australia Official Site</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1629,11 +1465,7 @@
         <description xml:lang="x-default">Top Offers content assets</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Best Deals and Top Offers 2024 | Bath &amp; Body Works Australia Official Site</page-title>
-            <page-description xml:lang="x-default">Visit this page to find up-to-date Bath and Body Works coupons, sales, and top offers. Stock up, save, and enjoy! No coupon clipping needed!</page-description>
-            <page-keywords xml:lang="x-default">Top Offers</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="bodycare-text-section"&gt;&#13;
 	&lt;div class="bc-description"&gt;&#13;
@@ -1660,11 +1492,7 @@
         <description xml:lang="x-default">Travel Size content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Travel Size Products | Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Don't miss out on your favorite fragrances while you're traveling. Shop fun travel size items at Bath &amp; Body Works and take these minis to go.</page-description>
-            <page-keywords xml:lang="x-default">Travel Size Products | Bath &amp; Body Works Australia</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1698,11 +1526,7 @@
         <description xml:lang="x-default">Wallflowers Plugs content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Wallflowers Fragrance Air Freshener Plugs| Bath &amp; Body Works</page-title>
-            <page-description xml:lang="x-default">Fill your home with beautiful fragrances at Bath &amp; Body Works! Install the Wallflower Refill before inserting the Wallflower Plugs into the outlet and ensure it is standing upright.</page-description>
-            <page-keywords xml:lang="x-default">WALLFLOWERS PLUGS</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
@@ -1742,11 +1566,7 @@
         <description xml:lang="x-default">Wallflowers Refills content</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Wallflowers Refills| Bath &amp; Body Works Australia</page-title>
-            <page-description xml:lang="x-default">Just plug in a Bath &amp; Body Works Wallflowers refill and for weeks (and weeks), it'll fill your home with non-stop fragrances you love. We have a plug-in air freshener for every room, every season, every mood</page-description>
-            <page-keywords xml:lang="x-default">WALLFLOWERS REFILLS</page-keywords>
-        </page-attributes>
+        <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
 	&lt;div class="controlcontent_r"&gt;&#13;
