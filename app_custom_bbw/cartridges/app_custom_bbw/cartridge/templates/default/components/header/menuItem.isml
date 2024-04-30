@@ -1,5 +1,6 @@
 <div class="menu-wrap dropdown-menu position-absolute w-100 h-bg--white menu-wrap-level-1">
     <div class="level-2-ul-wrap h-maxwidth--1500 text-left d-flex justify-content-between h-grid-gap--60">
+        <isset name="categorySlotId" value="${category.slotId}" scope="page" />
         <ul class="level-2-ul col d-flex" role="menu" aria-hidden="true" aria-label="${category.id}">
             <isloop items="${menuItem.subCategories}" var="category">
                 <isif condition="${category.subCategories}">
@@ -21,7 +22,7 @@
         </ul>
         <iscomment>Menu right with images and text</iscomment>
         <div class="menu-right w-100">
-            <isslot id="navigation-image-text" description="Slot inside the site menu" context="global" />
+            <isinclude template="components/header/menuItemSlot" />
         </div>
     </div>
 </div>

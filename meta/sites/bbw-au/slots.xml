@@ -52,4 +52,48 @@
         </content>
     </slot-configuration>
 
+    <slot-configuration slot-id="menu-item-slot-1" context="global" configuration-id="menu-item-slot-1" default="true" assigned-to-site="true">
+        <description>Menu Item Slot 1</description>
+        <template>slots/content/contentAssetBody.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <content-assets>
+                <content-asset content-id="menu-item-slot-1-image-section"/>
+            </content-assets>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="menu-item-slot-2" context="global" configuration-id="menu-item-slot-2" default="true" assigned-to-site="true">
+        <description>Menu Item Slot 2</description>
+        <template>slots/content/contentAssetBody.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <content-assets>
+                <content-asset content-id="menu-item-slot-2-image-section"/>
+            </content-assets>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="menu-item-slot-3" context="global" configuration-id="menu-item-slot-3" default="true" assigned-to-site="true">
+        <description>Menu Item Slot 3</description>
+        <template>slots/content/contentAssetBody.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <content-assets>
+                <content-asset content-id="menu-item-slot-3-image-section"/>
+            </content-assets>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="menu-item-slot-4" context="global" configuration-id="menu-item-slot-4" default="true" assigned-to-site="true">
+        <description>Menu Item Slot 4</description>
+        <template>slots/content/contentAssetBody.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <content-assets>
+                <content-asset content-id="menu-item-slot-4-image-section"/>
+            </content-assets>
+        </content>
+    </slot-configuration>
+
 </slot-configurations>
