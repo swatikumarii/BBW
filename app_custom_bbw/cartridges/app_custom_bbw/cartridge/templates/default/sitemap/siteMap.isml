@@ -8,8 +8,8 @@
                 <isslot id="site-map-customer-care" description="Site map customer care" context="global" />
             </div>
             <div class="col-sm-9">
-                            <isloop items="${pdict.categories}" var="category">
-                    <isif condition="${category.custom && category.custom.siteMapIncluded
+                <isloop items="${pdict.categories}" var="category">
+                    <isif condition="${category.siteMapIncluded
                         && (category.hasOnlineProducts() || category.hasOnlineSubCategories())}">
                         <h1>
                             <a href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
@@ -18,7 +18,7 @@
                         </h1>
                         <div class="row">
                             <isloop items="${category.onlineSubCategories}" var="category">
-                                <isif condition="${category.custom && category.custom.siteMapIncluded
+                                <isif condition="${category.siteMapIncluded
                                             && (category.hasOnlineProducts() || category.hasOnlineSubCategories())}">
                                     <div class="col-sm-3">
                                         <h1>
@@ -27,7 +27,7 @@
                                             </a>
                                         </h1>
                                         <isloop items="${category.onlineSubCategories}" var="category">
-                                            <isif condition="${category.custom && category.custom.siteMapIncluded
+                                            <isif condition="${category.siteMapIncluded
                                                         && (category.hasOnlineProducts() || category.hasOnlineSubCategories())}">
                                                 <div class="end-level-category">
                                                     <a href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
