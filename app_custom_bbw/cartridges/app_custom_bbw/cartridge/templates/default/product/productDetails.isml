@@ -81,19 +81,6 @@
                                 <iscomment> Show Express ship icon </iscomment>
                             </isif>
                         </div>
-                        <iscomment>Afterpay</iscomment>
-                        <isscript>
-                                                    var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
-                                                    var afterpayPDPEnable = sitePreferences.isDisplayPdpInfo() && sitePreferences.isAfterpayEnabled();
-                                                </isscript>
-                        <isif condition="${afterpayPDPEnable}">
-                            <input type="hidden" class="updated-widget"
-                                value="${URLUtils.https('AfterpayWidget-GetUpdatedWidget')}" />
-                            <div class="afterpay-widget">
-                                <isinclude
-                                    url="${URLUtils.url('AfterpayWidget-IncludeAfterpayMessage', 'pid', product.id)}" />
-                            </div>
-                        </isif>
                     </div>
 
                     <div class="attributes">
@@ -103,6 +90,18 @@
                                 <div class="col">
                                     <h3 class="volume-name h-font-size--14 h-clr--gray-4">${product.volume}</h3>
                                 </div>
+                            </div>
+                        </isif>
+
+                        <iscomment>Afterpay</iscomment>
+                        <isscript>
+                                                                            var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
+                                                                            var afterpayPDPEnable = sitePreferences.isDisplayPdpInfo() && sitePreferences.isAfterpayEnabled();
+                                                                        </isscript>
+                        <isif condition="${afterpayPDPEnable}">
+                            <input type="hidden" class="updated-widget" value="${URLUtils.https('AfterpayWidget-GetUpdatedWidget')}" />
+                            <div class="afterpay-widget">
+                                <isinclude url="${URLUtils.url('AfterpayWidget-IncludeAfterpayMessage', 'pid', product.id)}" />
                             </div>
                         </isif>
 
@@ -185,7 +184,7 @@
                         <isinclude template="product/components/productAvailability" />
 
                         <div class="row">
-                            <div class="d-flex quantity-cart-wrap">
+                            <div class="d-flex quantity-cart-wrap w-100">
                                 <isif condition="${!product.variationAttributes}">
                                     <div class="simple-quantity">
                                         <isinclude template="product/components/quantity" />
@@ -199,6 +198,9 @@
                                         <isinclude template="product/components/addToCartProduct" />
                                     </isif>
                                 </div>
+                            </div>
+                            <div class="afterPayExtension">
+                                <isinclude template="product/components/addToCartButtonExtension" />
                             </div>
                         </div>
 
