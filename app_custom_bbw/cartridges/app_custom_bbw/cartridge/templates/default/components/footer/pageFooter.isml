@@ -7,7 +7,7 @@
                     <div
                         class="footer-tooltip-details d-flex align-items-center justify-content-between mb-2 mt-2 text-left">
                         <!-- Heading text -->
-                        <div class="heading-text h-clr--black-3 mr-3">${Resource.msg('footer.title', 'footer', null)}
+                        <div class="heading-text h-clr--black-3 mr-3 h-width-perc-sm--80 h-width-perc--100">${Resource.msg('footer.title', 'footer', null)}
                         </div>
                         <!-- Tooltip container for more information -->
                         <div class="tooltip-container">
