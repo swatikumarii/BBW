@@ -362,6 +362,14 @@ module.exports = function () {
                     if (!data.basket.hasBonusProduct) {
                         $('.bonus-product').remove();
                     }
+                    if ('refreshItems' in data && data.refreshItems) {
+                        $('.cart-lineitems')
+                            .empty()
+                            .append(data.refreshItemsTemplate);
+                        $('.mini-cart-content .product-summary')
+                            .empty()
+                            .append(data.refreshItemsTemplateMinicart);
+                    }
                     $('.coupons-and-promos').empty().append(data.basket.totals.discountsHtml);
                     updateCartTotals(data.basket);
                     updateApproachingDiscounts(data.basket.approachingDiscounts);
@@ -427,15 +435,16 @@ module.exports = function () {
                 updateApproachingDiscounts(data.approachingDiscounts);
                 updateAvailability(data, uuid);
                 validateBasket(data);
+                $(this).data('pre-select-qty', quantity);
+                $('body').trigger('cart:update', data);
                 if ('refreshItems' in data && data.refreshItems) {
                     $('.cart-lineitems')
                         .empty()
                         .append(data.refreshItemsTemplate);
+                    $('.mini-cart-content .product-summary')
+                        .empty()
+                        .append(data.refreshItemsTemplateMinicart);
                 }
-                $(this).data('pre-select-qty', quantity);
-
-                $('body').trigger('cart:update', data);
-
                 $.spinner().stop();
                 if ($(this).parents('.product-info').hasClass('bonus-product-line-item') && $('.cart-page').length) {
                     location.reload();
