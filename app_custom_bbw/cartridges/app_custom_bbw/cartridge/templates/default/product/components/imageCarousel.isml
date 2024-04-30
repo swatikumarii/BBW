@@ -16,7 +16,7 @@
                 <isloop items="${product.images['large']}" var="image" status="loopStatus">
                     <li data-target="${" #"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
                         class='<isif condition="${loopStatus.index == 0}">active</isif>'>
-                        <img src="${image.url}" class="d-block img-fluid" alt="${image.alt} image number ${image.index}"
+                        <img src="${image.url}" class="d-block img-fluid" alt="${image.alt}"
                             itemprop="image" />
                     </li>
                 </isloop>
@@ -26,7 +26,7 @@
         <div class="carousel-inner" role="listbox">
             <isloop items="${product.images['large']}" var="image" status="loopStatus">
                 <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
-                    <img src="${image.url}" class="d-block img-fluid" alt="${image.alt} image number ${image.index}"
+                    <img src="${image.url}" class="d-block img-fluid" alt="${image.alt}"
                         itemprop="image" />
                 </div>
             </isloop>
@@ -55,7 +55,7 @@
                             <div
                                 class='carousel-item d-block mr-auto <isif condition="${loopStatus.index == 0}">active</isif>'>
                                 <img src="${image.url}" class="d-block img-fluid"
-                                    alt="${image.alt} image number ${image.index}" itemprop="image" />
+                                    alt="${image.alt}" itemprop="image" />
                             </div>
                         </isloop>
                     </div>
