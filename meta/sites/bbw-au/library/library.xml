@@ -3537,5 +3537,99 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <online-flag>true</online-flag>
         <page-attributes/>
     </content>
-    
+
+    <content content-id="menu-item-slot-1-image-section">
+        <display-name xml:lang="x-default">Menu Item Slot 1 Image Section</display-name>
+        <description xml:lang="x-default">Menu Item Slot 1 Image Section</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="menu-image d-flex"&gt;&#13;
+&lt;div class="col-6 menu-large-img"&gt;&lt;img class="img-fluid w-100" alt="" src="images/header/menu/Screenshot1.png?$staticlink$" title="" /&gt;&lt;p class="pt-2 h-clr--gray text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="col-6 menu-small-img h-dsp--grid"&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot2.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand soaps&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$10&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot3.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand sanitizers&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$6&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot3.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand sanitizers&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$6&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="menu-item-slot-2-image-section">
+        <display-name xml:lang="x-default">Menu Item Slot 2 Image Section</display-name>
+        <description xml:lang="x-default">Menu Item Slot 2 Image Section</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="menu-image d-flex"&gt;&#13;
+&lt;div class="col-6 menu-large-img"&gt;&lt;img class="img-fluid w-100" alt="" src="images/header/menu/Screenshot1.png?$staticlink$" title="" /&gt;&lt;p class="pt-2 h-clr--gray text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="col-6 menu-small-img h-dsp--grid"&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot2.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand soaps&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$10&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot3.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand sanitizers&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$6&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot3.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand sanitizers&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$6&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="menu-item-slot-3-image-section">
+        <display-name xml:lang="x-default">Menu Item Slot 3 Image Section</display-name>
+        <description xml:lang="x-default">Menu Item Slot 3 Image Section</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="menu-image d-flex"&gt;&#13;
+&lt;div class="col-6 menu-large-img"&gt;&lt;img class="img-fluid w-100" alt="" src="images/header/menu/Screenshot1.png?$staticlink$" title="" /&gt;&lt;p class="pt-2 h-clr--gray text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="col-6 menu-small-img h-dsp--grid"&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot2.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand soaps&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$10&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot3.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand sanitizers&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$6&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot3.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand sanitizers&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$6&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="menu-item-slot-4-image-section">
+        <display-name xml:lang="x-default">Menu Item Slot 4 Image Section</display-name>
+        <description xml:lang="x-default">Menu Item Slot 4 Image Section</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="menu-image d-flex"&gt;&#13;
+&lt;div class="col-6 menu-large-img"&gt;&lt;img class="img-fluid w-100" alt="" src="images/header/menu/Screenshot1.png?$staticlink$" title="" /&gt;&lt;p class="pt-2 h-clr--gray text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="col-6 menu-small-img h-dsp--grid"&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot2.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand soaps&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$10&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot3.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand sanitizers&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$6&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot3.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand sanitizers&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$6&lt;/p&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="site-map-customer-care">
+        <display-name xml:lang="x-default">Site map customer care</display-name>
+        <description xml:lang="x-default">Site map customer care</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">CUSTOMER CARE&#13;
+&lt;ul&gt;&#13;
+	&lt;li&gt;&lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;FAQs&lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li&gt;CORPORATE INFORMATION&lt;/li&gt;&#13;
+	&lt;li&gt;&lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Careers&lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li&gt;&lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Privacy &amp; Security&lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li&gt;&lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Terms of Use&lt;/a&gt;&lt;/li&gt;&#13;
+&lt;/ul&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
 </library>

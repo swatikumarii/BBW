@@ -46,6 +46,18 @@
 
 <div class="row">
     <div class="col-sm-12">
+        <div class="form-group">
+            <label class="form-control-label h-font-size--16 h-fw--semibold"
+                for="shippingAddressAutoComplete">
+                ${Resource.msg('field.address.auto', 'address', null)}
+            </label>
+            <input id="shippingAddressAutoComplete" type="text" size="50">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
         <div class="form-group
                 ${addressFields.address1.mandatory === true ? 'required' : ''}
                 ${addressFields.address1.htmlName}">

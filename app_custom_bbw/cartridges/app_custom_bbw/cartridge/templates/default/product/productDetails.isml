@@ -81,19 +81,6 @@
                                 <iscomment> Show Express ship icon </iscomment>
                             </isif>
                         </div>
-                        <iscomment>Afterpay</iscomment>
-                        <isscript>
-                                                    var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
-                                                    var afterpayPDPEnable = sitePreferences.isDisplayPdpInfo() && sitePreferences.isAfterpayEnabled();
-                                                </isscript>
-                        <isif condition="${afterpayPDPEnable}">
-                            <input type="hidden" class="updated-widget"
-                                value="${URLUtils.https('AfterpayWidget-GetUpdatedWidget')}" />
-                            <div class="afterpay-widget">
-                                <isinclude
-                                    url="${URLUtils.url('AfterpayWidget-IncludeAfterpayMessage', 'pid', product.id)}" />
-                            </div>
-                        </isif>
                     </div>
 
                     <div class="attributes">
@@ -106,10 +93,22 @@
                             </div>
                         </isif>
 
+                        <iscomment>Afterpay</iscomment>
+                        <isscript>
+                                                                            var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
+                                                                            var afterpayPDPEnable = sitePreferences.isDisplayPdpInfo() && sitePreferences.isAfterpayEnabled();
+                                                                        </isscript>
+                        <isif condition="${afterpayPDPEnable}">
+                            <input type="hidden" class="updated-widget" value="${URLUtils.https('AfterpayWidget-GetUpdatedWidget')}" />
+                            <div class="afterpay-widget">
+                                <isinclude url="${URLUtils.url('AfterpayWidget-IncludeAfterpayMessage', 'pid', product.id)}" />
+                            </div>
+                        </isif>
+
                         <!-- Applicable Promotions -->
                         <isloop items="${product.promotions}" var="promotion" status="loopstatus">
                             <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
-                                <span class="callout-message"><isprint value="${promotion.calloutMsg}"></span>    
+                                <span class="callout-message"><isprint value="${promotion.calloutMsg}" encoding="off"></span>    
                                 <button type="button"
                                         class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
                                         data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486" title="&lt;div class='pdp-title'&gt;&lt;/div&gt;&gt;"
@@ -185,7 +184,7 @@
                         <isinclude template="product/components/productAvailability" />
 
                         <div class="row">
-                            <div class="d-flex quantity-cart-wrap">
+                            <div class="d-flex quantity-cart-wrap w-100">
                                 <isif condition="${!product.variationAttributes}">
                                     <div class="simple-quantity">
                                         <isinclude template="product/components/quantity" />
@@ -199,6 +198,9 @@
                                         <isinclude template="product/components/addToCartProduct" />
                                     </isif>
                                 </div>
+                            </div>
+                            <div class="afterPayExtension">
+                                <isinclude template="product/components/addToCartButtonExtension" />
                             </div>
                         </div>
 
