@@ -12,17 +12,12 @@ function getCareers(careers) {
         var item = careers.next();
         var vacancy = {};
         var indexNumber;
-        var countryExists = jobs.some(function (refinement, index) {
+        var cityExists = jobs.some(function (refinement, index) {
             indexNumber = index;
-            return refinement.country === item.custom.country;
+            return refinement.city === item.custom.city;
         });
-        if (countryExists) {
-            if (!city.includes(item.custom.city)) {
-                city.push(item.custom.city);
-                jobs[indexNumber].data[item.custom.city] = [];
-                jobs[indexNumber].data.cities.push(item.custom.city);
-            }
-            jobs[indexNumber].data[item.custom.city].push({
+        if (cityExists) {
+            jobs[indexNumber].data.push({
                 id: item.custom.jobId,
                 jobName: item.custom.job,
                 jobDescription: item.custom.jobDescription,
@@ -30,13 +25,9 @@ function getCareers(careers) {
                 ccEmail: item.custom.ccEmail
             });
         } else {
-            vacancy['country'] = item.custom.country;
-            city.push(item.custom.city);
-            vacancy['data'] = {};
-            vacancy.data[item.custom.city] = [];
-            vacancy.data.cities = [];
-            vacancy.data.cities.push(item.custom.city);
-            vacancy.data[item.custom.city].push({
+            vacancy['city'] = (item.custom.city);
+            vacancy['data'] = [];
+            vacancy.data.push({
                 id: item.custom.jobId,
                 jobName: item.custom.job,
                 jobDescription: item.custom.jobDescription || '',

@@ -397,14 +397,6 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
-            <attribute-definition attribute-id="country">
-                <display-name xml:lang="x-default">Country</display-name>
-                <type>string</type>
-                <localizable-flag>true</localizable-flag>
-                <mandatory-flag>false</mandatory-flag>
-                <externally-managed-flag>false</externally-managed-flag>
-                <min-length>0</min-length>
-            </attribute-definition>
             <attribute-definition attribute-id="emailId">
                 <display-name xml:lang="x-default">Email</display-name>
                 <description xml:lang="x-default">Job-based email id</description>
@@ -434,7 +426,6 @@
             <attribute-group group-id="careerGroup">
                 <display-name xml:lang="x-default">Career Group</display-name>
                 <attribute attribute-id="city"/>
-                <attribute attribute-id="country"/>
                 <attribute attribute-id="jobId"/>
                 <attribute attribute-id="job"/>
                 <attribute attribute-id="jobDescription"/>

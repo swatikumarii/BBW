@@ -25,32 +25,21 @@
                             <isloop items="${pdict.careers}" var="career" status="loopstatus">
                                 <div class="panel panel-default firstItem">
                                     <div class="panel-heading collapsed" data-toggle="collapse"
-                                        href="${'#' + career.country}" aria-expanded="true"
-                                        aria-controls="${'#' + career.country}" hreflang="${request.getLocale()}">
+                                        href="${'#' + (career.city).replace(/\s/g, '')}" aria-expanded="true"
+                                        aria-controls="${'#' + (career.city).replace(/\s/g, '')}" hreflang="${request.getLocale()}">
                                         <h3>
-                                            <span class="headeing_main_c"> ${career.country} </span>
+                                            <span class="headeing_main_c"> ${career.city} </span>
                                         </h3>
                                     </div>
-                                    <div id="${career.country}" data-parent="#accordioncontent"
+                                    <div id="${(career.city).replace(/\s/g, '')}" data-parent="#accordioncontent"
                                         class="panel-collapse collapse" aria-expanded="false" role="tablist">
                                         <div class="panel-body menu_list">
-                                            <isloop items="${career.data.cities}" var="location" status="loopstatus">
+                                            <isloop items="${career.data}" var="job" status="loopstatus">
                                                 <ul>
-                                                    <li class="icon location_name_c"
-                                                        data-location="${location.replace(/\s/g, '')}">
-                                                        <span>${loopstatus.count}</span>${location}</li>
-                                                    <div class="location_name_jobs ${location.replace(/\s/g, '')}"
-                                                        aria-expanded="true" role="tablist">
-                                                        <isloop items="${career.data[location]}" var="job"
-                                                            status="loopstatuscity">
-                                                            <ul>
-                                                                <li><a href="${URLUtils.url('Careers-ApplyForJob', 'jobName', job.jobName, 'jobId', job.id)}"
-                                                                        hreflang="${request.getLocale()}"><span>
-                                                                            ${job.jobName} </span></a>
-                                                                </li>
-                                                            </ul>
-                                                        </isloop>
-                                                    </div>
+                                                    <li><a href="${URLUtils.url('Careers-ApplyForJob', 'jobName', job.jobName, 'jobId', job.id)}"
+                                                            hreflang="${request.getLocale()}"><span>
+                                                                ${job.jobName} </span></a>
+                                                    </li>
                                                 </ul>
                                             </isloop>
                                         </div>
