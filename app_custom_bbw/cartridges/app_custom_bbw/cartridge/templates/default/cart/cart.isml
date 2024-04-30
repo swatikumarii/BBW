@@ -83,10 +83,10 @@
                             </isif>
                         </isif>
                     </isloop>
-                </div>
-                <isinclude template="cart/productCard/cartGreetingCard" />
-                <div class="gift-wrap-card-div">
-                    <isinclude template="cart/productCard/cartGiftWrapProductCard" />
+                    <isinclude template="cart/productCard/cartGreetingCard" />
+                    <div class="gift-wrap-card-div">
+                        <isinclude template="cart/productCard/cartGiftWrapProductCard" />
+                    </div>
                 </div>
                 <isinclude template="cart/cartApproachingDiscount" />
                 <isinclude template="cart/greetingCard" />
