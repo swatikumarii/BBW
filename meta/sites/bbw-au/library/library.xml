@@ -3548,4 +3548,22 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <page-attributes/>
     </content>
 
+    <content content-id="site-map-customer-care">
+        <display-name xml:lang="x-default">Site map customer care</display-name>
+        <description xml:lang="x-default">Site map customer care</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">CUSTOMER CARE&#13;
+&lt;ul&gt;&#13;
+	&lt;li&gt;&lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;FAQs&lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li&gt;CORPORATE INFORMATION&lt;/li&gt;&#13;
+	&lt;li&gt;&lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Careers&lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li&gt;&lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Privacy &amp; Security&lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li&gt;&lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Terms of Use&lt;/a&gt;&lt;/li&gt;&#13;
+&lt;/ul&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
 </library>
