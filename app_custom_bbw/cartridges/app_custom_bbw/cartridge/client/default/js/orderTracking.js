@@ -1,50 +1,63 @@
 'use strict';
 
 /**
- * @returns {boolean} True is valid else False
+ * @returns {boolean} True if valid else False
  */
 function validateOrderNumber() {
-    if (!$('#orderNumber').val()) {
-        $('#orderNumber-error').html($('#orderNumber').data('required'));
+    var orderNumberInput = $('#orderNumber');
+    if (!orderNumberInput.val()) {
+        $('#orderNumber-error').html(orderNumberInput.data('required'));
+        orderNumberInput.addClass('error-border'); // Add error class
         return false;
     }
     $('#orderNumber-error').empty();
+    orderNumberInput.removeClass('error-border'); // Remove error class
     return true;
 }
 
 /**
- * @returns {boolean} True is valid else False
+ * @returns {boolean} True if valid else False
  */
 function validateEmail() {
+    var emailInput = $('#orderEmail');
     var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-    if (!$('#orderEmail').val()) {
-        $('#orderEmail-error').html($('#orderEmail').data('required'));
+    if (!emailInput.val()) {
+        $('#orderEmail-error').html(emailInput.data('required'));
+        emailInput.addClass('error-border'); // Add error class
         return false;
-    } if (!pattern.test($('#orderEmail').val())) {
-        $('#orderEmail-error').html($('#orderEmail').data('invalidemail'));
+    }
+    if (!pattern.test(emailInput.val())) {
+        $('#orderEmail-error').html(emailInput.data('invalidemail'));
+        emailInput.addClass('error-border'); // Add error class
         return false;
     }
     $('#orderEmail-error').empty();
+    emailInput.removeClass('error-border'); // Remove error class
     return true;
 }
 
 /**
- * @returns {boolean} True is valid else False
+ * @returns {boolean} True if valid else False
  */
 function validateBillingZipCode() {
-    if (!$('#billingZipCode').val()) {
-        $('#billingZipCode-error').html($('#billingZipCode').data('required'));
+    var billingZipCodeInput = $('#billingZipCode');
+    if (!billingZipCodeInput.val()) {
+        $('#billingZipCode-error').html(billingZipCodeInput.data('required'));
+        billingZipCodeInput.addClass('error-border'); // Add error class
         return false;
-    } if ($('#billingZipCode').val().length > 10) {
-        $('#billingZipCode-error').html($('#billingZipCode').data('maxlength'));
+    }
+    if (billingZipCodeInput.val().length > 10) {
+        $('#billingZipCode-error').html(billingZipCodeInput.data('maxlength'));
+        billingZipCodeInput.addClass('error-border'); // Add error class
         return false;
     }
     $('#billingZipCode-error').empty();
+    billingZipCodeInput.removeClass('error-border'); // Remove error class
     return true;
 }
 
 /**
- * @returns {boolean} - True is valid else false
+ * @returns {boolean} True if valid else False
  */
 function validateCheckStatus() {
     var isValid = true;
@@ -64,15 +77,12 @@ function validateCheckStatus() {
  * check status
  */
 function checkStatus() {
-    var orderNumber = $('#orderNumber').val();
-    var orderEmail = $('#orderEmail').val();
-    var billingZipCode = $('#billingZipCode').val();
     if (validateCheckStatus()) {
         var actionUrl = $('#checkStatus').data('actionurl');
         var form = {
-            orderNumber: orderNumber,
-            orderEmail: orderEmail,
-            billingZipCode: billingZipCode
+            orderNumber: $('#orderNumber').val(),
+            orderEmail: $('#orderEmail').val(),
+            billingZipCode: $('#billingZipCode').val()
         };
         if (actionUrl) {
             $.ajax({
@@ -85,15 +95,9 @@ function checkStatus() {
                 error: function (err) {
                     $('.error-class').empty();
                     if (err.responseJSON.fieldErrors) {
-                        for (
-                            var i = 0;
-                            i < err.responseJSON.fieldErrors.length;
-                            i++
-                        ) {
+                        for (var i = 0; i < err.responseJSON.fieldErrors.length; i++) {
                             var fieldError = err.responseJSON.fieldErrors[i];
-                            $('#' + fieldError.key + '-error').html(
-                                fieldError.message
-                            );
+                            $('#' + fieldError.key + '-error').html(fieldError.message);
                         }
                     } else {
                         $('#form-error').html(err.responseJSON.message);

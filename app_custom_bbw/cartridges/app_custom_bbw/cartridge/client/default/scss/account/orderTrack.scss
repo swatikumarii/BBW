@@ -1,0 +1,97 @@
+.orderTracking-banner {
+    .slot-banner {
+        margin-bottom: 2.8125rem;
+    }
+
+    .tracking-header {
+        margin: 0 auto;
+
+        h1 {
+            padding-bottom: 0.9375rem;
+            border-bottom: 1px solid colour(black, 3);
+            line-height: 1.3125rem;
+        }
+
+        .tracking-field-para {
+            padding: 20px 0 0;
+        }
+
+        p {
+            font-style: italic;
+            width: fit-content;
+            float: right;
+            line-height: normal;
+
+            .required-indicator {
+                color: colour(red);
+                position: relative;
+                right: 5px;
+            }
+        }
+    }
+
+    .order-tracking-form {
+        margin: 0.625rem 0 1.875rem;
+
+        .tracking-form-label {
+            margin: 0 auto 1.25em;
+
+            .required-indicator {
+                color: colour(red);
+                position: relative;
+            }
+        }
+
+        .tracking-inputfield {
+            height: 3rem;
+            letter-spacing: 0.005em;
+        }
+
+        .error-class {
+            line-height: 1rem;
+            letter-spacing: 0.015em;
+            padding: 0 0 0.3125rem 0.625rem;
+            top: 0.3125rem;
+        }
+    }
+
+    .privacy-policy {
+        margin: -1.25em 0 0.95em;
+
+        a {
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .order-tracking-btn {
+        width: 8.4375rem;
+        padding: 0;
+        line-height: 2.0625rem;
+        max-height: 2.1875rem;
+        transition: all 0.3s ease;
+        min-height: 2.1875rem;
+    }
+
+    .label-or {
+        margin-top: 11px;
+        margin-bottom: 5px;
+    }
+
+    .sign-in-wrap {
+        a {
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .error-border {
+        border-color: colour(red, 9);
+    }
+}

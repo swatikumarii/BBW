@@ -1,70 +1,95 @@
 <isdecorate template="common/layout/page">
+    <isinclude template="/components/modules" sf-toolkit="off" />
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/orderTracking.js');
+        assets.addCss('/css/account/orderTrack.css');
     </isscript>
 
-    <div class="hero slant-down">
-        <h1 class="page-title">${Resource.msg('label.order.tracking', 'order', null)}</h1>
-    </div>
-    <div class="row justify-content-center equal-height">
-        <div class="col-sm-8 col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <form class="order-tracking" name="orderTracking">
-                        <div class="order-tracking-block">
-                            <div class="form-group">
-                                <label class="form-control-label" for="order-tracking-form-ordernumber">
-                                    ${Resource.msg('label.order.number', 'order', null)}
-                                </label>
-                                <input type="text" class="form-control" id="orderNumber"
-                                    data-required="${Resource.msg('error.order.number.required', 'order', null)}" />
-                                <div class="text-danger error-class" id="orderNumber-error"></div>
-                            </div>
+    <div class="hero slant-down  orderTracking-banner bg-white">
+        <div class="container">
+            <!---Breadcrumbs--->
+            <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+            <div class="d-flex justify-content-center slot-banner">
+               <img class="d-sm-none w-100" src="https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.21a/on/demandware.static/-/Sites-BathAndBodyWorks-Library/default/dwfadf0d89/images/banners/order-status-banner-asset_m.svg?yocs=w_A_"
+                alt="${Resource.msg('lorder.tracking.banner.title', 'order', null)}" />
+                <img class="d-none d-sm-block" src="${URLUtils.staticURL('/images/orderTracking/order-status-banner.svg')}"
+                    alt="${Resource.msg('lorder.tracking.banner.title', 'order', null)}" width="955" />
+            </div>
+            <div class="row m-0">
+                <div class="col-md-10 tracking-header">
+                    <h1 class="page-title text-justify h-font-size--24 h-clr--black-3 m-0">
+                        ${Resource.msg('label.order.tracking', 'order', null)}</h1>
+                        <div class="tracking-field-para"></div>
+                    <p class="d-flex justify-content-end h-clr--black-1 mb-0 h-font-size--12">
+                    <span class="required-indicator">*</span>
+                        ${Resource.msg('required.field.label', 'login', null)}</p>
+                </div>
+            </div>
+            <div class="row justify-content-center equal-height">
+                <div class="col-sm-8 col-md-5 col-xl-4">
+                    <div class="order-tracking-nav">
+                        <form class="order-tracking" name="orderTracking">
+                            <div class="order-tracking-block">
+                                <div class="form-group order-tracking-form">
+                                    <label class="form-control-label tracking-form-label" for="order-tracking-form-ordernumber">
+                                    <span class="required-indicator">*</span>
+                                        ${Resource.msg('label.order.number', 'order', null)}
+                                    </label>
+                                    <input type="text" class="form-control tracking-inputfield h-font-size--18" id="orderNumber"
+                                        data-required="${Resource.msg('error.order.number.required', 'order', null)}" />
+                                    <div class="text-danger error-class h-font-size--14" id="orderNumber-error"></div>
+                                </div>
 
-                            <div class="form-group">
-                                <label class="form-control-label" for="order-tracking-form-orderemail">
-                                    ${Resource.msg('label.order.email', 'order', null)}
-                                </label>
-                                <input type="text" class="form-control" id="orderEmail"
-                                    data-required="${Resource.msg('error.order.email.required', 'order', null)}"
-                                    data-invalidemail="${Resource.msg('error.order.email.format', 'order', null)}" />
-                                <div class="text-danger error-class" id="orderEmail-error"></div>
-                            </div>
+                                <div class="form-group order-tracking-form">
+                                    <label class="form-control-label tracking-form-label" for="order-tracking-form-orderemail">
+                                    <span class="required-indicator">*</span>
+                                        ${Resource.msg('label.order.email', 'order', null)}
+                                    </label>
+                                    <input type="text" class="form-control tracking-inputfield h-font-size--18" id="orderEmail"
+                                        data-required="${Resource.msg('error.order.email.required', 'order', null)}"
+                                        data-invalidemail="${Resource.msg('error.order.email.format', 'order', null)}" />
+                                    <div class="text-danger error-class h-font-size--14" id="orderEmail-error"></div>
+                                </div>
 
-                            <div class="form-group">
-                                <label class="form-control-label" for="order-tracking-form-billing-zip-code">
-                                    ${Resource.msg('label.billing.zip.code', 'order', null)}
-                                </label>
-                                <input type="text" class="form-control" id="billingZipCode"
-                                    data-required="${Resource.msg('error.billing.zip.code.required', 'order', null)}"
-                                    data-maxlength="${Resource.msg('error.billing.zip.code.maxlength', 'order', null)}" />
-                                <div class="text-danger error-class" id="billingZipCode-error"></div>
-                            </div>
+                                <div class="form-group order-tracking-form">
+                                    <label class="form-control-label tracking-form-label" for="order-tracking-form-billing-zip-code">
+                                    <span class="required-indicator">*</span>
+                                        ${Resource.msg('label.billing.zip.code', 'order', null)}
+                                    </label>
+                                    <input type="text" class="form-control tracking-inputfield h-font-size--18" id="billingZipCode"
+                                        data-required="${Resource.msg('error.billing.zip.code.required', 'order', null)}"
+                                        data-maxlength="${Resource.msg('error.billing.zip.code.maxlength', 'order', null)}" />
+                                    <div class="text-danger error-class h-font-size--14" id="billingZipCode-error"></div>
+                                </div>
 
-                            <div class="form-group">
-                                <span>${Resource.msg('label.privacy.policy', 'common', null)}</span>
-                            </div>
+                                <div class="form-group privacy-policy text-center">
+                                    <a href="${'#'}" class="h-font-size--12 h-clr--black-3">
+                                        ${Resource.msg('link.privacypolicy.registration', 'login', null)}
+                                    </a>
+                                </div>
 
-                            <button id="checkStatus" type="button" class="btn"
-                                data-actionurl="${URLUtils.url('Order-Check')}">
-                                ${Resource.msg('text.btn.check.status', 'order', null)}
-                            </button>
-                            <div class="text-danger error-class" id="form-error"></div>
+                                <div class="d-flex justify-content-center">
+                                <button id="checkStatus" type="button" class="btn order-tracking-btn" data-actionurl="${URLUtils.url('Order-Check')}">
+                                    ${Resource.msg('text.btn.check.status', 'order', null)}
+                                </button>
+                                </div>
+                                <div class="text-danger error-class h-font-size--14" id="form-error"></div>
 
-                            <div class="form-group">
-                                <span>${Resource.msg('label.or', 'common', null)}</span>
-                            </div>
+                                <div class="form-group label-or text-center h-font-size--14 h-clr--gray">
+                                    <span>${Resource.msg('label.or', 'common', null)}</span>
+                                </div>
 
-                            <div class="form-group">
-                                <span>${Resource.msg('label.sign.in', 'order', null)}</span>
+                                <div class="sign-in-wrap text-center">
+                                    <a href="#" title="Sign In" class="h-clr--black-3 h-font-size--14">${Resource.msg('signIn.label', 'order', null)}</a>
+                                    <span class="h-clr--gray h-font-size--14">${Resource.msg('label.sign.in', 'order', null)}</span>
+                                </div>
                             </div>
-
-                            <div class="form-group">
-                                <span>${Resource.msg('label.order.info', 'order', null)}</span>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-10 form-group order-tracking-form text-center">
+                    <p>${Resource.msg('label.order.info', 'order', null)}</p>
                 </div>
             </div>
         </div>
