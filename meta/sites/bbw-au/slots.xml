@@ -63,17 +63,6 @@
         </content>
     </slot-configuration>
 
-    <slot-configuration slot-id="menu-item-slot-10" context="global" configuration-id="menu-item-slot-10" default="true" assigned-to-site="true">
-        <description>Menu Item Slot 10</description>
-        <template>slots/content/contentAssetBody.isml</template>
-        <enabled-flag>true</enabled-flag>
-        <content>
-            <content-assets>
-                <content-asset content-id="menu-item-slot-10-image-section"/>
-            </content-assets>
-        </content>
-    </slot-configuration>
-
     <slot-configuration slot-id="menu-item-slot-2" context="global" configuration-id="menu-item-slot-2" default="true" assigned-to-site="true">
         <description>Menu Item Slot 2</description>
         <template>slots/content/contentAssetBody.isml</template>
@@ -103,61 +92,6 @@
         <content>
             <content-assets>
                 <content-asset content-id="menu-item-slot-4-image-section"/>
-            </content-assets>
-        </content>
-    </slot-configuration>
-
-    <slot-configuration slot-id="menu-item-slot-5" context="global" configuration-id="menu-item-slot-5" default="true" assigned-to-site="true">
-        <description>Menu Item Slot 5</description>
-        <template>slots/content/contentAssetBody.isml</template>
-        <enabled-flag>true</enabled-flag>
-        <content>
-            <content-assets>
-                <content-asset content-id="menu-item-slot-5-image-section"/>
-            </content-assets>
-        </content>
-    </slot-configuration>
-
-    <slot-configuration slot-id="menu-item-slot-6" context="global" configuration-id="menu-item-slot-6" default="true" assigned-to-site="true">
-        <description>Menu Item Slot 6</description>
-        <template>slots/content/contentAssetBody.isml</template>
-        <enabled-flag>true</enabled-flag>
-        <content>
-            <content-assets>
-                <content-asset content-id="menu-item-slot-6-image-section"/>
-            </content-assets>
-        </content>
-    </slot-configuration>
-
-    <slot-configuration slot-id="menu-item-slot-7" context="global" configuration-id="menu-item-slot-7" default="true" assigned-to-site="true">
-        <description>Menu Item Slot 7</description>
-        <template>slots/content/contentAssetBody.isml</template>
-        <enabled-flag>true</enabled-flag>
-        <content>
-            <content-assets>
-                <content-asset content-id="menu-item-slot-7-image-section"/>
-            </content-assets>
-        </content>
-    </slot-configuration>
-
-    <slot-configuration slot-id="menu-item-slot-8" context="global" configuration-id="menu-item-slot-8" default="true" assigned-to-site="true">
-        <description>Menu Item Slot 8</description>
-        <template>slots/content/contentAssetBody.isml</template>
-        <enabled-flag>true</enabled-flag>
-        <content>
-            <content-assets>
-                <content-asset content-id="menu-item-slot-8-image-section"/>
-            </content-assets>
-        </content>
-    </slot-configuration>
-
-    <slot-configuration slot-id="menu-item-slot-9" context="global" configuration-id="menu-item-slot-9" default="true" assigned-to-site="true">
-        <description>Menu Item Slot 9</description>
-        <template>slots/content/contentAssetBody.isml</template>
-        <enabled-flag>true</enabled-flag>
-        <content>
-            <content-assets>
-                <content-asset content-id="menu-item-slot-9-image-section"/>
             </content-assets>
         </content>
     </slot-configuration>
