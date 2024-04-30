@@ -10,7 +10,7 @@ module.exports = $.extend({}, detail, {
             quantity += 1;
             $(this).siblings('#Quantity').val(quantity).trigger('change');
         });
-    
+
         $(document).on('click', '.quantity-field > .decrease', function () {
             var quantity = Number($(this).siblings('#Quantity').val());
             if (quantity !== 1) {
@@ -32,4 +32,8 @@ module.exports = $.extend({}, detail, {
     addToCart: base.addToCart,
 
     focusChooseBonusProductModal: base.focusChooseBonusProductModal()
+});
+
+$('#add-to-wish-list').click(function () {
+    $('.toast').toast('show');
 });
