@@ -1869,7 +1869,7 @@
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
         <folder-links>
-            <classification-link folder-id="body-care"/>
+            <classification-link folder-id="blogs-body-care"/>
             <folder-link folder-id="seasonal"/>
             <folder-link folder-id="featured"/>
         </folder-links>
@@ -1957,7 +1957,7 @@
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
         <folder-links>
-            <classification-link folder-id="body-care"/>
+            <classification-link folder-id="blogs-body-care"/>
             <folder-link folder-id="seasonal"/>
             <folder-link folder-id="featured"/>
         </folder-links>
@@ -2426,7 +2426,7 @@
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
         <folder-links>
-            <classification-link folder-id="body-care"/>
+            <classification-link folder-id="blogs-body-care"/>
         </folder-links>
     </content>
 
@@ -2586,7 +2586,7 @@
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
         <folder-links>
-            <classification-link folder-id="body-care"/>
+            <classification-link folder-id="blogs-body-care"/>
         </folder-links>
     </content>
 
@@ -2643,7 +2643,7 @@
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
         <folder-links>
-            <classification-link folder-id="body-care"/>
+            <classification-link folder-id="blogs-body-care"/>
         </folder-links>
     </content>
  <content content-id="tbc-day">
@@ -2800,7 +2800,7 @@
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
         <folder-links>
-            <classification-link folder-id="body-care"/>
+            <classification-link folder-id="blogs-body-care"/>
             <folder-link folder-id="seasonal"/>
         </folder-links>
     </content>
@@ -2943,7 +2943,7 @@
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
         <folder-links>
-            <classification-link folder-id="body-care"/>
+            <classification-link folder-id="blogs-body-care"/>
         </folder-links>
     </content>
 
@@ -3322,7 +3322,7 @@
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
         <folder-links>
-            <classification-link folder-id="body-care"/>
+            <classification-link folder-id="blogs-body-care"/>
         </folder-links>
     </content>
 
@@ -3422,7 +3422,7 @@
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
         <folder-links>
-            <classification-link folder-id="body-care"/>
+            <classification-link folder-id="blogs-body-care"/>
         </folder-links>
     </content>
 
