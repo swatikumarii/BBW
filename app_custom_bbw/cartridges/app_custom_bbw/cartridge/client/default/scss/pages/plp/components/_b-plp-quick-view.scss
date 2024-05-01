@@ -1,0 +1,202 @@
+.quick-view-dialog {
+    max-width: 710px;
+    padding: 15px 20px 30px;
+
+    .modal-header .close {
+        background-image: url("../../images/plp/quickview/UI-Close-dark.svg");
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 15px;
+        height: 35px;
+        width: 35px;
+        border: 1px solid colour(gray, 1);
+        opacity: 1;
+    }
+
+    .modal-body {
+        padding: 0 35px;
+    }
+
+    .product-name {
+        line-height: 1.75rem;
+        padding-bottom: 0;
+    }
+
+    .brand-name {
+        padding: 0 0 0.3125em;
+        line-height: 1.25rem;
+        letter-spacing: 0.01em;
+    }
+
+    .short-descrition {
+        margin-top: 1.0625em;
+        padding: 5px 0 17px;
+    }
+
+    .volume-name {
+        padding: 0 0 14px;
+    }
+
+    .prices .sales {
+        margin-bottom: 15px;
+        line-height: 1.25rem;
+        letter-spacing: 0.005em;
+        color: colour(black, 1);
+        font-size: 18px;
+        font-weight: map-get($font-weight, semibold);
+        display: block;
+    }
+
+    .promotion-callout {
+        line-height: 1.25rem;
+        letter-spacing: 0.005em;
+    }
+
+    .attributes {
+        .promotion-callout {
+            line-height: 1.25rem;
+            letter-spacing: 0.005em;
+            width: 79%;
+            margin-bottom: 0.75rem;
+
+            .callout-detail {
+                &::after {
+                    font-size: 0.875rem;
+                    line-height: 1rem;
+                    color: colour(gray, 4);
+                    margin-top: 0.3125rem;
+                    text-decoration: underline;
+                    content: "Details";
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+
+                .popover-header {
+                    display: none;
+                }
+            }
+        }
+
+        .quantity-cart-wrap {
+            padding: 24px 0 0;
+            border-top: 0.0625rem solid colour(gray, 6);
+
+            .simple-quantity {
+                width: 50%;
+                margin-right: 0.5rem;
+                border: 0.125rem solid colour(gray, 5);
+
+                .quantity-button {
+                    cursor: pointer;
+                    height: 2.8125rem;
+                    width: 20%;
+                    letter-spacing: 0.01em;
+                }
+
+                input {
+                    height: 2.8125rem;
+                    width: 60%;
+                }
+            }
+
+            .js-add-to-cart-button {
+                width: 50%;
+            }
+        }
+
+        .pdp-checkout-button {
+            padding: 0;
+            margin-top: 8px;
+        }
+    }
+
+    .full-pdp-link {
+        margin-right: 35px;
+        border-top: 0.5px solid colour(gray, 6);
+        width: 42.7%;
+        margin-top: 15px;
+        padding-top: 14px;
+        font-size: 14px;
+        text-decoration: underline;
+        color: colour(gray);
+        padding-bottom: 30px;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .carousel .carousel-control-next,
+    .carousel .carousel-control-prev {
+        height: fit-content;
+        top: 39%;
+        z-index: auto;
+    }
+
+    .carousel .icon-next,
+    .carousel .icon-prev {
+        background-color: transparent;
+    }
+
+    .carousel-indicators li {
+        width: 24px;
+        margin-right: 45px;
+    }
+}
+
+.product-detail {
+    .pdp-wishlist {
+        position: relative;
+
+        .add-to-wish-list {
+            position: absolute;
+            right: 14px;
+            top: 8px;
+            z-index: 1;
+            padding: 0;
+            transition: all 0.3s ease;
+            width: 32px;
+            height: 32px;
+            float: right;
+            cursor: pointer;
+            opacity: 1;
+            background: url("../../images/pdp/PDP-Wishlist-2.svg") no-repeat 50%;
+
+            &.added {
+                background: url("../../images/pdp/PDP-Wishlist-4.svg") no-repeat
+                    50%;
+
+                &:hover {
+                    background: url("../../images/pdp/PDP-Wishlist-5.svg")
+                        no-repeat 50%;
+                }
+            }
+        }
+    }
+}
+
+.toast {
+    position: absolute;
+    right: -15px;
+    top: 36px;
+
+    p {
+        font-size: 16px;
+        line-height: 20px;
+        line-height: 1.25rem;
+        letter-spacing: 0.01em;
+        color: colour(gray, 4);
+        margin: 10px 0;
+    }
+}
+
+.wish-list-image {
+    background: url("../../images/pdp/PDP-Wishlist-4.svg") no-repeat 50%;
+    margin: auto;
+    height: 40px;
+    width: 40px;
+    float: left;
+    margin-right: 10px;
+}

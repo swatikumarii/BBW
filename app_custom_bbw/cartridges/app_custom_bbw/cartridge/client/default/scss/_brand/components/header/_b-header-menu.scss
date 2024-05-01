@@ -7,6 +7,10 @@
 
             .level-1-ul {
                 .level-1-li {
+                    .dropdown-link {
+                        text-wrap: wrap;
+                    }
+
                     @include media-up(sm) {
                         position: inherit;
 
@@ -78,7 +82,11 @@
                                 }
 
                                 .level-2-li {
-                                    min-width: 12.875rem;
+                                    min-width: 10.875rem;
+
+                                    @include media-up(md) {
+                                        min-width: 14.875rem;
+                                    }
 
                                     &:hover {
                                         .level-2-link {
@@ -337,6 +345,14 @@
                     width: 0.25rem;
                     transition: all 0.3s ease-out;
                 }
+
+                .level-1-link.dropdown-toggle {
+                    &::after {
+                        transform: rotate(1turn);
+                        transform-origin: center center;
+                        transition: all 0.3s ease-out;
+                    }
+                }
             }
         }
 
@@ -385,9 +401,11 @@
                 }
 
                 &.active {
-                    &::after {
-                        transform: rotate(180deg);
-                        transform-origin: center center;
+                    .level-2-link.dropdown-toggle {
+                        &::after {
+                            transform: rotate(180deg);
+                            transform-origin: center center;
+                        }
                     }
 
                     .level-3-ul {
