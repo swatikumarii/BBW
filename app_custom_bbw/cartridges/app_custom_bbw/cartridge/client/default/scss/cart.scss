@@ -341,6 +341,7 @@
     text-transform: uppercase;
     letter-spacing: 0.2px;
     background-color: $clr-green-2;
+    border-color: $clr-green-2;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -348,6 +349,7 @@
     &:hover {
         color: $clr-white;
         background-color: $clr-green-3;
+        border-color: $clr-green-3;
     }
 
     .checkout-button-lock {
