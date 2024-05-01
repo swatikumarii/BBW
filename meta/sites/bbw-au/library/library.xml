@@ -3455,18 +3455,20 @@
         </custom-attributes>
     </content>
 
-    <content content-id="top-header-ticker-promo">
+   <content content-id="top-header-ticker-promo">
         <display-name xml:lang="x-default">Top Header Promo</display-name>
         <description xml:lang="x-default">Top header promotions in ticker slider</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div id="ticker"&gt;&#13;
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="ticker-wrapper w-100 text-center h-font-size--16 h-bg--blue-3 h-clr--blue-4"&gt;&#13;
+&lt;div id="ticker"&gt;&#13;
 	&lt;div class="ticker-inner w-100 text-center"&gt;&#13;
 		&lt;div class="header-promotion ticker-item"&gt;Earn 100 bonus points when you download and sign in to the app for the first time&lt;/div&gt;&#13;
                 &lt;div class="header-promotion ticker-item"&gt;Sign in to the app for the first time&lt;/div&gt;	&#13;
 	&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
@@ -5234,6 +5236,20 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 	&lt;li&gt;&lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Privacy &amp; Security&lt;/a&gt;&lt;/li&gt;&#13;
 	&lt;li&gt;&lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Terms of Use&lt;/a&gt;&lt;/li&gt;&#13;
 &lt;/ul&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="myAccount-help">
+        <display-name xml:lang="x-default">My Account Help</display-name>
+        <description xml:lang="x-default">This shows contact number on my account page.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="account-nav-help text-center"&gt;&#13;
+            &lt;h3 class="h-clr--gray h-font-size--14 m-0"&gt;Questions? &lt;/h3&gt;&#13;
+            &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-756-5005.&lt;/p&gt;&#13;
+        &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
 

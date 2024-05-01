@@ -8,6 +8,8 @@
     }
 
     .carousel {
+        cursor: pointer;
+
         @include media-up(sm) {
             width: 350px;
             float: right;
@@ -17,6 +19,9 @@
         &:hover .carousel-control-next,
         &:hover .carousel-control-prev {
             display: flex;
+            height: fit-content;
+            top: 45%;
+            z-index: auto;
         }
 
         .carousel-control-next,
@@ -33,7 +38,7 @@
             z-index: 0;
 
             li {
-                width: 2.375rem;
+                width: 38px;
                 margin-right: 45px;
             }
         }
@@ -47,14 +52,13 @@
 
         .zoomImage-link {
             content: "";
-            width: 1.25rem;
-            height: 1.25rem;
+            width: 22px;
+            height: 22px;
             background: url("../../images/pdp/svgexport-12.svg");
             background-repeat: no-repeat;
             background-size: contain;
             right: 0;
-            bottom: 3.3125rem;
-            z-index: 2;
+            bottom: 10px;
             cursor: pointer;
         }
 
@@ -85,7 +89,6 @@
 
                     .carousel-item {
                         margin-right: 0;
-                        width: auto;
 
                         img {
                             height: calc(100vh - 45px);
@@ -319,7 +322,7 @@
             margin-top: 1.5625rem;
             width: 100%;
 
-            @include media-up(sm) {
+            @include media-up(md) {
                 width: 66%;
             }
 
@@ -346,7 +349,7 @@
                 padding: 1.0625rem 0 0.1875rem;
                 width: 100%;
 
-                @include media-up(sm) {
+                @include media-up(md) {
                     width: 66%;
                 }
 
@@ -393,18 +396,23 @@
 
     .pdp-wishlist {
         .add-to-wish-list {
-            float: right;
-            margin-right: -0.1875rem;
             padding: 0;
+            transition: all 0.3s ease;
+            width: 38px;
+            height: 36px;
+            float: right;
+            cursor: pointer;
+            opacity: 1;
+            background: url("../../images/pdp/PDP-Wishlist-2.svg") no-repeat 50%;
 
-            @include media-up(sm) {
-                margin-right: -0.625rem;
-            }
+            &.added {
+                background: url("../../images/pdp/PDP-Wishlist-4.svg") no-repeat
+                    50%;
 
-            img {
-                width: 2.375rem;
-                height: 2.25rem;
-                cursor: pointer;
+                &:hover {
+                    background: url("../../images/pdp/PDP-Wishlist-5.svg")
+                        no-repeat 50%;
+                }
             }
         }
     }
@@ -441,4 +449,28 @@
         right: 8px;
         background-size: 0.8125rem;
     }
+}
+
+.toast {
+    position: absolute;
+    right: -15px;
+    top: 36px;
+
+    p {
+        font-size: 16px;
+        line-height: 20px;
+        line-height: 1.25rem;
+        letter-spacing: 0.01em;
+        color: colour(gray, 4);
+        margin: 10px 0;
+    }
+}
+
+.wish-list-image {
+    background: url("../../images/pdp/PDP-Wishlist-4.svg") no-repeat 50%;
+    margin: auto;
+    height: 40px;
+    width: 40px;
+    float: left;
+    margin-right: 10px;
 }
