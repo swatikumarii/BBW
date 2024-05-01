@@ -31,6 +31,21 @@ function handleRefinements($results) {
 }
 
 /**
+ * update desktop refinement in a way so that open refinement should not close
+ * @param {object} $results - jQuery DOM element
+ */
+function updateRefinements($results) {
+    $results.find('.filter-bar-desktop .filter-type').each(function () {
+        var id = $(this).attr('id');
+        var filter = $('.filter-bar-desktop .filter-type#' + id);
+        if (filter.find('.ref-toggle[aria-expanded="true"]').length > 0) {
+            $(this).find('.filter-list-wrapper').addClass('show');
+            $(this).find('.ref-toggle').attr('aria-expanded', 'true');
+        }
+    });
+}
+
+/**
  * Parse Ajax results and updated select DOM elements
  * @param {string} response - Ajax response HTML code
  * @returns {undefined}
@@ -41,6 +56,8 @@ function parseResults(response) {
         '.refinements': handleRefinements
     };
 
+    updateRefinements($results);
+
     // Update DOM elements that do not require special handling
     [
         '.grid-header',
@@ -48,7 +65,6 @@ function parseResults(response) {
         '.header.page-title',
         '.product-grid-wrapper',
         '.show-more',
-        '.filter-bar-desktop',
         '.selected-filter-mobile'
     ].forEach(function (selector) {
         updateDom($results, selector);
