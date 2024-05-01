@@ -1,55 +1,60 @@
 'use strict';
 
 /**
- * @returns {boolean} True if valid else False
+ * @returns {boolean} True is valid else False
  */
 function validateOrderNumber() {
     var orderNumberInput = $('#orderNumber');
     if (!orderNumberInput.val()) {
-        $('#orderNumber-error').html(orderNumberInput.data('required'));
+        orderNumberInput.addClass('is-invalid'); // Add class for input border error
         return false;
     }
+    orderNumberInput.removeClass('is-invalid'); // Remove class if input is valid
     $('#orderNumber-error').empty();
     return true;
 }
 
 /**
- * @returns {boolean} True if valid else False
+ * @returns {boolean} True is valid else False
  */
 function validateEmail() {
     var emailInput = $('#orderEmail');
     var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
     if (!emailInput.val()) {
-        $('#orderEmail-error').html(emailInput.data('required'));
+        emailInput.addClass('is-invalid'); // Add class for input border error
         return false;
     }
     if (!pattern.test(emailInput.val())) {
+        emailInput.addClass('is-invalid'); // Add class for input border error
         $('#orderEmail-error').html(emailInput.data('invalidemail'));
         return false;
     }
+    emailInput.removeClass('is-invalid'); // Remove class if input is valid
     $('#orderEmail-error').empty();
     return true;
 }
 
 /**
- * @returns {boolean} True if valid else False
+ * @returns {boolean} True is valid else False
  */
 function validateBillingZipCode() {
     var billingZipCodeInput = $('#billingZipCode');
     if (!billingZipCodeInput.val()) {
-        $('#billingZipCode-error').html(billingZipCodeInput.data('required'));
+        billingZipCodeInput.addClass('is-invalid'); // Add class for input border error
         return false;
     }
     if (billingZipCodeInput.val().length > 10) {
+        billingZipCodeInput.addClass('is-invalid'); // Add class for input border error
         $('#billingZipCode-error').html(billingZipCodeInput.data('maxlength'));
         return false;
     }
+    billingZipCodeInput.removeClass('is-invalid'); // Remove class if input is valid
     $('#billingZipCode-error').empty();
     return true;
 }
 
 /**
- * @returns {boolean} True if valid else False
+ * @returns {boolean} - True is valid else false
  */
 function validateCheckStatus() {
     var isValid = true;
@@ -69,12 +74,15 @@ function validateCheckStatus() {
  * check status
  */
 function checkStatus() {
+    var orderNumber = $('#orderNumber').val();
+    var orderEmail = $('#orderEmail').val();
+    var billingZipCode = $('#billingZipCode').val();
     if (validateCheckStatus()) {
         var actionUrl = $('#checkStatus').data('actionurl');
         var form = {
-            orderNumber: $('#orderNumber').val(),
-            orderEmail: $('#orderEmail').val(),
-            billingZipCode: $('#billingZipCode').val()
+            orderNumber: orderNumber,
+            orderEmail: orderEmail,
+            billingZipCode: billingZipCode
         };
         if (actionUrl) {
             $.ajax({
@@ -87,9 +95,15 @@ function checkStatus() {
                 error: function (err) {
                     $('.error-class').empty();
                     if (err.responseJSON.fieldErrors) {
-                        for (var i = 0; i < err.responseJSON.fieldErrors.length; i++) {
+                        for (
+                            var i = 0;
+                            i < err.responseJSON.fieldErrors.length;
+                            i++
+                        ) {
                             var fieldError = err.responseJSON.fieldErrors[i];
-                            $('#' + fieldError.key + '-error').html(fieldError.message);
+                            $('#' + fieldError.key + '-error').html(
+                                fieldError.message
+                            );
                         }
                     } else {
                         $('#form-error').html(err.responseJSON.message);
@@ -109,41 +123,16 @@ $(document).ready(function () {
         checkStatus();
     });
 
-    $(document).on('focusout', '#orderNumber', function () {
+    $(document).on('blur', '#orderNumber', function () {
         validateOrderNumber();
     });
 
-    $(document).on('focusout', '#orderEmail', function () {
+    $(document).on('blur', '#orderEmail', function () {
         validateEmail();
     });
 
-    $(document).on('focusout', '#billingZipCode', function () {
+    $(document).on('blur', '#billingZipCode', function () {
         validateBillingZipCode();
     });
 
-});
-
-// ---validation on blur----
-$(document).ready(function () {
-    var form = $('#myForm');
-
-    // Validate input fields on blur event
-    form.on('blur', 'input', function () {
-        if (!$(this).prop('checkValidity')) return;
-
-        if (!this.checkValidity()) {
-            $(this).addClass('is-invalid');
-        } else {
-            $(this).removeClass('is-invalid');
-        }
-    });
-
-    // Prevent form submission if it's invalid
-    form.on('submit', function (event) {
-        if (!form[0].checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        form.addClass('was-validated');
-    });
 });
