@@ -11,13 +11,12 @@ if (layout.isDesktop()) {
     });
 
     $(document).on('click', 'body', function (e) {
-        $('#header-search').removeClass(
-            'expand-towards-right',
-            'all 0.3s ease'
-        );
-        $('.utility-user, .minicart').removeClass('d-lg-none d-md-none');
-        $('.search-fly-out-opacity').addClass('d-none');
-        e.stopPropagation();
+        if (!$(e.target).closest('.search-suggestions.active').length) {
+            $('#header-search').removeClass('expand-towards-right');
+            $('.utility-user, .minicart').removeClass('d-lg-none d-md-none');
+            $('.search-fly-out-opacity').addClass('d-none');
+            e.stopPropagation();
+        }
     });
 }
 

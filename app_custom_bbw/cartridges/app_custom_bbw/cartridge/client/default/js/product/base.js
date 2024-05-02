@@ -194,6 +194,7 @@ module.exports = $.extend({}, base, {
 
                 var currentAction = $(this);
                 $('body').trigger('product:beforeAddToCart', this);
+                currentAction.parents('.product-tile').spinner().start();
 
                 if (
                     $('.set-items').length &&
@@ -244,7 +245,9 @@ module.exports = $.extend({}, base, {
                         success: function (data) {
                             handlePostCartAdd(data);
                             $('body').trigger('product:afterAddToCart', data);
-                            $.spinner().stop();
+                            setTimeout(function () {
+                                $.spinner().stop();
+                            }, 300);
                             base.miniCartReportingUrl(data.reportingURL);
                         },
                         error: function (err) {

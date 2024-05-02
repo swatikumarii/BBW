@@ -2,6 +2,7 @@
 
 var debounce = require('lodash/debounce');
 var endpoint = $('.suggestions-wrapper').data('url');
+var minChars = 1;
 var UP_KEY = 38;
 var DOWN_KEY = 40;
 var DIRECTION_DOWN = 1;
@@ -119,8 +120,6 @@ function positionSuggestions(scope) {
  */
 function processResponse(response) {
     var $suggestionsWrapper = getSuggestionsWrapper('.search-suggestions').empty();
-
-    $.spinner().stop();
     if (typeof (response) !== 'object') {
         $suggestionsWrapper.append(response).addClass('active');
         $suggestionsWrapper.parent().addClass('active');
@@ -150,16 +149,22 @@ function processResponse(response) {
  * @param {object} scope - Search field DOM element
  */
 function getSuggestions(scope) {
-    $.spinner().start();
-    $.ajax({
-        context: scope,
-        url: endpoint + encodeURIComponent($(scope).val()),
-        method: 'GET',
-        success: processResponse,
-        error: function () {
-            $.spinner().stop();
-        }
-    });
+    if ($(scope).val().length >= minChars) {
+        $('.js-search-suggestions .suggestions__results').spinner().start();
+        $.ajax({
+            context: scope,
+            url: endpoint + encodeURIComponent($(scope).val()),
+            method: 'GET',
+            success: processResponse,
+            error: function () {
+                $.spinner().stop();
+            }
+        });
+    } else {
+        $(scope).siblings('.reset-button').removeClass('d-sm-block');
+        getSuggestionsWrapper(scope).empty();
+        // getSuggestionsWrapper('.search-suggestions').empty();
+    }
 }
 
 /**
@@ -211,24 +216,38 @@ module.exports = function () {
     });
 
     $('input.search-field').each(function () {
-        /**
-         * Use debounce to avoid making an Ajax call on every single key press by waiting a few
-         * hundred milliseconds before making the request. Without debounce, the user sees the
-         * browser blink with every key press.
-         */
         var debounceSuggestions = debounce(getSuggestions, 300);
-        $(this).on('keyup focus', function (e) {
+        var suggestionsProcessing = false;
+
+        /**
+         * Handle Search Suggestion Keyboard Arrow Keys
+         * @param {element} element element
+         */
+        function handleInputFocus(element) {
+            debounceSuggestions(element);  // Run debounceSuggestions when input field is focused
+        }
+
+        // Attach focus event handler
+        $(this).on('focus', function () {
+            if (!suggestionsProcessing) {
+                suggestionsProcessing = true;  // Set flag to true to indicate processing is active
+                handleInputFocus(this);
+            }
+        }).on('blur', function () {
+            suggestionsProcessing = false;  // Reset flag on blur
+        }).on('keyup', function (e) {
             // Capture Down/Up Arrow Key Events
             switch (e.which) {
                 case DOWN_KEY:
                     handleArrow(DIRECTION_DOWN);
-                    e.preventDefault(); // prevent moving the cursor
+                    e.preventDefault();  // prevent moving the cursor
                     break;
                 case UP_KEY:
                     handleArrow(DIRECTION_UP);
-                    e.preventDefault(); // prevent moving the cursor
+                    e.preventDefault();  // prevent moving the cursor
                     break;
                 default:
+                    // Always allow debounceSuggestions on keyup, regardless of focus status
                     debounceSuggestions(this, e);
             }
         });

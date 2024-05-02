@@ -33,7 +33,7 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
     var minChars = 3;
     // Unfortunately, by default, max suggestions is set to 10 and is not configurable in Business
     // Manager.
-    var maxSuggestions = 10;
+    var maxSuggestions = 5;
     suggestions = new SuggestModel();
     suggestions.setFilteredByFolder(false);
     suggestions.setSearchPhrase(searchTerms);

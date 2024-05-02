@@ -1,9 +1,8 @@
 .search-suggestions {
-    // height: 0;
-    max-height: 550px;
-    z-index: 6;
-    top: 8.6rem;
+    z-index: 2;
+    top: 8.7rem;
     box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 25%);
+    height: 0;
 
     @include media-up(md) {
         overflow: hidden;
@@ -11,7 +10,8 @@
 
     &.active {
         @include media-up(md) {
-            // height: 450px;
+            height: 470px;
+            padding: 20px 40px 40px;
         }
     }
 }
@@ -27,9 +27,73 @@
     height: 0;
     transition: all 0.6s ease-in-out;
 
+    &.active {
+        @include media-up(md) {
+            height: 100%;
+            transition: all 0.6s ease-in-out;
+        }
+    }
+
     &__product-list {
         @include media-up(md) {
             grid-template-columns: repeat(5, 1fr);
+        }
+
+        .product {
+            .b-product-tile {
+                // .social-badge-wrapper {
+                //     display: none;
+                // }
+
+                // &__img-wrapper {
+                //     &:hover {
+                //         &__quickview {
+                //             display: none !important;
+                //         }
+                //     }
+                // }
+
+                &__img {
+                    max-height: 172px;
+                }
+
+                &__carousel {
+                    .slider-control {
+                        bottom: 75px;
+                    }
+                }
+
+                &__wishlistTile,
+                &__ratings,
+                &__quickview,
+                .social-badge-wrapper {
+                    display: none !important;
+                }
+
+                &__body,
+                &__availability {
+                    text-align: center;
+                    width: 100%;
+                }
+
+                &__badge {
+                    margin: 2px 0;
+                }
+
+                .price {
+                    margin: 5px 0;
+                }
+
+                &__name {
+                    font-weight: 700 !important;
+                }
+
+                .tile-body-footer {
+                    .add-to-cart {
+                        display: none;
+                    }
+                }
+            }
         }
     }
 
@@ -37,25 +101,27 @@
         object-fit: contain;
     }
 
-    &__results {
-        overflow-y: scroll;
-        height: 95%;
-    }
-
     &__wishlist-icon-wrapper {
         right: 0;
     }
 
     &__btn-add-to-cart {
-        .add-to-cart {
-            border-radius: 7.5rem; // 120px
-        }
-    }
+        right: 0;
+        top: 0;
 
-    &.active {
-        @include media-up(md) {
-            height: 550px;
-            transition: all 0.6s ease-in-out;
+        .add-to-cart {
+            padding: 7px;
+            border: 2px solid colour(gray, 1);
+
+            &:hover,
+            &:active {
+                background-color: colour(blue, 8) !important;
+            }
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
         }
     }
 
@@ -63,6 +129,55 @@
         display: flex;
         position: fixed;
         width: 100%;
+    }
+
+    .search-right-suggestions {
+        div {
+            &:first-child {
+                .suggestions-header {
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+
+    &__lists {
+        overflow-y: scroll;
+        padding-bottom: 40px;
+        height: 400px;
+
+        .suggestions-header {
+            margin-top: 15px;
+            margin-bottom: 12px;
+        }
+
+        .sub-list {
+            &__item {
+                &__icon {
+                    background-repeat: no-repeat;
+                    background-position: 0;
+                    padding: 12px;
+                }
+
+                &__link {
+                    @include underline-hover;
+                }
+            }
+
+            &.link-only {
+                .sub-list__item__link {
+                    padding: 2px 0;
+                }
+            }
+
+            .search-history-list__icon {
+                background-image: url("../images/icons/search-history-icon.svg");
+            }
+
+            .search-popular-list__icon {
+                background-image: url("../images/icons/search-sug-icon.svg");
+            }
+        }
     }
 
     .header {

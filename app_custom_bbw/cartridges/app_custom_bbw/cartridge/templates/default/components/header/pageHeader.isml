@@ -67,10 +67,12 @@
             <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
         </div>
     </nav>
+
+    <iscomment> Search Suggestions </iscomment>
+    <div class="search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>
+    <div class="search-suggestions position-absolute h-bg--white w-100 js-search-suggestions" id="search-suggestions">
+        <div class="suggestions-wrapper h-maxwidth--1400 mx-auto h-bg--white" data-url="${URLUtils.url('SearchServices-GetSuggestions', 'q')}"></div>
+    </div>
 </header>
 <iscontentasset aid="top-header-ticker-promo" />
-<div class="search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>
-<div class="search-suggestions position-absolute h-bg--white w-100" id="search-suggestions">
-    <div class="suggestions-wrapper h-maxwidth--1400 mx-auto h-bg--white" data-url="${URLUtils.url('SearchServices-GetSuggestions', 'q')}"></div>
-</div>
 <iscomment> <div class="mobile-search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>/ </iscomment>
