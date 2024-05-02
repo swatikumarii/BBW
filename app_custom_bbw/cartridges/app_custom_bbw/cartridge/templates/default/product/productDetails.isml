@@ -4,6 +4,7 @@
         var assets = require('*/cartridge/scripts/assets');
         assets.addJs('/js/productDetail.js');
         assets.addJs('/js/afterpay.js');
+        assets.addJs('/js/wishlist.js');
         assets.addCss('/css/product/detail.css');
         assets.addCss('/css/afterpaystyle.css');
     </isscript>

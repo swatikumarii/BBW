@@ -48,6 +48,8 @@ module.exports = {
                     }
                     if (data.success) {
                         $('.add-to-wish-list').addClass('added');
+                        $('.remove-from-wishlist').removeClass('d-none');
+                        $('.add-to-wish-list').addClass('d-none');
                     } else {
                         $('.add-to-wish-list').removeClass('added');
                     }
