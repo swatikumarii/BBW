@@ -1,6 +1,7 @@
 'use strict';
 
 var base = require('./base');
+var detail = require('./detail');
 
 /**
  * Generates the modal window on the first call.
@@ -9,24 +10,22 @@ function getModalHtmlElement() {
     if ($('#quickViewModal').length !== 0) {
         $('#quickViewModal').remove();
     }
-    var htmlString = '<!-- Modal -->'
-        + '<div class="modal fade" id="quickViewModal" role="dialog">'
-        + '<span class="enter-message sr-only" ></span>'
-        + '<div class="modal-dialog quick-view-dialog">'
-        + '<!-- Modal content-->'
-        + '<div class="modal-content">'
-        + '<div class="modal-header">'
-        + '    <a class="full-pdp-link" href=""></a>'
-        + '    <button type="button" class="close pull-right" data-dismiss="modal">'
-        + '        <span aria-hidden="true">&times;</span>'
-        + '        <span class="sr-only"> </span>'
-        + '    </button>'
-        + '</div>'
-        + '<div class="modal-body"></div>'
-        + '<div class="modal-footer"></div>'
-        + '</div>'
-        + '</div>'
-        + '</div>';
+    var htmlString =
+        '<!-- Modal -->' +
+        '<div class="modal fade" id="quickViewModal" role="dialog">' +
+        '<span class="enter-message sr-only" ></span>' +
+        '<div class="modal-dialog quick-view-dialog  modal-dialog-centered">' +
+        '<!-- Modal content-->' +
+        '<div class="modal-content border-0">' +
+        '<div class="modal-header border-bottom-0">' +
+        '    <button type="button" class="close h-bg--gray-1 pull-right" data-dismiss="modal">' +
+        '    </button>' +
+        '</div>' +
+        '<div class="modal-body"></div>' +
+        '<div class="modal-footer border-top-0"></div>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
     $('body').append(htmlString);
 }
 
@@ -60,10 +59,16 @@ function fillModalElement(selectedValueUrl) {
             $('#quickViewModal .modal-body').empty();
             $('#quickViewModal .modal-body').html(parsedHtml.body);
             $('#quickViewModal .modal-footer').html(parsedHtml.footer);
-            $('.full-pdp-link').text(data.quickViewFullDetailMsg);
-            $('#quickViewModal .full-pdp-link').attr('href', data.productUrl);
-            $('#quickViewModal .size-chart').attr('href', data.productUrl);
-            $('#quickViewModal .modal-header .close .sr-only').text(data.closeButtonText);
+            $('#quickViewModal .modal-body .full-link').html(
+                '<a class="full-pdp-link" href=' +
+                    data.productUrl +
+                    '>' +
+                    data.quickViewFullDetailMsg +
+                    '</a>'
+            );
+            $('#quickViewModal .modal-header .close .sr-only').text(
+                data.closeButtonText
+            );
             $('#quickViewModal .enter-message').text(data.enterDialogMessage);
             $('#quickViewModal').modal('show');
             $('body').trigger('quickview:ready');
@@ -86,4 +91,5 @@ module.exports = $.extend({}, base, {
             fillModalElement(selectedValueUrl);
         });
     },
+    quantityUpdate: detail.quantityUpdate
 });
