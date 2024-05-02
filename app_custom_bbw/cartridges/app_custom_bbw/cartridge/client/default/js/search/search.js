@@ -31,6 +31,21 @@ function handleRefinements($results) {
 }
 
 /**
+ * update desktop refinement in a way so that open refinement should not close
+ * @param {object} $results - jQuery DOM element
+ */
+function updateRefinements($results) {
+    $results.find('.filter-bar-desktop .filter-type').each(function () {
+        var id = $(this).attr('id');
+        var filter = $('.filter-bar-desktop .filter-type#' + id);
+        if (filter.find('.ref-toggle[aria-expanded="true"]').length > 0) {
+            $(this).find('.filter-list-wrapper').addClass('show');
+            $(this).find('.ref-toggle').attr('aria-expanded', 'true');
+        }
+    });
+}
+
+/**
  * Parse Ajax results and updated select DOM elements
  * @param {string} response - Ajax response HTML code
  * @returns {undefined}
@@ -41,6 +56,8 @@ function parseResults(response) {
         '.refinements': handleRefinements
     };
 
+    updateRefinements($results);
+
     // Update DOM elements that do not require special handling
     [
         '.grid-header',
@@ -48,7 +65,6 @@ function parseResults(response) {
         '.header.page-title',
         '.product-grid-wrapper',
         '.show-more',
-        '.filter-bar-desktop',
         '.selected-filter-mobile'
     ].forEach(function (selector) {
         updateDom($results, selector);
@@ -135,9 +151,29 @@ function searchAlphabetSort() {
         // Check if we need to add a new header
         if (firstLetter !== currentLetter) {
             currentLetter = firstLetter;
-            $('<li class="fragrance-filter-header h-bg--gray-1 h-pl--25"></li>').text(currentLetter).css('font-weight', 'bold').insertBefore(this);
+            $('<li class="fragrance-filter-header h-bg--gray-1 h-pl--25 h-fw--bold"></li>').text(currentLetter).css('font-weight', 'bold').insertBefore(this);
         }
     });
+}
+
+/**
+ * Checks the current active item in a carousel slider and adjusts control visibility accordingly.
+ * @param {jQuery|string|Element} slider - The jQuery object, selector, or DOM element of the slider.
+ */
+function checkitem(slider) {
+    if ($(slider).find('.carousel-inner .carousel-item:first').hasClass('active')) {
+        // But show right arrow
+        $(slider).find('.carousel-control-next').show();
+        // Hide left arrow
+        $(slider).find('.carousel-control-prev').hide();
+    } else if ($(slider).find('.carousel-inner .carousel-item:last').hasClass('active')) {
+        // Hide right arrow
+        $(slider).find('.carousel-control-prev').show();
+        // But show left arrow
+        $(slider).find('.carousel-control-next').hide();
+    } else {
+        $(slider).find('.slider-control').show();
+    }
 }
 
 module.exports = {
@@ -151,7 +187,7 @@ module.exports = {
         // Display refinements bar when Menu icon clicked
         $('.container').on('click', 'button.filter-results', function () {
             helpers.disableScroll();
-            $('.refinement-bar, .modal-background').show();
+            $('.refinement-bar, .modal-background').addClass('active');
             $('.refinement-bar').siblings().attr('aria-hidden', true);
             $('.refinement-bar').closest('.row').siblings().attr('aria-hidden', true);
             $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', true);
@@ -163,7 +199,7 @@ module.exports = {
     closeRefinements: function () {
         // Refinements close button
         $('.container').on('click', '.refinement-bar button.close, .modal-background', function () {
-            $('.refinement-bar, .modal-background').hide();
+            $('.refinement-bar, .modal-background').removeClass('active');
             $('.refinement-bar').siblings().attr('aria-hidden', false);
             $('.refinement-bar').closest('.row').siblings().attr('aria-hidden', false);
             $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', false);
@@ -294,7 +330,7 @@ module.exports = {
     },
 
     searchFilter: function () {
-        $('.fragrance-name .js-frag-search').on('keyup', debounce(function () {
+        $(document).on('keyup', '.fragrance-name .js-frag-search', debounce(function () {
             var filter = $(this).val().toUpperCase();
             $('.fragrance-name .filter-list li').each(function () {
                 // Skip headers
@@ -318,10 +354,25 @@ module.exports = {
         }, 500));
     },
 
-    closeFilter: function () {
-        $(document).on('click', '.filter-close', function () {
-            var filterParentId = $(this).data('parent');
-            $(filterParentId).collapse('toggle');
+    hideCarouselArrow: function () {
+        $('.b-product-tile__carousel').each(function () {
+            var sliderId = '#' + $(this).attr('id');
+            $(sliderId).on('slid.bs.carousel', function () {
+                checkitem(sliderId);
+            });
+            checkitem(sliderId);
         });
+        $('.b-product-tile__carousel').carousel({
+            wrap: false
+        });
+    },
+
+    handleOutSideClick: function () {
+        $(document).on('mouseleave', '.js-product-tile', debounce(function () {
+            if ($(this).find('.js-product-carousel').length > 0) {
+                var sliderId = '#' + $(this).find('.js-product-carousel').attr('id');
+                $(sliderId).carousel(0);
+            }
+        }, 500));
     }
 };

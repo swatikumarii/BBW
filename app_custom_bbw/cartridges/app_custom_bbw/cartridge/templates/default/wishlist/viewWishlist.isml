@@ -1,0 +1,58 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+       assets.addCss('/css/wishlist.css');
+        assets.addJs('/js/wishlist.js');
+        assets.addCss('/css/account/account.css');
+       assets.addCss('/css/login.css');
+    </isscript>
+  
+    <div class="h-maxwidth--1400 mx-auto my-account">
+        <!---Breadcrumbs--->
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+       
+        <isif condition="${pdict.privateList}">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>${pdict.errorMsg}</p>
+                </div>
+            </div>
+        <iselse>
+            <div class="row">
+                <div class="col mobile-my-account h-font-size--14 h-bg--gray-1 h-clr--black-1 text-uppercase">
+                    ${Resource.msg('label.myaccount', 'account', null)}
+                </div>
+                
+                <div class="col-lg-2 col-md-4">
+                    <div class="my-account-nav">
+                        <isinclude template="account/accountNav" />
+                    </div>
+                </div>
+
+                <div class="col-lg-10 col-md-8">
+                    <div class="my-account-description profile">
+                        <div class="account-profile">
+                            <div class="profile-heading">
+                                <h1 class="title text-capitalize position-relative">
+                                    ${Resource.msg('label.profile.info', 'account', null)}
+                
+                                    <span class="profile-required position-absolute h-clr--black-1 h-font-size--14 font-italic">
+                                        ${Resource.msg('label.required', 'account', null)}
+                                    </span>
+                                </h1>
+                                <h3 class="account-info-header h-clr--black-3 h-font-size--14 text-uppercase">
+                                    ${Resource.msg('label.profile.edit', 'account', null)}</h3>
+                            </div>
+                        </div>
+                
+                        <div class="row justify-content-center">
+                            <div class="account-info">cccccccccccccccccccccccccccccc
+                                <isinclude template="wishlist/components/wishlist" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </isif>
+    </div>
+</isdecorate>

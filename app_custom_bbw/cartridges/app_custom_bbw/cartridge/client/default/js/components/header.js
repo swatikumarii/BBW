@@ -74,7 +74,7 @@ $(window).scroll(function () {
  * To upen login popup
  */
 function openLoginPopup() {
-    $('.loginPopup').find('.modal').modal('show');
+    $('.loginPopup').find('#loginModal').modal('show');
 }
 module.exports = function () {
     $('#loginPopupBtn').on('click', openLoginPopup);

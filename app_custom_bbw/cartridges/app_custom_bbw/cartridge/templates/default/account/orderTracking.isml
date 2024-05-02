@@ -18,7 +18,7 @@
                                     ${Resource.msg('label.order.number', 'order', null)}
                                 </label>
                                 <input type="text" class="form-control" id="orderNumber"
-                                data-required="${Resource.msg('error.order.number.required', 'order', null)}" />
+                                    data-required="${Resource.msg('error.order.number.required', 'order', null)}" />
                                 <div class="text-danger error-class" id="orderNumber-error"></div>
                             </div>
 
@@ -27,8 +27,8 @@
                                     ${Resource.msg('label.order.email', 'order', null)}
                                 </label>
                                 <input type="text" class="form-control" id="orderEmail"
-                                data-required="${Resource.msg('error.order.email.required', 'order', null)}"
-                                data-invalidemail="${Resource.msg('error.order.email.format', 'order', null)}" />
+                                    data-required="${Resource.msg('error.order.email.required', 'order', null)}"
+                                    data-invalidemail="${Resource.msg('error.order.email.format', 'order', null)}" />
                                 <div class="text-danger error-class" id="orderEmail-error"></div>
                             </div>
 
@@ -37,8 +37,8 @@
                                     ${Resource.msg('label.billing.zip.code', 'order', null)}
                                 </label>
                                 <input type="text" class="form-control" id="billingZipCode"
-                                data-required="${Resource.msg('error.billing.zip.code.required', 'order', null)}" 
-                                data-maxlength="${Resource.msg('error.billing.zip.code.maxlength', 'order', null)}" />
+                                    data-required="${Resource.msg('error.billing.zip.code.required', 'order', null)}"
+                                    data-maxlength="${Resource.msg('error.billing.zip.code.maxlength', 'order', null)}" />
                                 <div class="text-danger error-class" id="billingZipCode-error"></div>
                             </div>
 

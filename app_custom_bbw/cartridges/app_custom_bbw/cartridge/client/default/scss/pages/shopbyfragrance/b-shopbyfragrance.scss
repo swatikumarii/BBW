@@ -127,10 +127,39 @@ body {
                     width: 100%;
                     position: relative;
 
+                    @include media-up(sm) {
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            background: colour(gray, 21);
+                            width: 16vw;
+                            display: block;
+                            bottom: 0;
+                            height: 2px;
+                        }
+                    }
+
+                    @include media-btw(sm, lg) {
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            background: colour(gray, 21);
+                            width: 33vw;
+                            display: block;
+                            bottom: 0;
+                            height: 2px;
+                        }
+                    }
+
+                    &:nth-last-child(-n + 3)::after {
+                        background: none;
+                    }
+
                     .static-level {
                         .title {
                             font-size: 21px;
                             width: 184px;
+                            line-height: 24px;
                         }
 
                         .alphabet-border {
@@ -145,36 +174,6 @@ body {
                         padding-left: 20px;
                         max-width: 153px;
                         min-width: 153px;
-
-                        &:not(:nth-last-child(-n+3))::after {
-                            background: none;
-                        }
-
-                        @include media-up(sm) {
-                            &::after {
-                                content: "";
-                                position: absolute;
-                                background: colour(gray, 21);
-                                margin-left: -44px;
-                                width: 22vw;
-                                display: block;
-                                bottom: 0;
-                                height: 2px;
-                            }
-                        }
-
-                        @include media-btw(sm, lg) {
-                            &::after {
-                                content: "";
-                                position: absolute;
-                                background: colour(gray, 21);
-                                margin-left: -21px;
-                                width: 33vw;
-                                display: block;
-                                bottom: 0;
-                                height: 2px;
-                            }
-                        }
 
                         .level-2 {
                             width: 153px;
@@ -200,6 +199,7 @@ body {
 
             h2 {
                 margin: 4px 0 20px;
+                line-height: 1.6875rem;
             }
 
             p {

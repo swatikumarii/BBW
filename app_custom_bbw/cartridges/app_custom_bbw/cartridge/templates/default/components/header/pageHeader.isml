@@ -15,11 +15,13 @@
     <nav class="bbw-nav h-bg--white">
         <div class="header bbw-nav-wrap h-maxwidth--1400 mx-auto position-relative">
             <div class="navbar-header brand primary-logo">
-                <a class="logo-home d-block h-100" href="${URLUtils.url('Home-Show')}"
-                    title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
-                        'global.home', 'common', null))}">
-                    <isset name="headerImage" value="${require('dw/system/Site').getCurrent().getCustomPreferenceValue('header_image')}" scope="page" />
-                    <img class="hidden-md-down h-100 w-100" src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/header/Logos-main.svg')}"
+                <a class="logo-home d-block h-100" href="${URLUtils.url('Home-Show')}" title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg(
+                                                                                              'global.home', 'common', null))}">
+                    <isset name="headerImage"
+                        value="${require('dw/system/Site').getCurrent().getCustomPreferenceValue('header_image')}"
+                        scope="page" />
+                    <img class="hidden-md-down h-100 w-100"
+                        src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/header/Logos-main.svg')}"
                         alt="${Resource.msg('global.storename', 'common', null)}" />
                 </a>
             </div>
@@ -31,7 +33,8 @@
                         src="${URLUtils.staticURL('/images/header/UI-Menu-v2.svg')}" alt="" />
                 </button>
                 <iscomment>Mobile Menu</iscomment>
-                <div id="mobile-custom-search" class="mobile-custom-search d-md-none hidden-md-up fa-pull-left m-0 text-center">
+                <div id="mobile-custom-search"
+                    class="mobile-custom-search d-md-none hidden-md-up fa-pull-left m-0 text-center">
                     <a href="" role="button">
                         <img class="" src="${URLUtils.staticURL('/images/header/UI-Search-v2.svg')}" alt="" />
                     </a>
@@ -59,13 +62,11 @@
                 </div>
             </div>
         </div>
-        <div class="bbw-menu mx-auto h-maxwidth--1400 main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown d-none d-md-block"
+        <div class="bbw-menu mx-auto main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown d-none d-md-block"
             id="sg-navbar-collapse">
             <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
         </div>
     </nav>
 </header>
-<div class="ticker-wrapper w-100 text-center h-font-size--16 h-bg--blue-3 h-clr--blue-4">
-    <iscontentasset aid="top-header-ticker-promo" />
-</div>
+<iscontentasset aid="top-header-ticker-promo" />
 <div class="search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>
