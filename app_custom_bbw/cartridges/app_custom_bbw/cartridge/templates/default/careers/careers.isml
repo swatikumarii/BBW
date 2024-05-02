@@ -5,11 +5,12 @@
         assets.addJs('/js/careers.js');
         assets.addCss('/css/careers.css');
     </isscript>
+    <div class="container">
     <div class="career-section">
-        <h1 class="entry-title">${Resource.msg('text.careers', 'careers', null)}</h1>
-
+        <h1 class="entry-title h-font-size--40">${Resource.msg('text.careers', 'careers', null)}</h1>
+    
         <iscontentasset aid="bbw-careers-content-asset" />
-
+    
         <div class="job-heading">
             <h2>${Resource.msg('text.available.position', 'careers', null)}</h2>
         </div>
@@ -19,14 +20,15 @@
             <!-- Accordion -->
             <div class="accordion-container careers_jobs">
                 <div class="row main-container">
-
+    
                     <div class="col-12 accordion" id="accordion">
                         <div class="panel-group " id="accordioncontent">
                             <isloop items="${pdict.careers}" var="career" status="loopstatus">
                                 <div class="panel panel-default firstItem">
                                     <div class="panel-heading collapsed" data-toggle="collapse"
                                         href="${'#' + (career.city).replace(/\s/g, '')}" aria-expanded="true"
-                                        aria-controls="${'#' + (career.city).replace(/\s/g, '')}" hreflang="${request.getLocale()}">
+                                        aria-controls="${'#' + (career.city).replace(/\s/g, '')}"
+                                        hreflang="${request.getLocale()}">
                                         <h3>
                                             <span class="headeing_main_c"> ${career.city} </span>
                                         </h3>
@@ -55,5 +57,6 @@
                 <!-- {# accordion #} -->
             </div>
         </isif>
+    </div>
     </div>
 </isdecorate>
