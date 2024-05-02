@@ -1,28 +1,22 @@
 <isloop items="${pdict.totals.discounts}" var="discount">
     <isif condition="${discount.type === 'coupon'}">
-        <div class="coupon-price-adjustment coupon-uuid-${discount.UUID}" data-uuid="${discount.UUID}">
-            <div class="coupon-code">${discount.couponCode} -
+        <div class="coupon-price-adjustment d-flex justify-content-between coupon-uuid-${discount.UUID}" data-uuid="${discount.UUID}">
+            <div class="coupon-code h-font-size--16 h-clr--green-2 h-fw--semibold">
                 <isif condition="${discount.applied}">
-                    <span class="coupon-applied">${Resource.msg('msg.coupon.applied', 'cart', null)}</span>
+                    <isloop items="${discount.relationship}" var="relatedPromotion">
+                        ${Resource.msgf('msg.coupon.applied', 'cart', null, relatedPromotion.callOutMsg)}
+                    </isloop>
+                    <span class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + discount.couponCode}</span>
                 <iselse/>
-                    <span class="coupon-not-applied">${discount.qualificationMsg}</span>
+                    <span class="coupon-not-applied h-clr--red">${discount.qualificationMsg}</span>
+                    <span class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + discount.couponCode}</span>
                 </isif>
-                <span class="delete-coupon-confirmation-btn" data-code="${discount.couponCode}"
-                    aria-label="${Resource.msgf('text.remove.coupon', 'cart', null, discount.couponCode)}"
-                    data-action="${pdict.actionUrls.removeCouponLineItem}" data-uuid="${discount.UUID}">
-                    <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
-                </span>
             </div>
-            <ul class="coupon-promotion-relationship">
-                <isloop items="${discount.relationship}" var="relatedPromotion">
-
-                    <isif condition="${relatedPromotion.callOutMsg}">
-                        <li>
-                            <isprint value="${relatedPromotion.callOutMsg}" encoding="off" />
-                        </li>
-                    </isif>
-                </isloop>
-            </ul>
+            <span class="delete-coupon-confirmation-btn" data-code="${discount.couponCode}"
+                aria-label="${Resource.msgf('text.remove.coupon', 'cart', null, discount.couponCode)}"
+                data-action="${pdict.actionUrls.removeCouponLineItem}" data-uuid="${discount.UUID}">
+                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="15" />
+            </span>
         </div>
     </isif>
 </isloop>
