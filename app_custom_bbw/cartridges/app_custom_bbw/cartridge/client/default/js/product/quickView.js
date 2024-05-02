@@ -1,6 +1,7 @@
 'use strict';
 
 var base = require('./base');
+var detail = require('./detail');
 
 /**
  * Generates the modal window on the first call.
@@ -58,10 +59,16 @@ function fillModalElement(selectedValueUrl) {
             $('#quickViewModal .modal-body').empty();
             $('#quickViewModal .modal-body').html(parsedHtml.body);
             $('#quickViewModal .modal-footer').html(parsedHtml.footer);
-            $('#quickViewModal .modal-footer').html(
-                '<a class="full-pdp-link" href='+ data.productUrl +'>'+ data.quickViewFullDetailMsg +'</a>'
+            $('#quickViewModal .modal-body .full-link').html(
+                '<a class="full-pdp-link" href=' +
+                    data.productUrl +
+                    '>' +
+                    data.quickViewFullDetailMsg +
+                    '</a>'
             );
-            $('#quickViewModal .modal-header .close .sr-only').text(data.closeButtonText);
+            $('#quickViewModal .modal-header .close .sr-only').text(
+                data.closeButtonText
+            );
             $('#quickViewModal .enter-message').text(data.enterDialogMessage);
             $('#quickViewModal').modal('show');
             $('body').trigger('quickview:ready');
@@ -84,4 +91,5 @@ module.exports = $.extend({}, base, {
             fillModalElement(selectedValueUrl);
         });
     },
+    quantityUpdate: detail.quantityUpdate
 });

@@ -109,14 +109,6 @@
                             </div>
                         </isif>
 
-                        <button type="button"
-                            class="btn btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
-                            data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486" title=""
-                            data-content="<div class='popover-content ds-tooltip-content'> <p class='h-clr--black-3 h-font-size--16 mb-0'> 95 West Main Street, <br /> New Albany, OH 43054 <br /> 1-800-756-5005</p> <br /> <p class='h-clr--black-3 mb-0 h-font-size--16'>You may withdraw your <br /> consent at anytime. View</p><a class=' cursor-pointer d-block h-font-size--16' href='#'>Privacy Policy</a><br /><a class='cursor-pointer d-block h-font-size--16' href='#'>Contact Us</a></div>"
-                            data-html="true"
-                            data-original-title="<div class='popover-title header-content h-font-size--18 h-fw--bold d-flex align-items-center justify-space-between'>BATH &amp; BODY WORKS DIRECT,INC.</div> <a href='#' class='close cursor-pointer'></a>">
-                        </button>
-
                         <!-- Applicable Promotions -->
                         <isloop items="${product.promotions}" var="promotion" status="loopstatus">
                             <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">

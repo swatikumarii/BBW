@@ -112,19 +112,20 @@
         }
     }
 
-    .full-pdp-link {
-        margin-right: 35px;
+    .full-link {
         border-top: 0.5px solid colour(gray, 6);
-        width: 42.7%;
-        margin-top: 15px;
-        padding-top: 14px;
-        font-size: 14px;
-        text-decoration: underline;
-        color: colour(gray);
+        margin-top: 30px;
         padding-bottom: 30px;
+        padding-top: 14px;
 
-        &:hover {
-            text-decoration: none;
+        .full-pdp-link {
+            font-size: 14px;
+            text-decoration: underline;
+            color: colour(gray);
+
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
 

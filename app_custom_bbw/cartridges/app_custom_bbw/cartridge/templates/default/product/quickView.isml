@@ -119,7 +119,6 @@
                 <isinclude template="product/components/availability" />
             </div>
 
-
             <div class="d-flex quantity-cart-wrap w-100">
                 <isif condition="${!product.variationAttributes}">
                     <div class="simple-quantity">
@@ -138,6 +137,8 @@
             <div class="afterPayExtension">
                 <isinclude template="product/components/addToCartButtonExtension" />
             </div>
+
+            <div class="full-link"></div>
 
             <div class="product-options">
                 <isif condition="${product.options && product.options.length > 0}">
