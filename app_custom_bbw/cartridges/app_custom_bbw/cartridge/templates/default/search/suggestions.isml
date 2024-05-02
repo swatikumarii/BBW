@@ -124,21 +124,23 @@
             </div>
 
             <iscomment> Category Search </iscomment>
-            <div class="category-suggestions">
-                <h2 class="suggestions-header h-fw--bold text-uppercase">${Resource.msg('label.categories', 'search', null)}</h2>
-                <div class="search-category-list sub-list link-only" role="list">
-                    <isloop items="${pdict.suggestions.category.categories}" var="category" status="listindex">
-                        <div class="search-category-list__item sub-list__item d-flex align-items-center">
-                            <a href="${category.url}" class="search-category-list__link sub-list__item__link"><span class="h-fw--semibold">${category.name}</span>
-                            <isif condition="${category.parentID !== 'root'}">
-                                <span class="category-parent"> ${Resource.msg('label.suggest.in', 'search', null)}
-                                    ${category.parentName} </span>
-                            </isif>
-                            <span class="h-clr--blue h-fw--semibold">${(category.productCount)}</span></a>
-                        </div>
-                    </isloop>
+            <isif condition="${pdict.suggestions.category && pdict.suggestions.category.available}">
+                <div class="category-suggestions">
+                    <h2 class="suggestions-header h-fw--bold text-uppercase">${Resource.msg('label.categories', 'search', null)}</h2>
+                    <div class="search-category-list sub-list link-only" role="list">
+                        <isloop items="${pdict.suggestions.category.categories}" var="category" status="listindex">
+                            <div class="search-category-list__item sub-list__item d-flex align-items-center">
+                                <a href="${category.url}" class="search-category-list__link sub-list__item__link"><span class="h-fw--semibold">${category.name}</span>
+                                <isif condition="${category.parentID !== 'root'}">
+                                    <span class="category-parent"> ${Resource.msg('label.suggest.in', 'search', null)}
+                                        ${category.parentName} </span>
+                                </isif>
+                                <span class="h-clr--blue h-fw--semibold">${(category.productCount)}</span></a>
+                            </div>
+                        </isloop>
+                    </div>
                 </div>
-            </div>
+            </isif>
 
             <iscomment> Content Search </iscomment>
             <div class="content-suggestions">
