@@ -11,7 +11,7 @@
                     data-target="#collapse-fragrance" aria-expanded="true" aria-controls="collapse-fragrance">
                     ${Resource.msg('label.fragrance.details', 'product', null)}
                 </h2>
-    
+
                 <div class="value content collapse" id="collapse-fragrance" aria-labelledby="fragrance"
                     data-parent="#pdp-accordion">
                     <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
@@ -57,7 +57,7 @@
                     aria-controls="collapse-usage-instruction">
                     ${Resource.msg('label.usage.instruction', 'product', null)}
                 </h2>
-    
+
                 <div class="value content collapse" id="collapse-usage-instruction" aria-labelledby="usage-instruction"
                     data-parent="#pdp-accordion">
                     <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
@@ -108,5 +108,5 @@
             </div>
         </div>
     </isif>
-    
+
 </div>
