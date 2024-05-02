@@ -12,7 +12,7 @@
             </span>
             <h1 class="text-center h-fw--semibold"><isprint value="${Resource.msgf('title.my.shopping.cart', 'cart', null, pdict.numItems)}" encoding="off" /></h1>
         </div>
-        <isif condition="${!pdict.valid.error && pdict.items.length !== 0}">
+        <isif condition="${pdict.items.length !== 0}">
 
             <isslot id="minicart-top-slot" context="global" description="This slot will apper on the top of minicart" />
 
@@ -78,7 +78,7 @@
 
     <isinclude template="cart/cartRemoveProductModal" />
 
-    <isif condition="${!pdict.valid.error && pdict.items.length !== 0}">
+    <isif condition="${pdict.items.length !== 0}">
         <isscript>
             var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
             var afterpayPDPEnable = sitePreferences.isDisplayCartInfo() && sitePreferences.isAfterpayEnabled();

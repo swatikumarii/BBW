@@ -225,3 +225,11 @@
         }
     }
 }
+
+.cart-checkout-btn,
+.checkout-btn {
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.7;
+    }
+}
