@@ -7,7 +7,7 @@
                         <div class="items" id="phrase-1-${listindex.index}" role="option">
                             <div class="item term">
                                 <isif condition="${!phrase.exactMatch}">
-                                    <span>Results For &quot;</span><a
+                                    <span>${Resource.msg('label.results.for', 'search', null)} &quot;</span><a
                                         href="${URLUtils.url('Search-Show', 'q', phrase.value)}">${phrase.value}</a>&quot;
                                 </isif>
                             </div>
@@ -15,14 +15,16 @@
                     </isloop>
                     <div class="row no-gutters header">
                         <div class="col">
-                            <h2 class="h-fw--bold">Trending Now</h2>
+                            <h2 class="h-fw--bold">${Resource.msg('label.trending.now', 'search', null)}</h2>
                         </div>
                     </div>
-                    <a data-viewall="" href="" class="viewall-link h-clr--blue-1 h-fw--semibold">View All</a>
-                <iselseif condition="${!pdict.suggestions.product || !pdict.suggestions.product.available || !pdict.suggestions.product.phrases.length > 0}" />
+                    <a data-viewall="" href="${URLUtils.https('Search-Show', 'q', pdict.suggestions.searchTerms)}"
+                        class="viewall-link h-clr--blue-1 h-fw--semibold">${Resource.msg('label.view.all', 'search', null)}</a>
+                    <iselseif
+                        condition="${!pdict.suggestions.product || !pdict.suggestions.product.available || !pdict.suggestions.product.phrases.length > 0}" />
                     <div class="row no-gutters header">
                         <div class="col">
-                            <h2 class="h-fw--bold">Trending Now</h2>
+                            <h2 class="h-fw--bold">${Resource.msg('label.trending.now', 'search', null)}</h2>
                         </div>
                     </div>
                 <iselse/>
@@ -48,7 +50,7 @@
             <div class="suggestions__search-product-header d-flex justify-content-between mb-2">
                 <div class="row no-gutters header">
                     <div class="col">
-                        <h2 class="h-fw--bold">Trending Now</h2>
+                        <h2 class="h-fw--bold">${Resource.msg('label.trending.now', 'search', null)}</h2>
                     </div>
                 </div>
                 <a data-viewall="" href="" class="viewall-link h-clr--blue-1 h-fw--semibold">View All</a>
@@ -69,7 +71,7 @@
         <div class="search-right-suggestions">
             <iscomment> Search History </iscomment>
             <div class="history-suggestions">
-                <h2 class="suggestions-header h-fw--bold text-uppercase">Search History</h2>
+                <h2 class="suggestions-header h-fw--bold text-uppercase">${Resource.msg('label.search.history', 'search', null)}</h2>
                 <div class="search-history-list sub-list" role="list">
                     <div class="search-history-list__item sub-list__item d-flex align-items-center">
                         <span class="search-history-list__icon sub-list__item__icon d-inline-block"></span>
@@ -96,7 +98,7 @@
 
             <iscomment> Popular Search </iscomment>
             <div class="popular-suggestions">
-                <h2 class="suggestions-header h-fw--bold text-uppercase">Popular Search</h2>
+                <h2 class="suggestions-header h-fw--bold text-uppercase">${Resource.msg('label.popular.search', 'search', null)}</h2>
                 <div class="search-popular-list sub-list" role="list">
                     <div class="search-popular-list__item sub-list__item d-flex align-items-center">
                         <span class="search-popular-list__icon sub-list__item__icon d-inline-block"></span>
@@ -123,7 +125,7 @@
 
             <iscomment> Category Search </iscomment>
             <div class="category-suggestions">
-                <h2 class="suggestions-header h-fw--bold text-uppercase">Categories</h2>
+                <h2 class="suggestions-header h-fw--bold text-uppercase">${Resource.msg('label.categories', 'search', null)}</h2>
                 <div class="search-category-list sub-list link-only" role="list">
                     <div class="search-category-list__item sub-list__item d-flex align-items-center">
                         <a href="#" class="search-category-list__link sub-list__item__link"><span
@@ -146,14 +148,16 @@
                                 class="h-clr--blue h-fw--semibold">(8)</span></a>
                     </div>
                     <div class="search-category-list__item sub-list__item d-flex align-items-center">
-                        <a href="#" class="search-category-list__link sub-list__item__link"><span class="h-fw--semibold">Candle</span> in Home <span class="h-clr--blue h-fw--semibold">(8)</span></a>
+                        <a href="#" class="search-category-list__link sub-list__item__link"><span
+                                class="h-fw--semibold">Candle</span> in Home <span
+                                class="h-clr--blue h-fw--semibold">(8)</span></a>
                     </div>
                 </div>
             </div>
 
             <iscomment> Content Search </iscomment>
             <div class="content-suggestions">
-                <h2 class="suggestions-header h-fw--bold text-uppercase">Content</h2>
+                <h2 class="suggestions-header h-fw--bold text-uppercase">${Resource.msg('label.content', 'search', null)}</h2>
                 <div class="search-content-list sub-list link-only" role="list">
                     <div class="search-content-list__item sub-list__item d-flex align-items-center">
                         <a href="#" class="search-content-list__link sub-list__item__link">Customer Service</a>
