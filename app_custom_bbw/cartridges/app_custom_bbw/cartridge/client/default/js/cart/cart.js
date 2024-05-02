@@ -339,11 +339,22 @@ module.exports = function () {
                             }
                         );
                     } else {
-                        $('.cart').empty().append('<div class="row"> '
-                            + '<div class="col-12 text-center"> '
-                            + '<h1>' + data.basket.resources.emptyCartMsg + '</h1> '
-                            + '</div> '
-                            + '</div>');
+                        var emptyCartHtml =
+                            '<div class="container text-center">' +
+                            '<div class="row cart-empty">' +
+                            '<div class="col-12 text-center cart-empty-msg-wrap">' +
+                            '<h1 class="h-font-size--24 h-fw--bold h-clr--black-1 cart-empty-msg">' +
+                            data.basket.resources.emptyCartMsg +
+                            '</h1>' +
+                            ' </div>' +
+                            '</div>' +
+                            '<a href="' +
+                            data.basket.continueShoppingLink +
+                            '" class="btn btn-primary empty-cart-continue h-font-size--16 h-fw--semibold">' +
+                            data.basket.resources.continueShoppingMsg +
+                            '</a>' +
+                            '</div>';
+                        $('.cart').empty().append(emptyCartHtml);
                     }
                     $('.number-of-items').empty().append(data.basket.resources.numberOfItems);
                     $('.minicart-quantity').empty().append(data.basket.numItems);
