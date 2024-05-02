@@ -16,6 +16,11 @@
             margin-right: 0;
         }
 
+        .icon-next,
+        .icon-prev {
+            background-color: transparent;
+        }
+
         &:hover .carousel-control-next,
         &:hover .carousel-control-prev {
             display: flex;

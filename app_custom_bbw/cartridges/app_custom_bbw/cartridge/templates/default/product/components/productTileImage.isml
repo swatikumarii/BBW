@@ -71,8 +71,8 @@
     </div>
 
     <isif condition="${pdict.display.showQuickView !== false}">
-        <a class="b-product-tile__quickview quickview hidden-sm-down position-absolute" href="${pdict.urls.quickView}"
-            data-toggle="modal" data-target="#quickViewModal"
+        <a class="d-none d-md-block b-product-tile__quickview quickview hidden-sm-down position-absolute"
+            href="${pdict.urls.quickView}" data-toggle="modal" data-target="#quickViewModal"
             title="${Resource.msg('label.btn.quicklook', 'search', null)}"
             aria-label="${Resource.msgf('button.quickview', 'common', null, product.productName)}">${Resource.msg('label.btn.quicklook', 'search', null)}</a>
     </isif>
