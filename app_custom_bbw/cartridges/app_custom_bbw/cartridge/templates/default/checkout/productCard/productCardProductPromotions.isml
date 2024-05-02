@@ -10,7 +10,7 @@
             <isset name="showDescription" value="${true}" scope="page" />
         </isif>
 
-        <isif condition="${showDescription}">
+        <isif condition="${showDescription && promotion.details !== ''}">
             <div class="h-pos--relative d-flex flex-column justify-content-center promo-details-wrap">
                 <span class="callout-detail promo-details h-font-size--${miniCart ? '12' : '14'} p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block">
                     ${Resource.msg('label.promo.details', 'cart', null)}
