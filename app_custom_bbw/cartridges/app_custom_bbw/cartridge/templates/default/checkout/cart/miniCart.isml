@@ -28,16 +28,12 @@
                 </div>
             </isif>
             <iscomment> Motivator to be added here </iscomment>
-            <div class="minicart-error cart-error">
-                <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
-                    <div class="alert alert-danger alert-dismissible valid-cart-error fade show" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
-                        </button>
-                        ${pdict.valid.message}
-                    </div>
-                </isif>
-            </div>
+            <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
+                <div class="minicart-error cart-error cart-error-messaging h-font-size--14 h-bg--red-10 h-clr--red-9 px-3 py-2 my-3 d-flex">
+                    <img src="${URLUtils.staticURL('images/Alert-Error.svg')}" alt="error alert" width="28px" height="28px" class="pr-2" />
+                    <span>${pdict.valid.message}</span>
+                </div>
+            </isif>
 
             <div class="product-summary border-top mt-3">
                 <isloop items="${pdict.items}" var="lineItem" status="loopstatus">
