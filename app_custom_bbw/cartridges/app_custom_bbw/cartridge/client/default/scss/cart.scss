@@ -86,7 +86,7 @@
             }
 
             .headerPrice {
-                width: 84px;
+                width: 104px;
                 padding: 10px 0;
             }
 
@@ -193,12 +193,16 @@
                 }
 
                 .line-item-price {
-                    width: 84px;
+                    width: 104px;
                     font-size: 16px;
                     line-height: 20px;
                     font-weight: 600;
                     font-family: $ff-base;
                     padding-top: 10px;
+
+                    .strike-through {
+                        text-decoration: line-through;
+                    }
                 }
 
                 .line-item-quantity {

@@ -35,7 +35,7 @@
             </a>
         </span>
     <iselse/>
-        <span class="sales">
+        <span class="sales h-clr--black-1">
             <isif condition="${isLowPrice == 'range-low'}">
                 <span class="value" content="${price.decimalPrice}"></span>
             </isif>

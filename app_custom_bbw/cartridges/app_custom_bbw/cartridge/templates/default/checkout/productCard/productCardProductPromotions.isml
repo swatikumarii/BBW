@@ -1,6 +1,6 @@
 <isif condition="${lineItem.promotions}">
     <isloop items="${lineItem.promotions}" var="promotion">
-        <div class="h-font-size--${miniCart ? '12' : '14'}">
+            <div class="h-font-size--${!(miniCart) ? '14' : '12'}">
             <isprint value="${promotion.calloutMsg}" encoding="off" />
         </div>
         <isset name="showDescription" value="${false}" scope="page" />
