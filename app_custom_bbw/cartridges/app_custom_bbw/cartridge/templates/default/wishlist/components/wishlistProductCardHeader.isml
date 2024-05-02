@@ -1,0 +1,17 @@
+<div class="line-item-header remove-wishlist">
+    
+    <isif condition=${!pdict.wishlist.publicView}>
+        <div class="hidden-md-down">
+            <button type="button" class="w-auto bg-white border-0 remove-btn-lg remove-from-wishlist btn btn-light"
+            data-url="${URLUtils.url('Wishlist-RemoveProduct','pid', item.pid)}"
+        <isif condition="${item.variantAttributes}">
+            aria-label="${Resource.msgf('wishlist.remove.item.variant', 'wishlist', null, item.name, item.variantAttributes)}">
+        <iselse>
+            aria-label="${Resource.msgf('wishlist.remove.item', 'wishlist', null, item.name)}">
+         </isif>
+            <img width="24px" height="24px" alt="image" src="${URLUtils.staticURL('/images/account/broken-heart.svg')}" />
+            <span class="h-clr--black-3 h-font-size--14">${Resource.msg('label.remove', 'wishlist', null)}</span>
+            </button>
+        </div>
+    </isif>
+</div>

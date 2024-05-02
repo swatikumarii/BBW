@@ -1,0 +1,25 @@
+<!---item price--->
+<div class="line-item-price line-item-price-${lineItem.UUID}">
+    <isset name="price" value="${lineItem.price}" scope="page"/>
+    <div class="unit-price">
+        <isinclude template="/product/components/pricing/main" />
+    </div>
+</div>
+
+<!--- quantity --->
+<div class="line-item-quantity">
+    <isif condition="${lineItem.customBundle}">
+        <isinclude template="checkout/productCard/productCardQuantityDisplay" />
+    <iselse/>
+        <isinclude template="checkout/productCard/productCardQuantitySelector" />
+    </isif>
+    <iscomment> availability </iscomment>
+    <isinclude template="cart/productCard/cartProductCardAvailability" />
+</div>
+
+<!--- line item total price --->
+<div class="line-item-total-price">
+    <div class="item-total-${lineItem.UUID} price">
+        <isinclude template="checkout/productCard/productCardProductTotalPrice" />
+    </div>
+</div>

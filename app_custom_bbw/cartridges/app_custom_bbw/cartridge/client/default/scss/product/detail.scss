@@ -1,0 +1,476 @@
+@import "../_brand/_api/api";
+
+.product-detail {
+    padding: 0 15px;
+
+    @include media-up(sm) {
+        padding: 0 20px;
+    }
+
+    .carousel {
+        cursor: pointer;
+
+        @include media-up(sm) {
+            width: 350px;
+            float: right;
+            margin-right: 0;
+        }
+
+        &:hover .carousel-control-next,
+        &:hover .carousel-control-prev {
+            display: flex;
+            height: fit-content;
+            top: 45%;
+            z-index: auto;
+        }
+
+        .carousel-control-next,
+        .carousel-control-prev {
+            display: flex;
+            z-index: 0;
+
+            @include media-up(sm) {
+                display: none;
+            }
+        }
+
+        .carousel-indicators {
+            z-index: 0;
+
+            li {
+                width: 38px;
+                margin-right: 45px;
+            }
+        }
+
+        @include media-up(sm) {
+            &.zoom-carousel {
+                width: auto;
+                float: none;
+            }
+        }
+
+        .zoomImage-link {
+            content: "";
+            width: 22px;
+            height: 22px;
+            background: url("../../images/pdp/svgexport-12.svg");
+            background-repeat: no-repeat;
+            background-size: contain;
+            right: 0;
+            bottom: 10px;
+            cursor: pointer;
+        }
+
+        .zoomImage-sec {
+            display: none;
+            left: 0;
+            top: 0;
+            z-index: 1111;
+
+            .zoomImages {
+                .zoomOut-link {
+                    right: 2.5rem;
+                    top: 1.4375rem;
+                    width: 2rem;
+                    height: 2rem;
+                    z-index: 3;
+                    border-radius: 50%;
+                    background: url("../../images/pdp/forgot-password-close.svg");
+                    background-position-x: 50%;
+                    background-repeat: no-repeat;
+                    background-size: 0.875rem;
+                    cursor: pointer;
+                }
+
+                .carousel-inner {
+                    overflow-x: scroll;
+                    padding: 0.9375rem;
+
+                    .carousel-item {
+                        margin-right: 0;
+
+                        img {
+                            height: calc(100vh - 45px);
+                            max-width: none;
+                            padding-right: 0.625rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .brand-name {
+        line-height: 1.25rem;
+        letter-spacing: 0.01em;
+        padding-bottom: 0.3125rem;
+    }
+
+    .product-name {
+        line-height: 1.75rem;
+        margin-bottom: 1.0625rem;
+
+        .small-title {
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+        }
+    }
+
+    .rating-review {
+        margin: 0 0 0.5625rem;
+
+        .product-number-rating {
+            .ratings {
+                padding-right: 1rem;
+            }
+
+            .total-rating {
+                padding-right: 1rem;
+                text-decoration: underline;
+            }
+        }
+
+        .review a {
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .prices-add-to-cart-actions {
+        margin-bottom: 0.625rem;
+
+        .sales {
+            font-weight: map-get($font-weight, semibold);
+            font-size: 1.125rem;
+            line-height: 1.25rem;
+            letter-spacing: 0.005em;
+            color: colour(black, 1);
+
+            .b-product-tile__price-link {
+                &:hover {
+                    color: colour(black, 1);
+                }
+            }
+        }
+    }
+
+    .attributes {
+        .volume-name {
+            line-height: 1rem;
+            letter-spacing: 0.015em;
+            padding-bottom: 0.875rem;
+        }
+
+        .promotion-callout {
+            line-height: 1.25rem;
+            letter-spacing: 0.005em;
+            width: 79%;
+            margin-bottom: 0.75rem;
+
+            .callout-detail {
+                &::after {
+                    font-size: 0.875rem;
+                    line-height: 1rem;
+                    color: colour(gray, 4);
+                    margin-top: 0.3125rem;
+                    text-decoration: underline;
+                    content: "Details";
+                }
+
+                .popover-header {
+                    display: none;
+                }
+            }
+        }
+
+        .bopis-delivery-options {
+            padding: 1.5625rem 0 1.625rem;
+            border: 0.0625rem solid colour(gray, 6);
+            margin-bottom: 1.5rem;
+
+            fieldset {
+                .delivery-options {
+                    margin-bottom: 1.25rem;
+                    letter-spacing: 0.01em;
+                }
+
+                .bopis-eligible-for-pickup {
+                    input {
+                        width: 1rem;
+                        height: 1rem;
+                    }
+
+                    .ship-it-msg {
+                        padding-left: 0.3125rem;
+
+                        .ship-it-truck-icon {
+                            display: inline-block;
+
+                            &::before {
+                                content: "";
+                                background: url("../../images/pdp/bopis-shipping.svg");
+                                background-repeat: no-repeat;
+                                background-size: 1.5625rem 0.8rem;
+                                width: 1.5625rem;
+                                height: 0.8rem;
+                                margin: 0.1rem 0.4375rem 0.1rem 0;
+                                display: flex;
+                            }
+                        }
+                    }
+
+                    .in-stock-msg {
+                        padding: 0.3125rem 0 0.6875rem 3.5rem;
+                    }
+
+                    .bopis-pfs-with-store-container {
+                        .bopis-pick-from-store-option-label {
+                            letter-spacing: 0.01em;
+
+                            .pdp-pick-up-icon {
+                                display: inline-block;
+                            }
+
+                            .pdp-pick-up-icon::before {
+                                background: url("../../images/pdp/bopis-icon-small.svg");
+                                background-repeat: no-repeat;
+                                background-size: 1.5625rem 0.8rem;
+                                content: "";
+                                display: flex;
+                                height: 0.8rem;
+                                margin: 0.1rem 0.4375rem 0.1rem 0;
+                                width: 1.5625rem;
+                            }
+                        }
+
+                        .bopis-set-store-container.bopis-pdp-set-store {
+                            padding: 0 0 0 3.4375rem;
+
+                            .bopis-set-store {
+                                letter-spacing: 0.01em;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .product-availability {
+            .list-unstyled {
+                border-bottom: 0.0625rem solid colour(gray, 6);
+                margin-bottom: 1.5625rem;
+                padding-bottom: 1.375rem;
+            }
+        }
+
+        .quantity-cart-wrap {
+            padding: 0 0.9375rem;
+
+            .simple-quantity {
+                margin-right: 0.5rem;
+                border: 0.125rem solid colour(gray, 5);
+
+                @include media-down(sm) {
+                    width: 50%;
+                }
+
+                .quantity-button {
+                    cursor: pointer;
+                    height: 2.8125rem;
+                    width: 20%;
+                    letter-spacing: 0.01em;
+                }
+
+                input {
+                    height: 2.8125rem;
+                    width: 60%;
+                }
+            }
+
+            .js-add-to-cart-button {
+                @include media-down(sm) {
+                    width: 50%;
+                }
+
+                .cart-and-ipay {
+                    .add-to-cart {
+                        width: 100%;
+
+                        @include media-up(sm) {
+                            width: 11.4375rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .afterPayExtension {
+            padding-top: 7px;
+            width: 100%;
+
+            @include media-up(sm) {
+                width: 403px;
+            }
+        }
+
+        .description-and-detail {
+            margin-top: 1.5625rem;
+            width: 100%;
+
+            @include media-up(md) {
+                width: 66%;
+            }
+
+            .card {
+                border-top: 0.0625rem solid colour(gray, 6);
+
+                h2 {
+                    padding: 1.25rem 0.875rem;
+                    cursor: pointer;
+
+                    &::after {
+                        top: 1.125rem;
+                    }
+                }
+            }
+
+            .content p {
+                padding: 0 1rem;
+            }
+        }
+
+        .social-container {
+            .social-icons {
+                padding: 1.0625rem 0 0.1875rem;
+                width: 100%;
+
+                @include media-up(md) {
+                    width: 66%;
+                }
+
+                li {
+                    list-style: none;
+                    background: colour(gray, 18);
+                    height: 1.75rem;
+                    width: 1.75rem;
+                    border-radius: 0.875rem;
+                    margin: 0 1rem;
+
+                    img {
+                        height: 18px;
+                        width: 18px;
+                        position: relative;
+                        top: -2px;
+                    }
+                }
+
+                li.facebook:hover {
+                    background: colour(blue, 5);
+                }
+
+                li.twitter {
+                    &:hover {
+                        background: colour(blue, 6);
+                    }
+                }
+
+                li.instagram:hover {
+                    &:hover {
+                        background: colour(blue, 7);
+                    }
+                }
+
+                li.pinterest:hover {
+                    &:hover {
+                        background: colour(red, 8);
+                    }
+                }
+            }
+        }
+    }
+
+    .pdp-wishlist {
+        .add-to-wish-list {
+            padding: 0;
+            transition: all 0.3s ease;
+            width: 38px;
+            height: 36px;
+            float: right;
+            cursor: pointer;
+            opacity: 1;
+            background: url("../../images/pdp/PDP-Wishlist-2.svg") no-repeat 50%;
+
+            &.added {
+                background: url("../../images/pdp/PDP-Wishlist-4.svg") no-repeat
+                    50%;
+
+                &:hover {
+                    background: url("../../images/pdp/PDP-Wishlist-5.svg")
+                        no-repeat 50%;
+                }
+            }
+        }
+    }
+}
+
+.pdp-popover {
+    border: 1px solid colour(gray);
+    box-shadow: 0 0 13px 0 rgba(0, 0, 0, 15%);
+    color: colour(black, 1);
+    padding: 1.5rem 0.5rem 1.5rem 0;
+    overflow-y: initial;
+    left: 5% !important;
+    border-radius: 0;
+
+    .popover-body {
+        overflow-y: scroll;
+        max-height: 6.25rem;
+        padding: 0 1rem;
+    }
+
+    .popover-header {
+        display: none;
+    }
+
+    .arrow {
+        left: 14px !important;
+    }
+
+    .close {
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background-size: 0.8125rem;
+    }
+}
+
+.toast {
+    position: absolute;
+    right: -15px;
+    top: 36px;
+
+    p {
+        font-size: 16px;
+        line-height: 20px;
+        line-height: 1.25rem;
+        letter-spacing: 0.01em;
+        color: colour(gray, 4);
+        margin: 10px 0;
+    }
+}
+
+.wish-list-image {
+    background: url("../../images/pdp/PDP-Wishlist-4.svg") no-repeat 50%;
+    margin: auto;
+    height: 40px;
+    width: 40px;
+    float: left;
+    margin-right: 10px;
+}

@@ -1,0 +1,11 @@
+.product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    @include media-btw(sm, lg) {
+        grid-template-columns: repeat(3, minmax(0, 250px));
+    }
+
+    @include media-up(md) {
+        grid-template-columns: repeat(4, minmax(0, 250px));
+    }
+}

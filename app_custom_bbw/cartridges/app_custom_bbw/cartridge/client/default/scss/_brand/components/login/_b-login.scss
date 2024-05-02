@@ -1,1 +1,471 @@
-// Login Page
+// Login popup Page
+.login-modal-view {
+    top: 0;
+    margin-top: 3vh;
+    max-width: 343px;
+
+    .login-form-input {
+        height: 3rem;
+    }
+
+    .modal-header {
+        height: 35px;
+
+        .close-icon-btn {
+            opacity: 1;
+
+            &:hover {
+                background-color: colour(gray, 1);
+                box-shadow: inset 0 0 0 8px colour(white);
+            }
+        }
+    }
+
+    .modal-body {
+        h4 {
+            line-height: 1.25rem;
+            letter-spacing: 0.005em;
+        }
+
+        .login-para {
+            line-height: 1.5rem;
+            letter-spacing: 0.01em;
+        }
+
+        .form-label {
+            line-height: 1.25rem;
+            letter-spacing: 0.015em;
+
+            .required-indicator {
+                margin-right: 0.125em;
+                color: colour(red, 9);
+            }
+        }
+
+        .forgot-password {
+            margin-top: 0.25em;
+            margin-bottom: 0.5em;
+        }
+
+        .signin-btn {
+            transition: all 0.3s ease;
+            max-height: 35px;
+            min-height: 35px;
+            letter-spacing: 0.12em;
+        }
+
+        .privacy-block {
+            margin: 1.25em 0 1em;
+
+            a {
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .register {
+            margin-top: 1em;
+            padding-top: 1em;
+            border-top: 1px solid colour(black);
+
+            h3 {
+                line-height: 1.25rem;
+                letter-spacing: 0.005em;
+                margin-top: 6px;
+                margin-bottom: 6px;
+            }
+
+            p {
+                line-height: 1.5rem;
+                letter-spacing: 0.01em;
+                margin: 1em 0;
+                color: colour(gray);
+
+                a {
+                    text-decoration: underline;
+                    color: colour(black, 3);
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// -----Register form---
+.login-page {
+    .page-title {
+        line-height: 1.3125rem;
+        padding-bottom: 15px;
+        border-bottom: 1px solid colour(black, 3);
+    }
+
+    .phone-drpdwn {
+        .iti--allow-dropdown {
+            width: 100%;
+        }
+    }
+
+    .register-form {
+        margin: 0.625rem 0 1.875rem;
+
+        img {
+            width: 100%;
+
+            @include media-up(sm) {
+                width: auto;
+            }
+
+            @include media-btw(sm, lg) {
+                width: 40rem;
+            }
+        }
+
+        .select-dropdown-value {
+            height: 3rem;
+            line-height: 1.25rem;
+            border-radius: 0;
+            letter-spacing: 0.005em;
+            border: 1px solid colour(gray, 5);
+
+            &:focus {
+                box-shadow: none;
+                outline: 1px dotted colour(black);
+            }
+        }
+
+        label {
+            margin-bottom: 17.5px;
+
+            .required-indicator {
+                margin-right: 0.125em;
+                color: colour(red, 9);
+            }
+        }
+    }
+
+    .register-privacy {
+        line-height: 1.5rem;
+        margin: 0 0 1.25em;
+
+        a {
+            text-decoration: underline;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    // -----Login page
+    .login-page-setion {
+        display: block;
+        padding: 2em 2em 3em;
+
+        @include media-up(sm) {
+            display: flex;
+            padding: 2em 2em 3em;
+        }
+
+        .login-section {
+            width: 100%;
+
+            @include media-up(sm) {
+                width: 45%;
+                margin: 0 auto;
+            }
+
+            .login-account {
+                margin-top: 40px;
+
+                h2 {
+                    margin-bottom: 8px;
+                    line-height: 1.125rem;
+                }
+
+                p {
+                    margin: 0 0 17px;
+                    line-height: 1.5rem;
+                }
+
+                .login-box {
+                    padding-top: 24px;
+                    max-width: 290px;
+                    margin: auto;
+
+                    .login-form {
+                        .required-indicator {
+                            margin-right: 0.125em;
+                            color: colour(red, 9);
+                        }
+                    }
+                }
+            }
+
+            .sign-in-forgot {
+                text-decoration: underline;
+                line-height: 11.7px;
+            }
+
+            .sign-in-btn {
+                padding: 0 2.8125em;
+                transition: all 0.3s ease;
+                min-height: 35px;
+                max-height: 35px;
+                letter-spacing: 0.12em;
+            }
+
+            .privacy-policy {
+                margin: 1.25em 0 1em;
+
+                a {
+                    text-decoration: underline;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .signup-img {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    .login-form-input {
+        height: 3rem;
+    }
+
+    .spacer {
+        width: 100%;
+        margin-top: 50px;
+
+        @include media-up(sm) {
+            background: none;
+            position: relative;
+            display: inline-block;
+            margin-top: 0;
+            width: 9%;
+        }
+
+        .line {
+            border-left: 0 solid colour(gray, 3);
+            border-top: 1px solid colour(gray, 3);
+            width: 100%;
+            height: 1px;
+            left: inherit;
+            top: 50%;
+
+            @include media-up(sm) {
+                border-left: 1px solid colour(gray, 3);
+                top: 0;
+                width: 1px;
+                height: 100%;
+                position: absolute;
+                left: 50%;
+            }
+        }
+
+        .or {
+            top: calc(33% - 16px);
+            width: 37px;
+            height: 37px;
+            border: 1px solid colour(gray, 3);
+            border-radius: 20px;
+            letter-spacing: 0.52px;
+            left: calc(50% - 19px);
+            line-height: 37px;
+
+            @include media-up(sm) {
+                width: 37px;
+                height: 37px;
+                border: 1px solid colour(gray, 3);
+                border-radius: 20px;
+                letter-spacing: 0.52px;
+                top: 27px;
+                left: calc(50% - 19px);
+                line-height: 37px;
+            }
+        }
+    }
+
+    // -----forgot password
+    .request-password-body {
+        p {
+            line-height: 1.5rem;
+            padding-top: 20px;
+            color: colour(gray);
+
+            a {
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .forgot-password-form {
+            margin: 0.625rem 0 1.875rem;
+
+            .reset-label-name {
+                margin-bottom: 1.25rem;
+            }
+
+            .required-indicator {
+                margin-right: 0.125em;
+                color: colour(red, 9);
+            }
+
+            .forgotPassword {
+                width: calc(100% - 65px);
+
+                @include media-up(sm) {
+                    width: calc(50% - 65px);
+                }
+
+                @include media-btw(sm, lg) {
+                    width: calc(100% - 65px);
+                }
+            }
+        }
+    }
+
+    .resetpassword-btn {
+        transition: all 0.3s ease;
+        max-height: 48px;
+        min-height: 48px;
+        letter-spacing: 0.12em;
+    }
+
+    .reset-password-form {
+        margin: 0 auto;
+    }
+
+    .required-field-para {
+        float: right;
+        font-style: italic;
+        line-height: 1rem;
+
+        .required-indicator {
+            margin-right: 0.125em;
+            color: colour(red, 9);
+        }
+    }
+
+    .changepassowrd-btn {
+        transition: all 0.3s ease;
+        max-height: 35px;
+        min-height: 35px;
+        letter-spacing: 0.12em;
+    }
+
+    .create-btn {
+        padding: 0 2.8125em;
+    }
+
+    .iti__selected-country {
+        background: colour(white);
+    }
+}
+
+// -----hide show---
+.password-box {
+    .login-modal-hide {
+        top: 29px;
+        min-height: 46px;
+        max-height: 15px;
+        right: 1px;
+        letter-spacing: normal;
+
+        .show {
+            border-left: 1px solid colour(gray, 22);
+            line-height: 24px;
+            padding: 0 12px;
+        }
+    }
+
+    .register-hide {
+        top: 33px;
+        min-height: 43px;
+        max-height: 15px;
+        background: colour(white);
+        right: 1px;
+        z-index: 5;
+        letter-spacing: normal;
+
+        &:hover {
+            background-color: colour(gray, 1);
+        }
+
+        .show {
+            border-left: 1px solid colour(gray, 22);
+            line-height: 24px;
+            padding: 0 12px;
+        }
+    }
+
+    .hide-show {
+        min-height: 46px;
+        max-height: 15px;
+        background: white;
+        right: 1px;
+        top: 23px;
+        letter-spacing: normal;
+
+        &:hover {
+            background-color: colour(gray, 1);
+        }
+
+        .show {
+            border-left: 1px solid colour(gray, 22);
+            line-height: 24px;
+            padding: 0 12px;
+        }
+    }
+}
+
+// -----login modal-----
+.modal-body {
+    overflow-y: auto;
+    max-height: calc(114vh - 64px);
+}
+
+.modal {
+    background: rgba(26, 26, 26, 60%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-right: 0;
+}
+
+.modal.fade .modal-dialog {
+    transition: transform 0.3s ease-out;
+    transform: translate(0, 50px);
+}
+
+.modal-dialog {
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+    right: 0%;
+    margin-bottom: 0;
+    animation: e 0.2s;
+    animation-timing-function: cubic-bezier(0.2, 0.05, 0.55, 0.2);
+}
+
+.modal.show .modal-dialog {
+    transform: none;
+}
+
+.modal-content {
+    border-radius: 0;
+}

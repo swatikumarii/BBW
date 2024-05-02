@@ -1,0 +1,185 @@
+.store-locator-header {
+    padding: 1.375rem 0 0.25rem;
+    border-bottom: 0.0625rem solid colour(black, 3);
+    margin: 2rem 0;
+
+    p {
+        line-height: 1.75rem;
+        letter-spacing: 0;
+        padding-bottom: 1rem;
+    }
+
+    img {
+        width: 6rem;
+        margin-bottom: 0.25em;
+    }
+}
+
+.store-locator-container {
+    .store-form-detail {
+        min-height: 35rem;
+        border-bottom: 0.1875rem solid colour(gray, 1);
+        padding: 0;
+
+        @include media-up(sm) {
+            padding: 3.125rem 2.8125rem 0;
+            border: 0.1875rem solid colour(gray, 1);
+        }
+
+        .sub-heading {
+            line-height: 24px;
+            letter-spacing: 0.005em;
+            padding-bottom: 12px;
+            margin: 0 0 0.9375rem;
+            border-bottom: 1px solid colour(gray, 1);
+        }
+
+        .form-group {
+            margin: 1.5625rem 0 1.6875rem;
+
+            label {
+                line-height: 1.25rem;
+                letter-spacing: 0.01em;
+                margin-bottom: 0.3125rem;
+            }
+
+            .store-input {
+                height: 3rem;
+            }
+        }
+
+        .refine-store {
+            margin-top: 0.625rem;
+
+            .store-options {
+                margin-top: 1.75rem;
+
+                .form-row {
+                    margin: 0.625rem 0 1.6875rem;
+
+                    label {
+                        letter-spacing: 0.01em;
+                        padding: 0 0.625em;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    .mob-store-nav {
+        margin-top: 1.5625rem;
+        margin-bottom: 2.75rem;
+
+        .view {
+            border-color: colour(black, 3);
+            line-height: 3rem;
+            letter-spacing: 0.015em;
+            max-height: 3rem;
+            padding-left: 1.875rem;
+            padding-right: 1.875rem;
+            background: colour(gray, 1);
+            color: colour(black, 3);
+
+            &.active {
+                background: colour(black, 3);
+                color: colour(white);
+            }
+        }
+    }
+
+    .store-result-wrap {
+        padding: 0;
+
+        @include media-up(sm) {
+            padding: 0 0.9375rem;
+        }
+
+        .store-error-header {
+            line-height: 1.5rem;
+            letter-spacing: 0.005em;
+            border-bottom: 0.0625rem solid colour(gray, 1);
+            padding: 2.3125rem 0.9375rem 1rem;
+
+            @include media-up(sm) {
+                padding: 2.3125rem 0 1rem;
+            }
+        }
+
+        .store-error-body {
+            background: colour(gray, 1);
+            letter-spacing: 0.7px;
+            color: colour(black, 3);
+            padding: 2.875rem 2.875rem 3.125rem 2.5rem;
+            margin: 0 0 1.25rem;
+        }
+
+        .store-result {
+            margin-top: 2.5rem;
+
+            .store-details {
+                margin: 1.25rem 0;
+
+                .card-head {
+                    .store-name {
+                        padding: 3.0625rem 1.75rem 3.125rem 2.375rem;
+                        line-height: 1.25rem;
+                        letter-spacing: 0.005em;
+                        background-color: colour(white);
+
+                        &.collapsed {
+                            background-color: colour(gray, 1);
+                        }
+                    }
+                }
+
+                .card-body {
+                    padding: 0 38px;
+                    margin-bottom: 3.75rem;
+                    line-height: 1.25rem;
+                    letter-spacing: 0.01em;
+                    color: colour(gray, 4);
+
+                    @include media-down(sm) {
+                        .col {
+                            flex-basis: auto;
+                        }
+                    }
+
+                    .store-phone {
+                        margin-top: 0.625rem;
+                    }
+
+                    .store-direction {
+                        margin: 1rem 0 2.375rem;
+
+                        a {
+                            line-height: 1.25rem;
+                            letter-spacing: 0.01em;
+                            text-decoration: underline;
+
+                            &:hover {
+                                text-decoration: none;
+                            }
+                        }
+                    }
+
+                    .store-hours {
+                        span {
+                            color: colour(black, 1);
+                            font-weight: map-get($font-weight, semibold);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.store-details-bottom-wrapper {
+    a {
+        &:hover {
+            color: colour(white);
+        }
+    }
+}

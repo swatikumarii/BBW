@@ -1,6 +1,8 @@
+// Required
+
 'use strict';
 
-var scrollAnimate = require('base/components/scrollAnimate');
+// var scrollAnimate = require('base/components/scrollAnimate');
 
 /**
  * appends params to a url
@@ -17,19 +19,19 @@ function displayMessage(data, button) {
     }
 
     if ($('.email-signup-message').length === 0) {
-        $('body').append('<div class="email-signup-message"></div>');
+        $('.js-newsletter-msg').append('<div class="email-signup-message"></div>');
     }
     $('.email-signup-message').append(
-        '<div class="email-signup-alert text-center ' +
-            status +
-            '">' +
-            data.msg +
-            '</div>'
+        '<div class="email-signup-alert text-justify ' +
+        status +
+        '">' +
+        data.msg +
+        '</div>'
     );
 
     setTimeout(function () {
         $('.email-signup-message').remove();
-        button.removeAttr('disabled');
+        $('.subscribe-email').removeAttr('disabled');
     }, 3000);
 }
 
@@ -38,27 +40,33 @@ function displayMessage(data, button) {
  * @param {string} token - reCAPTCHA token
  */
 function newsLetter(token) {
-    var url = $('.subscribe-email').data('href');
+    var url = $('.newsletter').data('href');
     var button = $('.subscribe-email');
     var emailId = $('input[name=hpEmailSignUp]').val();
+    var data = { emailId: emailId };
+    if (token) {
+        data = {
+            emailId: emailId,
+            'g-recaptcha-response': token
+        };
+    }
     $.spinner().start();
     $('form.newsletter').attr('disabled', true);
+    $('.subscribe-email').attr('disabled', true);
     $.ajax({
         url: url,
         type: 'post',
         dataType: 'json',
-        data: {
-            emailId: emailId,
-            'g-recaptcha-response': token,
-        },
-        success: function (data) {
-            displayMessage(data, button);
+        data: data,
+        success: function (dataRes) {
+            displayMessage(dataRes, button);
         },
         error: function (err) {
             displayMessage(err, button);
         }
     });
 }
+
 
 window.submitNewsLetter = function (token) {
     return new Promise(function (resolve, reject) {
@@ -73,40 +81,80 @@ window.submitNewsLetter = function (token) {
     });
 };
 
-/**
- * In case of failure
- */
-window.checkRecaptcha = function () {
-    // Re-initialize reCaptcha
-    grecaptcha.reset();
-    // Fire reCaptcha
-    grecaptcha.execute();
-    // Fire desired behavior AFTER reCaptcha is complete
-    window.submitNewsLetter();
-};
+// Initialize popover 
+$('[data-toggle="popover"]').popover({
+    placement: 'top',
+    html: true,
+});
+
+// Show popover on mouseenter
+$('[data-toggle="popover"]')
+    .on('mouseenter', function () {
+        $(this).popover('show');
+        $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
+    });
+
+
+var timer;
+$('body').on(
+    'mouseleave',
+    '[data-toggle="popover"], .popover',
+    function () {
+        timer = setTimeout(function () {
+            $('.popover').popover('hide');
+        }, 50);
+    }).on(
+        'mouseenter',
+        '[data-toggle="popover"], .popover',
+        function () {
+            clearTimeout(timer);
+        }
+    );
+
+
+// Close popover on close button click
+$(document).on('click', '.popover .close', function (e) {
+    e.preventDefault(); // Prevent default behavior of anchor tag
+    $(this).parents('.popover').popover('hide');
+});
 
 /**
- * to execute reCAPTCHA
+ * Back To Top - Click
  */
-function executeRecaptcha() {
-    grecaptcha.execute();
+
+var scrolltotop = $('.js-scrolltotop');
+
+// Function to handle scroll event
+function handleScroll() {
+    var windowHeight = $(window).height();
+    var scrollThreshold = 7.7 * windowHeight; // 70% of window height
+
+    if ($(window).scrollTop() > scrollThreshold) {
+        scrolltotop.fadeIn();
+    } else {
+        scrolltotop.fadeOut();
+    }
 }
-window.initializeRecaptcha = function () {
-    $('.grecaptcha-badge').addClass('mc-recaptcha-btn');
-    $('.newsletter #gcaptchabtn').on('click', executeRecaptcha);
-    $('.newsletter').on('keypress', function (event) {
-        // If the user presses the "Enter" key on the keyboard
-        if (event.key === 'Enter') {
-            // Cancel the default action, if needed
-            event.preventDefault();
-            // Trigger the button element with a click
-            $('.newsletter #gcaptchabtn').click();
-        }
-    });
-};
+
+// Bind scroll event handler
+$(window).scroll(handleScroll);
+
+// Trigger scroll event initially
+$(document).ready(function () {
+    handleScroll();
+});
+
+// Scroll to top when the button is clicked
+$('.js-scrolltotop').on('click', function () {
+    $('html, body').animate({
+        scrollTop: 0 // Scroll to the top of the page
+    }, 800);
+});
+
 
 module.exports = function () {
-    $('.back-to-top').click(function () {
-        scrollAnimate();
+    $('.subscribe-email').on('click', function (e) {
+        e.preventDefault();
+        newsLetter();
     });
 };

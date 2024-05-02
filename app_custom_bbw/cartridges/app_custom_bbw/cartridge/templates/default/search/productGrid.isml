@@ -1,0 +1,73 @@
+<div class="product-grid-wrapper">
+    <iscomment>Produc Grid - Footer </iscomment>
+    <isinclude template="search/components/topPagination" />
+
+    <iscomment> Mobile Filters - Buttons Section </iscomment>
+    <isif condition="${pdict.productSearch.productIds.length > 0}">
+        <div class="row filter-bar-mobile d-md-none no-gutters h-mb--25">
+            <div class="col-6 col-sm-3 text-right d-md-none order-sm-3">
+                <button type="button"
+                    class="filter-results h-100 col-12 b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize text-left">
+                    ${Resource.msg('button.filter', 'search', null)}
+                </button>
+            </div>
+            <div class="col-6 col-sm-3 order-sm-1">
+                <isif condition="${pdict.productSearch.productIds.length > 0}">
+                    <select name="sort-order"
+                        class="w-100 sort-filter b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize border-left-0"
+                        aria-label="${Resource.msg('label.sort.by', 'search', null)}">
+                        <isloop items="${pdict.productSearch.productSort.options}" var="option">
+                            <option class="${option.id}" value="${option.url}" data-id="${option.id}"
+                                ${pdict.productSearch.productSort.ruleId === option.id ? 'selected' : ''}>
+                                ${option.displayName}
+                            </option>
+                        </isloop>
+                    </select>
+                </isif>
+            </div>
+            <iscomment> Selected Mobile Filters </iscomment>
+            <div class="mobile-filters h-mt--15 d-md-none">
+                <isinclude template="search/components/selectedFilterMobile" />
+            </div>
+            <div class="result-count text-center col-12 col-md-9 col-sm-6 order-sm-2 h-pt--10 pb-0">
+                <isinclude template="search/resultsCount" />
+            </div>
+        </div>
+    <iselse/>
+        <div class="row grid-header justify-content-center">
+            <div class="result-count col">
+                <isinclude template="search/resultsCount" />
+            </div>
+        </div>
+    </isif>
+
+    <iscomment> Desktop Filters </iscomment>
+    <isinclude template="search/components/searchFiltersDesktop" />
+
+    <iscomment>
+        <div class="refinement-bar-without-store p-3 h-bg--gray-1">
+            <div class="d-flex align-items-center ">
+                <div class="pis-txt mr-2">
+                    <img class="" alt="" src="${URLUtils.staticURL('/images/icons/bopis-icon-small.svg')}" width="15px"
+                        height="19px" />
+                </div>
+                <div class="selected-store-container h-font-size--16">
+                    <a class="choose-store b-text-a h-clr--black-1 h-fw--semibold h-font-size--16"
+                        href="javascript:void(0)" role="button" tabindex="0">Set Store</a> <span
+                        class="h-font-size--16">to check availability</span>
+                </div>
+            </div>
+        </div>
+    </iscomment>
+
+    <iscomment>Product Grid - Product List </iscomment>
+    <div class="product-grid h-dsp--grid h-grid-gap--15 h-grid-gap-lg--55 no-gutters h-mt-md--30 h-mb-md--50"
+        itemtype="http://schema.org/SomeProducts" itemid="#product">
+        <isinclude template="search/components/productTiles" />
+        <isinclude template="product/components/requestUserEmailForOOSModal" />
+        <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
+    </div>
+
+    <iscomment>Produc Grid - Footer </iscomment>
+    <isinclude template="search/components/productGridFooter" />
+</div>

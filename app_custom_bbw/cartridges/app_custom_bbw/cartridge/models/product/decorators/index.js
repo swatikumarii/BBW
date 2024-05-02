@@ -9,4 +9,5 @@ index.expressShip = require('*/cartridge/models/product/decorators/expressShip')
 index.return = require('*/cartridge/models/product/decorators/return');
 index.usageInstruction = require('*/cartridge/models/product/decorators/usageInstruction');
 index.ingredients = require('*/cartridge/models/product/decorators/ingredients');
+index.badge = require('*/cartridge/models/product/decorators/badge');
 module.exports = index;

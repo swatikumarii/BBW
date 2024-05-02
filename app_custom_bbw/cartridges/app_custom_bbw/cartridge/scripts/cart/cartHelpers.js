@@ -3,7 +3,17 @@
 var base = module.superModule;
 var Resource = require('dw/web/Resource');
 var ProductMgr = require('dw/catalog/ProductMgr');
+var Transaction = require('dw/system/Transaction');
+var BasketMgr = require('dw/order/BasketMgr');
 
+/**
+ * @param {number} pid - ProductId
+ * @returns {number} price of product
+ */
+function getProductPrice(pid) {
+    var product = ProductMgr.getProduct(pid);
+    return product.priceModel.price.value;
+}
 
 /**
  * Adds a product to the cart. If the product is already in the cart it increases the quantity of
@@ -120,5 +130,409 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
     return result;
 }
 
+
+/**
+ * callback for transaction
+ * @param {object} productLineItem - productLineItem
+ * @param {number} qtyUpdateFreeItem - qtyUpdateFreeItem
+ * @param {Array} allLineItemsForProduct - allLineItemsForProduct
+ * @param {number} indexOfMainItem - indexOfMainItem
+ * @param {number} mergeQty - mergeQty
+ */
+function callBackTransferToFree(
+    productLineItem,
+    qtyUpdateFreeItem,
+    allLineItemsForProduct,
+    indexOfMainItem,
+    mergeQty
+) {
+    Transaction.wrap(function(){
+        // reducing qty from free product
+        productLineItem.setQuantityValue(qtyUpdateFreeItem);
+        // increasing the diff in main product
+        allLineItemsForProduct[indexOfMainItem].setQuantityValue(mergeQty);
+    });
+}
+
+/**
+ * callback for transaction
+ * @param {object} lineItemContainer - lineItemContainer
+ * @param {object} productLineItem - productLineItem
+ * @param {Array} allLineItemsForProduct - allLineItemsForProduct
+ * @param {number} indexOfMainItem - indexOfMainItem
+ * @param {number} mergeQty - mergeQty
+ */
+function callBackTransferToMain (
+    lineItemContainer,
+    productLineItem,
+    allLineItemsForProduct,
+    indexOfMainItem,
+    mergeQty
+) {
+    Transaction.wrap(function(){
+        lineItemContainer.removeProductLineItem(productLineItem);
+        allLineItemsForProduct[indexOfMainItem].setQuantityValue(mergeQty);
+    });
+}
+
+/**
+ * callback for transaction
+ * @param {object} productLineItem - productLineItem
+ * @param {number} productQtyAfterReduce - productQtyAfterReduce
+ * @param {Array} allLineItemsForProduct - allLineItemsForProduct
+ * @param {number} indexOfFreeItem - indexOfFreeItem
+ * @param {number} qtyUpdateFreeItem - qtyUpdateFreeItem
+ */
+function callBackMergeToFreeFromMain(
+    productLineItem,
+    productQtyAfterReduce,
+    allLineItemsForProduct,
+    indexOfFreeItem,
+    qtyUpdateFreeItem
+) {
+    Transaction.wrap(function(){
+        productLineItem.setQuantityValue(productQtyAfterReduce);
+        var updatedQtyFreeItem =
+            allLineItemsForProduct[indexOfFreeItem].quantityValue +
+            qtyUpdateFreeItem;
+        allLineItemsForProduct[indexOfFreeItem].setQuantityValue(
+            updatedQtyFreeItem
+        );
+    });
+}
+
+/**
+ * callback for transaction
+ * @param {object} productLineItem - productLineItem
+ * @param {number} productQtyAfterReduce - productQtyAfterReduce
+ * @param {object} lineItemContainer - lineItemContainer
+ * @param {number} qtyUpdateFreeItem - qtyUpdateFreeItem
+ */
+function callBackCreateNewFreeItem(
+    productLineItem,
+    productQtyAfterReduce,
+    lineItemContainer,
+    qtyUpdateFreeItem
+) {
+    Transaction.wrap(function(){
+        productLineItem.setQuantityValue(productQtyAfterReduce);
+        var newProductLineItem = lineItemContainer.createProductLineItem(
+            productLineItem.productID,
+            lineItemContainer.defaultShipment
+        );
+        newProductLineItem.custom.isFreeItem = true;
+        newProductLineItem.setQuantityValue(qtyUpdateFreeItem);
+    });
+}
+/**
+ *
+ * @param {object} productLineItem - productLineItem
+ */
+function callBackSetItemAsFree(productLineItem) {
+    Transaction.wrap(function () {
+        // eslint-disable-next-line no-param-reassign
+        productLineItem.custom.isFreeItem = true;
+    });
+}
+
+
+/**
+ * createFreeLineItem - Creates a different lineItem for BOGO promo free products
+ * @param {object} lineItemContainer current basket
+ * @returns {boolean} if there is any change
+ */
+function createFreeLineItem(lineItemContainer) {
+    var breakLoop = false;
+    var changes = false;
+    var allProductLineItems = lineItemContainer.allProductLineItems;
+    var iterator = allProductLineItems.iterator();
+    while(iterator.hasNext()) {
+        var productLineItem = iterator.next();
+        var isFreeItem = false;
+        var shouldHaveFreeItem = false;
+        var qtyUpdateFreeItem = 0;
+        if (
+            'custom' in productLineItem &&
+            productLineItem.custom &&
+            'isFreeItem' in productLineItem.custom &&
+            productLineItem.custom.isFreeItem
+        ) {
+            isFreeItem = true;
+        }
+        if (
+            productLineItem.priceAdjustments &&
+            productLineItem.priceAdjustments.length > 0
+        ) {
+            var priceAdjustments = productLineItem.priceAdjustments.toArray();
+            for (
+                var adjustmentIndex = 0;
+                adjustmentIndex < priceAdjustments.length;
+                adjustmentIndex++
+            ) {
+                var adjustment = priceAdjustments[adjustmentIndex];
+                if (
+                    'appliedDiscount' in adjustment &&
+                    adjustment.appliedDiscount.type === 'FREE'
+                ) {
+                    shouldHaveFreeItem = true;
+                    qtyUpdateFreeItem += adjustment.quantity;
+                }
+            }
+        }
+        var allLineItemsForProduct = lineItemContainer.getProductLineItems(productLineItem.productID);
+        if (isFreeItem) {
+            var indexOfMainItem;
+            var mergeQty;
+            for (
+                var index = 0;
+                index < allLineItemsForProduct.length;
+                index++
+            ) {
+                if (
+                    !(
+                        allLineItemsForProduct[index].UUID ===
+                        productLineItem.UUID
+                    )
+                ) {
+                    indexOfMainItem = index;
+                }
+            }
+            if (shouldHaveFreeItem) {
+                if (qtyUpdateFreeItem < productLineItem.quantityValue) {
+                    mergeQty =
+                        productLineItem.quantityValue -
+                        qtyUpdateFreeItem +
+                        allLineItemsForProduct[indexOfMainItem].quantityValue;
+                    // No of free products is less than free item qty, so will reduce from free lineitem and merge in main lineitem
+                    callBackTransferToFree(
+                        productLineItem,
+                        qtyUpdateFreeItem,
+                        allLineItemsForProduct,
+                        indexOfMainItem,
+                        mergeQty
+                    );
+                    breakLoop = true;
+                }
+            } else {
+                // Removing the free lineitem and merging its qty in main lineitem
+                mergeQty =
+                    allLineItemsForProduct[indexOfMainItem].quantityValue +
+                    productLineItem.quantityValue;
+                callBackTransferToMain(
+                    lineItemContainer,
+                    productLineItem,
+                    allLineItemsForProduct,
+                    indexOfMainItem,
+                    mergeQty
+                );
+                breakLoop = true;
+            }
+        } else if (shouldHaveFreeItem) {
+            var productQtyAfterReduce =
+                productLineItem.quantityValue - qtyUpdateFreeItem;
+            if (allLineItemsForProduct.length > 1) {
+                // reduce and merge
+                var indexOfFreeItem;
+                for (var i = 0; i < allLineItemsForProduct.length; i++) {
+                    if (
+                        !(
+                            allLineItemsForProduct[i].UUID ===
+                            productLineItem.UUID
+                        )
+                    ) {
+                        indexOfFreeItem = i;
+                    }
+                }
+                callBackMergeToFreeFromMain(
+                    productLineItem,
+                    productQtyAfterReduce,
+                    allLineItemsForProduct,
+                    indexOfFreeItem,
+                    qtyUpdateFreeItem
+                );
+                breakLoop = true;
+            } else {
+                if (productLineItem.quantityValue ===1) {
+                    callBackSetItemAsFree(productLineItem);
+                } else {
+                    callBackCreateNewFreeItem(
+                        productLineItem,
+                        productQtyAfterReduce,
+                        lineItemContainer,
+                        qtyUpdateFreeItem
+                    );
+                }
+                breakLoop = true;
+            }
+        }
+        if (breakLoop) {
+            changes = true;
+            break; // Exit the loop
+        }
+    }
+    if (breakLoop) {
+        var HookMgr = require('dw/system/HookMgr');
+        Transaction.wrap(function () {
+            HookMgr.callHook('dw.order.calculate', 'calculate', lineItemContainer);
+        });
+        var currentBasket = BasketMgr.getCurrentBasket();
+        var recChanges = createFreeLineItem(currentBasket);
+        if (recChanges) {
+            return recChanges;
+        }
+    }
+    return changes;
+}
+
+/**
+ * getCouponNoActivePromoError - gets error for no active promotion
+ * @param {string} couponCode - coupon code
+ * @returns {string} error message
+ */
+function getCouponNoActivePromoError(couponCode) {
+    var CouponMgr = require('dw/campaign/CouponMgr');
+    var coupon = CouponMgr.getCouponByCode(couponCode);
+    var promotion = coupon.promotions[0];
+    var requestCustomerGroups = [];
+    var promoCustomerGroups = [];
+    request.session.customer.customerGroups.toArray().forEach( function (customerGroup) {
+        requestCustomerGroups.push(customerGroup.ID);
+    });
+    promotion.customerGroups.toArray().forEach(function (customerGroup) {
+        promoCustomerGroups.push(customerGroup.ID);
+    });
+    var customerGroupEligible = promoCustomerGroups.some(
+        function (promoCustomerGroup) {
+            return requestCustomerGroups.includes(promoCustomerGroup);
+        }
+    );
+    if (!customerGroupEligible) {
+        return Resource.msg('error.customer.not.qualified', 'cart', null);
+    }
+    return Resource.msg('error.unable.to.add.coupon', 'cart', null);
+}
+
+/**
+ * checkCouponCodeError checks the error in coupon and returns message
+ * @param {string} couponCode coupon code
+ * @param {string} errorCode error code while applying coupon
+ * @returns {string} error message
+ */
+function checkCouponCodeError (couponCode, errorCode) {
+    var errorMessage;
+    switch (errorCode) {
+        case 'COUPON_CODE_ALREADY_IN_BASKET':
+            errorMessage = Resource.msg(
+                'error.coupon.already.in.cart',
+                'cart',
+                null
+            );
+            break;
+        case 'COUPON_ALREADY_IN_BASKET':
+            errorMessage = Resource.msg(
+                'error.coupon.cannot.be.combined',
+                'cart',
+                null
+            );
+            break;
+        case 'COUPON_CODE_ALREADY_REDEEMED':
+            errorMessage = Resource.msg(
+                'error.coupon.already.redeemed',
+                'cart',
+                null
+            );
+            break;
+        case 'COUPON_CODE_UNKNOWN':
+            errorMessage = Resource.msg('error.coupon.unknown', 'cart', null);
+            break;
+        case 'COUPON_DISABLED':
+            errorMessage = Resource.msg('error.coupon.disabled', 'cart', null);
+            break;
+        case 'REDEMPTION_LIMIT_EXCEEDED':
+            errorMessage = Resource.msg(
+                'error.coupon.redemption.limit',
+                'cart',
+                null
+            );
+            break;
+        case 'TIMEFRAME_REDEMPTION_LIMIT_EXCEEDED':
+            errorMessage = Resource.msg(
+                'error.coupon.redemption.limit',
+                'cart',
+                null
+            );
+            break;
+        case 'NO_ACTIVE_PROMOTION':
+            errorMessage = getCouponNoActivePromoError(couponCode);
+            break;
+
+        default:
+            errorMessage = Resource.msg(
+                'error.unable.to.add.coupon',
+                'cart',
+                null
+            );
+            break;
+    }
+    return errorMessage;
+}
+
+/**
+ * Function mergeCart merges the items from the stored basket to the currentBasket.
+ * @returns {object} resultObj - contain updated basket and boolean value
+ */
+function mergeCart() {
+    var Logger = require('dw/system/Logger');
+    var storedBasket = BasketMgr.getStoredBasket();
+    var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
+    var currentBasket = BasketMgr.getCurrentOrNewBasket();
+    var isCartMerged = false;
+    var resultObj = {};
+
+    try {
+        if (currentBasket && storedBasket) {
+            var productLineItemItr = storedBasket
+                .getAllProductLineItems()
+                .iterator();
+            while (productLineItemItr.hasNext()) {
+                var pli = productLineItemItr.next();
+                if (!pli.bundledProductLineItem && !pli.optionProductLineItem) {
+                    var childProducts = [];
+                    var optionProducts = [];
+                    var mergeQty = pli.quantityValue;
+                    if (!pli.bonusProductLineItem) {
+                        var result = base.addProductToCart(
+                            currentBasket,
+                            pli.productID,
+                            mergeQty,
+                            childProducts,
+                            optionProducts
+                        );
+                        if (!result.error) {
+                            isCartMerged = true;
+                        }
+                    }
+                }
+            }
+            basketCalculationHelpers.calculateTotals(currentBasket);
+        }
+    } catch (e) {
+        isCartMerged = false;
+        Logger.error(
+            'Exception occoured while executing merge cart function: {0}' +
+                e.message
+        );
+    }
+
+    resultObj.isCartMerged = isCartMerged;
+    resultObj.currentBasket = currentBasket;
+
+    return resultObj;
+}
+
+base.createFreeLineItem = createFreeLineItem;
+base.checkCouponCodeError = checkCouponCodeError;;
 base.addProductToCart = addProductToCart;
+base.getProductPrice = getProductPrice;
+base.mergeCart = mergeCart;
 module.exports = base;

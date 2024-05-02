@@ -1,0 +1,24 @@
+.search__breadcrumb-wrapper {
+    padding: 8px 0 27px;
+}
+
+.search__breadcrumb {
+    line-height: 1.25rem;
+    letter-spacing: 0.16px;
+
+    &__home-link {
+        a {
+            &:hover {
+                color: unset;
+            }
+        }
+
+        &::after {
+            content: "/";
+            padding: 0 13px;
+            display: inline-block;
+            text-decoration: none;
+            pointer-events: none;
+        }
+    }
+}

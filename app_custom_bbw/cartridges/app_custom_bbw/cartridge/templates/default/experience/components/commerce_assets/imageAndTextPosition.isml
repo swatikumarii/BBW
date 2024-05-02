@@ -1,0 +1,38 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceAssets/imageAndTextPosition.css');
+</isscript>
+
+<div class="row no-gutters">
+    <div class="col px-0">
+        <div class="d-flex ${pdict.imagePositionClass} ${pdict.customClass}">
+            <a href="${pdict.link}" class="image-link clpShopNowBtn" hreflang="${request.getLocale()}">
+                <picture class="w-100 d-block content-image-block d-block">
+                    <source srcset="${pdict.useImgURL ? pdict.desktopImgUrl : pdict.desktopImage.src.desktop}"
+                        media="(min-width: 769px)" />
+                    <img class="w-100 d-block lazy-grid content-image" src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}" alt="${pdict.alt}"/>
+                </picture>
+            </a>
+            <isif condition="${pdict.description !== null || pdict.linkText}">
+                <div class="w-100 d-block align-items-center text-center">
+                    <div class="col-12 px-0">
+                        <isif condition="${pdict.description !== null}">
+                            <span class="description d-block">
+                                <isprint value="${pdict.description ? pdict.description : ''}" encoding="off" />
+                            </span>
+                        </isif>
+                        <isif condition="${pdict.linkText}">
+                            <a class="text-center"
+                                href="${pdict.linkUmpParameter ? pdict.link + pdict.linkUmpParameter : pdict.link}" hreflang="${request.getLocale()}">
+                                <span>
+                                    <isprint value="${pdict.linkText ? pdict.linkText : ''}" encoding="off" />
+                                </span>
+                            </a>
+                        </isif>
+                    </div>
+                </div>
+            </isif>
+        </div>
+    </div>
+</div>
+

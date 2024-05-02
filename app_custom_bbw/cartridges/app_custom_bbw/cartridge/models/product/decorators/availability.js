@@ -11,6 +11,9 @@ module.exports = function (
 ) {
     // Adding code to integrate reserveOOS functionality with availability decorator.
     var apiProduct = ProductMgr.getProduct(object.id);
+    if (!apiProduct) {
+        apiProduct = ProductMgr.getProduct(object.pid);
+    }
     var productLevelReserveQty =
         'custom' in apiProduct &&
         'reserveQty' in apiProduct.custom &&
@@ -19,6 +22,9 @@ module.exports = function (
             : 0;
     var globalLevelReserveQty = dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
     var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
+    reserveOosQty = availabilityModel.inventoryRecord.perpetual
+        ? 0
+        : reserveOosQty;
     var productAtsValue =
         availabilityModel.inventoryRecord &&
         availabilityModel.inventoryRecord.ATS

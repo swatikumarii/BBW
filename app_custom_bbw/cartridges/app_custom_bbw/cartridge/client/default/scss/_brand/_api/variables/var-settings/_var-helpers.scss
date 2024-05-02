@@ -12,7 +12,7 @@ $cssHelpers: (
         ),
         onlyprefix: true,
         devicebreakpoints: (
-            md,
+            sm,
             lg
         )
     ),
@@ -47,7 +47,7 @@ $cssHelpers: (
             "font-family"
         ),
         values: (
-            oswald
+            $ff-base
         )
     ),
     ".h-font-size": (
@@ -119,6 +119,10 @@ $cssHelpers: (
             absolute,
             fixed,
             sticky
+        ),
+        devicebreakpoints: (
+            sm,
+            lg
         )
     ),
     ".h-float": (
@@ -298,6 +302,17 @@ $cssHelpers: (
         ),
         unit: $site-unit
     ),
+    ".h-minheight-perc": (
+        props: (
+            "min-height"
+        ),
+        range: (
+            0,
+            100
+        ),
+        step: 5,
+        unit: "%"
+    ),
     ".l-grid__row": (
         mixin: "grid-row",
         onlyprefix: true
@@ -356,6 +371,10 @@ $cssHelpers: (
             value: 50,
             step: 5
         ),
+        devicebreakpoints: (
+            sm,
+            lg
+        ),
         values: (
             auto
         ),
@@ -376,6 +395,10 @@ $cssHelpers: (
         ),
         values: (
             auto
+        ),
+        devicebreakpoints: (
+            sm,
+            lg
         ),
         step: 10,
         unit: $site-unit

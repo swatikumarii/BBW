@@ -8,6 +8,7 @@
     "lint:css": "sgmf-scripts --lint css",
     "lint:js": "sgmf-scripts --lint js",
     "lint:fix": "sgmf-scripts --lint js --fix && sgmf-scripts --lint css --fix",
+    "lint:fixcss": "sgmf-scripts --lint css --fix",
     "init:isml": "isml-linter --init",
     "lint:isml": "isml-linter",
     "build:isml": "isml-linter --build",
@@ -64,6 +65,20 @@
   "paths": {
     "base": "../storefront-reference-architecture/cartridges/app_storefront_base/",
     "bbw": "../app_custom_bbw/cartridges/app_custom_bbw",
-    "wishlist": "../plugin_wishlists/cartridges/plugin_wishlists/"
+    "wishlist": "../plugin_wishlists/cartridges/plugin_wishlists/",
+    "afterpay": "../afterpay-salesforce-commerce-cloud/cartridges/int_afterpay_sfra_6",
+    "adyen": "../adyen-salesforce-commerce-cloud/cartridges/int_adyen_SFRA"
+  },
+  "dependencies": {
+    "@devmobiliza/videojs-vimeo": "^0.6.0",
+    "intl-tel-input": "^21.1.4",
+    "modal-video": "^2.4.8",
+    "popper.js": "^1.16.1",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^11.1.0",
+    "vanilla-lazyload": "^12.2.0",
+    "video.js": "^7.10.2",
+    "videojs-vimeo": "^2.0.2",
+    "videojs-youtube": "^2.6.1"
   }
 }
