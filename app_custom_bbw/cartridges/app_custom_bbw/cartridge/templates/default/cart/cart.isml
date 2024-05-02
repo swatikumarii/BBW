@@ -100,13 +100,15 @@
                                 <isinclude template="cart/cartCouponDisplay" />
                             </div>
                         </div>
-                        <div class="cartSignIn">
-                        </div>
+                        <isslot id="cart-bottom-below-promocode" context="global"
+                            description="This slot will be rendered on the bottom part of cart page below promocode section" />
                     </div>
                     <div class="cartTotalsWrap">
                         <isinclude template="cart/cartTotals" />
                         <isinclude template="cart/checkoutButtons" />
                     </div>
+                    <isslot id="cart-bottom-below-checkout-button" context="global" description="This slot will be rendered on the bottom part of cart page below checkout buttons" />
+
                 </div>
             </div>
             <isinclude template="cart/cartRemoveProductModal" />
