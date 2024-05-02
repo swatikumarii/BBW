@@ -79,20 +79,20 @@
     <isinclude template="cart/cartRemoveProductModal" />
 
     <isif condition="${!pdict.valid.error && pdict.items.length !== 0}">
+        <isscript>
+            var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
+            var afterpayPDPEnable = sitePreferences.isDisplayCartInfo() && sitePreferences.isAfterpayEnabled();
+        </isscript>
         <div class="minicart-footer border-top">
             <div class="sub-total-wrap d-flex justify-content-between border-bottom">
                 <p class="sub-total-label m-0 h-font-size--14 h-clr--black-1">${Resource.msg('label.sub.total', 'cart', null)}</p>
                 <p class="text-right sub-total m-0 h-font-size--14 h-clr--black-1">${pdict.totals.subTotal}</p>
             </div>
-            <div class="estimated-total d-flex justify-content-between border-bottom">
+            <div class="estimated-total d-flex justify-content-between border-bottom ${afterpayPDPEnable == true ? 'mb-0' : ''}">
                 <p class="estimated-total-label m-0 h-font-size--22 h-fw--semibold h-clr--black-1">${Resource.msg('label.estimatedtotal', 'cart', null)}</p>
                 <p class="text-right sub-total m-0 h-font-size--22 h-fw--semibold h-clr--blue-1">${pdict.totals.subTotal}</p>
             </div>
             <!--- Afterpay Widget --->
-            <isscript>
-                var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
-                var afterpayPDPEnable = sitePreferences.isDisplayCartInfo() && sitePreferences.isAfterpayEnabled();
-            </isscript>
             <isif condition="${afterpayPDPEnable == true}">
                 <div class="row text-center">
                     <div class="col-12">
