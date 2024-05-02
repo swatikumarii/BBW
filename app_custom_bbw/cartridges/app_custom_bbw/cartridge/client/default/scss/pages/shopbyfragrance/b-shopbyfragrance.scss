@@ -130,7 +130,7 @@ body {
                     .static-level {
                         .title {
                             font-size: 21px;
-                                width: 184px;
+                            width: 184px;
                         }
 
                         .alphabet-border {
@@ -143,12 +143,12 @@ body {
 
                     .frg-listing {
                         padding-left: 20px;
-                            max-width: 153px;
-                         min-width: 153px;
+                        max-width: 153px;
+                        min-width: 153px;
 
                         &:not(:nth-last-child(-n+3))::after {
-                                background: none;
-                            }
+                            background: none;
+                        }
 
                         @include media-up(sm) {
                             &::after {
@@ -173,13 +173,13 @@ body {
                                 display: block;
                                 bottom: 0;
                                 height: 2px;
-
                             }
                         }
 
                         .level-2 {
                             width: 153px;
                             text-align: start;
+
                             a {
                                 line-height: 1.125rem;
                             }
