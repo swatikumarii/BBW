@@ -5,6 +5,8 @@
         assets.addCss('/css/cart.css');
         assets.addCss('/css/afterpaystyle.css');
     </isscript>
+    <isset name="miniCart" value="${false}" scope="page" />
+
 
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
         <isinclude template="reporting/reportingUrls" />

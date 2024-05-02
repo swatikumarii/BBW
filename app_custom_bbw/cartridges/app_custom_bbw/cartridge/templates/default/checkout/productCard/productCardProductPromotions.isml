@@ -1,7 +1,7 @@
-<isif condition="${lineItem.appliedPromotions}">
-    <isloop items="${lineItem.appliedPromotions}" var="appliedPromotion">
+<isif condition="${lineItem.promotions}">
+    <isloop items="${lineItem.promotions}" var="promotion">
         <div class="h-font-size--${miniCart ? '12' : '14'}">
-            <isprint value="${appliedPromotion.callOutMsg}" encoding="off" />
+            <isprint value="${promotion.calloutMsg}" encoding="off" />
         </div>
         <isset name="showDescription" value="${false}" scope="page" />
         <isif condition="${miniCart}">
@@ -18,7 +18,7 @@
                 <span class="promo-details-tooltip" style="display:none">
                     <div class="tooltip-arrow"></div>
                     <div class="promo-details-content">
-                        <isprint value="${appliedPromotion.details}" encoding="off" />
+                        <isprint value="${promotion.details}" encoding="off" />
                     </div>
                 </span>
             </div>
