@@ -53,7 +53,7 @@
                         <h2 class="h-fw--bold">${Resource.msg('label.trending.now', 'search', null)}</h2>
                     </div>
                 </div>
-                <a data-viewall="" href="" class="viewall-link h-clr--blue-1 h-fw--semibold">View All</a>
+                <a data-viewall="" href="" class="viewall-link h-clr--blue-1 h-fw--semibold">${Resource.msg('label.view.all', 'search', null)}</a>
             </div>
             <div role="listbox" id="search-results" class="suggestions__results">
                 <div class="h-100 p-2">
@@ -127,31 +127,16 @@
             <div class="category-suggestions">
                 <h2 class="suggestions-header h-fw--bold text-uppercase">${Resource.msg('label.categories', 'search', null)}</h2>
                 <div class="search-category-list sub-list link-only" role="list">
-                    <div class="search-category-list__item sub-list__item d-flex align-items-center">
-                        <a href="#" class="search-category-list__link sub-list__item__link"><span
-                                class="h-fw--semibold">Body Care</span> in Home <span
-                                class="h-clr--blue h-fw--semibold">(36)</span></a>
-                    </div>
-                    <div class="search-category-list__item sub-list__item d-flex align-items-center">
-                        <a href="#" class="search-category-list__link sub-list__item__link"><span
-                                class="h-fw--semibold">Champagne Toast</span> in Fragrances <span
-                                class="h-clr--blue h-fw--semibold">(27)</span></a>
-                    </div>
-                    <div class="search-category-list__item sub-list__item d-flex align-items-center">
-                        <a href="#" class="search-category-list__link sub-list__item__link"><span
-                                class="h-fw--semibold">Home Fragrances</span> in Home <span
-                                class="h-clr--blue h-fw--semibold">(14)</span></a>
-                    </div>
-                    <div class="search-category-list__item sub-list__item d-flex align-items-center">
-                        <a href="#" class="search-category-list__link sub-list__item__link"><span
-                                class="h-fw--semibold">Candle</span> in Home <span
-                                class="h-clr--blue h-fw--semibold">(8)</span></a>
-                    </div>
-                    <div class="search-category-list__item sub-list__item d-flex align-items-center">
-                        <a href="#" class="search-category-list__link sub-list__item__link"><span
-                                class="h-fw--semibold">Candle</span> in Home <span
-                                class="h-clr--blue h-fw--semibold">(8)</span></a>
-                    </div>
+                    <isloop items="${pdict.suggestions.category.categories}" var="category" status="listindex">
+                        <div class="search-category-list__item sub-list__item d-flex align-items-center">
+                            <a href="${category.url}" class="search-category-list__link sub-list__item__link"><span class="h-fw--semibold">${category.name}</span>
+                            <isif condition="${category.parentID !== 'root'}">
+                                <span class="category-parent"> ${Resource.msg('label.suggest.in', 'search', null)}
+                                    ${category.parentName} </span>
+                            </isif>
+                            <span class="h-clr--blue h-fw--semibold">${(category.productCount)}</span></a>
+                        </div>
+                    </isloop>
                 </div>
             </div>
 
