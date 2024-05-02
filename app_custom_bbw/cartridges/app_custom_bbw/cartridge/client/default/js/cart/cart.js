@@ -538,6 +538,9 @@ module.exports = function () {
                     $('.promo-code-form .form-control').addClass('is-invalid');
                     $('.promo-code-form .form-control').attr('aria-describedby', 'invalidCouponCode');
                     $('.coupon-error-message').empty().append(data.errorMessage);
+                    $('.coupon-error-message').addClass('px-3');
+                    $('.coupon-error-message').addClass('py-2');
+                    $('.coupon-error-message').addClass('d-block');
                     $('body').trigger('promotion:error', data);
                 } else {
                     $('.coupons-and-promos').empty().append(data.totals.discountsHtml);
