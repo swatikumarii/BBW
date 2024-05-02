@@ -39,11 +39,9 @@
                                 <span class="required-indicator">*</span>
                                     ${Resource.msg('label.order.number', 'order', null)}
                                 </label>
-                                <div class="input-group">
                                 <input type="text" class="form-control tracking-inputfield h-font-size--18" id="orderNumber"
                                     required />
                                     <div class="invalid-feedback h-font-size--14" id="orderNumber-error">${Resource.msg('error.order.number.required', 'order', null)}</div>
-                                 </div>
                             </div>
 
                             <div class="form-group order-tracking-form">
@@ -84,7 +82,7 @@
 
                             </div>
 
-                            <div class="text-danger error-class h-font-size--16 text-center" id="form-error"></div>
+                            <div class="text-danger error-class h-font-size--12 text-center" id="form-error"></div>
 
                             <div class="form-group label-or text-center h-font-size--14 h-clr--gray">
                                 <span>${Resource.msg('label.or', 'common', null)}</span>
@@ -99,8 +97,8 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-10 form-group order-tracking-form text-center">
-                <p>${Resource.msg('label.order.info', 'order', null)}</p>
+            <div class="col-md-12 form-group order-tracking-form text-center">
+                <p class="text-center">${Resource.msg('label.order.info', 'order', null)}</p>
             </div>
         </div>
     </div>
