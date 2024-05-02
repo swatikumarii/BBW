@@ -69,6 +69,7 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
                     recent: recentSuggestions,
                     popular: popularSuggestions,
                     brand: brandSuggestions,
+                    searchTerms: searchTerms,
                     message: Resource.msgf('label.header.search.result.count.msg', 'common', null, ['' + total])
                 }
             });
