@@ -47,6 +47,7 @@ module.exports = {
                 $('.form-file-control').addClass('is-invalid');
                 $('.fileInputTypeFormError').addClass('d-none');
                 //$('#resume').next('.invalid-feedback').text();
+
                 $('.wrong-file-type-msg').css('display', 'block');
                 $('.noFileSupport').removeClass('d-none');
                 return 0;
@@ -86,6 +87,7 @@ module.exports = {
                     formValidation(form, data);
                     // $('.thankyou-msg').css('display', 'block');
                     //$('#submissionPopup').modal().empty();
+                    
                     var thankyouText = $('#submissionPopup').find('.thankyou-text').val();
                     $('#submissionPopup').find('.modal-body').empty().append('Dear ' + applicantName + thankyouText);
                     $('#submissionPopup').modal();

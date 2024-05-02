@@ -5,15 +5,13 @@ $grid-breakpoints: (
     md: 767px,
     lg: 1025px,
     xl: 1440px,
-    xxl: 1800px
-) !default;
+    xxl: 1800px) !default;
 
 $container-max-widths: (
     sm:100%,
     md: 100%,
     lg: 100%,
-    xl: 1320px
-) !default;
+    xl: 1320px) !default;
 
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
@@ -24,11 +22,27 @@ $container-max-widths: (
 $fa-font-path: "../fonts" !default;
 
 // Font Family - Variables
-$font-family-garamondpro: 'GaramondPro','times new roman','serif' !default;
-$font-family-garamondpro-bt: 'GaramondProBT','times new roman','serif' !default;
-$font-family-scalasan: 'ScalaSansOT','segoe ui','Roboto','helvetica neue','sans-serif' !default;
-$font-family-scalasan-bt: 'ScalaSansOT-BT','segoe ui','Roboto','helvetica neue','sans-serif' !default;
-$font-family-scalasan-reg: 'ScalaSansOT-REG','segoe ui','Roboto','helvetica neue','sans-serif' !default;
+$font-family-garamondpro: 'GaramondPro',
+    'times new roman',
+    'serif' !default;
+$font-family-garamondpro-bt: 'GaramondProBT',
+    'times new roman',
+    'serif' !default;
+$font-family-scalasan: 'ScalaSansOT',
+    'segoe ui',
+    'Roboto',
+    'helvetica neue',
+    'sans-serif' !default;
+$font-family-scalasan-bt: 'ScalaSansOT-BT',
+    'segoe ui',
+    'Roboto',
+    'helvetica neue',
+    'sans-serif' !default;
+$font-family-scalasan-reg: 'ScalaSansOT-REG',
+    'segoe ui',
+    'Roboto',
+    'helvetica neue',
+    'sans-serif' !default;
 
 // Default SFRA Colors
 $white: #fff !default;
@@ -68,266 +82,267 @@ $link-color: $dark-gray !default;
 $hr-border-color: $grey3 !default;
 
 // Rituals - Primary Color Variables
-$black-color        : #000000;
-$dark-black         : #1A1919;
-$med-dark-black     : #242222;
-$semi-dark-black    : #453F3F;
-$grey-dark          : #626262;
-$grey               : #7F7F7F;
-$grey-light         : #D8D8D8;
-$light              : #FFFFFF;
-$copper-dark        : #B8A188;
-$copper-light       : #9A7B69;
-$dark-76            : #767676;
-$error-dark         : #DE4B4B;
-$dark-29            : #292828;
-$error-light        : #AD4141;
-$green-rit          : #649B26;
-$green-rit-light    : #E2EAD7;
-$gold               : #DECA87;
-$Keppel             : #3EA78E;
-$ocean-green        : #4DAB8C;
-$putty              : #E7D57F;
-$cinnabar           : #E65C30;
-$jazz-jam           : #AB0A50;
-$venice-blue        : #086384;
-$eastern-blue       : #1386AE;
-$driftwood          : #9E8449;
-$yuma               : #C6BE83;
-$sorrell-brown      : #C7C085;
-$sandrift           : #A88C77;
-$hampton            : #DFD1B1;
-$aluminium          : #AEAEAE;
-$nobel              : #B4B4B4;
-$dawn               : #A4A4A4;
-$quicksand          : #b8a388;
-$light-greyish      : #efedea;
-$harp               : #efedea;
-$sandstone          : #807463;
-$dull-brown         : #865;
-$mirage             : #231F20;
-$stonewall          : #968977;
-$boulder            : #767676;
-$osloGrey           : #8c8c8c;
-$dune               : #353132;
-$gray-d1            : #d1d0ce;
-$black-4e           : #4e3844;
-$bg-fc              : #fcfaf7;
-$white-d1           : #d1d1d1;
-$brown-87           : #876957;
-$whiteSmoke         : #F6F4F2;
-$greyGoose          : #d1d1d1;
-$vistaWhite         : #fcfaf7;
-$onyx               : #111;
-$limedOak           : #A7884D;
-$platinum           : #e8e8e8;
-$tree-green         : #437d00;
-$brown-88           : #886655;
-$gray-73            : #737272;
-$fantasy            : #f3f5f1;
-$cactus             : #636e46;
-$white-cf           : #cfcfcf;
-$light-orange       : #FFB184;
-$light-blue16       : #1677ff;
-$light-brown        : #997D5E;
-$light-whited4      : #d4d4d4;
-$light-blue15       : #1589ee;
-$gray69             : #696969;
-$mercury            : #E8E8E8;
-$gray-ea            : #eaeaea;
-$light-d7           : #d7d7d7;
-$aliceblue          : #f0f8ff;
-$gray-40            : #404040;
-$gray-39            : #a39f9e;
-$show-80            : #00000080;
-$white-df           : #dfe4d5;
-$gray-70            : #707070;
-$gray-45            : #453f3f;
-$gray-aa            : #AAA;
-$gray-ef            : #efefef;
-$gray-bb            : #bbbbbb;
-$gray-55            : #555;
-$gray-fc            : #FCFCFC;
-$cinder             : #1c0826;
-$darkBeige          : #af9854;
-$albescent          : #edeae7;
-$baltic             : #24232b;
-$lava               : #D6122D;
-$green-25           : #25d366;
-$light-grey         : #d3d3d3;
+$black-color : #000000;
+$dark-black : #1A1919;
+$med-dark-black : #242222;
+$semi-dark-black : #453F3F;
+$grey-dark : #626262;
+$grey : #7F7F7F;
+$grey-light : #D8D8D8;
+$light : #FFFFFF;
+$copper-dark : #B8A188;
+$copper-light : #9A7B69;
+$dark-76 : #767676;
+$error-dark : #DE4B4B;
+$dark-29 : #292828;
+$error-light : #AD4141;
+$green-rit : #649B26;
+$green-rit-light : #E2EAD7;
+$gold : #DECA87;
+$Keppel : #3EA78E;
+$ocean-green : #4DAB8C;
+$putty : #E7D57F;
+$cinnabar : #E65C30;
+$jazz-jam : #AB0A50;
+$venice-blue : #086384;
+$eastern-blue : #1386AE;
+$driftwood : #9E8449;
+$yuma : #C6BE83;
+$sorrell-brown : #C7C085;
+$sandrift : #A88C77;
+$hampton : #DFD1B1;
+$aluminium : #AEAEAE;
+$nobel : #B4B4B4;
+$dawn : #A4A4A4;
+$quicksand : #b8a388;
+$light-greyish : #efedea;
+$harp : #efedea;
+$sandstone : #807463;
+$dull-brown : #865;
+$mirage : #231F20;
+$stonewall : #968977;
+$boulder : #767676;
+$osloGrey : #8c8c8c;
+$dune : #353132;
+$gray-d1 : #d1d0ce;
+$black-4e : #4e3844;
+$bg-fc : #fcfaf7;
+$white-d1 : #d1d1d1;
+$brown-87 : #876957;
+$whiteSmoke : #F6F4F2;
+$greyGoose : #d1d1d1;
+$vistaWhite : #fcfaf7;
+$onyx : #111;
+$limedOak : #A7884D;
+$platinum : #e8e8e8;
+$tree-green : #437d00;
+$brown-88 : #886655;
+$gray-73 : #737272;
+$fantasy : #f3f5f1;
+$cactus : #636e46;
+$white-cf : #cfcfcf;
+$light-orange : #FFB184;
+$light-blue16 : #1677ff;
+$light-brown : #997D5E;
+$light-whited4 : #d4d4d4;
+$light-blue15 : #1589ee;
+$gray69 : #696969;
+$mercury : #E8E8E8;
+$gray-ea : #eaeaea;
+$light-d7 : #d7d7d7;
+$aliceblue : #f0f8ff;
+$gray-40 : #404040;
+$gray-39 : #a39f9e;
+$show-80 : #00000080;
+$white-df : #dfe4d5;
+$gray-70 : #707070;
+$gray-45 : #453f3f;
+$gray-aa : #AAA;
+$gray-ef : #efefef;
+$gray-bb : #bbbbbb;
+$gray-55 : #555;
+$gray-fc : #FCFCFC;
+$cinder : #1c0826;
+$darkBeige : #af9854;
+$albescent : #edeae7;
+$baltic : #24232b;
+$lava : #D6122D;
+$green-25 : #25d366;
+$light-grey : #d3d3d3;
 
 // Rituals - Background Color - Variables
-$light-bg           : #FFFFFF;
-$darksand-bg        : #F6F4F2;
-$sand-bg            : #FAF9F7;
-$gray-97            : #979797;
-$gray-99            : #999999;
-$gray-efe           : #efedea00;
-$c8-brown           :#8c6956;
-$red_d4             :#d14;
+$light-bg : #FFFFFF;
+$darksand-bg : #F6F4F2;
+$sand-bg : #FAF9F7;
+$gray-97 : #979797;
+$gray-99 : #999999;
+$gray-efe : #efedea00;
+$c8-brown :#8c6956;
+$red_d4 :#d14;
 
 // Rituals - RGB - Transparancy - Color - Variables
-$black-color-trans-1    : rgba(0, 0, 0, 1);
+$black-color-trans-1 : rgba(0, 0, 0, 1
+);
 $med-dark-black-trans-1 : rgba(36, 34, 34, 1);
 $med-dark-black-trans-0 : rgba(36, 34, 34, 0);
-$dark-black-trans-1     : rgba(26, 25, 25, 1);
-$dark-black-trans-0     : rgba(26, 25, 25, 0);
-$Keppel-trans-1         : rgba(62, 167, 142, 1);
-$ocean-green-trans-1    : rgba(77, 171, 140, 1);
-$putty-trans-1          : rgba(231, 213, 127, 1);
-$cinnabar-trans-1       : rgba(230, 92, 48, 1);
-$jazz-jam-trans-1       : rgba(171, 10, 80, 1);
-$venice-blue-trans-1    : rgba(8, 99, 132, 1);
-$eastern-blue-trans-1   : rgba(19, 134, 174, 1);
-$driftwood-trans-1      : rgba(158, 132, 73, 1);
-$yuma-trans-1           : rgba(198, 190, 131, 1);
-$sorrell-brown-trans-1  : rgba(199, 192, 133, 1);
-$sandrift-trans-1       : rgba(168, 140, 119, 1);
-$hampton-trans-1        : rgba(223, 209, 177, 1);
-$light-trans-1          : rgba(255, 255, 255, 1);
-$light-trans-0          : rgba(255, 255, 255, 0);
-$dark-sand-trans-1      : rgba(246, 244, 242, 1);
-$dark-sand-trans-0      : rgba(246, 244, 242, 0);
-$sand-trans-1           : rgba(250, 249, 247, 1);
-$sand-trans-0           : rgba(250, 249, 247, 0);
-$homme-trans-0          : rgba(29, 28, 36, 0);
-$homme-trans-1          : rgba(29, 28, 36, 1);
-$bcorp-trans-0          : rgba(71, 77, 64, 0);
-$bcorp-trans-1          : rgba(71, 77, 64, 1);
-$mansion-trans-0        : rgba(33, 31, 31, 0);
-$mansion-trans-1        : rgba(33, 31, 31, 1);
-$limited-trans-0        : rgba(69, 63, 63, 0);
-$limited-trans-1        : rgba(69, 63, 63, 1);
-$namaste-trans-0        : rgba(114, 105, 105, 0);
-$namaste-trans-1        : rgba(114, 105, 105, 1);
-$oriental-trans-0       : rgba(151, 116, 92, 0);
-$oriental-trans-1       : rgba(151, 116, 92, 1);
-$meher-trans-0          : rgba(170, 75, 30, 0);
-$light-black            : rgba(26,25,25,.5);
-$light-white            : rgb(239, 237, 234);
-$meher-trans-1          : rgba(170, 75, 30, 1);
-$holi-trans-0           : rgba(201, 14, 65, 0);
-$holi-trans-1           : rgba(201, 14, 65, 1);
-$sakura-trans-0         : rgba(180, 56, 68, 0);
-$sakura-trans-1         : rgba(180, 56, 68, 1);
-$ayurveda-trans-0       : rgba(172, 9, 61, 0);
-$ayurveda-trans-1       : rgba(172, 9, 61, 1);
-$amsterdam-trans-0      : rgba(28, 44, 76, 0);
-$amsterdam-trans-1      : rgba(28, 44, 76, 1);
-$hammam-trans-0         : rgba(0, 77, 111, 0);
-$hammam-trans-1         : rgba(0, 77, 111, 1);
-$jing-trans-0           : rgba(88, 140, 137, 0);
-$jing-trans-1           : rgba(88, 140, 137, 1);
-$karma-trnas-0          : rgba(34, 117, 99, 0);
-$karma-trnas-1          : rgba(34, 117, 99, 1);
-$tiny-trans-0           : rgba(66, 116, 88, 0);
-$tiny-trans-1           : rgba(66, 116, 88, 1);
-$light24-trans          : rgba(255, 255, 255, 0.24);
-$dark16-trans           : rgba(26, 25, 25, 0.16);
-$light-border           : rgba(0,0,0,.3);
-$light-gray-164         : rgba(164,164,164,.8);
-$white-trans-0          : rgba(255,255,255,0);
-$white-trans-08         : rgba(255,255,255,.8);
-$white-trans-05         : rgba(255, 255, 255, 0.5);
-$modal-bg-08            : rgba(26, 25, 25, 0.8);
-$black-trans-06         : rgba(26, 25, 25, 0.6);
-$black-trans-96         : rgba(26, 25, 25, 0.96);
-$white-trans-06         : rgba(245, 244, 242, 0.6);
-$box-shodw-color        : rgba(0,0,0,.5);
-$label-disabled         : rgba(26, 25, 25, .5);
+$dark-black-trans-1 : rgba(26, 25, 25, 1);
+$dark-black-trans-0 : rgba(26, 25, 25, 0);
+$Keppel-trans-1 : rgba(62, 167, 142, 1);
+$ocean-green-trans-1 : rgba(77, 171, 140, 1);
+$putty-trans-1 : rgba(231, 213, 127, 1);
+$cinnabar-trans-1 : rgba(230, 92, 48, 1);
+$jazz-jam-trans-1 : rgba(171, 10, 80, 1);
+$venice-blue-trans-1 : rgba(8, 99, 132, 1);
+$eastern-blue-trans-1 : rgba(19, 134, 174, 1);
+$driftwood-trans-1 : rgba(158, 132, 73, 1);
+$yuma-trans-1 : rgba(198, 190, 131, 1);
+$sorrell-brown-trans-1 : rgba(199, 192, 133, 1);
+$sandrift-trans-1 : rgba(168, 140, 119, 1);
+$hampton-trans-1 : rgba(223, 209, 177, 1);
+$light-trans-1 : rgba(255, 255, 255, 1);
+$light-trans-0 : rgba(255, 255, 255, 0);
+$dark-sand-trans-1 : rgba(246, 244, 242, 1);
+$dark-sand-trans-0 : rgba(246, 244, 242, 0);
+$sand-trans-1 : rgba(250, 249, 247, 1);
+$sand-trans-0 : rgba(250, 249, 247, 0);
+$homme-trans-0 : rgba(29, 28, 36, 0);
+$homme-trans-1 : rgba(29, 28, 36, 1);
+$bcorp-trans-0 : rgba(71, 77, 64, 0);
+$bcorp-trans-1 : rgba(71, 77, 64, 1);
+$mansion-trans-0 : rgba(33, 31, 31, 0);
+$mansion-trans-1 : rgba(33, 31, 31, 1);
+$limited-trans-0 : rgba(69, 63, 63, 0);
+$limited-trans-1 : rgba(69, 63, 63, 1);
+$namaste-trans-0 : rgba(114, 105, 105, 0);
+$namaste-trans-1 : rgba(114, 105, 105, 1);
+$oriental-trans-0 : rgba(151, 116, 92, 0);
+$oriental-trans-1 : rgba(151, 116, 92, 1);
+$meher-trans-0 : rgba(170, 75, 30, 0);
+$light-black : rgba(26, 25, 25, .5);
+$light-white : rgb(239, 237, 234);
+$meher-trans-1 : rgba(170, 75, 30, 1);
+$holi-trans-0 : rgba(201, 14, 65, 0);
+$holi-trans-1 : rgba(201, 14, 65, 1);
+$sakura-trans-0 : rgba(180, 56, 68, 0);
+$sakura-trans-1 : rgba(180, 56, 68, 1);
+$ayurveda-trans-0 : rgba(172, 9, 61, 0);
+$ayurveda-trans-1 : rgba(172, 9, 61, 1);
+$amsterdam-trans-0 : rgba(28, 44, 76, 0);
+$amsterdam-trans-1 : rgba(28, 44, 76, 1);
+$hammam-trans-0 : rgba(0, 77, 111, 0);
+$hammam-trans-1 : rgba(0, 77, 111, 1);
+$jing-trans-0 : rgba(88, 140, 137, 0);
+$jing-trans-1 : rgba(88, 140, 137, 1);
+$karma-trnas-0 : rgba(34, 117, 99, 0);
+$karma-trnas-1 : rgba(34, 117, 99, 1);
+$tiny-trans-0 : rgba(66, 116, 88, 0);
+$tiny-trans-1 : rgba(66, 116, 88, 1);
+$light24-trans : rgba(255, 255, 255, 0.24);
+$dark16-trans : rgba(26, 25, 25, 0.16);
+$light-border : rgba(0, 0, 0, .3);
+$light-gray-164 : rgba(164, 164, 164, .8);
+$white-trans-0 : rgba(255, 255, 255, 0);
+$white-trans-08 : rgba(255, 255, 255, .8);
+$white-trans-05 : rgba(255, 255, 255, 0.5);
+$modal-bg-08 : rgba(26, 25, 25, 0.8);
+$black-trans-06 : rgba(26, 25, 25, 0.6);
+$black-trans-96 : rgba(26, 25, 25, 0.96);
+$white-trans-06 : rgba(245, 244, 242, 0.6);
+$box-shodw-color : rgba(0, 0, 0, .5);
+$label-disabled : rgba(26, 25, 25, .5);
 
 // Collection - Primary Color - Variables
-$bcorp      : #474D40;
-$mansion    : #211F1F;
-$homme      : #1D1C24;
-$limited    : #453F3F;
-$namaste    : #726969;
-$oriental   : #97745C;
-$meher      : #AA4B1E;
-$holi       : #C90E4D;
-$sakura     : #B43844;
-$ayurveda   : #AC093D;
-$amsterdam  : #1C2C4C;
-$hammam     : #004D6F;
-$jing       : #588C89;
-$karma      : #227563;
-$tiny       : #427458;
-$brown-86   : #865;
-$dark-d5    : #D5D5D5;
-$grady-86   : #8c9476;
+$bcorp : #474D40;
+$mansion : #211F1F;
+$homme : #1D1C24;
+$limited : #453F3F;
+$namaste : #726969;
+$oriental : #97745C;
+$meher : #AA4B1E;
+$holi : #C90E4D;
+$sakura : #B43844;
+$ayurveda : #AC093D;
+$amsterdam : #1C2C4C;
+$hammam : #004D6F;
+$jing : #588C89;
+$karma : #227563;
+$tiny : #427458;
+$brown-86 : #865;
+$dark-d5 : #D5D5D5;
+$grady-86 : #8c9476;
 
 // Collection - Secondary Color - Variables
-$tiny-sec       : #517F65;
-$karma-sec      : #34806F;
-$homme-sec      : #2F2E36;
-$bcorp-sec      : #565B4F;
-$mansion-sec    : #333131;
-$limited-sec    : #544E4E;
-$namaste-sec    : #7D7575;
-$oriental-sec   : #9F7F69;
-$meher-sec      : #B15930;
-$holi-sec       : #CD215B;
-$sakura-sec     : #BA4853;
-$ayurveda-sec   : #B31D4D;
-$amsterdam-sec  : #2E3D5A;
-$hammam-sec     : #145B7B;
-$jing-sec       : #659592;
-$advent-sec     : #183162;
+$tiny-sec : #517F65;
+$karma-sec : #34806F;
+$homme-sec : #2F2E36;
+$bcorp-sec : #565B4F;
+$mansion-sec : #333131;
+$limited-sec : #544E4E;
+$namaste-sec : #7D7575;
+$oriental-sec : #9F7F69;
+$meher-sec : #B15930;
+$holi-sec : #CD215B;
+$sakura-sec : #BA4853;
+$ayurveda-sec : #B31D4D;
+$amsterdam-sec : #2E3D5A;
+$hammam-sec : #145B7B;
+$jing-sec : #659592;
+$advent-sec : #183162;
 
 // Collection - Background Color - Variables
-$hammam-coll-bg         : #E4E9EB;
-$karma-coll-bg          : #E6F1EE;
-$sakura-holi-coll-bg    : #FBF3F4;
-$generic-coll-bg        : #F6F4F2;
+$hammam-coll-bg : #E4E9EB;
+$karma-coll-bg : #E6F1EE;
+$sakura-holi-coll-bg : #FBF3F4;
+$generic-coll-bg : #F6F4F2;
 
 // Gradients - Colors
-$black-alpha        : linear-gradient(180deg, $black-color-trans-1 -0.38%, $med-dark-black-trans-0 -0.38%, $black-color-trans-1 100%);
-$dark-alpha         : linear-gradient(180deg, $dark-black-trans-0 0%, $dark-black-trans-1 100%);
-$med-dark-alpha     : linear-gradient(180deg, $med-dark-black-trans-1 -0.38%, $med-dark-black-trans-0 -0.38%, $med-dark-black-trans-1 100%);
-$customise          : conic-gradient(from 135deg at 50% 50%, $Keppel-trans-1 0deg, $ocean-green-trans-1 56.25deg, $putty-trans-1 114.38deg, $cinnabar-trans-1 178.12deg, $jazz-jam-trans-1 236.25deg, $venice-blue-trans-1 296.25deg, $eastern-blue-trans-1 360deg);
-$gold               : linear-gradient(225deg, $driftwood-trans-1 9.72%, $driftwood-trans-1 24.47%, $yuma-trans-1 30.98%, $driftwood-trans-1 33.95%, $driftwood-trans-1 46.08%, $sorrell-brown-trans-1 48.57%, $driftwood-trans-1 66.59%, $driftwood-trans-1 100%);
-$primium-gradiant   : linear-gradient(135.76deg, $sandrift-trans-1 16.86%, $hampton-trans-1 88%);
-$light-alpha        : linear-gradient(180deg, $light-trans-0 0%, $light-trans-1 100%);
-$dark-sand-alpha    : linear-gradient(180deg, $dark-sand-trans-0 0%, $dark-sand-trans-1 100%);
-$sand-alpha         : linear-gradient(180deg, $sand-trans-0 0%, $sand-trans-1 100%);
+$black-alpha : linear-gradient(180deg, $black-color-trans-1 -0.38%, $med-dark-black-trans-0 -0.38%, $black-color-trans-1 100%);
+$dark-alpha : linear-gradient(180deg, $dark-black-trans-0 0%, $dark-black-trans-1 100%);
+$med-dark-alpha : linear-gradient(180deg, $med-dark-black-trans-1 -0.38%, $med-dark-black-trans-0 -0.38%, $med-dark-black-trans-1 100%);
+$customise : conic-gradient(from 135deg at 50% 50%, $Keppel-trans-1 0deg, $ocean-green-trans-1 56.25deg, $putty-trans-1 114.38deg, $cinnabar-trans-1 178.12deg, $jazz-jam-trans-1 236.25deg, $venice-blue-trans-1 296.25deg, $eastern-blue-trans-1 360deg);
+$gold : linear-gradient(225deg, $driftwood-trans-1 9.72%, $driftwood-trans-1 24.47%, $yuma-trans-1 30.98%, $driftwood-trans-1 33.95%, $driftwood-trans-1 46.08%, $sorrell-brown-trans-1 48.57%, $driftwood-trans-1 66.59%, $driftwood-trans-1 100%);
+$primium-gradiant : linear-gradient(135.76deg, $sandrift-trans-1 16.86%, $hampton-trans-1 88%);
+$light-alpha : linear-gradient(180deg, $light-trans-0 0%, $light-trans-1 100%);
+$dark-sand-alpha : linear-gradient(180deg, $dark-sand-trans-0 0%, $dark-sand-trans-1 100%);
+$sand-alpha : linear-gradient(180deg, $sand-trans-0 0%, $sand-trans-1 100%);
 
 
 // Gradiants - Collection - Colors
-$homme-coll-gradiant        : linear-gradient(180deg, $homme-trans-0 0%, $homme-trans-1 100%);
-$bcrop-coll-gradiant        : linear-gradient(180deg, $bcorp-trans-0 0%, $bcorp-trans-1 100%);
-$mansion-coll-gradiant      : linear-gradient(180deg, $mansion-trans-0 0%, $mansion-trans-1 100%);
-$limited-coll-gradiant      : linear-gradient(180deg, $limited-trans-0 0%, $limited-trans-1 100%);
-$namaste-coll-gradiant      : linear-gradient(180deg, $namaste-trans-0 0%, $namaste-trans-1 100%);
-$oriental-coll-gradiant     : linear-gradient(180deg, $oriental-trans-0 0%, $oriental-trans-1 100%);
-$meher-coll-gradiant        : linear-gradient(180deg, $meher-trans-0 0%, $meher-trans-1 100%);
-$holi-coll-gradiant         : linear-gradient(180deg, $holi-trans-0 0%, $holi-trans-1 100%);
-$sakura-coll-gradiant       : linear-gradient(180deg, $sakura-trans-0 0%, $sakura-trans-1 100%);
-$ayurveda-coll-gradiant     : linear-gradient(180deg, $ayurveda-trans-0 0%, $ayurveda-trans-1 100%);
-$amsterdam-coll-gradiant    : linear-gradient(180deg, $amsterdam-trans-0 0%, $amsterdam-trans-1 100%);
-$hammam-coll-gradiant       : linear-gradient(180deg, $hammam-trans-0 0%, $hammam-trans-1 100%);
-$jing-coll-gradiant         : linear-gradient(180deg, $jing-trans-0 0%, $jing-trans-1 100%);
-$karma-coll-gradiant        : linear-gradient(180deg, $karma-trnas-0  0%, $karma-trnas-1  100%);
-$tiny-coll-gradiant         : linear-gradient(180deg, $tiny-trans-0 0%, $tiny-trans-1 100%);
+$homme-coll-gradiant : linear-gradient(180deg, $homme-trans-0 0%, $homme-trans-1 100%);
+$bcrop-coll-gradiant : linear-gradient(180deg, $bcorp-trans-0 0%, $bcorp-trans-1 100%);
+$mansion-coll-gradiant : linear-gradient(180deg, $mansion-trans-0 0%, $mansion-trans-1 100%);
+$limited-coll-gradiant : linear-gradient(180deg, $limited-trans-0 0%, $limited-trans-1 100%);
+$namaste-coll-gradiant : linear-gradient(180deg, $namaste-trans-0 0%, $namaste-trans-1 100%);
+$oriental-coll-gradiant : linear-gradient(180deg, $oriental-trans-0 0%, $oriental-trans-1 100%);
+$meher-coll-gradiant : linear-gradient(180deg, $meher-trans-0 0%, $meher-trans-1 100%);
+$holi-coll-gradiant : linear-gradient(180deg, $holi-trans-0 0%, $holi-trans-1 100%);
+$sakura-coll-gradiant : linear-gradient(180deg, $sakura-trans-0 0%, $sakura-trans-1 100%);
+$ayurveda-coll-gradiant : linear-gradient(180deg, $ayurveda-trans-0 0%, $ayurveda-trans-1 100%);
+$amsterdam-coll-gradiant : linear-gradient(180deg, $amsterdam-trans-0 0%, $amsterdam-trans-1 100%);
+$hammam-coll-gradiant : linear-gradient(180deg, $hammam-trans-0 0%, $hammam-trans-1 100%);
+$jing-coll-gradiant : linear-gradient(180deg, $jing-trans-0 0%, $jing-trans-1 100%);
+$karma-coll-gradiant : linear-gradient(180deg, $karma-trnas-0 0%, $karma-trnas-1 100%);
+$tiny-coll-gradiant : linear-gradient(180deg, $tiny-trans-0 0%, $tiny-trans-1 100%);
 
 // Progressbar - Background Color
-$progressbar-bg : linear-gradient(to right,#9a7b69,#deca87);
-$shomore-before-bg : linear-gradient(to left,#b4b4b4,rgba(180,180,180,0));
-$shomore-after-bg : linear-gradient(to right,#b4b4b4,rgba(180,180,180,0));
+$progressbar-bg : linear-gradient(to right, #9a7b69, #deca87);
+$shomore-before-bg : linear-gradient(to left, #b4b4b4, rgba(180, 180, 180, 0));
+$shomore-after-bg : linear-gradient(to right, #b4b4b4, rgba(180, 180, 180, 0));
 
 // Slider - shadow - background
-$slider-shadow-before-bg:   linear-gradient(270deg,rgba(255,255,255,0) 0,#f6f4f2 80%);
-$slider-shadow-after-bg:   linear-gradient(90deg,rgba(255,255,255,0) 0,#f6f4f2 80%);
+$slider-shadow-before-bg: linear-gradient(270deg, rgba(255, 255, 255, 0) 0, #f6f4f2 80%);
+$slider-shadow-after-bg: linear-gradient(90deg, rgba(255, 255, 255, 0) 0, #f6f4f2 80%);
 
 // Customize - Product - Part - Option
 $product-part-option: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0));
 $product-part-option-btn-bg: linear-gradient(to top, #ffffff, rgba(255, 255, 255, 0));
-$button-before-bg : linear-gradient(to bottom,rgba(255,255,255,0) 0%,#ffffff 100%);
+$button-before-bg : linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
 // PD - Slider - Background
-$pd-slider-shadow-before-bg: linear-gradient(to left,rgba(246,244,242,0),#f6f4f2);
-$pd-slider-shadow-after-bg: linear-gradient(to right,rgba(246,244,242,0),#f6f4f2);
+$pd-slider-shadow-before-bg: linear-gradient(to left, rgba(246, 244, 242, 0), #f6f4f2);
+$pd-slider-shadow-after-bg: linear-gradient(to right, rgba(246, 244, 242, 0), #f6f4f2);
 
 // PD - Content - Banner
-$pd-content-banner-after-bg: linear-gradient(180.08deg,rgba(26,24,25,0) 13.97%,rgba(26,24,25,0.43) 28.74%,rgba(26,24,25,0.71) 43.52%,rgba(26,24,25,0.92) 60.53%,#1a1819 79.78%);
+$pd-content-banner-after-bg: linear-gradient(180.08deg, rgba(26, 24, 25, 0) 13.97%, rgba(26, 24, 25, 0.43) 28.74%, rgba(26, 24, 25, 0.71) 43.52%, rgba(26, 24, 25, 0.92) 60.53%, #1a1819 79.78%);
 
 // Elevation- Shadows
 $shadow-100 : 0px 2px 8px rgba(26, 25, 25, 0.04);
@@ -337,46 +352,46 @@ $shadow-400 : 0px 12px 32px rgba(26, 25, 25, 0.08);
 $shadow-500 : 0px 16px 40px rgba(26, 25, 25, 0.12);
 
 // Overlay - Background - Color
-$filter-panel-overlay-bg: rgba(0,0,0,.6);
+$filter-panel-overlay-bg: rgba(0, 0, 0, .6);
 
 // Header
-$main-header-bg             : $dark-black;
-$top-header-bg              : $med-dark-black;
-$menu-item-color            : $aluminium;
-$menu-item-hover-color      : $light;
-$search-input-color         : $nobel;
-$search-suggestion-color    : $limited;
-$top-header-bullet-color    :rgba(216,216,215,.3);
+$main-header-bg : $dark-black;
+$top-header-bg : $med-dark-black;
+$menu-item-color : $aluminium;
+$menu-item-hover-color : $light;
+$search-input-color : $nobel;
+$search-suggestion-color : $limited;
+$top-header-bullet-color :rgba(216, 216, 215, .3);
 
 // Footer
-$footer-bg-color                    : $dark-black;
+$footer-bg-color : $dark-black;
 //$footer-border-color                : $paprika;
-$footer-link-heading                : $light;
-$footer-link-color                  : $dawn;
-$footer-country-selector-link       : $copper-dark;
+$footer-link-heading : $light;
+$footer-link-color : $dawn;
+$footer-country-selector-link : $copper-dark;
 
 // PLP and CLP - colors
-$sidebar-bg-color                   : $mirage;
-$sidebar-box-shadow                 : $box-shodw-color;
-$sidebar-breadcrumb-link            : $stonewall;
-$sidebar-active-filter-tag-bg       : rgba(216,216,216,.1);
-$sidebar-active-filter-btn-color    : rgba(255,255,255,.36);
+$sidebar-bg-color : $mirage;
+$sidebar-box-shadow : $box-shodw-color;
+$sidebar-breadcrumb-link : $stonewall;
+$sidebar-active-filter-tag-bg : rgba(216, 216, 216, .1);
+$sidebar-active-filter-btn-color : rgba(255, 255, 255, .36);
 
 // variables created by Other end
 
 // Font transformation for text
-$uppercase  : uppercase;
-$lowercase  : lowercase;
+$uppercase : uppercase;
+$lowercase : lowercase;
 $capitalize : capitalize;
 
 // Font according to weight
-$thinFont      : 100;
-$extraLight    : 200;
-$lightFont     : 300;
-$normalFont    : 400;
-$mediumBold    : 500;
-$semiBoldFont  : 600;
-$boldFont      : 700;
+$thinFont : 100;
+$extraLight : 200;
+$lightFont : 300;
+$normalFont : 400;
+$mediumBold : 500;
+$semiBoldFont : 600;
+$boldFont : 700;
 $extraBoldFont : 800;
 
 $border-radius: 0.1875rem !default;
@@ -416,7 +431,7 @@ $modal-bg-08: rgba(26, 25, 25, 0.8);
 // Validation message color
 
 $validate-message: #D6122D;
-$gray-57     :     #575757;
+$gray-57 : #575757;
 
 $black-trans-01: rgba(0, 0, 0, 0.1);
 $black-trans-03: rgba(0, 0, 0, 0.3);
@@ -428,13 +443,13 @@ $white-trans-90: rgba(255, 255, 255, 0.9);
 $black-trans-02: rgba(0, 0, 0, 0.2);
 
 // Flyout
-$flyou-box-shadow           : rgba(0,0,0,.14);
-$flyout-back-btn-block-bg   : linear-gradient(to bottom, $light-trans-0  0%, $white 100%);
+$flyou-box-shadow : rgba(0, 0, 0, .14);
+$flyout-back-btn-block-bg : linear-gradient(to bottom, $light-trans-0 0%, $white 100%);
 
 // Slider - Progress Bar
-$slider-bar-bg: rgba(255,255,255,.3);
-$black-bg-2: rgba(255,255,255,.2);
-$black-bg-1: rgba(255,255,255,1);
+$slider-bar-bg: rgba(255, 255, 255, .3);
+$black-bg-2: rgba(255, 255, 255, .2);
+$black-bg-1: rgba(255, 255, 255, 1);
 $black-grey: #46494d;
 $blue-vul: #185bbc;
 $blue-vul1: #0278b8;

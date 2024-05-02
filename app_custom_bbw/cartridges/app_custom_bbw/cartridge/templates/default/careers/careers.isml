@@ -7,12 +7,12 @@
     </isscript>
     <div class="container">
     <div class="career-section">
-        <h1 class="entry-title h-font-size--40">${Resource.msg('text.careers', 'careers', null)}</h1>
+        <h1 class="entry-title h-font-size--40 text-captialize">${Resource.msg('text.careers', 'careers', null)}</h1>
     
         <iscontentasset aid="bbw-careers-content-asset" />
     
-        <div class="job-heading">
-            <h2>${Resource.msg('text.available.position', 'careers', null)}</h2>
+        <div class="job-heading text-center">
+            <h2 class="text-transform-captialize">${Resource.msg('text.available.position', 'careers', null)}</h2>
         </div>
         <isif condition="${pdict.careers.length == 0}">
             <iscontentasset aid="no-job-available-text" />
@@ -20,7 +20,6 @@
             <!-- Accordion -->
             <div class="accordion-container careers_jobs">
                 <div class="row main-container">
-    
                     <div class="col-12 accordion" id="accordion">
                         <div class="panel-group " id="accordioncontent">
                             <isloop items="${pdict.careers}" var="career" status="loopstatus">
@@ -29,8 +28,8 @@
                                         href="${'#' + (career.city).replace(/\s/g, '')}" aria-expanded="true"
                                         aria-controls="${'#' + (career.city).replace(/\s/g, '')}"
                                         hreflang="${request.getLocale()}">
-                                        <h3>
-                                            <span class="headeing_main_c"> ${career.city} </span>
+                                        <h3 class="d-flex justify-content-between align-items-center text-uppercase">
+                                            <span class="headeing_main_c d-block"> ${career.city} </span>
                                         </h3>
                                     </div>
                                     <div id="${(career.city).replace(/\s/g, '')}" data-parent="#accordioncontent"
@@ -38,8 +37,8 @@
                                         <div class="panel-body menu_list">
                                             <isloop items="${career.data}" var="job" status="loopstatus">
                                                 <ul>
-                                                    <li><a href="${URLUtils.url('Careers-ApplyForJob', 'jobName', job.jobName, 'jobId', job.id)}"
-                                                            hreflang="${request.getLocale()}"><span>
+                                                    <li class="h-font-size--16 m-0"><span class="number-listing">1</span><a href="${URLUtils.url('Careers-ApplyForJob', 'jobName', job.jobName, 'jobId', job.id)}"
+                                                            hreflang="${request.getLocale()}"><span class="job-roles">
                                                                 ${job.jobName} </span></a>
                                                     </li>
                                                 </ul>

@@ -9,7 +9,7 @@
  * @param {string} data - data returned from the server's ajax call
  * @param {object} button - button that was clicked for email sign-up
  */
-function displayMessage(data, button) {
+function displayMessage(data) {
     $.spinner().stop();
     var status;
     if (data.success) {

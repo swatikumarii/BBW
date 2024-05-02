@@ -42,8 +42,8 @@ server.get('ApplyForJob',
             jobApplicationForm: jobApplicationForm,
             jobName: jobName,
             jobId: req.querystring.jobId,
-            jobDescription:jobDescription,
-            bbwCareersEmail :bbwCareersEmail
+            jobDescription: jobDescription,
+            bbwCareersEmail: bbwCareersEmail
         });
         next();
     }, pageMetaData.computedPageMetaData);
@@ -55,7 +55,7 @@ server.get('ApplyForJob',
  * @memberof Careers
  */
 server.post('SubmitJobApplication', server.middleware.https,
-csrfProtection.generateToken,
+    csrfProtection.generateToken,
     function (req, res, next) {
         var jobId = req.querystring.jobId;
         var LinkedHashMap = require('dw/util/LinkedHashMap');
@@ -67,7 +67,7 @@ csrfProtection.generateToken,
         var Template = require('dw/util/Template');
         var CareersHelper = require('*/cartridge/scripts/helpers/careersHelpers');
         var Site = require('dw/system/Site');
-        var jobDetails = CustomObjectMgr.getCustomObject('careers',jobId);
+        var jobDetails = CustomObjectMgr.getCustomObject('careers', jobId);
 
         // Create the template that we will use to send the email.
         var template = new Template('mail/careers/jobMail');
@@ -97,7 +97,7 @@ csrfProtection.generateToken,
                 newCandidate.custom.aboutCandidate = form.yourself;
 
             });
-        } catch (e) {}
+        } catch (e) { }
         var resumeType = resume[0].name.split(".")
         var user = {
             name: form.name,
@@ -113,7 +113,7 @@ csrfProtection.generateToken,
         // Render the template with the data in the Hash
         try {
             var content = template.render(mailAttributes);
-        } catch (e) {}
+        } catch (e) { }
 
         mail.addTo(jobDetails.custom.emailId || Site.current.getCustomPreferenceValue('bbwCareersEmail'));
         mail.addCc(jobDetails.custom.ccEmail || '');
@@ -124,7 +124,7 @@ csrfProtection.generateToken,
 
         res.render('careers/applyForJob', {
             jobName: jobDetails.custom.job,
-            jobApplicationForm : form
+            jobApplicationForm: form
         });
         next();
     });

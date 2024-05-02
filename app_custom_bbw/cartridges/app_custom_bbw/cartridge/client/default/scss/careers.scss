@@ -1,366 +1,384 @@
-@import '../scss/variables';
-
-.send-resume {
-    background: $dark-black;
-    border: none;
-    color: $white;
-    display: inline-block;
-    padding: 11px 24px 10px;
-    text-decoration: none;
-}
-
-.jobForm {
-    display: none;
-    padding: 0;
-    margin: 0 0 1em;
-}
-
-h1,
-.entry-header h1,
-.entry-header h2,
-.entry-header h3 {
-    background: url(images/title-border.png) no-repeat top left;
-    color: $grey5;
-    margin: 24px 0 18px;
-    padding: 12px 0 0;
-}
-
-.application {
-    padding: 0;
-    margin: 0 0 1em;
-    overflow: hidden;
-}
-
-h1,
-.entry-header h1,
-.entry-header h2,
-.entry-header h3 {
-    background: url(images/title-border.png) no-repeat top left;
-    color: $grey5;
-    margin: 24px 0 18px;
-    padding: 12px 0 0;
-}
-
-
-.title_secondary h2 {
-    padding: 20px 0 0;
-    border-top: 1px solid $grey3;
-}
-
-.career-main .title_primary h2 {
-    font-size: 48px;
-    color: $dark-black;
-    padding: 20px 0 25px;
-    border-top: 3px solid $grey3;
-    border-bottom: 1px solid $grey3;
-}
-
-.jobPost {
-    display: none;
-}
-
-.jobLocation {
-    display: none;
-}
-
-.ui-icon {
-    display: block;
-    width: 16px;
-    height: 16px;
-    background-image: url(../images/toggle_open.png);
-    background-repeat: no-repeat;
-    position: absolute;
-    right: 0.7em;
-    top: 0.7em;
-}
-
-.career-main .wpb_accordion_header span {
-    background: none;
-    top: 16px;
-    right: 16px;
-    color: $grey3;
-    line-height: 1;
-    text-align: center;
-}
-
-.wpb_accordion .wpb_accordion_wrapper .wpb_accordion_header {
-    margin: 0 0 1px 0;
-    padding-top: 0;
-    position: relative;
-    text-transform: none;
-    font-weight: inherit;
-    font-size: inherit;
-    font-family: inherit;
-    line-height: inherit;
-    letter-spacing: inherit;
-}
-
-.collapsible .icon:after {
-    content: "+";
-    font-weight: bold;
-    font-size: 20px;
-    color: $dark-black;
-    display: block;
-    width: 21px;
-}
-
-.collapsible {
-    margin: 0 0 1px 0;
-    padding-top: 0;
-    position: relative;
-    text-transform: none;
-    font-weight: inherit;
-    font-size: inherit;
-    font-family: inherit;
-    line-height: inherit;
-    letter-spacing: inherit;
-}
-
-////////////////////////////////////////////////////////////////////////////
-.collapsible {
-    background-color: $grey;
-}
-
-.location_name_jobs {
-    display: none;
-}
-
-.careers_jobs {
-    .panel-group {
-        .panel {
-            .panel-heading {
-
-                background: $dark-black;
-
-                &.collapsed {
-                    background-color: #f2f2f2;
-                    transition: .2s linear all;
-
-                    h3 {
-                        color: $dark-black;
-                        position: relative;
-
-                        &::before {
-                            content: "\f067";
-                            color: $dark-black;
-                        }
-
-                        span {
-                            color: $dark-black;
-                        }
-                    }
-
-                    &:hover {
-                        background: $dark-black;
-
-                        h3 {
-                            color: $white;
-
-                            &::before {
-                                color: $white;
-                            }
-
-                            span {
-                                color: $white;
-                            }
-                        }
-                    }
-                }
-
-                h3 {
-                    line-height: unset;
-                    padding-left: 1em;
-                    border-bottom: none;
-                    text-decoration: none;
-                    display: block;
-                    cursor: pointer;
-                    color: $white;
-                    padding: 0.5em 1em;
-                    font-size: 17px;
-                    position: relative;
-
-                    &::before {
-                        position: absolute;
-                        right: 10px;
-                        z-index: 99;
-                        font-family: FontAwesome;
-                        font-size: 15px;
-                        content: "\f068";
-                        color: $white;
-                    }
-
-                    span {
-                        color: $white;
-                    }
-                }
-            }
-        }
-    }
-
-    .menu_list {
-        padding: 1em;
-
-        ul {
-            .location_name_c {
-                cursor: pointer;
-                margin: 0;
-                list-style: none;
-                padding: 0 0 18px;
-                color: $dark-black;
-
-                span {
-                    color: $dark-black;
-                    display: inline-block;
-                    width: 40px;
-                }
-            }
-
-            .location_name_jobs {
-                padding: 0 0 24px 0;
-                overflow: hidden;
-
-                ul {
-                    list-style: none;
-                    margin: 0;
-                    padding: 0 0 0 40px;
-                    margin-bottom: 0;
-
-                    li {
-                        padding: 0 12px 0 0;
-                        position: relative;
-                        margin: 0;
-
-                        &::before {
-
-                            font-family: FontAwesome;
-                            content: '\f105';
-                            margin: 0 12px 0 0;
-                            color: $dark-black;
-                        }
-
-                        a {
-                            text-decoration: none;
-                            color: $grey8;
-
-                            span {
-                                color: $grey8;
-                            }
-                        }
-                    }
-                }
-
-            }
-        }
-    }
-}
-
-.job-application {
-    &.form-control {
-        height: unset;
-        border-color: $grey-light;
-        padding: 30px 30px 30px;
-    }
-}
-
-.thankyou-msg {
-    display: none;
-    margin: 2em 0.5em 1em;
-    padding: 0.2em 1em;
-    border: 2px solid $green;
-}
-
-.error-msg-jobs {
-    display: none;
-    margin: 2em 0.5em 1em;
-    padding: 0.2em 1em;
-    border: 2px solid $red;
-}
-
-.form-file-control {
-    &.is-invalid {
-        border-color: $red;
-
-        +.invalid-feedback {
-            display: block;
-        }
-    }
-}
-
-.large-size-msg {
-    display: none;
-    margin: 2em 0.5em 1em;
-    padding: 0.2em 1em;
-    border: 2px solid $primary;
-}
-
-.email-header {
-    font-size: 27px;
-    font-family: 'GaramondPro';
-    margin: 20px 20px 20px 0;
-
-    a {
-        font-size: 27px;
-        font-family: 'GaramondPro';
-    }
-}
-
-.job-heading {
-    text-align: center;
-
-
-    h2 {
-        font-size: 27px;
-        font-weight: 400;
-        text-transform: capitalize;
-        color: $grey7;
-        border-top: 1px solid $grey3;
-        padding: 20px 0 0;
-
-        @include media-breakpoint-down(sm) {
-            font-size: 21px;
-        }
-    }
-}
-
-.job-form {
-    padding: 18px 40px 10px;
-    max-width: 1440px;
-    margin: 0 auto;
-}
+@import "../scss/variables";
+@import "../scss/_brand/components/collapsibleItem";
+@import "../scss/_brand/_api/api";
 
 .career-section {
-    margin: 0 auto;
-    padding: 30px;
-    @include media-breakpoint-up(md) {
-        padding-bottom: 90px;
-    }
+    padding-bottom: 90px;
 
-    @include media-breakpoint-down(sm) {
-        padding: 0 20px;
+    @include media-up(sm) {
+        margin: 0 auto;
         padding: 30px;
-        padding-bottom: 80px;
     }
 
     .entry-title {
-        color: $grey5;
+        color: colour(gray);
         margin: 24px 0 18px;
         padding: 12px 0 18px;
-        text-transform: capitalize;
+        line-height: 50px;
+        letter-spacing: 3.3px;
+    }
+
+    p {
+        line-height: 28px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    .job-heading {
+        h2 {
+            font-size: 27px;
+            color: colour(black, 5);
+            border-top: 1px solid colour(gray, 7);
+            padding: 20px 0 0;
+            line-height: 40px;
+            letter-spacing: 2.4px;
+        }
+    }
+
+    .accordion-container {
+        .collapsible .icon{
+            &:after {
+                    content: "+";
+                    font-weight: bold;
+                    font-size: 20px;
+                    color: colour(black, 6);
+                    display: block;
+                    width: 21px;
+            }
+        }
+
+        .collapsible {
+            margin: 0 0 1px;
+            padding-top: 0;
+            position: relative;
+        }
+
+        .collapsible {
+            background-color: $grey;
+        }
+
+        .panel-group {
+            .panel {
+                .panel-heading {
+                    background: colour(black, 6);
+
+                    &.collapsed {
+                        background-color: colour(gray, 1);
+                        transition: .2s linear all;
+
+                        h3 {
+                            color: colour(black, 6);
+                            position: relative;
+
+                            &::before {
+                                content: "\f067";
+                                color: colour(black, 6);
+                            }
+
+                            .headeing_main_c {
+                                color: colour(black, 6);
+                                border-bottom: none;
+                                text-decoration: none;
+                                cursor: pointer;
+                            }
+                        }
+
+                        &:hover {
+                            background: colour(black, 6);
+
+                            h3 {
+                                color: colour(white);
+
+                                &::before {
+                                    color: colour(white);
+                                }
+
+                                span {
+                                    color: colour(white);
+                                }
+                            }
+                        }
+                    }
+
+                    h3 {
+                        line-height: 28px;
+                        padding-left: 1em;
+                        cursor: pointer;
+                        position: relative;
+                        color: colour(white);
+                        padding: 0.5em 1em;
+                        font-size: 17px;
+
+                        &::before {
+                            position: absolute;
+                            right: 10px;
+                            font-family: FontAwesome;
+                            font-size: 15px;
+                            content: "\f068";
+                            color: colour(white);
+                        }
+
+                        span {
+                            color: colour(white);
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu_list {
+            padding: 22px;
+
+            ul {
+                li {
+                    list-style: none;
+                    padding: 0 0 18px;
+
+                    .job-roles {
+                        color: colour(black, 6);
+                        line-height: 28px;
+                        letter-spacing: 1px;
+                    }
+
+
+                    .number-listing {
+                        color: colour(black, 6);
+                        display: inline-block;
+                        width: 40px;
+                    }
+                }
+
+                .location_name_c {
+                    cursor: pointer;
+                    margin: 0;
+                    list-style: none;
+                    padding: 0 0 18px;
+                    color: colour(black, 6);
+
+                    span {
+                        color: colour(black, 6);
+                        display: inline-block;
+                        width: 40px;
+                    }
+                }
+
+                .location_name_jobs {
+                    padding: 0 0 24px 0;
+                    overflow: hidden;
+
+                    ul {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0 0 0 40px;
+                        margin-bottom: 0;
+
+                        li {
+                            padding: 0 12px 0 0;
+                            position: relative;
+                            margin: 0;
+
+                            &::before {
+                                font-family: FontAwesome;
+                                content: '\f105';
+                                margin: 0 12px 0 0;
+                                color: colour(black, 6);
+                            }
+
+                            a {
+                                text-decoration: none;
+                                color: $grey8;
+
+                                span {
+                                    color: $grey8;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
     }
 }
 
-.apply-job-heading {
-    margin: 0px 1px 15px;
+// ----------job-form---
+.job-form {
+    padding: 18px 40px 10px;
+    margin: 0 auto;
+
+    .entry-header {
+        .entry-title {
+            color: colour(gray);
+            margin: 24px 0 18px;
+            padding: 12px 0 0;
+            line-height: 50px;
+            letter-spacing: 3.3px;
+        }
+    }
+
+    .job-description {
+        line-height: 28px;
+        letter-spacing: 1px;
+    }
+
+    .application {
+        margin: 0 0 1em;
+        overflow: hidden;
+
+        .applicationButton {
+            letter-spacing: 2px;
+            line-height: 1.2;
+            max-width: 280px;
+            min-width: 220px;
+            padding: 14px 20px;
+            border-radius: 0;
+            text-decoration: none;
+            transition: 0.2s ease-in-out;
+
+            &:hover {
+                background-color: transparent;
+                color: colour(black, 7);
+                outline: none;
+            }
+        }
+    }
+
+    .jobForm {
+        display: none;
+        padding: 0;
+        margin: 0 0 1em;
+
+        .job-content {
+            line-height: 28px;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+
+        .job-application {
+            &.form-control {
+                height: unset;
+                border-color: colour(gray, 23);
+                padding: 30px 30px 30px;
+            }
+
+            .form-content {
+                color: colour(black, 7);
+                line-height: 28px;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+            }
+
+            .required-field {
+                margin-bottom: 32px;
+                position: relative;
+
+                .form-control-label {
+                    color: colour(black, 6);
+                    letter-spacing: 0.5px;
+                    line-height: 20px;
+                }
+
+                .job-input-form {
+                    border-radius: 0px;
+                    border: 1px solid colour(gray, 23);
+                    color: colour(black, 6);
+                    letter-spacing: 0.5px;
+                    margin-top: 8px;
+                    padding: 12px 21px;
+                    line-height: initial;
+                }
+            }
+
+            .send-resume {
+                background: colour(black, 6);
+                border: none;
+                color: colour(white);
+                display: inline-block;
+                padding: 11px 24px 10px;
+                text-decoration: none;
+            }
+
+            .thankyou-msg {
+                display: none;
+                margin: 2em 0.5em 1em;
+                padding: 0.2em 1em;
+                border: 2px solid colour(green, 1);
+            }
+
+            .error-msg-jobs {
+                display: none;
+                margin: 2em 0.5em 1em;
+                padding: 0.2em 1em;
+                border: 2px solid colour(red);
+            }
+
+            .large-size-msg {
+                display: none;
+                margin: 2em 0.5em 1em;
+                padding: 0.2em 1em;
+                border: 2px solid colour(blue, 8);
+            }
+        }
+    }
 }
 
-.submissionPopupContent{
-    text-align: center;
-}
+// ------thank you modal--
+.autologout-modal {
+    .modal {
+        .modal-dialog {
+            max-width: 600px;
+            min-height: calc(100% - 3.5rem);
 
-.thankyou-body{
-    text-align: left;
-}
+            &::before {
+                height: calc(100vh - 3.5rem);
+            }
 
-.wrong-file-type-msg{
-    display: none;
+            .modal-content {
+                box-shadow: none;
+                letter-spacing: 1px;
+                line-height: 28px;
+                max-width: 600px;
+                padding: 35px 20px 25px;
+                transition: none;
+
+                .modal-header {
+                    border: none;
+                    padding-top: 0;
+                    padding-bottom: 0;
+
+                    .modal-close-icon {
+                        color: colour(black);
+                        font-size: 25px;
+                        top: 35px;
+                        right: 40px;
+                        position: absolute;
+                        cursor: pointer;
+                        z-index: 901;
+                        background-color: transparent;
+                        border: 0;
+                        padding: 0;
+                        background-position: 50%;
+                        background-repeat: no-repeat;
+                        height: 60px;
+                        opacity: 0.55;
+                        width: 60px;
+                        background-image: url("../images/careers/close-icon.svg");
+
+                        &:hover {
+                            opacity: 0.75;
+                        }
+                    }
+
+                    .close {
+                        margin: -1rem -1rem -1rem auto;
+                    }
+                }
+
+                .thankyou-body {
+                    letter-spacing: 1px;
+                    line-height: 28px;
+                }
+            }
+        }
+    }
 }
