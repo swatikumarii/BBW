@@ -18,8 +18,8 @@ $(document).ready(function () {
     processInclude(require('base/components/clientSideValidation'));
     processInclude(require('base/components/countrySelector'));
     processInclude(require('base/components/toolTip'));
-    processInclude(require('./wishlist'));
     processInclude(require('./components/header'));
+    processInclude(require('./wishlist'));
     processInclude(require('./components/video'));
 });
 
