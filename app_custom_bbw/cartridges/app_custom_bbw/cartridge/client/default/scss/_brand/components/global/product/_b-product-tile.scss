@@ -43,9 +43,17 @@
         margin-top: 12px;
     }
 
+    .social-badge-wrapper {
+        z-index: 1;
+
+        @include media-down(md) {
+            flex-wrap: wrap;
+        }
+    }
+
     &__social-badge-text {
         border-radius: 2px;
-        margin-bottom: 32px;
+        margin-bottom: 0;
         padding: 4px 8px;
         letter-spacing: 0.015em;
     }
