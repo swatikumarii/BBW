@@ -5,6 +5,8 @@
         assets.addCss('/css/cart.css');
         assets.addCss('/css/afterpaystyle.css');
     </isscript>
+    <isset name="miniCart" value="${false}" scope="page" />
+
 
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
         <isinclude template="reporting/reportingUrls" />
@@ -14,16 +16,6 @@
         ${Resource.msg('link.continue.shopping', 'cart', null)}
     </a>
     <div class="cartContainer">
-        <div class="cart-error-messaging cart-error">
-            <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
-                <div class="alert alert-danger alert-dismissible valid-cart-error fade show" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    ${pdict.valid.message}
-                </div>
-            </isif>
-        </div>
         <isif condition="${pdict.items.length === 0}">
             <div class="container text-center">
                 <div class="row cart-empty">
@@ -41,6 +33,12 @@
                 <h1 class="shoppingBagTitle h-clr--black1 h-fw--bold h-font-size--24">
                     ${Resource.msg('label.shopping.bag', 'cart', null)}</h1>
                 <div class="cartActionMessages"></div>
+                <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
+                    <div class="cart-error-messaging cart-error h-font-size--14 h-bg--red-10 h-clr--red-9 px-3 py-2 mb-2">
+                        <img src="${URLUtils.staticURL('images/Alert-Error.svg')}" alt="error alert" width="28px" height="28px">
+                        <span>${pdict.valid.message}</span>
+                    </div>
+                </isif>
                 <div class="item-removed-message h-font-size--16 h-bg--blue-3 h-clr--green-2 p-3 mb-2 d-none">
                     ${Resource.msg('cart.item.remove.msg', 'cart', null)}
                 </div>
@@ -83,10 +81,16 @@
                             </isif>
                         </isif>
                     </isloop>
+                    <isinclude template="cart/productCard/cartGreetingCard" />
+                    <div class="gift-wrap-card-div">
+                        <isinclude template="cart/productCard/cartGiftWrapProductCard" />
+                    </div>
                 </div>
-                <isinclude template="cart/productCard/cartGreetingCard" />
                 <isinclude template="cart/cartApproachingDiscount" />
                 <isinclude template="cart/greetingCard" />
+                <div class="gift-wrap-choose-div">
+                    <isinclude template="cart/giftWrap" />
+                </div>
                 <!---totals, and checkout actions--->
                 <div class="cartFooter">
                     <div class="cartPromoCodeWrap">
@@ -96,13 +100,15 @@
                                 <isinclude template="cart/cartCouponDisplay" />
                             </div>
                         </div>
-                        <div class="cartSignIn">
-                        </div>
+                        <isslot id="cart-bottom-below-promocode" context="global"
+                            description="This slot will be rendered on the bottom part of cart page below promocode section" />
                     </div>
                     <div class="cartTotalsWrap">
                         <isinclude template="cart/cartTotals" />
                         <isinclude template="cart/checkoutButtons" />
                     </div>
+                    <isslot id="cart-bottom-below-checkout-button" context="global" description="This slot will be rendered on the bottom part of cart page below checkout buttons" />
+
                 </div>
             </div>
             <isinclude template="cart/cartRemoveProductModal" />

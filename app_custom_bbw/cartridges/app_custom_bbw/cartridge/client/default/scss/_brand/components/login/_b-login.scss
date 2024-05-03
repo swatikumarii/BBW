@@ -4,6 +4,10 @@
     margin-top: 3vh;
     max-width: 343px;
 
+    @include media-down(sm) {
+        margin: 3vh auto;
+    }
+
     .login-form-input {
         height: 3rem;
     }

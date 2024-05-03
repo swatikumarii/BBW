@@ -64,7 +64,7 @@ server.replace('Subscribe', function (req, res, next) {
         if (!empty(getCustomObject) && getCustomObject.custom.email === email) {
             // email already exists.
             res.json({
-                error: true,
+                success: true,
                 msg: Resource.msg('subscribe.email.exists', 'newsletter', null)
             });
         } else {

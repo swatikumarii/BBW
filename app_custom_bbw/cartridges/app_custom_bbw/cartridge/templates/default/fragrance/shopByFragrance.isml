@@ -90,7 +90,7 @@
                                     </div>
                                     <ul class="list-unstyled frg-listing">
                                         <isloop iterator="${fragranceGroup.value}" alias="fragrance" status="loopstate">
-                                            <li class="level-2 text-justify mt-3 mb-3">
+                                            <li class="level-2 text-start mt-3 mb-3">
                                                 <a class="h-clr--gray"
                                                     href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragrance.name)}"
                                                     data-fragrancename="${fragrance.name}">
@@ -106,7 +106,7 @@
                             </isloop>
                         </div>
                     </div>
-                    <div class="noresult" id="noresult">${Resource.msg('shop.by.fragrance.name.noresult', 'fragrance', null)}
+                    <div class="noresult text-center" id="noresult">${Resource.msg('shop.by.fragrance.name.noresult', 'fragrance', null)}
                     </div>
                 <iselse/>
                     <div class="nofragrance">${Resource.msg('shop.by.fragrance.name.empty', 'fragrance', null)}</div>
