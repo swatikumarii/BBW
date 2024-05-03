@@ -1,6 +1,7 @@
 @import "../collapsibleItem";
 
 footer {
+    margin-top: 96px;
     border-top: 0.1875rem solid colour(gray, 1);
 
     .footer-container {
@@ -9,7 +10,7 @@ footer {
             column-gap: 1.5rem;
         }
 
-        @include media-btw(sm, lg) {
+        @include media-breakpoint-only(md) {
             column-gap: 16px;
             grid-template-columns: 1fr 1fr;
         }
@@ -20,35 +21,50 @@ footer {
                 grid-template-columns: 1fr 1fr 1fr 1fr;
             }
 
-            @include media-btw(sm, lg) {
+            @include media-breakpoint-only(md) {
                 grid-template-columns: 1fr 1fr;
                 column-gap: 1rem;
+            }
+
+            .footer-list-data {
+                &::after {
+                    background: colour(gray, 1);
+                    content: "";
+                    margin-left: -10px;
+                    display: block;
+                    height: 1px;
+                    width: 100%;
+                    margin-right: -10px;
+                }
+
+                @include media-up(sm) {
+                    background: none;
+                }
             }
         }
     }
 
     .footer-details {
         .footer-inner-div {
-            padding: 0.5rem 0;
-            border-top: 0.0625rem solid colour(gray, 1);
+            &::after {
+                background: colour(gray, 1);
+                content: "";
+                margin-left: -10px;
+                display: block;
+                height: 1px;
+                width: 100%;
+                margin-right: -10px;
 
-            @include media-up(sm) {
-                padding: 0;
-                border-top: none;
-            }
-        }
-
-        .local-store {
-            border-bottom: 0.0625rem solid colour(gray, 1);
-
-            @include media-up(sm) {
-                border-bottom: none;
+                @include media-up(sm) {
+                    margin: 0;
+                    background: none;
+                }
             }
         }
 
         .footer-item {
             .title {
-                padding: 0.5rem 0;
+                padding: 14px 0;
                 line-height: 1rem;
                 font-weight: map-get($font-weight, bold);
                 letter-spacing: 0.02em;
@@ -96,6 +112,7 @@ footer {
 
             .submit-btn {
                 padding: 0 2rem;
+                width: 124px;
             }
         }
 

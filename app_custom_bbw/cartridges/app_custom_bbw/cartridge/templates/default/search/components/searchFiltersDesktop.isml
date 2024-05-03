@@ -1,6 +1,6 @@
 <div class="filter-bar-desktop h-hidden-sm-down">
     <div class="row justify-content-between ${pdict.productSearch.selectedFilters.length > 0 ? 'align-items-start' : 'align-items-center'} no-gutters">
-        <div class="filter-bar-desktop__filters no-gutters d-flex h-bg--gray-1 w-100 flex-nowrap h-clr--black-1 ${pdict.productSearch.selectedFilters.length > 0 ? 'align-items-start' : 'align-items-center'}"
+        <div class="filter-bar-desktop__filters no-gutters d-flex h-bg--gray-1 w-100 flex-nowrap h-clr--black-1 js-desktop-filters ${pdict.productSearch.selectedFilters.length > 0 ? 'align-items-start' : 'align-items-center'}"
             id="filters-refinements">
             <div class="filters-title filters-title b-text-h2 h-fw--bold col-1">
                 ${Resource.msg('label.refinements', 'search', null)}
@@ -14,20 +14,20 @@
                 <isloop items="${pdict.productSearch.refinements}" var="refinement">
                     <div class="filter-type filter-${refinement.displayName.toLowerCase().replace(/ /g, '-')} position-relative"
                         id="filter-${refinement.displayName.toLowerCase().replace(/ /g, '-')}">
-                        <h3 class="ref-toggle mb-0 b-text-body-2-bold d-flex align-items-center justify-content-between"
+                        <a class="ref-toggle mb-0 b-text-body-2-bold d-flex align-items-center justify-content-between"
                             aria-label="filter" tabindex="0" data-toggle="collapse"
-                            data-target="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-')}"
-                            aria-expanded="false" aria-controls="filter">
+                            href="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-') + '-desktop'}"
+                            aria-expanded="false" aria-controls="filter" role="button">
                             ${refinement.displayName}
                             <i class="ref-toggle__icon d-inline-block"></i>
-                        </h3>
-                        <div id="${refinement.displayName.toLowerCase().replace(/ /g, '-')}"
+                        </a>
+                        <div id="${refinement.displayName.toLowerCase().replace(/ /g, '-') + '-desktop'}"
                             class="filter-list-wrapper collapse h-bg--white position-absolute w-100 ${refinement.displayName.toLowerCase().replace(/ /g, '-')}" aria-labelledby=""
                             data-parent="#filters-refinements">
                             <isinclude template="search/refinements/attributes" />
                             <div class="close-button w-100">
                                 <button
-                                    class="btn btn-hover d-flex align-items-center justify-content-center h-font-size--16 h-fw--semibold text-uppercase mx-auto w-100 filter-close" data-parent="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-')}">
+                                    class="btn btn-hover d-flex align-items-center justify-content-center h-font-size--16 h-fw--semibold text-uppercase mx-auto w-100 filter-close" data-parent="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-')}" type="button" data-toggle="collapse" data-target="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-')}">
                                     ${Resource.msg('label.btn.done', 'search', null)}
                                 </button>
                             </div>

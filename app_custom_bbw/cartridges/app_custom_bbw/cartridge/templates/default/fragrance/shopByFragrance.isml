@@ -2,17 +2,16 @@
     <isinclude template="/components/modules" sf-toolkit="off" />
 
     <isscript>
-        var assets = require('*/cartridge/scripts/assets.js');
-        assets.addCss('/css/login.css');
-        assets.addJs('/js/fragranceName.js');
-          assets.addCss('/css/pages/shopbyfragrance/b-shopbyfragrance.css');
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs('/js/fragranceName.js');
+    assets.addCss('/css/pages/shopbyfragrance/b-shopbyfragrance.css');
     </isscript>
     <div class="container">
         <div class="shop-fragrance_content">
             <div class="fragrance-topbanner text-center">
                 <iscontentasset aid="fragrance-finder" />
             </div>
-            <div class="fragrance-list fr-category col-md-12">
+            <div class="fragrance-list fr-category col-md-12 text-center">
                 <h2 class="subtitle h-font-size--18 m-0 position-absolute text-uppercase bg-white h-fw--bold">
                     ${Resource.msg('shop.by.fragrance.categories.title', 'fragrance', null)}</h2>
                 <p class="note h-font-size--16 text-center  h-clr--gray">
@@ -23,8 +22,9 @@
                             <a
                                 href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceCategory', 'prefv1', fragranceCategories
                                       .fragrance)}">
-                                <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, fragranceCategories.image)}"
-                                    alt="${fragranceCategories.fragrance}">
+                                <img width="221" height="100"
+                                    src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, fragranceCategories.image)}"
+                                    alt="${fragranceCategories.fragrance}" />
                             </a>
                         </li>
                     </isloop>
@@ -67,7 +67,8 @@
                     <div class="fragrance-header-search col-12 mt-3">
                         <div class="fragrance-search search-wrapper">
                             <fieldset class="text-justify">
-                                <span> ${Resource.msg('lable.fragrance.name.search', 'fragrance', null)} </span>
+                                <span class="h-clr--gray h-font-size--14 ">
+                                    ${Resource.msg('lable.fragrance.name.search', 'fragrance', null)} </span>
                                 <input class="search-input-box" type="text" id="search-input"
                                     placeholder="What are you looking for" name="search-input" autocomplete="off" />
                                 <div class="search-icon-details">
@@ -89,7 +90,7 @@
                                     </div>
                                     <ul class="list-unstyled frg-listing">
                                         <isloop iterator="${fragranceGroup.value}" alias="fragrance" status="loopstate">
-                                            <li class="level-2 text-justify mt-3 mb-3">
+                                            <li class="level-2 text-start mt-3 mb-3">
                                                 <a class="h-clr--gray"
                                                     href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'fragranceName', 'prefv1', fragrance.name)}"
                                                     data-fragrancename="${fragrance.name}">
@@ -105,7 +106,7 @@
                             </isloop>
                         </div>
                     </div>
-                    <div class="noresult" id="noresult">${Resource.msg('shop.by.fragrance.name.noresult', 'fragrance', null)}
+                    <div class="noresult text-center" id="noresult">${Resource.msg('shop.by.fragrance.name.noresult', 'fragrance', null)}
                     </div>
                 <iselse/>
                     <div class="nofragrance">${Resource.msg('shop.by.fragrance.name.empty', 'fragrance', null)}</div>

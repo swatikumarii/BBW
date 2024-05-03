@@ -40,7 +40,7 @@ module.exports = {
                 },
                 success: function (data) {
                     if (data.loginShow === true) {
-                        $('.loginPopup').find('.modal').modal('show');
+                        $('.loginPopup').find('#loginModal').modal('show');
                     } else {
                         $('.loginPopup')
                             .find('#exampleModalLong')

@@ -19,7 +19,10 @@ module.exports = function () {
     });
 
     $('.minicart').on('click', function () {
-        if ($('.search:visible').length === 0) {
+        if (
+            $('.search:visible').length === 0 ||
+            $(this).find('.popover').hasClass('show')
+        ) {
             return;
         }
         var url = $('.minicart').data('action-url');

@@ -39,7 +39,7 @@ module.exports = $.extend({}, wishlist, {
                 success: function (data) {
                     if(data.loginShow === true){
                         $('#quickViewModal').modal('hide');
-                        $('.loginPopup').find('.modal').modal('show');
+                        $('.loginPopup').find('#loginModal').modal('show');
                     } else {
                         $('.loginPopup').find('#exampleModalLong').modal('hide');
                     }

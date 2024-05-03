@@ -30,9 +30,9 @@ module.exports.render = function (context) {
     model.rowGapTablet = content.rowGapTablet;
 
     model.gridSectionClass = content.gridSectionClass;
-    model.rowCustomClass = content.rowCustomClass;
-    model.columnCustomClass = content.columnCustomClass;
-    model.title = content.title;
+    model.rowCustomClass = content.rowCustomClass ? content.rowCustomClass: '';
+    model.columnCustomClass = content.columnCustomClass ? content.columnCustomClass : '';
+    model.title = content.title ? content.title : '' ;
     model.backgroundColor = content.backgroundColor;
 
     model.regions = PageRenderHelper.getRegionModelRegistry(component);

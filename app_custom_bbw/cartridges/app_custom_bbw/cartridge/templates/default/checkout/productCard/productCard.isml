@@ -1,4 +1,4 @@
-<div class="product-line-item" data-pid="${linitem.id}" data-product-line-item="${lineItem.UUID} ">
+<div class="product-line-item" data-pid="${lineItem.id}" data-product-line-item="${lineItem.UUID} ">
     <div class="row">
         <div class="col-4">
             <iscomment> Image </iscomment>

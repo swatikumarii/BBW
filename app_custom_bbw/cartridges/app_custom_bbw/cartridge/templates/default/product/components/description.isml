@@ -1,8 +1,6 @@
-<isif condition="${product.shortDescription}">
-    <div class="value content collapse show" id="collapse-description" aria-labelledby="description"
-        data-parent="#pdp-accordion">
-        <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
-            <isprint value="${product.shortDescription}" encoding="off" />
-        </p>
-    </div>
-</isif>
+<div class="value content collapse" id="collapse-description" aria-labelledby="description"
+    data-parent="#pdp-accordion">
+    <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
+        <isprint value="${product.shortDescription}" encoding="off" />
+    </p>
+</div>
