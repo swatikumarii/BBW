@@ -57,7 +57,7 @@
                         ${Resource.msg('fragrance.content', 'fragrance', null)}</p>
                     <div class="top-fr-head d-flex justify-content-center align-items-center">
                         <img class="icon top-badge-lrg-2 svg-top-badge-lrg-2-dims frag-icon"
-                            src="${URLUtils.staticURL('/images/shopByFragrance/top-badge-lrg-2.svg')}" role="img" alt=""
+                            src="${URLUtils.staticURL('/images/shopByFragrance/top-badge-lrg-2.svg')}" role="img" alt="top-fragrance"
                             aria-label="top fragrance icon" />
 
                         <span class="top-fr-subheader h-font-size--14">${Resource.msg('fragrance.content.span.data', 'fragrance', null)}</span>

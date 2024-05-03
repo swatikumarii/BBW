@@ -36,7 +36,7 @@
         <div class="close-button pull-right">
             <button class="border-0 p-0 h-bg--white" role="button"
                 aria-label="${Resource.msg('label.header.menu.close', 'common', null)}">
-                <img class="h-width--20" src="${URLUtils.staticURL('/images/header/UI-Close-blue.svg')}" alt="" />
+                <img class="h-width--20" src="${URLUtils.staticURL('/images/header/UI-Close-blue.svg')}" alt="${Resource.msg('global.close', 'common', null)}" />
             </button>
         </div>
     </div>

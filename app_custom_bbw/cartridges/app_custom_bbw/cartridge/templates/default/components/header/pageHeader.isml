@@ -30,13 +30,13 @@
                 <button class="navbar-toggler b-nav-toggler d-md-none border-0 fa-pull-left" type="button"
                     aria-controls="sg-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <img class="hidden-md-down img-fluid w-100"
-                        src="${URLUtils.staticURL('/images/header/UI-Menu-v2.svg')}" alt="" />
+                        src="${URLUtils.staticURL('/images/header/UI-Menu-v2.svg')}" alt="${Resource.msg('global.hamburger', 'common', null)}" />
                 </button>
                 <iscomment>Mobile Menu</iscomment>
                 <div id="mobile-custom-search"
                     class="mobile-custom-search d-md-none hidden-md-up fa-pull-left m-0 text-center">
                     <a href="" role="button">
-                        <img class="" src="${URLUtils.staticURL('/images/header/UI-Search-v2.svg')}" alt="" />
+                        <img class="" src="${URLUtils.staticURL('/images/header/UI-Search-v2.svg')}" alt="${Resource.msg('global.search', 'common', null)}" />
                     </a>
                 </div>
                 <iscomment>Minicart</iscomment>
@@ -48,7 +48,7 @@
                 <iscomment>Offers</iscomment>
                 <div class="offers d-md-none fa-pull-right m-0">
                     <a href="#" title="offers">
-                        <img class="" src="${URLUtils.staticURL('/images/header/UI-Tag-v2.svg')}" alt="" />
+                        <img class="" src="${URLUtils.staticURL('/images/header/UI-Tag-v2.svg')}" alt="${Resource.msg('global.offers', 'common', null)}" />
                     </a>
                 </div>
                 <iscomment>Login</iscomment>
