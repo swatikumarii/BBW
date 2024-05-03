@@ -801,8 +801,8 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-            <attribute-definition attribute-id="bbwCareersEmail">
-                <display-name xml:lang="x-default">BBW Careers Email</display-name>
+            <attribute-definition attribute-id="careersEmail">
+                <display-name xml:lang="x-default">Careers Email</display-name>
                 <description xml:lang="x-default">The resumes of the candidates will be received at this email address.</description>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
@@ -826,6 +826,7 @@
                 <attribute attribute-id="maxOrderQty"/>
                 <attribute attribute-id="notifyEmailThreshold"/>
                 <attribute attribute-id="header_image"/>
+                <attribute attribute-id="careersEmail"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
@@ -918,10 +919,6 @@
                 <display-name xml:lang="x-default">Nationality</display-name>
                 <attribute attribute-id="nationality"/>
                 <attribute attribute-id="nationalities"/>
-            </attribute-group>
-              <attribute-group group-id="BBWConfigurations">
-                <display-name xml:lang="x-default">BBW Configurations</display-name>
-                <attribute attribute-id="bbwCareersEmail"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

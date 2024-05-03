@@ -74,17 +74,17 @@
                                 ${Resource.msg('error.wrong.file.type', 'careers', null)}</div>
                             <p><em>${Resource.msg('label.input.resume.types', 'careers', null)}</em></p>
                         </div>
-                        <div class="form-group required-field">
-                            <isif condition=" ${!!pdict.jobApplicationForm.yourself.mandatory === true}"></isif>
-                            <label class="form-control-label h-font-size--14 d-flex justify-content-between mb-0">
+                        <div class="form-group <isif condition=" ${!!pdict.jobApplicationForm.yourself.mandatory === true}">
+                            required</isif>">
+                            <label class="form-control-label">
                                 <isprint value="${pdict.jobApplicationForm.yourself.label}" encoding="htmlcontent" />*
                             </label>
-                            <textarea class="form-control job-input-form h-font-size--16 w-100 h-auto" rows="10" cols="40" name='yourself'
-                                id='yourself'
+                            <textarea class="form-control" rows="10" cols="40" name='yourself' id='yourself'
                                 data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+                                data-pattern-mismatch="${Resource.msg('error.message.parse.yourself.form', 'forms', null)}"
                                 data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
-                                aria-describedby="form-yourself-error" <isprint
-                                value=${pdict.jobApplicationForm.yourself.attributes} encoding="off" />></textarea>
+                                aria-describedby="form-yourself-error" <isprint value=${pdict.jobApplicationForm.yourself.attributes}
+                                encoding="off" />></textarea>
                             <div class="invalid-feedback" id="form-yourself-error"></div>
                         </div>
                         <button type="submit" class="send-resume">

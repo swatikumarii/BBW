@@ -34,7 +34,7 @@
             <span class="h-clr--blue h-font-size--18 h-fw--bold">${Resource.msg('label.header.menu.title', 'common', null)}</span>
         </div>
         <div class="close-button pull-right">
-            <button class="border-0 p-0 h-bg--white h-100" role="button"
+            <button class="border-0 p-0 h-bg--white" role="button"
                 aria-label="${Resource.msg('label.header.menu.close', 'common', null)}">
                 <img class="h-width--20" src="${URLUtils.staticURL('/images/header/UI-Close-blue.svg')}" alt="" />
             </button>

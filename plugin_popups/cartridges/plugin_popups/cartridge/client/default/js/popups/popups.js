@@ -109,7 +109,7 @@ function setupPopupTrigger(data, popupId, presentWindowLocation) {
 
                 var scrollTop = $(this).scrollTop();
                 var documentHeight = $(document).height();
-                var windowHeight = $(this).height();
+                var windowHeight = window.innerHeight;
                 var percentScrolled =
                     (scrollTop / (documentHeight - windowHeight)) * 100;
                 if (

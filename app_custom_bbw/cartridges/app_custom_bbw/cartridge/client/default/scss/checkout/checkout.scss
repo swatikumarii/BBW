@@ -2,6 +2,23 @@
 
 @import "../_brand/_api/api";
 
+header {
+    .bbw-nav {
+        .bbw-nav-wrap {
+            .primary-logo {
+                margin: 24px auto 22px;
+            }
+
+            .icon-items {
+                .minicart {
+                    margin-right: 41px;
+                    top: -58px;
+                }
+            }
+        }
+    }
+}
+
 .card.ghost {
     opacity: 0.5;
 }

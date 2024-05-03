@@ -36,14 +36,14 @@ server.get('ApplyForJob',
         var jobApplicationForm = server.forms.getForm('job');
         jobApplicationForm.clear();
         var jobDescription = careersHelpers.getJobDescription(req.querystring.jobId);
-        var bbwCareersEmail = Site.current.getCustomPreferenceValue('bbwCareersEmail');
+        var careersEmail = Site.current.getCustomPreferenceValue('careersEmail');
 
         res.render('careers/applyForJob', {
             jobApplicationForm: jobApplicationForm,
             jobName: jobName,
             jobId: req.querystring.jobId,
             jobDescription: jobDescription,
-            bbwCareersEmail: bbwCareersEmail
+            careersEmail: careersEmail
         });
         next();
     }, pageMetaData.computedPageMetaData);
@@ -115,7 +115,7 @@ server.post('SubmitJobApplication', server.middleware.https,
             var content = template.render(mailAttributes);
         } catch (e) { }
 
-        mail.addTo(jobDetails.custom.emailId || Site.current.getCustomPreferenceValue('bbwCareersEmail'));
+        mail.addTo(jobDetails.custom.emailId || Site.current.getCustomPreferenceValue('careersEmail'));
         mail.addCc(jobDetails.custom.ccEmail || '');
         mail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail'));
         mail.setSubject(Resource.msgf('job.candidate', 'careers', null, jobDetails.custom.city, jobDetails.custom.job, user.name));

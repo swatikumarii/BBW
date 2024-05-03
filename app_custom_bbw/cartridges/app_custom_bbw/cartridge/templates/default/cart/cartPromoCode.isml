@@ -15,7 +15,7 @@
                         ${Resource.msg('button.submit.promo.code','cart',null)}
                     </button>
                 </div>
-                <div class="coupon-error">
+                <div class="coupon-error h-font-size--16 h-fw--semibold h-bg--red-10 mt-3 h-clr--red">
                     <span class="coupon-missing-error" id="missingCouponCode" role="alert"></span>
                     <span class="coupon-error-message" id="invalidCouponCode" role="alert"></span>
                 </div>

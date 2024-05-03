@@ -5023,7 +5023,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
   "title" : " ",
   "itemsPerRowDesktop" : 1,
   "columnCustomClass" : null,
-  "gridSectionClass" : "h-maxwidth--1200 mx-auto h-mb--50 h-mt--50 px-3 px-lg-0"
+  "gridSectionClass" : "h-maxwidth--1200 mx-auto h-mb--50 h-mt--50 px-3 px-lg-3"
 }</data>
         <online-flag>true</online-flag>
         <page-attributes/>
@@ -5243,7 +5243,29 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </custom-attributes>
     </content>
 
-      <content content-id="bbw-careers-content-asset">
+    <content content-id="exchange-cannot-return">
+        <display-name xml:lang="x-default">Exchange Cannot Return</display-name>
+        <description xml:lang="x-default">Exchange cannot be returned</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p class="text-justify h-font-size--16 h-clr--gray-4 card-body"&gt;Product cannot be returned&lt;/p&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="exchange-return">
+        <display-name xml:lang="x-default">Exchange Return</display-name>
+        <description xml:lang="x-default">Exchange can be return</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p class="text-justify h-font-size--16 h-clr--gray-4 card-body"&gt;Product can be returned&lt;/p&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="careers">
         <display-name xml:lang="x-default">BBW Careers</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5261,7 +5283,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </custom-attributes>
     </content>
 
-    <content content-id="no-job-available-text">
+    <content content-id="careers-no-job-available">
         <display-name xml:lang="x-default">No Job Availale Text</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5289,6 +5311,4 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/html&gt;</custom-attribute>
         </custom-attributes>
     </content>
-
-
 </library>

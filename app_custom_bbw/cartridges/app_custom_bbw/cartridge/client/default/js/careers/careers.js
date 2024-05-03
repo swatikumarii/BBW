@@ -7,15 +7,6 @@ $('body').on('click', '.applicationButton', function (e) {
     $('.jobForm').slideToggle();
 });
 
-$(document).ready(function () {
-    $('.location_name_c').click(function () {
-        var expand = $(this).data('location');
-        $('.' + expand).slideToggle();
-    });
-    $('.firstItem:first').find('.panel-heading').removeClass('collapsed');
-    $('.panel-default:first').find('.panel-collapse').addClass('show');
-});
-
 module.exports = {
     register: function () {
         $('.job-application').submit(function (e) {
@@ -85,9 +76,6 @@ module.exports = {
                         this.reset();
                     });
                     formValidation(form, data);
-                    // $('.thankyou-msg').css('display', 'block');
-                    //$('#submissionPopup').modal().empty();
-                    
                     var thankyouText = $('#submissionPopup').find('.thankyou-text').val();
                     $('#submissionPopup').find('.modal-body').empty().append('Dear ' + applicantName + thankyouText);
                     $('#submissionPopup').modal();
