@@ -59,6 +59,10 @@
             <preference preference-id="apStorePickupDescription">Available for next-day pickup</preference>
             <preference preference-id="enableAfterpay">true</preference>
             <preference preference-id="enableCashAppPay">true</preference>
+            <preference preference-id="zeroOrderEmail">{
+                "enable": true,
+                "emailAddress": ""
+            }</preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
@@ -110,6 +114,10 @@
             <preference preference-id="apStorePickupDescription">Available for next-day pickup</preference>
             <preference preference-id="enableAfterpay">false</preference>
             <preference preference-id="enableCashAppPay">false</preference>
+            <preference preference-id="zeroOrderEmail">{
+                "enable": true,
+                "emailAddress": ""
+            }</preference>
         </staging>
         <production/>
     </custom-preferences>

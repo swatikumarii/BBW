@@ -12,6 +12,7 @@ var URLUtils = require('dw/web/URLUtils');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
+var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 
 /**
  * Order-History : The Order-History append to update breadcrumbs
@@ -260,6 +261,28 @@ server.post(
             });
         }
         next();
+    }
+);
+
+/**
+ * Order-Confirm : Append to extend the order confirm functionality
+ * @name Order-Confirm
+ */
+server.append(
+    'Confirm',
+    consentTracking.consent,
+    server.middleware.https,
+    csrfProtection.generateToken,
+    function (req, res, next) {
+        // send email when order total 0
+        var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
+        var viewData = res.getViewData();
+        var OrderMgr = require('dw/order/OrderMgr');
+        var order = OrderMgr.getOrder(viewData.order.orderNumber);
+        if (order && order.totalGrossPrice.value === 0) {
+            commonHelper.zeroOrderEmail(viewData.order);
+        }
+        return next();
     }
 );
 
