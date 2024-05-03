@@ -1,0 +1,5 @@
+<div class="strike-through h-clr--black-1">
+    ${lineItem.price.sales.formatted}
+</div>
+<div class="pricing promo-price h-clr--red">${lineItem.promoPrice}</div>
+

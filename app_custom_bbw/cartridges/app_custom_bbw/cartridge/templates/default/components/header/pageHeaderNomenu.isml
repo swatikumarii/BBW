@@ -23,9 +23,10 @@
             <div class="navbar-header icon-items h-float-md--right">
                 <iscomment>Minicart</iscomment>
                 <div class="minicart-overlay"></div>
-                <div class="minicart fa-pull-right position-relative"
-                    data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
-                    <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
+                <div class="minicart fa-pull-right position-relative">
+                    <a href="${URLUtils.url('Cart-Show')}">
+                        <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
+                    </a>
                 </div>
             </div>
         </div>

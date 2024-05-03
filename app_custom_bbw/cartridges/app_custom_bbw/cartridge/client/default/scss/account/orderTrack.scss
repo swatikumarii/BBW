@@ -38,9 +38,8 @@
 
         .error-form {
             padding: 8px 20px 8px 44px;
-            background-color: #ffe9e9;
             width: 100%;
-            color: #c00;
+            color: colour(red);
             margin: 5px 0;
             text-align: left;
             position: relative;
@@ -140,14 +139,7 @@
             padding: 0;
             line-height: 2.0625rem;
             max-height: 2.1875rem;
-            letter-spacing: 1.32px;
             min-height: 2.1875rem;
-
-            &:active {
-                color: colour(black, 3);
-                border-color: colour(gray, 1);
-                background-color: colour(white);
-            }
         }
     }
 

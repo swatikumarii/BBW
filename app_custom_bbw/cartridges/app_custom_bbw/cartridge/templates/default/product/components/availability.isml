@@ -1,11 +1,15 @@
-<div class="col-8">
+<div class="col-lg-7">
     <ul class="list-unstyled availability-msg">
         <li>
             <isif condition="${!product.readyToOrder}">
                 <div>${Resource.msg('info.selectforstock', 'product', 'Select Styles for Availability')}</div>
             <iselse>
                 <isloop items="${product.availability.messages}" var="message">
-                    <div class="h-clr--green-2 h-font-size--18">${message}</div>
+                <isif condition="${!product.available}">
+                    <div class="h-clr--red h-font-size--16">${message}</div>
+                <iselse/>
+                    <div class="h-clr--green-2 h-font-size--16">${message}</div>
+                </isif>
                 </isloop>
             </isif>
         </li>
