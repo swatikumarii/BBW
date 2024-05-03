@@ -105,5 +105,7 @@
             </div>
         </div>
     </div>
+   <div class="thankyouModal">
     <isinclude template="components/thankyouSubmissionModel" />
+   </div>
 </isdecorate>

@@ -1,5 +1,3 @@
-@import "../scss/variables";
-@import "../scss/_brand/components/collapsibleItem";
 @import "../scss/_brand/_api/api";
 
 .career-section {
@@ -36,14 +34,14 @@
     }
 
     .accordion-container {
-        .collapsible .icon{
-            &:after {
-                    content: "+";
-                    font-weight: bold;
-                    font-size: 20px;
-                    color: colour(black, 6);
-                    display: block;
-                    width: 21px;
+        .collapsible .icon {
+            &::after {
+                content: "+";
+                font-weight: bold;
+                font-size: 20px;
+                color: colour(black, 6);
+                display: block;
+                width: 21px;
             }
         }
 
@@ -53,10 +51,6 @@
             position: relative;
         }
 
-        .collapsible {
-            background-color: $grey;
-        }
-
         .panel-group {
             .panel {
                 .panel-heading {
@@ -64,14 +58,14 @@
 
                     &.collapsed {
                         background-color: colour(gray, 1);
-                        transition: .2s linear all;
+                        transition: 0.2s linear all;
 
                         h3 {
                             color: colour(black, 6);
                             position: relative;
 
                             &::before {
-                                content: "\f067";
+                                content: "\f078";
                                 color: colour(black, 6);
                             }
 
@@ -114,7 +108,7 @@
                             right: 10px;
                             font-family: FontAwesome;
                             font-size: 15px;
-                            content: "\f068";
+                            content: "\f077";
                             color: colour(white);
                         }
 
@@ -140,7 +134,6 @@
                         letter-spacing: 1px;
                     }
 
-
                     .number-listing {
                         color: colour(black, 6);
                         display: inline-block;
@@ -162,39 +155,24 @@
                     }
                 }
 
-                .location_name_jobs {
-                    padding: 0 0 24px 0;
-                    overflow: hidden;
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0 0 0 40px;
+                    margin-bottom: 0;
 
-                    ul {
-                        list-style: none;
+                    li {
+                        padding: 0 12px 0 0;
+                        position: relative;
                         margin: 0;
-                        padding: 0 0 0 40px;
-                        margin-bottom: 0;
 
-                        li {
-                            padding: 0 12px 0 0;
-                            position: relative;
-                            margin: 0;
-
-                            &::before {
-                                font-family: FontAwesome;
-                                content: '\f105';
-                                margin: 0 12px 0 0;
-                                color: colour(black, 6);
-                            }
-
-                            a {
-                                text-decoration: none;
-                                color: $grey8;
-
-                                span {
-                                    color: $grey8;
-                                }
-                            }
+                        &::before {
+                            font-family: FontAwesome;
+                            content: "\f105";
+                            margin: 0 12px 0 0;
+                            color: colour(black, 6);
                         }
                     }
-
                 }
             }
         }
@@ -258,7 +236,7 @@
             &.form-control {
                 height: unset;
                 border-color: colour(gray, 23);
-                padding: 30px 30px 30px;
+                padding: 30px;
             }
 
             .form-content {
@@ -279,7 +257,7 @@
                 }
 
                 .job-input-form {
-                    border-radius: 0px;
+                    border-radius: 0;
                     border: 1px solid colour(gray, 23);
                     color: colour(black, 6);
                     letter-spacing: 0.5px;
@@ -323,7 +301,7 @@
 }
 
 // ------thank you modal--
-.autologout-modal {
+.thankyouModal {
     .modal {
         .modal-dialog {
             max-width: 600px;
