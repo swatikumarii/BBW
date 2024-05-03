@@ -59,9 +59,8 @@
             <div role="listbox" id="search-results" class="suggestions__results">
                 <div class="h-100 p-2">
                     <div class="list h-dsp--grid h-grid-gap-md--20 suggestions__product-list">
-                        <iscomment> <isslot id="search-popular-picks" description="Slot search popular pick for 0 search results"
-                            context="global" /> </iscomment>
-                        <h1>No Search Found Header slot</h1>
+                        <isslot id="search-popular-picks" description="Slot search popular pick for 0 search results"
+                            context="global" />
                     </div>
                 </div>
             </div>
