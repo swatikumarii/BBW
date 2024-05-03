@@ -7,7 +7,7 @@
                         <div class="items" id="phrase-1-${listindex.index}" role="option">
                             <div class="item term">
                                 <isif condition="${!phrase.exactMatch}">
-                                    <span>${Resource.msg('label.results.for', 'search', null)} &quot;</span><a
+                                    <span>${Resource.msgf('label.results.for', 'search', pdict.suggestions.searchProductCount)} &quot;</span><a
                                         href="${URLUtils.url('Search-Show', 'q', phrase.value)}">${phrase.value}</a>&quot;
                                 </isif>
                             </div>
@@ -59,8 +59,9 @@
             <div role="listbox" id="search-results" class="suggestions__results">
                 <div class="h-100 p-2">
                     <div class="list h-dsp--grid h-grid-gap-md--20 suggestions__product-list">
-                        <isslot id="search-popular-picks" description="Slot search popular pick for 0 search results"
-                            context="global" />
+                        <iscomment> <isslot id="search-popular-picks" description="Slot search popular pick for 0 search results"
+                            context="global" /> </iscomment>
+                        <h1>No Search Found Header slot</h1>
                     </div>
                 </div>
             </div>

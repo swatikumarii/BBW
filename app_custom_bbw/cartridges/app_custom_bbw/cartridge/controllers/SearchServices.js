@@ -54,6 +54,9 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
             || recentSuggestions.available
             || popularSuggestions.available
             || brandSuggestions.available) {
+
+            var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
+            var result = searchHelper.search(req, res);
             total =
                 productSuggestions.products.length +
                 contentSuggestions.contents.length +
@@ -70,7 +73,14 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
                     popular: popularSuggestions,
                     brand: brandSuggestions,
                     searchTerms: searchTerms,
-                    message: Resource.msgf('label.header.search.result.count.msg', 'common', null, ['' + total])
+                    searchProductCount:
+                        result && result.productSearch ? result.productSearch.count : 0,
+                    message: Resource.msgf(
+                        'label.header.search.result.count.msg',
+                        'common',
+                        null,
+                        ['' + total]
+                    )
                 }
             });
         } else {
