@@ -91,5 +91,54 @@ module.exports = $.extend({}, base, {
             fillModalElement(selectedValueUrl);
         });
     },
+    popOver: function () {
+        // Initialize popover
+        $('body').find('#quickViewModal [data-toggle="popover"]').popover({
+            placement: 'top',
+            html: true
+        });
+
+        // Show popover on mouseenter
+        $('body').on(
+            'mouseenter',
+            '#quickViewModal [data-toggle="popover"]',
+            function () {
+                $(this).popover('show');
+                $('.pdp-title')
+                    .parents('.popover')
+                    .addClass('pdp-popover bs-popover-top');
+                $('.pdp-title')
+                    .parents('.popover')
+                    .removeClass('bs-popover-right');
+                $('.popover-header').addClass('d-none');
+            }
+        );
+
+        var timer;
+        $('body')
+            .on(
+                'mouseleave',
+                '#quickViewModal [data-toggle="popover"], .popover',
+                function () {
+                    timer = setTimeout(function () {
+                        $('.popover').popover('hide');
+                    }, 50);
+                }
+            )
+            .on(
+                'mouseenter',
+                '.popover[data-toggle="popover"], .popover',
+                function () {
+                    clearTimeout(timer);
+                }
+            );
+
+        // Close popover on close button click
+        $(document).on('click', '.popover .close', function (e) {
+            e.preventDefault(); // Prevent default behavior of anchor tag
+            $(this).parents('.popover').popover('hide');
+        });
+    },
+
     quantityUpdate: detail.quantityUpdate
 });

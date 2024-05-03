@@ -154,15 +154,20 @@
 }
 
 @include media-breakpoint-down(sm) {
+    a:focus {
+        outline: 1px dotted colour(black);
+        outline-offset: 2px;
+    }
+
     .bbw-menu {
         max-width: 350px;
+        width: 86%;
         position: fixed;
         top: 0;
         bottom: 0;
         display: block;
         background-color: colour(white);
         z-index: 9;
-        min-width: 86%;
         left: -100%;
         transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
@@ -178,7 +183,7 @@
         }
 
         .close-menu {
-            padding: 1.25rem 1.1875rem 1.25rem 0.9375rem;
+            padding: 17px 1.1875rem 1.25rem 12px;
 
             img {
                 height: 1.25rem;
@@ -196,7 +201,7 @@
                 fill: color(blue);
                 padding: 0.6875rem 0 0 0.5625rem;
                 z-index: 1;
-                margin-left: 0.3125rem;
+                margin-left: 0.1875rem;
             }
 
             input[type="search"] {

@@ -201,3 +201,36 @@
     float: left;
     margin-right: 10px;
 }
+
+.pdp-popover {
+    border: 1px solid colour(gray);
+    box-shadow: 0 0 13px 0 rgba(0, 0, 0, 15%);
+    color: colour(black, 1);
+    padding: 1.5rem 0.5rem 1.5rem 0;
+    overflow-y: initial;
+    left: 5% !important;
+    border-radius: 0;
+
+    .popover-body {
+        overflow-y: scroll;
+        max-height: 6.25rem;
+        padding: 0 1rem;
+    }
+
+    .popover-header {
+        display: none;
+    }
+
+    .arrow {
+        left: 14px !important;
+    }
+
+    .close {
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background-size: 0.8125rem;
+    }
+}
