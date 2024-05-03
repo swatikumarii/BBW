@@ -2,7 +2,19 @@
 
 var URLUtils = require('dw/web/URLUtils');
 var endpoint = 'Search-Show';
+var collections = require('*/cartridge/scripts/util/collections');
 
+/**
+ * @param {dw.catalog.Category} category - Category in which want to count products
+ * @returns {number} product count
+ */
+function getAllProductCount(category) {
+    var productCount = 0;
+    collections.forEach(category.onlineSubCategories, function (subCat) {
+        productCount += getAllProductCount(subCat);
+    });
+    return productCount + category.products.length;
+}
 /**
  * @class
  * @classdesc CategorySuggestions class
@@ -33,7 +45,7 @@ function CategorySuggestions(suggestions, maxItems) {
                 url: URLUtils.url(endpoint, 'cgid', category.ID),
                 parentID: category.parent.ID,
                 parentName: category.parent.displayName,
-                productCount: category.products.length
+                productCount: getAllProductCount(category).toString()
             });
         }
     }
