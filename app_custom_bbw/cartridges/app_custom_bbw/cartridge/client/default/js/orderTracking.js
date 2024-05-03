@@ -105,6 +105,11 @@ function checkStatus() {
                                 fieldError.message
                             );
                         }
+                        // Scroll to the first error position
+                        var firstErrorPosition = $('.is-invalid').first().offset().top;
+                        $('html, body').animate({
+                            scrollTop: firstErrorPosition
+                        }, 'slow');
                     } else {
                         $('#form-error').html(err.responseJSON.message);
                     }
