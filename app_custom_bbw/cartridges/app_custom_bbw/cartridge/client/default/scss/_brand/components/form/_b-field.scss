@@ -50,3 +50,9 @@ textarea,
     color: colour-cmp(error);
     padding: 0 0 0.3125rem 0.625rem;
 }
+
+// Remove input spinner
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    appearance: none;
+}

@@ -4,6 +4,10 @@
     margin-top: 3vh;
     max-width: 343px;
 
+    @include media-down(sm) {
+        margin: 3vh auto;
+    }
+
     .login-form-input {
         height: 3rem;
     }
@@ -197,6 +201,13 @@
                     padding-top: 24px;
                     max-width: 290px;
                     margin: auto;
+
+                    .login-form {
+                        .required-indicator {
+                            margin-right: 0.125em;
+                            color: colour(red, 9);
+                        }
+                    }
                 }
             }
 
@@ -337,6 +348,10 @@
         letter-spacing: 0.12em;
     }
 
+    .reset-password-form {
+        margin: 0 auto;
+    }
+
     .required-field-para {
         float: right;
         font-style: italic;
@@ -371,7 +386,6 @@
         min-height: 46px;
         max-height: 15px;
         right: 1px;
-        z-index: 5;
         letter-spacing: normal;
 
         .show {
@@ -383,9 +397,9 @@
 
     .register-hide {
         top: 33px;
-        min-height: 46px;
+        min-height: 43px;
         max-height: 15px;
-        background: white;
+        background: colour(white);
         right: 1px;
         z-index: 5;
         letter-spacing: normal;
@@ -407,7 +421,6 @@
         background: white;
         right: 1px;
         top: 23px;
-        z-index: 5;
         letter-spacing: normal;
 
         &:hover {

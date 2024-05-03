@@ -7,6 +7,10 @@
 
             .level-1-ul {
                 .level-1-li {
+                    .dropdown-link {
+                        text-wrap: wrap;
+                    }
+
                     @include media-up(sm) {
                         position: inherit;
 
@@ -39,7 +43,7 @@
                         }
 
                         .menu-wrap-level-1 {
-                            max-height: 350px;
+                            max-height: 500px;
                             overflow: hidden;
                             object-fit: contain;
                             box-shadow: 0 12px 20px rgba(0, 0, 0, 15%);
@@ -78,7 +82,11 @@
                                 }
 
                                 .level-2-li {
-                                    min-width: 12.875rem;
+                                    min-width: 10.875rem;
+
+                                    @include media-up(md) {
+                                        min-width: 14.875rem;
+                                    }
 
                                     &:hover {
                                         .level-2-link {
@@ -146,15 +154,20 @@
 }
 
 @include media-breakpoint-down(sm) {
+    a:focus {
+        outline: 1px dotted colour(black);
+        outline-offset: 2px;
+    }
+
     .bbw-menu {
         max-width: 350px;
+        width: 86%;
         position: fixed;
         top: 0;
         bottom: 0;
         display: block;
         background-color: colour(white);
         z-index: 9;
-        min-width: 86%;
         left: -100%;
         transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
@@ -170,7 +183,7 @@
         }
 
         .close-menu {
-            padding: 1.25rem 1.1875rem 1.25rem 0.9375rem;
+            padding: 17px 1.1875rem 1.25rem 12px;
 
             img {
                 height: 1.25rem;
@@ -188,7 +201,7 @@
                 fill: color(blue);
                 padding: 0.6875rem 0 0 0.5625rem;
                 z-index: 1;
-                margin-left: 0.3125rem;
+                margin-left: 0.1875rem;
             }
 
             input[type="search"] {
@@ -337,6 +350,14 @@
                     width: 0.25rem;
                     transition: all 0.3s ease-out;
                 }
+
+                .level-1-link.dropdown-toggle {
+                    &::after {
+                        transform: rotate(1turn);
+                        transform-origin: center center;
+                        transition: all 0.3s ease-out;
+                    }
+                }
             }
         }
 
@@ -385,9 +406,11 @@
                 }
 
                 &.active {
-                    &::after {
-                        transform: rotate(180deg);
-                        transform-origin: center center;
+                    .level-2-link.dropdown-toggle {
+                        &::after {
+                            transform: rotate(180deg);
+                            transform-origin: center center;
+                        }
                     }
 
                     .level-3-ul {

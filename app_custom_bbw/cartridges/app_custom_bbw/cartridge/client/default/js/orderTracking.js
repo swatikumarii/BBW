@@ -4,10 +4,12 @@
  * @returns {boolean} True is valid else False
  */
 function validateOrderNumber() {
-    if (!$('#orderNumber').val()) {
-        $('#orderNumber-error').html($('#orderNumber').data('required'));
+    var orderNumberInput = $('#orderNumber');
+    if (!orderNumberInput.val()) {
+        orderNumberInput.addClass('is-invalid'); // Add class for input border error
         return false;
     }
+    orderNumberInput.removeClass('is-invalid'); // Remove class if input is valid
     $('#orderNumber-error').empty();
     return true;
 }
@@ -16,14 +18,18 @@ function validateOrderNumber() {
  * @returns {boolean} True is valid else False
  */
 function validateEmail() {
+    var emailInput = $('#orderEmail');
     var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-    if (!$('#orderEmail').val()) {
-        $('#orderEmail-error').html($('#orderEmail').data('required'));
-        return false;
-    } if (!pattern.test($('#orderEmail').val())) {
-        $('#orderEmail-error').html($('#orderEmail').data('invalidemail'));
+    if (!emailInput.val()) {
+        emailInput.addClass('is-invalid'); // Add class for input border error
         return false;
     }
+    if (!pattern.test(emailInput.val())) {
+        emailInput.addClass('is-invalid'); // Add class for input border error
+        $('#orderEmail-error').html(emailInput.data('invalidemail'));
+        return false;
+    }
+    emailInput.removeClass('is-invalid'); // Remove class if input is valid
     $('#orderEmail-error').empty();
     return true;
 }
@@ -32,13 +38,17 @@ function validateEmail() {
  * @returns {boolean} True is valid else False
  */
 function validateBillingZipCode() {
-    if (!$('#billingZipCode').val()) {
-        $('#billingZipCode-error').html($('#billingZipCode').data('required'));
-        return false;
-    } if ($('#billingZipCode').val().length > 10) {
-        $('#billingZipCode-error').html($('#billingZipCode').data('maxlength'));
+    var billingZipCodeInput = $('#billingZipCode');
+    if (!billingZipCodeInput.val()) {
+        billingZipCodeInput.addClass('is-invalid'); // Add class for input border error
         return false;
     }
+    if (billingZipCodeInput.val().length > 10) {
+        billingZipCodeInput.addClass('is-invalid'); // Add class for input border error
+        $('#billingZipCode-error').html(billingZipCodeInput.data('maxlength'));
+        return false;
+    }
+    billingZipCodeInput.removeClass('is-invalid'); // Remove class if input is valid
     $('#billingZipCode-error').empty();
     return true;
 }
@@ -113,15 +123,15 @@ $(document).ready(function () {
         checkStatus();
     });
 
-    $(document).on('focusout', '#orderNumber', function () {
+    $(document).on('blur', '#orderNumber', function () {
         validateOrderNumber();
     });
 
-    $(document).on('focusout', '#orderEmail', function () {
+    $(document).on('blur', '#orderEmail', function () {
         validateEmail();
     });
 
-    $(document).on('focusout', '#billingZipCode', function () {
+    $(document).on('blur', '#billingZipCode', function () {
         validateBillingZipCode();
     });
 

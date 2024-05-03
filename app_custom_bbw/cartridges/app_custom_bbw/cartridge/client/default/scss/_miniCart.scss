@@ -87,6 +87,13 @@
                     font-size: 13px;
                     line-height: 44px;
                 }
+
+                a {
+                    &:hover {
+                        color: $clr-white;
+                        opacity: 0.9;
+                    }
+                }
             }
         }
 
@@ -109,48 +116,48 @@
                 text-decoration: underline;
             }
         }
-    }
-}
 
-.promo-details-tooltip {
-    border: 1px solid;
-    width: 260px;
-    display: block;
-    min-width: 260px;
-    max-height: 400px;
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: $clr-white;
-    padding: 24px 0;
-    z-index: 9;
-
-    .promo-details-content {
-        padding: 0 24px 0 16px;
-        overflow-y: scroll;
-    }
-
-    .tooltip-arrow {
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 10px solid #000;
-
-        &::before {
-            content: "";
+        .promo-details-tooltip {
+            border: 1px solid;
+            width: 260px;
+            display: block;
+            min-width: 260px;
+            max-height: 400px;
             position: absolute;
-            bottom: -11px;
+            top: calc(100% + 10px);
             left: 50%;
             transform: translateX(-50%);
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-bottom: 10px solid white;
+            background: $clr-white;
+            padding: 24px 0;
+            z-index: 9;
+
+            .promo-details-content {
+                padding: 0 24px 0 16px;
+                overflow-y: scroll;
+            }
+
+            .tooltip-arrow {
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 10px solid #000;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: -11px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    border-left: 10px solid transparent;
+                    border-right: 10px solid transparent;
+                    border-bottom: 10px solid white;
+                }
+            }
         }
     }
 }
@@ -216,5 +223,13 @@
             justify-content: center;
             cursor: pointer;
         }
+    }
+}
+
+.cart-checkout-btn,
+.checkout-btn {
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.7;
     }
 }

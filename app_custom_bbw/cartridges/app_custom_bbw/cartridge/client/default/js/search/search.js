@@ -31,6 +31,114 @@ function handleRefinements($results) {
 }
 
 /**
+ * update desktop refinement in a way so that open refinement should not close
+ * @param {object} $results - jQuery DOM element
+ */
+function updateRefinements($results) {
+    $results.find('.filter-bar-desktop .filter-type').each(function () {
+        var id = $(this).attr('id');
+        var filter = $('.filter-bar-desktop .filter-type#' + id);
+        if (filter.find('.ref-toggle[aria-expanded="true"]').length > 0) {
+            $(this).find('.filter-list-wrapper').addClass('show');
+            $(this).find('.ref-toggle').attr('aria-expanded', 'true');
+        }
+    });
+}
+
+/**
+ * Adjusts the height of elements to match the tallest element in the collection.
+ * @returns {jQuery} The jQuery collection after adjusting the height.
+ */
+$.fn.syncHeight = function () {
+    var elements = $.makeArray(this);
+
+    // Sort elements by height
+    elements.sort(function (a, b) {
+        return $(a).height() - $(b).height();
+    });
+
+    // Set height of all elements to the height of the tallest element
+    return this.height($(elements[elements.length - 1]).height());
+};
+
+
+/**
+ * Adjusts the layout of a product grid based on the viewport width.
+ * @param {jQuery} elements - The jQuery collection of product grid elements.
+ */
+function adjustProductGrid(elements) {
+    /**
+     * @type {jQuery} filteredElements - Filtered elements based on viewport width.
+     */
+    var filteredElements = window.matchMedia('(max-width: 479px)').matches ? elements.filter(':not(.grid-slot)') : elements;
+
+    /**
+     * @type {number} itemsPerRow - Number of items per row in the product grid.
+     */
+    var itemsPerRow = window.matchMedia('(max-width: 1024px)').matches ? (window.matchMedia('(max-width: 479px)').matches ? 2 : 3) : 4; // eslint-disable-line
+
+    /**
+     * @type {number} totalItems - Total number of items in the product grid.
+     */
+    var totalItems = filteredElements.length;
+
+    if (totalItems > 1) {
+        /**
+         * @type {number} startIndex - Start index of each iteration.
+         */
+        var startIndex = 0;
+
+        /**
+         * @type {number} endIndex - End index of each iteration.
+         */
+        var endIndex = itemsPerRow;
+
+        for (var i = 0; totalItems >= i; i += itemsPerRow) {
+            /**
+             * @type {jQuery} slicedElements - Elements sliced for the current iteration.
+             */
+            var slicedElements = filteredElements.slice(startIndex, endIndex);
+
+            // Reset inline styles
+            slicedElements.removeAttr('style');
+            slicedElements.find('.b-product-tile__name').removeAttr('style');
+
+            // Sync heights of various elements
+            slicedElements.find('.b-product-tile__name').syncHeight();
+            slicedElements.syncHeight();
+
+            // Update start and end index for the next iteration
+            startIndex = endIndex;
+            endIndex = endIndex + itemsPerRow > totalItems ? totalItems : endIndex + itemsPerRow;
+        }
+    }
+}
+
+/**
+ * Scrolls elements with the specified selector into view.
+ * @param {string} selector - The CSS selector of the elements to scroll into view.
+ */
+function scrollIntoView(selector) {
+    var elements = document.querySelectorAll(selector);
+
+    // Loop through each element
+    for (var i = 0; i < elements.length; i++) {
+        /**
+         * @type {HTMLElement} element - Current element
+         */
+        var element = elements[i];
+        // Calculate offset
+        var elementOffset = element.offsetLeft;
+        // Get computed styles
+        var computedStyles = window.getComputedStyle(element);
+        // Parse margin
+        var marginLeft = parseInt(computedStyles.marginLeft, 10);
+        // Set parent scroll position
+        element.parentElement.scrollLeft = elementOffset - marginLeft - 1;
+    }
+}
+
+/**
  * Parse Ajax results and updated select DOM elements
  * @param {string} response - Ajax response HTML code
  * @returns {undefined}
@@ -41,6 +149,8 @@ function parseResults(response) {
         '.refinements': handleRefinements
     };
 
+    updateRefinements($results);
+
     // Update DOM elements that do not require special handling
     [
         '.grid-header',
@@ -48,7 +158,6 @@ function parseResults(response) {
         '.header.page-title',
         '.product-grid-wrapper',
         '.show-more',
-        '.filter-bar-desktop',
         '.selected-filter-mobile'
     ].forEach(function (selector) {
         updateDom($results, selector);
@@ -163,10 +272,17 @@ function checkitem(slider) {
 module.exports = {
     categorySwiper: function () {
         helpers.dragScroll();
+        scrollIntoView('.js-category-swiper.active');
     },
+
+    equalHeight: function () {
+        adjustProductGrid($('.product-grid-item'));
+    },
+
     searchAlphabetSort: function () {
         searchAlphabetSort();
     },
+
     filter: function () {
         // Display refinements bar when Menu icon clicked
         $('.container').on('click', 'button.filter-results', function () {
