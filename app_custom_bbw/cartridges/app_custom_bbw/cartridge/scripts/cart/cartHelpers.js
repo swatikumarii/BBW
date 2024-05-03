@@ -235,6 +235,41 @@ function callBackSetItemAsFree(productLineItem) {
     });
 }
 
+/**
+ * splitQuantityFromFreeToMain
+ * @param {object} productLineItem - productLineItem
+ * @param {number} productQtyAfterReduce - productQtyAfterReduce
+ * @param {object} lineItemContainer - lineItemContainer
+ * @param {number} qtyUpdateFreeItem - qtyUpdateFreeItem
+ */
+function splitQuantityFromFreeToMain(
+    productLineItem,
+    productQtyAfterReduce,
+    lineItemContainer,
+    qtyUpdateFreeItem
+) {
+    Transaction.wrap(function () {
+        // eslint-disable-next-line no-param-reassign
+        productLineItem.custom.isFreeItem = false;
+    });
+    callBackCreateNewFreeItem(
+        productLineItem,
+        productQtyAfterReduce,
+        lineItemContainer,
+        qtyUpdateFreeItem
+    );
+}
+
+/**
+ * setFreeFalse
+ * @param {object} productLineItem - productLineItem
+ */
+function setFreeFalse(productLineItem) {
+    Transaction.wrap(function () {
+        // eslint-disable-next-line no-param-reassign
+        productLineItem.custom.isFreeItem = false;
+    });
+}
 
 /**
  * createFreeLineItem - Creates a different lineItem for BOGO promo free products
@@ -298,7 +333,17 @@ function createFreeLineItem(lineItemContainer) {
                 }
             }
             if (shouldHaveFreeItem) {
-                if (qtyUpdateFreeItem < productLineItem.quantityValue) {
+                if (allLineItemsForProduct.length === 1) {
+                    var productQtyAfterReduceFromFree =
+                        productLineItem.quantityValue - qtyUpdateFreeItem;
+                    splitQuantityFromFreeToMain(
+                        productLineItem,
+                        productQtyAfterReduceFromFree,
+                        lineItemContainer,
+                        qtyUpdateFreeItem
+                    );
+                    breakLoop = true;
+                } else if (qtyUpdateFreeItem < productLineItem.quantityValue) {
                     mergeQty =
                         productLineItem.quantityValue -
                         qtyUpdateFreeItem +
@@ -313,7 +358,7 @@ function createFreeLineItem(lineItemContainer) {
                     );
                     breakLoop = true;
                 }
-            } else {
+            } else if (allLineItemsForProduct.length > 1) {
                 // Removing the free lineitem and merging its qty in main lineitem
                 mergeQty =
                     allLineItemsForProduct[indexOfMainItem].quantityValue +
@@ -326,6 +371,8 @@ function createFreeLineItem(lineItemContainer) {
                     mergeQty
                 );
                 breakLoop = true;
+            } else {
+                setFreeFalse(productLineItem);
             }
         } else if (shouldHaveFreeItem) {
             var productQtyAfterReduce =

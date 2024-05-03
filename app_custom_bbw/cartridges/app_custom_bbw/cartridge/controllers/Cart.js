@@ -10,6 +10,11 @@ server.extend(module.superModule);
 var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var BasketMgr = require('dw/order/BasketMgr');
 var cartHelper = require('*/cartridge/scripts/cart/cartHelpers');
+var CartModel = require('*/cartridge/models/cart');
+var HashMap = require('dw/util/HashMap');
+var Template = require('dw/util/Template');
+var cartTemplate = new Template('cart/productCard/cartProductCardAjax');
+var miniCartTemplate = new Template('checkout/productCard/miniCartProductCardAjax');
 
 /**
  * Cart-AddCoupon : The Cart-AddCoupon endpoint is responsible for adding a coupon to a basket
@@ -31,7 +36,6 @@ server.replace(
         var Resource = require('dw/web/Resource');
         var Transaction = require('dw/system/Transaction');
         var URLUtils = require('dw/web/URLUtils');
-        var CartModel = require('*/cartridge/models/cart');
         var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
 
         var currentBasket = BasketMgr.getCurrentBasket();
@@ -92,10 +96,6 @@ server.replace(
 
 server.append('UpdateQuantity', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
-    var CartModel = require('*/cartridge/models/cart');
-    var Template = require('dw/util/Template');
-    var template = new Template('cart/productCard/cartProductCardAjax');
-    var HashMap = require('dw/util/HashMap');
     var viewData = res.getViewData();
     var changes = cartHelper.createFreeLineItem(currentBasket, 0);
     if (!viewData.errorMessage) {
@@ -106,7 +106,10 @@ server.append('UpdateQuantity', function (req, res, next) {
             Object.keys(basketModel).forEach(function (key) {
                 context.put(key, basketModel[key]);
             });
-            basketModel.refreshItemsTemplate = template.render(context).text;
+            basketModel.refreshItemsTemplate =
+                cartTemplate.render(context).text;
+            basketModel.refreshItemsTemplateMinicart =
+                miniCartTemplate.render(context).text;
         }
         res.setViewData(basketModel);
     }
@@ -115,7 +118,21 @@ server.append('UpdateQuantity', function (req, res, next) {
 
 server.append('RemoveProductLineItem', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
-    cartHelper.createFreeLineItem(currentBasket, 0);
+    var changes = cartHelper.createFreeLineItem(currentBasket, 0);
+    var viewData = res.getViewData();
+    var basketModel = new CartModel(currentBasket);
+    if (changes) {
+        viewData.refreshItems = true;
+        var context = new HashMap();
+        Object.keys(basketModel).forEach(function (key) {
+            context.put(key, basketModel[key]);
+        });
+        viewData.refreshItemsTemplate =
+            cartTemplate.render(context).text;
+        viewData.refreshItemsTemplateMinicart =
+            miniCartTemplate.render(context).text;
+    }
+
     next();
 });
 
