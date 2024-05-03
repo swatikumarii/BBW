@@ -18,5 +18,6 @@ module.exports = function productLineItem(product, apiProduct, options) {
     productDecorators.fragrance(product, apiProduct);
     productLineItemDecorators.isFreeItem(product, options.lineItem);
     productDecorators.promotions(product, options.promotions);
+    productLineItemDecorators.promoPrice(product, options.lineItem);
     return product;
 };
