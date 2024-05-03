@@ -73,7 +73,7 @@
             <iscomment> Search History </iscomment>
             <isif condition="${pdict.suggestions.recent && pdict.suggestions.recent.available}">
                 <div class="history-suggestions">
-                    <h2 class="suggestions-header h-fw--bold text-uppercase">${Resource.msg('label.search.history', 'search', null)}</h2>
+                    <h2 class="suggestions-header h-fw--bold text-uppercase">${Resource.msg('label.suggest.recent', 'search', null)}</h2>
                     <div class="search-history-list sub-list" role="list">
                         <isloop items="${pdict.suggestions.recent.phrases}" var="phrase" status="listindex">
                             <div class="search-history-list__item sub-list__item d-flex align-items-center">
@@ -86,7 +86,7 @@
             <iselseif condition="${pdict.suggestions.popular && pdict.suggestions.popular.available}" />
                 <iscomment> Popular Search </iscomment>
                 <div class="popular-suggestions">
-                    <h2 class="suggestions-header h-fw--bold text-uppercase">${Resource.msg('label.popular.search', 'search', null)}</h2>
+                    <h2 class="suggestions-header h-fw--bold text-uppercase">${Resource.msg('label.suggest.popular', 'search', null)}</h2>
                     <div class="search-popular-list sub-list" role="list">
                         <isloop items="${pdict.suggestions.popular.phrases}" var="phrase" status="listindex">
                             <div class="search-popular-list__item sub-list__item d-flex align-items-center">
@@ -102,7 +102,7 @@
             <isif condition="${pdict.suggestions.category && pdict.suggestions.category.available}">
                 <div class="category-suggestions">
                     <h2 class="suggestions-header h-fw--bold text-uppercase">
-                        ${Resource.msg('label.categories', 'search', null)}
+                        ${Resource.msg('label.suggest.categories', 'search', null)}
                     </h2>
                     <div class="search-category-list sub-list link-only" role="list">
                         <isloop items="${pdict.suggestions.category.categories}" var="category" status="listindex">
@@ -123,7 +123,7 @@
             <isif condition="${pdict.suggestions.content && pdict.suggestions.content.available}">
                 <div class="content-suggestions">
                     <h2 class="suggestions-header h-fw--bold text-uppercase">
-                        ${Resource.msg('label.content', 'search', null)}
+                        ${Resource.msg('label.suggest.content', 'search', null)}
                     </h2>
                     <div class="search-content-list sub-list link-only" role="list">
                         <isloop items="${pdict.suggestions.content.contents}" var="content" status="listindex">
