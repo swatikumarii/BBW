@@ -20,7 +20,7 @@
                     </div>
                     <a data-viewall="" href="${URLUtils.https('Search-Show', 'q', pdict.suggestions.searchTerms)}"
                         class="viewall-link h-clr--blue-1 h-fw--semibold">${Resource.msg('label.view.all', 'search', null)}</a>
-                    <iselseif
+                <iselseif
                         condition="${!pdict.suggestions.product || !pdict.suggestions.product.available || !pdict.suggestions.product.phrases.length > 0}" />
                     <div class="row no-gutters header">
                         <div class="col">
@@ -39,6 +39,7 @@
                 <isif condition="${pdict.suggestions.product && pdict.suggestions.product.available}">
                     <div class="h-100 p-2">
                         <div class="list h-dsp--grid h-grid-gap-md--20 suggestions__product-list">
+                            <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
                             <isloop items="${pdict.suggestions.product.products}" var="product" status="listindex">
                                 <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.id)}" />
                             </isloop>
@@ -111,7 +112,7 @@
                                     <span class="category-parent"> ${Resource.msg('label.suggest.in', 'search', null)}
                                         ${category.parentName} </span>
                                 </isif>
-                                <span class="h-clr--blue h-fw--semibold">${(category.productCount)}</span></a>
+                                <span class="h-clr--blue h-fw--semibold">(${category.productCount})</span></a>
                             </div>
                         </isloop>
                     </div>
