@@ -2,7 +2,6 @@
 
 var debounce = require('lodash/debounce');
 var endpoint = $('.suggestions-wrapper').data('url');
-var minChars = 1;
 var UP_KEY = 38;
 var DOWN_KEY = 40;
 var DIRECTION_DOWN = 1;
@@ -149,22 +148,16 @@ function processResponse(response) {
  * @param {object} scope - Search field DOM element
  */
 function getSuggestions(scope) {
-    if ($(scope).val().length >= minChars) {
-        $('.js-search-suggestions .suggestions__results').spinner().start();
-        $.ajax({
-            context: scope,
-            url: endpoint + encodeURIComponent($(scope).val()),
-            method: 'GET',
-            success: processResponse,
-            error: function () {
-                $.spinner().stop();
-            }
-        });
-    } else {
-        $(scope).siblings('.reset-button').removeClass('d-sm-block');
-        getSuggestionsWrapper(scope).empty();
-        // getSuggestionsWrapper('.search-suggestions').empty();
-    }
+    $('.js-search-suggestions .suggestions__results').spinner().start();
+    $.ajax({
+        context: scope,
+        url: endpoint + encodeURIComponent($(scope).val()),
+        method: 'GET',
+        success: processResponse,
+        error: function () {
+            $.spinner().stop();
+        }
+    });
 }
 
 /**
