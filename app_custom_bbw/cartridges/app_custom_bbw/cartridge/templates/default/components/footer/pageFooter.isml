@@ -7,7 +7,7 @@
                     <div
                         class="footer-tooltip-details d-flex align-items-center justify-content-between mb-2 mt-2 text-left">
                         <!-- Heading text -->
-                        <div class="heading-text h-clr--black-3 mr-3">${Resource.msg('footer.title', 'footer', null)}
+                        <div class="heading-text h-clr--black-3 mr-3 h-width-perc-sm--80 h-width-perc--100">${Resource.msg('footer.title', 'footer', null)}
                         </div>
                         <!-- Tooltip container for more information -->
                         <div class="tooltip-container">
@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <!-- Form for newsletter subscription -->
-                    <div class="home-email-signup">
+                    <div class="home-email-signup bg-transparent">
                         <div class="container">
                             <form role="form" class="newsletter"  data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">
                                 <div class="row">
@@ -27,17 +27,20 @@
                                                 ${Resource.msg('form.title', 'footer', null)}
                                             </label>
                                             <div class="input-group">
+                                               <div class="w-100">
                                                 <input type="text" class="form-control input-text rounded-0 w-100"
                                                     name="hpEmailSignUp"
-                                                    placeholder="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}"
                                                     aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" />
-                                                <span class="input-group-append">
+                                                    <div class="newletter-msg js-newsletter-msg bg-transparent h-font-size--14 m-0"></div>
+                                               </div>
+                                                <span class="input-group-append ml-0">
                                                     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
                                                         <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
                                                             class="btn btn-primary g-recaptcha" data-callback="submitNewsLetter"
                                                             data-action="submit">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
                                                     <iselse/>
-                                                        <button type="submit" class="btn btn-primary subscribe-email btn-hover  submit-btn h-fw--semibold mt-3 h-font-size--16"
+                                                        <button type="submit"
+                                                            class="btn btn-primary subscribe-email btn-hover text-uppercase submit-btn h-fw--semibold mt-3 h-font-size--16"
                                                             data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form', 'footer', null)}</button>
                                                     </isif>
                                                 </span>
@@ -54,6 +57,7 @@
             </div>
             <!-- Footer list details -->
             <div class="footer-list-details h-dsp--grid">
+            <div class="footer-list-data d-md-none"> </div>
                 <!-- Footer item for customer care -->
                 <div class="footer-item  collapsible-xs">
                     <iscontentasset aid="footer-customer-care" />
@@ -67,49 +71,42 @@
                             data-target="#collapsible-account">${Resource.msg('my.account.title', 'footer', null)}</button>
                         <ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block"
                             id="collapsible-account">
-                            <isif condition="${pdict.navTabValue === 'login'}">
-                                <!-- If customer is 'login' -->
-                                <li
-                                    class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold text-uppercase">
-                                    ${Resource.msg('my.account.title', 'footer', null)}</li>
-                                <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
-                                </li>
-                                <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.myorders', 'footer', null)}</a>
-                                </li>
-                                <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.love-list', 'footer', null)}</a>
-                                </li>
-                                <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.sign-out', 'footer', null)}</a>
-                                </li>
-                            <iselse/>
-                                <!-- If customer is not 'login', assuming it's 'register' -->
+                            <isif condition="${!session.isCustomerAuthenticated()}">
+                                <!-- If customer is not 'login' assuming it's 'register'-->
                                 <li
                                     class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold text-uppercase">
                                     ${Resource.msg('my.account.title', 'footer', null)}
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16 ">${Resource.msg('account.sign-in', 'footer', null)}</a>
+                                    <a href="${URLUtils.url('Login-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16 ">${Resource.msg('account.sign-in', 'footer', null)}</a>
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.order-tracking', 'footer', null)}</a>
+                                    <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.order-tracking', 'footer', null)}</a>
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
+                                    <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.love-list', 'footer', null)}</a>
+                                    <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.love-list', 'footer', null)}</a>
                                 </li>
+                            <iselse/>
+                                <!-- If customer is Logged in,  -->
+                                <li
+                                    class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold text-uppercase">
+                                    ${Resource.msg('my.account.title', 'footer', null)}</li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
+                                </li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.myorders', 'footer', null)}</a>
+                                </li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.love-list', 'footer', null)}</a>
+                                </li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="${URLUtils.url('Login-Logout')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.sign-out', 'footer', null)}</a>
+                                </li>
+                               
                             </isif>
                         </ul>
                     </div>
@@ -146,5 +143,5 @@
     </div>
 </footer>
 <div class="loginPopup">
-    <isinclude url="${URLUtils.url('Login-Popup')}" />
+    <isinclude url="${URLUtils.url('Login-Popup','loginRedirect',pdict.action,'queryString',pdict.queryString)}" />
 </div>

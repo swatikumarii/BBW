@@ -1,14 +1,25 @@
+@mixin custom-outline {
+    display: block;
+    opacity: 1;
+    color: transparent !important;
+    border-color: transparent !important;
+    background-color: hsla(0deg, 0deg, 100%, 75%) !important;
+    outline: 1px dotted color(black) !important;
+    outline-offset: 2px;
+}
+
 .b-product-tile {
-    &__img-wrapper {
-        &:hover {
-            .b-product-tile__quickview {
-                display: block;
-                transition: opacity 0.3s;
-            }
+    &:hover {
+        .carousel-controls-wrapper {
+            display: block;
+        }
+
+        .slider-control {
+            @include custom-outline;
         }
     }
 
-    &__image {
+    &__img {
         max-width: 195px;
         max-height: 195px;
         object-fit: contain;
@@ -32,9 +43,17 @@
         margin-top: 12px;
     }
 
+    .social-badge-wrapper {
+        z-index: 1;
+
+        @include media-down(md) {
+            flex-wrap: wrap;
+        }
+    }
+
     &__social-badge-text {
         border-radius: 2px;
-        margin-bottom: 32px;
+        margin-bottom: 0;
         padding: 4px 8px;
         letter-spacing: 0.015em;
     }
@@ -96,5 +115,103 @@
         &:hover {
             color: colour(gray);
         }
+    }
+
+    &__carousel {
+        .slider-control {
+            top: auto;
+            bottom: 50%;
+            opacity: 0;
+            transition: all 0.2s cubic-bezier(0.65, 0, 0.35, 1) ease-in-out;
+            background: hsla(0deg, 0deg, 100%, 75%)
+                url("../../images/icons/UI-Carat.svg") no-repeat 50%;
+            background-size: 12px;
+            display: none;
+            border: 0;
+            border-radius: 11px;
+            z-index: 0;
+            color: transparent;
+            overflow: hidden;
+            width: 38px;
+            height: 26px;
+            padding: 0;
+            position: absolute;
+
+            @include media-up(sm) {
+                bottom: 143px;
+            }
+
+            &.carousel-control-prev {
+                transform: rotate(90deg);
+                left: 0;
+
+                @include media-up(sm) {
+                    left: 24px;
+                }
+            }
+
+            &.carousel-control-next {
+                transform: rotate(-90deg);
+                right: 0;
+
+                @include media-up(sm) {
+                    right: 24px;
+                }
+            }
+
+            &:focus,
+            &:active {
+                @include custom-outline;
+            }
+        }
+    }
+
+    &__img-wrapper {
+        .img-inner-wrapper {
+            @include media-up(md) {
+                max-height: 300px;
+            }
+
+            &.hover-img-wrapper {
+                position: absolute;
+                opacity: 0;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition: opacity 0.3s;
+                flex: 0 0 auto;
+            }
+
+            &.main-img-wrapper {
+                position: static;
+                opacity: 1;
+            }
+        }
+
+        &:hover {
+            .hover-img-wrapper {
+                opacity: 1;
+            }
+
+            .main-img-wrapper {
+                opacity: 0;
+            }
+
+            .b-product-tile__quickview {
+                display: block;
+                transition: opacity 0.3s;
+            }
+        }
+    }
+}
+
+.product {
+    height: 100%;
+}
+
+.product-quickview {
+    .zoomImage-link,
+    .zoomImage-sec {
+        display: none;
     }
 }

@@ -2,6 +2,7 @@
 
 var base = module.superModule;
 var productDecorators = require('*/cartridge/models/product/decorators/index');
+var productLineItemDecorators = require('*/cartridge/models/productLineItem/decorators/index');
 
 /**
  * Decorate product with product line item information
@@ -15,6 +16,8 @@ module.exports = function productLineItem(product, apiProduct, options) {
     productDecorators.titlePartB(product, apiProduct);
     productDecorators.volume(product, apiProduct);
     productDecorators.fragrance(product, apiProduct);
-    // productLineItemDecorators.priceTotal(product, options.lineItem);
+    productLineItemDecorators.isFreeItem(product, options.lineItem);
+    productDecorators.promotions(product, options.promotions);
+    productLineItemDecorators.promoPrice(product, options.lineItem);
     return product;
 };

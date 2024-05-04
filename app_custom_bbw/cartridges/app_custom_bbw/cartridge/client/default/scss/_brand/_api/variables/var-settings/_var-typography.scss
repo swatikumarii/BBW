@@ -72,6 +72,9 @@ $brandTypography: (
         color: colour(gray),
         text-decoration: underline
     ),
+    "a-underline": (
+        text-decoration: underline
+    ),
     "body-1": (
         font-size: 1.125rem,
         line-height: 1.75rem,
@@ -104,6 +107,12 @@ $brandTypography: (
         font-size: 16px,
         line-height: 24px,
         font-weight: map-get($font-weight, medium)
+    ),
+    "body-2-bold": (
+        font-size: 1.125rem,
+        line-height: 1.25rem,
+        letter-spacing: 0.005em,
+        font-weight: map-get($font-weight, bold)
     ),
     "body-3": (
         font-size: 14px,

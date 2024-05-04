@@ -7,7 +7,6 @@
     display: none;
     left: 0;
     top: 0;
-    z-index: 1;
     position: fixed;
 
     ul {
@@ -30,7 +29,7 @@
                 }
 
                 &:first-child {
-                    &__title {
+                    .left-navigation-item__title {
                         @include media-up(sm) {
                             margin-top: 0;
                         }

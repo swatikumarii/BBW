@@ -2,12 +2,15 @@
 @import "modal-video/css/modal-video.min";
 
 .header_img {
+    padding-top: 20px;
+
     img {
         width: 100%;
         height: auto;
 
         @include media-up(sm) {
-            width: 100%;
+            width: 1144px;
+            height: 120.67px;
         }
     }
 
@@ -39,7 +42,7 @@
 
     @include media-up(sm) {
         margin: 40px auto;
-        width: 85%;
+        width: 89%;
     }
 
     .folder_list {
@@ -75,18 +78,20 @@
 .m-grid-contain {
     .head-img {
         width: 95%;
+        margin: 10px auto;
         border-bottom: 3px solid colour(black);
 
         @include media-up(sm) {
             border-bottom: 3px solid colour(black);
-            width: 99%;
+            width: 1144px;
+            margin: 10px auto;
         }
 
         .folder_content {
             width: 40px;
             height: 40px;
             display: inline-block;
-            margin: 1%;
+            margin: 12px 9px;
         }
 
         .head-feature {
@@ -95,20 +100,23 @@
             margin: 10px auto;
             color: colour(black);
             letter-spacing: 5px;
+            font-weight: 800 !important;
             width: 95%;
         }
     }
 
     .m-grid-contain-childblog {
-        width: 95%;
+        width: 1144px;
         position: relative;
         margin: 0 auto;
 
         .blog_child_content {
-            width: 98%;
+            width: 100%;
 
             @include media-up(sm) {
                 width: 49%;
+                margin-top: 10px;
+                margin-bottom: 10px;
             }
 
             h3 {
@@ -127,17 +135,25 @@
             .read-button {
                 width: 40%;
                 float: right;
+                max-height: 35px;
+                min-height: 36px;
 
                 @include media-up(sm) {
                     float: right;
-                    min-height: 36px;
-                    width: 20%;
+                    min-height: 35px;
+                    width: 112.11px;
+                    transition: none;
+                }
+
+                @include media-btw(sm, lg) {
+                    width: 30%;
                 }
 
                 &:hover {
                     background-color: colour(white);
                     color: colour(black, 3);
                     border: none;
+                    transition: none;
                 }
             }
         }
@@ -155,19 +171,30 @@
         color: colour(black, 3);
 
         @include media-up(sm) {
+            background-color: transparent;
+            color: colour(black, 3);
             border: 3px solid colour(black);
             padding: 0;
             margin: 3% auto;
-            width: 11%;
-            height: 2.5rem;
-            line-height: 2.1875rem;
-            letter-spacing: 0.0625rem;
-            background-color: transparent;
-            color: colour(black, 3);
+            width: 149px;
+            height: 40px;
+            line-height: 35px;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        @include media-btw(sm, lg) {
+            width: 20%;
         }
 
         &:hover {
             border: 0;
+        }
+
+        .show-button {
+            width: 143px;
+            height: 40px;
+            line-height: normal;
         }
     }
 }
@@ -380,12 +407,24 @@
 }
 
 // -----------Choose-your-scent-----
-.description-list {
-    li {
+.bc-description {
+    h2 {
+        text-transform: none;
+        line-height: 1.125;
+        margin: 20px 0;
+    }
+
+    p {
         line-height: 1.75;
-        color: colour(black, 3);
-        margin-top: 0.625rem;
-        margin-left: 3.125rem;
+    }
+
+    .description-list {
+        li {
+            line-height: 1.75;
+            color: colour(black, 3);
+            margin-top: 0.625rem;
+            margin-left: 3.125rem;
+        }
     }
 }
 

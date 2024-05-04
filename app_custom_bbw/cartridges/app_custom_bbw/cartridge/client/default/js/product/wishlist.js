@@ -1,32 +1,5 @@
 'use strict';
 
-var base = require('base/product/base');
-
-/**
- * Updates the Mini-Cart quantity value after the customer has pressed the "Add to Cart" button
- * @param {string} response - ajax response from clicking the add to cart button
- */
-function handlePostCartAdd(response) {
-    $('.minicart').trigger('count:update', response);
-    var messageType = response.error ? 'alert-danger' : 'alert-success';
-
-    if ($('.add-to-cart-messages').length === 0) {
-        $('body').append('<div class="add-to-cart-messages"></div>');
-    }
-
-    $('.add-to-cart-messages').append(
-        '<div class="alert ' +
-            messageType +
-            ' add-to-basket-alert text-center" role="alert">' +
-            response.message +
-            '</div>'
-    );
-
-    setTimeout(function () {
-        $('.add-to-basket-alert').remove();
-    }, 5000);
-}
-
 /**
  * appends params to a url
  * @param {string} data - data returned from the server's ajax call
@@ -39,8 +12,7 @@ module.exports = {
             var url = $(this).data('href');
             var pid = $(this)
                 .closest('.product-detail')
-                .find('.product-id')
-                .html();
+                .data('pid');
             var optionId = $(this)
                 .closest('.product-detail')
                 .find('.product-option')
@@ -68,7 +40,7 @@ module.exports = {
                 },
                 success: function (data) {
                     if (data.loginShow === true) {
-                        $('.loginPopup').find('.modal').modal('show');
+                        $('.loginPopup').find('#loginModal').modal('show');
                     } else {
                         $('.loginPopup')
                             .find('#exampleModalLong')
@@ -85,56 +57,6 @@ module.exports = {
                     $.spinner().stop();
                 }
             });
-        });
-    },
-
-    addToCartFromWishlist: function () {
-        $('body').on('click', '.add-to-cart', function () {
-            var pid;
-            var addToCartUrl;
-            var pidsQty;
-
-            $('body').trigger('product:beforeAddToCart', this);
-
-            pid = $(this).data('pid');
-            addToCartUrl = $(this).data('url');
-            pidsQty = parseInt(
-                $(this).closest('.product-info').find('.quantity').val(),
-                10
-            );
-
-            var form = {
-                pid: pid,
-                quantity: pidsQty
-            };
-
-            if ($(this).data('option')) {
-                form.options = JSON.stringify($(this).data('option'));
-            }
-
-            $(this).trigger('updateAddToCartFormData', form);
-            if (addToCartUrl) {
-                $.ajax({
-                    url: addToCartUrl,
-                    method: 'POST',
-                    data: form,
-                    success: function (data) {
-                        handlePostCartAdd(data);
-                        $('body').trigger('product:afterAddToCart', data);
-                        $.spinner().stop();
-                        base.miniCartReportingUrl(
-                            data.reportingURL,
-                            data.error
-                        );
-                    },
-                    error: function (err) {
-                        $('.add-to-cart-error').text(
-                            err.responseJSON.errorMessage
-                        );
-                        $.spinner().stop();
-                    }
-                });
-            }
         });
     }
 };

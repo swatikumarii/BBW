@@ -19,8 +19,11 @@ $(document).ready(function () {
     processInclude(require('base/components/countrySelector'));
     processInclude(require('base/components/toolTip'));
     processInclude(require('./components/header'));
+    processInclude(require('./wishlist'));
+    processInclude(require('notify/components/notify'));
+    processInclude(require('./components/video'));
 });
 
 require('./thirdParty/bootstrap');
-require('base/components/spinner');
+require('./components/spinner');
 require('./thirdParty/jqueryTicker');

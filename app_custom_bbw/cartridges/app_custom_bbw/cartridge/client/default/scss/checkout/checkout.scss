@@ -1,0 +1,551 @@
+@charset "UTF-8";
+
+@import "../_brand/_api/api";
+
+header {
+    .bbw-nav {
+        .bbw-nav-wrap {
+            .primary-logo {
+                margin: 24px auto 22px;
+            }
+
+            .icon-items {
+                .minicart {
+                    margin-right: 41px;
+                    top: -58px;
+                }
+            }
+        }
+    }
+}
+
+.card.ghost {
+    opacity: 0.5;
+}
+
+.arrival-time {
+    white-space: pre;
+}
+
+.billing-address {
+    display: block;
+}
+
+.checkout-checkbox {
+    font-size: 0.875em;
+}
+
+.customer-information-block .btn-link {
+    padding: 0;
+    vertical-align: baseline;
+}
+
+.edit-button {
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+.error-message {
+    display: none;
+}
+
+.next-step-button {
+    position: fixed;
+    bottom: 0;
+    z-index: 3;
+    padding-right: 0;
+    padding-left: 0;
+
+    button {
+        min-width: 175px;
+    }
+}
+
+.shipping-methods {
+    font-size: 1.125em;
+}
+
+.shipping-method-option {
+    font-size: 0.938em;
+}
+
+.shipping-method-pricing {
+    font-weight: bolder;
+}
+
+.multi-ship .multi-shipping {
+    display: block;
+}
+
+span.ship-to-name,
+span.ship-to-address1,
+span.ship-to-address2,
+span.ship-to-phone,
+span.ship-to-city-st-zip {
+    display: block;
+}
+
+.btn-show-details {
+    padding-top: 0;
+}
+
+.edit-button,
+.btn-show-details,
+.btn-add-new {
+    float: right;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.review-shipping-summary {
+    display: none;
+    padding: 20px 30px 30px;
+
+    .single-shipping {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+    }
+}
+
+.review-billing-summary {
+    display: none;
+    padding: 20px 30px 30px;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+
+    .summary-details {
+        &.billing {
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+.review-product-summary {
+    display: none;
+}
+
+.data-checkout-stage {
+    // Initial states ------------------------
+    &[data-checkout-stage] {
+        .card.payment-summary,
+        .shipping-summary {
+            display: none;
+        }
+
+        button.place-order {
+            display: none;
+        }
+
+        button.submit-payment {
+            display: none;
+        }
+
+        button.submit-shipping {
+            display: none;
+        }
+    }
+
+    // Customer ------------------------------
+    &[data-checkout-stage="customer"] {
+        .customer {
+            display: none;
+        }
+
+        .customer-summary {
+            display: none;
+        }
+
+        .shipping-section {
+            display: none;
+        }
+
+        .payment-form {
+            display: none;
+        }
+
+        button.submit-customer {
+            display: block;
+        }
+    }
+
+    // Shipping ------------------------------
+    &[data-checkout-stage="shipping"] {
+        .customer-section {
+            display: none;
+        }
+
+        button.submit-customer {
+            display: none;
+        }
+
+        .ghost.customer {
+            display: none;
+        }
+
+        .ghost {
+            display: none;
+        }
+
+        &.multi-ship .order-product-summary {
+            display: none;
+        }
+
+        .payment-form {
+            display: none;
+        }
+
+        button.submit-shipping {
+            display: block;
+        }
+
+        .shipment-selector-block {
+            .btn-show-details,
+            .btn-add-new {
+                border: none;
+            }
+        }
+
+        [data-address-mode="customer"] {
+            .shipping-address-block {
+                display: none;
+            }
+        }
+
+        [data-address-mode="shipment"] {
+            .shipping-address-form {
+                display: none;
+            }
+        }
+
+        [data-address-mode="edit"] {
+            .shipping-address-block {
+                display: none;
+            }
+        }
+
+        [data-address-mode="new"] {
+            .btn-show-details,
+            .btn-add-new {
+                display: none;
+            }
+        }
+    }
+
+    // Payment -------------------------------
+    &[data-checkout-stage="payment"] {
+        button.submit-customer {
+            display: none;
+        }
+
+        .customer-section,
+        .shipping-section,
+        .card.ghost {
+            display: none;
+        }
+
+        .payment-form,
+        .shipping-summary {
+            display: block;
+        }
+
+        button.submit-payment {
+            display: block;
+        }
+
+        .address-selector-block {
+            .btn-show-details,
+            .btn-add-new {
+                border: none;
+            }
+        }
+
+        [data-address-mode="customer"] {
+            .billing-address {
+                display: none;
+            }
+        }
+
+        [data-address-mode="shipment"] {
+            .billing-address {
+                display: none;
+            }
+        }
+
+        [data-address-mode="edit"] {
+            .billing-address {
+                display: none;
+            }
+        }
+
+        [data-address-mode="new"] {
+            .btn-show-details,
+            .btn-add-new {
+                display: none;
+            }
+        }
+
+        [data-address-mode="details"] {
+            .btn-show-details,
+            .btn-add-new {
+                display: none;
+            }
+        }
+    }
+
+    // Place Order -----------------------------
+    &[data-checkout-stage="placeOrder"] {
+        button.submit-customer,
+        .customer-section,
+        .shipping-section,
+        .card.payment-form,
+        .card.ghost,
+        .checkout-blocks,
+        .order-product-summary {
+            display: none;
+        }
+
+        button.place-order,
+        .review-shipping-summary,
+        .review-shipping-summary.shipping-summary,
+        .review-product-summary {
+            display: block;
+        }
+
+        .review-billing-summary {
+            display: flex;
+        }
+    }
+
+    &[data-checkout-stage="submitted"] {
+        .shipping-form,
+        .card.payment-form,
+        button.submit-customer,
+        .card.ghost {
+            display: none;
+        }
+
+        .summary-section-label.shipping-addr-label {
+            display: none;
+        }
+
+        .card.payment-summary,
+        .shipping-summary {
+            display: block;
+        }
+
+        button.place-order {
+            display: none;
+        }
+    }
+
+    option[value="new"] {
+        display: none;
+    }
+
+    h5 > span {
+        font-size: 0.8em;
+    }
+}
+
+[data-customer-type="guest"] .single-shipping .shipment-selector-block {
+    display: none;
+}
+
+.single-shipping .multi-ship-action-buttons {
+    display: none;
+}
+
+.single-shipping .view-address-block {
+    display: none;
+}
+
+.multi-ship-address-actions .btn-save-multi-ship {
+    margin-left: 10px;
+}
+
+.checkout-steps {
+    margin: 25px auto 58px;
+    text-align: center;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+    width: 730px;
+
+    .step-text {
+        margin-bottom: 15px;
+    }
+
+    .step-connect {
+        position: relative;
+
+        &::after {
+            content: "";
+            display: block;
+            width: calc(100% - 30px);
+            height: 3px;
+            position: absolute;
+            background: $clr-gray-1;
+            bottom: 14px;
+            left: calc(50% + 15px);
+        }
+    }
+
+    .step-count {
+        margin: auto;
+        border: 2px solid $clr-gray-1;
+        border-radius: 100%;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 25px;
+        background-color: $clr-gray-1;
+    }
+}
+
+.checkout-blocks {
+    border-top: 1px solid $clr-gray-6;
+}
+
+.customer-heading {
+    padding: 20px 10px;
+}
+
+.customer-information-block {
+    .form-group {
+        margin: 10px 0 30px 10px;
+    }
+
+    label {
+        padding-bottom: 20px;
+    }
+
+    .login-button-section {
+        margin-top: 20px;
+    }
+}
+
+input[type="text"],
+input[type="password"],
+.custom-select {
+    height: 48px;
+    border-color: $clr-black-1;
+    border-radius: 0;
+}
+
+.submit-customer-login {
+    min-height: unset;
+    width: 135px;
+}
+
+.shipping-section {
+    h2 {
+        padding: 35px 0 17px;
+    }
+}
+
+.order-summary {
+    padding: 0 15px;
+}
+
+.order-product-summary-wrap {
+    h2 {
+        padding: 20px 0;
+        border-bottom: 3px solid $clr-gray-6;
+    }
+
+    .order-product-summary {
+        border-bottom: 3px solid $clr-gray-6;
+
+        .product-summary-block {
+            max-height: 400px;
+            overflow: hidden;
+            overflow-y: scroll;
+
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
+        }
+
+        .product-line-item {
+            margin: 20px 0;
+            padding-top: 25px;
+
+            .line-item-total-price-amount {
+                text-align: right;
+                padding-right: 35px;
+            }
+        }
+    }
+}
+
+.order-total-summary-wrap {
+    padding: 15px 15px 0;
+
+    .grand-total-wrap {
+        padding-top: 15px;
+        border-top: 3px solid $clr-gray-6;
+    }
+}
+
+.shipping-summary {
+    margin: 42px 0;
+    padding: 30px 15px;
+
+    .shipping-summary-header {
+        padding-bottom: 20px;
+    }
+}
+
+.hide-shipping-discount {
+    display: none;
+}
+
+.hide-order-discount {
+    display: none;
+}
+
+.shipping-methods-block {
+    margin: 10px 0 30px;
+}
+
+.payment-form {
+    padding: 0 15px;
+
+    .billing-address-heading {
+        padding-top: 40px;
+        padding-bottom: 15px;
+    }
+}
+
+.shipping-address {
+    .form-group {
+        margin: 10px 0 30px;
+    }
+}
+
+.multi-shipping {
+    display: none;
+}
+
+.checkout-footer {
+    margin-top: 96px;
+    min-height: 64px;
+    border-top: 3px solid $clr-gray-1;
+    padding: 32px 0 48px;
+}
+
+.summary-details {
+    &.billing {
+        margin: 0 0 42px;
+        padding: 30px 15px;
+    }
+}

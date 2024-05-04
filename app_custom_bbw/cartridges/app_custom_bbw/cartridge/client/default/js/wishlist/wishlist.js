@@ -11,8 +11,13 @@ module.exports = $.extend({}, wishlist, {
     addToWishlist: function () {
         $(document).on('click', '.add-to-wish-list', function (e) {
             e.preventDefault();
-            var url = $(this).data('href');
-            var pid = $(this).closest('.product-detail').attr('data-pid');
+            var url = $(this).data('href') || $(this).attr('href');
+            var pid =
+                $(this).closest('.product-detail').length > 0
+                    ? $(this).closest('.product-detail').attr('data-pid')
+                    : $(this)
+                        .closest('.product, .product-line-item')
+                        .attr('data-pid');
             var optionId = $(this).closest('.product-detail').attr('data-option-id');
             var optionVal = $(this).closest('.product-detail').attr('data-value-id');
             optionId = optionId || null;
@@ -34,7 +39,7 @@ module.exports = $.extend({}, wishlist, {
                 success: function (data) {
                     if(data.loginShow === true){
                         $('#quickViewModal').modal('hide');
-                        $('.loginPopup').find('.modal').modal('show');
+                        $('.loginPopup').find('#loginModal').modal('show');
                     } else {
                         $('.loginPopup').find('#exampleModalLong').modal('hide');
                     }
