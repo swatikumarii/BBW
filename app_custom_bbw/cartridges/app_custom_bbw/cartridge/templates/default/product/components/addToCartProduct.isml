@@ -10,6 +10,5 @@
             <p class="text-center h-clr--red"></p>
         </div>
         <div id="add-to-cart-snackbar">${Resource.msg('item.added', 'common', null)}</div>
-        
     </div>
 </div>
