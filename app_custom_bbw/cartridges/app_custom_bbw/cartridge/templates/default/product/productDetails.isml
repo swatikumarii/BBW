@@ -40,7 +40,7 @@
                     <div class="row">
                         <div class="col">
                             <h1 class="product-name hidden-sm-down text-capitalize h-clr--black-1 h-fw--bold mt-0">
-                                ${product.fragranceName ? product.fragranceName : product.name}
+                                ${product.fragranceName ? product.fragranceName : product.productName}
                                 <isif condition="${product.titlePartB}">
                                     <div class="row">
                                         <div class="col">
@@ -199,9 +199,11 @@
                     <div class="row">
                         <div class="d-flex quantity-cart-wrap w-100">
                             <isif condition="${!product.variationAttributes}">
-                                <div class="simple-quantity">
-                                    <isinclude template="product/components/quantity" />
-                                </div>
+                                <isif condition="${product.available}">
+                                    <div class="simple-quantity">
+                                            <isinclude template="product/components/quantity" />
+                                    </div>
+                                </isif>
                             </isif>
                             <!-- Cart and [Optionally] Apple Pay -->
                             <div class="js-add-to-cart-button">
