@@ -1,6 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-shadow */
-
 'use strict';
 
 $(document).on(

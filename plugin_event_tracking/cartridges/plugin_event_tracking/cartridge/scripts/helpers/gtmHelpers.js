@@ -1,5 +1,3 @@
-/* eslint-disable camelcase */
-
 'use strict';
 
 var gtmEvents = require('*/cartridge/config/gtmEvents');
@@ -527,41 +525,6 @@ function addPayment(res) {
 
 /**
  * @param {object} res - current route response object
- * @returns {object} Object containing order data.
- */
-function affirmConfirmation(res){
-    var order = dw.order.OrderMgr.getOrder(res.order.orderNumber);
-    var obj = {
-        'event': 'purchase',
-        'ecommerce': {
-            'currency': order.currencyCode,
-            'transaction_id': order.orderNo,
-            'value': order.getAdjustedMerchandizeTotalPrice(true).getValue(),
-            'shipping': order.getAdjustedShippingTotalPrice().getValue(),
-            'tax': order.getTotalTax().getValue().toFixed(2),
-            'total': order.totalNetPrice.value,
-            'purchase': {
-                'items': []
-            }
-        }
-    };
-    if ('order' in res) {
-        for (var i = 0; i < res.order.items.items.length; i++) {
-            obj.ecommerce.purchase.items.push({
-                item_name: res.order.items.items[i].productName,
-                item_id: res.order.items.items[i].id,
-                item_brand: res.order.items.items[i].brand ? res.order.items.items[i].brand:'' ,
-                item_category: res.order.items.items[i].gtmData.item_category ?  res.order.items.items[i].gtmData.item_category:'',
-                item_categoryID: res.order.items.items[i].gtmData.item_categoryID ? res.order.items.items[i].gtmData.item_categoryID:'',
-                price: res.order.items.items[i].gtmData.price,
-                quantity: res.order.productQuantityTotal,
-            });
-        }
-    }
-    return obj;
-}
-/**
- * @param {object} res - current route response object
  * @returns {object} Object containing confirmation page data.
  */
 function getConfirmationData(res) {
@@ -642,8 +605,6 @@ function getDataLayer(res) {
             return addPayment(res);
         case 'Order-Confirm':
             return getConfirmationData(res);
-        case 'Affirm-Confirmation':
-            return affirmConfirmation(res);
         default:
             return false;
     };
@@ -656,6 +617,5 @@ module.exports = {
     getCustomerData: getCustomerData,
     getSearchImpressionData: getSearchImpressionData,
     getConfirmationData: getConfirmationData,
-    getGA4OrderProductObject: getGA4OrderProductObject,
-    affirmConfirmation: affirmConfirmation
+    getGA4OrderProductObject: getGA4OrderProductObject
 };
