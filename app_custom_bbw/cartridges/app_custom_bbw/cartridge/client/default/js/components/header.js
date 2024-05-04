@@ -28,6 +28,8 @@ $('.search-field').on('keyup', function () {
 /* Remove reset button on clicking of it */
 $('.reset-button').on('click', function () {
     $(this).removeClass('d-block');
+    $('.search-field').val('');
+    $('.search-field').focus();
 });
 
 /* Search overlay */

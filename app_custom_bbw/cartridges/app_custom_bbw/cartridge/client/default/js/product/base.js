@@ -249,6 +249,7 @@ module.exports = $.extend({}, base, {
                                 $.spinner().stop();
                             }, 300);
                             base.miniCartReportingUrl(data.reportingURL);
+                            currentAction.addClass('added-to-cart');
                         },
                         error: function (err) {
                             currentAction
