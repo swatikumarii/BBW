@@ -21,16 +21,6 @@ if (layout.isDesktop()) {
     });
 }
 
-/* Show reset button on key up */
-$('.search-field').on('keyup', function () {
-    $('.reset-button').addClass('d-block');
-});
-
-/* Remove reset button on clicking of it */
-$('.reset-button').on('click', function () {
-    $(this).removeClass('d-block');
-});
-
 /* Search overlay */
 $('.search-field').on('click', function () {
     $('.search-fly-out-opacity').removeClass('d-none');
