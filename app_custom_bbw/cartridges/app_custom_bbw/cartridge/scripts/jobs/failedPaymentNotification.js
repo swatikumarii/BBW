@@ -16,10 +16,10 @@ function execute() {
     var OrderModel = require('*/cartridge/models/order');
     var Resource = require('dw/web/Resource');
     var toEmailAddress = Site.current.getCustomPreferenceValue(
-        'failedPaymentOrderNotificationToEmail'
+        'jobNotificationToEmail'
     );
     var ccEmailAddress = Site.current.getCustomPreferenceValue(
-        'failedPaymentOrderNotificationCcEmail'
+        'jobNotificationCCEmail'
     );
     try {
         var orders;
