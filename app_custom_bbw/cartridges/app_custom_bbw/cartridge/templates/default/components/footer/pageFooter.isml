@@ -106,7 +106,6 @@
                                 <li class="footer-list-item mb-3 link-item">
                                     <a href="${URLUtils.url('Login-Logout')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.sign-out', 'footer', null)}</a>
                                 </li>
-                               
                             </isif>
                         </ul>
                     </div>
