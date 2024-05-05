@@ -249,6 +249,30 @@
         }
     }
 
+    .changepassowrd-btn {
+        transition: all 0.3s ease;
+        max-height: 35px;
+        min-height: 35px;
+        letter-spacing: 0.12em;
+
+        &:focus {
+            background-color: colour(white);
+            color: colour(black, 3);
+        }
+    }
+
+    .changepassword {
+        margin: 0.625rem 0 1.875rem;
+
+        .create-btn {
+            padding: 0 2.8125em;
+        }
+    }
+
+    .iti__selected-country {
+        background: colour(white);
+    }
+
     // -----Login page
     .login-page-setion {
         margin-top: -25px;
@@ -489,7 +513,7 @@
         0% {
             transform: translateY(100%);
         }
-    
+
         100% {
             transform: translateY(0);
         }
@@ -599,20 +623,5 @@
             margin-right: 0.125em;
             color: colour(red, 9);
         }
-    }
-
-    .changepassowrd-btn {
-        transition: all 0.3s ease;
-        max-height: 35px;
-        min-height: 35px;
-        letter-spacing: 0.12em;
-    }
-
-    .create-btn {
-        padding: 0 2.8125em;
-    }
-
-    .iti__selected-country {
-        background: colour(white);
     }
 }

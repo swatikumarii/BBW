@@ -43,69 +43,37 @@ $(document).ready(function () {
         togglePasswordVisibility(confirmPasswordInput, confirmPasswordShowButton);
     });
 
-    $(document).on('blur', '#registration-form-salutation', function () {
-        validateSalutation();
+    // Define an array of selectors and corresponding validation functions
+    var validationFields = [
+        { selector: '#registration-form-salutation', validationFunction: validateSalutation },
+        { selector: '#registration-form-fname', validationFunction: validateFirstName },
+        { selector: '#registration-form-lname', validationFunction: validateLastName },
+        { selector: '#registration-form-phone', validationFunction: validatePhoneNumber },
+        { selector: '#registration-form-email', validationFunction: validateEmail },
+        { selector: '#registration-form-email-confirm', validationFunction: validateConfirmEmail },
+        { selector: '#registration-form-password', validationFunction: validatePassword },
+        { selector: '#registration-form-password', validationFunction: validateConfirmPassword },
+        { selector: '#registration-form-gender', validationFunction: validateGender },
+        { selector: '#registration-form-zip', validationFunction: validateZipCode },
+        { selector: '#registration-form-nationality', validationFunction: validateNationality },
+        { selector: '#add-to-email-list', validationFunction: validateEmailListCheckbox },
+        { selector: '#registration-form-dob', validationFunction: validateDOB },
+        { selector: '#login-form-email', validationFunction: validateLoginEmail },
+        { selector: '#login-form-password', validationFunction: validateLoginPassword },
+        { selector: '#reset-password-email', validationFunction: validateRequestEmail }
+    ];
+
+    // Loop through the array and attach blur event handlers dynamically
+    validationFields.forEach(field => {
+        $(document).on('blur', field.selector, function () {
+            validateField(field.selector, field.validationFunction);
+        });
     });
 
-    $(document).on('blur', '#registration-form-fname', function () {
-        validateFirstName();
-    });
-
-    $(document).on('blur', '#registration-form-lname', function () {
-        validateLastName();
-    });
-
-    $(document).on('blur', '#registration-form-phone', function () {
-        validatePhoneNumber();
-    });
-
-    $(document).on('blur', '#registration-form-email', function () {
-        validateEmail();
-    });
-
-    $(document).on('blur', '#registration-form-email-confirm', function () {
-        validateConfirmEmail();
-    });
-
-    $(document).on('blur', '#registration-form-password', function () {
-        validatePassword();
-    });
-
-    $(document).on('blur', '#registration-form-password', function () {
-        validateConfirmPassword();
-    });
-
-    $(document).on('blur', '#registration-form-gender', function () {
-        validateGender();
-    });
-
-    $(document).on('blur', '#registration-form-zip', function () {
-        validateZipCode();
-    });
-
-    $(document).on('blur', '#registration-form-nationality', function () {
-        validateNationality();
-    });
-
-    $(document).on('blur', '#add-to-email-list', function () {
-        validateEmailListCheckbox();
-    });
-
-    $(document).on('blur', '#registration-form-dob', function () {
-        validateDOB();
-    });
-
-    $(document).on('blur', '#login-form-email', function () {
-        validateLoginEmail();
-    });
-
-    $(document).on('blur', '#login-form-password', function () {
-        validateLoginPassword();
-    });
-
-    $(document).on('blur', '#reset-password-email', function () {
-        validateRequestEmail();
-    });
+    // Reusable function to validate a field based on its ID
+    function validateField(selector, validationFunction) {
+        validationFunction();
+    }
 });
 
 // -------Register form----------
@@ -113,244 +81,135 @@ $(document).ready(function () {
  * @returns {boolean} True is valid else False
  */
 function validateSalutation() {
-    var selectSaturation = $('#registration-form-salutation');
-    if (!selectSaturation.val()) {
-        selectSaturation.addClass('is-invalid'); // Add class for input border error
+    var selectSalutation = $('#registration-form-salutation');
+    if (!selectSalutation.val()) {
+        selectSalutation.addClass('is-invalid border-danger'); // Add classes for input border error
+        $('#salutation-error').text('Salutation is required'); // Display error message
         return false;
     }
-    selectSaturation.removeClass('is-invalid'); // Remove class if input is valid
-    $('#salutation-error').empty();
+    selectSalutation.removeClass('is-invalid border-danger'); // Remove classes if input is valid
+    $('#salutation-error').empty(); // Clear error message
     return true;
 }
-
-$('#registration-form-salutation').on('focusout', function () {
-    validateSalutation();
-    // Check if the field is empty and add a red border if it is
-    if (!$(this).val()) {
-        $(this).addClass('border-danger');
-    } else {
-        $(this).removeClass('border-danger');
-    }
-});
 
 function validateFirstName() {
     var firstNameInput = $('#registration-form-fname');
     if (!firstNameInput.val()) {
-        firstNameInput.addClass('is-invalid'); // Add class for input border error
+        firstNameInput.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
-    firstNameInput.removeClass('is-invalid'); // Remove class if input is valid
+    firstNameInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#fname-error').empty();
     return true;
 }
-
-$('#registration-form-fname').on('focusout', function () {
-    validateFirstName();
-    // Check if the field is empty and add a red border if it is
-    if (!$(this).val()) {
-        $(this).addClass('border-danger');
-    } else {
-        $(this).removeClass('border-danger');
-    }
-});
 
 
 function validateLastName() {
     var lastNameInput = $('#registration-form-lname');
     if (!lastNameInput.val()) {
-        lastNameInput.addClass('is-invalid'); // Add class for input border error
+        lastNameInput.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
-    lastNameInput.removeClass('is-invalid'); // Remove class if input is valid
+    lastNameInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#lname-error').empty();
     return true;
 }
 
-$('#registration-form-lname').on('focusout', function () {
-    validateLastName();
-    // Check if the field is empty and add a red border if it is
-    if (!$(this).val()) {
-        $(this).addClass('border-danger');
-    } else {
-        $(this).removeClass('border-danger');
-    }
-});
-
 function validatePhoneNumber() {
     var phoneInput = $('#registration-form-phone');
     if (!phoneInput.val()) {
-        phoneInput.addClass('is-invalid'); // Add class for input border error
+        phoneInput.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
-    phoneInput.removeClass('is-invalid'); // Remove class if input is valid
+    phoneInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#phone-error').empty();
     return true;
 }
 
-$('#registration-form-phone').on('focusout', function () {
-    validatePhoneNumber();
-    // Check if the field is empty and add a red border if it is
-    if (!$(this).val()) {
-        $(this).addClass('border-danger');
-    } else {
-        $(this).removeClass('border-danger');
-    }
-});
-
 function validateEmail() {
     var emailInput = $('#registration-form-email');
     if (!emailInput.val()) {
-        emailInput.addClass('is-invalid'); // Add class for input border error
+        emailInput.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
-    emailInput.removeClass('is-invalid'); // Remove class if input is valid
+    emailInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#email-error').empty();
     return true;
 }
 
-$('#registration-form-email').on('focusout', function () {
-    validateEmail();
-    // Check if the field is empty and add a red border if it is
-    if (!$(this).val()) {
-        $(this).addClass('border-danger');
-    } else {
-        $(this).removeClass('border-danger');
-    }
-});
-
 function validateConfirmEmail() {
     var confirmEmailInput = $('#registration-form-email-confirm');
     if (!confirmEmailInput.val()) {
-        confirmEmailInput.addClass('is-invalid'); // Add class for input border error
+        confirmEmailInput.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
-    confirmEmailInput.removeClass('is-invalid'); // Remove class if input is valid
+    confirmEmailInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#confirm-email-error').empty();
     return true;
 }
 
-$('#registration-form-email-confirm').on('focusout', function () {
-    validateConfirmEmail();
-    // Check if the field is empty and add a red border if it is
-    if (!$(this).val()) {
-        $(this).addClass('border-danger');
-    } else {
-        $(this).removeClass('border-danger');
-    }
-});
-
 function validatePassword() {
     var passwordInput = $('#registration-form-password');
     if (!passwordInput.val()) {
-        passwordInput.addClass('is-invalid'); // Add class for input border error
+        passwordInput.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
-    passwordInput.removeClass('is-invalid'); // Remove class if input is valid
+    passwordInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#password-error').empty();
     return true;
 }
 
-$('#registration-form-password').on('focusout', function () {
-    validatePassword();
-    // Check if the field is empty and add a red border if it is
-    if (!$(this).val()) {
-        $(this).addClass('border-danger');
-    } else {
-        $(this).removeClass('border-danger');
-    }
-});
-
 function validateConfirmPassword() {
     var confirmPasswordInput = $('#registration-form-password-confirm');
     if (!confirmPasswordInput.val()) {
-        confirmPasswordInput.addClass('is-invalid'); // Add class for input border error
+        confirmPasswordInput.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
-    confirmPasswordInput.removeClass('is-invalid'); // Remove class if input is valid
+    confirmPasswordInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#confirm-password-error').empty();
     return true;
 }
 
-$('#registration-form-password-confirm').on('focusout', function () {
-    validateConfirmPassword();
-    // Check if the field is empty and add a red border if it is
-    if (!$(this).val()) {
-        $(this).addClass('border-danger');
-    } else {
-        $(this).removeClass('border-danger');
-    }
-});
-
 function validateGender() {
     var genderInput = $('#registration-form-gender');
     if (!genderInput.val()) {
-        genderInput.addClass('is-invalid'); // Add class for input border error
+        genderInput.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
-    genderInput.removeClass('is-invalid'); // Remove class if input is valid
+    genderInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#gender-error').empty();
     return true;
 }
 
-$('#registration-form-gender').on('focusout', function () {
-    validateGender();
-    // Check if the field is empty and add a red border if it is
-    if (!$(this).val()) {
-        $(this).addClass('border-danger');
-    } else {
-        $(this).removeClass('border-danger');
-    }
-});
-
 function validateZipCode() {
     var zipCodeInput = $('#registration-form-zip');
     if (!zipCodeInput.val()) {
-        zipCodeInput.addClass('is-invalid'); // Add class for input border error
+        zipCodeInput.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
-    zipCodeInput.removeClass('is-invalid'); // Remove class if input is valid
+    zipCodeInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#zip-code-error').empty();
     return true;
 }
 
-$('#registration-form-zip').on('focusout', function () {
-    validateZipCode();
-    // Check if the field is empty and add a red border if it is
-    if (!$(this).val()) {
-        $(this).addClass('border-danger');
-    } else {
-        $(this).removeClass('border-danger');
-    }
-});
-
 function validateNationality() {
     var nationalityInput = $('#registration-form-nationality');
     if (!nationalityInput.val()) {
-        nationalityInput.addClass('is-invalid'); // Add class for input border error
+        nationalityInput.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
-    nationalityInput.removeClass('is-invalid'); // Remove class if input is valid
+    nationalityInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#nationality-error').empty();
     return true;
 }
 
-$('#registration-form-nationality').on('focusout', function () {
-    validateNationality();
-    // Check if the field is empty and add a red border if it is
-    if (!$(this).val()) {
-        $(this).addClass('border-danger');
-    } else {
-        $(this).removeClass('border-danger');
-    }
-});
-
 function validateEmailListCheckbox() {
     var emailListCheckbox = $('#add-to-email-list');
     if (!emailListCheckbox.val()) {
-        emailListCheckbox.addClass('is-invalid'); // Add class for input border error
+        emailListCheckbox.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
-    emailListCheckbox.removeClass('is-invalid'); // Remove class if input is valid
+    emailListCheckbox.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#data-missing-error').empty();
     return true;
 }
@@ -358,62 +217,42 @@ function validateEmailListCheckbox() {
 function validateDOB() {
     var dobInput = $('#registration-form-dob');
     if (!dobInput.val()) {
-        dobInput.addClass('is-invalid'); // Add class for input border error
+        dobInput.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
-    dobInput.removeClass('is-invalid'); // Remove class if input is valid
+    dobInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#dob-error').empty();
     return true;
 }
-
-$('#registration-form-dob').on('focusout', function () {
-    validateDOB();
-    // Check if the field is empty and add a red border if it is
-    if (!$(this).val()) {
-        $(this).addClass('border-danger');
-    } else {
-        $(this).removeClass('border-danger');
-    }
-});
 
 // ---------login form---------
 function validateLoginEmail() {
     var emailInput = $('#login-form-email');
     var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
     if (!emailInput.val()) {
-        emailInput.addClass('is-invalid'); // Add class for input border error
+        emailInput.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
     if (!pattern.test(emailInput.val())) {
-        emailInput.addClass('is-invalid'); // Add class for input border error
+        emailInput.addClass('is-invalid border-danger'); // Add class for input border error
         $('#login-email-error').html(emailInput.data('invalidemail'));
         return false;
     }
-    emailInput.removeClass('is-invalid'); // Remove class if input is valid
+    emailInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#login-email-error').empty();
     return true;
 }
 
 function validateLoginPassword() {
-    var passwordInput = $('#login-form-password');
+    var passwordInput = $('#login-form-password'); 
     if (!passwordInput.val()) {
-        passwordInput.addClass('is-invalid'); // Add class for input border error
+        passwordInput.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
-    passwordInput.removeClass('is-invalid'); // Remove class if input is valid
+    passwordInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#login-password-error').empty();
     return true;
 }
-
-$('#login-form-password').on('focusout', function () {
-    validatePassword();
-    // Check if the field is empty and add a red border if it is
-    if (!$(this).val()) {
-        $(this).addClass('border-danger');
-    } else {
-        $(this).removeClass('border-danger');
-    }
-});
 
 
 // ------Forgot password-----
@@ -421,15 +260,15 @@ function validateRequestEmail() {
     var emailInput = $('#reset-password-email');
     var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
     if (!emailInput.val()) {
-        emailInput.addClass('is-invalid'); // Add class for input border error
+        emailInput.addClass('is-invalid border-danger'); // Add class for input border error
         return false;
     }
     if (!pattern.test(emailInput.val())) {
-        emailInput.addClass('is-invalid'); // Add class for input border error
+        emailInput.addClass('is-invalid border-danger'); // Add class for input border error
         $('#resetEmail').html(emailInput.data('invalidemail'));
         return false;
     }
-    emailInput.removeClass('is-invalid'); // Remove class if input is valid
+    emailInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
     $('#resetEmail').empty();
     return true;
 }

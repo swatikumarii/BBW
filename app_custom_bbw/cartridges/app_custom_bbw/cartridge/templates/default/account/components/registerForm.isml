@@ -168,6 +168,7 @@
         </label>
         <select class="form-control gender selectric-dropdown gender-hide select-dropdown-value h-clr--black-1" 
         id="registration-form-nationality"
+          data-missing-error="${Resource.msg('error.message.nationality', 'forms', null)}"
          <isprint value="${pdict.profileForm.customer.nationality.attributes}" encoding="off" />>
             <isloop items=${pdict.nationalities} var="nationality">
                 <option id="${nationality}" value="${nationality.toLowerCase().trim()}" <isif
@@ -215,7 +216,7 @@
             ${Resource.msg('button.createaccount.registration', 'registration', null)}
         </button>
     <iselse/>
-       <div class="d-flex justify-content-center">
+       <div class="d-flex justify-content-center changepassword">
         <button type="submit" class="btn btn-block btn-primary changepassowrd-btn text-uppercase w-auto create-btn">
             ${Resource.msg('button.createaccount.registration', 'registration', null)}
         </button>
