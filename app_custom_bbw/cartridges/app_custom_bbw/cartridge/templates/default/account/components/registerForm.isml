@@ -5,7 +5,7 @@
             <isprint value="${pdict.profileForm.customer.salutation.label}" encoding="htmlcontent" />
         </label>
         <select class="form-control salutation selectric-dropdown salutation-hide select-dropdown-value h-clr--black-1" id="registration-form-salutation"
-            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+            data-missing-error="${Resource.msg('error.salutation.message', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}" <isprint
             value="${pdict.profileForm.customer.salutation.attributes}" encoding="off" />
         >
@@ -19,7 +19,7 @@
                 ${Resource.msg('label.select.miss.salutation.profile', 'forms', null)}
             </option>
         </select>
-        <div class="invalid-feedback text-justify" id="salutation-error">${Resource.msg('error.message.required', 'forms', null)}</div>
+        <div class="invalid-feedback text-justify" id="salutation-error">${Resource.msg('error.salutation.message', 'forms', null)}</div>
     </div>
     <div class="form-group register-form text-center <isif condition=" ${!!pdict.profileForm.customer.firstname.mandatory === true}">required</isif>">
         <label class="form-control-label h-font-size--14 text-justify" for="registration-form-fname">
@@ -54,12 +54,12 @@
         <span class="required-indicator">*</span>
             <isprint value="${pdict.profileForm.customer.phone.label}" encoding="htmlcontent" />
         </label>
-        <input type="tel" class="form-control select-dropdown-value h-clr--black-1" id="registration-form-phone"
+        <input type="tel" class="form-control select-dropdown-value h-clr--black-1" required  id="registration-form-phone"
             initOptions.allowDropdown="true"
             data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
             data-pattern-mismatch="${Resource.msg('error.message.parse.phone.profile.form', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
-            aria-describedby="form-phone-error" required <isprint value=${pdict.profileForm.customer.phone.attributes}
+            aria-describedby="form-phone-error"  <isprint value=${pdict.profileForm.customer.phone.attributes}
             encoding="off" /> />
         <div class="invalid-feedback text-justify" id="phone-error">${Resource.msg('error.message.required', 'forms', null)}</div>
     </div>
@@ -133,7 +133,7 @@
             <isprint value="${pdict.profileForm.customer.gender.label}" encoding="htmlcontent" />
         </label>
         <select class="form-control gender selectric-dropdown gender-hide select-dropdown-value h-clr--black-1" id="registration-form-gender"
-            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+            data-missing-error="${Resource.msg('error.gender.message', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}" <isprint
             value="${pdict.profileForm.customer.gender.attributes}" encoding="off" />>
             <option value=""> ${Resource.msg('label.select.gender.profile', 'forms', null)} </option>
@@ -146,7 +146,7 @@
                 ${Resource.msg('label.select.notToSay.gender.profile', 'forms', null)}
             </option>
         </select>
-        <div class="invalid-feedback text-justify" id="gender-error">${Resource.msg('error.message.required', 'forms', null)}</div>
+        <div class="invalid-feedback text-justify" id="gender-error">${Resource.msg('error.gender.message', 'forms', null)}</div>
     </div>
     <div class="form-group register-form text-center <isif condition=" ${!!pdict.profileForm.customer.zip.mandatory === true}">required</isif>">
         <label class="form-control-label h-font-size--14 text-justify" for="registration-form-zip">

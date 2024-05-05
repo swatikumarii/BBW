@@ -22,45 +22,38 @@ $(document).ready(function () {
         showButton.find('.show').text(type === 'password' ? 'Show' : 'Hide');
     }
 
-    // Toggle password visibility for login form
-    var loginPasswordInput = $('#login-form-password');
-    var loginShowButton = $('.login-modal-hide');
-    loginShowButton.on('click', function () {
-        togglePasswordVisibility(loginPasswordInput, loginShowButton);
+    // Event delegation for toggling password visibility
+    $(document.body).on('click', '.login-modal-hide', function () {
+        togglePasswordVisibility($('#login-form-password'), $(this));
     });
 
-    // Toggle password visibility for registration form password
-    var registrationPasswordInput = $('#registration-form-password');
-    var registrationShowButton = $('.register-form-hide');
-    registrationShowButton.on('click', function () {
-        togglePasswordVisibility(registrationPasswordInput, registrationShowButton);
+    $(document.body).on('click', '.register-form-hide', function () {
+        togglePasswordVisibility($('#registration-form-password'), $(this));
     });
 
-    // Toggle confirm password visibility for registration form confirm password
-    var confirmPasswordInput = $('#registration-form-password-confirm');
-    var confirmPasswordShowButton = $('.register-form-confirm-password');
-    confirmPasswordShowButton.on('click', function () {
-        togglePasswordVisibility(confirmPasswordInput, confirmPasswordShowButton);
+    $(document.body).on('click', '.register-form-confirm-password', function () {
+        togglePasswordVisibility($('#registration-form-password-confirm'), $(this));
     });
 
-    // Define an array of selectors and corresponding validation functions
+
+    // Define an array of validation fields with selector and validation function
     var validationFields = [
-        { selector: '#registration-form-salutation', validationFunction: validateSalutation },
-        { selector: '#registration-form-fname', validationFunction: validateFirstName },
-        { selector: '#registration-form-lname', validationFunction: validateLastName },
-        { selector: '#registration-form-phone', validationFunction: validatePhoneNumber },
-        { selector: '#registration-form-email', validationFunction: validateEmail },
-        { selector: '#registration-form-email-confirm', validationFunction: validateConfirmEmail },
-        { selector: '#registration-form-password', validationFunction: validatePassword },
-        { selector: '#registration-form-password', validationFunction: validateConfirmPassword },
-        { selector: '#registration-form-gender', validationFunction: validateGender },
-        { selector: '#registration-form-zip', validationFunction: validateZipCode },
-        { selector: '#registration-form-nationality', validationFunction: validateNationality },
-        { selector: '#add-to-email-list', validationFunction: validateEmailListCheckbox },
-        { selector: '#registration-form-dob', validationFunction: validateDOB },
-        { selector: '#login-form-email', validationFunction: validateLoginEmail },
-        { selector: '#login-form-password', validationFunction: validateLoginPassword },
-        { selector: '#reset-password-email', validationFunction: validateRequestEmail }
+        { selector: '#registration-form-salutation', validationFunction: validateRequiredField },
+        { selector: '#registration-form-fname', validationFunction: validateRequiredField },
+        { selector: '#registration-form-lname', validationFunction: validateRequiredField },
+        { selector: '#registration-form-phone', validationFunction: validateRequiredField },
+        { selector: '#registration-form-email', validationFunction: validateEmailField },
+        { selector: '#registration-form-email-confirm', validationFunction: validateEmailField },
+        { selector: '#registration-form-password', validationFunction: validatePasswordField },
+        { selector: '#registration-form-password-confirm', validationFunction: validatePasswordField },
+        { selector: '#registration-form-gender', validationFunction: validateRequiredField },
+        { selector: '#registration-form-zip', validationFunction: validateRequiredField },
+        { selector: '#registration-form-nationality', validationFunction: validateRequiredField },
+        { selector: '#add-to-email-list', validationFunction: validateRequiredField },
+        { selector: '#registration-form-dob', validationFunction: validateRequiredField },
+        { selector: '#login-form-email', validationFunction: validateEmailField },
+        { selector: '#login-form-password', validationFunction: validatePasswordField },
+        { selector: '#reset-password-email', validationFunction: validateEmailField }
     ];
 
     // Loop through the array and attach blur event handlers dynamically
@@ -72,203 +65,38 @@ $(document).ready(function () {
 
     // Reusable function to validate a field based on its ID
     function validateField(selector, validationFunction) {
-        validationFunction();
+        validationFunction($(selector));
     }
-});
 
-// -------Register form----------
-/**
- * @returns {boolean} True is valid else False
- */
-function validateSalutation() {
-    var selectSalutation = $('#registration-form-salutation');
-    if (!selectSalutation.val()) {
-        selectSalutation.addClass('is-invalid border-danger'); // Add classes for input border error
-        $('#salutation-error').text('Salutation is required'); // Display error message
-        return false;
+    // Generic validation function for required fields
+    function validateRequiredField(inputField) {
+        if (!inputField.val()) {
+            inputField.addClass('is-invalid border-danger'); // Add classes for input border error
+            $('#' + inputField.attr('id') + '-error').text('Field is required'); // Display error message
+            return false;
+        }
+        inputField.removeClass('is-invalid border-danger'); // Remove classes if input is valid
+        $('#' + inputField.attr('id') + '-error').empty(); // Clear error message
+        return true;
     }
-    selectSalutation.removeClass('is-invalid border-danger'); // Remove classes if input is valid
-    $('#salutation-error').empty(); // Clear error message
-    return true;
-}
 
-function validateFirstName() {
-    var firstNameInput = $('#registration-form-fname');
-    if (!firstNameInput.val()) {
-        firstNameInput.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
+    // Generic validation function for email fields
+    function validateEmailField(emailInput) {
+        var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+        if (!validateRequiredField(emailInput)) return false;
+        if (!pattern.test(emailInput.val())) {
+            emailInput.addClass('is-invalid border-danger'); // Add class for input border error
+            $('#' + emailInput.attr('id') + '-error').text('Invalid email format'); // Display error message
+            return false;
+        }
+        emailInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
+        $('#' + emailInput.attr('id') + '-error').empty(); // Clear error message
+        return true;
     }
-    firstNameInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#fname-error').empty();
-    return true;
-}
 
-
-function validateLastName() {
-    var lastNameInput = $('#registration-form-lname');
-    if (!lastNameInput.val()) {
-        lastNameInput.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
+    // Generic validation function for password fields
+    function validatePasswordField(passwordInput) {
+        if (!validateRequiredField(passwordInput)) return false;
+        return true;
     }
-    lastNameInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#lname-error').empty();
-    return true;
-}
-
-function validatePhoneNumber() {
-    var phoneInput = $('#registration-form-phone');
-    if (!phoneInput.val()) {
-        phoneInput.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
-    }
-    phoneInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#phone-error').empty();
-    return true;
-}
-
-function validateEmail() {
-    var emailInput = $('#registration-form-email');
-    if (!emailInput.val()) {
-        emailInput.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
-    }
-    emailInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#email-error').empty();
-    return true;
-}
-
-function validateConfirmEmail() {
-    var confirmEmailInput = $('#registration-form-email-confirm');
-    if (!confirmEmailInput.val()) {
-        confirmEmailInput.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
-    }
-    confirmEmailInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#confirm-email-error').empty();
-    return true;
-}
-
-function validatePassword() {
-    var passwordInput = $('#registration-form-password');
-    if (!passwordInput.val()) {
-        passwordInput.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
-    }
-    passwordInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#password-error').empty();
-    return true;
-}
-
-function validateConfirmPassword() {
-    var confirmPasswordInput = $('#registration-form-password-confirm');
-    if (!confirmPasswordInput.val()) {
-        confirmPasswordInput.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
-    }
-    confirmPasswordInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#confirm-password-error').empty();
-    return true;
-}
-
-function validateGender() {
-    var genderInput = $('#registration-form-gender');
-    if (!genderInput.val()) {
-        genderInput.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
-    }
-    genderInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#gender-error').empty();
-    return true;
-}
-
-function validateZipCode() {
-    var zipCodeInput = $('#registration-form-zip');
-    if (!zipCodeInput.val()) {
-        zipCodeInput.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
-    }
-    zipCodeInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#zip-code-error').empty();
-    return true;
-}
-
-function validateNationality() {
-    var nationalityInput = $('#registration-form-nationality');
-    if (!nationalityInput.val()) {
-        nationalityInput.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
-    }
-    nationalityInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#nationality-error').empty();
-    return true;
-}
-
-function validateEmailListCheckbox() {
-    var emailListCheckbox = $('#add-to-email-list');
-    if (!emailListCheckbox.val()) {
-        emailListCheckbox.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
-    }
-    emailListCheckbox.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#data-missing-error').empty();
-    return true;
-}
-
-function validateDOB() {
-    var dobInput = $('#registration-form-dob');
-    if (!dobInput.val()) {
-        dobInput.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
-    }
-    dobInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#dob-error').empty();
-    return true;
-}
-
-// ---------login form---------
-function validateLoginEmail() {
-    var emailInput = $('#login-form-email');
-    var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-    if (!emailInput.val()) {
-        emailInput.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
-    }
-    if (!pattern.test(emailInput.val())) {
-        emailInput.addClass('is-invalid border-danger'); // Add class for input border error
-        $('#login-email-error').html(emailInput.data('invalidemail'));
-        return false;
-    }
-    emailInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#login-email-error').empty();
-    return true;
-}
-
-function validateLoginPassword() {
-    var passwordInput = $('#login-form-password'); 
-    if (!passwordInput.val()) {
-        passwordInput.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
-    }
-    passwordInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#login-password-error').empty();
-    return true;
-}
-
-
-// ------Forgot password-----
-function validateRequestEmail() {
-    var emailInput = $('#reset-password-email');
-    var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-    if (!emailInput.val()) {
-        emailInput.addClass('is-invalid border-danger'); // Add class for input border error
-        return false;
-    }
-    if (!pattern.test(emailInput.val())) {
-        emailInput.addClass('is-invalid border-danger'); // Add class for input border error
-        $('#resetEmail').html(emailInput.data('invalidemail'));
-        return false;
-    }
-    emailInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#resetEmail').empty();
-    return true;
-}
+})
