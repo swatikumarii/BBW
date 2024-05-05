@@ -16,12 +16,6 @@
             margin-right: 0;
         }
 
-        @include media-down(sm) {
-            .carousel-item {
-                pointer-events: none;
-            }
-        }
-
         .icon-next,
         .icon-prev {
             background-color: transparent;

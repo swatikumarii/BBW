@@ -288,16 +288,12 @@ module.exports = $.extend({}, base, {
                                 );
                                 $.spinner().stop();
                                 base.miniCartReportingUrl(data.reportingURL);
-                                var addToCartSnackbar = document.getElementById(
-                                    'add-to-cart-snackbar'
+                                var addToCartSnackbar = $(
+                                    '#add-to-cart-snackbar'
                                 );
-                                addToCartSnackbar.className = 'show';
+                                addToCartSnackbar.addClass('show');
                                 setTimeout(function () {
-                                    addToCartSnackbar.className =
-                                        addToCartSnackbar.className.replace(
-                                            'show',
-                                            ''
-                                        );
+                                    addToCartSnackbar.removeClass('show');
                                 }, 3000);
                             }
                         },
