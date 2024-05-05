@@ -801,6 +801,21 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="failedPaymentOrderNotificationToEmail">
+                <display-name xml:lang="x-default">Failed Payment Order Notification To Email</display-name>
+                <description xml:lang="x-default">Email address to trigger email notification in payment failure</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="failedPaymentOrderNotificationCcEmail">
+                <display-name xml:lang="x-default">Failed Payment Order Notification CC Email</display-name>
+                <description xml:lang="x-default">Comma-separated CC email address to trigger payment failure notification</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -910,6 +925,11 @@
                 <display-name xml:lang="x-default">Nationality</display-name>
                 <attribute attribute-id="nationality"/>
                 <attribute attribute-id="nationalities"/>
+            </attribute-group>
+                <attribute-group group-id="paymentNotification">
+                <display-name xml:lang="en-AU">Failed Payment Notification</display-name>
+                <attribute attribute-id="failedPaymentOrderNotificationToEmail"/>
+                <attribute attribute-id="failedPaymentOrderNotificationCcEmail"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -1795,6 +1815,12 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="failedPaymentNotification">
+                <display-name xml:lang="x-default">Failed Payment Notification</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="AdyenPayments">
@@ -1812,6 +1838,10 @@
             <attribute-group group-id="CashAppPay">
                 <display-name xml:lang="x-default">Cash App Pay</display-name>
                 <attribute attribute-id="isCashAppPayOrder"/>
+            </attribute-group>
+            <attribute-group group-id="notification">
+                <display-name xml:lang="x-default">Failed Payment Notification Sent?</display-name>
+                <attribute attribute-id="failedPaymentNotification"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
