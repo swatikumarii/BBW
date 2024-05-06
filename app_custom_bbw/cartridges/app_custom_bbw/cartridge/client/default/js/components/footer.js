@@ -24,15 +24,21 @@ function displayMessage(data) {
     }
     $('.email-signup-message').append(
         '<div class="email-signup-alert text-justify ' +
-            status +
-            '">' +
-            data.msg +
-            '</div>'
+        status +
+        '">' +
+        data.msg +
+        '</div>'
     );
-
+    var newsLetterInput = $('#newsletterInput');
+    if (status === 'alert-danger') {
+        newsLetterInput.addClass('is-invalid');
+    } else {
+        newsLetterInput.removeClass('is-invalid'); // Remove 'is-invalid' class if status is not 'alert-danger'
+    }
     setTimeout(function () {
         $('.email-signup-message').remove();
-        $('.subscribe-email').removeAttr('disabled');
+        button.removeAttr('disabled');
+        newsLetterInput.removeClass('is-invalid');
     }, 3000);
 }
 
@@ -119,15 +125,25 @@ var scrolltotop = $('.js-scrolltotop');
 /**
  *
  */
+// Define a function to handle scroll event and show/hide back-to-top button
 function handleScroll() {
-    var windowHeight = $(window).height();
-    var scrollThreshold = 7.7 * windowHeight; // 70% of window height
+    var scrollThreshold = 3.7 * $(window).height(); // 70% of window height
 
     if ($(window).scrollTop() > scrollThreshold) {
-        scrolltotop.fadeIn();
+        $('.js-scrolltotop').fadeIn();
     } else {
-        scrolltotop.fadeOut();
+        $('.js-scrolltotop').fadeOut();
     }
+}
+
+// Function to scroll to top when the button is clicked
+function scrollToTop() {
+    $('html, body').animate(
+        {
+            scrollTop: 0 // Scroll to the top of the page
+        },
+        800
+    );
 }
 
 // Bind scroll event handler
@@ -138,15 +154,9 @@ $(document).ready(function () {
     handleScroll();
 });
 
-// Scroll to top when the button is clicked
-$('.js-scrolltotop').on('click', function () {
-    $('html, body').animate(
-        {
-            scrollTop: 0 // Scroll to the top of the page
-        },
-        800
-    );
-});
+// Bind click event to scroll to top when the button is clicked
+$('.js-scrolltotop').on('click', scrollToTop);
+
 
 module.exports = function () {
     $('.subscribe-email').on('click', function (e) {
