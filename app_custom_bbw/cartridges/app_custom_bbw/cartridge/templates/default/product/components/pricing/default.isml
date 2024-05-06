@@ -35,7 +35,7 @@
             </a>
         </span>
     <iselse/>
-        <span class="sales">
+        <span class="sales h-clr--black-1">
             <isif condition="${isLowPrice == 'range-low'}">
                 <span class="value" content="${price.decimalPrice}"></span>
             </isif>
@@ -45,7 +45,11 @@
             <isif condition="${isLowPrice == null}">
                 <span class="value" data-url="${pdict.urls.product}" content="${price.decimalPrice}"></span>
             </isif>
-            <isinclude template="/product/components/pricing/formatted" />
+            <isif condition="${price.value > 0}">
+                <isinclude template="/product/components/pricing/formatted" />
+            <iselse/>
+                <span class="h-clr--red-1">${Resource.msg('msg.price.zero.error', 'cart', null)}</span>
+            </isif>
         </span>
     </isif>
 </span>

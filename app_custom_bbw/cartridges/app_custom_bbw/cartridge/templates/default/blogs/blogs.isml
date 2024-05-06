@@ -5,7 +5,6 @@
         assets.addCss('/css/pages/blogs/b-blog.css');
     </isscript>
     <div class="container">
-        <div class="pt-4"></div>
         <div class="header_img">
             <img class="mob-only"
                 src="//storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/banners/Get-Inspired/get-inspire/getinspire_header_mob.jpg"
@@ -43,7 +42,7 @@
                                     alt="${folder.displayName}" />
                             </div>
                         </isif>
-                        <h2 class="head-feature text-uppercase  h-fw--bold">${folder.displayName}</h2>
+                        <h2 class="head-feature text-uppercase  m-font-base--normal">${folder.displayName}</h2>
                     </div>
 
 
@@ -63,8 +62,11 @@
                     </div>
                     <isif condition="${folder.onlineContent.length > 4}">
                         <div class="text-center">
+                            <a href="#" class="btn btn-primary show-more-btn m-font-base--normal">
                             <button type="button"
-                                class="btn btn-primary show-more-btn h-font-size--16 text-uppercase h-fw--semibold text-center">${Resource.msg('button.show.more', 'common', null)}</button>
+                                class="bg-white border-0 h-font-size--16 text-uppercase h-fw--semibold text-center show-button m-font-base--normal">${Resource.msg('button.show.more', 'common', null)}
+                            </button>
+                            </a>
                         </div>
                     </isif>
                 </div>

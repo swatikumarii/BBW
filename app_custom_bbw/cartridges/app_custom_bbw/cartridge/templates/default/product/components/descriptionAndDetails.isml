@@ -1,8 +1,4 @@
 <div class="description-and-detail accordion" id="pdp-accordion">
-    <div class="row product-attributes collapsible-xs">
-        <isinclude template="product/components/attributes" />
-    </div>
-
     <iscomment> Fragrance Card </iscomment>
     <isif condition="${product.fragranceDescription}">
         <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
@@ -98,13 +94,30 @@
             </div>
             <div class="value content collapse" id="collapse-return-exchange" aria-labelledby="return-exchange"
                 data-parent="#pdp-accordion">
-                <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
-                    <isif condition="${product.canBeReturned}">
-                        ${Resource.msg('label.return.and.exchanges.canBeReturned', 'product', null)}
-                    <iselse/>
-                        ${Resource.msg('label.return.and.exchanges.canNotBeReturned', 'product', null)}
-                    </isif>
-                </p>
+                <isif condition="${product.canBeReturned}">
+                    <iscontentasset aid="exchange-return" />
+                <iselse/>
+                    <iscontentasset aid="exchange-cannot-return" />
+                    ${Resource.msg('label.return.and.exchanges.canNotBeReturned', 'product', null)}
+                </isif>
+            </div>
+        </div>
+    </isif>
+
+    <iscomment> More Info </iscomment>
+    <isif condition="${product.moreInfo}">
+        <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
+            <div class="moreInfo card-head" id="moreInfo">
+                <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
+                    data-target="#collapse-moreInfo" aria-expanded="true" aria-controls="collapse-moreInfo">
+                    ${Resource.msg('label.usage.moreInfo', 'product', null)}
+                </h2>
+                <div class="value content collapse" id="collapse-moreInfo" aria-labelledby="moreInfo"
+                    data-parent="#pdp-accordion">
+                    <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
+                        <isprint value="${product.moreInfo}" encoding="off" />
+                    </p>
+                </div>
             </div>
         </div>
     </isif>

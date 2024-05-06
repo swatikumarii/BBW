@@ -1,9 +1,11 @@
 <div id="dynamic-modal-all" data-href="${URLUtils.url('Popup-PopupConfig')}" hreflang="${request.getLocale()}"
-    class="modal" role="dialog" data-backdrop="false">
+    class="modal fade" role="dialog" data-backdrop="false">
     <div class="modal-dialog dynamic-popup-dialog dynamicPopup-allSite">
         <div class="modal-content dynamic-popup-content dynamicPopup-allSite">
             <div class="modal-header">
-                <button type="button" class="close modal-close-icon" data-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="close modal-close-icon" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
             </div>
             <div class="modal-body"></div>
         </div>

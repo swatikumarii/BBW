@@ -10,4 +10,5 @@ index.return = require('*/cartridge/models/product/decorators/return');
 index.usageInstruction = require('*/cartridge/models/product/decorators/usageInstruction');
 index.ingredients = require('*/cartridge/models/product/decorators/ingredients');
 index.badge = require('*/cartridge/models/product/decorators/badge');
+index.moreInfo = require('*/cartridge/models/product/decorators/moreInfo');
 module.exports = index;

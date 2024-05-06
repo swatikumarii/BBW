@@ -7,7 +7,7 @@
 
 module.exports = {
     addToWishlist: function () {
-        $(document).on('click', '.add-to-wish-list', function (e) {
+        $(document).on('click', '.product-detail .add-to-wish-list', function (e) {
             e.preventDefault();
             var url = $(this).data('href');
             var pid = $(this)
@@ -45,6 +45,10 @@ module.exports = {
                         $('.loginPopup')
                             .find('#exampleModalLong')
                             .modal('hide');
+                        $('#add-to-wish-list').click(function () {
+                            $('.wishlist-toast.toast').toast('show');
+                        });
+
                     }
                     if (data.success) {
                         $('.remove-from-wishlist').removeClass('d-none');

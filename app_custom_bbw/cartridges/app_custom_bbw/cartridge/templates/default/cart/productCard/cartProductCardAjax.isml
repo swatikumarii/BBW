@@ -27,6 +27,8 @@
                 </isloop>
                 <!--- promotions --->
                 <div class="line-item-promo item-${lineItem.UUID}">
+                    <isset name="cartPage" value="${true}" scope="page" />
+                    <isset name="miniCart" value="${false}" scope="page" />
                     <isinclude template="checkout/productCard/productCardProductPromotions" />
                 </div>
             </div>

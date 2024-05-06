@@ -5023,7 +5023,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
   "title" : " ",
   "itemsPerRowDesktop" : 1,
   "columnCustomClass" : null,
-  "gridSectionClass" : "h-maxwidth--1200 mx-auto h-mb--50 h-mt--50 px-3 px-lg-0"
+  "gridSectionClass" : "h-maxwidth--1200 mx-auto h-mb--50 h-mt--50 px-3 px-lg-3"
 }</data>
         <online-flag>true</online-flag>
         <page-attributes/>
@@ -5240,6 +5240,28 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
             &lt;h3 class="h-clr--gray h-font-size--14 m-0"&gt;Questions? &lt;/h3&gt;&#13;
             &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-756-5005.&lt;/p&gt;&#13;
         &lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="exchange-cannot-return">
+        <display-name xml:lang="x-default">Exchange Cannot Return</display-name>
+        <description xml:lang="x-default">Exchange cannot be returned</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p class="text-justify h-font-size--16 h-clr--gray-4 card-body"&gt;Product cannot be returned&lt;/p&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="exchange-return">
+        <display-name xml:lang="x-default">Exchange Return</display-name>
+        <description xml:lang="x-default">Exchange can be return</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p class="text-justify h-font-size--16 h-clr--gray-4 card-body"&gt;Product can be returned&lt;/p&gt;</custom-attribute>
         </custom-attributes>
     </content>
 

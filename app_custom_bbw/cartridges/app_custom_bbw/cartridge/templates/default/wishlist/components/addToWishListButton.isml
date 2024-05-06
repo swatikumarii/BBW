@@ -1,19 +1,15 @@
-<button type="submit" id="add-to-wish-list"
-    class="border-0 h-bg--white add-to-wish-list ${pdict.itemExist ? 'added' : ''}"
+<button type="submit" title="Add to My Love-It List" id="add-to-wish-list"
+    class="border-0 h-bg--white add-to-wish-list ${pdict.itemExist ? 'd-none' : ''}"
     data-href="${URLUtils.url('Wishlist-AddProduct')}">
 </button>
 
-<button type="button" class="d-none w-auto bg-white border-0 remove-btn-lg remove-from-wishlist btn btn-light"
-    data-url="${URLUtils.url('Wishlist-RemoveProduct', 'pid', product.id)}" <isif condition="${item.variantAttributes}">
-    aria-label="${Resource.msgf('wishlist.remove.item.variant', 'wishlist', null, item.name, item.variantAttributes)}">
-    <iselse>
-        aria-label="${Resource.msgf('wishlist.remove.item', 'wishlist', null, item.name)}">
-        </isif>
+<button type="button" title="Remove from My Love-It List"
+    class="d-none bg-white border-0 remove-btn-lg remove-from-wishlist btn btn-light ${pdict.itemExist ? 'd-block' : ''}"
+    data-url="${URLUtils.url('Wishlist-RemoveProduct', 'pid', product.id)}">
         <img width="24px" height="24px" alt="image" src="${URLUtils.staticURL('/images/account/broken-heart.svg')}" />
-        <span class="h-clr--black-3 h-font-size--14">${Resource.msg('label.remove', 'wishlist', null)}</span>
 </button>
 
-<div class="toast mt-3">
+<div class="wishlist-toast toast mt-3">
     <div class="wish-list-image"></div>
     <p class="text-center">${Resource.msg('toast.added.love.it.list', 'wishlist', null)}</p>
 </div>

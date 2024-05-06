@@ -22,7 +22,7 @@ body {
 
             @include media-up(sm) {
                 border: 1px solid colour(gray, 6);
-                padding: 28px 42px;
+                padding: 20px 42px;
                 margin: 0;
                 position: relative;
             }
@@ -39,7 +39,7 @@ body {
 
                 @include media-up(sm) {
                     line-height: 1rem;
-                    margin: 0 0 22px;
+                    margin: 0 0 20px;
                     padding: 0 15px;
                 }
             }
@@ -158,20 +158,27 @@ body {
                     .static-level {
                         .title {
                             font-size: 21px;
+                            width: 184px;
                             line-height: 24px;
                         }
 
                         .alphabet-border {
                             border: 1px solid colour(pink, 4);
                             margin: -5px 20px 15px;
+                            width: 164px;
+                            height: 2px;
                         }
                     }
 
                     .frg-listing {
-                        padding: 40px 0 50px;
-                        margin: auto;
+                        padding-left: 20px;
+                        max-width: 153px;
+                        min-width: 153px;
 
                         .level-2 {
+                            width: 153px;
+                            text-align: start;
+
                             a {
                                 line-height: 1.125rem;
                             }

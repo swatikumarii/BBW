@@ -24,7 +24,7 @@ header {
             }
 
             .primary-logo {
-                width: 50vw;
+                width: 54vw;
                 margin: -2% auto 0;
                 height: auto;
                 left: 0.125rem;
@@ -154,16 +154,6 @@ header {
 
                         input::placeholder {
                             color: colour(black, 3);
-                        }
-
-                        .reset-button {
-                            background: url("../images/header/remove-search-icon-default.svg")
-                                no-repeat;
-                            background-position: 0;
-                            padding: 0.625rem;
-                            position: absolute;
-                            right: 2.5rem;
-                            top: 0.5rem;
                         }
 
                         .search-icon {

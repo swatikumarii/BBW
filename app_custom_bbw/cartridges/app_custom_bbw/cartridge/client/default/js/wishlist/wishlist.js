@@ -71,7 +71,7 @@ function renderNewPageOfItems(pageNumber, spinner, focusElementSelector) {
 
 module.exports = $.extend({}, wishlist, {
     addToWishlist: function () {
-        $(document).on('click', '.add-to-wish-list', function (e) {
+        $(document).on('click', '.product-quickview .add-to-wish-list, .product-line-item .add-to-wish-list', function (e) {
             e.preventDefault();
             var url = $(this).data('href') || $(this).attr('href');
             var pid =
@@ -104,6 +104,9 @@ module.exports = $.extend({}, wishlist, {
                         $('.loginPopup').find('#loginModal').modal('show');
                     } else {
                         $('.loginPopup').find('#exampleModalLong').modal('hide');
+                        $('#add-to-wish-list').click(function () {
+                            $('.wishlist-toast.toast').toast('show');
+                        });
                     }
                     if (data.success) {
                         $('.remove-from-wishlist').removeClass('d-none');
@@ -122,7 +125,7 @@ module.exports = $.extend({}, wishlist, {
     },
 
     removeFromWishlist: function () {
-        $('body').on('click', '.remove-from-wishlist', function (e) {
+        $('body').on('click', '.product-detail .remove-from-wishlist, .product-quickview .remove-from-wishlist, .product-line-item .remove-from-wishlist, .line-item-header .remove-from-wishlist', function (e) {
             e.preventDefault();
             var url = $(this).data('url');
             var elMyAccount = $('.account-wishlist-item').length;
@@ -141,6 +144,7 @@ module.exports = $.extend({}, wishlist, {
                         $('.wishlist-account-card').spinner().stop();
                         $('.remove-from-wishlist').addClass('d-none');
                         $('.add-to-wish-list').removeClass('d-none');
+                        $('.remove-from-wishlist').removeClass('d-block');
                     },
                     error: function () {
                         var $elToAppend = $('.wishlist-account-card');
@@ -163,6 +167,7 @@ module.exports = $.extend({}, wishlist, {
                         renderNewPageOfItems(pageNumber, false);
                         $('.remove-from-wishlist').addClass('d-none');
                         $('.add-to-wish-list').removeClass('d-none');
+                        $('.remove-from-wishlist').removeClass('d-block');
                     },
                     error: function () {
                         $.spinner().stop();
