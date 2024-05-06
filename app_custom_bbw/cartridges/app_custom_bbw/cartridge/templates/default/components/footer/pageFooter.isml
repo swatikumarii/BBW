@@ -16,23 +16,7 @@
                         </div>
                     </div>
                     <!-- Form for newsletter subscription -->
-                    <div class="home-email-signup bg-transparent">
-                        <div class="container">
-                            <form role="form" class="newsletter"  data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <div data-required-text="">
-                                            <label for="email-footer_social_emailcapture"
-                                                class="h-clr--black-3 h-fw--semibold h-auto mb-1">
-                                                ${Resource.msg('form.title', 'footer', null)}
-                                            </label>
-                                            <isinclude url="${URLUtils.url('EmailSubscribe-Show')}" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    <isinclude url="${URLUtils.url('EmailSubscribe-Show')}" />
                 </div>
                 <!-- Social list content -->
                 <iscontentasset aid="footer-social-list" />
