@@ -1,6 +1,9 @@
-<button type="submit" class="btn btn-block btn-outline-primary add-to-wish-list ${pdict.itemExist ? 'added' : ''}"
-    data-href="${URLUtils.url('Wishlist-AddProduct')}" >
-    <i class="fa fa-heart"></i> <span>${Resource.msg('button.add_to_wishlist.txt', 'wishlist', null)}</span>
+<button type="submit" id="add-to-wish-list"
+    class="border-0 h-bg--white add-to-wish-list ${pdict.itemExist ? 'added' : ''}"
+    data-href="${URLUtils.url('Wishlist-AddProduct')}">
 </button>
 
-<isinclude template="account/loginpopup" />
+<div class="wishlist-toast toast mt-3">
+    <div class="wish-list-image"></div>
+    <p class="text-center">${Resource.msg('toast.added.love.it.list', 'wishlist', null)}</p>
+</div>

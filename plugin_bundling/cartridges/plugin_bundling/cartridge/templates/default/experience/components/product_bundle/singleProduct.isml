@@ -1,0 +1,26 @@
+<div class="container bundle-inner-container <isif condition=" ${!pdict.showProduct}">d-none</isif>">
+    <div class="row bundle-product-row">
+        <div class="col-12 pl-md-0">
+            <div class="row bundle-product selected-product p-lg-3" data-pid="${pdict.product.id}"
+                data-url="${pdict.url}">
+                <div class="col-4 col-sm-2 col-md-auto productImage">
+                    <div class='thumbnail-container product-img-wrapper'>
+                        <img src="${pdict.product.images.small[0].url}" class="d-block img-fluid product-img"
+                            alt="${pdict.product.images.small[0].alt}" itemprop="image" />
+                    </div>
+                </div>
+                <div class="col-7 col-sm-10 col-md-10 d-flex align-items-center">
+                    <div class="row">
+                        <h6 class="product-name col-12">${pdict.product.productName}</h6>
+                        <isif condition="${pdict.showPrice}">
+                            <div class="col-12">
+                                <isset name="price" value="${pdict.product.price}" scope="page" />
+                                <isinclude template="product/components/pricing/main" />
+                            </div>
+                        </isif>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

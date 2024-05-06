@@ -1,0 +1,38 @@
+<div class="store-form-detail">
+    <p class="sub-heading h-font-size--20 h-fw--bold mb-0 h-clr--black-1 text-capitalize">
+        ${Resource.msg('title.hero.text', 'storeLocator', null)}</p>
+    <${pdict.isForm === 'true' ? 'form' : 'div'} action="${pdict.stores.actionUrl}" class="store-locator" method="get"
+        name="storelocator">
+        <div class="form-group required">
+            <div id="geolocation-data" class"d-none" data-lat="${pdict.geolocation.latitude}" data-long="${pdict.geolocation.longitude}">
+            </div>
+            <label class="form-control-label h-font-size--16 h-fw--bold h-clr--gray-4 text-capitalize"
+                for="store-postal-code">${Resource.msg('field.zip.postal.code', 'storeLocator', null)}</label>
+            <input autofocus type="text" class="form-control store-input" aria-required="true"
+                aria-describedby="store-postal-code-error" id="store-postal-code" name="postalCode" value=""
+                autocomplete="nofill" required>
+            <div class="invalid-feedback" id="store-postal-code-error"></div>
+        </div>
+        <isinclude template="storeLocator/storeLocatorRadius" />
+        <div class="form-group">
+            <button class="btn btn-block btn-storelocator-search btn-submit"
+                type="${pdict.isForm === 'true' ? 'submit' : 'button'}">
+                ${Resource.msg('button.find.stores', 'storeLocator', null)}
+            </button>
+            <div class="invalid-feedback" id="no-stores-result">${Resource.msg('msg.no.result','storeLocator',null)}</div>
+        </div>
+        <div class="refine-store">
+            <p class="sub-heading h-font-size--18 h-fw--bold mb-0 h-clr--black-1 text-capitalize">
+                ${Resource.msg('field.filter', 'storeLocator', null)}</p>
+            <div class="store-options">
+                <isloop items="${pdict.stores.storeTypeValues}" var="type">
+                    <div class="form-row">
+                        <input type="checkbox" id="${type.value}" name="storeType" value="${type.value}" />
+                        <label class="h-clr--gray-4 mb-0 cursor-pointer"
+                            for="${type.value}">${type.displayValue}</label>
+                    </div>
+                </isloop>
+            </div>
+        </div>
+    </${pdict.isForm === 'true' ? 'form' : 'div'}>
+</div>

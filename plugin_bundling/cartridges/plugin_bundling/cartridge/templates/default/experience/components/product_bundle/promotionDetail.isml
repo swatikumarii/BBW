@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-12">
+            <isprint value="${pdict.message}" encoding="off" />
+        </div>
+    </div>
+</div>

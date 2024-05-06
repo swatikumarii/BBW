@@ -1,0 +1,97 @@
+<isset name="pagination" value="${pdict.productSearch.paginationDetails}" scope="page" />
+<isset name="paginationLinks" value="${pagination.allLinks}" scope="page" />
+<isset name="currentPageNo" value="${pagination.currentPageNumber}" scope="page" />
+<isset name="pageCount" value="${paginationLinks.length}" scope="page" />
+<isset name="minPagesToDisplayDots"
+    value="${require('*/cartridge/config/seoPreferences').paginationMinimumPagesToDisplayDots}" scope="page" />
+<isset name="showPaginationIfOnePage" value="${require('*/cartridge/config/seoPreferences').showPaginationIfOnePage}"
+    scope="page" />
+<isset name="maxPageNoToDisplay" value="${pageCount - minPagesToDisplayDots + 1}" scope="page" />
+
+<div class="row no-gutters b-pagination">
+    <div class="col d-flex justify-content-end align-items-center">
+        <isif
+            condition="${!empty(paginationLinks) && (pageCount > 1 || (pageCount === 1 && showPaginationIfOnePage === true))}">
+            <div class="pagination-arrow-prev b-pagination__prev-wrapper d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <isif condition="${pageCount > 1 && currentPageNo > 1}">
+                        <a class="pagination-arrow b-pagination__prev-wrapper__first pagination-arrow--first pl-1" href="${pagination.firstLink.url}">
+                            <img alt="${Resource.msg('button.previous', 'common', null)}" class="pagination-prev-img" src="${URLUtils.staticURL('/images/icons/pagination-double-arrow.svg')}" width="17px" height="25px" />
+                        </a>
+                        <isif condition="${!empty(pagination.prevLink)}">
+                            <a class="pagination-arrow-step b-pagination__prev-wrapper__prev-step text-uppercase" href="${pagination.prevLink.url}">
+                                <img alt="${Resource.msg('button.previous', 'common', null)}" class="pagination-prev-img" src="${URLUtils.staticURL('/images/icons/pagination-arrow.svg')}" width="9px" height="25px" />
+                            </a>
+                        </isif>
+                    </isif>
+                </div>
+            </div>
+            <div class="d-flex b-pagination__links pagination-links align-items-center justify-content-center">
+                <isloop items="${paginationLinks}" var="paginationLink" status="status">
+                    <iscomment> <isif condition="${status.count === 1}">
+                        <a href="${paginationLink.url}"
+                            class="b-pagination__links__link-number pagination-link b-text-h2 h-fw--semibold d-flex align-items-center justify-content-center ${paginationLink.active ? 'active h-clr--black-1 h-bg--gray-1' : 'h-clr--gray-4'}">
+                            ${status.count}
+                        </a>
+                    </isif> </iscomment>
+
+                    <iscomment> <isif condition="${(status.count > 1 && status.count < minPagesToDisplayDots && currentPageNo < minPagesToDisplayDots) || (status.count >
+                                    maxPageNoToDisplay && currentPageNo > maxPageNoToDisplay && status.count < pageCount) || (status.count >= (
+                                        minPagesToDisplayDots - 1) && status.count <= (maxPageNoToDisplay + 1) && currentPageNo >=
+                                    minPagesToDisplayDots && currentPageNo <= maxPageNoToDisplay && ((status.count === currentPageNo - 1) || status
+                                        .count === currentPageNo || (status.count === currentPageNo + 1))) || ((currentPageNo === (
+                                    minPagesToDisplayDots - 1) || currentPageNo === (maxPageNoToDisplay + 1)) && ((status.count === currentPageNo -
+                                    1) || (status.count === currentPageNo + 1)))}">
+                        <a href="${paginationLink.url}"
+                            class="b-pagination__links__link-number pagination-link b-text-h2 h-fw--semibold d-flex align-items-center justify-content-center ${paginationLink.active ? 'active h-clr--black-1 h-bg--gray-1' : 'h-clr--gray-4'}">
+                            ${status.count}
+                        </a>
+                    </isif> </iscomment>
+                    <isif condition="${
+                        (currentPageNo > 1 && currentPageNo < pageCount && (status.count == currentPageNo - 1 || status.count == currentPageNo || status.count == currentPageNo + 1))
+                        || (currentPageNo == 1 &&  (status.count == 1 || status.count == 2 || status.count == 3))
+                        || (currentPageNo == pageCount &&  (status.count == pageCount || status.count == pageCount - 1 || status.count == pageCount - 2))}">
+                        <a href="${paginationLink.url}"
+                            class="b-pagination__links__link-number pagination-link b-text-h2 h-fw--semibold d-flex align-items-center justify-content-center ${paginationLink.active ? 'active h-clr--black-1 h-bg--gray-1' : 'h-clr--gray-4'}">
+                            ${status.count}
+                        </a>
+                    </isif>
+
+                    <iscomment> <isif condition="${status.count > 1 && status.count === pageCount}">
+                        <a href="${paginationLink.url}"
+                            class="b-pagination__links__link-number pagination-link b-text-h2 h-fw--semibold d-flex align-items-center justify-content-center ${paginationLink.active ? 'active h-clr--black-1 h-bg--gray-1' : 'h-clr--gray-4'}">
+                            ${status.count}
+                        </a>
+                    </isif> </iscomment>
+                </isloop>
+            </div>
+
+            <div class="pagination-arrow-next b-pagination__next-wrapper d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <isif condition="${pageCount > 1 && currentPageNo < pageCount}">
+                        <isif condition="${!empty(pagination.nextLink)}">
+                            <a class="pagination-arrow-step b-pagination__next-wrapper__next-step text-uppercase pr-0"
+                                href="${pagination.nextLink.url}">
+                                <img alt="${Resource.msg('button.next', 'common', null)}" class="pagination-prev-img"
+                                    src="${URLUtils.staticURL('/images/icons/pagination-arrow.svg')}" width="9px" height="25px" />
+                            </a>
+                        </isif>
+                        <a class="pagination-arrow pagination-arrow--last b-pagination__next-wrapper__last pr-0" href="${pagination.lastLink.url}">
+                            <img alt="${Resource.msg('button.next', 'common', null)}" class="pagination-prev-img" src="${URLUtils.staticURL('/images/icons/pagination-double-arrow.svg')}" width="17px" height="25px" />
+                        </a>
+                    </isif>
+                </div>
+            </div>
+            <div class="h-hidden-sm-down b-pagination__count pl-3">
+                <isinclude template="search/resultsCount" />
+            </div>
+        </isif>
+    </div>
+</div>
+
+<isif condition="${!empty(pagination.prevLink)}">
+    <link rel="prev" href="${pagination.prevLink.url}">
+</isif>
+<isif condition="${!empty(pagination.nextLink)}">
+    <link rel="next" href="${pagination.nextLink.url}">
+</isif>

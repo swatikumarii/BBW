@@ -1,0 +1,19 @@
+<ul class="values content pr-md-3">
+    <isloop items="${categories}" var="category">
+        <li>
+            <button class="text-left" data-href="${category.url}" data-seo-href="${category.seoRefineUrl || category.url}">
+                <!--- Label --->
+                <span title="${category.title}" class="h-fw--bold h-font-size--16 h-clr--gray-4 ${category.selected ? 'selected' : ''}" aria-hidden="true">
+                    ${category.displayValue}
+                </span>
+                <span class="sr-only selected-assistive-text">
+                    ${category.selected ? Resource.msg('msg.assistive.selected.text', 'common', null) : ''}
+                    ${category.title}
+                </span>
+            </button>
+            <!--- Process subcategories --->
+            <isset name="categories" value="${category.subCategories}" scope="page" />
+            <isinclude template="search/refinements/categories" />
+        </li>
+    </isloop>
+</ul>

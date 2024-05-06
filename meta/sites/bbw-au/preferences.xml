@@ -5,8 +5,112 @@
         <development>
             <preference preference-id="reserveQty">5</preference>
             <preference preference-id="notifyEmailThreshold">5</preference>
+            <preference preference-id="mapAPI">AIzaSyAzRo8iHR1RuFsw-MuDf6sshGtsFW-HuDc</preference>
+            <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
+            <preference preference-id="AdyenCardHolderName_enabled">true</preference>
+            <preference preference-id="AdyenLevel23DataEnabled">true</preference>
+            <preference preference-id="Adyen_API_Key">WxH7rsW/bZpBGzfDdGmSwu8YiTosY7oHUsLgCFjEOUCy1V4ubZ2BPbz3jFdXCfXWs3W+zWeGwH3fba9e8cW3cv4hsi+mP8OCvbDFg9bW2djr2PEeFc/zFOq5kekqnXGcfcbucfy85cq4Upzp461jatpwIPgLd+hFc7dqOrP9IONPGfDCFOL+/1t0kzx8O9BDsTZfvElQwR2y/GweaU2aUzqOt8H5lG4M83c+h5rtlrOjyG7XscdBEiHc0KKr48lW</preference>
+            <preference preference-id="Adyen_ClientKey">test_JNWE6YYQEVESRDDDWXJDE2FBGQGZ6UU7</preference>
+            <preference preference-id="Adyen_Frontend_Region">AU</preference>
+            <preference preference-id="Adyen_Mode">TEST</preference>
+            <preference preference-id="Adyen_SFRA6_Compatibility">true</preference>
+            <preference preference-id="Adyen_merchantCode">BBW_AU</preference>
+            <preference preference-id="Adyen_notification_password">rZv15VjL2ilSWEo0pSN3eXB3v3a7dOhpl8MDcCEfRFMSuGFhtiuxJG0Z1kyFcqCS</preference>
+            <preference preference-id="Adyen_notification_user">admin</preference>
+            <preference preference-id="AmazonPayExpress_Enabled">false</preference>
+            <preference preference-id="ApplePayExpress_Enabled">true</preference>
+            <preference preference-id="ExpressPayments_enabled">true</preference>
+            <preference preference-id="greetingCardMessageLimit">500</preference>
+            <preference preference-id="isGiftWrapEnable">true</preference>
+            <preference preference-id="isGreetingCardEnable">true</preference>
+            <preference preference-id="wrapItemMethod">wrapIndividualTogether</preference>
+            <preference preference-id="apBrandSettings">{
+                "GB": {
+                    "brand": "clearpay",
+                    "service": "clearpay.service.GB.v2"
+                },
+                "AU": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.AU.v2"
+                },
+                "NZ": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.NZ.v2"
+                },
+                "CA": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.CA.v2"
+                },
+                "US": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.US.v2"
+                }
+            }</preference>
+            <preference preference-id="apDisplayCartInfo">true</preference>
+            <preference preference-id="apDisplayPdpInfo">true</preference>
+            <preference preference-id="apDisplayPlpInfo">true</preference>
+            <preference preference-id="apEnableExpressCheckout">true</preference>
+            <preference preference-id="apEnableExpressCheckoutBuyNow">true</preference>
+            <preference preference-id="apEnableExpressCheckoutCart">true</preference>
+            <preference preference-id="apEnableExpressCheckoutPdp">false</preference>
+            <preference preference-id="apExpressCheckoutShippingStrategy">integrated</preference>
+            <preference preference-id="apJavaScript">https://js-sandbox.squarecdn.com/square-marketplace.js</preference>
+            <preference preference-id="apPaymentMode">DIRECT_CAPTURE</preference>
+            <preference preference-id="apStorePickupDescription">Available for next-day pickup</preference>
+            <preference preference-id="enableAfterpay">true</preference>
+            <preference preference-id="enableCashAppPay">true</preference>
         </development>
-        <staging/>
+        <staging>
+            <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
+            <preference preference-id="AdyenCardHolderName_enabled">true</preference>
+            <preference preference-id="AdyenLevel23DataEnabled">true</preference>
+            <preference preference-id="Adyen_API_Key">WxH7rsW/bZpBGzfDdGmSwu8YiTosY7oHUsLgCFjEOUCy1V4ubZ2BPbz3jFdXCfXWs3W+zWeGwH3fba9e8cW3cv4hsi+mP8OCvbDFg9bW2djr2PEeFc/zFOq5kekqnXGcfcbucfy85cq4Upzp461jatpwIPgLd+hFc7dqOrP9IONPGfDCFOL+/1t0kzx8O9BDsTZfvElQwR2y/GweaU2aUzqOt8H5lG4M83c+h5rtlrOjyG7XscdBEiHc0KKr48lW</preference>
+            <preference preference-id="Adyen_ClientKey">test_JNWE6YYQEVESRDDDWXJDE2FBGQGZ6UU7</preference>
+            <preference preference-id="Adyen_Frontend_Region">AU</preference>
+            <preference preference-id="Adyen_Mode">TEST</preference>
+            <preference preference-id="Adyen_SFRA6_Compatibility">true</preference>
+            <preference preference-id="Adyen_merchantCode">BBW_AU</preference>
+            <preference preference-id="Adyen_notification_password">rZv15VjL2ilSWEo0pSN3eXB3v3a7dOhpl8MDcCEfRFMSuGFhtiuxJG0Z1kyFcqCS</preference>
+            <preference preference-id="Adyen_notification_user">admin</preference>
+            <preference preference-id="AmazonPayExpress_Enabled">false</preference>
+            <preference preference-id="ApplePayExpress_Enabled">true</preference>
+            <preference preference-id="ExpressPayments_enabled">true</preference>
+            <preference preference-id="apBrandSettings">{
+                "GB": {
+                    "brand": "clearpay",
+                    "service": "clearpay.service.GB.v2"
+                },
+                "AU": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.AU.v2"
+                },
+                "NZ": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.NZ.v2"
+                },
+                "CA": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.CA.v2"
+                },
+                "US": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.US.v2"
+                }
+            }</preference>
+            <preference preference-id="apDisplayCartInfo">true</preference>
+            <preference preference-id="apDisplayPdpInfo">true</preference>
+            <preference preference-id="apDisplayPlpInfo">false</preference>
+            <preference preference-id="apEnableExpressCheckout">true</preference>
+            <preference preference-id="apEnableExpressCheckoutBuyNow">true</preference>
+            <preference preference-id="apEnableExpressCheckoutCart">true</preference>
+            <preference preference-id="apEnableExpressCheckoutPdp">false</preference>
+            <preference preference-id="apExpressCheckoutShippingStrategy">integrated</preference>
+            <preference preference-id="apJavaScript">https://js-sandbox.squarecdn.com/square-marketplace.js</preference>
+            <preference preference-id="apPaymentMode">DIRECT_CAPTURE</preference>
+            <preference preference-id="apStorePickupDescription">Available for next-day pickup</preference>
+            <preference preference-id="enableAfterpay">false</preference>
+            <preference preference-id="enableCashAppPay">false</preference>
+        </staging>
         <production/>
     </custom-preferences>
 </preferences>

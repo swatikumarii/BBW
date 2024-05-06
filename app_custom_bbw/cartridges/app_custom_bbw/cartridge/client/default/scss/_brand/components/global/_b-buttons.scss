@@ -21,6 +21,21 @@
     letter-spacing: 0.24px;
     border-radius: 0;
 
+    &.btn-submit {
+        font-size: 1rem;
+        max-height: 48px;
+        line-height: 3rem;
+        padding: 0 2rem;
+        transition-property: background-color, border-color;
+        transition-duration: 0.3s;
+        font-weight: 600;
+        letter-spacing: 0.015em;
+        background-color: colour(black, 1);
+        border-color: colour(black, 1);
+        text-transform: uppercase;
+        margin-top: 5px;
+    }
+
     &.btn-hover {
         background-color: colour(black, 1);
         border-color: colour(black, 1);
@@ -155,4 +170,18 @@
 
 .btn-block {
     width: 100%;
+}
+
+.btn-no-style {
+    background: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: none;
+    outline: none;
+
+    &:focus {
+        outline: none;
+    }
 }

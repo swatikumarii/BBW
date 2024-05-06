@@ -1,40 +1,59 @@
 <isdecorate template="common/layout/page">
+    <isinclude template="/components/modules" sf-toolkit="off" />
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
-        assets.addCss('/css/login.css');
-        assets.addJs('/js/login.js');
     </isscript>
 
-    <div class="hero slant-down login-banner">
-        <h1 class="page-title">${Resource.msg('header.hero.image.login', 'login', null)}</h1>
-    </div>
-    <div class="container login-page">
-        <!---Breadcrumbs--->
-        <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
-        <div class="row justify-content-center equal-height">
-            <div class="col-sm-8 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="login-form-nav">
-                            <isinclude template="account/components/navTabs" />
-                            <div class="tab-content">
-                                <div class="tab-pane ${pdict.navTabValue === 'login' ? 'active' : ''}" id="login" role="tabpanel" aria-labelledby="login-tab">
-                                    <isinclude template="account/components/loginForm" />
-                                    <isinclude template="account/password/requestPasswordResetModal"/>
-                                    <isinclude template="account/components/oauth" />
-                                </div>
-                                <div class="tab-pane ${pdict.navTabValue === "register" ? 'active' : ''}" id="register" role="tabpanel" aria-labelledby="register-tab">
-                                    <isinclude template="account/components/registerForm" />
-                                </div>
-                            </div>
+    <div class="hero slant-down login-banner bg-white">
+
+        <div class="container login-page">
+            <!---Breadcrumbs--->
+            <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+            <div class="row justify-content-center equal-height">
+                <div class="col-sm-12 col-md-12 col-xl-12 register-form-head">
+                    <h1 class="page-title text-justify h-font-size--24 h-clr--black-3 w-100">
+                        ${Resource.msg('label.signin.name', 'login', null)}</h1>
+                </div>
+            </div>
+            <div class="login-page-setion">
+                <div class="login-section">
+                    <div class="login-form-nav login-account">
+                        <h2 class="h-clr--black-3 h-font-size--16 text-center">${Resource.msg('login.label', 'login', null)}</h2>
+                        <p class="h-clr--gray text-center">${Resource.msg('login.para', 'login', null)}</p>
+                        <div class="login-box">
+                            <isinclude template="account/components/loginForm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer ">
+                    <div class="line"></div>
+                    <div
+                        class="or h-clr--gray h-bg--white h-font-size--14 text-center position-absolute text-uppercase">
+                        ${Resource.msg('login.or.separator', 'login', null)}
+                    </div>
+                </div>
+                <div class="login-section">
+                    <div class="login-form-nav login-account">
+                        <h2 class="h-clr--black-3 h-font-size--16 text-center">${Resource.msg('msg.signup', 'login', null)}</h2>
+                        <p class="h-clr--gray text-center">${Resource.msg('msg.signup.overview', 'login', null)}</p>
+                        <div class="signup-img">
+                            <img src="${URLUtils.staticURL('/images/login/login-img.jpg')}"
+                                alt="${Resource.msg('login.image.message', 'login', null)} "
+                                class="w-100" />
+                        </div>
+                       <div class="d-flex justify-content-center">
+                        <a href="${URLUtils.https('Login-CreateAccount')}" role="button"
+                            aria-label="${Resource.msg('header.hero.image.login', 'login', null)}">
+                            <button type="submit" class="btn btn-block btn-primary text-uppercase signin-btn sign-in-btn w-auto">
+                                ${Resource.msg('header.hero.image.login', 'login', null)}
+                            </button>
+                        </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-8 col-md-6">
-                <div class="card">
-                    <isinclude template="account/components/trackOrderForm" />
-                </div>
+            <div class="signin-question">
+                <iscontentasset aid="myAccount-help" />
             </div>
         </div>
     </div>

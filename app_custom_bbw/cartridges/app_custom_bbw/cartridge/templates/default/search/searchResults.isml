@@ -2,12 +2,10 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets');
         assets.addJs('/js/search.js');
+        assets.addJs('/js/afterpay.js');
         assets.addCss('/css/search.css');
-        assets.addJs('/js/wishlist.js');
+        assets.addCss('/css/afterpaystyle.css');
     </isscript>
 
     <isinclude template="search/searchResultsNoDecorator" />
-    <div class="loginPopup">
-        <isinclude template="account/loginpopup" />
-    </div>
 </isdecorate>

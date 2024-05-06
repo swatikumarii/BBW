@@ -1,0 +1,54 @@
+<div class="product-tile b-product-tile d-flex flex-column h-100 js-product-tile" itemscope itemtype="http://schema.org/Product">
+    <!-- dwMarker="product" dwContentID="${product.uuid}" -->
+    <!-- Product Social Badge -->
+    <isinclude template="product/components/productTileImage" />
+    <div class="tile-body b-product-tile__body mt-auto">
+        <isif condition="${pdict.display.swatches !== false}">
+            <isinclude template="product/components/productTileSwatch" />
+        </isif>
+
+        <isinclude template="product/components/productTileName" />
+        <isset name="price" value="${product.price}" scope="page" />
+        <isif condition="${product.productType === 'set'}">
+            <isinclude template="product/components/pricing/setPrice" />
+        <iselse/>
+            <isinclude template="product/components/pricing/main" />
+        </isif>
+        <isif condition="${product.promotions}">
+            <isloop items="${product.promotions}" var="promotion" status="promdet">
+                <div class="b-product-tile__product-promo mb-3">
+                    <div class="b-product-tile__promotional-message">
+                        <a href="${pdict.urls.product}" class="b-product-tile__promo-link b-text-a text-decoration-none"
+                            title="${'Go to Product:' + product.productName}" data-name="${product.productName}"
+                            data-pid="${pdict.product.id}">
+                            <span class="h-clr--pink h-fw--semibold">
+                                <isprint value="${promotion.calloutMsg}" encoding="off" /></span>
+                        </a>
+                    </div>
+                </div>
+            </isloop>
+        </isif>
+        <iscomment>
+            <div class="row">
+                <div class="col-12 promotions">
+                    <isinclude template="product/components/promotions" />
+                </div>
+            </div>
+        </iscomment>
+        <isscript>
+            var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
+            var afterpayPLPEnable = sitePreferences.isDisplayPlpInfo()  && sitePreferences.isAfterpayEnabled();
+        </isscript>
+        <isif condition="${afterpayPLPEnable}">
+            <isinclude template="util/modulesAfterpay" />
+
+            <isafterpaymessage classname="${pdict.classname}" totalprice="${pdict.totalPrice}"
+                eligible="${pdict.apEligible}" mpid="${pdict.apMpid}" approductids="${pdict.apProductIDs}" />
+        </isif>
+
+        <isif condition="${pdict.display.ratings !== false}">
+            <isinclude template="product/productTileFooter" />
+        </isif>
+    </div>
+    <!-- END_dwmarker -->
+</div>

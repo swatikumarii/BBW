@@ -1,0 +1,29 @@
+{
+    "name": "CMP:Content Asset",
+    "description": "This is a component to add content Asset in page Designer",
+    "group": "commerce_assets",
+    "attribute_definition_groups": [
+        {
+            "id": "contentAssetpd",
+            "name": "Content Asset",
+            "description": "Component to select contentAsset.",
+            "attribute_definitions": [
+                {
+                    "id": "contentAssetpd",
+                    "name": "Content Asset ID",
+                    "description": "The ID of the content asset to be displayed.",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "id": "contentAssetPdCustomClass",
+                    "name": "Content Asset Custom Class",
+                    "description": "Add Content Asset Custom Class",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": []
+}

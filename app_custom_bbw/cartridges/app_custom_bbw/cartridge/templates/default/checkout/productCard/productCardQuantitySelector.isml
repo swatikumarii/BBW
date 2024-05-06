@@ -1,0 +1,8 @@
+<div class="quantity-form">
+    <span class="quantity-minus ${lineItem.isFreeItem ? 'd-none' : ''}">-</span>
+    <input type="number" class="quantity form-control" data-uuid="${lineItem.UUID}" data-pid="${lineItem.id}"
+        data-action="${pdict.actionUrls.updateQuantityUrl}" data-pre-select-qty="${StringUtils.formatInteger(lineItem.quantity)}"
+        id="quantity-${lineItem.UUID}" name="quantity-${lineItem.UUID}"
+        aria-label="quantity: ${StringUtils.formatInteger(lineItem.quantity)}" value="${StringUtils.formatInteger(lineItem.quantity)}" ${lineItem.isFreeItem ? 'disabled' : ''}>
+    <span class="quantity-plus ${lineItem.isFreeItem ? 'd-none' : ''}">+</span>
+</div>

@@ -1,0 +1,53 @@
+<div class="container store-locator-container">
+    <div class="row">
+        <div class="col-sm-5">
+            <div class="store-form search-form">
+                <isinclude template="storeLocator/storeLocatorFields" />
+            </div>
+        </div>
+
+        <div class="col-sm-7">
+            <div class="d-flex d-md-none mob-store-nav w-100 justify-content-end">
+                <a class="view list-view active h-font-size--16 h-fw--semibold text-uppercase clearfix"
+                    href="javascript:void(0)">${Resource.msg('label.list', 'storeLocator', null)}</a>
+                <a class="view map-view ml-2 h-font-size--16 h-fw--semibold text-uppercase clearfix"
+                    href="javascript:void(0)">${Resource.msg('label.map', 'storeLocator', null)}</a>
+            </div>
+            <isif condition="${pdict.showMap === 'true'}">
+                <div class="jumbotron map-canvas h-100 d-none d-md-block"
+                    data-has-google-api="${pdict.stores.googleMapsApi ? true : false}"
+                    data-locations="${pdict.stores.locations}">
+                    <div class="container">
+                        <div class="row">
+                            <p class="store-locator-no-api-key alert alert-danger">
+                                ${Resource.msg('error.no.api.key', 'storeLocator', null)}</p>
+                        </div>
+                    </div>
+                </div>
+            </isif>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 results-card store-result-wrap">
+            <p class="store-locator-no-results d-none">
+                <span
+                    class="store-error-header d-block h-font-size--20 h-fw--bold h-clr--black-1 mb-0 text-capitalize">${Resource.msg('error.no.results.header', 'storeLocator', null)}</span>
+                <span class="store-error-body d-block h-font-size--18">${Resource.msg('error.no.results', 'storeLocator', null)}</span>
+            </p>
+
+            <div class="results striped store-result" data-search-key="${JSON.stringify(pdict.stores.searchKey)}"
+                data-radius="${pdict.stores.radius}" data-has-results="${pdict.stores.stores.length > 0}">
+                <isinclude template="storeLocator/storeLocatorResults" />
+            </div>
+        </div>
+    </div>
+
+    <isif condition="${pdict.showMap === false || pdict.showMap === 'false'}">
+        <div class="row">
+            <div class="${pdict.horizontalView === 'true' ? 'col-sm-6' : 'col-sm-12'}">
+                <button class="btn btn-primary btn-block select-store" disabled>${Resource.msg('button.select.store', 'storeLocator', null)}</button>
+            </div>
+        </div>
+    </isif>
+</div>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <slot-configurations xmlns="http://www.demandware.com/xml/impex/slot/2008-09-08">
 
-    <slot-configuration slot-id="header-banner-m" context="global" configuration-id="Gingham" default="true" assigned-to-site="true">
+    <slot-configuration slot-id="header-banner-m" context="global" configuration-id="Gingham" assigned-to-site="true">
         <template>slots/html/htmlSlotContainer.isml</template>
         <enabled-flag>true</enabled-flag>
         <content>
@@ -15,21 +15,12 @@
         </content>
     </slot-configuration>
 
-    <slot-configuration slot-id="header-banner-m" context="global" configuration-id="Normal" assigned-to-site="true">
+    <slot-configuration slot-id="header-banner-m" context="global" configuration-id="Normal" default="true" assigned-to-site="true">
         <template>slots/html/htmlSlotContainer.isml</template>
         <enabled-flag>true</enabled-flag>
         <content>
             <html>
-                <body xml:lang="x-default">&lt;div class="top-content-header-banner h-width-perc--100 h-bg--blue"&gt;
-&lt;div class="content-text-wrap mx-auto h-maxwidth-perc--90"&gt;
-&lt;ul class="text-center"&gt;
-&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;span class="content-title h-fw--bold h-text-fz--body "&gt;$5.95 All Body Care&lt;/span&gt;&lt;/li&gt;
-&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;span class="content-title h-fw--bold h-text-fz--body "&gt;Plus! Free Shipping with $50&lt;/span&gt;&lt;/li&gt;
-&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;span class="content-title h-fw--bold h-text-fz--body "&gt;Code:CELEBRATE &lt;span class="h-fw--normal"&gt;Limited time only!&lt;/span&gt;&lt;/li&gt;
-&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;a href=""&gt;&lt;span class="content-title text-underline h-text-fz--body "&gt;*Promo Details&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;</body>
+                <body xml:lang="x-default">&lt;div class="top-content-header-banner h-width-perc--100 h-bg--blue"&gt;&lt;div class="content-text-wrap mx-auto h-maxwidth-perc--90 position-relative"&gt;&lt;ul class="text-center"&gt;&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;span class="content-title h-fw--semibold h-text-fz--body "&gt;$5.95 All Body Care&lt;/span&gt;&lt;/li&gt;&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;span class="content-title h-fw--semibold h-text-fz--body "&gt;Plus! Free Shipping with $50&lt;/span&gt;&lt;/li&gt;&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;span class="content-title h-fw--semibold h-text-fz--body "&gt;Code:CELEBRATE &lt;span class="h-fw--normal"&gt;Limited time only!&lt;/span&gt;&lt;/li&gt;&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;a href=""&gt;&lt;span class="content-title text-underline h-text-fz--body "&gt;*Promo Details&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;</body>
             </html>
         </content>
     </slot-configuration>
@@ -40,13 +31,68 @@
         <content>
             <html>
                 <body xml:lang="x-default">&lt;div class="store-header-banner  h-bg--gray-1 h-width-perc--100"&gt;
-&lt;div class="store-header-wrap h-maxwidth-lg--1400 d-flex justify-content-between align-items-center mx-auto px-lg-0 h-px-lg--25 h-px-sm--20 h-px--15"&gt;
+&lt;div class="store-header-wrap h-maxwidth-lg--1400 d-flex justify-content-between align-items-center mx-auto h-px-lg--25 h-px-sm--20 h-px--15 px-lg-0"&gt;
 &lt;div class="store-header d-flex justify-content-between"&gt;&lt;img alt="" src="header/store.svg?$staticlink$" title="" /&gt;&lt;span class="store-text b-text-body-14 text-uppercase h-clr--blue"&gt;Pick Up In Store&lt;/span&gt; &lt;a class="h-font-size--14 h-clr--black-1 ml-2" href="" id="set-header-store"&gt;Set Store&lt;/a&gt;&lt;/div&gt;
 
 &lt;div class="rewards-header d-none d-lg-block d-md-block"&gt;&lt;span class="b-text-body-14 text-uppercase h-clr--pink"&gt;Points. Perks. Exclusives. &lt;/span&gt; &lt;a class="h-font-size--14 h-clr--black-1" href=""&gt;Join Rewards!&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</body>
             </html>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="navigation-image-text" context="global" configuration-id="nav-image" default="true" assigned-to-site="false">
+        <description>Navigation imgaes from content asset</description>
+        <template>slots/content/contentAssetBody.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <content-assets>
+                <content-asset content-id="navigation-image-section"/>
+            </content-assets>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="menu-item-slot-1" context="global" configuration-id="menu-item-slot-1" default="true" assigned-to-site="true">
+        <description>Menu Item Slot 1</description>
+        <template>slots/content/contentAssetBody.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <content-assets>
+                <content-asset content-id="menu-item-slot-1-image-section"/>
+            </content-assets>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="menu-item-slot-2" context="global" configuration-id="menu-item-slot-2" default="true" assigned-to-site="true">
+        <description>Menu Item Slot 2</description>
+        <template>slots/content/contentAssetBody.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <content-assets>
+                <content-asset content-id="menu-item-slot-2-image-section"/>
+            </content-assets>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="menu-item-slot-3" context="global" configuration-id="menu-item-slot-3" default="true" assigned-to-site="true">
+        <description>Menu Item Slot 3</description>
+        <template>slots/content/contentAssetBody.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <content-assets>
+                <content-asset content-id="menu-item-slot-3-image-section"/>
+            </content-assets>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="menu-item-slot-4" context="global" configuration-id="menu-item-slot-4" default="true" assigned-to-site="true">
+        <description>Menu Item Slot 4</description>
+        <template>slots/content/contentAssetBody.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <content-assets>
+                <content-asset content-id="menu-item-slot-4-image-section"/>
+            </content-assets>
         </content>
     </slot-configuration>
 

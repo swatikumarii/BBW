@@ -1,0 +1,12 @@
+<h2>${pdict.carouselTitle}</h2>
+<isloop items="${pdict.selectedProducts}" var="onlineProduct" status="loopstate">
+    <div>
+        <div class="" data-src="${onlineProduct.images.large[0].url}"></div>
+        <span>${onlineProduct.productName}</span>
+        <isif condition="${'titlePartB' in onlineProduct.custom}">
+            <span>${onlineProduct.titlePartB}</span>
+        </isif>
+        <a href="${URLUtils.url('Product-Show', 'pid', onlineProduct.id)}">Add to bag</a>
+    </div>
+</isloop>
+<a href="${pdict.shopButtonLink}">${pdict.shopButtonText}</a>

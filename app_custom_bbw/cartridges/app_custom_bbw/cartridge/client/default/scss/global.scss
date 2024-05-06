@@ -14,6 +14,8 @@
 // Vendors OR Third Party
 
 @import "vendors/bootstrap";
+@import "vendors/slickSlider/slick-theme";
+@import "vendors/slickSlider/slick";
 
 /// # Fonts and other Global style
 
@@ -22,3 +24,14 @@
 // Brand Components
 
 @import "_brand/components/all";
+@import "~base/components/tooltip";
+@import "miniCart";
+
+@import "intl-tel-input/build/css/intlTelInput.css";
+
+.iti {
+    --iti-path-flags-1x: url("../images/intl-tel/flags.png");
+    --iti-path-flags-2x: url("../images/intl-tel/flags@2x.png");
+    --iti-path-globe-1x: url("../images/intl-tel/globe.png");
+    --iti-path-globe-2x: url("../images/intl-tel/globe@2x.png");
+}

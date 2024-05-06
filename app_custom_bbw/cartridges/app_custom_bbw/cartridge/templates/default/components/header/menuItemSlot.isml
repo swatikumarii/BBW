@@ -1,0 +1,22 @@
+
+<isif condition="${categorySlotId === 'menu-item-slot-1'}">
+    <isslot id="menu-item-slot-1" description="Menu Item Slot 1" context="global" />
+<iselseif condition="${categorySlotId === 'menu-item-slot-2'}">
+    <isslot id="menu-item-slot-2" description="Menu Item Slot 2" context="global" />
+<iselseif condition="${categorySlotId === 'menu-item-slot-3'}">
+    <isslot id="menu-item-slot-3" description="Menu Item Slot 3" context="global" />
+<iselseif condition="${categorySlotId === 'menu-item-slot-4'}">
+    <isslot id="menu-item-slot-4" description="Menu Item Slot 4" context="global" />
+<iselseif condition="${categorySlotId === 'menu-item-slot-5'}">
+    <isslot id="menu-item-slot-5" description="Menu Item Slot 5" context="global" />
+<iselseif condition="${categorySlotId === 'menu-item-slot-6'}">
+    <isslot id="menu-item-slot-6" description="Menu Item Slot 6" context="global" />
+<iselseif condition="${categorySlotId === 'menu-item-slot-7'}">
+    <isslot id="menu-item-slot-7" description="Menu Item Slot 7" context="global" />
+<iselseif condition="${categorySlotId === 'menu-item-slot-8'}">
+    <isslot id="menu-item-slot-8" description="Menu Item Slot 8" context="global" />
+<iselseif condition="${categorySlotId === 'menu-item-slot-9'}">
+    <isslot id="menu-item-slot-9" description="Menu Item Slot 9" context="global" />
+<iselseif condition="${categorySlotId === 'menu-item-slot-10'}">
+    <isslot id="menu-item-slot-10" description="Menu Item Slot 10" context="global" />
+</isif>
