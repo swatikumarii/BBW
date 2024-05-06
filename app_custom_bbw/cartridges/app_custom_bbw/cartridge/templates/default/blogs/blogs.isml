@@ -11,7 +11,7 @@
                 width="100%" alt="get inspired" />
             <img class="desk-only" alt="get inspired"
                 src="//storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/banners/Get-Inspired/get-inspire/getinspire_header_desk.jpg"
-                width="1144" height="120.67" />
+                />
         </div>
         <div class="header_section">
             <p class="text-center h-font-size--16 mt-5">${Resource.msg('header.content', 'blogs', null)}
@@ -49,9 +49,9 @@
                     <div class="m-grid-contain-childblog d-flex flex-wrap justify-content-between">
                         <isloop items="${folder.onlineContent}" var="content" status="loopstatus" begin=0>
                             <div class="blog_child_content">
-                                <img class="blogImage w-100" src="${content.custom.image.absURL}"
+                                <img class="blogImage w-100" src="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/2023/g_i/holiday/bc_day/TBC-Day_2023_CRP_tile.jpg"
                                     alt="${content.name}" />
-                                <h3 class="text-uppercase h-fw--semibold">${content.name}</h3>
+                                <h3 class="text-uppercase h-fw--semibold m-font-base--normal">${content.name}</h3>
                                 <p class="mb-0 h-clr--gray h-fw--normal h-font-size--16">${content.description}</p>
                                 <a class="btn btn-primary read-button h-font-size--14 h-fw--medium"
                                     href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
