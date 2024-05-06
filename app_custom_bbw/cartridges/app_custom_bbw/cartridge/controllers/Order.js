@@ -264,4 +264,26 @@ server.post(
     }
 );
 
+/**
+ * Order-Confirm : Append to extend the order confirm functionality
+ * @name Order-Confirm
+ */
+server.append(
+    'Confirm',
+    function (req, res, next) {
+        // send email when order total 0
+        var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
+        var viewData = res.getViewData();
+        var OrderMgr = require('dw/order/OrderMgr');
+        var order = OrderMgr.getOrder(viewData.order.orderNumber);
+        if (order && order.totalGrossPrice.value === 0) {
+            commonHelper.zeroOrderEmail(viewData.order);
+        }
+        if (order && order.totalGrossPrice.value > 0) {
+            commonHelper.zeroOrderEmail(viewData.order);
+        }
+        return next();
+    }
+);
+
 module.exports = server.exports();

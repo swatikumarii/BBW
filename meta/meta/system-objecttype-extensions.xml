@@ -840,6 +840,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="zeroOrderEmail">
+                <display-name xml:lang="x-default">Zero Order Email Address</display-name>
+                <description xml:lang="x-default">Comma-separated Zero Order email addresses</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -857,6 +864,7 @@
                 <attribute attribute-id="maxOrderQty"/>
                 <attribute attribute-id="notifyEmailThreshold"/>
                 <attribute attribute-id="header_image"/>
+                <attribute attribute-id="zeroOrderEmail"/>
                 <attribute attribute-id="careersEmail"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
