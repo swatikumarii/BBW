@@ -12,7 +12,6 @@ var URLUtils = require('dw/web/URLUtils');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
-var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 
 /**
  * Order-History : The Order-History append to update breadcrumbs
