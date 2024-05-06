@@ -60,6 +60,7 @@
             <preference preference-id="enableAfterpay">true</preference>
             <preference preference-id="enableCashAppPay">true</preference>
             <preference preference-id="zeroOrderEmail"></preference>
+            <preference preference-id="careersEmail"></preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
@@ -112,6 +113,7 @@
             <preference preference-id="enableAfterpay">false</preference>
             <preference preference-id="enableCashAppPay">false</preference>
             <preference preference-id="zeroOrderEmail"></preference>
+            <preference preference-id="careersEmail"></preference>
         </staging>
         <production/>
     </custom-preferences>

@@ -8,6 +8,8 @@ var Site = require('dw/system/Site');
  * Fragrance-Show : The Fragrance-Show enpoint show the fragrance categories and fragrance name
  */
 server.get('Show', function(req, res, next) {
+    var URLUtils = require('dw/web/URLUtils');
+    var Resource = require('dw/web/Resource');
     var fragranceCategories = Site.current.getCustomPreferenceValue('fragranceCategories');
     var fragranceNamesList = Site.current.getCustomPreferenceValue('fragranceNames');
     var topFragrancesList = Site.current.getCustomPreferenceValue('topFragrances');
@@ -51,7 +53,17 @@ server.get('Show', function(req, res, next) {
     res.render('fragrance/shopByFragrance', {
         fragranceCategories: byCategories,
         fragranceNames: fragranceNamesArray,
-        currentSite: currentSite
+        currentSite: currentSite,
+        breadcrumbs: [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            },
+            {
+                htmlValue: Resource.msg('label.fragrance', 'fragrance', null),
+                url: URLUtils.url('Fragrance-Show').toString()
+            }
+        ]
     });
 
     next();

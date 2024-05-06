@@ -10,7 +10,7 @@
         <div class="container">
             <!---Breadcrumbs--->
             <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
-           <div class="row">
+            <div class="row">
             <div class="col-md-12 col-sm-12 d-flex justify-content-center slot-banner">
                 <img class="d-sm-none w-100" src="${URLUtils.staticURL('/images/orderTracking/order-status-banner-asset_m.svg')}"
                     alt="${Resource.msg('lorder.tracking.banner.title', 'order', null)}" />
@@ -23,9 +23,10 @@
                 <div class="col-xl-10 col-md-12 col-sm-12 tracking-header p-0">
                     <h1 class="page-title text-justify h-font-size--24 h-clr--black-3 m-0">
                         ${Resource.msg('label.order.tracking', 'order', null)}</h1>
-                            <div class="text-danger error-class error-form h-font-size--14" id="form-error">
-                            </div>
+                        <div class="text-danger error-class error-form h-font-size--14" id="form-error">
+                                            </div>
                     <div class="tracking-field-para"></div>
+
                     <p class="d-flex justify-content-end h-clr--black-1 mb-0 h-font-size--12">
                         <span class="required-indicator">*</span>
                         ${Resource.msg('required.field.label', 'login', null)}</p>
@@ -89,7 +90,7 @@
                             </div>
 
                         <div class="sign-in-wrap text-center">
-                            <a href="#" title="Sign In" class="h-clr--black-3 h-font-size--14">${Resource.msg('signIn.label', 'order', null)}</a>
+                            <a href="${URLUtils.url('Order-History')}" title="Sign In" class="h-clr--black-3 h-font-size--14">${Resource.msg('signIn.label', 'order', null)}</a>
                             <span class="h-clr--gray h-font-size--14">${Resource.msg('label.sign.in', 'order', null)}</span>
                         </div>
 

@@ -7,6 +7,8 @@
     assets.addCss('/css/pages/shopbyfragrance/b-shopbyfragrance.css');
     </isscript>
     <div class="container">
+        <!---Breadcrumbs--->
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
         <div class="shop-fragrance_content">
             <div class="fragrance-topbanner text-center">
                 <iscontentasset aid="fragrance-finder" />
