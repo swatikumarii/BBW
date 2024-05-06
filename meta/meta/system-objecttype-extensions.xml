@@ -258,6 +258,7 @@
             </attribute-definition>
             <attribute-definition attribute-id="hardTimeout">
                 <display-name xml:lang="x-default">Hard Timeout</display-name>
+                <description xml:lang="x-default">Hard Timeout(In Minutes)</description>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -265,6 +266,7 @@
             </attribute-definition>
              <attribute-definition attribute-id="popupDuration">
                 <display-name xml:lang="x-default">Popup Duration</display-name>
+                <description xml:lang="x-default">Popup Duration(In Minutes)</description>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -272,6 +274,7 @@
             </attribute-definition>
             <attribute-definition attribute-id="softTimeout">
                 <display-name xml:lang="x-default">Soft Timeout</display-name>
+                <description xml:lang="x-default">Soft Timeout(In Minutes)</description>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
