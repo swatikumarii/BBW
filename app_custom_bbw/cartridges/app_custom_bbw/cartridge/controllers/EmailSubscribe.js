@@ -29,86 +29,89 @@ function validateEmail(email) {
 /**
  * EmailSubscribe-Subscribe : The EmailSubscribe-Subscribe enpoint allows the shopper to submit their eamil address to be added to a mailing list. OOB SFRA does not have a mailing list feature however this endpoint call a hook would allow for a customer to easily allow for custiomization
  */
-server.replace('Subscribe', function (req, res, next) {
-    var Site = require('dw/system/Site');
-    // To check ReCaptcha
-    var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
-    var isReCaptchaEnable =
+server.replace('Subscribe',
+    consentTracking.consent,
+    server.middleware.https,
+    csrfProtection.generateToken,function (req, res, next) {
+        var Site = require('dw/system/Site');
+        // To check ReCaptcha
+        var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
+        var isReCaptchaEnable =
         Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha');
-    if (isReCaptchaEnable) {
-        var recaptchaResponse = req.httpParameterMap
-            .get('g-recaptcha-response')
-            .getStringValue();
+        if (isReCaptchaEnable) {
+            var recaptchaResponse = req.httpParameterMap
+                .get('g-recaptcha-response')
+                .getStringValue();
 
-        var pageScore = verifyCaptchaHelper.pageScore('newsletter');
-        var verifyCaptcha = verifyCaptchaHelper.verifyGoogleCaptcha(
-            recaptchaResponse,
-            pageScore
-        );
-        if (!verifyCaptcha) {
-            res.json({
-                error: true,
-                msg: Resource.msg('error.message.recaptcha', 'common', null)
-            });
-            this.emit('route:Complete', req, res);
-            return;
+            var pageScore = verifyCaptchaHelper.pageScore('newsletter');
+            var verifyCaptcha = verifyCaptchaHelper.verifyGoogleCaptcha(
+                recaptchaResponse,
+                pageScore
+            );
+            if (!verifyCaptcha) {
+                res.json({
+                    error: true,
+                    msg: Resource.msg('error.message.recaptcha', 'common', null)
+                });
+                this.emit('route:Complete', req, res);
+                return;
+            }
         }
-    }
-    // Newsletter subscription
-    var email = req.form.emailId;
+        // Newsletter subscription
+        var email = req.form.emailId;
 
-    if (email && validateEmail(email)) {
+        if (email && validateEmail(email)) {
 
-        var getCustomObject = CustomObjectMgr.getCustomObject('newsletterSubscriptions', email);
+            var getCustomObject = CustomObjectMgr.getCustomObject('newsletterSubscriptions', email);
 
-        if (!empty(getCustomObject) && getCustomObject.custom.email === email) {
+            if (!empty(getCustomObject) && getCustomObject.custom.email === email) {
             // email already exists.
-            res.json({
-                success: true,
-                msg: Resource.msg('subscribe.email.exists', 'newsletter', null)
-            });
-        } else {
-            var query = 'email = \'' + email + '\'';
-            var getCustomerProfile = CustomerMgr.queryProfiles(query, null, null, 1, 1);
-            if (getCustomerProfile.hasNext()) {
-                var customerProfile = getCustomerProfile.next();
-                Transaction.wrap(function () {
+                res.json({
+                    success: true,
+                    msg: Resource.msg('subscribe.email.exists', 'newsletter', null)
+                });
+            } else {
+                var query = 'email = \'' + email + '\'';
+                var getCustomerProfile = CustomerMgr.queryProfiles(query, null, null, 1, 1);
+                if (getCustomerProfile.hasNext()) {
+                    var customerProfile = getCustomerProfile.next();
+                    Transaction.wrap(function () {
                     // assign values to the customer profile
-                    customerProfile.custom.newsletterSubscriptionStatus = true;
+                        customerProfile.custom.newsletterSubscriptionStatus = true;
+                    });
+                }
+
+                // create cutome object
+                Transaction.wrap(function () {
+                    var newSubscriber = CustomObjectMgr.createCustomObject('newsletterSubscriptions', email);
+                    newSubscriber.custom.emailFrequency = Resource.msg('default.email.frequency', 'newsletter', null);
+                    newSubscriber.custom.objectCreationTime = new Date();
+                });
+
+                getCustomObject = CustomObjectMgr.getCustomObject('newsletterSubscriptions', email);
+                var encryptedNewsletterId = EncryptionHelper.encryptPin(getCustomObject.UUID);
+
+                // send email to customer
+                var userObj = {
+                    email: email,
+                    encryptedNewsletterId: encodeURIComponent(encryptedNewsletterId)
+                };
+                commonHelper.sendNewsLetterSubscribeEmail(userObj);
+
+                res.json({
+                    success: true,
+                    msg: Resource.msg('subscribe.email.success', 'homePage', null)
                 });
             }
-
-            // create cutome object
-            Transaction.wrap(function () {
-                var newSubscriber = CustomObjectMgr.createCustomObject('newsletterSubscriptions', email);
-                newSubscriber.custom.emailFrequency = Resource.msg('default.email.frequency', 'newsletter', null);
-                newSubscriber.custom.objectCreationTime = new Date();
-            });
-
-            getCustomObject = CustomObjectMgr.getCustomObject('newsletterSubscriptions', email);
-            var encryptedNewsletterId = EncryptionHelper.encryptPin(getCustomObject.UUID);
-
-            // send email to customer
-            var userObj = {
-                email: email,
-                encryptedNewsletterId: encodeURIComponent(encryptedNewsletterId)
-            };
-            commonHelper.sendNewsLetterSubscribeEmail(userObj);
-
+        } else {
             res.json({
-                success: true,
-                msg: Resource.msg('subscribe.email.success', 'homePage', null)
+                error: true,
+                msg: Resource.msg('subscribe.email.invalid', 'homePage', null)
             });
         }
-    } else {
-        res.json({
-            error: true,
-            msg: Resource.msg('subscribe.email.invalid', 'homePage', null)
-        });
-    }
 
-    next();
-});
+        next();
+    });
 
 /**
  * EmailSubscribe-UnsubscribeShow : The EmailSubscribe-UnsubscribeShow is used for showing unsubscribe page to user
