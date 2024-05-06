@@ -37,9 +37,12 @@
 
                             <isif condition="${address.address.ID == pdict.addressBook[0].address.ID}">
                                 <h2 class="h-font-size--16 m-0">${Resource.msg('label.addressbook.defaultaddress', 'account', null)}</h2>
-                                <isset name="prevoiusAddress"
-                                    value="${Resource.msg('label.addressbook.defaultaddress', 'account', null)}"
+                                <isset name="prevoiusAddress" value="${Resource.msg('label.addressbook.defaultaddress', 'account', null)}"
                                     scope="page" />
+                            </isif>
+                            <isif condition="${address.address.ID != pdict.addressBook[0].address.ID && prevoiusAddress != Resource.msg('label.addressbook.otheraddress', 'account', null)}">
+                                <h2 class="h-font-size--16 m-0">${Resource.msg('label.addressbook.otheraddress', 'account', null)}</h2>
+                                <isset name="prevoiusAddress" value="${Resource.msg('label.addressbook.otheraddress', 'account', null)}" scope="page" />
                             </isif>
 
                             <div class="card border-0">
@@ -95,8 +98,6 @@
                         </div>
                     </isloop>
                     <div class="add-address-create-modal position-relative">
-
-                        <h2 class="h-font-size--16 m-0">${Resource.msg('label.addressbook.otheraddress', 'account', null)}</h2>
                         <isset name="prevoiusAddress"
                             value="${Resource.msg('label.addressbook.otheraddress', 'account', null)}" scope="page" />
                         <a data-toggle="modal" href="#address-form" class="btn btn-save btn-primary"
