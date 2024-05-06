@@ -30,9 +30,9 @@ function validateEmail(email) {
  * EmailSubscribe-Subscribe : The EmailSubscribe-Subscribe enpoint allows the shopper to submit their eamil address to be added to a mailing list. OOB SFRA does not have a mailing list feature however this endpoint call a hook would allow for a customer to easily allow for custiomization
  */
 server.replace('Subscribe',
-    consentTracking.consent,
     server.middleware.https,
-    csrfProtection.generateToken,function (req, res, next) {
+    csrfProtection.validateAjaxRequest,
+    function (req, res, next) {
         var Site = require('dw/system/Site');
         // To check ReCaptcha
         var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
