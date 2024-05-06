@@ -2,6 +2,7 @@
     <isset name="finalOrigPrice" value="${price}" scope="page" />
 
     <isif condition="${finalOrigPrice.list !== null}">
+        <isset name="reducedPrice" value="true" scope="page" />
         <isset name="price" value="${finalOrigPrice.list}" scope="page" />
         <del>
             <span class="strike-through list">
@@ -35,12 +36,12 @@
             </a>
         </span>
     <iselse/>
-        <span class="sales h-clr--black-1">
+        <span class="sales ${reducedPrice === 'true' ? 'reduced':''}">
             <isif condition="${isLowPrice == 'range-low'}">
-                <span class="value" content="${price.decimalPrice}"></span>
+                <span class="value low" content="${price.decimalPrice}"></span>
             </isif>
             <isif condition="${isLowPrice == 'range-high'}">
-                <span class="value" content="${price.decimalPrice}"></span>
+                <span class="value high" content="${price.decimalPrice}"></span>
             </isif>
             <isif condition="${isLowPrice == null}">
                 <span class="value" data-url="${pdict.urls.product}" content="${price.decimalPrice}"></span>
