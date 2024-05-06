@@ -274,12 +274,7 @@ module.exports = $.extend({}, base, {
                         success: function (data) {
                             if (data.error) {
                                 $('.reserve-stock-toast p').text(data.message);
-                                $('.reserve-stock-toast.toast').toast('show');
-                                setTimeout(function () {
-                                    $('.reserve-stock-toast.toast').toast(
-                                        'hide'
-                                    );
-                                }, 3000);
+                                $('.reserve-stock').removeClass('d-none');
                             } else {
                                 handlePostCartAdd(data);
                                 $('body').trigger(

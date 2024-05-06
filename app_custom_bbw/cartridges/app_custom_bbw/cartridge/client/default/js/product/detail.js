@@ -19,11 +19,21 @@ module.exports = $.extend({}, detail, {
             }
         });
 
-        $(document).on('change', '.quantity-field > #Quantity', function () {
+        $(document).on('keyup', '.quantity-field > #Quantity', function () {
             var quantity = Number($(this).val());
             if (quantity < 1) {
                 quantity = 1;
                 $(this).val(quantity).trigger('change');
+            }
+            var maxOrderQty = Number($('input[name="maxOrderQty"]').val());
+            if (quantity > maxOrderQty) {
+                $(this).val(maxOrderQty).trigger('change');
+                $('.reserve-stock p').text(
+                    'Sorry! Limit ' + maxOrderQty + ' per order. We\'ve adjusted the quantity for you.'
+                );
+                $('.reserve-stock').removeClass('d-none');
+            } else {
+                $('.reserve-stock').addClass('d-none');
             }
         });
     },
