@@ -8,33 +8,65 @@
     }
 
     .carousel {
+        cursor: pointer;
+
         @include media-up(sm) {
             width: 350px;
             float: right;
             margin-right: 0;
         }
 
+        .icon-next,
+        .icon-prev {
+            background-color: transparent;
+        }
+
         &:hover .carousel-control-next,
         &:hover .carousel-control-prev {
-            display: flex;
+            display: none;
+            height: fit-content;
+            top: 45%;
+            z-index: auto;
+
+            @include media-up(md) {
+                display: flex;
+            }
         }
 
         .carousel-control-next,
         .carousel-control-prev {
-            display: flex;
+            display: none;
             z-index: 0;
-
-            @include media-up(sm) {
-                display: none;
-            }
         }
 
         .carousel-indicators {
             z-index: 0;
+            position: relative;
+
+            @include media-down(sm) {
+                position: absolute;
+            }
 
             li {
-                width: 2.375rem;
+                width: 38px;
                 margin-right: 45px;
+
+                img {
+                    display: block;
+                }
+
+                @include media-down(sm) {
+                    width: 10px;
+                    height: 10px;
+                    display: inline-block;
+                    background-color: colour(gray, 5);
+                    border-radius: 100%;
+                    margin-right: 4px;
+
+                    img {
+                        display: none;
+                    }
+                }
             }
         }
 
@@ -47,14 +79,13 @@
 
         .zoomImage-link {
             content: "";
-            width: 1.25rem;
-            height: 1.25rem;
+            width: 22px;
+            height: 22px;
             background: url("../../images/pdp/svgexport-12.svg");
             background-repeat: no-repeat;
             background-size: contain;
             right: 0;
-            bottom: 3.3125rem;
-            z-index: 2;
+            bottom: 10px;
             cursor: pointer;
         }
 
@@ -85,7 +116,6 @@
 
                     .carousel-item {
                         margin-right: 0;
-                        width: auto;
 
                         img {
                             height: calc(100vh - 45px);
@@ -165,8 +195,12 @@
         .promotion-callout {
             line-height: 1.25rem;
             letter-spacing: 0.005em;
-            width: 79%;
+            width: 100%;
             margin-bottom: 0.75rem;
+
+            @include media-up(md) {
+                width: 79%;
+            }
 
             .callout-detail {
                 &::after {
@@ -303,15 +337,29 @@
                         }
                     }
                 }
+
+                .notifyBackInStockButton,
+                .out-of-stock {
+                    width: 11.4375rem;
+                    font-size: 1rem;
+                    font-weight: map-get($font-weight, semibold);
+                    letter-spacing: 0.24px;
+                    line-height: 1.25rem;
+                    text-transform: uppercase;
+                }
             }
         }
 
         .afterPayExtension {
-            padding-top: 7px;
+            padding: 8px 15px;
             width: 100%;
 
             @include media-up(sm) {
-                width: 403px;
+                width: 408px;
+            }
+
+            .pdp-checkout-button {
+                padding: 0;
             }
         }
 
@@ -319,7 +367,7 @@
             margin-top: 1.5625rem;
             width: 100%;
 
-            @include media-up(sm) {
+            @include media-up(md) {
                 width: 66%;
             }
 
@@ -346,7 +394,7 @@
                 padding: 1.0625rem 0 0.1875rem;
                 width: 100%;
 
-                @include media-up(sm) {
+                @include media-up(md) {
                     width: 66%;
                 }
 
@@ -393,18 +441,34 @@
 
     .pdp-wishlist {
         .add-to-wish-list {
-            float: right;
-            margin-right: -0.1875rem;
             padding: 0;
+            transition: all 0.3s ease;
+            width: 38px;
+            height: 36px;
+            float: right;
+            cursor: pointer;
+            opacity: 1;
+            background: url("../../images/pdp/PDP-Wishlist-2.svg") no-repeat 50%;
 
-            @include media-up(sm) {
-                margin-right: -0.625rem;
+            &:hover {
+                background: url("../../images/pdp/PDP-Wishlist-3.svg") no-repeat
+                    50%;
             }
+        }
 
-            img {
-                width: 2.375rem;
-                height: 2.25rem;
-                cursor: pointer;
+        .remove-from-wishlist {
+            padding: 0;
+            transition: all 0.3s ease;
+            width: 38px;
+            height: 36px;
+            float: right;
+            cursor: pointer;
+            opacity: 1;
+            background: url("../../images/pdp/PDP-Wishlist-4.svg") no-repeat 50%;
+
+            &:hover {
+                background: url("../../images/pdp/PDP-Wishlist-5.svg") no-repeat
+                    50%;
             }
         }
     }
@@ -416,8 +480,16 @@
     color: colour(black, 1);
     padding: 1.5rem 0.5rem 1.5rem 0;
     overflow-y: initial;
-    left: 5% !important;
+    left: 0% !important;
     border-radius: 0;
+
+    @include media-up(sm) {
+        left: 11% !important;
+    }
+
+    @include media-up(md) {
+        left: 5% !important;
+    }
 
     .popover-body {
         overflow-y: scroll;
@@ -441,4 +513,121 @@
         right: 8px;
         background-size: 0.8125rem;
     }
+}
+
+.wishlist-toast {
+    position: absolute;
+    right: -15px;
+    top: 36px;
+    animation: expand 5s;
+
+    p {
+        font-size: 16px;
+        line-height: 20px;
+        line-height: 1.25rem;
+        letter-spacing: 0.01em;
+        color: colour(gray, 4);
+        margin: 10px 0;
+    }
+}
+
+@keyframes expand {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 200px;
+    }
+}
+
+.reserve-stock-toast {
+    position: absolute;
+    right: 0;
+    top: 36px;
+
+    @include media-up(md) {
+        right: -15px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 20px;
+        line-height: 1.25rem;
+        letter-spacing: 0.01em;
+        color: colour(gray, 4);
+        margin: 10px 0;
+    }
+}
+
+#add-to-cart-snackbar {
+    visibility: hidden;
+    z-index: 1;
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translate(-50%);
+    box-shadow:
+        0 8px 10px 1px rgba(0, 0, 0, 14%),
+        0 3px 14px 2px rgba(0, 0, 0, 12%),
+        0 5px 5px -3px rgba(0, 0, 0, 2%);
+    width: 320px;
+    padding: 14px 16px 14px 46px;
+    gap: 8px;
+    background-color: colour(green, 6);
+    color: colour(green, 2);
+
+    &::before {
+        background-image: url("../../images/pdp/check-circle-fill.svg");
+        height: 24px;
+        left: 13px;
+        position: absolute;
+        width: 24px;
+        background-repeat: no-repeat;
+        content: "";
+    }
+
+    &.show {
+        visibility: visible;
+        animation:
+            fadein 0.5s,
+            fadeout 0.5s 2.5s;
+    }
+
+    @keyframes fadein {
+        from {
+            bottom: 0;
+            opacity: 0;
+        }
+
+        to {
+            bottom: 30px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeout {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
+    }
+}
+
+.wish-list-image {
+    background: url("../../images/pdp/PDP-Wishlist-4.svg") no-repeat 50%;
+    margin: auto;
+    height: 40px;
+    width: 40px;
+    float: left;
+    margin-right: 10px;
+}
+
+.outOfstockModal.modal.modal-right.fade.show .modal-dialog {
+    right: 0 !important;
 }

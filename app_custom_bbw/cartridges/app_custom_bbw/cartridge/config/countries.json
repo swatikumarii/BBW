@@ -1,0 +1,20 @@
+[{
+    "id": "en_AU",
+    "currencyCode": "AUD"
+},
+{
+    "id": "en_TH",
+    "currencyCode": "THB"
+},
+{
+    "id": "th_TH",
+    "currencyCode": "THB"
+},
+{
+    "id": "en_SG",
+    "currencyCode": "SGD"
+},
+{
+    "id": "en_MY",
+    "currencyCode": "MYR"
+}]

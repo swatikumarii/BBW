@@ -2,7 +2,11 @@
 <div class="line-item-price line-item-price-${lineItem.UUID}">
     <isset name="price" value="${lineItem.price}" scope="page"/>
     <div class="unit-price">
-        <isinclude template="/product/components/pricing/main" />
+        <isif condition="${!lineItem.appliedPromotions}">
+            <isinclude template="/product/components/pricing/main" />
+        <iselse>
+            <isinclude template="/product/components/pricing/promoPrice" />
+        </isif>
     </div>
 </div>
 
