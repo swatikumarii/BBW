@@ -2,6 +2,18 @@
 
 'use strict';
 
+/**
+ * To Open country selector popup
+ */
+function countrySelectPopup() {
+    $('.countrySelectPopup').find('.modal').modal('show');
+    $('#switch-site').click(function () {
+        // $(this).addClass('active');
+        var site = $('#selected-site').val();
+        window.location.replace(site);
+    });
+}
+
 // var scrollAnimate = require('base/components/scrollAnimate');
 
 /**
@@ -137,6 +149,9 @@ function handleScroll() {
 }
 
 // Function to scroll to top when the button is clicked
+/**
+ *
+ */
 function scrollToTop() {
     $('html, body').animate(
         {
@@ -164,3 +179,4 @@ module.exports = function () {
         newsLetter();
     });
 };
+countrySelectPopup();
