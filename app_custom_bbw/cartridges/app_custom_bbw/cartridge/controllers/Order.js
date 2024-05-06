@@ -230,16 +230,17 @@ server.post(
             var order = OrderMgr.getOrder(req.form.orderNumber);
             if (
                 order &&
-                order.customerEmail === req.form.orderEmail.trim() &&
-                order.shipments[0].shippingAddress.postalCode ===
-                    req.form.billingZipCode.trim()
+                order.customerEmail.toLowerCase() === req.form.orderEmail.toLowerCase().trim() &&
+                order.billingAddress.postalCode === req.form.billingZipCode.trim()
             ) {
+                var redirectURL;
+                if (req.currentCustomer.profile && req.currentCustomer.profile.customerNo) {
+                    redirectURL = URLUtils.url('Order-Details', 'orderID', req.form.orderNumber, 'orderFilter', '').toString();
+                } else {
+                    redirectURL = URLUtils.url('Order-Tracking', 'token', encryptionHelper.encryptPin(req.form.orderNumber)).toString();
+                }
                 res.json({
-                    redirectUrl: URLUtils.url(
-                        'Order-Tracking',
-                        'token',
-                        encryptionHelper.encryptPin(req.form.orderNumber)
-                    ).toString()
+                    redirectUrl: redirectURL
                 });
             } else {
                 res.setStatusCode(400);
