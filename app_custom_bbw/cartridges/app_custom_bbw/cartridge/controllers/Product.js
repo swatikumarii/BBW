@@ -21,7 +21,26 @@ server.append('Show', function (req, res, next) {
         type: 10
     };
     var itemExist = productListHelper.itemExists(list, pid, config);
-    res.setViewData({itemExist: itemExist});
+
+    var viewData = res.getViewData();
+    var currentPageMeta = viewData.CurrentPageMetaData || {};
+    currentPageMeta.description = (
+        viewData.product.fragranceDescription ||
+        viewData.product.shortDescription ||
+        viewData.product.longDescription
+    ).markup;
+    currentPageMeta.pageMetaTags = currentPageMeta.pageMetaTags || [];
+    if (currentPageMeta.description) {
+        currentPageMeta.pageMetaTags.push({
+            content: currentPageMeta.description,
+            ID: 'og:description',
+            name: false,
+            property: true,
+            title: false
+        });
+    }
+
+    res.setViewData({itemExist: itemExist, CurrentPageMetaData: currentPageMeta});
     next();
 });
 

@@ -99,4 +99,24 @@ $(document).ready(function () {
             $('#noresult').hide();
         }
     });
+
+    $('.fragrance-list-data').each(function () {
+        var $group = $(this);
+        var visibleItems = $group.find(".alphabetically-data");
+        var itemCount = visibleItems.length;
+        var columns = 4;
+
+        visibleItems.removeClass("first second third fourth last-border");
+
+        var remainder = itemCount % columns;
+        var countFlag = 0;
+        visibleItems.each(function (index) {
+            var classIndex = countFlag % columns;
+            $(this).addClass(["first", "second", "third", "fourth"][classIndex]);
+            if (countFlag >= itemCount - remainder) {
+                $(this).addClass("last-border");
+            }
+            countFlag+=1;
+        });
+    });
 });
