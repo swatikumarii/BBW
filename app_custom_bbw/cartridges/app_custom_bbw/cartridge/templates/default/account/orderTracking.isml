@@ -89,7 +89,7 @@
                             </div>
 
                         <div class="sign-in-wrap text-center">
-                            <a href="#" title="Sign In" class="h-clr--black-3 h-font-size--14">${Resource.msg('signIn.label', 'order', null)}</a>
+                            <a href="${URLUtils.url('Order-History')}" title="Sign In" class="h-clr--black-3 h-font-size--14">${Resource.msg('signIn.label', 'order', null)}</a>
                             <span class="h-clr--gray h-font-size--14">${Resource.msg('label.sign.in', 'order', null)}</span>
                         </div>
 
