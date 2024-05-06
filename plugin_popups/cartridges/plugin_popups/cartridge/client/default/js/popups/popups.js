@@ -1,7 +1,9 @@
 'use strict';
 
 var modalDialog = '.modal-dialog.dynamic-popup-dialog';
+var modalDialogCenter = 'modal-dialog-centered';
 var modalContent = '.modal-content.dynamic-popup-content .modal-body';
+var modalHeader = '.modal-header';
 var closeButton = '.modal-header button.close';
 var modalShowClass = 'show';
 var modalIdAll = '#dynamic-modal-all';
@@ -41,6 +43,9 @@ function configurePopup(data, popupId) {
     var popupContent = data.popupContent;
 
     $popup.addClass(data.popupPosition);
+    if (data.popupPosition === 'center') {
+        $modalDialog.addClass(modalDialogCenter);
+    }
     $popup.find(closeButton).removeClass('d-none');
     $modalDialog.addClass(data.popupSize).addClass(data.popupAnimation);
     $popup.find(modalContent).empty().append(popupContent);
@@ -48,6 +53,7 @@ function configurePopup(data, popupId) {
         .find(closeButton)
         .addClass(data.popupCloseButtonPosition)
         .removeClass('d-none');
+    $popup.find(modalHeader).addClass(data.popupCloseButtonPosition);
 }
 
 /**

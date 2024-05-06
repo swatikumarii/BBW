@@ -270,9 +270,6 @@ server.post(
  */
 server.append(
     'Confirm',
-    consentTracking.consent,
-    server.middleware.https,
-    csrfProtection.generateToken,
     function (req, res, next) {
         // send email when order total 0
         var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
@@ -280,6 +277,9 @@ server.append(
         var OrderMgr = require('dw/order/OrderMgr');
         var order = OrderMgr.getOrder(viewData.order.orderNumber);
         if (order && order.totalGrossPrice.value === 0) {
+            commonHelper.zeroOrderEmail(viewData.order);
+        }
+        if (order && order.totalGrossPrice.value > 0) {
             commonHelper.zeroOrderEmail(viewData.order);
         }
         return next();

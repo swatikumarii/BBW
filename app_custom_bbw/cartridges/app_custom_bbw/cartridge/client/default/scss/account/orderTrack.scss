@@ -7,15 +7,64 @@
 
     .tracking-header {
         margin: 0 auto;
+        width: 100%;
+
+        @include media-up(sm) {
+            margin: 0 auto;
+            width: 955px;
+            margin-right: 84px;
+        }
+
+        @include media-btw(sm, lg) {
+            width: 100%;
+        }
 
         h1 {
+            width: 100%;
             padding-bottom: 0.9375rem;
             border-bottom: 1px solid colour(black, 3);
             line-height: 1.3125rem;
+
+            @include media-up(sm) {
+                padding-bottom: 0.9375rem;
+                border-bottom: 1px solid colour(black, 3);
+                line-height: 1.3125rem;
+                width: 955px;
+            }
+
+            @include media-btw(sm, lg) {
+                width: 100%;
+            }
+        }
+
+        .error-form {
+            width: 100%;
+            color: colour(red);
+            margin: 5px 0;
+            text-align: left;
+            position: relative;
+
+            @include media-up(sm) {
+                width: 955px;
+            }
+
+            @include media-btw(sm, lg) {
+                width: 100%;
+            }
         }
 
         .tracking-field-para {
             padding: 20px 0 0;
+            width: 100%;
+
+            @include media-up(sm) {
+                width: 955px;
+                padding: 20px 0 0;
+            }
+
+            @include media-btw(sm, lg) {
+                width: 100%;
+            }
         }
 
         p {
@@ -23,8 +72,8 @@
             width: fit-content;
             float: right;
             line-height: 1rem;
-            letter-spacing: 0.015em;
-            margin-right: 9px;
+            letter-spacing: 0.21px;
+            margin-right: 30px;
 
             .required-indicator {
                 color: colour(red, 9);

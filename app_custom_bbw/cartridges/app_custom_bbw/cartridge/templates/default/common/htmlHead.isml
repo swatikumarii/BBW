@@ -6,7 +6,7 @@
 
 <iscomment>The page meta data will be replaced by rule based content if it's available</iscomment>
 <isif condition="${dw.system.System.getInstanceType() != dw.system.System.PRODUCTION_SYSTEM}">
-    <title>${pdict.CurrentPageMetaData.title} ${' | '} ${Resource.msg('global.site.name', 'version', null)} ${' | '} ${Resource.msg('global.version.number', 'version', null)}</title>
+    <title>${pdict.CurrentPageMetaData.title}</title>
 <iselse/>
     <title>
         <isprint value="${pdict.CurrentPageMetaData.title}" encoding="htmlcontent" />
@@ -24,7 +24,7 @@
         <meta property="<isprint value="${pageMetaTag.ID}">" content="<isprint value="${pageMetaTag.content}">">
     </isif>
 </isloop>
-
+<isprint value="${dw.system.HookMgr.callHook('app.template.htmlHead.seo', 'htmlHead', pdict) || ''}" encoding="off" />
 <link rel="icon" type="image/png" href="${URLUtils.staticURL('/images/favicons/favicon-196x196.png')}" sizes="196x196" />
 <link rel="icon" type="image/png" href="${URLUtils.staticURL('/images/favicons/favicon-96x96.png')}" sizes="96x96" />
 <link rel="icon" type="image/png" href="${URLUtils.staticURL('/images/favicons/favicon-32x32.png')}" sizes="32x32" />

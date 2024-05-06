@@ -14,5 +14,6 @@ module.exports = function fullProduct(product, apiProduct, options) {
     decorators.return(product, apiProduct);
     decorators.usageInstruction(product, apiProduct);
     decorators.ingredients(product, apiProduct);
+    decorators.moreInfo(product, apiProduct);
     return product;
 };

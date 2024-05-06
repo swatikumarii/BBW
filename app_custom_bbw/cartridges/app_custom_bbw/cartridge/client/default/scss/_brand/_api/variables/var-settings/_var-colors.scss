@@ -57,6 +57,8 @@ $clr-green-1: #007d48;
 $clr-green-2: #007a14;
 $clr-green-3: #00570b;
 $clr-green-4: #1d6b49;
+$clr-green-5: #e9ffe9;
+$clr-green-6: #e6f7eb;
 $clr-red: #cb0100;
 $clr-red-1: #fe5000;
 $clr-red-2: #ff0015;
@@ -67,6 +69,7 @@ $clr-red-6: #a70e00;
 $clr-red-7: #b21e34;
 $clr-red-8: #ce2127;
 $clr-red-9: #c00;
+$clr-red-10: #ffe9e9;
 $clr-brown: #aa8275;
 $clr-brown-1: #ba861e;
 $orange: #f89021;
@@ -131,7 +134,9 @@ $map-colors: (
         1: $clr-green-1,
         2: $clr-green-2,
         3: $clr-green-3,
-        4: $clr-green-4
+        4: $clr-green-4,
+        5: $clr-green-5,
+        6: $clr-green-6
     ),
     red: (
         base: $clr-red,
@@ -143,7 +148,8 @@ $map-colors: (
         6: $clr-red-6,
         7: $clr-red-7,
         8: $clr-red-8,
-        9: $clr-red-9
+        9: $clr-red-9,
+        10: $clr-red-10
     ),
     brown: (
         base: $clr-brown,

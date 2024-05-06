@@ -145,6 +145,65 @@
         width: 24px;
         margin-right: 45px;
     }
+
+    #add-to-cart-snackbar {
+        visibility: hidden;
+        z-index: 1;
+        position: fixed;
+        bottom: 32px;
+        left: 50%;
+        transform: translate(-50%);
+        box-shadow:
+            0 8px 10px 1px rgba(0, 0, 0, 14%),
+            0 3px 14px 2px rgba(0, 0, 0, 12%),
+            0 5px 5px -3px rgba(0, 0, 0, 2%);
+        width: 320px;
+        padding: 14px 16px 14px 46px;
+        gap: 8px;
+        background-color: colour(green, 6);
+        color: colour(green, 2);
+
+        &::before {
+            background-image: url("../../images/pdp/check-circle-fill.svg");
+            height: 24px;
+            left: 13px;
+            position: absolute;
+            width: 24px;
+            background-repeat: no-repeat;
+            content: "";
+        }
+
+        &.show {
+            visibility: visible;
+            animation:
+                fadein 0.5s,
+                fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    }
 }
 
 .product-detail {
@@ -200,4 +259,37 @@
     width: 40px;
     float: left;
     margin-right: 10px;
+}
+
+.pdp-popover {
+    border: 1px solid colour(gray);
+    box-shadow: 0 0 13px 0 rgba(0, 0, 0, 15%);
+    color: colour(black, 1);
+    padding: 1.5rem 0.5rem 1.5rem 0;
+    overflow-y: initial;
+    left: 5% !important;
+    border-radius: 0;
+
+    .popover-body {
+        overflow-y: scroll;
+        max-height: 6.25rem;
+        padding: 0 1rem;
+    }
+
+    .popover-header {
+        display: none;
+    }
+
+    .arrow {
+        left: 14px !important;
+    }
+
+    .close {
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background-size: 0.8125rem;
+    }
 }

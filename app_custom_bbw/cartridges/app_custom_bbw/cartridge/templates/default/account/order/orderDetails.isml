@@ -24,13 +24,13 @@
                 </p>
             </div>
             <div class="order-detail-with-image d-flex align-items-center">
-                <img width="25px" height="25px" alt=""
+                <img width="25px" height="25px" alt="${Resource.msg('label.heart.filled', 'order', null)}"
                     src="${URLUtils.staticURL('/images/account/heart-filled-32.svg')}" />
                 <span class="image-space-1"></span>
-                <img width="70px" height="70px" alt=""
+                <img width="70px" height="70px" alt="${Resource.msg('label.shipping.truck', 'order', null)}"
                     src="${URLUtils.staticURL('/images/account/shipping-truck-32.svg')}" />
                 <span class="image-space-2"></span>
-                <img width="60px" height="60px" alt=""
+                <img width="60px" height="60px" alt="${Resource.msg('label.shipping.box', 'order', null)}"
                     src="${URLUtils.staticURL('/images/account/shipping-box-32.svg')}" />
             </div>
 
