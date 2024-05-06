@@ -80,7 +80,7 @@
                         </div>
                     </div>
                     <div class="row no-gutter mt-4">
-                        <div class="col-12 fragrance-list-data">
+                        <div class="col-md-11 fragrance-list-data">
                             <isloop iterator="${pdict.fragranceNames}" alias="fragranceGroup" status="loopstate">
                                 <div id="${fragranceGroup.key}"
                                     class="alphabet-group-${fragranceGroup.key} alphabetically-data">

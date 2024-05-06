@@ -115,6 +115,8 @@ body {
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
                     gap: 40px;
+                    margin: 0 auto;
+                    max-width: 974px;
                 }
 
                 @include media-btw(sm, lg) {
