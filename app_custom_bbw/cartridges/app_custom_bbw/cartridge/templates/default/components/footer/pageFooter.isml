@@ -33,6 +33,7 @@
                                                     aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" required/>
                                                     <div class="newletter-msg js-newsletter-msg bg-transparent h-font-size--14 m-0"></div>
                                                </div>
+                                                <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
                                                 <span class="input-group-append ml-0">
                                                     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
                                                         <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
