@@ -20,6 +20,8 @@ if (layout.isMobile()) {
     $('.level-1-li').on('click', function () {
         if ($(this).hasClass('active')) {
             $(this).children('.level-2-ul').removeClass('active');
+            $('.level-2-li').removeClass('active');
+            $('.level-3-ul').removeClass('active');
             $(this).removeClass('active');
         } else {
             $('.level-1-li').removeClass('active');

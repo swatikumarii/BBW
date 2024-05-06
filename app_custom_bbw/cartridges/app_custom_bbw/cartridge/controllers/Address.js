@@ -14,7 +14,8 @@ var Resource = require('dw/web/Resource');
  */
 server.append('List', function (req, res, next) {
     var viewData = res.getViewData();
-
+    var addressForm = server.forms.getForm('address');
+    addressForm.clear();
     var breadcrumbs = [
         {
             htmlValue: Resource.msg('global.home', 'common', null),
@@ -30,9 +31,8 @@ server.append('List', function (req, res, next) {
         }
     ];
     viewData.breadcrumbs = breadcrumbs;
-
+    viewData.addressForm = addressForm;
     res.setViewData(viewData);
-
     next();
 });
 
