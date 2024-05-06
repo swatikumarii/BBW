@@ -62,6 +62,7 @@
             <preference preference-id="hardTimeout">360</preference>
             <preference preference-id="softTimeout">45</preference>
             <preference preference-id="popupDuration">2</preference>
+            <preference preference-id="careersEmail"></preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
@@ -116,6 +117,7 @@
             <preference preference-id="hardTimeout">360</preference>
             <preference preference-id="softTimeout">45</preference>
             <preference preference-id="popupDuration">2</preference>
+            <preference preference-id="careersEmail"></preference>
         </staging>
         <production/>
     </custom-preferences>
