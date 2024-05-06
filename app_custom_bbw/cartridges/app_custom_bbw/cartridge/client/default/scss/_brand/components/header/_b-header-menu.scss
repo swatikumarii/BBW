@@ -6,6 +6,36 @@
             position: inherit;
 
             .level-1-ul {
+                .nav-link {
+                    padding: 0.8125rem 0.875rem 0.5rem;
+                    line-height: 1.25rem;
+                    letter-spacing: 0.01em;
+                    border-bottom: 0.1875rem solid transparent;
+                    transition: border 0.5s ease-out;
+
+                    &:hover {
+                        color: colour(black, 1);
+                    }
+
+                    @include media-up(sm) {
+                        &::after {
+                            content: none;
+                        }
+                    }
+
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+
+                .nav-item {
+                    &:hover {
+                        .nav-link {
+                            border-bottom: 0.1875rem solid colour(blue);
+                        }
+                    }
+                }
+
                 .level-1-li {
                     .dropdown-link {
                         text-wrap: wrap;
@@ -13,34 +43,6 @@
 
                     @include media-up(sm) {
                         position: inherit;
-
-                        &:hover {
-                            .level-1-link {
-                                border-bottom: 0.1875rem solid colour(blue);
-                            }
-                        }
-
-                        .level-1-link {
-                            padding: 0.8125rem 0.875rem 0.5rem;
-                            line-height: 1.25rem;
-                            letter-spacing: 0.01em;
-                            border-bottom: 0.1875rem solid transparent;
-                            transition: border 0.5s ease-out;
-
-                            &:hover {
-                                color: colour(black, 1);
-                            }
-
-                            @include media-up(sm) {
-                                &::after {
-                                    content: none;
-                                }
-                            }
-
-                            &:focus {
-                                outline: 0;
-                            }
-                        }
 
                         .menu-wrap-level-1 {
                             max-height: 500px;
@@ -165,14 +167,13 @@
         position: fixed;
         top: 0;
         bottom: 0;
-        display: block;
         background-color: colour(white);
         z-index: 9;
         left: -100%;
         transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-        a:focus {
-            outline: 0;
+        a:active {
+            color: colour(gray, 2);
         }
 
         .mobile-navbar {
@@ -369,7 +370,7 @@
             transition-property: visibility, opacity, top;
             transition-duration: 0.5s;
             transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            display: block;
+            display: initial;
 
             &.active {
                 top: 0;
