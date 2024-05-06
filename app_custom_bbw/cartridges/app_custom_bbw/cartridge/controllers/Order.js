@@ -281,9 +281,6 @@ server.append(
             if (order && order.totalGrossPrice.value === 0) {
                 commonHelper.zeroOrderEmail(viewData.order);
             }
-            if (order && order.totalGrossPrice.value > 0) {
-                commonHelper.zeroOrderEmail(viewData.order);
-            }
             // redirection url
             if (order.paymentStatus.value === Order.ORDER_STATUS_FAILED) {
                 res.redirect(URLUtils.url('Order-Failed'));
