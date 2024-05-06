@@ -3,6 +3,16 @@
 .orderTracking-banner {
     .slot-banner {
         margin-bottom: 2.8125rem;
+
+        .md-banner-img {
+            @include media-up(sm) {
+                    width: 955px;
+                }
+            
+                @include media-btw(sm, lg) {
+                    width: 768px;
+                }
+        }
     }
 
     .tracking-header {
@@ -139,7 +149,14 @@
             padding: 0;
             line-height: 2.0625rem;
             max-height: 2.1875rem;
+            letter-spacing: 1.32px;
             min-height: 2.1875rem;
+
+            &:focus {
+                    color: colour(black, 3);
+                    border-color: colour(gray, 1);
+                    background-color: colour(white);
+            }
         }
     }
 

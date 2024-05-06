@@ -274,13 +274,8 @@ module.exports = $.extend({}, base, {
                         data: form,
                         success: function (data) {
                             if (data.error) {
-                                $('.reserve-stock-toast p').text(data.message);
-                                $('.reserve-stock-toast.toast').toast('show');
-                                setTimeout(function () {
-                                    $('.reserve-stock-toast.toast').toast(
-                                        'hide'
-                                    );
-                                }, 3000);
+                                $('.reserve-stock p').text(data.message);
+                                $('.reserve-stock').removeClass('d-none');
                             } else {
                                 handlePostCartAdd(data);
                                 $('body').trigger(
@@ -289,6 +284,7 @@ module.exports = $.extend({}, base, {
                                 );
                                 $.spinner().stop();
                                 base.miniCartReportingUrl(data.reportingURL);
+
                                 var addToCartSnackbar = $(
                                     '#add-to-cart-snackbar'
                                 );
