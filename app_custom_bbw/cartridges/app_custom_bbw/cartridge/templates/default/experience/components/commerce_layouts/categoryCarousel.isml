@@ -1,0 +1,28 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addJs('/js/categoryCarousel.js');
+    assets.addCss('/css/experience/components/commerceLayouts/categoryCarousel.css');
+</isscript>
+
+<div class="h-dsp-md--grid cmp-category-carousel ${pdict.sectionCustomClass ? pdict.sectionCustomClass : ''}">
+    <isprint value="${pdict.regions.leftContent.setClassName('cmp-category-carousel__leftContent').render()}"
+        encoding="off" />
+
+    <div class="shop-the-module-wrapper">
+        <isif condition="${pdict.carouselTitle !== ''}">
+            <h2>${pdict.carouselTitle}</h2>
+        </isif>
+        <div class="shop-the-module ds-smooth-scroll d-flex js-shop-the-module-scroll">
+            <isloop items="${pdict.selectedProducts}" var="onlineProduct" status="loopstate">
+                <div class="shop-the-module__slide js-shop-the-module-slide">
+                    <div class="ds-shop-the-image-product-tile">
+                        <isinclude url="${URLUtils.url('Tile-Show', 'pid', onlineProduct.id)}" />
+                    </div>
+                </div>
+            </isloop>
+        </div>
+        <isif condition="${pdict.shopButtonLink !== ''}">
+            <a href="${pdict.shopButtonLink}">${pdict.shopButtonText}</a>
+        </isif>
+    </div>
+</div>

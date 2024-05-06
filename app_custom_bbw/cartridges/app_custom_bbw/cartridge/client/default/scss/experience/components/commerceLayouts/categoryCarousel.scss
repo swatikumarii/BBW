@@ -1,0 +1,123 @@
+@import "../../../_brand/_api/api";
+
+.cmp-category-carousel {
+    margin: 0 16px;
+
+    @include media-up(md) {
+        grid-template-columns: repeat(12, 1fr);
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        gap: 32px;
+    }
+
+    &__leftContent {
+        margin: 0 16px 16px;
+
+        @include media-up(md) {
+            grid-column: 1 / 7;
+            margin: 0 auto;
+        }
+
+        @include media-btw(sm, md) {
+            max-width: 600px;
+            margin: 0 auto 16px;
+        }
+    }
+
+    .shop-the-module-wrapper {
+        padding-top: 16px;
+
+        @include media-up(md) {
+            grid-column: 7 / 13;
+            padding-top: 0;
+        }
+    }
+
+    .shop-the-module {
+        overflow: hidden scroll;
+        cursor: grab;
+        column-gap: 16px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        @include media-up(md) {
+            column-gap: 32px;
+        }
+
+        &__slide {
+            min-height: 100%;
+            margin-top: auto;
+            margin-bottom: 0;
+            flex: 1;
+            min-width: 253px;
+
+            @include media-up(md) {
+                min-width: 200px;
+            }
+
+            @include media-btw(sm, md) {
+                padding-bottom: 20px;
+            }
+
+            .ds-shop-the-image-product-tile {
+                .b-product-tile {
+                    color: colour(gray, 8);
+                    position: relative;
+                    text-align: left;
+                    display: table-cell;
+                    vertical-align: top;
+                    line-height: 1.2;
+                    height: 100%;
+
+                    @include media-up(md) {
+                        max-width: 256px;
+                    }
+
+                    &__img-wrapper {
+                        a {
+                            user-select: none;
+                        }
+                    }
+
+                    &__img {
+                        height: auto;
+                        max-height: 160px;
+                        max-width: 100%;
+                    }
+
+                    &__quickview,
+                    &__wishlistTile,
+                    &__availability {
+                        display: none !important;
+                    }
+
+                    &__carousel {
+                        .slider-control {
+                            bottom: 60px;
+                        }
+
+                        .slider-control.carousel-control-prev {
+                            left: 0;
+                        }
+
+                        .slider-control.carousel-control-next {
+                            right: 0;
+                        }
+                    }
+
+                    &__badge,
+                    &__link {
+                        margin-bottom: 8px;
+                    }
+
+                    .tile-body-footer {
+                        margin-top: 8px;
+                    }
+                }
+            }
+        }
+    }
+}

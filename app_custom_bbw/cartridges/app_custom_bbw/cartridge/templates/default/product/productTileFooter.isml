@@ -1,11 +1,11 @@
-<div class="row tile-body-footer no-gutters">
+<div class="row tile-body-footer no-gutters flex-column">
     <isif condition="${!product.available}">
         <div class="notify-me main-quantity-${product.id}">
             <span class="notify-me-available-msg"></span>
             <input type="hidden" id="notify-list-msg" value="${Resource.msg('button.notifyInList', 'notifyMe', null)}" />
             <input type="hidden" id="notify-msg" value="${Resource.msg('button.notifyMe', 'notifyMe', null)}" />
             <isif condition="${product.enableNotifyMe}">
-                <button type="button" class="btn notifyBackInStockButton" data-url="${URLUtils.url('BackInStock-CheckLogin')}"
+                <button type="button" class="btn btn-block notifyBackInStockButton notify-me-btn" data-url="${URLUtils.url('BackInStock-CheckLogin')}"
                     data-pid="${product.id}"
                     data-img="${product.images.large ? product.images.large[0].url : product.images.medium[0].url}"
                     data-pname="${product.productName}"> ${Resource.msg('button.notifyMe', 'notifyMe', null)} </button>
