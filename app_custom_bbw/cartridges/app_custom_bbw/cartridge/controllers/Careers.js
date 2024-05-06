@@ -28,7 +28,7 @@ server.get('Show', function (req, res, next) {
  * @function
  * @memberof Careers
  */
-server.get('ApplyForJob',
+server.get('ApplyForJob', csrfProtection.generateToken,
     function (req, res, next) {
         var careersHelpers = require('*/cartridge/scripts/helpers/careersHelpers');
         var Site = require('dw/system/Site');
@@ -55,7 +55,7 @@ server.get('ApplyForJob',
  * @memberof Careers
  */
 server.post('SubmitJobApplication', server.middleware.https,
-    csrfProtection.generateToken,
+    csrfProtection.validateAjaxRequest,
     function (req, res, next) {
         var jobId = req.querystring.jobId;
         var LinkedHashMap = require('dw/util/LinkedHashMap');

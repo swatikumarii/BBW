@@ -6,5 +6,9 @@
             ${Resource.msg('button.addToBag', 'common', null)}
         </button>
         <span class="add-to-cart-error text-danger"></span>
+        <div class="reserve-stock-toast toast mt-3 hide" data-autohide="false">
+            <p class="text-center h-clr--red"></p>
+        </div>
+        <div id="add-to-cart-snackbar">${Resource.msg('item.added', 'common', null)}</div>
     </div>
 </div>

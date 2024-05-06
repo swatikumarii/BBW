@@ -1,0 +1,2 @@
+${Resource.msgf('email.body.order.payment.faiure', 'order', null, pdict.order.customerName, pdict.order.orderEmail, pdict
+    .order.orderNumber, pdict.order.createdBy)}

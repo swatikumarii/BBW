@@ -44,7 +44,7 @@ module.exports = $.extend({}, detail, {
 
 /** Wishlist toast message */
 $('#add-to-wish-list').click(function () {
-    $('.toast').toast('show');
+    $('.wishlist-toast.toast').toast('show');
 });
 
 /** PDP Accordion */

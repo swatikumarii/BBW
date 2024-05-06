@@ -82,9 +82,7 @@ module.exports = {
                 },
                 error: function (data) {
                     $('form button[type="submit"]').spinner().stop();
-                    if (data.responseJSON.redirectUrl) {
-                        window.location.href = data.responseJSON.redirectUrl;
-                    }
+                    $('.job-error').css('display', 'block');
                 }
             });
             return false;

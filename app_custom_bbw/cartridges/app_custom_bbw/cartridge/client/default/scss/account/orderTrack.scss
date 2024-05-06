@@ -6,6 +6,7 @@
     }
 
     .tracking-header {
+        margin: 0 auto;
         width: 100%;
 
         @include media-up(sm) {
@@ -14,7 +15,7 @@
             margin-right: 84px;
         }
 
-        @include media-up(md) {
+        @include media-btw(sm, lg) {
             width: 100%;
         }
 
@@ -37,7 +38,6 @@
         }
 
         .error-form {
-            padding: 8px 20px 8px 44px;
             width: 100%;
             color: colour(red);
             margin: 5px 0;

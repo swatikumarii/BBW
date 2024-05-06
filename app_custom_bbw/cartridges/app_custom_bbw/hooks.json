@@ -3,6 +3,10 @@
         {
             "name": "notify.backInStock.threshold",
             "script": "./cartridge/scripts/hooks/notifyOOS/threshold.js"
+        },
+        {
+            "name": "dw.ocapi.shop.order.afterPATCH",
+            "script": "./cartridge/scripts/hooks/order/updateOrderStatus.js"
         }
     ]
 }

@@ -16,12 +16,6 @@
             margin-right: 0;
         }
 
-        @include media-down(sm) {
-            .carousel-item {
-                pointer-events: none;
-            }
-        }
-
         .icon-next,
         .icon-prev {
             background-color: transparent;
@@ -344,10 +338,11 @@
                     }
                 }
 
-                .notifyBackInStockButton {
+                .notifyBackInStockButton,
+                .out-of-stock {
                     width: 11.4375rem;
                     font-size: 1rem;
-                    font-weight: 600;
+                    font-weight: map-get($font-weight, semibold);
                     letter-spacing: 0.24px;
                     line-height: 1.25rem;
                     text-transform: uppercase;
@@ -455,14 +450,25 @@
             opacity: 1;
             background: url("../../images/pdp/PDP-Wishlist-2.svg") no-repeat 50%;
 
-            &.added {
-                background: url("../../images/pdp/PDP-Wishlist-4.svg") no-repeat
+            &:hover {
+                background: url("../../images/pdp/PDP-Wishlist-3.svg") no-repeat
                     50%;
+            }
+        }
 
-                &:hover {
-                    background: url("../../images/pdp/PDP-Wishlist-5.svg")
-                        no-repeat 50%;
-                }
+        .remove-from-wishlist {
+            padding: 0;
+            transition: all 0.3s ease;
+            width: 38px;
+            height: 36px;
+            float: right;
+            cursor: pointer;
+            opacity: 1;
+            background: url("../../images/pdp/PDP-Wishlist-4.svg") no-repeat 50%;
+
+            &:hover {
+                background: url("../../images/pdp/PDP-Wishlist-5.svg") no-repeat
+                    50%;
             }
         }
     }
@@ -509,10 +515,11 @@
     }
 }
 
-.toast {
+.wishlist-toast {
     position: absolute;
     right: -15px;
     top: 36px;
+    animation: expand 5s;
 
     p {
         font-size: 16px;
@@ -524,6 +531,94 @@
     }
 }
 
+@keyframes expand {
+    0% {
+        height: 0;
+    }
+
+    100% {
+        height: 200px;
+    }
+}
+
+.reserve-stock-toast {
+    position: absolute;
+    right: 0;
+    top: 36px;
+
+    @include media-up(md) {
+        right: -15px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 20px;
+        line-height: 1.25rem;
+        letter-spacing: 0.01em;
+        color: colour(gray, 4);
+        margin: 10px 0;
+    }
+}
+
+#add-to-cart-snackbar {
+    visibility: hidden;
+    z-index: 1;
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translate(-50%);
+    box-shadow:
+        0 8px 10px 1px rgba(0, 0, 0, 14%),
+        0 3px 14px 2px rgba(0, 0, 0, 12%),
+        0 5px 5px -3px rgba(0, 0, 0, 2%);
+    width: 320px;
+    padding: 14px 16px 14px 46px;
+    gap: 8px;
+    background-color: colour(green, 6);
+    color: colour(green, 2);
+
+    &::before {
+        background-image: url("../../images/pdp/check-circle-fill.svg");
+        height: 24px;
+        left: 13px;
+        position: absolute;
+        width: 24px;
+        background-repeat: no-repeat;
+        content: "";
+    }
+
+    &.show {
+        visibility: visible;
+        animation:
+            fadein 0.5s,
+            fadeout 0.5s 2.5s;
+    }
+
+    @keyframes fadein {
+        from {
+            bottom: 0;
+            opacity: 0;
+        }
+
+        to {
+            bottom: 30px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeout {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
+    }
+}
+
 .wish-list-image {
     background: url("../../images/pdp/PDP-Wishlist-4.svg") no-repeat 50%;
     margin: auto;
@@ -531,133 +626,6 @@
     width: 40px;
     float: left;
     margin-right: 10px;
-}
-
-#requestUserEmailForOOSModal {
-    &.modal {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0, 0, 0);
-        background-color: rgba(0, 0, 0, 40%);
-        animation-name: fade-in;
-        animation-duration: 0.4s;
-    }
-
-    /* Modal Content */
-    .modal-dialog {
-        margin: 0;
-        position: fixed;
-        right: -500px;
-        background-color: #fefefe;
-        animation-name: slide-in;
-        animation-duration: 0.4s;
-        left: auto;
-        max-width: 720px;
-        width: 50%;
-        height: 100%;
-        bottom: auto;
-        transition: 0.4s ease right;
-        transform: none;
-
-        @include media-down(sm) {
-            max-width: 320px;
-            width: auto;
-        }
-    }
-
-    .modal-content {
-        padding: 73px 40px 40px;
-        height: 100%;
-        overflow-y: auto;
-        border-radius: 0;
-        border: none;
-        position: relative;
-
-        .modal-header {
-            background-color: colour(white);
-            border: 0;
-            text-align: center;
-            display: block;
-
-            h2 {
-                font-size: 32px;
-                line-height: 40px;
-                letter-spacing: 2px;
-                margin-bottom: 22px;
-            }
-
-            span {
-                font-size: 14px;
-                line-height: 24px;
-                color: colour(black, 1);
-                display: block;
-                text-align: center;
-                letter-spacing: 0.5px;
-            }
-        }
-
-        .notifyme-modal-body {
-            .image-container {
-                margin-top: 55px;
-                text-align: center;
-            }
-        }
-
-        .send-email-btn {
-            margin: 0 auto;
-            text-align: center;
-
-            button {
-                min-width: 320px;
-                width: auto;
-                margin: 43px auto 0;
-                font-size: 14px;
-                line-height: 24px;
-                letter-spacing: 2px;
-            }
-        }
-    }
-
-    /* The Close Button */
-    .close {
-        position: absolute;
-        top: 15px;
-        left: 0;
-
-        img {
-            width: 25px;
-        }
-    }
-
-    .modal-body {
-        padding: 2px 16px;
-    }
-
-    @keyframes slide-in {
-        from {
-            right: -500px;
-            opacity: 0;
-        }
-
-        to {
-            right: 0;
-            opacity: 1;
-        }
-    }
-
-    @keyframes fade-in {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            opacity: 1;
-        }
-    }
 }
 
 .outOfstockModal.modal.modal-right.fade.show .modal-dialog {

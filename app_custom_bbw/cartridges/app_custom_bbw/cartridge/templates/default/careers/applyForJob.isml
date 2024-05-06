@@ -19,6 +19,7 @@
             </div>
             <div class=" jobForm application_details">
                 <div class="application_details">
+                    <div class="job-error">${Resource.msg('something.went.wrong', 'careers', null)}</div>
                     <form action="${URLUtils.url('Careers-SubmitJobApplication', 'jobId', pdict.jobId)}" id="job"
                         novalidate class="job-application form-control is-invalid" method="POST"
                         name="${pdict.jobApplicationForm.htmlName}" enctype="multipart/form-data">
@@ -87,6 +88,7 @@
                                 encoding="off" />></textarea>
                             <div class="invalid-feedback" id="form-yourself-error"></div>
                         </div>
+                        <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
                         <button type="submit" class="send-resume">
                             ${Resource.msg('label.input.send', 'careers', null)}
                         </button>

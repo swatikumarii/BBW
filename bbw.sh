@@ -77,6 +77,8 @@ then
     else
     echo "Authentication Failed."
     fi
+    rm $FOLDER_TO_UPLOAD.zip
+    echo "${IS_DATA_IMPORTED.status}"
 fi
 echo "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-"
 echo "Done!"

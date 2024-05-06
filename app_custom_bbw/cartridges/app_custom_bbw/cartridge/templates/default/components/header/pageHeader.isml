@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <div class="bbw-menu mx-auto main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown d-none d-md-block"
+        <div class="bbw-menu mx-auto main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
             id="sg-navbar-collapse">
             <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
         </div>

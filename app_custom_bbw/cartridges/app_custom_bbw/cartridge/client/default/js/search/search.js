@@ -105,7 +105,7 @@ function adjustProductGrid(elements) {
 
             // Sync heights of various elements
             slicedElements.find('.b-product-tile__name').syncHeight();
-            slicedElements.syncHeight();
+            // slicedElements.syncHeight();
 
             // Update start and end index for the next iteration
             startIndex = endIndex;

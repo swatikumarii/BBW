@@ -801,6 +801,21 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="jobNotificationToEmail">
+                <display-name xml:lang="x-default">Job Notification To Email</display-name>
+                <description xml:lang="x-default">Email address to trigger email notifications</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="jobNotificationCCEmail">
+                <display-name xml:lang="x-default">Job Notification CC Email</display-name>
+                <description xml:lang="x-default">Comma-separated CC email address to trigger job notifications</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="careersEmail">
                 <display-name xml:lang="x-default">Careers Email</display-name>
                 <description xml:lang="x-default">The resumes of the candidates will be received at this email address.</description>
@@ -919,6 +934,11 @@
                 <display-name xml:lang="x-default">Nationality</display-name>
                 <attribute attribute-id="nationality"/>
                 <attribute attribute-id="nationalities"/>
+            </attribute-group>
+                <attribute-group group-id="jobNotifications">
+                <display-name xml:lang="en-AU">Job Notifications</display-name>
+                <attribute attribute-id="jobNotificationToEmail"/>
+                <attribute attribute-id="jobNotificationCCEmail"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -1804,6 +1824,18 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="failedPaymentNotification">
+                <display-name xml:lang="x-default">Failed Payment Notification</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="readyToShip">
+                <display-name xml:lang="x-default">Is order ready to ship?</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="AdyenPayments">
@@ -1821,6 +1853,10 @@
             <attribute-group group-id="CashAppPay">
                 <display-name xml:lang="x-default">Cash App Pay</display-name>
                 <attribute attribute-id="isCashAppPayOrder"/>
+            </attribute-group>
+            <attribute-group group-id="notification">
+                <display-name xml:lang="x-default">Failed Payment Notification Sent?</display-name>
+                <attribute attribute-id="failedPaymentNotification"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
