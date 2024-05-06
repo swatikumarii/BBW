@@ -1,0 +1,16 @@
+<div id="submissionPopup" class="modal autologout-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered generic-modal-container modal-large" role="document">
+        <div class="modal-content h-font-size--16 h-auto submissionPopupContent">
+            <div class="modal-header">
+                <button type="button" class="close modal-close-icon" data-dismiss="modal" aria-label="Close">
+                </button>
+                <p>
+                    <input type="hidden" class="thankyou-text"
+                       value="${Resource.msg('text.thankyou.msg', 'careers', null)}">
+                </p>
+            </div>
+            <div class="modal-body thankyou-body h-font-size--16 text-left">
+            </div>
+        </div>
+    </div>
+</div>
