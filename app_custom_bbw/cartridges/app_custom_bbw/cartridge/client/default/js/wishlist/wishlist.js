@@ -106,11 +106,11 @@ module.exports = $.extend({}, wishlist, {
                         $('.loginPopup').find('#exampleModalLong').modal('hide');
                     }
                     if (data.success) {
-                        $('.add-to-wish-list').addClass('added');
                         $('.remove-from-wishlist').removeClass('d-none');
                         $('.add-to-wish-list').addClass('d-none');
                     } else {
-                        $('.add-to-wish-list').removeClass('added');
+                        $('.remove-from-wishlist').addClass('d-none');
+                        $('.add-to-wish-list').removeClass('d-none');
                     }
                     $.spinner().stop();
                 },
@@ -140,7 +140,6 @@ module.exports = $.extend({}, wishlist, {
                         $('.wishlist-account-card').append(html);
                         $('.wishlist-account-card').spinner().stop();
                         $('.remove-from-wishlist').addClass('d-none');
-                        $('.add-to-wish-list').removeClass('added');
                         $('.add-to-wish-list').removeClass('d-none');
                     },
                     error: function () {
@@ -163,7 +162,6 @@ module.exports = $.extend({}, wishlist, {
                             $('.wishlistItemCardsData').data('page-number') - 1;
                         renderNewPageOfItems(pageNumber, false);
                         $('.remove-from-wishlist').addClass('d-none');
-                        $('.add-to-wish-list').removeClass('added');
                         $('.add-to-wish-list').removeClass('d-none');
                     },
                     error: function () {
