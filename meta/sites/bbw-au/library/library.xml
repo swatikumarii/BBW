@@ -5023,7 +5023,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
   "title" : " ",
   "itemsPerRowDesktop" : 1,
   "columnCustomClass" : null,
-  "gridSectionClass" : "h-maxwidth--1200 mx-auto h-mb--50 h-mt--50 px-3 px-lg-0"
+  "gridSectionClass" : "h-maxwidth--1200 mx-auto h-mb--50 h-mt--50 px-3 px-lg-3"
 }</data>
         <online-flag>true</online-flag>
         <page-attributes/>
@@ -5243,4 +5243,72 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </custom-attributes>
     </content>
 
+    <content content-id="exchange-cannot-return">
+        <display-name xml:lang="x-default">Exchange Cannot Return</display-name>
+        <description xml:lang="x-default">Exchange cannot be returned</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p class="text-justify h-font-size--16 h-clr--gray-4 card-body"&gt;Product cannot be returned&lt;/p&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="exchange-return">
+        <display-name xml:lang="x-default">Exchange Return</display-name>
+        <description xml:lang="x-default">Exchange can be return</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p class="text-justify h-font-size--16 h-clr--gray-4 card-body"&gt;Product can be returned&lt;/p&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+    
+    <content content-id="careers">
+        <display-name xml:lang="x-default">Careers</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;hr/&gt;&#13;
+&lt;div&gt;&#13;
+	&lt;p&gt;BBW takes pride in its entrepreneurial heritage of more than 80 years. Having grown and evolved from a humble trading store, the BBW hallmark is now all about creating world-class retail environments that offer compelling and luxurious shopping experiences.&lt;/p&gt;&#13;
+	&lt;p&gt;We are the ultimate brand for brands in Asia, bringing to the region some of the world’s most desired and beloved brands and introducing cutting-edge retail concepts.&lt;/p&gt;&#13;
+	&lt;p&gt;Among our business priorities are sustainable growth and the desire to create value out of our people and the brands we represent.&lt;/p&gt;&#13;
+	&lt;blockquote&gt;&#13;
+		&lt;p&gt;Fashion a career with us: The key to our success is in being a fully integrated specialist with in-house expertise in all aspects of the retail industry, enabling us to provide end-to-end solutions to our brand partners and stakeholders. There’s always something exciting taking place or in the works and you get to take part in it.&lt;/p&gt;&#13;
+	&lt;/blockquote&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="careers-no-job-available">
+        <display-name xml:lang="x-default">No Job Availale Text</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;html&gt;&#13;
+	&lt;head&gt;&#13;
+		&lt;style&gt;&#13;
+			.no-position h3 {&#13;
+			    text-align: center;&#13;
+                            text-transform: unset;&#13;
+			    font-size: 19px;&#13;
+			    color: black;&#13;
+			    margin-bottom: 0;&#13;
+			    font-family: "ScalaSansOT";&#13;
+			}&#13;
+		&lt;/style&gt;&#13;
+	&lt;/head&gt;&#13;
+	&lt;body&gt;&#13;
+		&lt;div class="no-position"&gt;&#13;
+			&lt;h3&gt;No positions listed. Please check back on this section later&lt;/h3&gt;&#13;
+		&lt;/div&gt;&#13;
+	&lt;/body&gt;&#13;
+&#13;
+&lt;/html&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
 </library>

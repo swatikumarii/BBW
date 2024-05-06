@@ -1,6 +1,5 @@
 'use strict';
 
-
 var base = require('base/product/base');
 
 /**
@@ -12,7 +11,10 @@ function getPidValue($el) {
     var pid;
 
     if ($('#quickViewModal').hasClass('show') && !$('.product-set').length) {
-        pid = $($el).closest('.modal-content').find('.product-quickview').data('pid');
+        pid = $($el)
+            .closest('.modal-content')
+            .find('.product-quickview')
+            .data('pid');
     } else if ($('.product-set-detail').length || $('.product-set').length) {
         pid = $($el).closest('.product-detail').find('.product-id').text();
     } else {
@@ -63,32 +65,49 @@ function chooseBonusProducts(data) {
         bonusUrl = data.showProductsUrlListBased;
     }
 
-    var htmlString = '<!-- Modal -->'
-        + '<div class="modal fade" id="chooseBonusProductModal" tabindex="-1" role="dialog">'
-        + '<span class="enter-message sr-only" ></span>'
-        + '<div class="modal-dialog choose-bonus-product-dialog" '
-        + 'data-total-qty="' + data.maxBonusItems + '"'
-        + 'data-UUID="' + data.uuid + '"'
-        + 'data-pliUUID="' + data.pliUUID + '"'
-        + 'data-addToCartUrl="' + data.addToCartUrl + '"'
-        + 'data-pageStart="0"'
-        + 'data-pageSize="' + data.pageSize + '"'
-        + 'data-moreURL="' + data.showProductsUrlRuleBased + '"'
-        + 'data-bonusChoiceRuleBased="' + data.bonusChoiceRuleBased + '">'
-        + '<!-- Modal content-->'
-        + '<div class="modal-content">'
-        + '<div class="modal-header">'
-        + '    <span class="">' + data.labels.selectprods + '</span>'
-        + '    <button type="button" class="close pull-right" data-dismiss="modal">'
-        + '        <span aria-hidden="true">&times;</span>'
-        + '        <span class="sr-only"> </span>'
-        + '    </button>'
-        + '</div>'
-        + '<div class="modal-body"></div>'
-        + '<div class="modal-footer"></div>'
-        + '</div>'
-        + '</div>'
-        + '</div>';
+    var htmlString =
+        '<!-- Modal -->' +
+        '<div class="modal fade" id="chooseBonusProductModal" tabindex="-1" role="dialog">' +
+        '<span class="enter-message sr-only" ></span>' +
+        '<div class="modal-dialog choose-bonus-product-dialog" ' +
+        'data-total-qty="' +
+        data.maxBonusItems +
+        '"' +
+        'data-UUID="' +
+        data.uuid +
+        '"' +
+        'data-pliUUID="' +
+        data.pliUUID +
+        '"' +
+        'data-addToCartUrl="' +
+        data.addToCartUrl +
+        '"' +
+        'data-pageStart="0"' +
+        'data-pageSize="' +
+        data.pageSize +
+        '"' +
+        'data-moreURL="' +
+        data.showProductsUrlRuleBased +
+        '"' +
+        'data-bonusChoiceRuleBased="' +
+        data.bonusChoiceRuleBased +
+        '">' +
+        '<!-- Modal content-->' +
+        '<div class="modal-content">' +
+        '<div class="modal-header">' +
+        '    <span class="">' +
+        data.labels.selectprods +
+        '</span>' +
+        '    <button type="button" class="close pull-right" data-dismiss="modal">' +
+        '        <span aria-hidden="true">&times;</span>' +
+        '        <span class="sr-only"> </span>' +
+        '    </button>' +
+        '</div>' +
+        '<div class="modal-body"></div>' +
+        '<div class="modal-footer"></div>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
     $('body').append(htmlString);
     $('.modal-body').spinner().start();
 
@@ -99,8 +118,12 @@ function chooseBonusProducts(data) {
         success: function (response) {
             var parsedHtml = parseHtml(response.renderedTemplate);
             $('#chooseBonusProductModal .modal-body').empty();
-            $('#chooseBonusProductModal .enter-message').text(response.enterDialogMessage);
-            $('#chooseBonusProductModal .modal-header .close .sr-only').text(response.closeButtonText);
+            $('#chooseBonusProductModal .enter-message').text(
+                response.enterDialogMessage
+            );
+            $('#chooseBonusProductModal .modal-header .close .sr-only').text(
+                response.closeButtonText
+            );
             $('#chooseBonusProductModal .modal-body').html(parsedHtml.body);
             $('#chooseBonusProductModal .modal-footer').html(parsedHtml.footer);
             $('#chooseBonusProductModal').modal('show');
@@ -120,20 +143,22 @@ function handlePostCartAdd(response) {
     $('.minicart').trigger('count:update', response);
     var messageType = response.error ? 'alert-danger' : 'alert-success';
     // show add to cart toast
-    if (response.newBonusDiscountLineItem
-        && Object.keys(response.newBonusDiscountLineItem).length !== 0) {
+    if (
+        response.newBonusDiscountLineItem &&
+        Object.keys(response.newBonusDiscountLineItem).length !== 0
+    ) {
         chooseBonusProducts(response.newBonusDiscountLineItem);
     } else {
         if ($('.add-to-cart-messages').length === 0) {
-            $('body').append(
-                '<div class="add-to-cart-messages"></div>'
-            );
+            $('body').append('<div class="add-to-cart-messages"></div>');
         }
 
         $('.add-to-cart-messages').append(
-            '<div class="alert ' + messageType + ' add-to-basket-alert text-center" role="alert">'
-            + response.message
-            + '</div>'
+            '<div class="alert ' +
+                messageType +
+                ' add-to-basket-alert text-center" role="alert">' +
+                response.message +
+                '</div>'
         );
 
         setTimeout(function () {
@@ -152,7 +177,10 @@ function getChildProducts() {
     $('.bundle-item').each(function () {
         childProducts.push({
             pid: $(this).find('.product-id').text(),
-            quantity: parseInt($(this).find('label.quantity').data('quantity'), 10)
+            quantity: parseInt(
+                $(this).find('label.quantity').data('quantity'),
+                10
+            )
         });
     });
 
@@ -170,13 +198,15 @@ function getOptions($productContainer) {
         .map(function () {
             var $elOption = $(this).find('.options-select');
             var urlValue = $elOption.val();
-            var selectedValueId = $elOption.find('option[value="' + urlValue + '"]')
+            var selectedValueId = $elOption
+                .find('option[value="' + urlValue + '"]')
                 .data('value-id');
             return {
                 optionId: $(this).data('option-id'),
                 selectedValueId: selectedValueId
             };
-        }).toArray();
+        })
+        .toArray();
 
     return JSON.stringify(options);
 }
@@ -243,13 +273,30 @@ module.exports = $.extend({}, base, {
                         method: 'POST',
                         data: form,
                         success: function (data) {
-                            handlePostCartAdd(data);
-                            $('body').trigger('product:afterAddToCart', data);
-                            setTimeout(function () {
+                            if (data.error) {
+                                $('.reserve-stock-toast p').text(data.message);
+                                $('.reserve-stock-toast.toast').toast('show');
+                                setTimeout(function () {
+                                    $('.reserve-stock-toast.toast').toast(
+                                        'hide'
+                                    );
+                                }, 3000);
+                            } else {
+                                handlePostCartAdd(data);
+                                $('body').trigger(
+                                    'product:afterAddToCart',
+                                    data
+                                );
                                 $.spinner().stop();
-                            }, 300);
-                            base.miniCartReportingUrl(data.reportingURL);
-                            currentAction.addClass('added-to-cart');
+                                base.miniCartReportingUrl(data.reportingURL);
+                                var addToCartSnackbar = $(
+                                    '#add-to-cart-snackbar'
+                                );
+                                addToCartSnackbar.addClass('show');
+                                setTimeout(function () {
+                                    addToCartSnackbar.removeClass('show');
+                                }, 3000);
+                            }
                         },
                         error: function (err) {
                             currentAction

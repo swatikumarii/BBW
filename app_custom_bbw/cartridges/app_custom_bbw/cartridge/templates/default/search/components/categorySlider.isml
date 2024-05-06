@@ -1,7 +1,7 @@
 <nav class="plp-category-swiper ds-smooth-scroll d-flex flex-nowrap h-grid-gap--15 h-mb--30" data-cgid="${pdict.productSearch.category.id}">
     <isloop items="${pdict.productSearch.levelOneCategory.onlineSubCategories}" var="levelTwoCategory">
         <isloop items="${levelTwoCategory.onlineSubCategories}" var="levelThreeCategory">
-            <a class="plp-category-swiper__link rounded b-text-h2 h-fw--medium text-center d-flex flex-column ${pdict.productSearch.category.id === levelThreeCategory.ID ? 'active' : ''}" href="${URLUtils.url('Search-Show', 'cgid', levelThreeCategory.ID)}"
+            <a class="plp-category-swiper__link rounded b-text-h2 h-fw--medium text-center d-flex flex-column js-category-swiper ${pdict.productSearch.category.id === levelThreeCategory.ID ? 'active' : ''}" href="${URLUtils.url('Search-Show', 'cgid', levelThreeCategory.ID)}"
                 data-cgid="${levelThreeCategory.ID}">
                 <img class="plp-category-swiper__image card-img-top mx-auto border-0" src="${levelThreeCategory.thumbnail.absURL}" alt="${levelThreeCategory.name}" />
                 <div class="navigation-label plp-category-swiper__name h-fw--semibold h-font-size--16 d-flex justify-content-center align-items-center h-100">

@@ -339,11 +339,22 @@ module.exports = function () {
                             }
                         );
                     } else {
-                        $('.cart').empty().append('<div class="row"> '
-                            + '<div class="col-12 text-center"> '
-                            + '<h1>' + data.basket.resources.emptyCartMsg + '</h1> '
-                            + '</div> '
-                            + '</div>');
+                        var emptyCartHtml =
+                            '<div class="container text-center">' +
+                            '<div class="row cart-empty">' +
+                            '<div class="col-12 text-center cart-empty-msg-wrap">' +
+                            '<h1 class="h-font-size--24 h-fw--bold h-clr--black-1 cart-empty-msg">' +
+                            data.basket.resources.emptyCartMsg +
+                            '</h1>' +
+                            ' </div>' +
+                            '</div>' +
+                            '<a href="' +
+                            data.basket.continueShoppingLink +
+                            '" class="btn btn-primary empty-cart-continue h-font-size--16 h-fw--semibold">' +
+                            data.basket.resources.continueShoppingMsg +
+                            '</a>' +
+                            '</div>';
+                        $('.cart').empty().append(emptyCartHtml);
                     }
                     $('.number-of-items').empty().append(data.basket.resources.numberOfItems);
                     $('.minicart-quantity').empty().append(data.basket.numItems);
@@ -361,6 +372,14 @@ module.exports = function () {
                     $('.uuid-' + uuid).remove();
                     if (!data.basket.hasBonusProduct) {
                         $('.bonus-product').remove();
+                    }
+                    if ('refreshItems' in data && data.refreshItems) {
+                        $('.cart-lineitems')
+                            .empty()
+                            .append(data.refreshItemsTemplate);
+                        $('.mini-cart-content .product-summary')
+                            .empty()
+                            .append(data.refreshItemsTemplateMinicart);
                     }
                     $('.coupons-and-promos').empty().append(data.basket.totals.discountsHtml);
                     updateCartTotals(data.basket);
@@ -427,15 +446,16 @@ module.exports = function () {
                 updateApproachingDiscounts(data.approachingDiscounts);
                 updateAvailability(data, uuid);
                 validateBasket(data);
+                $(this).data('pre-select-qty', quantity);
+                $('body').trigger('cart:update', data);
                 if ('refreshItems' in data && data.refreshItems) {
                     $('.cart-lineitems')
                         .empty()
                         .append(data.refreshItemsTemplate);
+                    $('.mini-cart-content .product-summary')
+                        .empty()
+                        .append(data.refreshItemsTemplateMinicart);
                 }
-                $(this).data('pre-select-qty', quantity);
-
-                $('body').trigger('cart:update', data);
-
                 $.spinner().stop();
                 if ($(this).parents('.product-info').hasClass('bonus-product-line-item') && $('.cart-page').length) {
                     location.reload();
@@ -518,6 +538,9 @@ module.exports = function () {
                     $('.promo-code-form .form-control').addClass('is-invalid');
                     $('.promo-code-form .form-control').attr('aria-describedby', 'invalidCouponCode');
                     $('.coupon-error-message').empty().append(data.errorMessage);
+                    $('.coupon-error-message').addClass('px-3');
+                    $('.coupon-error-message').addClass('py-2');
+                    $('.coupon-error-message').addClass('d-block');
                     $('body').trigger('promotion:error', data);
                 } else {
                     $('.coupons-and-promos').empty().append(data.totals.discountsHtml);

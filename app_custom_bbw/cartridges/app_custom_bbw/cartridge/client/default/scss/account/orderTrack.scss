@@ -1,3 +1,5 @@
+@import "../_brand/_api/api";
+
 .orderTracking-banner {
     .slot-banner {
         margin-bottom: 2.8125rem;
@@ -5,25 +7,76 @@
 
     .tracking-header {
         margin: 0 auto;
+        width: 100%;
+
+        @include media-up(sm) {
+            margin: 0 auto;
+            width: 955px;
+            margin-right: 84px;
+        }
+
+        @include media-btw(sm, lg) {
+            width: 100%;
+        }
 
         h1 {
+            width: 100%;
             padding-bottom: 0.9375rem;
             border-bottom: 1px solid colour(black, 3);
             line-height: 1.3125rem;
+
+            @include media-up(sm) {
+                padding-bottom: 0.9375rem;
+                border-bottom: 1px solid colour(black, 3);
+                line-height: 1.3125rem;
+                width: 955px;
+            }
+
+            @include media-btw(sm, lg) {
+                width: 100%;
+            }
+        }
+
+        .error-form {
+            width: 100%;
+            color: colour(red);
+            margin: 5px 0;
+            text-align: left;
+            position: relative;
+
+            @include media-up(sm) {
+                width: 955px;
+            }
+
+            @include media-btw(sm, lg) {
+                width: 100%;
+            }
         }
 
         .tracking-field-para {
             padding: 20px 0 0;
+            width: 100%;
+
+            @include media-up(sm) {
+                width: 955px;
+                padding: 20px 0 0;
+            }
+
+            @include media-btw(sm, lg) {
+                width: 100%;
+            }
         }
 
         p {
             font-style: italic;
             width: fit-content;
             float: right;
-            line-height: normal;
+            line-height: 1rem;
+            letter-spacing: 0.21px;
+            margin-right: 30px;
 
             .required-indicator {
-                color: colour(red);
+                color: colour(red, 9);
                 position: relative;
                 right: 5px;
             }
@@ -37,7 +90,7 @@
             margin: 0 auto 1.25em;
 
             .required-indicator {
-                color: colour(red);
+                color: colour(red, 9);
                 position: relative;
             }
         }
@@ -45,6 +98,13 @@
         .tracking-inputfield {
             height: 3rem;
             letter-spacing: 0.005em;
+            width: 100%;
+
+            @include media-up(sm) {
+                height: 3rem;
+                letter-spacing: 0.005em;
+                width: 362.91px;
+            }
         }
 
         .error-class {
@@ -60,6 +120,7 @@
 
         a {
             text-decoration: underline;
+            line-height: 24px;
 
             &:hover {
                 text-decoration: none;
@@ -68,12 +129,18 @@
     }
 
     .order-tracking-btn {
-        width: 8.4375rem;
-        padding: 0;
+        width: 100%;
         line-height: 2.0625rem;
-        max-height: 2.1875rem;
-        transition: all 0.3s ease;
-        min-height: 2.1875rem;
+        max-height: 35px;
+        min-height: 35px;
+
+        @include media-up(sm) {
+            width: 8.4375rem;
+            padding: 0;
+            line-height: 2.0625rem;
+            max-height: 2.1875rem;
+            min-height: 2.1875rem;
+        }
     }
 
     .label-or {
@@ -84,6 +151,8 @@
     .sign-in-wrap {
         a {
             text-decoration: underline;
+            width: 39.78px;
+            display: inline-block;
 
             &:hover {
                 text-decoration: none;

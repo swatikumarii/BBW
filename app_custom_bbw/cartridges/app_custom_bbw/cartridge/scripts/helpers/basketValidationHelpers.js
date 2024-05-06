@@ -5,6 +5,7 @@ var ProductMgr = require('dw/catalog/ProductMgr');
 var ProductInventoryMgr = require('dw/catalog/ProductInventoryMgr');
 var StoreMgr = require('dw/catalog/StoreMgr');
 var Logger = require('dw/system/Logger');
+var collections = require('*/cartridge/scripts/util/collections');
 
 /**
  * validates that the product line items exist, are online, and have available inventory.
@@ -12,7 +13,6 @@ var Logger = require('dw/system/Logger');
  * @returns {object} an error object
  */
 function validateProducts(basket) {
-    var collections = require('*/cartridge/scripts/util/collections');
     var result = {
         error: false,
         hasInventory: true
@@ -66,6 +66,24 @@ function validateProducts(basket) {
     return result;
 }
 
+/**
+ * validates Pricing
+ * @param {object} basket current basket
+ * @returns {object} result
+ */
+function validatePricing(basket) {
+    var result = {
+        error: false
+    };
+    collections.forEach(basket.productLineItems, function (item) {
+        if (item.basePrice.value === 0) {
+            result.error = true;
+        }
+    });
+    return result;
+}
+
 base.validateProducts = validateProducts;
+base.validatePricing = validatePricing;
 
 module.exports = base;
