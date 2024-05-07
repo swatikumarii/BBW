@@ -37,12 +37,12 @@
                 <div class="blog_list">
                     <div class="head-img d-flex align-items-center">
                         <isif condition="${folder.custom.isShow === true}">
-                            <div class=" d-flex align-items-center">
-                                <img class="folder_content" width="100%" src="${folder.custom.image.absURL}"
+                            <div class="mb-3">
+                                <img class="folder_content" src="${folder.custom.image.absURL}"
                                     alt="${folder.displayName}" />
                             </div>
                         </isif>
-                        <h2 class="head-feature text-uppercase  m-font-base--normal">${folder.displayName}</h2>
+                        <h2 class="head-feature text-uppercase  m-font-base--normal mb-3">${folder.displayName}</h2>
                     </div>
 
 

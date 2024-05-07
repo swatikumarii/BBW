@@ -16,6 +16,7 @@
         @include media-btw(sm, lg) {
             width: 768px;
             height: 153.59px;
+            margin-left: -16px;
         }
     }
 
@@ -59,6 +60,11 @@
             margin: 5px auto;
         }
 
+        @include media-btw(sm, lg) {
+            width: 33.33%;
+            margin: 15px auto;
+        }
+
         .list_content {
             width: 80px;
             height: 60px;
@@ -93,7 +99,7 @@
         }
 
         @include media-btw(sm, lg) {
-            width: 752.53px;
+            width: 742.53px;
             height: 45px;
         }
 
@@ -107,7 +113,6 @@
         .head-feature {
             font-size: 1.5rem;
             line-height: 1.75;
-            margin: 10px auto;
             color: colour(black);
             letter-spacing: 5px;
             font-weight: 800 !important;
@@ -178,7 +183,7 @@
                 }
 
                 @include media-btw(sm, lg) {
-                    width: 30%;
+                    width: 295.02px;
                 }
 
                 &:hover {
@@ -216,7 +221,7 @@
         }
 
         @include media-btw(sm, lg) {
-            width: 20%;
+            width: 274px;
         }
 
         &:hover {
@@ -228,6 +233,10 @@
             height: 40px;
             line-height: normal;
             font-weight: 600 !important;
+
+            @include media-btw(sm, lg) { 
+            }
+                
         }
     }
 }
