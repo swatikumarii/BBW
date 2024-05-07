@@ -37,7 +37,6 @@ module.exports = {
             if (ext !== 'pdf' && ext !== 'doc' && ext !== 'docx') {
                 $('.form-file-control').addClass('is-invalid');
                 $('.fileInputTypeFormError').addClass('d-none');
-                //$('#resume').next('.invalid-feedback').text();
 
                 $('.wrong-file-type-msg').css('display', 'block');
                 $('.noFileSupport').removeClass('d-none');
@@ -80,7 +79,7 @@ module.exports = {
                     $('#submissionPopup').find('.modal-body').empty().append('Dear ' + applicantName + thankyouText);
                     $('#submissionPopup').modal();
                 },
-                error: function (data) {
+                error: function () {
                     $('form button[type="submit"]').spinner().stop();
                     $('.job-error').css('display', 'block');
                 }
