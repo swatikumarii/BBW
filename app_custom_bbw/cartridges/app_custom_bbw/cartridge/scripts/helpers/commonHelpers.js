@@ -33,13 +33,13 @@ function sendNewsLetterSubscribeEmail(userObj) {
  */
 function zeroOrderEmail(order) {
     var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
-    var zeroOrderEmail = Site.current.getCustomPreferenceValue('zeroOrderEmail');
-    if (zeroOrderEmail) {
+    var zeroOrderEmailAddress = Site.current.getCustomPreferenceValue('zeroOrderEmail');
+    if (zeroOrderEmailAddress) {
         var orderData = {
             orderNo: order.orderNumber
-        }
+        };
         var emailObj = {
-            to: zeroOrderEmail,
+            to: zeroOrderEmailAddress,
             subject: Resource.msg('zero.order.email.subject', 'order', null),
             from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
             type: 1
