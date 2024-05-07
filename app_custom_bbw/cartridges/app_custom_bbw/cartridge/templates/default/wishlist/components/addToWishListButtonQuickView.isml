@@ -1,9 +1,9 @@
-<button type="submit" title="Add to My Love-It List" id="add-to-wish-list"
+<button type="submit" title="${Resource.msg('wishlist.Add.List', 'wishlist', null)}" id="add-to-wish-list"
     class="border-0 h-bg--white add-to-wish-list ${pdict.itemExist ? 'd-none' : ''}"
     data-href="${URLUtils.url('Wishlist-AddProduct')}">
 </button>
 
-<button type="button" title="Remove from My Love-It List"
+<button type="button" title="${Resource.msg('wishlist.Remove.List', 'wishlist', null)}"
     class="d-none bg-white border-0 remove-btn-lg remove-from-wishlist btn btn-light ${pdict.itemExist ? 'd-block' : ''}"
     data-url="${URLUtils.url('Wishlist-RemoveProduct', 'pid', product.id)}">
     <img width="24px" height="24px" alt="image" src="${URLUtils.staticURL('/images/account/broken-heart.svg')}" />
