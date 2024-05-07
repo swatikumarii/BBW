@@ -20,6 +20,7 @@
                     <isinclude template="account/accountNav" />
                 </div>
             </div>
+            <div class="js-profile-save-msg"></div>
             <div class="col-lg-10 col-md-8">
                 <div class="my-account-description">
                     <div class="account-profile">
@@ -80,6 +81,10 @@
                                         aria-label="${Resource.msg('label.addressbook.editaddress', 'account', null)} : ${address.address.ID == pdict.addressBook[0].address.ID ? pdict.addressBook[0].address.ID + ' (' + Resource.msg(
                                                                                                                         'label.addressbook.defaultaddress', 'account', null) + ')' : address.address.ID}">${Resource.msg('link.edit', 'account', null)}</a>
 
+                                    <button type="button" id="editProfile" class="btn btn-primary" data-href="${URLUtils.url('Address-EditAddress')}"
+                                        data-id="${address.address.ID}" data-toggle="modal" data-target="#address-form">
+                                        Launch demo modal
+                                    </button>
                                     <span class="space">${Resource.msg('label.space', 'account', null)}</span>
 
                                     <button type="button" class="delete remove-btn remove-address btn-light border-0"

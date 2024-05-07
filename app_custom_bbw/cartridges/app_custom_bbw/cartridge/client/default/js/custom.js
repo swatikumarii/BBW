@@ -39,3 +39,26 @@ newShowButton.on('click', function () {
         .find('.show')
         .text(type === 'password' ? 'Show' : 'Hide');
 });
+
+
+$(document).on('click', '#editProfile', function () {
+    var url = $(this).data('href');
+    var addressID = $(this).data('id');
+    var data = {
+        addressId: addressID
+    };
+    $.ajax({
+        url: url,
+        method: 'GET',
+        data: data,
+        success: function (response) {
+            $('#modalContent').html(response);
+            $('#address-form').modal('show');
+            // $('#addressId').val(response.addressForm.addressId.attributes);
+            console.log('in success');
+        },
+        error: function (err) {
+            console.log('in error');
+        }
+    });
+});
