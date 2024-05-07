@@ -9,6 +9,7 @@ module.exports = $.extend({}, detail, {
             var quantity = Number($(this).siblings('#Quantity').val());
             quantity += 1;
             $(this).siblings('#Quantity').val(quantity).trigger('change');
+            $(this).fadeTo(100, 0.1).fadeTo(200, 1.0);
         });
 
         $(document).on('click', '.quantity-field > .decrease', function () {
@@ -17,6 +18,7 @@ module.exports = $.extend({}, detail, {
                 quantity -= 1;
                 $(this).siblings('#Quantity').val(quantity).trigger('change');
             }
+            $(this).fadeTo(100, 0.1).fadeTo(200, 1.0);
         });
 
         $(document).on('change', '.quantity-field > #Quantity', function () {
