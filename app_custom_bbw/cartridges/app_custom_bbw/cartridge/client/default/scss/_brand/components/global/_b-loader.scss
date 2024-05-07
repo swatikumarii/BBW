@@ -6,6 +6,8 @@
  * covering the entire viewport and a spinner animation at the center.
  */
 .loader {
+    /* Overlay covering the entire viewport */
+    background: colour(white);
     height: 100%;
     left: 0;
     position: absolute;
