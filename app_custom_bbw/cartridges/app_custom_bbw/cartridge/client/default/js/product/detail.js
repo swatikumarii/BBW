@@ -28,9 +28,6 @@ module.exports = $.extend({}, detail, {
             var maxOrderQty = Number($('input[name="maxOrderQty"]').val());
             if (quantity > maxOrderQty) {
                 $(this).val(maxOrderQty).trigger('change');
-                $('.reserve-stock p').text(
-                    'Sorry! Limit ' + maxOrderQty + ' per order. We\'ve adjusted the quantity for you.'
-                );
                 $('.reserve-stock').removeClass('d-none');
             } else {
                 $('.reserve-stock').addClass('d-none');

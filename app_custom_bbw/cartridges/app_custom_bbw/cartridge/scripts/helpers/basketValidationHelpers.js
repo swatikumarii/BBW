@@ -5,6 +5,7 @@ var ProductMgr = require('dw/catalog/ProductMgr');
 var ProductInventoryMgr = require('dw/catalog/ProductInventoryMgr');
 var StoreMgr = require('dw/catalog/StoreMgr');
 var Logger = require('dw/system/Logger');
+var productValidationHelpers = require('*/cartridge/scripts/helpers/productValidationHelpers');
 var collections = require('*/cartridge/scripts/util/collections');
 
 /**
@@ -20,13 +21,6 @@ function validateProducts(basket) {
     var productLineItems = basket.productLineItems;
     collections.forEach(productLineItems, function (item) {
         var apiProduct = ProductMgr.getProduct(item.productID);
-        var productLevelMaxOrderQty =
-        'custom' in apiProduct &&
-        'maxOrderQty' in apiProduct.custom &&
-        apiProduct.custom.maxOrderQty
-            ? apiProduct.custom.maxOrderQty
-            : false;
-        var globalLevelMaxOrderQty = dw.system.Site.getCurrent().getCustomPreferenceValue('maxOrderQty');
         var productLevelReserveQty =
             'custom' in apiProduct &&
             'reserveQty' in apiProduct.custom &&
@@ -35,7 +29,8 @@ function validateProducts(basket) {
                 : 0;
         var globalLevelReserveQty = dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
         var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
-        var maxOrderQty = productLevelMaxOrderQty || globalLevelMaxOrderQty;
+        var maxOrderQty =
+            productValidationHelpers.getProductMaxOrderQty(apiProduct);;
         if (item.product === null || !item.product.online) {
             result.error = true;
             return;

@@ -217,7 +217,9 @@
                         </div>
                         <div class="col-12">
                             <div class="reserve-stock mt-3 d-none">
-                                <p class="h-clr--red h-font-size--16"></p>
+                                <p class="h-clr--red h-font-size--16">
+                                ${Resource.msgf('error.alert.selected.quantity.cannot.be.added.for.max','product',null,product.maxOrderQty);}
+                                </p>
                             </div>
                         </div>
                         <div class="afterPayExtension">
