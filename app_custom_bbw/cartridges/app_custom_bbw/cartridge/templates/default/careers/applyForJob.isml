@@ -88,7 +88,7 @@
                                 encoding="off" />></textarea>
                             <div class="invalid-feedback" id="form-yourself-error">${Resource.msg('error.message.yourself', 'careers', null)}</div>
                         </div>
-                        <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+                        <input type="hidden" class="careersCsrfToken" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
                         <button type="submit" class="send-resume">
                             ${Resource.msg('label.input.send', 'careers', null)}
                         </button>

@@ -84,6 +84,7 @@ module.exports = {
             formData.append('phone', form.find('input[name="phone"]').val());
             formData.append('email', form.find('input[name="email"]').val());
             formData.append('yourself', form.find('textarea[name="yourself"]').val());
+            formData.append(form.find('.careersCsrfToken').attr('name'), form.find('.careersCsrfToken').val());
             $('form button[type="submit"]').spinner().start();
 
             $.ajax({
