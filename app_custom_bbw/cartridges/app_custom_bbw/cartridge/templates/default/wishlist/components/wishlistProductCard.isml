@@ -55,7 +55,7 @@
                     <!-- Check if express shipping is available -->
                     <isif
                         condition="${item.expressShip}">
-                        <span class="express-shipping-indication">${Resource.msg('wishlist.expressShipping.available', 'wishlist', null)}</span>
+                        <span class="express-shipping-indication">${Resource.msg('wishlist.express.shipping.available', 'wishlist', null)}</span>
                     </isif>
                 </div>
             </td>
