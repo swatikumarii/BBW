@@ -52,7 +52,7 @@ server.get('ApplyForJob', csrfProtection.generateToken,
  * @function
  */
 server.post('SubmitJobApplication', server.middleware.https,
-    csrfProtection.validateAjaxRequest,
+    csrfProtection.validateRequest,
     function (req, res, next) {
         var jobId = req.querystring.jobId;
         var LinkedHashMap = require('dw/util/LinkedHashMap');

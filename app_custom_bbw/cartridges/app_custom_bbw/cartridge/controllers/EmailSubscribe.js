@@ -27,6 +27,20 @@ function validateEmail(email) {
 }
 
 /**
+ * EmailSubscribe-Show : The EmailSubscribe-Show endpoint will show newsletter form and passes CSRF token.
+ */
+server.get('Show',
+    consentTracking.consent,
+    server.middleware.https,
+    csrfProtection.generateToken,
+    function (req, res, next) {
+        res.render('/components/footer/newsletter');
+        next();
+    }
+);
+
+
+/**
  * EmailSubscribe-Subscribe : The EmailSubscribe-Subscribe enpoint allows the shopper to submit their eamil address to be added to a mailing list. OOB SFRA does not have a mailing list feature however this endpoint call a hook would allow for a customer to easily allow for custiomization
  */
 server.replace('Subscribe',
