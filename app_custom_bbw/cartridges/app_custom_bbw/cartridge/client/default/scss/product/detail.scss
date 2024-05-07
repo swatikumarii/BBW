@@ -170,6 +170,16 @@
     .prices-add-to-cart-actions {
         margin-bottom: 0.625rem;
 
+        .strike-through {
+            color: colour(black, 1);
+            font-weight: 600;
+            padding-right: 10px;
+        }
+
+        .sales.reduced {
+            color: colour(pink);
+        }
+
         .sales {
             font-weight: map-get($font-weight, semibold);
             font-size: 1.125rem;
@@ -315,6 +325,13 @@
                     height: 2.8125rem;
                     width: 20%;
                     letter-spacing: 0.01em;
+                    color: colour(black, 1);
+
+                    &:hover {
+                        color: colour(white);
+                        border-color: colour(black, 3);
+                        background-color: colour(black, 3);
+                    }
                 }
 
                 input {
@@ -503,6 +520,11 @@
 
     .arrow {
         left: 14px !important;
+        bottom: -8px;
+
+        &::before {
+            border-top-color: colour(gray);
+        }
     }
 
     .close {
@@ -541,22 +563,17 @@
     }
 }
 
-.reserve-stock-toast {
-    position: absolute;
-    right: 0;
-    top: 36px;
+.reserve-stock {
+    padding-top: 3px;
+    line-height: 20px;
+    line-height: 1.25rem;
+    letter-spacing: 0.01em;
+    padding-bottom: 15px;
+    margin-top: 13px;
+    width: 100%;
 
     @include media-up(md) {
-        right: -15px;
-    }
-
-    p {
-        font-size: 16px;
-        line-height: 20px;
-        line-height: 1.25rem;
-        letter-spacing: 0.01em;
-        color: colour(gray, 4);
-        margin: 10px 0;
+        width: 313px;
     }
 }
 
@@ -630,4 +647,24 @@
 
 .outOfstockModal.modal.modal-right.fade.show .modal-dialog {
     right: 0 !important;
+}
+
+.tiered {
+    table {
+        width: 250px;
+
+        .table-header {
+            font-weight: 600;
+            padding: 12px 0;
+        }
+
+        .column-header {
+            font-weight: 400;
+            padding-bottom: 5px;
+        }
+
+        td {
+            padding-bottom: 5px;
+        }
+    }
 }

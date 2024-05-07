@@ -7,6 +7,8 @@
     assets.addCss('/css/pages/shopbyfragrance/b-shopbyfragrance.css');
     </isscript>
     <div class="container">
+        <!---Breadcrumbs--->
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
         <div class="shop-fragrance_content">
             <div class="fragrance-topbanner text-center">
                 <iscontentasset aid="fragrance-finder" />
@@ -80,7 +82,7 @@
                         </div>
                     </div>
                     <div class="row no-gutter mt-4">
-                        <div class="col-12 fragrance-list-data">
+                        <div class="col-md-11 fragrance-list-data">
                             <isloop iterator="${pdict.fragranceNames}" alias="fragranceGroup" status="loopstate">
                                 <div id="${fragranceGroup.key}"
                                     class="alphabet-group-${fragranceGroup.key} alphabetically-data">
