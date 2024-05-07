@@ -67,7 +67,9 @@
     }
 
     &.add-to-cart,
-    &.shop {
+    &.shop,
+    &.notify-me-btn,
+    &.out-of-stock {
         font-size: 1rem;
         font-weight: map-get($font-weight, semibold);
         letter-spacing: 0.24px;
@@ -170,4 +172,18 @@
 
 .btn-block {
     width: 100%;
+}
+
+.btn-no-style {
+    background: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: none;
+    outline: none;
+
+    &:focus {
+        outline: none;
+    }
 }

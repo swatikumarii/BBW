@@ -8,6 +8,8 @@ var Site = require('dw/system/Site');
  * Fragrance-Show : The Fragrance-Show enpoint show the fragrance categories and fragrance name
  */
 server.get('Show', function(req, res, next) {
+    var URLUtils = require('dw/web/URLUtils');
+    var Resource = require('dw/web/Resource');
     var fragranceCategories = Site.current.getCustomPreferenceValue('fragranceCategories');
     var fragranceNamesList = Site.current.getCustomPreferenceValue('fragranceNames');
     var topFragrancesList = Site.current.getCustomPreferenceValue('topFragrances');
@@ -16,30 +18,52 @@ server.get('Show', function(req, res, next) {
     var fragranceNamesArray = [];
     var topFragrancesLists;
     var currentSite = Site.current.ID;
+    var fragranceObj = {};
     if (topFragrancesList) {
         topFragrancesLists = topFragrancesList.split(', ');
     }
-    if(fragranceNamesList){
+    if (fragranceNamesList) {
         var fragranceNames = fragranceNamesList.split(', ');
         for (var index = 0; index < fragranceNames.length; index++) {
-            var firstLetter = fragranceNames[index][0].toUpperCase();
+            var alphabet = fragranceNames[index][0].toUpperCase();
             if (topFragrancesLists) {
-                isTopFragrance = topFragrancesLists.includes(fragranceNames[index]);
+                isTopFragrance = topFragrancesLists.includes(
+                    fragranceNames[index]
+                );
             }
 
-            fragranceNamesArray[index] = {
-                alphabet: firstLetter,
-                name: fragranceNames[index],
-                topFragrance: isTopFragrance
-            };
+            if (!fragranceObj[alphabet]) {
+                fragranceObj[alphabet] = [];
+            }
+
+            fragranceObj[alphabet].push({
+                topFragrance: isTopFragrance,
+                name: fragranceNames[index]
+            });
         }
     }
-
+    if (fragranceObj) {
+        fragranceNamesArray = Object.entries(fragranceObj).map(
+            function (entry) {
+                return { key: entry[0], value: entry[1] };
+            }
+        );
+    }
 
     res.render('fragrance/shopByFragrance', {
         fragranceCategories: byCategories,
         fragranceNames: fragranceNamesArray,
-        currentSite: currentSite
+        currentSite: currentSite,
+        breadcrumbs: [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            },
+            {
+                htmlValue: Resource.msg('label.fragrance', 'fragrance', null),
+                url: URLUtils.url('Fragrance-Show').toString()
+            }
+        ]
     });
 
     next();
@@ -49,19 +73,29 @@ server.get('Show', function(req, res, next) {
  * Fragrance-Ingredient : The Fragrance-Ingredient enpoint show the ingredients of proudcts
  */
 server.get('Ingredient', function (req, res, next) {
-    var productsIngredients =
-        Site.current.getCustomPreferenceValue('productIngredients');
+    var productsIngredients = Site.current.getCustomPreferenceValue('productIngredients');
     var ingredientNamesArray = [];
     var ingredientsNames;
+    var ingredientObj = {};
 
     if (productsIngredients) {
         ingredientsNames = productsIngredients.split(', ');
         for (var index = 0; index < ingredientsNames.length; index++) {
             var firstLetter = ingredientsNames[index].match(/[a-z]/i)[0].toUpperCase();
-            ingredientNamesArray[index] = {
-                alphabet: firstLetter,
+            if (!ingredientObj[firstLetter]) {
+                ingredientObj[firstLetter] = [];
+            }
+
+            ingredientObj[firstLetter].push({
                 name: ingredientsNames[index]
-            };
+            });
+        }
+        if (ingredientObj) {
+            ingredientNamesArray = Object.entries(ingredientObj).map(
+                function (entry) {
+                    return { key: entry[0], value: entry[1] };
+                }
+            );
         }
     }
 

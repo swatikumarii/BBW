@@ -3,9 +3,9 @@
         <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
         <button class="add-to-cart btn btn-primary" data-toggle="modal" data-target="#chooseBonusProductModal"
             data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
-            ${Resource.msg('button.addtocart', 'common', null)}
+            ${Resource.msg('button.addToBag', 'common', null)}
         </button>
-
-        <isinclude template="product/components/addToCartButtonExtension" />
+        <span class="add-to-cart-error text-danger"></span>
+        <div id="add-to-cart-snackbar">${Resource.msg('item.added', 'common', null)}</div>
     </div>
 </div>

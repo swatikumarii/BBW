@@ -165,18 +165,20 @@ function getAllDiscountsHTML(allDiscountItems, totalDiscount) {
  */
 function totals(lineItemContainer) {
     base.call(this, lineItemContainer);
-    this.shippingTotalTax = getTotals(lineItemContainer.shippingTotalTax);
-    this.shippingTotalExclTax = getTotals(lineItemContainer.adjustedShippingTotalNetPrice);
-    this.subTotalExclTax = getTotals(lineItemContainer.adjustedMerchandizeTotalNetPrice);
-    var allDiscounts = getAllDiscounts(lineItemContainer);
-    this.allDiscounts = allDiscounts.allDiscountItems;
-    this.totalDiscount = allDiscounts.totalDiscount;
-    this.allDiscountsHTML = getAllDiscountsHTML(
-        allDiscounts.allDiscountItems,
-        allDiscounts.totalDiscount
-    );
-    this.totalDiscountFormatted = getTotals(allDiscounts.totalDiscount);
-    this.discounts = getDiscounts(lineItemContainer);
+    if (lineItemContainer) {
+        this.shippingTotalTax = getTotals(lineItemContainer.shippingTotalTax);
+        this.shippingTotalExclTax = getTotals(lineItemContainer.adjustedShippingTotalNetPrice);
+        this.subTotalExclTax = getTotals(lineItemContainer.adjustedMerchandizeTotalNetPrice);
+        var allDiscounts = getAllDiscounts(lineItemContainer);
+        this.allDiscounts = allDiscounts.allDiscountItems;
+        this.totalDiscount = allDiscounts.totalDiscount;
+        this.allDiscountsHTML = getAllDiscountsHTML(
+            allDiscounts.allDiscountItems,
+            allDiscounts.totalDiscount
+        );
+        this.totalDiscountFormatted = getTotals(allDiscounts.totalDiscount);
+        this.discounts = getDiscounts(lineItemContainer);
+    }
 }
 
 module.exports = totals;

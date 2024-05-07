@@ -2,20 +2,6 @@
 
 var baseStore = require('base/storeLocator/storeLocator');
 
-/**
- * appends params to a url
- * @param {string} url - Original url
- * @param {object} params - Parameters to append
- * @returns {string} result url with appended parameters
- */
-function appendToUrl(url, params) {
-    var newUrl = url;
-    newUrl += (newUrl.indexOf('?') !== -1 ? '&' : '?') + Object.keys(params).map(function (key) {
-        return key + '=' + encodeURIComponent(params[key]);
-    }).join('&');
-
-    return newUrl;
-}
 
 /**
  * Uses google maps api to render a map
@@ -23,59 +9,74 @@ function appendToUrl(url, params) {
 function maps() {
     var map;
     var infowindow = new google.maps.InfoWindow();
-
     // Init U.S. Map in the center of the viewport
-    var latlng = new google.maps.LatLng(37.09024, -95.712891);
+    var geolocationDiv = $('#geolocation-data');
+    var latlng = {
+        lat: geolocationDiv.data('lat'),
+        lng: geolocationDiv.data('long')
+    };
+    latlng = new google.maps.LatLng(latlng.lat, latlng.lng);
     var mapOptions = {
         scrollwheel: false,
         zoom: 4,
         center: latlng
     };
-
     map = new google.maps.Map($('.map-canvas')[0], mapOptions);
     var mapdiv = $('.map-canvas').attr('data-locations');
-
     mapdiv = JSON.parse(mapdiv);
-
     var bounds = new google.maps.LatLngBounds();
-
-    // Customized google map marker icon with svg format
-    var markerImg = {
-        path: 'M13.5,30.1460153 L16.8554555,25.5 L20.0024287,25.5 C23.039087,25.5 25.5,'
-            + '23.0388955 25.5,20.0024287 L25.5,5.99757128 C25.5,2.96091298 23.0388955,0.5 '
-            + '20.0024287,0.5 L5.99757128,0.5 C2.96091298,0.5 0.5,2.96110446 0.5,5.99757128 '
-            + 'L0.5,20.0024287 C0.5,23.039087 2.96110446,25.5 5.99757128,25.5 L10.1445445,'
-            + '25.5 L13.5,30.1460153 Z',
-        fillColor: '#0070d2',
-        fillOpacity: 1,
-        scale: 1.1,
-        strokeColor: 'white',
-        strokeWeight: 1,
-        anchor: new google.maps.Point(13, 30),
-        labelOrigin: new google.maps.Point(12, 12)
+    var imageUrlBlack = $('#marker-images-url').data('black-marker');
+    imageUrlBlack = {
+        url: imageUrlBlack,
+        labelOrigin: {
+            x: 12,
+            y: 12
+        }
     };
+
+    var imageUrlPink = $('#marker-images-url').data('pink-marker');
+    imageUrlPink = {
+        url: imageUrlPink,
+        labelOrigin: {
+            x: 12,
+            y: 12
+        }
+    };
+    var markers=[];
+    var contents=[];
 
     Object.keys(mapdiv).forEach(function (key) {
         var item = mapdiv[key];
         var lable = parseInt(key, 10) + 1;
-        var storeLocation = new google.maps.LatLng(item.latitude, item.longitude);
+        var storeLocation = new google.maps.LatLng(
+            item.latitude,
+            item.longitude
+        );
         var marker = new google.maps.Marker({
             position: storeLocation,
             map: map,
             title: item.name,
-            icon: markerImg,
+            icon: imageUrlBlack,
             label: { text: lable.toString(), color: 'white', fontSize: '16px' }
         });
-
-        marker.addListener('click', function () {
-            infowindow.setOptions({
-                content: item.infoWindowHtml
-            });
-            infowindow.open(map, marker);
-        });
-
+        contents.push(item);
+        markers.push(marker);
         // Create a minimum bound based on a set of storeLocations
         bounds.extend(marker.position);
+    });
+    
+    markers.forEach(function (element, index) {
+        element.addListener('click', function () {
+            map.setCenter(element.position);
+            infowindow.setOptions({
+                content: contents[index].infoWindowHtml
+            });
+            infowindow.open(map, element);
+            markers.forEach(function (ele){
+                ele.setIcon(imageUrlBlack);
+            });
+            element.setIcon(imageUrlPink);
+        });
     });
     // Fit the all the store marks in the center of a minimum bounds when any store has been found.
     if (mapdiv && mapdiv.length !== 0) {
@@ -93,9 +94,11 @@ function updateStoresResults(data) {
     var hasResults = data.stores.length > 0;
 
     if (!hasResults) {
-        $('.store-locator-no-results').show();
+        $('.store-locator-no-results').removeClass('d-none');
+        $('#no-stores-result').show();
     } else {
-        $('.store-locator-no-results').hide();
+        $('.store-locator-no-results').addClass('d-none');
+        $('#no-stores-result').hide();
     }
 
     $resultsDiv.empty()
@@ -116,49 +119,135 @@ function updateStoresResults(data) {
     }
 }
 
+/**
+ * Ajax call to submit request
+ * @param {string} method - method type of the call
+ * @param {string} url - url to be called
+ * @param {object} payload - payload in body
+ */
+function submitSearch(method, url, payload){
+    $.ajax({
+        url: url,
+        type: method,
+        data: payload,
+        dataType: 'json',
+        success: function (data) {            
+            updateStoresResults(data);
+            $('.select-store').prop('disabled', true);
+        }
+    });
+}
 
-module.exports = $.extend({}, baseStore, {    
+/**
+ * Search for stores with new zip code
+ * @param {HTMLElement} element - the target html element
+ */
+function search(element) {
+    var dialog = element.closest('.in-store-inventory-dialog');
+    var spinner = dialog.length ? dialog.spinner() : $.spinner();
+    spinner.start();
+    var $form = element.closest('.store-locator');
+    var url = $form.attr('action');
+    var postalCodeVal = $form.find('[name="postalCode"]').val();
+    var isNumber = Boolean(Number(postalCodeVal));
+    var method = $form.attr('method');
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ address: postalCodeVal }).then(function (response) {
+        if (response.results[0]) {
+            var location = response.results[0].geometry.location;
+            var addressComponents = response.results[0].address_components;
+            var countryCode='';
+            for(var i=0; i<addressComponents.length; i++){
+                if(addressComponents[i].types[0] === 'country'){
+                    countryCode = addressComponents[i].short_name;
+                }
+            }
+            var lat = location.lat();
+            var long = location.lng();
+            var payload = '';
+            if(!isNumber){
+                payload = $form.is('form') ? $form.serialize() + '&latitude=' + lat + '&longitude=' + long + '&countryCode=' + countryCode : { postalCode: postalCodeVal };
+                submitSearch(method, url, payload);
+            }
+            else{
+                payload = $form.is('form') ? $form.serialize() + '&countryCode=' + countryCode : { postalCode: postalCodeVal };
+                submitSearch(method, url, payload);
+            }
+            return true;
+        }
+        return false;
+    });               
+}
+
+module.exports = $.extend({}, baseStore, {
+    init: function () {
+        if ($('.map-canvas').data('has-google-api')) {
+            maps();
+        } else {
+            $('.store-locator-no-api-key').show();
+        }
+    },
+    search: function () {
+        $('.store-locator-container form.store-locator').submit(function (e) {
+            e.preventDefault();
+            search($(this));
+        });
+        $(
+            '.store-locator-container .btn-storelocator-search[type="button"]'
+        ).click(function (e) {
+            e.preventDefault();
+            search($(this));
+        });
+    },
+
     changeRadius: function () {
         $('.store-locator-container .radius').change(function () {
-            var radius = $(this).val();
-            var searchKeys = $('.results').data('search-key');
-            var url = $(this).data('action-url');
-            var urlParams = {};
-            // var storeTypes = [];
-
-            if (searchKeys.postalCode && searchKeys.storeType) {
-                urlParams = {
-                    radius: radius,
-                    postalCode: searchKeys.postalCode,
-                    storeType: searchKeys.storeType
-                };
-            } else if(searchKeys.postalCode){
-                urlParams = {
-                    radius: radius,
-                    postalCode: searchKeys.postalCode
-                };
-            } else if (searchKeys.lat && searchKeys.long) {
-                urlParams = {
-                    radius: radius,
-                    lat: searchKeys.lat,
-                    long: searchKeys.long
-                };
-            }
-
-            url = appendToUrl(url, urlParams);
-            var dialog = $(this).closest('.in-store-inventory-dialog');
-            var spinner = dialog.length ? dialog.spinner() : $.spinner();
-            spinner.start();
-            $.ajax({
-                url: url,
-                type: 'get',
-                dataType: 'json',
-                success: function (data) {
-                    spinner.stop();
-                    updateStoresResults(data);
-                    $('.select-store').prop('disabled', true);
-                }
-            });
+            var element = $('.store-locator-container form.store-locator');
+            var $form = element.closest('.store-locator');
+            var url = $form.attr('action');
+            var postalCodeVal = $form.find('[name="postalCode"]').val();
+            var isNumber = Boolean(Number(postalCodeVal));
+            var method = $form.attr('method');
+            var geocoder = new google.maps.Geocoder();
+            geocoder
+                .geocode({ address: postalCodeVal })
+                .then(function (response) {
+                    if (response.results[0]) {
+                        var location = response.results[0].geometry.location;
+                        var addressComponents =
+                            response.results[0].address_components;
+                        var countryCode = '';
+                        for (var i = 0; i < addressComponents.length; i++) {
+                            if (addressComponents[i].types[0] === 'country') {
+                                countryCode = addressComponents[i].short_name;
+                            }
+                        }
+                        var lat = location.lat();
+                        var long = location.lng();
+                        var payload = '';
+                        if (!isNumber) {
+                            payload = $form.is('form')
+                                ? $form.serialize() +
+                                  '&latitude=' +
+                                  lat +
+                                  '&longitude=' +
+                                  long +
+                                  '&countryCode=' +
+                                  countryCode
+                                : { postalCode: postalCodeVal };
+                            submitSearch(method, url, payload);
+                        } else {
+                            payload = $form.is('form')
+                                ? $form.serialize() +
+                                  '&countryCode=' +
+                                  countryCode
+                                : { postalCode: postalCodeVal };
+                            submitSearch(method, url, payload);
+                        }
+                        return true;
+                    }
+                    return false;
+                });
         });
     }
 });
@@ -175,3 +264,30 @@ $('.list-view').click(function () {
     $('.map-view').removeClass('active');
     $('.map-canvas').addClass('d-none');
 });
+
+/**
+ * Set city field with user current city
+ */
+function geolocation(){
+    var geolocationDiv = $('#geolocation-data');
+    var latlng = {
+        lat: geolocationDiv.data('lat'),
+        lng: geolocationDiv.data('long')
+    };
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ location: latlng }).then(function (response) {
+        if (response.results[0]) {
+            var addressComponents = response.results[0].address_components;
+            for (var i = 0; i < addressComponents.length; i++) {
+                if (
+                    addressComponents[i].types[0] === 'locality' ||
+                    addressComponents[i].types[1] === 'locality'
+                ) {
+                    var city = addressComponents[i].long_name;
+                    $('#store-postal-code').val(city);
+                }
+            }
+        }
+    });
+}
+geolocation();

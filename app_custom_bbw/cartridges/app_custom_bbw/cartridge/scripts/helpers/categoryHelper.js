@@ -30,6 +30,34 @@ function appendLevelOneCategory(req, res, next) {
     next();
 }
 
+/**
+ * append category breadcrumbs to the viewData
+ * @param {object} req - The request object for the current controller request
+ * @param {object} res - The response object for the current controller request
+ * @param {Function} next - Executes the next step in the controller chain
+ */
+function appendCategoryBreadcrum(req, res, next) {
+    var URLUtils = require('dw/web/URLUtils');
+    var Resource = require('dw/web/Resource');
+    var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
+    var viewData = res.getViewData();
+    var breadcrumbs = productHelper.getAllBreadcrumbs(
+        req.querystring.cgid,
+        null,
+        []
+    );
+    breadcrumbs.push({
+        htmlValue: Resource.msg('global.home', 'common', null),
+        url: URLUtils.home().toString()
+    });
+    breadcrumbs = breadcrumbs.reverse();
+
+    viewData.breadcrumbs = breadcrumbs;
+    res.setViewData(viewData);
+    next();
+}
+
 module.exports = {
-    appendLevelOneCategory: appendLevelOneCategory
+    appendLevelOneCategory: appendLevelOneCategory,
+    appendCategoryBreadcrum: appendCategoryBreadcrum
 };

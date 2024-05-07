@@ -1,0 +1,14 @@
+<div class="b-video ${pdict.video_container_class || ''}">
+    <div class="b-video__holder b-vidoe-holder-main">
+        <video class="b-video__element js-video video-js vjs-default-skin" <isif condition="${pdict.video_id}">
+            data-id="${pdict.video_id}"
+            </isif>
+            <isif condition="${pdict.video_config}">
+                data-video="${JSON.stringify(pdict.video_config)}"
+                <isif condition="${pdict.video_config.autoplay === true}"> playsinline muted autoplay </isif>
+                <isif condition="${pdict.video_config.controls === true}"> controls </isif>
+            </isif>
+            <isif condition="${pdict.video_poster}">poster="${pdict.video_poster}"</isif>>
+        </video>
+    </div>
+</div>

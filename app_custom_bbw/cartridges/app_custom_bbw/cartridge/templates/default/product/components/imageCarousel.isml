@@ -1,26 +1,29 @@
 <div class="primary-images col-12 col-sm-6 mb-5 mb-md-0">
+    <div class="row">
+        <div class="col pdp-wishlist">
+            <iscomment>
+                <isinclude template="wishlist/components/addToWishListButtonQuickView" />
+            </iscomment>
+            <isif condition=${!!!isQuickView}>
+                <div class="loginPopup position-relative">
+                    <isinclude template="wishlist/components/addToWishListButton" />
+                </div>
+            </isif>
+        </div>
+    </div>
     <div id="pdpCarousel-${product.id}" class="carousel slide" data-interval="0"
         data-prev="${Resource.msg('button.previous', 'common', null)}"
         data-next="${Resource.msg('button.next', 'common', null)}">
-        <isif condition="${product.images['large'].length > 1}">
-            <ol class="carousel-indicators justify-content-start m-0" aria-hidden="true">
-                <isloop items="${product.images['large']}" var="image" status="loopStatus">
-                    <li data-target="${" #"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
-                        class='<isif condition="${loopStatus.index == 0}">active</isif>'>
-                        <img src="${image.url}" class="d-block img-fluid" alt="${image.alt} image number ${image.index}"
-                            itemprop="image" />
-                    </li>
-                </isloop>
-            </ol>
-        </isif>
+
 
         <div class="carousel-inner" role="listbox">
             <isloop items="${product.images['large']}" var="image" status="loopStatus">
                 <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
-                    <img src="${image.url}" class="d-block img-fluid" alt="${image.alt} image number ${image.index}"
+                    <img src="${image.url}" class="d-block img-fluid" alt="${image.alt} ${product.titlePartB}"
                         itemprop="image" />
                 </div>
             </isloop>
+            <div class="zoomImage-link position-absolute d-none d-md-block"></div>
         </div>
 
         <isif condition="${product.images['large'].length > 1}">
@@ -34,19 +37,30 @@
             </a>
         </isif>
 
-        <div class="zoomImage-link position-absolute"></div>
+        <isif condition="${product.images['large'].length > 1}">
+            <ol class="carousel-indicators m-0" aria-hidden="true">
+                <isloop items="${product.images['large']}" var="image" status="loopStatus">
+                    <li data-target="${" #"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
+                        class='<isif condition="${loopStatus.index == 0}">active</isif>'>
+                        <img src="${image.url}" class="img-fluid" alt="${image.alt} image number ${image.index}"
+                            itemprop="image" />
+                    </li>
+                </isloop>
+            </ol>
+        </isif>
+
         <div class="zoomImage-sec position-fixed h-100 w-100 h-bg--white">
             <div class="zoomImages">
                 <span class="zoomOut-link position-absolute"></span>
-                <div id="pdpCarousel-${product.id}" class="carousel slide zoom-carousel" data-interval="0"
+                <div id="pdpCarousel-${product.id}" class=" slide zoom-carousel" data-interval="0"
                     data-prev="${Resource.msg('button.previous', 'common', null)}"
                     data-next="${Resource.msg('button.next', 'common', null)}">
                     <div class="carousel-inner d-flex " role="listbox">
                         <isloop items="${product.images['large']}" var="image" status="loopStatus">
                             <div
-                                class='carousel-item d-block mr-auto <isif condition="${loopStatus.index == 0}">active</isif>'>
+                                class='carousel-item d-flex justify-content-center mr-auto <isif condition="${loopStatus.index == 0}">active</isif>'>
                                 <img src="${image.url}" class="d-block img-fluid"
-                                    alt="${image.alt} image number ${image.index}" itemprop="image" />
+                                    alt="${image.alt} ${product.titlePartB}" itemprop="image" />
                             </div>
                         </isloop>
                     </div>

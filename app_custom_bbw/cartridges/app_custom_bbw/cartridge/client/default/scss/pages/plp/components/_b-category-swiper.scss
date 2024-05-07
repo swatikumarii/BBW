@@ -1,0 +1,48 @@
+.plp-category-swiper {
+    overflow: scroll hidden;
+    scrollbar-width: none;
+    column-gap: 16px;
+    max-width: 1195px;
+
+    &__link {
+        min-width: 36vw;
+        width: 100%;
+        box-sizing: content-box;
+        letter-spacing: 0.01em;
+        max-width: 200px;
+        border: 1px solid colour(gray, 1);
+
+        @include media-btw(sm, lg) {
+            min-width: 26%;
+        }
+
+        @include media-up(lg) {
+            min-width: 16.5%;
+        }
+
+        &:focus {
+            outline-offset: -2px;
+        }
+
+        &:hover {
+            border-color: colour(black, 3);
+        }
+
+        &:active,
+        &.active {
+            background: colour(black, 3);
+            box-shadow: 0 0 8px rgba(51, 51, 51, 15%);
+            border-color: colour(black, 3);
+
+            .plp-category-swiper__name {
+                color: colour(white);
+            }
+        }
+    }
+
+    &__name {
+        padding: 8px;
+        color: colour(black, 1);
+        line-height: 20px;
+    }
+}

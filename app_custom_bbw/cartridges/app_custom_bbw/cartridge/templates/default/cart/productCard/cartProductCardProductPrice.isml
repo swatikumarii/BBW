@@ -2,13 +2,21 @@
 <div class="line-item-price line-item-price-${lineItem.UUID}">
     <isset name="price" value="${lineItem.price}" scope="page"/>
     <div class="unit-price">
-        <isinclude template="/product/components/pricing/main" />
+        <isif condition="${!lineItem.appliedPromotions}">
+            <isinclude template="/product/components/pricing/main" />
+        <iselse>
+            <isinclude template="/product/components/pricing/promoPrice" />
+        </isif>
     </div>
 </div>
 
 <!--- quantity --->
 <div class="line-item-quantity">
-    <isinclude template="checkout/productCard/productCardQuantitySelector" />
+    <isif condition="${lineItem.customBundle}">
+        <isinclude template="checkout/productCard/productCardQuantityDisplay" />
+    <iselse/>
+        <isinclude template="checkout/productCard/productCardQuantitySelector" />
+    </isif>
     <iscomment> availability </iscomment>
     <isinclude template="cart/productCard/cartProductCardAvailability" />
 </div>

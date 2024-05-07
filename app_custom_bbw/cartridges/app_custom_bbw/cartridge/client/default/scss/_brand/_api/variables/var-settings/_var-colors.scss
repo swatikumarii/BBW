@@ -12,7 +12,12 @@ $clr-black-1: #1a1a1a;
 $clr-black-2: #1f1f21;
 $clr-black-3: #333;
 $clr-black-4: #102818;
+$clr-black-5: #222;
+$clr-black-6: #1a1919;
+$clr-black-7: #453f3f;
 $clr-white: #fff;
+$clr-white-1: #fafafa;
+$clr-white-2: #bababa;
 $clr-blue: #005699;
 $clr-blue-1: #024a82;
 $clr-blue-2: #f0f8ff;
@@ -21,10 +26,12 @@ $clr-blue-4: #007699;
 $clr-blue-5: #365fa1;
 $clr-blue-6: #27aade;
 $clr-blue-7: #34648c;
+$clr-blue-8: #00a1e0;
 $clr-pink: #e20887;
 $clr-pink-1: #dd0493;
 $clr-pink-2: #ec3fa8;
 $clr-pink-3: #cb1595;
+$clr-pink-4: #ed088c;
 $clr-gray: #666;
 $clr-gray-1: #f2f2f2;
 $clr-gray-2: #c2c2c2;
@@ -45,9 +52,18 @@ $clr-gray-15: #f5f4f4;
 $clr-gray-16: #707072;
 $clr-gray-17: #d9d9d9;
 $clr-gray-18: #999;
+$clr-gray-19: #767676;
+$clr-gray-20: #e6e6e6;
+$clr-gray-21: #d3d3d3;
+$clr-gray-22: #bababa;
+$clr-gray-23: #d8d8d8;
 $clr-green: #36c981;
 $clr-green-1: #007d48;
 $clr-green-2: #007a14;
+$clr-green-3: #00570b;
+$clr-green-4: #1d6b49;
+$clr-green-5: #e9ffe9;
+$clr-green-6: #e6f7eb;
 $clr-red: #cb0100;
 $clr-red-1: #fe5000;
 $clr-red-2: #ff0015;
@@ -57,6 +73,8 @@ $clr-red-5: #ee0005;
 $clr-red-6: #a70e00;
 $clr-red-7: #b21e34;
 $clr-red-8: #ce2127;
+$clr-red-9: #c00;
+$clr-red-10: #ffe9e9;
 $clr-brown: #aa8275;
 $clr-brown-1: #ba861e;
 $orange: #f89021;
@@ -68,10 +86,14 @@ $map-colors: (
         1: $clr-black-1,
         2: $clr-black-2,
         3: $clr-black-3,
-        4: $clr-black-4
+        4: $clr-black-4,
+        5: $clr-black-5,
+        6: $clr-black-6,
+        7: $clr-black-7
     ),
     white: (
-        base: $clr-white
+        base: $clr-white,
+        1: $clr-white-1
     ),
     blue: (
         base: $clr-blue,
@@ -87,7 +109,8 @@ $map-colors: (
         base: $clr-pink,
         1: $clr-pink-1,
         2: $clr-pink-2,
-        3: $clr-pink-3
+        3: $clr-pink-3,
+        4: $clr-pink-4
     ),
     gray: (
         base: $clr-gray,
@@ -108,12 +131,21 @@ $map-colors: (
         15: $clr-gray-15,
         16: $clr-gray-16,
         17: $clr-gray-17,
-        18: $clr-gray-18
+        18: $clr-gray-18,
+        19: $clr-gray-19,
+        20: $clr-gray-20,
+        21: $clr-gray-21,
+        22: $clr-gray-22,
+        23: $clr-gray-23
     ),
     green: (
         base: $clr-green,
         1: $clr-green-1,
-        2: $clr-green-2
+        2: $clr-green-2,
+        3: $clr-green-3,
+        4: $clr-green-4,
+        5: $clr-green-5,
+        6: $clr-green-6
     ),
     red: (
         base: $clr-red,
@@ -124,7 +156,9 @@ $map-colors: (
         5: $clr-red-5,
         6: $clr-red-6,
         7: $clr-red-7,
-        8: $clr-red-8
+        8: $clr-red-8,
+        9: $clr-red-9,
+        10: $clr-red-10
     ),
     brown: (
         base: $clr-brown,

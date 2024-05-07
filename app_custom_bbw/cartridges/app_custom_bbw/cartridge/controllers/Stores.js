@@ -28,7 +28,10 @@ var storeHelpers = require('*/cartridge/scripts/helpers/storeHelpers');
 server.append(
     'Find',
     function (req, res, next) {
-        var viewData = res.getViewData;        
+        var geolocation = req.geolocation;
+        var URLUtils = require('dw/web/URLUtils');
+        var Resource = require('dw/web/Resource');
+        var viewData = res.getViewData;
         var radius = req.querystring.radius;
         var postalCode = req.querystring.postalCode;
         var lat = req.querystring.lat;
@@ -36,7 +39,7 @@ server.append(
         var showMap = 'true';
         var horizontalView = 'true';
         var isForm = 'true';
-        
+
         var storeType = req.querystring.storeType;
 
         var stores = storeHelpers.getStores(
@@ -45,14 +48,28 @@ server.append(
             lat,
             long,
             req.geolocation,
+            req.geolocation.countryCode,
             storeType,
             showMap
         );
+
+        var breadcrumbs = [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            },
+            {
+                htmlValue: Resource.msg('store.heading', 'storeLocator', null)
+            }
+        ];
+        geolocation = req.geolocation;
         viewData = {
             stores: stores,
             horizontalView: horizontalView,
             isForm: isForm,
-            showMap: showMap
+            showMap: showMap,
+            breadcrumbs: breadcrumbs,
+            geolocation: geolocation
         };
 
         res.render('storeLocator/storeLocator', viewData);
@@ -75,11 +92,17 @@ server.append(
  * @param {serverfunction} get
  */
 server.append('FindStores', function (req, res, next) {
-
     var radius = req.querystring.radius;
     var postalCode = req.querystring.postalCode;
     var lat = req.querystring.lat;
     var long = req.querystring.long;
+    var isNumber = Boolean(Number(postalCode));
+    if(!isNumber){
+        postalCode = '';
+        lat = req.querystring.latitude;
+        long = req.querystring.longitude;
+    }
+    var countryCode = req.querystring.countryCode ? req.querystring.countryCode : null;
     var storeType = req.querystring.storeType;
     var showMap = 'true';
 
@@ -89,6 +112,7 @@ server.append('FindStores', function (req, res, next) {
         lat,
         long,
         req.geolocation,
+        countryCode,
         storeType,
         showMap
     );
