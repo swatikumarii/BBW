@@ -520,6 +520,11 @@
 
     .arrow {
         left: 14px !important;
+        bottom: -8px;
+
+        &::before {
+            border-top-color: colour(gray);
+        }
     }
 
     .close {
@@ -642,4 +647,24 @@
 
 .outOfstockModal.modal.modal-right.fade.show .modal-dialog {
     right: 0 !important;
+}
+
+.tiered {
+    table {
+        width: 250px;
+
+        .table-header {
+            font-weight: 600;
+            padding: 12px 0;
+        }
+
+        .column-header {
+            font-weight: 400;
+            padding-bottom: 5px;
+        }
+
+        td {
+            padding-bottom: 5px;
+        }
+    }
 }
