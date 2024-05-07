@@ -17,7 +17,7 @@
     <iselse/>
         <button class="add-to-cart btn" data-toggle="modal" data-target="#chooseBonusProductModal" data-pid="${product.id}"
             ${!product.available ? "disabled" : ""}>
-            ${Resource.msg('button.addtocart', 'common', null)}
+            ${Resource.msg('button.addToBag', 'common', null)}
         </button>
         <span class="add-to-cart-error text-danger"></span>
     </isif>
