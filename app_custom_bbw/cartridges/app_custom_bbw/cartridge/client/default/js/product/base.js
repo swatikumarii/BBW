@@ -273,7 +273,7 @@ module.exports = $.extend({}, base, {
                         data: form,
                         success: function (data) {
                             if (data.error) {
-                                $('.reserve-stock-toast p').text(data.message);
+                                $('.reserve-stock p').text(data.message);
                                 $('.reserve-stock').removeClass('d-none');
                             } else {
                                 handlePostCartAdd(data);
@@ -283,6 +283,7 @@ module.exports = $.extend({}, base, {
                                 );
                                 $.spinner().stop();
                                 base.miniCartReportingUrl(data.reportingURL);
+
                                 var addToCartSnackbar = $(
                                     '#add-to-cart-snackbar'
                                 );

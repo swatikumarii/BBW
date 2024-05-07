@@ -12,10 +12,10 @@
             <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
             <div class="row">
             <div class="col-md-12 col-sm-12 d-flex justify-content-center slot-banner">
-                <img class="d-sm-none w-100" src="${URLUtils.staticURL('/images/orderTracking/order-status-banner-asset_m.svg')}"
+                <img class="d-sm-none w-100 sm-banner-img" src="${URLUtils.staticURL('/images/orderTracking/order-status-banner-asset_m.svg')}"
                     alt="${Resource.msg('lorder.tracking.banner.title', 'order', null)}" />
-                <img class="d-none d-sm-block" src="${URLUtils.staticURL('/images/orderTracking/order-status-banner.svg')}"
-                    alt="${Resource.msg('lorder.tracking.banner.title', 'order', null)}" width="955" />
+                <img class="d-none d-sm-block md-banner-img" src="${URLUtils.staticURL('/images/orderTracking/order-status-banner.svg')}"
+                    alt="${Resource.msg('lorder.tracking.banner.title', 'order', null)}"/>
             </div>
             </div>
 

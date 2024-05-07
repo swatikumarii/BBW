@@ -1,5 +1,5 @@
 <isdecorate template="common/layout/page">
-<isinclude template="/components/modules" sf-toolkit="off" />
+    <isinclude template="/components/modules" sf-toolkit="off" />
 
     <isscript>
         var assets = require('*/cartridge/scripts/assets');
@@ -202,7 +202,7 @@
                             <isif condition="${!product.variationAttributes}">
                                 <isif condition="${product.available}">
                                     <div class="simple-quantity">
-                                            <isinclude template="product/components/quantity" />
+                                        <isinclude template="product/components/quantity" />
                                     </div>
                                 </isif>
                             </isif>

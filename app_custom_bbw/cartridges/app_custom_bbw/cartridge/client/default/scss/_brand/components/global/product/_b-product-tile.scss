@@ -109,6 +109,45 @@
     &__wishlistTile {
         top: 0;
         right: 0;
+
+        .fa-stack {
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+        }
+
+        .icon-wishlist {
+            background-size: contain;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .icon-heart-filled {
+            display: none;
+        }
+
+        .icon-heart-o {
+            background-image: url("../../images/plp/wishlist/heart-24.svg");
+        }
+
+        &:hover {
+            .icon-heart-o {
+                background-image: url("../../images/plp/wishlist/heart-pink-24.svg");
+            }
+        }
+
+        &.added {
+            .icon-heart-o {
+                display: none;
+            }
+
+            .icon-heart-filled {
+                display: inline-block;
+                background-image: url("../../images/plp/wishlist/heart-filled-24.svg");
+            }
+        }
     }
 
     &__choose-store {
@@ -200,6 +239,7 @@
             .b-product-tile__quickview {
                 display: block;
                 transition: opacity 0.3s;
+                color: colour(black, 3);
             }
         }
     }
