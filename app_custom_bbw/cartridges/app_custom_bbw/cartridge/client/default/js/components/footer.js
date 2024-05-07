@@ -7,8 +7,9 @@
 /**
  * appends params to a url
  * @param {string} data - data returned from the server's ajax call
+ * @param {string} button - submit button
  */
-function displayMessage(data) {
+function displayMessage(data, button) {
     $.spinner().stop();
     var status;
     if (data.success) {
@@ -24,10 +25,10 @@ function displayMessage(data) {
     }
     $('.email-signup-message').append(
         '<div class="email-signup-alert text-justify ' +
-        status +
-        '">' +
-        data.msg +
-        '</div>'
+            status +
+            '">' +
+            data.msg +
+            '</div>'
     );
     var newsLetterInput = $('#newsletterInput');
     if (status === 'alert-danger') {
@@ -50,13 +51,16 @@ function newsLetter(token) {
     var url = $('.newsletter').data('href');
     var button = $('.subscribe-email');
     var emailId = $('input[name=hpEmailSignUp]').val();
-    var data = { emailId: emailId };
+    var csrfToken = $('input[name=csrf_token]').val();
+    var data = { emailId: emailId, 'csrf_token': csrfToken };
     if (token) {
         data = {
             emailId: emailId,
-            'g-recaptcha-response': token
+            'g-recaptcha-response': token,
+            'csrf_token': csrfToken
         };
     }
+
     $.spinner().start();
     $('form.newsletter').attr('disabled', true);
     $('.subscribe-email').attr('disabled', true);
@@ -137,6 +141,9 @@ function handleScroll() {
 }
 
 // Function to scroll to top when the button is clicked
+/**
+ *
+ */
 function scrollToTop() {
     $('html, body').animate(
         {

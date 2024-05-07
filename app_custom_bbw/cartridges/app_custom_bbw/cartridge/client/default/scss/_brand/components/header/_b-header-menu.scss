@@ -12,6 +12,7 @@
                     letter-spacing: 0.01em;
                     border-bottom: 0.1875rem solid transparent;
                     transition: border 0.5s ease-out;
+                    text-transform: capitalize;
 
                     &:hover {
                         color: colour(black, 1);
@@ -303,7 +304,7 @@
             }
         }
 
-        .level-1-li {
+        .nav-item {
             transition: max-height 0.5s ease-out;
             max-height: 58px;
             border-top: 0.0625rem solid colour(gray, 6);
@@ -319,10 +320,11 @@
                 z-index: 30;
             }
 
-            .level-1-link {
+            .nav-link {
                 padding: 1.25rem 0.9375rem;
                 line-height: 1.25rem;
                 letter-spacing: 0.005em;
+                text-transform: capitalize;
 
                 &:hover {
                     color: colour(black, 1);
