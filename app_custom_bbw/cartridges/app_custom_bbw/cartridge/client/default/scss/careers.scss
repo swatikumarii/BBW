@@ -106,7 +106,6 @@
                         &::before {
                             position: absolute;
                             right: 10px;
-                            font-family: FontAwesome;
                             font-size: 15px;
                             content: "\f077";
                             color: colour(white);
@@ -167,7 +166,6 @@
                         margin: 0;
 
                         &::before {
-                            font-family: FontAwesome;
                             content: "\f105";
                             margin: 0 12px 0 0;
                             color: colour(black, 6);

@@ -37,12 +37,12 @@
                 <div class="blog_list">
                     <div class="head-img d-flex align-items-center">
                         <isif condition="${folder.custom.isShow === true}">
-                            <div class="mb-3">
+                            <div class="folder-conten-img">
                                 <img class="folder_content" src="${folder.custom.image.absURL}"
                                     alt="${folder.displayName}" />
                             </div>
                         </isif>
-                        <h2 class="head-feature text-uppercase  m-font-base--normal mb-3">${folder.displayName}</h2>
+                        <h2 class="head-feature text-uppercase  m-font-base--normal">${folder.displayName}</h2>
                     </div>
 
 
@@ -52,7 +52,7 @@
                                 <img class="blogImage w-100" src="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/2023/g_i/holiday/bc_day/TBC-Day_2023_CRP_tile.jpg"
                                     alt="${content.name}" />
                                 <h3 class="text-uppercase h-fw--semibold m-font-base--normal">${content.name}</h3>
-                                <p class="mb-0 h-clr--gray h-fw--normal h-font-size--16">${content.description}</p>
+                                <p class="h-clr--gray h-fw--normal h-font-size--16">${content.description}</p>
                                 <a class="btn btn-primary read-button h-font-size--14 h-fw--medium"
                                     href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
                                     <span>${Resource.msg('button.read.more', 'common', null)}</span>

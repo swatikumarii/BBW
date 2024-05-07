@@ -49,6 +49,16 @@ $(document).ready(function () {
         } else {
             $('#noresult').hide();
         }
+
+        // Remove border bottom from last 3 visible li elements
+        var visibleLiElements = $('.alphabetically-data:visible');
+        visibleLiElements.each(function (index, element) {
+            if (index >= visibleLiElements.length - 2) {
+                $(element).css('border-bottom', 'none');
+            } else {
+                $(element).css('border-bottom', '1px solid #ccc'); 
+            }
+        });
     });
 
     // search functionality for product ingredients
