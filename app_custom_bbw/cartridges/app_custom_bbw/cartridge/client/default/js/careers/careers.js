@@ -7,6 +7,29 @@ $('body').on('click', '.applicationButton', function (e) {
     $('.jobForm').slideToggle();
 });
 
+/**
+ * Function to use validate fields
+ * @param {any} inputField input field
+ * @returns {boolean} true/false
+ */
+function validateField(inputField) {
+    var errorElement = $('#' + inputField.attr('id') + '-error');
+    if (!inputField.val()) {
+        inputField.addClass('is-invalid'); // Add class for input border error
+        errorElement.text('Field is required'); // Display error message
+        return false;
+    }
+    inputField.removeClass('is-invalid'); // Remove class if input is valid
+    return true;
+}
+
+/**
+ * Function to scroll to the top of the page
+ */
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 module.exports = {
     register: function () {
         $('.job-application').submit(function (e) {
@@ -23,14 +46,13 @@ module.exports = {
             // resume validate
             $('.wrong-file-type-msg').css('display', 'none');
 
-            // Looping over all files and add it to FormData object
+            // Looping over all files and add them to FormData object
             if ($('#resume')[0].files.length === 0) {
-                // $('.error-msg-jobs').css('display', 'block');
                 $('form button[type="submit"]').spinner().stop();
                 $('.fileInputTypeFormError').removeClass('d-none');
                 $('.form-file-control').addClass('is-invalid');
-                $('.form-file-control').addClass('.invalid-feedback');
-                return 0;
+                scrollToTop(); // Scroll to top if error occurs
+                return false;
             }
 
             var ext = files[0].name.substring(files[0].name.lastIndexOf('.') + 1);
@@ -40,7 +62,8 @@ module.exports = {
 
                 $('.wrong-file-type-msg').css('display', 'block');
                 $('.noFileSupport').removeClass('d-none');
-                return 0;
+                scrollToTop(); // Scroll to top if error occurs
+                return false;
             }
 
             $('#resume').next('.invalid-feedback').text('');
@@ -49,7 +72,8 @@ module.exports = {
             if (fileSize >= 3) {
                 $('.large-size-msg').css('display', 'block');
                 $('form button[type="submit"]').spinner().stop();
-                return 0;
+                scrollToTop(); // Scroll to top if error occurs
+                return false;
             }
 
             for (var i = 0; i < files.length; i++) {
@@ -82,9 +106,15 @@ module.exports = {
                 error: function () {
                     $('form button[type="submit"]').spinner().stop();
                     $('.job-error').css('display', 'block');
+                    scrollToTop(); // Scroll to top if error occurs
                 }
             });
             return false;
+        });
+
+        // Validate fields on blur
+        $('#apply-job-name, #apply-job-number, #apply-job-email, #resume, #yourself').on('blur', function () {
+            validateField($(this));
         });
     }
 };

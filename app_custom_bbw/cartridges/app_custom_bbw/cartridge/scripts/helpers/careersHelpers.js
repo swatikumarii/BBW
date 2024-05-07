@@ -1,6 +1,24 @@
 'use strict';
 
 /**
+ * Find city in object
+ * @param {Array} jobs jobs object
+ * @param {object} item item object
+ * @returns {object} contain cityexist and indexnumber
+ */
+function findCity(jobs, item) {
+    var indexNumber;
+    var cityExists = jobs.some(function (refinement, index) {
+        indexNumber = index;
+        return refinement.city === item.custom.city;
+    });
+    return {
+        cityExists: cityExists,
+        indexNumber: indexNumber
+    };
+}
+
+/**
  * creates a plain object of the jobs.
  * @param {object} careers all the jobs collections
  * @returns {object} a plain object containing the job contents.
@@ -10,11 +28,9 @@ function getCareers(careers) {
     while (careers.hasNext()) {
         var item = careers.next();
         var vacancy = {};
-        var indexNumber;
-        var cityExists = jobs.some(function (refinement, index) {
-            indexNumber = index;
-            return refinement.city === item.custom.city;
-        });
+        var findExistCity = findCity(jobs, item);
+        var cityExists = findExistCity.cityExists;
+        var indexNumber = findExistCity.indexNumber;
         if (cityExists) {
             jobs[indexNumber].data.push({
                 id: item.custom.jobId,

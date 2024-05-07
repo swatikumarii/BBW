@@ -33,12 +33,12 @@ footer {
                     margin-left: -10px;
                     display: block;
                     height: 1px;
-                    width: 100%;
                     margin-right: -10px;
                 }
 
                 @include media-up(sm) {
                     background: none;
+                    width: 100%;
                 }
             }
         }
@@ -52,12 +52,12 @@ footer {
                 margin-left: -10px;
                 display: block;
                 height: 1px;
-                width: 100%;
                 margin-right: -10px;
 
                 @include media-up(sm) {
                     margin: 0;
                     background: none;
+                    width: 100%;
                 }
             }
         }
@@ -364,4 +364,10 @@ footer {
     background-image: url("../images/footer/unsubscribe-bg.jpg");
     background-repeat: repeat-y;
     height: 120vh;
+}
+
+#newsletterInput {
+    &.is-invalid {
+        border-color: colour(red);
+    }
 }

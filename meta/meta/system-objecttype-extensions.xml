@@ -55,6 +55,18 @@
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="googleCategory">
+                <display-name xml:lang="x-default">Google Product Category</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -70,6 +82,10 @@
                 <display-name xml:lang="x-default">Notify me</display-name>
                 <attribute attribute-id="enableNotifyMe"/>
                 <attribute attribute-id="notifyMeThreshold"/>
+            </attribute-group>
+            <attribute-group group-id="google">
+                <display-name xml:lang="x-default">Google</display-name>
+                <attribute attribute-id="googleCategory"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -824,6 +840,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="zeroOrderEmail">
+                <display-name xml:lang="x-default">Zero Order Email Address</display-name>
+                <description xml:lang="x-default">Comma-separated Zero Order email addresses</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -841,6 +864,7 @@
                 <attribute attribute-id="maxOrderQty"/>
                 <attribute attribute-id="notifyEmailThreshold"/>
                 <attribute attribute-id="header_image"/>
+                <attribute attribute-id="zeroOrderEmail"/>
                 <attribute attribute-id="careersEmail"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">

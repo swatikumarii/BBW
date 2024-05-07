@@ -52,13 +52,14 @@
             <preference preference-id="apEnableExpressCheckout">true</preference>
             <preference preference-id="apEnableExpressCheckoutBuyNow">true</preference>
             <preference preference-id="apEnableExpressCheckoutCart">true</preference>
-            <preference preference-id="apEnableExpressCheckoutPdp">true</preference>
+            <preference preference-id="apEnableExpressCheckoutPdp">false</preference>
             <preference preference-id="apExpressCheckoutShippingStrategy">integrated</preference>
             <preference preference-id="apJavaScript">https://js-sandbox.squarecdn.com/square-marketplace.js</preference>
             <preference preference-id="apPaymentMode">DIRECT_CAPTURE</preference>
             <preference preference-id="apStorePickupDescription">Available for next-day pickup</preference>
             <preference preference-id="enableAfterpay">true</preference>
             <preference preference-id="enableCashAppPay">true</preference>
+            <preference preference-id="zeroOrderEmail"></preference>
             <preference preference-id="careersEmail"></preference>
         </development>
         <staging>
@@ -111,6 +112,7 @@
             <preference preference-id="apStorePickupDescription">Available for next-day pickup</preference>
             <preference preference-id="enableAfterpay">false</preference>
             <preference preference-id="enableCashAppPay">false</preference>
+            <preference preference-id="zeroOrderEmail"></preference>
             <preference preference-id="careersEmail"></preference>
         </staging>
         <production/>
