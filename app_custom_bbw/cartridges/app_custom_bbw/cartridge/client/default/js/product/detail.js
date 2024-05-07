@@ -42,11 +42,6 @@ module.exports = $.extend({}, detail, {
     focusChooseBonusProductModal: base.focusChooseBonusProductModal()
 });
 
-/** Wishlist toast message */
-$('#add-to-wish-list').click(function () {
-    $('.wishlist-toast.toast').toast('show');
-});
-
 /** PDP Accordion */
 $('.card:first').find('.title').removeClass('collapsed');
 $('.card:first').find('.content').addClass('show');

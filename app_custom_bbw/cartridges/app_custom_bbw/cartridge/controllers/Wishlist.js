@@ -1,7 +1,6 @@
 'use strict';
 
 var server = require('server');
-var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
 
 server.extend(module.superModule);
 
@@ -33,11 +32,6 @@ server.prepend('AddProduct', function (req, res, next) {
 server.append('Show', function (req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
     var Resource = require('dw/web/Resource');
-
-    var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
-        type: 10
-    });
-    var expressShip = list.productItems;
     var viewData = res.getViewData();
 
     var breadcrumbs = [
@@ -57,7 +51,6 @@ server.append('Show', function (req, res, next) {
     viewData.breadcrumbs = breadcrumbs;
 
     res.setViewData(viewData);
-    res.setViewData({expressShip: expressShip});
     next();
 });
 
