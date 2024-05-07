@@ -33,51 +33,88 @@ function clearForm(form) {
     $(form).find('.form-control.is-invalid').removeClass('is-invalid');
 }
 
-module.exports = {
-    invalid: function () {
-        $('form input, form select, form textarea').on('invalid', function (e) {
-            e.preventDefault();
-            this.setCustomValidity('');
-            if (!this.validity.valid) {
-                var validationMessage = this.validationMessage;
-                $(this).addClass('is-invalid');
-                if (this.validity.patternMismatch && $(this).data('pattern-mismatch')) {
-                    validationMessage = $(this).data('pattern-mismatch');
-                }
-                if ((this.validity.rangeOverflow || this.validity.rangeUnderflow)
-                    && $(this).data('range-error')) {
-                    validationMessage = $(this).data('range-error');
-                }
-                if ((this.validity.tooLong || this.validity.tooShort)
-                    && $(this).data('range-error')) {
-                    validationMessage = $(this).data('range-error');
-                }
-                if (this.validity.valueMissing && $(this).data('missing-error')) {
-                    validationMessage = $(this).data('missing-error');
-                    // handling job form fields
-                    if ($(this).parents('.form-control').hasClass('job-application')) {
-                        if ($('#resume')[0].files.length === 0) {
-                            $('#resume').addClass('is-invalid');
-                            $('#resume').next('.invalid-feedback').text($('#resume').data('missing-error'));
-                        } else {
-                            $('#resume').removeClass('is-invalid');
-                            $('#resume').next('.invalid-feedback').text('');
-                        }
-                    }
-                }
-                $(this).parents('.form-group').find('.invalid-feedback')
-                    .text(validationMessage);
-
-                for (var ele = 0; ele < $('#job').find('input').length; ele++) {
-                    if ($('#job').find('input')[ele].value == '') {
-                        $('html, body').animate({
-                            scrollTop: $($('#job').find('input')[ele]).offset().top-100
-                        }, 'slow');
-                        return;
+/**
+ *
+ */
+function invalid() {
+    $('form input, form select, form textarea').on('invalid', function (e) {
+        e.preventDefault();
+        this.setCustomValidity('');
+        if (!this.validity.valid) {
+            var validationMessage = this.validationMessage;
+            $(this).addClass('is-invalid');
+            if (
+                this.validity.patternMismatch &&
+                    $(this).data('pattern-mismatch')
+            ) {
+                validationMessage = $(this).data('pattern-mismatch');
+            }
+            if (
+                (this.validity.rangeOverflow ||
+                        this.validity.rangeUnderflow) &&
+                    $(this).data('range-error')
+            ) {
+                validationMessage = $(this).data('range-error');
+            }
+            if (
+                (this.validity.tooLong || this.validity.tooShort) &&
+                    $(this).data('range-error')
+            ) {
+                validationMessage = $(this).data('range-error');
+            }
+            if (
+                this.validity.valueMissing &&
+                    $(this).data('missing-error')
+            ) {
+                validationMessage = $(this).data('missing-error');
+                // handling job form fields
+                if (
+                    $(this)
+                        .parents('.form-control')
+                        .hasClass('job-application')
+                ) {
+                    if ($('#resume')[0].files.length === 0) {
+                        $('#resume').addClass('is-invalid');
+                        $('#resume')
+                            .next('.invalid-feedback')
+                            .text($('#resume').data('missing-error'));
+                    } else {
+                        $('#resume').removeClass('is-invalid');
+                        $('#resume').next('.invalid-feedback').text('');
                     }
                 }
             }
-        });
+            $(this)
+                .parents('.form-group')
+                .find('.invalid-feedback')
+                .text(validationMessage);
+
+            for (var ele = 0; ele < $('#job').find('input').length; ele++) {
+                if ($('#job').find('input')[ele].value == '') {
+                    $('html, body').animate(
+                        {
+                            scrollTop:
+                                    $($('#job').find('input')[ele]).offset()
+                                        .top - 100
+                        },
+                        'slow'
+                    );
+                    return;
+                }
+            }
+        }
+    });
+}
+
+module.exports = {
+    invalid: function () {
+        invalid();
+
+        $('body').on('form:invalid',
+            function () {
+                invalid();
+            }
+        );
     },
 
     submit: function () {
@@ -87,7 +124,7 @@ module.exports = {
     },
 
     buttonClick: function () {
-        $('form button[type="submit"], form input[type="submit"]').on('click', function () {
+        $('body').on('click', 'form button[type="submit"], form input[type="submit"]', function () {
             // clear all errors when trying to submit the form
             clearForm($(this).parents('form'));
         });

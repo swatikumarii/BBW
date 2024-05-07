@@ -56,6 +56,7 @@ $(document).on('click', '#editProfile', function () {
             $('#address-form').modal('show');
             // $('#addressId').val(response.addressForm.addressId.attributes);
             console.log('in success');
+            $('body').trigger('form:invalid');
         },
         error: function (err) {
             console.log('in error');
