@@ -13,14 +13,20 @@
     }
 
     .modal-header {
-        height: 35px;
+        height: 20px;
 
         .close-icon-btn {
             opacity: 1;
+            width: 48px;
+            height: 48px;
 
             &:hover {
                 background-color: colour(gray, 1);
                 box-shadow: inset 0 0 0 8px colour(white);
+            }
+
+            img {
+                margin-top: -13px;
             }
         }
     }
@@ -56,6 +62,12 @@
             max-height: 35px;
             min-height: 35px;
             letter-spacing: 0.12em;
+
+            &:active {
+                color: colour(black, 3);
+                border-color: colour(gray, 1);
+                background-color: colour(white);
+            }
         }
 
         .privacy-block {
@@ -103,10 +115,71 @@
 
 // -----Register form---
 .login-page {
-    .page-title {
-        line-height: 1.3125rem;
-        padding-bottom: 15px;
-        border-bottom: 1px solid colour(black, 3);
+    .slot-banner {
+        padding: 0;
+        margin-bottom: 45px;
+        margin-top: 0;
+
+        .register-banner-img {
+            width: 100%;
+
+            @include media-up(sm) {
+                width: 955px;
+            }
+
+            @include media-btw(sm, lg) {
+                width: 100%;
+            }
+        }
+    }
+
+    .register-form-head {
+        margin: 0 auto;
+
+        .page-title {
+            line-height: 1.3125rem;
+            padding-bottom: 15px;
+            border-bottom: 1px solid colour(black, 3);
+            width: 100%;
+            margin-left: 0;
+
+            @include media-up(sm) {
+                width: 955px;
+                margin-left: 1rem;
+            }
+
+            @include media-btw(sm, lg) {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+
+        .required-field-para {
+            float: right;
+            font-style: italic;
+            line-height: 1rem;
+            width: 100%;
+
+            @include media-up(sm) {
+                float: right;
+                font-style: italic;
+                line-height: 1rem;
+                width: 955px;
+            }
+
+            @include media-btw(sm, lg) {
+                width: 100%;
+            }
+
+            .required-indicator {
+                margin-right: 0.125em;
+                color: colour(red, 9);
+            }
+        }
+    }
+
+    .register-form-nav {
+        padding-left: 2%;
     }
 
     .phone-drpdwn {
@@ -131,7 +204,8 @@
         }
 
         .select-dropdown-value {
-            height: 3rem;
+            height: 48px;
+            width: 100%;
             line-height: 1.25rem;
             border-radius: 0;
             letter-spacing: 0.005em;
@@ -140,6 +214,15 @@
             &:focus {
                 box-shadow: none;
                 outline: 1px dotted colour(black);
+            }
+
+            @include media-up(sm) {
+                height: 48px;
+                width: 356.25px;
+                line-height: 1.25rem;
+                border-radius: 0;
+                letter-spacing: 0.005em;
+                border: 1px solid colour(gray, 5);
             }
         }
 
@@ -166,10 +249,33 @@
         }
     }
 
+    .changepassowrd-btn {
+        transition: all 0.3s ease;
+        max-height: 35px;
+        min-height: 35px;
+        letter-spacing: 0.12em;
+
+        &:focus {
+            background-color: colour(white);
+            color: colour(black, 3);
+        }
+    }
+
+    .changepassword {
+        margin: 0.625rem 0 1.875rem;
+
+        .create-btn {
+            padding: 0 2.8125em;
+        }
+    }
+
+    .iti__selected-country {
+        background: colour(white);
+    }
+
     // -----Login page
     .login-page-setion {
-        display: block;
-        padding: 2em 2em 3em;
+        margin-top: -25px;
 
         @include media-up(sm) {
             display: flex;
@@ -217,11 +323,17 @@
             }
 
             .sign-in-btn {
-                padding: 0 2.8125em;
-                transition: all 0.3s ease;
-                min-height: 35px;
+                padding: 0 1.25em;
                 max-height: 35px;
-                letter-spacing: 0.12em;
+                min-height: 35px;
+
+                @include media-up(sm) {
+                    transition: all 0.3s ease;
+                    min-height: 35px;
+                    max-height: 35px;
+                    font-size: 11px;
+                    letter-spacing: 0.12em;
+                }
             }
 
             .privacy-policy {
@@ -229,6 +341,7 @@
 
                 a {
                     text-decoration: underline;
+                    line-height: 24px;
 
                     &:hover {
                         text-decoration: none;
@@ -277,7 +390,7 @@
         }
 
         .or {
-            top: calc(33% - 16px);
+            top: calc(29% - 16px);
             width: 37px;
             height: 37px;
             border: 1px solid colour(gray, 3);
@@ -297,85 +410,6 @@
                 line-height: 37px;
             }
         }
-    }
-
-    // -----forgot password
-    .request-password-body {
-        p {
-            line-height: 1.5rem;
-            padding-top: 20px;
-            color: colour(gray);
-
-            a {
-                text-decoration: underline;
-
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-        }
-
-        .forgot-password-form {
-            margin: 0.625rem 0 1.875rem;
-
-            .reset-label-name {
-                margin-bottom: 1.25rem;
-            }
-
-            .required-indicator {
-                margin-right: 0.125em;
-                color: colour(red, 9);
-            }
-
-            .forgotPassword {
-                width: calc(100% - 65px);
-
-                @include media-up(sm) {
-                    width: calc(50% - 65px);
-                }
-
-                @include media-btw(sm, lg) {
-                    width: calc(100% - 65px);
-                }
-            }
-        }
-    }
-
-    .resetpassword-btn {
-        transition: all 0.3s ease;
-        max-height: 48px;
-        min-height: 48px;
-        letter-spacing: 0.12em;
-    }
-
-    .reset-password-form {
-        margin: 0 auto;
-    }
-
-    .required-field-para {
-        float: right;
-        font-style: italic;
-        line-height: 1rem;
-
-        .required-indicator {
-            margin-right: 0.125em;
-            color: colour(red, 9);
-        }
-    }
-
-    .changepassowrd-btn {
-        transition: all 0.3s ease;
-        max-height: 35px;
-        min-height: 35px;
-        letter-spacing: 0.12em;
-    }
-
-    .create-btn {
-        padding: 0 2.8125em;
-    }
-
-    .iti__selected-country {
-        background: colour(white);
     }
 }
 
@@ -400,9 +434,16 @@
         min-height: 43px;
         max-height: 15px;
         background: colour(white);
-        right: 1px;
-        z-index: 5;
+        right: 15px;
         letter-spacing: normal;
+
+        @include media-up(sm) {
+            right: 7px;
+        }
+
+        @include media-breakpoint-only(md) {
+            right: -71px;
+        }
 
         &:hover {
             background-color: colour(gray, 1);
@@ -453,7 +494,7 @@
 
 .modal.fade .modal-dialog {
     transition: transform 0.3s ease-out;
-    transform: translate(0, 50px);
+    transform: translateY(100%);
 }
 
 .modal-dialog {
@@ -462,14 +503,125 @@
     left: 0%;
     right: 0%;
     margin-bottom: 0;
-    animation: e 0.2s;
-    animation-timing-function: cubic-bezier(0.2, 0.05, 0.55, 0.2);
+    animation: slideIn 0.5s cubic-bezier(0.2, 0.05, 0.55, 0.2);
 }
 
 .modal.show .modal-dialog {
-    transform: none;
+    transform: translateY(0);
+
+    @keyframes slideIn {
+        0% {
+            transform: translateY(100%);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
 }
 
 .modal-content {
     border-radius: 0;
+}
+
+.border-danger {
+    border-color: colour(red);
+}
+
+// -----forgot password
+.forgot-pass-page {
+    .page-title {
+        line-height: 1.3125rem;
+        padding-bottom: 0.625em;
+        margin-bottom: 1.5625em;
+        border-bottom: 1px solid colour(black, 3);
+        width: 100%;
+        margin-left: 0;
+
+        @include media-up(sm) {
+            line-height: 1.3125rem;
+            padding-bottom: 0.625em;
+            margin-bottom: 1.5625em;
+            border-bottom: 1px solid colour(black, 3);
+            width: 705px;
+            margin-left: 0;
+        }
+    }
+
+    .request-password-body {
+        p {
+            line-height: 1.5rem;
+            padding-top: 20px;
+            color: colour(gray);
+            width: 100%;
+
+            @include media-up(sm) {
+                line-height: 1.5rem;
+                padding-top: 20px;
+                color: colour(gray);
+                width: 705px;
+            }
+
+            a {
+                text-decoration: underline;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        .forgot-password-form {
+            margin: 0.625rem 0 1.875rem;
+            width: 100%;
+
+            @include media-up(sm) {
+                width: 705px;
+                margin: 0.625rem 0 1.875rem;
+            }
+
+            .reset-label-name {
+                margin-bottom: 1.25rem;
+            }
+
+            .required-indicator {
+                margin-right: 0.125em;
+                color: colour(red, 9);
+            }
+
+            .forgotPassword {
+                width: calc(100% - 65px);
+
+                @include media-up(sm) {
+                    width: calc(50% - 65px);
+                }
+
+                @include media-btw(sm, lg) {
+                    width: calc(50% - 65px);
+                }
+            }
+        }
+    }
+
+    .resetpassword-btn {
+        transition: all 0.3s ease;
+        max-height: 48px;
+        min-height: 48px;
+        letter-spacing: 0.12em;
+    }
+
+    .reset-password-form {
+        margin: 0 auto;
+    }
+
+    .required-field-para {
+        float: right;
+        font-style: italic;
+        line-height: 1rem;
+
+        .required-indicator {
+            margin-right: 0.125em;
+            color: colour(red, 9);
+        }
+    }
 }

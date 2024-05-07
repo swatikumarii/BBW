@@ -115,6 +115,8 @@ body {
                     display: grid;
                     grid-template-columns: repeat(4, 1fr);
                     gap: 40px;
+                    margin: 0 auto;
+                    max-width: 974px;
                 }
 
                 @include media-btw(sm, lg) {
@@ -124,35 +126,12 @@ body {
                 }
 
                 .alphabetically-data {
-                    width: 100%;
                     position: relative;
+                    border-bottom: 2px solid colour(gray, 21);
+                    margin-right: -40px;
 
-                    @include media-up(sm) {
-                        &::after {
-                            content: "";
-                            position: absolute;
-                            background: colour(gray, 21);
-                            width: 16vw;
-                            display: block;
-                            bottom: 0;
-                            height: 2px;
-                        }
-                    }
-
-                    @include media-btw(sm, lg) {
-                        &::after {
-                            content: "";
-                            position: absolute;
-                            background: colour(gray, 21);
-                            width: 33vw;
-                            display: block;
-                            bottom: 0;
-                            height: 2px;
-                        }
-                    }
-
-                    &:nth-last-child(-n + 3)::after {
-                        background: none;
+                    &.last-border {
+                        border: none;
                     }
 
                     .static-level {

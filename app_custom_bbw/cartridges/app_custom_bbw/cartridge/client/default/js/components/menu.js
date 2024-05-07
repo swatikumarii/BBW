@@ -20,14 +20,12 @@ if (layout.isMobile()) {
     $('.level-1-li').on('click', function () {
         if ($(this).hasClass('active')) {
             $(this).children('.level-2-ul').removeClass('active');
-            $('.level-2-li').removeClass('active');
-            $('.level-3-ul').removeClass('active');
+            $('.level-2-li, .level-3-ul').removeClass('active');
             $(this).removeClass('active');
         } else {
-            $('.level-1-li').removeClass('active');
-            $('.level-2-ul').removeClass('active');
-            $('.level-2-li').removeClass('active');
-            $('.level-3-ul').removeClass('active');
+            $('.level-1-li, .level-2-ul, .level-2-li, .level-3-ul').removeClass(
+                'active'
+            );
             $(this).addClass('active');
             $(this).children('.level-2-ul').addClass('active');
         }

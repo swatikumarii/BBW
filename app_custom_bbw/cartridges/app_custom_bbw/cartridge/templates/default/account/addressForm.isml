@@ -96,7 +96,7 @@
 <div class="row">
     <!-- Country  -->
     <div class="col-12">
-        <div class="form-group">
+        <div class="form-group select-box">
             <div class="form-label-require d-flex align-items-center justify-content-between">
                 <label class="form-control-label mb-0" for="country">
                     <isprint value="${pdict.addressForm.country.label}" encoding="htmlcontent" />
@@ -104,43 +104,21 @@
                 <span
                     class="${pdict.addressForm.country.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
             </div>
-            <select class="form-control" id="country" <isprint value="${pdict.addressForm.country.attributes}"
-                encoding="off" />
-            autocomplete="country">
-            <isloop items=${pdict.addressForm.country.options} var="country">
-                <option id="${country.id}" value="${country.htmlValue}" <isif condition="${country.selected}">selected
-                    </isif>>${country.label}</option>
-            </isloop>
-            </select>
-            <div class="invalid-feedback"></div>
-        </div>
-    </div>
-
-    <!-- State  -->
-    <div class="col-12">
-        <div class="form-group">
-            <div class="form-label-require d-flex align-items-center justify-content-between">
-                <label class="form-control-label mb-0" for="state">
-                    <isprint value="${pdict.addressForm.states.stateCode.label}" encoding="htmlcontent" />
-                </label>
-                <span
-                    class="${pdict.addressForm.states.stateCode.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
+            <div class="select-wrap">
+                <select class="form-control" id="country" <isprint value="${pdict.addressForm.country.attributes}"
+                    encoding="off" />
+                autocomplete="country">
+                <isloop items=${pdict.addressForm.country.options} var="country">
+                    <option id="${country.id}" value="${country.htmlValue}" <isif condition="${country.selected}">
+                        selected
+                        </isif>>${country.label}</option>
+                </isloop>
+                </select>
             </div>
-            <select class="form-control" id="state" <isprint value="${pdict.addressForm.states.stateCode.attributes}"
-                encoding="off" />
-            autocomplete="address-level1">
-            <isloop items=${pdict.addressForm.states.stateCode.options} var="state">
-                <option id="${state.id}" value="${state.htmlValue}" <isif condition="${state.selected}">selected</isif>
-                    >${state.label || ' '}</option>
-            </isloop>
-            </select>
             <div class="invalid-feedback"></div>
         </div>
     </div>
-</div>
 
-<!-- City and ZIP -->
-<div class="row">
     <div class="col-12">
         <!-- City  -->
         <div class="form-group">
@@ -154,6 +132,34 @@
             <input type="text" class="form-control" id="city" <isprint value="${pdict.addressForm.city.attributes}"
                 encoding="off" />
             autocomplete="address-level2">
+            <div class="invalid-feedback"></div>
+        </div>
+    </div>
+</div>
+
+<!-- City and ZIP -->
+<div class="row">
+    <!-- State  -->
+    <div class="col-12">
+        <div class="form-group select-box">
+            <div class="form-label-require d-flex align-items-center justify-content-between">
+                <label class="form-control-label mb-0" for="state">
+                    <isprint value="${pdict.addressForm.states.stateCode.label}" encoding="htmlcontent" />
+                </label>
+                <span
+                    class="${pdict.addressForm.states.stateCode.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
+            </div>
+            <div class="select-wrap">
+                <select class="form-control" id="state" <isprint value="${pdict.addressForm.states.stateCode.attributes}"
+                    encoding="off" />
+                autocomplete="address-level1">
+                <isloop items=${pdict.addressForm.states.stateCode.options} var="state">
+                    <option id="${state.id}" value="${state.htmlValue}" <isif condition="${state.selected}">selected
+                        </isif>
+                        >${state.label || ' '}</option>
+                </isloop>
+                </select>
+            </div>
             <div class="invalid-feedback"></div>
         </div>
     </div>

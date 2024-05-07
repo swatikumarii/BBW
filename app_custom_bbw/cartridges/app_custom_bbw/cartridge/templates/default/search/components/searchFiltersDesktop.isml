@@ -10,7 +10,7 @@
                     </button>
                 </isif>
             </div>
-            <div class="filters-refinements row no-gutters h-grid-gap--20 w-100">
+            <div class="filters-refinements row no-gutters h-grid-gap--20 w-100 flex-nowrap">
                 <isloop items="${pdict.productSearch.refinements}" var="refinement">
                     <div class="filter-type filter-${refinement.displayName.toLowerCase().replace(/ /g, '-')} position-relative"
                         id="filter-${refinement.displayName.toLowerCase().replace(/ /g, '-')}">

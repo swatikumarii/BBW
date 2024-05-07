@@ -32,6 +32,14 @@
         scrollbar-color: colour(gray, 5) hsla(0deg, 0%, 51%, 25%);
         cursor: grab;
 
+        @include media-down(md) {
+            scrollbar-color: unset;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
         @include media-btw(md, lg) {
             padding: 0 0 10px;
             margin: 0 16px;
