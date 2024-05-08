@@ -1,3 +1,9 @@
+@charset "UTF-8";
+
+@import "variables";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
 .greeting-block {
     background-color: transparent;
     border: 1px solid #666;
@@ -89,7 +95,7 @@
                     padding-top: 6px;
                     grid-template-columns: 48% 48%;
 
-                    @media only screen and (min-width: 768px) {
+                    @include media-breakpoint-up(sm) {
                         grid-column-gap: 18px;
                         grid-template-columns: 23% 23% 23% 23%;
                     }
@@ -259,7 +265,7 @@
         display: flex;
         justify-content: space-between;
 
-        @media only screen and (min-width: 768px) {
+        @include media-breakpoint-up(sm) {
             flex-direction: unset;
         }
 
@@ -276,7 +282,7 @@
             max-width: none;
             margin-top: 15px;
 
-            @media only screen and (min-width: 768px) {
+            @include media-breakpoint-up(sm) {
                 width: 48%;
                 max-width: 292px;
                 margin-top: 0;
@@ -288,7 +294,7 @@
             text-transform: uppercase;
             max-width: none;
 
-            @media only screen and (min-width: 768px) {
+            @include media-breakpoint-up(sm) {
                 width: 48%;
                 max-width: 292px;
             }
@@ -301,7 +307,7 @@
         padding: 0 0 0 37px;
         width: 100%;
 
-        @media only screen and (min-width: 768px) {
+        @include media-breakpoint-up(sm) {
             width: 50%;
         }
     }
@@ -344,7 +350,7 @@
         line-height: 24px;
         font-weight: 400 !important;
 
-        @media only screen and (min-width: 768px) {
+        @include media-breakpoint-up(sm) {
             padding-top: 16px;
         }
     }
