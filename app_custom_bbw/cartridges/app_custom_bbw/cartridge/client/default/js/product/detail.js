@@ -3,6 +3,7 @@
 var layout = require('../utils/layout');
 var detail = require('base/product/detail');
 var base = require('./base');
+var helpers = require('../utils/scrollHelpers');
 
 module.exports = $.extend({}, detail, {
     quantityUpdate: function () {
@@ -64,12 +65,10 @@ $('.card:first').find('.content').addClass('show');
 
 /* Zoom Image */
 $('.zoomImage-link, .carousel-item').on('click', function () {
-    if (layout.isDesktop() || layout.isLargeTablet()) {
-        $('.zoomImage-sec').css('display', 'block');
-    }
+    helpers.disableScroll();
+    $('.zoomImage-sec').css('display', 'block');
 });
 $('.zoomOut-link').on('click', function () {
-    if (layout.isDesktop() || layout.isLargeTablet()) {
-        $('.zoomImage-sec').css('display', 'none');
-    }
+    helpers.enableScroll();
+    $('.zoomImage-sec').css('display', 'none');
 });
