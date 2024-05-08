@@ -61,6 +61,15 @@
             <preference preference-id="enableCashAppPay">true</preference>
             <preference preference-id="zeroOrderEmail"></preference>
             <preference preference-id="careersEmail"></preference>
+            <preference preference-id="liveChatEnabled">true</preference>
+            <preference preference-id="chatScript"></preference>
+            <preference preference-id="countrySiteMapping">
+                [
+                    {"country":"India", "site": "https://www.bathandbody.in"},
+                    {"country":"USA", "site": "https://www.bathandbody.com"},
+                    {"country":"Malasiya", "site": "https://www.bathandbody.my"}
+                ]
+            </preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
@@ -113,7 +122,16 @@
             <preference preference-id="enableAfterpay">false</preference>
             <preference preference-id="enableCashAppPay">false</preference>
             <preference preference-id="zeroOrderEmail"></preference>
+            <preference preference-id="chatScript"></preference>
+            <preference preference-id="liveChatEnabled">true</preference>
             <preference preference-id="careersEmail"></preference>
+            <preference preference-id="countrySiteMapping">
+                [
+                    {"country":"India", "site": "https://www.bathandbodyworks.in"},
+                    {"country":"USA", "site": "https://www.bathandbodyworks.com"},
+                    {"country":"Malasiya", "site": "https://www.bathandbodyworks.my"}
+                ]
+            </preference>
         </staging>
         <production/>
     </custom-preferences>

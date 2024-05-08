@@ -103,6 +103,7 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
     $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
 });
 
+$('.countrySelectPopup').find('.modal').modal('show');
 var timer;
 $('body')
     .on('mouseleave', '[data-toggle="popover"], .popover', function () {
@@ -112,6 +113,10 @@ $('body')
     })
     .on('mouseenter', '[data-toggle="popover"], .popover', function () {
         clearTimeout(timer);
+    })
+    .on('click', '#switch-site', function () {
+        var site = $('#selected-site').val();
+        window.location.replace(site);
     });
 // Close popover on close button click
 $(document).on('click', '.popover .close', function (e) {
@@ -119,9 +124,11 @@ $(document).on('click', '.popover .close', function (e) {
     $(this).parents('.popover').popover('hide');
 });
 
+// Function to handle scroll event
 /**
- * Back To Top - Click
+ *
  */
+// Define a function to handle scroll event and show/hide back-to-top button
 function handleScroll() {
     // Get the height of the window
     var windowHeight = $(window).height();
