@@ -272,7 +272,7 @@ server.post(
 server.append(
     'Confirm',
     function (req, res, next) {
-        this.on('route:BeforeComplete', function (req, res) {
+        this.on('route:BeforeComplete', function (req, res) { // eslint-disable-line no-shadow
             // send email when order total 0
             var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
             var viewData = res.getViewData();
@@ -282,12 +282,11 @@ server.append(
                 commonHelper.zeroOrderEmail(viewData.order);
             }
             // redirection url
-            if (order.paymentStatus.value === Order.ORDER_STATUS_FAILED) {
+            if (order.status.value === Order.ORDER_STATUS_FAILED) {
                 res.redirect(URLUtils.url('Order-Failed'));
-                return next();
-            } if (order.paymentStatus.value === Order.ORDER_STATUS_FAILED) {
+            }
+            if (order.status.value !== Order.ORDER_STATUS_FAILED && order.paymentStatus.value !== Order.PAYMENT_STATUS_PAID) {
                 res.redirect(URLUtils.url('Order-Pending'));
-                return next();
             }
         });
         return next();
