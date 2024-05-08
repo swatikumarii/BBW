@@ -6,9 +6,9 @@
 <isif condition="${pdict.isGreetingCardEnable}">
     <div class="greeting-block js-greetingcard">
         <div class="js-greetingcard-block">
-            <div class="greeting-block-toggle">
+            <div class="greeting-block-toggle d-flex">
                 <input type="checkbox" id="greetingcard" class="js-greetingcard-checkbox" />
-                <label for="greetingcard">${Resource.msg('add.greeting.card', 'greetingCard', null)}</label>
+                <label for="greetingcard" class="mb-0">${Resource.msg('add.greeting.card', 'greetingCard', null)}</label>
             </div>
             <div class="greetingCard-edit-product addGreetingCardProduct">
                 <div class="js-greetingcard-edit" hreflang="${request.getLocale()}">
@@ -26,16 +26,16 @@
                     <div class="greeting-card-selection js-greetingcard-select-card">
                         <isset name="isFirstIterationGreeting" value="${true}" scope="page" />
                         <isloop items="${pdict.greetingCardProducts}" var="greetingCardProduct" status="loopstate">
-                            <div class="greetingCardProductOptions"
+                            <div class="greetingCardProductOptions greeting-card-product-options"
                                 data-error-message-select-radio="${Resource.msg('error.radio.greetingcard', 'greetingCard', null)}">
-                                <div class="imgGiftWrap">
+                                <div class="imgGiftWrap img-gift-wrap">
                                     <img src="${greetingCardProduct.images.small[0].url}"
                                         alt="${greetingCardProduct.productName}" />
-                                    <input class="greetingCardProductOptionsRadio" name="greeting-card"
+                                    <input class="greetingCardProductOptionsRadio greeting-card-product-options-radio" name="greeting-card"
                                         id="greetingCardProductOptionsRadio-${loopstate.count}" type="radio"
                                         value="${greetingCardProduct.id}"
                                         data-price="${greetingCardProduct.price.sales.formatted}" />
-                                    <label class="greetingCardProductLabel"
+                                    <label class="greetingCardProductLabel greeting-card-product-label"
                                         for="greetingCardProductOptionsRadio-${loopstate.count}"></label>
                                     <div class="gift-wrapping-card-description">
                                         <h5 class="gift-wrapping-card-name js-card-name">
@@ -71,7 +71,7 @@
                         <button type="button" class="btn btn--secondary js-greetingcard-cancel">
                             ${Resource.msg('cancel.label', 'common', null)}
                         </button>
-                        <button id="addGreetingCardProduct" type="button" class="btn btn--submit js-greetingcard-add"
+                        <button id="addGreetingCardProduct" type="button" class="btn-hover btn btn--submit js-greetingcard-add"
                             data-actionurl="${URLUtils.url('Cart-AddProduct')}"
                             data-removeurl="${URLUtils.url('Cart-RemoveProductLineItem')}"
                             data-add-text="${Resource.msg('add.label', 'common', null)}"
