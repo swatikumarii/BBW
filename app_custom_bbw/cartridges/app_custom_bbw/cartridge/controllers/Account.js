@@ -634,6 +634,14 @@ server.replace(
                         respose.setViewData({
                             authenticatedCustomer: authenticatedCustomer
                         });
+                        // Capillary: create customer service
+                        var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
+                        var crmCustomerID = capillaryAPI.createCustomer(registrationForm);
+                        crmCustomerID;
+                        Transaction.wrap(function () {
+                            authenticatedCustomer.profile.custom.capillaryCustomerID = crmCustomerID;
+                        });
+
                         respose.json({
                             success: true,
                             redirectUrl: accountHelper.getLoginRedirectURL(
