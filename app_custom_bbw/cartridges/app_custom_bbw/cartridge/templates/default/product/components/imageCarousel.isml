@@ -37,7 +37,7 @@
             </a>
         </isif>
 
-        <isif condition="${product.images['large'].length > 1}">
+        <isif condition="${product.images['large'].length > 0}">
             <ol class="carousel-indicators m-0" aria-hidden="true">
                 <isloop items="${product.images['large']}" var="image" status="loopStatus">
                     <li data-target="${" #"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
