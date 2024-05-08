@@ -44,14 +44,17 @@
 </div>
 
 <div class="form-group
-            <isif condition=" ${pdict.profileForm.customer.dob.mandatory === true}"></isif>">
+            <isif condition=" ${pdict.profileForm.customer.dob.mandatory === true}">
+    </isif>">
     <label class="birthday-label form-control-label" for="dob">
         <isprint value="${Resource.msg('label.input.birthday', 'forms', null)}" encoding="htmlcontent" />
     </label>
     <div class="birthday-date">
         <p class="mb-0">${pdict.profileForm.customer.dob.value}</p>
     </div>
-<iscomment> <p class="form-caption">${Resource.msg('form.birthday.caption', 'forms', null)}</p> </iscomment>
+    <iscomment>
+        <p class="form-caption">${Resource.msg('form.birthday.caption', 'forms', null)}</p>
+    </iscomment>
 </div>
 
 
@@ -72,15 +75,15 @@
 <div class="form-group position-relative password-btn-wrap
         <isif condition=" ${pdict.profileForm.login.password.mandatory === true}">required</isif>">
     <label class="form-control-label" for="password">
-        <isprint value="${pdict.profileForm.login.password.label}" encoding="htmlcontent" />
+        <isprint value="${pdict.profileForm.login.currentpassword.label}" encoding="htmlcontent" />
     </label>
     <div class="invalid-feedback"></div>
-        <input type="password" class="form-control" id="password"
-            data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
-            data-range-error="${Resource.msg('error.message.password.8_50characters', 'forms', null)}"
-            aria-describedby="form-password-error" autocomplete="off" <isprint
-            value=${pdict.profileForm.login.password.attributes} encoding="off" />/>
-        <button type="button" class="hide-show" aria-label="Show Password"><span class="show">Show</span></button>
+    <input type="password" class="form-control password" id="password"
+        data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
+        data-range-error="${Resource.msg('error.message.password.8_50characters', 'forms', null)}"
+        aria-describedby="form-password-error" autocomplete="off" <isprint
+        value=${pdict.profileForm.login.password.attributes} encoding="off" />/>
+    <button type="button" class="show-hide-password" aria-label="Show Password"><span class="show">Show</span></button>
     <div class="invalid-feedback" id="form-password-error"></div>
     <p class="form-caption">${Resource.msg('form.password.caption', 'forms', null)}</p>
 </div>
