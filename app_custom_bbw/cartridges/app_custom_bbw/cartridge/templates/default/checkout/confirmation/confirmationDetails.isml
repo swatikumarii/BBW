@@ -18,6 +18,8 @@
     </div>
 </div>
 
+<isinclude template="checkout/confirmation/confirmationDetailsView" />
+
 <isinclude template="checkout/orderProductSummary" />
 
 <div class="card checkout-order-total-summary">
