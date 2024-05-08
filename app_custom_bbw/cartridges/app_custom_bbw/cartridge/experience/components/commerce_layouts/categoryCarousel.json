@@ -1,14 +1,14 @@
 {
-    "name": "Category Carousel",
+    "name": "CMP: Category Carousel",
     "description": "This is a component to add Category Carousel",
-    "group": "bbw_components",
+    "group": "commerce_layouts",
     "attribute_definition_groups": [
         {
             "id": "categoryId",
             "name": "Category Carousel",
             "description": "Category id whose products needs to be shown",
             "attribute_definitions": [
-                 {
+                {
                     "id": "carouselTitle",
                     "name": "Carousel Title",
                     "description": "The Title of the category carousel",
@@ -35,10 +35,21 @@
                     "description": "Shop Now Button Text",
                     "type": "string",
                     "required": false
+                },
+                {
+                    "id": "sectionCustomClass",
+                    "name": "Section Custom Class",
+                    "type": "string",
+                    "required": false
                 }
             ]
         }
     ],
     "region_definitions": [
+        {
+            "id": "leftContent",
+            "name": "Left Content Section",
+            "component_type_exclusions": []
+        }
     ]
 }

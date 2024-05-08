@@ -1,0 +1,200 @@
+.address-book {
+    h2,
+    h3 {
+        border-bottom: 1px solid colour(gray, 6);
+        padding-bottom: 16px;
+    }
+
+    .card {
+        background: colour(gray, 1);
+        padding: 22px 28px 30px;
+        border-radius: 0;
+
+        .card-address {
+            color: colour(gray);
+            font-size: 14px;
+            line-height: 1.5rem;
+
+            .address-id {
+                color: colour(black, 3);
+            }
+
+            .edit,
+            .delete,
+            .normal {
+                color: colour(black, 3);
+                text-decoration: underline;
+                padding: 0;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
+            .space {
+                padding: 0 5px;
+            }
+        }
+    }
+}
+
+#address-form,
+#add-address-form {
+    .modal-dialog {
+        max-width: 540px;
+    }
+
+    .modal-title {
+        font-size: 1.125rem;
+        line-height: 20px;
+        line-height: 1.25rem;
+        font-weight: 700;
+        letter-spacing: 0.005em;
+        color: colour(black, 1);
+        margin: 2.1875em;
+        margin-bottom: 1.5em;
+        border-bottom: 3px solid colour(gray, 1);
+        text-transform: capitalize;
+        padding-bottom: 0.375em;
+    }
+
+    .close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background-image: url("../../images/account/UI-Close-dark.svg");
+        background-position: 50%;
+        background-size: 15px;
+        height: 34px;
+        width: 34px;
+        margin: 0;
+        padding: 0;
+        border: 1px solid colour(gray, 1);
+        background-color: colour(gray, 1);
+        background-repeat: no-repeat;
+        opacity: 1;
+
+        &:hover {
+            background-image: url("../../images/account/UI-Close-dark-hover.svg");
+            background-color: colour(black, 3);
+            border: 1px solid colour(black, 3);
+        }
+    }
+
+    .modal-content {
+        .modal-body {
+            padding: 3px 35px 35px;
+
+            .form-group {
+                margin: 0 0 1.875rem;
+
+                .form-label-require {
+                    margin-bottom: 1.25em;
+
+                    span {
+                        color: colour(black, 1);
+                        text-transform: capitalize;
+                        font-style: italic;
+                        font-size: 0.875rem;
+
+                        &::before {
+                            content: "*";
+                            color: colour(red);
+                            position: relative;
+                            left: -4px;
+                        }
+                    }
+                }
+
+                input {
+                    height: 3rem;
+                }
+
+                &.select-box {
+                    .select-wrap {
+                        width: 100%;
+                        height: 50px;
+                        border: 1px solid colour(gray, 5);
+                        position: relative;
+                        box-sizing: border-box;
+
+                        &:hover {
+                            background: colour(gray, 1);
+                            border: none;
+                        }
+
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            height: 100%;
+                            width: 35px;
+                            border-left: 1px solid colour(gray, 5);
+                            background: colour(white)
+                                url("../../images/UI-Carat.svg") no-repeat 50%;
+                            background-size: 15px;
+                        }
+
+                        select {
+                            border: 0;
+                            background: transparent;
+                            padding: 0 2.25rem 0 0.625rem;
+                            height: 48px;
+                            width: 100%;
+                            cursor: pointer;
+                            appearance: none;
+                        }
+                    }
+                }
+            }
+
+            .btn-save {
+                padding: 0 2.8125em;
+                line-height: 2.0625rem;
+                font-size: 0.6875rem;
+                text-transform: uppercase;
+                min-height: auto;
+                margin-bottom: 20px;
+                margin-top: 20px;
+            }
+
+            .btn-cancel,
+            .privacy-policy {
+                text-decoration: underline;
+                padding: 0;
+                color: colour(black, 3);
+                font-size: 11px;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.add-address-create-modal {
+    margin-top: 60px;
+
+    .btn-save {
+        position: absolute;
+        right: 0;
+        top: -16px;
+    }
+}
+
+.address-save-msg {
+    background-color: colour(green, 6);
+    color: colour(green, 2);
+    margin-bottom: 25px;
+    height: 64px;
+    line-height: 1.25rem;
+    letter-spacing: 0.01em;
+    padding-left: 1em;
+
+    .close {
+        color: colour(black);
+        top: 9px;
+    }
+}

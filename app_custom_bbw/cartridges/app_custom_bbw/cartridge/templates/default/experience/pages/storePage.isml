@@ -3,6 +3,7 @@
 <isdecorate template="common/layout/pdStorePage">
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/storePage.js');
         assets.addCss('/css/experience/storePage.css');
     </isscript>
 

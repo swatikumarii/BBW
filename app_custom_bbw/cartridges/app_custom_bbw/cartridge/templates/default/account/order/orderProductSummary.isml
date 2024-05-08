@@ -5,7 +5,7 @@
         <h1 class="mb-2">${Resource.msg('label.order.your.items', 'order', null)}</h1>
     </div>
     <div class="d-flex align-items-center">
-        <img width="70px" height="70px" alt="" src="${URLUtils.staticURL('/images/account/shipping-truck-32.svg')}" />
+        <img width="70px" height="70px" alt="${Resource.msg('label.shipping.truck', 'order', null)}" src="${URLUtils.staticURL('/images/account/shipping-truck-32.svg')}" />
         <p class="your-item h-font-size--16 px-2 mb-0"><span
                 class="pr-2 h-clr-blue h-fw--semibold text-uppercase">${Resource.msg('label.shipping', 'order', null)}</span>${Resource.msg('label.order.shipping', 'order', null)}</p>
     </div>

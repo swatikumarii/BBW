@@ -10,7 +10,6 @@ function validateOrderNumber() {
         return false;
     }
     orderNumberInput.removeClass('is-invalid'); // Remove class if input is valid
-    $('#orderNumber-error').empty();
     return true;
 }
 
@@ -30,7 +29,6 @@ function validateEmail() {
         return false;
     }
     emailInput.removeClass('is-invalid'); // Remove class if input is valid
-    $('#orderEmail-error').empty();
     return true;
 }
 
@@ -49,7 +47,6 @@ function validateBillingZipCode() {
         return false;
     }
     billingZipCodeInput.removeClass('is-invalid'); // Remove class if input is valid
-    $('#billingZipCode-error').empty();
     return true;
 }
 
@@ -105,14 +102,30 @@ function checkStatus() {
                                 fieldError.message
                             );
                         }
+                        // Scroll to the first error position if the page is not already at the top
+                        var firstErrorPosition = $('.is-invalid').first().offset().top;
+                        if ($(window).scrollTop() > 0) {
+                            $('html, body').animate({
+                                scrollTop: (firstErrorPosition - 500) // Adjusted to scroll up 300 pixels above the error position
+                            }, 500); // Reduced duration to make scrolling faster (500 milliseconds)
+                        }
                     } else {
                         $('#form-error').html(err.responseJSON.message);
                     }
                 }
             });
         }
+    } else {
+        // Scroll to the first error position if errors are found and the page is not already at the top
+        var firstErrorPosition = $('.is-invalid').first().offset().top;
+        if ($(window).scrollTop() > 0) {
+            $('html, body').animate({
+                scrollTop: (firstErrorPosition - 500) // Adjusted to scroll up 300 pixels above the error position
+            }, 500); // Reduced duration to make scrolling faster (500 milliseconds)
+        }
     }
 }
+
 
 /**
  * On ready

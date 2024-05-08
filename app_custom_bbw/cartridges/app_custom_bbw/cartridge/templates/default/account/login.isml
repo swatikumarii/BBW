@@ -10,9 +10,9 @@
             <!---Breadcrumbs--->
             <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
             <div class="row justify-content-center equal-height">
-                <div class="col-md-12">
-                    <h1 class="page-title text-justify h-font-size--24 h-clr--black-3">
-                        ${Resource.msg('header.hero.image.login', 'login', null)}</h1>
+                <div class="col-sm-12 col-md-12 col-xl-12 register-form-head">
+                    <h1 class="page-title text-justify h-font-size--24 h-clr--black-3 w-100">
+                        ${Resource.msg('label.signin.name', 'login', null)}</h1>
                 </div>
             </div>
             <div class="login-page-setion">
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="login-section">
-                    <div class="login-form-nav login-form-nav login-account">
+                    <div class="login-form-nav login-account">
                         <h2 class="h-clr--black-3 h-font-size--16 text-center">${Resource.msg('msg.signup', 'login', null)}</h2>
                         <p class="h-clr--gray text-center">${Resource.msg('msg.signup.overview', 'login', null)}</p>
                         <div class="signup-img">
@@ -42,9 +42,9 @@
                                 class="w-100" />
                         </div>
                        <div class="d-flex justify-content-center">
-                        <a href="${URLUtils.https('Login-CreateAccount')}" role="button"
+                        <a href="${URLUtils.https('Login-CreateAccount')}" role="button" class="w-100 d-flex justify-content-center"
                             aria-label="${Resource.msg('header.hero.image.login', 'login', null)}">
-                            <button type="submit" class="btn btn-block btn-primary text-uppercase signin-btn sign-in-btn w-auto">
+                            <button type="submit" class="btn btn-block btn-primary text-uppercase signin-btn">
                                 ${Resource.msg('header.hero.image.login', 'login', null)}
                             </button>
                         </a>

@@ -60,14 +60,23 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
     var globalLevelReserveQty = dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
     var maxOrderQty = productLevelMaxOrderQty || globalLevelMaxOrderQty;
     var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
+    var maxOrderQtyByReserveStock =
+        product.availabilityModel.inventoryRecord.ATS.value - reserveOosQty;
+    if (maxOrderQty && maxOrderQtyByReserveStock) {
+        maxOrderQty =
+            maxOrderQtyByReserveStock < maxOrderQty
+                ? maxOrderQtyByReserveStock
+                : maxOrderQty;
+    } else if (!maxOrderQty) {
+        maxOrderQty = maxOrderQtyByReserveStock;
+    }
     var errorType = '';
     if (product.bundle) {
         canBeAdded = base.checkBundledProductCanBeAdded(childProducts, productLineItems, quantity);
     } else if (maxOrderQty) {
         totalQtyRequested = quantity + base.getQtyAlreadyInCart(productId, productLineItems);
         perpetual = product.availabilityModel.inventoryRecord.perpetual;
-        canBeAdded = (perpetual
-                || totalQtyRequested <= (product.availabilityModel.inventoryRecord.ATS.value - reserveOosQty)) && totalQtyRequested <= maxOrderQty;
+        canBeAdded = perpetual || totalQtyRequested <= maxOrderQty;
         errorType = 'maxOrderQty';
     } else {
         totalQtyRequested = quantity + base.getQtyAlreadyInCart(productId, productLineItems);

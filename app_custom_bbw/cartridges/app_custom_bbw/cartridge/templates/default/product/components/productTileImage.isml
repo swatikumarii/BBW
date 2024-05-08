@@ -1,5 +1,5 @@
 <div class="image-container b-product-tile__img-wrapper position-relative">
-    <div class="social-badge-wrapper d-flex h-grid-gap--5 position-absolute">
+    <div class="social-badge-wrapper d-flex h-grid-gap--5 position-absolute flex-wrap h-maxwidth--100">
         <isif condition="${product.badge1}">
             <div class="b-product-tile__social-badge">
                 <div
@@ -33,7 +33,8 @@
                             <div class="carousel-img-wrapper d-flex h-maxheight--300">
                                 <img src="${image.url}"
                                     class="w-100 h-100 mx-auto b-product-tile__img carousel-product-img"
-                                    alt="${image.alt} image number ${image.index}" itemprop="image" width="202px" height="300px"/>
+                                    alt="${image.alt} image number ${image.index}" itemprop="image" width="202px"
+                                    height="300px" />
                             </div>
                         </div>
                     </isloop>
@@ -57,7 +58,8 @@
             <a class="d-block" href="${product.isEgiftCard ? URLUtils.url('Giftcard-Show', 'pid', product.id).relative().toString() : pdict.urls.product}">
                 <div class='img-inner-wrapper ${loopStatus.index == 0 ? ' main-img-wrapper' : 'hover-img-wrapper'}'>
                     <img class="tile-image b-product-tile__img mx-auto w-100" src="${image.url}"
-                        alt="${product.productName}" title="${image.title}" itemprop="image" width="202px" height="300px"/>
+                        alt="${product.productName}" title="${image.title}" itemprop="image" width="202px"
+                        height="300px" />
                 </div>
             </a>
         </isloop>
@@ -66,13 +68,14 @@
             <a class="d-block" href="${product.isEgiftCard ? URLUtils.url('Giftcard-Show', 'pid', product.id).relative().toString() : pdict.urls.product}">
                 <div class='img-inner-wrapper'>
                     <img class="tile-image b-product-tile__img mx-auto w-100" src="${image.url}"
-                        alt="${product.productName}" title="${image.title}" itemprop="image" width="202px" height="300px"/>
+                        alt="${product.productName}" title="${image.title}" itemprop="image" width="202px"
+                        height="300px" />
                 </div>
             </a>
         </isloop>
     </isif>
     <isif condition="${!product.isEgiftCard}">
-        <a class="b-product-tile__wishlistTile wishlistTile position-absolute add-to-wish-list"
+        <a class="b-product-tile__wishlistTile wishlistTile position-absolute add-to-wish-list ${pdict.itemExist ? 'added' : ''}"
             href="${URLUtils.url('Wishlist-AddProduct')}"
             title="${Resource.msg('wishlist.addto.wishlist.heart', 'wishlist', null)}">
             <span class="fa-stack fa-lg">

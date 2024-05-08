@@ -7,7 +7,7 @@
 
 module.exports = {
     addToWishlist: function () {
-        $(document).on('click', '.add-to-wish-list', function (e) {
+        $(document).on('click', '.product-detail .add-to-wish-list', function (e) {
             e.preventDefault();
             var url = $(this).data('href');
             var pid = $(this)
@@ -27,7 +27,6 @@ module.exports = {
                 return;
             }
 
-            $.spinner().start();
             // $(this).attr('disabled', true);
             $.ajax({
                 url: url,
@@ -45,17 +44,19 @@ module.exports = {
                         $('.loginPopup')
                             .find('#exampleModalLong')
                             .modal('hide');
+                        $('#add-to-wish-list').click(function () {
+                            $('.wishlist-toast.toast').toast('show');
+                        });
+
                     }
                     if (data.success) {
-                        $('.add-to-wish-list').addClass('added');
+                        $('.remove-from-wishlist').removeClass('d-none');
+                        $('.add-to-wish-list').addClass('d-none');
                     } else {
-                        $('.add-to-wish-list').removeClass('added');
+                        $('.remove-from-wishlist').addClass('d-none');
+                        $('.add-to-wish-list').removeClass('d-none');
                     }
-                    $.spinner().stop();
                 },
-                error: function () {
-                    $.spinner().stop();
-                }
             });
         });
     }

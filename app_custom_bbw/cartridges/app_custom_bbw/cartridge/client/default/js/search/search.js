@@ -105,7 +105,7 @@ function adjustProductGrid(elements) {
 
             // Sync heights of various elements
             slicedElements.find('.b-product-tile__name').syncHeight();
-            slicedElements.syncHeight();
+            // slicedElements.syncHeight();
 
             // Update start and end index for the next iteration
             startIndex = endIndex;
@@ -293,6 +293,16 @@ module.exports = {
             $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', true);
             $('.refinement-bar').closest('.container.search-results').siblings().attr('aria-hidden', true);
             $('.refinement-bar .close').focus();
+        });
+    },
+
+    closeFilter: function () {
+        $('body').on('click', function (e) {
+            // Check if the clicked element is not inside the collapse area and the collapse is open
+            if (!$(e.target).closest('.js-desktop-filters .collapse').length && $('.js-desktop-filters .collapse').hasClass('show')) {
+                // Close all open collapses
+                $('.js-desktop-filters .collapse.show').collapse('hide');
+            }
         });
     },
 

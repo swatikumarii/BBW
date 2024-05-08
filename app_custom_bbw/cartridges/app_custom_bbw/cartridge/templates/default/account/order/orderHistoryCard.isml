@@ -6,7 +6,7 @@
 
 <div class="card">
     <div class="card-head card-info-group">
-        <div class="d-flex align-items-center justify-content-between">
+        <div class="d-md-flex d-block align-items-center justify-content-between">
             <div class="">
                 <p>${Resource.msg('label.orderhistory.dateordered', 'account', null)}
                     <span class="h-clr--black">
@@ -20,19 +20,22 @@
                         class="h-clr--black">${order.priceTotal}</span>
                 </p>
             </div>
-            <div class="">
+            <div class="d-flex flex-column h-grid-gap--5">
                 <a class="btn btn-hover"
                     href="${URLUtils.url('Order-Details', 'orderID', order.orderNumber, 'orderFilter', pdict.orderFilter)}"
-                    class="pull-right"
                     aria-label="${Resource.msgf('label.orderhistory.vieworderdetails', 'account', null, order.orderNumber)}">${Resource.msg('order.link.view', 'account', null)}</a>
+
+                <button class="add-order-to-cart no-spinner"
+                    title="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}" data-oid="${order.orderNumber}"
+                    aria-label="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}" tabindex="0">
+                    <span>${Resource.msg('label.reorder.btn', 'order', null)}</span>
+                </button>
+
+                <button id="invoiceDownload" class="invoice-download"
+                    data-action="${order.invoiceDownloadUrl}">${Resource.msg('account.download', 'account', null)}
+                </button>
             </div>
-            <button class="add-order-to-cart no-spinner" title="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}"
-                data-oid="${order.orderNumber}" aria-label="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}"
-                tabindex="0">
-                <span>${Resource.msg('label.reorder.btn', 'order', null)}</span>
-            </button>
-            <button id="invoiceDownload" class="btn-transparent"
-                data-action="${order.invoiceDownloadUrl}">${Resource.msg('account.download', 'account', null)} </button>
+
         </div>
     </div>
 </div>
