@@ -44,6 +44,12 @@ module.exports = $.extend({}, detail, {
         });
     },
 
+    afterAddToCartEventUpdate: function () {
+        $('body').on('product:afterAddToCart', function () {
+            $('.reserve-stock').addClass('d-none');
+        });
+    },
+
     availability: base.availability,
 
     addToCart: base.addToCart,
