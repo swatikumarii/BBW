@@ -20,12 +20,10 @@
                     <isinclude template="account/accountNav" />
                 </div>
             </div>
-            <isif condition="${pdict.showSuccessMessage}">
-                <div class="col-lg-10 col-md-8">
-                    <div class="address-save-msg">${Resource.msg('address.save.success', 'account', null)}</div>
-                </div>
-            </isif>
             <div class="col-lg-10 col-md-8">
+                <isif condition="${pdict.showSuccessMessage}">
+                    <div class="address-save-msg">${Resource.msg('address.save.success', 'account', null)}</div>
+                </isif>
                 <div class="my-account-description">
                     <div class="account-profile">
                         <div class="profile-heading">
