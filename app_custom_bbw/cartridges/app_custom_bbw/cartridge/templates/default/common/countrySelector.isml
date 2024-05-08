@@ -10,7 +10,7 @@
             <b>${Resource.msg('msg.current.country', 'common', null)} ${pdict.reqCountryCode}</b>
             <div class="modal-body">
                 <div class="card">
-                    ${Resource.msg('msg.site.country.first', 'common', null)} ${pdict.country}
+                    ${Resource.msg('msg.site.country.first', 'common', null)} ${pdict.siteCountryCode}
                     ${Resource.msg('msg.site.country.last', 'common', null)}
                     <div class="card-body">
                         <label for="site">${Resource.msg('label.select.location', 'common', null)}</label>

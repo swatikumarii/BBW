@@ -847,6 +847,12 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="countrySiteMapping">
+                <display-name xml:lang="x-default">Country and Site Mapping</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -866,6 +872,7 @@
                 <attribute attribute-id="header_image"/>
                 <attribute attribute-id="zeroOrderEmail"/>
                 <attribute attribute-id="careersEmail"/>
+                <attribute attribute-id="countrySiteMapping"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
