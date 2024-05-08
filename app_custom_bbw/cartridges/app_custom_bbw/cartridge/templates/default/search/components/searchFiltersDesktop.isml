@@ -1,6 +1,6 @@
 <div class="filter-bar-desktop h-hidden-sm-down">
     <div class="row justify-content-between ${pdict.productSearch.selectedFilters.length > 0 ? 'align-items-start' : 'align-items-center'} no-gutters">
-        <div class="filter-bar-desktop__filters no-gutters d-flex h-bg--gray-1 w-100 flex-nowrap h-clr--black-1 js-desktop-filters ${pdict.productSearch.selectedFilters.length > 0 ? 'align-items-start' : 'align-items-center'}"
+        <div class="filter-bar-desktop__filters no-gutters d-flex h-pb-md--0 h-bg--gray-1 w-100 flex-nowrap h-clr--black-1 js-desktop-filters ${pdict.productSearch.selectedFilters.length > 0 ? 'align-items-start' : 'align-items-center'}"
             id="filters-refinements">
             <div class="filters-title filters-title b-text-h2 h-fw--bold col-1">
                 ${Resource.msg('label.refinements', 'search', null)}
