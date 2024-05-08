@@ -169,6 +169,18 @@ server.get(
     consentTracking.consent,
     server.middleware.https,
     function (req, res, next) {
+        var viewData = res.getViewData();
+        var breadcrumbs = [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            },
+            {
+                htmlValue: Resource.msg('label.order.tracking', 'order', null),
+                url: URLUtils.url('Order-Status').toString()
+            }
+        ];
+        viewData.breadcrumbs = breadcrumbs;
         res.render('account/orderTracking');
         return next();
     }
