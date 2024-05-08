@@ -9,7 +9,6 @@ var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
  * Careers-Show : The Careers-Show endpoint shows the magazine page's data.
  * @name Careers-Show
  * @function
- * @memberof Careers
  */
 server.get('Show', function (req, res, next) {
     var CustomObjectMgr = require('dw/object/CustomObjectMgr');
@@ -26,7 +25,6 @@ server.get('Show', function (req, res, next) {
  * Careers-ApplyForJob : The Careers-ApplyForJob endpoint shows the job vacancy form.
  * @name Careers-ApplyForJob
  * @function
- * @memberof Careers
  */
 server.get('ApplyForJob', csrfProtection.generateToken,
     function (req, res, next) {
@@ -52,10 +50,9 @@ server.get('ApplyForJob', csrfProtection.generateToken,
  * Careers-SubmitJobApplication : The Careers-SubmitJobApplication endpoint submits the candidate's data.
  * @name Careers-SubmitJobApplication
  * @function
- * @memberof Careers
  */
 server.post('SubmitJobApplication', server.middleware.https,
-    csrfProtection.validateRequest,
+    csrfProtection.validateAjaxRequest,
     function (req, res, next) {
         var jobId = req.querystring.jobId;
         var LinkedHashMap = require('dw/util/LinkedHashMap');
@@ -75,15 +72,12 @@ server.post('SubmitJobApplication', server.middleware.https,
         // Work with a HashMap to pass the data to the template.
         var mailAttributes = new Map();
         var form = req.form;
-        var formDataObj = Object.keys(form);
         var newCandidate;
-        var filename: String;
-        var params: HttpParameterMap = req.httpParameterMap;
-        var files: LinkedHashMap = new LinkedHashMap();
+        var params = req.httpParameterMap;
+        var files = new LinkedHashMap();
 
-        var closure: Object = function (field, ct, oname) {
-            filename = oname;
-            return new File(File.IMPEX + "/" + oname);
+        var closure = function (field, ct, oname) {
+            return new File(File.IMPEX + '/' + oname);
         };
         files = params.processMultipart(closure);
         var resume = files.values();
@@ -97,8 +91,10 @@ server.post('SubmitJobApplication', server.middleware.https,
                 newCandidate.custom.aboutCandidate = form.yourself;
 
             });
-        } catch (e) { }
-        var resumeType = resume[0].name.split(".")
+        } catch (e) {
+            // empty
+        }
+        var resumeType = resume[0].name.split('.');
         var user = {
             name: form.name,
             phone: form.phone,
@@ -113,14 +109,15 @@ server.post('SubmitJobApplication', server.middleware.https,
         // Render the template with the data in the Hash
         try {
             var content = template.render(mailAttributes);
-        } catch (e) { }
-
-        mail.addTo(jobDetails.custom.emailId || Site.current.getCustomPreferenceValue('careersEmail'));
-        mail.addCc(jobDetails.custom.ccEmail || '');
-        mail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail'));
-        mail.setSubject(Resource.msgf('job.candidate', 'careers', null, jobDetails.custom.city, jobDetails.custom.job, user.name));
-        mail.setContent(content);
-        mail.send();
+            mail.addTo(jobDetails.custom.emailId || Site.current.getCustomPreferenceValue('careersEmail'));
+            mail.addCc(jobDetails.custom.ccEmail || '');
+            mail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail'));
+            mail.setSubject(Resource.msgf('job.candidate', 'careers', null, jobDetails.custom.city, jobDetails.custom.job, user.name));
+            mail.setContent(content);
+            mail.send();
+        } catch (e) {
+            // empty
+        }
 
         res.render('careers/applyForJob', {
             jobName: jobDetails.custom.job,
