@@ -26,7 +26,7 @@ function validateForm(event) {
 
 /**
  * Remove all validation. Should be called every time before revalidating form
- * @param {element} form - Form to be cleared
+ * @param {Array} form - Form to be cleared
  * @returns {void}
  */
 function clearForm(form) {
@@ -34,7 +34,7 @@ function clearForm(form) {
 }
 
 /**
- *
+ * Updated the function to check invalid form
  */
 function invalid() {
     $('form input, form select, form textarea').on('invalid', function (e) {
@@ -90,7 +90,7 @@ function invalid() {
                 .text(validationMessage);
 
             for (var ele = 0; ele < $('#job').find('input').length; ele++) {
-                if ($('#job').find('input')[ele].value == '') {
+                if ($('#job').find('input')[ele].value === '') {
                     $('html, body').animate(
                         {
                             scrollTop:

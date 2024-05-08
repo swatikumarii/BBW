@@ -75,7 +75,7 @@
 <div class="form-group position-relative password-btn-wrap
         <isif condition=" ${pdict.profileForm.login.password.mandatory === true}">required</isif>">
     <label class="form-control-label" for="password">
-        <isprint value="${pdict.profileForm.login.password.label}" encoding="htmlcontent" />
+        <isprint value="${pdict.profileForm.login.currentpassword.label}" encoding="htmlcontent" />
     </label>
     <div class="invalid-feedback"></div>
     <input type="password" class="form-control password" id="password"

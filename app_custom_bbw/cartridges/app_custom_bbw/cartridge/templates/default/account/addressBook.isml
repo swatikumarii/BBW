@@ -20,7 +20,11 @@
                     <isinclude template="account/accountNav" />
                 </div>
             </div>
-            <div class="js-profile-save-msg"></div>
+            <isif condition="${pdict.showSuccessMessage}">
+                <div class="col-lg-10 col-md-8">
+                    <div class="address-save-msg">${Resource.msg('address.save.success', 'account', null)}</div>
+                </div>
+            </isif>
             <div class="col-lg-10 col-md-8">
                 <div class="my-account-description">
                     <div class="account-profile">
@@ -72,29 +76,17 @@
                                         <span class="space">${Resource.msg('label.space', 'account', null)}</span>
                                     </isif>
 
-                                    <a href="${URLUtils.url('Address-EditAddress', 'addressId', address.address.ID)}"
-                                        class="edit"
-                                        aria-label="${Resource.msg('label.addressbook.editaddress', 'account', null)} : ${address.address.ID == pdict.addressBook[0].address.ID ? pdict.addressBook[0].address.ID + ' (' + Resource.msg(
-                                                                                                                        'label.addressbook.defaultaddress', 'account', null) + ')' : address.address.ID}">${Resource.msg('link.edit', 'account', null)}</a>
-
-                                    <a data-toggle="modal" href="#address-form" class="edit"
-                                        aria-label="${Resource.msg('label.addressbook.editaddress', 'account', null)} : ${address.address.ID == pdict.addressBook[0].address.ID ? pdict.addressBook[0].address.ID + ' (' + Resource.msg(
-                                                                                                                        'label.addressbook.defaultaddress', 'account', null) + ')' : address.address.ID}">${Resource.msg('link.edit', 'account', null)}</a>
-
-                                    <button type="button" id="editProfile" class="btn btn-primary" data-href="${URLUtils.url('Address-EditAddress')}"
+                                    <button type="button" id="editAddress" class="btn btn-primary" data-href="${URLUtils.url('Address-EditAddress')}"
                                         data-id="${address.address.ID}" data-toggle="modal" data-target="#address-form">
-                                        Launch demo modal
+                                        ${Resource.msg('link.edit', 'account', null)}
                                     </button>
                                     <span class="space">${Resource.msg('label.space', 'account', null)}</span>
 
                                     <button type="button" class="delete remove-btn remove-address btn-light border-0"
                                         data-toggle="modal" data-target="#deleteAddressModal"
                                         data-id="${address.address.ID}" data-url="${pdict.actionUrls.deleteActionUrl}"
-                                        aria-label="${Resource.msg('label.addressbook.deleteaddress', 'account', null)}"
-                                        <isprint
-                                        value="${address.address.ID == pdict.addressBook[0].address.ID ? 'data-default="
-                                           true "' : ''}" encoding="off" />>
-                                    Delete
+                                        aria-label="${Resource.msg('label.addressbook.deleteaddress', 'account', null)}">
+                                    ${Resource.msg('label.addressbook.delete', 'account', null)}
                                     </button>
 
 
@@ -105,11 +97,12 @@
                     <div class="add-address-create-modal position-relative">
                         <isset name="prevoiusAddress"
                             value="${Resource.msg('label.addressbook.otheraddress', 'account', null)}" scope="page" />
-                        <a data-toggle="modal" href="#address-form" class="btn btn-save btn-primary"
+                        <a data-toggle="modal" href="#add-address-form" class="btn btn-save btn-primary"
                             aria-label="${Resource.msg('label.addressbook.addnewaddress', 'account', null)}">${Resource.msg('button.addnew', 'account', null)}</a>
 
                     </div>
                     <isinclude template="account/addressFormModal" />
+                    <isinclude template="account/addressFormModalEdit" />
 
                 </div>
             </div>
