@@ -21,11 +21,18 @@ module.exports = $.extend({}, detail, {
             $(this).fadeTo(100, 0.1).fadeTo(200, 1.0);
         });
 
-        $(document).on('change', '.quantity-field > #Quantity', function () {
+        $(document).on('keyup', '.quantity-field > #Quantity', function () {
             var quantity = Number($(this).val());
             if (quantity < 1) {
                 quantity = 1;
                 $(this).val(quantity).trigger('change');
+            }
+            var maxOrderQty = Number($('input[name="maxOrderQty"]').val());
+            if (quantity > maxOrderQty) {
+                $(this).val(maxOrderQty).trigger('change');
+                $('.reserve-stock').removeClass('d-none');
+            } else {
+                $('.reserve-stock').addClass('d-none');
             }
         });
     },
@@ -34,6 +41,12 @@ module.exports = $.extend({}, detail, {
         $('body').on('product:beforeAddToCart', function (e) {
             $.spinner().stop();
             e.stopPropagation();
+        });
+    },
+
+    afterAddToCartEventUpdate: function () {
+        $('body').on('product:afterAddToCart', function () {
+            $('.reserve-stock').addClass('d-none');
         });
     },
 

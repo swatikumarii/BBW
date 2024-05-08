@@ -325,20 +325,21 @@ function addToWishlist(res) {
     var pid = res.pid;
     var productData = ProductMgr.getProduct(pid);
     var ecommerce = {
+        event: gtmEvents.ADD_TO_WISHLIST,
+        currency: productData.priceModel.price.currencyCode,
+        value: productData.priceModel.price.value,
 
-        'event': 'add_to_wishlist',
-        'currency': productData.priceModel.price.currencyCode,
-        'value': productData.priceModel.price.value,
-
-        'items': {
-
-            'item_id': pid,
-            'item_name': productData.name,
-            'item_brand': productData.brand ? productData.brand:'',
-            'item-category': productData.allCategories[0].displayName ? productData.allCategories[0].displayName:'',
-            'item_categoryID': productData.allCategories[0].parent.ID ? productData.allCategories[0].parent.ID:'',
-            'price': productData.priceModel.price.value,
-
+        items: {
+            item_id: pid,
+            item_name: productData.name,
+            item_brand: productData.brand ? productData.brand : '',
+            'item-category': productData.allCategories[0].displayName
+                ? productData.allCategories[0].displayName
+                : '',
+            item_categoryID: productData.allCategories[0].parent.ID
+                ? productData.allCategories[0].parent.ID
+                : '',
+            price: productData.priceModel.price.value
         }
     };
 
@@ -590,7 +591,10 @@ function getDataLayer(res) {
         case 'Cart-Show':
             return viewCart(res);
         case 'Cart-AddProduct':
-            return addToCart(res);
+            if (!res.error) {
+                return addToCart(res);
+            }
+            break;
         case 'Cart-RemoveProductLineItem':
             return removeFromCart(res);
         case 'Wishlist-AddProduct':
