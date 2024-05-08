@@ -87,7 +87,6 @@ module.exports = $.extend({}, wishlist, {
             if (!url || !pid) {
                 return;
             }
-            $.spinner().start();
             // $(this).attr('disabled', true);
             $.ajax({
                 url: url,
@@ -115,10 +114,6 @@ module.exports = $.extend({}, wishlist, {
                         $('.remove-from-wishlist').addClass('d-none');
                         $('.add-to-wish-list').removeClass('d-none');
                     }
-                    $.spinner().stop();
-                },
-                error: function () {
-                    $.spinner().stop();
                 },
             });
         });
@@ -155,7 +150,6 @@ module.exports = $.extend({}, wishlist, {
                 });
                 // else user is in wishlist landing page, call removeProduct() end point, then remove this card
             } else {
-                $.spinner().start();
                 $.ajax({
                     url: url,
                     type: 'get',
@@ -170,7 +164,6 @@ module.exports = $.extend({}, wishlist, {
                         $('.remove-from-wishlist').removeClass('d-block');
                     },
                     error: function () {
-                        $.spinner().stop();
                         var $elToAppendWL = $('.wishlistItemCards');
                         var msg = $elToAppendWL.data('error-msg');
                         displayErrorMessage($elToAppendWL, msg);

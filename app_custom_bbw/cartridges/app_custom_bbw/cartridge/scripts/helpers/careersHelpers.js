@@ -1,21 +1,36 @@
 'use strict';
 
 /**
+ * Find city in object
+ * @param {Array} jobs jobs object
+ * @param {object} item item object
+ * @returns {object} contain cityexist and indexnumber
+ */
+function findCity(jobs, item) {
+    var indexNumber;
+    var cityExists = jobs.some(function (refinement, index) {
+        indexNumber = index;
+        return refinement.city === item.custom.city;
+    });
+    return {
+        cityExists: cityExists,
+        indexNumber: indexNumber
+    };
+}
+
+/**
  * creates a plain object of the jobs.
- * @param {Object} careers all the jobs collections
- * @returns {Object} a plain object containing the job contents.
+ * @param {object} careers all the jobs collections
+ * @returns {object} a plain object containing the job contents.
  */
 function getCareers(careers) {
     var jobs = [];
-    var city = [];
     while (careers.hasNext()) {
         var item = careers.next();
         var vacancy = {};
-        var indexNumber;
-        var cityExists = jobs.some(function (refinement, index) {
-            indexNumber = index;
-            return refinement.city === item.custom.city;
-        });
+        var findExistCity = findCity(jobs, item);
+        var cityExists = findExistCity.cityExists;
+        var indexNumber = findExistCity.indexNumber;
         if (cityExists) {
             jobs[indexNumber].data.push({
                 id: item.custom.jobId,
@@ -25,8 +40,8 @@ function getCareers(careers) {
                 ccEmail: item.custom.ccEmail
             });
         } else {
-            vacancy['city'] = (item.custom.city);
-            vacancy['data'] = [];
+            vacancy.city = item.custom.city;
+            vacancy.data = [];
             vacancy.data.push({
                 id: item.custom.jobId,
                 jobName: item.custom.job,
@@ -42,14 +57,12 @@ function getCareers(careers) {
 
 /**
  * Read a file to a String (encoded in IS0-8859-1)
- *
- * @param {Object} jobId id of the selected job
- * @return {string} - The job description
+ * @param {object} jobId id of the selected job
+ * @returns {string} - The job description
  */
 function getJobDescription(jobId) {
     var CustomObjectMgr = require('dw/object/CustomObjectMgr');
     var selectedJob = CustomObjectMgr.getCustomObject('careers',jobId);
-    var selectedJob9 = CustomObjectMgr.queryCustomObject('careers', 'custom.jobId = {0}', jobId, 'creationDate asc');
     if (selectedJob) {
         var job = {};
         job.description = selectedJob.custom.jobDescription || '';
@@ -62,10 +75,8 @@ function getJobDescription(jobId) {
 
 /**
  * Read a file to a String (encoded in IS0-8859-1)
- *
  * @param {string} filePath - The file path to read
- *
- * @return {string} - The file content
+ * @returns {string} - The file content
  */
 function readPDFFile(filePath) {
     var File = require('dw/io/File');
@@ -83,18 +94,16 @@ function readPDFFile(filePath) {
     do {
         line = pdfReader.readN(1000);
         pdfContent += line;
-    } while (line != null);
+    } while (line !== null);
 
     return pdfContent;
 }
 
 /**
  * Encodes a string into a base64 string with an email-safe line width
- *
  * @param {string} str String the string to encode
  * @param {string} characterEncoding String the character encoding (i.e. 'ISO-8859-1')
- *
- * @return {string} The encoded string
+ * @returns {string} The encoded string
  */
 function encodeBase64ForEmail(str, characterEncoding) {
     var StringUtils = require('dw/util/StringUtils');
@@ -127,7 +136,6 @@ function encodeBase64ForEmail(str, characterEncoding) {
 
 /**
  * Add files to the attributes to render the mail template.
- *
  * @param {dw.util.Map} mailAttributes - The mail attributes
  * @param {dw.util.Map} resume - The file attributes
  */
@@ -141,7 +149,7 @@ function addFilesToMailAttributes(mailAttributes, resume) {
     mailAttributes.put('Base64FileMap', files);
 }
 
-module.exports = exports = {
+module.exports = {
     getCareers: getCareers,
     addFilesToMailAttributes: addFilesToMailAttributes,
     readPDFFile: readPDFFile,

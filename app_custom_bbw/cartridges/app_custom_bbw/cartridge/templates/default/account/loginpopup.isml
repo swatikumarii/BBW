@@ -1,8 +1,8 @@
 <script defer type="text/javascript" src="${URLUtils.staticURL('/js/login.js')}"></script>
-<div class="modal fade hide" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle"
+<div class="modal fade hide login-modal-fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-bottom login-modal-view text-left" role="document">
-        <div class="modal-content">
+        <div class="modal-content modal-content-head">
             <div class="modal-header border-0">
                 <button type="button" class="close close-icon-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">
@@ -12,11 +12,11 @@
                 </button>
 
             </div>
-            <div class="modal-body">
-                <div class="col-12">
+            <div class="modal-body login-modal-body">
+                <div class="col-12 pb-3">
                     <h4 class="h-font-size--18 h-clr--black-1 h-fw--bold">${Resource.msg('login.label', 'login', null)}
                     </h4>
-                    <p class="h-font-size--16 login-para h-clr--gray pt-2 ">
+                    <p class="h-font-size--16 login-para h-clr--gray ">
                         ${Resource.msg('login.para', 'login', null)}
                     </p>
                     <isinclude template="account/components/loginModalForm" />
@@ -35,7 +35,7 @@
                         <h3 class="h-clr--pink h-font-size--18 h-fw--bold">
                             ${Resource.msg('join.title', 'login', null)}
                         </h3>
-                        <p class="h-font-size--16 ">
+                        <p class="h-font-size--16 mb-3">
                             ${Resource.msg('join.para', 'login', null)}
                             <a href="${URLUtils.https('Login-Show')}" role="button" class="h-clr--black-3 h-font-size--16"
                                 aria-label="${Resource.msg('label.header.signup', 'common', null)}">${Resource.msg('label.header.signup', 'common', null)}</a>

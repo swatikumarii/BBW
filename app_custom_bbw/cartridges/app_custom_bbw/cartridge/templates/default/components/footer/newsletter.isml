@@ -9,7 +9,7 @@
                         </label>
                         <div class="input-group">
                             <div class="w-100">
-                                <input type="text" class="form-control input-text rounded-0 w-100" id="newsletterInput" name="hpEmailSignUp"
+                                <input type="text" class="form-control input-text rounded-0 w-100" id="newsletter-input" name="hpEmailSignUp"
                                     aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" required />
                                 <div class="newletter-msg js-newsletter-msg bg-transparent h-font-size--14 m-0"></div>
                             </div>

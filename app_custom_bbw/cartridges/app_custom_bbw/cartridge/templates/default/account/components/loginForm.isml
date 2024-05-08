@@ -63,7 +63,7 @@
         </div>
     <iselse/>
         <div class="login-btn register-btn text-center">
-            <button type="submit" class="btn btn-block btn-primary text-uppercase signin-btn sign-in-btn w-auto">${Resource.msg('button.text.loginform', 'login', null)}</button>
+            <button type="submit" class="btn btn-block btn-primary text-uppercase signin-btn sign-in-btn">${Resource.msg('button.text.loginform', 'login', null)}</button>
         </div>
     </isif>
 </form>
