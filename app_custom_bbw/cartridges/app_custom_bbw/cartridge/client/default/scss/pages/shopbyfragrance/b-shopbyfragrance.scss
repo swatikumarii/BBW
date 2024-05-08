@@ -19,12 +19,18 @@ body {
             border-right: none;
             border-left: none;
             border-top: 1px solid colour(gray, 6);
+            max-width: fit-content;
 
             @include media-up(sm) {
                 border: 1px solid colour(gray, 6);
                 padding: 20px 42px;
-                margin: 0;
+                margin: 0 auto;
                 position: relative;
+                max-width: 1045px;
+            }
+
+            @include media-btw(sm, lg) {
+                max-width: fit-content;
             }
 
             .subtitle {

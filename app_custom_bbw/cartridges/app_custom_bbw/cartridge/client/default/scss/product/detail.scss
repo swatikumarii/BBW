@@ -46,6 +46,7 @@
 
             @include media-down(sm) {
                 position: absolute;
+                justify-content: center;
             }
 
             li {
