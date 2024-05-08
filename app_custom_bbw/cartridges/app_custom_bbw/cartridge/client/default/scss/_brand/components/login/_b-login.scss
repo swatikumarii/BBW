@@ -594,14 +594,14 @@
         left: 0%;
         right: 0%;
         margin-bottom: 0;
-        animation: slideIn 0.3s cubic-bezier(0.2, 0.05, 0.55, 0.2);
+        animation: slide-in 0.3s cubic-bezier(0.2, 0.05, 0.55, 0.2);
     }
 
     .login-modal-fade.show .modal-dialog-bottom {
         transform: translateY(0);
     }
 
-    @keyframes slideIn {
+    @keyframes slide-in {
         0% {
             transform: translateY(100%);
         }

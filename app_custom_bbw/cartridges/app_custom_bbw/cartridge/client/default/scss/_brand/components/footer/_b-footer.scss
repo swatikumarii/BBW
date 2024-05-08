@@ -110,6 +110,12 @@ footer {
                 }
             }
 
+            #newsletter-input {
+                &.is-invalid {
+                    border-color: colour(red);
+                }
+            }
+
             .submit-btn {
                 padding: 0 2rem;
                 width: 124px;
@@ -364,10 +370,4 @@ footer {
     background-image: url("../images/footer/unsubscribe-bg.jpg");
     background-repeat: repeat-y;
     height: 120vh;
-}
-
-#newsletterInput {
-    &.is-invalid {
-        border-color: colour(red);
-    }
 }

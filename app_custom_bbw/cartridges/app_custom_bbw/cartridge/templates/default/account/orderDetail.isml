@@ -2,6 +2,7 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/orderTracking.js');
+        assets.addCss('/css/account/orderTrack.css');
     </isscript>
 
     <div class="hero slant-down">
@@ -9,12 +10,12 @@
             <!---Breadcrumbs--->
             <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
             <div class="row justify-content-center equal-height">
-                <div class="col-sm-8 col-md-6">
+                <div class="col-lg-10 col-md-10 order-details-section">
                             <h1 class="page-title">${Resource.msg('label.order.tracking', 'order', null)}</h1>
-                    <div class="card">
-                        <div class="card-body">
+                    <div class="card order-details-card ">
+                        <div class="card-body order-details-body">
                             <isset name="order" value="${pdict.order}" scope="page" />
-                            <isinclude template="account/order/orderHistoryCard" />
+                            <isinclude template="account/order/orderTrackingHistoryCard" />
                         </div>
                     </div>
                 </div>

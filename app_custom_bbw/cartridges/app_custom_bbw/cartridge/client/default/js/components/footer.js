@@ -122,16 +122,11 @@ $(document).on('click', '.popover .close', function (e) {
 /**
  * Back To Top - Click
  */
-
-var scrolltotop = $('.js-scrolltotop');
-
-// Function to handle scroll event
-/**
- *
- */
-// Define a function to handle scroll event and show/hide back-to-top button
 function handleScroll() {
-    var scrollThreshold = 3.7 * $(window).height(); // 70% of window height
+    // Get the height of the window
+    var windowHeight = $(window).height();
+    // 70% of window height
+    var scrollThreshold = 0.7 * windowHeight; 
 
     if ($(window).scrollTop() > scrollThreshold) {
         $('.js-scrolltotop').fadeIn();
@@ -139,11 +134,7 @@ function handleScroll() {
         $('.js-scrolltotop').fadeOut();
     }
 }
-
 // Function to scroll to top when the button is clicked
-/**
- *
- */
 function scrollToTop() {
     $('html, body').animate(
         {
@@ -163,7 +154,6 @@ $(document).ready(function () {
 
 // Bind click event to scroll to top when the button is clicked
 $('.js-scrolltotop').on('click', scrollToTop);
-
 
 module.exports = function () {
     $('.subscribe-email').on('click', function (e) {
