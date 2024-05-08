@@ -296,6 +296,16 @@ module.exports = {
         });
     },
 
+    closeFilter: function () {
+        $('body').on('click', function (e) {
+            // Check if the clicked element is not inside the collapse area and the collapse is open
+            if (!$(e.target).closest('.js-desktop-filters .collapse').length && $('.js-desktop-filters .collapse').hasClass('show')) {
+                // Close all open collapses
+                $('.js-desktop-filters .collapse.show').collapse('hide');
+            }
+        });
+    },
+
     closeRefinements: function () {
         // Refinements close button
         $('.container').on('click', '.refinement-bar button.close, .modal-background', function () {

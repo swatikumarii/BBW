@@ -42,6 +42,7 @@
         .carousel-indicators {
             z-index: 0;
             position: relative;
+            justify-content: left;
 
             @include media-down(sm) {
                 position: absolute;
@@ -128,6 +129,14 @@
         }
     }
 
+    .product-detail-wrapper {
+        width: 100%;
+
+        @include media-up(md) {
+            width: 433px;
+        }
+    }
+
     .brand-name {
         line-height: 1.25rem;
         letter-spacing: 0.01em;
@@ -199,7 +208,7 @@
         .volume-name {
             line-height: 1rem;
             letter-spacing: 0.015em;
-            padding-bottom: 0.875rem;
+            padding-bottom: 4px;
         }
 
         .promotion-callout {
@@ -207,10 +216,6 @@
             letter-spacing: 0.005em;
             width: 100%;
             margin-bottom: 0.75rem;
-
-            @include media-up(md) {
-                width: 79%;
-            }
 
             .callout-detail {
                 &::after {
@@ -357,7 +362,7 @@
 
                 .notifyBackInStockButton,
                 .out-of-stock {
-                    width: 11.4375rem;
+                    width: 100%;
                     font-size: 1rem;
                     font-weight: map-get($font-weight, semibold);
                     letter-spacing: 0.24px;
@@ -367,26 +372,18 @@
             }
         }
 
-        .afterPayExtension {
+        .pdp-checkout-button {
             padding: 8px 15px;
-            width: 100%;
+            max-width: 100%;
 
             @include media-up(sm) {
-                width: 408px;
-            }
-
-            .pdp-checkout-button {
-                padding: 0;
+                max-width: 408px;
             }
         }
 
         .description-and-detail {
-            margin-top: 1.5625rem;
+            margin-top: 29px;
             width: 100%;
-
-            @include media-up(md) {
-                width: 66%;
-            }
 
             .card {
                 border-top: 0.0625rem solid colour(gray, 6);
@@ -410,10 +407,6 @@
             .social-icons {
                 padding: 1.0625rem 0 0.1875rem;
                 width: 100%;
-
-                @include media-up(md) {
-                    width: 66%;
-                }
 
                 li {
                     list-style: none;
@@ -520,6 +513,11 @@
 
     .arrow {
         left: 14px !important;
+        bottom: -8px;
+
+        &::before {
+            border-top-color: colour(gray);
+        }
     }
 
     .close {
@@ -640,6 +638,22 @@
     margin-right: 10px;
 }
 
-.outOfstockModal.modal.modal-right.fade.show .modal-dialog {
-    right: 0 !important;
+.tiered {
+    table {
+        width: 250px;
+
+        .table-header {
+            font-weight: 600;
+            padding: 12px 0;
+        }
+
+        .column-header {
+            font-weight: 400;
+            padding-bottom: 5px;
+        }
+
+        td {
+            padding-bottom: 5px;
+        }
+    }
 }
