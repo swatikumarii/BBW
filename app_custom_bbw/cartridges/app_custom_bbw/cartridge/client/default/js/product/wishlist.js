@@ -27,7 +27,6 @@ module.exports = {
                 return;
             }
 
-            $.spinner().start();
             // $(this).attr('disabled', true);
             $.ajax({
                 url: url,
@@ -57,11 +56,7 @@ module.exports = {
                         $('.remove-from-wishlist').addClass('d-none');
                         $('.add-to-wish-list').removeClass('d-none');
                     }
-                    $.spinner().stop();
                 },
-                error: function () {
-                    $.spinner().stop();
-                }
             });
         });
     }
