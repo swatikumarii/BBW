@@ -134,6 +134,13 @@
                 }
             }
         }
+
+        .cancel-payment {
+            line-height: 2;
+            min-height: auto;
+            padding: 3px 25px;
+            text-transform: uppercase;
+        }
     }
 
     .btn-save {

@@ -486,139 +486,6 @@
         }
     }
 
-    // -----hide show---
-    .password-box {
-        .login-modal-hide {
-            top: 29px;
-            min-height: 46px;
-            max-height: 15px;
-            right: 1px;
-            letter-spacing: normal;
-
-            .show {
-                border-left: 1px solid colour(gray, 22);
-                line-height: 24px;
-                padding: 0 12px;
-            }
-        }
-
-        .register-hide {
-            top: 33px;
-            min-height: 43px;
-            max-height: 15px;
-            background: colour(white);
-            right: 15px;
-            letter-spacing: normal;
-
-            @include media-up(sm) {
-                right: 7px;
-            }
-
-            @include media-breakpoint-only(md) {
-                right: -71px;
-            }
-
-            &:hover {
-                background-color: colour(gray, 1);
-            }
-
-            .show {
-                border-left: 1px solid colour(gray, 22);
-                line-height: 24px;
-                padding: 0 12px;
-            }
-        }
-
-        .hide-show {
-            min-height: 46px;
-            max-height: 15px;
-            background: white;
-            right: 10px;
-            top: 23px;
-            letter-spacing: normal;
-
-            @include media-up(sm) {
-                min-height: 46px;
-                max-height: 15px;
-                background: white;
-                right: 1px;
-                top: 23px;
-                letter-spacing: normal;
-            }
-
-            @include media-btw(sm, lg) {
-                min-height: 46px;
-                max-height: 15px;
-                background: white;
-                right: 1px;
-                top: 23px;
-                letter-spacing: normal;
-            }
-
-            &:hover {
-                background-color: colour(gray, 1);
-            }
-
-            .show {
-                border-left: 1px solid colour(gray, 22);
-                line-height: 24px;
-                padding: 0 12px;
-            }
-        }
-    }
-
-    // -----login modal-----
-    .login-modal-body {
-        overflow-y: auto;
-        max-height: calc(114vh - 84px);
-    }
-
-    .login-modal-fade {
-        background: rgba(26, 26, 26, 60%);
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        padding-right: 0;
-    }
-
-    .login-modal-fade .modal-dialog-bottom {
-        transition: transform 0.2s ease-out;
-        transform: translateY(100%);
-    }
-
-    .modal-dialog-bottom {
-        position: fixed;
-        bottom: 0;
-        left: 0%;
-        right: 0%;
-        margin-bottom: 0;
-        animation: slideIn 0.3s cubic-bezier(0.2, 0.05, 0.55, 0.2);
-    }
-
-    .login-modal-fade.show .modal-dialog-bottom {
-        transform: translateY(0);
-    }
-
-    @keyframes slideIn {
-        0% {
-            transform: translateY(100%);
-        }
-
-        100% {
-            transform: translateY(0);
-        }
-    }
-
-    .modal-content-head {
-        border-radius: 0;
-    }
-
-    .border-danger {
-        border-color: colour(red);
-    }
-
     // -----forgot password
     .forgot-pass-page {
         .page-title {
@@ -714,6 +581,141 @@
                 margin-right: 0.125em;
                 color: colour(red, 9);
             }
+        }
+    }
+}
+
+
+// -----login modal-----
+.login-modal-body {
+    overflow-y: auto;
+    max-height: calc(114vh - 84px);
+}
+
+.login-modal-fade {
+    background: rgba(26, 26, 26, 60%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-right: 0;
+}
+
+.login-modal-fade .modal-dialog-bottom {
+    transition: transform 0.2s ease-out;
+    transform: translateY(100%);
+}
+
+.modal-dialog-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+    right: 0%;
+    margin-bottom: 0;
+    animation: slideIn 0.3s cubic-bezier(0.2, 0.05, 0.55, 0.2);
+}
+
+.login-modal-fade.show .modal-dialog-bottom {
+    transform: translateY(0);
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.modal-content-head {
+    border-radius: 0;
+}
+
+.border-danger {
+    border-color: colour(red);
+}
+
+
+// -----hide show---
+.password-box {
+    .login-modal-hide {
+        top: 29px;
+        min-height: 46px;
+        max-height: 15px;
+        right: 1px;
+        letter-spacing: normal;
+
+        .show {
+            border-left: 1px solid colour(gray, 22);
+            line-height: 24px;
+            padding: 0 12px;
+        }
+    }
+
+    .register-hide {
+        top: 33px;
+        min-height: 43px;
+        max-height: 15px;
+        background: colour(white);
+        right: 15px;
+        letter-spacing: normal;
+
+        @include media-up(sm) {
+            right: 7px;
+        }
+
+        @include media-breakpoint-only(md) {
+            right: -71px;
+        }
+
+        &:hover {
+            background-color: colour(gray, 1);
+        }
+
+        .show {
+            border-left: 1px solid colour(gray, 22);
+            line-height: 24px;
+            padding: 0 12px;
+        }
+    }
+
+    .hide-show {
+        min-height: 46px;
+        max-height: 15px;
+        background: white;
+        right: 10px;
+        top: 23px;
+        letter-spacing: normal;
+
+        @include media-up(sm) {
+            min-height: 46px;
+            max-height: 15px;
+            background: white;
+            right: 1px;
+            top: 23px;
+            letter-spacing: normal;
+        }
+
+        @include media-btw(sm, lg) {
+            min-height: 46px;
+            max-height: 15px;
+            background: white;
+            right: 1px;
+            top: 23px;
+            letter-spacing: normal;
+        }
+
+        &:hover {
+            background-color: colour(gray, 1);
+        }
+
+        .show {
+            border-left: 1px solid colour(gray, 22);
+            line-height: 24px;
+            padding: 0 12px;
         }
     }
 }
