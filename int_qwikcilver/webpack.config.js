@@ -1,20 +1,51 @@
-var path = require('path');
-    var MiniCssExtractPlugin = require('mini-css-extract-plugin');
-    var CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-    var RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
-    var sgmfScripts = require('sgmf-scripts');
+'use strict';
 
-    module.exports = [{
+var path = require('path');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+var RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
+var sgmfScripts = require('sgmf-scripts');
+
+module.exports = [
+    {
         mode: 'production',
         name: 'js',
         entry: sgmfScripts.createJsPath(),
         output: {
             path: path.resolve('./cartridges/int_qwikcilver/cartridge/static'),
             filename: '[name].js'
+        },
+        resolve: {
+            alias: {
+                jquery: path.resolve(
+                    __dirname,
+                    '../storefront-reference-architecture/node_modules/jquery'
+                ),
+                bootstrap: path.resolve(
+                    __dirname,
+                    '../storefront-reference-architecture/node_modules/bootstrap'
+                ),
+                lodash: path.resolve(
+                    __dirname,
+                    '../storefront-reference-architecture/node_modules/lodash'
+                ),
+                cleave: path.resolve(
+                    __dirname,
+                    '../storefront-reference-architecture/node_modules/cleave.js'
+                ),
+                'popper.js': path.resolve(
+                    __dirname,
+                    './node_modules/popper.js'
+                ),
+                'utils.js': path.resolve(
+                    __dirname,
+                    './node_modules/intl-tel-input/build/js/utils.js'
+                )
+            }
         }
     },
     {
-        mode: 'none',
+        mode: 'production',
         name: 'scss',
         entry: sgmfScripts.createScssPath(),
         output: {
@@ -47,7 +78,7 @@ var path = require('path');
                         {
                             loader: 'postcss-loader',
                             options: {
-                                postcssOptions : {
+                                postcssOptions: {
                                     plugins: [require('autoprefixer')]
                                 }
                             }
@@ -58,6 +89,10 @@ var path = require('path');
                                 implementation: require('sass'),
                                 sassOptions: {
                                     includePaths: [
+                                        path.resolve(
+                                            process.cwd(),
+                                            '../storefront-reference-architecture/node_modules/'
+                                        ),
                                         path.resolve('node_modules'),
                                         path.resolve(
                                             'node_modules/flag-icon-css/sass'
@@ -73,4 +108,5 @@ var path = require('path');
         optimization: {
             minimizer: ['...', new CssMinimizerPlugin()]
         }
-    }];
+    }
+];

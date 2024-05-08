@@ -1,0 +1,136 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/giftcards.css');
+    assets.addJs('/js/productDetail.js');
+</isscript>
+
+    <div class="container">
+        <h1 class="h-clr--black-3 h-font-size--24 giftcard-heading">${Resource.msg('heading.e.giftcards', 'giftcards', null)}</h1>
+        <isset name="product" value="${pdict.giftCard}" scope="page" />
+
+        <div class="row gc-container product-detail m-auto">
+            <div class="col-6">
+                <div class="main-image">
+                    <img class="product-image" src="${product.images.large[0].url}"
+                        alt="${product.images.large[0].alt}" title="${product.images.large[0].title}" width="360" />
+                </div>
+            </div>
+            <div class="col-6">
+                <h1 class="h-font-size--30 h-clr--black-1 h-fw--bold h-ls-02"> Fast & Fun!</h1>
+                <p class="m-0">
+                    Delivered within 24 hours
+                </p>
+                <span>
+                    Simply fill out the info below, and we'll email the E-Gift Card directly to their inbox! Redeemable
+                    in stores & online.
+                </span>
+                <isset name="giftcardFields" value="${pdict.recepientForm}" scope="page" />
+                <iscomment> --------------------------- </iscomment>
+                    <form class="gift-card-form" name="${pdict.recipientsForm.htmlName}">
+                        <div class="gift-required-fields text-right h-font-size--12 h-clr--black-1 h-ls-02">
+                            <span id="gift-required-fields"><span class="h-clr--red">${'*'}</span>${Resource.msg('gift.required.fields', 'forms', null)}</span>
+                        </div>
+                            <div class="form-group required">
+                                <label class="form-control-label h-font-size--16 h-fw--semibold h-ls-02" for="recipients-form-to">
+                                    <span class="h-clr--red">${'*'}</span>${Resource.msg('label.input.recipientsname', 'forms', null)}
+                                </label>
+                                <input type="text" id="recipients-form-to" maxlength="80" name="recipient-name" size="20" required
+                                    class="form-control"
+                                    data-missing-error="${Resource.msg('error.message.parse.recipientsname', 'forms', null)}"
+                                    data-pattern-mismatch="${Resource.msg('error.message.parse.recipientsname', 'forms', null)}"
+                                    data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
+                                    aria-describedby="form-recipients-name-error" <isprint
+                                    value="${pdict.recipientsForm.recipients.recipientsname.attributes}" encoding="off" />/>
+                                <div class="invalid-feedback" id="form-recipients-name-error"></div>
+                            </div>
+                            <div class="form-group required">
+                                <label class="form-control-label h-font-size--16 h-fw--semibold h-ls-02" for="recipients--from">
+                                    <span class="h-clr--red">${'*'}</span>${Resource.msg('label.input.sendername', 'forms', null)}
+                                </label>
+                                <input type="text" id="recipients-form-from" maxlength="80" name="sender-name" size="20" required
+                                    class="form-control"
+                                    data-missing-error="${Resource.msg('error.message.parse.sendername', 'forms', null)}"
+                                    data-pattern-mismatch="${Resource.msg('error.message.parse.sendername', 'forms', null)}"
+                                    data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
+                                    aria-describedby="form-recipients.sendername-error" <isprint
+                                    value="${pdict.recipientsForm.recipients.sendername.attributes}" encoding="off" /> />
+                                <div class="invalid-feedback" id="form-recipients-sendername-error"></div>
+                            </div>
+                            <div class="form-group required">
+                                <label class="form-control-label h-font-size--16 h-fw--semibold h-ls-02">
+                                    <span class="h-clr--red">${'*'}</span>${Resource.msg('label.input.email.recipients', 'forms', null)}
+                                </label>
+                                <input type="email" id="recipient-email" maxlength="80" name="recipient-email" size="20" required
+                                    class="form-control" data-missing-error="${Resource.msg('error.message.parse.recipientemail', 'forms', null)}"
+                                    data-pattern-mismatch="${Resource.msg('error.message.invalid.password', 'forms', null)}"
+                                    data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
+                                    aria-describedby="form-contact-email-error" <isprint
+                                    value="${pdict.recipientsForm.recipients.recipientemail.attributes}" encoding="off" /> />
+                                <div class="invalid-feedback" id="form-contact-email-error"></div>
+                            </div>
+
+                        <div class="schedule-amout-date-field">
+                            <label class="schedule-date-label">${Resource.msg('label.input.egift.date', 'forms', null)}</label>
+                            <div class="row schedule-date-field">
+                                <div class="schedule-egift-months col-6">
+                                    <div class="form-group">
+                                        <label
+                                            class="form-control-label h-font-size--16 h-fw--semibold h-ls-02">${Resource.msg('label.input.egift.month', 'forms', null)}</label>
+                                        <select class="form-control" id="schedule-months-list" <isprint
+                                            value="${pdict.recipientsForm.recipients.egiftmonth.attributes}" encoding="off" />>
+                                        <isloop items=${pdict.months} var="month">
+                                            <option id="${month}" value="${month}">${month}</option>
+                                        </isloop>
+                                        </select>
+                                    </div>
+                                    <div class="invalid-feedback"></div>
+                                </div>
+                                <div class="schedule-egift-date col-6">
+                                    <div class="form-group">
+                                        <label class="form-control-label h-font-size--16 h-fw--semibold h-ls-02">${Resource.msg('label.input.egift.day', 'forms', null)}</label>
+                                        <select class="form-control" id="schedule-days-list" <isprint
+                                            value="${pdict.recipientsForm.recipients.egiftday.attributes}" encoding="off" />>
+                                        <isloop items=${pdict.days} var="day">
+                                            <isif condition="${day >= new Date().getDate()}">
+                                                <option id="${day}" value="${day}"${new Date().getDate() === day ? 'selected' : ''}>
+                                                    ${day.toFixed(0)}
+                                                </option>
+                                            </isif>
+                                        </isloop>
+                                        </select>
+                                    </div>
+                                </div>
+                                <span class="same-day-delivery-wrap col-12 d-flex align-items-center"><input type="checkbox" class="same-day-delivery"
+                                        name="same-day-delivery" id="delivery-check" /><label class="schedule-date-checkbox mb-0 pl-2"
+                                        for="delivery-check"><span>${Resource.msg('gift.card.same.day.delivery.msg', 'forms', null)}</span></label></span>
+                            </div>
+                        </div>
+                        <div class="row gift-cert-message">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="msg-title form-control-label h-font-size--16 h-fw--semibold h-ls-02 egift-message-label" for="message">
+                                        ${Resource.msg('label.egift.message', 'forms', null)}
+                                    </label>
+                                    <textarea class="form-control egift-message h-bdc--black-1" rows="6" maxlength="250"
+                                        id="egift-message" name="egift-message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+                            <div class="row" data-attr="${attr.id}">
+                                <div class="col-8">
+                                    <isinclude template="product/components/variationAttribute" />
+                                </div>
+                            </div>
+                        </isloop>
+                    </form>
+                    <isinclude template="product/components/addToCartProduct" />
+                    </div>
+                <iscomment> --------------------------- </iscomment>
+            </div>
+        </div>
+    </div>
+
+</isdecorate>

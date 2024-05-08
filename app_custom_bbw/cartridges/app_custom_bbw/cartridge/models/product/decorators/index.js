@@ -11,4 +11,5 @@ index.usageInstruction = require('*/cartridge/models/product/decorators/usageIns
 index.ingredients = require('*/cartridge/models/product/decorators/ingredients');
 index.badge = require('*/cartridge/models/product/decorators/badge');
 index.moreInfo = require('*/cartridge/models/product/decorators/moreInfo');
+index.isEgiftCard = require('*/cartridge/models/product/decorators/isEgiftCard');
 module.exports = index;

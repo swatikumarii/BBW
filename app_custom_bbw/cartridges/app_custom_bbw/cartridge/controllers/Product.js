@@ -6,6 +6,7 @@ var productListHelper = require('*/cartridge/scripts/productList/productListHelp
 server.extend(module.superModule);
 
 server.append('Show', function (req, res, next) {
+    var URLUtils = require('dw/web/URLUtils');
     var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
         type: 10
     });
@@ -21,7 +22,11 @@ server.append('Show', function (req, res, next) {
         type: 10
     };
     var itemExist = productListHelper.itemExists(list, pid, config);
-    res.setViewData({itemExist: itemExist});
+    var removeLineItemURL = URLUtils.url('Giftcard-RemoveLineItems');
+    res.setViewData({
+        itemExist: itemExist,
+        removeLineItemURL: removeLineItemURL
+    });
     next();
 });
 

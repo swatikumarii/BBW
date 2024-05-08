@@ -8,3 +8,5 @@
         <span class="add-to-cart-error text-danger"></span>
     </div>
 </div>
+<isinclude template="product/components/removeGiftLineItem" />
+<isinclude template="product/components/removeLineItem" />

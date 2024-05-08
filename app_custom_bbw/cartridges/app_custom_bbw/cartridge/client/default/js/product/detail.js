@@ -39,7 +39,70 @@ module.exports = $.extend({}, detail, {
 
     addToCart: base.addToCart,
 
-    focusChooseBonusProductModal: base.focusChooseBonusProductModal()
+    focusChooseBonusProductModal: base.focusChooseBonusProductModal(),
+
+    removeEGiftCard: function () {
+        $('.delete-egiftitem-confirmation-btn').on('click', function () {
+            var productID = $(this).data('pid');
+            var removeGiftPliUrl = $(this).data('action');
+            var addToCartUrl = $(this).data('addtocarturl');
+            var form = {
+                pid: productID,
+                quantity: 1
+            };
+            $.ajax({
+                type: 'GET',
+                url: removeGiftPliUrl,
+                success: function (data) {
+                    $.ajax({
+                        type: 'POST',
+                        url: addToCartUrl,
+                        data: form,
+                        success: function () {
+                            base.handlePostCartAdd(data);
+                            $('body').trigger('product:afterAddToCart', data);
+                            $.spinner().stop();
+                            base.miniCartReportingUrl(data.reportingURL);
+                        },
+                        error: function () {
+                            $.spinner().stop();
+                        }
+                    });
+                }
+            });
+        });
+    },
+    removeLineItem: function () {
+        $('.delete-lineitem-confirmation-btn').on('click', function () {
+            var productID = $(this).data('pid');
+            var removeGiftPliUrl = $(this).data('action');
+            var addToCartUrl = $(this).data('addtocarturl');
+            var form = {
+                pid: productID,
+                quantity: 1
+            };
+            $.ajax({
+                type: 'GET',
+                url: removeGiftPliUrl,
+                success: function (data) {
+                    $.ajax({
+                        type: 'POST',
+                        url: addToCartUrl,
+                        data: form,
+                        success: function () {
+                            base.handlePostCartAdd(data);
+                            $('body').trigger('product:afterAddToCart', data);
+                            $.spinner().stop();
+                            base.miniCartReportingUrl(data.reportingURL);
+                        },
+                        error: function () {
+                            $.spinner().stop();
+                        }
+                    });
+                }
+            });
+        });
+    }
 });
 
 /** Wishlist toast message */

@@ -663,3 +663,10 @@
 .outOfstockModal.modal.modal-right.fade.show .modal-dialog {
     right: 0 !important;
 }
+
+#delete-gift-certificate-line-item-modal,
+#delete-line-item-modal {
+    .modal-dialog {
+        bottom: unset;
+    }
+}
