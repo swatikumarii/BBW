@@ -51,7 +51,8 @@
                             &::before {
                                 transition: all 0.5s ease-out;
                                 transform: rotate(0deg);
-                                background: url("../images/UI-Carat.svg") no-repeat 50%;
+                                background: url("../images/UI-Carat.svg") 50%;
+                                background-repeat: no-repeat;
                                 content: "";
                                 position: absolute;
                                 width: 2.5rem;
@@ -79,7 +80,8 @@
                         &::before {
                             transition: all 0.5s ease-out;
                             transform: rotate(180deg);
-                            background: url("../images/UI-Carat.svg") no-repeat 50%;
+                            background: url("../images/UI-Carat.svg") 50%;
+                            background-repeat: no-repeat;
                             content: "";
                             position: absolute;
                             width: 2.5rem;
