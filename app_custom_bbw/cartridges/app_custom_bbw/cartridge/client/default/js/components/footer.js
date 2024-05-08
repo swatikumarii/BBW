@@ -103,6 +103,7 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
     $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
 });
 
+$('.countrySelectPopup').find('.modal').modal('show');
 var timer;
 $('body')
     .on('mouseleave', '[data-toggle="popover"], .popover', function () {
@@ -112,18 +113,16 @@ $('body')
     })
     .on('mouseenter', '[data-toggle="popover"], .popover', function () {
         clearTimeout(timer);
+    })
+    .on('click', '#switch-site', function () {
+        var site = $('#selected-site').val();
+        window.location.replace(site);
     });
 // Close popover on close button click
 $(document).on('click', '.popover .close', function (e) {
     e.preventDefault(); // Prevent default behavior of anchor tag
     $(this).parents('.popover').popover('hide');
 });
-
-/**
- * Back To Top - Click
- */
-
-var scrolltotop = $('.js-scrolltotop');
 
 // Function to handle scroll event
 /**
