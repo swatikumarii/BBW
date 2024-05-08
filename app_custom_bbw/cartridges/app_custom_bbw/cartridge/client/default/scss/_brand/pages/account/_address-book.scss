@@ -38,7 +38,8 @@
     }
 }
 
-#address-form, #add-address-form {
+#address-form,
+#add-address-form {
     .modal-dialog {
         max-width: 540px;
     }
@@ -180,5 +181,20 @@
         position: absolute;
         right: 0;
         top: -16px;
+    }
+}
+
+.address-save-msg {
+    background-color: colour(green, 6);
+    color: colour(green, 2);
+    margin-bottom: 25px;
+    height: 64px;
+    line-height: 1.25rem;
+    letter-spacing: 0.01em;
+    padding-left: 1em;
+
+    .close {
+        color: colour(black);
+        top: 9px;
     }
 }

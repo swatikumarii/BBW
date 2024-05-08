@@ -89,7 +89,6 @@ function invalid() {
                 .find('.invalid-feedback')
                 .text(validationMessage);
 
-<<<<<<< HEAD
             for (var ele = 0; ele < $('#job').find('input').length; ele++) {
                 if ($('#job').find('input')[ele].value === '') {
                     $('html, body').animate(
@@ -101,15 +100,6 @@ function invalid() {
                         'slow'
                     );
                     return;
-=======
-                for (var ele = 0; ele < $('#job').find('input').length; ele++) {
-                    if ($('#job').find('input')[ele].value === '') {
-                        $('html, body').animate({
-                            scrollTop: $($('#job').find('input')[ele]).offset().top-100
-                        }, 'slow');
-                        return;
-                    }
->>>>>>> 98bbd6e7f048a050f51ced6c412e9ce2086474b1
                 }
             }
         }

@@ -22,7 +22,11 @@
             </div>
             <div class="col-lg-10 col-md-8">
                 <isif condition="${pdict.showSuccessMessage}">
-                    <div class="address-save-msg">${Resource.msg('address.save.success', 'account', null)}</div>
+                    <div class="alert alert-success alert-dismissible address-save-msg h-font-size--16 h-fw--bold d-flex align-items-center">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        ${Resource.msg('address.save.success', 'account', null)}
+                    </div>
+                    <iscomment> <div class="address-save-msg">${Resource.msg('address.save.success', 'account', null)}</div> </iscomment>
                 </isif>
                 <div class="my-account-description">
                     <div class="account-profile">
@@ -74,7 +78,7 @@
                                         <span class="space">${Resource.msg('label.space', 'account', null)}</span>
                                     </isif>
 
-                                    <button type="button" id="editAddress" class="btn btn-primary" data-href="${URLUtils.url('Address-EditAddress')}"
+                                    <button type="button" id="editAddress" class="edit border-0" data-href="${URLUtils.url('Address-EditAddress')}"
                                         data-id="${address.address.ID}" data-toggle="modal" data-target="#address-form">
                                         ${Resource.msg('link.edit', 'account', null)}
                                     </button>
