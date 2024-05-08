@@ -5,14 +5,18 @@
     </isscript>
 
     <div class="hero slant-down">
-        <h1 class="page-title">${Resource.msg('label.order.tracking', 'order', null)}</h1>
-    </div>
-    <div class="row justify-content-center equal-height">
-        <div class="col-sm-8 col-md-6">
-            <div class="card">
-                <div class="card-body">
-                    <isset name="order" value="${pdict.order}" scope="page" />
-                    <isinclude template="account/order/orderHistoryCard" />
+        <div class="container">
+            <!---Breadcrumbs--->
+            <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+            <div class="row justify-content-center equal-height">
+                <div class="col-sm-8 col-md-6">
+                            <h1 class="page-title">${Resource.msg('label.order.tracking', 'order', null)}</h1>
+                    <div class="card">
+                        <div class="card-body">
+                            <isset name="order" value="${pdict.order}" scope="page" />
+                            <isinclude template="account/order/orderHistoryCard" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
