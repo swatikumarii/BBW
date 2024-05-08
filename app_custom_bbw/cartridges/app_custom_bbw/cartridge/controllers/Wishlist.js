@@ -9,6 +9,7 @@ server.extend(module.superModule);
  * It also append data to response to support toggle behaviour
  */
 server.prepend('AddProduct', function (req, res, next) {
+    var pid = req.form.pid;
     var viewData = res.getViewData();
     var checkUser = req.currentCustomer.raw.registered;
     if (checkUser === false) {
@@ -16,6 +17,7 @@ server.prepend('AddProduct', function (req, res, next) {
             redirect: true,
             isWishlistGuest: true,
             loginShow: true,
+            pid: pid
         });
         this.emit('route:Complete', req, res);
         return;

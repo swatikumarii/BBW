@@ -1,7 +1,9 @@
 'use strict';
 
+var layout = require('../utils/layout');
 var detail = require('base/product/detail');
 var base = require('./base');
+var helpers = require('../utils/scrollHelpers');
 
 module.exports = $.extend({}, detail, {
     quantityUpdate: function () {
@@ -63,8 +65,10 @@ $('.card:first').find('.content').addClass('show');
 
 /* Zoom Image */
 $('.zoomImage-link, .carousel-item').on('click', function () {
+    helpers.disableScroll();
     $('.zoomImage-sec').css('display', 'block');
 });
 $('.zoomOut-link').on('click', function () {
+    helpers.enableScroll();
     $('.zoomImage-sec').css('display', 'none');
 });

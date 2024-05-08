@@ -169,6 +169,18 @@ server.get(
     consentTracking.consent,
     server.middleware.https,
     function (req, res, next) {
+        var viewData = res.getViewData();
+        var breadcrumbs = [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            },
+            {
+                htmlValue: Resource.msg('label.order.tracking', 'order', null),
+                url: URLUtils.url('Order-Status').toString()
+            }
+        ];
+        viewData.breadcrumbs = breadcrumbs;
         res.render('account/orderTracking');
         return next();
     }
@@ -272,7 +284,7 @@ server.post(
 server.append(
     'Confirm',
     function (req, res, next) {
-        this.on('route:BeforeComplete', function (req, res) {
+        this.on('route:BeforeComplete', function () {
             // send email when order total 0
             var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
             var viewData = res.getViewData();
@@ -282,12 +294,11 @@ server.append(
                 commonHelper.zeroOrderEmail(viewData.order);
             }
             // redirection url
-            if (order.paymentStatus.value === Order.ORDER_STATUS_FAILED) {
+            if (order.status.value === Order.ORDER_STATUS_FAILED) {
                 res.redirect(URLUtils.url('Order-Failed'));
-                return next();
-            } if (order.paymentStatus.value === Order.ORDER_STATUS_FAILED) {
+            }
+            if (order.status.value === Order.ORDER_STATUS_CREATED) {
                 res.redirect(URLUtils.url('Order-Pending'));
-                return next();
             }
         });
         return next();

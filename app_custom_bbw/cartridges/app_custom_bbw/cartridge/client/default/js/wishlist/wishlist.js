@@ -2,6 +2,21 @@
 
 var wishlist = require('wishlist/wishlist/wishlist');
 
+$(document).ready(function () {
+    if (localStorage.getItem('addToWishListPid') && localStorage.getItem('addToWishListURL')){
+        $.ajax({
+            url: localStorage.getItem('addToWishListURL'),
+            type: 'post',
+            dataType: 'json',
+            data: {
+                pid: localStorage.getItem('addToWishListPid')
+            },
+        });
+        localStorage.removeItem('addToWishListPid');
+        localStorage.removeItem('addToWishListURL');
+    }
+});
+
 /**
  * @param {object} $elementAppendTo - The element to append error html to
  * @param {string} msg - The error message
@@ -87,7 +102,6 @@ module.exports = $.extend({}, wishlist, {
             if (!url || !pid) {
                 return;
             }
-            $.spinner().start();
             // $(this).attr('disabled', true);
             $.ajax({
                 url: url,
@@ -102,6 +116,8 @@ module.exports = $.extend({}, wishlist, {
                     if(data.loginShow === true){
                         $('#quickViewModal').modal('hide');
                         $('.loginPopup').find('#loginModal').modal('show');
+                        localStorage.setItem('addToWishListPid', pid);
+                        localStorage.setItem('addToWishListURL', url);
                     } else {
                         $('.loginPopup').find('#exampleModalLong').modal('hide');
                         $('#add-to-wish-list').click(function () {
@@ -115,10 +131,6 @@ module.exports = $.extend({}, wishlist, {
                         $('.remove-from-wishlist').addClass('d-none');
                         $('.add-to-wish-list').removeClass('d-none');
                     }
-                    $.spinner().stop();
-                },
-                error: function () {
-                    $.spinner().stop();
                 },
             });
         });
@@ -155,7 +167,6 @@ module.exports = $.extend({}, wishlist, {
                 });
                 // else user is in wishlist landing page, call removeProduct() end point, then remove this card
             } else {
-                $.spinner().start();
                 $.ajax({
                     url: url,
                     type: 'get',
@@ -170,7 +181,6 @@ module.exports = $.extend({}, wishlist, {
                         $('.remove-from-wishlist').removeClass('d-block');
                     },
                     error: function () {
-                        $.spinner().stop();
                         var $elToAppendWL = $('.wishlistItemCards');
                         var msg = $elToAppendWL.data('error-msg');
                         displayErrorMessage($elToAppendWL, msg);

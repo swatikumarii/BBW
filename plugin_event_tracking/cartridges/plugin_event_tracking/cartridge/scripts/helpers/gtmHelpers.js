@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 'use strict';
 
 var gtmEvents = require('*/cartridge/config/gtmEvents');
@@ -578,40 +580,49 @@ function getConfirmationData(res) {
  * @returns {object} Object containing gtm data corresponding to the controller.
  */
 function getDataLayer(res) {
-    switch (res.action) {
-        case 'Home-Show':
-        case 'Default-Start':
-            return getHomeData();
-        case 'Account-Show':
-            return logIn(res);
-        case 'Product-Show':
-            return getPdpData(res);
-        case 'Search-Show':
-            return getSearchImpressionData(res);
-        case 'Cart-Show':
-            return viewCart(res);
-        case 'Cart-AddProduct':
-            if (!res.error) {
-                return addToCart(res);
-            }
-            break;
-        case 'Cart-RemoveProductLineItem':
-            return removeFromCart(res);
-        case 'Wishlist-AddProduct':
-            return addToWishlist(res);
-        case 'Checkout-Login':
-            return getCheckoutData(2);
-        case 'Checkout-Begin':
-            return getCheckoutData(res);
-        case 'CheckoutShippingServices-SubmitShipping':
-            return addShipping(res);
-        case 'CheckoutServices-SubmitPayment':
-            return addPayment(res);
-        case 'Order-Confirm':
-            return getConfirmationData(res);
-        default:
-            return false;
-    };
+    try {
+        switch (res.action) {
+            case 'Home-Show':
+            case 'Default-Start':
+                return getHomeData();
+            case 'Account-Show':
+                return logIn(res);
+            case 'Product-Show':
+                return getPdpData(res);
+            case 'Search-Show':
+                return getSearchImpressionData(res);
+            case 'Cart-Show':
+                return viewCart(res);
+            case 'Cart-AddProduct':
+                if (!res.error) {
+                    return addToCart(res);
+                }
+                break;
+            case 'Cart-RemoveProductLineItem':
+                return removeFromCart(res);
+            case 'Wishlist-AddProduct':
+                return addToWishlist(res);
+            case 'Checkout-Login':
+                return getCheckoutData(2);
+            case 'Checkout-Begin':
+                return getCheckoutData(res);
+            case 'CheckoutShippingServices-SubmitShipping':
+                return addShipping(res);
+            case 'CheckoutServices-SubmitPayment':
+                return addPayment(res);
+            case 'Order-Confirm':
+                return getConfirmationData(res);
+            default:
+                return false;
+        }
+    } catch (error) {
+        Logger.getLogger('GA_GTM', 'GA_GTM').error(
+            'Error when triggering GTM event' + error
+        );
+        return {};
+    }
+    return {};
+
 }
 
 module.exports = {

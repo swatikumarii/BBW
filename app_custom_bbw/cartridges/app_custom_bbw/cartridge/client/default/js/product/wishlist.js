@@ -1,5 +1,12 @@
 'use strict';
 
+$(document).ready(function () {
+    if (localStorage.getItem('addToWishList')){
+        $('.add-to-wish-list').click();
+        localStorage.removeItem('addToWishList');
+    }
+});
+
 /**
  * appends params to a url
  * @param {string} data - data returned from the server's ajax call
@@ -27,7 +34,6 @@ module.exports = {
                 return;
             }
 
-            $.spinner().start();
             // $(this).attr('disabled', true);
             $.ajax({
                 url: url,
@@ -40,6 +46,7 @@ module.exports = {
                 },
                 success: function (data) {
                     if (data.loginShow === true) {
+                        localStorage.setItem('addToWishList', true);
                         $('.loginPopup').find('#loginModal').modal('show');
                     } else {
                         $('.loginPopup')
@@ -48,7 +55,6 @@ module.exports = {
                         $('#add-to-wish-list').click(function () {
                             $('.wishlist-toast.toast').toast('show');
                         });
-
                     }
                     if (data.success) {
                         $('.remove-from-wishlist').removeClass('d-none');
@@ -57,11 +63,7 @@ module.exports = {
                         $('.remove-from-wishlist').addClass('d-none');
                         $('.add-to-wish-list').removeClass('d-none');
                     }
-                    $.spinner().stop();
                 },
-                error: function () {
-                    $.spinner().stop();
-                }
             });
         });
     }
