@@ -1606,7 +1606,7 @@
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="sub-footer"&gt;&#13;
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="sub-footer pb-0 mb-0"&gt;&#13;
     &lt;nav class="nav-link-list ml-auto mr-auto mb-3" aria-label="Footer Links"&gt;&#13;
         &lt;ul class="sub-list-links d-block d-md-flex justify-content-center h-flex-wrap-sm--wrap""&gt;&#13;
             &lt;li class="content pr-2 mb-2 mr-2" role="menu"&gt;&#13;
