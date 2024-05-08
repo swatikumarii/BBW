@@ -113,6 +113,50 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="activatedDate">
+                <display-name xml:lang="x-default">Activated Date</display-name>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="countryCode">
+                <display-name xml:lang="x-default">Country Code</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified">
+                <display-name xml:lang="x-default">Last Modified</display-name>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="migratedCustomer">
+                <display-name xml:lang="x-default">Migrated Customer</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="migrationStatus">
+                <display-name xml:lang="x-default">Migration Status</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="receiveOffers">
+                <display-name xml:lang="x-default">Receive Offers</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="registrationSource">
+                <display-name xml:lang="x-default">Registration Source</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Standard">
@@ -123,6 +167,16 @@
                 <display-name xml:lang="x-default">RegistrationAttribute</display-name>
                 <attribute attribute-id="nationality"/>
                 <attribute attribute-id="zipCode"/>
+            </attribute-group>
+            <attribute-group group-id="MigrationAttribute">
+                <display-name xml:lang="x-default">Migration Attribute</display-name>
+                <attribute attribute-id="migratedCustomer"/>
+                <attribute attribute-id="migrationStatus"/>
+                <attribute attribute-id="registrationSource"/>
+                <attribute attribute-id="receiveOffers"/>
+                <attribute attribute-id="activatedDate"/>
+                <attribute attribute-id="lastModified"/>
+                <attribute attribute-id="countryCode"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
