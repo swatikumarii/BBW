@@ -19,7 +19,7 @@
             </div>
             <div class=" jobForm application_details">
                 <div class="application_details">
-                    <div class="job-error">${Resource.msg('something.went.wrong', 'careers', null)}</div>
+                    <div class="job-error d-none">${Resource.msg('something.went.wrong', 'careers', null)}</div>
                     <form action="${URLUtils.url('Careers-SubmitJobApplication', 'jobId', pdict.jobId)}" id="job"
                         novalidate class="job-application form-control is-invalid" method="POST"
                         name="${pdict.jobApplicationForm.htmlName}" enctype="multipart/form-data">
@@ -33,7 +33,7 @@
                                 data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
                                 aria-describedby="form-fname-error" <isprint
                                 value=${pdict.jobApplicationForm.name.attributes} encoding="off" />>
-                            <div class="invalid-feedback" id="form-name-error"></div>
+                            <div class="invalid-feedback" id="form-name-error"> ${Resource.msg('error.message.name', 'careers', null)}</div>
                         </div>
                         <div class="form-group required-field">
                             <isif condition=" ${!!pdict.jobApplicationForm.phone.mandatory === true}"> </isif>
@@ -46,7 +46,7 @@
                                 data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
                                 aria-describedby="form-phone-error" <isprint
                                 value=${pdict.jobApplicationForm.phone.attributes} encoding="off" />>
-                            <div class="invalid-feedback" id="form-phone-error"></div>
+                            <div class="invalid-feedback" id="form-phone-error">${Resource.msg('error.message.number', 'careers', null)}</div>
                         </div>
                         <div class="form-group required-field">
                             <isif condition=" ${!!pdict.jobApplicationForm.email.mandatory === true}">
@@ -60,7 +60,7 @@
                                 data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
                                 aria-describedby="form-email-error" <isprint
                                 value=${pdict.jobApplicationForm.email.attributes} encoding="off" />>
-                            <div class="invalid-feedback" id="form-email-error"></div>
+                            <div class="invalid-feedback" id="form-email-error">${Resource.msg('error.message.email', 'careers', null)}</div>
                         </div>
                         <div class="form-group required-field required fileInputTypeForm">
                             <label class="form-control-label h-font-size--14 d-flex justify-content-between mb-0">
@@ -70,7 +70,7 @@
                                 id='resume' accept=".pdf,.doc,.docx" aria-describedby="form-email-error"
                                 data-missing-error="${Resource.msg('error.message.careers.resume.required', 'forms', null)}" />
                             <div class="invalid-feedback fileInputTypeFormError" id="form-email-error">
-                                ${Resource.msg('error.message.required', 'forms', null)}</div>
+                                ${Resource.msg('error.message.resume', 'careers', null)}</div>
                             <div class="invalid-feedback noFileSupport d-none wrong-file-type-msg">
                                 ${Resource.msg('error.wrong.file.type', 'careers', null)}</div>
                             <p><em>${Resource.msg('label.input.resume.types', 'careers', null)}</em></p>
@@ -86,9 +86,9 @@
                                 data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
                                 aria-describedby="form-yourself-error" <isprint value=${pdict.jobApplicationForm.yourself.attributes}
                                 encoding="off" />></textarea>
-                            <div class="invalid-feedback" id="form-yourself-error"></div>
+                            <div class="invalid-feedback" id="form-yourself-error">${Resource.msg('error.message.yourself', 'careers', null)}</div>
                         </div>
-                        <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+                        <input type="hidden" class="careersCsrfToken" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
                         <button type="submit" class="send-resume">
                             ${Resource.msg('label.input.send', 'careers', null)}
                         </button>

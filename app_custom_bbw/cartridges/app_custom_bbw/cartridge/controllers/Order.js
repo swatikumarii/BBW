@@ -285,7 +285,7 @@ server.append(
             if (order.paymentStatus.value === Order.ORDER_STATUS_FAILED) {
                 res.redirect(URLUtils.url('Order-Failed'));
                 return next();
-            } else if (order.paymentStatus.value === Order.ORDER_STATUS_FAILED) {
+            } if (order.paymentStatus.value === Order.ORDER_STATUS_FAILED) {
                 res.redirect(URLUtils.url('Order-Pending'));
                 return next();
             }
