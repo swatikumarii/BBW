@@ -15,7 +15,7 @@
                     <div class="filter-type filter-${refinement.displayName.toLowerCase().replace(/ /g, '-')} position-relative"
                         id="filter-${refinement.displayName.toLowerCase().replace(/ /g, '-')}">
                         <a class="ref-toggle mb-0 b-text-body-2-bold d-flex align-items-center justify-content-between"
-                            aria-label="filter" tabindex="0" data-toggle="collapse"
+                            aria-label="filter" data-toggle="collapse"
                             href="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-') + '-desktop'}"
                             aria-expanded="false" aria-controls="filter" role="button">
                             ${refinement.displayName}
@@ -27,7 +27,7 @@
                             <isinclude template="search/refinements/attributes" />
                             <div class="close-button w-100">
                                 <button
-                                    class="btn btn-hover d-flex align-items-center justify-content-center h-font-size--16 h-fw--semibold text-uppercase mx-auto w-100 filter-close" data-parent="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-')}" type="button" data-toggle="collapse" data-target="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-')}">
+                                    class="btn btn-hover d-flex align-items-center justify-content-center h-font-size--16 h-fw--semibold text-uppercase mx-auto w-100 filter-close" data-parent="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-') + '-desktop' }" type="button" data-toggle="collapse" data-target="${'#' + refinement.displayName.toLowerCase().replace(/ /g, '-') + '-desktop'}">
                                     ${Resource.msg('label.btn.done', 'search', null)}
                                 </button>
                             </div>
