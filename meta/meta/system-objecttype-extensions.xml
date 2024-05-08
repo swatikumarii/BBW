@@ -183,6 +183,21 @@
 
     <type-extension type-id="SitePreferences">
         <custom-attribute-definitions>
+            <attribute-definition attribute-id="liveChatEnabled">
+                <display-name xml:lang="x-default">Enable Live Chat</display-name>
+                <description xml:lang="x-default">Enable Live Chat</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="chatScript">
+                <display-name xml:lang="x-default">Live Chat Script</display-name>
+                <description xml:lang="x-default">Copy the third party live chat script here</description>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="reserveQty">
                 <display-name xml:lang="x-default">Product Reserve Quantity</display-name>
                 <description xml:lang="x-default">Site level Reserve Quantity for Products</description>
@@ -1024,6 +1039,11 @@
                 <display-name xml:lang="en-AU">Job Notifications</display-name>
                 <attribute attribute-id="jobNotificationToEmail"/>
                 <attribute attribute-id="jobNotificationCCEmail"/>
+            </attribute-group>
+            <attribute-group group-id="Third Party Scripts">
+                <display-name xml:lang="x-default">Third Part Scripts</display-name>
+                <attribute attribute-id="liveChatEnabled"/>
+                <attribute attribute-id="chatScript"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
