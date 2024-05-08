@@ -26,7 +26,7 @@ function validateForm(event) {
 
 /**
  * Remove all validation. Should be called every time before revalidating form
- * @param {element} form - Form to be cleared
+ * @param {any} form - Form to be cleared
  * @returns {void}
  */
 function clearForm(form) {
@@ -69,7 +69,7 @@ module.exports = {
                     .text(validationMessage);
 
                 for (var ele = 0; ele < $('#job').find('input').length; ele++) {
-                    if ($('#job').find('input')[ele].value == '') {
+                    if ($('#job').find('input')[ele].value === '') {
                         $('html, body').animate({
                             scrollTop: $($('#job').find('input')[ele]).offset().top-100
                         }, 'slow');
