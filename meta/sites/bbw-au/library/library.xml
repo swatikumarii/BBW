@@ -1703,7 +1703,7 @@
     &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Corporate Sales &amp; Gifts&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
-    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Contact Us&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
   &lt;/ul&gt;&#13;
@@ -5273,7 +5273,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;hr/&gt;&#13;
 &lt;div&gt;&#13;
-	&lt;p&gt;BBW takes pride in its entrepreneurial heritage of more than 80 years. Having grown and evolved from a humble trading store, the BBW hallmark is now all about creating world-class retail environments that offer compelling and luxurious shopping experiences.&lt;/p&gt;&#13;
+	&lt;p&gt;Bath & Body Works takes pride in its entrepreneurial heritage of more than 80 years. Having grown and evolved from a humble trading store, the Bath & Body hallmark is now all about creating world-class retail environments that offer compelling and luxurious shopping experiences.&lt;/p&gt;&#13;
 	&lt;p&gt;We are the ultimate brand for brands in Asia, bringing to the region some of the world’s most desired and beloved brands and introducing cutting-edge retail concepts.&lt;/p&gt;&#13;
 	&lt;p&gt;Among our business priorities are sustainable growth and the desire to create value out of our people and the brands we represent.&lt;/p&gt;&#13;
 	&lt;blockquote&gt;&#13;
@@ -11075,6 +11075,59 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 			&lt;p&gt;(+58) 295 2602499&lt;/p&gt;&#13;
 		&lt;/div&gt;&#13;
 	&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+	<content content-id="contact-us">
+        <display-name xml:lang="x-default">Contact Us</display-name>
+        <description xml:lang="x-default">Contact Us Page</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="contact-us"&gt;&#13;
+&lt;div class="col s12 m3 contactOpts"&gt;&#13;
+&lt;div class="bg-img"&gt;&amp;nbsp;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="optsContainer"&gt;&#13;
+&lt;div class="mobile-img"&gt;&lt;img alt="" height="75px" src="images/customer-care-mobile.svg?$staticlink$" title="" width="75px" /&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="content-img"&gt;&#13;
+&lt;h2&gt;ONLINE CUSTOMER CARE&lt;/h2&gt;&#13;
+&#13;
+&lt;div class="rn_HelpResources"&gt;&#13;
+&lt;div class="rn_Contact"&gt;&#13;
+&lt;p&gt;Need More Help? We want to hear from you!&lt;/p&gt;&#13;
+&#13;
+&lt;div class="rn_ConditionalChatLink" id="rn_ConditionalChatLink_6"&gt;&#13;
+&lt;p&gt;&lt;strong&gt;CALL US:&lt;/strong&gt;&lt;/p&gt;&#13;
+&lt;/div&gt;&#13;
+&#13;
+&lt;p&gt;Call us at &lt;a href="tel:1-800-57-6972"&gt;1-800-57-6972&lt;/a&gt;&lt;br /&gt;&#13;
+Monday-Friday&lt;br /&gt;&#13;
+9:00am-9:00pm AEST&lt;/p&gt;&#13;
+&#13;
+&lt;p&gt;&lt;strong&gt;EMAIL US&lt;/strong&gt;&lt;/p&gt;&#13;
+&#13;
+&lt;p&gt;&lt;a href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au&lt;/a&gt;&lt;/p&gt;&#13;
+&#13;
+&lt;p&gt;&lt;strong&gt;MAILING ADDRESS&lt;/strong&gt;&lt;/p&gt;&#13;
+&#13;
+&lt;p&gt;Level 4, 112 Castlereagh St,&lt;br /&gt;&#13;
+Sydney NSW 2000 Australia&lt;/p&gt;&#13;
+&#13;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#13;
+&#13;
+&lt;p&gt;&lt;strong&gt;Signing up for our mailing list is easy!&lt;/strong&gt;&lt;br /&gt;&#13;
+Create an account with us to start shopping &amp;amp; get the latest news from Bath &amp;amp; Body Works. Sign up to create an account&lt;a href="/Registration/UserRegistration.aspx" style="text-decoration: none;"&gt; here &lt;/a&gt;&amp;amp; access the best of your favorite store! To be updated on all offers, simply input your email address at the bottom of the page and click subscribe.&lt;/p&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&#13;
+&lt;div class="bg-img"&gt;&amp;nbsp;&lt;/div&gt;&#13;
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
