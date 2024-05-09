@@ -706,13 +706,14 @@ module.exports = $.extend({}, base, {
                                         minicartData
                                     );
                                 });
-                            } else {
-                                var addToCartSnackbar = $('#add-to-cart-snackbar');
-                                addToCartSnackbar.addClass('show');
-                                setTimeout(function () {
-                                    addToCartSnackbar.removeClass('show');
-                                }, 3000);
                             }
+
+                            var addToCartSnackbar = $('#add-to-cart-snackbar');
+                            addToCartSnackbar.addClass('show');
+                            setTimeout(function () {
+                                addToCartSnackbar.removeClass('show');
+                            }, 3000);
+
                             if ($('.gift-card-form').length > 0) {
                                 $('.gift-card-form')[0].reset();
                             }
@@ -731,6 +732,5 @@ module.exports = $.extend({}, base, {
                 return true;
             }
         );
-    },
-    handlePostCartAdd: handlePostCartAdd
+    }
 });
