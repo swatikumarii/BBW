@@ -17,6 +17,7 @@ header {
             z-index: 5;
             display: flex;
             align-items: center;
+            margin: 0 auto;
 
             @include media-down(sm) {
                 height: auto;
@@ -46,7 +47,9 @@ header {
                 }
 
                 @include media-up(md) {
-                    width: 21.25rem;
+                    width: auto;
+
+                    // width: 21.25rem;
                     margin: 27px auto 8px;
                     height: auto;
                     left: 0.3125rem;
@@ -61,6 +64,7 @@ header {
                     line-height: 0;
                     object-fit: contain;
                     text-align: center;
+                    width: 340px;
 
                     img {
                         max-height: 40px;
@@ -98,7 +102,9 @@ header {
                     height: 0;
                     padding: inherit;
                     overflow: inherit;
-                    width: auto;
+
+                    // width: auto;
+                    width: 10%;
                 }
 
                 .b-nav-toggler {
