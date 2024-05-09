@@ -17,13 +17,12 @@
                 </div>
             </div>
             <div class="col-6">
-                <h1 class="h-font-size--30 h-clr--black-1 h-fw--bold h-ls-02"> Fast & Fun!</h1>
+                <h1 class="h-font-size--30 h-clr--black-1 h-fw--bold h-ls-02"> ${Resource.msg('label.fast.fun', 'giftcards', null)}</h1>
                 <p class="m-0">
-                    Delivered within 24 hours
+                    ${Resource.msg('label.delivery.24.hours', 'giftcards', null)}
                 </p>
                 <span>
-                    Simply fill out the info below, and we'll email the E-Gift Card directly to their inbox! Redeemable
-                    in stores & online.
+                    ${Resource.msg('label.giftcad.description', 'giftcards', null)}
                 </span>
                 <isset name="giftcardFields" value="${pdict.recepientForm}" scope="page" />
                 <iscomment> --------------------------- </iscomment>
