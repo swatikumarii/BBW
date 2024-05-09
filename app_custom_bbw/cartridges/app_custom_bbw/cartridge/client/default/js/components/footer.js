@@ -7,8 +7,9 @@
 /**
  * appends params to a url
  * @param {string} data - data returned from the server's ajax call
+ * @param {string} button - submit button
  */
-function displayMessage(data) {
+function displayMessage(data, button) {
     $.spinner().stop();
     var status;
     if (data.success) {
@@ -29,10 +30,16 @@ function displayMessage(data) {
             data.msg +
             '</div>'
     );
-
+    var newsLetterInput = $('#newsletterInput');
+    if (status === 'alert-danger') {
+        newsLetterInput.addClass('is-invalid');
+    } else {
+        newsLetterInput.removeClass('is-invalid'); // Remove 'is-invalid' class if status is not 'alert-danger'
+    }
     setTimeout(function () {
         $('.email-signup-message').remove();
-        $('.subscribe-email').removeAttr('disabled');
+        button.removeAttr('disabled');
+        newsLetterInput.removeClass('is-invalid');
     }, 3000);
 }
 
@@ -44,13 +51,16 @@ function newsLetter(token) {
     var url = $('.newsletter').data('href');
     var button = $('.subscribe-email');
     var emailId = $('input[name=hpEmailSignUp]').val();
-    var data = { emailId: emailId };
+    var csrfToken = $('input[name=csrf_token]').val();
+    var data = { emailId: emailId, 'csrf_token': csrfToken };
     if (token) {
         data = {
             emailId: emailId,
-            'g-recaptcha-response': token
+            'g-recaptcha-response': token,
+            'csrf_token': csrfToken
         };
     }
+
     $.spinner().start();
     $('form.newsletter').attr('disabled', true);
     $('.subscribe-email').attr('disabled', true);
@@ -93,6 +103,7 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
     $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
 });
 
+$('.countrySelectPopup').find('.modal').modal('show');
 var timer;
 $('body')
     .on('mouseleave', '[data-toggle="popover"], .popover', function () {
@@ -102,6 +113,10 @@ $('body')
     })
     .on('mouseenter', '[data-toggle="popover"], .popover', function () {
         clearTimeout(timer);
+    })
+    .on('click', '#switch-site', function () {
+        var site = $('#selected-site').val();
+        window.location.replace(site);
     });
 // Close popover on close button click
 $(document).on('click', '.popover .close', function (e) {
@@ -109,25 +124,31 @@ $(document).on('click', '.popover .close', function (e) {
     $(this).parents('.popover').popover('hide');
 });
 
-/**
- * Back To Top - Click
- */
-
-var scrolltotop = $('.js-scrolltotop');
-
 // Function to handle scroll event
 /**
  *
  */
+// Define a function to handle scroll event and show/hide back-to-top button
 function handleScroll() {
+    // Get the height of the window
     var windowHeight = $(window).height();
-    var scrollThreshold = 7.7 * windowHeight; // 70% of window height
+    // 70% of window height
+    var scrollThreshold = 0.7 * windowHeight; 
 
     if ($(window).scrollTop() > scrollThreshold) {
-        scrolltotop.fadeIn();
+        $('.js-scrolltotop').fadeIn();
     } else {
-        scrolltotop.fadeOut();
+        $('.js-scrolltotop').fadeOut();
     }
+}
+// Function to scroll to top when the button is clicked
+function scrollToTop() {
+    $('html, body').animate(
+        {
+            scrollTop: 0 // Scroll to the top of the page
+        },
+        800
+    );
 }
 
 // Bind scroll event handler
@@ -138,15 +159,8 @@ $(document).ready(function () {
     handleScroll();
 });
 
-// Scroll to top when the button is clicked
-$('.js-scrolltotop').on('click', function () {
-    $('html, body').animate(
-        {
-            scrollTop: 0 // Scroll to the top of the page
-        },
-        800
-    );
-});
+// Bind click event to scroll to top when the button is clicked
+$('.js-scrolltotop').on('click', scrollToTop);
 
 module.exports = function () {
     $('.subscribe-email').on('click', function (e) {

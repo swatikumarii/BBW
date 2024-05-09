@@ -1,0 +1,14 @@
+<div class="modal fade" id="add-address-form" role="dialog">
+  <div class="modal-dialog modal-dialog-centered">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header p-0 border-0">
+        <h2 class="modal-title w-100">${Resource.msg('label.addressbook.addnewaddress', 'account', null)}</h2>
+        <button type="button" class="close" data-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <isinclude template="account/addressForm" />
+      </div>
+    </div>
+  </div>
+</div>

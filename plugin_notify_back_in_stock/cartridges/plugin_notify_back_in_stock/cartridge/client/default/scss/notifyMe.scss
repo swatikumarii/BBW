@@ -1,4 +1,4 @@
-#requestUserEmailForOOSModal {
+.out-of-stock-modal {
     &.modal {
         position: fixed;
         left: 0;
@@ -17,7 +17,7 @@
         margin: 0;
         position: fixed;
         right: -500px;
-        background-color: colour(white);
+        background-color: #fff;
         animation-name: slide-in;
         animation-duration: 0.4s;
         left: auto;
@@ -25,8 +25,10 @@
         width: 50%;
         height: 100%;
         bottom: auto;
-        transition: 0.4s ease right;
-        transform: none;
+        transition:
+            opacity 0.3s linear,
+            right 0.3s ease-out !important;
+        transform: translate3d(0%, 0, 0) !important;
 
         @media (max-width: 575.98px) {
             max-width: 320px;
@@ -43,7 +45,7 @@
         position: relative;
 
         .modal-header {
-            background-color: colour(white);
+            background-color: #fff;
             border: 0;
             text-align: center;
             display: block;
@@ -51,7 +53,6 @@
             h2 {
                 font-size: 32px;
                 line-height: 40px;
-                letter-spacing: 2px;
                 margin-bottom: 22px;
             }
 
@@ -128,4 +129,8 @@
             opacity: 1;
         }
     }
+}
+
+.out-of-stock-modal.modal.modal-right.fade.show .modal-dialog {
+    right: 0;
 }
