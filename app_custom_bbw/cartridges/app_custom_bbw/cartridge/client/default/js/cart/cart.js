@@ -95,8 +95,22 @@ function updateCartTotals(data) {
         } else {
             $('.item-' + item.UUID).empty();
         }
-        $('.uuid-' + item.UUID + ' .unit-price').empty().append(item.renderedPrice);
-        $('.line-item-price-' + item.UUID + ' .unit-price').empty().append(item.renderedPrice);
+        if (item.promoPrice !== false) {
+            var promoPriceHTML =
+                '<div class="strike-through h-clr--black-1">' +
+                item.price.sales.formatted +
+                '</div>' +
+                '<div class="pricing promo-price h-clr--red">' +
+                item.promoPrice +
+                '</div>';
+            $('.uuid-' + item.UUID + ' .unit-price')
+                .empty()
+                .append(promoPriceHTML);
+        } else {
+            $('.uuid-' + item.UUID + ' .unit-price')
+                .empty()
+                .append(item.renderedPrice);
+        }
         $('.item-total-' + item.UUID).empty().append(item.priceTotal.renderedPrice);
     });
 }
