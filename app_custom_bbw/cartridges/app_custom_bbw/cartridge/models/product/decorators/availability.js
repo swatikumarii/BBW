@@ -22,7 +22,8 @@ module.exports = function (
             : 0;
     var globalLevelReserveQty = dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
     var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
-    reserveOosQty = availabilityModel.inventoryRecord.perpetual
+    reserveOosQty = availabilityModel.inventoryRecord && availabilityModel
+        .inventoryRecord.perpetual
         ? 0
         : reserveOosQty;
     var productAtsValue =
