@@ -111,6 +111,7 @@ function checkStatus() {
                         }
                     } else {
                         $('#form-error').html(err.responseJSON.message);
+                        $('.form-error-div').removeClass('d-none');
                     }
                 }
             });
