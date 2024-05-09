@@ -40,7 +40,7 @@
     $mediaUpQuery: map-get(map-get($view-modes, #{$mediaUp}_up), "media");
     $mediaDownQuery: map-get(map-get($view-modes, #{$mediaDown}_down), "media");
 
-    @media only screen and (#{unquote($mediaUpQuery)}) and (#{unquote($mediaDownQuery)}) {
+    @media only screen and #{unquote($mediaUpQuery)} and #{unquote($mediaDownQuery)} {
         @content;
     }
 }

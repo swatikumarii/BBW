@@ -220,16 +220,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12">
+
                             <div class="reserve-stock mt-3 d-none">
-                                <p class="h-clr--red h-font-size--16">
+                                <p class="h-clr--red h-font-size--16 mb-0">
                                 ${Resource.msgf('error.alert.selected.quantity.cannot.be.added.for.max','product',null,product.maxOrderQty);}
                                 </p>
                             </div>
 
                             <isinclude template="product/components/addToCartButtonExtension" />
-
-                        </div>
 
                         <div class="product-options">
                             <isif condition="${product.options && product.options.length > 0}">
