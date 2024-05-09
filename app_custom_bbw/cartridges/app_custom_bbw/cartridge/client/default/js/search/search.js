@@ -1,6 +1,7 @@
 'use strict';
 
 var helpers = require('../utils/scrollHelpers');
+var layout = require('../utils/layout');
 var debounce = require('lodash/debounce');
 
 /**
@@ -299,7 +300,7 @@ module.exports = {
     closeFilter: function () {
         $('body').on('click', function (e) {
             // Check if the clicked element is not inside the collapse area and the collapse is open
-            if (!$(e.target).closest('.js-desktop-filters .collapse').length && $('.js-desktop-filters .collapse').hasClass('show')) {
+            if (!$(e.target).closest('.js-desktop-filters .collapse').length && $('.js-desktop-filters .collapse').hasClass('show') && !$(e.target).hasClass('ref-toggle')) {
                 // Close all open collapses
                 $('.js-desktop-filters .collapse.show').collapse('hide');
             }
@@ -322,11 +323,13 @@ module.exports = {
     resize: function () {
         // Close refinement bar and hide modal background if user resizes browser
         $(window).resize(function () {
-            $('.refinement-bar, .modal-background').hide();
-            $('.refinement-bar').siblings().attr('aria-hidden', false);
-            $('.refinement-bar').closest('.row').siblings().attr('aria-hidden', false);
-            $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', false);
-            $('.refinement-bar').closest('.container.search-results').siblings().attr('aria-hidden', false);
+            if (layout.isDesktop()) {
+                $('.refinement-bar, .modal-background').hide();
+                $('.refinement-bar').siblings().attr('aria-hidden', false);
+                $('.refinement-bar').closest('.row').siblings().attr('aria-hidden', false);
+                $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', false);
+                $('.refinement-bar').closest('.container.search-results').siblings().attr('aria-hidden', false);
+            }
         });
     },
 
@@ -387,6 +390,7 @@ module.exports = {
                 e.stopPropagation();
 
                 $.spinner().start();
+
                 $(this).trigger('search:filter', e);
 
                 var searchUrl = $(this).data('href');
@@ -414,6 +418,9 @@ module.exports = {
                         $(attributeId).parent('button').focus();
                     }
                 });
+                if ($(this).hasClass('reset-filters') && $('.js-desktop-filters .collapse').hasClass('show')) {
+                    $('.js-desktop-filters .collapse.show').collapse('hide');
+                }
             }
         );
     },

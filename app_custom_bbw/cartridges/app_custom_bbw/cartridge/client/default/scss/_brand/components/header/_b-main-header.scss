@@ -7,12 +7,10 @@ header {
     }
 
     &.fixed-header {
-        animation: scrollTop 0.4s ease;
         position: fixed;
         left: 0;
         right: 0;
         top: 0;
-        transition: 0.5s linear all;
         z-index: 9;
     }
 
@@ -23,6 +21,7 @@ header {
             z-index: 5;
             display: flex;
             align-items: center;
+            margin: 0 auto;
 
             @include media-down(sm) {
                 height: auto;
@@ -52,6 +51,8 @@ header {
                 }
 
                 @include media-up(md) {
+                    width: auto;
+
                     // width: 21.25rem;
                     margin: 27px auto 8px;
                     height: auto;
@@ -67,6 +68,7 @@ header {
                     line-height: 0;
                     object-fit: contain;
                     text-align: center;
+                    width: 340px;
 
                     img {
                         max-height: 40px;
@@ -104,7 +106,9 @@ header {
                     height: 0;
                     padding: inherit;
                     overflow: inherit;
-                    width: auto;
+
+                    // width: auto;
+                    width: 10%;
                 }
 
                 .b-nav-toggler {
@@ -126,6 +130,7 @@ header {
 
                 .custom-search {
                     right: 0;
+
                     // top: 0.875rem;
                     z-index: 130;
 
@@ -146,6 +151,7 @@ header {
 
                     form {
                         right: 0;
+
                         // top: 0.1875rem;
                         width: 100%;
                         height: 3.375rem;
