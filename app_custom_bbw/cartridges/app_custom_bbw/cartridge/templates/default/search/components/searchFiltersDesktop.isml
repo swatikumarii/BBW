@@ -44,10 +44,12 @@
                 <select name="sort-order" class="w-100 sort-filter b-text-body-2-bold h-clr--black-1 text-capitalize"
                     aria-label="${Resource.msg('label.sort.by', 'search', null)}">
                     <isloop items="${pdict.productSearch.productSort.options}" var="option">
-                        <option class="${option.id}" value="${option.url}" data-id="${option.id}"
-                            ${pdict.productSearch.productSort.ruleId === option.id ? 'selected' : ''}>
-                            ${option.displayName}
-                        </option>
+                        <isif condition="${option.id !== 'product-position'}">
+                            <option class="${option.id}" value="${option.url}" data-id="${option.id}"
+                                ${pdict.productSearch.productSort.ruleId === option.id ? 'selected' : ''}>
+                                ${option.displayName}
+                            </option>
+                        </isif>
                     </isloop>
                 </select>
             </isif>
