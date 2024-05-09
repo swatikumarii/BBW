@@ -159,6 +159,32 @@ function getAllDiscountsHTML(allDiscountItems, totalDiscount) {
 }
 
 /**
+ * Update Pending Total
+ * @param {object} lineItemContainer - Total price of the cart
+ * @returns {object} pendingTotal
+ */
+function getPendingTotal(lineItemContainer) {
+    var pendingResult = {};
+    var pendingTotal = '';
+    var isAmountPending = false;
+    var giftTotal = lineItemContainer.custom.eGiftTotalAmount || 0;
+
+    if (giftTotal > 0) {
+        pendingTotal = lineItemContainer.totalGrossPrice.value - giftTotal;
+        var pendingAmount = new Money(pendingTotal.toFixed(2), lineItemContainer.getCurrencyCode());
+        pendingTotal = getTotals(pendingAmount);
+        isAmountPending = true;
+    }
+    pendingResult = {
+        isAmountPending: isAmountPending,
+        pendingAmount: pendingTotal,
+        pendingAmountValue: lineItemContainer.totalGrossPrice.value - giftTotal,
+        giftTotal: getTotals(new Money(giftTotal.toFixed(2), lineItemContainer.getCurrencyCode()))
+    };
+    return pendingResult;
+}
+
+/**
  * @class
  * @classdesc totals class that represents the order totals of the current line item container
  * @param {dw.order.lineItemContainer} lineItemContainer - The current user's line item container
@@ -178,6 +204,9 @@ function totals(lineItemContainer) {
         );
         this.totalDiscountFormatted = getTotals(allDiscounts.totalDiscount);
         this.discounts = getDiscounts(lineItemContainer);
+        this.pendingTotal = getPendingTotal(lineItemContainer);
+    } else {
+        this.pendingTotal = '-';
     }
 }
 

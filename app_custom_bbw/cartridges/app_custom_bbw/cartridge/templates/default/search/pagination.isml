@@ -82,10 +82,10 @@
                     </isif>
                 </div>
             </div>
-            <div class="h-hidden-sm-down b-pagination__count pl-3">
-                <isinclude template="search/resultsCount" />
-            </div>
         </isif>
+        <div class="h-hidden-sm-down b-pagination__count pl-3">
+            <isinclude template="search/resultsCount" />
+        </div>
     </div>
 </div>
 

@@ -657,6 +657,13 @@
     }
 }
 
+#delete-gift-certificate-line-item-modal,
+#delete-line-item-modal {
+    .modal-dialog {
+        bottom: unset;
+    }
+}
+
 .afterpay-logo svg {
     max-height: 24px;
     height: 24px;
