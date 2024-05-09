@@ -530,6 +530,19 @@ input[type="password"],
     .form-group {
         margin: 10px 0 30px;
     }
+
+    .iti {
+        width: 100%;
+        height: 48px;
+
+        .iti__dropdown-content {
+            z-index: 4;
+        }
+
+        .shippingPhoneNumber {
+            height: 48px;
+        }
+    }
 }
 
 .multi-shipping {

@@ -1,6 +1,8 @@
 'use strict';
 
 var processInclude = require('base/util');
+var intlTelInput = require('intl-tel-input');
+var utils = require('utils.js');
 var adyenCheckout = require('adyen/adyenCheckout');
 var addressAutocomplete = require('./checkout/addressAutocomplete');
 // Compatibility Adyen SFRA 5.x.x & 6.x.x
@@ -32,6 +34,13 @@ $(document).ready(function () {
         $('.payment-options .nav-item .active').parent().attr('data-method-id')
     );
     google.maps.event.addDomListener(window, 'load', addressAutocomplete.initialize);
+    var phone = document.querySelector('.shippingPhoneNumber');
+    intlTelInput(phone, {
+        utilsScript: utils,
+        showFlags: true,
+        showSelectedDialCode: true,
+        initialCountry: 'au'
+    });
 });
 $('.payment-options .nav-link').click(function setAttr() {
     $('#selectedPaymentOption').val($(this).parent().attr('data-method-id'));
