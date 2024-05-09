@@ -1,67 +1,44 @@
-<isdecorate template="common/layout/checkout">
-
-    <iscomment> Load Static Assets </iscomment>
+<iscomment> Load Static Assets </iscomment>
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/checkout.js');
         assets.addJs('/js/afterpayCheckout.js');
         assets.addJs('/js/cashappCheckout.js');
         assets.addCss('/css/checkout/checkout.css');
-        assets.addCss('/css/afterpaystyle.css');
     </isscript>
-
-    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
-        <isinclude template="reporting/reportingUrls" />
-    </isif>
 
     <div id="checkout-main"
         class="container data-checkout-stage">
 
         <div class="row">
-            <div class="col-sm-8">
-                <div class="review-shipping-summary border">
-                    <isinclude template="checkout/shipping/shippingSummary" />
+            <div class="col-sm-12 col-md-12 col-xl-8">
+                <div class="confirmation-shipping-summary border d-block">
+                    <isinclude template="checkout/confirmation/confirmationShippingSummary" />
                 </div>
-                <div class="review-billing-summary border">
-                    <isinclude template="checkout/billing/billingSummary" />
+                <div class="confirmation-billing-summary border d-block">
+                    <isinclude template="checkout/confirmation/confirmationBillingSummary" />
                 </div>
-                <div class="review-product-summary border">
-                    <div class="itemsHeader d-flex">
-                        <div class="headerItem">${Resource.msg('label.item.header.item', 'cart', null)}</div>
-                        <div class="headerQty">${Resource.msg('label.item.header.quantity', 'cart', null)}</div>
-                        <div class="headerPrice">${Resource.msg('label.item.header.price', 'cart', null)}</div>
+                <div class="confirmation-product-summary d-block">
+                    <div class="confirmationItemsHeader d-flex justify-content-between">
+                        <div class="headerItem col-6 h-font-size--18 h-fw--semibold text-uppercase">${Resource.msg('label.header.item', 'confirmation', null)}</div>
+                        <div class="headerQty col-3 text-right h-font-size--18 h-fw--semibold text-uppercase">${Resource.msg('label.header.quantity', 'confirmation', null)}</div>
+                        <div class="headerPrice col-3 text-center h-font-size--18 h-fw--semibold text-uppercase">${Resource.msg('label.header.price', 'confirmation', null)}</div>
                     </div>
-                    <div class="cart-lineitems">
-                        <isloop items="${pdict.order.items.items}" var="lineItem">
-                            <isinclude template="checkout/productCard/productCard" />
-                        </isloop>
-                    </div>
+                            <isinclude template="checkout/confirmation/confirmationProductCard" />
                 </div>
             </div>
 
 
             <iscomment> Order Totals, Details and Summary </iscomment>
 
-            <div class="col-sm-4">
-                <div class="card order-summary">
-                    <div class="order-product-summary-wrap">
-                        <isinclude template="checkout/orderProductSummary" />
+            <div class="col-sm-12 col-md-12 col-xl-4">
+                <div class="card confirmation-order-summary">
+                    <div class="confirmation-total-summary-wrap">
+                        <isinclude template="checkout/confirmation/confirmationOrderTotalSummary" />
                     </div>
-                    <div class="order-total-summary-wrap">
-                        <isinclude template="checkout/orderTotalSummary" />
-                    </div>
-                </div>
-                <div class="shipping-summary card">
-                    <div class="d-flex justify-content-between shipping-summary-header">
-                        <h2 class="h-font-size--18 h-fw--bold h-clr--black-1 ">
-                            ${Resource.msg('heading.checkout.shipping', 'checkout', null)}</h2>
-                        <button class="edit-button pull-right"
-                            aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
-                    </div>
-                    <isinclude template="checkout/shipping/shippingSummary" />
                 </div>
             </div>
         </div>
     </div>
 
-</isdecorate>
+
