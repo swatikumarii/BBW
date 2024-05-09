@@ -53,7 +53,7 @@ function openLoginPopup() {
     $('.loginPopup').find('#loginModal').modal('show');
 }
 module.exports = function () {
-    $('#loginPopupBtn').on('click', openLoginPopup);
+    $('.loginPopupBtn').on('click', openLoginPopup);
 };
 
 /** Sticky header padding on body */
