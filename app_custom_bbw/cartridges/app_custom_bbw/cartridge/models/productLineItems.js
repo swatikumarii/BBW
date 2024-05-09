@@ -71,7 +71,7 @@ function createProductLineItemsObject(allLineItems, view) {
     var lineItems = [];
     var giftWrapLineItem = null;
     var greetingCardLineItem = null;
-    var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcliver');
+    var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
 
     collections.forEach(allLineItems, function (item) {
         // when item's category is unassigned, return a lineItem with limited attributes

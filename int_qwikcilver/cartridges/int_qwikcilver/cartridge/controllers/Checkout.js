@@ -29,7 +29,7 @@ server.prepend('Begin', function (req, res, next) {
  */
 server.append('Begin', function (req, res, next) {
     var enableQCeGift =
-      Site.current.getCustomPreferenceValue('enableQwikcliver');
+      Site.current.getCustomPreferenceValue('enableQwikcilver');
     var viewData = res.getViewData();
     var URLUtils = require('dw/web/URLUtils');
     if (enableQCeGift) {

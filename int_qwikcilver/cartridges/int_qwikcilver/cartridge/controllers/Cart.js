@@ -9,7 +9,7 @@ server.extend(module.superModule);
 var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
 var BasketMgr = require('dw/order/BasketMgr');
 var Site = require('dw/system/Site');
-var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcliver');
+var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
 var ProductMgr = require('dw/catalog/ProductMgr');
 var Transaction = require('dw/system/Transaction');
 

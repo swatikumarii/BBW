@@ -244,8 +244,8 @@ function placeOrder(req, res, next) {
  */
 server.prepend('SubmitPayment', server.middleware.https, csrfProtection.validateAjaxRequest, function (req, res, next) {
     var Site = require('dw/system/Site');
-    var enableQwikcliver = Site.current.getCustomPreferenceValue('enableQwikcliver');
-    if (enableQwikcliver) {
+    var enableQwikcilver = Site.current.getCustomPreferenceValue('enableQwikcilver');
+    if (enableQwikcilver) {
         var paymentForm = server.forms.getForm('billing');
         var HookMgr = require('dw/system/HookMgr');
         var PaymentMgr = require('dw/order/PaymentMgr');

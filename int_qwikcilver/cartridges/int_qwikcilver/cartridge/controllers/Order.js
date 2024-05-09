@@ -17,7 +17,7 @@ server.prepend(
     function (req, res, next) {
         var Site = require('dw/system/Site');
         var enableQCeGift =
-            Site.current.getCustomPreferenceValue('enableQwikcliver');
+            Site.current.getCustomPreferenceValue('enableQwikcilver');
         var requestParameter = req.httpParameterMap;
         var requestOrderId = requestParameter.orderID.value;
         if (enableQCeGift && requestOrderId !== null) {

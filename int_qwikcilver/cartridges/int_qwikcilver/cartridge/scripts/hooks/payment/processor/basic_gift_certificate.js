@@ -28,7 +28,7 @@ function Handle(paymentMethodName, basket, paymentInformation) {
         // GIFT_CERTIFICATE payment changes
         var Money = require('dw/value/Money');
         var Site = require('dw/system/Site');
-        var eGiftEnabled = Site.current.getCustomPreferenceValue('enableQwikcliver');
+        var eGiftEnabled = Site.current.getCustomPreferenceValue('enableQwikcilver');
         if (eGiftEnabled && currentBasket.custom.eGiftTotalAmount && currentBasket.custom.eGiftTotalAmount > 0) {
             // Add remaining total to credit card
             var grandtotal = new Money((currentBasket.totalGrossPrice.value - currentBasket.custom.eGiftTotalAmount), currentBasket.getCurrencyCode());
