@@ -8,16 +8,16 @@ var checkout =
     window.AdyenSFRA6Enabled !== 'null'
         ? require('adyen/checkout/checkoutSFRA6')
         : require('adyen/checkout/checkoutSFRA5');
+/* eslint-disable prefer-regex-literals */
+var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
+    window.location.search
+);
 
 $(document).ready(function () {
     var name = 'paymentError';
     var error = new RegExp(
         '[?&]'.concat(encodeURIComponent(name), '=([^&]*)')
     ).exec(window.location.search);
-    /* eslint-disable prefer-regex-literals */
-    var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
-        window.location.search
-    );
     if (error || paymentStage) {
         if (error) {
             $('.error-message').show();
@@ -35,4 +35,9 @@ $(document).ready(function () {
 });
 $('.payment-options .nav-link').click(function setAttr() {
     $('#selectedPaymentOption').val($(this).parent().attr('data-method-id'));
+    if ($(this).parent().attr('data-method-id') === 'AdyenComponent') {
+        adyenCheckout.renderGenericComponent();
+    } else {
+        $('button[value="submit-payment"]').attr('disabled', false);
+    }
 });

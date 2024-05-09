@@ -141,7 +141,9 @@ function handleScroll() {
         $('.js-scrolltotop').fadeOut();
     }
 }
-// Function to scroll to top when the button is clicked
+/**
+ * Function to scroll to top when the button is clicked
+ */
 function scrollToTop() {
     $('html, body').animate(
         {
