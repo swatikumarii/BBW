@@ -1,6 +1,6 @@
 'use strict';
 
-var base = require('base/product/base');
+var base = require('../product/base');
 var focusHelper = require('base/components/focus');
 var location = window.location;
 

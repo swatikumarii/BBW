@@ -1,0 +1,7 @@
+node_modules/
+cartridges/**/cartridge/static/
+coverage/
+doc/
+bin/
+codecept.conf.js
+ismllinter.config.js

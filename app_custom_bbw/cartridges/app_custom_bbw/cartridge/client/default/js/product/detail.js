@@ -8,19 +8,28 @@ var helpers = require('../utils/scrollHelpers');
 module.exports = $.extend({}, detail, {
     quantityUpdate: function () {
         $(document).on('click', '.quantity-field > .increase', function () {
+            var maxOrderQty = Number($('input[name="maxOrderQty"]').val());
             var quantity = Number($(this).siblings('#Quantity').val());
-            quantity += 1;
-            $(this).siblings('#Quantity').val(quantity).trigger('change');
-            $(this).animate({ opacity: '0' }, 50, function () {
-                $(this).animate({ opacity: '1' }, 50);
-            });
+            if (quantity === maxOrderQty) {
+                $('.reserve-stock').removeClass('d-none');
+            } else{
+                quantity += 1;
+                $(this).siblings('#Quantity').val(quantity).trigger('change');
+                $(this).animate({ opacity: '0' }, 50, function () {
+                    $(this).animate({ opacity: '1' }, 50);
+                });
+            }
         });
 
         $(document).on('click', '.quantity-field > .decrease', function () {
+            var maxOrderQty = Number($('input[name="maxOrderQty"]').val());
             var quantity = Number($(this).siblings('#Quantity').val());
             if (quantity !== 1) {
                 quantity -= 1;
                 $(this).siblings('#Quantity').val(quantity).trigger('change');
+            }
+            if ( quantity <= maxOrderQty) {
+                $('.reserve-stock').addClass('d-none');
             }
             $(this).animate({ opacity: '0' }, 50, function () {
                 $(this).animate({ opacity: '1' }, 50);
@@ -60,7 +69,70 @@ module.exports = $.extend({}, detail, {
 
     addToCart: base.addToCart,
 
-    focusChooseBonusProductModal: base.focusChooseBonusProductModal()
+    focusChooseBonusProductModal: base.focusChooseBonusProductModal(),
+
+    removeEGiftCard: function () {
+        $('.delete-egiftitem-confirmation-btn').on('click', function () {
+            var productID = $(this).data('pid');
+            var removeGiftPliUrl = $(this).data('action');
+            var addToCartUrl = $(this).data('addtocarturl');
+            var form = {
+                pid: productID,
+                quantity: 1
+            };
+            $.ajax({
+                type: 'GET',
+                url: removeGiftPliUrl,
+                success: function (data) {
+                    $.ajax({
+                        type: 'POST',
+                        url: addToCartUrl,
+                        data: form,
+                        success: function () {
+                            base.handlePostCartAdd(data);
+                            $('body').trigger('product:afterAddToCart', data);
+                            $.spinner().stop();
+                            base.miniCartReportingUrl(data.reportingURL);
+                        },
+                        error: function () {
+                            $.spinner().stop();
+                        }
+                    });
+                }
+            });
+        });
+    },
+    removeLineItem: function () {
+        $('.delete-lineitem-confirmation-btn').on('click', function () {
+            var productID = $(this).data('pid');
+            var removeGiftPliUrl = $(this).data('action');
+            var addToCartUrl = $(this).data('addtocarturl');
+            var form = {
+                pid: productID,
+                quantity: 1
+            };
+            $.ajax({
+                type: 'GET',
+                url: removeGiftPliUrl,
+                success: function (data) {
+                    $.ajax({
+                        type: 'POST',
+                        url: addToCartUrl,
+                        data: form,
+                        success: function () {
+                            base.handlePostCartAdd(data);
+                            $('body').trigger('product:afterAddToCart', data);
+                            $.spinner().stop();
+                            base.miniCartReportingUrl(data.reportingURL);
+                        },
+                        error: function () {
+                            $.spinner().stop();
+                        }
+                    });
+                }
+            });
+        });
+    }
 });
 
 /** PDP Accordion */

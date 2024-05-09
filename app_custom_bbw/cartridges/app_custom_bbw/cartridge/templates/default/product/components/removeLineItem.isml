@@ -1,0 +1,26 @@
+<div class="modal fade" id="delete-line-item-modal" tabindex="-1" role="dialog" aria-labelledby="delete-line-item-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header delete-confirmation-body">
+                <h5 class="modal-title">${Resource.msg('normal.delete.product.confirmation.modal.msg1','eGiftCard',null)}</h5>
+                <button type="button" class="close pull-right" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only"> </span>
+                </button>
+                <p class="product-to-remove"></p>
+            </div>
+            <div class="modal-body delete-confirmation-body">
+                <span class="modal-content-data">${Resource.msg('normal.delete.product.confirmation.modal.msg2','eGiftCard',null)}</span>
+                <p class="product-to-remove"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn delete-lineitem-confirmation-btn"
+                    data-dismiss="modal"
+                    data-pid="${product.id}"
+                    data-addtocarturl="${pdict.addToCartUrl}"
+                    data-action="${pdict.removeLineItemURL}"
+                >${Resource.msg('button.confirm','address',null)}</button>
+            </div>
+        </div>
+    </div>
+</div>
