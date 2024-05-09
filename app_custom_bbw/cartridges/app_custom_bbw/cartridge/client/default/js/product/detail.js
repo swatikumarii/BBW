@@ -7,17 +7,26 @@ var base = require('./base');
 module.exports = $.extend({}, detail, {
     quantityUpdate: function () {
         $(document).on('click', '.quantity-field > .increase', function () {
+            var maxOrderQty = Number($('input[name="maxOrderQty"]').val());
             var quantity = Number($(this).siblings('#Quantity').val());
-            quantity += 1;
-            $(this).siblings('#Quantity').val(quantity).trigger('change');
-            $(this).fadeTo(100, 0.1).fadeTo(200, 1.0);
+            if (quantity === maxOrderQty) {
+                $('.reserve-stock').removeClass('d-none');
+            } else{
+                quantity += 1;
+                $(this).siblings('#Quantity').val(quantity).trigger('change');
+                $(this).fadeTo(100, 0.1).fadeTo(200, 1.0);
+            }
         });
 
         $(document).on('click', '.quantity-field > .decrease', function () {
+            var maxOrderQty = Number($('input[name="maxOrderQty"]').val());
             var quantity = Number($(this).siblings('#Quantity').val());
             if (quantity !== 1) {
                 quantity -= 1;
                 $(this).siblings('#Quantity').val(quantity).trigger('change');
+            }
+            if ( quantity <= maxOrderQty) {
+                $('.reserve-stock').addClass('d-none');
             }
             $(this).fadeTo(100, 0.1).fadeTo(200, 1.0);
         });
