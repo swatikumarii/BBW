@@ -39,3 +39,27 @@ newShowButton.on('click', function () {
         .find('.show')
         .text(type === 'password' ? 'Show' : 'Hide');
 });
+
+/**
+ * Showing the content for show more functionality
+ */
+$(document).ready(function () {
+    // Initially hide all childcontent items
+    $('.wishlistItemCards').each(function () {
+        var $childitems = $(this).find('.product-info');
+        $childitems.hide();
+        $childitems.slice(0, 3).show();
+    });
+
+    // When the show more button is clicked
+    $('.view-more-btn').on('click', function (event) {
+        // Prevent default behavior
+        event.preventDefault();
+
+        // Toggle the visibility of childcontent items
+        var showBlog = $(this).parents('.wishlist-list').find('.product-info');
+
+        showBlog.show();
+        $(this).remove();
+    });
+});

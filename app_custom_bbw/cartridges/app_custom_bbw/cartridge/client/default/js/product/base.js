@@ -1,6 +1,7 @@
 'use strict';
 
 var base = require('base/product/base');
+var layout = require('../utils/layout');
 
 /**
  * Retrieves the relevant pid value
@@ -692,26 +693,32 @@ module.exports = $.extend({}, base, {
                             }
                             handlePostCartAdd(data);
                             $('body').trigger('product:afterAddToCart', data);
-                            $('.minicart .popover').addClass('show');
-                            $('.minicart-overlay').addClass('show');
-                            $('body').addClass('overflow-hidden');
-                            var minicartURL = $('.minicart').data('action-url');;
-                            $('.minicart .popover').spinner().start();
-                            $.get(minicartURL, function (minicartData) {
-                                $('.minicart .popover').empty();
-                                $('.minicart .popover').append(minicartData);
-                            });
-                            if ($('.gift-card-form').length > 0) {
-                                $('.gift-card-form')[0].reset();
+                            if (layout.isDesktop()) {
+                                $('.minicart .popover').addClass('show');
+                                $('.minicart-overlay').addClass('show');
+                                $('body').addClass('overflow-hidden');
+                                var minicartURL =
+                                    $('.minicart').data('action-url');
+                                $('.minicart .popover').spinner().start();
+                                $.get(minicartURL, function (minicartData) {
+                                    $('.minicart .popover').empty();
+                                    $('.minicart .popover').append(
+                                        minicartData
+                                    );
+                                });
                             }
-                            $.spinner().stop();
-                            base.miniCartReportingUrl(data.reportingURL); var addToCartSnackbar = $(
-                                '#add-to-cart-snackbar'
-                            );
+
+                            var addToCartSnackbar = $('#add-to-cart-snackbar');
                             addToCartSnackbar.addClass('show');
                             setTimeout(function () {
                                 addToCartSnackbar.removeClass('show');
                             }, 3000);
+
+                            if ($('.gift-card-form').length > 0) {
+                                $('.gift-card-form')[0].reset();
+                            }
+                            $.spinner().stop();
+                            base.miniCartReportingUrl(data.reportingURL);
                             return true;
                         },
                         error: function (err) {
@@ -725,6 +732,5 @@ module.exports = $.extend({}, base, {
                 return true;
             }
         );
-    },
-    handlePostCartAdd: handlePostCartAdd
+    }
 });
