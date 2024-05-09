@@ -20,12 +20,12 @@ if (layout.isMobile()) {
     $('.level-1-li').on('click', function () {
         if ($(this).hasClass('active')) {
             $(this).children('.level-2-ul').removeClass('active');
+            $('.level-2-li, .level-3-ul').removeClass('active');
             $(this).removeClass('active');
         } else {
-            $('.level-1-li').removeClass('active');
-            $('.level-2-ul').removeClass('active');
-            $('.level-2-li').removeClass('active');
-            $('.level-3-ul').removeClass('active');
+            $('.level-1-li, .level-2-ul, .level-2-li, .level-3-ul').removeClass(
+                'active'
+            );
             $(this).addClass('active');
             $(this).children('.level-2-ul').addClass('active');
         }
@@ -51,14 +51,15 @@ $('.mobile-menu-overlay').on('click', function () {
 
 /* Header my account dropdown */
 $('.account-dropdown').on('click', function (e) {
-    if($(this).find('.dropdown-menu').hasClass('show')){
+    if ($(this).find('.dropdown-menu').hasClass('show')) {
         $(this).find('.dropdown-menu').removeClass('show');
-    }else{
+    } else {
         $(this).find('.dropdown-menu').addClass('show');
     }
     e.stopPropagation();
 });
 
+/** Close header account dropdown on body click */
 $('body').on('click', function () {
     var accountDropdownMenu = $('.account-dropdown').find('.dropdown-menu');
     if (accountDropdownMenu && accountDropdownMenu.hasClass('show')) {

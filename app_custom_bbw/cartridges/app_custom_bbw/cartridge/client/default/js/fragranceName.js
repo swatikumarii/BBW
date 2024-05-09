@@ -49,6 +49,16 @@ $(document).ready(function () {
         } else {
             $('#noresult').hide();
         }
+
+        // Remove border bottom from last 3 visible li elements
+        var visibleLiElements = $('.alphabetically-data:visible');
+        visibleLiElements.each(function (index, element) {
+            if (index >= visibleLiElements.length - 2) {
+                $(element).css('border-bottom', 'none');
+            } else {
+                $(element).css('border-bottom', '1px solid #ccc');
+            }
+        });
     });
 
     // search functionality for product ingredients
@@ -98,5 +108,25 @@ $(document).ready(function () {
         } else {
             $('#noresult').hide();
         }
+    });
+
+    $('.fragrance-list-data').each(function () {
+        var $group = $(this);
+        var visibleItems = $group.find('.alphabetically-data');
+        var itemCount = visibleItems.length;
+        var columns = 4;
+
+        visibleItems.removeClass('first second third fourth last-border');
+
+        var remainder = itemCount % columns;
+        var countFlag = 0;
+        visibleItems.each(function () {
+            var classIndex = countFlag % columns;
+            $(this).addClass(['first', 'second', 'third', 'fourth'][classIndex]);
+            if (countFlag >= itemCount - remainder) {
+                $(this).addClass('last-border');
+            }
+            countFlag+=1;
+        });
     });
 });

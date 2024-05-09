@@ -12,6 +12,7 @@ var URLUtils = require('dw/web/URLUtils');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
+var Order = require('dw/order/Order');
 
 /**
  * Order-History : The Order-History append to update breadcrumbs
@@ -168,6 +169,18 @@ server.get(
     consentTracking.consent,
     server.middleware.https,
     function (req, res, next) {
+        var viewData = res.getViewData();
+        var breadcrumbs = [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            },
+            {
+                htmlValue: Resource.msg('label.order.tracking', 'order', null),
+                url: URLUtils.url('Order-Status').toString()
+            }
+        ];
+        viewData.breadcrumbs = breadcrumbs;
         res.render('account/orderTracking');
         return next();
     }
@@ -230,16 +243,17 @@ server.post(
             var order = OrderMgr.getOrder(req.form.orderNumber);
             if (
                 order &&
-                order.customerEmail === req.form.orderEmail.trim() &&
-                order.shipments[0].shippingAddress.postalCode ===
-                    req.form.billingZipCode.trim()
+                order.customerEmail.toLowerCase() === req.form.orderEmail.toLowerCase().trim() &&
+                order.billingAddress.postalCode === req.form.billingZipCode.trim()
             ) {
+                var redirectURL;
+                if (req.currentCustomer.profile && req.currentCustomer.profile.customerNo) {
+                    redirectURL = URLUtils.url('Order-Details', 'orderID', req.form.orderNumber, 'orderFilter', '').toString();
+                } else {
+                    redirectURL = URLUtils.url('Order-Tracking', 'token', encryptionHelper.encryptPin(req.form.orderNumber)).toString();
+                }
                 res.json({
-                    redirectUrl: URLUtils.url(
-                        'Order-Tracking',
-                        'token',
-                        encryptionHelper.encryptPin(req.form.orderNumber)
-                    ).toString()
+                    redirectUrl: redirectURL
                 });
             } else {
                 res.setStatusCode(400);
@@ -260,6 +274,34 @@ server.post(
             });
         }
         next();
+    }
+);
+
+/**
+ * Order-Confirm : Append to extend the order confirm functionality
+ * @name Order-Confirm
+ */
+server.append(
+    'Confirm',
+    function (req, res, next) {
+        this.on('route:BeforeComplete', function () {
+            // send email when order total 0
+            var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
+            var viewData = res.getViewData();
+            var OrderMgr = require('dw/order/OrderMgr');
+            var order = OrderMgr.getOrder(viewData.order.orderNumber);
+            if (order && order.totalGrossPrice.value === 0) {
+                commonHelper.zeroOrderEmail(viewData.order);
+            }
+            // redirection url
+            if (order.status.value === Order.ORDER_STATUS_FAILED) {
+                res.redirect(URLUtils.url('Order-Failed'));
+            }
+            if (order.status.value === Order.ORDER_STATUS_CREATED) {
+                res.redirect(URLUtils.url('Order-Pending'));
+            }
+        });
+        return next();
     }
 );
 

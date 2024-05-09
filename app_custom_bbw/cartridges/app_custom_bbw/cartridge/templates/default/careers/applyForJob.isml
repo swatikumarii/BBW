@@ -1,0 +1,113 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/careers.js');
+        assets.addCss('/css/careers.css');
+        </isscript>
+    <div class="container">
+        <div class="job-form">
+            <div class="entry-header">
+                <h1 class="entry-title h-font-size--40 text-uppercase">${pdict.jobName}</h1>
+            </div>
+            <div class="h-font-size--16 job-content">
+                <isprint value="${pdict.jobDescription.description.markup}" encoding="off" />
+            </div>
+            <div class="email-header">
+            </div>
+            <div class="application p-0">
+                <button type="button" class="btn applicationButton button h-font-size--12 text-uppercase">${Resource.msg('button.lable.job', 'careers', null)}</button>
+            </div>
+            <div class=" jobForm application_details">
+                <div class="application_details">
+                    <div class="job-error d-none">${Resource.msg('something.went.wrong', 'careers', null)}</div>
+                    <form action="${URLUtils.url('Careers-SubmitJobApplication', 'jobId', pdict.jobId)}" id="job"
+                        novalidate class="job-application form-control is-invalid" method="POST"
+                        name="${pdict.jobApplicationForm.htmlName}" enctype="multipart/form-data">
+                        <p class="form-content h-font-size--16">${Resource.msg('label.form.note', 'careers', null)}</p>
+                        <div class="form-group required-field">
+                            <label class="form-control-label h-font-size--14 d-flex justify-content-between mb-0">
+                                <isprint value="${pdict.jobApplicationForm.name.label}" encoding="htmlcontent" />*
+                            </label>
+                            <input type="text" class="form-control job-input-form h-font-size--16 w-100 h-auto" name='name'
+                                data-missing-error="${Resource.msg('error.message.careers.name.required', 'forms', null)}"
+                                data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
+                                aria-describedby="form-fname-error" <isprint
+                                value=${pdict.jobApplicationForm.name.attributes} encoding="off" />>
+                            <div class="invalid-feedback" id="form-name-error"> ${Resource.msg('error.message.name', 'careers', null)}</div>
+                        </div>
+                        <div class="form-group required-field">
+                            <isif condition=" ${!!pdict.jobApplicationForm.phone.mandatory === true}"> </isif>
+                            <label class="form-control-label h-font-size--14 d-flex justify-content-between mb-0">
+                                <isprint value="${pdict.jobApplicationForm.phone.label}" encoding="htmlcontent" />*
+                            </label>
+                            <input type="tel" class="form-control job-input-form h-font-size--16 w-100 h-auto" name='phone'
+                                data-missing-error="${Resource.msg('error.message.careers.contact.required', 'forms', null)}"
+                                data-pattern-mismatch="${Resource.msg('error.message.parse.phone.profile.form', 'forms', null)}"
+                                data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
+                                aria-describedby="form-phone-error" <isprint
+                                value=${pdict.jobApplicationForm.phone.attributes} encoding="off" />>
+                            <div class="invalid-feedback" id="form-phone-error">${Resource.msg('error.message.number', 'careers', null)}</div>
+                        </div>
+                        <div class="form-group required-field">
+                            <isif condition=" ${!!pdict.jobApplicationForm.email.mandatory === true}">
+                            </isif>
+                            <label class="form-control-label h-font-size--14 d-flex justify-content-between mb-0">
+                                <isprint value="${pdict.jobApplicationForm.email.label}" encoding="htmlcontent" />*
+                            </label>
+                            <input type="text" class="form-control job-input-form h-font-size--16 w-100 h-auto" name='email'
+                                data-missing-error="${Resource.msg('error.message.careers.email.required', 'forms', null)}"
+                                data-pattern-mismatch="${Resource.msg('error.message.parse.email.profile.form', 'forms', null)}"
+                                data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
+                                aria-describedby="form-email-error" <isprint
+                                value=${pdict.jobApplicationForm.email.attributes} encoding="off" />>
+                            <div class="invalid-feedback" id="form-email-error">${Resource.msg('error.message.email', 'careers', null)}</div>
+                        </div>
+                        <div class="form-group required-field required fileInputTypeForm">
+                            <label class="form-control-label h-font-size--14 d-flex justify-content-between mb-0">
+                                ${Resource.msg('label.input.resume', 'careers', null)}*
+                            </label>
+                            <input class="form-file-control form-control job-input-form h-font-size--16 w-100 h-auto" name="resume" type="file"
+                                id='resume' accept=".pdf,.doc,.docx" aria-describedby="form-email-error"
+                                data-missing-error="${Resource.msg('error.message.careers.resume.required', 'forms', null)}" />
+                            <div class="invalid-feedback fileInputTypeFormError" id="form-email-error">
+                                ${Resource.msg('error.message.resume', 'careers', null)}</div>
+                            <div class="invalid-feedback noFileSupport d-none wrong-file-type-msg">
+                                ${Resource.msg('error.wrong.file.type', 'careers', null)}</div>
+                            <p><em>${Resource.msg('label.input.resume.types', 'careers', null)}</em></p>
+                        </div>
+                        <div class="form-group required-field <isif condition=" ${!!pdict.jobApplicationForm.yourself.mandatory === true}">
+                            required</isif>">
+                            <label class="form-control-label">
+                                <isprint value="${pdict.jobApplicationForm.yourself.label}" encoding="htmlcontent" />*
+                            </label>
+                            <textarea class="form-file-control form-control self-textarea h-font-size--16 w-100 h-auto" rows="10" cols="40" name='yourself' id='yourself'
+                                data-missing-error="${Resource.msg('error.message.careers.yourself.required', 'forms', null)}"
+                                data-pattern-mismatch="${Resource.msg('error.message.parse.yourself.form', 'forms', null)}"
+                                data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
+                                aria-describedby="form-yourself-error" <isprint value=${pdict.jobApplicationForm.yourself.attributes}
+                                encoding="off" />></textarea>
+                            <div class="invalid-feedback" id="form-yourself-error">${Resource.msg('error.message.yourself', 'careers', null)}</div>
+                        </div>
+                        <input type="hidden" class="careersCsrfToken" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+                        <button type="submit" class="send-resume">
+                            ${Resource.msg('label.input.send', 'careers', null)}
+                        </button>
+
+                        <div class="thankyou-msg">
+                            <span>${Resource.msg('text.thankyou.msg', 'careers', null)}</span>
+                        </div>
+                        <div class="error-msg-jobs">
+                            <span>${Resource.msg('text.error.msg', 'careers', null)}</span>
+                        </div>
+                        <div class="large-size-msg">
+                            <span>${Resource.msg('text.error.size.msg', 'careers', null)}</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div class="thankyouModal">
+    <isinclude template="components/thankyouSubmissionModel" />
+   </div>
+</isdecorate>

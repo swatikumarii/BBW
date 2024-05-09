@@ -2,6 +2,7 @@
     <isset name="finalOrigPrice" value="${price}" scope="page" />
 
     <isif condition="${finalOrigPrice.list !== null}">
+        <isset name="reducedPrice" value="true" scope="page" />
         <isset name="price" value="${finalOrigPrice.list}" scope="page" />
         <del>
             <span class="strike-through list">
@@ -21,7 +22,7 @@
     <isset name="price" value="${finalOrigPrice.sales}" scope="page" />
     <isif condition="${pdict.urls.product}">
         <span class="sales">
-            <a class="b-product-tile__price-link d-block h-fw--semibold h-font-size--18 mt-0" href="${pdict.urls.product}">
+            <a class="b-product-tile__price-link d-block h-fw--semibold h-font-size--18 mt-0 js-product-tile-price" href="${pdict.urls.product}">
                 <isif condition="${isLowPrice == 'range-low'}">
                     <span class="value" content="${price.decimalPrice}"></span>
                 </isif>
@@ -35,17 +36,21 @@
             </a>
         </span>
     <iselse/>
-        <span class="sales">
+        <span class="sales ${reducedPrice === 'true' ? 'reduced':''}">
             <isif condition="${isLowPrice == 'range-low'}">
-                <span class="value" content="${price.decimalPrice}"></span>
+                <span class="value low" content="${price.decimalPrice}"></span>
             </isif>
             <isif condition="${isLowPrice == 'range-high'}">
-                <span class="value" content="${price.decimalPrice}"></span>
+                <span class="value high" content="${price.decimalPrice}"></span>
             </isif>
             <isif condition="${isLowPrice == null}">
                 <span class="value" data-url="${pdict.urls.product}" content="${price.decimalPrice}"></span>
             </isif>
-            <isinclude template="/product/components/pricing/formatted" />
+            <isif condition="${price.value > 0}">
+                <isinclude template="/product/components/pricing/formatted" />
+            <iselse/>
+                <span class="h-clr--red-1">${Resource.msg('msg.price.zero.error', 'cart', null)}</span>
+            </isif>
         </span>
     </isif>
 </span>

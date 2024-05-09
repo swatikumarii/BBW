@@ -1,0 +1,136 @@
+.out-of-stock-modal {
+    &.modal {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 40%);
+        animation-name: fade-in;
+        animation-duration: 0.4s;
+    }
+
+    /* Modal Content */
+    .modal-dialog {
+        margin: 0;
+        position: fixed;
+        right: -500px;
+        background-color: #fff;
+        animation-name: slide-in;
+        animation-duration: 0.4s;
+        left: auto;
+        max-width: 720px;
+        width: 50%;
+        height: 100%;
+        bottom: auto;
+        transition:
+            opacity 0.3s linear,
+            right 0.3s ease-out !important;
+        transform: translate3d(0%, 0, 0) !important;
+
+        @media (max-width: 575.98px) {
+            max-width: 320px;
+            width: auto;
+        }
+    }
+
+    .modal-content {
+        padding: 73px 40px 40px;
+        height: 100%;
+        overflow-y: auto;
+        border-radius: 0;
+        border: none;
+        position: relative;
+
+        .modal-header {
+            background-color: #fff;
+            border: 0;
+            text-align: center;
+            display: block;
+
+            h2 {
+                font-size: 32px;
+                line-height: 40px;
+                margin-bottom: 22px;
+            }
+
+            span {
+                font-size: 14px;
+                line-height: 24px;
+                color: colour(black, 1);
+                display: block;
+                text-align: center;
+                letter-spacing: 0.5px;
+            }
+        }
+
+        .notifyme-modal-body {
+            .image-container {
+                margin-top: 55px;
+                text-align: center;
+            }
+        }
+
+        .send-email-btn {
+            margin: 0 auto;
+            text-align: center;
+
+            button {
+                min-width: 320px;
+                width: auto;
+                margin: 43px auto 0;
+                font-size: 14px;
+                line-height: 24px;
+                letter-spacing: 2px;
+
+                @media (max-width: 575.98px) {
+                    min-width: auto;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    /* The Close Button */
+    .close {
+        position: absolute;
+        top: 15px;
+        left: 0;
+
+        img {
+            width: 25px;
+        }
+    }
+
+    .modal-body {
+        padding: 2px 16px;
+    }
+
+    @keyframes slide-in {
+        from {
+            right: -500px;
+            opacity: 0;
+        }
+
+        to {
+            right: 0;
+            opacity: 1;
+        }
+    }
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+.out-of-stock-modal.modal.modal-right.fade.show .modal-dialog {
+    right: 0;
+}

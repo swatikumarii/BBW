@@ -1,0 +1,3 @@
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('liveChatEnabled')}">
+    <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('chatScript')}" encoding="off" />
+</isif>

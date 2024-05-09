@@ -1,29 +1,6 @@
 <div class="product-tile b-product-tile d-flex flex-column h-100 js-product-tile" itemscope itemtype="http://schema.org/Product">
     <!-- dwMarker="product" dwContentID="${product.uuid}" -->
     <!-- Product Social Badge -->
-    <div class="social-badge-wrapper d-flex h-grid-gap--5">
-        <isif condition="${product.badge1}">
-            <div class="b-product-tile__social-badge">
-                <div
-                    class="b-product-tile__social-badge-text h-bg--blue h-clr--white d-inline-flex h-fw--bold justify-content-center b-text-a text-decoration-none">
-                    ${product.badge1}</div>
-            </div>
-        </isif>
-        <isif condition="${product.badge2}">
-            <div class="b-product-tile__social-badge">
-                <div
-                    class="b-product-tile__social-badge-text h-bg--blue h-clr--white d-inline-flex h-fw--bold justify-content-center b-text-a text-decoration-none">
-                    ${product.badge2}</div>
-            </div>
-        </isif>
-        <isif condition="${product.badge3}">
-            <div class="b-product-tile__social-badge">
-                <div
-                    class="b-product-tile__social-badge-text h-bg--blue h-clr--white d-inline-flex h-fw--bold justify-content-center b-text-a text-decoration-none">
-                    ${product.badge3}</div>
-            </div>
-        </isif>
-    </div>
     <isinclude template="product/components/productTileImage" />
     <div class="tile-body b-product-tile__body mt-auto">
         <isif condition="${pdict.display.swatches !== false}">
@@ -69,7 +46,7 @@
                 eligible="${pdict.apEligible}" mpid="${pdict.apMpid}" approductids="${pdict.apProductIDs}" />
         </isif>
 
-        <isif condition="${pdict.display.ratings !== false}">
+        <isif condition="${pdict.display.ratings !== false && !product.isEgiftCard}">
             <isinclude template="product/productTileFooter" />
         </isif>
     </div>

@@ -6,7 +6,7 @@ var base = module.superModule;
 
 module.exports = function fullProduct(product, apiProduct, options) {
     base.call(this, product, apiProduct, options);
-
+    decorators.maxOrderQty(product, apiProduct);
     decorators.fragrance(product, apiProduct);
     decorators.titlePartB(product, apiProduct);
     decorators.volume(product, apiProduct);
@@ -14,5 +14,6 @@ module.exports = function fullProduct(product, apiProduct, options) {
     decorators.return(product, apiProduct);
     decorators.usageInstruction(product, apiProduct);
     decorators.ingredients(product, apiProduct);
+    decorators.moreInfo(product, apiProduct);
     return product;
 };

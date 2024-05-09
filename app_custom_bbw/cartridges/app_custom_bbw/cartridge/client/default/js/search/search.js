@@ -1,6 +1,7 @@
 'use strict';
 
 var helpers = require('../utils/scrollHelpers');
+var layout = require('../utils/layout');
 var debounce = require('lodash/debounce');
 
 /**
@@ -43,6 +44,99 @@ function updateRefinements($results) {
             $(this).find('.ref-toggle').attr('aria-expanded', 'true');
         }
     });
+}
+
+/**
+ * Adjusts the height of elements to match the tallest element in the collection.
+ * @returns {jQuery} The jQuery collection after adjusting the height.
+ */
+$.fn.syncHeight = function () {
+    var elements = $.makeArray(this);
+
+    // Sort elements by height
+    elements.sort(function (a, b) {
+        return $(a).height() - $(b).height();
+    });
+
+    // Set height of all elements to the height of the tallest element
+    return this.height($(elements[elements.length - 1]).height());
+};
+
+
+/**
+ * Adjusts the layout of a product grid based on the viewport width.
+ * @param {jQuery} elements - The jQuery collection of product grid elements.
+ */
+function adjustProductGrid(elements) {
+    /**
+     * @type {jQuery} filteredElements - Filtered elements based on viewport width.
+     */
+    var filteredElements = window.matchMedia('(max-width: 479px)').matches ? elements.filter(':not(.grid-slot)') : elements;
+
+    /**
+     * @type {number} itemsPerRow - Number of items per row in the product grid.
+     */
+    var itemsPerRow = window.matchMedia('(max-width: 1024px)').matches ? (window.matchMedia('(max-width: 479px)').matches ? 2 : 3) : 4; // eslint-disable-line
+
+    /**
+     * @type {number} totalItems - Total number of items in the product grid.
+     */
+    var totalItems = filteredElements.length;
+
+    if (totalItems > 1) {
+        /**
+         * @type {number} startIndex - Start index of each iteration.
+         */
+        var startIndex = 0;
+
+        /**
+         * @type {number} endIndex - End index of each iteration.
+         */
+        var endIndex = itemsPerRow;
+
+        for (var i = 0; totalItems >= i; i += itemsPerRow) {
+            /**
+             * @type {jQuery} slicedElements - Elements sliced for the current iteration.
+             */
+            var slicedElements = filteredElements.slice(startIndex, endIndex);
+
+            // Reset inline styles
+            slicedElements.removeAttr('style');
+            slicedElements.find('.b-product-tile__name').removeAttr('style');
+
+            // Sync heights of various elements
+            slicedElements.find('.b-product-tile__name').syncHeight();
+            // slicedElements.syncHeight();
+
+            // Update start and end index for the next iteration
+            startIndex = endIndex;
+            endIndex = endIndex + itemsPerRow > totalItems ? totalItems : endIndex + itemsPerRow;
+        }
+    }
+}
+
+/**
+ * Scrolls elements with the specified selector into view.
+ * @param {string} selector - The CSS selector of the elements to scroll into view.
+ */
+function scrollIntoView(selector) {
+    var elements = document.querySelectorAll(selector);
+
+    // Loop through each element
+    for (var i = 0; i < elements.length; i++) {
+        /**
+         * @type {HTMLElement} element - Current element
+         */
+        var element = elements[i];
+        // Calculate offset
+        var elementOffset = element.offsetLeft;
+        // Get computed styles
+        var computedStyles = window.getComputedStyle(element);
+        // Parse margin
+        var marginLeft = parseInt(computedStyles.marginLeft, 10);
+        // Set parent scroll position
+        element.parentElement.scrollLeft = elementOffset - marginLeft - 1;
+    }
 }
 
 /**
@@ -179,10 +273,17 @@ function checkitem(slider) {
 module.exports = {
     categorySwiper: function () {
         helpers.dragScroll();
+        scrollIntoView('.js-category-swiper.active');
     },
+
+    equalHeight: function () {
+        adjustProductGrid($('.product-grid-item'));
+    },
+
     searchAlphabetSort: function () {
         searchAlphabetSort();
     },
+
     filter: function () {
         // Display refinements bar when Menu icon clicked
         $('.container').on('click', 'button.filter-results', function () {
@@ -193,6 +294,16 @@ module.exports = {
             $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', true);
             $('.refinement-bar').closest('.container.search-results').siblings().attr('aria-hidden', true);
             $('.refinement-bar .close').focus();
+        });
+    },
+
+    closeFilter: function () {
+        $('body').on('click', function (e) {
+            // Check if the clicked element is not inside the collapse area and the collapse is open
+            if (!$(e.target).closest('.js-desktop-filters .collapse').length && $('.js-desktop-filters .collapse').hasClass('show') && !$(e.target).hasClass('ref-toggle')) {
+                // Close all open collapses
+                $('.js-desktop-filters .collapse.show').collapse('hide');
+            }
         });
     },
 
@@ -212,11 +323,13 @@ module.exports = {
     resize: function () {
         // Close refinement bar and hide modal background if user resizes browser
         $(window).resize(function () {
-            $('.refinement-bar, .modal-background').hide();
-            $('.refinement-bar').siblings().attr('aria-hidden', false);
-            $('.refinement-bar').closest('.row').siblings().attr('aria-hidden', false);
-            $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', false);
-            $('.refinement-bar').closest('.container.search-results').siblings().attr('aria-hidden', false);
+            if (layout.isDesktop()) {
+                $('.refinement-bar, .modal-background').hide();
+                $('.refinement-bar').siblings().attr('aria-hidden', false);
+                $('.refinement-bar').closest('.row').siblings().attr('aria-hidden', false);
+                $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', false);
+                $('.refinement-bar').closest('.container.search-results').siblings().attr('aria-hidden', false);
+            }
         });
     },
 
@@ -277,6 +390,7 @@ module.exports = {
                 e.stopPropagation();
 
                 $.spinner().start();
+
                 $(this).trigger('search:filter', e);
 
                 var searchUrl = $(this).data('href');
@@ -304,6 +418,9 @@ module.exports = {
                         $(attributeId).parent('button').focus();
                     }
                 });
+                if ($(this).hasClass('reset-filters') && $('.js-desktop-filters .collapse').hasClass('show')) {
+                    $('.js-desktop-filters .collapse.show').collapse('hide');
+                }
             }
         );
     },

@@ -70,6 +70,8 @@
         <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
     </div>
 
+    <isinclude template="search/components/seoText" />
+
     <iscomment>Produc Grid - Footer </iscomment>
     <isinclude template="search/components/productGridFooter" />
 </div>

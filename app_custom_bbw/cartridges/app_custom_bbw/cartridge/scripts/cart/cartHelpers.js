@@ -60,14 +60,23 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
     var globalLevelReserveQty = dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
     var maxOrderQty = productLevelMaxOrderQty || globalLevelMaxOrderQty;
     var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
+    var maxOrderQtyByReserveStock =
+        product.availabilityModel.inventoryRecord.ATS.value - reserveOosQty;
+    if (maxOrderQty && maxOrderQtyByReserveStock) {
+        maxOrderQty =
+            maxOrderQtyByReserveStock < maxOrderQty
+                ? maxOrderQtyByReserveStock
+                : maxOrderQty;
+    } else if (!maxOrderQty) {
+        maxOrderQty = maxOrderQtyByReserveStock;
+    }
     var errorType = '';
     if (product.bundle) {
         canBeAdded = base.checkBundledProductCanBeAdded(childProducts, productLineItems, quantity);
     } else if (maxOrderQty) {
         totalQtyRequested = quantity + base.getQtyAlreadyInCart(productId, productLineItems);
         perpetual = product.availabilityModel.inventoryRecord.perpetual;
-        canBeAdded = (perpetual
-                || totalQtyRequested <= (product.availabilityModel.inventoryRecord.ATS.value - reserveOosQty)) && totalQtyRequested <= maxOrderQty;
+        canBeAdded = perpetual || totalQtyRequested <= maxOrderQty;
         errorType = 'maxOrderQty';
     } else {
         totalQtyRequested = quantity + base.getQtyAlreadyInCart(productId, productLineItems);
@@ -98,20 +107,37 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
     }
 
     productInCart = base.getExistingProductLineItemInCart(product, productId, productLineItems, childProducts, options);
+    var isGiftCard =
+        'custom' in product &&
+        'isEgiftCard' in product.custom &&
+        product.custom.isEgiftCard &&
+        product.custom.isEgiftCard === true;
 
-    if (productInCart) {
+    if (productInCart && !isGiftCard) {
         productQuantityInCart = productInCart.quantity.value;
-        quantityToSet = quantity ? quantity + productQuantityInCart : productQuantityInCart + 1;
-        availableToSell = productInCart.product.availabilityModel.inventoryRecord.ATS.value;
+        quantityToSet = quantity
+            ? quantity + productQuantityInCart
+            : productQuantityInCart + 1;
+        availableToSell =
+            productInCart.product.availabilityModel.inventoryRecord.ATS.value;
 
         if (availableToSell >= quantityToSet || perpetual) {
             productInCart.setQuantityValue(quantityToSet);
             result.uuid = productInCart.UUID;
         } else {
             result.error = true;
-            result.message = availableToSell === productQuantityInCart
-                ? Resource.msg('error.alert.max.quantity.in.cart', 'product', null)
-                : Resource.msg('error.alert.selected.quantity.cannot.be.added', 'product', null);
+            result.message =
+                availableToSell === productQuantityInCart
+                    ? Resource.msg(
+                        'error.alert.max.quantity.in.cart',
+                        'product',
+                        null
+                    )
+                    : Resource.msg(
+                        'error.alert.selected.quantity.cannot.be.added',
+                        'product',
+                        null
+                    );
         }
     } else {
         var productLineItem;
@@ -235,6 +261,41 @@ function callBackSetItemAsFree(productLineItem) {
     });
 }
 
+/**
+ * splitQuantityFromFreeToMain
+ * @param {object} productLineItem - productLineItem
+ * @param {number} productQtyAfterReduce - productQtyAfterReduce
+ * @param {object} lineItemContainer - lineItemContainer
+ * @param {number} qtyUpdateFreeItem - qtyUpdateFreeItem
+ */
+function splitQuantityFromFreeToMain(
+    productLineItem,
+    productQtyAfterReduce,
+    lineItemContainer,
+    qtyUpdateFreeItem
+) {
+    Transaction.wrap(function () {
+        // eslint-disable-next-line no-param-reassign
+        productLineItem.custom.isFreeItem = false;
+    });
+    callBackCreateNewFreeItem(
+        productLineItem,
+        productQtyAfterReduce,
+        lineItemContainer,
+        qtyUpdateFreeItem
+    );
+}
+
+/**
+ * setFreeFalse
+ * @param {object} productLineItem - productLineItem
+ */
+function setFreeFalse(productLineItem) {
+    Transaction.wrap(function () {
+        // eslint-disable-next-line no-param-reassign
+        productLineItem.custom.isFreeItem = false;
+    });
+}
 
 /**
  * createFreeLineItem - Creates a different lineItem for BOGO promo free products
@@ -298,7 +359,17 @@ function createFreeLineItem(lineItemContainer) {
                 }
             }
             if (shouldHaveFreeItem) {
-                if (qtyUpdateFreeItem < productLineItem.quantityValue) {
+                if (allLineItemsForProduct.length === 1) {
+                    var productQtyAfterReduceFromFree =
+                        productLineItem.quantityValue - qtyUpdateFreeItem;
+                    splitQuantityFromFreeToMain(
+                        productLineItem,
+                        productQtyAfterReduceFromFree,
+                        lineItemContainer,
+                        qtyUpdateFreeItem
+                    );
+                    breakLoop = true;
+                } else if (qtyUpdateFreeItem < productLineItem.quantityValue) {
                     mergeQty =
                         productLineItem.quantityValue -
                         qtyUpdateFreeItem +
@@ -313,7 +384,7 @@ function createFreeLineItem(lineItemContainer) {
                     );
                     breakLoop = true;
                 }
-            } else {
+            } else if (allLineItemsForProduct.length > 1) {
                 // Removing the free lineitem and merging its qty in main lineitem
                 mergeQty =
                     allLineItemsForProduct[indexOfMainItem].quantityValue +
@@ -326,6 +397,8 @@ function createFreeLineItem(lineItemContainer) {
                     mergeQty
                 );
                 breakLoop = true;
+            } else {
+                setFreeFalse(productLineItem);
             }
         } else if (shouldHaveFreeItem) {
             var productQtyAfterReduce =
