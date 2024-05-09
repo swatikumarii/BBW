@@ -46,23 +46,24 @@
         </div>
     </div>
 </div>
-<div class="modal fade hide" id="isMergeCartModal" tabindex="-1" role="dialog" aria-labelledby="isMergeCartModalTitle"
+<div class="modal fade hide merge-cart-modal" id="isMergeCartModal" tabindex="-1" role="dialog" aria-labelledby="isMergeCartModalTitle"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header merge-cart-header">
+            <h2 class="h-font-size--18 h-clr--black-1 h-fw--bold mt-3"> ${Resource.msg('merge.cart.header', 'login', null)} </h2>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body merge-cart-body pb-3">
                 <input type="hidden" class="cart-merge-url" value="${URLUtils.url('Cart-Merge')}">
                 <input type="hidden" class="redirect-url" value="${pdict.loginRedirectUrl}">
-                <button type="button" class="merge" data-dismiss="modal" aria-label="Close">
-                    Merge
+                <button type="button" class="merge text-uppercase  h-font-size--16" data-dismiss="modal" aria-label="Close">
+                    ${Resource.msg('merge.cart.button1', 'login', null)}
                 </button>
-                <button type="button" class="dont-merge" data-dismiss="modal" aria-label="Close">
-                    Dont Merge
+                <button type="button" class="dont-merge text-uppercase  h-font-size--16" data-dismiss="modal" aria-label="Close">
+                    ${Resource.msg('merge.cart.button2', 'login', null)}
                 </button>
             </div>
         </div>

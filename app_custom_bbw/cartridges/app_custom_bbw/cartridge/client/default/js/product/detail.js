@@ -8,19 +8,32 @@ var helpers = require('../utils/scrollHelpers');
 module.exports = $.extend({}, detail, {
     quantityUpdate: function () {
         $(document).on('click', '.quantity-field > .increase', function () {
+            var maxOrderQty = Number($('input[name="maxOrderQty"]').val());
             var quantity = Number($(this).siblings('#Quantity').val());
-            quantity += 1;
-            $(this).siblings('#Quantity').val(quantity).trigger('change');
-            $(this).fadeTo(100, 0.1).fadeTo(200, 1.0);
+            if (quantity === maxOrderQty) {
+                $('.reserve-stock').removeClass('d-none');
+            } else{
+                quantity += 1;
+                $(this).siblings('#Quantity').val(quantity).trigger('change');
+                $(this).animate({ opacity: '0' }, 50, function () {
+                    $(this).animate({ opacity: '1' }, 50);
+                });
+            }
         });
 
         $(document).on('click', '.quantity-field > .decrease', function () {
+            var maxOrderQty = Number($('input[name="maxOrderQty"]').val());
             var quantity = Number($(this).siblings('#Quantity').val());
             if (quantity !== 1) {
                 quantity -= 1;
                 $(this).siblings('#Quantity').val(quantity).trigger('change');
             }
-            $(this).fadeTo(100, 0.1).fadeTo(200, 1.0);
+            if ( quantity <= maxOrderQty) {
+                $('.reserve-stock').addClass('d-none');
+            }
+            $(this).animate({ opacity: '0' }, 50, function () {
+                $(this).animate({ opacity: '1' }, 50);
+            });
         });
 
         $(document).on('keyup', '.quantity-field > #Quantity', function () {
@@ -64,9 +77,13 @@ $('.card:first').find('.title').removeClass('collapsed');
 $('.card:first').find('.content').addClass('show');
 
 /* Zoom Image */
-$('.zoomImage-link, .carousel-item').on('click', function () {
-    helpers.disableScroll();
-    $('.zoomImage-sec').css('display', 'block');
+$('.zoomImage-link, .carousel-item').on('click', function (e) {
+    if (layout.isDesktop() || layout.isTablet()) {
+        helpers.disableScroll();
+        $('.zoomImage-sec').css('display', 'block');
+    } else {
+        e.preventDefault();
+    }
 });
 $('.zoomOut-link').on('click', function () {
     helpers.enableScroll();
