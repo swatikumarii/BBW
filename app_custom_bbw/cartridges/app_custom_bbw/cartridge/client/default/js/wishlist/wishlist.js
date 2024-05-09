@@ -2,6 +2,21 @@
 
 var wishlist = require('wishlist/wishlist/wishlist');
 
+$(document).ready(function () {
+    if (localStorage.getItem('addToWishListPid') && localStorage.getItem('addToWishListURL')){
+        $.ajax({
+            url: localStorage.getItem('addToWishListURL'),
+            type: 'post',
+            dataType: 'json',
+            data: {
+                pid: localStorage.getItem('addToWishListPid')
+            },
+        });
+        localStorage.removeItem('addToWishListPid');
+        localStorage.removeItem('addToWishListURL');
+    }
+});
+
 /**
  * @param {object} $elementAppendTo - The element to append error html to
  * @param {string} msg - The error message
@@ -101,6 +116,8 @@ module.exports = $.extend({}, wishlist, {
                     if(data.loginShow === true){
                         $('#quickViewModal').modal('hide');
                         $('.loginPopup').find('#loginModal').modal('show');
+                        localStorage.setItem('addToWishListPid', pid);
+                        localStorage.setItem('addToWishListURL', url);
                     } else {
                         $('.loginPopup').find('#exampleModalLong').modal('hide');
                         $('#add-to-wish-list').click(function () {

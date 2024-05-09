@@ -46,6 +46,7 @@
 
             @include media-down(sm) {
                 position: absolute;
+                justify-content: center;
             }
 
             li {
@@ -331,6 +332,9 @@
                     width: 20%;
                     letter-spacing: 0.01em;
                     color: colour(black, 1);
+                    -webkit-tap-highlight-color: transparent;
+                    outline: none;
+                    user-select: none;
 
                     &:hover {
                         color: colour(white);
@@ -561,13 +565,8 @@
     line-height: 20px;
     line-height: 1.25rem;
     letter-spacing: 0.01em;
-    padding-bottom: 15px;
     margin-top: 13px;
     width: 100%;
-
-    @include media-up(md) {
-        width: 313px;
-    }
 }
 
 #add-to-cart-snackbar {
@@ -656,4 +655,9 @@
             padding-bottom: 5px;
         }
     }
+}
+
+.afterpay-logo svg {
+    max-height: 24px;
+    height: 24px;
 }
