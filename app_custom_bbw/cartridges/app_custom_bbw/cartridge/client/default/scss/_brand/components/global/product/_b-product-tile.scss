@@ -249,6 +249,12 @@
     height: 100%;
 }
 
+.product-grid {
+    .suggestions__btn-add-to-cart {
+        display: none;
+    }
+}
+
 .product-quickview {
     .zoomImage-link,
     .zoomImage-sec {
