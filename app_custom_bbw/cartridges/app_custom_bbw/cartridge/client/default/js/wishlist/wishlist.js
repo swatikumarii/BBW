@@ -141,6 +141,7 @@ module.exports = $.extend({}, wishlist, {
             e.preventDefault();
             var url = $(this).data('url');
             var elMyAccount = $('.account-wishlist-item').length;
+            var isReloadRequired = $('.is-reload-required-while-remove').val();
 
             // If user is in my account page, call removeWishlistAccount() end point, re-render wishlist cards
             if (elMyAccount > 0) {
@@ -173,12 +174,16 @@ module.exports = $.extend({}, wishlist, {
                     dataType: 'json',
                     data: {},
                     success: function () {
-                        var pageNumber =
-                            $('.wishlistItemCardsData').data('page-number') - 1;
-                        renderNewPageOfItems(pageNumber, false);
-                        $('.remove-from-wishlist').addClass('d-none');
-                        $('.add-to-wish-list').removeClass('d-none');
-                        $('.remove-from-wishlist').removeClass('d-block');
+                        if (isReloadRequired) {
+                            window.location.reload();
+                        } else {
+                            var pageNumber =
+                                $('.wishlistItemCardsData').data('page-number') - 1;
+                            renderNewPageOfItems(pageNumber, false);
+                            $('.remove-from-wishlist').addClass('d-none');
+                            $('.add-to-wish-list').removeClass('d-none');
+                            $('.remove-from-wishlist').removeClass('d-block');
+                        }
                     },
                     error: function () {
                         var $elToAppendWL = $('.wishlistItemCards');

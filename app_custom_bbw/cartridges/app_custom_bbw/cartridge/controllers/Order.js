@@ -92,8 +92,10 @@ server.get(
     consentTracking.consent,
     server.middleware.https,
     function (req, res, next) {
+        var reportingUrlsHelper = require('*/cartridge/scripts/reportingUrls');
         var OrderMgr = require('dw/order/OrderMgr');
-        // var OrderModel = require('*/cartridge/models/order');
+        var OrderModel = require('*/cartridge/models/order');
+        var Locale = require('dw/util/Locale');
 
         var order;
         var orderID = session.privacy.orderNo;
@@ -115,7 +117,44 @@ server.get(
 
             return next();
         }
-        res.render('checkout/failedOrder');
+        var lastOrderID = Object.prototype.hasOwnProperty.call(req.session.raw.custom, 'orderID') ? req.session.raw.custom.orderID : null;
+        if (lastOrderID === req.querystring.ID) {
+            res.redirect(URLUtils.url('Home-Show'));
+            return next();
+        }
+
+        var config = {
+            numberOfLineItems: '*'
+        };
+
+        var currentLocale = Locale.getLocale(req.locale.id);
+
+        var orderModel = new OrderModel(
+            order,
+            { config: config, countryCode: currentLocale.country, containerView: 'order' }
+        );
+        var passwordForm;
+
+        var reportingURLs = reportingUrlsHelper.getOrderReportingURLs(order);
+
+        if (!req.currentCustomer.profile) {
+            passwordForm = server.forms.getForm('newPasswords');
+            passwordForm.clear();
+            res.render('checkout/failedOrder', {
+                order: orderModel,
+                returningCustomer: false,
+                passwordForm: passwordForm,
+                reportingURLs: reportingURLs,
+                orderUUID: order.getUUID()
+            });
+        } else {
+            res.render('checkout/failedOrder', {
+                order: orderModel,
+                returningCustomer: true,
+                reportingURLs: reportingURLs,
+                orderUUID: order.getUUID()
+            });
+        }
         return next();
     }
 );
@@ -133,8 +172,10 @@ server.get(
     consentTracking.consent,
     server.middleware.https,
     function (req, res, next) {
+        var reportingUrlsHelper = require('*/cartridge/scripts/reportingUrls');
         var OrderMgr = require('dw/order/OrderMgr');
-        // var OrderModel = require('*/cartridge/models/order');
+        var OrderModel = require('*/cartridge/models/order');
+        var Locale = require('dw/util/Locale');
 
         var order;
         var orderID = session.privacy.orderNo;
@@ -156,7 +197,44 @@ server.get(
 
             return next();
         }
-        res.render('checkout/pendingOrder');
+        var lastOrderID = Object.prototype.hasOwnProperty.call(req.session.raw.custom, 'orderID') ? req.session.raw.custom.orderID : null;
+        if (lastOrderID === req.querystring.ID) {
+            res.redirect(URLUtils.url('Home-Show'));
+            return next();
+        }
+
+        var config = {
+            numberOfLineItems: '*'
+        };
+
+        var currentLocale = Locale.getLocale(req.locale.id);
+
+        var orderModel = new OrderModel(
+            order,
+            { config: config, countryCode: currentLocale.country, containerView: 'order' }
+        );
+        var passwordForm;
+
+        var reportingURLs = reportingUrlsHelper.getOrderReportingURLs(order);
+
+        if (!req.currentCustomer.profile) {
+            passwordForm = server.forms.getForm('newPasswords');
+            passwordForm.clear();
+            res.render('checkout/pendingOrder', {
+                order: orderModel,
+                returningCustomer: false,
+                passwordForm: passwordForm,
+                reportingURLs: reportingURLs,
+                orderUUID: order.getUUID()
+            });
+        } else {
+            res.render('checkout/pendingOrder', {
+                order: orderModel,
+                returningCustomer: true,
+                reportingURLs: reportingURLs,
+                orderUUID: order.getUUID()
+            });
+        }
         return next();
     }
 );
