@@ -48,8 +48,6 @@
             </isif>
             <isif condition="${price.value > 0}">
                 <isinclude template="/product/components/pricing/formatted" />
-            <iselse/>
-                <span class="h-clr--red-1">${Resource.msg('msg.price.zero.error', 'cart', null)}</span>
             </isif>
         </span>
     </isif>

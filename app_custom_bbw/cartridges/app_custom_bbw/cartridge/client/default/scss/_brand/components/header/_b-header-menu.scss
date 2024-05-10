@@ -285,7 +285,7 @@
                 padding: 11px 0 0 15px;
                 left: 0;
                 content: url("../images/header/UI-StoreLocator-v2.svg");
-                top: 0;
+                top: 7px;
             }
         }
 
@@ -309,6 +309,7 @@
             transition: max-height 0.5s ease-out;
             max-height: 58px;
             border-top: 0.0625rem solid colour(gray, 6);
+            width: 100%;
 
             &::before {
                 content: "";
@@ -348,7 +349,7 @@
             }
 
             &.active {
-                max-height: 156.25rem;
+                max-height: 2450px;
 
                 &::before {
                     width: 0.25rem;
@@ -376,11 +377,13 @@
             display: initial;
 
             &.active {
-                top: 0;
+                top: auto;
                 opacity: 1;
                 pointer-events: auto;
                 visibility: visible;
                 border: 0;
+                margin: 0;
+                float: none;
             }
 
             .level-2-li {
@@ -428,12 +431,13 @@
 
                 .level-3-ul {
                     position: relative;
-                    top: -8px;
+                    top: auto;
                     opacity: 0;
                     visibility: hidden;
                     transition: max-height 0.5s ease-out;
                     max-height: 0;
-                    display: block;
+                    margin: 0;
+                    float: inherit;
 
                     &.active {
                         top: 0;
@@ -447,8 +451,10 @@
 
                     li a {
                         letter-spacing: 0.01em;
-                        padding: 8px 15px 8px 55px;
+                        padding: 8px 34px 8px 55px;
                         line-height: 1.25rem;
+                        height: 100%;
+                        text-wrap: wrap;
                     }
                 }
             }

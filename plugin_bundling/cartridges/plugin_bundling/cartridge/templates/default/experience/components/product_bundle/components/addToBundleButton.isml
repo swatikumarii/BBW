@@ -1,5 +1,5 @@
 <div class="row m-0 justify-content-center">
-    <div class="text-center">
+    <div class="text-center add-to-bundle-wrapper">
         <input type="hidden" value="${product.ID}" />
         <isif condition="${product.canBeAdded}">
             <button class="btn--secondary add-to-bundle btn btn-block btn-sm" data-pid="${product.id}">

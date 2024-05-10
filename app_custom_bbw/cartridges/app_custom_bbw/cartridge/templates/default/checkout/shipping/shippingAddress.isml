@@ -201,11 +201,11 @@
                 ${Resource.msg('field.shipping.address.phone', 'address', null)}
             </label>
             <input type="tel" class="form-control shippingPhoneNumber"
+            initOptions.allowDropdown="true"
                 id="shippingPhoneNumber${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber"
                 value="${shippingAddress.phone || ''}" <isprint value="${addressFields.phone.attributes}"
-                encoding="off" />
-                autocomplete="shipping tel">
+                encoding="off" />>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber">
                 <isprint value="${addressFields.phone.error}">
             </div>
