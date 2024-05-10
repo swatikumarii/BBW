@@ -24,14 +24,18 @@
 <!-- Template used by client to redraw shipping methods                           -->
 <!---------------------------------------------------------------------------------->
 <div id="shipping-method-template" style="display:none;" >
-    <div class="form-check col-9 start-lines">
+    <div class="form-check col-9 start-lines shipping-methods-block">
         <input type="radio" class="form-check-input" id="shippingMethodRadioButton-${shippingModel.UUID}${lineItem ? '-' + lineItem.UUID : ''}">
-        <label class="form-check-label shipping-method-option" for="shippingMethodRadioButton-${shippingModel.UUID}${lineItem ? '-' + lineItem.UUID : ''}">
-            <span class="display-name"></span>
-            <span class="text-muted arrival-time" style="display:none"></span>
-        </label>
-    </div>
-    <div class="col-3 text-right shipping-method-pricing end-lines">
-        <span class="shipping-cost"></span>
-    </div>
+            <label class="form-check-label shipping-method-option"
+                for="shippingMethod-${shippingMethod.ID}-${shippingModel.UUID}${lineItem ? '-' + lineItem.UUID : ''}">
+                <span class="display-name h-font-size--16 h-fw--semibold h-clr--black-1">${shippingMethod.displayName}</span>
+                    <span class="text-muted arrival-time h-font-size--16" style="display:none;">(${shippingMethod.estimatedArrivalTime})</span>
+            </label>
+            <div class="shipping-method-description" style="display:none;">
+                ${shippingMethod.description}
+            </div>
+        </div>
+        <div class="col-3 text-right shipping-method-pricing end-lines">
+            <span class="shipping-cost">${shippingMethod.shippingCost}</span>
+        </div>
 </div>

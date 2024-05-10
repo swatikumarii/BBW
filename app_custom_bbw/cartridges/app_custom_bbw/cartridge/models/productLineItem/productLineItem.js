@@ -19,5 +19,6 @@ module.exports = function productLineItem(product, apiProduct, options) {
     productLineItemDecorators.isFreeItem(product, options.lineItem);
     productDecorators.promotions(product, options.promotions);
     productLineItemDecorators.promoPrice(product, options.lineItem);
+    productDecorators.maxOrderQty(product, apiProduct);
     return product;
 };

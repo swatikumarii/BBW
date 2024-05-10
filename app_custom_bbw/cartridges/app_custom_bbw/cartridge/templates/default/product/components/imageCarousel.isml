@@ -33,10 +33,9 @@
                 <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
             </a>
         </isif>
-
-        <div class="d-none d-md-block">
+      
         <isif condition="${product.images['large'].length > 0}">
-            <ol class="carousel-indicators m-0" aria-hidden="true">
+            <ol class="carousel-indicators m-0 ${product.images['large'].length < 2 ? 'd-none d-md-block' : ''}" aria-hidden="true">
                 <isloop items="${product.images['large']}" var="image" status="loopStatus">
                     <li data-target="${"#"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
                         class='<isif condition="${loopStatus.index == 0}">active</isif>'>
@@ -46,21 +45,6 @@
                 </isloop>
             </ol>
         </isif>
-        </div>
-
-        <div class="d-block d-md-none">
-            <isif condition="${product.images['large'].length > 1}">
-                <ol class="carousel-indicators m-0" aria-hidden="true">
-                    <isloop items="${product.images['large']}" var="image" status="loopStatus">
-                        <li data-target="${" #"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
-                            class='<isif condition="${loopStatus.index == 0}">active</isif>'>
-                            <img src="${image.url}" class="img-fluid" alt="${image.alt} image number ${image.index}"
-                                itemprop="image" />
-                        </li>
-                    </isloop>
-                </ol>
-            </isif>
-        </div>
 
         <div class="zoomImage-sec position-fixed h-100 w-100 h-bg--white">
             <div class="zoomImages">

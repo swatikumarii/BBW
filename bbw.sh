@@ -58,6 +58,7 @@ then
     echo "$SFCC_CI_AUTH_RES"
     if [ "$SFCC_CI_AUTH_RES" = 'Authentication succeeded' ]
     then
+        npm install -g underscore-cli
         echo "SFCC-CI Authenticated Successfully!"
         SFCC_CI_AUTH_STATUS=true
         OCAPIACCESS_TOKEN=$(sfcc-ci client:auth:token)
