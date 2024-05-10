@@ -20,5 +20,6 @@ module.exports = function productLineItem(product, apiProduct, options) {
     productLineItemDecorators.dangerousGoods(product, apiProduct);
     productDecorators.promotions(product, options.promotions);
     productLineItemDecorators.promoPrice(product, options.lineItem);
+    productDecorators.maxOrderQty(product, apiProduct);
     return product;
 };
