@@ -93,6 +93,11 @@
                     <div class="checkout-blocks shipping">
                         <div class="h-maxwidth-perc--90">
                             <isinclude template="checkout/shipping/shipping" />
+                            <isif condition="${pdict.containsDangerousGoods}">
+                                <div class="dangerous-goods-message">
+                                    ${Resource.msg('dangerous.goods.msg', 'checkout', null)}
+                                </div>
+                            </isif>
                         </div>
                     </div>
 

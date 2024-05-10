@@ -52,8 +52,11 @@ function register() {
                     $('form.registration').trigger('login:register:error', data);
                     formValidation(form, data);
                 } else {
+                    $('.success-message').toast('show');
                     $('form.registration').trigger('login:register:success', data);
-                    location.href = data.redirectUrl;
+                    setTimeout(function() {
+                        location.href = data.redirectUrl;
+                    }, 2000);
                 }
             },
             error: function (err) {

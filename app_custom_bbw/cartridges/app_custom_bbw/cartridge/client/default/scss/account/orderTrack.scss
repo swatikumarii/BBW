@@ -47,19 +47,33 @@
             }
         }
 
-        .error-form {
-            width: 100%;
-            color: colour(red);
+        .form-error-div {
+            background-color: colour(red,9);
+            padding: 8px 20px 8px 44px;
             margin: 5px 0;
-            text-align: left;
-            position: relative;
+            width: 955px;
 
-            @include media-up(sm) {
-                width: 955px;
+            .error-icon {
+                float: left;
+                position: absolute;
+                left: 10px;
+                top: calc(50% - 14px);
             }
 
-            @include media-btw(sm, lg) {
+            .error-form {
                 width: 100%;
+                color: colour(red);
+                margin: 5px 0;
+                text-align: left;
+                position: relative;
+
+                @include media-up(sm) {
+                    width: 955px;
+                }
+
+                @include media-btw(sm, lg) {
+                    width: 100%;
+                }
             }
         }
 
@@ -152,7 +166,7 @@
             letter-spacing: 1.32px;
             min-height: 2.1875rem;
 
-            &:focus {
+            &:active {
                 color: colour(black, 3);
                 border-color: colour(gray, 1);
                 background-color: colour(white);

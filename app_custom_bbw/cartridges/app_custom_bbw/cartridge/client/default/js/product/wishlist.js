@@ -1,5 +1,14 @@
 'use strict';
 
+$(document).ready(function () {
+    if (localStorage.getItem('addToWishList')) {
+        if (!$('.remove-from-wishlist').hasClass('d-block')) {
+            $('.add-to-wish-list').click();
+        }
+        localStorage.removeItem('addToWishList');
+    }
+});
+
 /**
  * appends params to a url
  * @param {string} data - data returned from the server's ajax call
@@ -39,6 +48,7 @@ module.exports = {
                 },
                 success: function (data) {
                     if (data.loginShow === true) {
+                        localStorage.setItem('addToWishList', true);
                         $('.loginPopup').find('#loginModal').modal('show');
                     } else {
                         $('.loginPopup')
@@ -47,7 +57,6 @@ module.exports = {
                         $('#add-to-wish-list').click(function () {
                             $('.wishlist-toast.toast').toast('show');
                         });
-
                     }
                     if (data.success) {
                         $('.remove-from-wishlist').removeClass('d-none');

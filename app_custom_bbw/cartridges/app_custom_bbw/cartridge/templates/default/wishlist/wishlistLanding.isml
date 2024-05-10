@@ -46,7 +46,9 @@
                                 <isinclude template="wishlist/components/shareLoveItListModal" />
                             </div>
                         </div>
-                        <isinclude template="wishlist/components/wishlist" />
+                        <div class="wishlist-list">
+                            <isinclude template="wishlist/components/wishlist" />
+                        </div>
                     </div>
                 </div>
             </div>

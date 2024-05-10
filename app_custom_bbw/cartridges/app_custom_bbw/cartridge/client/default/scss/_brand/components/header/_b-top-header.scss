@@ -15,7 +15,7 @@
         max-height: 6.125rem;
 
         @include media-up(sm) {
-            max-height: 2.75rem;
+            max-height: 100%;
         }
 
         .content-text-wrap {

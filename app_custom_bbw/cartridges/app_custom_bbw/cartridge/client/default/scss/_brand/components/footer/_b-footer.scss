@@ -1,7 +1,7 @@
 @import "../collapsibleItem";
 
 footer {
-    margin-top: 96px;
+    margin-top: 60px;
     border-top: 0.1875rem solid colour(gray, 1);
 
     .footer-container {
@@ -309,6 +309,10 @@ footer {
             background-size: contain;
         }
     }
+}
+
+.js-scrolltotop {
+    display: none;
 }
 
 // ---------unsubscribe email-----------

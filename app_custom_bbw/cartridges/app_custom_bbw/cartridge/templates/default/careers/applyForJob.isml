@@ -12,7 +12,7 @@
             <div class="h-font-size--16 job-content">
                 <isprint value="${pdict.jobDescription.description.markup}" encoding="off" />
             </div>
-            <div class="email-header mt-3">
+            <div class="email-header">
             </div>
             <div class="application p-0">
                 <button type="button" class="btn applicationButton button h-font-size--12 text-uppercase">${Resource.msg('button.lable.job', 'careers', null)}</button>
@@ -75,12 +75,12 @@
                                 ${Resource.msg('error.wrong.file.type', 'careers', null)}</div>
                             <p><em>${Resource.msg('label.input.resume.types', 'careers', null)}</em></p>
                         </div>
-                        <div class="form-group <isif condition=" ${!!pdict.jobApplicationForm.yourself.mandatory === true}">
+                        <div class="form-group required-field <isif condition=" ${!!pdict.jobApplicationForm.yourself.mandatory === true}">
                             required</isif>">
                             <label class="form-control-label">
                                 <isprint value="${pdict.jobApplicationForm.yourself.label}" encoding="htmlcontent" />*
                             </label>
-                            <textarea class="form-control" rows="10" cols="40" name='yourself' id='yourself'
+                            <textarea class="form-file-control form-control self-textarea h-font-size--16 w-100 h-auto" rows="10" cols="40" name='yourself' id='yourself'
                                 data-missing-error="${Resource.msg('error.message.careers.yourself.required', 'forms', null)}"
                                 data-pattern-mismatch="${Resource.msg('error.message.parse.yourself.form', 'forms', null)}"
                                 data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"

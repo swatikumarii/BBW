@@ -3,7 +3,7 @@
 
     <!-- fields for phone number -->
     <field formid="phone" label="profile.phone" description="address.phone.example" type="string" mandatory="true"
-           binding="phone" min-length="10" max-length="20" missing-error="error.card.info.missing.phone" range-error="error.message.between10and20" />
+           binding="phone" min-length="9" max-length="20" missing-error="error.card.info.missing.phone" range-error="error.message.between10and20" />
     <field formid="email" label="profile.email" description="address.email.example" type="string" mandatory="true"
            binding="email" regexp="^[\w.%+-]+@[\w.-]+\.[\w]{2,6}$" parse-error="error.message.parse.email.profile.form" missing-error="error.card.info.missing.email" />
 

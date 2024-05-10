@@ -1,0 +1,5 @@
+<div class="payment-details">
+            <div class="payment-amount">
+                <span class="label">${Resource.msg('lable.payment.amount', 'order',null)}</span>
+            </div>
+</div>
