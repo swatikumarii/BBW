@@ -341,6 +341,10 @@
     }
 }
 
+.cart-black-1 {
+    color: $clr-black-1;
+}
+
 .cart-empty-msg-wrap {
     border-bottom: 1px solid $clr-black-1;
     margin-bottom: 30px;
@@ -381,6 +385,10 @@
     span {
         text-decoration: underline;
     }
+}
+
+.zero-price-item {
+    opacity: 0.5;
 }
 
 .cart-checkout-btn {

@@ -39,9 +39,9 @@
             <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}</p>
         </div>
         <div class="col-4">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost">
+            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive">
                 ${pdict.totals.shippingTotalExclTax}</p>
-        </div>
+            </div>
     </div>
 <iselse/>
     <div class="row">
@@ -49,7 +49,7 @@
             <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling', 'cart', null)}</p>
         </div>
         <div class="col-4">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost">
+            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive">
                 ${pdict.totals.totalShippingCost}</p>
         </div>
     </div>
