@@ -29,6 +29,15 @@
                             <isinclude template="search/productGrid" />
                         </div>
                     </div>
+                 <iselse/>
+                    <isif condition="${!pdict.productSearch.productIds.length}">
+                        <div class="product-grid-wrapper">
+                            <div class="no-results">
+                                <h3 class="no-items-available">${Resource.msg('label.no.results.found', 'search', null)}</h3>
+                                <p class="no-results-para">${Resource.msg('label.no.results.found.desc', 'search', null)}</p>
+                            </div>
+                        </div>
+                    </isif>
                 </isif>
             </div>
             <!--- Content Grid --->
