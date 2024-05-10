@@ -29,6 +29,8 @@ module.exports = function () {
         if (!updateMiniCart) {
             $('.minicart .popover').addClass('show');
             $('.minicart-overlay').addClass('show');
+            $('.popover').scrollTop(0);
+            $('.mini-cart-content').scrollTop(0);
             $('body').addClass('overflow-hidden');
             return;
         }
