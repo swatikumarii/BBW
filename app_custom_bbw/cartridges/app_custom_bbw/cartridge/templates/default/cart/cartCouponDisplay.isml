@@ -1,6 +1,6 @@
 <isloop items="${pdict.totals.discounts}" var="discount">
     <isif condition="${discount.type === 'coupon'}">
-        <div class="coupon-price-adjustment d-flex justify-content-between coupon-uuid-${discount.UUID}" data-uuid="${discount.UUID}">
+        <div class="coupon-price-adjustment d-flex justify-content-between h-bg--${discount.applied ? 'green-5' : 'red-10'} coupon-uuid-${discount.UUID}" data-uuid="${discount.UUID}">
             <isif condition="${discount.applied}">
             <div class="coupon-code h-font-size--16 h-clr--green-2 h-fw--semibold  h-bg--green-5 py-2 px-4">
                     <isloop items="${discount.relationship}" var="relatedPromotion">
