@@ -326,8 +326,11 @@
 
             .cartTotalsWrap {
                 width: 53%;
-                padding: 15px 25px;
-                background-color: $clr-gray-1;
+
+                .cart-totals-bg {
+                    padding: 15px 25px;
+                    background-color: $clr-gray-1;
+                }
 
                 .hide-order-discount {
                     display: none;
