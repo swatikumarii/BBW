@@ -693,7 +693,7 @@ module.exports = $.extend({}, base, {
                             }
                             handlePostCartAdd(data);
                             $('body').trigger('product:afterAddToCart', data);
-                            if (layout.isDesktop()) {
+                            if (layout.isDesktop() || layout.isTablet()) {
                                 $('.minicart .popover').addClass('show');
                                 $('.minicart-overlay').addClass('show');
                                 $('body').addClass('overflow-hidden');
