@@ -1,0 +1,21 @@
+<isif condition="${slotcontent}">
+    <isif condition="${!empty(slotcontent.content)}">
+        <div class="col-md-12 mt-4 headerDivider p-0">
+            <h2 class="headerText"><span>
+                    <isprint value="${slotcontent.calloutMsg}" encoding="off" /></span></h2>
+        </div>
+    </isif>
+    <div class="container">
+        <isloop items="${slotcontent.content}" var="product" status="loopState">
+            <div class="item">
+                <div class="product" data-pid="${product.ID}">
+                    <isobject object="${product}" view="recommendation">
+                        <isinclude
+                            url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView',
+                                 false, 'wishlist', false)}" />
+                    </isobject>
+                </div>
+            </div>
+        </isloop>
+    </div>
+</isif>
