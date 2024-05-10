@@ -1,3 +1,9 @@
+@charset "UTF-8";
+
+@import "variables";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
 .out-of-stock-modal {
     &.modal {
         position: fixed;
@@ -30,9 +36,10 @@
             right 0.3s ease-out !important;
         transform: translate3d(0%, 0, 0) !important;
 
-        @media (max-width: 575.98px) {
+        @include media-breakpoint-down(sm) {
             max-width: 320px;
             width: auto;
+            padding: 0;
         }
     }
 
@@ -73,6 +80,10 @@
             }
         }
 
+        .invalid-feedback {
+            padding: 0 0 0.3125rem;
+        }
+
         .send-email-btn {
             margin: 0 auto;
             text-align: center;
@@ -85,10 +96,15 @@
                 line-height: 24px;
                 letter-spacing: 2px;
 
-                @media (max-width: 575.98px) {
+                @include media-breakpoint-down(sm) {
                     min-width: auto;
                     width: 100%;
                 }
+            }
+
+            button[disabled="disabled"] {
+                opacity: 0.7;
+                pointer-events: none;
             }
         }
     }
