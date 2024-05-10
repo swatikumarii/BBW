@@ -18,6 +18,29 @@ function validateField(selector, validationFunction) {
  * @param {object} inputField input field on which validation will be tested
  * @returns {boolean} valid or not
  */
+function validateLengthField(inputField) {
+    // Get the dynamic minlength and maxlength values
+    var minLength = parseInt(inputField.attr('minlength'), 10); // Specify radix 10
+    var maxLength = parseInt(inputField.attr('maxlength'), 10); // Specify radix 10
+
+    // Construct the regular expression
+    var regex = new RegExp('^$|^[a-zA-Z0-9\']{' + minLength + ',' + maxLength + '}$');
+    if (inputField.val() && !regex.test(inputField.val())) {
+        inputField.addClass('is-invalid border-danger'); // Add classes for input border error
+        $('#' + inputField.attr('id') + '-error').text(inputField.data('rangeError')); // Display error message
+        return false;
+    }
+    inputField.removeClass('is-invalid border-danger'); // Remove classes if input is valid
+    $('#' + inputField.attr('id') + '-error').empty(); // Clear error message
+    return true;
+}
+
+
+/**
+ * Generic validation function for required fields
+ * @param {object} inputField input field on which validation will be tested
+ * @returns {boolean} valid or not
+ */
 function validateRequiredField(inputField) {
     if (!inputField.val()) {
         inputField.addClass('is-invalid border-danger'); // Add classes for input border error
@@ -76,7 +99,8 @@ $(document).ready(function () {
         utilsScript: utils,
         showFlags: true,
         showSelectedDialCode: true,
-        initialCountry: 'au'
+        initialCountry: 'au',
+        countryOrder: ['au']
     });
 
     // Event delegation for toggling password visibility
@@ -139,7 +163,7 @@ $(document).ready(function () {
         },
         {
             selector: '#registration-form-zip',
-            validationFunction: validateRequiredField
+            validationFunction: validateLengthField
         },
         {
             selector: '#registration-form-nationality',

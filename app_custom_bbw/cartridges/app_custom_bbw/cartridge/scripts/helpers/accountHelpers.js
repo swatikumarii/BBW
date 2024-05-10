@@ -10,9 +10,9 @@ var base = module.superModule;
  */
 function isValidDate(dateString) {
 
-    var day = parseInt(dateString[0], 10);
+    var day = parseInt(dateString[2], 10);
     var month = parseInt(dateString[1], 10);
-    var year = parseInt(dateString[2], 10);
+    var year = parseInt(dateString[0], 10);
 
     if (year < 1000 || year > 3000 || month === 0 || month > 12) {
         return false;
