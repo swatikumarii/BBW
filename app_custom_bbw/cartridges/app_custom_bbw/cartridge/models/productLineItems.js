@@ -80,6 +80,7 @@ function createProductLineItemsObject(allLineItems, view) {
                 id: item.productID,
                 quantity: item.quantity.value,
                 productName: item.productName,
+                titlePartB: 'titlePartB' in item.product.custom ? item.product.custom.titlePartB : '',
                 UUID: item.UUID,
                 noProduct: true,
                 images: {
@@ -152,6 +153,9 @@ function createProductLineItemsObject(allLineItems, view) {
             options: options
         };
         var newLineItem = ProductFactory.get(params);
+        if ('titlePartB' in item.product.custom && item.product.custom.titlePartB) {
+            newLineItem.titlePartB = item.product.custom.titlePartB;
+        }
         newLineItem.bonusProducts = bonusProducts;
         if (enableQCeGift && 'custom' in item && 'isEgiftCard' in item.custom && item.custom.isEgiftCard) {
             newLineItem.giftCardDetails = getEgiftCardDetails(item);
