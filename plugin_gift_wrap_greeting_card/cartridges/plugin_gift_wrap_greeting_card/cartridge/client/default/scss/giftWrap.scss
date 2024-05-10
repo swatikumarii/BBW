@@ -73,9 +73,11 @@
 
     input[type="radio"]:checked + label::before,
     input[type="checkbox"]:checked + label::before {
-        border-color: #000;
+        border-color: black;
         content: "";
-        background: url("../images/check-circle-fill-32.svg") 50% no-repeat;
+        background: url("../images/check-32.svg");
+        background-size: contain;
+        background-color: black;
     }
 
     &.open-giftwrap {
