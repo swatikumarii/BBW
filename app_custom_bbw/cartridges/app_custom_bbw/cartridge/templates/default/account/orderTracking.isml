@@ -24,7 +24,7 @@
                     <h1 class="page-title text-justify h-font-size--24 h-clr--black-3 m-0">
                         ${Resource.msg('label.order.tracking', 'order', null)}</h1>
                         <div class="form-error-div d-none">
-                            <img alt="error alert" width="28px" height="28px" src="${URLUtils.staticURL('/images/Alert-Error.svg')}" />
+                            <img alt="error alert" width="28px" height="28px" class="error-icon" src="${URLUtils.staticURL('/images/Alert-Error.svg')}" />
                             <span class="text-danger error-class error-form h-font-size--14" id="form-error"></span>
                         </div>
                     <div class="tracking-field-para"></div>
