@@ -802,6 +802,29 @@ module.exports = function () {
         }
     });
 
+    $('body').on('click', '.applyTopOffer', function (e) {
+        e.preventDefault();
+        var action = $(this).data('action');
+        var couponCode = $(this).data('coupon');
+        var csrfTokenFieldName = $('.topOfferCsrfToken').attr('name');
+        var csrfTokenValue = $('.topOfferCsrfToken').val();
+        var formData = 'couponCode='+couponCode+'&'+csrfTokenFieldName+'='+csrfTokenValue;
+        $.ajax({
+            url: action,
+            type: 'GET',
+            contentType: false,
+            data: formData,
+            processData: false,
+            success: function (data) {
+                console.log('success');
+                console.log(data);
+            },
+            error: function () {
+                console.log('error');
+            }
+        });
+    });
+
     base.selectAttribute();
     base.colorAttribute();
     base.removeBonusProduct();
