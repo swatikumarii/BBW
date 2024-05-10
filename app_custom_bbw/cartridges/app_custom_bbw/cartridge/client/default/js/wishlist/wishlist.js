@@ -2,6 +2,21 @@
 
 var wishlist = require('wishlist/wishlist/wishlist');
 
+$(document).ready(function () {
+    if (localStorage.getItem('addToWishListPid') && localStorage.getItem('addToWishListURL')){
+        $.ajax({
+            url: localStorage.getItem('addToWishListURL'),
+            type: 'post',
+            dataType: 'json',
+            data: {
+                pid: localStorage.getItem('addToWishListPid')
+            },
+        });
+        localStorage.removeItem('addToWishListPid');
+        localStorage.removeItem('addToWishListURL');
+    }
+});
+
 /**
  * @param {object} $elementAppendTo - The element to append error html to
  * @param {string} msg - The error message
@@ -101,6 +116,8 @@ module.exports = $.extend({}, wishlist, {
                     if(data.loginShow === true){
                         $('#quickViewModal').modal('hide');
                         $('.loginPopup').find('#loginModal').modal('show');
+                        localStorage.setItem('addToWishListPid', pid);
+                        localStorage.setItem('addToWishListURL', url);
                     } else {
                         $('.loginPopup').find('#exampleModalLong').modal('hide');
                         $('#add-to-wish-list').click(function () {
@@ -124,6 +141,7 @@ module.exports = $.extend({}, wishlist, {
             e.preventDefault();
             var url = $(this).data('url');
             var elMyAccount = $('.account-wishlist-item').length;
+            var isReloadRequired = $('.is-reload-required-while-remove').val();
 
             // If user is in my account page, call removeWishlistAccount() end point, re-render wishlist cards
             if (elMyAccount > 0) {
@@ -156,12 +174,16 @@ module.exports = $.extend({}, wishlist, {
                     dataType: 'json',
                     data: {},
                     success: function () {
-                        var pageNumber =
-                            $('.wishlistItemCardsData').data('page-number') - 1;
-                        renderNewPageOfItems(pageNumber, false);
-                        $('.remove-from-wishlist').addClass('d-none');
-                        $('.add-to-wish-list').removeClass('d-none');
-                        $('.remove-from-wishlist').removeClass('d-block');
+                        if (isReloadRequired) {
+                            window.location.reload();
+                        } else {
+                            var pageNumber =
+                                $('.wishlistItemCardsData').data('page-number') - 1;
+                            renderNewPageOfItems(pageNumber, false);
+                            $('.remove-from-wishlist').addClass('d-none');
+                            $('.add-to-wish-list').removeClass('d-none');
+                            $('.remove-from-wishlist').removeClass('d-block');
+                        }
                     },
                     error: function () {
                         var $elToAppendWL = $('.wishlistItemCards');

@@ -1,46 +1,46 @@
 <?xml version="1.0"?>
 <form xmlns="http://www.demandware.com/xml/form/2008-04-19">
 
-       <field 
-              formid="addressId" 
-              label="label.input.addressid" 
-              type="string" 
+       <field
+              formid="addressId"
+              label="label.input.addressid"
+              type="string"
               mandatory="true"
-              max-length="20" 
-              missing-error="error.adddress.title" 
+              max-length="20"
+              missing-error="error.adddress.title"
               range-error="error.message.20orless"
        />
 
-       <field formid="firstName" 
-              label="label.input.firstname.profile" 
-              type="string" 
-              mandatory="true" 
-              binding="firstName" 
+       <field formid="firstName"
+              label="label.input.firstname.profile"
+              type="string"
+              mandatory="true"
+              binding="firstName"
               min-length="2"
-              max-length="50" 
+              max-length="50"
               regexp="^[a-zA-Z0-9'\-]+$"
-              missing-error="error.first.name" 
-              parse-error="error.message.parse.fname" 
+              missing-error="error.first.name"
+              parse-error="error.message.parse.fname"
               range-error="error.message.50orless.fname"/>
 
        <field formid="lastName"
-              label="label.input.lastname.profile" 
-              type="string" 
-              mandatory="true" 
-              binding="lastName" 
+              label="label.input.lastname.profile"
+              type="string"
+              mandatory="true"
+              binding="lastName"
                min-length="2"
               max-length="50"
               regexp="^[a-zA-Z0-9'\-]+$"
               missing-error="error.last.name"
-              parse-error="error.message.parse.lname" 
+              parse-error="error.message.parse.lname"
               range-error="error.message.50orless.lname"/>
 
-       <field formid="address1" 
-              label="label.input.address1" 
-              type="string" mandatory="true" 
-              binding="address1" 
+       <field formid="address1"
+              label="label.input.address1"
+              type="string" mandatory="true"
+              binding="address1"
               max-length="50"
-              missing-error="address.address1.missing" 
+              missing-error="address.address1.missing"
               range-error="error.message.50orless"/>
 
     <field formid="address2" label="label.input.address2" type="string" mandatory="false" binding="address2"
@@ -50,7 +50,7 @@
            max-length="50" missing-error="address.city.missing" range-error="error.message.between2and50"/>
 
     <!--  postal code -->
-       <field formid="postalCode" label="label.input.zipcode" type="string" mandatory="true" min-length="4" max-length="10"
+       <field formid="postalCode" label="label.input.zipcode" type="string" mandatory="true" min-length="4" max-length="4"
        regexp="^[0-9]*$"
        binding="postalCode"
        range-error="error.message.between5and10"

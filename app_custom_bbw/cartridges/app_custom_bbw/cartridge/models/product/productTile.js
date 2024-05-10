@@ -29,6 +29,7 @@ module.exports = function productTile(product, apiProduct, productType) {
     var options = productHelper.getConfig(apiProduct, params);
     decorators.promotions(product, options.promotions);
     decorators.notifyMe(product, apiProduct);
+    decorators.isEgiftCard(product, apiProduct);
     decorators.badge(product, apiProduct);
     decorators.availability(
         product,

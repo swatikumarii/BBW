@@ -46,7 +46,7 @@
                 eligible="${pdict.apEligible}" mpid="${pdict.apMpid}" approductids="${pdict.apProductIDs}" />
         </isif>
 
-        <isif condition="${pdict.display.ratings !== false}">
+        <isif condition="${pdict.display.ratings !== false && !product.isEgiftCard}">
             <isinclude template="product/productTileFooter" />
         </isif>
     </div>

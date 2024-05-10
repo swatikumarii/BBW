@@ -64,7 +64,7 @@
                         <div class="text-center">
                             <a href="#" class="btn btn-primary show-more-btn m-font-base--normal">
                             <button type="button"
-                                class="bg-white border-0 h-font-size--16 text-uppercase h-fw--semibold text-center show-button m-font-base--normal">${Resource.msg('button.show.more', 'common', null)}
+                                class="bg-white border-0 h-font-size--16 text-uppercase h-fw--semibold text-center show-button m-font-base--normal h-clr--black-3">${Resource.msg('button.show.more', 'common', null)}
                             </button>
                             </a>
                         </div>

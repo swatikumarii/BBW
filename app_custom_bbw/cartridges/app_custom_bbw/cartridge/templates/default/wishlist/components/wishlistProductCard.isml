@@ -1,5 +1,6 @@
 <div class="card border-0 product-info uuid-${item.UUID} pid-${item.pid}">
     <!--- image, attributes, availability --->
+    <input class="quantity" value="1" type="hidden"/>
     <table class="table">
         <tr>
             <td class="item-image">
