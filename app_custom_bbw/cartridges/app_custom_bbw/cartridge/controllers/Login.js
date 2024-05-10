@@ -38,6 +38,9 @@ server.get(
             {
                 htmlValue: Resource.msg('global.home', 'common', null),
                 url: URLUtils.home().toString()
+            },
+            {
+                htmlValue: Resource.msg('label.signin.name', 'login', null)
             }
         ];
         var Site = require('dw/system/Site');
