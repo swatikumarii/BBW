@@ -17,6 +17,7 @@ module.exports = function productLineItem(product, apiProduct, options) {
     productDecorators.volume(product, apiProduct);
     productDecorators.fragrance(product, apiProduct);
     productLineItemDecorators.isFreeItem(product, options.lineItem);
+    productLineItemDecorators.dangerousGoods(product, apiProduct);
     productDecorators.promotions(product, options.promotions);
     productLineItemDecorators.promoPrice(product, options.lineItem);
     productDecorators.maxOrderQty(product, apiProduct);

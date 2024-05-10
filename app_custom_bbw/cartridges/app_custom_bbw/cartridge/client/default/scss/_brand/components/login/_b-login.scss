@@ -44,6 +44,10 @@
             margin-bottom: 16px;
         }
 
+        .form-group {
+            margin-bottom: 25px;
+        }
+
         .form-label {
             line-height: 1.25rem;
             letter-spacing: 0.015em;
@@ -53,6 +57,11 @@
                 float: left;
                 color: colour(red, 9);
             }
+        }
+
+        .invalid-feedback {
+            margin-bottom: -17px;
+            margin-top: 5px;
         }
 
         .forgot-password {
@@ -194,6 +203,20 @@
     .register-form {
         margin: 0.625rem 0 1.875rem;
 
+        &.banner-img {
+            position: relative;
+            right: 0;
+
+            @include media-up(sm) {
+                position: relative;
+                right: 64%;
+            }
+
+            @include media-btw(sm, lg) {
+                right: 59%;
+            }
+        }
+
         img {
             width: 100%;
 
@@ -258,7 +281,7 @@
         min-height: 35px;
         letter-spacing: 0.12em;
 
-        &:focus {
+        &:active {
             background-color: colour(white);
             color: colour(black, 3);
         }
@@ -301,14 +324,27 @@
                     line-height: 1.125rem;
                 }
 
-                p {
-                    margin: 0 0 17px;
-                    line-height: 1.5rem;
+                .signup-overview-msg {
+                    p {
+                        margin: 0 0 17px;
+                        line-height: 1.5rem;
+                        width: 71%;
+
+                        @include media-up(sm) {
+                            width: 100%;
+                            margin: 0 0 17px;
+                            line-height: 1.5rem;
+                        }
+
+                        @include media-btw(sm, lg) {
+                            width: 100%;
+                        }
+                    }
                 }
 
                 .login-box {
                     padding-top: 24px;
-                    max-width: 320px;
+                    max-width: 360px;
                     margin: auto;
 
                     @include media-up(sm) {
@@ -330,7 +366,7 @@
                     max-height: 35px;
                     min-height: 35px;
                     letter-spacing: 0.12em;
-                    max-width: 392px;
+                    max-width: 360px;
 
                     @include media-up(sm) {
                         transition: all 0.3s ease;
@@ -366,7 +402,7 @@
                     padding: 0 1.25em;
                     max-height: 35px;
                     min-height: 35px;
-                    max-width: 320px;
+                    max-width: 360px;
 
                     @include media-up(sm) {
                         transition: all 0.3s ease;
@@ -402,13 +438,21 @@
 
                 .signup-img {
                     margin-bottom: 20px;
+
+                    img {
+                        max-width: 360px;
+
+                        @include media-up(sm) {
+                            max-width: 408px;
+                        }
+                    }
                 }
             }
         }
 
         .login-form-input {
             height: 3rem;
-            width: 320px;
+            width: 360px;
 
             @include media-up(sm) {
                 width: 290px;
@@ -589,6 +633,7 @@
 .login-modal-body {
     overflow-y: auto;
     max-height: calc(114vh - 84px);
+    padding: 4px 16px 16px 16px;
 }
 
 .login-modal-fade {
