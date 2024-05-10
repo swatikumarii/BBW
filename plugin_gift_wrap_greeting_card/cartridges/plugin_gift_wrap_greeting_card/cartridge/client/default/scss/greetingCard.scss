@@ -64,9 +64,9 @@
 
     input[type="radio"]:checked + label::before,
     input[type="checkbox"]:checked + label::before {
-        background-color: #005699;
-        border-color: #005699;
+        border-color: #000;
         content: "";
+        background: url("../images/check-circle-fill-32.svg") 50% no-repeat;
     }
 
     &.open-greeting-card {
@@ -116,9 +116,10 @@
 
                         input[type="radio"]:checked + label::before,
                         input[type="checkbox"]:checked + label::before {
-                            background-color: #005699;
-                            border-color: #005699;
+                            border-color: #000;
                             content: "";
+                            background: url("../images/check-circle-fill-32.svg")
+                                50% no-repeat;
                         }
 
                         .greeting-card-product-options-radio {
@@ -195,13 +196,10 @@
                 margin-top: 25px;
 
                 .lines-wrap {
-                    left: 30px;
-                    right: 30px;
                     overflow: hidden;
                     pointer-events: none;
                     position: absolute;
-                    top: 50px;
-                    bottom: 32px;
+                    inset: 50px 30px 32px;
 
                     .line {
                         background-color: #d8d8d8;

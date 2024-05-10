@@ -75,7 +75,7 @@
     input[type="checkbox"]:checked + label::before {
         border-color: #000;
         content: "";
-        background: url("../images/check-circle-fill-32.svg") 0 0 no-repeat;
+        background: url("../images/check-circle-fill-32.svg") 50% no-repeat;
     }
 
     &.open-giftwrap {
@@ -83,7 +83,7 @@
     }
 
     .giftwrap-block-options {
-        padding: 0px 12px;
+        padding: 0 12px;
         width: 100%;
 
         .giftwrap-block-radio-wrapper {
@@ -129,11 +129,9 @@
                     border: 1px solid #d8d8d8;
                     color: #fff;
                     content: "";
-                    font-family: "iconfont";
                     font-size: 8px;
                     height: 24px;
                     left: 0;
-                    letter-spacing: -1px;
                     line-height: 26px;
                     position: absolute;
                     text-align: center;
@@ -146,7 +144,7 @@
                     display: block;
                     font-size: 14px;
                     line-height: 24px;
-                    padding: 0px 0 0 36px;
+                    padding: 0 0 0 36px;
                     position: relative;
                     color: #1a1a1a;
                 }
@@ -155,22 +153,21 @@
                 input[type="checkbox"]:checked + label::before {
                     border-color: #000;
                     content: "";
-                    background: url("../images/check-circle-fill-32.svg") 0 0 no-repeat;
+                    background: url("../images/check-circle-fill-32.svg") 50%
+                        no-repeat;
                 }
             }
 
-            .giftWrapProductOptions {
+            .gift-wrap-product-options {
                 grid-column-gap: 18px;
                 display: grid;
-                margin: 20px 0px;
+                margin: 20px 0;
                 padding-top: 6px;
                 grid-template-columns: 48% 48%;
-                grid-column-gap: 10px;
-                
+
                 @include media-breakpoint-up(sm) {
                     grid-row-gap: 20px;
                     grid-template-columns: 23% 23% 23% 23%;
-
                 }
 
                 .imgGiftWrap {
@@ -187,16 +184,15 @@
 
                     .giftWrapProductOptionsRadio {
                         position: absolute;
-                        bottom: -9px;
                         width: auto;
                         left: 0;
                         right: 0;
                         display: block;
+                        z-index: -1;
                     }
 
                     .giftWrapProductLabel {
                         background-color: transparent;
-                        border-color: transparent;
                         border: 0;
                         display: block;
                         font-size: 14px;
@@ -209,7 +205,7 @@
                         margin-left: -12px;
                         position: absolute;
                         transition: 0.4s cubic-bezier(0.05, 0.5, 0.3, 1);
-                        bottom: 0px;
+                        bottom: 0;
                         height: 100%;
                         width: 100%;
 
@@ -239,7 +235,7 @@
         padding: 0;
         height: 100%;
     }
-    
+
     .giftwrap-flyout {
         .generic-flyout-content {
             position: relative;
@@ -251,11 +247,10 @@
 
             .giftwrap-container {
                 text-align: left;
-                padding:15px 30px 30px 40px;
+                padding: 15px 30px 30px 40px;
                 background-color: #fff;
                 height: 100%;
-                overflow-x: hidden;
-                overflow-y: auto;
+                overflow: hidden auto;
                 width: 100%;
 
                 @include media-breakpoint-up(sm) {
@@ -280,7 +275,7 @@
                     }
 
                     .inline-alert {
-                        border: 1px solid #B4B4B4;
+                        border: 1px solid #b4b4b4;
                         color: #000;
                         font-size: 14px;
                         letter-spacing: 0.4px;
@@ -290,7 +285,6 @@
                         background-color: transparent;
                         border-radius: 0;
                         text-align: center;
-                        width: 100%;
 
                         &.notify {
                             display: block;
@@ -361,8 +355,8 @@
                             z-index: 85;
                             border: 0;
                             cursor: unset;
-                                position: absolute;
-                                    appearance: none;
+                            position: absolute;
+                            appearance: none;
                         }
                     }
 
@@ -396,7 +390,6 @@
                         display: flex;
                         min-height: 34px;
                         align-items: flex-start;
-                        -ms-flex-direction: column;
                         flex-direction: column;
                         margin-left: 72px;
                         margin-right: 36px;
@@ -427,14 +420,14 @@
 
                 .giftwrap-bottom-controls {
                     margin: 0;
-                    padding: 0 0 40px 0;
+                    padding: 0 0 40px;
                     display: flex;
                     justify-content: space-between;
 
                     .js-giftwrap-individual-cancel {
                         background-color: transparent;
-                        border: 1px solid #B4B4B4;
-                        color: #1A1919;
+                        border: 1px solid #b4b4b4;
+                        color: #1a1919;
                     }
 
                     .btn {
@@ -451,19 +444,16 @@
 
 .gift-wrap-modal {
     position: fixed;
-    top: 0;
-    left: auto;
     display: inline-block;
     overflow-y: auto;
-    bottom: 0;
-    box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.14);
+    box-shadow: 0 0 25px -5px rgba(0, 0, 0, 14%);
     background-color: #fff;
     width: 100%;
-    right: -100%;
     color: #000;
-    transition: right .5s ease-in-out;
+    transition: right 0.5s ease-in-out;
     max-width: 340px;
-    
+    inset: 0 -100% 0 auto;
+
     @include media-breakpoint-up(sm) {
         max-width: 504px;
     }
@@ -477,7 +467,7 @@
         padding: 2rem 0 0;
 
         @include media-breakpoint-up(sm) {
-        margin: 0 0 0 40px;
+            margin: 0 0 0 40px;
         }
     }
 }
@@ -493,13 +483,13 @@
     }
 }
 
-input[type=radio] + label::before, input[type=checkbox] + label::before {
+input[type="radio"] + label::before,
+input[type="checkbox"] + label::before {
     background-color: #fff;
     border-radius: 50%;
-    border: 1px solid #D8D8D8;
+    border: 1px solid #d8d8d8;
     color: #fff;
     content: "";
-    font-family: "iconfont";
     font-size: 8px;
     height: 24px;
     left: 0;

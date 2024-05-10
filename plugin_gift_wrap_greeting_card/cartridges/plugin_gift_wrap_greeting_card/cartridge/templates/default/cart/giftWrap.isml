@@ -22,14 +22,15 @@
             </div>
             <div class="giftwrap-block-options js-giftwrap-options">
                 <div class="giftwrap-block-radio-wrapper">
-                    <isif
-                        condition="${pdict.wrapItemMethod == constants.WRAP_TOGETHER_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == constants.WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}">
+                    <isif condition="${pdict.wrapItemMethod == constants.WRAP_TOGETHER_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == constants
+                                     .WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}">
                         <div id="giftwrap-block-radio" class="giftwrap-block-radio gift-wrap-toggle">
                             <isif condition="${pdict.isDisableTogetherOption}">
-                                <input type="radio" name="giftwrap-type" id="${constants.WRAP_TOGETHER_ID}" value="${constants.WRAP_TOGETHER_VALUE}"
-                                    disabled />
+                                <input type="radio" name="giftwrap-type" id="${constants.WRAP_TOGETHER_ID}"
+                                    value="${constants.WRAP_TOGETHER_VALUE}" disabled />
                             <iselse/>
-                                <input type="radio" name="giftwrap-type" id="${constants.WRAP_TOGETHER_ID}" value="${constants.WRAP_TOGETHER_VALUE}" />
+                                <input type="radio" name="giftwrap-type" id="${constants.WRAP_TOGETHER_ID}"
+                                    value="${constants.WRAP_TOGETHER_VALUE}" />
                             </isif>
 
                             <label for="${constants.WRAP_TOGETHER_ID}">
@@ -40,16 +41,18 @@
                         </div>
                     </isif>
 
-                    <isif
-                        condition="${pdict.wrapItemMethod == constants.WRAP_INDIVIDUAL_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == constants.WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}">
+                    <isif condition="${pdict.wrapItemMethod == constants.WRAP_INDIVIDUAL_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == constants
+                                     .WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}">
                         <div class="giftwrap-block-radio greeting-card-toggle" data-error-message="">
                             <isif condition="${pdict.isDisableIndividualOption}">
-                                <input type="radio" name="giftwrap-type" id="${constants.WRAP_INDIVIDUAL_ID}" value="${constants.WRAP_INDIVIDUAL_VALUE}"
-                                    disabled />
+                                <input type="radio" name="giftwrap-type" id="${constants.WRAP_INDIVIDUAL_ID}"
+                                    value="${constants.WRAP_INDIVIDUAL_VALUE}" disabled />
                             <iselse/>
-                                <input type="radio" name="giftwrap-type" id="${constants.WRAP_INDIVIDUAL_ID}" value="${constants.WRAP_INDIVIDUAL_VALUE}" />
+                                <input type="radio" name="giftwrap-type" id="${constants.WRAP_INDIVIDUAL_ID}"
+                                    value="${constants.WRAP_INDIVIDUAL_VALUE}" />
                             </isif>
-                            <label class="wrapIndividuallyLabel" data-toggle="modal" data-target="#gift-wrap-modal" for="${constants.WRAP_INDIVIDUAL_ID}">
+                            <label class="wrapIndividuallyLabel" data-toggle="modal" data-target="#gift-wrap-modal"
+                                for="${constants.WRAP_INDIVIDUAL_ID}">
                                 <span>${Resource.msg('wrap.items.individually', 'giftWrap', null)}</span>
                                 <span class="gift-wrap-price disabled">(
                                     <span class="selected-giftwrap-product-price"></span>
@@ -57,14 +60,15 @@
                             </label>
                         </div>
                     </isif>
-                    <div class="giftWrapProductOptions">
+                    <div class="giftWrapProductOptions gift-wrap-product-options">
                         <isloop items="${pdict.giftWrapProducts}" var="giftWrapProduct" status="loopstate">
                             <div class="imgGiftWrap">
                                 <img src="${giftWrapProduct.images.large[0].url}"
                                     alt="${giftWrapProduct.productName}" />
                                 <input class="giftWrapProductOptionsRadio" name="gift-wrap-product"
                                     id="giftWrapProductOptionsRadio-${loopstate.count}" type="radio"
-                                    value="${giftWrapProduct.id}" data-price="${giftWrapProduct.price.sales.formatted}"/>
+                                    value="${giftWrapProduct.id}"
+                                    data-price="${giftWrapProduct.price.sales.formatted}" />
                                 <label class="giftWrapProductLabel"
                                     for="giftWrapProductOptionsRadio-${loopstate.count}"></label>
                             </div>
@@ -84,47 +88,29 @@
 
 
 
-                        <div class="modal fade  gift-wrap-modal" id="gift-wrap-modal" tabindex="-1" role="dialog" aria-labelledby="gift-wrap-modal"
-                            aria-hidden="true">
-                            <div class="modal-dialog m-0" role="document">
-                                <div class="modal-content border-0">
-                                    <div class="modal-header border-0 p-0">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">
-                                                <img alt="image" src="${URLUtils.staticURL('/images/close-icon.svg')}" />
-                                            </span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body p-0">
-                                    <iscomment> <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button> </iscomment>
-                                        <div class="giftWrapIndividualProductParent">
-                                            <isinclude template="cart/giftWrapIndividualProduct" />
-                                        </div>
-                                    </div>
+                    <div class="modal fade  gift-wrap-modal" id="gift-wrap-modal" tabindex="-1" role="dialog"
+                        aria-labelledby="gift-wrap-modal" aria-hidden="true">
+                        <div class="modal-dialog m-0" role="document">
+                            <div class="modal-content border-0">
+                                <div class="modal-header border-0 p-0">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">
+                                            <img alt="image" src="${URLUtils.staticURL('/images/close-icon.svg')}" />
+                                        </span>
+                                    </button>
                                 </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <iscomment> <div class="modal fade gift-wrap-modal" tabindex="-1" role="dialog" aria-labelledby="gift-wrap-modal" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <div class="modal-body p-0">
+                                    <iscomment> <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
+                                        </button> </iscomment>
                                     <div class="giftWrapIndividualProductParent">
                                         <isinclude template="cart/giftWrapIndividualProduct" />
                                     </div>
                                 </div>
                             </div>
-                        </div> </iscomment>
-
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
