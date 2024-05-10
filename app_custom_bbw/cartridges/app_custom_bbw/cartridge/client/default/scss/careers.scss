@@ -1,11 +1,10 @@
 @import "../scss/_brand/_api/api";
 
 .career-section {
-    padding-bottom: 90px;
-
     @include media-up(sm) {
         margin: 0 auto;
         padding: 30px;
+        padding-bottom: 0;
     }
 
     .entry-title {
@@ -34,17 +33,6 @@
     }
 
     .accordion-container {
-        .collapsible .icon {
-            &::after {
-                content: "+";
-                font-weight: bold;
-                font-size: 20px;
-                color: colour(black, 6);
-                display: block;
-                width: 21px;
-            }
-        }
-
         .collapsible {
             margin: 0 0 1px;
             padding-top: 0;
@@ -54,66 +42,53 @@
         .panel-group {
             .panel {
                 .panel-heading {
-                    background: colour(black, 6);
-
                     &.collapsed {
                         background-color: colour(gray, 1);
                         transition: 0.2s linear all;
 
                         h3 {
-                            color: colour(black, 6);
-                            position: relative;
-
                             &::before {
-                                content: "\f078";
-                                color: colour(black, 6);
+                                transition: all 0.5s ease-out;
+                                transform: rotate(0deg);
+                                background: url("../images/UI-Carat.svg") 50%;
+                                background-repeat: no-repeat;
+                                content: "";
+                                position: absolute;
+                                width: 2.5rem;
+                                height: 1.375rem;
+                                right: 1%;
+                                background-size: 1.25rem;
                             }
 
                             .headeing_main_c {
                                 color: colour(black, 6);
                                 border-bottom: none;
                                 text-decoration: none;
+                                letter-spacing: 2.4px;
                                 cursor: pointer;
-                            }
-                        }
-
-                        &:hover {
-                            background: colour(black, 6);
-
-                            h3 {
-                                color: colour(white);
-
-                                &::before {
-                                    color: colour(white);
-                                }
-
-                                span {
-                                    color: colour(white);
-                                }
                             }
                         }
                     }
 
                     h3 {
-                        line-height: 28px;
-                        padding-left: 1em;
                         cursor: pointer;
-                        position: relative;
-                        color: colour(white);
-                        padding: 0.5em 1em;
                         font-size: 17px;
+                        line-height: 28px;
+                        padding: 0.5em 1em;
+                        margin-bottom: 10px;
+                        position: relative;
 
                         &::before {
+                            transition: all 0.5s ease-out;
+                            transform: rotate(180deg);
+                            background: url("../images/UI-Carat.svg") 50%;
+                            background-repeat: no-repeat;
+                            content: "";
                             position: absolute;
-                            right: 10px;
-                            font-family: FontAwesome;
-                            font-size: 15px;
-                            content: "\f077";
-                            color: colour(white);
-                        }
-
-                        span {
-                            color: colour(white);
+                            width: 2.5rem;
+                            height: 1.375rem;
+                            right: 1%;
+                            background-size: 1.25rem;
                         }
                     }
                 }
@@ -121,7 +96,7 @@
         }
 
         .menu_list {
-            padding: 22px;
+            padding: 18px 4px 18px 28px;
 
             ul {
                 li {
@@ -165,13 +140,6 @@
                         padding: 0 12px 0 0;
                         position: relative;
                         margin: 0;
-
-                        &::before {
-                            font-family: FontAwesome;
-                            content: "\f105";
-                            margin: 0 12px 0 0;
-                            color: colour(black, 6);
-                        }
                     }
                 }
             }
@@ -194,9 +162,13 @@
         }
     }
 
-    .job-description {
+    .job-content {
         line-height: 28px;
         letter-spacing: 1px;
+    }
+
+    .email-header {
+        margin: 20px 20px 20px 0;
     }
 
     .application {
@@ -264,6 +236,14 @@
                     margin-top: 8px;
                     padding: 12px 21px;
                     line-height: initial;
+
+                    &.is-invalid {
+                        border-color: colour(red);
+                    }
+                }
+
+                .self-textarea {
+                    border-radius: 0;
                 }
             }
 
@@ -272,8 +252,12 @@
                 border: none;
                 color: colour(white);
                 display: inline-block;
-                padding: 11px 24px 10px;
+                padding: 10px 24px;
                 text-decoration: none;
+
+                &:focus {
+                    border-radius: 5px;
+                }
             }
 
             .thankyou-msg {

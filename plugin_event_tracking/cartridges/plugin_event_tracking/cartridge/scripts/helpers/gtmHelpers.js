@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 'use strict';
 
 var gtmEvents = require('*/cartridge/config/gtmEvents');
@@ -325,20 +327,21 @@ function addToWishlist(res) {
     var pid = res.pid;
     var productData = ProductMgr.getProduct(pid);
     var ecommerce = {
+        event: gtmEvents.ADD_TO_WISHLIST,
+        currency: productData.priceModel.price.currencyCode,
+        value: productData.priceModel.price.value,
 
-        'event': 'add_to_wishlist',
-        'currency': productData.priceModel.price.currencyCode,
-        'value': productData.priceModel.price.value,
-
-        'items': {
-
-            'item_id': pid,
-            'item_name': productData.name,
-            'item_brand': productData.brand ? productData.brand:'',
-            'item-category': productData.allCategories[0].displayName ? productData.allCategories[0].displayName:'',
-            'item_categoryID': productData.allCategories[0].parent.ID ? productData.allCategories[0].parent.ID:'',
-            'price': productData.priceModel.price.value,
-
+        items: {
+            item_id: pid,
+            item_name: productData.name,
+            item_brand: productData.brand ? productData.brand : '',
+            'item-category': productData.allCategories[0].displayName
+                ? productData.allCategories[0].displayName
+                : '',
+            item_categoryID: productData.allCategories[0].parent.ID
+                ? productData.allCategories[0].parent.ID
+                : '',
+            price: productData.priceModel.price.value
         }
     };
 
@@ -577,37 +580,49 @@ function getConfirmationData(res) {
  * @returns {object} Object containing gtm data corresponding to the controller.
  */
 function getDataLayer(res) {
-    switch (res.action) {
-        case 'Home-Show':
-        case 'Default-Start':
-            return getHomeData();
-        case 'Account-Show':
-            return logIn(res);
-        case 'Product-Show':
-            return getPdpData(res);
-        case 'Search-Show':
-            return getSearchImpressionData(res);
-        case 'Cart-Show':
-            return viewCart(res);
-        case 'Cart-AddProduct':
-            return addToCart(res);
-        case 'Cart-RemoveProductLineItem':
-            return removeFromCart(res);
-        case 'Wishlist-AddProduct':
-            return addToWishlist(res);
-        case 'Checkout-Login':
-            return getCheckoutData(2);
-        case 'Checkout-Begin':
-            return getCheckoutData(res);
-        case 'CheckoutShippingServices-SubmitShipping':
-            return addShipping(res);
-        case 'CheckoutServices-SubmitPayment':
-            return addPayment(res);
-        case 'Order-Confirm':
-            return getConfirmationData(res);
-        default:
-            return false;
-    };
+    try {
+        switch (res.action) {
+            case 'Home-Show':
+            case 'Default-Start':
+                return getHomeData();
+            case 'Account-Show':
+                return logIn(res);
+            case 'Product-Show':
+                return getPdpData(res);
+            case 'Search-Show':
+                return getSearchImpressionData(res);
+            case 'Cart-Show':
+                return viewCart(res);
+            case 'Cart-AddProduct':
+                if (!res.error) {
+                    return addToCart(res);
+                }
+                break;
+            case 'Cart-RemoveProductLineItem':
+                return removeFromCart(res);
+            case 'Wishlist-AddProduct':
+                return addToWishlist(res);
+            case 'Checkout-Login':
+                return getCheckoutData(2);
+            case 'Checkout-Begin':
+                return getCheckoutData(res);
+            case 'CheckoutShippingServices-SubmitShipping':
+                return addShipping(res);
+            case 'CheckoutServices-SubmitPayment':
+                return addPayment(res);
+            case 'Order-Confirm':
+                return getConfirmationData(res);
+            default:
+                return false;
+        }
+    } catch (error) {
+        Logger.getLogger('GA_GTM', 'GA_GTM').error(
+            'Error when triggering GTM event' + error
+        );
+        return {};
+    }
+    return {};
+
 }
 
 module.exports = {

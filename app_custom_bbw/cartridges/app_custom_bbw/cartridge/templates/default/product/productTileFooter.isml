@@ -17,11 +17,11 @@
     <iselse/>
         <button class="add-to-cart btn" data-toggle="modal" data-target="#chooseBonusProductModal" data-pid="${product.id}"
             ${!product.available ? "disabled" : ""}>
-            ${Resource.msg('button.addtocart', 'common', null)}
+            ${Resource.msg('button.addToBag', 'common', null)}
         </button>
         <span class="add-to-cart-error text-danger"></span>
     </isif>
-    <div class="ratings b-product-tile__ratings col-xs-12 col-sm-6 b-text-a h-clr--blue text-decoration-none h-bdc--blue">
+    <div class="ratings b-product-tile__ratings col-12 b-text-a h-clr--blue text-decoration-none h-bdc--blue">
         <span class="sr-only">${Resource.msgf('label.product.ratings', 'common', null, product.rating)}</span>
         <isinclude template="product/components/ratings" />
     </div>

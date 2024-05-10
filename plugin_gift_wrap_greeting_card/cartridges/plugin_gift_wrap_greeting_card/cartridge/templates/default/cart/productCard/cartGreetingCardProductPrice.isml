@@ -1,24 +1,24 @@
-<div class="col-lg-7 product-card-footer">
+<div class="col-md-5 col-3 product-card-footer">
     <isif condition="${!lineItem.isBonusProductLineItem}">
         <div class="row">
 
             <!--- line item total price --->
-            <div class="col-4 line-item-total-price">
-                <p class="line-item-price-info">
+            <div class="col-12 line-item-total-price">
+                <iscomment> <p class="line-item-price-info">
                     ${Resource.msg('label.total.price', 'cart', null)}
-                </p>
+                </p> </iscomment>
                 <div class="item-total-${lineItem.UUID} price">
                     <isinclude template="checkout/productCard/productCardProductTotalPrice" />
                 </div>
             </div>
 
             <!--- extra slot for spacing reasons due to large remove button --->
-            <div class="col-lg-1 hidden-md-down remove-line-item-lg"></div>
+            <iscomment> <div class="col-lg-1 hidden-md-down remove-line-item-lg"></div> </iscomment>
         </div>
 
         <!--- promotions --->
-        <div class="line-item-promo item-${lineItem.UUID}">
+        <iscomment> <div class="line-item-promo item-${lineItem.UUID}">
             <isinclude template="checkout/productCard/productCardProductPromotions" />
-        </div>
+        </div> </iscomment>
     </isif>
 </div>

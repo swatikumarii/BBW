@@ -13,7 +13,7 @@
             <div class="fragrance-topbanner text-center">
                 <iscontentasset aid="fragrance-finder" />
             </div>
-            <div class="fragrance-list fr-category col-md-12 text-center">
+            <div class="fragrance-list fr-category col-md-10 text-center">
                 <h2 class="subtitle h-font-size--18 m-0 position-absolute text-uppercase bg-white h-fw--bold">
                     ${Resource.msg('shop.by.fragrance.categories.title', 'fragrance', null)}</h2>
                 <p class="note h-font-size--16 text-center  h-clr--gray">
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                     <div class="row no-gutter mt-4">
-                        <div class="col-md-11 fragrance-list-data">
+                        <div class="col-md-12 col-xl-12 fragrance-list-data">
                             <isloop iterator="${pdict.fragranceNames}" alias="fragranceGroup" status="loopstate">
                                 <div id="${fragranceGroup.key}"
                                     class="alphabet-group-${fragranceGroup.key} alphabetically-data">

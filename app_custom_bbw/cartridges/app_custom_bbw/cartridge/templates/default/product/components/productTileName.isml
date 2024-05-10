@@ -1,6 +1,6 @@
 <div class="pdp-link">
-    <p class="b-product-tile__badge h-clr--blue h-fw--semibold js-product-tile-badge">New Fragrance</p>
-    <a class="b-product-tile__link d-block" href="${pdict.urls.product}">
+    <p class="b-product-tile__badge h-clr--blue h-fw--semibold js-product-tile-badge ${product.isEgiftCard ? 'd-none': ''}">New Fragrance</p>
+    <a class="b-product-tile__link d-block" href="${product.isEgiftCard ? URLUtils.url('Giftcard-Show', 'pid', product.id).relative().toString() : pdict.urls.product}">
         <h3 class="b-product-tile__name b-text-h2 h-clr-black-1 h-fw--semibold h-mb--5 js-product-tile-name">${product.productName}</h3>
         <isif condition="${pdict.product.titlePartB}">
             <p class="product-type b-product-tile__product-type b-text-h2 h-clr-black-1">

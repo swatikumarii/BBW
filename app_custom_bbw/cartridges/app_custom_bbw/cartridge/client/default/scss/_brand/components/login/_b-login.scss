@@ -40,6 +40,8 @@
         .login-para {
             line-height: 1.5rem;
             letter-spacing: 0.01em;
+            margin-top: 16px;
+            margin-bottom: 16px;
         }
 
         .form-label {
@@ -48,6 +50,7 @@
 
             .required-indicator {
                 margin-right: 0.125em;
+                float: left;
                 color: colour(red, 9);
             }
         }
@@ -83,7 +86,7 @@
         }
 
         .register {
-            margin-top: 1em;
+            margin-top: 1.5625rem;
             padding-top: 1em;
             border-top: 1px solid colour(black);
 
@@ -305,8 +308,14 @@
 
                 .login-box {
                     padding-top: 24px;
-                    max-width: 290px;
+                    max-width: 320px;
                     margin: auto;
+
+                    @include media-up(sm) {
+                        padding-top: 24px;
+                        max-width: 290px;
+                        margin: auto;
+                    }
 
                     .login-form {
                         .required-indicator {
@@ -315,33 +324,204 @@
                         }
                     }
                 }
+
+                .signin-btn {
+                    transition: all 0.3s ease;
+                    max-height: 35px;
+                    min-height: 35px;
+                    letter-spacing: 0.12em;
+                    max-width: 392px;
+
+                    @include media-up(sm) {
+                        transition: all 0.3s ease;
+                        min-height: 35px;
+                        max-height: 35px;
+                        font-size: 11px;
+                        letter-spacing: 0.12em;
+                        max-width: 184.44px;
+                    }
+
+                    @include media-btw(sm, lg) {
+                        transition: all 0.3s ease;
+                        min-height: 35px;
+                        max-height: 35px;
+                        font-size: 11px;
+                        letter-spacing: 0.12em;
+                        max-width: 184.44px;
+                    }
+
+                    &:active {
+                        color: colour(black, 3);
+                        border-color: colour(gray, 1);
+                        background-color: colour(white);
+                    }
+                }
+
+                .sign-in-forgot {
+                    text-decoration: underline;
+                    line-height: 11.7px;
+                }
+
+                .sign-in-btn {
+                    padding: 0 1.25em;
+                    max-height: 35px;
+                    min-height: 35px;
+                    max-width: 320px;
+
+                    @include media-up(sm) {
+                        transition: all 0.3s ease;
+                        min-height: 35px;
+                        max-height: 35px;
+                        font-size: 11px;
+                        letter-spacing: 0.12em;
+                        max-width: 108px;
+                    }
+
+                    @include media-btw(sm, lg) {
+                        transition: all 0.3s ease;
+                        min-height: 35px;
+                        max-height: 35px;
+                        font-size: 11px;
+                        letter-spacing: 0.12em;
+                        max-width: 108px;
+                    }
+                }
+
+                .privacy-policy {
+                    margin: 1.25em 0 1em;
+
+                    a {
+                        text-decoration: underline;
+                        line-height: 24px;
+
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                .signup-img {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+
+        .login-form-input {
+            height: 3rem;
+            width: 320px;
+
+            @include media-up(sm) {
+                width: 290px;
+                height: 3rem;
             }
 
-            .sign-in-forgot {
-                text-decoration: underline;
-                line-height: 11.7px;
+            @include media-btw(sm, lg) {
+                width: 290px;
+                height: 3rem;
+            }
+        }
+
+        .spacer {
+            width: 100%;
+            margin-top: 50px;
+
+            @include media-up(sm) {
+                background: none;
+                position: relative;
+                display: inline-block;
+                margin-top: 0;
+                width: 9%;
             }
 
-            .sign-in-btn {
-                padding: 0 1.25em;
-                max-height: 35px;
-                min-height: 35px;
+            .line {
+                border-left: 0 solid colour(gray, 3);
+                border-top: 1px solid colour(gray, 3);
+                width: 100%;
+                height: 1px;
+                left: inherit;
+                top: 50%;
 
                 @include media-up(sm) {
-                    transition: all 0.3s ease;
-                    min-height: 35px;
-                    max-height: 35px;
-                    font-size: 11px;
-                    letter-spacing: 0.12em;
+                    border-left: 1px solid colour(gray, 3);
+                    top: 0;
+                    width: 1px;
+                    height: 100%;
+                    position: absolute;
+                    left: 50%;
                 }
             }
 
-            .privacy-policy {
-                margin: 1.25em 0 1em;
+            .or {
+                width: 37px;
+                height: 37px;
+                border: 1px solid colour(gray, 3);
+                border-radius: 20px;
+                letter-spacing: 0.52px;
+                left: 50%;
+                line-height: 37px;
+                transform: translate(-50%, -50%);
+
+                @include media-up(sm) {
+                    width: 37px;
+                    height: 37px;
+                    border: 1px solid colour(gray, 3);
+                    border-radius: 20px;
+                    letter-spacing: 0.52px;
+                    top: 53px;
+                    left: 50%;
+                    line-height: 37px;
+                }
+
+                @include media-btw(sm, lg) {
+                    width: 37px;
+                    height: 37px;
+                    border: 1px solid colour(gray, 3);
+                    border-radius: 20px;
+                    letter-spacing: 0.52px;
+                    top: 53px;
+                    left: 50%;
+                    line-height: 37px;
+                }
+            }
+        }
+    }
+
+    // -----forgot password
+    .forgot-pass-page {
+        .page-title {
+            line-height: 1.3125rem;
+            padding-bottom: 0.625em;
+            margin-bottom: 1.5625em;
+            border-bottom: 1px solid colour(black, 3);
+            width: 100%;
+            margin-left: 0;
+
+            @include media-up(sm) {
+                line-height: 1.3125rem;
+                padding-bottom: 0.625em;
+                margin-bottom: 1.5625em;
+                border-bottom: 1px solid colour(black, 3);
+                width: 705px;
+                margin-left: 0;
+            }
+        }
+
+        .request-password-body {
+            p {
+                line-height: 1.5rem;
+                padding-top: 20px;
+                color: colour(gray);
+                width: 100%;
+
+                @include media-up(sm) {
+                    line-height: 1.5rem;
+                    padding-top: 20px;
+                    color: colour(gray);
+                    width: 705px;
+                }
 
                 a {
                     text-decoration: underline;
-                    line-height: 24px;
 
                     &:hover {
                         text-decoration: none;
@@ -349,68 +529,112 @@
                 }
             }
 
-            .signup-img {
-                margin-bottom: 20px;
-            }
-        }
-    }
+            .forgot-password-form {
+                margin: 0.625rem 0 1.875rem;
+                width: 100%;
 
-    .login-form-input {
-        height: 3rem;
-    }
+                @include media-up(sm) {
+                    width: 705px;
+                    margin: 0.625rem 0 1.875rem;
+                }
 
-    .spacer {
-        width: 100%;
-        margin-top: 50px;
+                .reset-label-name {
+                    margin-bottom: 1.25rem;
+                }
 
-        @include media-up(sm) {
-            background: none;
-            position: relative;
-            display: inline-block;
-            margin-top: 0;
-            width: 9%;
-        }
+                .required-indicator {
+                    margin-right: 0.125em;
+                    color: colour(red, 9);
+                }
 
-        .line {
-            border-left: 0 solid colour(gray, 3);
-            border-top: 1px solid colour(gray, 3);
-            width: 100%;
-            height: 1px;
-            left: inherit;
-            top: 50%;
+                .forgotPassword {
+                    width: calc(100% - 65px);
 
-            @include media-up(sm) {
-                border-left: 1px solid colour(gray, 3);
-                top: 0;
-                width: 1px;
-                height: 100%;
-                position: absolute;
-                left: 50%;
+                    @include media-up(sm) {
+                        width: calc(50% - 65px);
+                    }
+
+                    @include media-btw(sm, lg) {
+                        width: calc(50% - 65px);
+                    }
+                }
             }
         }
 
-        .or {
-            top: calc(29% - 16px);
-            width: 37px;
-            height: 37px;
-            border: 1px solid colour(gray, 3);
-            border-radius: 20px;
-            letter-spacing: 0.52px;
-            left: calc(50% - 19px);
-            line-height: 37px;
+        .resetpassword-btn {
+            transition: all 0.3s ease;
+            max-height: 48px;
+            min-height: 48px;
+            letter-spacing: 0.12em;
+        }
 
-            @include media-up(sm) {
-                width: 37px;
-                height: 37px;
-                border: 1px solid colour(gray, 3);
-                border-radius: 20px;
-                letter-spacing: 0.52px;
-                top: 27px;
-                left: calc(50% - 19px);
-                line-height: 37px;
+        .reset-password-form {
+            margin: 0 auto;
+        }
+
+        .required-field-para {
+            float: right;
+            font-style: italic;
+            line-height: 1rem;
+
+            .required-indicator {
+                margin-right: 0.125em;
+                color: colour(red, 9);
             }
         }
     }
+}
+
+// -----login modal-----
+.login-modal-body {
+    overflow-y: auto;
+    max-height: calc(114vh - 84px);
+}
+
+.login-modal-fade {
+    background: rgba(26, 26, 26, 60%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-right: 0;
+}
+
+.login-modal-fade .modal-dialog-bottom {
+    transition: transform 0.2s ease-out;
+    transform: translateY(100%);
+}
+
+.modal-dialog-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+    right: 0%;
+    margin-bottom: 0;
+    animation: slide-in 0.3s cubic-bezier(0.2, 0.05, 0.55, 0.2);
+}
+
+.login-modal-fade.show .modal-dialog-bottom {
+    transform: translateY(0);
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.modal-content-head {
+    border-radius: 0;
+}
+
+.border-danger {
+    border-color: colour(red);
 }
 
 // -----hide show---
@@ -460,9 +684,27 @@
         min-height: 46px;
         max-height: 15px;
         background: white;
-        right: 1px;
+        right: 10px;
         top: 23px;
         letter-spacing: normal;
+
+        @include media-up(sm) {
+            min-height: 46px;
+            max-height: 15px;
+            background: white;
+            right: 1px;
+            top: 23px;
+            letter-spacing: normal;
+        }
+
+        @include media-btw(sm, lg) {
+            min-height: 46px;
+            max-height: 15px;
+            background: white;
+            right: 1px;
+            top: 23px;
+            letter-spacing: normal;
+        }
 
         &:hover {
             background-color: colour(gray, 1);
@@ -476,152 +718,32 @@
     }
 }
 
-// -----login modal-----
-.modal-body {
-    overflow-y: auto;
-    max-height: calc(114vh - 64px);
-}
-
-.modal {
-    background: rgba(26, 26, 26, 60%);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding-right: 0;
-}
-
-.modal.fade .modal-dialog {
-    transition: transform 0.3s ease-out;
-    transform: translateY(100%);
-}
-
-.modal-dialog {
-    position: fixed;
-    bottom: 0;
-    left: 0%;
-    right: 0%;
-    margin-bottom: 0;
-    animation: slideIn 0.5s cubic-bezier(0.2, 0.05, 0.55, 0.2);
-}
-
-.modal.show .modal-dialog {
-    transform: translateY(0);
-
-    @keyframes slideIn {
-        0% {
-            transform: translateY(100%);
+// -----Merge cart UI---------
+.merge-cart-modal {
+    .merge-cart-header {
+        h2 {
+            letter-spacing: 0.005em;
+            line-height: 1.25rem;
         }
 
-        100% {
-            transform: translateY(0);
-        }
-    }
-}
-
-.modal-content {
-    border-radius: 0;
-}
-
-.border-danger {
-    border-color: colour(red);
-}
-
-// -----forgot password
-.forgot-pass-page {
-    .page-title {
-        line-height: 1.3125rem;
-        padding-bottom: 0.625em;
-        margin-bottom: 1.5625em;
-        border-bottom: 1px solid colour(black, 3);
-        width: 100%;
-        margin-left: 0;
-
-        @include media-up(sm) {
-            line-height: 1.3125rem;
-            padding-bottom: 0.625em;
-            margin-bottom: 1.5625em;
-            border-bottom: 1px solid colour(black, 3);
-            width: 705px;
-            margin-left: 0;
+        .close {
+            height: 48px;
+            opacity: 1;
+            width: 48px;
         }
     }
 
-    .request-password-body {
-        p {
-            line-height: 1.5rem;
-            padding-top: 20px;
-            color: colour(gray);
-            width: 100%;
-
-            @include media-up(sm) {
-                line-height: 1.5rem;
-                padding-top: 20px;
-                color: colour(gray);
-                width: 705px;
-            }
-
-            a {
-                text-decoration: underline;
-
-                &:hover {
-                    text-decoration: none;
-                }
-            }
+    .merge-cart-body {
+        .merge {
+            max-height: 30px;
+            min-height: 30px;
+            width: 85px;
         }
 
-        .forgot-password-form {
-            margin: 0.625rem 0 1.875rem;
-            width: 100%;
-
-            @include media-up(sm) {
-                width: 705px;
-                margin: 0.625rem 0 1.875rem;
-            }
-
-            .reset-label-name {
-                margin-bottom: 1.25rem;
-            }
-
-            .required-indicator {
-                margin-right: 0.125em;
-                color: colour(red, 9);
-            }
-
-            .forgotPassword {
-                width: calc(100% - 65px);
-
-                @include media-up(sm) {
-                    width: calc(50% - 65px);
-                }
-
-                @include media-btw(sm, lg) {
-                    width: calc(50% - 65px);
-                }
-            }
-        }
-    }
-
-    .resetpassword-btn {
-        transition: all 0.3s ease;
-        max-height: 48px;
-        min-height: 48px;
-        letter-spacing: 0.12em;
-    }
-
-    .reset-password-form {
-        margin: 0 auto;
-    }
-
-    .required-field-para {
-        float: right;
-        font-style: italic;
-        line-height: 1rem;
-
-        .required-indicator {
-            margin-right: 0.125em;
-            color: colour(red, 9);
+        .dont-merge {
+            max-height: 30px;
+            min-height: 30px;
+            width: 115px;
         }
     }
 }

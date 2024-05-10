@@ -1,7 +1,6 @@
 <isdecorate template="common/layout/page">
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
-        assets.addJs('/js/wishlist.js');
         assets.addJs('/js/custom.js');
         assets.addJs('/js/login.js');
         assets.addCss('/css/account/account.css');
@@ -47,7 +46,9 @@
                                 <isinclude template="wishlist/components/shareLoveItListModal" />
                             </div>
                         </div>
-                        <isinclude template="wishlist/components/wishlist" />
+                        <div class="wishlist-list">
+                            <isinclude template="wishlist/components/wishlist" />
+                        </div>
                     </div>
                 </div>
             </div>

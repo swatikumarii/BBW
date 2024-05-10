@@ -6,6 +6,7 @@ var productListHelper = require('*/cartridge/scripts/productList/productListHelp
 server.extend(module.superModule);
 
 server.append('Show', function (req, res, next) {
+    var URLUtils = require('dw/web/URLUtils');
     var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
         type: 10
     });
@@ -39,8 +40,28 @@ server.append('Show', function (req, res, next) {
             title: false
         });
     }
+    var removeLineItemURL = URLUtils.url('Giftcard-RemoveLineItems');
+    res.setViewData({itemExist: itemExist, CurrentPageMetaData: currentPageMeta, removeLineItemURL: removeLineItemURL});
+    next();
+});
 
-    res.setViewData({itemExist: itemExist, CurrentPageMetaData: currentPageMeta});
+server.append('ShowQuickView', function (req, res, next) {
+    var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
+        type: 10
+    });
+    var pid = req.querystring.pid || req.form.pid;
+    var optionId = req.querystring.optionId || req.form.optionId  || null;
+    var optionVal = req.querystring.optionVal || req.form.optionVal || null;
+
+    var config = {
+        qty: 1,
+        optionId: optionId,
+        optionValue: optionVal,
+        req: req,
+        type: 10
+    };
+    var itemExist = productListHelper.itemExists(list, pid, config);
+    res.setViewData({itemExist: itemExist});
     next();
 });
 
