@@ -11,7 +11,7 @@
         </p>
         <p  class="mb-0">
             <span class="summary-section-label  order-date-label">${Resource.msg('label.total', 'confirmation', null)}</span>
-            <span class="summary-details order-date h-clr--black h-fw--semibold">${Resource.msg('bill.total', 'confirmation', null)}
+            <span class="summary-details order-date h-clr--black h-fw--semibold">${pdict.order.totals.grandTotal}
             </span>
         </p>
         <isif condition="${pdict.order.orderEmail}">
