@@ -11,7 +11,7 @@
             class="${pdict.addressForm.addressId.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
     </div>
     <input type="text" class="form-control" id="addressId"
-        data-missing-error="${Resource.msg('error.adddress.title', 'forms', null)}"
+        data-missing-error="${Resource.msg('error.address.title', 'forms', null)}"
         data-range-error="${Resource.msg('error.address.title.error', 'forms', null)}" <isprint
         value="${pdict.addressForm.addressId.attributes}" encoding="off" />>
     <div class="invalid-feedback"></div>
@@ -129,7 +129,8 @@
                 <span
                     class="${pdict.addressForm.city.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
             </div>
-            <input type="text" class="form-control" id="city" <isprint value="${pdict.addressForm.city.attributes}"
+            <input type="text" class="form-control" id="city"
+            data-missing-error="${Resource.msg('address.city.missing', 'forms', null)}" <isprint value="${pdict.addressForm.city.attributes}"
                 encoding="off" />
             autocomplete="address-level2">
             <div class="invalid-feedback"></div>
@@ -175,9 +176,10 @@
                     class="${pdict.addressForm.postalCode.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
             </div>
             <input type="text" class="form-control" id="zipCode"
-                data-missing-error="${Resource.msg('error.zip.code', 'forms', null)}"
-                data-range-error="${Resource.msg('error.message.between5and10', 'forms', null)}" <isprint
-                value="${pdict.addressForm.postalCode.attributes}" encoding="off" />
+                data-missing-error="${Resource.msg('error.message.zip.required', 'forms', null)}"
+                data-range-error="${Resource.msg('error.message.zip.upto4', 'forms', null)}"
+                data-pattern-mismatch="${Resource.msg('error.message.parse.zip', 'forms', null)}"
+                <isprint value="${pdict.addressForm.postalCode.attributes}" encoding="off" />
             autocomplete="postal-code">
             <div class="invalid-feedback"></div>
         </div>
@@ -210,11 +212,22 @@
             ${Resource.msg('label.privacy', 'account', null)}
         </a>
     </div>
-    <div class="col-12 text-center">
-        <button type="submit" name="save" class="btn btn-save btn-hover">${Resource.msg('label.button.apply', 'account', null)}</button>
-    </div>
+    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
+        <div class="col-12 text-center">
+            <button name="save" class="btn btn-save btn-hover g-recaptcha"
+                data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
+                data-callback="submitAddressForm" data-action="submit">${Resource.msg('label.button.apply', 'account', null)}</button>
+        </div>
+    <iselse/>
+        <div class="col-12 text-center">
+            <button type="submit" name="save" class="btn btn-save btn-hover">${Resource.msg('label.button.apply', 'account', null)}</button>
+        </div>
+    </isif>
     <div class="col-12 text-center">
         <a href="${URLUtils.url('Address-List')}" class="btn-cancel">${Resource.msg('button.cancel', 'account', null)}</a>
     </div>
 </div>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha') == true}">
+    <isinclude template="/common/googleRecaptcha" />
+</isif>
 </form>

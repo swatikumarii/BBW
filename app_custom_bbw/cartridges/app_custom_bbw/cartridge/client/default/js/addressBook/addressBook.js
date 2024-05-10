@@ -21,6 +21,23 @@ $(document).on('readystatechange', function () {
 });
 
 /**
+ * This will check googlerecaptcha token and submit address form
+ * @param {string} token - token
+ */
+window.submitAddressForm = function (token) {
+    return new Promise(function (resolve, reject) {
+        if (!token) {
+            reject();
+        }
+        if (token !== '') {
+            $('.g-recaptcha').closest('form.address-form').submit();
+            resolve();
+        }
+        grecaptcha.reset();
+    });
+};
+
+/**
  * updated the function for address-form submit
  */
 base.submitAddress = function () {

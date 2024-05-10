@@ -120,7 +120,31 @@ server.replace(
         var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
 
         var formErrors = require('*/cartridge/scripts/formErrors');
+        var Site = require('dw/system/Site');
+        var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
 
+        var isReCaptchaEnable = Site.getCurrent().getCustomPreferenceValue(
+            'enableGoogleRecaptcha'
+        );
+        if (isReCaptchaEnable) {
+            var recaptchaResponse = req.httpParameterMap
+                .get('g-recaptcha-response')
+                .getStringValue();
+
+            var pageScore = verifyCaptchaHelper.pageScore('editProfile');
+            var verifyCaptcha = verifyCaptchaHelper.verifyGoogleCaptcha(
+                recaptchaResponse,
+                pageScore
+            );
+            if (!verifyCaptcha) {
+                res.json({
+                    error: true,
+                    msg: Resource.msg('error.message.recaptcha', 'common', null)
+                });
+                this.emit('route:Complete', req, res);
+                return;
+            }
+        }
         var profileForm = server.forms.getForm('profile');
 
         // form validation
@@ -235,7 +259,7 @@ server.replace(
                 fields: formErrors.getFormErrors(profileForm)
             });
         }
-        return next();
+        next();
     }
 );
 
@@ -248,6 +272,31 @@ server.replace(
         var CustomerMgr = require('dw/customer/CustomerMgr');
 
         var formErrors = require('*/cartridge/scripts/formErrors');
+        var Site = require('dw/system/Site');
+        var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
+
+        var isReCaptchaEnable = Site.getCurrent().getCustomPreferenceValue(
+            'enableGoogleRecaptcha'
+        );
+        if (isReCaptchaEnable) {
+            var recaptchaResponse = req.httpParameterMap
+                .get('g-recaptcha-response')
+                .getStringValue();
+
+            var pageScore = verifyCaptchaHelper.pageScore('savePassword');
+            var verifyCaptcha = verifyCaptchaHelper.verifyGoogleCaptcha(
+                recaptchaResponse,
+                pageScore
+            );
+            if (!verifyCaptcha) {
+                res.json({
+                    error: true,
+                    msg: Resource.msg('error.message.recaptcha', 'common', null)
+                });
+                this.emit('route:Complete', req, res);
+                return;
+            }
+        }
 
         var profileForm = server.forms.getForm('profile');
         var newPasswords = profileForm.login.newpasswords;
@@ -326,7 +375,7 @@ server.replace(
                 fields: formErrors.getFormErrors(profileForm)
             });
         }
-        return next();
+        next();
     }
 );
 

@@ -74,6 +74,39 @@ server.replace(
 );
 
 /**
+ * Account-Login : The Account-Login endpoint will render the shopper's account page. Once a shopper logs in they will see is a dashboard that displays profile, address, payment and order information.
+ */
+server.prepend('SaveAddress', function (req, res, next) {
+    var Site = require('dw/system/Site');
+    var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
+
+    var isReCaptchaEnable = Site.getCurrent().getCustomPreferenceValue(
+        'enableGoogleRecaptcha'
+    );
+    if (isReCaptchaEnable) {
+        var recaptchaResponse = req.httpParameterMap
+            .get('g-recaptcha-response')
+            .getStringValue();
+
+        var pageScore = verifyCaptchaHelper.pageScore('address');
+        var verifyCaptcha = verifyCaptchaHelper.verifyGoogleCaptcha(
+            recaptchaResponse,
+            pageScore
+        );
+        if (!verifyCaptcha) {
+            res.json({
+                error: true,
+                msg: Resource.msg('error.message.recaptcha', 'common', null)
+            });
+            this.emit('route:Complete', req, res);
+            return;
+        }
+    }
+    next();
+});
+
+
+/**
  * Append Address-SaveAddress controller: Update rediection url
  */
 server.append('SaveAddress', function (req, res, next) {
