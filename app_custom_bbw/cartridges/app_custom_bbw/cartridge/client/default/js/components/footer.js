@@ -12,6 +12,7 @@
 function displayMessage(data, button) {
     $.spinner().stop();
     var status;
+    var message = data.msg ? data.msg : 'Something went wrong - Please try again';
     if (data.success) {
         status = 'alert-success';
     } else {
@@ -27,7 +28,7 @@ function displayMessage(data, button) {
         '<div class="email-signup-alert text-justify ' +
             status +
             '">' +
-            data.msg +
+            message +
             '</div>'
     );
     var newsLetterInput = $('#newsletterInput');
@@ -141,7 +142,10 @@ function handleScroll() {
         $('.js-scrolltotop').fadeOut();
     }
 }
-// Function to scroll to top when the button is clicked
+
+/**
+ * Function to scroll to top when the button is clicked
+ */
 function scrollToTop() {
     $('html, body').animate(
         {
