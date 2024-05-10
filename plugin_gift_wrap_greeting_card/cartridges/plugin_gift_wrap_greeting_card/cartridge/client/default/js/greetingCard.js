@@ -335,6 +335,7 @@ $(document).ready(function () {
 
     $(document).on('click', '.greetingCard-edit-product', function () {
         $('.greeting-block-options').css('display', 'block');
+        $('.greeting-block').addClass('open-greeting-card');
     });
 
     $(document).on('click', '#greetingcard', function () {
