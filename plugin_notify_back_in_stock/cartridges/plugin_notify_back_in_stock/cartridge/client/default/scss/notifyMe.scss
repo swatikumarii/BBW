@@ -14,7 +14,7 @@
         overflow: auto;
         background-color: rgb(0, 0, 0);
         background-color: rgba(0, 0, 0, 40%);
-        animation-name: fade-in;
+        animation-name: fade-in-notify;
         animation-duration: 0.4s;
     }
 
@@ -24,7 +24,7 @@
         position: fixed;
         right: -500px;
         background-color: #fff;
-        animation-name: slide-in;
+        animation-name: slide-in-notify;
         animation-duration: 0.4s;
         left: auto;
         max-width: 720px;
@@ -124,7 +124,7 @@
         padding: 2px 16px;
     }
 
-    @keyframes slide-in {
+    @keyframes slide-in-notify {
         from {
             right: -500px;
             opacity: 0;
@@ -136,7 +136,7 @@
         }
     }
 
-    @keyframes fade-in {
+    @keyframes fade-in-notify {
         from {
             opacity: 0;
         }

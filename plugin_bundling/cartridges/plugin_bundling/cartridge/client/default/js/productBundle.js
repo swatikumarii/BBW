@@ -27,13 +27,11 @@ $(document).ready(function () {
         $('.bundleRow').remove();
         return;
     }
-    $('.productbundle-overlay#page-overlay').hide();
     // if fixed bundle this will enable button
     checkIfBundleReady();
     // Product Bundle - Click Event - Get data
     $('body').on('click','.bundle-product', function () {
         $('#productbundle-modal').css({ display: 'none' });
-        $('.productbundle-overlay#page-overlay').show();
         $('#productbundle-modal .productDetail').empty();
 
         var productID = $(this).attr('data-pid');
@@ -48,7 +46,6 @@ $(document).ready(function () {
                 // Load - HTML data - Modal
                 $('#productbundle-modal .productDetail').html(data);
                 // Show - Product Bundle Detail - Modal
-                $('.productbundle-overlay#page-overlay').fadeOut(1000);
                 $('#productbundle-modal').modal('show');
                 $('body').css('overflow', 'hidden');
                 $('html').css('overflow', 'hidden');

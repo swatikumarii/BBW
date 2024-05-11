@@ -2,7 +2,14 @@
 
 var base = module.superModule;
 
-module.exports = function account(currentCustomer, addressModel, orderModel) {
+/**
+ * Account class that represents the current customer's profile dashboard
+ * @param {object} currentCustomer - Current customer
+ * @param {object} addressModel - The current customer's preferred address
+ * @param {object} orderModel - The current customer's order history
+ * @class
+ */
+function account(currentCustomer, addressModel, orderModel) {
     base.call(this, currentCustomer, addressModel, orderModel);
 
     // Push custom attr in profile object to show on profile pages
@@ -13,3 +20,8 @@ module.exports = function account(currentCustomer, addressModel, orderModel) {
         }
     }
 };
+
+
+base.account = account;
+
+module.exports = base;
