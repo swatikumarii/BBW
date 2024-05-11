@@ -51,36 +51,27 @@ function getHomeData() {
     };
     return obj;
 }
+
 /**
  *
  * @param {object} res - Response object.
  * @returns {object} obj - returns object with gtm event information
  */
 function logIn(res) {
-    var obj;
-    if (res.queryString.includes('registration=false')) {
+    if (res.success) {
+        var obj;
         obj = {
-            'event': 'login',
+            'event': gtmEvents.LOGIN,
             'ecommerce': {
-                'firstname': res.CurrentCustomer.profile.firstName,
-                'lastname': res.CurrentCustomer.profile.lastName,
-                'email': res.CurrentCustomer.profile.email,
-                'customer id': res.CurrentCustomer.profile.customerNo
+                'firstname': res.authenticatedCustomer.profile.firstName,
+                'lastname': res.authenticatedCustomer.profile.lastName,
+                'email': res.authenticatedCustomer.profile.email,
+                'customer_id': res.authenticatedCustomer.profile.customerNo
             }
         };
-    } else {
-        obj = {
-            'event': 'sign_up',
-            'ecommerce': {
-                'firstname': res.CurrentCustomer.profile.firstName,
-                'lastname': res.CurrentCustomer.profile.lastName,
-                'email': res.CurrentCustomer.profile.email,
-                'customer id': res.CurrentCustomer.profile.customerNo
-            }
-        };
-
+        return obj;
     }
-    return obj;
+    return {};
 }
 
 /**
@@ -260,6 +251,12 @@ function addToCart(res) {
                 value: obj[0].price,
                 products: obj,
                 item_name: lineItem.productName
+            },
+            purchase: {
+                actionField: {
+                    currencyCode: currentBasket.currencyCode,
+                    revenue: obj[0].price
+                }
             }
         }
     };
@@ -409,19 +406,22 @@ function getCheckoutData(res) {
     var obj;
     if (currentBasket !== null) {
         obj = {
-            'event': 'begin_checkout',
-            'ecommerce': {
-                'checkout': {
-                    'currency': currentBasket.currencyCode,
-                    'value': currentBasket.getAdjustedMerchandizeTotalNetPrice().value.toFixed(2),
-                    'products': []
-                }
+            event:  gtmEvents.BEGIN_CHECKOUT,
+            ecommerce: {
+                checkout: {
+                    currency: currentBasket.currencyCode,
+                    value: currentBasket
+                        .getAdjustedMerchandizeTotalNetPrice()
+                        .value.toFixed(2),
+                    products: []
+                },
+                add:{products:[]}
             }
         };
     }
     if ('order' in res) {
         for (var i = 0; i < res.order.items.items.length; i++) {
-            obj.ecommerce.products.push({
+            obj.ecommerce.checkout.products.push({
                 item_name: res.order.items.items[i].productName,
                 item_id: res.order.items.items[i].id,
                 item_brand: res.order.items.items[i].brand
@@ -437,6 +437,11 @@ function getCheckoutData(res) {
                 price: res.order.items.items[i].price.sales.decimalPrice,
                 quantity: res.order.productQuantityTotal
             });
+            if (i === 0) {
+                obj.ecommerce.add.products.push({
+                    item_name: res.order.items.items[i].productName
+                });
+            }
         }
     }
     return obj;
@@ -450,13 +455,17 @@ function addShipping(res) {
 
     if (currentBasket !== null) {
         var obj = {
-            'event': 'add_shipping_info',
-            'ecommerce': {
-                'currency': currentBasket.currencyCode,
-                'value': currentBasket.getAdjustedMerchandizeTotalNetPrice().value.toFixed(2),
-                // 'shipping_tier':res.shippingMethod,
-                // 'coupon':currentBasket.couponLineItems[0].couponCode,
-                'items': []
+            event: 'add_shipping_info',
+            ecommerce: {
+                currency: currentBasket.currencyCode,
+                value: currentBasket
+                    .getAdjustedMerchandizeTotalNetPrice()
+                    .value.toFixed(2),
+                shipping_tier: res.shippingMethod,
+                coupon: currentBasket.couponLineItems.length > 0 ? currentBasket
+                    .couponLineItems[0].couponCode : null,
+                items: [],
+                add:{products:[]}
             }
         };
         if ('order' in res) {
@@ -470,6 +479,11 @@ function addShipping(res) {
                     price: res.order.items.items[i].price.sales.decimalPrice,
                     quantity: res.order.productQuantityTotal,
                 });
+                if (i===0) {
+                    obj.ecommerce.add.products.push({
+                        item_name: res.order.items.items[i].productName
+                    });
+                }
             }
         }
         return obj;
@@ -574,6 +588,21 @@ function getConfirmationData(res) {
     }
     return obj;
 }
+
+/**
+ * @param {object} res - current route response object
+ * @returns {object} Object containing signup data.
+ */
+function signUp(res) {
+    if (res.success) {
+        var obj = {
+            event: gtmEvents.SIGN_UP
+        };
+        return obj;
+    }
+    return {};
+}
+
 // eslint-disable-next-line jsdoc/require-returns-check
 /**
  * @param {object} res - current route response object
@@ -585,8 +614,10 @@ function getDataLayer(res) {
             case 'Home-Show':
             case 'Default-Start':
                 return getHomeData();
-            case 'Account-Show':
+            case 'Account-Login':
                 return logIn(res);
+            case 'Account-SubmitRegistration':
+                return signUp(res);
             case 'Product-Show':
                 return getPdpData(res);
             case 'Search-Show':
