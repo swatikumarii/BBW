@@ -6,7 +6,7 @@
 <div class="row no-gutters">
     <div class="col px-0">
         <div class="d-flex ${pdict.imagePositionClass} ${pdict.customClass}">
-            <a href="${pdict.link}" class="image-link clpShopNowBtn d-block position-relative lazy-skeleton" hreflang="${request.getLocale()}" data-lazy="${pdict.disableLazyLoad}">
+            <a href="${pdict.link}" class="image-link clpShopNowBtn d-block position-relative lazy-skeleton overflow-hidden" hreflang="${request.getLocale()}" data-lazy="${pdict.disableLazyLoad}">
                 <isif condition="${pdict.disableLazyLoad}">
                     <picture class="w-100 d-block content-image-block d-block">
                         <source srcset="${pdict.useImgURL ? pdict.desktopImgUrl : pdict.desktopImage.src.desktop}"
