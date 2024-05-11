@@ -9,7 +9,7 @@
                 <div class="col-sm-12">
                     <div class="form-group">
                         <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block">
-                            ${Resource.msg('field.customer.email', 'checkout', null)}
+                            <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.email', 'checkout', null)}
                         </label>
                         <input type="text" class="form-control email" id="email"
                             value="${(pdict.customer.registeredUser && pdict.customer.profile && pdict.customer.profile.email) ? pdict.customer.profile
@@ -20,7 +20,7 @@
                     </div>
                     <div class="form-group password-form">
                         <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block">
-                            ${Resource.msg('field.customer.password', 'checkout', null)}
+                            <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.password', 'checkout', null)}
                         </label>
                         <input type="password" class="form-control password" id="password" <isprint
                             value=${pdict.forms.registeredCustomerForm.password.attributes} encoding="off" />
