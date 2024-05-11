@@ -116,7 +116,13 @@ $(document).ready(function () {
      * @returns {boolean} valid or not
      */
     function validZipCode(input) {
-        var pattern = /^[0-9]{4}$/;
+        // Get the dynamic minlength and maxlength values
+        var minLength = parseInt(input.attr('minlength'), 10); // Specify radix 10
+        var maxLength = parseInt(input.attr('maxlength'), 10); // Specify radix 10
+
+        // Construct the regular expression
+        var pattern = new RegExp('^[0-9]{' + minLength + ',' + maxLength + '}$');
+        // var pattern = /^[0-9]{4}$/;
         if (!validateRequiredField(input)) return false;
         if (!pattern.test(input.val())) {
             input.addClass('is-invalid border-danger'); // Add class for input border error

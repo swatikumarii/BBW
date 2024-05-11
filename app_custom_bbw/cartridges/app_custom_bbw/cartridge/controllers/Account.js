@@ -52,7 +52,7 @@ server.append('EditProfile', function (req, res, next) {
 
     var profileModel = {
         dob: birthday,
-        zip: accountModel.profile.zipCode,
+        zipCode: accountModel.profile.zipCode,
         emailconfirm: accountModel.profile.email
     };
 
@@ -169,7 +169,7 @@ server.replace(
             email: profileForm.customer.email.value,
             confirmEmail: profileForm.customer.emailconfirm.value,
             password: profileForm.login.password.value,
-            zipCode: profileForm.customer.zip.value,
+            zipCode: profileForm.customer.zipCode.value,
             profileForm: profileForm
         };
         if (profileForm.valid) {

@@ -109,6 +109,19 @@
 			value-error="ValueErrorText"
 			type="string" />
 
+		<field 
+			formid="zipCode" 
+			label="label.input.zip.profile" 
+			mandatory="true"
+			min-length="4"
+			max-length="10"
+			regexp="^[0-9]*$"
+			missing-error="error.message.zip.required"
+			range-error="error.message.zip.10orless" 
+			parse-error="error.message.zip.fname"
+			value-error="ValueErrorText"
+			type="string" />
+
 		<field
             formid="nationality"
             label="label.input.nationality.profile"
