@@ -60,8 +60,10 @@ module.exports = function () {
 $(window).on('load resize', function () {
     var $header = $('.header');
     var $body = $('body');
+    if ($body.hasClass('checkout-page') === false) {
+        $body.css('padding-top', $header.outerHeight());
+    }
 
-    $body.css('padding-top', $header.outerHeight());
 });
 
 /* Stick Header - On Scroll */
@@ -76,22 +78,24 @@ var v = 0; // Difference between previous and current scroll position
 
 // On scroll event
 l.on('scroll', function () {
-    i = t.outerHeight(); // Get current height of header
-    c = l.scrollTop(); // Get current scroll position
-    v = m - c; // Calculate difference between previous and current scroll position
-    n = parseInt(t.css('top'), 10) + v; // Calculate new top position of header
+    if ($('body').hasClass('checkout-page') === false) {
+        i = t.outerHeight(); // Get current height of header
+        c = l.scrollTop(); // Get current scroll position
+        v = m - c; // Calculate difference between previous and current scroll position
+        n = parseInt(t.css('top'), 10) + v; // Calculate new top position of header
 
-    // Add padding to body to compensate for fixed header
-    r.css('padding-top', i);
+        // Add padding to body to compensate for fixed header
+        r.css('padding-top', i);
 
-    // Determine header's position based on scroll direction
-    if (c <= 0) {
-        t.css('top', 0); // If at the top of the page, set header to top
-    } else if (v > 0) {
-        t.css('top', n > 0 ? 0 : n); // If scrolling up, move header up
-    } else if (v < 0 && n > -i) {
-        t.css('top', n); // If scrolling down but header is still within viewport, move header down
+        // Determine header's position based on scroll direction
+        if (c <= 0) {
+            t.css('top', 0); // If at the top of the page, set header to top
+        } else if (v > 0) {
+            t.css('top', n > 0 ? 0 : n); // If scrolling up, move header up
+        } else if (v < 0 && n > -i) {
+            t.css('top', n); // If scrolling down but header is still within viewport, move header down
+        }
+
+        m = c; // Update previous scroll position
     }
-
-    m = c; // Update previous scroll position
 });
