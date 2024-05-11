@@ -31,27 +31,25 @@ $(document).ready(function () {
     // if fixed bundle this will enable button
     checkIfBundleReady();
     // Product Bundle - Click Event - Get data
-    $('.bundle-product').on('click', function () {
+    $('body').on('click','.bundle-product', function () {
         $('#productbundle-modal').css({ display: 'none' });
         $('.productbundle-overlay#page-overlay').show();
         $('#productbundle-modal .productDetail').empty();
 
         var productID = $(this).attr('data-pid');
         var requestURL = $(this).attr('data-url');
+        $.spinner().start();
         $.ajax({
             url: requestURL,
             method: 'POST',
             data: { pid: productID },
             success: function (data) {
+                $.spinner().stop();
                 // Load - HTML data - Modal
                 $('#productbundle-modal .productDetail').html(data);
                 // Show - Product Bundle Detail - Modal
                 $('.productbundle-overlay#page-overlay').fadeOut(1000);
-                setTimeout(function () {
-                    $('#productbundle-modal').toggleClass('show');
-                    $('#productbundle-modal').css({ display: 'block' });
-                }, 1000);
-
+                $('#productbundle-modal').modal('show');
                 $('body').css('overflow', 'hidden');
                 $('html').css('overflow', 'hidden');
             },
@@ -59,8 +57,6 @@ $(document).ready(function () {
                 $.spinner().stop();
             }
         });
-
-        $('#productbundle-modal .productDetail, #productbundle-modal .productbundle-dialog').toggleClass('show');
     });
 
     $('.multi-product-mobile-link').on('click', function () {
@@ -200,8 +196,6 @@ $(document).ready(function () {
         $('.add-to-bundle').attr('disabled', true);
         $('.maxLimitMessageBunlde').addClass('maxLimitMessageBunldeShow');
     }
-
-    $('.bundle-carousel-slide').carousel();
 });
 $(document).on('click', '.bundle-carousel-inner .carousel-item.active, .zoomImage-link', function () {
     $('#productbundle-modal').addClass('overflow-hidden');

@@ -722,9 +722,15 @@ module.exports = $.extend({}, base, {
                             return true;
                         },
                         error: function (err) {
-                            currentAction
-                                .siblings('.add-to-cart-error')
-                                .text(err.responseJSON.errorMessage);
+                            if (currentAction.siblings('.add-to-cart-error').length) {
+                                currentAction
+                                    .siblings('.add-to-cart-error')
+                                    .text(err.responseJSON.errorMessage);
+                            } else {
+                                $('.add-to-cart-error-pdp').text(
+                                    err.responseJSON.errorMessage
+                                );
+                            }
                             $.spinner().stop();
                         }
                     });
