@@ -1,8 +1,8 @@
 <isif condition="${slotcontent}">
     <isif condition="${!empty(slotcontent.content)}">
         <div class="col-md-12 mt-4 headerDivider p-0">
-            <h2 class="headerText"><span>
-                    <isprint value="${slotcontent.calloutMsg}" encoding="off" /></span></h2>
+            <h2 class="headerText">
+                    <isprint value="${slotcontent.calloutMsg}" encoding="off" /></h2>
         </div>
     </isif>
     <div class="container">
