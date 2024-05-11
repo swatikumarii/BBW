@@ -62,14 +62,14 @@
                     </isif>
                     <div class="giftWrapProductOptions gift-wrap-product-options">
                         <isloop items="${pdict.giftWrapProducts}" var="giftWrapProduct" status="loopstate">
-                            <div class="imgGiftWrap">
+                            <div class="imgGiftWrap img-gift-wrap">
                                 <img src="${giftWrapProduct.images.large[0].url}"
                                     alt="${giftWrapProduct.productName}" />
-                                <input class="giftWrapProductOptionsRadio" name="gift-wrap-product"
-                                    id="giftWrapProductOptionsRadio-${loopstate.count}" type="radio"
-                                    value="${giftWrapProduct.id}"
+                                <input class="giftWrapProductOptionsRadio gift-wrap-product-options-radio"
+                                    name="gift-wrap-product" id="giftWrapProductOptionsRadio-${loopstate.count}"
+                                    type="radio" value="${giftWrapProduct.id}"
                                     data-price="${giftWrapProduct.price.sales.formatted}" />
-                                <label class="giftWrapProductLabel"
+                                <label class="giftWrapProductLabel gift-wrap-product-label"
                                     for="giftWrapProductOptionsRadio-${loopstate.count}"></label>
                             </div>
                         </isloop>

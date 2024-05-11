@@ -4,6 +4,10 @@
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins/breakpoints";
 
+.gift-wrap-choose-div.open-giftwrap {
+    background-color: #f2f2f2;
+}
+
 .giftwrap-block {
     background-color: transparent;
     border: 1px solid #666;
@@ -13,11 +17,6 @@
     margin: 24px 0;
     text-align: left;
     position: relative;
-
-    &:hover,
-    &.open-giftwrap {
-        background-color: #f2f2f2;
-    }
 
     .giftwrap-block-toggle {
         position: relative;
@@ -172,7 +171,7 @@
                     grid-template-columns: 23% 23% 23% 23%;
                 }
 
-                .imgGiftWrap {
+                .img-gift-wrap {
                     cursor: pointer;
                     position: relative;
                     transition: box-shadow 0.4s cubic-bezier(0.05, 0.5, 0.3, 1);
@@ -184,16 +183,15 @@
                         object-fit: contain;
                     }
 
-                    .giftWrapProductOptionsRadio {
+                    .gift-wrap-product-options-radio {
                         position: absolute;
                         width: auto;
                         left: 0;
                         right: 0;
-                        display: block;
                         z-index: -1;
                     }
 
-                    .giftWrapProductLabel {
+                    .gift-wrap-product-label {
                         background-color: transparent;
                         border: 0;
                         display: block;
@@ -203,7 +201,6 @@
                         padding: 4px 0 0 36px;
                         border-radius: 0;
                         left: 0;
-                        z-index: 99;
                         margin-left: -12px;
                         position: absolute;
                         transition: 0.4s cubic-bezier(0.05, 0.5, 0.3, 1);
@@ -249,14 +246,14 @@
 
             .giftwrap-container {
                 text-align: left;
-                padding: 15px 30px 30px 40px;
                 background-color: #fff;
                 height: 100%;
                 overflow: hidden auto;
                 width: 100%;
+                padding: 15px 24px 30px 14px;
 
                 @include media-breakpoint-up(sm) {
-                    padding: 15px 24px 30px 14px;
+                    padding: 15px 30px 30px 40px;
                 }
 
                 .giftwrap-title {
