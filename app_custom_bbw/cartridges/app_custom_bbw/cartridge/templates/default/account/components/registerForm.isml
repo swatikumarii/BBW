@@ -148,18 +148,16 @@
         </select>
         <div class="invalid-feedback text-justify" id="gender-error">${Resource.msg('error.gender.message', 'forms', null)}</div>
     </div>
-    <div class="form-group register-form text-center <isif condition=" ${!!pdict.profileForm.customer.zip.mandatory === true}">required</isif>">
+    <div class="form-group register-form text-center">
         <label class="form-control-label h-font-size--14 text-justify" for="registration-form-zip">
-        <span class="required-indicator">*</span>
             <isprint value="${pdict.profileForm.customer.zip.label}" encoding="htmlcontent" />
         </label>
         <input type="text" class="form-control select-dropdown-value h-clr--black-1" id="registration-form-zip"
-            data-missing-error="${Resource.msg('error.message.zip.required', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.zip.10orless', 'forms', null)}"
             data-pattern-mismatch="${Resource.msg('error.message.parse.zip', 'forms', null)}"
-            aria-describedby="form-zip-error" required <isprint value=${pdict.profileForm.customer.zip.attributes}
+            aria-describedby="form-zip-error"  <isprint value=${pdict.profileForm.customer.zip.attributes}
             encoding="off" /> />
-        <div class="invalid-feedback text-justify" id="zip-code-error">${Resource.msg('error.message.zip.required', 'forms', null)}</div>
+        <div class="invalid-feedback text-justify" id="registration-form-zip-error"></div>
     </div>
     <div class="form-group register-form text-center  <isif condition=" ${!!pdict.profileForm.customer.nationality.mandatory === true}">required</isif>">
         <label class="form-control-label h-font-size--14 text-justify" for="registration-form-nationality">
@@ -196,7 +194,7 @@
                 <span class="required-indicator">*</span>
                 <isprint value="${pdict.profileForm.customer.dob.label}" encoding="htmlcontent" />
             </label>
-            <input type="text" class="form-control datepicker select-dropdown-value h-clr--black-1" id="registration-form-dob"
+            <input type="date" class="form-control datepicker select-dropdown-value h-clr--black-1" id="registration-form-dob"
                 data-mask="99/99/9999" data-min-age="0" placeholder="DD/MM/YYYY"
                 data-missing-error="${Resource.msg('error.message.dob.required', 'forms', null)}"
                 data-pattern-mismatch="${Resource.msg('error.message.parse.dob', 'forms', null)}" required <isprint
@@ -222,6 +220,9 @@
         </button>
        </div>
     </isif>
+    <div class="success-message mt-3">
+        <p class="text-center">${Resource.msg('toast.success.register', 'account', null)}</p>
+    </div>
     <iscomment> <div class="privacy-policy">
         ${Resource.msg('description.privacypolicy.registration', 'registration', null)}
         <a href="${'#'}">

@@ -4,7 +4,7 @@
 @import "../_brand/pages/checkout/b-confirmation";
 @import "../_brand/pages/checkout/b-payment";
 @import "../_brand/pages/checkout/b-shipping";
-@import "../_brand/pages/checkout/b-place-order.scss";
+@import "../_brand/pages/checkout/b-place-order";
 
 header {
     .bbw-nav {
@@ -16,11 +16,15 @@ header {
             .icon-items {
                 .minicart {
                     margin-right: 41px;
-                    top: -58px;
                 }
             }
         }
     }
+}
+
+.checkout-page {
+    letter-spacing: 0.2px;
+    line-height: 20px;
 }
 
 .card.ghost {
@@ -207,7 +211,7 @@ span.ship-to-city-st-zip {
         display: none;
     }
 
-    h5>span {
+    h5 > span {
         font-size: 0.8em;
     }
 }
@@ -234,6 +238,11 @@ span.ship-to-city-st-zip {
     line-height: 16px;
     letter-spacing: 0.2px;
     width: 730px;
+
+    a {
+        display: block;
+        width: fit-content;
+    }
 
     .step-text {
         margin-bottom: 15px;
@@ -286,6 +295,15 @@ span.ship-to-city-st-zip {
 
     .login-button-section {
         margin-top: 20px;
+    }
+
+    .forgot-password-link-checkout {
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+            color: $clr-gray-4;
+        }
     }
 }
 

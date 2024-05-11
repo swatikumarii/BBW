@@ -92,7 +92,7 @@
 			label="label.input.dob.profile" 
 			mandatory="true"
             max-length="10"
-			regexp="^(0[1-9]|[1-2][0-9]|3[0-1])/(0[1-9]|1[0-2])/(19|20)\d{2}$"
+			regexp="^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
 			missing-error="error.message.dob.required" 
 			parse-error="error.message.parse.dob"
 			value-error="ValueErrorText"
@@ -101,12 +101,10 @@
 		<field 
 			formid="zip" 
 			label="label.input.zip.profile" 
-			mandatory="true" 
 			min-length="4"
-			max-length="4"
+			max-length="10"
 			regexp="^[0-9]*$"
-			missing-error="error.message.zip.required"
-			range-error="error.message.zip.upto4"
+			range-error="error.message.zip.10orless" 
 			parse-error="error.message.zip.fname"
 			value-error="ValueErrorText"
 			type="string" />

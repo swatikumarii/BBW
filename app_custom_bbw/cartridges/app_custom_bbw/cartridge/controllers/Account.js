@@ -453,14 +453,14 @@ server.replace(
             res.json({ fields: formErrors.getFormErrors(registrationForm) });
         } else {
             var birthdayArray =
-            registrationForm.customer.dob.value.split('/');
+            registrationForm.customer.dob.value.split('-');
 
             var birthday = new Date(
-                birthdayArray[1] +
+                birthdayArray[2] +
                     '/' +
-                    birthdayArray[0] +
+                    birthdayArray[1] +
                     '/' +
-                    birthdayArray[2]
+                    birthdayArray[0]
             );
             var currentDate = new Date();
             var birthdayTimestamp = birthday.getTime();
@@ -661,8 +661,8 @@ server.replace(
                     formErrors.removeFormValues(registrationForm.form);
 
                     if (serverError) {
-                        respose.setStatusCode(500);
-                        respose.json({
+                        res.setStatusCode(500);
+                        res.json({
                             success: false,
                             errorMessage: Resource.msg(
                                 'error.message.unable.to.create.account',
@@ -680,10 +680,10 @@ server.replace(
                             authenticatedCustomer.profile
                         );
 
-                        respose.setViewData({
+                        res.setViewData({
                             authenticatedCustomer: authenticatedCustomer
                         });
-                        respose.json({
+                        res.json({
                             success: true,
                             redirectUrl: accountHelper.getLoginRedirectURL(
                                 request.querystring.rurl,
