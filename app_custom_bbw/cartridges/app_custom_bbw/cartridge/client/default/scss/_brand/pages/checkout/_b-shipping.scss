@@ -61,6 +61,33 @@
                     display: none;
                 }
             }
+
+            .shipping-step {
+                a {
+                    &:hover {
+                        color: $clr-blue;
+                        text-decoration: none;
+                    }
+
+                    .step-text {
+                        color: $clr-blue;
+                        font-weight: 600;
+                    }
+                }
+
+                .step-count {
+                    color: $clr-blue;
+                    border-color: $clr-blue;
+                    background-color: $clr-white;
+                }
+            }
+
+            .payment-step,
+            .place-order-step {
+                a {
+                    pointer-events: none;
+                }
+            }
         }
     }
 }
