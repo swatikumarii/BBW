@@ -1,25 +1,27 @@
-.data-checkout-stage {
-    // Place Order -----------------------------
-    &[data-checkout-stage="placeOrder"] {
-        button.submit-customer,
-        .customer-section,
-        .shipping-section,
-        .card.payment-form,
-        .card.ghost,
-        .checkout-blocks,
-        .order-product-summary {
-            display: none;
-        }
+#checkout-main {
+    &.data-checkout-stage {
+        // Place Order -----------------------------
+        &[data-checkout-stage="placeOrder"] {
+            button.submit-customer,
+            .customer-section,
+            .shipping-section,
+            .card.payment-form,
+            .card.ghost,
+            .checkout-blocks,
+            .order-product-summary {
+                display: none;
+            }
 
-        button.place-order,
-        .review-shipping-summary,
-        .review-shipping-summary.shipping-summary,
-        .review-product-summary {
-            display: block;
-        }
+            button.place-order,
+            .review-shipping-summary,
+            .review-shipping-summary.shipping-summary,
+            .review-product-summary {
+                display: block;
+            }
 
-        .review-billing-summary {
-            display: flex;
+            .review-billing-summary {
+                display: flex;
+            }
         }
     }
 }

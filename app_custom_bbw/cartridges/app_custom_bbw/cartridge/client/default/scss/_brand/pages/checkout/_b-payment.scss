@@ -1,61 +1,63 @@
-.data-checkout-stage {
-    // Payment -------------------------------
-    &[data-checkout-stage="payment"] {
-        button.submit-customer {
-            display: none;
-        }
-
-        .customer-section,
-        .shipping-section,
-        .card.ghost {
-            display: none;
-        }
-
-        .payment-form,
-        .shipping-summary {
-            display: block;
-        }
-
-        button.submit-payment {
-            display: block;
-        }
-
-        .address-selector-block {
-            .btn-show-details,
-            .btn-add-new {
-                border: none;
-            }
-        }
-
-        [data-address-mode="customer"] {
-            .billing-address {
+// Payment -------------------------------
+#checkout-main {
+    &.data-checkout-stage {
+        &[data-checkout-stage="payment"] {
+            button.submit-customer {
                 display: none;
             }
-        }
 
-        [data-address-mode="shipment"] {
-            .billing-address {
+            .customer-section,
+            .shipping-section,
+            .card.ghost {
                 display: none;
             }
-        }
 
-        [data-address-mode="edit"] {
-            .billing-address {
-                display: none;
+            .payment-form,
+            .shipping-summary {
+                display: block;
             }
-        }
 
-        [data-address-mode="new"] {
-            .btn-show-details,
-            .btn-add-new {
-                display: none;
+            button.submit-payment {
+                display: block;
             }
-        }
 
-        [data-address-mode="details"] {
-            .btn-show-details,
-            .btn-add-new {
-                display: none;
+            .address-selector-block {
+                .btn-show-details,
+                .btn-add-new {
+                    border: none;
+                }
+            }
+
+            [data-address-mode="customer"] {
+                .billing-address {
+                    display: none;
+                }
+            }
+
+            [data-address-mode="shipment"] {
+                .billing-address {
+                    display: none;
+                }
+            }
+
+            [data-address-mode="edit"] {
+                .billing-address {
+                    display: none;
+                }
+            }
+
+            [data-address-mode="new"] {
+                .btn-show-details,
+                .btn-add-new {
+                    display: none;
+                }
+            }
+
+            [data-address-mode="details"] {
+                .btn-show-details,
+                .btn-add-new {
+                    display: none;
+                }
             }
         }
     }

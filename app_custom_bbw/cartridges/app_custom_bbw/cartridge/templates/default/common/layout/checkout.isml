@@ -13,7 +13,7 @@
         <isinclude template="/common/htmlHead" />
         <isactivedatahead/>
     </head>
-    <body>
+    <body class="checkout-page">
         ${dw.system.HookMgr.callHook('app.template.beforeHeader', 'beforeHeader', pdict) || ''}
 
         <div class="page">
