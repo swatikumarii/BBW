@@ -1,0 +1,57 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/paymentInstruments.js');
+        assets.addJs('/js/custom.js');
+        assets.addCss('/css/account/payment.css');
+        assets.addCss('/css/account/account.css');
+    </isscript>
+    <div class="h-maxwidth--1400 mx-auto my-account">
+        <isinclude template="account/payment/deletePaymentModal" />
+        <!---Breadcrumbs--->
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+        <div class="row">
+            <div class="col mobile-my-account h-font-size--14 h-bg--gray-1 h-clr--black-1 text-uppercase">
+                ${Resource.msg('label.myaccount', 'account', null)}
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <div class="my-account-nav">
+                    <isinclude template="account/accountNav" />
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-8">
+                <div class="my-account-description">
+                    <div class="account-profile">
+                        <div class="profile-heading">
+                            <h1 class="page-title">${Resource.msg('page.heading.payments', 'payment', null)}</h1>
+                        </div>
+                    </div>
+                </div>
+                <isif condition="${pdict.noSavedPayments}">
+                    <div class="row justify-content-center h3 no-saved-payments">
+                        <p>${Resource.msg('msg.no.saved.payments', 'payment', null)}</p>
+                    </div>
+                </isif>
+                <isinclude template="account/payment/savedPayments" />
+                <div class="row justify-content-center">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col">
+                                <a href="${URLUtils.url('Account-Show')}" class="text-center back-to-account-link"
+                                    aria-label="${Resource.msg('label.addressbook.myaccount', 'account', null)}">
+                                    ${Resource.msg('link.profile.backtomyaccount', 'account', null)}
+                                </a>
+                            </div>
+                            <isif condition="${pdict.addPaymentUrl}">
+                                <div class="col">
+                                    <a href="${pdict.addPaymentUrl}" class="btn btn-save btn-block btn-primary"
+                                        aria-label="${Resource.msg('label.payment.addnewpayment', 'payment', null)}">${Resource.msg('button.addnew', 'payment', null)}</a>
+                                </div>
+                            </isif>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>
