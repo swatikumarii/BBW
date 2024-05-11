@@ -1,0 +1,41 @@
+.search-container {
+    width: 100%;
+    display: inline-block;
+    margin: 20px 0;
+
+    .search-wrap {
+        max-width: 100%;
+        float: right;
+
+        @include media-up(sm) {
+            max-width: 300px;
+        }
+
+        form {
+            float: right;
+        }
+
+        .search-icon {
+            top: 50%;
+            transform: translateY(-50%);
+            position: absolute;
+            right: 15px;
+            z-index: 1;
+            width: 18px;
+            height: 18px;
+            color: #777;
+        }
+
+        input[type="search"] {
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            box-sizing: border-box;
+            color: #666;
+            height: 30px;
+            padding-left: 8px;
+            padding-right: 20px;
+            appearance: none;
+            width: 100%;
+        }
+    }
+}

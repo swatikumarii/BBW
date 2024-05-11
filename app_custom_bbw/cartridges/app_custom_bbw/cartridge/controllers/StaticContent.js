@@ -61,6 +61,20 @@ server.get('FaqLevel2', function (req, res, next) {
     next();
 });
 
+/**
+ * StaticContent-ContentNames : Show Content Names
+ * @name StaticContent-ContentNames
+ */
+server.get('ContentNames', function (req, res, next) {
+    var currentFolder = ContentMgr.getFolder(req.querystring.cid);
+    if (currentFolder) {
+        res.render('content/faqContent', {
+            contents: currentFolder.onlineContent
+        });
+    }
+    next();
+});
+
 server.get('Folders', function (req, res, next) {
     var folders = [];
     var contents = [];

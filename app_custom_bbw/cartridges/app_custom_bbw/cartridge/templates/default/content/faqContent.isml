@@ -1,0 +1,20 @@
+<aside class="article-sidebar" aria-labelledby="section-articles-title">
+    <div class="collapsible-sidebar">
+        <span id="section-articles-title" class="collapsible-sidebar-title sidenav-title">
+            ${Resource.msg('label.faq.articles.section', 'common', null)}
+        </span>
+        <div class="collapsible-sidebar-body">
+            <ul>
+                <isloop items="${pdict.contents}" var="content">
+                    <li>
+                        <a href="${URLUtils.url('Page-Show', 'cid', content.ID)}"
+                            class="sidenav-item ">${content.name}</a>
+                    </li>
+                </isloop>
+            </ul>
+            <a href="${URLUtils.url('Page-Show', 'cid', pdict.parentFolder.ID)}" class="article-sidebar-item">
+                ${Resource.msg('link.faq.see.more', 'common', null)}
+            </a>
+        </div>
+    </div>
+</aside>
