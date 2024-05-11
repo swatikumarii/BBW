@@ -1,12 +1,3 @@
-<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('showLoadingIndicator') === false}">
-    <div id="page-overlay" class="page-loader productbundle-overlay d-none">
-        <img src="${URLUtils.staticURL('/images/spinner.gif')}" alt="Loading" class="loading-img" />
-    </div>
-<iselse/>
-    <div id="page-overlay" class="page-loader productbundle-overlay">
-        <img src="${URLUtils.staticURL('/images/spinner.gif')}" alt="Loading" class="loading-img" />
-    </div>
-</isif>
 <div id="productbundle-modal" class="modal" role="dialog" data-backdrop="false">
     <div class="modal-dialog productbundle-dialog">
         <iscomment> Modal content </iscomment>

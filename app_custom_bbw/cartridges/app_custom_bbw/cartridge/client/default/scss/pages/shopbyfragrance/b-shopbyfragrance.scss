@@ -112,6 +112,12 @@ body {
                 }
 
                 .search-input-box {
+                    width: 350px;
+
+                    @include media-up(sm) {
+                        width: 100%;
+                    }
+
                     &:focus {
                         outline: 1px dotted colour(black);
                     }
@@ -119,9 +125,23 @@ body {
 
                 .search-icon-details {
                     position: absolute;
-                    right: 10px;
+                    right: -8px;
                     top: 68%;
                     transform: translateY(-50%);
+
+                    @include media-up(sm) {
+                        position: absolute;
+                        right: 10px;
+                        top: 68%;
+                        transform: translateY(-50%);
+                    }
+
+                    @include media-btw(sm, lg) {
+                        position: absolute;
+                        right: 10px;
+                        top: 68%;
+                        transform: translateY(-50%);
+                    }
                 }
             }
 
@@ -179,13 +199,13 @@ body {
                             border: 1px solid colour(pink, 4);
                             margin: -5px 20px 15px;
                             width: 100%;
-                            height: 2px;
+                            height: auto;
 
                             @include media-up(sm) {
                                 border: 1px solid colour(pink, 4);
                                 margin: -5px 20px 15px;
                                 width: 164px;
-                                height: 2px;
+                                height: auto;
                             }
 
                             @include media-btw(sm, lg) {
@@ -235,6 +255,12 @@ body {
     .search-promo {
         border-top: 1px solid colour(black, 3);
         padding: 20px;
+        margin-left: 17px;
+
+        @include media-up(sm) {
+            border-top: 1px solid colour(black, 3);
+            padding: 20px;
+        }
 
         .html-slot-container {
             max-width: 51.25rem;
@@ -281,7 +307,7 @@ body {
 
     .all-fragrance-header {
         border-top: 2px solid colour(gray, 21);
-        margin: 39px -30px 35px;
+        margin: 10px -39px 31px -25px;
 
         @include media-up(sm) {
             margin-top: 80px;

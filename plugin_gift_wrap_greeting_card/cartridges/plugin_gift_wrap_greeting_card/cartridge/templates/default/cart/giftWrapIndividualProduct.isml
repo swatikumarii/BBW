@@ -1,7 +1,7 @@
 <iscomment>Individual Gift Wrapping File</iscomment>
 <div class="giftWrapIndividualProduct" id="rit-giftwrap-individual-modal">
     <div class="rit-giftwrap-individual-modal">
-        <div class="modal-content">
+        <div class="modal-content border-0">
             <div class="modal-body">
                 <div
                     class=" js-generic-flyout js-flyout-container generic-dialog-flyout open checkout-v3 giftwrap-flyout">
@@ -11,12 +11,10 @@
                     <section class="js-flyout-content generic-flyout-content">
                         <div id="giftwrap-container" class="giftwrap-container">
                             <div class="giftwrap-title">
-                                <button type="button" class="side--close icon-close greeting-card-close" tabindex="0">
-                                    <span class="sr-only"></span>
-                                </button>
                                 <h2>${Resource.msg('individual.select.products', 'giftWrap', null)}</h2>
                                 <p>${Resource.msg('individual.wrapping.cost', 'giftWrap', null)}</br>
-                                    <span class="cost-per-item-message" data-cost-per-item-message="${Resource.msgf('individual.cost.per.item', 'giftWrap', null)}">
+                                    <span class="cost-per-item-message"
+                                        data-cost-per-item-message="${Resource.msgf('individual.cost.per.item', 'giftWrap', null)}">
                                     </span>
                                 </p>
                                 <div class="inline-alert notify">
@@ -63,7 +61,8 @@
                                 <button type="button"
                                     class="close-button btn btn--secondary js-giftwrap-individual-cancel"
                                     tabindex="0">${Resource.msg('cancel.label', 'common', null)}</button>
-                                <button type="button" class="apply-button btn js-giftwrap-individual-save" tabindex="0">
+                                <button type="button" class="apply-button btn js-giftwrap-individual-save btn-hover"
+                                    tabindex="0">
                                     ${Resource.msg('add.label', 'common', null)}
                                 </button>
                             </div>

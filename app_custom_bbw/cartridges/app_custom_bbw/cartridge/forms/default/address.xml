@@ -7,7 +7,7 @@
               type="string"
               mandatory="true"
               max-length="20"
-              missing-error="error.adddress.title"
+              missing-error="error.address.title"
               range-error="error.message.20orless"
        />
 
@@ -53,7 +53,7 @@
        <field formid="postalCode" label="label.input.zipcode" type="string" mandatory="true" min-length="4" max-length="4"
        regexp="^[0-9]*$"
        binding="postalCode"
-       range-error="error.message.between5and10"
+       range-error="error.message.zip.upto4"
        missing-error="error.zip.code"
        parse-error="error.message.parse.zip"/>
 
@@ -70,10 +70,10 @@
 
     <!-- phone is mandatory for addresses -->
        <field formid="phone" label="label.input.phonenumber" description="address.phone.example" type="string" mandatory="true"
-           binding="phone" min-length="6" max-length="12"
+           binding="phone" min-length="8" max-length="12"
            regexp="^((?!(0))[0-9]{8,12})$"
            missing-error="error.phone.number"
-           range-error="error.message.phonebetween6and12"
+           range-error="error.message.phonebetween8and12"
            parse-error="error.message.pattern.phone"/>
 
     <!-- actions provided by the edit shipping address dialog -->
