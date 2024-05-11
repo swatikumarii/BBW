@@ -18,6 +18,7 @@
 			label="label.input.firstname.profile" 
 			mandatory="true" 
 			min-length="2"
+			max-length="50"
 			regexp="^[a-zA-Z0-9'\-]+$"
 			missing-error="error.message.fname.required" 
 			range-error="error.message.fname.2orGreater" 
@@ -29,6 +30,7 @@
 			formid="lastname" 
 			label="label.input.lastname.profile" 
 			mandatory="true" 
+			min-length="2"
 			max-length="50" 
 			regexp="^[a-zA-Z0-9'\-]+$"
 			missing-error="error.message.required"
@@ -67,8 +69,9 @@
 			formid="phone"
 			label="label.input.phone.profile"
 			mandatory="true"
-			missing-error="error.message.required"
-			parse-error="error.message.parse.phone.profile.form"
+        	regexp="^((?!(0))[0-9]{8,12})$"
+           	missing-error="error.phone.number"
+           	parse-error="error.message.pattern.phone"
 			type="string"/> 
 
 		<field
@@ -100,7 +103,20 @@
 			label="label.input.zip.profile" 
 			min-length="4"
 			max-length="10"
-			regexp="^[a-zA-Z0-9'\-]{4,10}$"
+			regexp="^[0-9]*$"
+			range-error="error.message.zip.10orless" 
+			parse-error="error.message.zip.fname"
+			value-error="ValueErrorText"
+			type="string" />
+
+		<field 
+			formid="zipCode" 
+			label="label.input.zip.profile" 
+			mandatory="true"
+			min-length="4"
+			max-length="10"
+			regexp="^[0-9]*$"
+			missing-error="error.message.zip.required"
 			range-error="error.message.zip.10orless" 
 			parse-error="error.message.zip.fname"
 			value-error="ValueErrorText"

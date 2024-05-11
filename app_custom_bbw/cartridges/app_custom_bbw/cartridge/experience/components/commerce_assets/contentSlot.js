@@ -13,7 +13,7 @@ var HashMap = require('dw/util/HashMap');
 module.exports.render = function (context) {
     var model = new HashMap();
     var content = context.content;
-    var contentSlotpd = content.contentSlotpd;
-    model.contentSlotpd = contentSlotpd;
-    return new Template('experience/components/commerce_layouts/contentSlot').render(model).text;
+    var contentSlotId = content.contentSlotId;
+    model.contentSlotId = contentSlotId;
+    return new Template('experience/components/commerce_assets/contentSlot').render(model).text;
 };

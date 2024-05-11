@@ -59,15 +59,15 @@
 
 
 <div class="form-group
-            <isif condition=" ${pdict.profileForm.customer.zip.mandatory === true}">required</isif>">
-    <label class="form-control-label" for="zip">
-        <isprint value="${pdict.profileForm.customer.zip.label}" encoding="htmlcontent" />
+            <isif condition=" ${pdict.profileForm.customer.zipCode.mandatory === true}">required</isif>">
+    <label class="form-control-label" for="zipCode">
+        <isprint value="${pdict.profileForm.customer.zipCode.label}" encoding="htmlcontent" />
     </label>
-    <input type="text" class="form-control" id="zip"
+    <input type="text" class="form-control" id="zipCode"
         data-missing-error="${Resource.msg('error.message.zip.required', 'forms', null)}"
-        data-range-error="${Resource.msg('error.message.zip.10orless', 'forms', null)}"
+        data-range-error="${Resource.msg('error.message.zip.upto4', 'forms', null)}"
         data-pattern-mismatch="${Resource.msg('error.message.parse.zip', 'forms', null)}"
-        aria-describedby="form-zip-error" <isprint value=${pdict.profileForm.customer.zip.attributes} encoding="off" />
+        aria-describedby="form-zip-error" <isprint value=${pdict.profileForm.customer.zipCode.attributes} encoding="off" />
     />
     <div class="invalid-feedback" id="form-zip-error"></div>
 </div>
@@ -97,8 +97,18 @@
         href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}"
         title="Go to Privacy">${Resource.msg('form.privacy.policy', 'forms', null)}</a></p>
 
-<div class="row justify-content-center form-group">
-    <button type="submit" name="save"
-        class="btn btn-save btn-hover text-uppercase btn-primary">${Resource.msg('button.update', 'account', null)}</button>
-</div>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
+    <div class="row justify-content-center form-group">
+        <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
+            data-callback="submitProfile" data-action="submit" name="save"
+            class="btn btn-save btn-hover text-uppercase btn-primary g-recaptcha">
+            ${Resource.msg('button.update', 'account', null)}
+        </button>
+    </div>
+<iselse/>
+    <div class="row justify-content-center form-group">
+        <button type="submit" name="save"
+            class="btn btn-save btn-hover text-uppercase btn-primary">${Resource.msg('button.update', 'account', null)}</button>
+    </div>
+</isif>
 </form>
