@@ -5,7 +5,8 @@
             data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
             ${Resource.msg('button.addToBag', 'common', null)}
         </button>
-        <span class="add-to-cart-error text-danger"></span>
         <div id="add-to-cart-snackbar">${Resource.msg('item.added', 'common', null)}</div>
     </div>
 </div>
+<isinclude template="product/components/removeGiftLineItem" />
+<isinclude template="product/components/removeLineItem" />

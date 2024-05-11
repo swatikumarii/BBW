@@ -6,13 +6,15 @@
 <isif condition="${pdict.isGreetingCardEnable}">
     <div class="greeting-block js-greetingcard">
         <div class="js-greetingcard-block">
-            <div class="greeting-block-toggle d-flex">
-                <input type="checkbox" id="greetingcard" class="js-greetingcard-checkbox" />
-                <label for="greetingcard" class="mb-0">${Resource.msg('add.greeting.card', 'greetingCard', null)}</label>
-            </div>
-            <div class="greetingCard-edit-product addGreetingCardProduct">
-                <div class="js-greetingcard-edit" hreflang="${request.getLocale()}">
-                    ${Resource.msg('edit.label', 'common', null)}
+            <div class="d-flex jusitfy-content-between">
+                <div class="greeting-block-toggle d-flex">
+                    <input type="checkbox" id="greetingcard" class="js-greetingcard-checkbox" />
+                    <label for="greetingcard" class="mb-0">${Resource.msg('add.greeting.card', 'greetingCard', null)}</label>
+                </div>
+                <div class="greetingCard-edit-product addGreetingCardProduct">
+                    <div class="js-greetingcard-edit" hreflang="${request.getLocale()}">
+                        ${Resource.msg('edit.label', 'common', null)}
+                    </div>
                 </div>
             </div>
             <div class="greeting-block-options js-greetingcard-options">

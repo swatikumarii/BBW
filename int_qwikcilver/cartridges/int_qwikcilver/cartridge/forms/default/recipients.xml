@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19" secure="false">
+	<group formid="recipients">
+		<field
+			formid="sendername"
+			label="label.input.sendername"
+			mandatory="true"
+			max-length="50"
+			regexp="^[ A-Za-z0-9_@./#,'+-]*$"
+            missing-error="error.message.required"
+            parse-error="error.message.parse.senderName"
+            range-error="error.message.50orless"
+			type="string" />
+
+		<field
+			formid="recipientsname"
+			label="label.input.recipientsname"
+			mandatory="true"
+			max-length="50"
+			regexp="^[a-zA-Z0-9_\s]*$"
+            missing-error="error.message.required"
+            parse-error="error.message.parse.recipientsname"
+            range-error="error.message.50orless"
+			type="string" />
+
+		<field
+			formid="recipientemail"
+			label="label.input.email.recipients"
+			mandatory="true"
+			max-length="50"
+			missing-error="error.message.required"
+			parse-error="error.message.parse.recipientemail"
+			range-error="error.message.50orless"
+			regexp="^[\w.%+-]+@[\w.-]+\.[\w]{2,6}$"
+			value-error="ValueErrorText"
+			type="string"/>
+
+        <field formid="egiftday" label="label.input.egift.day" type="integer" mandatory="false">
+            <options>
+                <option optionid="" label="select.default.egift.day" value=""/>
+            </options>
+        </field>
+
+        <field formid="egiftmonth" label="label.input.egift.month" type="string" mandatory="false">
+            <options>
+                <option optionid="" label="select.default.egift.month" value=""/>
+            </options>
+        </field>
+
+        <field
+            formid="egiftmessage"
+            label="label.input.egiftmessage"
+            type="string"
+            mandatory="false">
+        </field>
+	</group>
+</form>

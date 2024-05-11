@@ -7,13 +7,13 @@
         <img src="${URLUtils.staticURL('/images/spinner.gif')}" alt="Loading" class="loading-img" />
     </div>
 </isif>
-<div id="productbundle-modal" class="modal" role="dialog">
+<div id="productbundle-modal" class="modal" role="dialog" data-backdrop="false">
     <div class="modal-dialog productbundle-dialog">
         <iscomment> Modal content </iscomment>
         <div class="modal-content productbundle-content">
             <div class="modal-header border-bottom p-2 align-items-center">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <strong><i class="fa-light fa-angle-left" aria-hidden="true"></i></strong>
+                    <i class="fa fa-light fa-angle-left" aria-hidden="true"></i>
                 </button>
                 <h5 tabindex="0" class="header-title text-center w-100">${Resource.msg('bundle.view', 'productBundle', null)}</h5>
             </div>

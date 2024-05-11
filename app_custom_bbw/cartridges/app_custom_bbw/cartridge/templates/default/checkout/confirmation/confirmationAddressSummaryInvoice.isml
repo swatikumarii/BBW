@@ -1,0 +1,30 @@
+<div class="address-summary">
+    <div>
+        <span
+            style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+            class="firstName">${Resource.msg('label.first.name', 'confirmation', null)}
+        </span>
+        <span
+            style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+            class="lastName">${Resource.msg('label.second.name', 'confirmation', null)}
+        </span>
+    </div>
+    <div style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="address1">${Resource.msg('label.addres1.name', 'confirmation', null)}
+    </div>
+    <div style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="address2">  
+    </div>
+    <span
+        style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="city">${Resource.msg('label.city.name', 'confirmation', null)}
+    </span>
+    <span
+        style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="stateCode">${Resource.msg('label.statecode.name', 'confirmation', null)}
+    </span>
+    <span
+        style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="postalCode">${Resource.msg('label.postalcode.number', 'confirmation', null)}
+    </span>
+</div>

@@ -46,6 +46,7 @@
 
             @include media-down(sm) {
                 position: absolute;
+                justify-content: center;
             }
 
             li {
@@ -331,6 +332,9 @@
                     width: 20%;
                     letter-spacing: 0.01em;
                     color: colour(black, 1);
+                    -webkit-tap-highlight-color: transparent;
+                    outline: none;
+                    user-select: none;
 
                     &:hover {
                         color: colour(white);
@@ -556,12 +560,12 @@
     }
 }
 
-.reserve-stock {
+.reserve-stock,
+.add-to-cart-error-pdp {
     padding-top: 3px;
     line-height: 20px;
     line-height: 1.25rem;
     letter-spacing: 0.01em;
-    padding-bottom: 15px;
     margin-top: 13px;
     width: 100%;
 
@@ -656,4 +660,16 @@
             padding-bottom: 5px;
         }
     }
+}
+
+#delete-gift-certificate-line-item-modal,
+#delete-line-item-modal {
+    .modal-dialog {
+        bottom: unset;
+    }
+}
+
+.afterpay-logo svg {
+    max-height: 24px;
+    height: 24px;
 }

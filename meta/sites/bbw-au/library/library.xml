@@ -3591,7 +3591,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <searchable-flag>true</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="search-promo text-justify"&gt;&#13;
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="search-promo text-left"&gt;&#13;
     &lt;div class="html-slot-container"&gt;&#13;
         &lt;h2 class="h-font-size--24 h-clr--black-3"&gt;Find a Fragrance from Bath &amp;amp; Body Works&lt;/h2&gt;&#13;
         &lt;p class=" h-clr--gray h-font-size--16 "&gt;Hey! Welcome to the Fragrance Finder: The page where you can find our top scents &lt;i&gt;and&lt;/i&gt; browse all of our&#13;
@@ -3622,7 +3622,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
     &lt;div class="row"&gt;&#13;
         &lt;div class="col-12 col-sm-12 col-md-12 col-lg-12"&gt;&#13;
             &lt;div class="fragrance-top-banner text-center"&gt;&#13;
-                &lt;h1 class="fragrance-landing-header h-clr--black-3 h-fw--normal pb-0 mt-3 mb-4"&gt;FRAGRANCE FINDER&lt;/h1&gt;&#13;
+                &lt;h1 class="fragrance-landing-header h-clr--black-3 h-fw--normal"&gt;FRAGRANCE FINDER&lt;/h1&gt;&#13;
                 &lt;p class="fragrance-landing-subheader h-clr--black-3 h-font-size--16  "&gt;Your signature scent’s a click&#13;
                     away.&lt;/p&gt;&#13;
             &lt;/div&gt;&#13;
@@ -3659,7 +3659,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="register-form text-center"&gt;&lt;img alt="Join the VIPs. My Bath &amp;amp; Body Works Rewards. Available nationwide! Now everyone can earn FREE products (up to $16.95) for doing what they love!" src="images/Login-Signup/register.jpg?$staticlink$" title="" /&gt;&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="register-form banner-img text-center"&gt;&lt;img alt="Join the VIPs. My Bath &amp;amp; Body Works Rewards. Available nationwide! Now everyone can earn FREE products (up to $16.95) for doing what they love!" src="images/Login-Signup/register.jpg?$staticlink$" title="" /&gt;&lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
 

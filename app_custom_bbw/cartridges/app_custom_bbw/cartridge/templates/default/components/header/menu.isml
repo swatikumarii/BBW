@@ -7,7 +7,7 @@
                     <isif condition="${category.subCategories}">
                         <li class="nav-item dropdown level-1-li" role="presentation">
                             <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
-                                id="${category.id}" class="level-1-link nav-link h-font-size--18 h-fw--semibold text-capitalize dropdown-toggle"
+                                id="${category.id}" class="level-1-link nav-link h-font-size--14 h-fw--semibold text-capitalize dropdown-toggle"
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                 tabindex="0">${category.name}</a>
                             <isset name="menuItem" value="${category}" scope="page" />
@@ -16,7 +16,7 @@
                     <iselse/>
                         <li class="nav-item" role="presentation">
                             <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
-                                id="${category.id}" class="nav-link h-font-size--18 h-fw--semibold" role="link"
+                                id="${category.id}" class="nav-link h-font-size--14 h-fw--semibold" role="link"
                                 tabindex="0">${category.name}</a>
                         </li>
                     </isif>
@@ -85,48 +85,22 @@
             </li>
             <li class="nav-my-account nav-item level-1-li dropdown" role="presentation">
                 <a href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
-                <isif condition="${pdict.customerName === null}">
-                    <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true" aria-label="${category.id}">
-                        <li class="level-2-li p-0" role="presentation">
-                            <a href="${URLUtils.url('Login-Show')}" class="level-2-link h-clr--gray h-font-size--16"
-                                role="button">${Resource.msg('mobile.menu.signIn', 'common', null)}</a>
-                        </li>
-                        <li class="level-2-li p-0" role="presentation">
-                            <a href="${URLUtils.url('Home-Show')}" class="level-2-link h-clr--gray h-font-size--16"
-                                role="button">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a>
-                        </li>
-                        <li class="level-2-li p-0" role="presentation">
-                            <a href="${URLUtils.url('Account-Show')}" class="level-2-link h-clr--gray h-font-size--16"
-                                role="button">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
-                        </li>
-                        <li class="level-2-li p-0" role="presentation">
-                            <a href="${URLUtils.url('Wishlist-Show')}" class="level-2-link h-clr--gray h-font-size--16"
-                                role="button">${Resource.msg('mobile.menu.myLoveItList', 'common', null)}</a>
-                        </li>
-                    </ul>
-                <iselse/>
-                    <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true" aria-label="${category.id}">
-                        <li class="level-2-li p-0" role="presentation">
-                            ${Resource.msg('mobile.menu.hi', 'common', null)} ${pdict.customerName} ${Resource.msg('mobile.menu.exclamation', 'common', null)}
-                        </li>
-                        <li class="level-2-li p-0" role="presentation">
-                            <a href="${URLUtils.url('Account-Show')}" class="level-2-link h-clr--gray h-font-size--16"
-                                role="button">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
-                        </li>
-                        <li class="level-2-li p-0" role="presentation">
-                            <a href="${URLUtils.url('Order-History')}" class="level-2-link h-clr--gray h-font-size--16"
-                                role="button">${Resource.msg('label.myorders', 'account', null)}</a>
-                        </li>
-                        <li class="level-2-li p-0" role="presentation">
-                            <a href="${URLUtils.url('Wishlist-Show')}" class="level-2-link h-clr--gray h-font-size--16"
-                                role="button">${Resource.msg('mobile.menu.myLoveItList', 'common', null)}</a>
-                        </li>
-                        <li class="level-2-li p-0" role="presentation">
-                            <a href="${URLUtils.url('Login-Logout')}" class="level-2-link h-clr--gray h-font-size--16"
-                                role="button">${Resource.msg('link.header.logout', 'account', null)}</a>
-                        </li>
-                    </ul>
-                </isif>
+
+                <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true" aria-label="${category.id}">
+                    <li class="level-2-li p-0" role="presentation">
+                        <a href="${URLUtils.url('Login-Show')}" class="level-2-link h-clr--gray h-font-size--16"
+                                    role="button">${Resource.msg('mobile.menu.signIn', 'common', null)}</a>
+                    </li>
+                    <li class="level-2-li p-0" role="presentation">
+                        <a href="${URLUtils.url('Order-Status')}" class="level-2-link h-clr--gray h-font-size--16" role="button">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a>
+                    </li>
+                    <li class="level-2-li p-0" role="presentation">
+                        <a href="${URLUtils.url('Login-Show')}" class="level-2-link h-clr--gray h-font-size--16" role="button">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
+                    </li>
+                    <li class="level-2-li p-0" role="presentation">
+                        <a href="${URLUtils.url('Login-Show')}" class="level-2-link h-clr--gray h-font-size--16" role="button">${Resource.msg('mobile.menu.myLoveItList', 'common', null)}</a>
+                    </li>
+                </ul>
             </li>
             <isinclude url="${URLUtils.url('Page-Locale', 'mobile', true)}" />
         </ul>

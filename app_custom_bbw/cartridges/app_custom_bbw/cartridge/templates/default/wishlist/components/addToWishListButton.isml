@@ -4,7 +4,7 @@
 </button>
 
 <button type="button" title="${Resource.msg('wishlist.remove.list', 'wishlist', null)}"
-    class="d-none bg-white border-0 remove-btn-lg remove-from-wishlist btn btn-light ${pdict.itemExist ? 'd-block' : ''}"
+    class="d-none bg-white border-0 remove-btn-lg remove-from-wishlist ${pdict.itemExist ? 'd-block' : ''}"
     data-url="${URLUtils.url('Wishlist-RemoveProduct', 'pid', product.id)}">
         <img width="24px" height="24px" alt="image" src="${URLUtils.staticURL('/images/account/broken-heart.svg')}" />
 </button>
