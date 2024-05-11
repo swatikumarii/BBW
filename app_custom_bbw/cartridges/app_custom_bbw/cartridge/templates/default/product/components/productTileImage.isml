@@ -31,8 +31,8 @@
                     <isloop items="${product.images['medium']}" var="image" status="loopStatus">
                         <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
                             <div class="carousel-img-wrapper d-flex h-maxheight--300">
-                                <img src="${image.url}"
-                                    class="w-100 h-100 mx-auto b-product-tile__img carousel-product-img"
+                                <img data-src="${image.url}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E"
+                                    class="w-100 h-100 mx-auto b-product-tile__img carousel-product-img lazy"
                                     alt="${image.alt} image number ${image.index}" itemprop="image" width="202px"
                                     height="300px" />
                             </div>
@@ -57,8 +57,8 @@
         <isloop items="${product.images['medium']}" var="image" status="loopStatus">
             <a class="d-lg-block h-hidden-sm-down" href="${product.isEgiftCard ? URLUtils.url('Giftcard-Show', 'pid', product.id).relative().toString() : pdict.urls.product}">
                 <div class='img-inner-wrapper ${loopStatus.index == 0 ? ' main-img-wrapper' : 'hover-img-wrapper'}'>
-                    <img class="tile-image b-product-tile__img mx-auto w-100" src="${image.url}"
-                        alt="${product.productName}" title="${image.title}" itemprop="image" width="202px"
+                    <img class="tile-image b-product-tile__img mx-auto w-100 lazy" data-src="${image.url}"
+                        alt="${product.productName}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E" title="${image.title}" itemprop="image" width="202px"
                         height="300px" />
                 </div>
             </a>
@@ -72,8 +72,8 @@
                     <isloop items="${product.images['medium']}" var="image" status="loopStatus">
                         <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
                             <div class="carousel-img-wrapper d-flex h-maxheight--300">
-                                <img src="${image.url}"
-                                    class="w-100 h-100 mx-auto b-product-tile__img carousel-product-img"
+                                <img data-src="${image.url}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E"
+                                    class="w-100 h-100 mx-auto b-product-tile__img carousel-product-img lazy"
                                     alt="${image.alt} image number ${image.index}" itemprop="image" width="202px"
                                     height="300px" />
                             </div>
@@ -97,10 +97,11 @@
     <iselseif condition="${product.images['medium'].length < 2}" />
         <isloop items="${product.images['medium']}" var="image" status="loopStatus">
             <a class="d-block" href="${product.isEgiftCard ? URLUtils.url('Giftcard-Show', 'pid', product.id).relative().toString() : pdict.urls.product}">
-                <div class='img-inner-wrapper'>
-                    <img class="tile-image b-product-tile__img mx-auto w-100" src="${image.url}"
-                        alt="${product.productName}" title="${image.title}" itemprop="image" width="202px"
+                <div class='img-inner-wrapper lazy-skeleton'>
+                    <img class="tile-image b-product-tile__img mx-auto w-100 lazy" data-src="${image.url}"
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E" alt="${product.productName}" title="${image.title}" itemprop="image" width="202px"
                         height="300px" />
+                    <div class="skeleton-loader"></div>
                 </div>
             </a>
         </isloop>
