@@ -28,7 +28,7 @@
                         <div class="invalid-feedback" id="passwordInvalidMessage"></div>
                     </div>
                     <a href="${URLUtils.url('Account-PasswordReset')}"
-                        class="ml-2">${Resource.msg('link.login.forgotpassword', 'login', null)}</a>
+                        class="ml-2 forgot-password-link-checkout h-clr--gray-4">${Resource.msg('link.login.forgotpassword', 'login', null)}</a>
                 </div>
             </div>
             <div class="row login-button-section">

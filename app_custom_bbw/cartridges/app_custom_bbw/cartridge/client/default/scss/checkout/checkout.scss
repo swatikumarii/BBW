@@ -291,6 +291,15 @@ span.ship-to-city-st-zip {
     .login-button-section {
         margin-top: 20px;
     }
+
+    .forgot-password-link-checkout {
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+            color: $clr-gray-4;
+        }
+    }
 }
 
 input[type="text"],
