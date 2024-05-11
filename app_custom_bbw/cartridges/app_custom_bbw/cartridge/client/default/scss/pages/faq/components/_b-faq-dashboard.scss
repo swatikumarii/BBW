@@ -1,0 +1,150 @@
+.faq-search {
+    margin-top: 48px;
+
+    h1 {
+        line-height: 1.5;
+    }
+
+    .header-search {
+        width: 50%;
+
+        @include media-up(sm) {
+            width: 30%;
+        }
+
+        .search-icon {
+            top: 50%;
+            transform: translateY(-50%);
+            right: 15px;
+            z-index: 1;
+            width: 18px;
+            height: 18px;
+            color: #777;
+        }
+
+        .search-input {
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            color: #666;
+            height: 30px;
+            padding-left: 8px;
+            padding-right: 20px;
+            width: 100%;
+            border-style: hidden hidden groove;
+            border-radius: 0%;
+
+            &:focus {
+                outline: 0;
+                color: #555;
+            }
+        }
+    }
+}
+
+.questions {
+    margin-top: 58px;
+    margin-bottom: 30px;
+
+    ul {
+        line-height: 2em;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        padding: 2px;
+
+        a {
+            font-size: 14px;
+            color: colour(black, 3);
+            line-height: 17px;
+            font-weight: normal;
+            border-style: none;
+        }
+    }
+
+    h3 {
+        color: #333;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 30px 0 16px;
+        line-height: 1em;
+    }
+
+    .morequestions {
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: normal;
+        letter-spacing: 0.04em;
+        padding: 2px;
+        color: blue;
+    }
+}
+
+.secondcategories {
+    padding-top: 60px;
+    border-top: 3px solid #f2f2f2;
+
+    .menusections {
+        width: 100%;
+        display: inline-block;
+
+        @include media-up(sm) {
+            width: 75%;
+        }
+
+        .allcategories {
+            display: inline-block;
+            text-align: left;
+            margin-top: 3em;
+            vertical-align: top;
+            width: 100%;
+
+            @include media-up(sm) {
+                width: 32%;
+            }
+
+            li {
+                line-height: 20px;
+                padding: 0.3em 2px 10px;
+            }
+
+            img {
+                height: 60px;
+                width: 60px;
+            }
+
+            h3 {
+                color: colour(black, 3);
+                font-size: 14px;
+                line-height: 12px;
+                padding-bottom: 10px;
+                padding-top: 0.5em;
+                font-weight: 700;
+                text-transform: uppercase;
+
+                a:hover {
+                    text-decoration: underline;
+                    color: colour(black, 3);
+                }
+            }
+        }
+
+        ul {
+            line-height: 2em;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li a {
+                font-size: 14px;
+                text-decoration: none;
+                color: colour(black, 3);
+                line-height: 17px;
+                font-weight: normal;
+                border-style: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,108 @@
+.search-container {
+    width: 100%;
+    display: inline-block;
+    margin: 20px 0;
+
+    .search-wrap {
+        max-width: 100%;
+        float: right;
+
+        @include media-up(sm) {
+            max-width: 300px;
+        }
+
+        form {
+            float: right;
+        }
+
+        .search-icon {
+            top: 50%;
+            transform: translateY(-50%);
+            position: absolute;
+            right: 15px;
+            z-index: 1;
+            width: 18px;
+            height: 18px;
+            color: #777;
+        }
+
+        input[type="search"] {
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            box-sizing: border-box;
+            color: #666;
+            height: 30px;
+            padding-left: 8px;
+            padding-right: 20px;
+            appearance: none;
+            width: 100%;
+        }
+    }
+}
+
+.category-container {
+    .category-content {
+        .content-heading {
+            h1 {
+                flex-grow: 1;
+                margin: 0.67em 0 10px;
+            }
+        }
+
+        .section-tree {
+            flex-direction: column;
+
+            @include media-up(sm) {
+                flex-direction: row;
+            }
+
+            .section {
+                flex: 0 0 45%;
+                margin-bottom: 60px;
+
+                .section-tree-title {
+                    margin-top: 15px;
+                    padding: 2px;
+
+                    a {
+                        color: colour(black);
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+
+                    .article-list-item {
+                        font-size: 16px;
+                        padding: 15px 0;
+
+                        .icon-star {
+                            color: blue;
+                            font-size: 18px;
+                        }
+
+                        a {
+                            color: #1a1a1a;
+                        }
+                    }
+                }
+            }
+
+            .see-all-articles {
+                display: block;
+                padding: 15px 0;
+                color: blue;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
