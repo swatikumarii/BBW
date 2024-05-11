@@ -239,6 +239,11 @@ span.ship-to-city-st-zip {
     letter-spacing: 0.2px;
     width: 730px;
 
+    a {
+        display: block;
+        width: fit-content;
+    }
+
     .step-text {
         margin-bottom: 15px;
     }
