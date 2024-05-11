@@ -12,7 +12,7 @@
 function displayMessage(data, button) {
     $.spinner().stop();
     var status;
-    var message = data.msg ? data.msg : 'Something went wrong - Please try again';
+    var message = data.msg ? data.msg : $('#newsletter-input').attr('data-csrf-error');
     if (data.success) {
         status = 'alert-success';
     } else {
@@ -26,10 +26,10 @@ function displayMessage(data, button) {
     }
     $('.email-signup-message').append(
         '<div class="email-signup-alert text-justify ' +
-        status +
-        '">' +
-        data.msg +
-        '</div>'
+            status +
+            '">' +
+            message +
+            '</div>'
     );
     var newsLetterInput = $('#newsletterInput');
     if (status === 'alert-danger') {
