@@ -20,6 +20,7 @@ module.exports.render = function (context, modelIn) {
     model.mobileImage = content.mobile_image ? ImageTransformation.getScaledImage(content.mobile_image) : null;
     model.desktopImage = content.desktop_image ? ImageTransformation.getScaledImage(content.desktop_image) : null;
     model.useImgURL = !!content.useImgURL;
+    model.disableLazyLoad = !!content.disableLazyLoad;
     model.desktopImgUrl = content.desktopImgUrl ? content.desktopImgUrl : null;
     model.mobileImgUrl = content.mobileImgUrl ? content.mobileImgUrl : null;
     model.alt = content.alt ? content.alt : '';
