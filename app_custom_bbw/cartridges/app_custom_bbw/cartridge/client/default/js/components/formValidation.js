@@ -41,6 +41,17 @@ module.exports = function (formElement, payload) {
             }
         });
     }
+    var element = $(formElement).find(
+        '.form-control.is-invalid, .selectric-form-control.is-invalid'
+    );
+    if (element && element.length) {
+        $('body,html').animate(
+            {
+                scrollTop: element.offset().top - 200
+            },
+            500
+        );
+    }
     if (payload && payload.error) {
         var form = $(formElement).prop('tagName') === 'FORM'
             ? $(formElement)

@@ -55,7 +55,7 @@
         </div>
     <iselseif condition="${product.images['medium'].length == 2}" />
         <isloop items="${product.images['medium']}" var="image" status="loopStatus">
-            <a class="d-lg-block h-hidden-sm-down" href="${product.isEgiftCard ? URLUtils.url('Giftcard-Show', 'pid', product.id).relative().toString() : pdict.urls.product}">
+            <a class="d-none d-md-none d-lg-block h-hidden-sm-down" href="${product.isEgiftCard ? URLUtils.url('Giftcard-Show', 'pid', product.id).relative().toString() : pdict.urls.product}">
                 <div class='img-inner-wrapper ${loopStatus.index == 0 ? ' main-img-wrapper' : 'hover-img-wrapper'}'>
                     <img class="tile-image b-product-tile__img mx-auto w-100 lazy" data-src="${image.url}"
                         alt="${product.productName}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E" title="${image.title}" itemprop="image" width="202px"
@@ -64,7 +64,7 @@
             </a>
         </isloop>
         <div id="plpCarousel-${product.id}"
-            class="carousel slide b-product-tile__carousel js-product-carousel d-lg-none" data-interval="0"
+            class="carousel slide b-product-tile__carousel js-product-carousel d-block d-md-block d-lg-none" data-interval="0"
             data-prev="${Resource.msg('button.previous', 'common', null)}"
             data-next="${Resource.msg('button.next', 'common', null)}">
             <div class="carousel-inner" role="listbox">

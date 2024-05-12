@@ -31,8 +31,6 @@
                 </div>
             </div>
             <isinclude template="checkout/shipping/giftMessageSummary" />
-            <button class="edit-button pull-right"
-                aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
         </div>
     </isif>
 </isloop>
