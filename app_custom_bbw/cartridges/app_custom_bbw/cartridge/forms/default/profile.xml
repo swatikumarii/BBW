@@ -143,8 +143,11 @@
 			label="label.input.password.profile"
 			mandatory="true"
 			min-length="8"
-			max-length="255"
-			range-error="error.message.8_255characters"
+			max-length="50"
+			regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^*-]).{8,50}$"
+			missing-error="error.message.password"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
 			value-error="error.message.currentpasswordnomatch"
 			type="string" />
 			<!-- TODO value-error -->
@@ -155,8 +158,11 @@
 			type="string"
 			mandatory="true"
 			min-length="8"
-			max-length="255"
-			range-error="error.message.8_255characters"
+			max-length="50"
+			regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^*-]).{8,50}$"
+			missing-error="error.message.password"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
 			value-error="error.message.currentpasswordnomatch"/>
 			<!-- TODO value-error -->
 		
@@ -165,11 +171,22 @@
 			label="label.input.currentpassword.profile" 
 			mandatory="true"
 			min-length="8"
-			max-length="255"
-			range-error="error.message.8_255characters"
+			max-length="50"
+			regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^*-]).{8,50}$"
+			missing-error="error.message.currentpassword"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
 			value-error="error.message.currentpasswordnomatch"
 			type="string" />
 		
-		<include formid="newpasswords" name="newPasswords"/>
+		<include formid="newpasswords" name="newPasswords"
+			mandatory="true"
+			min-length="8"
+			max-length="50"
+			regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^*-]).{8,50}$"
+			missing-error="error.message.password"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
+			type="string" />
 	</group>
 </form>
