@@ -3,7 +3,7 @@
     <div class="menusections">
         <isloop items="${pdict.folders}" var="folder">
             <div class="allcategories">
-                <img src="" />
+                <img src="${folder.custom.image.absURL}" alt="${folder.custom.image.alt}" />
                 <h3>
                     <a href="${URLUtils.url('Page-Show', 'cid', folder.ID)}" class="article-list-link">
                         <span>${folder.displayName}</span>

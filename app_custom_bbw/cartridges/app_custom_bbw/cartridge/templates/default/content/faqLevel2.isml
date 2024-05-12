@@ -23,8 +23,8 @@
                 </svg>
                 <form role="search" class="search w-100" data-search="" action="/hc/en-us/search" accept-charset="UTF-8"
                     method="get">
-                    <input name="utf8" type="hidden" value="&#x2713;" autocomplete="off" /><input type="search" name="query"
-                        id="query" placeholder="Type your question here..." aria-label="Search" /></form>
+                    <input name="utf8" type="hidden" value="&#x2713;" autocomplete="off" />
+                    <input type="search" name="query" id="query" placeholder="Type your question here..." aria-label="Search" /></form>
             </div>
         </div>
     </nav>
