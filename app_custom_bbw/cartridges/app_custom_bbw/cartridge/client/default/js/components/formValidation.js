@@ -47,7 +47,7 @@ module.exports = function (formElement, payload) {
     if (element && element.length) {
         $('body,html').animate(
             {
-                scrollTop: element.offset().top - 200
+                scrollTop: element.offset().top - 250
             },
             500
         );
