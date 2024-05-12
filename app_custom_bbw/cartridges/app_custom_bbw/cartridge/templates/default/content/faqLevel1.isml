@@ -39,7 +39,7 @@
                         <ul class="article-list">
                             <isloop items="${folder.onlineContent}" var="content">
                                 <li class="article-list-item">
-                                    <isif condition="${content.custom.isImportant}">
+                                    <isif condition="${content.custom && 'isImportant' in content.custom && content.custom.isImportant}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="icon-star"
                                             title="Promoted article">
                                             <path fill="currentColor"
