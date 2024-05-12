@@ -79,8 +79,9 @@
     </label>
     <div class="invalid-feedback"></div>
     <input type="password" class="form-control password" id="password"
-        data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
+        data-missing-error="${Resource.msg('error.message.password', 'forms', null)}"
         data-range-error="${Resource.msg('error.message.password.8_50characters', 'forms', null)}"
+        data-pattern-mismatch="${Resource.msg('error.message.parse.password', 'forms', null)}"
         aria-describedby="form-password-error" autocomplete="off" <isprint
         value=${pdict.profileForm.login.password.attributes} encoding="off" />/>
     <button type="button" class="show-hide-password" aria-label="Show Password"><span class="show">Show</span></button>
