@@ -109,6 +109,7 @@ function login() {
                 } else {
                     form.trigger('login:success', data);
                     if (data.showCartMergePopup) {
+                        window.storedBasketProducts = data.storedBasketProducts; 
                         $('.loginPopup').find('#loginModal').modal('hide');
                         $('.redirect-url').val(data.redirectUrl);
                         $('.loginPopup')
@@ -138,9 +139,12 @@ function cartMerge() {
     $('.merge').on('click',function () {
         var redirectUrl = $('.redirect-url').val();
         var cartMergeUrl = $('.cart-merge-url').val();
+        var storedBasketProducts = window.storedBasketProducts;
         $.ajax({
             url: cartMergeUrl,
-            type: 'get',
+            type: 'post',
+            data: { storedBasketProducts: JSON.stringify(storedBasketProducts) },
+            dataType: 'json',
             success: function () {
                 window.location.href = redirectUrl;
             },
