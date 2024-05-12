@@ -52,9 +52,7 @@
     <div class="birthday-date">
         <p class="mb-0">${pdict.profileForm.customer.dob.value}</p>
     </div>
-    <iscomment>
         <p class="form-caption">${Resource.msg('form.birthday.caption', 'forms', null)}</p>
-    </iscomment>
 </div>
 
 
@@ -94,7 +92,7 @@
     value="${pdict.profileForm.customer.emailconfirm.attributes}" />
 
 
-<p class="h-font-size--12 text-center"><a class="h-clr--black-3"
+<p class="h-font-size--12 text-center"><a class="h-clr--black-3 privacy-text"
         href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}"
         title="Go to Privacy">${Resource.msg('form.privacy.policy', 'forms', null)}</a></p>
 
