@@ -2754,4 +2754,185 @@
             </attribute-group>
         </group-definitions>
     </type-extension>
+    <type-extension type-id="Content">
+        <system-attribute-definitions>
+            <attribute-definition attribute-id="ID">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="UUID">
+                <min-length>0</min-length>
+                <field-length>28</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="aspectType">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="config"/>
+            <attribute-definition attribute-id="creationDate"/>
+            <attribute-definition attribute-id="data"/>
+            <attribute-definition attribute-id="description">
+                <min-length>0</min-length>
+                <field-height>10</field-height>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified"/>
+            <attribute-definition attribute-id="name">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="onlineFlag"/>
+            <attribute-definition attribute-id="pageDescription">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageKeywords">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageTitle">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="pageURL">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="searchWords">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="searchableFlag"/>
+            <attribute-definition attribute-id="siteMapChangeFrequency">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">always</display>
+                        <value>always</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">hourly</display>
+                        <value>hourly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">daily</display>
+                        <value>daily</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">weekly</display>
+                        <value>weekly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">monthly</display>
+                        <value>monthly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">yearly</display>
+                        <value>yearly</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">never</display>
+                        <value>never</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteMapIncluded">
+                <value-definitions immutable="true">
+                    <value-definition>
+                        <display xml:lang="x-default">YES</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">NO</display>
+                        <value>0</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="siteMapPriority">
+                <min-value>0.0</min-value>
+                <max-value>1.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="template">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="type">
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="visibilityMode">
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Visible</display>
+                        <value>1</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Invisible</display>
+                        <value>0</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </system-attribute-definitions>
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="Year">
+                <display-name xml:lang="x-default">Year</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="body">
+                <display-name xml:lang="x-default">Body</display-name>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="customCSSFile">
+                <display-name xml:lang="x-default">Custom CSS File</display-name>
+                <description xml:lang="x-default">Use this attribute to apply custom styles for this content asset.</description>
+                <type>image</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="isImportant">
+                <display-name xml:lang="x-default">Important</display-name>
+                <description xml:lang="x-default">Important</description>
+                <type>boolean</type>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Standard">
+                <display-name xml:lang="x-default">Standard</display-name>
+                <attribute attribute-id="ID" system="true"/>
+                <attribute attribute-id="name" system="true"/>
+                <attribute attribute-id="description" system="true"/>
+                <attribute attribute-id="onlineFlag" system="true"/>
+                <attribute attribute-id="searchableFlag" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="ExternalSearch">
+                <display-name xml:lang="x-default">Search Engine Optimization Support</display-name>
+                <attribute attribute-id="pageTitle" system="true"/>
+                <attribute attribute-id="pageDescription" system="true"/>
+                <attribute attribute-id="pageKeywords" system="true"/>
+                <attribute attribute-id="pageURL" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="SiteMap">
+                <display-name xml:lang="x-default">Sitemap Attributes</display-name>
+                <attribute attribute-id="siteMapIncluded" system="true"/>
+                <attribute attribute-id="siteMapChangeFrequency" system="true"/>
+                <attribute attribute-id="siteMapPriority" system="true"/>
+            </attribute-group>
+            <attribute-group group-id="Presentation">
+                <display-name xml:lang="x-default">Presentation</display-name>
+                <attribute attribute-id="template" system="true"/>
+                <attribute attribute-id="customCSSFile"/>
+            </attribute-group>
+            <attribute-group group-id="Content">
+                <display-name xml:lang="x-default">Content</display-name>
+                <attribute attribute-id="body"/>
+                <attribute attribute-id="Year"/>
+            </attribute-group>
+            <attribute-group group-id="faqConfigAttributes">
+                <display-name xml:lang="x-default">FAQ Config Attributes</display-name>
+                <attribute attribute-id="isImportant"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
 </metadata>
