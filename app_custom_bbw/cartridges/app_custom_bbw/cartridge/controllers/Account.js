@@ -391,6 +391,26 @@ server.append(
         var currentBasket = BasketMgr.getCurrentOrNewBasket();
         var storedBasketProductQuantities =
             storedBasket ? storedBasket.getAllProductQuantities().length : 0;
+        var storedBasketProducts = [];
+        var productLineItemItr = storedBasket && storedBasket
+            .getAllProductLineItems()
+            .iterator();
+        if (productLineItemItr) {
+            while (productLineItemItr.hasNext()) {
+                var pli = productLineItemItr.next();
+                if (!pli.bundledProductLineItem && !pli.optionProductLineItem) {
+                    var mergeQty = pli.quantityValue;
+                    if (!pli.bonusProductLineItem) {
+                        storedBasketProducts.push({
+                            productID: pli.productID,
+                            quantityValue: mergeQty,
+                            bundledProductLineItem: pli.bundledProductLineItem,
+                            optionProductLineItem: pli.optionProductLineItem
+                        });
+                    }
+                }
+            }
+        }
         var currentBasketProductQuantities =
             currentBasket ? currentBasket.getAllProductQuantities().length : 0;
         var loginRedirectUrl = req.form.loginRedirectUrl;
@@ -405,6 +425,7 @@ server.append(
         viewData.redirectUrl = loginRedirectUrl.toString();
         viewData.showCartMergePopup =
             storedBasketProductQuantities && currentBasketProductQuantities;
+        viewData.storedBasketProducts = storedBasketProducts; 
         next();
     }
 );
