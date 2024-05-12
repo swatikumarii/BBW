@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
 
 <div class="container">
-    <nav class="sub-nav">
-        <ul class="breadcrumbs">
+    <nav class="sub-nav d-flex justify-content-between">
+        <ul class="breadcrumbs p-0">
             <li title="Bath and Body Works">
                 <a href="/hc/en-us">Bath and Body Works</a>
             </li>

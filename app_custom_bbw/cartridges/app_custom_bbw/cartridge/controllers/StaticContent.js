@@ -66,10 +66,11 @@ server.get('FaqLevel2', function (req, res, next) {
  * @name StaticContent-ContentNames
  */
 server.get('ContentNames', function (req, res, next) {
-    var currentFolder = ContentMgr.getFolder(req.querystring.cid);
+    var currentFolder = ContentMgr.getFolder(req.querystring.fid);
     if (currentFolder) {
         res.render('content/faqContent', {
-            contents: currentFolder.onlineContent
+            contents: currentFolder.onlineContent,
+            currentContentId: req.querystring.cid
         });
     }
     next();

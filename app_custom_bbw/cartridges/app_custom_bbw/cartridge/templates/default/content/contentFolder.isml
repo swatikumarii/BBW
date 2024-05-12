@@ -1,7 +1,6 @@
 <isset name="level" value="${level - 1}" scope="page" />
 <isloop items="${folders}" var="folder">
     <div class="allcategories">
-        <img src="" />
         <h3>
             <a href="${URLUtils.url('Page-Show', 'cid', folder.ID)}">
                 <span>${folder.displayName}</span>

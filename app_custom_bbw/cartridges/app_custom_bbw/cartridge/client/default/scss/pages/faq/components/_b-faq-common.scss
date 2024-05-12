@@ -1,6 +1,4 @@
 .sub-nav {
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 30px;
     min-height: 50px;
     padding-bottom: 15px;
@@ -14,24 +12,24 @@
 
     .breadcrumbs {
         margin: 0 0 15px;
-        padding: 0;
 
         @include media-up(sm) {
             margin: 0;
         }
 
         li {
-            color: blue;
             display: inline;
-            font-weight: 300;
             font-size: 13px;
             max-width: 450px;
-            overflow: hidden;
-            text-overflow: ellipsis;
             padding: 2px;
+            color: colour(blue, 9);
 
             a {
-                color: blue;
+                color: colour(blue, 9);
+
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
 
@@ -57,14 +55,14 @@
                 z-index: 1;
                 width: 14px;
                 height: 14px;
-                color: #777;
+                color: color(gray, 24);
             }
 
             input[type="search"] {
-                border: 1px solid #ddd;
+                border: 1px solid colour(gray, 25);
                 border-radius: 30px;
                 box-sizing: border-box;
-                color: #666;
+                color: colour(gray);
                 font-size: 14px;
                 height: 30px;
                 padding-left: 8px;
@@ -74,7 +72,7 @@
 
                 &:focus {
                     border: 1px solid rgba(2, 83, 148, 100%);
-                    color: #555;
+                    color: colour(gray, 26);
                 }
 
                 &:focus-visible {

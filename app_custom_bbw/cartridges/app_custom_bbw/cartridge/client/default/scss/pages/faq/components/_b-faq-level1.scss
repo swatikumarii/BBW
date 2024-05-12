@@ -4,6 +4,7 @@
             h1 {
                 flex-grow: 1;
                 margin: 0.67em 0 10px;
+                color: colour(black, 8);
             }
         }
 
@@ -17,13 +18,14 @@
             .section {
                 flex: 0 0 45%;
                 margin-bottom: 60px;
+                padding: 4px;
 
                 .section-tree-title {
-                    margin-top: 15px;
+                    margin-top: 40px;
                     padding: 2px;
 
                     a {
-                        color: colour(black);
+                        color: colour(black, 8);
 
                         &:hover {
                             text-decoration: underline;
@@ -41,19 +43,20 @@
                         padding: 15px 0;
 
                         .icon-star {
-                            color: blue;
-                            font-size: 18px;
+                            color: colour(blue, 10);
+                            margin-right: 4px;
+                            margin-bottom: 3px;
                         }
 
                         a {
-                            color: #1a1a1a;
+                            color: colour(black, 10);
                         }
                     }
                 }
             }
 
             .see-all-articles {
-                color: blue;
+                color: colour(blue, 10);
                 display: inline-block;
                 margin: 20px 0;
 
