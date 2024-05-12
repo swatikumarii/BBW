@@ -74,13 +74,6 @@ function updateShippingAddressSelector(productLineItem, shipping, order, custome
         });
     }
 
-    if (!hasSelectedAddress) {
-        // show
-        $(form).addClass('hide-details');
-    } else {
-        $(form).removeClass('hide-details');
-    }
-
     $('body').trigger('shipping:updateShippingAddressSelector', {
         productLineItem: productLineItem,
         shipping: shipping,
@@ -842,123 +835,11 @@ module.exports = {
                 $(form).attr('data-address-mode', 'new');
                 $(form).find('.shipping-address-block').removeClass('d-none');
             } else if (shipmentUUID === originalUUID) {
-                $(form).attr('data-address-mode', 'shipment');
+                $(form).attr('data-address-mode', 'details');
             } else if (shipmentUUID.indexOf('ab_') === 0) {
-                $(form).attr('data-address-mode', 'customer');
+                $(form).attr('data-address-mode', 'details');
             } else {
-                $(form).attr('data-address-mode', 'edit');
-            }
-        });
-    },
-
-    selectMultiShipAddress: function () {
-        var baseObj = this;
-
-        $('.multi-shipping .addressSelector').on('change', function () {
-            var form = $(this).closest('form');
-            var selectedOption = $('option:selected', this);
-            var attrs = selectedOption.data();
-            var shipmentUUID = selectedOption[0].value;
-            var originalUUID = $('input[name=shipmentUUID]', form).val();
-            var pliUUID = $('input[name=productLineItemUUID]', form).val();
-            var createNewShipmentScoped = baseObj.methods && baseObj.methods.createNewShipment ? baseObj.methods.createNewShipment : createNewShipment;
-
-            var element;
-            Object.keys(attrs).forEach(function (attr) {
-                if (attr === 'isGift') {
-                    $('[name$=' + attr + ']', form).prop('checked', attrs[attr]);
-                    $('[name$=' + attr + ']', form).trigger('change');
-                } else {
-                    element = attr === 'countryCode' ? 'country' : attr;
-                    $('[name$=' + element + ']', form).val(attrs[attr]);
-                }
-            });
-
-            if (shipmentUUID === 'new' && pliUUID) {
-                var createShipmentUrl = $(this).attr('data-create-shipment-url');
-                createNewShipmentScoped(createShipmentUrl, { productLineItemUUID: pliUUID })
-                    .done(function (response) {
-                        $.spinner().stop();
-                        if (response.error) {
-                            if (response.redirectUrl) {
-                                window.location.href = response.redirectUrl;
-                            }
-                            return;
-                        }
-
-                        $('body').trigger(
-                            'checkout:updateCheckoutView',
-                            {
-                                order: response.order,
-                                customer: response.customer,
-                                options: { keepOpen: true }
-                            }
-                        );
-
-                        $(form).attr('data-address-mode', 'new');
-                    })
-                    .fail(function () {
-                        $.spinner().stop();
-                    });
-            } else if (shipmentUUID === originalUUID) {
-                $('select[name$=stateCode]', form).trigger('change');
-                $(form).attr('data-address-mode', 'shipment');
-            } else if (shipmentUUID.indexOf('ab_') === 0) {
-                var url = $(form).attr('action');
-                var serializedData = $(form).serialize();
-                createNewShipmentScoped(url, serializedData)
-                    .done(function (response) {
-                        $.spinner().stop();
-                        if (response.error) {
-                            if (response.redirectUrl) {
-                                window.location.href = response.redirectUrl;
-                            }
-                            return;
-                        }
-
-                        $('body').trigger(
-                            'checkout:updateCheckoutView',
-                            {
-                                order: response.order,
-                                customer: response.customer,
-                                options: { keepOpen: true }
-                            }
-                        );
-
-                        $(form).attr('data-address-mode', 'customer');
-                        var $rootEl = $(form).closest('.shipping-content');
-                        editMultiShipAddress($rootEl);
-                    })
-                    .fail(function () {
-                        $.spinner().stop();
-                    });
-            } else {
-                var updatePLIShipmentUrl = $(form).attr('action');
-                var serializedAddress = $(form).serialize();
-                createNewShipmentScoped(updatePLIShipmentUrl, serializedAddress)
-                    .done(function (response) {
-                        $.spinner().stop();
-                        if (response.error) {
-                            if (response.redirectUrl) {
-                                window.location.href = response.redirectUrl;
-                            }
-                            return;
-                        }
-
-                        $('body').trigger(
-                            'checkout:updateCheckoutView',
-                            {
-                                order: response.order,
-                                customer: response.customer,
-                                options: { keepOpen: true }
-                            }
-                        );
-
-                        $(form).attr('data-address-mode', 'edit');
-                    })
-                    .fail(function () {
-                        $.spinner().stop();
-                    });
+                $(form).attr('data-address-mode', 'details');
             }
         });
     },
