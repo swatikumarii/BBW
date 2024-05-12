@@ -1,0 +1,26 @@
+@import "../../_brand/_api/api";
+
+.sitemap-page {
+    .sitemap-list {
+        line-height: 32px;
+    }
+
+    .corporate-title {
+        padding-top: 1rem;
+    }
+
+    .sitemap-banner {
+        h1 {
+            padding-top: 22px;
+        }
+    }
+
+    .sitemap-title-head {
+        margin-top: 48px;
+    }
+
+    .sitemap-cateogry {
+        color: colour(blue, 6);
+        line-height: 33px;
+    }
+}
