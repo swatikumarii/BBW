@@ -118,26 +118,6 @@ $(document).ready(function () {
             selector: '#registration-form-dob',
             validationFunction: validateRequiredField
         },
-        {
-            selector: '#loginModal-form-email',
-            validationFunction: validateEmailField
-        },
-        {
-            selector: '#login-modal-form-password',
-            validationFunction: validatePasswordField
-        },
-        {
-            selector: '#login-form-email',
-            validationFunction: validateEmailField
-        },
-        {
-            selector: '#login-form-password',
-            validationFunction: validatePasswordField
-        },
-        {
-            selector: '#reset-password-email',
-            validationFunction: validateEmailField
-        }
     ];
 
     // Loop through the array and attach blur event handlers dynamically

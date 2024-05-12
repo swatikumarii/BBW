@@ -156,6 +156,71 @@ $(document.body).on('click', '.login-modal-hide', function () {
     togglePasswordVisibility($('#login-form-password'), $(this));
 });
 });
+var validationFields = [
+    {
+        selector: '#loginModal-form-email',
+        validationFunction: validateEmailField
+    },
+    {
+        selector: '#login-modal-form-password',
+        validationFunction: validatePasswordField
+    },
+    {
+        selector: '#login-form-email',
+        validationFunction: validateEmailField
+    },
+    {
+        selector: '#login-form-password',
+        validationFunction: validatePasswordField
+    },
+    {
+        selector: '#reset-password-email',
+        validationFunction: validateEmailField
+    }
+];
+// Loop through the array and attach blur event handlers dynamically
+validationFields.forEach(function (field) {
+    $(field.selector).on('blur', function () {
+        validateField(field.selector, field.validationFunction);
+    });
+});
+// Function to validate a field
+function validateField(selector, validationFunction) {
+    var inputField = $(selector);
+    validationFunction(inputField);
+}
+
+// Function to validate email field
+function validateEmailField(emailInput) {
+    var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+    if (!validateRequiredField(emailInput)) return false;
+    if (!pattern.test(emailInput.val())) {
+        emailInput.addClass('is-invalid border-danger');
+        $('#' + emailInput.attr('id') + '-error').text('Invalid email format');
+        return false;
+    }
+    emailInput.removeClass('is-invalid border-danger');
+    $('#' + emailInput.attr('id') + '-error').empty();
+    return true;
+}
+
+// Function to validate password field
+function validatePasswordField(passwordInput) {
+    if (!validateRequiredField(passwordInput)) return false;
+    return true;
+}
+
+// Function to validate required field
+function validateRequiredField(inputField) {
+    if (!inputField.val()) {
+        inputField.addClass('is-invalid border-danger');
+        $('#' + inputField.attr('id') + '-error').text('Field is required');
+        return false;
+    }
+    inputField.removeClass('is-invalid border-danger');
+    $('#' + inputField.attr('id') + '-error').empty();
+    return true;
+}
 var exportDetails = $.extend({}, baselogin, {
     register: register,
     cartMerge: cartMerge
