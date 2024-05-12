@@ -10,5 +10,6 @@ module.exports = {
     PRODUCT_SHOW: 'productView',
     PRODUCT_TILE_CLICK: 'productTileClick',
     REMOVE_PRODUCT_LINE_ITEM_FROM_CART: 'removeFromCart',
+    SEARCH_SHOW: 'impressionSent',
     SIGN_UP: 'sign_up'
 };
