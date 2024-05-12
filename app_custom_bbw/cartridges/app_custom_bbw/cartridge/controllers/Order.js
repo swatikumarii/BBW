@@ -246,14 +246,8 @@ server.post(
                 order.customerEmail.toLowerCase() === req.form.orderEmail.toLowerCase().trim() &&
                 order.billingAddress.postalCode === req.form.billingZipCode.trim()
             ) {
-                var redirectURL;
-                if (req.currentCustomer.profile && req.currentCustomer.profile.customerNo) {
-                    redirectURL = URLUtils.url('Order-Details', 'orderID', req.form.orderNumber, 'orderFilter', '').toString();
-                } else {
-                    redirectURL = URLUtils.url('Order-Tracking', 'token', encryptionHelper.encryptPin(req.form.orderNumber)).toString();
-                }
                 res.json({
-                    redirectUrl: redirectURL
+                    redirectUrl: URLUtils.url('Order-Details', 'orderID', req.form.orderNumber, 'orderFilter', '').toString()
                 });
             } else {
                 res.setStatusCode(400);
@@ -302,6 +296,51 @@ server.append(
             }
         });
         return next();
+    }
+);
+
+/**
+ * Order-Details : This endpoint is called to get Order Details
+ * Base/Order-Details
+ */
+server.replace(
+    'Details',
+    consentTracking.consent,
+    server.middleware.https,
+    function (req, res, next) {
+        var OrderMgr = require('dw/order/OrderMgr');
+        var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
+
+        var order = OrderMgr.getOrder(req.querystring.orderID);
+        var breadcrumbs = [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            },
+            {
+                htmlValue: Resource.msg('page.title.myaccount', 'account', null),
+                url: URLUtils.url('Account-Show').toString()
+            },
+            {
+                htmlValue: Resource.msg('label.orderhistory', 'account', null),
+                url: URLUtils.url('Order-History').toString()
+            }
+        ];
+
+        if (order) {
+            var orderModel = orderHelpers.getOrderDetails(req);
+            var exitLinkText = Resource.msg('link.orderdetails.orderhistory', 'account', null);
+            var exitLinkUrl = URLUtils.https('Order-History', 'orderFilter', req.querystring.orderFilter);
+            res.render('account/orderDetails', {
+                order: orderModel,
+                exitLinkText: exitLinkText,
+                exitLinkUrl: exitLinkUrl,
+                breadcrumbs: breadcrumbs
+            });
+        } else {
+            res.redirect(URLUtils.url('Account-Show'));
+        }
+        next();
     }
 );
 
