@@ -552,23 +552,20 @@ function checkCouponCodeError (couponCode, errorCode) {
 
 /**
  * Function mergeCart merges the items from the stored basket to the currentBasket.
+ * @param {Array} storedBasketProducts - Stored Basket Product detail list
  * @returns {object} resultObj - contain updated basket and boolean value
  */
-function mergeCart() {
+function mergeCart(storedBasketProducts) {
     var Logger = require('dw/system/Logger');
-    var storedBasket = BasketMgr.getStoredBasket();
     var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
     var currentBasket = BasketMgr.getCurrentOrNewBasket();
     var isCartMerged = false;
     var resultObj = {};
 
     try {
-        if (currentBasket && storedBasket) {
-            var productLineItemItr = storedBasket
-                .getAllProductLineItems()
-                .iterator();
-            while (productLineItemItr.hasNext()) {
-                var pli = productLineItemItr.next();
+        if (currentBasket && storedBasketProducts.length) {
+            for (var index = 0; index < storedBasketProducts.length; index++) {
+                var pli = storedBasketProducts[index];
                 if (!pli.bundledProductLineItem && !pli.optionProductLineItem) {
                     var childProducts = [];
                     var optionProducts = [];

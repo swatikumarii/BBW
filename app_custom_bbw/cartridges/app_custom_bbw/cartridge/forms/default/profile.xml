@@ -18,7 +18,8 @@
 			label="label.input.firstname.profile"
 			mandatory="true"
 			min-length="2"
-			regexp="^[a-zA-Z0-9'\-]+$"
+			max-length="50"
+			regexp="^[a-zA-Z0-9 ''\-]+$"
 			missing-error="error.message.fname.required"
 			range-error="error.message.fname.2orGreater"
 			parse-error="error.message.parse.fname"
@@ -50,7 +51,7 @@
 			type="string"/>
 			<!-- TODO value-error not comming back from the platform -->
 
-		<field 
+		<field
 			formid="emailconfirm"
 			label="label.input.emailconfirm.profile"
 			mandatory="true"
@@ -67,8 +68,9 @@
 			formid="phone"
 			label="label.input.phone.profile"
 			mandatory="true"
-			missing-error="error.message.required"
-			parse-error="error.message.parse.phone.profile.form"
+        	regexp="^((?!(0))[0-9]{8,12})$"
+           	missing-error="error.phone.number"
+           	parse-error="error.message.pattern.phone"
 			type="string"/>
 
 		<field
@@ -107,6 +109,18 @@
 			type="string" />
 
 		<field
+			formid="zipCode"
+			label="label.input.zip.profile"
+			min-length="4"
+			max-length="10"
+			regexp="^[0-9]*$"
+			missing-error="error.message.zip.required"
+			range-error="error.message.zip.10orless"
+			parse-error="error.message.zip.fname"
+			value-error="ValueErrorText"
+			type="string" />
+
+		<field
             formid="nationality"
             label="label.input.nationality.profile"
             mandatory="true"
@@ -127,8 +141,11 @@
 			label="label.input.password.profile"
 			mandatory="true"
 			min-length="8"
-			max-length="255"
-			range-error="error.message.8_255characters"
+			max-length="50"
+			regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^*-]).{8,50}$"
+			missing-error="error.message.password"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
 			value-error="error.message.currentpasswordnomatch"
 			type="string" />
 			<!-- TODO value-error -->
@@ -139,8 +156,11 @@
 			type="string"
 			mandatory="true"
 			min-length="8"
-			max-length="255"
-			range-error="error.message.8_255characters"
+			max-length="50"
+			regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^*-]).{8,50}$"
+			missing-error="error.message.password"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
 			value-error="error.message.currentpasswordnomatch"/>
 			<!-- TODO value-error -->
 
@@ -149,11 +169,22 @@
 			label="label.input.currentpassword.profile"
 			mandatory="true"
 			min-length="8"
-			max-length="255"
-			range-error="error.message.8_255characters"
+			max-length="50"
+			regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^*-]).{8,50}$"
+			missing-error="error.message.currentpassword"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
 			value-error="error.message.currentpasswordnomatch"
 			type="string" />
 
-		<include formid="newpasswords" name="newPasswords"/>
+		<include formid="newpasswords" name="newPasswords"
+			mandatory="true"
+			min-length="8"
+			max-length="50"
+			regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^*-]).{8,50}$"
+			missing-error="error.message.password"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
+			type="string" />
 	</group>
 </form>

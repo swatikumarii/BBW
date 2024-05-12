@@ -616,6 +616,10 @@
             margin: 0 auto;
         }
 
+        .form-reset-password {
+            margin: 0 auto;
+        }
+
         .required-field-para {
             float: right;
             font-style: italic;
@@ -633,7 +637,7 @@
 .login-modal-body {
     overflow-y: auto;
     max-height: calc(114vh - 84px);
-    padding: 4px 16px 16px 16px;
+    padding: 4px 16px 16px;
 }
 
 .login-modal-fade {

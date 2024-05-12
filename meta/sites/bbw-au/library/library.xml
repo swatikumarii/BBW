@@ -1703,7 +1703,7 @@
     &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Corporate Sales &amp; Gifts&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
-    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Contact Us&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
   &lt;/ul&gt;&#13;
@@ -5218,13 +5218,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">CUSTOMER CARE&#13;
-&lt;ul&gt;&#13;
-	&lt;li&gt;&lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;FAQs&lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li&gt;CORPORATE INFORMATION&lt;/li&gt;&#13;
-	&lt;li&gt;&lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Careers&lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li&gt;&lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Privacy &amp; Security&lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li&gt;&lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Terms of Use&lt;/a&gt;&lt;/li&gt;&#13;
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;h1 class="h-font-size--18 "&gt;CUSTOMER CARE&lt;/h1&gt;&#13;
+&lt;ul class="list-unstyled"&gt;&#13;
+	&lt;li class="sitemap-list"&gt;&lt;a class="h-clr--gray" href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;FAQs&lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li class="h-clr--black-3 corporate-title" &gt;CORPORATE INFORMATION&lt;/li&gt;&#13;
+	&lt;li class="sitemap-list"&gt;&lt;a class="h-clr--gray" href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Careers&lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li class="sitemap-list"&gt;&lt;a class="h-clr--gray"  href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Privacy &amp; Security&lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li class="sitemap-list"&gt;&lt;a class="h-clr--gray"  href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Terms of Use&lt;/a&gt;&lt;/li&gt;&#13;
 &lt;/ul&gt;</custom-attribute>
         </custom-attributes>
     </content>
@@ -5273,7 +5273,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;hr/&gt;&#13;
 &lt;div&gt;&#13;
-	&lt;p&gt;BBW takes pride in its entrepreneurial heritage of more than 80 years. Having grown and evolved from a humble trading store, the BBW hallmark is now all about creating world-class retail environments that offer compelling and luxurious shopping experiences.&lt;/p&gt;&#13;
+	&lt;p&gt;Bath &amp; Body Works takes pride in its entrepreneurial heritage of more than 80 years. Having grown and evolved from a humble trading store, the Bath &amp; Body hallmark is now all about creating world-class retail environments that offer compelling and luxurious shopping experiences.&lt;/p&gt;&#13;
 	&lt;p&gt;We are the ultimate brand for brands in Asia, bringing to the region some of the world’s most desired and beloved brands and introducing cutting-edge retail concepts.&lt;/p&gt;&#13;
 	&lt;p&gt;Among our business priorities are sustainable growth and the desire to create value out of our people and the brands we represent.&lt;/p&gt;&#13;
 	&lt;blockquote&gt;&#13;
@@ -11077,6 +11077,133 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 	&lt;/div&gt;&#13;
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="contact-us">
+        <display-name xml:lang="x-default">Contact Us</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+    &lt;div class="contact-us row"&gt;&#13;
+        &lt;div class="col s12 m3 contactOpts col-sm-6 col-md-8 col-xl-8"&gt;&#13;
+            &lt;div class="bg-img"&gt;&lt;img alt="" width="100%" height="100px"&#13;
+                    src="images/contact-us/customer_bg_img.webp?$staticlink$" title="" /&gt;&lt;/div&gt;&#13;
+&#13;
+            &lt;div class="optsContainer"&gt;&#13;
+                &lt;div class="mobile-img"&gt;&lt;img alt="" height="75px"&#13;
+                        src="images/contact-us/customer-care-mobile.svg?$staticlink$" title="" width="75px" /&gt;&lt;/div&gt;&#13;
+&#13;
+                &lt;div class="content-img text-left w-100"&gt;&#13;
+                    &lt;h2 class="h-font-size--24 h-fw--bold text-uppercase mb-0"&gt;ONLINE CUSTOMER CARE&lt;/h2&gt;&#13;
+&#13;
+                    &lt;div class="rn_HelpResources"&gt;&#13;
+                        &lt;div class="rn_Contact"&gt;&#13;
+                            &lt;p class="mb-0"&gt;Need More Help? We want to hear from you!&lt;/p&gt;&#13;
+&#13;
+                            &lt;div class="rn_ConditionalChatLink" id="rn_ConditionalChatLink_6"&gt;&#13;
+                                &lt;p class="mb-0"&gt;&lt;strong class="h-fw--semibold h-clr--black-3"&gt;CALL US:&lt;/strong&gt;&lt;/p&gt;&#13;
+                            &lt;/div&gt;&#13;
+&#13;
+                            &lt;p class="mb-0"&gt;Call us at &lt;a href="tel:1-800-57-6972"&gt;1-800-57-6972&lt;/a&gt;&lt;br /&gt;&#13;
+                                Monday-Friday&lt;br /&gt;&#13;
+                                9:00am-9:00pm AEST&lt;/p&gt;&#13;
+&#13;
+                            &lt;p class="mb-0"&gt;&lt;strong class="h-fw--semibold h-clr--black-3"&gt;EMAIL US&lt;/strong&gt;&lt;/p&gt;&#13;
+&#13;
+                            &lt;p class="mb-0"&gt;&lt;a href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au&lt;/a&gt;&#13;
+                            &lt;/p&gt;&#13;
+&#13;
+                            &lt;p class="mb-0"&gt;&lt;strong class="h-fw--semibold h-clr--black-3"&gt;MAILING ADDRESS&lt;/strong&gt;&lt;/p&gt;&#13;
+&#13;
+                            &lt;p class="mb-0"&gt;Level 4, 112 Castlereagh St,&lt;br /&gt;&#13;
+                                Sydney NSW 2000 Australia&lt;/p&gt;&#13;
+&#13;
+                            &lt;p class="mb-0"&gt;&lt;strong class="h-fw--semibold h-clr--black-3"&gt;Signing up for our mailing&#13;
+                                    list is easy!&lt;/strong&gt;&lt;br /&gt;&#13;
+                                Create an account with us to start shopping &amp;amp; get the latest news from Bath &amp;amp;&#13;
+                                Body Works. Sign up to create an account&lt;a href="#"&#13;
+                                    style="text-decoration: none;"&gt; here &lt;/a&gt;&amp;amp; access the best of your favorite&#13;
+                                store! To be updated on all offers, simply input your email address at the bottom of the&#13;
+                                page and click subscribe.&lt;/p&gt;&#13;
+                        &lt;/div&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+&#13;
+            &lt;div class="bg-img"&gt;&#13;
+                &lt;img alt="" width="100%" height="100px" src="images/contact-us/customer_bg_img.webp?$staticlink$"&#13;
+                    title="" /&gt;&#13;
+            &lt;/div&gt;&#13;
+        &lt;/div&gt;&#13;
+    &lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;style type="text/css"&gt;&#13;
+    .contactOpts {&#13;
+        margin: 0 auto;&#13;
+    }&#13;
+&#13;
+    .contact-us .col.m3 {&#13;
+        border: 3px solid #f2f2f2;&#13;
+        padding: 0;&#13;
+        margin: 70px auto;&#13;
+        max-width: 845px;&#13;
+    }&#13;
+&#13;
+&#13;
+    @media only screen and (max-width: 600px) {&#13;
+    .contact-us .col.m3 {&#13;
+        border: 3px solid #f2f2f2;&#13;
+        padding: 0;&#13;
+        margin: 70px auto;&#13;
+        max-width: 345px;&#13;
+    }&#13;
+}&#13;
+&#13;
+    .contact-us img.responsive-img,&#13;
+    video.responsive-video {&#13;
+        max-width: 100%;&#13;
+        height: auto;&#13;
+        width: 100%;&#13;
+    }&#13;
+&#13;
+    .contact-us .optsContainer {&#13;
+        padding: 20px;&#13;
+    }&#13;
+&#13;
+    .contact-us h2 {&#13;
+        padding-bottom: .5em;&#13;
+        margin-top: 19px;&#13;
+        line-height: 20px;&#13;
+    }&#13;
+&#13;
+    .contact-us p {&#13;
+        line-height: 1.6rem;&#13;
+    }&#13;
+&#13;
+    .optsContainer a,&#13;
+    .optsContainer a:visited {&#13;
+        color: #005699;&#13;
+        text-decoration: underline;&#13;
+        line-height: 28px;&#13;
+    }&#13;
+&#13;
+    .mobile-img,&#13;
+    .content-img {&#13;
+        display: inline-block;&#13;
+        padding: 15px 0px;&#13;
+    }&#13;
+&#13;
+    .mobile-img img {&#13;
+        display: inline-block;&#13;
+    }&#13;
+&#13;
+    #rn_ConditionalChatLink_6 .rn_Chat {&#13;
+        line-height: 2;&#13;
+    }&#13;
+&lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
 </library>

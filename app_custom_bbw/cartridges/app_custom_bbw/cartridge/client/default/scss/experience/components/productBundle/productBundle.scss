@@ -331,11 +331,6 @@
                         line-height: 1.5rem;
                         text-transform: uppercase;
 
-                        &:hover {
-                            background-color: colour(pink);
-                            color: colour(white);
-                        }
-
                         .fa {
                             display: none;
                         }
@@ -357,9 +352,10 @@
                     // Product - Name
                     .product-name {
                         font-size: 16px;
-                        line-height: 20px;
+                        line-height: normal;
                         text-align: left;
                         width: 100%;
+                        min-height: 40px;
                         display: block;
 
                         @include media-btw(sm, md) {
@@ -383,6 +379,13 @@
                             line-height: 1.25rem;
                             letter-spacing: 0.005em;
                             text-align: left;
+                        }
+
+                        del + .sales {
+                            &.reduced {
+                                color: colour(pink);
+                                padding-left: 10px;
+                            }
                         }
                     }
                 }
