@@ -1,0 +1,116 @@
+.article-container {
+    flex-direction: row;
+    display: flex;
+
+    .article-sidebar {
+        border: 0;
+        flex: 0 0 17%;
+        height: auto;
+        margin-bottom: 20px;
+        padding: 0;
+
+        .collapsible-sidebar {
+            max-height: none;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+
+            .collapsible-sidebar-toggle {
+                display: none;
+            }
+
+            .collapsible-sidebar-title {
+                margin-top: 0;
+                font-size: 15px;
+                position: relative;
+                font-weight: 700;
+                color: colour(black);
+            }
+
+            .collapsible-sidebar-body {
+                display: block;
+
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+
+                    .sidenav-item {
+                        border-radius: 4px;
+                        color: colour(black);
+                        display: block;
+                        font-weight: 300;
+                        margin-bottom: 10px;
+                        padding: 10px;
+                    }
+
+                    .sidenav-item.current-article,
+                    .sidenav-item:hover {
+                        background-color: rgba(2, 83, 148, 100%);
+                        color: rgba(184, 210, 237, 100%);
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .article {
+        flex: 1 0 66%;
+        max-width: 66%;
+        min-width: 640px;
+        padding: 0 30px;
+
+        .article-header {
+            flex-direction: row;
+            margin-top: 0;
+            align-items: flex-start;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+
+            .article-title {
+                flex-basis: 100%;
+                font-size: 32px;
+                margin: 0.67em 0;
+                font-weight: 600;
+            }
+        }
+
+        .article-info {
+            max-width: 100%;
+
+            .article-content {
+                line-height: 1.6;
+                margin: 100px 0;
+                word-wrap: break-word;
+
+                .article-body {
+                    p {
+                        margin: 15px 0;
+                        font-size: 15px;
+                        line-height: 1.6;
+                        color: #000;
+
+                        strong {
+                            font-weight: 600;
+                        }
+                    }
+
+                    ul {
+                        padding-left: 20px;
+                        list-style-position: outside;
+                        margin: 20px 0 20px 20px;
+                        list-style-type: revert;
+                        color: #000;
+
+                        li {
+                            font-size: 15px;
+                            color: #000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

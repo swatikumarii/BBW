@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
+
 <aside class="article-sidebar" aria-labelledby="section-articles-title">
     <div class="collapsible-sidebar">
         <span id="section-articles-title" class="collapsible-sidebar-title sidenav-title">
