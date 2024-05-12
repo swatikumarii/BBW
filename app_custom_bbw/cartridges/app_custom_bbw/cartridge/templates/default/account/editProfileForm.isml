@@ -64,7 +64,6 @@
         <isprint value="${pdict.profileForm.customer.zipCode.label}" encoding="htmlcontent" />
     </label>
     <input type="text" class="form-control" id="zipCode"
-        data-missing-error="${Resource.msg('error.message.zip.required', 'forms', null)}"
         data-range-error="${Resource.msg('error.message.zip.upto4', 'forms', null)}"
         data-pattern-mismatch="${Resource.msg('error.message.parse.zip', 'forms', null)}"
         aria-describedby="form-zip-error" <isprint value=${pdict.profileForm.customer.zipCode.attributes} encoding="off" />

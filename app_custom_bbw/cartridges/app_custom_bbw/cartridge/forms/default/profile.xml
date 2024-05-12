@@ -112,7 +112,6 @@
 		<field 
 			formid="zipCode" 
 			label="label.input.zip.profile" 
-			mandatory="true"
 			min-length="4"
 			max-length="10"
 			regexp="^[0-9]*$"

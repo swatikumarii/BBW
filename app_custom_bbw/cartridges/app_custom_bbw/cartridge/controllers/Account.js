@@ -273,6 +273,7 @@ server.replace(
 
         var formErrors = require('*/cartridge/scripts/formErrors');
         var Site = require('dw/system/Site');
+        var commonHelpers = require('*/cartridge/scripts/helpers/commonHelpers');
         var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
 
         var isReCaptchaEnable = Site.getCurrent().getCustomPreferenceValue(
@@ -355,6 +356,9 @@ server.replace(
                         fields: formErrors.getFormErrors(profileForm)
                     });
                 } else {
+                    // Send account edited email
+                    commonHelpers.sendChangePasswordEmail(customer.profile.email);
+
                     delete formInfo.currentPassword;
                     delete formInfo.newPassword;
                     delete formInfo.profileForm;
