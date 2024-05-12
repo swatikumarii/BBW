@@ -67,7 +67,7 @@ $(document).ready(function () {
      * @returns {boolean} valid or not
      */
     function validMinLength(input) {
-        var pattern = /^[a-zA-Z0-9'-]{2,50}$/;
+        var pattern = /^[a-zA-Z0-9' -]{2,50}$/;
         if (!validateRequiredField(input)) return false;
         if (!pattern.test(input.val())) {
             input.addClass('is-invalid border-danger'); // Add class for input border error
@@ -122,7 +122,37 @@ $(document).ready(function () {
 
         // Construct the regular expression
         var pattern = new RegExp('^[0-9]{' + minLength + ',' + maxLength + '}$');
-        // var pattern = /^[0-9]{4}$/;
+
+        if (!pattern.test(input.val())) {
+            input.addClass('is-invalid border-danger'); // Add class for input border error
+            var errorMessage = $('#' + input.attr('id')).attr(
+                'data-pattern-mismatch'
+            );
+            $('#' + input.attr('id'))
+                .closest('.form-group')
+                .find('.invalid-feedback')
+                .text(errorMessage);
+            return false;
+        }
+        input.removeClass('is-invalid border-danger'); // Remove class if input is valid
+        $('#' + input.attr('id') + '-error').empty(); // Clear error message
+        return true;
+    }
+
+    /**
+     * Generic validation function for zip code
+     * @param {object} input input field on which validation will be tested
+     * @returns {boolean} valid or not
+     */
+    function validZipCodeRequired(input) {
+        // Get the dynamic minlength and maxlength values
+        var minLength = parseInt(input.attr('minlength'), 10); // Specify radix 10
+        var maxLength = parseInt(input.attr('maxlength'), 10); // Specify radix 10
+
+        // Construct the regular expression
+        var pattern = new RegExp(
+            '^[0-9]{' + minLength + ',' + maxLength + '}$'
+        );
         if (!validateRequiredField(input)) return false;
         if (!pattern.test(input.val())) {
             input.addClass('is-invalid border-danger'); // Add class for input border error
@@ -150,7 +180,7 @@ $(document).ready(function () {
         { selector: '#firstName', validationFunction: validMinLength },
         { selector: '#lastName', validationFunction: validMinLength },
         { selector: '#phone', validationFunction: validPhoneNumber },
-        { selector: '#zip', validationFunction: validZipCode },
+        { selector: '#zip', validationFunction: validZipCodeRequired },
         { selector: '#password', validationFunction: validatePasswordField },
         { selector: '#addressId', validationFunction: validateRequiredField },
         { selector: '#address1', validationFunction: validateRequiredField },

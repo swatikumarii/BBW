@@ -50,6 +50,12 @@ function invalid() {
                 validationMessage = $(this).data('pattern-mismatch');
             }
             if (
+                this.validity.typeMismatch &&
+                $(this).data('pattern-mismatch')
+            ) {
+                validationMessage = $(this).data('pattern-mismatch');
+            }
+            if (
                 (this.validity.rangeOverflow ||
                         this.validity.rangeUnderflow) &&
                     $(this).data('range-error')

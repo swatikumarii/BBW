@@ -50,7 +50,11 @@ $('#ticker').easyTicker({
  * To upen login popup
  */
 function openLoginPopup() {
-    $('.loginPopup').find('#loginModal').modal('show');
+    if ($('form').hasClass('registration')) {
+        $('.loginPopup').find('#loginModal').modal('hide');
+    } else {
+        $('.loginPopup').find('#loginModal').modal('show');
+    }
 }
 module.exports = function () {
     $('.loginPopupBtn').on('click', openLoginPopup);

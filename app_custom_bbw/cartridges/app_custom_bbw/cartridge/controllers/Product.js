@@ -7,6 +7,7 @@ server.extend(module.superModule);
 
 server.append('Show', function (req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
+    var CustomObjectMgr = require('dw/object/CustomObjectMgr');
     var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
         type: 10
     });
@@ -41,7 +42,27 @@ server.append('Show', function (req, res, next) {
         });
     }
     var removeLineItemURL = URLUtils.url('Giftcard-RemoveLineItems');
-    res.setViewData({itemExist: itemExist, CurrentPageMetaData: currentPageMeta, removeLineItemURL: removeLineItemURL});
+    var userEmail = req.currentCustomer.raw.registered
+        ? req.currentCustomer.profile.email
+        : false;
+    var productRecord = CustomObjectMgr.getCustomObject(
+        'notifyBackInStock',
+        pid
+    );
+    var productPresentInNotifyList = false;
+    if (
+        (userEmail) && (productRecord !== null) &&
+        productRecord.custom.user.indexOf(userEmail) !== -1
+    ) {
+        productPresentInNotifyList = true;
+    }
+
+    res.setViewData({
+        productPresentInNotifyList:productPresentInNotifyList,
+        itemExist: itemExist,
+        CurrentPageMetaData: currentPageMeta,
+        removeLineItemURL: removeLineItemURL
+    });
     next();
 });
 

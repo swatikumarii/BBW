@@ -273,6 +273,7 @@ server.replace(
 
         var formErrors = require('*/cartridge/scripts/formErrors');
         var Site = require('dw/system/Site');
+        var commonHelpers = require('*/cartridge/scripts/helpers/commonHelpers');
         var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
 
         var isReCaptchaEnable = Site.getCurrent().getCustomPreferenceValue(
@@ -355,6 +356,9 @@ server.replace(
                         fields: formErrors.getFormErrors(profileForm)
                     });
                 } else {
+                    // Send account edited email
+                    commonHelpers.sendChangePasswordEmail(customer.profile.email);
+
                     delete formInfo.currentPassword;
                     delete formInfo.newPassword;
                     delete formInfo.profileForm;
@@ -391,6 +395,26 @@ server.append(
         var currentBasket = BasketMgr.getCurrentOrNewBasket();
         var storedBasketProductQuantities =
             storedBasket ? storedBasket.getAllProductQuantities().length : 0;
+        var storedBasketProducts = [];
+        var productLineItemItr = storedBasket && storedBasket
+            .getAllProductLineItems()
+            .iterator();
+        if (productLineItemItr) {
+            while (productLineItemItr.hasNext()) {
+                var pli = productLineItemItr.next();
+                if (!pli.bundledProductLineItem && !pli.optionProductLineItem) {
+                    var mergeQty = pli.quantityValue;
+                    if (!pli.bonusProductLineItem) {
+                        storedBasketProducts.push({
+                            productID: pli.productID,
+                            quantityValue: mergeQty,
+                            bundledProductLineItem: pli.bundledProductLineItem,
+                            optionProductLineItem: pli.optionProductLineItem
+                        });
+                    }
+                }
+            }
+        }
         var currentBasketProductQuantities =
             currentBasket ? currentBasket.getAllProductQuantities().length : 0;
         var loginRedirectUrl = req.form.loginRedirectUrl;
@@ -405,6 +429,7 @@ server.append(
         viewData.redirectUrl = loginRedirectUrl.toString();
         viewData.showCartMergePopup =
             storedBasketProductQuantities && currentBasketProductQuantities;
+        viewData.storedBasketProducts = storedBasketProducts; 
         next();
     }
 );
@@ -456,11 +481,11 @@ server.replace(
             registrationForm.customer.dob.value.split('-');
 
             var birthday = new Date(
-                birthdayArray[2] +
+                birthdayArray[1] +
                     '/' +
-                    birthdayArray[1] +
+                    birthdayArray[0] +
                     '/' +
-                    birthdayArray[0]
+                    birthdayArray[2]
             );
             var currentDate = new Date();
             var birthdayTimestamp = birthday.getTime();
@@ -468,8 +493,8 @@ server.replace(
             var diff = (todayTimeStamp - birthdayTimestamp) / (86400000 * 365);
             if (diff < 0) {
                 registrationForm.customer.dob.valid = false;
-                registrationForm.customer.don.error = Resource.msg(
-                    'error.message.dob.required',
+                registrationForm.customer.dob.error = Resource.msg(
+                    'error.message.dob.invaliddate',
                     'forms',
                     null
                 );
@@ -478,7 +503,7 @@ server.replace(
             if (birthday > currentDate) {
                 registrationForm.customer.dob.valid = false;
                 registrationForm.customer.dob.error = Resource.msg(
-                    'error.message.dob.required',
+                    'error.message.dob.invaliddate',
                     'forms',
                     null
                 );

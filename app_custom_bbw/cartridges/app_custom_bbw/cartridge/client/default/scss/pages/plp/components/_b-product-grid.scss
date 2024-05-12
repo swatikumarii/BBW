@@ -9,3 +9,16 @@
         grid-template-columns: repeat(4, minmax(0, 250px));
     }
 }
+
+.add-to-cart-messages {
+    top: 25%;
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+
+    .add-to-basket-alert {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
