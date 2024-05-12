@@ -142,6 +142,20 @@ function cartMerge() {
         window.location.href = redirectUrl;
     });
 };
+function togglePasswordVisibility(passwordInput, showButton) {
+    var type = passwordInput.attr('type') === 'password' ? 'text' : 'password';
+    passwordInput.attr('type', type);
+    showButton.find('.show').text(type === 'password' ? 'Show' : 'Hide');
+}
+$(document).ready(function () {
+$(document.body).on('click', '.login-modal-password-hide', function () {
+    togglePasswordVisibility($('#login-modal-form-password'), $(this));
+});
+$(document.body).on('click', '.login-modal-hide', function () {
+    console.log("ndjndkn")
+    togglePasswordVisibility($('#login-form-password'), $(this));
+});
+});
 var exportDetails = $.extend({}, baselogin, {
     register: register,
     cartMerge: cartMerge

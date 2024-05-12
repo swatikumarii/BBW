@@ -4,14 +4,6 @@ var processInclude = require('base/util');
 var intlTelInput = require('intl-tel-input');
 var utils = require('utils.js');
 
-/**
- * Reusable function to validate a field based on its ID
- * @param {object} selector selector on which validation function runs
- * @param {Function} validationFunction validation function
- */
-function validateField(selector, validationFunction) {
-    validationFunction($(selector));
-}
 
 /**
  * Generic validation function for required fields
@@ -34,60 +26,13 @@ function validateLengthField(inputField) {
     $('#' + inputField.attr('id') + '-error').empty(); // Clear error message
     return true;
 }
-
-
-/**
- * Generic validation function for required fields
- * @param {object} inputField input field on which validation will be tested
- * @returns {boolean} valid or not
- */
-function validateRequiredField(inputField) {
-    if (!inputField.val()) {
-        inputField.addClass('is-invalid border-danger'); // Add classes for input border error
-        $('#' + inputField.attr('id') + '-error').text('Field is required'); // Display error message
-        return false;
-    }
-    inputField.removeClass('is-invalid border-danger'); // Remove classes if input is valid
-    $('#' + inputField.attr('id') + '-error').empty(); // Clear error message
-    return true;
-}
-
-/**
- * Generic validation function for email fields
- * @param {object} emailInput input field on which validation will be tested
- * @returns {boolean} valid or not
- */
-function validateEmailField(emailInput) {
-    var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
-    if (!validateRequiredField(emailInput)) return false;
-    if (!pattern.test(emailInput.val())) {
-        emailInput.addClass('is-invalid border-danger'); // Add class for input border error
-        $('#' + emailInput.attr('id') + '-error').text('Invalid email format'); // Display error message
-        return false;
-    }
-    emailInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
-    $('#' + emailInput.attr('id') + '-error').empty(); // Clear error message
-    return true;
-}
-
-/**
- * Generic validation function for password fields
- * @param {object} passwordInput input field on which validation will be tested
- * @returns {boolean} valid or not
- */
-function validatePasswordField(passwordInput) {
-    if (!validateRequiredField(passwordInput)) return false;
-    return true;
-}
-
 /**
  * toggle password visibility
  * @param {object} passwordInput password input field
  * @param {object} showButton show button
  */
 function togglePasswordVisibility(passwordInput, showButton) {
-    var type =
-        passwordInput.attr('type') === 'password' ? 'text' : 'password';
+    var type = passwordInput.attr('type') === 'password' ? 'text' : 'password';
     passwordInput.attr('type', type);
     showButton.find('.show').text(type === 'password' ? 'Show' : 'Hide');
 }
@@ -104,10 +49,6 @@ $(document).ready(function () {
     });
 
     // Event delegation for toggling password visibility
-    $(document.body).on('click', '.login-modal-hide', function () {
-        togglePasswordVisibility($('#login-form-password'), $(this));
-    });
-
     $(document.body).on('click', '.register-form-hide', function () {
         togglePasswordVisibility($('#registration-form-password'), $(this));
     });
@@ -178,6 +119,14 @@ $(document).ready(function () {
             validationFunction: validateRequiredField
         },
         {
+            selector: '#loginModal-form-email',
+            validationFunction: validateEmailField
+        },
+        {
+            selector: '#login-modal-form-password',
+            validationFunction: validatePasswordField
+        },
+        {
             selector: '#login-form-email',
             validationFunction: validateEmailField
         },
@@ -193,8 +142,47 @@ $(document).ready(function () {
 
     // Loop through the array and attach blur event handlers dynamically
     validationFields.forEach(function (field) {
-        $(document).on('blur', field.selector, function () {
+        $(field.selector).on('blur', function () {
             validateField(field.selector, field.validationFunction);
         });
     });
+
+
+    // Function to validate a field
+    function validateField(selector, validationFunction) {
+        var inputField = $(selector);
+        validationFunction(inputField);
+    }
+
+    // Function to validate email field
+    function validateEmailField(emailInput) {
+        var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+        if (!validateRequiredField(emailInput)) return false;
+        if (!pattern.test(emailInput.val())) {
+            emailInput.addClass('is-invalid border-danger');
+            $('#' + emailInput.attr('id') + '-error').text('Invalid email format');
+            return false;
+        }
+        emailInput.removeClass('is-invalid border-danger');
+        $('#' + emailInput.attr('id') + '-error').empty();
+        return true;
+    }
+
+    // Function to validate password field
+    function validatePasswordField(passwordInput) {
+        if (!validateRequiredField(passwordInput)) return false;
+        return true;
+    }
+
+    // Function to validate required field
+    function validateRequiredField(inputField) {
+        if (!inputField.val()) {
+            inputField.addClass('is-invalid border-danger');
+            $('#' + inputField.attr('id') + '-error').text('Field is required');
+            return false;
+        }
+        inputField.removeClass('is-invalid border-danger');
+        $('#' + inputField.attr('id') + '-error').empty();
+        return true;
+    }
 });
