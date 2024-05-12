@@ -67,7 +67,7 @@ $(document).ready(function () {
      * @returns {boolean} valid or not
      */
     function validMinLength(input) {
-        var pattern = /^[a-zA-Z0-9'-]{2,50}$/;
+        var pattern = /^[a-zA-Z0-9' -]{2,50}$/;
         if (!validateRequiredField(input)) return false;
         if (!pattern.test(input.val())) {
             input.addClass('is-invalid border-danger'); // Add class for input border error
