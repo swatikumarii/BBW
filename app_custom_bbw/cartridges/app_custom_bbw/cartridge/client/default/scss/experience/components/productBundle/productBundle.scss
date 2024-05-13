@@ -257,6 +257,29 @@
             margin: 0 auto;
         }
 
+        .bundle-added {
+            a {
+                &.checkout-btn {
+                    border: 1px solid colour(blue);
+                    background: colour(blue);
+                    color: colour(white);
+
+                    &:hover {
+                        border: 1px solid colour(blue);
+                        background: colour(blue);
+                    }
+                }
+
+                &:hover {
+                    color: colour(white);
+                }
+            }
+        }
+
+        .bundle-added-overlay {
+            opacity: 0.95;
+        }
+
         // Mulit Product
         .experience-product_bundle-multiProduct {
             .multi-product-mobile-link {
