@@ -68,6 +68,8 @@ module.exports = function () {
     });
     $('body').on('product:afterAddToCart', function () {
         updateMiniCart = true;
+        $('.minicart').trigger('click');
+        $('.minicart').find('.popover-bottom').addClass('show');
     });
     $('body').on('cart:update', function () {
         updateMiniCart = true;
