@@ -70,7 +70,35 @@ server.get('ContentNames', function (req, res, next) {
     if (currentFolder) {
         res.render('content/faqContent', {
             contents: currentFolder.onlineContent,
-            currentContentId: req.querystring.cid
+            currentContentId: req.querystring.cid,
+            currentFolder: currentFolder
+        });
+    }
+    next();
+});
+
+/**
+ * StaticContent-FaqFooter : Show Content Names
+ * @name StaticContent-FaqFooter
+ */
+server.get('FaqFooter', function (req, res, next) {
+    var apiContent = ContentMgr.getContent(req.querystring.cid);
+    if (apiContent) {
+        var articleHelpful = apiContent.custom.articleHelpfulYes
+            ? apiContent.custom.articleHelpfulYes : 0;
+        var articleTotalResponse =
+            articleHelpful + apiContent.custom.articleHelpfulNo;
+        var relatedArticles = [];
+        apiContent.custom.relatedArticles.forEach(
+            function (relatedArticle, index) {
+                relatedArticles[index] = ContentMgr.getContent(relatedArticle);
+            }
+        );
+        res.render('content/faqFooter', {
+            currentContentId: req.querystring.cid,
+            articleHelpful: articleHelpful,
+            articleTotalResponse: articleTotalResponse,
+            relatedArticles: relatedArticles
         });
     }
     next();
