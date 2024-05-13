@@ -41,6 +41,45 @@ $(document).ready(function () {
         showSelectedDialCode: true,
         initialCountry: 'au'
     });
+
+    $('.accordion-title').click(function () {
+        $(this).next('.accordion-content').slideToggle();
+        $(this).toggleClass('rotate-down');
+    });
+
+    $('.form-control').blur(function () {
+        var $this = $(this);
+        var $errorMessage = $this.next('.invalid-feedback');
+        if ($this[0].checkValidity()) {
+            $errorMessage.hide();
+            $this.removeClass('is-invalid');
+        } else {
+            var errorText;
+            if ($this.val().length === 0 ) {
+                errorText = $this.data('missing-error');
+            } else {
+                errorText = $this.data('pattern-mismatch');
+            }
+            $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
+        }
+    });
+
+    $('.toggle-password').on('click', function () {
+        var $this = $(this);
+        var $password = $this.siblings('#password');
+        if ($password.attr('type') === 'password') {
+            $password.attr('type','text');
+            $this.text('Hide');
+        } else {
+            $password.attr('type', 'password');
+            $this.text('Show');
+        }
+    });
+
+    $('.place-order-trigger').on('click', function () {
+        $('button.place-order').click();
+    });
+
 });
 $('.payment-options .nav-link').click(function setAttr() {
     $('#selectedPaymentOption').val($(this).parent().attr('data-method-id'));

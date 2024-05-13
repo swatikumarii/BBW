@@ -4,16 +4,27 @@
 
 var Resource = require('dw/web/Resource');
 var Site = require('dw/system/Site');
+var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
+var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+var ContentMgr = require('dw/content/ContentMgr');
 
 /**
  * sendNewsLetterSubscribeEmail function is responsible to trigger email for newsletter subscription
  * @param  {object} userObj contains user email and encrypted Id
  */
 function sendNewsLetterSubscribeEmail(userObj) {
-    var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
+    var emailContent = ContentMgr.getContent('email-newsletter'); // News letter Email Content Asset Id
+    var emailMarkup = '';
+
+    if (!empty(emailContent) && emailContent.online) {
+        emailMarkup = emailContent.custom.body.markup;
+    }
+
     var userData = {
         email: userObj.email,
-        id : userObj.encryptedNewsletterId
+        id : userObj.encryptedNewsletterId,
+        markup: emailMarkup,
+        content: emailContentHelpers.getEmailContent('footer-only-topoffer','newsletter-header')
     };
 
     var emailObj = {
@@ -32,7 +43,6 @@ function sendNewsLetterSubscribeEmail(userObj) {
  * @param {dw.order.Order} order - the order object
  */
 function zeroOrderEmail(order) {
-    var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
     var zeroOrderEmailAddress = Site.current.getCustomPreferenceValue('zeroOrderEmail');
     if (zeroOrderEmailAddress) {
         var orderData = {
@@ -55,8 +65,6 @@ function zeroOrderEmail(order) {
  * @param  {object} email contains user email
  */
 function sendChangePasswordEmail(email) {
-    var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
-
     var emailObj = {
         to: email,
         subject: Resource.msg('email.subject.account.change.password', 'common', null),

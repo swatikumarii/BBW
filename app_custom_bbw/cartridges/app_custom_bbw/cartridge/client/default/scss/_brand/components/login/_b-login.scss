@@ -607,8 +607,8 @@
 
         .resetpassword-btn {
             transition: all 0.3s ease;
-            max-height: 48px;
-            min-height: 48px;
+            max-height: 37px;
+            min-height: 37px;
             letter-spacing: 0.12em;
         }
 
@@ -688,7 +688,7 @@
 
 // -----hide show---
 .password-box {
-    .login-modal-hide {
+    .login-modal-password-hide {
         top: 29px;
         min-height: 46px;
         max-height: 15px;
