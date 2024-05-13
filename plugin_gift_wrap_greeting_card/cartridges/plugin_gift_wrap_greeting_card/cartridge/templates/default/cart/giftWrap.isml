@@ -23,7 +23,7 @@
             <div class="giftwrap-block-options js-giftwrap-options">
                 <div class="giftwrap-block-radio-wrapper">
                     <isif condition="${pdict.wrapItemMethod == constants.WRAP_TOGETHER_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == constants
-                                     .WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}">
+                            .WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}">
                         <div id="giftwrap-block-radio" class="giftwrap-block-radio gift-wrap-toggle">
                             <isif condition="${pdict.isDisableTogetherOption}">
                                 <input type="radio" name="giftwrap-type" id="${constants.WRAP_TOGETHER_ID}"
@@ -42,7 +42,7 @@
                     </isif>
 
                     <isif condition="${pdict.wrapItemMethod == constants.WRAP_INDIVIDUAL_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == constants
-                                     .WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}">
+                            .WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}">
                         <div class="giftwrap-block-radio greeting-card-toggle" data-error-message="">
                             <isif condition="${pdict.isDisableIndividualOption}">
                                 <input type="radio" name="giftwrap-type" id="${constants.WRAP_INDIVIDUAL_ID}"
