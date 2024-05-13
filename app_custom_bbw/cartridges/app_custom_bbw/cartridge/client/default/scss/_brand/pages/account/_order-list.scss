@@ -1,16 +1,28 @@
 .order-list-container {
     .card {
-        background-color: colour(gray, 1);
         border: 0;
         border-radius: 0;
+        margin-bottom: 0;
+
+        &:first-of-type {
+            background-color: colour(gray, 1);
+        }
 
         .card-head {
             padding: 40px 30px;
-            border-top: 2px solid colour(black, 1);
+            border-bottom: 1px solid colour(gray, 6);
 
-            p {
-                font-size: 15px;
-                margin-bottom: 4px;
+            .date-placed {
+                font-size: 0.8125rem;
+                margin-bottom: 3px;
+                text-transform: uppercase;
+            }
+
+            .my-order-no,
+            .my-order-total {
+                color: colour(gray);
+                font-size: 0.6875rem;
+                line-height: 1.3;
             }
 
             a.btn {
@@ -29,6 +41,8 @@
                 text-transform: uppercase;
                 font-size: 0.75rem;
                 line-height: 2;
+                min-height: auto;
+                padding: 3px 25px;
             }
         }
     }
@@ -148,4 +162,13 @@
     &:hover {
         color: colour(white);
     }
+}
+
+.headinfo-year {
+    transition: all 0.5s ease-out;
+    font-size: 1.5rem;
+    margin: 0;
+    color: colour(black, 3);
+    padding: 0 0 10px;
+    border-bottom: 1px solid colour(black, 3);
 }
