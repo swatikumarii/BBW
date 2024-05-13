@@ -6,6 +6,7 @@
         </label>
         <input type="email" id="loginModal-form-email" required aria-required="true"
             data-missing-error="${Resource.msg('error.message.parse.email', 'forms', null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.parse.email', 'forms', null)}"
             class="form-control required login-form-input" aria-describedby="form-email-error" name="loginEmail"
             value="${pdict.userName}" />
         <div class="invalid-feedback" id="form-email-error">${Resource.msg('error.message.parse.email', 'forms', null)}
@@ -45,11 +46,8 @@
     <input type="hidden" name="loginRedirectQueryString" value="${pdict.loginRedirectQueryString}" />
     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
         <div class="login-btn register-btn">
-            <<<<<<< HEAD <button
-                data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
-                data-callback="submitLogin" data-action="submit"=======<button
-                data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
-                data-callback="submitLoginModal" data-action="submit">>>>>>> 81ff912c33854da4654d0eaac4f0166b5d8380c3
+            <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
+                data-callback="submitLoginModal" data-action="submit"
                 class="btn btn-block btn-primary g-recaptcha">${Resource.msg('button.text.loginform', 'login', null)}</button>
         </div>
     <iselse/>
