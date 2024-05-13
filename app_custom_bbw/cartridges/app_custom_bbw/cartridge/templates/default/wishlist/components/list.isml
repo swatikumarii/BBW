@@ -27,7 +27,11 @@
         <isinclude template="wishlist/components/socialsharing" />
     </div> </iscomment>
 <iselse>
-    <div class="col-12 text-center">
-        <p>${Resource.msg('wishlist.empty.text','wishlist',null)}</p>
+    <div class="col-12 text-left p-0">
+        <p class="wishlist-text">${Resource.msg('wishlist.empty.text','wishlist',null)}</p>
+        <div class="add-wishlist position-relative">
+            <a  href="${URLUtils.url('Home-Show')}" class="btn wishlist-btn btn-primary text-white text-uppercase"
+                aria-label="${Resource.msg('wishlist.add.btn', 'wishlist', null)}">${Resource.msg('wishlist.add.btn', 'wishlist', null)}</a>
+        </div>
     </div>
 </isif>

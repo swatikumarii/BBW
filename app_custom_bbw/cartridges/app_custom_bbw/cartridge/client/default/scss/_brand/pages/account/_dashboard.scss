@@ -1,6 +1,11 @@
 .my-account {
     padding: 0.5rem 15px 1.6875rem;
 
+    .account-dashboard {
+        max-width: 955px;
+        margin: 0 auto;
+    }
+
     .mobile-my-account {
         display: block;
         padding: 1.4375rem 0.9375rem;
@@ -70,6 +75,35 @@
         }
     }
 
+    .description-detail {
+        padding: 0;
+        max-width: 770px;
+
+        @include media-up(sm) {
+            padding: 0 0 0 65px;
+            max-width: 770px;
+        }
+
+        @include media-btw(sm, lg) {
+            padding: 0;
+        }
+
+        .wishlist-text {
+            line-height: 24px;
+        }
+
+        .add-wishlist {
+            .wishlist-btn {
+                padding: 0 1.25em;
+                line-height: 2.0625rem;
+                font-size: 0.6875rem;
+                min-height: auto;
+                margin-bottom: 20px;
+                letter-spacing: 0.12em;
+            }
+        }
+    }
+
     .my-account-description {
         .account-profile {
             .profile-heading {
@@ -81,6 +115,7 @@
                     @include media-down(sm) {
                         font-size: 1rem;
                         border-bottom: 0;
+                        border-bottom: 1px solid colour(black, 3);
                     }
 
                     a {
@@ -105,6 +140,8 @@
 
                 li {
                     list-style: none;
+                    max-width: 341.92px;
+                    height: 84px;
 
                     a {
                         img {
