@@ -106,7 +106,7 @@
 <iselse/>
     <div class="row justify-content-center form-group">
         <button type="submit" name="save"
-            class="btn btn-save btn-hover text-uppercase btn-primary">${Resource.msg('button.update', 'account', null)}</button>
+            class="btn btn-save btn-hover text-uppercase btn-primary submit-edit-profile">${Resource.msg('button.update', 'account', null)}</button>
     </div>
 </isif>
 </form>
