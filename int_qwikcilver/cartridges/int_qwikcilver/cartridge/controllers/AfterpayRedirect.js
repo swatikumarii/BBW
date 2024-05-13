@@ -21,8 +21,8 @@ server.prepend('IsAfterpay',
     server.middleware.https,
     csrfProtection.validateAjaxRequest,
     function (req, res, next) {
-        var paymentMethodName = ap.apCheckoutUtilities.getPaymentMethodName();
-        var apBrand = ap.apBrandUtilities.getBrand();
+        var paymentMethodName = ap.checkoutUtilities.getPaymentMethodName();
+        var apBrand = ap.brandUtilities.getBrand();
         var currentBasket = BasketMgr.getCurrentBasket();
 
         if (currentBasket.getPaymentInstruments('GIFT_CERTIFICATE').length > 0) {

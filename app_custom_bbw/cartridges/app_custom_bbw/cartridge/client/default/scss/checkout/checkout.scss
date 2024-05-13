@@ -6,25 +6,25 @@
 @import "../_brand/pages/checkout/b-shipping";
 @import "../_brand/pages/checkout/b-place-order";
 
-header {
-    .bbw-nav {
-        .bbw-nav-wrap {
-            .primary-logo {
-                margin: 24px auto 22px;
-            }
+.checkout-page {
+    letter-spacing: 0.2px;
+    line-height: 20px;
 
-            .icon-items {
-                .minicart {
-                    margin-right: 41px;
+    header {
+        .bbw-nav {
+            .bbw-nav-wrap {
+                .primary-logo {
+                    margin: 24px auto 22px;
+                }
+
+                .icon-items {
+                    .minicart {
+                        margin-right: 41px;
+                    }
                 }
             }
         }
     }
-}
-
-.checkout-page {
-    letter-spacing: 0.2px;
-    line-height: 20px;
 }
 
 .card.ghost {
@@ -284,6 +284,18 @@ span.ship-to-city-st-zip {
     padding: 20px 10px;
 }
 
+.customer-message {
+    padding: 0 10px;
+
+    a {
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
 .customer-information-block {
     .form-group {
         margin: 10px 0 30px 10px;
@@ -309,10 +321,57 @@ span.ship-to-city-st-zip {
 
 input[type="text"],
 input[type="password"],
+input[type="tel"],
 .custom-select {
     height: 48px;
     border-color: $clr-black-1;
     border-radius: 0;
+}
+
+.custom-select-wrap {
+    &::after {
+        content: "";
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-46%);
+        height: 45px;
+        width: 35px;
+        border-left: 1px solid $clr-gray-5;
+        background: $clr-white url("../../images/UI-Carat.svg") no-repeat 50%;
+        background-size: 15px;
+    }
+}
+
+.shipment-selector-block {
+    .custom-select-wrap {
+        &::after {
+            transform: translateY(-50%);
+            right: 5px;
+        }
+    }
+}
+
+.billing-address-block {
+    .custom-select-wrap {
+        &::after {
+            top: 52%;
+        }
+    }
+}
+
+.toggle-password {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    height: 36px;
+    border-left: 1px solid $clr-gray-5;
+    padding: 7px 15px;
+    cursor: pointer;
+}
+
+.checkout-black-1 {
+    color: $clr-black-1;
 }
 
 .submit-customer-login {
@@ -323,6 +382,8 @@ input[type="password"],
 .shipping-section {
     h2 {
         padding: 35px 0 17px;
+        line-height: 24px;
+        letter-spacing: 0.1px;
     }
 }
 
@@ -352,10 +413,15 @@ input[type="password"],
         .product-line-item {
             margin: 20px 0;
             padding-top: 25px;
+            padding-right: 20px;
+
+            .promotion {
+                max-width: 88%;
+            }
 
             .line-item-total-price-amount {
                 text-align: right;
-                padding-right: 35px;
+                padding-right: 20px;
             }
         }
     }
@@ -400,7 +466,8 @@ input[type="password"],
     }
 }
 
-.shipping-address {
+.shipping-address,
+.billing-address {
     .form-group {
         margin: 10px 0 30px;
     }
@@ -434,5 +501,38 @@ input[type="password"],
     &.billing {
         margin: 0 0 42px;
         padding: 30px 15px;
+    }
+}
+
+.accordion-title {
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+        content: url("../../images/UI-Carat.svg");
+        width: 15px;
+        position: absolute;
+        right: -30px;
+        top: 50%;
+        transform: translateY(-50%) rotate(180deg);
+        transition: transform 0.3s ease;
+    }
+
+    &.rotate-down {
+        &::after {
+            transform: translateY(-50%);
+        }
+    }
+
+    &.gift-cardtitle {
+        &::after {
+            right: 40px;
+        }
+    }
+
+    &.promocode-title {
+        &::after {
+            right: 25px;
+        }
     }
 }

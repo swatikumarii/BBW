@@ -38,12 +38,12 @@ function updateGiftPendingTotals(totals) {
 function updateAfterPayWidget() {
     if ($('#afterpay-widget-amount').val() > 0) {
         // eslint-disable-next-line no-undef
-        afterpayWidget.update({
-            amount: {
-                amount: $('#afterpay-widget-amount').val(),
-                currency: $('#afterpay-widget-currency').val()
-            }
-        });
+        // afterpayWidget.update({
+        //     amount: {
+        //         amount: $('#afterpay-widget-amount').val(),
+        //         currency: $('#afterpay-widget-currency').val()
+        //     }
+        // });
     }
 }
 
@@ -219,5 +219,22 @@ $(document).ready(function () {
                 return false;
             }
         });
+    });
+
+    $('.gift-card-form :input').blur(function () {
+        var $this = $(this);
+        var $errorMessage = $this.next('.invalid-feedback');
+        if ($this[0].checkValidity()) {
+            $errorMessage.hide();
+            $this.removeClass('is-invalid');
+        } else {
+            var errorText;
+            if ($this.val().length === 0) {
+                errorText = $this.data('missing-error');
+            } else {
+                errorText = $this.data('pattern-mismatch');
+            }
+            $errorMessage.text(errorText).show();
+        }
     });
 });

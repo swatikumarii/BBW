@@ -10,6 +10,10 @@
                 display: none;
             }
 
+            .review-order-summary {
+                display: none;
+            }
+
             .ghost.customer {
                 display: none;
             }
@@ -22,8 +26,15 @@
                 display: none;
             }
 
-            .payment-form {
+            .payment-form,
+            .place-order-trigger {
                 display: none;
+            }
+
+            .checkout-blocks {
+                &.billing {
+                    display: none;
+                }
             }
 
             button.submit-shipping {

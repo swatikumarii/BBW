@@ -159,6 +159,7 @@ function createProductLineItemsObject(allLineItems, view) {
         newLineItem.bonusProducts = bonusProducts;
         if (enableQCeGift && 'custom' in item && 'isEgiftCard' in item.custom && item.custom.isEgiftCard) {
             newLineItem.giftCardDetails = getEgiftCardDetails(item);
+            newLineItem.isEgiftCard = true;
         }
         if (
             'custom' in item &&
