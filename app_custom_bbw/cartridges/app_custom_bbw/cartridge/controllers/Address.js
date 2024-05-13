@@ -223,6 +223,11 @@ server.replace(
             if (length === 0) {
                 res.json({
                     UUID: UUID,
+                    redirectUrl: URLUtils.url(
+                        'Address-List',
+                        'showstatusmsg',
+                        true
+                    ).toString(),
                     defaultMsg: Resource.msg(
                         'label.addressbook.defaultaddress',
                         'account',
@@ -237,6 +242,11 @@ server.replace(
             } else {
                 res.json({
                     UUID: UUID,
+                    redirectUrl: URLUtils.url(
+                        'Address-List',
+                        'showstatusmsg',
+                        true
+                    ).toString(),
                     defaultMsg: Resource.msg(
                         'label.addressbook.defaultaddress',
                         'account',
