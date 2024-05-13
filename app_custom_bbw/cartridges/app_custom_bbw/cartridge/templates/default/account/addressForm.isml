@@ -8,9 +8,9 @@
         <span class="required-indicator"></span>
             <isprint value="${pdict.addressForm.addressId.label}" encoding="htmlcontent" />
         </label>
-        <iscomment> <span
+        <span
             class="${pdict.addressForm.addressId.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
-        </span> </iscomment>
+        </span>
     </div>
     <input type="text" class="form-control" id="addressId"
         data-missing-error="${Resource.msg('error.address.title', 'forms', null)}"

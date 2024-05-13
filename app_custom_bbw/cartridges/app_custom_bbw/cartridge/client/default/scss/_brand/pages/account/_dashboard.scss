@@ -197,4 +197,12 @@
             width: 100%;
         }
     }
+
+    .btn-save.disabled {
+        opacity: 0.5;
+        background-color: colour(gray, 7);
+        border-color: colour(gray, 7);
+        color: colour(gray);
+        pointer-events: none;
+    }
 }

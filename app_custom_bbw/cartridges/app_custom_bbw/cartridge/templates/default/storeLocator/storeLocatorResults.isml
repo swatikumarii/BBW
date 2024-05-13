@@ -3,7 +3,6 @@
         <isif condition="${pdict.showMap === 'true'}">
             <div class="card-body" id="${store.ID}">
                 <div class="map-marker">
-                    <span>${loopState.count}</span>
                 </div>
                 <isinclude template="storeLocator/storeDetails" />
             </div>
