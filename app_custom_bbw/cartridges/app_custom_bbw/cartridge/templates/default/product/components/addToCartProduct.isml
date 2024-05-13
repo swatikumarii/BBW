@@ -5,7 +5,9 @@
             data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
             ${Resource.msg('button.addToBag', 'common', null)}
         </button>
-        <div id="add-to-cart-snackbar">${Resource.msg('item.added', 'common', null)}</div>
+        <isif condition="${!product.isEgiftCard}">
+            <div id="add-to-cart-snackbar">${Resource.msg('item.added', 'common', null)}</div>
+        </isif>
     </div>
 </div>
 <isinclude template="product/components/removeGiftLineItem" />

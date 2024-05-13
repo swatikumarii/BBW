@@ -1,6 +1,5 @@
 <div class="line-item-name">
     <span class="d-block h-fw--semibold h-clr--black-1 h-font-size--15">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</span>
-    <span class="d-block h-font-size--12">${lineItem.titlePartB ? lineItem.titlePartB : ''}</span>
-    <span>${lineItem.id}</span>
-    <span class="d-block h-font-size--10">${lineItem.volume ? lineItem.volume : ''}</span>
+    <span class="d-block h-font-size--14">${lineItem.titlePartB ? lineItem.titlePartB : ''}</span>
+    <span class="d-block h-font-size--14">${lineItem.volume ? lineItem.volume : ''}</span>
 </div>

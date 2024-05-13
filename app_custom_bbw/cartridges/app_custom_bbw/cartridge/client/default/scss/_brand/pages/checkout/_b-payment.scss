@@ -8,8 +8,16 @@
 
             .customer-section,
             .shipping-section,
+            .review-shipping-summary-content,
+            .review-order-summary,
             .card.ghost {
                 display: none;
+            }
+
+            .customer {
+                &.registered {
+                    display: none;
+                }
             }
 
             .payment-form,

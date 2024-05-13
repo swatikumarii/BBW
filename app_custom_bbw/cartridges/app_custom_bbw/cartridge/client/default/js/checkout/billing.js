@@ -1,6 +1,6 @@
 'use strict';
 
-var addressHelpers = require('base/checkout/address');
+var addressHelpers = require('./address');
 var cleave = require('base/components/cleave');
 
 /**

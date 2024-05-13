@@ -211,7 +211,7 @@ var history = window.history;
 
                     formHelpers.clearPreviousErrors('.payment-form');
 
-                    var billingAddressForm = $('#dwfrm_billing .billing-address-block :input').serialize();
+                    var billingAddressForm = $('#dwfrm_billing :input').serialize();
 
                     $('body').trigger('checkout:serializeBilling', {
                         form: $('#dwfrm_billing .billing-address-block'),
