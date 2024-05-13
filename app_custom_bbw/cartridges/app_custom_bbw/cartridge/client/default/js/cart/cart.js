@@ -1,6 +1,6 @@
 'use strict';
 
-var base = require('base/product/base');
+var base = require('../product/base');
 var focusHelper = require('base/components/focus');
 var location = window.location;
 
@@ -95,8 +95,22 @@ function updateCartTotals(data) {
         } else {
             $('.item-' + item.UUID).empty();
         }
-        $('.uuid-' + item.UUID + ' .unit-price').empty().append(item.renderedPrice);
-        $('.line-item-price-' + item.UUID + ' .unit-price').empty().append(item.renderedPrice);
+        if (item.promoPrice !== false) {
+            var promoPriceHTML =
+                '<div class="strike-through h-clr--black-1">' +
+                item.price.sales.formatted +
+                '</div>' +
+                '<div class="pricing promo-price h-clr--red">' +
+                item.promoPrice +
+                '</div>';
+            $('.uuid-' + item.UUID + ' .unit-price')
+                .empty()
+                .append(promoPriceHTML);
+        } else {
+            $('.uuid-' + item.UUID + ' .unit-price')
+                .empty()
+                .append(item.renderedPrice);
+        }
         $('.item-total-' + item.UUID).empty().append(item.priceTotal.renderedPrice);
     });
 }
@@ -407,7 +421,18 @@ module.exports = function () {
     $(document).on('click', '.quantity-form > .quantity-plus', function () {
         var quantity = Number($(this).siblings('.quantity').val());
         quantity += 1;
-        $(this).siblings('.quantity').val(quantity).trigger('change');
+        var maxOrderQty = $(this).siblings('.quantity').data('max-order-qty');
+        if (maxOrderQty && maxOrderQty < quantity) {
+            var errorElem = $(this)
+                .parents('.quantity-form')
+                .siblings('.max-order-qty-error');
+            errorElem.show();
+            setTimeout(function () {
+                errorElem.hide();
+            }, 3000);
+        } else {
+            $(this).siblings('.quantity').val(quantity).trigger('change');
+        }
     });
 
     $(document).on('click', '.quantity-form > .quantity-minus', function () {
@@ -419,58 +444,78 @@ module.exports = function () {
     $('body').on('change', '.quantity-form > .quantity', function () {
         var preSelectQty = $(this).data('pre-select-qty');
         var quantity = $(this).val();
-        var productID = $(this).data('pid');
-        var url = $(this).data('action');
-        var uuid = $(this).data('uuid');
+        var maxOrderQty = $(this).data('max-order-qty');
 
-        var urlParams = {
-            pid: productID,
-            quantity: quantity,
-            uuid: uuid
-        };
-        url = appendToUrl(url, urlParams);
+        if (maxOrderQty && maxOrderQty < quantity) {
+            var errorElem = $(this)
+                .parents('.quantity-form')
+                .siblings('.max-order-qty-error');
+            errorElem.show();
+            setTimeout(function () {
+                errorElem.hide();
+            }, 3000);
+            $(this).val(preSelectQty);
+        } else {
+            var productID = $(this).data('pid');
+            var url = $(this).data('action');
+            var uuid = $(this).data('uuid');
 
-        $(this).parents('.card').spinner().start();
+            var urlParams = {
+                pid: productID,
+                quantity: quantity,
+                uuid: uuid
+            };
+            url = appendToUrl(url, urlParams);
 
-        $('body').trigger('cart:beforeUpdate');
+            $(this).parents('.card').spinner().start();
 
-        $.ajax({
-            url: url,
-            type: 'get',
-            context: this,
-            dataType: 'json',
-            success: function (data) {
-                $('.quantity[data-uuid="' + uuid + '"]').val(quantity);
-                $('.coupons-and-promos').empty().append(data.totals.discountsHtml);
-                updateCartTotals(data);
-                updateApproachingDiscounts(data.approachingDiscounts);
-                updateAvailability(data, uuid);
-                validateBasket(data);
-                $(this).data('pre-select-qty', quantity);
-                $('body').trigger('cart:update', data);
-                if ('refreshItems' in data && data.refreshItems) {
-                    $('.cart-lineitems')
+            $('body').trigger('cart:beforeUpdate');
+
+            $.ajax({
+                url: url,
+                type: 'get',
+                context: this,
+                dataType: 'json',
+                success: function (data) {
+                    $('.quantity[data-uuid="' + uuid + '"]').val(quantity);
+                    $('.coupons-and-promos')
                         .empty()
-                        .append(data.refreshItemsTemplate);
-                    $('.mini-cart-content .product-summary')
-                        .empty()
-                        .append(data.refreshItemsTemplateMinicart);
-                }
-                $.spinner().stop();
-                if ($(this).parents('.product-info').hasClass('bonus-product-line-item') && $('.cart-page').length) {
-                    location.reload();
-                }
-            },
-            error: function (err) {
-                if (err.responseJSON.redirectUrl) {
-                    window.location.href = err.responseJSON.redirectUrl;
-                } else {
-                    createErrorNotification(err.responseJSON.errorMessage);
-                    $(this).val(parseInt(preSelectQty, 10));
+                        .append(data.totals.discountsHtml);
+                    updateCartTotals(data);
+                    updateApproachingDiscounts(data.approachingDiscounts);
+                    updateAvailability(data, uuid);
+                    validateBasket(data);
+                    $(this).data('pre-select-qty', quantity);
+                    $('body').trigger('cart:update', data);
+                    if ('refreshItems' in data && data.refreshItems) {
+                        $('.cart-lineitems')
+                            .empty()
+                            .append(data.refreshItemsTemplate);
+                        $('.mini-cart-content .product-summary')
+                            .empty()
+                            .append(data.refreshItemsTemplateMinicart);
+                    }
                     $.spinner().stop();
+                    if (
+                        $(this)
+                            .parents('.product-info')
+                            .hasClass('bonus-product-line-item') &&
+                        $('.cart-page').length
+                    ) {
+                        location.reload();
+                    }
+                },
+                error: function (err) {
+                    if (err.responseJSON.redirectUrl) {
+                        window.location.href = err.responseJSON.redirectUrl;
+                    } else {
+                        createErrorNotification(err.responseJSON.errorMessage);
+                        $(this).val(parseInt(preSelectQty, 10));
+                        $.spinner().stop();
+                    }
                 }
-            }
-        });
+            });
+        }
     });
 
     $('.shippingMethods').change(function () {

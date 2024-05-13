@@ -206,6 +206,8 @@
     }
 
     &__img-wrapper {
+        overflow: hidden;
+
         .img-inner-wrapper {
             @include media-up(md) {
                 max-height: 300px;

@@ -1,0 +1,93 @@
+// Shipping ------------------------------
+#checkout-main {
+    &.data-checkout-stage {
+        &[data-checkout-stage="shipping"] {
+            .customer-section {
+                display: none;
+            }
+
+            button.submit-customer {
+                display: none;
+            }
+
+            .ghost.customer {
+                display: none;
+            }
+
+            .ghost {
+                display: none;
+            }
+
+            &.multi-ship .order-product-summary {
+                display: none;
+            }
+
+            .payment-form {
+                display: none;
+            }
+
+            button.submit-shipping {
+                display: block;
+            }
+
+            .shipment-selector-block {
+                .btn-show-details,
+                .btn-add-new {
+                    border: none;
+                }
+            }
+
+            [data-address-mode="customer"] {
+                .shipping-address-block {
+                    display: none;
+                }
+            }
+
+            [data-address-mode="shipment"] {
+                .shipping-address-form {
+                    display: none;
+                }
+            }
+
+            [data-address-mode="edit"] {
+                .shipping-address-block {
+                    display: none;
+                }
+            }
+
+            [data-address-mode="new"] {
+                .btn-show-details,
+                .btn-add-new {
+                    display: none;
+                }
+            }
+
+            .shipping-step {
+                a {
+                    &:hover {
+                        color: $clr-blue;
+                        text-decoration: none;
+                    }
+
+                    .step-text {
+                        color: $clr-blue;
+                        font-weight: 600;
+                    }
+                }
+
+                .step-count {
+                    color: $clr-blue;
+                    border-color: $clr-blue;
+                    background-color: $clr-white;
+                }
+            }
+
+            .payment-step,
+            .place-order-step {
+                a {
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+}

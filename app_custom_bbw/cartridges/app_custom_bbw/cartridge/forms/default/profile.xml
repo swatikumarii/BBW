@@ -18,7 +18,8 @@
 			label="label.input.firstname.profile" 
 			mandatory="true" 
 			min-length="2"
-			regexp="^[a-zA-Z0-9'\-]+$"
+			max-length="50"
+			regexp="^[a-zA-Z0-9 ''\-]+$"
 			missing-error="error.message.fname.required" 
 			range-error="error.message.fname.2orGreater" 
 			parse-error="error.message.parse.fname"
@@ -29,8 +30,9 @@
 			formid="lastname" 
 			label="label.input.lastname.profile" 
 			mandatory="true" 
+			min-length="2"
 			max-length="50" 
-			regexp="^[a-zA-Z0-9'\-]+$"
+			regexp="^[a-zA-Z0-9 ''\-]+$"
 			missing-error="error.message.required"
 			range-error="error.message.lname.2orGreater" 
 			parse-error="error.message.parse.lname"
@@ -67,8 +69,9 @@
 			formid="phone"
 			label="label.input.phone.profile"
 			mandatory="true"
-			missing-error="error.message.required"
-			parse-error="error.message.parse.phone.profile.form"
+        	regexp="^((?!(0))[0-9]{8,12})$"
+           	missing-error="error.phone.number"
+           	parse-error="error.message.pattern.phone"
 			type="string"/> 
 
 		<field
@@ -89,7 +92,7 @@
 			label="label.input.dob.profile" 
 			mandatory="true"
             max-length="10"
-			regexp="^(0[1-9]|[1-2][0-9]|3[0-1])/(0[1-9]|1[0-2])/(19|20)\d{2}$"
+			regexp="^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
 			missing-error="error.message.dob.required" 
 			parse-error="error.message.parse.dob"
 			value-error="ValueErrorText"
@@ -98,11 +101,21 @@
 		<field 
 			formid="zip" 
 			label="label.input.zip.profile" 
-			mandatory="true" 
-			min-length="5"
+			min-length="4"
 			max-length="10"
-			regexp="^[a-zA-Z0-9'\-]+$"
-			missing-error="error.message.zip.required" 
+			regexp="^[0-9]*$"
+			range-error="error.message.zip.10orless" 
+			parse-error="error.message.zip.fname"
+			value-error="ValueErrorText"
+			type="string" />
+
+		<field 
+			formid="zipCode" 
+			label="label.input.zip.profile" 
+			min-length="4"
+			max-length="10"
+			regexp="^[0-9]*$"
+			missing-error="error.message.zip.required"
 			range-error="error.message.zip.10orless" 
 			parse-error="error.message.zip.fname"
 			value-error="ValueErrorText"
@@ -129,8 +142,11 @@
 			label="label.input.password.profile"
 			mandatory="true"
 			min-length="8"
-			max-length="255"
-			range-error="error.message.8_255characters"
+			max-length="50"
+			regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^*-]).{8,50}$"
+			missing-error="error.message.password"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
 			value-error="error.message.currentpasswordnomatch"
 			type="string" />
 			<!-- TODO value-error -->
@@ -141,8 +157,11 @@
 			type="string"
 			mandatory="true"
 			min-length="8"
-			max-length="255"
-			range-error="error.message.8_255characters"
+			max-length="50"
+			regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^*-]).{8,50}$"
+			missing-error="error.message.password"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
 			value-error="error.message.currentpasswordnomatch"/>
 			<!-- TODO value-error -->
 		
@@ -151,11 +170,22 @@
 			label="label.input.currentpassword.profile" 
 			mandatory="true"
 			min-length="8"
-			max-length="255"
-			range-error="error.message.8_255characters"
+			max-length="50"
+			regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^*-]).{8,50}$"
+			missing-error="error.message.currentpassword"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
 			value-error="error.message.currentpasswordnomatch"
 			type="string" />
 		
-		<include formid="newpasswords" name="newPasswords"/>
+		<include formid="newpasswords" name="newPasswords"
+			mandatory="true"
+			min-length="8"
+			max-length="50"
+			regexp="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^*-]).{8,50}$"
+			missing-error="error.message.password"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
+			type="string" />
 	</group>
 </form>

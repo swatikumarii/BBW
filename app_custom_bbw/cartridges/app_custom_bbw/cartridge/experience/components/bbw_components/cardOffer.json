@@ -25,6 +25,12 @@
                     "required": false
                 },
                 {
+                    "id": "disableLazyLoad",
+                    "name": "Disable Lazy Load",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
                     "id": "desktopImgUrl",
                     "name": "Desktop Image URL",
                     "description": "Add Desktop Image URL here",

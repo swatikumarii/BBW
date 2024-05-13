@@ -50,8 +50,25 @@ function zeroOrderEmail(order) {
     }
 }
 
+/**
+ * sendRestPasswordEmail function is responsible to trigger email for change password subscription
+ * @param  {object} email contains user email
+ */
+function sendChangePasswordEmail(email) {
+    var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
+
+    var emailObj = {
+        to: email,
+        subject: Resource.msg('email.subject.account.change.password', 'common', null),
+        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+        type: 1
+    };
+
+    emailHelpers.sendEmail(emailObj, 'mail/changePasswordEmail', email);
+}
 
 module.exports = {
     sendNewsLetterSubscribeEmail: sendNewsLetterSubscribeEmail,
-    zeroOrderEmail: zeroOrderEmail
+    zeroOrderEmail: zeroOrderEmail,
+    sendChangePasswordEmail: sendChangePasswordEmail
 };

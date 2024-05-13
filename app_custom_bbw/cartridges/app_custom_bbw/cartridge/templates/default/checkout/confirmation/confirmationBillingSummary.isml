@@ -1,0 +1,13 @@
+<div class="single-shipping row">
+<div class=" billing col-md-6">
+    <span class="summary-section-label billing-addr-label">${Resource.msg('label.order.billing.address', 'confirmation', null)}</span>
+    <isinclude template="checkout/confirmation/confirmationAddressSummaryInvoice" />
+    <span class="order-summary-email">${pdict.order.orderEmail}</span>
+</div>
+
+<!--- Payment information --->
+<div class="summary-details col-md-6">
+    <span class="summary-section-label payment-info-label">${Resource.msg('label.order.payment.info', 'confirmation', null)}</span>
+    <isinclude template="checkout/confirmation/confirmationPaymentOptionsSummary" />
+</div>
+</div>

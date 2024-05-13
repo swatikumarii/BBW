@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <isinclude template="/components/modules" sf-toolkit="off" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+
+    <body>
+        <isloop items="${pdict.order.items.items}" var="lineItem" status="loopState">
+            <isif
+                condition="${pdict.sendEmailNow && pdict.recipientEmail === lineItem.giftCardDetails.recipientEmail && pdict.giftcardNumber ===
+                           loopState.index}">
+                <h4 style="font-size: 18px;color: black;font-weight:600;line-height:22px;margin:0;color: #EF5F96;margin-bottom: 5px;">
+                    ${lineItem.giftCardDetails.cardNumber}
+                </h4>
+                <h4 style="font-size: 18px;color: black;font-weight:600;line-height:22px;margin:0;color: #EF5F96;margin-bottom: 5px;">
+                    ${lineItem.giftCardDetails.cardPin}
+                </h4>
+            </isif>
+        </isloop>
+    </body>
+
+</html>

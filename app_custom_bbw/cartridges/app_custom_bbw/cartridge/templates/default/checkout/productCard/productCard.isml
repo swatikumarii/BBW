@@ -71,6 +71,11 @@
                     <iselse>
                         <isinclude template="checkout/productCard/productCardQuantityDisplay" />
                         <isinclude template="checkout/productCard/productCardProductPromotions" />
+                        <isif condition="${pdict.containsDangerousGoods && lineItem.dangerousGoods}">
+                            <div class="dangerous-goods-label">
+                                ${Resource.msg('dangerous.goods.lable', 'common', null)}
+                            </div>
+                        </isif>
                         <div class="h-min-width-perc--100">
                             <isinclude template="checkout/productCard/productCardProductTotalPrice" />
                         </div>

@@ -13,35 +13,49 @@
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
         <isinclude template="reporting/reportingUrls" />
     </isif>
-    <div class="container">
-        <div class="checkout-steps d-flex justify-content-between">
-            <div class="step-1 h-width-perc--100 step-connect">
-                <span class="step-text h-font-size--14 d-block">${Resource.msg('checkout.step.shipping', 'checkout', null)}</span>
-                <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}">
-                    <span class="d-block step-count h-fw--semibold">
-                        ${Resource.msg('checkout.step.1', 'checkout', null)}
-                    </span>
-                </a>
-            </div>
-            <div class="step-2 h-width-perc--100 step-connect">
-                <span class="step-text h-font-size--14 d-block">${Resource.msg('checkout.step.billing', 'checkout', null)}</span>
-                <span class="d-block step-count h-fw--semibold">
-                    ${Resource.msg('checkout.step.2', 'checkout', null)}
-                </span>
-            </div>
-            <div class="step-3 h-width-perc--100">
-                <span class="step-text h-font-size--14 d-block">${Resource.msg('checkout.step.review', 'checkout', null)}</span>
-                <span class="d-block step-count h-fw--semibold ">
-                    ${Resource.msg('checkout.step.3', 'checkout', null)}
-                </span>
-            </div>
-        </div>
-    </div>
 
     <div id="checkout-main"
         class="container data-checkout-stage ${pdict.order.usingMultiShipping && pdict.order.shipping.length > 1 ? 'multi-ship' : ''}"
         data-customer-type="${pdict.customer.registeredUser ? 'registered' : 'guest'}"
         data-checkout-stage="${pdict.currentStage}" data-checkout-get-url="${URLUtils.https('CheckoutServices-Get')}">
+        <div class="container">
+            <div class="checkout-steps d-flex justify-content-between">
+                <div class="step-1 d-flex align-items-center flex-column h-width-perc--100 step-connect shipping-step">
+                    <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}">
+                        <span class="step-text h-font-size--14 d-block">
+                            ${Resource.msg('checkout.step.shipping', 'checkout', null)}
+                        </span>
+                    </a>
+                    <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}">
+                        <span class="d-block step-count h-fw--semibold">
+                            ${Resource.msg('checkout.step.1', 'checkout', null)}
+                        </span>
+                    </a>
+                </div>
+                <div class="step-2 d-flex align-items-center flex-column h-width-perc--100 step-connect payment-step">
+                    <a href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
+                        <span class="step-text h-font-size--14 d-block">
+                            ${Resource.msg('checkout.step.billing', 'checkout', null)}
+                        </span>
+                    </a>
+                    <a href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
+                        <span class="d-block step-count h-fw--semibold">
+                            ${Resource.msg('checkout.step.2', 'checkout', null)}
+                        </span>
+                    </a>
+                </div>
+                <div class="step-3 d-flex align-items-center flex-column h-width-perc--100 place-order-step">
+                    <a href="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
+                        <span class="step-text h-font-size--14 d-block">${Resource.msg('checkout.step.review', 'checkout', null)}</span>
+                    </a>
+                    <a href="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
+                        <span class="d-block step-count h-fw--semibold ">
+                            ${Resource.msg('checkout.step.3', 'checkout', null)}
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
 
         <div class="row">
             <div class="col-sm-8">
@@ -93,6 +107,11 @@
                     <div class="checkout-blocks shipping">
                         <div class="h-maxwidth-perc--90">
                             <isinclude template="checkout/shipping/shipping" />
+                            <isif condition="${pdict.containsDangerousGoods}">
+                                <div class="dangerous-goods-message">
+                                    ${Resource.msg('dangerous.goods.msg', 'checkout', null)}
+                                </div>
+                            </isif>
                         </div>
                     </div>
 

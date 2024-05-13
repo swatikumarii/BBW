@@ -7,6 +7,58 @@ var ProductFactory = require('*/cartridge/scripts/factories/product');
 var URLUtils = require('dw/web/URLUtils');
 var Resource = require('dw/web/Resource');
 
+
+/**
+ * Get Egift Card Details
+ * @param {object} item - line item
+ * @returns {object} giftCardDetails
+ */
+function getEgiftCardDetails(item) {
+    // Set Card Details
+    var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
+    var eGiftScheduledMonths = item.custom.eGiftCardScheduleMonth;
+    var eGiftScheduledYear = item.custom.eGiftScheduledYear;
+    var eGiftScheduledDay = item.custom.eGiftCardScheduleDay;
+    var eGiftScheduledDate;
+    var month = qwikcilverHelpers.getIndexOfMonths(eGiftScheduledMonths);
+    if (eGiftScheduledMonths && eGiftScheduledYear && eGiftScheduledDay) {
+        eGiftScheduledDate = month + '-' + eGiftScheduledDay + '-' + eGiftScheduledYear;
+    }
+    var giftCardBarCode = '';
+    var giftBarCodeNumber = '';
+    if (item.custom.eGiftCardBarcode) {
+        var Site = require('dw/system/Site');
+        var eGiftBarCodeUrl = Site.current.getCustomPreferenceValue(
+            'qwikcilverEGiftBarCodeUrl'
+        );
+        giftCardBarCode = eGiftBarCodeUrl + item.custom.eGiftCardBarcode;
+        giftBarCodeNumber = item.custom.eGiftCardBarcode;
+    }
+
+    var cardInfo = {
+        cardNumber: item.custom.eGiftCardNumber || '',
+        cardPin: item.custom.eGiftCardPin
+            ? qwikcilverHelpers.decodeFromBase64(item.custom.eGiftCardPin)
+            : '',
+        cardExpiryDate: item.custom.eGiftCardExpiry
+            ? item.custom.eGiftCardExpiry.substring(10, 0)
+            : '',
+        // cardStatus: item.custom.cardStatus || '',
+        recipientEmail: item.custom.eGiftReceiverEmail || '',
+        eGiftMessage: item.custom.eGiftMessage || '',
+        recipientName: item.custom.eGiftReceiver || '',
+        senderName: item.custom.eGiftSender || '',
+        isEgiftProduct: item.custom.isEgiftCard || false,
+        eGiftScheduledDate: eGiftScheduledDate || '',
+        eGiftEmailPending: item.custom.eGiftEmailPending || false,
+        eGiftScheduledDay: eGiftScheduledDay || '',
+        eGiftScheduledMonths: eGiftScheduledMonths || '',
+        giftBarCode: giftCardBarCode,
+        giftBarCodeNumber: giftBarCodeNumber
+    };
+    return cardInfo;
+}
+
 /**
  * Creates an array of product line items
  * @param {dw.util.Collection<dw.order.ProductLineItem>} allLineItems - All product
@@ -15,9 +67,12 @@ var Resource = require('dw/web/Resource');
  * @returns {Array} an array of product line items.
  */
 function createProductLineItemsObject(allLineItems, view) {
+    var Site = require('dw/system/Site');
     var lineItems = [];
     var giftWrapLineItem = null;
     var greetingCardLineItem = null;
+    var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
+
     collections.forEach(allLineItems, function (item) {
         // when item's category is unassigned, return a lineItem with limited attributes
         if (!item.product) {
@@ -25,6 +80,7 @@ function createProductLineItemsObject(allLineItems, view) {
                 id: item.productID,
                 quantity: item.quantity.value,
                 productName: item.productName,
+                titlePartB: 'titlePartB' in item.product.custom ? item.product.custom.titlePartB : '',
                 UUID: item.UUID,
                 noProduct: true,
                 images: {
@@ -97,7 +153,13 @@ function createProductLineItemsObject(allLineItems, view) {
             options: options
         };
         var newLineItem = ProductFactory.get(params);
+        if ('titlePartB' in item.product.custom && item.product.custom.titlePartB) {
+            newLineItem.titlePartB = item.product.custom.titlePartB;
+        }
         newLineItem.bonusProducts = bonusProducts;
+        if (enableQCeGift && 'custom' in item && 'isEgiftCard' in item.custom && item.custom.isEgiftCard) {
+            newLineItem.giftCardDetails = getEgiftCardDetails(item);
+        }
         if (
             'custom' in item &&
             'customBundle' in item.custom &&

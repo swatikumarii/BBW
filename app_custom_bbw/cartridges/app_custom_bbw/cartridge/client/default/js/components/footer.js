@@ -12,6 +12,7 @@
 function displayMessage(data, button) {
     $.spinner().stop();
     var status;
+    var message = data.msg ? data.msg : $('#newsletter-input').attr('data-csrf-error');
     if (data.success) {
         status = 'alert-success';
     } else {
@@ -27,7 +28,7 @@ function displayMessage(data, button) {
         '<div class="email-signup-alert text-justify ' +
             status +
             '">' +
-            data.msg +
+            message +
             '</div>'
     );
     var newsLetterInput = $('#newsletterInput');
@@ -129,38 +130,26 @@ $(document).on('click', '.popover .close', function (e) {
  *
  */
 // Define a function to handle scroll event and show/hide back-to-top button
-function handleScroll() {
-    // Get the height of the window
-    var windowHeight = $(window).height();
-    // 70% of window height
-    var scrollThreshold = 0.7 * windowHeight; 
-
-    if ($(window).scrollTop() > scrollThreshold) {
-        $('.js-scrolltotop').fadeIn();
-    } else {
-        $('.js-scrolltotop').fadeOut();
-    }
-}
-// Function to scroll to top when the button is clicked
-function scrollToTop() {
-    $('html, body').animate(
-        {
-            scrollTop: 0 // Scroll to the top of the page
-        },
-        800
-    );
-}
-
-// Bind scroll event handler
-$(window).scroll(handleScroll);
-
-// Trigger scroll event initially
 $(document).ready(function () {
-    handleScroll();
+    var windowHeight = $(window).height();
+    var documentHeight = $(document).height();
+    var scrollThreshold = Math.max(documentHeight - windowHeight, 0.5 * windowHeight); // Ensure the scrollThreshold is at least 30% of window height
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > scrollThreshold) {
+            $('.js-scrolltotop').fadeIn();
+        } else {
+            $('.js-scrolltotop').fadeOut();
+        }
+    });
+
+    // Function to scroll to top when the button is clicked
+    $('.js-scrolltotop').click(function () {
+        $('html, body').animate({ scrollTop: 0 }, 800);
+        return false;
+    });
 });
 
-// Bind click event to scroll to top when the button is clicked
-$('.js-scrolltotop').on('click', scrollToTop);
 
 module.exports = function () {
     $('.subscribe-email').on('click', function (e) {
