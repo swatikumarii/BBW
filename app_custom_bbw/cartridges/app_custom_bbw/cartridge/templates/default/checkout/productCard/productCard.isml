@@ -6,7 +6,8 @@
                 <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
                     <div class="item-image">
                         <img class="product-image" src="${lineItem.images.small[0].url}"
-                            alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}" width="100" />
+                            alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}"
+                            width="100" />
                     </div>
                 </a>
             </div>
@@ -21,8 +22,10 @@
                 </isif>
                 <iscomment> Variation Attributes </iscomment>
                 <div class="item-attributes">
-                    <isloop items="${lineItem.variationAttributes}" var="attribute">
-                        <p class="line-item-attributes">${attribute.displayName}: ${attribute.displayValue}</p>
+                    <isloop items="${lineItem.variationAttributes}" var="attribute" status="loopstate">
+                        <p
+                            class="line-item-attributes ${lineItem.variationAttributes.length > 0 && loopstate.index !== lineItem.variationAttributes.length - 1 ? 'mb-0' : ''}">
+                            ${attribute.displayName}: ${attribute.displayValue}</p>
                     </isloop>
                     <iscomment> Options </iscomment>
                     <div class="item-options">
@@ -31,6 +34,16 @@
                         </isloop>
                     </div>
                 </div>
+                <isif condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
+                    <div class="giftcard-details">
+                        <span class="d-block giftcard-receipient-name">${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails
+                                                                       .recipientName : ''}</span>
+                        <span class="d-block giftcard-receipient-email">${lineItem.giftCardDetails.recipientEmail && lineItem.giftCardDetails.recipientEmail !== null ? lineItem.giftCardDetails
+                                                                        .recipientEmail : ''}</span>
+                        <span class="d-block giftcard-message">${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails
+                                                               .eGiftMessage : ''}</span>
+                    </div>
+                </isif>
                 <iscomment> Promotion callout </iscomment>
                 <isif condition="${miniCart}">
                     <div class="line-item-promo item-${lineItem.UUID} h-pb--10">
@@ -71,6 +84,11 @@
                     <iselse>
                         <isinclude template="checkout/productCard/productCardQuantityDisplay" />
                         <isinclude template="checkout/productCard/productCardProductPromotions" />
+                        <isif condition="${pdict.containsDangerousGoods && lineItem.dangerousGoods}">
+                            <div class="dangerous-goods-label">
+                                ${Resource.msg('dangerous.goods.lable', 'common', null)}
+                            </div>
+                        </isif>
                         <div class="h-min-width-perc--100">
                             <isinclude template="checkout/productCard/productCardProductTotalPrice" />
                         </div>

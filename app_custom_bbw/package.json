@@ -68,7 +68,8 @@
         "wishlist": "../plugin_wishlists/cartridges/plugin_wishlists/",
         "afterpay": "../afterpay-salesforce-commerce-cloud/cartridges/int_afterpay_sfra_6",
         "adyen": "../adyen-salesforce-commerce-cloud/cartridges/int_adyen_SFRA",
-        "notify": "../plugin_notify_back_in_stock/cartridges/plugin_notify_back_in_stock"
+        "notify": "../plugin_notify_back_in_stock/cartridges/plugin_notify_back_in_stock",
+        "pluginBundling": "../plugin_bundling/cartridges/plugin_bundling/"
     },
     "dependencies": {
         "@devmobiliza/videojs-vimeo": "^0.6.0",

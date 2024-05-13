@@ -2,9 +2,9 @@
 
 var customerHelpers = require('base/checkout/customer');
 var addressHelpers = require('base/checkout/address');
-var shippingHelpers = require('base/checkout/shipping');
+var shippingHelpers = require('./shipping');
 var billingHelpers = require('./billing');
-var summaryHelpers = require('base/checkout/summary');
+var summaryHelpers = require('./summary');
 var formHelpers = require('base/checkout/formErrors');
 var scrollAnimate = require('base/components/scrollAnimate');
 var location = window.location;
@@ -211,7 +211,7 @@ var history = window.history;
 
                     formHelpers.clearPreviousErrors('.payment-form');
 
-                    var billingAddressForm = $('#dwfrm_billing .billing-address-block :input').serialize();
+                    var billingAddressForm = $('#dwfrm_billing :input').serialize();
 
                     $('body').trigger('checkout:serializeBilling', {
                         form: $('#dwfrm_billing .billing-address-block'),

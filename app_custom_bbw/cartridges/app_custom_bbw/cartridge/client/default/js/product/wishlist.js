@@ -1,8 +1,10 @@
 'use strict';
 
 $(document).ready(function () {
-    if (localStorage.getItem('addToWishList')){
-        $('.add-to-wish-list').click();
+    if (localStorage.getItem('addToWishList')) {
+        if (!$('.remove-from-wishlist').hasClass('d-block')) {
+            $('.add-to-wish-list').click();
+        }
         localStorage.removeItem('addToWishList');
     }
 });

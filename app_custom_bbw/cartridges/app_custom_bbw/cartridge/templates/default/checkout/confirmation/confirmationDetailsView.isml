@@ -1,0 +1,41 @@
+<iscomment> Load Static Assets </iscomment>
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/checkout.js');
+        assets.addJs('/js/afterpayCheckout.js');
+        assets.addJs('/js/cashappCheckout.js');
+        assets.addCss('/css/checkout/checkout.css');
+    </isscript>
+
+    <div id="checkout-main"
+        class="container data-checkout-stage">
+
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-xl-8">
+                <div class="confirmation-shipping-summary border d-block">
+                    <isinclude template="checkout/shipping/shippingSummary" />
+                </div>
+                <div class="confirmation-billing-summary border d-block">
+                    <isinclude template="checkout/billing/billingSummary" />
+                </div>
+                <div class="confirmation-product-summary d-block">
+                    <div class="confirmationItemsHeader d-flex justify-content-between">
+                        <div class="headerItem col-6 h-font-size--18 h-fw--semibold text-uppercase">${Resource.msg('label.header.item', 'confirmation', null)}</div>
+                        <div class="headerQty col-3 text-right h-font-size--18 h-fw--semibold text-uppercase">${Resource.msg('label.header.quantity', 'confirmation', null)}</div>
+                        <div class="headerPrice col-3 text-center h-font-size--18 h-fw--semibold text-uppercase">${Resource.msg('label.header.price', 'confirmation', null)}</div>
+                    </div>
+                    <isinclude template="checkout/orderProductSummary" />
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-xl-4">
+                <div class="card confirmation-order-summary">
+                    <div class="confirmation-total-summary-wrap">
+                        <isinclude template="checkout/orderTotalSummary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+

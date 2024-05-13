@@ -1,39 +1,38 @@
-<form action="${pdict.actionUrl}" class="login" method="POST" name="login-form">
+<form action="${pdict.actionUrl}" class="modal-login" method="POST" name="login-form">
     <div class="form-group required">
-        <label class="form-control-label h-font-size--16  h-fw--semibold mb-2 form-label" for="login-form-email">
-                    <span class="required-indicator">*</span>
+        <label class="form-control-label h-font-size--16  h-fw--semibold mb-2 form-label" for="loginModal-form-email">
+            <span class="required-indicator">*</span>
             ${Resource.msg('label.input.loginPopup.email', 'login', null)}
         </label>
-        <input type="email" id="login-form-email" required aria-required="true" class="form-control required login-form-input"
-            aria-describedby="form-email-error" name="loginEmail" value="${pdict.userName}">
-        <div class="invalid-feedback" id="form-email-error">${Resource.msg('error.message.parse.email', 'forms', null)}</div>
+        <input type="email" id="loginModal-form-email" required aria-required="true"
+            data-missing-error="${Resource.msg('error.message.parse.email', 'forms', null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.parse.email', 'forms', null)}"
+            class="form-control required login-form-input" aria-describedby="form-email-error" name="loginEmail"
+            value="${pdict.userName}" />
+        <div class="invalid-feedback" id="form-email-error">${Resource.msg('error.message.parse.email', 'forms', null)}
+        </div>
     </div>
 
-    <div class="form-group required mb-4 password-box position-relative">
-        <label class="form-control-label h-font-size--16  h-fw--semibold mb-2 form-label" for="login-form-password">
-        <span class="required-indicator">*</span>
+    <div class="form-group required password-box login-modal-password position-relative">
+        <label class="form-control-label h-font-size--16  h-fw--semibold mb-2 form-label"
+            for="login-modal-form-password">
+            <span class="required-indicator">*</span>
             ${Resource.msg('label.input.login.password', 'login', null)}
         </label>
-        <input type="password" id="login-form-password" required aria-required="true" class="form-control required login-form-input bg-white"
+        <input type="password" id="login-modal-form-password" required aria-required="true"
+            class="form-control required login-form-input bg-white"
+            data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
             aria-describedby="form-password-error" name="loginPassword">
-        <div class="invalid-feedback" id="form-password-error">${Resource.msg('error.message.password.required', 'forms', null)}</div>
-                <button type="button" id="toggle-password"
-                    class=" login-modal-hide bg-white border-0 d-flex justify-content-center align-items-center text-captialize h-50 position-absolute p-0 h-clr--black-3"
-                    aria-label="Show Password">
-                    <span class="show h-font-size--16">${Resource.msg('password.show.label', 'login', null)}</span>
-                </button>
+        <div class="invalid-feedback" id="form-password-error">${Resource.msg('error.message.password', 'forms', null)}
+        </div>
+        <button type="button" id="toggle-password"
+            class="login-modal-password-hide bg-white border-0 d-flex justify-content-center align-items-center text-captialize h-50 position-absolute p-0 h-clr--black-3"
+            aria-label="Show Password">
+            <span class="show h-font-size--16">${Resource.msg('password.show.label', 'login', null)}</span>
+        </button>
     </div>
 
     <div class="clearfix">
-        <iscomment> <div class="form-group custom-control custom-checkbox pull-left remember-me">
-            <input type="checkbox" class="custom-control-input" id="rememberMe" name="loginRememberMe" value="true"
-                <isif condition="${pdict.rememberMe}">checked</isif>
-            >
-            <label class="custom-control-label" for="rememberMe">
-                ${Resource.msg('label.checkbox.login.rememberme', 'login', null)}
-            </label>
-        </div> </iscomment>
-
         <div class=" forgot-password text-left h-clr--gray h-font-size--12 ">
             <a class="d-sm" href="${URLUtils.url('Account-PasswordReset')}"
                 title="${Resource.msg('label.forgotpassword', 'login', null)}">
@@ -47,15 +46,14 @@
     <input type="hidden" name="loginRedirectQueryString" value="${pdict.loginRedirectQueryString}" />
     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
         <div class="login-btn register-btn">
-            <button
-                data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
-                data-callback="submitLogin"
-                data-action="submit"
+            <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
+                data-callback="submitLoginModal" data-action="submit"
                 class="btn btn-block btn-primary g-recaptcha">${Resource.msg('button.text.loginform', 'login', null)}</button>
         </div>
     <iselse/>
         <div class="login-btn register-btn">
-            <button type="submit" class="btn btn-block btn-primary signin-btn text-uppercase">${Resource.msg('button.text.loginform', 'login', null)}</button>
+            <button type="submit"
+                class="btn btn-block btn-primary signin-btn text-uppercase">${Resource.msg('button.text.loginform', 'login', null)}</button>
         </div>
     </isif>
 </form>

@@ -2,9 +2,34 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addCss('/css/checkout/checkout.css');
+        assets.addJs('/js/orderHistory.js');
     </isscript>
 
-    <div class="hero slant-down hero-confirmation">
-        <h1 class="page-title">${Resource.msg('message.order.pending', 'order', null)}</h1>
+    <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+        <isinclude template="reporting/reportingUrls" />
+    </isif>
+
+    <div class="hero slant-down hero-confirmation mmjv jm">
+
+    </div>
+    <div class="container receipt <isif condition="${pdict.order.shipping.length > 1}">multi-ship</isif>">
+    <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+        <div class="row">
+        <div class="col-md-12 col-sm-12 d-flex justify-content-center slot-banner">
+            <img class="md-banner-img w-100"
+                src="${URLUtils.staticURL('/images/orderTracking/order-status-banner.svg')}"
+                alt="${Resource.msg('lorder.tracking.banner.title', 'order', null)}" />
+        </div>
+        </div>
+        <div class="row">
+            <div class="${pdict.returningCustomer ? 'col-sm-12' : 'col-md-12' }">
+                <isinclude template="checkout/confirmation/confirmationDetails" />
+                <div class="my-5 d-flex justify-content-center">
+                    <a href="${URLUtils.url('Home-Show')}" class="btn btn-primary btn-block order-confirmation-continue-shopping text-uppercase w-auto text-white" role="button" aria-pressed="true">
+                        ${Resource.msg('button.continue.shopping','confirmation',null)}
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </isdecorate>

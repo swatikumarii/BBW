@@ -164,14 +164,18 @@ server.append('AddProduct', function (req, res, next) {
     next();
 });
 
-server.get('Merge', function (req, res, next) {
+server.post('Merge', function (req, res, next) {
     var Transaction = require('dw/system/Transaction');
     var cartHelpers = require('*/cartridge/scripts/cart/cartHelpers');
-    if (req.currentCustomer.raw.authenticated) {
+    var storedBasketProducts = req.form.storedBasketProducts;
+    var result;
+    storedBasketProducts = JSON.parse(storedBasketProducts);
+    if (req.currentCustomer.raw.authenticated && storedBasketProducts.length) {
         Transaction.wrap(function () {
-            cartHelpers.mergeCart();
+            result = cartHelpers.mergeCart(storedBasketProducts);
         });
     }
+    res.json(result);
     next();
 });
 
