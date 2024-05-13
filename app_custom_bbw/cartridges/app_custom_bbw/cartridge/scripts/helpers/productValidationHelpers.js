@@ -26,11 +26,14 @@ function getProductMaxOrderQty(apiProduct) {
     var maxOrderQty = productLevelMaxOrderQty || globalLevelMaxOrderQty;
     var maxOrderQtyByReserveStock =
         apiProduct.availabilityModel.inventoryRecord && apiProduct.availabilityModel.inventoryRecord.ATS.value - reserveOosQty;
+    if (apiProduct.availabilityModel.inventoryRecord.perpetual) {
+        maxOrderQtyByReserveStock = 999;
+    }
     if (maxOrderQty && maxOrderQtyByReserveStock) {
         maxOrderQty =
-            maxOrderQtyByReserveStock < maxOrderQty
-                ? maxOrderQtyByReserveStock
-                : maxOrderQty;
+                maxOrderQtyByReserveStock < maxOrderQty
+                    ? maxOrderQtyByReserveStock
+                    : maxOrderQty;
     } else if (!maxOrderQty) {
         maxOrderQty = maxOrderQtyByReserveStock;
     }
