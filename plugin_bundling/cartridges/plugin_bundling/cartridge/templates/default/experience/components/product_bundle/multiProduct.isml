@@ -5,11 +5,11 @@
                 <div class="panel panel-default selected-product" data-pid="">
                     <div class="panel-heading p-3">
                         <iscomment> Desktop - Product Bundle - CollapseLink </iscomment>
-                        <a class="multi-product-collapse collapsed hidden-sm-down w-100" data-toggle="collapse"
+                        <a class="multi-product-collapse collapsed h-hidden-sm-down w-100" data-toggle="collapse"
                             data-parent="${'#accordion_' + pdict.id}" href="${'#collapse_' + pdict.id}">
                             <div class="row align-items-center">
                                 <div class="col-11 col-md-10 pl-md-0">
-                                    <div class="row m-auto">
+                                    <div class="row m-auto flex-nowrap">
                                         <div class="col-4 col-sm-2 col-md-auto">
                                             <div class='thumbnail-container product-img-wrapper'>
                                                 <isif condition="${pdict.imageURL}">
@@ -24,7 +24,7 @@
                                         </div>
                                         <div
                                             class="col-7 col-sm-10 col-md-10 d-flex align-items-center justify-content-center justify-content-md-start">
-                                            <h6 class="product-name">${pdict.title}</h6>
+                                            <h6 class="product-name b-text-h2 h-clr-black-1 h-fw--semibold">${pdict.title}</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -36,7 +36,7 @@
                             </div>
                         </a>
                         <iscomment> Mobile Device - Product Bundle - ModalLink </iscomment>
-                        <div class="multi-product-mobile-link d-block d-lg-none w-100">
+                        <div class="multi-product-mobile-link d-block d-md-none w-100">
                             <div class="row align-items-center">
                                 <div class="col-12">
                                     <div class="row m-auto flex-nowrap">
@@ -54,7 +54,7 @@
                                             </div>
                                         </div>
                                         <div class="col-7 col-sm-9 col-md-10 d-flex align-items-center">
-                                            <h6 class="product-name">${pdict.title}</h6>
+                                            <h6 class="product-name b-text-h2 h-clr-black-1 h-fw--semibold">${pdict.title}</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                     <iscomment> Desktop - Product Bundle - Collapse/Accordin </iscomment>
-                    <div id="collapse_${pdict.id}" class="panel-collapse collapse in hidden-sm-down">
+                    <div id="collapse_${pdict.id}" class="panel-collapse collapse in h-hidden-sm-down">
                         <div class="panel-body p-3">
                             <div class="row">
                                 <isloop items="${pdict.products}" var="product">
@@ -70,16 +70,17 @@
                                         <div class="product_container">
                                             <div class="row align-items-center m-0">
                                                 <div class="col-5 col-sm-2 col-md-12 bundle-product-image">
-                                                    <div class='thumbnail-container d-flex align-items-center bundle-product product-img-wrapper'
+                                                    <div class='thumbnail-container d-flex align-items-center justify-content-center bundle-product product-img-wrapper'
                                                         data-pid="${product.id}" data-url="${pdict.url}">
                                                         <img src="${product.images.large[0].url}"
                                                             class="d-block img-fluid product-img"
-                                                            alt="${product.images.large[0].alt}" itemprop="image" />
+                                                            alt="${product.images.large[0].alt}" itemprop="image"
+                                                            width="202px" height="300px" />
                                                     </div>
                                                 </div>
                                                 <div class="bundle-product-details mx-auto js-equal-height">
                                                     <div class="col-7 col-sm-10 col-md-12">
-                                                        <h6 class="product-name" style="-webkit-box-orient: vertical;">
+                                                        <h6 class="product-name b-text-h2 h-clr-black-1 h-fw--semibold" style="-webkit-box-orient: vertical;">
                                                             ${product.productName}</h6>
                                                         <isif condition="${pdict.showPrice}">
                                                             <isset name="price" value="${product.price}" scope="page" />
@@ -122,12 +123,12 @@
                                                             data-pid="${product.id}" data-url="${pdict.url}">
                                                             <img src="${product.images.large[0].url}"
                                                                 class="d-block img-fluid product-img"
-                                                                alt="${product.images.large[0].alt}" itemprop="image" />
+                                                                alt="${product.images.large[0].alt}" itemprop="image" width="202px" height="300px" />
                                                         </div>
                                                     </div>
                                                     <div class="bundle-product-details mx-auto">
-                                                        <div class="col-12 d-flex flex-column align-items-center">
-                                                            <h6 class="product-name"
+                                                        <div class="product-details-col col-12 d-flex flex-column align-items-center">
+                                                            <h6 class="product-name b-text-h2 h-clr-black-1 h-fw--semibold"
                                                                 style="-webkit-box-orient: vertical;">
                                                                 ${product.productName}</h6>
                                                             <isif condition="${pdict.showPrice}">
@@ -136,7 +137,7 @@
                                                                 <isinclude template="product/components/pricing/main" />
                                                             </isif>
                                                         </div>
-                                                        <div class="col-12 mt-auto">
+                                                        <div class="col-12 mt-auto add-to-bundle-col">
                                                             <isinclude
                                                                 template="experience/components/product_bundle/components/addToBundleButton" />
                                                         </div>

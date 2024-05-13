@@ -10,7 +10,6 @@ function validateOrderNumber() {
         return false;
     }
     orderNumberInput.removeClass('is-invalid'); // Remove class if input is valid
-    $('#orderNumber-error').empty();
     return true;
 }
 
@@ -30,7 +29,6 @@ function validateEmail() {
         return false;
     }
     emailInput.removeClass('is-invalid'); // Remove class if input is valid
-    $('#orderEmail-error').empty();
     return true;
 }
 
@@ -49,7 +47,6 @@ function validateBillingZipCode() {
         return false;
     }
     billingZipCodeInput.removeClass('is-invalid'); // Remove class if input is valid
-    $('#billingZipCode-error').empty();
     return true;
 }
 
@@ -114,6 +111,7 @@ function checkStatus() {
                         }
                     } else {
                         $('#form-error').html(err.responseJSON.message);
+                        $('.form-error-div').removeClass('d-none');
                     }
                 }
             });

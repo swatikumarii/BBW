@@ -24,7 +24,7 @@
     width: 100%;
     height: 100%;
     left: 0;
-    z-index: 1;
+    z-index: 2;
     position: fixed;
     transition: bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
@@ -168,6 +168,7 @@
 
     &.active {
         bottom: 0;
+        z-index: 9;
 
         // Mobile Refinement - Done Button
         .refinements-close-wrapper {
@@ -213,6 +214,10 @@
 
 // Desktop Filters
 .filter-bar-desktop {
+    @include media-btw(sm, md) {
+        margin-bottom: 30px;
+    }
+
     &__filters {
         padding: 18px;
         max-width: 78.799%;
@@ -244,6 +249,12 @@
                     }
                 }
 
+                .ref-toggle[aria-expanded="true"] {
+                    .ref-toggle__icon {
+                        transform: rotate(180deg);
+                    }
+                }
+
                 .filter-list-wrapper {
                     z-index: 2;
                     padding-bottom: 15px;
@@ -264,6 +275,13 @@
                         .fragrance-filter-header {
                             line-height: 1.125rem;
                             margin: 0 -10px;
+                        }
+                    }
+
+                    &.fragrance-name {
+                        .filter-list {
+                            height: 274px;
+                            max-height: unset !important;
                         }
                     }
                 }

@@ -42,9 +42,11 @@
         .carousel-indicators {
             z-index: 0;
             position: relative;
+            justify-content: left;
 
             @include media-down(sm) {
                 position: absolute;
+                justify-content: center;
             }
 
             li {
@@ -128,6 +130,14 @@
         }
     }
 
+    .product-detail-wrapper {
+        width: 100%;
+
+        @include media-up(md) {
+            width: 433px;
+        }
+    }
+
     .brand-name {
         line-height: 1.25rem;
         letter-spacing: 0.01em;
@@ -170,6 +180,16 @@
     .prices-add-to-cart-actions {
         margin-bottom: 0.625rem;
 
+        .strike-through {
+            color: colour(black, 1);
+            font-weight: 600;
+            padding-right: 10px;
+        }
+
+        .sales.reduced {
+            color: colour(pink);
+        }
+
         .sales {
             font-weight: map-get($font-weight, semibold);
             font-size: 1.125rem;
@@ -189,7 +209,7 @@
         .volume-name {
             line-height: 1rem;
             letter-spacing: 0.015em;
-            padding-bottom: 0.875rem;
+            padding-bottom: 4px;
         }
 
         .promotion-callout {
@@ -197,10 +217,6 @@
             letter-spacing: 0.005em;
             width: 100%;
             margin-bottom: 0.75rem;
-
-            @include media-up(md) {
-                width: 79%;
-            }
 
             .callout-detail {
                 &::after {
@@ -315,6 +331,16 @@
                     height: 2.8125rem;
                     width: 20%;
                     letter-spacing: 0.01em;
+                    color: colour(black, 1);
+                    -webkit-tap-highlight-color: transparent;
+                    outline: none;
+                    user-select: none;
+
+                    &:hover {
+                        color: colour(white);
+                        border-color: colour(black, 3);
+                        background-color: colour(black, 3);
+                    }
                 }
 
                 input {
@@ -340,7 +366,7 @@
 
                 .notifyBackInStockButton,
                 .out-of-stock {
-                    width: 11.4375rem;
+                    width: 100%;
                     font-size: 1rem;
                     font-weight: map-get($font-weight, semibold);
                     letter-spacing: 0.24px;
@@ -350,26 +376,18 @@
             }
         }
 
-        .afterPayExtension {
+        .pdp-checkout-button {
             padding: 8px 15px;
-            width: 100%;
+            max-width: 100%;
 
             @include media-up(sm) {
-                width: 408px;
-            }
-
-            .pdp-checkout-button {
-                padding: 0;
+                max-width: 408px;
             }
         }
 
         .description-and-detail {
-            margin-top: 1.5625rem;
+            margin-top: 29px;
             width: 100%;
-
-            @include media-up(md) {
-                width: 66%;
-            }
 
             .card {
                 border-top: 0.0625rem solid colour(gray, 6);
@@ -393,10 +411,6 @@
             .social-icons {
                 padding: 1.0625rem 0 0.1875rem;
                 width: 100%;
-
-                @include media-up(md) {
-                    width: 66%;
-                }
 
                 li {
                     list-style: none;
@@ -503,6 +517,11 @@
 
     .arrow {
         left: 14px !important;
+        bottom: -8px;
+
+        &::before {
+            border-top-color: colour(gray);
+        }
     }
 
     .close {
@@ -541,22 +560,17 @@
     }
 }
 
-.reserve-stock-toast {
-    position: absolute;
-    right: 0;
-    top: 36px;
+.reserve-stock,
+.add-to-cart-error-pdp {
+    padding-top: 3px;
+    line-height: 20px;
+    line-height: 1.25rem;
+    letter-spacing: 0.01em;
+    margin-top: 13px;
+    width: 100%;
 
     @include media-up(md) {
-        right: -15px;
-    }
-
-    p {
-        font-size: 16px;
-        line-height: 20px;
-        line-height: 1.25rem;
-        letter-spacing: 0.01em;
-        color: colour(gray, 4);
-        margin: 10px 0;
+        width: 313px;
     }
 }
 
@@ -628,6 +642,34 @@
     margin-right: 10px;
 }
 
-.outOfstockModal.modal.modal-right.fade.show .modal-dialog {
-    right: 0 !important;
+.tiered {
+    table {
+        width: 250px;
+
+        .table-header {
+            font-weight: 600;
+            padding: 12px 0;
+        }
+
+        .column-header {
+            font-weight: 400;
+            padding-bottom: 5px;
+        }
+
+        td {
+            padding-bottom: 5px;
+        }
+    }
+}
+
+#delete-gift-certificate-line-item-modal,
+#delete-line-item-modal {
+    .modal-dialog {
+        bottom: unset;
+    }
+}
+
+.afterpay-logo svg {
+    max-height: 24px;
+    height: 24px;
 }

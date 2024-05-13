@@ -1,13 +1,360 @@
+@charset "UTF-8";
+
+@import "variables";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
 .greeting-block {
     background-color: transparent;
-    border: 1px solid;
+    border: 1px solid #666;
     font-size: 14px;
-    letter-spacing: 0.4px;
     line-height: 24px;
     padding: 16px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 24px;
+    margin: 24px 0;
     text-align: left;
     position: relative;
+
+    .greeting-block-toggle {
+        position: relative;
+        width: 100%;
+
+        input {
+            width: 24px;
+            height: 24px;
+            border-radius: 0;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
+        }
+
+        label {
+            padding: 0 0 0 36px;
+            position: relative;
+            display: block;
+            font-size: 16px;
+            padding-top: 2px;
+            color: #1a1a1a;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+    }
+
+    input[type="radio"] + label::before,
+    input[type="checkbox"] + label::before {
+        background-color: #fff;
+        border: 1px solid #d8d8d8;
+        color: #fff;
+        border-radius: 0;
+        content: "";
+        font-size: 8px;
+        height: 24px;
+        left: 0;
+        line-height: 26px;
+        position: absolute;
+        text-align: center;
+        top: 0;
+        width: 24px;
+    }
+
+    input[type="radio"]:checked + label::before,
+    input[type="checkbox"]:checked + label::before {
+        border-color: black;
+        content: "";
+        background: url("../images/check-32.svg");
+        background-size: contain;
+        background-color: black;
+    }
+
+    &.open-greeting-card {
+        background-color: #f2f2f2;
+
+        .greeting-block-options {
+            .giftwrap-block-personal-message {
+                padding: 24px 12px 0;
+                margin-top: 24px;
+                border-top: 1px solid #828282;
+                color: #1a1a1a;
+                line-height: 32px;
+                margin-bottom: 24px;
+                width: 100%;
+
+                .gift-wrapping-card-title {
+                    display: block;
+                    margin-bottom: 24px;
+                    font-size: 14px;
+                    line-height: 24px;
+                }
+
+                .greeting-card-selection {
+                    display: grid;
+                    grid-gap: 15px;
+                    margin: 0;
+                    padding-top: 6px;
+                    grid-template-columns: 48% 48%;
+
+                    @include media-breakpoint-up(sm) {
+                        grid-column-gap: 18px;
+                        grid-template-columns: 23% 23% 23% 23%;
+                    }
+
+                    .greeting-card-product-options .img-gift-wrap {
+                        cursor: pointer;
+                        position: relative;
+                        transition: box-shadow 0.4s
+                            cubic-bezier(0.05, 0.5, 0.3, 1);
+                        width: 100%;
+
+                        img {
+                            width: 100%;
+                            height: 146px;
+                            object-fit: contain;
+                        }
+
+                        input[type="radio"]:checked + label::before,
+                        input[type="checkbox"]:checked + label::before {
+                            border-color: #000;
+                            content: "";
+                            background: url("../images/check-circle-fill-32.svg")
+                                50% no-repeat;
+                        }
+
+                        .greeting-card-product-options-radio {
+                            background-color: #f2f2f2;
+                            cursor: not-allowed;
+                            opacity: 0;
+                            position: absolute;
+                            z-index: -1;
+                        }
+
+                        .greeting-card-product-label {
+                            background-color: transparent;
+                            border: 0;
+                            display: block;
+                            font-size: 14px;
+                            letter-spacing: 0.4px;
+                            line-height: 24px;
+                            padding: 4px 0 0 36px;
+                            border-radius: 0;
+                            left: 0;
+                            margin-left: -12px;
+                            position: absolute;
+                            transition: 0.4s cubic-bezier(0.05, 0.5, 0.3, 1);
+                            bottom: 25px;
+                            height: 100%;
+                            width: 100%;
+
+                            &::before {
+                                top: unset;
+                                bottom: -6px;
+                                left: 50%;
+                                background-color: #fff;
+                                content: "";
+                                border-radius: 50%;
+                                border: 1px solid #d8d8d8;
+                                color: #fff;
+                                font-size: 8px;
+                                height: 24px;
+                                line-height: 26px;
+                                position: absolute;
+                                text-align: center;
+                                width: 24px;
+                            }
+                        }
+
+                        .gift-wrapping-card-description {
+                            text-align: center;
+                            padding-top: 26px;
+
+                            .gift-wrapping-card-name {
+                                color: #1a1a1a;
+                                font-size: 14px;
+                                line-height: 14px;
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+
+                .character-counter {
+                    color: #767474;
+                    font-size: 14px;
+                    line-height: 24px;
+                    text-align: right;
+                }
+            }
+
+            .giftwrap-block-textarea {
+                height: 215px;
+                margin-bottom: 10px;
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+                margin-top: 25px;
+
+                .lines-wrap {
+                    overflow: hidden;
+                    pointer-events: none;
+                    position: absolute;
+                    inset: 50px 30px 32px;
+
+                    .line {
+                        background-color: #d8d8d8;
+                        float: left;
+                        height: 1px;
+                        margin: 32px 0 31px;
+                        position: relative;
+                        width: 100%;
+                        z-index: 1;
+
+                        &::before,
+                        &::after {
+                            background-color: #d8d8d8;
+                            display: inline-block;
+                            content: "";
+                            height: 1px;
+                            left: 0;
+                            position: absolute;
+                            width: 100%;
+                        }
+
+                        &::before {
+                            top: -32px;
+                        }
+
+                        &::after {
+                            bottom: -32px;
+                        }
+                    }
+                }
+
+                textarea {
+                    padding: 24px 34px 32px;
+                    background-color: #fff;
+                    border: 0;
+                    font-size: 16px;
+                    line-height: 32px;
+                    height: 215px;
+                    position: relative;
+                    resize: none;
+                    overflow: auto;
+                    width: 100%;
+                    border-radius: 0;
+                    color: #1a1a1a;
+
+                    &::placeholder {
+                        font-style: italic;
+                    }
+
+                    &:focus-visible {
+                        outline-offset: 0;
+                        outline: -webkit-focus-ring-color auto 1px;
+                    }
+                }
+            }
+        }
+    }
+
+    .buttons {
+        flex-direction: column-reverse;
+        margin: 15px 0 17px;
+        display: flex;
+        justify-content: space-between;
+
+        @include media-breakpoint-up(sm) {
+            flex-direction: unset;
+        }
+
+        button {
+            font-size: 14px;
+        }
+
+        .js-greetingcard-cancel {
+            width: 100%;
+            background-color: transparent;
+            border: 1px solid #b1afaf;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            max-width: none;
+            margin-top: 15px;
+
+            @include media-breakpoint-up(sm) {
+                width: 48%;
+                max-width: 292px;
+                margin-top: 0;
+            }
+        }
+
+        .js-greetingcard-add {
+            width: 100%;
+            text-transform: uppercase;
+            max-width: none;
+
+            @include media-breakpoint-up(sm) {
+                width: 48%;
+                max-width: 292px;
+            }
+        }
+    }
+}
+
+.greeting-card {
+    .item-detail {
+        padding: 0 0 0 37px;
+        width: 100%;
+
+        @include media-breakpoint-up(sm) {
+            width: 50%;
+        }
+    }
+
+    .item-desc {
+        padding-top: 16px;
+        
+        .line-item-header {
+            .line-item-name {
+                font-size: 1.25rem;
+                line-height: 24px;
+                color: #1a1a1a;
+            }
+
+            span {
+                font-size: 12px;
+                line-height: 24px;
+                color: #1a1a1a;
+            }
+        }
+    }
+
+    .remove-product {
+        text-decoration: none;
+        padding-left: 24px;
+        margin-top: 14px;
+        color: #1a1a1a;
+        font-size: 14px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .line-item-total-price {
+        padding-top: 0 !important;
+    }
+
+    .pricing {
+        padding-top: 0;
+        font-size: 16px !important;
+        line-height: 24px;
+        font-weight: 400 !important;
+
+        @include media-breakpoint-up(sm) {
+            padding-top: 16px;
+        }
+    }
 }

@@ -7,6 +7,14 @@
         {
             "name": "dw.ocapi.shop.order.afterPATCH",
             "script": "./cartridge/scripts/hooks/order/updateOrderStatus.js"
+        },
+        {
+            "name": "dw.extensions.facebook.feed.transformProduct",
+            "script": "./cartridge/scripts/hooks/facebook.js"
+        },
+        {
+            "name": "app.template.afterFooter",
+            "script": "./cartridge/scripts/hooks/footer.js"
         }
     ]
 }

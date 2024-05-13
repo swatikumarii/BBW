@@ -1,6 +1,6 @@
 <div class="shipping-content">
     <form class="shipping-form" autocomplete="on" novalidate action="${shipmentLoopState ? URLUtils.url('CheckoutAddressServices-AddNewAddress') : URLUtils.url('CheckoutShippingServices-SubmitShipping')}"
-        data-address-mode="${shippingModel.matchingAddressId ? 'edit' : 'new'}" <isprint
+        data-address-mode="${shippingModel.matchingAddressId ? 'details' : 'new'}" <isprint
         value=${pdict.forms.shippingForm.attributes} encoding="off" />>
         <isif condition="${lineItem}">
             <input name="productLineItemUUID" type="hidden" value="${lineItem.UUID}" />

@@ -18,6 +18,19 @@ window.submitLogin = function (token) {
     });
 };
 
+window.submitLoginModal = function (token) {
+    return new Promise(function (resolve, reject) {
+        if (!token) {
+            reject();
+        }
+        if (token !== '') {
+            $('.g-recaptcha').closest('form.modal-login').submit();
+            resolve();
+        }
+        grecaptcha.reset();
+    });
+};
+
 window.submitRegistration = function (token) {
     return new Promise(function (resolve, reject) {
         if (!token) {
@@ -52,8 +65,11 @@ function register() {
                     $('form.registration').trigger('login:register:error', data);
                     formValidation(form, data);
                 } else {
+                    $('.success-message').toast('show');
                     $('form.registration').trigger('login:register:success', data);
-                    location.href = data.redirectUrl;
+                    setTimeout(function () {
+                        location.href = data.redirectUrl;
+                    }, 2000);
                 }
             },
             error: function (err) {
@@ -70,14 +86,16 @@ function register() {
     });
 }
 
-
-baselogin.login = function () {
-    $('form.login').submit(function (e) {
+/**
+ *  To login user
+ */
+function login() {
+    $('form.login, form.modal-login').submit(function (e) {
         var form = $(this);
         e.preventDefault();
         var url = form.attr('action');
         form.spinner().start();
-        $('form.login').trigger('login:submit', e);
+        form.trigger('login:submit', e);
         $.ajax({
             url: url,
             type: 'post',
@@ -87,13 +105,16 @@ baselogin.login = function () {
                 form.spinner().stop();
                 if (!data.success) {
                     formValidation(form, data);
-                    $('form.login').trigger('login:error', data);
+                    form.trigger('login:error', data);
                 } else {
-                    $('form.login').trigger('login:success', data);
+                    form.trigger('login:success', data);
                     if (data.showCartMergePopup) {
+                        window.storedBasketProducts = data.storedBasketProducts;
                         $('.loginPopup').find('#loginModal').modal('hide');
                         $('.redirect-url').val(data.redirectUrl);
-                        $('.loginPopup').find('#isMergeCartModal').modal('show');
+                        $('.loginPopup')
+                            .find('#isMergeCartModal')
+                            .modal('show');
                     } else {
                         window.location.href = data.redirectUrl;
                     }
@@ -103,7 +124,7 @@ baselogin.login = function () {
                 if (data.responseJSON.redirectUrl) {
                     window.location.href = data.responseJSON.redirectUrl;
                 } else {
-                    $('form.login').trigger('login:error', data);
+                    form.trigger('login:error', data);
                     form.spinner().stop();
                 }
             }
@@ -115,12 +136,15 @@ baselogin.login = function () {
  *
  */
 function cartMerge() {
-    $('.merge').on('click',function () {
+    $('.merge').on('click', function () {
         var redirectUrl = $('.redirect-url').val();
         var cartMergeUrl = $('.cart-merge-url').val();
+        var storedBasketProducts = window.storedBasketProducts;
         $.ajax({
             url: cartMergeUrl,
-            type: 'get',
+            type: 'post',
+            data: { storedBasketProducts: JSON.stringify(storedBasketProducts) },
+            dataType: 'json',
             success: function () {
                 window.location.href = redirectUrl;
             },
@@ -139,9 +163,107 @@ function cartMerge() {
         window.location.href = redirectUrl;
     });
 };
+/**
+ * Reusable function to validate a field based on its ID
+ * @param {object} selector selector on which validation function runs
+ * @param {Function} validationFunction validation function
+ */
+function validateField(selector, validationFunction) {
+    validationFunction($(selector));
+}
+/**
+ * Generic validation function for required fields
+ * @param {object} inputField input field on which validation will be tested
+ * @returns {boolean} valid or not
+ */
+function validateRequiredField(inputField) {
+    if (!inputField.val()) {
+        inputField.addClass('is-invalid border-danger'); // Add classes for input border error
+        $('#' + inputField.attr('id') + '-error').text('Field is required'); // Display error message
+        return false;
+    }
+    inputField.removeClass('is-invalid border-danger'); // Remove classes if input is valid
+    $('#' + inputField.attr('id') + '-error').empty(); // Clear error message
+    return true;
+}
+/**
+ * Generic validation function for email fields
+ * @param {object} emailInput input field on which validation will be tested
+ * @returns {boolean} valid or not
+ */
+function validateEmailField(emailInput) {
+    var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+    if (!validateRequiredField(emailInput)) return false;
+    if (!pattern.test(emailInput.val())) {
+        emailInput.addClass('is-invalid border-danger'); // Add class for input border error
+        $('#' + emailInput.attr('id') + '-error').text('Invalid email format'); // Display error message
+        return false;
+    }
+    emailInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
+    $('#' + emailInput.attr('id') + '-error').empty(); // Clear error message
+    return true;
+}
+/**
+ * Generic validation function for password fields
+ * @param {object} passwordInput input field on which validation will be tested
+ * @returns {boolean} valid or not
+ */
+function validatePasswordField(passwordInput) {
+    if (!validateRequiredField(passwordInput)) return false;
+    return true;
+}
+/**
+ * toggle password visibility
+ * @param {object} passwordInput password input field
+ * @param {object} showButton show button
+ */
+function togglePasswordVisibility(passwordInput, showButton) {
+    var type = passwordInput.attr('type') === 'password' ? 'text' : 'password';
+    passwordInput.attr('type', type);
+    showButton.find('.show').text(type === 'password' ? 'Show' : 'Hide');
+}
+$(document).ready(function () {
+    $(document.body).on('click', '.login-modal-password-hide', function () {
+        togglePasswordVisibility($('#login-modal-form-password'), $(this));
+    });
+    $(document.body).on('click', '.login-modal-hide', function () {
+        togglePasswordVisibility($('#login-form-password'), $(this));
+    });
+});
+var validationFields = [
+    {
+        selector: '#loginModal-form-email',
+        validationFunction: validateEmailField
+    },
+    {
+        selector: '#login-modal-form-password',
+        validationFunction: validatePasswordField
+    },
+    {
+        selector: '#login-form-email',
+        validationFunction: validateEmailField
+    },
+    {
+        selector: '#login-form-password',
+        validationFunction: validatePasswordField
+    },
+    {
+        selector: '#reset-password-email',
+        validationFunction: validateEmailField
+    }
+];
+// Loop through the array and attach blur event handlers dynamically
+validationFields.forEach(function (field) {
+    $(document).on('blur', field.selector, function () {
+        validateField(field.selector, field.validationFunction);
+    });
+});
+
+
 var exportDetails = $.extend({}, baselogin, {
     register: register,
-    cartMerge: cartMerge
+    cartMerge: cartMerge,
+    login: login
 });
 
 module.exports = exportDetails;

@@ -44,7 +44,7 @@
                     <div class="form-group
                             <isif condition=${pdict.forms.billingForm.contactInfoFields.phone.mandatory === true}>required</isif>
                             ${pdict.forms.billingForm.contactInfoFields.phone.htmlName}">
-                        <label class="form-control-label" for="phoneNumber">${Resource.msg('field.customer.phone.number', 'checkout', null)}</label>
+                        <label class="form-control-label" for="phoneNumber"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.phone.number', 'checkout', null)}</label>
 
                         <input type="tel" class="form-control phone" id="phoneNumber"
                             value="${pdict.order.billing.billingAddress.address ? pdict.order.billing.billingAddress.address.phone || '' : ''}"
@@ -58,16 +58,33 @@
                     <div class="form-group
                                         <isif condition=${pdict.forms.billingForm.contactInfoFields.email.mandatory === true}>required</isif>
                                         ${pdict.forms.billingForm.contactInfoFields.email.htmlName}">
-                        <label class="form-control-label" for="email">${Resource.msg('field.customer.email', 'checkout', null)}</label>
+                        <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label" for="email"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.email', 'checkout', null)}</label>
 
-                        <input type="tel" class="form-control email" id="email"
+                        <input type="text" class="form-control email" id="email"
                             value="${pdict.order.billing.billingAddress.address ? pdict.order.billing.billingAddress.address.email || '' : ''}"
                             <isprint value=${pdict.forms.billingForm.contactInfoFields.email.attributes} encoding="off" />
+                            data-missing-error="${Resource.msg('error.email.address', 'forms', null)}"
+                            data-pattern-mismatch="${Resource.msg('valid.email.address', 'forms', null)}"
                         aria-describedby="emailInvalidMessage" >
                         <div class="invalid-feedback" id="emailInvalidMessage"></div>
                     </div>
                 </div>
             </div>
+        </fieldset>
+
+
+        <!-------------------------------------------------------------------------->
+        <!-- Promocode                                                      -->
+        <!-------------------------------------------------------------------------->
+        <fieldset>
+            <isinclude template="checkout/billing/promocode" />
+        </fieldset>
+
+        <!-------------------------------------------------------------------------->
+        <!-- Giftcard Payment                                                      -->
+        <!-------------------------------------------------------------------------->
+        <fieldset>
+            <isinclude template="checkout/billing/giftcardPaymentOption" />
         </fieldset>
 
         <!-------------------------------------------------------------------------->

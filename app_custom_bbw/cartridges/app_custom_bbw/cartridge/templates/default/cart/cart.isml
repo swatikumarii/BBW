@@ -30,7 +30,7 @@
             </div>
         <iselse/>
             <div class="container cart cart-page">
-                <h1 class="shoppingBagTitle h-clr--black1 h-fw--bold h-font-size--24">
+                <h1 class="shoppingBagTitle h-clr--black-1 h-fw--bold h-font-size--24">
                     ${Resource.msg('label.shopping.bag', 'cart', null)}</h1>
                 <div class="cartActionMessages"></div>
                 <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
@@ -104,10 +104,12 @@
                             description="This slot will be rendered on the bottom part of cart page below promocode section" />
                     </div>
                     <div class="cartTotalsWrap">
-                        <isinclude template="cart/cartTotals" />
-                        <isinclude template="cart/checkoutButtons" />
+                        <div class="cart-totals-bg">
+                            <isinclude template="cart/cartTotals" />
+                            <isinclude template="cart/checkoutButtons" />
+                        </div>
+                        <isslot id="cart-bottom-below-checkout-button" context="global" description="This slot will be rendered on the bottom part of cart page below checkout buttons" />
                     </div>
-                    <isslot id="cart-bottom-below-checkout-button" context="global" description="This slot will be rendered on the bottom part of cart page below checkout buttons" />
 
                 </div>
             </div>

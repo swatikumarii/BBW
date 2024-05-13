@@ -14,11 +14,21 @@
     }
 }
 
+@keyframes show-minicart {
+    from {
+        right: -100%;
+    }
+
+    to {
+        right: 0;
+    }
+}
+
 .minicart {
     .popover {
         top: 0;
         left: auto;
-        right: 0;
+        right: -100%;
         display: none;
         min-height: 100%;
         min-width: 425px;
@@ -28,6 +38,8 @@
 
         &.show {
             display: block;
+            animation: 1s show-minicart;
+            right: 0;
         }
 
         .remove-line-item {
@@ -158,6 +170,10 @@
                     border-bottom: 10px solid white;
                 }
             }
+        }
+
+        .minicart-red {
+            color: $clr-red;
         }
     }
 }

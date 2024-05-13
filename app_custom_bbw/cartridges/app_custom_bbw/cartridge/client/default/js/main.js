@@ -15,13 +15,14 @@ $(document).ready(function () {
     processInclude(require('./components/miniCart'));
     processInclude(require('base/components/collapsibleItem'));
     processInclude(require('./components/search'));
-    processInclude(require('base/components/clientSideValidation'));
+    processInclude(require('./components/clientSideValidation'));
     processInclude(require('base/components/countrySelector'));
     processInclude(require('base/components/toolTip'));
     processInclude(require('./components/header'));
     processInclude(require('./wishlist'));
     processInclude(require('notify/components/notify'));
     processInclude(require('./components/video'));
+    processInclude(require('./utils/lazyLoad'));
 });
 
 require('./thirdParty/bootstrap');

@@ -1,0 +1,395 @@
+@import "~pluginBundling/experience/components/productBundle/productBundle";
+@import "../../../_brand/_api/api";
+
+.storepage {
+    &.bundling {
+        #multiproductbundle-modal,
+        #productbundle-modal {
+            .productbundle-dialog {
+                .modal-content {
+                    .modal-header {
+                        .close {
+                            .fa {
+                                font-family: FontAwesome, sans-serif;
+                                font-weight: normal;
+                            }
+                        }
+                    }
+
+                    // Carousel
+                    .carousel {
+                        .thumbnail-container {
+                            &.carousel-item {
+                                img {
+                                    height: 220px;
+
+                                    @include media-up(md) {
+                                        height: 100%;
+                                        position: relative;
+                                    }
+                                }
+                            }
+                        }
+
+                        .carousel-indicators {
+                            display: none;
+                        }
+
+                        .carousel-control-next {
+                            right: 40px;
+                        }
+
+                        .carousel-control-prev {
+                            left: 40px;
+                        }
+
+                        .carousel-control-next,
+                        .carousel-control-prev {
+                            width: 2rem;
+                            height: 3rem;
+                            border-radius: 11px;
+                            top: 45%;
+                            bottom: 50%;
+                            transition: all 0.3s ease;
+                            background-color: transparent;
+
+                            &:hover {
+                                background-color: colour(gray, 1);
+                            }
+
+                            &:focus {
+                                background-color: colour(gray, 1);
+                                outline: none;
+                                outline: 1px dotted colour(black) !important;
+                                outline-offset: 2px;
+                            }
+                        }
+
+                        &.desktopCarousel {
+                            .bundle-carousel-inner {
+                                display: block;
+                            }
+
+                            &.pdp-images-desktop {
+                                .thumbnail-container {
+                                    margin-left: unset;
+                                    margin-top: unset;
+                                    margin-bottom: unset;
+                                    margin-right: -100%;
+                                    max-width: unset;
+                                    flex: unset;
+
+                                    &.carousel-item {
+                                        img {
+                                            width: 100%;
+                                            height: 100%;
+                                            max-height: 350px;
+                                            object-fit: contain;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .carousel-control-next,
+                            .carousel-control-prev {
+                                display: block;
+                            }
+
+                            .icon-next,
+                            .icon-prev {
+                                width: 100%;
+                                background-color: transparent;
+                                height: auto;
+                                padding-top: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .product-description-mobile {
+                .btn-product-description {
+                    &.collapsed {
+                        .toggle-button {
+                            display: block;
+
+                            &::after {
+                                line-height: normal;
+                                font-size: 24px !important;
+                            }
+                        }
+                    }
+
+                    .toggle-button {
+                        display: block;
+
+                        &::after {
+                            line-height: normal;
+                            font-size: 24px !important;
+                        }
+                    }
+
+                    .product-bundle-description-title {
+                        font-size: 14px;
+                        letter-spacing: 0.015em;
+                        line-height: normal;
+                    }
+
+                    .row {
+                        align-items: center;
+
+                        .col-1 {
+                            padding: 0;
+                        }
+                    }
+                }
+
+                #product-description {
+                    .card-body {
+                        @include media-down(sm) {
+                            padding: 0;
+                        }
+
+                        .title {
+                            &::after {
+                                top: 5px;
+                                background-size: contain;
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+
+                        .description-and-detail {
+                            .card {
+                                padding: 5px 0;
+                            }
+                        }
+                    }
+
+                    .product-bundle-description-title {
+                        font-size: 14px;
+                        letter-spacing: 0.015em;
+                    }
+                }
+            }
+
+            .productbundle-content {
+                background-color: colour(white);
+            }
+
+            .productDetail {
+                @include media-down(sm) {
+                    margin: unset;
+                }
+
+                @include media-up(md) {
+                    max-width: 100%;
+                    width: 100%;
+                }
+
+                .product-detail-inner-row {
+                    @include media-up(md) {
+                        width: 100%;
+                        max-width: 60%;
+                    }
+                }
+
+                .product-name {
+                    margin-bottom: 10px;
+                }
+
+                .prices {
+                    font-size: 16px;
+                    font-weight: 600;
+
+                    .price {
+                        .sales {
+                            font-size: 16px;
+                            font-weight: 600;
+                        }
+                    }
+                }
+
+                .zoomImage-sec {
+                    overflow-y: scroll;
+
+                    .thumbnail-container {
+                        img {
+                            @include media-down(sm) {
+                                margin: 0 auto;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .description-and-detail {
+                .title {
+                    @include media-up(sm) {
+                        padding: 10px 0;
+                    }
+
+                    &::after {
+                        top: auto;
+                        background-size: contain;
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+
+            .modal-header {
+                @include media-up(md) {
+                    padding: 16px 5px !important;
+                }
+
+                .close {
+                    @include media-up(md) {
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+            }
+        }
+
+        .add-to-cart {
+            max-width: 250px;
+            margin: 0 auto;
+        }
+
+        // Mulit Product
+        .experience-product_bundle-multiProduct {
+            .multi-product-mobile-link {
+                .product-name {
+                    font-size: 1rem;
+                    line-height: 18px;
+                    letter-spacing: normal;
+                }
+            }
+
+            .product_container {
+                margin-bottom: 15px;
+
+                .bundle-product-image {
+                    background-color: colour(white);
+                    padding: 0;
+
+                    .bundle-product {
+                        .product-img {
+                            width: 100%;
+                            max-width: 195px;
+                            height: 195px;
+                            object-fit: contain;
+
+                            @include media-up(md) {
+                                max-width: 220px;
+                                height: 220px;
+                            }
+                        }
+                    }
+                }
+
+                .bundle-product-details {
+                    min-height: unset;
+
+                    @include media-btw(sm, md) {
+                        padding: 0;
+                    }
+
+                    @include media-down(sm) {
+                        padding: 20px 5px;
+                        min-height: 130px;
+                    }
+
+                    .col-sm-10 {
+                        @include media-btw(sm, md) {
+                            padding: 0;
+                        }
+                    }
+
+                    .bundle-product-add-to-cart {
+                        margin-top: 20px;
+
+                        @include media-btw(sm, md) {
+                            padding: 0;
+                        }
+
+                        .add-to-bundle-wrapper {
+                            width: 100%;
+                        }
+                    }
+
+                    .product-details-col {
+                        padding: 0;
+                    }
+
+                    .added-to-bundle {
+                        color: colour(blue);
+                        background-color: colour(white);
+                        padding: 0.75rem 1.5rem;
+                        font-size: 1rem;
+                        line-height: 1.5rem;
+                        text-transform: uppercase;
+
+                        .fa {
+                            display: none;
+                        }
+                    }
+
+                    .add-to-bundle-col {
+                        padding: 0;
+
+                        .add-to-bundle-wrapper {
+                            width: 100%;
+                        }
+
+                        .add-to-bundle {
+                            font-size: unset;
+                            width: 100%;
+                        }
+                    }
+
+                    // Product - Name
+                    .product-name {
+                        font-size: 16px;
+                        line-height: normal;
+                        text-align: left;
+                        width: 100%;
+                        min-height: 40px;
+                        display: block;
+
+                        @include media-btw(sm, md) {
+                            margin-bottom: 20px;
+                        }
+                    }
+
+                    // Product - Price
+                    .price {
+                        text-align: left;
+                        width: 100%;
+
+                        @include media-btw(sm, md) {
+                            margin-top: 30px;
+                        }
+
+                        span {
+                            font-size: 18px;
+                            font-weight: 600;
+                            color: colour(black, 1);
+                            line-height: 1.25rem;
+                            letter-spacing: 0.005em;
+                            text-align: left;
+                        }
+
+                        del + .sales {
+                            &.reduced {
+                                color: colour(pink);
+                                padding-left: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

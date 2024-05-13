@@ -107,9 +107,9 @@
                                                 src="${lineItem.personalizeGiftcardImage}" alt="${lineItem.alt}"
                                                 height="90" width="90">
                                         <iselse/>
-                                            <img style="float:left;" src="${lineItem.images.large[0].absURL}"
-                                                alt="${lineItem.ancientRitualFullName}, ${lineItem.images.large[0].alt}"
-                                                title="${lineItem.ancientRitualFullName}, ${lineItem.images.large[0].title}"
+                                            <img style="float:left;" src="${lineItem.images.small[0].absURL}"
+                                                alt="${lineItem.images.small[0].alt}"
+                                                title="${lineItem.images.small[0].title}"
                                                 height="90" width="90">
                                         </isif>
                                     </div>
@@ -182,10 +182,10 @@
                                 valign="center">
                                 <div class="product-card-wrapper" style="width: 100%;height: auto;display: flex;">
                                     <div class="product-image">
-                                        <img style="float:left;" title="${bonusItem.images.large[0].title}"
-                                            data-src="${bonusItem.images.large[0].url}"
-                                            src="${bonusItem.images.large[0].url}" data-loaded-width="90"
-                                            alt="${bonusItem.images.large[0].alt}" height="90" width="90">
+                                        <img style="float:left;" title="${bonusItem.images.small[0].title}"
+                                            data-src="${bonusItem.images.small[0].url}"
+                                            src="${bonusItem.images.small[0].url}" data-loaded-width="90"
+                                            alt="${bonusItem.images.small[0].alt}" height="90" width="90">
                                     </div>
                                     <div class="product-details"
                                         style="display: flex;flex-direction: column;justify-content:center;margin-left:20px;">

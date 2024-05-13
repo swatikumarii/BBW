@@ -19,7 +19,7 @@
         }
     </isscript>
 
-    <div class="storepage ${pdict.page.ID}">
+    <div class="storepage bundling ${pdict.page.ID}">
         <div class="container-fluid">
             <div class="row bundleRow">
                 <input class="successMsgBundleProduct" type="hidden"

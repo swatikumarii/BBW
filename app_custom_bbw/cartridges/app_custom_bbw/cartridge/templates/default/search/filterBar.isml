@@ -1,4 +1,4 @@
-<ul class="list-unstyled h-mb-lg--15 h-mt-lg--15">
+<ul class="list-unstyled h-mb-md--0 h-mt-lg--15">
     <isloop items="${pdict.productSearch.selectedFilters}" var="selectedfilter">
         <isif condition="${selectedfilter.type === 'color'}">
             <li class="swatch-filter swatch-filter-${selectedfilter.presentationId}">

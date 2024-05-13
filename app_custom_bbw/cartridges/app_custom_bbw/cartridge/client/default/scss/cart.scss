@@ -14,6 +14,7 @@
 .cartContainer {
     max-width: 955px;
     margin: auto;
+    letter-spacing: 0.2px;
 
     .cart-page {
         padding: 0;
@@ -24,6 +25,8 @@
             margin: 0 auto;
             padding: 0 0 15px;
             border-bottom: 1px solid $clr-black-3;
+            letter-spacing: 0;
+            line-height: 28px;
         }
 
         .cartActionMessages {
@@ -326,8 +329,11 @@
 
             .cartTotalsWrap {
                 width: 53%;
-                padding: 15px 25px;
-                background-color: $clr-gray-1;
+
+                .cart-totals-bg {
+                    padding: 15px 25px;
+                    background-color: $clr-gray-1;
+                }
 
                 .hide-order-discount {
                     display: none;
@@ -339,6 +345,10 @@
             }
         }
     }
+}
+
+.cart-black-1 {
+    color: $clr-black-1;
 }
 
 .cart-empty-msg-wrap {
@@ -381,6 +391,10 @@
     span {
         text-decoration: underline;
     }
+}
+
+.zero-price-item {
+    opacity: 0.5;
 }
 
 .cart-checkout-btn {

@@ -1,8 +1,20 @@
 @import "../collapsibleItem";
 
 footer {
-    margin-top: 96px;
+    margin-top: 60px;
     border-top: 0.1875rem solid colour(gray, 1);
+    margin-right: -30px;
+
+    @include media-up(sm) {
+        margin-top: 60px;
+        border-top: 0.1875rem solid colour(gray, 1);
+    }
+
+    @include media-breakpoint-only(md) {
+        margin-top: 60px;
+        border-top: 0.1875rem solid colour(gray, 1);
+        margin-right: -30px;
+    }
 
     .footer-container {
         @include media-up(sm) {
@@ -30,15 +42,15 @@ footer {
                 &::after {
                     background: colour(gray, 1);
                     content: "";
-                    margin-left: -10px;
+                    margin-left: -16px;
                     display: block;
                     height: 1px;
-                    width: 100%;
-                    margin-right: -10px;
+                    margin-right: -30px;
                 }
 
                 @include media-up(sm) {
                     background: none;
+                    width: 100%;
                 }
             }
         }
@@ -49,15 +61,15 @@ footer {
             &::after {
                 background: colour(gray, 1);
                 content: "";
-                margin-left: -10px;
+                margin-left: -16px;
                 display: block;
                 height: 1px;
-                width: 100%;
-                margin-right: -10px;
+                margin-right: -30px;
 
                 @include media-up(sm) {
                     margin: 0;
                     background: none;
+                    width: 100%;
                 }
             }
         }
@@ -107,6 +119,12 @@ footer {
                 &:focus {
                     outline: 0.0625rem dotted colour(black);
                     outline-offset: 0.125rem;
+                }
+            }
+
+            #newsletter-input {
+                &.is-invalid {
+                    border-color: colour(red);
                 }
             }
 
@@ -303,6 +321,10 @@ footer {
             background-size: contain;
         }
     }
+}
+
+.js-scrolltotop {
+    display: none;
 }
 
 // ---------unsubscribe email-----------

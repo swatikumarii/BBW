@@ -6,7 +6,7 @@
 
 <div class="confirm-details">
     <div class="card">
-        <div class="card-head d-flex d-md-flex align-items-center">
+        <div class="card-head d-block d-md-flex align-items-center">
             <div class="order-detail-with-image">
                 <p>
                     <span class="summary-section-label order-date-label pr-2">${Resource.msg('label.order.date', 'order', null)}</span>

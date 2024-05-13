@@ -1,0 +1,29 @@
+
+    <div class="itemsHeader d-flex justify-content-between align-items-center">
+        <div class="image-product-name col-6">
+            <div class="product-line-item-details d-flex align-items-center">
+                <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                    <div class="item-image">
+                        <img class="product-image" src="${lineItem.images.small[0].url}"
+                            alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}"
+                            width="100" />
+                    </div>
+                </a>
+                <div class="line-item-name ml-4">
+                    <span class="d-block h-fw--semibold h-clr--black-1 h-font-size--18 text-uppercase">${Resource.msg('label.item', 'confirmation', null)}</span>
+                    <span class="d-block h-font-size--16 ">${Resource.msg('details.item', 'confirmation', null)}</span>
+                    <span class="d-block h-font-size--16 ">${Resource.msg('item.number', 'confirmation', null)}</span>
+                </div>
+            </div>
+        </div>
+        <div class="product-quanity col-3 text-right">
+            <div class="item-attributes">
+                <p class="line-item-attributes h-font-size--16">1</p>
+            </div>
+        </div>
+        <div class="product-price col-3 text-center">
+            <div class="line-item-header">
+                <p class="h-font-size--16"> $5.76</p>
+            </div>
+        </div>
+    </div>

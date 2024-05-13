@@ -8,7 +8,7 @@
                 <isset name="address" value="${{}}" scope="page"/>
             </isif>
             <div class="summary-details shipping h-font-size--16 h-clr--black-1">
-                <h2>Ship to</h2>
+                <h2 class="h-clr--black-1 review-shipping-summary-content h-fw--bold">${Resource.msg('label.order.shipping.address', 'order', null)}</h2>
                 <isinclude template="checkout/addressSummary" />
                 <div class="shipping-phone">
                     ${shippingModel.shippingAddress && shippingModel.shippingAddress.phone ? shippingModel.shippingAddress.phone : ''}
@@ -18,21 +18,25 @@
             <!--- Shipping information --->
             <div class="row summary-details leading-lines">
                 <div class="col-12 start-lines">
-                    <h2>Shipping method</h2>
+                    <h2 class="h-clr--black-1 review-shipping-summary-content h-fw--bold">${Resource.msg('heading.shipping.method', 'checkout', null)}</h2>
                     <p class="shipping-method h-font-size--16 h-clr--black-1">
-                        <span class="shipping-method-title">${shippingModel.selectedShippingMethod.displayName}</span>
-                        <span class="shipping-method-arrival-time">
-                            <isif condition="${shippingModel.selectedShippingMethod.estimatedArrivalTime}">
-                                ( ${shippingModel.selectedShippingMethod.estimatedArrivalTime} )
-                            </isif>
+                        <div>
+                            <span class="shipping-method-title h-clr--black-1">${shippingModel.selectedShippingMethod.displayName}</span>
+                            <span class="shipping-method-arrival-time h-clr--black-1">
+                                <isif condition="${shippingModel.selectedShippingMethod.estimatedArrivalTime}">
+                                    ( ${shippingModel.selectedShippingMethod.estimatedArrivalTime} )
+                                </isif>
+                            </span>
+                        </div>
+                        <span class="h-fw--semibold h-clr--black-1">
+                            ${shippingModel.selectedShippingMethod.shippingCost}
                         </span>
-                        ${shippingModel.selectedShippingMethod.shippingCost}
                     </p>
                 </div>
             </div>
             <isinclude template="checkout/shipping/giftMessageSummary" />
-            <button class="edit-button pull-right"
-                aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
+            <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}" class="edit-button pull-right text-muted review-shipping-summary-content"
+                aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</a>
         </div>
     </isif>
 </isloop>
