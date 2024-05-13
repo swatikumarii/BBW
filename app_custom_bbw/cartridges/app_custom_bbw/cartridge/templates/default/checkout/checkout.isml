@@ -65,17 +65,8 @@
                 <div class="review-billing-summary border">
                     <isinclude template="checkout/billing/billingSummary" />
                 </div>
-                <div class="review-product-summary border">
-                    <div class="itemsHeader d-flex">
-                        <div class="headerItem">${Resource.msg('label.item.header.item', 'cart', null)}</div>
-                        <div class="headerQty">${Resource.msg('label.item.header.quantity', 'cart', null)}</div>
-                        <div class="headerPrice">${Resource.msg('label.item.header.price', 'cart', null)}</div>
-                    </div>
-                    <div class="cart-lineitems">
-                        <isloop items="${pdict.order.items.items}" var="lineItem">
-                            <isinclude template="checkout/productCard/productCard" />
-                        </isloop>
-                    </div>
+                <div class="review-product-summary">
+                    <isinclude template="checkout/review/productSummary" />
                 </div>
                 <div class="h-maxwidth-perc--75">
 
@@ -97,8 +88,8 @@
                     </isif>
                     <iscomment>End of Afterpay</iscomment>
                     <iscomment>We only allow edits for non-registered customers</iscomment>
-                    <div class="checkout-blocks customer">
-                        <div class="h-maxwidth-perc--90">
+                    <div class="checkout-blocks customer ${!pdict.customer.registeredUser ? 'guest' : 'registered'}">
+                        <div class="h-maxwidth-perc--90 accordion">
                             <isinclude template="checkout/customer/customer" />
                         </div>
                     </div>
@@ -193,6 +184,7 @@
                         <isinclude template="checkout/orderProductSummary" />
                     </div>
                     <div class="order-total-summary-wrap">
+                    <h2 class="h-font-size--20 h-clr--black-1 h-mb--10 h-py--20 h-fw--bold border-bottom text-center review-order-summary">${Resource.msg('label.order.payment.summary', 'order', null)}</h2>
                         <isinclude template="checkout/orderTotalSummary" />
                     </div>
                 </div>

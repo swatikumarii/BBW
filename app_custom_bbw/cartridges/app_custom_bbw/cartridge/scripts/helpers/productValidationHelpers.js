@@ -26,7 +26,12 @@ function getProductMaxOrderQty(apiProduct) {
     var maxOrderQty = productLevelMaxOrderQty || globalLevelMaxOrderQty;
     var maxOrderQtyByReserveStock =
         apiProduct.availabilityModel.inventoryRecord && apiProduct.availabilityModel.inventoryRecord.ATS.value - reserveOosQty;
-    if (apiProduct.availabilityModel.inventoryRecord.perpetual) {
+    if (
+        'inventoryRecord' in apiProduct.availabilityModel &&
+        apiProduct.availabilityModel.inventoryRecord &&
+        apiProduct.availabilityModel.inventoryRecord !== null &&
+        apiProduct.availabilityModel.inventoryRecord.perpetual
+    ) {
         maxOrderQtyByReserveStock = 999;
     }
     if (maxOrderQty && maxOrderQtyByReserveStock) {

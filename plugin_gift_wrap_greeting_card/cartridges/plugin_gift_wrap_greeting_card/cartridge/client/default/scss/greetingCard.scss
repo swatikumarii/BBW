@@ -314,6 +314,8 @@
     }
 
     .item-desc {
+        padding-top: 16px;
+        
         .line-item-header {
             .line-item-name {
                 font-size: 1.25rem;
@@ -332,7 +334,7 @@
     .remove-product {
         text-decoration: none;
         padding-left: 24px;
-        margin-top: 20px;
+        margin-top: 14px;
         color: #1a1a1a;
         font-size: 14px;
 
