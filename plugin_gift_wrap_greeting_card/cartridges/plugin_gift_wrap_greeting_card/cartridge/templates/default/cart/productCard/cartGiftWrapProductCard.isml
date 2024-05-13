@@ -54,32 +54,36 @@
 
             <div class="col-md-5 col-3 pr-0">
                 <div class="d-flex">
-                <!---item price--->
-                <div class="text-right w-100 line-item-price line-item-price-${lineItem.UUID}">
-                    <isset name="price" value="${lineItem.price}" scope="page" />
-                    <div class="unit-price">
-                        <isif condition="${!lineItem.appliedPromotions}">
-                            <isinclude template="/product/components/pricing/main" />
+                    <!---item price--->
+                    <div class="text-right w-100 line-item-price line-item-price-${lineItem.UUID}">
+                        <isset name="price" value="${lineItem.price}" scope="page" />
+                        <div class="unit-price">
+                            <isif condition="${!lineItem.appliedPromotions}">
+                                <isinclude template="/product/components/pricing/main" />
                             <iselse>
                                 <isinclude template="/product/components/pricing/promoPrice" />
-                        </isif>
+                            </isif>
+                        </div>
                     </div>
-                </div>
 
-                <iscomment>
-                    <isinclude template="cart/productCard/cartProductCardProductPrice" />
-                </iscomment>
+                    <iscomment>
+                        <isinclude template="cart/productCard/cartProductCardProductPrice" />
+                    </iscomment>
 
-                <isif condition="${!lineItem.isBonusProductLineItem}">
+                    <isif condition="${!lineItem.isBonusProductLineItem}">
 
-                    <button type="button" class="remove-btn-lg remove-product bg-white border-0" data-toggle="modal"
-                        data-target=".cart.cart-page #removeProductModal" data-pid="${lineItem.id}" data-name="${lineItem.productName}"
-                        data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}"
-                        aria-label="${Resource.msgf('text.remove.line.item', 'cart', null, lineItem.productName)}">
-                        <span aria-hidden="true"><img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" /></span>
-                    </button>
+                        <button type="button" class="remove-btn-lg remove-product bg-white border-0" data-toggle="modal"
+                            data-target=".cart.cart-page #removeProductModal" data-pid="${lineItem.id}"
+                            data-name="${lineItem.productName}"
+                            data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}"
+                            aria-label="${Resource.msgf('text.remove.line.item', 'cart', null, lineItem.productName)}">
+                            <span aria-hidden="true">
+                                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon"
+                                    width="20" />
+                            </span>
+                        </button>
 
-                </isif>
+                    </isif>
                 </div>
             </div>
         </div>

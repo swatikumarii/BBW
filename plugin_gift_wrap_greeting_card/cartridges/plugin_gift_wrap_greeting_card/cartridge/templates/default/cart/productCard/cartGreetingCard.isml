@@ -57,7 +57,7 @@
                 </div>
 
             </div>
-                <isinclude template="cart/productCard/cartGreetingCardProductPrice" />
+            <isinclude template="cart/productCard/cartGreetingCardProductPrice" />
         </div>
 
 
