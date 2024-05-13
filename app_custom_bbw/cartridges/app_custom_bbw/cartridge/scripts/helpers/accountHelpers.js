@@ -152,11 +152,123 @@ function sendAccountEditedEmail(profile) {
     emailHelpers.sendEmail(emailObj, 'mail/account/accountEditedEmail', userObject);
 }
 
+/**
+ * Send an email that would notify the user that address was added
+ * @param {object} profile - object that contains user's profile information.
+ */
+function sendAddAddressEmail(profile) {
+    var Site = require('dw/system/Site');
+    var Resource = require('dw/web/Resource');
+
+    var emailContent = ContentMgr.getContent('email-add-address'); // Forgot Password Content Asset Id
+    var emailMarkup = '';
+    var url = URLUtils.https('Login-Show');
+
+    if (!empty(emailContent) && emailContent.online) {
+        emailMarkup = emailContent.custom.body.markup;
+        emailMarkup = emailMarkup.replace('{{customerName}}', profile.firstName);
+        emailMarkup = emailMarkup.replace('{{myAccountLink}}', url);
+    }
+
+    var userObject = {
+        firstName: profile.firstName,
+        lastName: profile.lastName,
+        url: url,
+        markup: emailMarkup,
+        content: emailContentHelpers.getEmailContent('normal-footer','email-header')
+    };
+
+    var emailObj = {
+        to: profile.email,
+        subject: Resource.msg('email.subject.account.edited', 'account', null),
+        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+        type: emailHelpers.emailTypes.accountEdited
+    };
+
+    emailHelpers.sendEmail(emailObj, 'mail/account/address/addAddressEmail', userObject);
+}
+
+/**
+ * Send an email that would notify the user that address was edited
+ * @param {object} profile - object that contains user's profile information.
+ */
+function sendEditAddressEmail(profile) {
+    var Site = require('dw/system/Site');
+    var Resource = require('dw/web/Resource');
+
+    var emailContent = ContentMgr.getContent('email-edit-address'); // Forgot Password Content Asset Id
+    var emailMarkup = '';
+    var url = URLUtils.https('Login-Show');
+
+    if (!empty(emailContent) && emailContent.online) {
+        emailMarkup = emailContent.custom.body.markup;
+        emailMarkup = emailMarkup.replace('{{customerName}}', profile.firstName);
+        emailMarkup = emailMarkup.replace('{{myAccountLink}}', url);
+    }
+
+    var userObject = {
+        firstName: profile.firstName,
+        lastName: profile.lastName,
+        url: url,
+        markup: emailMarkup,
+        content: emailContentHelpers.getEmailContent('normal-footer','email-header')
+    };
+
+    var emailObj = {
+        to: profile.email,
+        subject: Resource.msg('email.subject.account.edited', 'account', null),
+        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+        type: emailHelpers.emailTypes.accountEdited
+    };
+
+    emailHelpers.sendEmail(emailObj, 'mail/account/address/editAddressEmail', userObject);
+}
+
+/**
+ * Send an email that would notify the user that address was deleted
+ * @param {object} profile - object that contains user's profile information.
+ */
+function sendDeleteAddressEmail(profile) {
+    var Site = require('dw/system/Site');
+    var Resource = require('dw/web/Resource');
+
+    var emailContent = ContentMgr.getContent('email-delete-address'); // Forgot Password Content Asset Id
+    var emailMarkup = '';
+    var url = URLUtils.https('Login-Show');
+
+    if (!empty(emailContent) && emailContent.online) {
+        emailMarkup = emailContent.custom.body.markup;
+        emailMarkup = emailMarkup.replace('{{customerName}}', profile.firstName);
+        emailMarkup = emailMarkup.replace('{{myAccountLink}}', url);
+    }
+
+    var userObject = {
+        firstName: profile.firstName,
+        lastName: profile.lastName,
+        url: url,
+        markup: emailMarkup,
+        content: emailContentHelpers.getEmailContent('normal-footer','email-header')
+    };
+
+    var emailObj = {
+        to: profile.email,
+        subject: Resource.msg('email.subject.account.edited', 'account', null),
+        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+        type: emailHelpers.emailTypes.accountEdited
+    };
+
+    emailHelpers.sendEmail(emailObj, 'mail/account/address/deleteAddressEmail', userObject);
+}
+
+
 module.exports = {
     isValidDate: isValidDate,
     sendPasswordResetEmail: sendPasswordResetEmail,
     sendCreateAccountEmail: sendCreateAccountEmail,
-    sendAccountEditedEmail: sendAccountEditedEmail
+    sendAccountEditedEmail: sendAccountEditedEmail,
+    sendAddAddressEmail: sendAddAddressEmail,
+    sendEditAddressEmail: sendEditAddressEmail,
+    sendDeleteAddressEmail: sendDeleteAddressEmail
 };
 
 Object.keys(base).forEach(function (prop) {
