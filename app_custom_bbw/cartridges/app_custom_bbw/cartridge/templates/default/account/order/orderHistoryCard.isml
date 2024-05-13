@@ -32,6 +32,8 @@
                     <span>${Resource.msg('label.reorder.btn', 'order', null)}</span>
                 </button>
 
+                <div id="add-order-to-cart-snackbar">${Resource.msg('item.added.to.cart', 'common', null)}</div>
+
                 <button id="invoiceDownload" class="invoice-download btn btn-hover"
                     data-action="${order.invoiceDownloadUrl}">${Resource.msg('account.download', 'account', null)}
                 </button>
