@@ -138,6 +138,7 @@
 
             td.item-image {
                 width: 72px;
+                padding: 0 0 48px;
 
                 @include media-down(sm) {
                     float: left;
@@ -152,6 +153,14 @@
                     font-weight: map-get($font-weight, semibold);
                     letter-spacing: 0.01em;
                     max-width: 200px;
+
+                    a {
+                        font-size: 16px;
+
+                        &:hover {
+                            color: colour(black, 1);
+                        }
+                    }
                 }
 
                 @include media-down(sm) {
@@ -184,6 +193,15 @@
                 .createDate {
                     font-size: 0.6875rem;
                     color: colour(gray);
+                }
+
+                .promotion-callout {
+                    margin-bottom: 10px;
+                    line-height: 0.5;
+
+                    .callout-message {
+                        font-size: 0.6875rem;
+                    }
                 }
             }
 
@@ -267,4 +285,10 @@
             }
         }
     }
+}
+
+.view-button {
+    min-height: auto;
+    font-size: 0.6875rem;
+    width: 163px;
 }
