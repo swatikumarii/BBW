@@ -118,10 +118,45 @@ function sendCreateAccountEmail(registeredUser) {
     emailHelpers.sendEmail(emailObj, 'mail/account/accountRegisteredEmail', userObject);
 }
 
+/**
+ * Send an email that would notify the user that account was edited
+ * @param {object} profile - object that contains user's profile information.
+ */
+function sendAccountEditedEmail(profile) {
+    var Site = require('dw/system/Site');
+    var Resource = require('dw/web/Resource');
+
+    var emailContent = ContentMgr.getContent('email-account-edited'); // Forgot Password Content Asset Id
+    var emailMarkup = '';
+
+    if (!empty(emailContent) && emailContent.online) {
+        emailMarkup = emailContent.custom.body.markup;
+        emailMarkup = emailMarkup.replace('{{customerName}}', profile.firstName);
+    }
+
+    var userObject = {
+        firstName: profile.firstName,
+        lastName: profile.lastName,
+        url: URLUtils.https('Login-Show'),
+        markup: emailMarkup,
+        content: emailContentHelpers.getEmailContent('normal-footer','email-header')
+    };
+
+    var emailObj = {
+        to: profile.email,
+        subject: Resource.msg('email.subject.account.edited', 'account', null),
+        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+        type: emailHelpers.emailTypes.accountEdited
+    };
+
+    emailHelpers.sendEmail(emailObj, 'mail/account/accountEditedEmail', userObject);
+}
+
 module.exports = {
     isValidDate: isValidDate,
     sendPasswordResetEmail: sendPasswordResetEmail,
-    sendCreateAccountEmail: sendCreateAccountEmail
+    sendCreateAccountEmail: sendCreateAccountEmail,
+    sendAccountEditedEmail: sendAccountEditedEmail
 };
 
 Object.keys(base).forEach(function (prop) {
