@@ -1,6 +1,7 @@
 'use strict';
 
 var helpers = require('../utils/scrollHelpers');
+var lazyload = require('../utils/lazyLoad');
 var layout = require('../utils/layout');
 var debounce = require('lodash/debounce');
 
@@ -347,6 +348,7 @@ module.exports = {
                 success: function (response) {
                     $('.product-grid-wrapper').empty().html(response);
                     $.spinner().stop();
+                    lazyload.lazyLoad();
                 },
                 error: function () {
                     $.spinner().stop();
@@ -371,6 +373,7 @@ module.exports = {
                 success: function (response) {
                     $('.grid-footer').replaceWith(response);
                     updateSortOptions(response);
+                    lazyload.lazyLoad();
                     $.spinner().stop();
                 },
                 error: function () {
@@ -411,6 +414,7 @@ module.exports = {
                         parseResults(response);
                         searchAlphabetSort();
                         $.spinner().stop();
+                        lazyload.lazyLoad();
                         $(attributeId).parent('button').focus();
                     },
                     error: function () {

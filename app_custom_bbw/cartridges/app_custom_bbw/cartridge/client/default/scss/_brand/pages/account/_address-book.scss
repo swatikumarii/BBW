@@ -82,6 +82,8 @@
     }
 
     .modal-content {
+        border-radius: 0;
+
         .modal-body {
             padding: 3px 35px 35px;
 
@@ -131,8 +133,9 @@
                             height: 100%;
                             width: 35px;
                             border-left: 1px solid colour(gray, 5);
-                            background: colour(white)
-                                url("../../images/UI-Carat.svg") no-repeat 50%;
+                            background: url("../../images/UI-Carat.svg");
+                            background-position: 50%;
+                            background-repeat: no-repeat;
                             background-size: 15px;
                         }
 
@@ -179,7 +182,6 @@
 
     .btn-save {
         position: absolute;
-        right: 0;
         top: -16px;
     }
 }

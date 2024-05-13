@@ -13,10 +13,10 @@
         <div class="row">
             <div class="col-sm-12 col-md-12 col-xl-8">
                 <div class="confirmation-shipping-summary border d-block">
-                    <isinclude template="checkout/confirmation/confirmationShippingSummary" />
+                    <isinclude template="checkout/shipping/shippingSummary" />
                 </div>
                 <div class="confirmation-billing-summary border d-block">
-                    <isinclude template="checkout/confirmation/confirmationBillingSummary" />
+                    <isinclude template="checkout/billing/billingSummary" />
                 </div>
                 <div class="confirmation-product-summary d-block">
                     <div class="confirmationItemsHeader d-flex justify-content-between">
@@ -24,17 +24,14 @@
                         <div class="headerQty col-3 text-right h-font-size--18 h-fw--semibold text-uppercase">${Resource.msg('label.header.quantity', 'confirmation', null)}</div>
                         <div class="headerPrice col-3 text-center h-font-size--18 h-fw--semibold text-uppercase">${Resource.msg('label.header.price', 'confirmation', null)}</div>
                     </div>
-                            <isinclude template="checkout/confirmation/confirmationProductCard" />
+                    <isinclude template="checkout/orderProductSummary" />
                 </div>
             </div>
-
-
-            <iscomment> Order Totals, Details and Summary </iscomment>
 
             <div class="col-sm-12 col-md-12 col-xl-4">
                 <div class="card confirmation-order-summary">
                     <div class="confirmation-total-summary-wrap">
-                        <isinclude template="checkout/confirmation/confirmationOrderTotalSummary" />
+                        <isinclude template="checkout/orderTotalSummary" />
                     </div>
                 </div>
             </div>

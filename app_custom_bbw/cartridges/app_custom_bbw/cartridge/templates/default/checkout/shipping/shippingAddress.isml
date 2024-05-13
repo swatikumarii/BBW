@@ -12,13 +12,16 @@
                 ${addressFields.firstName.htmlName}">
             <label class="form-control-label h-font-size--16 h-fw--semibold"
                 for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}">
-                ${Resource.msg('field.shipping.address.first.name', 'address', null)}
+                <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.first.name', 'address', null)}
             </label>
             <input autofocus type="text" class="form-control shippingFirstName"
                 id="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}FirstName"
-                value="${shippingAddress.firstName || ''}" <isprint value="${addressFields.firstName.attributes}"
-                encoding="off" /> autocomplete="shipping given-name" >
+                value="${shippingAddress.firstName || ''}"
+                data-missing-error="${Resource.msg('error.first.name', 'forms', null)}"
+                data-pattern-mismatch="${Resource.msg('error.message.parse.FName', 'forms', null)}"
+                <isprint value="${addressFields.firstName.attributes}" encoding="off" />
+            >
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}FirstName">
                 <isprint value="${addressFields.firstName.error}">
             </div>
@@ -30,11 +33,13 @@
                 ${addressFields.lastName.htmlName}">
             <label class="form-control-label h-font-size--16 h-fw--semibold"
                 for="shippingLastName${lineItem ? lineItem.UUID : 'default'}">
-                ${Resource.msg('field.shipping.address.last.name', 'address', null)}
+                <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.last.name', 'address', null)}
             </label>
             <input type="text" class="form-control shippingLastName"
                 id="shippingLastName${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}LastName"
+                data-missing-error="${Resource.msg('error.last.name', 'forms', null)}"
+                data-pattern-mismatch="${Resource.msg('error.message.parse.LName', 'forms', null)}"
                 value="${shippingAddress.lastName || ''}" <isprint value="${addressFields.lastName.attributes}"
                 encoding="off" /> autocomplete="shipping family-name">
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}LastName">
@@ -63,17 +68,17 @@
                 ${addressFields.address1.htmlName}">
             <label class="form-control-label h-font-size--16 h-fw--semibold"
                 for="shippingAddressOne${lineItem ? lineItem.UUID : 'default'}">
-                ${Resource.msg('field.shipping.address.one', 'address', null)}
+                <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.one', 'address', null)}
             </label>
             <input type="text" class="form-control shippingAddressOne"
                 id="shippingAddressOne${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}AddressLine1"
+                data-missing-error="${Resource.msg('error.address.line-1', 'forms', null)}"
                 value="${shippingAddress.address1 || ''}" <isprint value="${addressFields.address1.attributes}"
-                encoding="off" />
-                autocomplete="shipping address-line1">
-            <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}AddressLine1">
-                <isprint value="${addressFields.address1.error}">
-            </div>
+                encoding="off" />>
+                <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}AddressLine1">
+                    <isprint value="${addressFields.address1.error}" />
+                </div>
         </div>
     </div>
 </div>
@@ -93,9 +98,9 @@
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}AddressLine2"
                 value="${shippingAddress.address2 || ''}" <isprint value="${addressFields.address2.attributes}"
                 encoding="off" />
-                autocomplete="shipping address-line2">
+                >
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}AddressLine2">
-                <isprint value="${addressFields.address2.error}">
+                <isprint value="${addressFields.address2.error}" />
             </div>
         </div>
     </div>
@@ -109,17 +114,20 @@
                 ${addressFields.country.htmlName}">
             <label class="form-control-label h-font-size--16 h-fw--semibold"
                 for="shippingCountry${lineItem ? lineItem.UUID : 'default'}">
-                ${Resource.msg('field.shipping.address.country', 'address', null)}
+                <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.country', 'address', null)}
             </label>
-            <select class="form-control shippingCountry custom-select"
-                id="shippingCountry${lineItem ? lineItem.UUID : 'default'}" <isprint
-                value=${addressFields.country.attributes} encoding="off" />
+            <div class="custom-select-wrap">
+                <select class="form-control shippingCountry custom-select"
+                    id="shippingCountry${lineItem ? lineItem.UUID : 'default'}" <isprint
+                    value=${addressFields.country.attributes} encoding="off" />
                 autocomplete="shipping country"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}Country">
                 <isloop items=${addressFields.country.options} var="country">
-                    <option id="${country.id}" value="${country.htmlValue}" selected="selected">${country.label}</option>
+                    <option id="${country.id}" value="${country.htmlValue}" selected="selected">${country.label}
+                    </option>
                 </isloop>
-            </select>
+                </select>
+            </div>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}Country">
                 <isprint value="${addressFields.country.error}">
             </div>
@@ -133,17 +141,20 @@
                 ${addressFields.states.stateCode.htmlName}">
             <label class="form-control-label h-font-size--16 h-fw--semibold"
                 for="shippingState${lineItem ? lineItem.UUID : 'default'}">
-                ${Resource.msg('field.shipping.address.state', 'address', null)}
+                <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.state', 'address', null)}
             </label>
-            <select class="form-control shippingState custom-select"
-                id="shippingState${lineItem ? lineItem.UUID : 'default'}" <isprint
-                value=${addressFields.states.stateCode.attributes} encoding="off" />
+            <div class="custom-select-wrap">
+                <select class="form-control shippingState custom-select"
+                    id="shippingState${lineItem ? lineItem.UUID : 'default'}"
+                    data-missing-error="${Resource.msg('error.state', 'forms', null)}"
+                    <isprint value=${addressFields.states.stateCode.attributes} encoding="off" />
                 autocomplete="shipping address-level1"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}State">
                 <isloop items=${addressFields.states.stateCode.options} var="state">
                     <option id="${state.id}" value="${state.htmlValue}" ${state.id === shippingAddress.stateCode ? 'selected' : ''}>${state.label || ' '}</option>
                 </isloop>
-            </select>
+                </select>
+            </div>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}State">
                 <isprint value="${addressFields.states.stateCode.error}">
             </div>
@@ -158,13 +169,14 @@
                 ${addressFields.city.htmlName}">
             <label class="form-control-label h-font-size--16 h-fw--semibold"
                 for="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}">
-                ${Resource.msg('field.shipping.address.city', 'address', null)}
+                <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.city', 'address', null)}
             </label>
             <input type="text" class="form-control shippingAddressCity"
                 id="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}City" value="${shippingAddress.city || ''}"
+                data-missing-error="${Resource.msg('error.city', 'forms', null)}"
                 <isprint value="${addressFields.city.attributes}" encoding="off" />
-                autocomplete="shipping address-level2">
+            autocomplete="shipping address-level2">
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}City">
                 <isprint value="${addressFields.city.error}">
             </div>
@@ -176,14 +188,16 @@
                 ${addressFields.postalCode.htmlName}">
             <label class="form-control-label h-font-size--16 h-fw--semibold"
                 for="shippingZipCode${lineItem ? lineItem.UUID : 'default'}">
-                ${Resource.msg('field.shipping.address.zip.code', 'address', null)}
+                <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.zip.code', 'address', null)}
             </label>
             <input type="text" class="form-control shippingZipCode"
                 id="shippingZipCode${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}ZipCode"
+                data-missing-error="${Resource.msg('error.zip.code', 'forms', null)}"
+                data-pattern-mismatch="${Resource.msg('valid.zip.code', 'forms', null)}"
                 value="${shippingAddress.postalCode || ''}" <isprint value="${addressFields.postalCode.attributes}"
                 encoding="off" />
-                autocomplete="shipping postal-code">
+            autocomplete="shipping postal-code">
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}ZipCode">
                 <isprint value="${addressFields.postalCode.error}">
             </div>
@@ -198,12 +212,12 @@
                 ${addressFields.phone.htmlName}">
             <label class="form-control-label h-font-size--16 h-fw--semibold"
                 for="shippingPhoneNumber${lineItem ? lineItem.UUID : 'default'}">
-                ${Resource.msg('field.shipping.address.phone', 'address', null)}
+                <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.phone', 'address', null)}
             </label>
-            <input type="tel" class="form-control shippingPhoneNumber"
-            initOptions.allowDropdown="true"
+            <input type="tel" class="form-control shippingPhoneNumber" initOptions.allowDropdown="true"
                 id="shippingPhoneNumber${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber"
+                data-missing-error="${Resource.msg('error.phone', 'forms', null)}"
                 value="${shippingAddress.phone || ''}" <isprint value="${addressFields.phone.attributes}"
                 encoding="off" />>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber">

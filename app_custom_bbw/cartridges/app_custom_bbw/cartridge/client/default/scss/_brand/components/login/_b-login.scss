@@ -607,12 +607,16 @@
 
         .resetpassword-btn {
             transition: all 0.3s ease;
-            max-height: 48px;
-            min-height: 48px;
+            max-height: 37px;
+            min-height: 37px;
             letter-spacing: 0.12em;
         }
 
         .reset-password-form {
+            margin: 0 auto;
+        }
+
+        .form-reset-password {
             margin: 0 auto;
         }
 
@@ -633,7 +637,7 @@
 .login-modal-body {
     overflow-y: auto;
     max-height: calc(114vh - 84px);
-    padding: 4px 16px 16px 16px;
+    padding: 4px 16px 16px;
 }
 
 .login-modal-fade {
@@ -684,7 +688,7 @@
 
 // -----hide show---
 .password-box {
-    .login-modal-hide {
+    .login-modal-password-hide {
         top: 29px;
         min-height: 46px;
         max-height: 15px;

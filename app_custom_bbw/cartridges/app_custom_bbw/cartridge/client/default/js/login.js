@@ -34,8 +34,6 @@ function validateLengthField(inputField) {
     $('#' + inputField.attr('id') + '-error').empty(); // Clear error message
     return true;
 }
-
-
 /**
  * Generic validation function for required fields
  * @param {object} inputField input field on which validation will be tested
@@ -79,15 +77,13 @@ function validatePasswordField(passwordInput) {
     if (!validateRequiredField(passwordInput)) return false;
     return true;
 }
-
 /**
  * toggle password visibility
  * @param {object} passwordInput password input field
  * @param {object} showButton show button
  */
 function togglePasswordVisibility(passwordInput, showButton) {
-    var type =
-        passwordInput.attr('type') === 'password' ? 'text' : 'password';
+    var type = passwordInput.attr('type') === 'password' ? 'text' : 'password';
     passwordInput.attr('type', type);
     showButton.find('.show').text(type === 'password' ? 'Show' : 'Hide');
 }
@@ -104,10 +100,6 @@ $(document).ready(function () {
     });
 
     // Event delegation for toggling password visibility
-    $(document.body).on('click', '.login-modal-hide', function () {
-        togglePasswordVisibility($('#login-form-password'), $(this));
-    });
-
     $(document.body).on('click', '.register-form-hide', function () {
         togglePasswordVisibility($('#registration-form-password'), $(this));
     });
@@ -177,18 +169,6 @@ $(document).ready(function () {
             selector: '#registration-form-dob',
             validationFunction: validateRequiredField
         },
-        {
-            selector: '#login-form-email',
-            validationFunction: validateEmailField
-        },
-        {
-            selector: '#login-form-password',
-            validationFunction: validatePasswordField
-        },
-        {
-            selector: '#reset-password-email',
-            validationFunction: validateEmailField
-        }
     ];
 
     // Loop through the array and attach blur event handlers dynamically
@@ -196,5 +176,22 @@ $(document).ready(function () {
         $(document).on('blur', field.selector, function () {
             validateField(field.selector, field.validationFunction);
         });
+    });
+
+    $('body').on('click', 'form.registration button', function () {
+        var form = $(this).closest('form');
+        setTimeout(function() {
+            var element = form.find(
+                '.form-control.is-invalid, .selectric-form-control.is-invalid'
+            );
+            if (element && element.length) {
+                $('body,html').animate(
+                    {
+                        scrollTop: element.offset().top - 250
+                    },
+                    500
+                );
+            }
+        }, 100);
     });
 });

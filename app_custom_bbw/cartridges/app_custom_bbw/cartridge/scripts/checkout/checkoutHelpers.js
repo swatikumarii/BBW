@@ -4,6 +4,11 @@ var base = module.superModule;
 
 var PaymentInstrument = require('dw/order/PaymentInstrument');
 var PaymentMgr = require('dw/order/PaymentMgr');
+var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
+var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+var ContentMgr = require('dw/content/ContentMgr');
+var Resource = require('dw/web/Resource');
+var Site = require('dw/system/Site');
 
 /**
  * Validates payment
@@ -65,6 +70,41 @@ function validatePayment(req, currentBasket) {
     return result;
 }
 
+/**
+ * Sends a confirmation to the current user
+ * @param {dw.order.Order} order - The current user's order
+ * @param {string} locale - the current request's locale id
+ * @returns {void}
+ */
+function sendConfirmationEmail(order, locale) {
+    var OrderModel = require('*/cartridge/models/order');
+    var Locale = require('dw/util/Locale');
+    var emailMarkup = '';
+    var emailContent = ContentMgr.getContent('email-order-confirmation'); // Order Confirmation Email Content Asset Id
+    var currentLocale = Locale.getLocale(locale);
+
+    if (!empty(emailContent) && emailContent.online) {
+        emailMarkup = emailContent.custom.body.markup;
+    }
+    var orderModel = new OrderModel(order, { countryCode: currentLocale.country, containerView: 'order' });
+
+    var orderObject = {
+        order: orderModel,
+        markup: emailMarkup,
+        content: emailContentHelpers.getEmailContent('normal-footer','email-header')
+    };
+
+    var emailObj = {
+        to: order.customerEmail,
+        subject: Resource.msg('subject.order.confirmation.email', 'order', null),
+        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+        type: emailHelpers.emailTypes.orderConfirmation
+    };
+
+    emailHelpers.sendEmail(emailObj, 'checkout/confirmation/confirmationEmail', orderObject);
+}
+
 base.validatePayment = validatePayment;
+base.sendConfirmationEmail = sendConfirmationEmail;
 
 module.exports = base;

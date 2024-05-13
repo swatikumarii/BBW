@@ -4,6 +4,14 @@
     column-gap: 16px;
     max-width: 1195px;
 
+    @include media-btw(sm, lg) {
+        scrollbar-color: unset;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
     &__link {
         min-width: 36vw;
         width: 100%;
