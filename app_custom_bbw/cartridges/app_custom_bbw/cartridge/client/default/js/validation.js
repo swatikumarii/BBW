@@ -268,3 +268,14 @@ window.submitProfile = function (token) {
         grecaptcha.reset();
     });
 };
+
+$('#newPassword').click(function () {
+    $('.required-pass').removeClass('d-none');
+});
+
+$('body').click(function (event) {
+    // Check if the clicked element is not inside the #newPassword element
+    if (!$(event.target).closest('#newPassword').length) {
+        $('.required-pass').addClass('d-none');
+    }
+});
