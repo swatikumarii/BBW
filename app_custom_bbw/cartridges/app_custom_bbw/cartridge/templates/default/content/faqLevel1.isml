@@ -37,7 +37,10 @@
                             <a href="${URLUtils.url('Page-Show', 'cid', folder.ID)}">${folder.displayName}</a>
                         </h2>
                         <ul class="article-list">
-                            <isloop items="${folder.onlineContent}" var="content">
+                            <isloop items="${folder.onlineContent}" var="content" status="status">
+                                <isif condition="${status.index == 6}">
+                                    <isbreak/>
+                                </isif>
                                 <li class="article-list-item">
                                     <isif condition="${content.custom && 'isImportant' in content.custom && content.custom.isImportant}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" focusable="false" viewBox="0 0 12 12" class="icon-star"
@@ -52,10 +55,11 @@
                                 </li>
                             </isloop>
                         </ul>
-
-                        <a href="${URLUtils.url('Page-Show', 'cid', folder.ID)}" class="see-all-articles">
-                            ${Resource.msgf('link.faq.see.all.articles', 'common', null, folder.onlineContent.length)}
-                        </a>
+                        <isif condition="${folder.onlineContent.length > 6}">
+                            <a href="${URLUtils.url('Page-Show', 'cid', folder.ID)}" class="see-all-articles">
+                                ${Resource.msgf('link.faq.see.all.articles', 'common', null, folder.onlineContent.length)}
+                            </a>
+                        </isif>
                     </section>
                 </isloop>
             </div>

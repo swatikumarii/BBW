@@ -20,7 +20,10 @@
         </span>
         <div class="collapsible-sidebar-body">
             <ul>
-                <isloop items="${pdict.contents}" var="content">
+                <isloop items="${pdict.contents}" var="content" status="status">
+                    <isif condition="${status.index == 10}">
+                        <isbreak/>
+                    </isif>
                     <li>
                         <isif condition="${content.ID === pdict.currentContentId}">
                             <a href="${URLUtils.url('Page-Show', 'cid', content.ID)}"
@@ -31,9 +34,11 @@
                     </li>
                 </isloop>
             </ul>
-            <a href="${URLUtils.url('Page-Show', 'cid', pdict.parentFolder.ID)}" class="article-sidebar-item">
-                ${Resource.msg('link.faq.see.more', 'common', null)}
-            </a>
+            <isif condition="${pdict.contents.length > 10}">
+                <a href="${URLUtils.url('Page-Show', 'cid', pdict.currentFolder.ID)}" class="article-sidebar-item">
+                    ${Resource.msg('link.faq.see.more', 'common', null)}
+                </a>
+            </isif>
         </div>
     </div>
 </aside>
