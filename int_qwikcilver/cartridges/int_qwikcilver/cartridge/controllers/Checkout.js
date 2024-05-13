@@ -10,7 +10,8 @@ var BasketMgr = require('dw/order/BasketMgr');
  * Begin: Reset Gift Card Total on Page Refresh
  */
 server.prepend('Begin', function (req, res, next) {
-    var enableQCeGift = Site.current.getCustomPreferenceValue('qwikcilverEnableeGift');
+    var enableQCeGift =
+        Site.current.getCustomPreferenceValue('enableQwikcilver');
     if (enableQCeGift) {
         var Transaction = require('dw/system/Transaction');
         Transaction.wrap(function () {

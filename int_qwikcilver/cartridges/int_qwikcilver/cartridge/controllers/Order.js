@@ -27,10 +27,8 @@ server.prepend(
             var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
             var isGiftProductAvailable =
                 qwikcilverHelpers.validateGiftProduct(order);
-            if (
-                (isGiftProductAvailable &&
-                    order.getPaymentInstruments('AdyenComponent').length > 0) ||
-                order.getPaymentInstruments('CREDIT_CARD').length > 0
+            if ( isGiftProductAvailable && (order.getPaymentInstruments('AdyenComponent').length > 0 ||
+                order.getPaymentInstruments('CREDIT_CARD').length > 0)
             ) {
                 var giftCardAPIResult;
                 var log = dw.system.Logger.getLogger('QwikcilverService');
