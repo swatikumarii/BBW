@@ -5,10 +5,12 @@
 <div class="form-group">
     <div class="form-label-require d-flex align-items-center justify-content-between">
         <label class="form-control-label mb-0" for="addressId">
+        <span class="required-indicator"></span>
             <isprint value="${pdict.addressForm.addressId.label}" encoding="htmlcontent" />
         </label>
-        <span
-            class="${pdict.addressForm.addressId.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
+        <iscomment> <span
+            class="${pdict.addressForm.addressId.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+        </span> </iscomment>
     </div>
     <input type="text" class="form-control" id="addressId"
         data-missing-error="${Resource.msg('error.address.title', 'forms', null)}"
@@ -24,10 +26,12 @@
         <div class="form-group">
             <div class="form-label-require d-flex align-items-center justify-content-between">
                 <label class="form-control-label mb-0" for="firstName">
+                <span class="required-indicator"></span>
                     <isprint value="${pdict.addressForm.firstName.label}" encoding="htmlcontent" />
                 </label>
-                <span
-                    class="${pdict.addressForm.firstName.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
+                <iscomment> <span
+                    class="${pdict.addressForm.firstName.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                </span> </iscomment>
             </div>
             <input type="text" class="form-control" id="firstName"
                 data-missing-error="${Resource.msg('error.first.name', 'forms', null)}"
@@ -44,10 +48,12 @@
         <div class="form-group">
             <div class="form-label-require d-flex align-items-center justify-content-between">
                 <label class="form-control-label mb-0" for="lastName">
+                <span class="required-indicator"></span>
                     <isprint value="${pdict.addressForm.lastName.label}" encoding="htmlcontent" />
                 </label>
-                <span
-                    class="${pdict.addressForm.lastName.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
+                <iscomment> <span
+                    class="${pdict.addressForm.lastName.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                </span> </iscomment>
             </div>
             <input type="text" class="form-control" id="lastName"
                 data-missing-error="${Resource.msg('error.last.name', 'forms', null)}"
@@ -64,10 +70,11 @@
 <div class="form-group">
     <div class="form-label-require d-flex align-items-center justify-content-between">
         <label class="form-control-label mb-0" for="address1">
+        <span class="required-indicator"></span>
             <isprint value="${pdict.addressForm.address1.label}" encoding="htmlcontent" />
         </label>
-        <span
-            class="${pdict.addressForm.address1.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
+        <iscomment> <span
+            class="${pdict.addressForm.address1.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span> </iscomment>
     </div>
     <input type="text" class="form-control" id="address1"
         data-missing-error="${Resource.msg('error.address.line-1', 'forms', null)}"
@@ -81,10 +88,11 @@
 <div class="form-group">
     <div class="form-label-require d-flex align-items-center justify-content-between">
         <label class="form-control-label mb-0" for="address2">
+        <span class="required-indicator"></span>
             <isprint value="${pdict.addressForm.address2.label}" encoding="htmlcontent" />
         </label>
-        <span
-            class="${pdict.addressForm.address2.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
+        <iscomment> <span
+            class="${pdict.addressForm.address2.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span> </iscomment>
     </div>
     <input type="text" class="form-control" id="address2" <isprint value="${pdict.addressForm.address2.attributes}"
         encoding="off" />
@@ -99,10 +107,12 @@
         <div class="form-group select-box">
             <div class="form-label-require d-flex align-items-center justify-content-between">
                 <label class="form-control-label mb-0" for="country">
+                <span class="required-indicator"></span>
                     <isprint value="${pdict.addressForm.country.label}" encoding="htmlcontent" />
                 </label>
-                <span
-                    class="${pdict.addressForm.country.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
+                <iscomment> <span
+                    class="${pdict.addressForm.country.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                </span> </iscomment>
             </div>
             <div class="select-wrap">
                 <select class="form-control" id="country" <isprint value="${pdict.addressForm.country.attributes}"
@@ -124,10 +134,12 @@
         <div class="form-group">
             <div class="form-label-require d-flex align-items-center justify-content-between">
                 <label class="form-control-label mb-0" for="city">
+                <span class="required-indicator"></span>
                     <isprint value="${pdict.addressForm.city.label}" encoding="htmlcontent" />
                 </label>
-                <span
-                    class="${pdict.addressForm.city.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
+                <iscomment> <span
+                    class="${pdict.addressForm.city.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                </span> </iscomment>
             </div>
             <input type="text" class="form-control" id="city"
             data-missing-error="${Resource.msg('address.city.missing', 'forms', null)}" <isprint value="${pdict.addressForm.city.attributes}"
@@ -145,10 +157,12 @@
         <div class="form-group select-box">
             <div class="form-label-require d-flex align-items-center justify-content-between">
                 <label class="form-control-label mb-0" for="state">
+                <span class="required-indicator"></span>
                     <isprint value="${pdict.addressForm.states.stateCode.label}" encoding="htmlcontent" />
                 </label>
-                <span
-                    class="${pdict.addressForm.states.stateCode.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
+                <iscomment> <span
+                    class="${pdict.addressForm.states.stateCode.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                </span> </iscomment>
             </div>
             <div class="select-wrap">
                 <select class="form-control" id="state" <isprint value="${pdict.addressForm.states.stateCode.attributes}"
@@ -170,10 +184,12 @@
         <div class="form-group">
             <div class="form-label-require d-flex align-items-center justify-content-between">
                 <label class="form-control-label mb-0" for="zipCode">
+                <span class="required-indicator"></span>
                     <isprint value="${pdict.addressForm.postalCode.label}" encoding="htmlcontent" />
                 </label>
-                <span
-                    class="${pdict.addressForm.postalCode.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
+                <iscomment> <span
+                    class="${pdict.addressForm.postalCode.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                </span> </iscomment>
             </div>
             <input type="text" class="form-control" id="zipCode"
                 data-missing-error="${Resource.msg('error.message.zip.required', 'forms', null)}"
@@ -190,9 +206,11 @@
 <div class="form-group">
     <div class="form-label-require d-flex align-items-center justify-content-between">
         <label class="form-control-label mb-0" for="phone">
+        <span class="required-indicator"></span>
             <isprint value="${pdict.addressForm.phone.label}" encoding="htmlcontent" />
         </label>
-        <span class="${pdict.addressForm.phone.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}</span>
+        <iscomment> <span class="${pdict.addressForm.phone.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+        </span> </iscomment>
     </div>
     <input type="text" class="form-control" id="phone"
         data-pattern-mismatch="${Resource.msg('error.message.pattern.phone', 'forms', null)}"

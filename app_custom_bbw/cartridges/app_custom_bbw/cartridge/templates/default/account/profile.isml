@@ -13,7 +13,7 @@
     <div class="h-maxwidth--1400 mx-auto my-account">
         <!---Breadcrumbs--->
         <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
-        <div class="row">
+        <div class="row account-dashboard">
 
             <div class="col mobile-my-account h-font-size--14 h-bg--gray-1 h-clr--black-1 text-uppercase">
                 ${Resource.msg('label.myaccount', 'account', null)}
@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-10 col-md-8">
+            <div class="col-lg-10 col-md-8 description-detail">
                 <div class="my-account-description profile">
                     <div class="account-profile">
                         <div class="profile-heading">
