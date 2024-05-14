@@ -116,6 +116,9 @@ function login() {
                             .find('#isMergeCartModal')
                             .modal('show');
                     } else {
+                        if ($('.loginPopup input[name="wishlist-pid"]').val()) {
+                            localStorage.setItem('addToWishList', true);
+                        }
                         window.location.href = data.redirectUrl;
                     }
                 }
