@@ -1,24 +1,44 @@
-<div class="col-md-5 col-3 product-card-footer">
-    <isif condition="${!lineItem.isBonusProductLineItem}">
-        <div class="row">
+<div class="col-md-5 col-3 product-card-footer pr-0">
+    <div class="d-flex">
+        <isif condition="${!lineItem.isBonusProductLineItem}">
 
             <!--- line item total price --->
-            <div class="col-12 line-item-total-price">
-                <iscomment> <p class="line-item-price-info">
-                    ${Resource.msg('label.total.price', 'cart', null)}
-                </p> </iscomment>
+            <div class="line-item-total-price w-100 text-right">
+                <iscomment>
+                    <p class="line-item-price-info">
+                        ${Resource.msg('label.total.price', 'cart', null)}
+                    </p>
+                </iscomment>
                 <div class="item-total-${lineItem.UUID} price">
                     <isinclude template="checkout/productCard/productCardProductTotalPrice" />
                 </div>
             </div>
 
             <!--- extra slot for spacing reasons due to large remove button --->
-            <iscomment> <div class="col-lg-1 hidden-md-down remove-line-item-lg"></div> </iscomment>
-        </div>
+            <iscomment>
+                <div class="col-lg-1 hidden-md-down remove-line-item-lg"></div>
+            </iscomment>
 
-        <!--- promotions --->
-        <iscomment> <div class="line-item-promo item-${lineItem.UUID}">
-            <isinclude template="checkout/productCard/productCardProductPromotions" />
-        </div> </iscomment>
-    </isif>
+            <!--- promotions --->
+            <iscomment>
+                <div class="line-item-promo item-${lineItem.UUID}">
+                    <isinclude template="checkout/productCard/productCardProductPromotions" />
+                </div>
+            </iscomment>
+        </isif>
+
+        <isif condition="${!lineItem.isBonusProductLineItem}">
+            <div class="hidden-md-down">
+                <button type="button" class="remove-btn-lg remove-product border-0 bg-white" data-toggle="modal"
+                    data-target=".cart.cart-page #removeProductModal" data-pid="${lineItem.id}"
+                    data-name="${lineItem.productName}" data-action="${pdict.actionUrls.removeProductLineItemUrl}"
+                    data-uuid="${lineItem.UUID}"
+                    aria-label="${Resource.msgf('text.remove.line.item', 'cart', null, lineItem.productName)}">
+                    <span aria-hidden="true">
+                        <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
+                    </span>
+                </button>
+            </div>
+        </isif>
+    </div>
 </div>

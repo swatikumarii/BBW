@@ -50,6 +50,12 @@ function invalid() {
                 validationMessage = $(this).data('pattern-mismatch');
             }
             if (
+                this.validity.typeMismatch &&
+                $(this).data('pattern-mismatch')
+            ) {
+                validationMessage = $(this).data('pattern-mismatch');
+            }
+            if (
                 (this.validity.rangeOverflow ||
                         this.validity.rangeUnderflow) &&
                     $(this).data('range-error')
@@ -84,6 +90,16 @@ function invalid() {
                     }
                 }
             }
+
+            var form = $(this).closest('form.edit-profile-form');
+            if (form.length > 0) {
+                if (validationMessage) {
+                    $('.submit-edit-profile').addClass('disabled');
+                } else {
+                    $('.submit-edit-profile').removeClass('disabled');
+                }
+            }
+
             $(this)
                 .parents('.form-group')
                 .find('.invalid-feedback')

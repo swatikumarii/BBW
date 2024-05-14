@@ -15,5 +15,6 @@ module.exports = function fullProduct(product, apiProduct, options) {
     decorators.usageInstruction(product, apiProduct);
     decorators.ingredients(product, apiProduct);
     decorators.moreInfo(product, apiProduct);
+    decorators.isEgiftCard(product, apiProduct);
     return product;
 };

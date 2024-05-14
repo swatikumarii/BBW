@@ -32,7 +32,7 @@ if (layout.isMobile()) {
     });
 
     $('.level-2-li').on('click', function (e) {
-        if ($(this).hasClass('active')) {
+        if ($(this).hasClass('active') && (e.target.role !== 'menuitem')) {
             $(this).children('.level-3-ul').removeClass('active');
             $(this).removeClass('active');
         } else {

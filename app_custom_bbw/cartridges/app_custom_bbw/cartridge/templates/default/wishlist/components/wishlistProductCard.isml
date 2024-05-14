@@ -1,5 +1,6 @@
 <div class="card border-0 product-info uuid-${item.UUID} pid-${item.pid}">
     <!--- image, attributes, availability --->
+    <input class="quantity" value="1" type="hidden"/>
     <table class="table">
         <tr>
             <td class="item-image">
@@ -16,9 +17,9 @@
                 </a>
                 </div>
                 ${item.titlePartB}
-                <div class="line-item-id">
+                <p class="line-item-id">
                     ${Resource.msg('label.item.no', 'wishlist', null)}${item.pid}
-                </div>
+                </p>
             </td>
             <td class="item-price">
                 <!---unit price and quantity --->

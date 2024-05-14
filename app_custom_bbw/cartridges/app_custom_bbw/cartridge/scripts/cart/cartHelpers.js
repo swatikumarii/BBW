@@ -107,20 +107,37 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
     }
 
     productInCart = base.getExistingProductLineItemInCart(product, productId, productLineItems, childProducts, options);
+    var isGiftCard =
+        'custom' in product &&
+        'isEgiftCard' in product.custom &&
+        product.custom.isEgiftCard &&
+        product.custom.isEgiftCard === true;
 
-    if (productInCart) {
+    if (productInCart && !isGiftCard) {
         productQuantityInCart = productInCart.quantity.value;
-        quantityToSet = quantity ? quantity + productQuantityInCart : productQuantityInCart + 1;
-        availableToSell = productInCart.product.availabilityModel.inventoryRecord.ATS.value;
+        quantityToSet = quantity
+            ? quantity + productQuantityInCart
+            : productQuantityInCart + 1;
+        availableToSell =
+            productInCart.product.availabilityModel.inventoryRecord.ATS.value;
 
         if (availableToSell >= quantityToSet || perpetual) {
             productInCart.setQuantityValue(quantityToSet);
             result.uuid = productInCart.UUID;
         } else {
             result.error = true;
-            result.message = availableToSell === productQuantityInCart
-                ? Resource.msg('error.alert.max.quantity.in.cart', 'product', null)
-                : Resource.msg('error.alert.selected.quantity.cannot.be.added', 'product', null);
+            result.message =
+                availableToSell === productQuantityInCart
+                    ? Resource.msg(
+                        'error.alert.max.quantity.in.cart',
+                        'product',
+                        null
+                    )
+                    : Resource.msg(
+                        'error.alert.selected.quantity.cannot.be.added',
+                        'product',
+                        null
+                    );
         }
     } else {
         var productLineItem;
@@ -535,23 +552,20 @@ function checkCouponCodeError (couponCode, errorCode) {
 
 /**
  * Function mergeCart merges the items from the stored basket to the currentBasket.
+ * @param {Array} storedBasketProducts - Stored Basket Product detail list
  * @returns {object} resultObj - contain updated basket and boolean value
  */
-function mergeCart() {
+function mergeCart(storedBasketProducts) {
     var Logger = require('dw/system/Logger');
-    var storedBasket = BasketMgr.getStoredBasket();
     var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
     var currentBasket = BasketMgr.getCurrentOrNewBasket();
     var isCartMerged = false;
     var resultObj = {};
 
     try {
-        if (currentBasket && storedBasket) {
-            var productLineItemItr = storedBasket
-                .getAllProductLineItems()
-                .iterator();
-            while (productLineItemItr.hasNext()) {
-                var pli = productLineItemItr.next();
+        if (currentBasket && storedBasketProducts.length) {
+            for (var index = 0; index < storedBasketProducts.length; index++) {
+                var pli = storedBasketProducts[index];
                 if (!pli.bundledProductLineItem && !pli.optionProductLineItem) {
                     var childProducts = [];
                     var optionProducts = [];

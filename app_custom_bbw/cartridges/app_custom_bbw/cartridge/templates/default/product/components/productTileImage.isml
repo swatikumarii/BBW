@@ -27,12 +27,12 @@
             data-interval="0" data-prev="${Resource.msg('button.previous', 'common', null)}"
             data-next="${Resource.msg('button.next', 'common', null)}">
             <div class="carousel-inner" role="listbox">
-                <a class="d-block" href="${pdict.urls.product}">
+                <a class="d-block" href="${product.isEgiftCard ? URLUtils.url('Giftcard-Show', 'pid', product.id).relative().toString() : pdict.urls.product}">
                     <isloop items="${product.images['medium']}" var="image" status="loopStatus">
                         <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
                             <div class="carousel-img-wrapper d-flex h-maxheight--300">
-                                <img src="${image.url}"
-                                    class="w-100 h-100 mx-auto b-product-tile__img carousel-product-img"
+                                <img data-src="${image.url}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E"
+                                    class="w-100 h-100 mx-auto b-product-tile__img carousel-product-img lazy"
                                     alt="${image.alt} image number ${image.index}" itemprop="image" width="202px"
                                     height="300px" />
                             </div>
@@ -55,16 +55,16 @@
         </div>
     <iselseif condition="${product.images['medium'].length == 2}" />
         <isloop items="${product.images['medium']}" var="image" status="loopStatus">
-            <a class="d-lg-block h-hidden-sm-down" href="${pdict.urls.product}">
+            <a class="d-none d-md-none d-lg-block h-hidden-sm-down" href="${product.isEgiftCard ? URLUtils.url('Giftcard-Show', 'pid', product.id).relative().toString() : pdict.urls.product}">
                 <div class='img-inner-wrapper ${loopStatus.index == 0 ? ' main-img-wrapper' : 'hover-img-wrapper'}'>
-                    <img class="tile-image b-product-tile__img mx-auto w-100" src="${image.url}"
-                        alt="${product.productName}" title="${image.title}" itemprop="image" width="202px"
+                    <img class="tile-image b-product-tile__img mx-auto w-100 lazy" data-src="${image.url}"
+                        alt="${product.productName}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E" title="${image.title}" itemprop="image" width="202px"
                         height="300px" />
                 </div>
             </a>
         </isloop>
         <div id="plpCarousel-${product.id}"
-            class="carousel slide b-product-tile__carousel js-product-carousel d-lg-none" data-interval="0"
+            class="carousel slide b-product-tile__carousel js-product-carousel d-block d-md-block d-lg-none" data-interval="0"
             data-prev="${Resource.msg('button.previous', 'common', null)}"
             data-next="${Resource.msg('button.next', 'common', null)}">
             <div class="carousel-inner" role="listbox">
@@ -72,8 +72,8 @@
                     <isloop items="${product.images['medium']}" var="image" status="loopStatus">
                         <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
                             <div class="carousel-img-wrapper d-flex h-maxheight--300">
-                                <img src="${image.url}"
-                                    class="w-100 h-100 mx-auto b-product-tile__img carousel-product-img"
+                                <img data-src="${image.url}" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E"
+                                    class="w-100 h-100 mx-auto b-product-tile__img carousel-product-img lazy"
                                     alt="${image.alt} image number ${image.index}" itemprop="image" width="202px"
                                     height="300px" />
                             </div>
@@ -96,30 +96,30 @@
         </div>
     <iselseif condition="${product.images['medium'].length < 2}" />
         <isloop items="${product.images['medium']}" var="image" status="loopStatus">
-            <a class="d-block" href="${pdict.urls.product}">
-                <div class='img-inner-wrapper'>
-                    <img class="tile-image b-product-tile__img mx-auto w-100" src="${image.url}"
-                        alt="${product.productName}" title="${image.title}" itemprop="image" width="202px"
+            <a class="d-block" href="${product.isEgiftCard ? URLUtils.url('Giftcard-Show', 'pid', product.id).relative().toString() : pdict.urls.product}">
+                <div class='img-inner-wrapper lazy-skeleton'>
+                    <img class="tile-image b-product-tile__img mx-auto w-100 lazy" data-src="${image.url}"
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E" alt="${product.productName}" title="${image.title}" itemprop="image" width="202px"
                         height="300px" />
+                    <div class="skeleton-loader"></div>
                 </div>
             </a>
         </isloop>
     </isif>
-
-    <iscomment> <a
-            class="b-product-tile__wishlistTile wishlistTile position-absolute add-to-wish-list ${pdict.itemExist ? 'added' : ''}"
+    <isif condition="${!product.isEgiftCard}">
+        <iscomment> <a class="b-product-tile__wishlistTile wishlistTile position-absolute add-to-wish-list ${pdict.itemExist ? 'added' : ''}"
             href="${URLUtils.url('Wishlist-AddProduct')}"
             title="${Resource.msg('wishlist.addto.wishlist.heart', 'wishlist', null)}">
             <span class="fa-stack fa-lg">
                 <i class="icon-wishlist icon-heart-o"></i>
-                <i class="icon-wishlist icon-heart-filled"></i>
+                <i class="fa fa-heart-o fa-stack-1x"></i>
             </span>
         </a> </iscomment>
-
-    <isif condition="${pdict.display.showQuickView !== false}">
-        <a class="b-product-tile__quickview quickview h-hidden-sm-down position-absolute" href="${pdict.urls.quickView}"
-            data-toggle="modal" data-target="#quickViewModal"
-            title="${Resource.msg('label.btn.quicklook', 'search', null)}"
-            aria-label="${Resource.msgf('button.quickview', 'common', null, product.productName)}">${Resource.msg('label.btn.quicklook', 'search', null)}</a>
+        <isif condition="${pdict.display.showQuickView !== false}">
+            <a class="b-product-tile__quickview quickview hidden-sm-down position-absolute"
+                href="${pdict.urls.quickView}" data-toggle="modal" data-target="#quickViewModal"
+                title="${Resource.msg('label.btn.quicklook', 'search', null)}"
+                aria-label="${Resource.msgf('button.quickview', 'common', null, product.productName)}">${Resource.msg('label.btn.quicklook', 'search', null)}</a>
+        </isif>
     </isif>
 </div>

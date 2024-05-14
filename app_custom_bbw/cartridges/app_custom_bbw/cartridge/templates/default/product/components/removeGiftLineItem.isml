@@ -1,0 +1,35 @@
+<div class="modal fade" id="delete-gift-certificate-line-item-modal" tabindex="-1" role="dialog" aria-labelledby="delete-gift-certificate-line-item-modal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header delete-confirmation-body">
+                <h5 class="modal-title">${Resource.msg('egift.delete.product.confirmation.modal.msg1','giftcards',null)}</h5>
+                <button type="button" class="close pull-right" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only"> </span>
+                </button>
+                <p class="product-to-remove"></p>
+            </div>
+            <div class="modal-body delete-confirmation-body">
+                <span class="modal-content-data">${Resource.msg('egift.delete.product.confirmation.modal.msg2','giftcards',null)}</span>
+                <p class="product-to-remove"></p>
+            </div>
+            <div class="modal-footer">
+                <isif condition="${isBundlePage}">
+                    <button type="button" class="btn delete-egiftitem-confirmation-btn"
+                        data-dismiss="modal"
+                        data-pid="${product.id}"
+                        data-addtocarturl="${addToCartUrl}"
+                        data-action="${removeLineItemURL}"
+                    >${Resource.msg('button.confirm','address',null)}</button>
+                <iselse/>
+                    <button type="button" class="btn delete-egiftitem-confirmation-btn"
+                        data-dismiss="modal"
+                        data-pid="${product.id}"
+                        data-addtocarturl="${URLUtils.url('Cart-AddProduct')}"
+                        data-action="${URLUtils.url('Giftcard-RemoveLineItems')}"
+                    >${Resource.msg('button.confirm','address',null)}</button>
+                </isif>
+            </div>
+        </div>
+    </div>
+</div>
