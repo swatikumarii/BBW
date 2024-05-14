@@ -79,7 +79,8 @@ $(document).ready(function () {
             { name: 'rule1lowercase', pattern: /[a-z]/ },
             { name: 'rule1uppercase', pattern: /[A-Z]/ },
             { name: 'rule1number', pattern: /\d/ },
-            { name: 'ruleNoSpaces', pattern: /[@$!%*?&]/ }
+            { name: 'ruleNoSpaces', pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,50}$/ },
+            { name: 'ruleSpecialChar', pattern: /[@$!%*?&]/ }
         ];
 
         rules.forEach(function (rule) {
