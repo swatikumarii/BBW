@@ -1,6 +1,7 @@
 'use strict';
 
 var cart = require('../cart/cart');
+var layout = require('../utils/layout');
 
 var updateMiniCart = true;
 var location = window.location;
@@ -68,8 +69,10 @@ module.exports = function () {
     });
     $('body').on('product:afterAddToCart', function () {
         updateMiniCart = true;
-        $('.minicart').trigger('click');
-        $('.minicart').find('.popover-bottom').addClass('show');
+        if (layout.isDesktop() || layout.isTablet()) {
+            $('.minicart').trigger('click');
+            $('.minicart').find('.popover-bottom').addClass('show');
+        }
     });
     $('body').on('cart:update', function () {
         updateMiniCart = true;
