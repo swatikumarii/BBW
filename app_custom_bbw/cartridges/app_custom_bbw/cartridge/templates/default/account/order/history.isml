@@ -25,7 +25,9 @@
                     <div class="account-profile">
                         <div class="profile-heading">
                             <h1>${Resource.msg('label.orderhistory', 'account', null)}</h1>
-                            <div class="h-font-size--12">${Resource.msg('label.noOrder', 'account', null)}</div>
+                            <isif condition="${empty(pdict.orders)}">
+                                <div class="h-font-size--12">${Resource.msg('label.noOrder', 'account', null)}</div>
+                            </isif>
                         </div>
                     </div>
                 </div>

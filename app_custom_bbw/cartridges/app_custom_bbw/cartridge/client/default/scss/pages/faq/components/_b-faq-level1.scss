@@ -1,0 +1,69 @@
+.category-container {
+    .category-content {
+        .content-heading {
+            h1 {
+                flex-grow: 1;
+                margin: 0.67em 0 10px;
+                color: colour(black, 8);
+            }
+        }
+
+        .section-tree {
+            flex-direction: column;
+
+            @include media-up(sm) {
+                flex-direction: row;
+            }
+
+            .section {
+                flex: 0 0 45%;
+                margin-bottom: 60px;
+                padding: 4px;
+
+                .section-tree-title {
+                    margin-top: 40px;
+                    padding: 2px;
+
+                    a {
+                        color: colour(black, 8);
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+
+                    .article-list-item {
+                        font-size: 16px;
+                        padding: 15px 0;
+
+                        .icon-star {
+                            color: colour(blue, 10);
+                            margin-right: 4px;
+                            margin-bottom: 3px;
+                        }
+
+                        a {
+                            color: colour(black, 10);
+                        }
+                    }
+                }
+            }
+
+            .see-all-articles {
+                color: colour(blue, 10);
+                display: inline-block;
+                margin: 20px 0;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

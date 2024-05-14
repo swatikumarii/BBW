@@ -118,10 +118,243 @@ function sendCreateAccountEmail(registeredUser) {
     emailHelpers.sendEmail(emailObj, 'mail/account/accountRegisteredEmail', userObject);
 }
 
+/**
+ * Send an email that would notify the user that account was edited
+ * @param {object} profile - object that contains user's profile information.
+ */
+function sendAccountEditedEmail(profile) {
+    var Site = require('dw/system/Site');
+    var Resource = require('dw/web/Resource');
+
+    var emailContent = ContentMgr.getContent('email-account-edited'); // Forgot Password Content Asset Id
+    var emailMarkup = '';
+
+    if (!empty(emailContent) && emailContent.online) {
+        emailMarkup = emailContent.custom.body.markup;
+        emailMarkup = emailMarkup.replace('{{customerName}}', profile.firstName);
+    }
+
+    var userObject = {
+        firstName: profile.firstName,
+        lastName: profile.lastName,
+        url: URLUtils.https('Login-Show'),
+        markup: emailMarkup,
+        content: emailContentHelpers.getEmailContent('normal-footer','email-header')
+    };
+
+    var emailObj = {
+        to: profile.email,
+        subject: Resource.msg('email.subject.account.edited', 'account', null),
+        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+        type: emailHelpers.emailTypes.accountEdited
+    };
+
+    emailHelpers.sendEmail(emailObj, 'mail/account/accountEditedEmail', userObject);
+}
+
+/**
+ * Send an email that would notify the user that address was added
+ * @param {object} profile - object that contains user's profile information.
+ */
+function sendAddAddressEmail(profile) {
+    var Site = require('dw/system/Site');
+    var Resource = require('dw/web/Resource');
+
+    var emailContent = ContentMgr.getContent('email-add-address'); // Forgot Password Content Asset Id
+    var emailMarkup = '';
+    var url = URLUtils.https('Login-Show');
+
+    if (!empty(emailContent) && emailContent.online) {
+        emailMarkup = emailContent.custom.body.markup;
+        emailMarkup = emailMarkup.replace('{{customerName}}', profile.firstName);
+        emailMarkup = emailMarkup.replace('{{myAccountLink}}', url);
+    }
+
+    var userObject = {
+        firstName: profile.firstName,
+        lastName: profile.lastName,
+        url: url,
+        markup: emailMarkup,
+        content: emailContentHelpers.getEmailContent('normal-footer','email-header')
+    };
+
+    var emailObj = {
+        to: profile.email,
+        subject: Resource.msg('email.subject.account.edited', 'account', null),
+        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+        type: emailHelpers.emailTypes.accountEdited
+    };
+
+    emailHelpers.sendEmail(emailObj, 'mail/account/address/addAddressEmail', userObject);
+}
+
+/**
+ * Send an email that would notify the user that address was edited
+ * @param {object} profile - object that contains user's profile information.
+ */
+function sendEditAddressEmail(profile) {
+    var Site = require('dw/system/Site');
+    var Resource = require('dw/web/Resource');
+
+    var emailContent = ContentMgr.getContent('email-edit-address'); // Forgot Password Content Asset Id
+    var emailMarkup = '';
+    var url = URLUtils.https('Login-Show');
+
+    if (!empty(emailContent) && emailContent.online) {
+        emailMarkup = emailContent.custom.body.markup;
+        emailMarkup = emailMarkup.replace('{{customerName}}', profile.firstName);
+        emailMarkup = emailMarkup.replace('{{myAccountLink}}', url);
+    }
+
+    var userObject = {
+        firstName: profile.firstName,
+        lastName: profile.lastName,
+        url: url,
+        markup: emailMarkup,
+        content: emailContentHelpers.getEmailContent('normal-footer','email-header')
+    };
+
+    var emailObj = {
+        to: profile.email,
+        subject: Resource.msg('email.subject.account.edited', 'account', null),
+        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+        type: emailHelpers.emailTypes.accountEdited
+    };
+
+    emailHelpers.sendEmail(emailObj, 'mail/account/address/editAddressEmail', userObject);
+}
+
+/**
+ * Send an email that would notify the user that address was deleted
+ * @param {object} profile - object that contains user's profile information.
+ */
+function sendDeleteAddressEmail(profile) {
+    var Site = require('dw/system/Site');
+    var Resource = require('dw/web/Resource');
+
+    var emailContent = ContentMgr.getContent('email-delete-address'); // Forgot Password Content Asset Id
+    var emailMarkup = '';
+    var url = URLUtils.https('Login-Show');
+
+    if (!empty(emailContent) && emailContent.online) {
+        emailMarkup = emailContent.custom.body.markup;
+        emailMarkup = emailMarkup.replace('{{customerName}}', profile.firstName);
+        emailMarkup = emailMarkup.replace('{{myAccountLink}}', url);
+    }
+
+    var userObject = {
+        firstName: profile.firstName,
+        lastName: profile.lastName,
+        url: url,
+        markup: emailMarkup,
+        content: emailContentHelpers.getEmailContent('normal-footer','email-header')
+    };
+
+    var emailObj = {
+        to: profile.email,
+        subject: Resource.msg('email.subject.account.edited', 'account', null),
+        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+        type: emailHelpers.emailTypes.accountEdited
+    };
+
+    emailHelpers.sendEmail(emailObj, 'mail/account/address/deleteAddressEmail', userObject);
+}
+
+/**
+ * Sends the email with password reset instructions
+ * @param {string} email - email for password reset
+ * @param {object} resettingCustomer - the customer requesting password reset
+ */
+function sendPasswordResetEmailForMigrated(email, resettingCustomer) {
+    var Resource = require('dw/web/Resource');
+    var Site = require('dw/system/Site');
+    var emailContent = ContentMgr.getContent('password-reset-notification-mail');
+    var emailMarkup = '';
+    var passwordResetToken = getPasswordResetToken(resettingCustomer);
+    var url = URLUtils.https('Account-SetNewPassword', 'Token', passwordResetToken);
+
+    if (!empty(emailContent) && emailContent.online) {
+        emailMarkup = emailContent.custom.body.markup;
+        emailMarkup = emailMarkup.replace('{{customerName}}', resettingCustomer.profile.firstName);
+        emailMarkup = emailMarkup.replace('{{resetPasswordLink}}', url);
+        emailMarkup = emailMarkup.replace('{{resetPasswordText}}', url.toString());
+    }
+
+    var objectForEmail = {
+        passwordResetToken: passwordResetToken,
+        markup: emailMarkup,
+        preHeader: Resource.msg('text.preheader.account.password.reset', 'email', null),
+        content: emailContentHelpers.getEmailContent('normal-footer')
+    };
+
+    var emailObj = {
+        to: email,
+        subject: Resource.msg('subject.profile.resetpassword.email', 'login', null),
+        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+        type: emailHelpers.emailTypes.passwordChanged
+    };
+
+    emailHelpers.sendEmail(emailObj, 'mail/account/password/passwordResetEmail', objectForEmail);
+}
+
+/**
+ * @param {dw.customer.Customer} customer - Customer
+ * @returns {boolean} true is migrated user never changed his/her password else false
+ */
+function isMigratedCustomerRequiredToChangePassword(customer) {
+    return (
+        customer &&
+        customer.profile &&
+        customer.profile.custom &&
+        'migratedCustomer' in customer.profile.custom &&
+        customer.profile.custom.migratedCustomer &&
+        (!('isPasswordUpdated' in customer.profile.custom) ||
+        !customer.profile.custom.isPasswordUpdated)
+    );
+}
+
+/**
+ * @param {string} email - Email address
+ * @returns {boolean} true is migrated user never changed his/her password else false
+ */
+function handleMigratedCustomers(email) {
+    var CustomerMgr = require('dw/customer/CustomerMgr');
+    if (email) {
+        var isValidEmail = emailHelpers.validateEmail(email);
+        if (isValidEmail) {
+            var customer = CustomerMgr.getCustomerByLogin(email);
+            if (isMigratedCustomerRequiredToChangePassword(customer)) {
+                sendPasswordResetEmailForMigrated(email, customer);
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+/**
+ * @param {dw.customer.Customer} customer - customer
+ */
+function updateMigratedUsersPasswordChangeFlag(customer) {
+    var Transaction = require('dw/system/Transaction');
+    if (isMigratedCustomerRequiredToChangePassword(customer)) {
+        Transaction.wrap(function () {
+            // eslint-disable-next-line no-param-reassign
+            customer.profile.custom.isPasswordUpdated = true;
+        });
+    }
+}
+
 module.exports = {
     isValidDate: isValidDate,
     sendPasswordResetEmail: sendPasswordResetEmail,
-    sendCreateAccountEmail: sendCreateAccountEmail
+    sendCreateAccountEmail: sendCreateAccountEmail,
+    sendAccountEditedEmail: sendAccountEditedEmail,
+    sendAddAddressEmail: sendAddAddressEmail,
+    sendEditAddressEmail: sendEditAddressEmail,
+    sendDeleteAddressEmail: sendDeleteAddressEmail,
+    handleMigratedCustomers: handleMigratedCustomers,
+    updateMigratedUsersPasswordChangeFlag: updateMigratedUsersPasswordChangeFlag
 };
 
 Object.keys(base).forEach(function (prop) {
