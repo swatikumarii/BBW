@@ -245,7 +245,7 @@ server.get(
                 res.redirect(URLUtils.url('Account-Show'));
             }
         } else {
-            res.redirect(URLUtils.url('Home-Show'));
+            res.redirect(URLUtils.url('Account-Show'));
         }
         return next();
     }
