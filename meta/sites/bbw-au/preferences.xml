@@ -70,7 +70,7 @@
                     {"country":"Malasiya", "site": "https://www.bathandbody.my"}
                 ]
             </preference>
-            <preference preference-id="googleScriptEnabled">true</preference>
+            <preference preference-id="googleScriptEnabled">false</preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
