@@ -302,6 +302,24 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-value>0.0</min-value>
             </attribute-definition>
+            <attribute-definition attribute-id="gtmScriptEnabled">
+                <display-name xml:lang="x-default">Enable Google Tracking</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="gtmBodyScript">
+                <display-name xml:lang="x-default">GTM Body Script</display-name>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="gtmHeadScript">
+                <display-name xml:lang="x-default">GTM Head Script</display-name>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="disImageSourceEnvironment">
                 <display-name xml:lang="x-default">DIS Image Source Environment</display-name>
                 <description xml:lang="x-default">Defines which environment is used to actually load the product images from.</description>
@@ -1097,6 +1115,12 @@
             <attribute-group group-id="Dynamic Imaging Service">
                 <display-name xml:lang="x-default">Dynamic Imaging Service</display-name>
                 <attribute attribute-id="disImageSourceEnvironment"/>
+            </attribute-group>
+            <attribute-group group-id="Event Tracking">
+                <display-name xml:lang="x-default">Event Tracking</display-name>
+                <attribute attribute-id="googleScriptEnabled"/>
+                <attribute attribute-id="gtmHeadScript"/>
+                <attribute attribute-id="gtmBodyScript"/>
             </attribute-group>
             <attribute-group group-id="qwikcilver">
                 <display-name xml:lang="x-default">Qwikcilver</display-name>

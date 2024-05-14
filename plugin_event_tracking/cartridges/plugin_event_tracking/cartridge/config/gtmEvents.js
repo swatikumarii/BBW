@@ -11,5 +11,6 @@ module.exports = {
     PRODUCT_TILE_CLICK: 'productTileClick',
     REMOVE_PRODUCT_LINE_ITEM_FROM_CART: 'removeFromCart',
     SEARCH_SHOW: 'impressionSent',
+    SIGN_IN_FAILURE: 'signin_failure',
     SIGN_UP: 'sign_up'
 };
