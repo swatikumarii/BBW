@@ -167,8 +167,8 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-            <attribute-definition attribute-id="countryCode">
-                <display-name xml:lang="x-default">Country Code</display-name>
+            <attribute-definition attribute-id="dialCode">
+                <display-name xml:lang="x-default">Country DialCode</display-name>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -186,8 +186,14 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-            <attribute-definition attribute-id="migrationStatus">
-                <display-name xml:lang="x-default">Migration Status</display-name>
+            <attribute-definition attribute-id="isPasswordUpdated">
+                <display-name xml:lang="x-default">Password Updated Status</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+			<attribute-definition attribute-id="isProflieComplete">
+                <display-name xml:lang="x-default">Profile Complete Status</display-name>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -219,12 +225,46 @@
             <attribute-group group-id="MigrationAttribute">
                 <display-name xml:lang="x-default">Migration Attribute</display-name>
                 <attribute attribute-id="migratedCustomer"/>
-                <attribute attribute-id="migrationStatus"/>
+                <attribute attribute-id="isPasswordUpdated"/>
+				<attribute attribute-id="isProflieComplete"/>
                 <attribute attribute-id="registrationSource"/>
                 <attribute attribute-id="receiveOffers"/>
                 <attribute attribute-id="activatedDate"/>
                 <attribute attribute-id="lastModified"/>
-                <attribute attribute-id="countryCode"/>
+                <attribute attribute-id="dialCode"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="CustomerAddress">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="email">
+                <display-name xml:lang="x-default">Email</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="dialCode">
+				<display-name xml:lang="x-default">Country DialCode</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+			<attribute-definition attribute-id="lastModified">
+                <display-name xml:lang="x-default">Last Modified</display-name>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="MigrationAttribute">
+                <display-name xml:lang="x-default">Migration Attribute</display-name>
+                <attribute attribute-id="email"/>
+                <attribute attribute-id="lastModified"/>
+                <attribute attribute-id="dialCode"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
