@@ -10,7 +10,7 @@ var Transaction = require('dw/system/Transaction');
  * Faq-UpdateVote : UpdateVote
  * @name Faq-UpdateVote
  */
-server.post('UpdateVote', function (req, res, next) {
+server.post('UpdateVote', function (req) {
     var apiContent = ContentMgr.getContent(req.form.currentContentId);
     if (apiContent) {
         Transaction.wrap(function () {
@@ -37,6 +37,30 @@ server.post('UpdateVote', function (req, res, next) {
                 apiContent.custom.articleHelpfulYes
         )
     };
+});
+
+/**
+ * Faq-UpdateVote : UpdateVote
+ * @name Faq-UpdateVote
+ */
+server.post('GetContentAssets', function (req, res, next) {
+    var contentIds = req.form.contentIds;
+    var contentAssets = [];
+    if (contentIds) {
+        contentIds = contentIds.split(',');
+        for (var i = 0; i < contentIds.length; i++) {
+            if (contentIds[i] !== req.form.currentContentId) {
+                var content = ContentMgr.getContent(contentIds[i]);
+                if (content) {
+                    contentAssets.push(content);
+                }
+            }
+        }
+    }
+    res.render('/content/faqRecentArticlesLi', {
+        contentAssets: contentAssets
+    });
+    next();
 });
 
 module.exports = server.exports();

@@ -4,6 +4,7 @@
     <span class="article-votes-question" id="article-votes-label">
         ${Resource.msg('faq.was.article.helpful', 'faq', null)}
     </span>
+    <input type="hidden" class="get-content-asset-url" value="${URLUtils.url('Faq-GetContentAssets')}" />
     <input type="hidden" class="article-helpful-url" value="${URLUtils.url('Faq-UpdateVote')}" />
     <input type="hidden" class="current-content-id" value="${pdict.currentContentId}" />
     <div class="article-votes-controls" role="group" aria-labelledby="article-votes-label">
@@ -26,7 +27,7 @@
 <div class="article-relatives">
     <section class="recent-articles">
         <h2 class="recent-articles-title">${Resource.msg('faq.recently.viewed.articles', 'faq', null)}</h2>
-        <ul>
+        <ul class="recent-article-ul">
             <isloop items="${pdict.relatedArticles}" var="relatedArticle">
                 <li>
                     <a href="${URLUtils.url('Page-Show', 'cid', relatedArticle.ID)}">
