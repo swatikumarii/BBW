@@ -4,7 +4,9 @@
         assets.addCss('/css/account/account.css');
     </isscript>
 
-<iscomment> <h3 class="headinfo-year">2024 Orders</h3> </iscomment>
+<iscomment>
+    <h3 class="headinfo-year">2024 Orders</h3>
+</iscomment>
 <div class="card">
     <div class="card-head card-info-group">
         <div class="d-md-flex d-block align-items-center justify-content-between">
@@ -17,7 +19,7 @@
                     <span class="h-clr--black">
                         <isprint value="${order.orderNumber}" /></span>
                 </p>
-                <p class="my-order-total mb-0">${Resource.msg('label.orderhistory.ordertotal', 'account', null)} : 
+                <p class="my-order-total mb-0">${Resource.msg('label.orderhistory.ordertotal', 'account', null)} :
                     <span class="h-clr--black">${order.priceTotal}</span>
                 </p>
             </div>
@@ -32,13 +34,11 @@
                     <span>${Resource.msg('label.reorder.btn', 'order', null)}</span>
                 </button>
 
-                <div id="add-order-to-cart-snackbar">${Resource.msg('item.added.to.cart', 'common', null)}</div>
-
                 <button id="invoiceDownload" class="invoice-download btn btn-hover"
                     data-action="${order.invoiceDownloadUrl}">${Resource.msg('account.download', 'account', null)}
                 </button>
             </div>
-
+            <div id="add-order-to-cart-snackbar">${Resource.msg('item.added.to.cart', 'common', null)}</div>
         </div>
     </div>
 </div>
