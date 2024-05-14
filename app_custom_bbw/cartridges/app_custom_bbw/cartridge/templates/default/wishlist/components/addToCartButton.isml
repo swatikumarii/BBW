@@ -8,6 +8,8 @@
     >
         ${Resource.msg('button.addToBag', 'common', null)}
     </button>
+
+    <div id="add-wishlist-to-cart-snackbar">${Resource.msg('item.added.to.cart', 'common', null)}</div>
 </div>
 
 

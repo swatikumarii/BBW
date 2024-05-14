@@ -138,6 +138,7 @@
 
             td.item-image {
                 width: 72px;
+                padding: 0 0 48px;
 
                 @include media-down(sm) {
                     float: left;
@@ -152,6 +153,14 @@
                     font-weight: map-get($font-weight, semibold);
                     letter-spacing: 0.01em;
                     max-width: 200px;
+
+                    a {
+                        font-size: 16px;
+
+                        &:hover {
+                            color: colour(black, 1);
+                        }
+                    }
                 }
 
                 @include media-down(sm) {
@@ -184,6 +193,15 @@
                 .createDate {
                     font-size: 0.6875rem;
                     color: colour(gray);
+                }
+
+                .promotion-callout {
+                    margin-bottom: 10px;
+                    line-height: 0.5;
+
+                    .callout-message {
+                        font-size: 0.6875rem;
+                    }
                 }
             }
 
@@ -221,6 +239,7 @@
                         display: inline-flex;
                         justify-content: end;
                         align-items: center;
+                        padding-right: 0;
 
                         @include media-down(sm) {
                             padding: 0;
@@ -267,6 +286,12 @@
             }
         }
     }
+}
+
+.view-button {
+    min-height: auto;
+    font-size: 0.6875rem;
+    width: 163px;
 }
 
 .pw-requirements {
@@ -322,4 +347,64 @@
 .pw-requirements .pw-requirement > span {
     line-height: 1.375rem;
     padding-left: 30px;
+}
+
+#add-wishlist-to-cart-snackbar {
+    text-align: left;
+    visibility: hidden;
+    z-index: 1;
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translate(-50%);
+    box-shadow:
+        0 8px 10px 1px rgba(0, 0, 0, 14%),
+        0 3px 14px 2px rgba(0, 0, 0, 12%),
+        0 5px 5px -3px rgba(0, 0, 0, 2%);
+    width: 320px;
+    padding: 14px 16px 14px 46px;
+    gap: 8px;
+    background-color: colour(green, 6);
+    color: colour(green, 2);
+
+    &::before {
+        background-image: url("../../images/pdp/check-circle-fill.svg");
+        height: 24px;
+        left: 13px;
+        position: absolute;
+        width: 24px;
+        background-repeat: no-repeat;
+        content: "";
+    }
+
+    &.show {
+        visibility: visible;
+        animation:
+            fade-in-order 0.5s,
+            fade-out-order 0.5s 2.5s;
+    }
+
+    @keyframes fade-in-order {
+        from {
+            bottom: 0;
+            opacity: 0;
+        }
+
+        to {
+            bottom: 30px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes fade-out-order {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
+    }
 }
