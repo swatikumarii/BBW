@@ -1,6 +1,9 @@
 'use strict';
 
 $(document).ready(function () {
+    $('#loginModal').on('hidden.bs.modal', function () {
+        $('.loginPopup input[name="wishlist-pid"]').val('').trigger('change');
+    });
     if (localStorage.getItem('addToWishList')) {
         if (!$('.remove-from-wishlist').hasClass('d-block')) {
             $('.add-to-wish-list').click();
@@ -48,7 +51,7 @@ module.exports = {
                 },
                 success: function (data) {
                     if (data.loginShow === true) {
-                        localStorage.setItem('addToWishList', true);
+                        $('.loginPopup input[name="wishlist-pid"]').val(data.pid).trigger('change');
                         $('.loginPopup').find('#loginModal').modal('show');
                     } else {
                         $('.loginPopup')

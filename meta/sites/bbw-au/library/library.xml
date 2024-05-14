@@ -11600,7 +11600,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                 &lt;/tr&gt;&#13;
 				&lt;tr&gt;&#13;
                     &lt;td&gt;&#13;
-                        &lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation" style="padding-top: 40px;"&gt;&#13;
+                        &lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation" style="padding: 40px 0;"&gt;&#13;
                             &lt;tbody&gt;&#13;
                                 &lt;tr&gt;&#13;
                                     &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;&#13;
@@ -11978,6 +11978,102 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         &lt;/p&gt;&#13;
     &lt;/td&gt;&#13;
 &lt;/tr&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+	
+    <content content-id="email-delete-address">
+        <display-name xml:lang="x-default">Email Delete Address</display-name>
+        <description xml:lang="x-default">Email Delete Address: : In this body we can use {{customerName}} and  {{myAccountLink}} construction which will be replaced to appropriate data</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;h1 style="margin:0 0 20px;font-size:24px;color:#333;font-weight:500;line-height:24px"&gt;Hi {{customerName}},&lt;/h1&gt;&#13;
+&lt;p style="margin:0;font-size:18px;font-weight:400;text-align:center;color:#333"&gt;Success! You Deleted Your Address&lt;/p&gt;&#13;
+&lt;table align="center" cellpadding="0 " cellspacing="0" width="100%" style="margin:0 auto"&gt;&#13;
+    &lt;tbody&gt;&#13;
+        &lt;tr style="text-align:center"&gt;&#13;
+            &lt;td style="color:#333;font-size:14px"&gt;&#13;
+                &lt;div style="border:2px solid #ccc;text-align:center;margin:10px 0px;padding:20px"&gt;&#13;
+                    &lt;p style="margin-top:0"&gt;Want to check your info or make other changes?&lt;/p&gt;&#13;
+                    &lt;div&gt;&#13;
+                        &lt;!--[if mso]&gt;&#13;
+									&lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href=" {{myAccountLink}} " style="height:40px;v-text-anchor:middle;width:180px;" strokecolor="#333" fillcolor="#333"&gt;&#13;
+										&lt;w:anchorlock/&gt;&#13;
+										&lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"&gt;Go to my Account&lt;/center&gt;&#13;
+									&lt;/v:rect&gt;&#13;
+								&lt;![endif]--&gt;&lt;a href=" {{myAccountLink}} "&#13;
+                            style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;"&gt;Go to my Account&lt;/a&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/td&gt;&#13;
+        &lt;/tr&gt;&#13;
+    &lt;/tbody&gt;&#13;
+&lt;/table&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+	
+    <content content-id="email-add-address">
+        <display-name xml:lang="x-default">Email Add Address Content</display-name>
+        <description xml:lang="x-default">Add Address Email Content : In this body we can use {{customerName}} construction which will be replaced to appropriate data</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;h1 style="margin:0 0 20px;font-size:24px;color:#333;font-weight:500;line-height:24px"&gt;Hi {{customerName}},&lt;/h1&gt;&#13;
+&lt;p style="margin:0;font-size:18px;font-weight:400;text-align:center;color:#333"&gt;Success! You Added New Address&lt;/p&gt;&#13;
+&lt;table align="center" cellpadding="0 " cellspacing="0" width="100%" style="margin:0 auto"&gt;&#13;
+    &lt;tbody&gt;&#13;
+        &lt;tr style="text-align:center"&gt;&#13;
+            &lt;td style="color:#333;font-size:14px"&gt;&#13;
+                &lt;div style="border:2px solid #ccc;text-align:center;margin:10px 0px;padding:20px"&gt;&#13;
+                    &lt;p style="margin-top:0"&gt;Want to check your info or make other changes?&lt;/p&gt;&#13;
+                    &lt;div&gt;&#13;
+                        &lt;!--[if mso]&gt;&#13;
+									&lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="$url('Login-Show')$" style="height:40px;v-text-anchor:middle;width:180px;" strokecolor="#333" fillcolor="#333"&gt;&#13;
+										&lt;w:anchorlock/&gt;&#13;
+										&lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;"&gt;Go to my Account&lt;/center&gt;&#13;
+									&lt;/v:rect&gt;&#13;
+								&lt;![endif]--&gt;&lt;a href=" {{myAccountLink}} "&#13;
+                            style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;"&gt;Go to my Account&lt;/a&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/td&gt;&#13;
+        &lt;/tr&gt;&#13;
+    &lt;/tbody&gt;&#13;
+&lt;/table&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+	
+	 <content content-id="email-edit-address">
+        <display-name xml:lang="x-default">Email Edit Address</display-name>
+        <description xml:lang="x-default">Edit Address Email Content : In this body we can use {{customerName}} and  {{myAccountLink}} construction which will be replaced to appropriate data</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;h1 style="margin:0 0 20px;font-size:24px;color:#333;font-weight:500;line-height:24px"&gt;Hi {{customerName}},&lt;/h1&gt;&#13;
+&lt;p style="margin:0;font-size:18px;font-weight:400;text-align:center;color:#333"&gt;Success! You Updated Your Address&lt;/p&gt;&#13;
+&lt;table align="center" cellpadding="0 " cellspacing="0" width="100%" style="margin:0 auto"&gt;&#13;
+    &lt;tbody&gt;&#13;
+        &lt;tr style="text-align:center"&gt;&#13;
+            &lt;td style="color:#333;font-size:14px"&gt;&#13;
+                &lt;div style="border:2px solid #ccc;text-align:center;margin:10px 0px;padding:20px"&gt;&#13;
+                    &lt;p style="margin-top:0"&gt;Want to check your info or make other changes?&lt;/p&gt;&#13;
+                    &lt;div&gt;&#13;
+                        &lt;!--[if mso]&gt;&#13;
+									&lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="$url('Login-Show')$" style="height:40px;v-text-anchor:middle;width:180px;" strokecolor="#333" fillcolor="#333"&gt;&#13;
+										&lt;w:anchorlock/&gt;&#13;
+										&lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px"&gt;Go to my Account&lt;/center&gt;&#13;
+									&lt;/v:rect&gt;&#13;
+								&lt;![endif]--&gt;&lt;a href=" {{myAccountLink}} "&#13;
+                            style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;"&gt;Go to my Account&lt;/a&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/td&gt;&#13;
+        &lt;/tr&gt;&#13;
+    &lt;/tbody&gt;&#13;
+&lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
 	

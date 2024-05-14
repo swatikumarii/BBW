@@ -90,6 +90,16 @@ function invalid() {
                     }
                 }
             }
+
+            var form = $(this).closest('form.edit-profile-form');
+            if (form.length > 0) {
+                if (validationMessage) {
+                    $('.submit-edit-profile').addClass('disabled');
+                } else {
+                    $('.submit-edit-profile').removeClass('disabled');
+                }
+            }
+
             $(this)
                 .parents('.form-group')
                 .find('.invalid-feedback')

@@ -36,9 +36,9 @@ function getProductMaxOrderQty(apiProduct) {
     }
     if (maxOrderQty && maxOrderQtyByReserveStock) {
         maxOrderQty =
-            maxOrderQtyByReserveStock < maxOrderQty
-                ? maxOrderQtyByReserveStock
-                : maxOrderQty;
+                maxOrderQtyByReserveStock < maxOrderQty
+                    ? maxOrderQtyByReserveStock
+                    : maxOrderQty;
     } else if (!maxOrderQty) {
         maxOrderQty = maxOrderQtyByReserveStock;
     }

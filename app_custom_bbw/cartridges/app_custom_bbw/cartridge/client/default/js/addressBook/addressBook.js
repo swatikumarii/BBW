@@ -61,29 +61,34 @@ base.submitAddress = function () {
     $('body').on('submit', 'form.address-form', function (e) {
         var $form = $(this);
         e.preventDefault();
-        action = $form.attr('action');
-        $form.spinner().start();
-        $('form.address-form').trigger('address:submit', e);
-        $.ajax({
-            url: action,
-            type: 'post',
-            dataType: 'json',
-            data: $form.serialize(),
-            success: function (data) {
-                $form.spinner().stop();
-                if (!data.success) {
-                    formValidation($form, data);
-                } else {
-                    location.href = data.redirectUrl;
+        if ($form.serialize() !== window.addressForm) {
+            action = $form.attr('action');
+            $form.spinner().start();
+            $('form.address-form').trigger('address:submit', e);
+            $.ajax({
+                url: action,
+                type: 'post',
+                dataType: 'json',
+                data: $form.serialize(),
+                success: function (data) {
+                    $form.spinner().stop();
+                    window.addressForm = ''; 
+                    if (!data.success) {
+                        formValidation($form, data);
+                    } else {
+                        location.href = data.redirectUrl;
+                    }
+                },
+                error: function (err) {
+                    if (err.responseJSON.redirectUrl) {
+                        window.location.href = err.responseJSON.redirectUrl;
+                    }
+                    $form.spinner().stop();
                 }
-            },
-            error: function (err) {
-                if (err.responseJSON.redirectUrl) {
-                    window.location.href = err.responseJSON.redirectUrl;
-                }
-                $form.spinner().stop();
-            }
-        });
+            });
+            return false;
+        } 
+        $('#address-form').modal('hide');
         return false;
     });
 };
@@ -130,7 +135,7 @@ base.removeAddressConfirmation = function () {
                         $('.addressList').after(toInsert);
                     }
                 }
-                location.reload();
+                window.location.href = data.redirectUrl;
             },
             error: function (err) {
                 if (err.responseJSON.redirectUrl) {
@@ -162,6 +167,8 @@ $(document).on('click', '#editAddress', function () {
             $('#modalContent').html(response);
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
+            var addressForm = $(response)[0];
+            window.addressForm = $(addressForm).serialize();
         }
     });
 });
