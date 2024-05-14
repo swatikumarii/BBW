@@ -70,6 +70,18 @@
                     {"country":"Malasiya", "site": "https://www.bathandbody.my"}
                 ]
             </preference>
+            <preference preference-id="googleScriptEnabled">true</preference>
+            <preference preference-id="gtmBodyScript">&lt;!-- Google Tag Manager (noscript) --&gt;
+&lt;noscript&gt;&lt;iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLH2N4RZ"
+height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;&lt;/noscript&gt;
+&lt;!-- End Google Tag Manager (noscript) --&gt;</preference>
+            <preference preference-id="gtmHeadScript">&lt;!-- Google Tag Manager --&gt;
+&lt;script&gt;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TLH2N4RZ');&lt;/script&gt;
+&lt;!-- End Google Tag Manager --&gt;</preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
