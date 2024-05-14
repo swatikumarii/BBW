@@ -14,22 +14,24 @@
             <div class="col-6 col-sm-3 order-sm-1">
                 <isif condition="${pdict.productSearch.productIds.length > 0}">
                     <select name="sort-order"
-                        class="w-100 sort-filter b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize"
+                        class="w-100 sort-filter b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize border-left-0"
                         aria-label="${Resource.msg('label.sort.by', 'search', null)}">
                         <isloop items="${pdict.productSearch.productSort.options}" var="option">
-                            <option class="${option.id}" value="${option.url}" data-id="${option.id}"
-                                ${pdict.productSearch.productSort.ruleId === option.id ? 'selected' : ''}>
-                                ${option.displayName}
-                            </option>
+                            <isif condition="${option.id !== 'product-position'}">
+                                <option class="${option.id}" value="${option.url}" data-id="${option.id}"
+                                    ${pdict.productSearch.productSort.ruleId === option.id ? 'selected' : ''}>
+                                    ${option.displayName}
+                                </option>
+                            </isif>
                         </isloop>
                     </select>
                 </isif>
             </div>
-            <!--- Selected filters bar --->
-            <div class="col-12 filter-bar">
-                <isinclude template="search/filterBar" />
+            <iscomment> Selected Mobile Filters </iscomment>
+            <div class="mobile-filters h-mt--15 d-md-none">
+                <isinclude template="search/components/selectedFilterMobile" />
             </div>
-            <div class="result-count text-center col-12 col-md-9 col-sm-6 order-sm-2 h-pt--15 pb-0">
+            <div class="result-count text-center col-12 col-md-9 col-sm-6 order-sm-2 h-pt--10 pb-0">
                 <isinclude template="search/resultsCount" />
             </div>
         </div>
@@ -67,6 +69,8 @@
         <isinclude template="product/components/requestUserEmailForOOSModal" />
         <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
     </div>
+
+    <isinclude template="search/components/seoText" />
 
     <iscomment>Produc Grid - Footer </iscomment>
     <isinclude template="search/components/productGridFooter" />

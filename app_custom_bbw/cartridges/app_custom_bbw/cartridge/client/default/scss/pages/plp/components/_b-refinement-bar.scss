@@ -15,17 +15,18 @@
     border-radius: 0;
 }
 
+// Mobile Refinement - Panel
 .refinement-bar {
     overflow: auto;
     background-color: colour(white);
     box-shadow: none;
+    bottom: -100%;
     width: 100%;
     height: 100%;
-    display: none;
     left: 0;
-    top: 0;
-    z-index: 1;
+    z-index: 2;
     position: fixed;
+    transition: bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     @include media-up(sm) {
         display: none !important;
@@ -54,7 +55,28 @@
         .refinements {
             ul {
                 li {
-                    padding: 10px 0;
+                    &:not(.fragrance-filter-header, .filter-value) {
+                        padding: 10px 22px;
+                    }
+                }
+            }
+
+            .filter-list-wrapper {
+                padding: 16px 0 15px;
+
+                .filter-list {
+                    .filter-list-item {
+                        .filter-link {
+                            padding: 6px 0;
+                        }
+                    }
+                }
+            }
+
+            .selected-filter-mobile {
+                .list-unstyled {
+                    padding: 15px;
+                    border-top: 1px solid colour(gray, 6);
                 }
             }
 
@@ -63,9 +85,15 @@
                     .card-header {
                         background-color: colour(gray, 1);
                     }
+
+                    .fragrance-name {
+                        padding-top: 0;
+                        border-top: 1px solid colour(gray, 5);
+                    }
                 }
 
                 .card-header {
+                    background: colour(white);
                     border-top: 1px solid colour(gray, 6);
                     border-bottom: 0;
                     padding: 20px 15px;
@@ -137,6 +165,29 @@
             }
         }
     }
+
+    &.active {
+        bottom: 0;
+        z-index: 9;
+
+        // Mobile Refinement - Done Button
+        .refinements-close-wrapper {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            padding: 20px;
+            width: 100%;
+            border-top: 1px solid colour(gray, 6);
+            background: colour(white);
+            box-sizing: border-box;
+
+            .btn {
+                letter-spacing: 0.015em;
+                text-transform: uppercase;
+                opacity: 1;
+            }
+        }
+    }
 }
 
 // Mobile Filters
@@ -163,6 +214,10 @@
 
 // Desktop Filters
 .filter-bar-desktop {
+    @include media-btw(sm, md) {
+        margin-bottom: 30px;
+    }
+
     &__filters {
         padding: 18px;
         max-width: 78.799%;
@@ -176,6 +231,7 @@
         .filters-refinements {
             .filter-type {
                 width: 31%;
+                cursor: pointer;
 
                 .ref-toggle {
                     border-bottom: 3px solid colour(black, 3);
@@ -193,41 +249,48 @@
                     }
                 }
 
+                .ref-toggle[aria-expanded="true"] {
+                    .ref-toggle__icon {
+                        transform: rotate(180deg);
+                    }
+                }
+
                 .filter-list-wrapper {
-                    z-index: 1;
-                    padding: 15px 0 0;
+                    z-index: 2;
+                    padding-bottom: 15px;
                     background-color: colour(black, 3);
                     transition: all 0.3s ease-in-out;
+                    border: 1px solid colour(gray, 1);
+                    border-bottom: 3px solid colour(black, 3);
 
                     .filter-list {
                         .filter-link {
                             padding: 6px 0;
                         }
 
-                        .selected {
-                            .filter-uncheck {
-                                background-color: colour(black, 3);
-                            }
+                        .filter-list-item {
+                            padding-left: 12px;
                         }
 
-                        .filter-uncheck {
-                            display: inline-block;
-                            width: 14px;
-                            min-width: 14px;
-                            height: 14px;
-                            border: 1px solid colour(black, 3);
-                            position: relative;
+                        .fragrance-filter-header {
+                            line-height: 1.125rem;
+                            margin: 0 -10px;
+                        }
+                    }
+
+                    &.fragrance-name {
+                        .filter-list {
+                            height: 274px;
+                            max-height: unset !important;
                         }
                     }
                 }
 
                 .close-button {
-                    border-bottom: 3px solid colour(black, 3);
-
                     .btn {
                         min-height: 48px;
                         padding: 0 32px;
-                        max-width: 182px;
+                        max-width: 214px;
                         transition: all 0.3s ease;
                         letter-spacing: 0.015em;
                         line-height: 1.25rem;
@@ -279,4 +342,57 @@
         padding: 8px 10px;
         line-height: normal;
     }
+}
+
+.filter-uncheck {
+    display: inline-block;
+    width: 14px;
+    min-width: 14px;
+    height: 14px;
+    border: 1px solid colour(black, 3);
+    position: relative;
+    box-sizing: content-box;
+}
+
+.selected {
+    .filter-uncheck {
+        background-color: colour(black, 3);
+    }
+}
+
+.filter-input-wrapper {
+    &::after {
+        content: "";
+        background: url("../../images/icons/UI-Search.svg") no-repeat scroll 50%;
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        right: 23px;
+        top: 15px;
+    }
+}
+
+input.frag-search {
+    @include media-down(sm) {
+        border: 0;
+        margin-bottom: 0;
+    }
+
+    letter-spacing: 0.005em;
+    background: transparent;
+    background-size: 20px;
+    position: relative;
+    z-index: 11;
+    height: 50px;
+    border-bottom-color: colour(black, 3);
+    padding-left: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 20px;
+}
+
+.fragrance-filter-header {
+    line-height: normal;
+    margin: 0 -10px;
 }

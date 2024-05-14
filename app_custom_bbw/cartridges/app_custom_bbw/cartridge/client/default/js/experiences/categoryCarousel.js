@@ -1,0 +1,10 @@
+'use strict';
+
+var helpers = require('../utils/helpers');
+var elementsToSync = ['.js-product-tile-badge', '.b-product-tile__link', '.js-product-tile-promo', '.js-product-tile-price'];
+var shopModuleContainers = $('.js-shop-the-module-scroll');
+
+for (var t = 0; t < shopModuleContainers.length; t++) {
+    var shopModuleSlides = $(shopModuleContainers[t]).find('.js-shop-the-module-slide');
+    helpers.syncProductTileParts(shopModuleSlides, elementsToSync);
+}

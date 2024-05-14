@@ -1,7 +1,6 @@
 'use strict';
 
 var server = require('server');
-var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
 
 server.extend(module.superModule);
 
@@ -10,6 +9,7 @@ server.extend(module.superModule);
  * It also append data to response to support toggle behaviour
  */
 server.prepend('AddProduct', function (req, res, next) {
+    var pid = req.form.pid;
     var viewData = res.getViewData();
     var checkUser = req.currentCustomer.raw.registered;
     if (checkUser === false) {
@@ -17,6 +17,7 @@ server.prepend('AddProduct', function (req, res, next) {
             redirect: true,
             isWishlistGuest: true,
             loginShow: true,
+            pid: pid
         });
         this.emit('route:Complete', req, res);
         return;
@@ -26,12 +27,32 @@ server.prepend('AddProduct', function (req, res, next) {
     next();
 });
 
+/**
+ * Wishlist-Show : The Wishlist-Show append to update breadcrumbs
+ * @name Wishlist-Show
+ */
 server.append('Show', function (req, res, next) {
-    var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
-        type: 10
-    });
-    var expressShip = list.productItems;
-    res.setViewData({expressShip: expressShip});
+    var URLUtils = require('dw/web/URLUtils');
+    var Resource = require('dw/web/Resource');
+    var viewData = res.getViewData();
+
+    var breadcrumbs = [
+        {
+            htmlValue: Resource.msg('global.home', 'common', null),
+            url: URLUtils.home().toString()
+        },
+        {
+            htmlValue: Resource.msg('page.title.myaccount', 'account', null),
+            url: URLUtils.url('Account-Show').toString()
+        },
+        {
+            htmlValue: Resource.msg('label.wishlist', 'account', null),
+            url: URLUtils.url('Wishlist-Show').toString()
+        }
+    ];
+    viewData.breadcrumbs = breadcrumbs;
+
+    res.setViewData(viewData);
     next();
 });
 

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+
+    <field formid="cardNumber" label="label.input.egift.number" type="string" mandatory="true" binding="cardNumber"
+           max-length="16" missing-error="payment.giftcard.number.missing" parse-error="error.message.required" />
+
+    <field formid="cardPin" label="label.input.egift.cardpin" type="string" mandatory="true" binding="cardPin"
+           max-length="6" missing-error="payment.giftcard.pin.missing" />
+
+</form>

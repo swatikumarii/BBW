@@ -10,7 +10,7 @@
             <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.merchandise.subtotal.excluding.taxes', 'cart', null)}</p>
         </div>
         <div class="col-4">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold subtotal">${pdict.totals.subTotalExclTax}
+            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sub-total">${pdict.totals.subTotalExclTax}
             </p>
         </div>
     </div>
@@ -20,7 +20,7 @@
             <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.merchandise.subtotal', 'cart', null)}</p>
         </div>
         <div class="col-4">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold subtotal">${pdict.totals.subTotal}</p>
+            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sub-total">${pdict.totals.subTotal}</p>
         </div>
     </div>
 </isif>
@@ -39,9 +39,9 @@
             <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}</p>
         </div>
         <div class="col-4">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost">
+            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive">
                 ${pdict.totals.shippingTotalExclTax}</p>
-        </div>
+            </div>
     </div>
 <iselse/>
     <div class="row">
@@ -49,7 +49,7 @@
             <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling', 'cart', null)}</p>
         </div>
         <div class="col-4">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost">
+            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive">
                 ${pdict.totals.totalShippingCost}</p>
         </div>
     </div>

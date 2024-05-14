@@ -7,10 +7,16 @@
         assets.addJs('/js/storeLocator.js');
         assets.addCss('/css/storeLocator.css');
     </isscript>
-
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <!--Breadcrumbs-->
+                <div class="product-breadcrumb">
+                    <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+                </div>
+                <div class="d-none" id="marker-images-url" 
+                data-pink-marker="${URLUtils.staticURL('/images/store-locator/marker/pink-marker.svg')}"
+                data-black-marker="${URLUtils.staticURL('/images/store-locator/marker/black-marker.svg')}"></div>
                 <div class="store-locator-header d-flex justify-content-between align-items-center">
                     <p class="h-font-size--24 h-fw--bold mb-0 h-clr--black-1">${Resource.msg('store.heading', 'storeLocator', null)}</p>
                     <img class="logos-main powered-google" alt="${Resource.msg('global.storename', 'common', null)}"

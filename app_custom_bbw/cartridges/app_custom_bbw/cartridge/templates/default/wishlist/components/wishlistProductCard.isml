@@ -1,68 +1,74 @@
-<div class="card product-info uuid-${item.UUID} pid-${item.pid}">
-    <isinclude template="wishlist/components/wishlistProductCardHeader" />
+<div class="card border-0 product-info uuid-${item.UUID} pid-${item.pid}">
     <!--- image, attributes, availability --->
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="row">
-                <div class="col-lg-12 d-flex flex-row">
-                    <div class="item-image">
-                        <img class="product-image" src="${item.imageObj.small[0].url}"
-                            alt="${item.imageObj.small[0].alt}" title="${item.imageObj.small[0].title}" />
+    <input class="quantity" value="1" type="hidden"/>
+    <table class="table">
+        <tr>
+            <td class="item-image">
+                <div class="item-image">
+                    <img width="70px" height="70px" class="product-image" src="${item.imageObj.small[0].url}" alt="${item.imageObj.small[0].alt}"
+                        title="${item.imageObj.small[0].title}" />
+                </div>
+            </td>
+                <!--- product name--->
+            <td class="item-details">
+                <div class="line-item-name">
+                <a href = "${URLUtils.url('Product-Show','pid',item.pid)}">
+                    ${item.name}
+                </a>
+                </div>
+                ${item.titlePartB}
+                <p class="line-item-id">
+                    ${Resource.msg('label.item.no', 'wishlist', null)}${item.pid}
+                </p>
+            </td>
+            <td class="item-price">
+                <!---unit price and quantity --->
+                <isinclude template="wishlist/components/productListItemProductPrice" />
+                <isloop items="${item.promotions}" var="promotion" status="loopstatus">
+                    <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
+                        <span class="callout-message">
+                            <isprint value="${promotion.calloutMsg}" encoding="off" />
+                        </span>
                     </div>
-
-                    <div class="item-attributes d-flex flex-column">
-                        <isloop items="${item.variationAttributes}" var="attribute">
-                            <isloop items="${attribute.values}" var="eachValue">
-                                <isif condition="${!!eachValue.selected}">
-                                    <p class="line-item-attributes">${attribute.displayName}:
-                                        ${eachValue.displayValue}
-                                    </p>
-                                </isif>
-                            </isloop>
-                        </isloop>
-                        <isif condition="${item.options}">
-                            <isloop items="${item.options}" var="option">
-                                <isif condition="${!!option}">
-                                    <p class="line-item-attributes">${option.displayName}:${option.displayValue}</p>
-                                </isif>
-                            </isloop>
+                </isloop>
+                <isloop items="${item.variationAttributes}" var="attribute">
+                    <isloop items="${attribute.values}" var="eachValue">
+                        <isif condition="${!!eachValue.selected}">
+                            <p class="line-item-attributes">${attribute.displayName}:
+                                ${eachValue.displayValue}
+                            </p>
                         </isif>
-                        <isset name="creationDate" value="${new Date(item.creationDate)}" scope="page" />
-                        <div class="createDate"> ${creationDate.getDate().toString() + '\\' + (creationDate.getMonth() + 1) + '\\' + creationDate.getFullYear().toString()} </div>
-                        <isloop items="${pdict.expressShip}" var="wishlistItem">
-                            <div class="wishlist-item">
-                                <!-- Check if express shipping is available -->
-                                <isif
-                                    condition="${wishlistItem.product.ID == item.pid && wishlistItem.product.custom.expressShip === true}">
-                                    <span
-                                        class="express-shipping-indication"
-                                    >${Resource.msg('wishlist.expressShipping.available', 'wishlist', null)}</span>
-                                </isif>
-                            </div>
-                        </isloop>
-                        <isinclude template="wishlist/components/wishlistProductCardAvailability" />
-                    </div>
+                    </isloop>
+                </isloop>
+                <isif condition="${item.options}">
+                    <isloop items="${item.options}" var="option">
+                        <isif condition="${!!option}">
+                            <p class="line-item-attributes">${option.displayName}:${option.displayValue}</p>
+                        </isif>
+                    </isloop>
+                </isif>
+
+                <isinclude template="wishlist/components/wishlistProductCardAvailability" />
+
+                <isset name="creationDate" value="${new Date(item.creationDate)}" scope="page" />
+                <div class="createDate"> ${creationDate.getDate().toString() + '\\' + (creationDate.getMonth() + 1) + '\\' + creationDate.getFullYear().toString()} </div>
+                <div class="wishlist-item">
+                    <!-- Check if express shipping is available -->
+                    <isif
+                        condition="${item.expressShip}">
+                        <span class="express-shipping-indication">${Resource.msg('wishlist.express.shipping.available', 'wishlist', null)}</span>
+                    </isif>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12 d-block d-sm-none">
-                    <hr class="wishlist-edit-item-divider line" />
-                </div>
-            </div>
-        </div>
-        <!---unit price and quantity --->
-        <isinclude template="wishlist/components/productListItemProductPrice" />
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <hr class="wishlist-line-item-divider line-dotted" />
-        </div>
-        <isinclude template="wishlist/components/makePublicCheckbox" />
-        <isif condition="${!!item.master}">
-            <isinclude template="wishlist/components/selectAttributesButton" />
-        <iselse/>
-            <!-- add to Cart from Wishlist -->
-            <isinclude template="wishlist/components/addToCartButton" />
-        </isif>
-    </div>
+            </td>
+            <td class="item-product-detail">
+                <isif condition="${!!item.master}">
+                    <isinclude template="wishlist/components/selectAttributesButton" />
+                <iselse/>
+                    <!-- add to Cart from Wishlist -->
+                    <isinclude template="wishlist/components/addToCartButton" />
+                </isif>
+                <isinclude template="wishlist/components/wishlistProductCardHeader" />
+            </td>
+        </tr>
+    </table>
 </div>

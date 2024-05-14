@@ -1,10 +1,5 @@
 <isif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
-    <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID} h-font-size--14 h-fw--semibold h-clr--black-1">${Resource.msg('label.free.price', 'cart', null)}</div>
+    <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID} h-font-size--${!(miniCart) ? '16' : '14'} h-fw--bold h-clr--black-1">${Resource.msg('label.free.price', 'cart', null)}</div>
 <iselse/>
-    <isif condition="${'nonAdjustedPrice' in lineItem.priceTotal}">
-        <div class="strike-through">
-            ${lineItem.priceTotal.nonAdjustedPrice}
-        </div>
-    </isif>
-    <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID} h-font-size--14 h-fw--semibold h-clr--black-1">${lineItem.priceTotal.price}</div>
+    <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID} h-font-size--${!(miniCart) ? '16' : '14'} h-fw--bold ${'nonAdjustedPrice' in lineItem.priceTotal ? 'minicart-red cart-black-1' : 'checkout-black-1'}">${lineItem.priceTotal.price}</div>
 </isif>

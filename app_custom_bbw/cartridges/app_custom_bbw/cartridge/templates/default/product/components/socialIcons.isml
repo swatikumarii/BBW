@@ -18,15 +18,15 @@
                 title="${Resource.msgf('label.social.twitter', 'product', null, product.productName)}"
                 aria-label="${Resource.msgf('label.social.twitter', 'product', null, product.productName)}"
                 class="share-icons" target="_blank">
-                <img alt="Twitter" src="${URLUtils.staticURL('/images/social-icons/Social-twitter-reverse.svg')}" />
+                <img alt="Twitter" src="${URLUtils.staticURL('/images/social-icons/social-x.svg')}" />
             </a>
         </li>
         <li class="instagram d-flex justify-content-center align-items-center">
             <a href="https://instagram.com/share?url=${productUrlencode}&text=${product.productName}"
                 class="share-icons"
-                title="${Resource.msgf('label.social.facebook', 'product', null, product.productName)}"
+                title="${Resource.msgf('label.social.instagram', 'product', null, product.productName)}"
                 data-share="Instagram"
-                aria-label="${Resource.msgf('label.social.facebook', 'product', null, product.productName)}"
+                aria-label="${Resource.msgf('label.social.instagram', 'product', null, product.productName)}"
                 target="_blank">
                 <img alt="instagram" src="${URLUtils.staticURL('/images/social-icons/Social-ig-reverse.svg')}" />
             </a>

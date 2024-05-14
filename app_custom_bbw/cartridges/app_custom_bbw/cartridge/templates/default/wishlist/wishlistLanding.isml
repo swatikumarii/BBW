@@ -1,0 +1,59 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/custom.js');
+        assets.addJs('/js/login.js');
+        assets.addCss('/css/account/account.css');
+    </isscript>
+
+    <div class="h-maxwidth--1400 mx-auto my-account ${pdict.loggedIn ? '' : 'login-page'}">
+        <!---Breadcrumbs--->
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+        <isif condition="${pdict.loggedIn}">
+
+            <div class="row account-dashboard">
+                <div class="col mobile-my-account h-font-size--14 h-bg--gray-1 h-clr--black-1 text-uppercase">
+                    ${Resource.msg('label.myaccount', 'account', null)}
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <div class="my-account-nav">
+                        <isinclude template="account/accountNav" />
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-8 description-detail">
+                    <div class="my-account-description profile">
+                        <div class="account-profile">
+                            <div class="wishlist-heading">
+                                <h1
+                                    class="title text-capitalize position-relative w-100 d-block d-md-flex align-items-center justify-content-between">
+                                    <span>
+                                        ${Resource.msg('label.love.it.list', 'wishlist', null)}
+                                        <span class="wishlist-owner">
+                                            ${Resource.msgf('wishlist.owner.name', 'wishlist', null, pdict.wishlist.owner.firstName)}
+                                        </span>
+                                    </span>
+
+                                    <button type="button"
+                                        class="share-love-it-list share-love-it-list border-0 bg-white pull-right"
+                                        data-toggle="modal" data-target="#shareLoveItList">
+                                        <img alt="image" src="${URLUtils.staticURL('/images/account/share.svg')}" />
+                                        <span>
+                                            ${Resource.msg('share.love.it.list', 'wishlist', null)}
+                                        </span>
+                                    </button>
+                                </h1>
+
+                                <isinclude template="wishlist/components/shareLoveItListModal" />
+                            </div>
+                        </div>
+                        <div class="wishlist-list dsd">
+                            <isinclude template="wishlist/components/wishlist" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <iselse>
+                <isinclude template="wishlist/components/login" />
+        </isif>
+    </div>
+</isdecorate>

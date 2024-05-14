@@ -335,13 +335,16 @@ $(document).ready(function () {
 
     $(document).on('click', '.greetingCard-edit-product', function () {
         $('.greeting-block-options').css('display', 'block');
+        $('.greeting-block').addClass('open-greeting-card');
     });
 
     $(document).on('click', '#greetingcard', function () {
         if ($('#greetingcard').is(':checked')) {
             $('.greeting-block-options').css('display', 'block');
+            $('.greeting-block').addClass('open-greeting-card');
         } else {
             $('.greeting-block-options').css('display', 'none');
+            $('.greeting-block').removeClass('open-greeting-card');
             if ($('.greeting-card').data('pid')) {
                 removeGreetingCardFromCart(
                     $('#addGreetingCardProduct').data('removeurl'),

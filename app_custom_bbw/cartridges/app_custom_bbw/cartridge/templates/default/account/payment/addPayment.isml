@@ -1,0 +1,37 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/paymentInstruments.js');
+        assets.addJs('/js/custom.js');
+        assets.addCss('/css/account/payment.css');
+        assets.addCss('/css/account/account.css');
+    </isscript>
+
+    <div class="h-maxwidth--1400 mx-auto my-account">
+        <!---Breadcrumbs--->
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+        <div class="row account-dashboard">
+            <div class="col mobile-my-account h-font-size--14 h-bg--gray-1 h-clr--black-1 text-uppercase dvjjh">
+                ${Resource.msg('label.myaccount', 'account', null)}
+            </div>
+            <div class="col-lg-2 col-md-4">
+
+                <div class="my-account-nav">
+                    <isinclude template="account/accountNav" />
+                </div>
+            </div>
+            <div class="col-lg-10 col-md-8 description-detail">
+                <div class="my-account-description">
+                    <isif condition="${pdict.UUID}">
+                        <h2>${Resource.msg('label.payment.editpayment', 'payment', null)}</h2>
+                        <iselse>
+                            <h2>${Resource.msg('label.payment.addnewpayment', 'payment', null)}</h2>
+                    </isif>
+
+                    <isinclude template="account/payment/paymentForm" />
+
+                </div>
+            </div>
+        </div>
+    </div>
+</isdecorate>

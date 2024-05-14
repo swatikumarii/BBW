@@ -1,66 +1,45 @@
 <div class="description-and-detail accordion" id="pdp-accordion">
-    <div class="row product-attributes collapsible-xs">
-        <isinclude template="product/components/attributes" />
-    </div>
+    <iscomment> Fragrance Card </iscomment>
+    <isif condition="${product.fragranceDescription}">
+        <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
+            <div class="fragrance card-head" id="fragrance">
+                <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
+                    data-target="#collapse-fragrance" aria-expanded="true" aria-controls="collapse-fragrance">
+                    ${Resource.msg('label.fragrance.details', 'product', null)}
+                </h2>
+
+                <div class="value content collapse" id="collapse-fragrance" aria-labelledby="fragrance"
+                    data-parent="#pdp-accordion">
+                    <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
+                        <isprint value="${product.fragranceDescription}" encoding="off" />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </isif>
 
     <iscomment> Description Card </iscomment>
-    <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
-        <div class="description card-head" id="description">
-            <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
-                data-target="#collapse-description" aria-expanded="true" aria-controls="collapse-description">
-                ${Resource.msg('label.description', 'product', null)}
-            </h2>
-            <isinclude template="product/components/description" />
+    <isif condition="${product.shortDescription}">
+        <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
+            <div class="description card-head" id="description">
+                <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
+                    data-target="#collapse-description" aria-expanded="true" aria-controls="collapse-description">
+                    ${Resource.msg('label.description', 'product', null)}
+                </h2>
+                <isinclude template="product/components/description" />
+            </div>
         </div>
-    </div>
+    </isif>
 
     <iscomment> Overview Card </iscomment>
-    <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
-        <div class="details card-head" id="details">
-            <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
-                data-target="#collapse-details" aria-expanded="true" aria-controls="collapse-description">
-                ${Resource.msg('label.details', 'product', null)}
-            </h2>
-            <isinclude template="product/components/details" />
-        </div>
-    </div>
-
-    <iscomment> Fragrance Card </iscomment>
-    <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
-        <div class="fragrance card-head" id="fragrance">
-            <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
-                data-target="#collapse-fragrance" aria-expanded="true" aria-controls="collapse-fragrance">
-                ${Resource.msg('label.fragrance.details', 'product', null)}
-            </h2>
-
-            <div class="value content collapse" id="collapse-fragrance" aria-labelledby="fragrance"
-                data-parent="#pdp-accordion">
-                <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
-                    <isprint value="${product.fragranceDescription}" encoding="off" />
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <iscomment> Product Return/Exchange Card </iscomment>
-    <isif condition="${product.showReturnSection}">
+    <isif condition="${product.longDescription}">
         <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
-            <div class="return card-head" id="return-exchange">
+            <div class="details card-head" id="details">
                 <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
-                    data-target="#collapse-return-exchange" aria-expanded="true"
-                    aria-controls="collapse-return-exchange">
-                    ${Resource.msg('label.return.and.exchanges', 'product', null)}
+                    data-target="#collapse-details" aria-expanded="true" aria-controls="collapse-details">
+                    ${Resource.msg('label.details', 'product', null)}
                 </h2>
-            </div>
-            <div class="value content collapse" id="collapse-return-exchange" aria-labelledby="return-exchange"
-                data-parent="#pdp-accordion">
-                <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
-                    <isif condition="${product.canBeReturned}">
-                        ${Resource.msg('label.return.and.exchanges.canBeReturned', 'product', null)}
-                    <iselse/>
-                        ${Resource.msg('label.return.and.exchanges.canNotBeReturned', 'product', null)}
-                    </isif>
-                </p>
+                <isinclude template="product/components/details" />
             </div>
         </div>
     </isif>
@@ -102,4 +81,45 @@
             </div>
         </div>
     </isif>
+
+    <iscomment> Product Return/Exchange Card </iscomment>
+    <isif condition="${product.showReturnSection}">
+        <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
+            <div class="return card-head" id="return-exchange">
+                <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
+                    data-target="#collapse-return-exchange" aria-expanded="true"
+                    aria-controls="collapse-return-exchange">
+                    ${Resource.msg('label.return.and.exchanges', 'product', null)}
+                </h2>
+            </div>
+            <div class="value content collapse" id="collapse-return-exchange" aria-labelledby="return-exchange"
+                data-parent="#pdp-accordion">
+                <isif condition="${product.canBeReturned}">
+                    <iscontentasset aid="exchange-return" />
+                <iselse/>
+                    <iscontentasset aid="exchange-cannot-return" />
+                    ${Resource.msg('label.return.and.exchanges.canNotBeReturned', 'product', null)}
+                </isif>
+            </div>
+        </div>
+    </isif>
+
+    <iscomment> More Info </iscomment>
+    <isif condition="${product.moreInfo}">
+        <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
+            <div class="moreInfo card-head" id="moreInfo">
+                <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
+                    data-target="#collapse-moreInfo" aria-expanded="true" aria-controls="collapse-moreInfo">
+                    ${Resource.msg('label.usage.moreInfo', 'product', null)}
+                </h2>
+                <div class="value content collapse" id="collapse-moreInfo" aria-labelledby="moreInfo"
+                    data-parent="#pdp-accordion">
+                    <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
+                        <isprint value="${product.moreInfo}" encoding="off" />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </isif>
+
 </div>

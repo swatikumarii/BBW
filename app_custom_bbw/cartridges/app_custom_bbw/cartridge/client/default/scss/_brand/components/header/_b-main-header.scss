@@ -3,17 +3,12 @@ header {
     z-index: 1;
 
     &.fixed-header {
-        animation: scrollTop 0.4s ease;
         position: fixed;
         left: 0;
         right: 0;
         top: 0;
-        transition: 0.5s linear all;
-        z-index: 99;
-    }
-
-    @include media-up(sm) {
-        z-index: 2;
+        z-index: 9;
+        animation: none;
     }
 
     .bbw-nav {
@@ -21,6 +16,9 @@ header {
 
         .bbw-nav-wrap {
             z-index: 5;
+            display: flex;
+            align-items: center;
+            margin: 0 auto;
 
             @include media-down(sm) {
                 height: auto;
@@ -28,7 +26,7 @@ header {
             }
 
             .primary-logo {
-                width: 50vw;
+                width: 54vw;
                 margin: -2% auto 0;
                 height: auto;
                 left: 0.125rem;
@@ -36,22 +34,22 @@ header {
                 right: 0;
                 z-index: 100;
                 min-width: 10.4rem;
-                top: 50%;
+                padding-top: 4%;
                 transform: scale(1);
 
                 @include media-up(sm) {
                     width: 16.125rem;
-                    height: 1.5625rem;
-                    margin: 1.0625rem auto 0.5rem;
+                    margin: 27px auto 15px;
                     left: auto;
                     position: relative;
                     right: auto;
+                    padding-top: 0;
                 }
 
                 @include media-up(md) {
-                    width: 21.25rem;
-                    margin: 1.6875rem auto 0.5rem;
-                    height: 2.125rem;
+                    width: auto;
+                    margin: 27px auto 8px;
+                    height: auto;
                     left: 0.3125rem;
                 }
 
@@ -62,6 +60,23 @@ header {
 
                 .logo-home {
                     line-height: 0;
+                    object-fit: contain;
+                    text-align: center;
+                    width: auto;
+
+                    @include media-up(md) {
+                        width: 340px;
+                    }
+
+                    img {
+                        max-height: 40px;
+                        max-width: 340px;
+
+                        @include media-up(sm) {
+                            max-height: 82px;
+                            max-width: 340px;
+                        }
+                    }
                 }
 
                 a,
@@ -81,11 +96,15 @@ header {
             .icon-items {
                 overflow: hidden;
                 padding: 0.5625rem 0.375rem 0.5rem;
+                width: 100%;
+                height: 62px;
+                padding-top: 15px;
 
                 @include media-up(sm) {
                     height: 0;
                     padding: inherit;
                     overflow: inherit;
+                    width: 10%;
                 }
 
                 .b-nav-toggler {
@@ -107,12 +126,7 @@ header {
 
                 .custom-search {
                     right: 0;
-                    top: 0.875rem;
                     z-index: 130;
-
-                    @include media-up(md) {
-                        top: 0.1875rem;
-                    }
 
                     .expand-towards-right {
                         width: 12.7rem;
@@ -127,7 +141,6 @@ header {
 
                     form {
                         right: 0;
-                        top: 0.1875rem;
                         width: 100%;
                         height: 3.375rem;
                         left: 0;
@@ -135,9 +148,9 @@ header {
                         transition: all 0.3s ease;
 
                         @include media-up(sm) {
-                            top: -1.0625rem;
+                            top: -12px;
                             width: 6.625rem;
-                            right: 7.75rem;
+                            right: 120px;
                             height: 2.1875rem;
                             left: auto;
                             position: absolute;
@@ -145,7 +158,7 @@ header {
 
                         @include media-up(md) {
                             width: 18.125rem;
-                            top: -0.375rem;
+                            top: -9px;
                         }
 
                         input {
@@ -153,17 +166,11 @@ header {
                             letter-spacing: 0.01em;
                             text-overflow: ellipsis;
                             white-space: nowrap;
-                            padding: 0 2.5rem 0 0.75rem;
+                            padding: 0 40px 0 12px;
                         }
 
-                        .reset-button {
-                            background: url("../images/header/remove-search-icon-default.svg")
-                                no-repeat;
-                            background-position: 0;
-                            padding: 0.625rem;
-                            position: absolute;
-                            right: 2.5rem;
-                            top: 0.5rem;
+                        input::placeholder {
+                            color: colour(black, 3);
                         }
 
                         .search-icon {
@@ -191,10 +198,11 @@ header {
                 }
 
                 .utility-user {
-                    top: -3.125rem;
+                    top: -13px;
 
                     @include media-down(md) {
-                        top: -2.375rem;
+                        top: -50px;
+                        right: 70px;
                     }
 
                     @include media-breakpoint-down(sm) {
@@ -219,6 +227,56 @@ header {
                                 }
                             }
                         }
+
+                        .account-dropdown {
+                            .dropdown-toggle {
+                                &::after {
+                                    content: none;
+                                }
+                            }
+
+                            .dropdown-menu {
+                                border: 1px solid colour(gray, 3);
+                                border-radius: 0;
+                                margin-top: 0.3125rem;
+                                padding: 1em;
+                                width: 14.25rem;
+                                transition:
+                                    width 0.8s,
+                                    visibility 20ms,
+                                    opacity 0.5s;
+                                transition-timing-function: cubic-bezier(
+                                    0.075,
+                                    0.82,
+                                    0.165,
+                                    1
+                                );
+
+                                li {
+                                    padding-left: 0.5rem;
+
+                                    a,
+                                    button {
+                                        line-height: 1rem;
+                                        letter-spacing: 0.015em;
+                                        color: colour(gray);
+                                        display: block;
+                                        padding: 10px 0;
+
+                                        &:hover {
+                                            color: colour(blue);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &:hover {
+                            img {
+                                transition: opacity 0.5s ease-out;
+                                opacity: 0.65;
+                            }
+                        }
                     }
                 }
 
@@ -227,12 +285,12 @@ header {
                     z-index: 200;
 
                     @include media-up(sm) {
-                        top: -39px;
+                        top: -16px;
                         margin: 0 1.6875rem 0 0.8125rem;
                     }
 
                     @include media-up(md) {
-                        top: -3.25rem;
+                        top: -15px;
                         margin: 0 1.0625rem;
                     }
 
@@ -295,10 +353,18 @@ header {
 .ticker-wrapper {
     padding: 0.75rem 1rem;
     font-weight: map-get($font-weight, semibold);
-    min-height: 4.0625rem;
+    min-height: 47px;
 
     @include media-up(sm) {
         min-height: auto;
+    }
+
+    .header-promotion {
+        min-height: 47px;
+
+        @include media-up(sm) {
+            min-height: auto;
+        }
     }
 }
 

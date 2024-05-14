@@ -63,19 +63,20 @@
         <isif condition="${miniCart}">
             <div class="d-flex minicart-buttons">
                 <a href="${URLUtils.https('Cart-Show')}"
-                    class="btn btn-block mr-1 h-bg--blue-1 h-fw--semibold h-font-size--13 ${pdict.valid.error ? 'disabled' : ''}" role="button">
+                    class="btn btn-block mr-1 h-bg--blue-1 h-fw--semibold h-font-size--13" role="button">
                     ${Resource.msg('button.view.cart', 'cart', null)}
                 </a>
 
                 <a href="${URLUtils.https('Checkout-Begin')}"
-                    class="btn btn-block ml-1 h-bg--blue-1 h-fw--semibold h-font-size--13 ${pdict.valid.error ? 'disabled' : ''}" role="button">
+                    class="btn btn-block ml-1 h-bg--blue-1 h-fw--semibold h-font-size--13 checkout-btn ${pdict.valid.error ? 'disabled' : ''}" role="button">
                     ${Resource.msg('button.checkout', 'cart', null)}
                 </a>
             </div>
         <iselse/>
             <div class="mb-sm-3">
                 <a href="${URLUtils.https('Checkout-Begin')}"
-                    class="btn btn-primary btn-block checkout-btn ${pdict.valid.error ? 'disabled' : ''}" role="button">
+                    class="btn btn-primary btn-block checkout-btn h-fw--semibold h-font-size--16 cart-checkout-btn ${pdict.valid.error ? 'disabled' : ''}" role="button">
+                    <span class="checkout-button-lock"></span>
                     ${Resource.msg('button.checkout', 'cart', null)}
                 </a>
             </div>

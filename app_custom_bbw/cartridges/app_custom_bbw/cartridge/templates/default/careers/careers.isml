@@ -1,0 +1,59 @@
+<isdecorate template="common/layout/page">
+    <isinclude template="/components/modules" sf-toolkit="off" />
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/careers.js');
+        assets.addCss('/css/careers.css');
+    </isscript>
+    <div class="container">
+    <div class="career-section">
+        <h1 class="entry-title h-font-size--40 text-captialize">${Resource.msg('text.careers', 'careers', null)}</h1>
+        <iscontentasset aid="careers" />
+        <div class="job-heading text-center">
+            <h2 class="text-transform-captialize">${Resource.msg('text.available.position', 'careers', null)}</h2>
+        </div>
+        <isif condition="${pdict.careers.length == 0}">
+            <iscontentasset aid="careers-no-job-available" />
+        <iselse/>
+            <!-- Accordion -->
+            <div class="accordion-container careers_jobs">
+                <div class="row main-container">
+                    <div class="col-12 accordion" id="accordion">
+                        <div class="panel-group " id="accordioncontent">
+                            <isloop items="${pdict.careers}" var="career" status="loopstatus">
+                                <div class="panel panel-default firstItem">
+                                    <div class="panel-heading collapsed" data-toggle="collapse"
+                                        href="${'#' + (career.city).replace(/\s/g, '')}" aria-expanded="true"
+                                        aria-controls="${'#' + (career.city).replace(/\s/g, '')}"
+                                        hreflang="${request.getLocale()}">
+                                        <h3 class="d-flex justify-content-between align-items-center text-uppercase">
+                                            <span class="headeing_main_c d-block"> ${career.city} </span>
+                                        </h3>
+                                    </div>
+                                    <div id="${(career.city).replace(/\s/g, '')}" data-parent="#accordioncontent"
+                                        class="panel-collapse collapse" aria-expanded="false" role="tablist">
+                                        <div class="panel-body menu_list">
+                                            <isloop items="${career.data}" var="job" status="loopstatus">
+                                                <ul>
+                                                    <li class="h-font-size--16 m-0"><span class="number-listing">${loopstatus.count}</span><a href="${URLUtils.url('Careers-ApplyForJob', 'jobName', job.jobName, 'jobId', job.id)}"
+                                                            hreflang="${request.getLocale()}"><span class="job-roles">
+                                                                ${job.jobName} </span></a>
+                                                    </li>
+                                                </ul>
+                                            </isloop>
+                                        </div>
+                                    </div>
+                                </div>
+                            </isloop>
+                            <!-- /.panel-default -->
+                        </div>
+                        <!-- /.panel-default -->
+                    </div>
+                    <!--end of /.panel-group-->
+                </div>
+                <!-- {# accordion #} -->
+            </div>
+        </isif>
+    </div>
+    </div>
+</isdecorate>

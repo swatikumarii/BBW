@@ -55,6 +55,53 @@
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="googleCategory">
+                <display-name xml:lang="x-default">Google Product Category</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="isEgiftCard">
+                <display-name xml:lang="x-default">is E-Giftcard?</display-name>
+                <type>boolean</type>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="style">
+                <display-name xml:lang="x-default">Style</display-name>
+                <description xml:lang="x-default">Giftcard Style</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="amount">
+                <display-name xml:lang="x-default">Amount</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -70,6 +117,23 @@
                 <display-name xml:lang="x-default">Notify me</display-name>
                 <attribute attribute-id="enableNotifyMe"/>
                 <attribute attribute-id="notifyMeThreshold"/>
+            </attribute-group>
+            <attribute-group group-id="google">
+                <display-name xml:lang="x-default">Google</display-name>
+                <attribute attribute-id="googleCategory"/>
+            </attribute-group>
+            <attribute-group group-id="checks">
+                <display-name xml:lang="x-default">Checks</display-name>
+                <attribute attribute-id="isEgiftCard"/>
+                <attribute attribute-id="isBonusProduct"/>
+                <attribute attribute-id="dangerousGoods"/>
+                <attribute attribute-id="expressShip"/>
+                <attribute attribute-id="giftWrapable"/>
+            </attribute-group>
+            <attribute-group group-id="eGiftCards">
+                <display-name xml:lang="x-default">E Giftcards</display-name>
+                <attribute attribute-id="amount"/>
+                <attribute attribute-id="style"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -97,6 +161,56 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="activatedDate">
+                <display-name xml:lang="x-default">Activated Date</display-name>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="dialCode">
+                <display-name xml:lang="x-default">Country DialCode</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="lastModified">
+                <display-name xml:lang="x-default">Last Modified</display-name>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="migratedCustomer">
+                <display-name xml:lang="x-default">Migrated Customer</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="isPasswordUpdated">
+                <display-name xml:lang="x-default">Password Updated Status</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+			<attribute-definition attribute-id="isProflieComplete">
+                <display-name xml:lang="x-default">Profile Complete Status</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="receiveOffers">
+                <display-name xml:lang="x-default">Receive Offers</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="registrationSource">
+                <display-name xml:lang="x-default">Registration Source</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Standard">
@@ -108,11 +222,70 @@
                 <attribute attribute-id="nationality"/>
                 <attribute attribute-id="zipCode"/>
             </attribute-group>
+            <attribute-group group-id="MigrationAttribute">
+                <display-name xml:lang="x-default">Migration Attribute</display-name>
+                <attribute attribute-id="migratedCustomer"/>
+                <attribute attribute-id="isPasswordUpdated"/>
+				<attribute attribute-id="isProflieComplete"/>
+                <attribute attribute-id="registrationSource"/>
+                <attribute attribute-id="receiveOffers"/>
+                <attribute attribute-id="activatedDate"/>
+                <attribute attribute-id="lastModified"/>
+                <attribute attribute-id="dialCode"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="CustomerAddress">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="email">
+                <display-name xml:lang="x-default">Email</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="dialCode">
+				<display-name xml:lang="x-default">Country DialCode</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+			<attribute-definition attribute-id="lastModified">
+                <display-name xml:lang="x-default">Last Modified</display-name>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="MigrationAttribute">
+                <display-name xml:lang="x-default">Migration Attribute</display-name>
+                <attribute attribute-id="email"/>
+                <attribute attribute-id="lastModified"/>
+                <attribute attribute-id="dialCode"/>
+            </attribute-group>
         </group-definitions>
     </type-extension>
 
     <type-extension type-id="SitePreferences">
         <custom-attribute-definitions>
+            <attribute-definition attribute-id="liveChatEnabled">
+                <display-name xml:lang="x-default">Enable Live Chat</display-name>
+                <description xml:lang="x-default">Enable Live Chat</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="chatScript">
+                <display-name xml:lang="x-default">Live Chat Script</display-name>
+                <description xml:lang="x-default">Copy the third party live chat script here</description>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="reserveQty">
                 <display-name xml:lang="x-default">Product Reserve Quantity</display-name>
                 <description xml:lang="x-default">Site level Reserve Quantity for Products</description>
@@ -801,11 +974,144 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="jobNotificationToEmail">
+                <display-name xml:lang="x-default">Job Notification To Email</display-name>
+                <description xml:lang="x-default">Email address to trigger email notifications</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="jobNotificationCCEmail">
+                <display-name xml:lang="x-default">Job Notification CC Email</display-name>
+                <description xml:lang="x-default">Comma-separated CC email address to trigger job notifications</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="careersEmail">
+                <display-name xml:lang="x-default">Careers Email</display-name>
+                <description xml:lang="x-default">The resumes of the candidates will be received at this email address.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="zeroOrderEmail">
+                <display-name xml:lang="x-default">Zero Order Email Address</display-name>
+                <description xml:lang="x-default">Comma-separated Zero Order email addresses</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="countrySiteMapping">
+                <display-name xml:lang="x-default">Country and Site Mapping</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="enableQwikcilver">
+                <display-name xml:lang="x-default">Enable Qwikcilver</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+
+            <attribute-definition attribute-id="qwikcilverAPIPassword">
+                <display-name xml:lang="x-default">Qwikcilver API Password</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="qwikcilverCPGName">
+                <display-name xml:lang="x-default">CardProgram Group Name</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="qwikcilverEGiftBarCodeUrl">
+                <display-name xml:lang="x-default">eGift BarCode Url</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="qwikcilverForwardingEntityId">
+                <display-name xml:lang="x-default">Forwarding Entity Id</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="qwikcilverForwardingEntityPassword">
+                <display-name xml:lang="x-default">Forwarding Entity Password</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="qwikcilverMaxRedemptionAmount">
+                <display-name xml:lang="x-default">Qwikcilver Maximum Redemption Amount</display-name>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="qwikcilverMinRedemptionAmount">
+                <display-name xml:lang="x-default">Qwikcilver Minimum Redemption Amount</display-name>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="qwikcilverTerminalID">
+                <display-name xml:lang="x-default">Terminal ID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="qwikcilverTransactionID">
+                <display-name xml:lang="x-default">Qwikclver Transaction ID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="qwikcilverUserName">
+                <display-name xml:lang="x-default">Qwikcilver Username</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="qwikclverAuthToken">
+                <display-name xml:lang="x-default">Qwikcilver Auth Token</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>true</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
                 <display-name xml:lang="x-default">Dynamic Imaging Service</display-name>
                 <attribute attribute-id="disImageSourceEnvironment"/>
+            </attribute-group>
+            <attribute-group group-id="qwikcilver">
+                <display-name xml:lang="x-default">Qwikcilver</display-name>
+                <attribute attribute-id="enableQwikcilver"/>
+                <attribute attribute-id="qwikcilverMinRedemptionAmount"/>
+                <attribute attribute-id="qwikcilverCPGName"/>
+                <attribute attribute-id="qwikcilverForwardingEntityId"/>
+                <attribute attribute-id="qwikcilverForwardingEntityPassword"/>
+                <attribute attribute-id="qwikcilverUserName"/>
+                <attribute attribute-id="qwikcilverAPIPassword"/>
+                <attribute attribute-id="qwikcilverTerminalID"/>
+                <attribute attribute-id="qwikcilverEGiftBarCodeUrl"/>
+                <attribute attribute-id="qwikcilverMaxRedemptionAmount"/>
+                <attribute attribute-id="qwikclverAuthToken"/>
+                <attribute attribute-id="qwikcilverTransactionID"/>
             </attribute-group>
             <attribute-group group-id="Storefront Configs">
                 <display-name xml:lang="x-default">Storefront Configurations</display-name>
@@ -818,6 +1124,9 @@
                 <attribute attribute-id="maxOrderQty"/>
                 <attribute attribute-id="notifyEmailThreshold"/>
                 <attribute attribute-id="header_image"/>
+                <attribute attribute-id="zeroOrderEmail"/>
+                <attribute attribute-id="careersEmail"/>
+                <attribute attribute-id="countrySiteMapping"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
@@ -910,6 +1219,16 @@
                 <display-name xml:lang="x-default">Nationality</display-name>
                 <attribute attribute-id="nationality"/>
                 <attribute attribute-id="nationalities"/>
+            </attribute-group>
+                <attribute-group group-id="jobNotifications">
+                <display-name xml:lang="en-AU">Job Notifications</display-name>
+                <attribute attribute-id="jobNotificationToEmail"/>
+                <attribute attribute-id="jobNotificationCCEmail"/>
+            </attribute-group>
+            <attribute-group group-id="Third Party Scripts">
+                <display-name xml:lang="x-default">Third Part Scripts</display-name>
+                <attribute attribute-id="liveChatEnabled"/>
+                <attribute attribute-id="chatScript"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -1592,6 +1911,15 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="slotId">
+                <display-name xml:lang="x-default">Slot ID</display-name>
+                <description xml:lang="x-default">Content Slot id to show promotions.</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="promotionTileCommon">
@@ -1684,6 +2012,10 @@
                 <attribute attribute-id="promotionTilePositionMobile20"/>
                 <attribute attribute-id="promotionTileRandom20"/>
             </attribute-group>
+            <attribute-group group-id="slotId">
+                <display-name xml:lang="x-default">Slot Id</display-name>
+                <attribute attribute-id="slotId"/>
+            </attribute-group>
         </group-definitions>
     </type-extension>
 
@@ -1716,6 +2048,10 @@
         <group-definitions>
             <attribute-group group-id="Details">
                 <display-name xml:lang="x-default">Store Details</display-name>
+                <attribute attribute-id="storeHours" system="true"/>
+                <attribute attribute-id="storeEvents" system="true"/>
+                <attribute attribute-id="image" system="true"/>
+                <attribute attribute-id="posEnabled" system="true"/>
                 <attribute attribute-id="storeType"/>
             </attribute-group>
         </group-definitions>
@@ -1778,6 +2114,49 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="failedPaymentNotification">
+                <display-name xml:lang="x-default">Failed Payment Notification</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="readyToShip">
+                <display-name xml:lang="x-default">Is order ready to ship?</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+
+            <attribute-definition attribute-id="eGiftCardData">
+                <display-name xml:lang="x-default">eGiftCard Data</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftEmailPending">
+                <display-name xml:lang="x-default">eGiftEmailPending</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftTotalAmount">
+                <display-name xml:lang="x-default">eGiftTotalAmount</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="giftcardObject">
+                <display-name xml:lang="x-default">Gift Card Object</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="isEmailPending">
+                <display-name xml:lang="x-default">Is Email Pending?</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="AdyenPayments">
@@ -1795,6 +2174,14 @@
             <attribute-group group-id="CashAppPay">
                 <display-name xml:lang="x-default">Cash App Pay</display-name>
                 <attribute attribute-id="isCashAppPayOrder"/>
+            </attribute-group>
+            <attribute-group group-id="notification">
+                <display-name xml:lang="x-default">Failed Payment Notification Sent?</display-name>
+                <attribute attribute-id="failedPaymentNotification"/>
+            </attribute-group>
+            <attribute-group group-id="qwikcilver">
+                <display-name xml:lang="x-default">Qwikcilver</display-name>
+                <attribute attribute-id="eGiftCardData"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -1913,6 +2300,20 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
                 <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftCardNumber">
+                <display-name xml:lang="x-default">eGiftCardNumber</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftCardPin">
+                <display-name xml:lang="x-default">eGiftCardPin</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
             </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
@@ -2217,6 +2618,12 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="eGiftTotalAmount">
+                <display-name xml:lang="x-default">eGiftTotalAmount</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="AdyenPayment">
@@ -2257,6 +2664,94 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="isEgiftCard">
+                <display-name xml:lang="x-default">isEgiftCard</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftCardBarcode">
+                <display-name xml:lang="x-default">eGift Card Barcode</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftCardExpiry">
+                <display-name xml:lang="x-default">eGift Card Expiry</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftCardNumber">
+                <display-name xml:lang="x-default">eGift Card Number</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftCardPin">
+                <display-name xml:lang="x-default">Egift Card Pin</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftCardScheduleDay">
+                <display-name xml:lang="x-default">eGift Card Schedule Day</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftCardScheduleMonth">
+                <display-name xml:lang="x-default">eGift Card Schedule Month</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftEmailPending">
+                <display-name xml:lang="x-default">eGift Email Pending</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftMessage">
+                <display-name xml:lang="x-default">eGift Message</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftReceiver">
+                <display-name xml:lang="x-default">E Gift Receiver</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftReceiverEmail">
+                <display-name xml:lang="x-default">E Gift Receiver Email</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftScheduledYear">
+                <display-name xml:lang="x-default">eGift Scheduled Year</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftSender">
+                <display-name xml:lang="x-default">E Gift Sender</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -2267,6 +2762,19 @@
             <attribute-group group-id="greetingCardAttributes">
                 <display-name xml:lang="x-default">Greeting Card Attributes</display-name>
                 <attribute attribute-id="greetingCardMessage"/>
+            </attribute-group>
+            <attribute-group group-id="eGiftcard">
+                <display-name xml:lang="x-default">eGiftcard</display-name>
+                <attribute attribute-id="eGiftCardBarcode"/>
+                <attribute attribute-id="eGiftCardExpiry"/>
+                <attribute attribute-id="eGiftReceiver"/>
+                <attribute attribute-id="eGiftCardScheduleMonth"/>
+                <attribute attribute-id="eGiftCardPin"/>
+                <attribute attribute-id="eGiftMessage"/>
+                <attribute attribute-id="eGiftReceiverEmail"/>
+                <attribute attribute-id="eGiftCardNumber"/>
+                <attribute attribute-id="eGiftCardScheduleDay"/>
+                <attribute attribute-id="eGiftSender"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

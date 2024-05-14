@@ -33,6 +33,9 @@ html,
 body {
     &#{$const-disable-scroll} {
         overflow: hidden; // Disabling scroll.
+        position: fixed;
+        width: 100%;
+        height: 100vh;
     }
 }
 
@@ -134,3 +137,39 @@ ul li {
 // Including mixin to create components from the brand typography map.
 
 @include createComponentsFromMap($brandTypography, "b-text");
+
+// ===================================
+// Breadcrumbs
+// ===================================
+
+.breadcrumb {
+    padding: 0.5rem 0.9375rem 1.6875rem;
+
+    .breadcrumb-item a {
+        font-size: 1rem;
+        line-height: 1.25rem;
+        letter-spacing: 0.01em;
+        color: colour(gray, 4);
+        text-transform: capitalize;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .breadcrumb-item {
+        padding-left: 0;
+
+        &::before {
+            padding: 0 10px 0 13px;
+        }
+    }
+
+    a[aria-current="page"] {
+        color: colour(black, 1);
+        text-decoration: none;
+        cursor: text;
+        pointer-events: none;
+    }
+}

@@ -1,7 +1,9 @@
 'use strict';
 
 var modalDialog = '.modal-dialog.dynamic-popup-dialog';
+var modalDialogCenter = 'modal-dialog-centered';
 var modalContent = '.modal-content.dynamic-popup-content .modal-body';
+var modalHeader = '.modal-header';
 var closeButton = '.modal-header button.close';
 var modalShowClass = 'show';
 var modalIdAll = '#dynamic-modal-all';
@@ -41,6 +43,9 @@ function configurePopup(data, popupId) {
     var popupContent = data.popupContent;
 
     $popup.addClass(data.popupPosition);
+    if (data.popupPosition === 'center') {
+        $modalDialog.addClass(modalDialogCenter);
+    }
     $popup.find(closeButton).removeClass('d-none');
     $modalDialog.addClass(data.popupSize).addClass(data.popupAnimation);
     $popup.find(modalContent).empty().append(popupContent);
@@ -48,6 +53,144 @@ function configurePopup(data, popupId) {
         .find(closeButton)
         .addClass(data.popupCloseButtonPosition)
         .removeClass('d-none');
+    $popup.find(modalHeader).addClass(data.popupCloseButtonPosition);
+}
+
+/**
+ * Sets up the trigger for displaying the popup based on the provided data.
+ * @param {object} data - The data object containing popup information.
+ * @param {string} popupId - The ID of the popup.
+ * @param {string} presentWindowLocation - The present window location.
+ */
+function setupPopupTrigger(data, popupId, presentWindowLocation) {
+    var popupUrl = data.popupUrl;
+    var popupTrigger = data.popupTrigger;
+    var popupClickEventId = data.popupClickEventId;
+    var popupDelayTime = data.popupDelayTime;
+    var popupScroll = data.popupScroll;
+    var popupAutocloseTime = data.popupAutocloseTime;
+
+    switch (popupTrigger) {
+        case modalIdExitIntent:
+            if (
+                localStorage.getItem(popupUrl + presentWindowLocation) ===
+                    'true' ||
+                sessionStorage.getItem(popupUrl + presentWindowLocation) ===
+                    'true'
+            ) {
+                setTimeout(function () {
+                    $(popupId).modal('show');
+                    localStorage.setItem(
+                        popupUrl + presentWindowLocation,
+                        false
+                    );
+                    sessionStorage.setItem(
+                        popupUrl + presentWindowLocation,
+                        false
+                    );
+                    if (popupAutocloseTime > 0) {
+                        setTimeout(function () {
+                            $(popupId).modal('hide');
+                        }, popupAutocloseTime);
+                    }
+                }, popupDelayTime);
+            }
+            break;
+        case 'onLoad':
+            setTimeout(function () {
+                $(popupId).modal('show');
+                localStorage.setItem(popupUrl + presentWindowLocation, false);
+                sessionStorage.setItem(popupUrl + presentWindowLocation, false);
+                if (popupAutocloseTime > 0) {
+                    setTimeout(function () {
+                        $(popupId).modal('hide');
+                    }, popupAutocloseTime);
+                }
+            }, popupDelayTime);
+            break;
+        case 'onScroll':
+            $(window).scroll(function () {
+                // var percentScrolled =
+                //     ($(window).scrollTop() / $(document).height()) * 100;
+
+                var scrollTop = $(this).scrollTop();
+                var documentHeight = $(document).height();
+                var windowHeight = window.innerHeight;
+                var percentScrolled =
+                    (scrollTop / (documentHeight - windowHeight)) * 100;
+                if (
+                    percentScrolled >= popupScroll &&
+                    (localStorage.getItem(popupUrl + presentWindowLocation) ===
+                        'true' ||
+                        sessionStorage.getItem(
+                            popupUrl + presentWindowLocation
+                        ) === 'true')
+                ) {
+                    setTimeout(function () {
+                        $(popupId).modal('show');
+                        localStorage.setItem(
+                            popupUrl + presentWindowLocation,
+                            false
+                        );
+                        sessionStorage.setItem(
+                            popupUrl + presentWindowLocation,
+                            false
+                        );
+                        if (popupAutocloseTime > 0) {
+                            setTimeout(function () {
+                                $(popupId).modal('hide');
+                            }, popupAutocloseTime);
+                        }
+                    }, popupDelayTime);
+                }
+            });
+            break;
+        case 'onClick':
+            if ($('#' + popupClickEventId).length) {
+                $('body').on('click', '#' + popupClickEventId, function () {
+                    if (
+                        localStorage.getItem(
+                            popupUrl + presentWindowLocation
+                        ) === 'true' ||
+                        sessionStorage.getItem(
+                            popupUrl + presentWindowLocation
+                        ) === 'true'
+                    ) {
+                        setTimeout(function () {
+                            $(popupId).modal('show');
+                            if (popupAutocloseTime > 0) {
+                                setTimeout(function () {
+                                    $(popupId).modal('hide');
+                                }, popupAutocloseTime);
+                            }
+                        }, popupDelayTime);
+                    }
+                });
+            }
+            break;
+        case 'onExit':
+            $(document).unbind('mouseleave');
+            $(document).mouseleave(function () {
+                setTimeout(function () {
+                    $(popupId).modal('show');
+                    localStorage.setItem(
+                        popupUrl + presentWindowLocation,
+                        false
+                    );
+                    sessionStorage.setItem(
+                        popupUrl + presentWindowLocation,
+                        false
+                    );
+                    if (popupAutocloseTime > 0) {
+                        setTimeout(function () {
+                            $(popupId).modal('hide');
+                        }, popupAutocloseTime);
+                    }
+                }, popupDelayTime);
+            });
+            break;
+        default:
+    }
 }
 
 /**
@@ -75,6 +218,7 @@ function handlePopupFrequency(data, popupId, presentWindowLocation) {
                     'PopupContent' + presentWindowLocation,
                     JSON.stringify(popupContent)
                 );
+                setupPopupTrigger(data, popupId, presentWindowLocation);
             } else {
                 $(popupId).modal('hide');
             }
@@ -82,6 +226,7 @@ function handlePopupFrequency(data, popupId, presentWindowLocation) {
         case 'sessionBased':
             if (!sessionStorage.getItem(popupKey)) {
                 sessionStorage.setItem(popupKey, true);
+                setupPopupTrigger(data, popupId, presentWindowLocation);
             } else {
                 $(popupId).modal('hide');
             }
@@ -89,91 +234,7 @@ function handlePopupFrequency(data, popupId, presentWindowLocation) {
         default:
             localStorage.setItem(popupKey, true);
             sessionStorage.setItem(popupKey, true);
-    }
-}
-
-/**
- * Sets up the trigger for displaying the popup based on the provided data.
- * @param {object} data - The data object containing popup information.
- * @param {string} popupId - The ID of the popup.
- * @param {string} presentWindowLocation - The present window location.
- */
-function setupPopupTrigger(data, popupId, presentWindowLocation) {
-    var popupUrl = data.popupUrl;
-    var popupTrigger = data.popupTrigger;
-    var popupClickEventId = data.popupClickEventId;
-    var popupDelayTime = data.popupDelayTime;
-    var popupScroll = data.popupScroll;
-
-    switch (popupTrigger) {
-        case 'onLoad':
-            setTimeout(function () {
-                $(popupId).modal('show');
-                localStorage.setItem(popupUrl + presentWindowLocation, false);
-                sessionStorage.setItem(popupUrl + presentWindowLocation, false);
-            }, popupDelayTime);
-            break;
-        case 'onScroll':
-            $(window).scroll(function () {
-                var percentScrolled =
-                    ($(window).scrollTop() / $(document).height()) * 100;
-                if (
-                    percentScrolled >= popupScroll &&
-                    (localStorage.getItem(popupUrl + presentWindowLocation) ===
-                        'true' ||
-                        sessionStorage.getItem(
-                            popupUrl + presentWindowLocation
-                        ) === 'true')
-                ) {
-                    setTimeout(function () {
-                        $(popupId).modal('show');
-                        localStorage.setItem(
-                            popupUrl + presentWindowLocation,
-                            false
-                        );
-                        sessionStorage.setItem(
-                            popupUrl + presentWindowLocation,
-                            false
-                        );
-                    }, popupDelayTime);
-                }
-            });
-            break;
-        case 'onClick':
-            if ($('#' + popupClickEventId).length) {
-                $('body').on('click', '#' + popupClickEventId, function () {
-                    if (
-                        localStorage.getItem(
-                            popupUrl + presentWindowLocation
-                        ) === 'true' ||
-                        sessionStorage.getItem(
-                            popupUrl + presentWindowLocation
-                        ) === 'true'
-                    ) {
-                        setTimeout(function () {
-                            $(popupId).modal('show');
-                        }, popupDelayTime);
-                    }
-                });
-            }
-            break;
-        case 'onExit':
-            $(document).unbind('mouseleave');
-            $(document).mouseleave(function () {
-                setTimeout(function () {
-                    $(popupId).modal('show');
-                    localStorage.setItem(
-                        popupUrl + presentWindowLocation,
-                        false
-                    );
-                    sessionStorage.setItem(
-                        popupUrl + presentWindowLocation,
-                        false
-                    );
-                }, popupDelayTime);
-            });
-            break;
-        default:
+            setupPopupTrigger(data, popupId, presentWindowLocation);
     }
 }
 
@@ -195,7 +256,6 @@ function dynamicPopupShow(name, checkExitIntentPopup) {
                 if (isPopupEnabled(data)) {
                     configurePopup(data, popupId);
                     handlePopupFrequency(data, popupId, presentWindowLocation);
-                    setupPopupTrigger(data, popupId, presentWindowLocation);
                 }
             }
         });

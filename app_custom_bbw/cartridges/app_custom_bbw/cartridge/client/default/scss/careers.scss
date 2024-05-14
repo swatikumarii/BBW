@@ -1,0 +1,347 @@
+@import "../scss/_brand/_api/api";
+
+.career-section {
+    @include media-up(sm) {
+        margin: 0 auto;
+        padding: 30px;
+        padding-bottom: 0;
+    }
+
+    .entry-title {
+        color: colour(gray);
+        margin: 24px 0 18px;
+        padding: 12px 0 18px;
+        line-height: 50px;
+        letter-spacing: 3.3px;
+    }
+
+    p {
+        line-height: 28px;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+    }
+
+    .job-heading {
+        h2 {
+            font-size: 27px;
+            color: colour(black, 5);
+            border-top: 1px solid colour(gray, 7);
+            padding: 20px 0 0;
+            line-height: 40px;
+            letter-spacing: 2.4px;
+        }
+    }
+
+    .accordion-container {
+        .collapsible {
+            margin: 0 0 1px;
+            padding-top: 0;
+            position: relative;
+        }
+
+        .panel-group {
+            .panel {
+                .panel-heading {
+                    &.collapsed {
+                        background-color: colour(gray, 1);
+                        transition: 0.2s linear all;
+
+                        h3 {
+                            &::before {
+                                transition: all 0.5s ease-out;
+                                transform: rotate(0deg);
+                                background: url("../images/UI-Carat.svg") 50%;
+                                background-repeat: no-repeat;
+                                content: "";
+                                position: absolute;
+                                width: 2.5rem;
+                                height: 1.375rem;
+                                right: 1%;
+                                background-size: 1.25rem;
+                            }
+
+                            .headeing_main_c {
+                                color: colour(black, 6);
+                                border-bottom: none;
+                                text-decoration: none;
+                                letter-spacing: 2.4px;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+
+                    h3 {
+                        cursor: pointer;
+                        font-size: 17px;
+                        line-height: 28px;
+                        padding: 0.5em 1em;
+                        margin-bottom: 10px;
+                        letter-spacing: 2.4px;
+                        position: relative;
+
+                        &::before {
+                            transition: all 0.5s ease-out;
+                            transform: rotate(180deg);
+                            background: url("../images/UI-Carat.svg") 50%;
+                            background-repeat: no-repeat;
+                            content: "";
+                            position: absolute;
+                            width: 2.5rem;
+                            height: 1.375rem;
+                            right: 1%;
+                            background-size: 1.25rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu_list {
+            padding: 18px 4px 18px 28px;
+
+            ul {
+                li {
+                    list-style: none;
+                    padding: 0 0 18px;
+
+                    .job-roles {
+                        color: colour(black, 6);
+                        line-height: 28px;
+                        letter-spacing: 1px;
+                    }
+
+                    .number-listing {
+                        color: colour(black, 6);
+                        display: inline-block;
+                        width: 40px;
+                    }
+                }
+
+                .location_name_c {
+                    cursor: pointer;
+                    margin: 0;
+                    list-style: none;
+                    padding: 0 0 18px;
+                    color: colour(black, 6);
+
+                    span {
+                        color: colour(black, 6);
+                        display: inline-block;
+                        width: 40px;
+                    }
+                }
+
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0 0 0 40px;
+                    margin-bottom: 0;
+
+                    li {
+                        padding: 0 12px 0 0;
+                        position: relative;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ----------job-form---
+.job-form {
+    padding: 18px 40px 10px;
+    margin: 0 auto;
+
+    .entry-header {
+        .entry-title {
+            color: colour(gray);
+            margin: 24px 0 18px;
+            padding: 12px 0 0;
+            line-height: 50px;
+            letter-spacing: 3.3px;
+        }
+    }
+
+    .job-content {
+        line-height: 28px;
+        letter-spacing: 1px;
+    }
+
+    .email-header {
+        margin: 20px 20px 20px 0;
+    }
+
+    .application {
+        margin: 0 0 1em;
+        overflow: hidden;
+
+        .applicationButton {
+            letter-spacing: 2px;
+            line-height: 1.2;
+            max-width: 280px;
+            min-width: 220px;
+            padding: 14px 20px;
+            border-radius: 0;
+            text-decoration: none;
+            transition: 0.2s ease-in-out;
+
+            &:hover {
+                background-color: transparent;
+                color: colour(black, 7);
+                outline: none;
+            }
+        }
+    }
+
+    .jobForm {
+        display: none;
+        padding: 0;
+        margin: 0 0 1em;
+
+        .job-content {
+            line-height: 28px;
+            letter-spacing: 1px;
+            text-align: left;
+        }
+
+        .job-application {
+            &.form-control {
+                height: unset;
+                border-color: colour(gray, 23);
+                padding: 30px;
+            }
+
+            .form-content {
+                color: colour(black, 7);
+                line-height: 28px;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+            }
+
+            .required-field {
+                margin-bottom: 32px;
+                position: relative;
+
+                .form-control-label {
+                    color: colour(black, 6);
+                    letter-spacing: 0.5px;
+                    line-height: 20px;
+                }
+
+                .job-input-form {
+                    border-radius: 0;
+                    border: 1px solid colour(gray, 23);
+                    color: colour(black, 6);
+                    letter-spacing: 0.5px;
+                    margin-top: 8px;
+                    padding: 12px 21px;
+                    line-height: initial;
+
+                    &.is-invalid {
+                        border-color: colour(red);
+                    }
+                }
+
+                .self-textarea {
+                    border-radius: 0;
+                }
+            }
+
+            .send-resume {
+                background: colour(black, 6);
+                border: none;
+                color: colour(white);
+                display: inline-block;
+                padding: 10px 24px;
+                text-decoration: none;
+
+                &:focus {
+                    border-radius: 5px;
+                }
+            }
+
+            .thankyou-msg {
+                display: none;
+                margin: 2em 0.5em 1em;
+                padding: 0.2em 1em;
+                border: 2px solid colour(green, 1);
+            }
+
+            .error-msg-jobs {
+                display: none;
+                margin: 2em 0.5em 1em;
+                padding: 0.2em 1em;
+                border: 2px solid colour(red);
+            }
+
+            .large-size-msg {
+                display: none;
+                margin: 2em 0.5em 1em;
+                padding: 0.2em 1em;
+                border: 2px solid colour(blue, 8);
+            }
+        }
+    }
+}
+
+// ------thank you modal--
+.thankyouModal {
+    .modal {
+        .modal-dialog {
+            max-width: 600px;
+            min-height: calc(100% - 3.5rem);
+
+            &::before {
+                height: calc(100vh - 3.5rem);
+            }
+
+            .modal-content {
+                box-shadow: none;
+                letter-spacing: 1px;
+                line-height: 28px;
+                max-width: 600px;
+                padding: 35px 20px 25px;
+                transition: none;
+
+                .modal-header {
+                    border: none;
+                    padding-top: 0;
+                    padding-bottom: 0;
+
+                    .modal-close-icon {
+                        color: colour(black);
+                        font-size: 25px;
+                        top: 35px;
+                        right: 40px;
+                        position: absolute;
+                        cursor: pointer;
+                        z-index: 901;
+                        background-color: transparent;
+                        border: 0;
+                        padding: 0;
+                        background-position: 50%;
+                        background-repeat: no-repeat;
+                        height: 60px;
+                        opacity: 0.55;
+                        width: 60px;
+                        background-image: url("../images/careers/close-icon.svg");
+
+                        &:hover {
+                            opacity: 0.75;
+                        }
+                    }
+
+                    .close {
+                        margin: -1rem -1rem -1rem auto;
+                    }
+                }
+
+                .thankyou-body {
+                    letter-spacing: 1px;
+                    line-height: 28px;
+                }
+            }
+        }
+    }
+}

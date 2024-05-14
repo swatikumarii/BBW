@@ -1,0 +1,2 @@
+<h1>${Resource.msg('product.without.inventory', 'common', null)}</h1>
+<h2> ${pdict.productWithoutInventory} </h2>

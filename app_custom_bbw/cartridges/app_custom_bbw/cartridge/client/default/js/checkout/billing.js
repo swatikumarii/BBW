@@ -1,6 +1,6 @@
 'use strict';
 
-var addressHelpers = require('base/checkout/address');
+var addressHelpers = require('./address');
 var cleave = require('base/components/cleave');
 
 /**
@@ -87,7 +87,7 @@ function updateBillingAddressSelector(order, customer) {
             order.billing.billingAddress.address)
     ) {
         // show
-        $(form).attr('data-address-mode', 'edit');
+        $(form).attr('data-address-mode', 'details');
     } else {
         $(form).attr('data-address-mode', 'new');
     }
@@ -192,6 +192,10 @@ function updateBillingAddressSummary(order) {
         '.billing .address-summary',
         order.billing.billingAddress.address
     );
+    addressHelpers.methods.populateAddressSummary(
+        '.billing-address-block .summary-details.billing',
+        order.billing.billingAddress.address
+    );
 
     // update billing parts of order summary
     $('.order-summary-email').text(order.orderEmail);
@@ -289,7 +293,7 @@ module.exports = {
         $('.btn-hide-billing-details').on('click', function () {
             $(this)
                 .parents('[data-address-mode]')
-                .attr('data-address-mode', 'shipment');
+                .attr('data-address-mode', 'details');
         });
     },
 
@@ -304,7 +308,7 @@ module.exports = {
                 $(form).attr('data-address-mode', 'new');
             } else {
                 // Hide Address
-                $(form).attr('data-address-mode', 'shipment');
+                $(form).attr('data-address-mode', 'details');
             }
 
             // Copy fields
@@ -387,6 +391,13 @@ module.exports = {
             e.preventDefault();
             var methodID = $(this).data('method-id');
             $('.payment-information').data('payment-method-id', methodID);
+        });
+    },
+
+    editBillingAddress: function () {
+        $('.edit-billing-address').on('click', function () {
+            $(this).parents('form').attr('data-address-mode', 'details');
+            $(this).parents('.summary-details.billing').hide();
         });
     }
 };

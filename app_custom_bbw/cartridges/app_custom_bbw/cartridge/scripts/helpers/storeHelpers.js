@@ -7,20 +7,19 @@
  * @param {string} lat - coordinate latitude val
  * @param {string} long - coordinate longitude val
  * @param {string} geolocation - geolocation of client
+ * @param {string} countryCode - coutryCode searched
  * @param {Array} storeType - filter by store type
  * @param {boolean} showMap - to show map ot not 
  * @param {string} url - url where redirection happen
  * @returns {Array} The list of desired stores
  */
-function getStores(radius, postalCode, lat, long, geolocation, storeType, showMap, url) {
+function getStores(radius, postalCode, lat, long, geolocation, countryCode, storeType, showMap, url) {
     var StoresModel = require('*/cartridge/models/stores');
     var StoreMgr = require('dw/catalog/StoreMgr');
     var Site = require('dw/system/Site');
     var URLUtils = require('dw/web/URLUtils');
     var SystemObjMgr = require('dw/object/SystemObjectMgr');
-
-    var countryCode = geolocation.countryCode;
-    var distanceUnit = countryCode === 'US' ? 'mi' : 'km';
+    var distanceUnit = 'mi';
     var resolvedRadius = radius ? parseInt(radius, 10) : 15;
 
     var searchKey = {};
@@ -61,14 +60,7 @@ function getStores(radius, postalCode, lat, long, geolocation, storeType, showMa
     storeTypes.forEach(function (item) {
         return handleItem(item);
     });
-
-    if (
-        resolvedRadius &&
-        postalCode &&
-        postalCode !== '' &&
-        storeType &&
-        storeType !== null
-    ) {
+    if (resolvedRadius && postalCode && postalCode !== '' && storeType && storeType !== null) {
         // find by postal code
         searchKey = postalCode;
         storeMgrResult = StoreMgr.searchStoresByPostalCode(
@@ -79,7 +71,6 @@ function getStores(radius, postalCode, lat, long, geolocation, storeType, showMa
             'custom.storeType = {0}',
             storeType
         );
-        storeMgrResult = storeMgrResult.keySet();
         searchKey = { 
             postalCode: searchKey,
             storeType: storeType
@@ -93,13 +84,24 @@ function getStores(radius, postalCode, lat, long, geolocation, storeType, showMa
             distanceUnit,
             resolvedRadius
         );
-        storeMgrResult = storeMgrResult.keySet();
         searchKey = { postalCode: searchKey };
+    } else if (storeType && storeType !== null) {
+        // find by coordinates (detect location)
+        location.lat = lat && long ? parseFloat(lat) : geolocation.latitude;
+        location.long = long && lat ? parseFloat(long) : geolocation.longitude;
+        storeMgrResult = StoreMgr.searchStoresByCoordinates(
+            location.lat,
+            location.long,
+            distanceUnit,
+            resolvedRadius,
+            'custom.storeType = {0}',
+            storeType
+        );
+        searchKey = { lat: location.lat, long: location.long };
     } else {
         // find by coordinates (detect location)
         location.lat = lat && long ? parseFloat(lat) : geolocation.latitude;
         location.long = long && lat ? parseFloat(long) : geolocation.longitude;
-
         storeMgrResult = StoreMgr.searchStoresByCoordinates(
             location.lat,
             location.long,
@@ -114,7 +116,7 @@ function getStores(radius, postalCode, lat, long, geolocation, storeType, showMa
     var apiKey = Site.getCurrent().getCustomPreferenceValue('mapAPI');
 
     var stores = new StoresModel(
-        storeMgrResult,
+        storeMgrResult.keySet(),
         searchKey,
         resolvedRadius,
         actionUrl,

@@ -58,6 +58,7 @@ then
     echo "$SFCC_CI_AUTH_RES"
     if [ "$SFCC_CI_AUTH_RES" = 'Authentication succeeded' ]
     then
+        npm install -g underscore-cli
         echo "SFCC-CI Authenticated Successfully!"
         SFCC_CI_AUTH_STATUS=true
         OCAPIACCESS_TOKEN=$(sfcc-ci client:auth:token)
@@ -77,6 +78,8 @@ then
     else
     echo "Authentication Failed."
     fi
+    rm $FOLDER_TO_UPLOAD.zip
+    echo "${IS_DATA_IMPORTED.status}"
 fi
 echo "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-"
 echo "Done!"

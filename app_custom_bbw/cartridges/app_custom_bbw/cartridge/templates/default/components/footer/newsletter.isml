@@ -1,0 +1,35 @@
+<div class="home-email-signup bg-transparent">
+    <div class="container">
+        <form role="form" class="newsletter" data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">
+            <div class="row">
+                <div class="col-12 p-0">
+                    <div data-required-text="">
+                        <label for="email-footer_social_emailcapture" class="h-clr--black-3 h-fw--semibold h-auto mb-1">
+                            ${Resource.msg('form.title', 'footer', null)}
+                        </label>
+                        <div class="input-group">
+                            <div class="w-100">
+                                <input type="text" class="form-control input-text rounded-0 w-100" id="newsletter-input" name="hpEmailSignUp"
+                                    data-csrf-error="${Resource.msg('error.message.csrf', 'homePage', null)}"
+                                    aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" required />
+                                <div class="newletter-msg js-newsletter-msg bg-transparent h-font-size--14 m-0"></div>
+                            </div>
+                            <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+                            <span class="input-group-append ml-0">
+                                <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
+                                    <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
+                                        class="btn btn-primary g-recaptcha" data-callback="submitNewsLetter"
+                                        data-action="submit">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
+                                <iselse/>
+                                    <button type="submit"
+                                        class="btn btn-primary subscribe-email btn-hover text-uppercase submit-btn h-fw--semibold mt-3 h-font-size--16"
+                                        data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form', 'footer', null)}</button>
+                                </isif>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
