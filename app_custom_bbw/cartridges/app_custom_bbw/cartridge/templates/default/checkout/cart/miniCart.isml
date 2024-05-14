@@ -131,3 +131,5 @@
         </div>
     </isif>
 </div>
+<iscomment> MiniCart- Recommendation </iscomment>
+<isslot id="mini-cart-trending-now-product" description="Trending Now Products" context="global" context-object="${dw.order.BasketMgr.getCurrentBasket()}" />
