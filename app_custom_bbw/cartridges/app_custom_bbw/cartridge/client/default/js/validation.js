@@ -62,6 +62,39 @@ $(document).ready(function () {
     }
 
     /**
+     * Generic validation function for password fields
+     * @param {object} passwordInput input field on which validation will be tested
+     * @returns {boolean} valid or not
+     */
+    function validatePasswordFieldWithValidation(passwordInput) {
+        if (!validateRequiredField(passwordInput)) return false;
+
+        // Remove existing success messages and ticks
+        passwordInput.closest('.form-group').find('.text-success').remove();
+        passwordInput.closest('.form-group').find('.far').remove();
+
+        // Check for each requirement and display a green tick with success message
+        var rules = [
+            { name: 'rule8to50char', pattern: /^.{8,50}$/ },
+            { name: 'rule1lowercase', pattern: /[a-z]/ },
+            { name: 'rule1uppercase', pattern: /[A-Z]/ },
+            { name: 'rule1number', pattern: /\d/ },
+            { name: 'ruleNoSpaces', pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,50}$/ },
+            { name: 'ruleSpecialChar', pattern: /[@$!%*?&]/ }
+        ];
+
+        rules.forEach(function (rule) {
+            if (rule.pattern.test(passwordInput.val())) {
+                $('#' + rule.name).removeClass('error').addClass('success');
+            } else {
+                $('#' + rule.name).removeClass('success').addClass('error');
+            }
+        });
+
+        return true;
+    }
+
+    /**
      * Generic validation function for first name and last name
      * @param {object} input input field on which validation will be tested
      * @returns {boolean} valid or not
@@ -175,7 +208,7 @@ $(document).ready(function () {
             selector: '#currentPassword',
             validationFunction: validatePasswordField
         },
-        { selector: '#newPassword', validationFunction: validatePasswordField },
+        { selector: '#newPassword', validationFunction: validatePasswordFieldWithValidation },
         { selector: '#firstName', validationFunction: validMinLength },
         { selector: '#lastName', validationFunction: validMinLength },
         { selector: '#phone', validationFunction: validPhoneNumber },
@@ -214,6 +247,11 @@ $(document).ready(function () {
 
     // Loop through the array and attach blur event handlers dynamically
     validationFields.forEach(function (field) {
+        if (field.selector === '#newPassword') {
+            $(document).on('keyup', field.selector, function () {
+                validateField(field.selector, field.validationFunction);
+            });
+        }
         $(document).on('blur', field.selector, function () {
             validateField(field.selector, field.validationFunction);
             var form = $(this).closest('form.edit-profile-form');
@@ -257,3 +295,14 @@ window.submitProfile = function (token) {
         grecaptcha.reset();
     });
 };
+
+$('#newPassword').click(function () {
+    $('.required-pass').removeClass('d-none');
+});
+
+$('body').click(function (event) {
+    // Check if the clicked element is not inside the #newPassword element
+    if (!$(event.target).closest('#newPassword').length) {
+        $('.required-pass').addClass('d-none');
+    }
+});

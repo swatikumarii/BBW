@@ -135,7 +135,7 @@ base.removeAddressConfirmation = function () {
                         $('.addressList').after(toInsert);
                     }
                 }
-                location.reload();
+                window.location.href = data.redirectUrl;
             },
             error: function (err) {
                 if (err.responseJSON.redirectUrl) {
