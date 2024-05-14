@@ -1,0 +1,52 @@
+<script src="${URLUtils.staticURL('/js/faqFooter.js')}"></script>
+
+<div class="article-votes">
+    <span class="article-votes-question" id="article-votes-label">
+        ${Resource.msg('faq.was.article.helpful', 'faq', null)}
+    </span>
+    <input type="hidden" class="get-content-asset-url" value="${URLUtils.url('Faq-GetContentAssets')}" />
+    <input type="hidden" class="article-helpful-url" value="${URLUtils.url('Faq-UpdateVote')}" />
+    <input type="hidden" class="current-content-id" value="${pdict.currentContentId}" />
+    <div class="article-votes-controls" role="group" aria-labelledby="article-votes-label">
+        <button type="button" class="button article-vote article-vote-up"
+            aria-label="${Resource.msg('faq.article.helpful', 'faq', null)}" aria-pressed="false">
+            ${Resource.msg('label.faq.yes', 'faq', null)}
+        </button>
+        <button type="button" class="button article-vote article-vote-down"
+            aria-label="${Resource.msg('faq.article.not.helpful', 'faq', null)}" aria-pressed="false">
+            ${Resource.msg('label.faq.no', 'faq', null)}
+        </button>
+    </div>
+    <small class="article-votes-count">
+        <span class="article-vote-label">
+            ${Resource.msgf('faq.found.helpful', 'faq', null, pdict.articleHelpful, pdict.articleTotalResponse)}
+        </span>
+    </small>
+</div>
+
+<div class="article-relatives">
+    <section class="recent-articles">
+        <h2 class="recent-articles-title">${Resource.msg('faq.recently.viewed.articles', 'faq', null)}</h2>
+        <ul class="recent-article-ul">
+            <isloop items="${pdict.relatedArticles}" var="relatedArticle">
+                <li>
+                    <a href="${URLUtils.url('Page-Show', 'cid', relatedArticle.ID)}">
+                        ${relatedArticle.name}
+                    </a>
+                </li>
+            </isloop>
+        </ul>
+    </section>
+    <section class="related-articles">
+        <h2 class="related-articles-title">${Resource.msg('faq.related.articles', 'faq', null)}</h2>
+        <ul>
+            <isloop items="${pdict.relatedArticles}" var="relatedArticle">
+                <li>
+                    <a href="${URLUtils.url('Page-Show', 'cid', relatedArticle.ID)}" rel="nofollow">
+                        ${relatedArticle.name}
+                    </a>
+                </li>
+            </isloop>
+        </ul>
+    </section>
+</div>
