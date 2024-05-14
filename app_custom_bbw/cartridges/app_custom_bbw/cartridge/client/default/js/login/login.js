@@ -67,7 +67,7 @@ function register() {
                 } else {
                     $('.success-message').toast('show');
                     $('form.registration').trigger('login:register:success', data);
-                    setTimeout(function() {
+                    setTimeout(function () {
                         location.href = data.redirectUrl;
                     }, 2000);
                 }
@@ -109,13 +109,16 @@ function login() {
                 } else {
                     form.trigger('login:success', data);
                     if (data.showCartMergePopup) {
-                        window.storedBasketProducts = data.storedBasketProducts; 
+                        window.storedBasketProducts = data.storedBasketProducts;
                         $('.loginPopup').find('#loginModal').modal('hide');
                         $('.redirect-url').val(data.redirectUrl);
                         $('.loginPopup')
                             .find('#isMergeCartModal')
                             .modal('show');
                     } else {
+                        if ($('.loginPopup input[name="wishlist-pid"]').val()) {
+                            localStorage.setItem('addToWishList', true);
+                        }
                         window.location.href = data.redirectUrl;
                     }
                 }
@@ -136,7 +139,7 @@ function login() {
  *
  */
 function cartMerge() {
-    $('.merge').on('click',function () {
+    $('.merge').on('click', function () {
         var redirectUrl = $('.redirect-url').val();
         var cartMergeUrl = $('.cart-merge-url').val();
         var storedBasketProducts = window.storedBasketProducts;
@@ -163,6 +166,103 @@ function cartMerge() {
         window.location.href = redirectUrl;
     });
 };
+/**
+ * Reusable function to validate a field based on its ID
+ * @param {object} selector selector on which validation function runs
+ * @param {Function} validationFunction validation function
+ */
+function validateField(selector, validationFunction) {
+    validationFunction($(selector));
+}
+/**
+ * Generic validation function for required fields
+ * @param {object} inputField input field on which validation will be tested
+ * @returns {boolean} valid or not
+ */
+function validateRequiredField(inputField) {
+    if (!inputField.val()) {
+        inputField.addClass('is-invalid border-danger'); // Add classes for input border error
+        $('#' + inputField.attr('id') + '-error').text('Field is required'); // Display error message
+        return false;
+    }
+    inputField.removeClass('is-invalid border-danger'); // Remove classes if input is valid
+    $('#' + inputField.attr('id') + '-error').empty(); // Clear error message
+    return true;
+}
+/**
+ * Generic validation function for email fields
+ * @param {object} emailInput input field on which validation will be tested
+ * @returns {boolean} valid or not
+ */
+function validateEmailField(emailInput) {
+    var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+    if (!validateRequiredField(emailInput)) return false;
+    if (!pattern.test(emailInput.val())) {
+        emailInput.addClass('is-invalid border-danger'); // Add class for input border error
+        $('#' + emailInput.attr('id') + '-error').text('Invalid email format'); // Display error message
+        return false;
+    }
+    emailInput.removeClass('is-invalid border-danger'); // Remove class if input is valid
+    $('#' + emailInput.attr('id') + '-error').empty(); // Clear error message
+    return true;
+}
+/**
+ * Generic validation function for password fields
+ * @param {object} passwordInput input field on which validation will be tested
+ * @returns {boolean} valid or not
+ */
+function validatePasswordField(passwordInput) {
+    if (!validateRequiredField(passwordInput)) return false;
+    return true;
+}
+/**
+ * toggle password visibility
+ * @param {object} passwordInput password input field
+ * @param {object} showButton show button
+ */
+function togglePasswordVisibility(passwordInput, showButton) {
+    var type = passwordInput.attr('type') === 'password' ? 'text' : 'password';
+    passwordInput.attr('type', type);
+    showButton.find('.show').text(type === 'password' ? 'Show' : 'Hide');
+}
+$(document).ready(function () {
+    $(document.body).on('click', '.login-modal-password-hide', function () {
+        togglePasswordVisibility($('#login-modal-form-password'), $(this));
+    });
+    $(document.body).on('click', '.login-modal-hide', function () {
+        togglePasswordVisibility($('#login-form-password'), $(this));
+    });
+});
+var validationFields = [
+    {
+        selector: '#loginModal-form-email',
+        validationFunction: validateEmailField
+    },
+    {
+        selector: '#login-modal-form-password',
+        validationFunction: validatePasswordField
+    },
+    {
+        selector: '#login-form-email',
+        validationFunction: validateEmailField
+    },
+    {
+        selector: '#login-form-password',
+        validationFunction: validatePasswordField
+    },
+    {
+        selector: '#reset-password-email',
+        validationFunction: validateEmailField
+    }
+];
+// Loop through the array and attach blur event handlers dynamically
+validationFields.forEach(function (field) {
+    $(document).on('blur', field.selector, function () {
+        validateField(field.selector, field.validationFunction);
+    });
+});
+
+
 var exportDetails = $.extend({}, baselogin, {
     register: register,
     cartMerge: cartMerge,

@@ -122,7 +122,11 @@
 
                         &:hover {
                             background: colour(gray, 1);
-                            border: none;
+                            border: 1px solid colour(gray, 1);
+
+                            &::after {
+                                border-left: 1px solid colour(white);
+                            }
                         }
 
                         &::after {
@@ -133,7 +137,8 @@
                             height: 100%;
                             width: 35px;
                             border-left: 1px solid colour(gray, 5);
-                            background: colour(white) url("../../images/UI-Carat.svg") no-repeat 50%;
+                            background: url("../../images/UI-Carat.svg")
+                                no-repeat 50%;
                             background-size: 15px;
                         }
 
@@ -145,6 +150,10 @@
                             width: 100%;
                             cursor: pointer;
                             appearance: none;
+
+                            &:focus {
+                                box-shadow: none;
+                            }
                         }
                     }
                 }

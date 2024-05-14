@@ -69,3 +69,4 @@
         </div>
     </div>
 </div>
+<input type="hidden" class="wishlist-pid" name="wishlist-pid" value=''>

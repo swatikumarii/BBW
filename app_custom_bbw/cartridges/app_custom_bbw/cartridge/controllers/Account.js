@@ -10,6 +10,9 @@ var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 
 var URLUtils = require('dw/web/URLUtils');
 var Resource = require('dw/web/Resource');
+var ContentMgr = require('dw/content/ContentMgr');
+var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
+var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
 
 /**
  * Append Account-Show controller: Update breadcrumbs
@@ -273,7 +276,6 @@ server.replace(
 
         var formErrors = require('*/cartridge/scripts/formErrors');
         var Site = require('dw/system/Site');
-        var commonHelpers = require('*/cartridge/scripts/helpers/commonHelpers');
         var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
 
         var isReCaptchaEnable = Site.getCurrent().getCustomPreferenceValue(
@@ -357,7 +359,34 @@ server.replace(
                     });
                 } else {
                     // Send account edited email
-                    commonHelpers.sendChangePasswordEmail(customer.profile.email);
+                    var email = customer.profile.email;
+                    var url = URLUtils.https('Login-Show');
+
+                    var emailContent = ContentMgr.getContent('password-reset-confrimation-mail'); // Password Change Confirmation Content Asset Id
+                    var emailMarkup = '';
+
+                    if (!empty(emailContent) && emailContent.online) {
+                        emailMarkup = emailContent.custom.body.markup;
+                        emailMarkup = emailMarkup.replace('{{customerName}}', customer.profile.firstName);
+                        emailMarkup = emailMarkup.replace('{{myAccountLink}}', url);
+                    }
+
+                    var objectForEmail = {
+                        firstName: customer.profile.firstName,
+                        lastName: customer.profile.lastName,
+                        url: url,
+                        markup: emailMarkup,
+                        content: emailContentHelpers.getEmailContent('normal-footer', 'email-header')
+                    };
+
+                    var emailObj = {
+                        to: email,
+                        subject: Resource.msg('subject.profile.resetpassword.email', 'login', null),
+                        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+                        type: emailHelpers.emailTypes.passwordReset
+                    };
+
+                    emailHelpers.sendEmail(emailObj, 'mail/account/password/passwordChangedEmail', objectForEmail);
 
                     delete formInfo.currentPassword;
                     delete formInfo.newPassword;
@@ -429,7 +458,7 @@ server.append(
         viewData.redirectUrl = loginRedirectUrl.toString();
         viewData.showCartMergePopup =
             storedBasketProductQuantities && currentBasketProductQuantities;
-        viewData.storedBasketProducts = storedBasketProducts; 
+        viewData.storedBasketProducts = storedBasketProducts;
         next();
     }
 );
@@ -478,14 +507,14 @@ server.replace(
             res.json({ fields: formErrors.getFormErrors(registrationForm) });
         } else {
             var birthdayArray =
-            registrationForm.customer.dob.value.split('-');
+                registrationForm.customer.dob.value.split('-');
 
             var birthday = new Date(
                 birthdayArray[1] +
-                    '/' +
-                    birthdayArray[0] +
-                    '/' +
-                    birthdayArray[2]
+                '/' +
+                birthdayArray[0] +
+                '/' +
+                birthdayArray[2]
             );
             var currentDate = new Date();
             var birthdayTimestamp = birthday.getTime();
@@ -740,5 +769,100 @@ server.replace(
         next();
     }
 );
+
+/**
+ * Account-SaveNewPassword : The Account-SaveNewPassword endpoint handles resetting a shoppers password. This is the last step in the forgot password user flow. (This step does not log the shopper in.)
+ * Base/Account-SaveNewPassword
+ * @function
+ * @memberof Account
+ * @param {middleware} middleware - server.middleware.https
+ * @param {httpparameter} httpparameter - token - SFRA utilizes this token to retrieve the shopper
+ * @param {httpparameter} httpparameter - dwfrm_newPasswords_newpassword - Input field for the shopper's new password
+ * @param {httpparameter} httpparameter - dwfrm_newPasswords_newpasswordconfirm  - Input field to confirm the shopper's new password
+ * @param {httpparameter} httpparameter - save - unutilized param
+ * @param {category} category - sensitive
+ * @param {renders} renders - isml
+ * @param {serverfunction} serverfunction - post
+ */
+server.replace('SaveNewPassword', server.middleware.https, function (req, res, next) {
+    var Transaction = require('dw/system/Transaction');
+    var passwordForm = server.forms.getForm('newPasswords');
+    // Token used to be a query parameter, now it's in the body. Support both.
+    var token = req.form.token || req.querystring.Token;
+
+    if (passwordForm.newpassword.value !== passwordForm.newpasswordconfirm.value) {
+        passwordForm.valid = false;
+        passwordForm.newpassword.valid = false;
+        passwordForm.newpasswordconfirm.valid = false;
+        passwordForm.newpasswordconfirm.error = Resource.msg('error.message.mismatch.newpassword', 'forms', null);
+    }
+
+    if (passwordForm.valid) {
+        var result = {
+            newPassword: passwordForm.newpassword.value,
+            newPasswordConfirm: passwordForm.newpasswordconfirm.value,
+            token: token,
+            passwordForm: passwordForm
+        };
+        res.setViewData(result);
+        this.on('route:BeforeComplete', function (req, res) { // eslint-disable-line no-shadow
+            var CustomerMgr = require('dw/customer/CustomerMgr');
+            var Site = require('dw/system/Site');
+
+            var emailContent = ContentMgr.getContent('password-reset-confrimation-mail'); // Password Change Confirmation Content Asset Id
+            var emailMarkup = '';
+
+            var formInfo = res.getViewData();
+            var status;
+            var resettingCustomer;
+            Transaction.wrap(function () {
+                resettingCustomer = CustomerMgr.getCustomerByToken(formInfo.token);
+                status = resettingCustomer.profile.credentials.setPasswordWithToken(
+                    formInfo.token,
+                    formInfo.newPassword
+                );
+            });
+            if (status.error) {
+                passwordForm.newpassword.valid = false;
+                passwordForm.newpasswordconfirm.valid = false;
+                passwordForm.newpasswordconfirm.error = Resource.msg('error.message.resetpassword.invalidformentry', 'forms', null);
+                res.render('account/password/newPassword', {
+                    passwordForm: passwordForm,
+                    token: token
+                });
+            } else {
+                var email = resettingCustomer.profile.email;
+                var url = URLUtils.https('Login-Show');
+
+                if (!empty(emailContent) && emailContent.online) {
+                    emailMarkup = emailContent.custom.body.markup;
+                    emailMarkup = emailMarkup.replace('{{customerName}}', resettingCustomer.profile.firstName);
+                    emailMarkup = emailMarkup.replace('{{myAccountLink}}', url);
+                }
+
+                var objectForEmail = {
+                    firstName: resettingCustomer.profile.firstName,
+                    lastName: resettingCustomer.profile.lastName,
+                    url: url,
+                    markup: emailMarkup,
+                    content: emailContentHelpers.getEmailContent('normal-footer', 'email-header')
+                };
+
+                var emailObj = {
+                    to: email,
+                    subject: Resource.msg('subject.profile.resetpassword.email', 'login', null),
+                    from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+                    type: emailHelpers.emailTypes.passwordReset
+                };
+
+                emailHelpers.sendEmail(emailObj, 'mail/account/password/passwordChangedEmail', objectForEmail);
+                res.redirect(URLUtils.url('Login-Show'));
+            }
+        });
+    } else {
+        res.render('account/password/newPassword', { passwordForm: passwordForm, token: token });
+    }
+    next();
+});
 
 module.exports = server.exports();
