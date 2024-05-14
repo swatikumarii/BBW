@@ -207,3 +207,53 @@
         top: 9px;
     }
 }
+
+.other-address-heading {
+    margin-top: 60px;
+}
+
+.other-address {
+    float: left;
+    min-height: 135px;
+    padding: 25px 0;
+    width: 100%;
+
+    @include media-up(sm) {
+        width: 33.3%;
+    }
+
+    .card-address {
+        font-size: 0.875rem;
+        line-height: 1.5rem;
+        color: colour(gray);
+
+        .address-id {
+            color: colour(black, 3);
+        }
+
+        .card-make-default-link a,
+        button {
+            text-decoration: underline;
+            color: colour(black, 1);
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.other-address-btn {
+    margin-top: 0;
+
+    .btn-save {
+        position: absolute;
+        top: auto;
+        bottom: 10px;
+        right: 0;
+
+        @include media-down(sm) {
+            width: auto;
+        }
+    }
+}

@@ -63,6 +63,8 @@ $('#ticker').easyTicker({
 function openLoginPopup() {
     if ($('form').hasClass('registration')) {
         $('.loginPopup').find('#loginModal').modal('hide');
+        var href = $('#log-in-page-url').attr('href');
+        window.location.href = href;
     } else {
         $('.loginPopup').find('#loginModal').modal('show');
     }

@@ -37,7 +37,7 @@
                         </h3>
                         <p class="h-font-size--16 mb-3">
                             ${Resource.msg('join.para', 'login', null)}
-                            <a href="${URLUtils.https('Login-Show')}" role="button" class="h-clr--black-3 h-font-size--16"
+                            <a id="log-in-page-url" href="${URLUtils.https('Login-Show')}" role="button" class="h-clr--black-3 h-font-size--16"
                                 aria-label="${Resource.msg('label.header.signup', 'common', null)}">${Resource.msg('label.header.signup', 'common', null)}</a>
                         </p>
                     </div>
@@ -69,3 +69,4 @@
         </div>
     </div>
 </div>
+<input type="hidden" class="wishlist-pid" name="wishlist-pid" value=''>

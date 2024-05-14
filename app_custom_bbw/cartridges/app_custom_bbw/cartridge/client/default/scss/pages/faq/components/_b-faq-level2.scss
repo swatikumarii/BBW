@@ -1,0 +1,38 @@
+.section-container {
+    display: flex;
+    justify-content: flex-end;
+
+    .section-content {
+        flex: 1;
+
+        @include media-up(sm) {
+            flex: 0 0 80%;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            .article-list-item {
+                font-size: 16px;
+                padding: 15px 0;
+            }
+        }
+    }
+
+    .page-heading {
+        align-items: baseline;
+        flex-direction: row;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+
+        h1 {
+            flex-grow: 1;
+            font-size: 32px;
+            margin: 0.67em 0 10px;
+            font-weight: 600;
+        }
+    }
+}
