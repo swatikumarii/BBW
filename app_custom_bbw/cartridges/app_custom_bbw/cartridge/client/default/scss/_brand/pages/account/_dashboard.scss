@@ -33,42 +33,50 @@
         }
     }
 
-    .my-account-nav {
-        display: block;
-        padding: 0;
+    .account-nav-wrap {
+        width: 100%;
 
-        @include media-down(sm) {
-            display: none;
-            padding: 20px 0;
+        @include media-up(sm) {
+            width: 225px;
         }
 
-        h1 {
-            margin: 0 0 20px;
+        .my-account-nav {
+            display: block;
+            padding: 0;
 
-            @include media-up(sm) {
-                line-height: 0.625rem;
-                margin-bottom: 1.375rem;
+            @include media-down(sm) {
+                display: none;
+                padding: 20px 0;
             }
-        }
 
-        ul {
-            li {
-                margin: 0;
-                padding: 10px 15px;
-                list-style: none;
+            h1 {
+                margin: 0 0 20px;
 
                 @include media-up(sm) {
-                    margin: 20px 0 23px;
-                    line-height: 1.25rem;
-                    padding: 0;
+                    line-height: 0.625rem;
+                    margin-bottom: 1.375rem;
                 }
+            }
 
-                a {
-                    letter-spacing: 0.01em;
-                    color: colour(gray);
+            ul {
+                li {
+                    margin: 0;
+                    padding: 10px 15px;
+                    list-style: none;
 
-                    &:hover {
-                        color: colour(blue);
+                    @include media-up(sm) {
+                        margin: 20px 0 23px;
+                        line-height: 1.25rem;
+                        padding: 0;
+                    }
+
+                    a {
+                        letter-spacing: 0.01em;
+                        color: colour(gray);
+
+                        &:hover {
+                            color: colour(blue);
+                        }
                     }
                 }
             }
@@ -77,11 +85,11 @@
 
     .description-detail {
         padding: 0;
-        max-width: 770px;
+        width: 100%;
 
         @include media-up(sm) {
-            padding: 0 0 0 65px;
-            max-width: 770px;
+            padding: 0 0 20px 25px;
+            width: calc(100% - 225px);
         }
 
         @include media-btw(sm, lg) {

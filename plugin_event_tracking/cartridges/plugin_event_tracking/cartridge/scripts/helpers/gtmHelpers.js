@@ -8,7 +8,7 @@ var Logger = require('dw/system/Logger');
 var Site = require('dw/system/Site');
 
 var gtmEnabled =
-    Site.getCurrent().getCustomPreferenceValue('googleScriptEnabled') || false;
+    Site.getCurrent().getCustomPreferenceValue('gtmScriptEnabled') || false;
 
 /**
  * @param {object} res - current route response object
@@ -58,8 +58,8 @@ function getHomeData() {
  * @returns {object} obj - returns object with gtm event information
  */
 function logIn(res) {
+    var obj;
     if (res.success) {
-        var obj;
         obj = {
             'event': gtmEvents.LOGIN,
             'ecommerce': {
@@ -69,9 +69,14 @@ function logIn(res) {
                 'customer_id': res.authenticatedCustomer.profile.customerNo
             }
         };
-        return obj;
+    } else{
+        obj = {
+            event: gtmEvents.SIGN_IN_FAILURE,
+            loginError: 'error' in res ? res.error[0] : ''
+        };
     }
-    return {};
+    
+    return obj;
 }
 
 /**
