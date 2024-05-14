@@ -246,6 +246,11 @@
                             align-items: center;
                             justify-content: center;
                             cursor: pointer;
+
+                            &:hover {
+                                color: $clr-white;
+                                background-color: $clr-black-3;
+                            }
                         }
                     }
 

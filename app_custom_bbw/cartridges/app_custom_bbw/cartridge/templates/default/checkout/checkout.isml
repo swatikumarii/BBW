@@ -181,6 +181,7 @@
             <div class="col-sm-4">
                 <div class="card order-summary">
                     <div class="order-product-summary-wrap">
+                        <h2 class="h-font-size--18 h-fw--bold h-clr--black-1 text-center order-product-summary-heading">${Resource.msg('heading.your.order', 'checkout', null)}</h2>
                         <isinclude template="checkout/orderProductSummary" />
                     </div>
                     <div class="order-total-summary-wrap">
