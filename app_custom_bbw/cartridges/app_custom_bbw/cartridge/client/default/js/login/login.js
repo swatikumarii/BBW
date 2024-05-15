@@ -289,14 +289,14 @@ var validationFields = [
         validationFunction: validateEmailField
     },
     {
-        selector: '#newPassword',
+        selector: '#registration-form-password',
         validationFunction: validatePasswordFieldWithValidation
     }
 ];
 // Loop through the array and attach blur event handlers dynamically
 validationFields.forEach(function (field) {
 
-    if (field.selector === '#newPassword') {
+    if (field.selector === '#registration-form-password') {
         $(document).on('keyup', field.selector, function () {
             validateField(field.selector, field.validationFunction);
         });
@@ -307,13 +307,13 @@ validationFields.forEach(function (field) {
     });
 });
 
-$('#newPassword').click(function () {
+$('#registration-form-password').click(function () {
     $('.required-pass').removeClass('d-none');
 });
 
 $('body').click(function (event) {
-    // Check if the clicked element is not inside the #newPassword element
-    if (!$(event.target).closest('#newPassword').length) {
+    // Check if the clicked element is not inside the #registration-form-password element
+    if (!$(event.target).closest('#registration-form-password').length) {
         $('.required-pass').addClass('d-none');
     }
 });
