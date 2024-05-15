@@ -1,0 +1,681 @@
+<div class="container">
+    <nav class="sub-nav">
+        <ol class="breadcrumbs">
+            <isinclude template="/content/faqRootBreadcrumb" />
+            <li title="Search results">
+                Search results
+            </li>
+        </ol>
+
+        <isinclude template="/content/faqSearchField" />
+    </nav>
+
+    <div class="search-results">
+        <aside class="search-results-sidebar">
+            <section class="filters-in-section collapsible-sidebar" aria-expanded="false">
+                <button type="button" class="collapsible-sidebar-toggle" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" focusable="false" viewBox="0 0 12 12"
+                        aria-hidden="true" class="collapsible-sidebar-toggle-icon chevron-icon">
+                        <path fill="none" stroke="currentColor" stroke-linecap="round"
+                            d="M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" focusable="false" viewBox="0 0 12 12"
+                        aria-hidden="true" class="collapsible-sidebar-toggle-icon x-icon">
+                        <path stroke="currentColor" stroke-linecap="round" d="M3 9l6-6m0 6L3 3" />
+                    </svg>
+                </button>
+
+                <h3 class="collapsible-sidebar-title sidenav-title">By Category</h3>
+                <ul class="multibrand-filter-list multibrand-filter-list--collapsed">
+                    <li>
+                        <a href="/hc/en-us/search?filter_by=knowledge_base&amp;query=what&amp;utf8=%E2%9C%93"
+                            class="sidenav-item current" aria-current="page">
+                            <span class="sidenav-subitem filter-name">All Categories</span>
+                            <span class="sidenav-subitem doc-count">(56)</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/hc/en-us/search?category=4409288840723&amp;filter_by=knowledge_base&amp;query=what&amp;utf8=%E2%9C%93"
+                            class="sidenav-item">
+                            <span class="sidenav-subitem filter-name">SHOPPING TOOLS</span>
+                            <span class="sidenav-subitem doc-count">(19)</span>
+                        </a>
+                    </li>
+
+                    <li>
+
+                        <a href="/hc/en-us/search?category=4409284348179&amp;filter_by=knowledge_base&amp;query=what&amp;utf8=%E2%9C%93"
+                            class="sidenav-item">
+
+                            <span class="sidenav-subitem filter-name">SHIPPING &amp; DELIVERY</span>
+                            <span class="sidenav-subitem doc-count">(17)</span>
+                        </a>
+                    </li>
+
+                    <li>
+
+                        <a href="/hc/en-us/search?category=4409288855187&amp;filter_by=knowledge_base&amp;query=what&amp;utf8=%E2%9C%93"
+                            class="sidenav-item">
+
+                            <span class="sidenav-subitem filter-name">PRODUCTS</span>
+                            <span class="sidenav-subitem doc-count">(10)</span>
+                        </a>
+                    </li>
+
+                    <li>
+
+                        <a href="/hc/en-us/search?category=4409288877971&amp;filter_by=knowledge_base&amp;query=what&amp;utf8=%E2%9C%93"
+                            class="sidenav-item">
+
+                            <span class="sidenav-subitem filter-name">RETURNS &amp; EXCHANGES</span>
+                            <span class="sidenav-subitem doc-count">(6)</span>
+                        </a>
+                    </li>
+
+                    <li>
+
+                        <a href="/hc/en-us/search?category=4409284432019&amp;filter_by=knowledge_base&amp;query=what&amp;utf8=%E2%9C%93"
+                            class="sidenav-item">
+
+                            <span class="sidenav-subitem filter-name">COMPANY INFO</span>
+                            <span class="sidenav-subitem doc-count">(3)</span>
+                        </a>
+                    </li>
+
+                    <li>
+
+                        <a href="/hc/en-us/search?category=4409288885011&amp;filter_by=knowledge_base&amp;query=what&amp;utf8=%E2%9C%93"
+                            class="sidenav-item">
+
+                            <span class="sidenav-subitem filter-name">STORES</span>
+                            <span class="sidenav-subitem doc-count">(1)</span>
+                        </a>
+                    </li>
+
+
+                    <button class="see-all-filters" aria-hidden="true" aria-label="Show more categories">Show more
+                        categories</button>
+
+
+                </ul>
+            </section>
+
+        </aside>
+
+        <section id="main-content" class="search-results-column">
+            <h1 class="search-results-subheading">
+                56 results for "what" in All Categories
+            </h1>
+
+            <ul class="search-results-list">
+
+                <li class="search-result-list-item result-article">
+                    <h2 class="search-result-title">
+                        <a href="/hc/en-us/search/click?data=BAh7DjoHaWRsKwiTqAPwAgQ6D2FjY291bnRfaWRpA7y7rToJdHlwZUkiDGFydGljbGUGOgZFVDoIdXJsSSJ1aHR0cHM6Ly9jdXN0b21lcmNhcmUuYmF0aGFuZGJvZHl3b3Jrcy5jb20vaGMvZW4tdXMvYXJ0aWNsZXMvNDQxMDY2MzIxNzI5OS1XaGF0LWlzLXRoZS1NeS1CYXRoLUJvZHktV29ya3MtcHJvZ3JhbQY7CFQ6DnNlYXJjaF9pZEkiKTYwNzk5ODQ4LTczZDctNDU4MC1iMzNiLWIwMDAyMDM2MzU4NwY7CEY6CXJhbmtpBjoLbG9jYWxlSSIKZW4tdXMGOwhUOgpxdWVyeUkiCXdoYXQGOwhUOhJyZXN1bHRzX2NvdW50aT0%3D--f641f20053125686fe14eee3170a738e7cc52819"
+                            class="results-list-item-link">What is the My Bath &amp; Body Works program?</a>
+                    </h2>
+                    <div class="search-result-icons">
+
+                        <span class="search-result-votes">
+                            <span class="visibility-hidden">
+                                177 votes
+                            </span>
+                            <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false"
+                                    viewBox="0 0 12 12" class="search-result-votes-icon">
+                                    <g fill="none" stroke="currentColor">
+                                        <path stroke-linejoin="round"
+                                            d="M10.77 4.5a.73.73 0 01.73.73C11.43 7 11.21 11.5 10 11.5H5a.5.5 0 01-.5-.5V4.5s1-.5 1-3a1 1 0 012 0v3z" />
+                                        <rect width="2" height="7" x=".5" y="4.5" rx=".5" ry=".5" />
+                                    </g>
+                                </svg>
+                                177
+                            </span>
+                        </span>
+
+
+                    </div>
+                    <article>
+                        <ul class="meta-group">
+                            <li>
+                                <ol class="breadcrumbs search-result-breadcrumbs">
+
+                                    <li title="Bath and Body Works"><a
+                                            href="https://customercare.bathandbodyworks.com">Bath and Body Works</a>
+                                    </li>
+
+                                    <li title="SHOPPING TOOLS"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/categories/4409288840723-SHOPPING-TOOLS">SHOPPING
+                                            TOOLS</a></li>
+
+                                    <li title="My Bath &amp; Body Works"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/sections/4409284955283-My-Bath-Body-Works">My
+                                            Bath &amp; Body Works</a></li>
+
+                                </ol>
+                            </li>
+                            <!--<li class="meta-data">Foundever Service Account</li>-->
+                            <li class="meta-data"><time datetime="2021-11-16T21:21:53Z" title="2021-11-16T21:21:53Z"
+                                    data-datetime="calendar">November 16, 2021 21:21</time></li>
+                        </ul>
+                        <div class="search-results-description">My Bath &amp; Body Works is a free rewards Program. It
+                            allows you to earn from your in-store and online purchases and redeem</div>
+                    </article>
+                </li>
+
+                <li class="search-result-list-item result-article">
+                    <h2 class="search-result-title">
+                        <a href="/hc/en-us/search/click?data=BAh7DjoHaWRsKwiTn1zvAgQ6D2FjY291bnRfaWRpA7y7rToJdHlwZUkiDGFydGljbGUGOgZFVDoIdXJsSSJqaHR0cHM6Ly9jdXN0b21lcmNhcmUuYmF0aGFuZGJvZHl3b3Jrcy5jb20vaGMvZW4tdXMvYXJ0aWNsZXMvNDQxMDY1MjI3MDQ4My1XaGF0LWlzLWEtcmV0aXJlZC1mcmFncmFuY2UGOwhUOg5zZWFyY2hfaWRJIik2MDc5OTg0OC03M2Q3LTQ1ODAtYjMzYi1iMDAwMjAzNjM1ODcGOwhGOglyYW5raQc6C2xvY2FsZUkiCmVuLXVzBjsIVDoKcXVlcnlJIgl3aGF0BjsIVDoScmVzdWx0c19jb3VudGk9--55037addf38bb16e86b77b190bb3ac275fb8dd22"
+                            class="results-list-item-link">What is a retired fragrance?</a>
+                    </h2>
+                    <div class="search-result-icons">
+
+                        <span class="search-result-votes">
+                            <span class="visibility-hidden">
+                                -2 votes
+                            </span>
+                            <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false"
+                                    viewBox="0 0 12 12" class="search-result-votes-icon">
+                                    <g fill="none" stroke="currentColor">
+                                        <path stroke-linejoin="round"
+                                            d="M10.77 4.5a.73.73 0 01.73.73C11.43 7 11.21 11.5 10 11.5H5a.5.5 0 01-.5-.5V4.5s1-.5 1-3a1 1 0 012 0v3z" />
+                                        <rect width="2" height="7" x=".5" y="4.5" rx=".5" ry=".5" />
+                                    </g>
+                                </svg>
+                                -2
+                            </span>
+                        </span>
+
+
+                    </div>
+                    <article>
+                        <ul class="meta-group">
+                            <li>
+                                <ol class="breadcrumbs search-result-breadcrumbs">
+
+                                    <li title="Bath and Body Works"><a
+                                            href="https://customercare.bathandbodyworks.com">Bath and Body Works</a>
+                                    </li>
+
+                                    <li title="PRODUCTS"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/categories/4409288855187-PRODUCTS">PRODUCTS</a>
+                                    </li>
+
+                                    <li title="Retired Fragrances"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/sections/4409289298195-Retired-Fragrances">Retired
+                                            Fragrances</a></li>
+
+                                </ol>
+                            </li>
+                            <!--<li class="meta-data">Foundever Service Account</li>-->
+                            <li class="meta-data"><time datetime="2021-11-16T21:18:44Z" title="2021-11-16T21:18:44Z"
+                                    data-datetime="calendar">November 16, 2021 21:18</time></li>
+                        </ul>
+                        <div class="search-results-description">You spoke up. We listened. Those specific Bath &amp;
+                            Body Works retired scents you always loved, but you just can't find</div>
+                    </article>
+                </li>
+
+                <li class="search-result-list-item result-article">
+                    <h2 class="search-result-title">
+                        <a href="/hc/en-us/search/click?data=BAh7DjoHaWRsKwiTAeQNVxo6D2FjY291bnRfaWRpA7y7rToJdHlwZUkiDGFydGljbGUGOgZFVDoIdXJsSSJhaHR0cHM6Ly9jdXN0b21lcmNhcmUuYmF0aGFuZGJvZHl3b3Jrcy5jb20vaGMvZW4tdXMvYXJ0aWNsZXMvMjg5NjExOTc1MjMzNDctV2hhdC1pcy1JbnN0YWNhcnQGOwhUOg5zZWFyY2hfaWRJIik2MDc5OTg0OC03M2Q3LTQ1ODAtYjMzYi1iMDAwMjAzNjM1ODcGOwhGOglyYW5raQg6C2xvY2FsZUkiCmVuLXVzBjsIVDoKcXVlcnlJIgl3aGF0BjsIVDoScmVzdWx0c19jb3VudGk9--41b178b10227a120c8b11e87b8ceb3376ee7c8d6"
+                            class="results-list-item-link">What is Instacart?</a>
+                    </h2>
+                    <div class="search-result-icons">
+
+                        <span class="search-result-votes">
+                            <span class="visibility-hidden">
+                                1 vote
+                            </span>
+                            <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false"
+                                    viewBox="0 0 12 12" class="search-result-votes-icon">
+                                    <g fill="none" stroke="currentColor">
+                                        <path stroke-linejoin="round"
+                                            d="M10.77 4.5a.73.73 0 01.73.73C11.43 7 11.21 11.5 10 11.5H5a.5.5 0 01-.5-.5V4.5s1-.5 1-3a1 1 0 012 0v3z" />
+                                        <rect width="2" height="7" x=".5" y="4.5" rx=".5" ry=".5" />
+                                    </g>
+                                </svg>
+                                1
+                            </span>
+                        </span>
+
+
+                    </div>
+                    <article>
+                        <ul class="meta-group">
+                            <li>
+                                <ol class="breadcrumbs search-result-breadcrumbs">
+
+                                    <li title="Bath and Body Works"><a
+                                            href="https://customercare.bathandbodyworks.com">Bath and Body Works</a>
+                                    </li>
+
+                                    <li title="STORES"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/categories/4409288885011-STORES">STORES</a>
+                                    </li>
+
+                                    <li title="General Information"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/sections/4409285008531-General-Information">General
+                                            Information</a></li>
+
+                                </ol>
+                            </li>
+                            <!--<li class="meta-data">Brittney Mosher</li>-->
+                            <li class="meta-data"><time datetime="2024-05-01T15:59:30Z" title="2024-05-01T15:59:30Z"
+                                    data-datetime="calendar">May 01, 2024 15:59</time></li>
+                        </ul>
+                        <div class="search-results-description">promotions of our items may vary with Instacart and may
+                            not match <em>what</em> you see online or in stores. Price adjustments will not be</div>
+                    </article>
+                </li>
+
+                <li class="search-result-list-item result-article">
+                    <h2 class="search-result-title">
+                        <a href="/hc/en-us/search/click?data=BAh7DjoHaWRsKwiTuV3vAgQ6D2FjY291bnRfaWRpA7y7rToJdHlwZUkiDGFydGljbGUGOgZFVDoIdXJsSSJqaHR0cHM6Ly9jdXN0b21lcmNhcmUuYmF0aGFuZGJvZHl3b3Jrcy5jb20vaGMvZW4tdXMvYXJ0aWNsZXMvNDQxMDY1MjM0MjY3NS1XaGF0LWlzLXRoZS1NeS1SZXdhcmRzLUNhcmQGOwhUOg5zZWFyY2hfaWRJIik2MDc5OTg0OC03M2Q3LTQ1ODAtYjMzYi1iMDAwMjAzNjM1ODcGOwhGOglyYW5raQk6C2xvY2FsZUkiCmVuLXVzBjsIVDoKcXVlcnlJIgl3aGF0BjsIVDoScmVzdWx0c19jb3VudGk9--9f02318f44fc7204906feba1910a5f195377393a"
+                            class="results-list-item-link">What is the My Rewards Card?</a>
+                    </h2>
+                    <div class="search-result-icons">
+
+                        <span class="search-result-votes">
+                            <span class="visibility-hidden">
+                                141 votes
+                            </span>
+                            <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false"
+                                    viewBox="0 0 12 12" class="search-result-votes-icon">
+                                    <g fill="none" stroke="currentColor">
+                                        <path stroke-linejoin="round"
+                                            d="M10.77 4.5a.73.73 0 01.73.73C11.43 7 11.21 11.5 10 11.5H5a.5.5 0 01-.5-.5V4.5s1-.5 1-3a1 1 0 012 0v3z" />
+                                        <rect width="2" height="7" x=".5" y="4.5" rx=".5" ry=".5" />
+                                    </g>
+                                </svg>
+                                141
+                            </span>
+                        </span>
+
+
+                    </div>
+                    <article>
+                        <ul class="meta-group">
+                            <li>
+                                <ol class="breadcrumbs search-result-breadcrumbs">
+
+                                    <li title="Bath and Body Works"><a
+                                            href="https://customercare.bathandbodyworks.com">Bath and Body Works</a>
+                                    </li>
+
+                                    <li title="SHOPPING TOOLS"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/categories/4409288840723-SHOPPING-TOOLS">SHOPPING
+                                            TOOLS</a></li>
+
+                                    <li title="My Bath &amp; Body Works"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/sections/4409284955283-My-Bath-Body-Works">My
+                                            Bath &amp; Body Works</a></li>
+
+                                </ol>
+                            </li>
+                            <!--<li class="meta-data">Foundever Service Account</li>-->
+                            <li class="meta-data"><time datetime="2021-11-16T21:22:23Z" title="2021-11-16T21:22:23Z"
+                                    data-datetime="calendar">November 16, 2021 21:22</time></li>
+                        </ul>
+                        <div class="search-results-description">The My Rewards Card is a barcode unique to your My Bath
+                            &amp; Body Works account, and is visible on the Home and Wallet</div>
+                    </article>
+                </li>
+
+                <li class="search-result-list-item result-article">
+                    <h2 class="search-result-title">
+                        <a href="/hc/en-us/search/click?data=BAh7DjoHaWRsKwgTNlzvAgQ6D2FjY291bnRfaWRpA7y7rToJdHlwZUkiDGFydGljbGUGOgZFVDoIdXJsSSJwaHR0cHM6Ly9jdXN0b21lcmNhcmUuYmF0aGFuZGJvZHl3b3Jrcy5jb20vaGMvZW4tdXMvYXJ0aWNsZXMvNDQxMDY1MjI0MzQ3NS1XaGF0LWFyZS15b3VyLWNhbmRsZXMtbWFkZS1vdXQtb2YGOwhUOg5zZWFyY2hfaWRJIik2MDc5OTg0OC03M2Q3LTQ1ODAtYjMzYi1iMDAwMjAzNjM1ODcGOwhGOglyYW5raQo6C2xvY2FsZUkiCmVuLXVzBjsIVDoKcXVlcnlJIgl3aGF0BjsIVDoScmVzdWx0c19jb3VudGk9--9774cf1fe62e76012fb4f2f4d1c34a3d3e5152cd"
+                            class="results-list-item-link">What are your candles made out of?</a>
+                    </h2>
+                    <div class="search-result-icons">
+
+                        <span class="search-result-votes">
+                            <span class="visibility-hidden">
+                                -8 votes
+                            </span>
+                            <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false"
+                                    viewBox="0 0 12 12" class="search-result-votes-icon">
+                                    <g fill="none" stroke="currentColor">
+                                        <path stroke-linejoin="round"
+                                            d="M10.77 4.5a.73.73 0 01.73.73C11.43 7 11.21 11.5 10 11.5H5a.5.5 0 01-.5-.5V4.5s1-.5 1-3a1 1 0 012 0v3z" />
+                                        <rect width="2" height="7" x=".5" y="4.5" rx=".5" ry=".5" />
+                                    </g>
+                                </svg>
+                                -8
+                            </span>
+                        </span>
+
+
+                    </div>
+                    <article>
+                        <ul class="meta-group">
+                            <li>
+                                <ol class="breadcrumbs search-result-breadcrumbs">
+
+                                    <li title="Bath and Body Works"><a
+                                            href="https://customercare.bathandbodyworks.com">Bath and Body Works</a>
+                                    </li>
+
+                                    <li title="PRODUCTS"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/categories/4409288855187-PRODUCTS">PRODUCTS</a>
+                                    </li>
+
+                                    <li title="General Information"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/sections/4409289284371-General-Information">General
+                                            Information</a></li>
+
+                                </ol>
+                            </li>
+                            <!--<li class="meta-data">Foundever Service Account</li>-->
+                            <li class="meta-data"><time datetime="2021-11-16T21:16:54Z" title="2021-11-16T21:16:54Z"
+                                    data-datetime="calendar">November 16, 2021 21:16</time></li>
+                        </ul>
+                        <div class="search-results-description">the bottom label, as well as here on our website.
+                            <em>What</em> candles do you currently offer online? How can I learn more</div>
+                    </article>
+                </li>
+
+                <li class="search-result-list-item result-article">
+                    <h2 class="search-result-title">
+                        <a href="/hc/en-us/search/click?data=BAh7DjoHaWRsKwgTbb7vAgQ6D2FjY291bnRfaWRpA7y7rToJdHlwZUkiDGFydGljbGUGOgZFVDoIdXJsSSJpaHR0cHM6Ly9jdXN0b21lcmNhcmUuYmF0aGFuZGJvZHl3b3Jrcy5jb20vaGMvZW4tdXMvYXJ0aWNsZXMvNDQxMDY1ODY4MDA4My1XaGF0LWlzLXlvdXItcmV0dXJuLXBvbGljeQY7CFQ6DnNlYXJjaF9pZEkiKTYwNzk5ODQ4LTczZDctNDU4MC1iMzNiLWIwMDAyMDM2MzU4NwY7CEY6CXJhbmtpCzoLbG9jYWxlSSIKZW4tdXMGOwhUOgpxdWVyeUkiCXdoYXQGOwhUOhJyZXN1bHRzX2NvdW50aT0%3D--e9b16aab8745d79918f20cc372bcf956cb5785c6"
+                            class="results-list-item-link">What is your return policy?</a>
+                    </h2>
+                    <div class="search-result-icons">
+
+                        <span class="search-result-votes">
+                            <span class="visibility-hidden">
+                                -1955 votes
+                            </span>
+                            <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false"
+                                    viewBox="0 0 12 12" class="search-result-votes-icon">
+                                    <g fill="none" stroke="currentColor">
+                                        <path stroke-linejoin="round"
+                                            d="M10.77 4.5a.73.73 0 01.73.73C11.43 7 11.21 11.5 10 11.5H5a.5.5 0 01-.5-.5V4.5s1-.5 1-3a1 1 0 012 0v3z" />
+                                        <rect width="2" height="7" x=".5" y="4.5" rx=".5" ry=".5" />
+                                    </g>
+                                </svg>
+                                -1955
+                            </span>
+                        </span>
+
+
+                    </div>
+                    <article>
+                        <ul class="meta-group">
+                            <li>
+                                <ol class="breadcrumbs search-result-breadcrumbs">
+
+                                    <li title="Bath and Body Works"><a
+                                            href="https://customercare.bathandbodyworks.com">Bath and Body Works</a>
+                                    </li>
+
+                                    <li title="RETURNS &amp; EXCHANGES"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/categories/4409288877971-RETURNS-EXCHANGES">RETURNS
+                                            &amp; EXCHANGES</a></li>
+
+                                    <li title="Return Options"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/sections/4409284998803-Return-Options">Return
+                                            Options</a></li>
+
+                                </ol>
+                            </li>
+                            <!--<li class="meta-data">Foundever Service Account</li>-->
+                            <li class="meta-data"><time datetime="2021-11-16T21:16:03Z" title="2021-11-16T21:16:03Z"
+                                    data-datetime="calendar">November 16, 2021 21:16</time></li>
+                        </ul>
+                        <div class="search-results-description">ANSWERS: How can I track my order? <em>What</em> do I do
+                            if my delivery is late or lost? <em>What</em> do I do if I receive a damaged item</div>
+                    </article>
+                </li>
+
+                <li class="search-result-list-item result-article">
+                    <h2 class="search-result-title">
+                        <a href="/hc/en-us/search/click?data=BAh7DjoHaWRsKwiTgcHvAgQ6D2FjY291bnRfaWRpA7y7rToJdHlwZUkiDGFydGljbGUGOgZFVDoIdXJsSSJqaHR0cHM6Ly9jdXN0b21lcmNhcmUuYmF0aGFuZGJvZHl3b3Jrcy5jb20vaGMvZW4tdXMvYXJ0aWNsZXMvNDQxMDY1ODg4MTkzOS1XaGF0LWlzLWEtUHJlLUF1dGhvcml6YXRpb24GOwhUOg5zZWFyY2hfaWRJIik2MDc5OTg0OC03M2Q3LTQ1ODAtYjMzYi1iMDAwMjAzNjM1ODcGOwhGOglyYW5raQw6C2xvY2FsZUkiCmVuLXVzBjsIVDoKcXVlcnlJIgl3aGF0BjsIVDoScmVzdWx0c19jb3VudGk9--d1f66c48708de04ffe02bdd698aa7e7452c7be17"
+                            class="results-list-item-link">What is a Pre-Authorization?</a>
+                    </h2>
+                    <div class="search-result-icons">
+
+                        <span class="search-result-votes">
+                            <span class="visibility-hidden">
+                                -63 votes
+                            </span>
+                            <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false"
+                                    viewBox="0 0 12 12" class="search-result-votes-icon">
+                                    <g fill="none" stroke="currentColor">
+                                        <path stroke-linejoin="round"
+                                            d="M10.77 4.5a.73.73 0 01.73.73C11.43 7 11.21 11.5 10 11.5H5a.5.5 0 01-.5-.5V4.5s1-.5 1-3a1 1 0 012 0v3z" />
+                                        <rect width="2" height="7" x=".5" y="4.5" rx=".5" ry=".5" />
+                                    </g>
+                                </svg>
+                                -63
+                            </span>
+                        </span>
+
+
+                    </div>
+                    <article>
+                        <ul class="meta-group">
+                            <li>
+                                <ol class="breadcrumbs search-result-breadcrumbs">
+
+                                    <li title="Bath and Body Works"><a
+                                            href="https://customercare.bathandbodyworks.com">Bath and Body Works</a>
+                                    </li>
+
+                                    <li title="SHOPPING TOOLS"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/categories/4409288840723-SHOPPING-TOOLS">SHOPPING
+                                            TOOLS</a></li>
+
+                                    <li title="Order Basics"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/sections/4409289224595-Order-Basics">Order
+                                            Basics</a></li>
+
+                                </ol>
+                            </li>
+                            <!--<li class="meta-data">Foundever Service Account</li>-->
+                            <li class="meta-data"><time datetime="2021-11-16T21:24:54Z" title="2021-11-16T21:24:54Z"
+                                    data-datetime="calendar">November 16, 2021 21:24</time></li>
+                        </ul>
+                        <div class="search-results-description">Once your order is placed, you may see a
+                            pre-authorization (pending charge/hold). This is a common bank practice to ensure</div>
+                    </article>
+                </li>
+
+                <li class="search-result-list-item result-article">
+                    <h2 class="search-result-title">
+                        <a href="/hc/en-us/search/click?data=BAh7DjoHaWRsKwiTNQLwAgQ6D2FjY291bnRfaWRpA7y7rToJdHlwZUkiDGFydGljbGUGOgZFVDoIdXJsSSJ7aHR0cHM6Ly9jdXN0b21lcmNhcmUuYmF0aGFuZGJvZHl3b3Jrcy5jb20vaGMvZW4tdXMvYXJ0aWNsZXMvNDQxMDY2MzEyMjMyMy1XaGF0LWlzLXlvdXItcG9saWN5LXJlZ2FyZGluZy1hbmltYWwtdGVzdGluZwY7CFQ6DnNlYXJjaF9pZEkiKTYwNzk5ODQ4LTczZDctNDU4MC1iMzNiLWIwMDAyMDM2MzU4NwY7CEY6CXJhbmtpDToLbG9jYWxlSSIKZW4tdXMGOwhUOgpxdWVyeUkiCXdoYXQGOwhUOhJyZXN1bHRzX2NvdW50aT0%3D--bd454a78e189226aa32c5e8bc2e7b9f456a02f2a"
+                            class="results-list-item-link">What is your policy regarding animal testing?</a>
+                    </h2>
+                    <div class="search-result-icons">
+
+                        <span class="search-result-votes">
+                            <span class="visibility-hidden">
+                                87 votes
+                            </span>
+                            <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false"
+                                    viewBox="0 0 12 12" class="search-result-votes-icon">
+                                    <g fill="none" stroke="currentColor">
+                                        <path stroke-linejoin="round"
+                                            d="M10.77 4.5a.73.73 0 01.73.73C11.43 7 11.21 11.5 10 11.5H5a.5.5 0 01-.5-.5V4.5s1-.5 1-3a1 1 0 012 0v3z" />
+                                        <rect width="2" height="7" x=".5" y="4.5" rx=".5" ry=".5" />
+                                    </g>
+                                </svg>
+                                87
+                            </span>
+                        </span>
+
+
+                    </div>
+                    <article>
+                        <ul class="meta-group">
+                            <li>
+                                <ol class="breadcrumbs search-result-breadcrumbs">
+
+                                    <li title="Bath and Body Works"><a
+                                            href="https://customercare.bathandbodyworks.com">Bath and Body Works</a>
+                                    </li>
+
+                                    <li title="COMPANY INFO"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/categories/4409284432019-COMPANY-INFO">COMPANY
+                                            INFO</a></li>
+
+                                    <li title="General Information"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/sections/4409289463315-General-Information">General
+                                            Information</a></li>
+
+                                </ol>
+                            </li>
+                            <!--<li class="meta-data">Foundever Service Account</li>-->
+                            <li class="meta-data"><time datetime="2021-11-16T21:15:30Z" title="2021-11-16T21:15:30Z"
+                                    data-datetime="calendar">November 16, 2021 21:15</time></li>
+                        </ul>
+                        <div class="search-results-description">We have a long history of no animal testing. None of our
+                            branded products or formulations or ingredients have ever been tested</div>
+                    </article>
+                </li>
+
+                <li class="search-result-list-item result-article">
+                    <h2 class="search-result-title">
+                        <a href="/hc/en-us/search/click?data=BAh7DjoHaWRsKwiTzjqTRAU6D2FjY291bnRfaWRpA7y7rToJdHlwZUkiDGFydGljbGUGOgZFVDoIdXJsSSJuaHR0cHM6Ly9jdXN0b21lcmNhcmUuYmF0aGFuZGJvZHl3b3Jrcy5jb20vaGMvZW4tdXMvYXJ0aWNsZXMvNTc5MjA4NjAxOTczMS1XaGF0LWlmLW15LUl0ZW0tYXJyaXZlcy1EYW1hZ2VkBjsIVDoOc2VhcmNoX2lkSSIpNjA3OTk4NDgtNzNkNy00NTgwLWIzM2ItYjAwMDIwMzYzNTg3BjsIRjoJcmFua2kOOgtsb2NhbGVJIgplbi11cwY7CFQ6CnF1ZXJ5SSIJd2hhdAY7CFQ6EnJlc3VsdHNfY291bnRpPQ%3D%3D--5a94acfd64b6794143fc4e1ff3ac8dd33958bbbf"
+                            class="results-list-item-link">What if my Item arrives Damaged?</a>
+                    </h2>
+                    <div class="search-result-icons">
+
+                        <span class="search-result-votes">
+                            <span class="visibility-hidden">
+                                4905 votes
+                            </span>
+                            <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false"
+                                    viewBox="0 0 12 12" class="search-result-votes-icon">
+                                    <g fill="none" stroke="currentColor">
+                                        <path stroke-linejoin="round"
+                                            d="M10.77 4.5a.73.73 0 01.73.73C11.43 7 11.21 11.5 10 11.5H5a.5.5 0 01-.5-.5V4.5s1-.5 1-3a1 1 0 012 0v3z" />
+                                        <rect width="2" height="7" x=".5" y="4.5" rx=".5" ry=".5" />
+                                    </g>
+                                </svg>
+                                4905
+                            </span>
+                        </span>
+
+
+                    </div>
+                    <article>
+                        <ul class="meta-group">
+                            <li>
+                                <ol class="breadcrumbs search-result-breadcrumbs">
+
+                                    <li title="Bath and Body Works"><a
+                                            href="https://customercare.bathandbodyworks.com">Bath and Body Works</a>
+                                    </li>
+
+                                    <li title="SHIPPING &amp; DELIVERY"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/categories/4409284348179-SHIPPING-DELIVERY">SHIPPING
+                                            &amp; DELIVERY</a></li>
+
+                                    <li title="Order Tracking &amp; Delivery"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/sections/4409284980755-Order-Tracking-Delivery">Order
+                                            Tracking &amp; Delivery</a></li>
+
+                                </ol>
+                            </li>
+                            <!--<li class="meta-data">Jenni Knachel</li>-->
+                            <li class="meta-data"><time datetime="2022-04-26T15:56:53Z" title="2022-04-26T15:56:53Z"
+                                    data-datetime="calendar">April 26, 2022 15:56</time></li>
+                        </ul>
+                        <div class="search-results-description">We're sorry to hear your item arrived damaged, please
+                            contact us with your order number ready, so we can make it right!</div>
+                    </article>
+                </li>
+
+                <li class="search-result-list-item result-article">
+                    <h2 class="search-result-title">
+                        <a href="/hc/en-us/search/click?data=BAh7DjoHaWRsKwgTlFfRQxM6D2FjY291bnRfaWRpA7y7rToJdHlwZUkiDGFydGljbGUGOgZFVDoIdXJsSSJraHR0cHM6Ly9jdXN0b21lcmNhcmUuYmF0aGFuZGJvZHl3b3Jrcy5jb20vaGMvZW4tdXMvYXJ0aWNsZXMvMjExODE5OTU5MTQyNTktV2hhdC1hcmUtYm9udXMtcG9pbnQtb2ZmZXJzBjsIVDoOc2VhcmNoX2lkSSIpNjA3OTk4NDgtNzNkNy00NTgwLWIzM2ItYjAwMDIwMzYzNTg3BjsIRjoJcmFua2kPOgtsb2NhbGVJIgplbi11cwY7CFQ6CnF1ZXJ5SSIJd2hhdAY7CFQ6EnJlc3VsdHNfY291bnRpPQ%3D%3D--4f8d45e9b13a0621c13cf5614d83c74a4bcd32d3"
+                            class="results-list-item-link">What are bonus point offers?</a>
+                    </h2>
+                    <div class="search-result-icons">
+
+                        <span class="search-result-votes">
+                            <span class="visibility-hidden">
+                                10 votes
+                            </span>
+                            <span aria-hidden="true">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false"
+                                    viewBox="0 0 12 12" class="search-result-votes-icon">
+                                    <g fill="none" stroke="currentColor">
+                                        <path stroke-linejoin="round"
+                                            d="M10.77 4.5a.73.73 0 01.73.73C11.43 7 11.21 11.5 10 11.5H5a.5.5 0 01-.5-.5V4.5s1-.5 1-3a1 1 0 012 0v3z" />
+                                        <rect width="2" height="7" x=".5" y="4.5" rx=".5" ry=".5" />
+                                    </g>
+                                </svg>
+                                10
+                            </span>
+                        </span>
+
+
+                    </div>
+                    <article>
+                        <ul class="meta-group">
+                            <li>
+                                <ol class="breadcrumbs search-result-breadcrumbs">
+
+                                    <li title="Bath and Body Works"><a
+                                            href="https://customercare.bathandbodyworks.com">Bath and Body Works</a>
+                                    </li>
+
+                                    <li title="SHOPPING TOOLS"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/categories/4409288840723-SHOPPING-TOOLS">SHOPPING
+                                            TOOLS</a></li>
+
+                                    <li title="My Bath &amp; Body Works"><a
+                                            href="https://customercare.bathandbodyworks.com/hc/en-us/sections/4409284955283-My-Bath-Body-Works">My
+                                            Bath &amp; Body Works</a></li>
+
+                                </ol>
+                            </li>
+                            <!--<li class="meta-data">Brittney Mosher</li>-->
+                            <li class="meta-data"><time datetime="2023-09-26T15:49:10Z" title="2023-09-26T15:49:10Z"
+                                    data-datetime="calendar">September 26, 2023 15:49</time></li>
+                        </ul>
+                        <div class="search-results-description">Periodically you may have the opportunity to earn bonus
+                            p oints, through our Reward s program. Bonus points may award points</div>
+                    </article>
+                </li>
+
+            </ul>
+
+        </section>
+    </div>
+
+    <nav class="pagination">
+        <ul class="pagination-list">
+
+
+
+            <li class="pagination-next">
+                <a href="/hc/en-us/search?page=2&amp;query=what&amp;utf8=%E2%9C%93#results" class="pagination-next-link"
+                    rel="next nofollow">
+                    <span class="pagination-next-text">Next</span>
+                    <span class="pagination-next-icon" aria-hidden="true">›</span>
+                </a>
+            </li>
+
+            <li class="pagination-last">
+                <a href="/hc/en-us/search?page=6&amp;query=what&amp;utf8=%E2%9C%93#results" class="pagination-last-link"
+                    rel="nofollow">
+                    <span class="pagination-last-text">Last</span>
+                    <span class="pagination-last-icon" aria-hidden="true">»</span>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+</div>
