@@ -11109,7 +11109,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &#13;
                             &lt;p class="mb-0"&gt;Call us at &lt;a href="tel:1-800-57-6972"&gt;1-800-57-6972&lt;/a&gt;&lt;br /&gt;&#13;
                                 Monday-Friday&lt;br /&gt;&#13;
-                                9:00am-9:00pm AEST&lt;/p&gt;&#13;
+                                9:00am-9:00pm AEST $include('ContactUs-Availability')$&lt;/p&gt;&#13;
 &#13;
                             &lt;p class="mb-0"&gt;&lt;strong class="h-fw--semibold h-clr--black-3"&gt;EMAIL US&lt;/strong&gt;&lt;/p&gt;&#13;
 &#13;
