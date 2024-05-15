@@ -108,6 +108,7 @@
                 min-height: auto;
                 margin-bottom: 20px;
                 letter-spacing: 0.12em;
+                background-color: colour(black, 3);
             }
         }
     }
@@ -119,6 +120,7 @@
                     border-bottom: 1px solid colour(black, 3);
                     padding-bottom: 0.625em;
                     margin-bottom: 1.5625em;
+                    line-height: 18px;
 
                     @include media-down(sm) {
                         font-size: 1rem;

@@ -1,0 +1,19 @@
+@import "../../_brand/_api/api";
+
+.corporate-gifting-landing-page {
+    .b-select-wrap {
+        border: unset;
+        height: unset;
+        position: relative;
+
+        &::after {
+            border: 0.0625rem solid colour(gray, 5);
+        }
+
+        .b-select {
+            border: 0.0625rem solid colour(gray, 5);
+            height: 3.125rem;
+            border-radius: 0;
+        }
+    }
+}

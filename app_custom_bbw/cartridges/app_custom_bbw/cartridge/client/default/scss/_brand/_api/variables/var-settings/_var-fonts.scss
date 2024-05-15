@@ -35,6 +35,7 @@ $letter-spacing: (
 
 // Font weight
 $font-weight: (
+    light: 300,
     normal: 400,
     medium: 500,
     semibold: 600,
@@ -82,6 +83,17 @@ $fonts: (
                     "ext": "woff2"
                 ),
                 "weightValue": map-get($font-weight, semibold),
+                "styleValue": normal
+            ),
+            "light": (
+                "fontFaceParams": (
+                    "fontName": $ff-base,
+                    "fontFolder": "SourceSansPro",
+                    "fontFileName": "SourceSansPro-Light",
+                    "system": true,
+                    "ext": "woff2"
+                ),
+                "weightValue": map-get($font-weight, light),
                 "styleValue": normal
             )
         )
