@@ -82,7 +82,7 @@ module.exports = $.extend({}, base, {
         $('body').on('click', '.quickview', function (e) {
             e.preventDefault();
             quickViewButton = $(this);
-            var selectedValueUrl = $(this).closest('a.quickview').attr('href');
+            var selectedValueUrl = $(this).data('href');
             $(e.target).trigger('quickview:show');
             getModalHtmlElement();
             fillModalElement(selectedValueUrl);
