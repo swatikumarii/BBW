@@ -5,6 +5,8 @@ var formatMoney = require('dw/util/StringUtils').formatMoney;
 var collections = require('*/cartridge/scripts/util/collections');
 var Money = require('dw/value/Money');
 var cartHelper = require('*/cartridge/scripts/cart/cartHelpers');
+var HashMap = require('dw/util/HashMap');
+var Template = require('dw/util/Template');
 
 /**
  * Accepts a total object and formats the value
@@ -141,8 +143,6 @@ function getDiscounts(lineItemContainer) {
  * @returns {string} html content
  */
 function getAllDiscountsHTML(allDiscountItems, totalDiscount) {
-    var Template = require('dw/util/Template');
-    var HashMap = require('dw/util/HashMap');
     var template = new Template('cart/cartDiscountsHtml');
     var context = new HashMap();
     var totalsObj = {
@@ -185,6 +185,24 @@ function getPendingTotal(lineItemContainer) {
 }
 
 /**
+ * create the discount results html
+ * @param {Array} discounts - an array of objects that contains coupon and priceAdjustment
+ * information
+ * @returns {string} The rendered HTML
+ */
+function getDiscountsHtml(discounts) {
+    var context = new HashMap();
+    var object = { totals: { discounts: discounts } };
+
+    Object.keys(object).forEach(function (key) {
+        context.put(key, object[key]);
+    });
+
+    var template = new Template('cart/cartCouponDisplay');
+    return template.render(context).text;
+}
+
+/**
  * @class
  * @classdesc totals class that represents the order totals of the current line item container
  * @param {dw.order.lineItemContainer} lineItemContainer - The current user's line item container
@@ -193,8 +211,12 @@ function totals(lineItemContainer) {
     base.call(this, lineItemContainer);
     if (lineItemContainer) {
         this.shippingTotalTax = getTotals(lineItemContainer.shippingTotalTax);
-        this.shippingTotalExclTax = getTotals(lineItemContainer.adjustedShippingTotalNetPrice);
-        this.subTotalExclTax = getTotals(lineItemContainer.adjustedMerchandizeTotalNetPrice);
+        this.shippingTotalExclTax = getTotals(
+            lineItemContainer.adjustedShippingTotalNetPrice
+        );
+        this.subTotalExclTax = getTotals(
+            lineItemContainer.adjustedMerchandizeTotalNetPrice
+        );
         var allDiscounts = getAllDiscounts(lineItemContainer);
         this.allDiscounts = allDiscounts.allDiscountItems;
         this.totalDiscount = allDiscounts.totalDiscount;
@@ -205,6 +227,7 @@ function totals(lineItemContainer) {
         this.totalDiscountFormatted = getTotals(allDiscounts.totalDiscount);
         this.discounts = getDiscounts(lineItemContainer);
         this.pendingTotal = getPendingTotal(lineItemContainer);
+        this.discountsHtml = getDiscountsHtml(this.discounts);
     } else {
         this.pendingTotal = '-';
     }
