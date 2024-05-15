@@ -114,6 +114,11 @@
                                 <span class="shipping-method-title h-font-size--16">${shippingModel.selectedShippingMethod.displayName}</span>
                             </p>
                         </isloop>
+                        <isif condition="${order.trackingNumber}">
+                            <a href="${order.trackingUrl + order.trackingNumber}" hreflang="${request.getLocale()}" target="_blank">
+                                <span>${order.trackingNumber}</span>
+                            </a>
+                        </isif>
                         </div>
                     </td>
                 </tr>
