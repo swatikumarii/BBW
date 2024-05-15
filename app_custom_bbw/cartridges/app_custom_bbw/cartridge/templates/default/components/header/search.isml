@@ -21,6 +21,8 @@
     <iscomment> Search Suggestion Wrapper </iscomment>
     <div class="search-suggestions h-bg--white w-100 js-search-suggestions" id="search-suggestions">
         <div class="suggestions-wrapper h-maxwidth--1400 mx-auto h-bg--white" data-url="${URLUtils.url('SearchServices-GetSuggestions', 'q')}">
+            <div class="suggestions d-flex h-grid-gap-md--20">
+            </div>
         </div>
     </div>
 </div>
