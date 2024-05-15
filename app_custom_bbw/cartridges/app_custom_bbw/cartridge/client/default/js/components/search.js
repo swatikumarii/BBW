@@ -122,9 +122,9 @@ function positionSuggestions(scope) {
  * suggestions template contents
  */
 function processResponse(response) {
-    var $suggestionsWrapper = getSuggestionsWrapper('.search-suggestions').empty();
+    var $suggestionsWrapper = getSuggestionsWrapper('.search-suggestions');
     if (typeof (response) !== 'object') {
-        $suggestionsWrapper.append(response);
+        $('.search-suggestions').find('.suggestions').empty().append(response);
         if (layout.isDesktop() || layout.isTablet()) {
             $suggestionsWrapper.parent().stop().slideDown();
 
@@ -157,7 +157,7 @@ function processResponse(response) {
         }
         lazyload.lazyLoad();
     } else {
-        $suggestionsWrapper.hide();
+        $suggestionsWrapper.empty().hide();
     }
 }
 
