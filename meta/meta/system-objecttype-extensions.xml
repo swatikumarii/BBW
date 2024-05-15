@@ -1130,7 +1130,7 @@
             </attribute-group>
             <attribute-group group-id="Event Tracking">
                 <display-name xml:lang="x-default">Event Tracking</display-name>
-                <attribute attribute-id="googleScriptEnabled"/>
+                <attribute attribute-id="gtmScriptEnabled"/>
                 <attribute attribute-id="gtmHeadScript"/>
                 <attribute attribute-id="gtmBodyScript"/>
             </attribute-group>
@@ -2788,6 +2788,13 @@
             </attribute-definition>
             <attribute-definition attribute-id="eGiftSender">
                 <display-name xml:lang="x-default">E Gift Sender</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customBundle">
+                <display-name xml:lang="x-default">Custom Bundle</display-name>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
