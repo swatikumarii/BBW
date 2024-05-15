@@ -70,8 +70,18 @@ module.exports = function () {
     $('body').on('product:afterAddToCart', function () {
         updateMiniCart = true;
         if (layout.isDesktop() || layout.isTablet()) {
-            $('.minicart').trigger('click');
-            $('.minicart').find('.popover-bottom').addClass('show');
+            $('.minicart .popover').addClass('show');
+            $('.minicart-overlay').addClass('show');
+            $('body').addClass('overflow-hidden');
+            var minicartURL =
+                    $('.minicart').data('action-url');
+            $('.minicart .popover').spinner().start();
+            $.get(minicartURL, function (minicartData) {
+                $('.minicart .popover').empty();
+                $('.minicart .popover').append(
+                    minicartData
+                );
+            });
         }
     });
     $('body').on('cart:update', function () {
