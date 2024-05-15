@@ -11109,7 +11109,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &#13;
                             &lt;p class="mb-0"&gt;Call us at &lt;a href="tel:1-800-57-6972"&gt;1-800-57-6972&lt;/a&gt;&lt;br /&gt;&#13;
                                 Monday-Friday&lt;br /&gt;&#13;
-                                9:00am-9:00pm AEST $include('ContactUs-Availability')$&lt;/p&gt;&#13;
+                                9:00am-9:00pm AEST&lt;/p&gt;&#13;
 &#13;
                             &lt;p class="mb-0"&gt;&lt;strong class="h-fw--semibold h-clr--black-3"&gt;EMAIL US&lt;/strong&gt;&lt;/p&gt;&#13;
 &#13;
@@ -12086,35 +12086,35 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="row no-gutters"&gt;
 	&lt;div class="col-12"&gt;
-&lt;a class="d-block" href="/bodycare/new-bodycare"&gt;
+&lt;a class="d-block" href="$url('Search-Show','cgid','body-care')$"&gt;
     &lt;img class="w-100" alt="shop New Body care " src="images/corporate-gift/BC-B2G1F-hm.jpg?$staticlink$" title="" /&gt;
 &lt;/a&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="container"&gt;
 	&lt;div class="row mx-auto mt-4"&gt;
-		&lt;div class="col-12 col-md-6"&gt; &lt;a href="/bodycare/new-bodycare"&gt;
+		&lt;div class="col-12 col-md-6"&gt; &lt;a href="$url('Search-Show','cgid','body-care')$"&gt;
             &lt;img  class="lazy w-100"  alt="shop New Body care "
                 data-src="images/corporate-gift/resort-wl-ssc_sp3_hps.jpg?$staticlink$" title="" /&gt;
         &lt;/a&gt;
 
 			&lt;div class="bottom-text text-center pt-3"&gt;
 				&lt;p class="sub-content m-0 h-fw--bold h-clr--black"&gt;Our most loved fragrances.&lt;/p&gt;
-				&lt;div class="bottom-text"&gt; &lt;a href="/bodycare/new-bodycare"&gt;
+				&lt;div class="bottom-text"&gt; &lt;a href="$url('Search-Show','cgid','body-care')$"&gt;
                     &lt;p class="h-clr--black b-text-a-underline"&gt;SHOP FRAGRANCES&lt;/p&gt;
                 &lt;/a&gt;
 
 				&lt;/div&gt;
 			&lt;/div&gt;
 		&lt;/div&gt;
-		&lt;div class="col-12 col-md-6"&gt; &lt;a href="/body-care/all-men-collection"&gt;
+		&lt;div class="col-12 col-md-6"&gt; &lt;a href="$url('Search-Show','cgid','body-care')$"&gt;
             &lt;img class="lazy w-100" alt="shop All Mens-Collection "
                 data-src="images/corporate-gift/mens_grooming_sp3_hps.jpg?$staticlink$" title="" /&gt;
         &lt;/a&gt;
 
 			&lt;div class="bottom-text text-center pt-3"&gt;
 				&lt;p class="sub-content m-0 h-fw--bold h-clr--black"&gt;The scents he loves.&lt;/p&gt;
-				&lt;div class="bottom-text"&gt; &lt;a href="/bodycare/new-bodycare"&gt;
+				&lt;div class="bottom-text"&gt; &lt;a href="$url('Search-Show','cgid','body-care')$"&gt;
                     &lt;p class="h-clr--black b-text-a-underline"&gt;SHOP MEN'S COLLECTION &lt;/p&gt;
                 &lt;/a&gt;
 
@@ -12133,7 +12133,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;a class="d-block" href="/bodycare/new-bodycare"&gt;&lt;img class="w-100 lazy" alt="shop New Body care "
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;a class="d-block" href="$url('Search-Show','cgid','body-care')$"&gt;&lt;img class="w-100 lazy" alt="shop New Body care "
         data-src="images/corporate-gift/gifting-banner_sp3_hp-main.jpg?$staticlink$" title="" /&gt;&lt;/a&gt;</custom-attribute>
         </custom-attributes>
     </content>
