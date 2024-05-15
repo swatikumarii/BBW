@@ -1,12 +1,36 @@
 'use strict';
 
 /**
+ * session out timer
+ * @param {any} minutes countdown minutes
+ * @param {any} seconds countdown seconds
+ */
+function countdown(minutes, seconds) {
+    /**
+     *
+     */
+    function tick() {
+        var counter = document.getElementById('timer');
+        counter.innerHTML =
+            (minutes < 10 ? '0' : '') + minutes.toString() + ':' + (seconds < 10 ? '0' : '') + String(seconds);
+        seconds--;
+        if (seconds >= 0) {
+            setTimeout(tick, 1000);
+        } else if (minutes >= 1) {
+            setTimeout(function () {
+                countdown(minutes - 1, 59);
+            }, 1000);
+        }
+    }
+    tick();
+}
+
+/**
  * set soft auto logout callback
  * @param {number} autoLogout - list of attributes
- * @return {number} - setTimeout object
+ * @returns {number} - setTimeout object
  */
 function setLogoutTimer(autoLogout) {
-    console.log('setLogoutTimer');
     if (autoLogout) {
         clearTimeout(autoLogout);
     }
@@ -30,7 +54,7 @@ function setLogoutTimer(autoLogout) {
         setTimeout(function () {
             localStorage.removeItem('auto-logout');
             localStorage.setItem('auto-logout:message', new Date().getTime());
-            location.reload();
+            window.location.reload();
         }, popupDuration * 60000);
     }, remainingTime * 60000);
 }
@@ -55,33 +79,11 @@ function setHardLogoutTimer() {
     if (currentTime < logoutTime) {
         setTimeout(function () {
             localStorage.removeItem('auto-logout');
-            location.reload();
+            window.location.reload();
         }, logoutTime - currentTime);
     } else {
         localStorage.removeItem('auto-logout');
     }
-}
-/**
- * session out timer
- */
-var timeoutHandle;
-function countdown(minutes, seconds) {
-    function tick() {
-        var counter = document.getElementById("timer");
-        counter.innerHTML =
-            (minutes < 10 ? "0" : "") + minutes.toString() + ":" + (seconds < 10 ? "0" : "") + String(seconds);
-        seconds--;
-        if (seconds >= 0) {
-            timeoutHandle = setTimeout(tick, 1000);
-        } else {
-            if (minutes >= 1) {
-                setTimeout(function () {
-                    countdown(minutes - 1, 59);
-                }, 1000);
-            }
-        }
-    }
-    tick();
 }
 
 module.exports = function () {
@@ -113,7 +115,7 @@ module.exports = function () {
          */
         $('body').on('click', '.refresh-autologout', function (e) {
             e.preventDefault();
-            location.reload();
+            window.location.reload();
         });
 
         /**
@@ -139,7 +141,6 @@ module.exports = function () {
             var event = e.originalEvent;
             if (event.storageArea !== localStorage) return;
             if (event.key === 'auto-logout:trigger') {
-                console.log('auto-logout:trigger');
                 setLogoutTimer(autoLogout);
             } else if (event.key === 'auto-logout:message') {
                 $('#autologout').find('.confirmation').hide();
