@@ -1688,7 +1688,7 @@
   &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="customer-service"&gt;&#13;
     &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;&#13;
       CUSTOMER CARE&lt;/li&gt;&#13;
-    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard.')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Help &amp; FAQs&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
     &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
@@ -1697,7 +1697,7 @@
     &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Returns &amp; Exchanges&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
-    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Order-Status')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Order Tracking&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
     &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
@@ -1723,7 +1723,7 @@
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;DISCOVER&lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;About Us&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Careers&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Careers-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Careers&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#13;
 &lt;/a&gt;&#13;
@@ -12074,6 +12074,20 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         &lt;/tr&gt;&#13;
     &lt;/tbody&gt;&#13;
 &lt;/table&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+<content content-id="Order-tracking-banner">
+        <display-name xml:lang="x-default">Order Tracking</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="row"&gt;&#13;
+&lt;div class="col-md-12 col-sm-12 d-flex justify-content-center slot-banner"&gt;&#13;
+&lt;img alt="${Resource.msg('lorder.tracking.banner.title', 'order', null)}" class="d-sm-none w-100 sm-banner-img" src="images/orderTracking/order-status-banner-asset_m.svg?$staticlink$" title="" /&gt; &#13;
+&lt;img alt="${Resource.msg('lorder.tracking.banner.title', 'order', null)}" class="d-none d-sm-block md-banner-img" src="images/orderTracking/order-status-banner.svg?$staticlink$" title="" /&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
 	
