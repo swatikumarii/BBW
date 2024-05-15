@@ -25,4 +25,16 @@ module.exports = function (object, apiProduct) {
                 ? apiProduct.custom.fragranceDescription
                 : false
     });
+
+    Object.defineProperty(object, 'UPC', {
+        enumerable: true,
+        writable: true,
+        configurable: true,
+        value:
+            'UPC' in apiProduct &&
+            apiProduct.UPC !== ''
+                ? apiProduct.UPC
+                : ''
+    });
+
 };
