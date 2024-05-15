@@ -11,8 +11,9 @@
             <div class="row">
                 <div class="col">
                     <div class="store-address">
-                        <span class="text-uppercase">
-                            ${store.address1}
+                        <span class="text-uppercase d-block">
+                            ${store.address1}</span>
+                        <span class="d-block">
                             <isif condition="${store.address2}">
                                 ${store.address2}
                             </isif>
@@ -37,7 +38,8 @@
                             href="https://maps.google.com/?daddr=${store.latitude},${store.longitude}">
                             ${Resource.msg('label.get.directions', 'storeLocator', null)}
                         </a>
-                        <a class="h-fw--semibold h-clr--black-1 mt-1 d-block" target='_blank' href="${STORE_DETAIL_URL}">
+                        <a class="h-fw--semibold h-clr--black-1 mt-1 d-block" target='_blank'
+                            href="${STORE_DETAIL_URL}">
                             ${Resource.msg('label.get.details', 'storeLocator', null)}
                         </a>
                     </div>
