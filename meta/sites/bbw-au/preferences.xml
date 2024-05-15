@@ -71,6 +71,8 @@
                 ]
             </preference>
             <preference preference-id="gtmScriptEnabled">false</preference>
+            <preference preference-id="openingTime">2</preference>
+            <preference preference-id="closingTime">11</preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
@@ -133,6 +135,8 @@
                     {"country":"Malasiya", "site": "https://www.bathandbodyworks.my"}
                 ]
             </preference>
+            <preference preference-id="openingTime">2</preference>
+            <preference preference-id="closingTime">11</preference>
         </staging>
         <production/>
     </custom-preferences>
