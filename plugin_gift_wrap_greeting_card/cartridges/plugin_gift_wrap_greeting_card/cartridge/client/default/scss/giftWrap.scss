@@ -8,6 +8,57 @@
     background-color: #f2f2f2;
 }
 
+.gift-wrap-product-card {
+    .item-image {
+        img {
+            margin-right: 42px;
+            max-height: 160px;
+            max-width: 150px;
+            object-fit: cover;
+        }
+    }
+
+    .item-detail {
+        width: 100%;
+
+        @include media-breakpoint-up(sm) {
+            width: 50%;
+        }
+    }
+
+    .item-desc {
+        padding-top: 16px;
+
+        .line-item-header {
+            .line-item-name {
+                font-size: 1.25rem;
+                line-height: 24px;
+                color: #1a1a1a;
+            }
+
+            span {
+                font-size: 12px;
+                line-height: 24px;
+                color: #1a1a1a;
+            }
+        }
+    }
+
+    .remove-product {
+        margin-top: 14px;
+        padding-left: 24px;
+        text-decoration: none;
+        padding-right: 6px;
+        color: #1a1a1a;
+        font-size: 14px;
+    }
+
+    .line-item-price {
+        padding-top: 16px !important;
+        font-weight: 400 !important;
+    }
+}
+
 .giftwrap-block {
     background-color: transparent;
     font-size: 14px;
@@ -51,31 +102,70 @@
                 cursor: pointer;
             }
         }
+
+        input[type="radio"] + label::before,
+        input[type="checkbox"] + label::before {
+            background-color: #fff;
+            border: 1px solid #d8d8d8;
+            color: #fff;
+            content: "";
+            font-size: 8px;
+            height: 24px;
+            left: 0;
+            line-height: 26px;
+            position: absolute;
+            text-align: center;
+            top: 0;
+            width: 24px;
+        }
+
+        // input[type="radio"] + label::before,
+        // input[type="checkbox"] + label::before {
+        //     background-color: #fff;
+        //     border-radius: 50%;
+        //     border: 1px solid #d8d8d8;
+        //     color: #fff;
+        //     content: "";
+        //     font-size: 8px;
+        //     height: 24px;
+        //     left: 0;
+        //     letter-spacing: -1px;
+        //     line-height: 26px;
+        //     position: absolute;
+        //     text-align: center;
+        //     top: 0;
+        //     width: 24px;
+        // }
+
+        // label {
+        //     padding: 0 0 0 36px;
+        //     position: relative;
+        //     display: block;
+        //     font-size: 16px;
+        //     padding-top: 2px;
+        //     color: #1a1a1a;
+        //     cursor: pointer;
+        //     margin-bottom: 0;
+
+        //     &::before {
+        //         border-radius: 0;
+        //         cursor: pointer;
+        //     }
+        // }
     }
 
-    input[type="radio"] + label::before,
-    input[type="checkbox"] + label::before {
-        background-color: #fff;
-        border: 1px solid #d8d8d8;
-        color: #fff;
-        content: "";
-        font-size: 8px;
-        height: 24px;
-        left: 0;
-        line-height: 26px;
-        position: absolute;
-        text-align: center;
-        top: 0;
-        width: 24px;
-    }
-
-    input[type="radio"]:checked + label::before,
     input[type="checkbox"]:checked + label::before {
-        border-color: black;
+        border-color: #000;
         content: "";
         background: url("../images/check-32.svg");
         background-size: contain;
         background-color: black;
+    }
+
+    input[type="radio"]:checked + label::before {
+        border-color: #000;
+        content: "";
+        background: url("../images/check-circle-fill-32.svg") 50% no-repeat;
     }
 
     &.open-giftwrap {
@@ -96,6 +186,7 @@
 
             .giftwrap-block-radio {
                 margin-bottom: 24px;
+                position: relative;
 
                 &:first-of-type:not(:only-child) {
                     padding-top: 24px;
@@ -118,8 +209,17 @@
                 }
 
                 label {
-                    padding-top: 2px;
+                    position: relative;
+                    padding: 0 0 0 36px;
                     cursor: pointer;
+                    display: inline-block;
+                    height: 100%;
+
+                    &::before {
+                        left: auto;
+                        right: 24px;
+                        top: 22px;
+                    }
                 }
 
                 input[type="radio"] + label::before,
@@ -137,16 +237,6 @@
                     text-align: center;
                     top: 0;
                     width: 24px;
-                }
-
-                input[type="radio"] + label,
-                input[type="checkbox"] + label {
-                    display: block;
-                    font-size: 14px;
-                    line-height: 24px;
-                    padding: 0 0 0 36px;
-                    position: relative;
-                    color: #1a1a1a;
                 }
 
                 input[type="radio"]:checked + label::before,
@@ -191,248 +281,265 @@
                     }
 
                     .gift-wrap-product-label {
-                        background-color: transparent;
-                        border: 0;
+                        background-color: #fff;
+                        border: 1px solid #d8d8d8;
+                        color: #fff;
+                        content: "";
+                        bottom: -18px;
+                        left: 50%;
+                        top: auto;
+                        width: 24px;
+                        height: 24px;
                         display: block;
                         font-size: 14px;
                         letter-spacing: 0.4px;
                         line-height: 24px;
-                        padding: 4px 0 0 36px;
-                        border-radius: 0;
-                        left: 0;
+                        border-radius: 100%;
                         margin-left: -12px;
                         position: absolute;
                         transition: 0.4s cubic-bezier(0.05, 0.5, 0.3, 1);
-                        bottom: 0;
-                        height: 100%;
-                        width: 100%;
 
                         &::before {
-                            bottom: -18px;
                             width: 24px;
-                            left: 50%;
-                            top: auto;
+                            height: 24px;
+                            position: absolute;
+                            border-radius: 100%;
+                            z-index: 1;
                         }
                     }
                 }
             }
 
-            #addGiftWrapProduct {
+            .add-gift-wrap-product {
                 margin-top: 20px;
                 margin-bottom: 20px;
                 min-width: 292px;
                 text-transform: uppercase;
                 font-size: 14px;
+
+                @include media-breakpoint-down(sm) {
+                    min-width: 100%;
+                }
             }
-        }
-    }
-}
 
-.giftWrapIndividualProduct {
-    .modal-body {
-        padding: 0;
-        height: 100%;
-    }
-
-    .giftwrap-flyout {
-        .generic-flyout-content {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            display: block;
-
-            .giftwrap-container {
-                text-align: left;
-                background-color: #fff;
-                height: 100%;
-                overflow: hidden auto;
-                width: 100%;
-                padding: 15px 24px 30px 14px;
-
-                @include media-breakpoint-up(sm) {
-                    padding: 15px 30px 30px 40px;
+            .gift-wrap-individual-product {
+                .modal-body {
+                    padding: 0;
+                    height: 100%;
                 }
 
-                .giftwrap-title {
-                    margin-bottom: 24px;
-                    position: relative;
-                    width: 100%;
-
-                    h2 {
-                        font-size: 24px;
-                        line-height: 32px;
-                        margin-bottom: 26px;
-                    }
-
-                    p {
-                        font-size: 15px;
-                        line-height: 24px;
-                        color: #1a1a1a;
-                    }
-
-                    .inline-alert {
-                        border: 1px solid #b4b4b4;
-                        color: #000;
-                        font-size: 14px;
-                        letter-spacing: 0.4px;
-                        line-height: 24px;
-                        padding: 10px 40px;
-                        width: 100%;
-                        background-color: transparent;
-                        border-radius: 0;
-                        text-align: center;
-
-                        &.notify {
-                            display: block;
-                            position: relative;
-                            text-align: left;
-
-                            span::before {
-                                background-color: #000;
-                                color: #fff;
-                                content: "i";
-                                font-size: 11px;
-                                font-weight: 700;
-                                border-radius: 50%;
-                                height: 16px;
-                                left: 10px;
-                                line-height: 19px;
-                                position: absolute;
-                                text-align: center;
-                                top: 50%;
-                                transform: translateY(-50%);
-                                width: 16px;
-                            }
-                        }
-                    }
-                }
-
-                .form-row {
-                    max-width: 600px;
-                    margin: 0 auto;
-                }
-
-                .checkall {
-                    margin-bottom: 38px;
-                    position: relative;
-                    width: 100%;
-
-                    input {
-                        margin-left: 2px;
-                    }
-
-                    label {
-                        padding-left: 25px;
-                        display: inline-block;
-                        cursor: pointer;
-                    }
-                }
-
-                .vertical-tile-list {
-                    margin-bottom: 40px;
-                }
-
-                .checkout-tile {
-                    height: 120px;
-                    position: relative;
-                    border: 1px solid #b4b4b4;
-                    cursor: pointer;
-
-                    .input-type-radio {
-                        height: 100%;
-                        width: 100%;
+                .giftwrap-flyout {
+                    .generic-flyout-content {
                         position: relative;
-
-                        input {
-                            opacity: 4;
-                            background: transparent;
-                            height: 100%;
-                            width: 100%;
-                            z-index: 85;
-                            border: 0;
-                            cursor: unset;
-                            position: absolute;
-                            appearance: none;
-                        }
-                    }
-
-                    label {
+                        width: 100%;
                         height: 100%;
-                        padding: 16px;
-                        cursor: pointer;
-
-                        &::before {
-                            left: auto;
-                            right: 24px;
-                            top: 22px;
-                        }
-                    }
-
-                    figure {
-                        height: calc(100% - 48px);
-                        width: 96px;
-                        position: absolute;
-                        text-align: center;
-                        left: 0;
+                        overflow-y: auto;
+                        -webkit-overflow-scrolling: touch;
                         display: block;
 
-                        img {
-                            max-height: 100%;
-                            max-width: 100%;
+                        .giftwrap-container {
+                            text-align: left;
+                            background-color: #fff;
+                            height: 100%;
+                            overflow: hidden auto;
+                            width: 100%;
+                            padding: 15px 24px 30px 14px;
+
+                            @include media-breakpoint-up(sm) {
+                                padding: 15px 30px 30px 40px;
+                            }
+
+                            .giftwrap-title {
+                                margin-bottom: 24px;
+                                position: relative;
+                                width: 100%;
+
+                                h2 {
+                                    font-size: 24px;
+                                    line-height: 32px;
+                                    margin-bottom: 26px;
+                                }
+
+                                p {
+                                    font-size: 15px;
+                                    line-height: 24px;
+                                    color: #1a1a1a;
+                                }
+
+                                .inline-alert {
+                                    border: 1px solid #b4b4b4;
+                                    color: #000;
+                                    font-size: 14px;
+                                    letter-spacing: 0.4px;
+                                    line-height: 24px;
+                                    padding: 10px 40px;
+                                    width: 100%;
+                                    background-color: transparent;
+                                    border-radius: 0;
+                                    text-align: center;
+
+                                    &.notify {
+                                        display: block;
+                                        position: relative;
+                                        text-align: left;
+
+                                        span::before {
+                                            background-color: #000;
+                                            color: #fff;
+                                            content: "i";
+                                            font-size: 11px;
+                                            font-weight: 700;
+                                            border-radius: 50%;
+                                            height: 16px;
+                                            left: 10px;
+                                            line-height: 19px;
+                                            position: absolute;
+                                            text-align: center;
+                                            top: 50%;
+                                            transform: translateY(-50%);
+                                            width: 16px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .form-row {
+                                max-width: 600px;
+                                margin: 0 auto;
+                            }
+
+                            .checkall {
+                                margin-bottom: 38px;
+                                position: relative;
+                                width: 100%;
+
+                                input {
+                                    margin-left: 2px;
+                                }
+
+                                // label {
+                                //     padding-left: 25px;
+                                //     display: inline-block;
+                                //     cursor: pointer;
+                                // }
+                            }
+
+                            .vertical-tile-list {
+                                margin-bottom: 40px;
+                            }
+
+                            .checkout-tile {
+                                height: 120px;
+                                position: relative;
+                                border: 1px solid #b4b4b4;
+                                cursor: pointer;
+
+                                .input-type-radio {
+                                    height: 100%;
+                                    width: 100%;
+                                    position: relative;
+
+                                    input {
+                                        opacity: 4;
+                                        background: transparent;
+                                        height: 100%;
+                                        width: 100%;
+                                        z-index: 85;
+                                        border: 0;
+                                        cursor: unset;
+                                        position: absolute;
+                                        appearance: none;
+                                    }
+                                }
+
+                                label {
+                                    height: 100%;
+                                    padding: 16px;
+                                    cursor: pointer;
+
+                                    &::before {
+                                        left: auto;
+                                        right: 24px;
+                                        top: 22px;
+                                        border: 1px solid #d8d8d8;
+                                        color: #fff;
+                                        content: "";
+                                        font-size: 8px;
+                                        height: 24px;
+                                        line-height: 26px;
+                                        position: absolute;
+                                        text-align: center;
+                                        width: 24px;
+                                        border-radius: 100%;
+                                    }
+                                }
+
+                                figure {
+                                    height: calc(100% - 48px);
+                                    width: 96px;
+                                    position: absolute;
+                                    text-align: center;
+                                    left: 0;
+                                    display: block;
+
+                                    img {
+                                        max-height: 100%;
+                                        max-width: 100%;
+                                    }
+                                }
+
+                                .tile-title {
+                                    display: flex;
+                                    min-height: 34px;
+                                    align-items: flex-start;
+                                    flex-direction: column;
+                                    margin-left: 72px;
+                                    margin-right: 36px;
+                                    font-size: 16px;
+                                    line-height: 24px;
+                                }
+
+                                .product-ritual {
+                                    color: #9a7b69;
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                    text-transform: uppercase;
+                                }
+
+                                .product-title {
+                                    line-height: 18px;
+                                    font-size: 14px;
+
+                                    @include media-breakpoint-up(sm) {
+                                        font-size: 20px;
+                                    }
+                                }
+                            }
+
+                            .checkout-tile + .checkout-tile {
+                                margin-top: 16px;
+                            }
+
+                            .giftwrap-bottom-controls {
+                                margin: 0;
+                                padding: 0 0 40px;
+                                display: flex;
+                                justify-content: space-between;
+
+                                .js-giftwrap-individual-cancel {
+                                    background-color: transparent;
+                                    border: 1px solid #b4b4b4;
+                                    color: #1a1919;
+                                }
+
+                                .btn {
+                                    width: 49%;
+                                    min-width: unset;
+                                    font-size: 14px;
+                                    text-transform: uppercase;
+                                }
+                            }
                         }
-                    }
-
-                    .tile-title {
-                        display: flex;
-                        min-height: 34px;
-                        align-items: flex-start;
-                        flex-direction: column;
-                        margin-left: 72px;
-                        margin-right: 36px;
-                        font-size: 16px;
-                        line-height: 24px;
-                    }
-
-                    .product-ritual {
-                        color: #9a7b69;
-                        font-size: 12px;
-                        line-height: 16px;
-                        text-transform: uppercase;
-                    }
-
-                    .product-title {
-                        line-height: 18px;
-                        font-size: 14px;
-
-                        @include media-breakpoint-up(sm) {
-                            font-size: 20px;
-                        }
-                    }
-                }
-
-                .checkout-tile + .checkout-tile {
-                    margin-top: 16px;
-                }
-
-                .giftwrap-bottom-controls {
-                    margin: 0;
-                    padding: 0 0 40px;
-                    display: flex;
-                    justify-content: space-between;
-
-                    .js-giftwrap-individual-cancel {
-                        background-color: transparent;
-                        border: 1px solid #b4b4b4;
-                        color: #1a1919;
-                    }
-
-                    .btn {
-                        width: 49%;
-                        min-width: unset;
-                        font-size: 14px;
-                        text-transform: uppercase;
                     }
                 }
             }
@@ -478,66 +585,5 @@
 
     &.open {
         right: 0;
-    }
-}
-
-input[type="radio"] + label::before,
-input[type="checkbox"] + label::before {
-    background-color: #fff;
-    border-radius: 50%;
-    border: 1px solid #d8d8d8;
-    color: #fff;
-    content: "";
-    font-size: 8px;
-    height: 24px;
-    left: 0;
-    letter-spacing: -1px;
-    line-height: 26px;
-    position: absolute;
-    text-align: center;
-    top: 0;
-    width: 24px;
-}
-
-.gift-wrap-product-card {
-    .item-detail {
-        padding: 0 0 0 37px;
-        width: 100%;
-
-        @include media-breakpoint-up(sm) {
-            width: 50%;
-        }
-    }
-
-    .item-desc {
-        padding-top: 16px;
-
-        .line-item-header {
-            .line-item-name {
-                font-size: 1.25rem;
-                line-height: 24px;
-                color: #1a1a1a;
-            }
-
-            span {
-                font-size: 12px;
-                line-height: 24px;
-                color: #1a1a1a;
-            }
-        }
-    }
-
-    .remove-product {
-        margin-top: 14px;
-        padding-left: 24px;
-        text-decoration: none;
-        padding-right: 6px;
-        color: #1a1a1a;
-        font-size: 14px;
-    }
-
-    .line-item-price {
-        padding-top: 16px !important;
-        font-weight: 400 !important;
     }
 }
