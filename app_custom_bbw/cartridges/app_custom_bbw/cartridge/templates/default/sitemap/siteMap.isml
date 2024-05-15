@@ -1,19 +1,25 @@
 <isdecorate template="common/layout/page">
     <isinclude template="/components/modules" sf-toolkit="off" />
-    <div class="hero slant-down login-banner">
-        <h1 class="page-title">${Resource.msg('header.site.map', 'common', null)}</h1>
-    </div>
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/fragranceName.js');
+        assets.addCss('/css/pages/sitemap/b-sitemap.css');
+    </isscript>
     <div class="container">
-        <div class="row justify-content-center equal-height">
+    <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+        <div class="row justify-content-center equal-height sitemap-page">
             <div class="col-sm-3">
                 <iscontentasset aid="site-map-customer-care" />
             </div>
             <div class="col-sm-9">
+                    <div class="hero slant-down sitemap-banner">
+                        <h1 class="page-title">${Resource.msg('header.site.map', 'common', null)}</h1>
+                    </div>
                 <isloop items="${pdict.categories}" var="category">
                     <isif condition="${category.siteMapIncluded
                         && (category.hasOnlineProducts() || category.hasOnlineSubCategories())}">
-                        <h1>
-                            <a href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
+                        <h1 class="sitemap-title-head">
+                            <a class="sitemap-cateogry h-font-size--16" href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
                                 ${category.displayName}
                             </a>
                         </h1>
@@ -21,9 +27,9 @@
                             <isloop items="${category.onlineSubCategories}" var="category">
                                 <isif condition="${category.siteMapIncluded
                                             && (category.hasOnlineProducts() || category.hasOnlineSubCategories())}">
-                                    <div class="col-sm-3">
+                                    <div class="col-md-4 col-sm-12">
                                         <h1>
-                                            <a href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
+                                            <a class="text-uppercase h-fw--semibold h-clr--black-3 " href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
                                                 ${category.displayName}
                                             </a>
                                         </h1>
@@ -31,7 +37,7 @@
                                             <isif condition="${category.siteMapIncluded
                                                         && (category.hasOnlineProducts() || category.hasOnlineSubCategories())}">
                                                 <div class="end-level-category">
-                                                    <a href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
+                                                    <a class="sitemap-cateogry h-font-size--16"  href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
                                                         ${category.displayName}
                                                     </a>
                                                 </div>

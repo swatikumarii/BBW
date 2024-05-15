@@ -12,6 +12,7 @@
 function displayMessage(data, button) {
     $.spinner().stop();
     var status;
+    var message = data.msg ? data.msg : $('#newsletter-input').attr('data-csrf-error');
     if (data.success) {
         status = 'alert-success';
     } else {
@@ -25,10 +26,10 @@ function displayMessage(data, button) {
     }
     $('.email-signup-message').append(
         '<div class="email-signup-alert text-justify ' +
-        status +
-        '">' +
-        data.msg +
-        '</div>'
+            status +
+            '">' +
+            message +
+            '</div>'
     );
     var newsLetterInput = $('#newsletterInput');
     if (status === 'alert-danger') {
@@ -136,15 +137,15 @@ $(document).ready(function () {
 
     $(window).scroll(function () {
         if ($(this).scrollTop() > scrollThreshold) {
-            $(".js-scrolltotop").fadeIn();
+            $('.js-scrolltotop').fadeIn();
         } else {
-            $(".js-scrolltotop").fadeOut();
+            $('.js-scrolltotop').fadeOut();
         }
     });
 
     // Function to scroll to top when the button is clicked
-    $(".js-scrolltotop").click(function () {
-        $("html, body").animate({ scrollTop: 0 }, 800);
+    $('.js-scrolltotop').click(function () {
+        $('html, body').animate({ scrollTop: 0 }, 800);
         return false;
     });
 });

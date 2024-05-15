@@ -616,7 +616,7 @@ module.exports = $.extend({}, base, {
                         !validateEmail(recipientEmail)
                     ) {
                         $(this)
-                            .parents('.giftProduct-component-right')
+                            .parents('.gc-container')
                             .find('.gift-card-form input')
                             .each(function () {
                                 if ($(this).val().length === '') {
@@ -685,9 +685,9 @@ module.exports = $.extend({}, base, {
                                 return true;
                             }
                             if (data.isGiftCardLineItemExist) {
-                                $('#delete-gift-certificate-line-item-modal').modal(
-                                    'show'
-                                );
+                                $(
+                                    '#delete-gift-certificate-line-item-modal'
+                                ).modal('show');
                                 $.spinner().stop();
                                 return true;
                             }
@@ -722,7 +722,10 @@ module.exports = $.extend({}, base, {
                             return true;
                         },
                         error: function (err) {
-                            if (currentAction.siblings('.add-to-cart-error').length) {
+                            if (
+                                currentAction.siblings('.add-to-cart-error')
+                                    .length
+                            ) {
                                 currentAction
                                     .siblings('.add-to-cart-error')
                                     .text(err.responseJSON.errorMessage);
@@ -738,5 +741,67 @@ module.exports = $.extend({}, base, {
                 return true;
             }
         );
+    },
+    removeEGiftCard: function () {
+        $('.delete-egiftitem-confirmation-btn').on('click', function () {
+            var productID = $(this).data('pid');
+            var removeGiftPliUrl = $(this).data('action');
+            var addToCartUrl = $(this).data('addtocarturl');
+            var form = {
+                pid: productID,
+                quantity: 1
+            };
+            $.ajax({
+                type: 'GET',
+                url: removeGiftPliUrl,
+                success: function (data) {
+                    $.ajax({
+                        type: 'POST',
+                        url: addToCartUrl,
+                        data: form,
+                        success: function () {
+                            handlePostCartAdd(data);
+                            $('body').trigger('product:afterAddToCart', data);
+                            $.spinner().stop();
+                            base.miniCartReportingUrl(data.reportingURL);
+                        },
+                        error: function () {
+                            $.spinner().stop();
+                        }
+                    });
+                }
+            });
+        });
+    },
+    removeLineItem: function () {
+        $('.delete-lineitem-confirmation-btn').on('click', function () {
+            var productID = $(this).data('pid');
+            var removeGiftPliUrl = $(this).data('action');
+            var addToCartUrl = $(this).data('addtocarturl');
+            var form = {
+                pid: productID,
+                quantity: 1
+            };
+            $.ajax({
+                type: 'GET',
+                url: removeGiftPliUrl,
+                success: function (data) {
+                    $.ajax({
+                        type: 'POST',
+                        url: addToCartUrl,
+                        data: form,
+                        success: function () {
+                            handlePostCartAdd(data);
+                            $('body').trigger('product:afterAddToCart', data);
+                            $.spinner().stop();
+                            base.miniCartReportingUrl(data.reportingURL);
+                        },
+                        error: function () {
+                            $.spinner().stop();
+                        }
+                    });
+                }
+            });
+        });
     }
 });

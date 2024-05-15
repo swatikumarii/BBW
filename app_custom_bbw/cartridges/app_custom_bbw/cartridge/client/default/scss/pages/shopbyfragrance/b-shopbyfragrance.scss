@@ -100,6 +100,7 @@ body {
             .fragrance-header-search {
                 display: block;
                 padding: 0;
+                margin: 0;
 
                 @include media-up(sm) {
                     display: flex;
@@ -108,7 +109,14 @@ body {
 
                 @include media-btw(sm, lg) {
                     display: flex;
-                    justify-content: end;
+                    justify-content: flex-end;
+                    margin-left: 16px;
+                }
+
+                .seatch-text {
+                    @include media-btw(sm, lg) {
+                        width: 260px;
+                    }
                 }
 
                 .search-input-box {
@@ -156,6 +164,14 @@ body {
                     gap: 40px;
                     margin: 0 auto;
                     max-width: 974px;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        bottom: 0;
+                        border: 1px solid colour(white);
+                    }
                 }
 
                 @include media-btw(sm, lg) {
@@ -178,9 +194,9 @@ body {
                         margin-right: -40px;
                     }
 
-                    &.last-border {
-                        border: none;
-                    }
+                    // &.last-border {
+                    //     border: none;
+                    // }
 
                     .static-level {
                         .title {

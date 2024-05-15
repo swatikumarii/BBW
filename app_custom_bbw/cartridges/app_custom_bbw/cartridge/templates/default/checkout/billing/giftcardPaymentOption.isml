@@ -3,7 +3,7 @@
     assets.addJs('/js/giftcards.js');
 </isscript>
 <iscomment> Applicable Gift certificate Payment</iscomment>
-<div class="giftcard-payment-content" id="giftcard-payment-content">
+<div class="giftcard-payment-content accordion border-top border-bottom" id="giftcard-payment-content">
     <fieldset class="payment-form-fields">
         <input type="hidden" class="redeem-giftcard-url" name="redeem-giftcard-url" value="${pdict.validateGiftCard}" />
         <input type="hidden" class="check-balance-url" name="check-balance-url" value="${pdict.checkGiftCardBalance}" />
@@ -20,58 +20,57 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12">
-                        <h2 class="gift-cardtitle">${Resource.msg('label.add.egift.title', 'giftcards', null)}</h2>
-                    </div>
-                    <div class="col-sm-6 form-group">
-                        <label class="form-control-label">
-                            ${Resource.msg('label.input.egift.number', 'forms', null)}
-                        </label>
-                        <input type="text" id="egift-number" maxlength="16" name="egift-number"
-                            class="form-control giftCardNumber"
-                            data-missing-error="${Resource.msg('payment.giftcard.number.missing', 'forms', null)}"
-                            <isprint value="${pdict.giftCardForm.cardNumber.attributes}" encoding="off" /> />
-                        <div class="invalid-feedback" id="form-giftcard-number-error"></div>
-                    </div>
+                    <h2 class="gift-cardtitle h-font-size--18 h-fw--bold h-clr--black-1 customer-heading accordion-title d-block col-12 m-0 h-px--25">${Resource.msg('label.add.egift.title', 'giftcards', null)}</h2>
+                    <div class="accordion-content h-px--10 h-mb--30 col-12">
+                        <div class="col-sm-6 form-group">
+                            <label class="form-control-label">
+                                ${Resource.msg('label.input.egift.number', 'forms', null)}
+                            </label>
+                            <input type="text" id="egift-number" maxlength="16" name="egift-number" class="form-control giftCardNumber"
+                                data-missing-error="${Resource.msg('payment.giftcard.number.missing', 'forms', null)}" <isprint
+                                value="${pdict.giftCardForm.cardNumber.attributes}" encoding="off" /> />
+                            <div class="invalid-feedback" id="form-giftcard-number-error"></div>
+                        </div>
 
-                    <div class="col-sm-6 form-group">
-                        <label class="form-control-label">
-                            ${Resource.msg('label.input.egift.cardpin', 'forms', null)}
-                        </label>
-                        <input type="text" id="egift-pin" maxlength="6" name="egift-pin"
-                            class="form-control giftCardPin"
-                            data-missing-error="${Resource.msg('payment.giftcard.pin.missing', 'forms', null)}" <isprint
-                            value="${pdict.giftCardForm.cardPin.attributes}" encoding="off" /> />
-                        <div class="invalid-feedback" id="form-giftcard-cardPin-error"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 gift-redeem-card-status">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 gift-redeem-card-error">
-                    </div>
-                </div>
+                        <div class="col-sm-6 form-group">
+                            <label class="form-control-label">
+                                ${Resource.msg('label.input.egift.cardpin', 'forms', null)}
+                            </label>
+                            <input type="text" id="egift-pin" maxlength="6" name="egift-pin" class="form-control giftCardPin"
+                                data-missing-error="${Resource.msg('payment.giftcard.pin.missing', 'forms', null)}" <isprint
+                                value="${pdict.giftCardForm.cardPin.attributes}" encoding="off" /> />
+                            <div class="invalid-feedback" id="form-giftcard-cardPin-error"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 gift-redeem-card-status">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 gift-redeem-card-error">
+                            </div>
+                        </div>
 
-                <div class="row">
-                    <div class="col-sm-12 gift-card-balance-error">
+                        <div class="row">
+                            <div class="col-sm-12 gift-card-balance-error">
+                            </div>
+                        </div>
+                        <div class="gift-account-balance-info">
+                            <div class="giftcard-balance-wrap">
+                            </div>
+                            <div class="col-sm-6 giftcard-balance-status-wrap">
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="gift-apply-btn mr-2">
+                                <button name="giftcard-redeem" id="giftcard-redeem" class="giftcard-redeem btn btn-primary"
+                                    type="button">${Resource.msg('label.egift.redeem', 'giftcards', null)}
+                                </button>
+                            </div>
+                            <button class="giftcard-check-balance btn btn-primary" id="egift-card-check-balance" type="button">
+                                ${Resource.msg('label.egift.check-balance', 'eGiftCard', null)}
+                            </button>
+                        </div>
                     </div>
-                </div><div class="gift-account-balance-info">
-                    <div class="giftcard-balance-wrap">
-                    </div>
-                    <div class="col-sm-6 giftcard-balance-status-wrap">
-                    </div>
-                </div>
-                <div class="d-flex">
-                    <div class="gift-apply-btn mr-2">
-                        <button name="giftcard-redeem" id="giftcard-redeem" class="giftcard-redeem btn btn-primary"
-                            type="button">${Resource.msg('label.egift.redeem', 'giftcards', null)}
-                        </button>
-                    </div>
-                    <button class="giftcard-check-balance btn btn-primary" id="egift-card-check-balance" type="button">
-                        ${Resource.msg('label.egift.check-balance', 'eGiftCard', null)}
-                    </button>
                 </div>
             </div>
         </div>

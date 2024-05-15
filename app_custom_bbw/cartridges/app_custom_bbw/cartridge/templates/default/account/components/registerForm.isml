@@ -19,7 +19,7 @@
                 ${Resource.msg('label.select.miss.salutation.profile', 'forms', null)}
             </option>
         </select>
-        <div class="invalid-feedback text-justify" id="salutation-error">${Resource.msg('error.salutation.message', 'forms', null)}</div>
+        <div class="invalid-feedback text-left" id="salutation-error">${Resource.msg('error.salutation.message', 'forms', null)}</div>
     </div>
     <div class="form-group register-form text-center <isif condition=" ${!!pdict.profileForm.customer.firstname.mandatory === true}">required</isif>">
         <label class="form-control-label h-font-size--14 text-justify" for="registration-form-fname">
@@ -32,7 +32,7 @@
             data-pattern-mismatch="${Resource.msg('error.message.parse.fname', 'forms', null)}"
             aria-describedby="form-fname-error" <isprint value=${pdict.profileForm.customer.firstname.attributes} encoding="off" /> 
         />
-        <div class="invalid-feedback text-justify" id="fname-error">${Resource.msg('error.message.fname.required', 'forms', null)}</div>
+        <div class="invalid-feedback text-left" id="fname-error">${Resource.msg('error.message.fname.required', 'forms', null)}</div>
     </div>
 
     <div class="form-group register-form text-center <isif condition=" ${!!pdict.profileForm.customer.lastname.mandatory === true}">required</isif>">
@@ -46,7 +46,7 @@
             data-pattern-mismatch="${Resource.msg('error.message.parse.lname', 'forms', null)}"
             aria-describedby="form-lname-error" required <isprint value=${pdict.profileForm.customer.lastname.attributes}
             encoding="off" />/>
-        <div class="invalid-feedback text-justify" id="lname-error">${Resource.msg('error.message.lname.required', 'forms', null)}</div>
+        <div class="invalid-feedback text-left" id="lname-error">${Resource.msg('error.message.lname.required', 'forms', null)}</div>
     </div>
 
     <div class="form-group register-form text-center phone-drpdwn <isif condition=" ${!!pdict.profileForm.customer.phone.mandatory === true}">required</isif>">
@@ -61,7 +61,7 @@
             data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
             aria-describedby="form-phone-error"  <isprint value=${pdict.profileForm.customer.phone.attributes}
             encoding="off" /> />
-        <div class="invalid-feedback text-justify" id="phone-error">${Resource.msg('error.message.required', 'forms', null)}</div>
+        <div class="invalid-feedback text-left" id="phone-error">${Resource.msg('error.message.required', 'forms', null)}</div>
     </div>
 
     <div class="form-group register-form text-center <isif condition=" ${!!pdict.profileForm.customer.email.mandatory === true}">required</isif>">
@@ -75,7 +75,7 @@
             data-range-error="${Resource.msg('error.message.email.50orless', 'forms', null)}"
             aria-describedby="form-email-error"  required <isprint value=${pdict.profileForm.customer.email.attributes}
             encoding="off" />>
-        <div class="invalid-feedback text-justify" id="email-error">${Resource.msg('error.message.email.required', 'forms', null)}</div>
+        <div class="invalid-feedback text-left" id="email-error">${Resource.msg('error.message.email.required', 'forms', null)}</div>
     </div>
 
     <div class="form-group register-form text-center <isif condition=" ${!!pdict.profileForm.customer.emailconfirm.mandatory === true}">required</isif>">
@@ -89,7 +89,7 @@
             data-range-error="${Resource.msg('error.message.email.50orless', 'forms', null)}"
             aria-describedby="form-email-confirm-error" required <isprint
             value=${pdict.profileForm.customer.emailconfirm.attributes} encoding="off" />/>
-        <div class="invalid-feedback text-justify" id="confirm-email-error">${Resource.msg('error.message.email.required', 'forms', null)}</div>
+        <div class="invalid-feedback text-left" id="confirm-email-error">${Resource.msg('error.message.email.required', 'forms', null)}</div>
     </div>
 
     <div class="form-group password-box position-relative register-form text-center <isif condition=" ${!!pdict.profileForm.login.password.mandatory === true}">required</isif>">
@@ -97,17 +97,57 @@
         <span class="required-indicator">*</span>
             <isprint value="${pdict.profileForm.login.password.label}" encoding="htmlcontent" />
         </label>
-        <input type="password" class="form-control select-dropdown-value h-clr--black-1" id="registration-form-password"
+        <input type="password" id="newPassword" class="form-control select-dropdown-value h-clr--black-1" id="registration-form-password"
             data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.password.8_50characters', 'forms', null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.parse.password', 'forms', null)}"
             aria-describedby="form-password-error" autocomplete="off" required <isprint
             value=${pdict.profileForm.login.password.attributes} encoding="off" />/>
-        <div class="invalid-feedback text-justify" id="password-error">${Resource.msg('error.message.password.required', 'forms', null)}</div>
         <button type="button" id="toggle-password"
             class="register-form-hide register-hide border-0 d-flex justify-content-center align-items-center text-captialize h-50 position-absolute p-0 h-clr--black-3"
             aria-label="Show Password">
              <span class="show h-font-size--16">${Resource.msg('password.show.label', 'login', null)}</span>
         </button>
+    </div>
+    <div class="required-pass d-none" id="password-requirements" aria-live="polite" aria-hidden="true">
+        <ul class="pw-requirements">
+            <li class="pw-requirement" id="rule8to50char">
+                <span class="rule8to50char pw-error" aria-hidden="true">
+                    <span class="circle" aria-hidden="true"></span>
+                    ${Resource.msg('error.message.password.8_50characters', 'forms', null)}
+                </span>
+            </li>
+            <li class="pw-requirement" id="rule1number">
+                <span class="rule1number pw-error" aria-hidden="true">
+                    <span class="circle" aria-hidden="true"></span>
+                    ${Resource.msg('error.message.password.leastOneNumber', 'forms', null)}
+                </span>
+            </li>
+            <li class="pw-requirement" id="rule1uppercase">
+                <span class="rule1uppercase pw-error" aria-hidden="true">
+                    <span class="circle" aria-hidden="true"></span>
+                    ${Resource.msg('error.message.password.leastOneUpper', 'forms', null)}
+                </span>
+            </li>
+            <li class="pw-requirement" id="rule1lowercase">
+                <span class="rule1lowercase pw-error" aria-hidden="true">
+                    <span class="circle" aria-hidden="true"></span>
+                    ${Resource.msg('error.message.password.leastOneLowerUpper', 'forms', null)}
+                </span>
+            </li>
+            <li class="pw-requirement" id="ruleSpecialChar">
+                <span class="ruleSpecialChar pw-error" aria-hidden="true">
+                    <span class="circle" aria-hidden="true"></span>
+                    ${Resource.msg('error.message.password.noSpecialChar', 'forms', null)}
+                </span>
+            </li>
+            <li class="pw-requirement" id="ruleNoSpaces">
+                <span class="ruleNoSpaces pw-error" aria-hidden="true">
+                    <span class="circle" aria-hidden="true"></span>
+                    ${Resource.msg('error.message.password.noSpace', 'forms', null)}
+                </span>
+            </li>
+        </ul>
     </div>
 
     <div class="form-group  password-box position-relative register-form text-center <isif condition=" ${!!pdict.profileForm.login.passwordconfirm.mandatory === true}">required</isif>">
@@ -120,7 +160,7 @@
             data-range-error="${Resource.msg('error.message.password.8_50characters', 'forms', null)}"
             aria-describedby="form-password-confirm-error" autocomplete="off" required <isprint
             value=${pdict.profileForm.login.passwordconfirm.attributes} encoding="off" />/>
-        <div class="invalid-feedback text-justify" id="confirm-password-error">${Resource.msg('error.message.password.required', 'forms', null)}</div>
+        <div class="invalid-feedback text-left" id="confirm-password-error">${Resource.msg('error.message.password.required', 'forms', null)}</div>
         <button type="button" id="toggle-password"
             class="register-form-confirm-password register-hide border-0 d-flex justify-content-center align-items-center text-captialize h-50 position-absolute p-0 h-clr--black-3"
             aria-label="Show Password">
@@ -146,7 +186,7 @@
                 ${Resource.msg('label.select.notToSay.gender.profile', 'forms', null)}
             </option>
         </select>
-        <div class="invalid-feedback text-justify" id="gender-error">${Resource.msg('error.gender.message', 'forms', null)}</div>
+        <div class="invalid-feedback text-left" id="gender-error">${Resource.msg('error.gender.message', 'forms', null)}</div>
     </div>
     <div class="form-group register-form text-center">
         <label class="form-control-label h-font-size--14 text-justify" for="registration-form-zip">
@@ -157,7 +197,7 @@
             data-pattern-mismatch="${Resource.msg('error.message.parse.zip', 'forms', null)}"
             aria-describedby="form-zip-error"  <isprint value=${pdict.profileForm.customer.zip.attributes}
             encoding="off" /> />
-        <div class="invalid-feedback text-justify" id="registration-form-zip-error"></div>
+        <div class="invalid-feedback text-left" id="registration-form-zip-error"></div>
     </div>
     <div class="form-group register-form text-center  <isif condition=" ${!!pdict.profileForm.customer.nationality.mandatory === true}">required</isif>">
         <label class="form-control-label h-font-size--14 text-justify" for="registration-form-nationality">
@@ -175,7 +215,7 @@
                     </isif>>${nationality}</option>
             </isloop>
         </select>
-        <div class="invalid-feedback text-justify" id="nationality-error">${Resource.msg('error.message.nationality', 'forms', null)}</div>
+        <div class="invalid-feedback text-left" id="nationality-error">${Resource.msg('error.message.nationality', 'forms', null)}</div>
     </div>
     <iscontentasset aid="register-form" />
 
@@ -199,7 +239,7 @@
                 data-missing-error="${Resource.msg('error.message.dob.required', 'forms', null)}"
                 data-pattern-mismatch="${Resource.msg('error.message.parse.dob', 'forms', null)}" required <isprint
                 value=${pdict.profileForm.customer.dob.attributes} encoding="off" />>
-            <div class="invalid-feedback text-justify" id="dob-error=">${Resource.msg('error.message.dob.required', 'forms', null)}</div>
+            <div class="invalid-feedback text-left" id="dob-error=">${Resource.msg('error.message.dob.required', 'forms', null)}</div>
         </div>
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />

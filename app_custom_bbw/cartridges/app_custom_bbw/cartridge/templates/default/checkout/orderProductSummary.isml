@@ -1,6 +1,5 @@
 <isset name="miniCart" value="${false}" scope="page" />
 <div class="order-product-summary">
-    <h2 class="h-font-size--18 h-fw--bold h-clr--black-1 card-header-custom text-center">${Resource.msg('heading.your.order', 'checkout', null)}</h2>
     <div class="product-summary-block">
         <isloop items="${pdict.order.shipping}" var="shippingModel">
             <isif condition="${pdict.order.shipping.length > 1}">

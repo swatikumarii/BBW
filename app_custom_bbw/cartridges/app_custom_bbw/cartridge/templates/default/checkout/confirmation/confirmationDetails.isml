@@ -11,7 +11,7 @@
         </p>
         <p  class="mb-0">
             <span class="summary-section-label  order-date-label">${Resource.msg('label.total', 'confirmation', null)}</span>
-            <span class="summary-details order-date h-clr--black h-fw--semibold">${Resource.msg('bill.total', 'confirmation', null)}
+            <span class="summary-details order-date h-clr--black h-fw--semibold">${pdict.order.totals.grandTotal}
             </span>
         </p>
         <isif condition="${pdict.order.orderEmail}">
@@ -20,7 +20,8 @@
             <span class="summary-details order-number h-clr--black h-fw--semibold">${pdict.order.orderEmail}</span>
             </p>
         </isif>
-        <a href="#" class="h-fw--semibold print-text h-clr--gray ">${Resource.msg('label.print', 'confirmation', null)}</a>
+        <button id="invoiceDownload" class="h-fw--semibold print-text h-clr--gray bg-white border-0"
+            data-action="${pdict.order.invoiceDownloadUrl}">${Resource.msg('label.print', 'confirmation', null)}</button>
     </div>
 </div>
 <div class="purhase-message">

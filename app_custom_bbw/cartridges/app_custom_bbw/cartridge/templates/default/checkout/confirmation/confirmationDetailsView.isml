@@ -1,5 +1,5 @@
 <iscomment> Load Static Assets </iscomment>
-    <isscript>
+<isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/checkout.js');
         assets.addJs('/js/afterpayCheckout.js');
@@ -7,38 +7,40 @@
         assets.addCss('/css/checkout/checkout.css');
     </isscript>
 
-    <div id="checkout-main"
-        class="container data-checkout-stage">
+<div id="checkout-main"
+  class="container data-checkout-stage">
 
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-xl-8">
-                <div class="confirmation-shipping-summary border d-block">
-                    <isinclude template="checkout/confirmation/confirmationShippingSummary" />
-                </div>
-                <div class="confirmation-billing-summary border d-block">
-                    <isinclude template="checkout/confirmation/confirmationBillingSummary" />
-                </div>
-                <div class="confirmation-product-summary d-block">
-                    <div class="confirmationItemsHeader d-flex justify-content-between">
-                        <div class="headerItem col-6 h-font-size--18 h-fw--semibold text-uppercase">${Resource.msg('label.header.item', 'confirmation', null)}</div>
-                        <div class="headerQty col-3 text-right h-font-size--18 h-fw--semibold text-uppercase">${Resource.msg('label.header.quantity', 'confirmation', null)}</div>
-                        <div class="headerPrice col-3 text-center h-font-size--18 h-fw--semibold text-uppercase">${Resource.msg('label.header.price', 'confirmation', null)}</div>
-                    </div>
-                            <isinclude template="checkout/confirmation/confirmationProductCard" />
-                </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-xl-8">
+            <div class="confirmation-shipping-summary border d-block">
+                <isinclude template="checkout/shipping/shippingSummary" />
             </div>
+            <div class="confirmation-billing-summary border ">
+                <isinclude template="checkout/billing/billingSummary" />
+            </div>
+        </div>
 
-
-            <iscomment> Order Totals, Details and Summary </iscomment>
-
-            <div class="col-sm-12 col-md-12 col-xl-4">
-                <div class="card confirmation-order-summary">
-                    <div class="confirmation-total-summary-wrap">
-                        <isinclude template="checkout/confirmation/confirmationOrderTotalSummary" />
-                    </div>
+        <div class="col-sm-12 col-md-4 col-xl-4">
+            <div class="card confirmation-order-summary">
+                <div class="confirmation-total-summary-wrap">
+                    <h2
+                        class="h-font-size--20 h-clr--black-1 h-mb--10 h-py--20 h-fw--bold border-bottom text-center review-order-summary d-block">
+                        ${Resource.msg('label.order.payment.summary', 'order', null)}</h2>
+                    <isinclude template="checkout/orderTotalSummary" />
                 </div>
             </div>
         </div>
+        <div class="col-sm-12 col-md-12 col-xl-8">
+            <div class="shipment-title d-flex align-items-center">
+                <img src="${URLUtils.staticURL('/images/icons/bopis-shipping.svg')}"
+                    alt="${Resource.msg('images.name', 'confirmation', null)}" width="42px" height="22px" />
+                <h3 class="shipping-type value h-font-size--16 h-fw--semibold text-uppercase">${Resource.msg('label.shipping', 'order', null)}
+                </h3>
+                <span class="shipping-type via" role="heading" aria-level="3">${Resource.msg('label.order.shipping.standard', 'confirmation', null)}</span>
+            </div>
+            <div class="confirmation-product-summary d-block">
+                <isinclude template="checkout/review/productSummary" />
+            </div>
+        </div>
     </div>
-
-
+</div>

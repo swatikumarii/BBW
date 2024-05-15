@@ -7,15 +7,26 @@
     <div class="card-offers__tile d-flex flex-row text-center h-100">
         <a class="card-offers__link w-100"
             href="${pdict.linkUmpParameter ? pdict.link + pdict.linkUmpParameter : pdict.link}">
-            <div class="card-offers__wrapper w-100 h-100 ${pdict.imagePositionClass == 'left' ||  pdict.imagePositionClass == 'right' ? 'h-dsp--grid' : 'd-flex justify-content-center'} ${pdict.imagePositionClass} ${pdict.customClass}">
+            <div class="card-offers__wrapper w-100 h-100 ${pdict.imagePositionClass === 'left' || pdict.imagePositionClass === 'right' ? 'h-dsp--grid' : 'd-flex justify-content-center'} ${pdict.imagePositionClass} ${pdict.customClass}">
                 <div class="card-offers__image-wrapper h-dsp--inline-block h-pos--relative">
-                    <picture class="w-100 d-block content-image-block">
-                        <source srcset="${pdict.useImgURL ? pdict.desktopImgUrl : pdict.desktopImage.src.desktop}"
-                            media="(min-width: 769px)" />
-                        <img class="w-100 d-block lazy-grid card-offers__image h-dsp--inline-block h-pos--relative"
-                            src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}"
-                            alt="${pdict.alt}" />
-                    </picture>
+                    <isif condition="${pdict.disableLazyLoad}">
+                        <picture class="w-100 d-block content-image-block">
+                            <source srcset="${pdict.useImgURL ? pdict.desktopImgUrl : pdict.desktopImage.src.desktop}"
+                                media="(min-width: 769px)" />
+                            <img class="w-100 d-block card-offers__image h-dsp--inline-block h-pos--relative"
+                                src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}"
+                                alt="${pdict.alt}" width="96px" height="96px" />
+                        </picture>
+                    <iselse/>
+                        <picture class="w-100 d-block content-image-block">
+                            <source
+                                data-srcset="${pdict.useImgURL ? pdict.desktopImgUrl : pdict.desktopImage.src.desktop}"
+                                media="(min-width: 769px)" />
+                            <img class="w-100 d-block lazy card-offers__image h-dsp--inline-block h-pos--relative"
+                                data-src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}"
+                                alt="${pdict.alt}" width="96px" height="96px" />
+                        </picture>
+                    </isif>
                 </div>
                 <div class="card-offers__tile-copy">
                     <isif condition="${pdict.offersUrgency}">

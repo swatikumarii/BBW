@@ -1,61 +1,106 @@
-.data-checkout-stage {
-    // Payment -------------------------------
-    &[data-checkout-stage="payment"] {
-        button.submit-customer {
-            display: none;
-        }
-
-        .customer-section,
-        .shipping-section,
-        .card.ghost {
-            display: none;
-        }
-
-        .payment-form,
-        .shipping-summary {
-            display: block;
-        }
-
-        button.submit-payment {
-            display: block;
-        }
-
-        .address-selector-block {
-            .btn-show-details,
-            .btn-add-new {
-                border: none;
-            }
-        }
-
-        [data-address-mode="customer"] {
-            .billing-address {
+// Payment -------------------------------
+#checkout-main {
+    &.data-checkout-stage {
+        &[data-checkout-stage="payment"] {
+            button.submit-customer {
                 display: none;
             }
-        }
 
-        [data-address-mode="shipment"] {
-            .billing-address {
+            .customer-section,
+            .shipping-section,
+            .review-shipping-summary-content,
+            .review-order-summary,
+            .card.ghost {
                 display: none;
             }
-        }
 
-        [data-address-mode="edit"] {
-            .billing-address {
-                display: none;
+            .customer {
+                &.registered {
+                    display: none;
+                }
             }
-        }
 
-        [data-address-mode="new"] {
-            .btn-show-details,
-            .btn-add-new {
-                display: none;
+            .payment-form,
+            .shipping-summary {
+                display: block;
             }
-        }
 
-        [data-address-mode="details"] {
-            .btn-show-details,
-            .btn-add-new {
-                display: none;
+            button.submit-payment {
+                display: block;
+            }
+
+            .address-selector-block {
+                .btn-show-details,
+                .btn-add-new {
+                    border: none;
+                }
+            }
+
+            [data-address-mode="customer"] {
+                .billing-address {
+                    display: none;
+                }
+            }
+
+            [data-address-mode="shipment"] {
+                .billing-address {
+                    display: none;
+                }
+            }
+
+            [data-address-mode="edit"] {
+                .billing-address {
+                    display: none;
+                }
+            }
+
+            [data-address-mode="new"] {
+                .btn-show-details,
+                .btn-add-new {
+                    display: none;
+                }
+            }
+
+            [data-address-mode="details"] {
+                .btn-show-details,
+                .btn-add-new {
+                    display: none;
+                }
+            }
+
+            .shipping-step {
+                &::after {
+                    background: $clr-blue;
+                }
+
+                .step-text {
+                    color: $clr-blue;
+                }
+
+                .step-count {
+                    border-color: $clr-blue;
+                    background-color: $clr-blue;
+                    color: $clr-white;
+                }
+            }
+
+            .payment-step {
+                .step-text {
+                    color: $clr-blue;
+                    font-weight: 600;
+                }
+
+                .step-count {
+                    color: $clr-blue;
+                    border-color: $clr-blue;
+                    background-color: $clr-white;
+                }
+            }
+
+            .place-order-step {
+                a {
+                    pointer-events: none;
+                }
             }
         }
     }

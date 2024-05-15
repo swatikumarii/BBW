@@ -607,12 +607,16 @@
 
         .resetpassword-btn {
             transition: all 0.3s ease;
-            max-height: 48px;
-            min-height: 48px;
+            max-height: 37px;
+            min-height: 37px;
             letter-spacing: 0.12em;
         }
 
         .reset-password-form {
+            margin: 0 auto;
+        }
+
+        .form-reset-password {
             margin: 0 auto;
         }
 
@@ -633,7 +637,7 @@
 .login-modal-body {
     overflow-y: auto;
     max-height: calc(114vh - 84px);
-    padding: 4px 16px 16px 16px;
+    padding: 4px 16px 16px;
 }
 
 .login-modal-fade {
@@ -684,7 +688,7 @@
 
 // -----hide show---
 .password-box {
-    .login-modal-hide {
+    .login-modal-password-hide {
         top: 29px;
         min-height: 46px;
         max-height: 15px;
@@ -791,4 +795,59 @@
             width: 115px;
         }
     }
+}
+
+.pw-requirements {
+    list-style: none;
+    margin: 0 auto;
+    width: 270px;
+
+    .pw-requirement {
+        font-size: 12px;
+        font-size: 0.75rem;
+        background: none;
+        padding: 0 0 1.125rem;
+        position: relative;
+        top: 0.3125rem;
+        line-height: unset;
+
+        span {
+            display: inline-block;
+            padding: 0;
+            margin-bottom: -3px;
+            color: colour(gray);
+            font-size: 0.75rem;
+
+            &.circle {
+                border: 1px solid colour(gray);
+                width: 14px;
+                height: 14px;
+                border-radius: 50%;
+                display: inline-block;
+                left: 0;
+                margin: 3px;
+                position: absolute;
+                top: -1px;
+            }
+        }
+
+        &.success span {
+            color: colour(green, 4);
+
+            .circle {
+                width: 22px;
+                height: 22px;
+                border: none;
+                background: url("../../images/account/Alert-Check.svg");
+                background-repeat: no-repeat;
+                background-position: 50%;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.pw-requirements .pw-requirement > span {
+    line-height: 1.375rem;
+    padding-left: 30px;
 }

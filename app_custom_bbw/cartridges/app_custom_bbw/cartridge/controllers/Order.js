@@ -272,40 +272,66 @@ server.get(
     consentTracking.consent,
     server.middleware.https,
     function (req, res, next) {
+        var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
         var OrderMgr = require('dw/order/OrderMgr');
-        var Locale = require('dw/util/Locale');
-        var OrderModel = require('*/cartridge/models/order');
         var orderId = encryptionHelper.decryptPin(
             decodeURIComponent(req.querystring.token)
         );
         if (orderId) {
             var order = OrderMgr.getOrder(orderId);
+            var breadcrumbs = [
+                {
+                    htmlValue: Resource.msg('global.home', 'common', null),
+                    url: URLUtils.home().toString()
+                },
+                {
+                    htmlValue: Resource.msg(
+                        'page.title.myaccount',
+                        'account',
+                        null
+                    ),
+                    url: URLUtils.url('Account-Show').toString()
+                },
+                {
+                    htmlValue: Resource.msg('label.orderhistory', 'account', null),
+                    url: URLUtils.url('Order-History').toString()
+                }
+            ];
+
             if (order) {
-                var currentLocale = Locale.getLocale(req.locale.id);
-
-                var config = {
-                    numberOfLineItems: 'single'
-                };
-
-                var orderModel = new OrderModel(order, {
-                    config: config,
-                    countryCode: currentLocale.country
-                });
-                res.render('account/orderDetail', {
+                var orderModel = orderHelpers.getOrderDetailsByID(
+                    orderId,
+                    req.locale.id
+                );
+                var exitLinkText = Resource.msg(
+                    'link.orderdetails.orderhistory',
+                    'account',
+                    null
+                );
+                var exitLinkUrl = URLUtils.https(
+                    'Order-History',
+                    'orderFilter',
+                    req.querystring.orderFilter
+                );
+                res.render('account/orderDetails', {
                     order: orderModel,
-                    accountlanding: false
+                    exitLinkText: exitLinkText,
+                    exitLinkUrl: exitLinkUrl,
+                    breadcrumbs: breadcrumbs
                 });
-                return next();
+            } else {
+                res.redirect(URLUtils.url('Account-Show'));
             }
+        } else {
+            res.redirect(URLUtils.url('Account-Show'));
         }
-        res.redirect(URLUtils.url('Home-Show'));
         return next();
     }
 );
 
 /**
- * Order-Tracking : This endpoint is used to track a placed Order
- * @name Order-Tracking
+ * Order-Check : This endpoint is used to track a placed Order
+ * @name Order-Check
  */
 server.post(
     'Check',
@@ -324,14 +350,8 @@ server.post(
                 order.customerEmail.toLowerCase() === req.form.orderEmail.toLowerCase().trim() &&
                 order.billingAddress.postalCode === req.form.billingZipCode.trim()
             ) {
-                var redirectURL;
-                if (req.currentCustomer.profile && req.currentCustomer.profile.customerNo) {
-                    redirectURL = URLUtils.url('Order-Details', 'orderID', req.form.orderNumber, 'orderFilter', '').toString();
-                } else {
-                    redirectURL = URLUtils.url('Order-Tracking', 'token', encryptionHelper.encryptPin(req.form.orderNumber)).toString();
-                }
                 res.json({
-                    redirectUrl: redirectURL
+                    redirectUrl: URLUtils.url('Order-Tracking', 'token', encryptionHelper.encryptPin(req.form.orderNumber)).toString()
                 });
             } else {
                 res.setStatusCode(400);
