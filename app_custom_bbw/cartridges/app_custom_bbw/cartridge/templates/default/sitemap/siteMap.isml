@@ -16,7 +16,7 @@
                         <h1 class="page-title">${Resource.msg('header.site.map', 'common', null)}</h1>
                     </div>
                 <isloop items="${pdict.categories}" var="category">
-                    <isif condition="${category.siteMapIncluded
+                    <isif condition="${category.siteMapIncluded === 1
                         && (category.hasOnlineProducts() || category.hasOnlineSubCategories())}">
                         <h1 class="sitemap-title-head">
                             <a class="sitemap-cateogry h-font-size--16" href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
