@@ -1,7 +1,6 @@
 'use strict';
 
 var server = require('server');
-var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
 
 server.extend(module.superModule);
 
@@ -10,6 +9,7 @@ server.extend(module.superModule);
  * It also append data to response to support toggle behaviour
  */
 server.prepend('AddProduct', function (req, res, next) {
+    var pid = req.form.pid;
     var viewData = res.getViewData();
     var checkUser = req.currentCustomer.raw.registered;
     if (checkUser === false) {
@@ -17,6 +17,7 @@ server.prepend('AddProduct', function (req, res, next) {
             redirect: true,
             isWishlistGuest: true,
             loginShow: true,
+            pid: pid
         });
         this.emit('route:Complete', req, res);
         return;
@@ -33,11 +34,6 @@ server.prepend('AddProduct', function (req, res, next) {
 server.append('Show', function (req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
     var Resource = require('dw/web/Resource');
-
-    var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
-        type: 10
-    });
-    var expressShip = list.productItems;
     var viewData = res.getViewData();
 
     var breadcrumbs = [
@@ -57,7 +53,6 @@ server.append('Show', function (req, res, next) {
     viewData.breadcrumbs = breadcrumbs;
 
     res.setViewData(viewData);
-    res.setViewData({expressShip: expressShip});
     next();
 });
 

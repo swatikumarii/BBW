@@ -2,7 +2,7 @@
 <isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}" scope="page" />
 <isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page" />
 
-<div class="card product-info ${bonusproductlineitem} uuid-${lineItem.UUID}">
+<div class="card product-info ${bonusproductlineitem} uuid-${lineItem.UUID} ${!lineItem.promoPrice && lineItem.price.sales.value === 0 ? 'zero-price-item' :''}">
     <!--- name and remove buttons --->
 
     <div class="line-item">
@@ -14,8 +14,8 @@
         </div>
         <div class="item-attributes d-flex flex-column">
             <isinclude template="cart/productCard/cartProductCardHeader" />
-            <isloop items="${lineItem.variationAttributes}" var="attribute">
-                <p class="line-item-attributes ${attribute.displayName}-${lineItem.UUID}">${attribute.displayName}:
+            <isloop items="${lineItem.variationAttributes}" var="attribute" status="loopstate">
+                <p class="line-item-attributes  ${lineItem.variationAttributes.length > 0 && loopstate.index !== lineItem.variationAttributes.length - 1 ? 'mb-0' : ''} ${attribute.displayName}-${lineItem.UUID}">${attribute.displayName}:
                     ${attribute.displayValue}</p>
             </isloop>
             <isloop items="${lineItem.options}" var="option">
@@ -26,6 +26,19 @@
                     </div>
                 </isif>
             </isloop>
+
+            <iscomment> Giftcard Details </iscomment>
+
+                <isif condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
+                    <div class="giftcard-details">
+                        <span class="d-block giftcard-receipient-name">${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails
+                                                                       .recipientName : ''}</span>
+                        <span class="d-block giftcard-receipient-email">${lineItem.giftCardDetails.recipientEmail && lineItem.giftCardDetails.recipientEmail !== null ? lineItem.giftCardDetails
+                                                                        .recipientEmail : ''}</span>
+                        <span class="d-block giftcard-message">${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails
+                                                               .eGiftMessage : ''}</span>
+                    </div>
+                </isif>
             <!--- promotions --->
             <div class="line-item-promo item-${lineItem.UUID}">
                 <isset name="cartPage" value="${true}" scope="page" />

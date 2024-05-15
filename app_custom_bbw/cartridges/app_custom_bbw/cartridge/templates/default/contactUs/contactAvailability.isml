@@ -1,0 +1,1 @@
+<span class="${pdict.availability[0]}">${pdict.availability[1]}</span>

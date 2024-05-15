@@ -1,0 +1,2 @@
+<isset name="orderNo" value="${pdict.orderNo}" scope="page" />
+<p>${Resource.msgf('zero.order.email.body', 'order', null, orderNo)}</p>

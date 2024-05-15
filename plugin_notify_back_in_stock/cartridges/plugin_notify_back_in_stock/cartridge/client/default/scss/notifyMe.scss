@@ -1,4 +1,10 @@
-#requestUserEmailForOOSModal {
+@charset "UTF-8";
+
+@import "variables";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
+.out-of-stock-modal {
     &.modal {
         position: fixed;
         left: 0;
@@ -8,7 +14,7 @@
         overflow: auto;
         background-color: rgb(0, 0, 0);
         background-color: rgba(0, 0, 0, 40%);
-        animation-name: fade-in;
+        animation-name: fade-in-notify;
         animation-duration: 0.4s;
     }
 
@@ -17,20 +23,23 @@
         margin: 0;
         position: fixed;
         right: -500px;
-        background-color: colour(white);
-        animation-name: slide-in;
+        background-color: #fff;
+        animation-name: slide-in-notify;
         animation-duration: 0.4s;
         left: auto;
         max-width: 720px;
         width: 50%;
         height: 100%;
         bottom: auto;
-        transition: 0.4s ease right;
-        transform: none;
+        transition:
+            opacity 0.3s linear,
+            right 0.3s ease-out !important;
+        transform: translate3d(0%, 0, 0) !important;
 
-        @media (max-width: 575.98px) {
+        @include media-breakpoint-down(sm) {
             max-width: 320px;
             width: auto;
+            padding: 0;
         }
     }
 
@@ -43,7 +52,7 @@
         position: relative;
 
         .modal-header {
-            background-color: colour(white);
+            background-color: #fff;
             border: 0;
             text-align: center;
             display: block;
@@ -51,7 +60,6 @@
             h2 {
                 font-size: 32px;
                 line-height: 40px;
-                letter-spacing: 2px;
                 margin-bottom: 22px;
             }
 
@@ -72,6 +80,10 @@
             }
         }
 
+        .invalid-feedback {
+            padding: 0 0 0.3125rem;
+        }
+
         .send-email-btn {
             margin: 0 auto;
             text-align: center;
@@ -84,10 +96,15 @@
                 line-height: 24px;
                 letter-spacing: 2px;
 
-                @media (max-width: 575.98px) {
+                @include media-breakpoint-down(sm) {
                     min-width: auto;
                     width: 100%;
                 }
+            }
+
+            button[disabled="disabled"] {
+                opacity: 0.7;
+                pointer-events: none;
             }
         }
     }
@@ -107,7 +124,7 @@
         padding: 2px 16px;
     }
 
-    @keyframes slide-in {
+    @keyframes slide-in-notify {
         from {
             right: -500px;
             opacity: 0;
@@ -119,7 +136,7 @@
         }
     }
 
-    @keyframes fade-in {
+    @keyframes fade-in-notify {
         from {
             opacity: 0;
         }
@@ -128,4 +145,8 @@
             opacity: 1;
         }
     }
+}
+
+.out-of-stock-modal.modal.modal-right.fade.show .modal-dialog {
+    right: 0;
 }

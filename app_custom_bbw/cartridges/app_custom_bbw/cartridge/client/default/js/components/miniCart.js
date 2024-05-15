@@ -1,6 +1,7 @@
 'use strict';
 
 var cart = require('../cart/cart');
+var layout = require('../utils/layout');
 
 var updateMiniCart = true;
 var location = window.location;
@@ -29,6 +30,8 @@ module.exports = function () {
         if (!updateMiniCart) {
             $('.minicart .popover').addClass('show');
             $('.minicart-overlay').addClass('show');
+            $('.popover').scrollTop(0);
+            $('.mini-cart-content').scrollTop(0);
             $('body').addClass('overflow-hidden');
             return;
         }
@@ -66,6 +69,20 @@ module.exports = function () {
     });
     $('body').on('product:afterAddToCart', function () {
         updateMiniCart = true;
+        if (layout.isDesktop() || layout.isTablet()) {
+            $('.minicart .popover').addClass('show');
+            $('.minicart-overlay').addClass('show');
+            $('body').addClass('overflow-hidden');
+            var minicartURL =
+                    $('.minicart').data('action-url');
+            $('.minicart .popover').spinner().start();
+            $.get(minicartURL, function (minicartData) {
+                $('.minicart .popover').empty();
+                $('.minicart .popover').append(
+                    minicartData
+                );
+            });
+        }
     });
     $('body').on('cart:update', function () {
         updateMiniCart = true;

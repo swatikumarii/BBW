@@ -1,0 +1,11 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceLayouts/layout.css');
+</isscript>
+
+<div class="mobile-2r-1c ${pdict.sectionCustomClass ? pdict.sectionCustomClass : ''}">
+    <div class="row mx-n2 ${pdict.rowCustomClass ? pdict.rowCustomClass : ''}">
+        <isprint value="${pdict.regions.column1.setClassName(pdict.columnOneCustomClass ? 'region col-12 col-sm-6 ' + pdict.columnOneCustomClass :'region col-12 col-sm-6').setComponentClassName(pdict.columnOneContentCustomClass ? pdict.columnOneContentCustomClass : '').render()}" encoding="off" />
+        <isprint value="${pdict.regions.column2.setClassName(pdict.columnTwoCustomClass ? " region col-12 col-sm-6 " + pdict.columnTwoCustomClass : 'region col-12 col-sm-6').setComponentClassName(pdict.columnTwoContentCustomClass ?pdict.columnTwoContentCustomClass : '').render()}" encoding="off" />
+    </div>
+</div>

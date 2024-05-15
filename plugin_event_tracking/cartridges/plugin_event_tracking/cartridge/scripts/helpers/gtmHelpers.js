@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 'use strict';
 
 var gtmEvents = require('*/cartridge/config/gtmEvents');
@@ -6,7 +8,7 @@ var Logger = require('dw/system/Logger');
 var Site = require('dw/system/Site');
 
 var gtmEnabled =
-    Site.getCurrent().getCustomPreferenceValue('googleScriptEnabled') || false;
+    Site.getCurrent().getCustomPreferenceValue('gtmScriptEnabled') || false;
 
 /**
  * @param {object} res - current route response object
@@ -49,6 +51,7 @@ function getHomeData() {
     };
     return obj;
 }
+
 /**
  *
  * @param {object} res - Response object.
@@ -56,28 +59,23 @@ function getHomeData() {
  */
 function logIn(res) {
     var obj;
-    if (res.queryString.includes('registration=false')) {
+    if (res.success) {
         obj = {
-            'event': 'login',
+            'event': gtmEvents.LOGIN,
             'ecommerce': {
-                'firstname': res.CurrentCustomer.profile.firstName,
-                'lastname': res.CurrentCustomer.profile.lastName,
-                'email': res.CurrentCustomer.profile.email,
-                'customer id': res.CurrentCustomer.profile.customerNo
+                'firstname': res.authenticatedCustomer.profile.firstName,
+                'lastname': res.authenticatedCustomer.profile.lastName,
+                'email': res.authenticatedCustomer.profile.email,
+                'customer_id': res.authenticatedCustomer.profile.customerNo
             }
         };
-    } else {
+    } else{
         obj = {
-            'event': 'sign_up',
-            'ecommerce': {
-                'firstname': res.CurrentCustomer.profile.firstName,
-                'lastname': res.CurrentCustomer.profile.lastName,
-                'email': res.CurrentCustomer.profile.email,
-                'customer id': res.CurrentCustomer.profile.customerNo
-            }
+            event: gtmEvents.SIGN_IN_FAILURE,
+            loginError: 'error' in res ? res.error[0] : ''
         };
-
     }
+    
     return obj;
 }
 
@@ -150,9 +148,14 @@ function getPdpData(res) {
     var obj = {
         event: gtmEvents.PRODUCT_SHOW,
         ecommerce: {
-            currency: res.product.price.sales.currency,
-            value: res.product.price.sales.value,
-            items: []
+            add: {products:[{item_name:res.product.gtmData.item_name}]},
+            detail: { products: [] },
+            purchase: {
+                actionField: {
+                    currencyCode: res.product.price.sales.currency,
+                    revenue: res.product.price.sales.value
+                }
+            }
         }
     };
 
@@ -161,17 +164,21 @@ function getPdpData(res) {
         for(var i= 0;i<res.breadcrumbs.length; i++){
             category[i]=res.breadcrumbs[i].htmlValue;
         }
-        obj.ecommerce.items.push({
+        obj.ecommerce.detail.products.push({
             item_name: res.product.gtmData.item_name,
             item_id: res.product.gtmData.item_id,
-            item_brand: res.product.brand ? res.product.brand :'',
-            discount: res.product.tierPrice ? (res.product.tierPrice - res.product.price.sales.decimalPrice).toFixed(2):'',
-            item_category :category[0] || '',
+            item_brand: res.product.brand ? res.product.brand : '',
+            discount: res.product.tierPrice
+                ? (
+                    res.product.tierPrice -
+                      res.product.price.sales.decimalPrice
+                ).toFixed(2)
+                : '',
+            item_category: category[0] || '',
             item_category2: category[1] || '',
             item_category3: category[2] || '',
             item_category4: category[3] || '',
-            price: res.product.price.sales.decimalPrice,
-
+            price: res.product.price.sales.decimalPrice
         });
     }
     return obj;
@@ -258,6 +265,12 @@ function addToCart(res) {
                 value: obj[0].price,
                 products: obj,
                 item_name: lineItem.productName
+            },
+            purchase: {
+                actionField: {
+                    currencyCode: currentBasket.currencyCode,
+                    revenue: obj[0].price
+                }
             }
         }
     };
@@ -325,20 +338,21 @@ function addToWishlist(res) {
     var pid = res.pid;
     var productData = ProductMgr.getProduct(pid);
     var ecommerce = {
+        event: gtmEvents.ADD_TO_WISHLIST,
+        currency: productData.priceModel.price.currencyCode,
+        value: productData.priceModel.price.value,
 
-        'event': 'add_to_wishlist',
-        'currency': productData.priceModel.price.currencyCode,
-        'value': productData.priceModel.price.value,
-
-        'items': {
-
-            'item_id': pid,
-            'item_name': productData.name,
-            'item_brand': productData.brand ? productData.brand:'',
-            'item-category': productData.allCategories[0].displayName ? productData.allCategories[0].displayName:'',
-            'item_categoryID': productData.allCategories[0].parent.ID ? productData.allCategories[0].parent.ID:'',
-            'price': productData.priceModel.price.value,
-
+        items: {
+            item_id: pid,
+            item_name: productData.name,
+            item_brand: productData.brand ? productData.brand : '',
+            'item-category': productData.allCategories[0].displayName
+                ? productData.allCategories[0].displayName
+                : '',
+            item_categoryID: productData.allCategories[0].parent.ID
+                ? productData.allCategories[0].parent.ID
+                : '',
+            price: productData.priceModel.price.value
         }
     };
 
@@ -380,16 +394,21 @@ function getSearchImpressionData(res) {
         }
     } else {
         obj = {
-            'event': 'view_item_list',
-            'ecommerce': {
-                'items': getProductArrayFromList((getSearchProducts(res)).iterator(), getProductObject)
+            event: gtmEvents.SEARCH_SHOW,
+            ecommerce: {
+                impressions: getProductArrayFromList(
+                    getSearchProducts(res).iterator(),
+                    getProductObject
+                )
             }
         };
 
         if ('productSearch' in res) {
             for (var i = 0; i < res.productSearch.category.length; i++) {
-                obj.ecommerce.items.push({
-                    category: res.productSearch.category.displayName ? res.productSearch.category.displayName : '',
+                obj.ecommerce.impressions.push({
+                    category: res.productSearch.category.displayName
+                        ? res.productSearch.category.displayName
+                        : ''
                 });
             }
         }
@@ -406,19 +425,22 @@ function getCheckoutData(res) {
     var obj;
     if (currentBasket !== null) {
         obj = {
-            'event': 'begin_checkout',
-            'ecommerce': {
-                'checkout': {
-                    'currency': currentBasket.currencyCode,
-                    'value': currentBasket.getAdjustedMerchandizeTotalNetPrice().value.toFixed(2),
-                    'products': []
-                }
+            event:  gtmEvents.BEGIN_CHECKOUT,
+            ecommerce: {
+                checkout: {
+                    currency: currentBasket.currencyCode,
+                    value: currentBasket
+                        .getAdjustedMerchandizeTotalNetPrice()
+                        .value.toFixed(2),
+                    products: []
+                },
+                add:{products:[]}
             }
         };
     }
     if ('order' in res) {
         for (var i = 0; i < res.order.items.items.length; i++) {
-            obj.ecommerce.products.push({
+            obj.ecommerce.checkout.products.push({
                 item_name: res.order.items.items[i].productName,
                 item_id: res.order.items.items[i].id,
                 item_brand: res.order.items.items[i].brand
@@ -434,6 +456,11 @@ function getCheckoutData(res) {
                 price: res.order.items.items[i].price.sales.decimalPrice,
                 quantity: res.order.productQuantityTotal
             });
+            if (i === 0) {
+                obj.ecommerce.add.products.push({
+                    item_name: res.order.items.items[i].productName
+                });
+            }
         }
     }
     return obj;
@@ -447,13 +474,17 @@ function addShipping(res) {
 
     if (currentBasket !== null) {
         var obj = {
-            'event': 'add_shipping_info',
-            'ecommerce': {
-                'currency': currentBasket.currencyCode,
-                'value': currentBasket.getAdjustedMerchandizeTotalNetPrice().value.toFixed(2),
-                // 'shipping_tier':res.shippingMethod,
-                // 'coupon':currentBasket.couponLineItems[0].couponCode,
-                'items': []
+            event: 'add_shipping_info',
+            ecommerce: {
+                currency: currentBasket.currencyCode,
+                value: currentBasket
+                    .getAdjustedMerchandizeTotalNetPrice()
+                    .value.toFixed(2),
+                shipping_tier: res.shippingMethod,
+                coupon: currentBasket.couponLineItems.length > 0 ? currentBasket
+                    .couponLineItems[0].couponCode : null,
+                items: [],
+                add:{products:[]}
             }
         };
         if ('order' in res) {
@@ -467,6 +498,11 @@ function addShipping(res) {
                     price: res.order.items.items[i].price.sales.decimalPrice,
                     quantity: res.order.productQuantityTotal,
                 });
+                if (i===0) {
+                    obj.ecommerce.add.products.push({
+                        item_name: res.order.items.items[i].productName
+                    });
+                }
             }
         }
         return obj;
@@ -571,43 +607,89 @@ function getConfirmationData(res) {
     }
     return obj;
 }
+
+/**
+ * @param {object} res - current route response object
+ * @returns {object} Object containing signup data.
+ */
+function signUp(res) {
+    if (res.success) {
+        var obj = {
+            event: gtmEvents.SIGN_UP
+        };
+        return obj;
+    }
+    return {};
+}
+
+/**
+ * @param {object} res - current route response object
+ * @returns {object} Object containing order check failure data.
+ */
+function getOrderCheckData(res) {
+    if (res.error) {
+        var obj = {
+            event: gtmEvents.ORDER_CHCEK_FAILURE
+        };
+        return obj;
+    }
+    return {};
+}
+
+
 // eslint-disable-next-line jsdoc/require-returns-check
 /**
  * @param {object} res - current route response object
  * @returns {object} Object containing gtm data corresponding to the controller.
  */
 function getDataLayer(res) {
-    switch (res.action) {
-        case 'Home-Show':
-        case 'Default-Start':
-            return getHomeData();
-        case 'Account-Show':
-            return logIn(res);
-        case 'Product-Show':
-            return getPdpData(res);
-        case 'Search-Show':
-            return getSearchImpressionData(res);
-        case 'Cart-Show':
-            return viewCart(res);
-        case 'Cart-AddProduct':
-            return addToCart(res);
-        case 'Cart-RemoveProductLineItem':
-            return removeFromCart(res);
-        case 'Wishlist-AddProduct':
-            return addToWishlist(res);
-        case 'Checkout-Login':
-            return getCheckoutData(2);
-        case 'Checkout-Begin':
-            return getCheckoutData(res);
-        case 'CheckoutShippingServices-SubmitShipping':
-            return addShipping(res);
-        case 'CheckoutServices-SubmitPayment':
-            return addPayment(res);
-        case 'Order-Confirm':
-            return getConfirmationData(res);
-        default:
-            return false;
-    };
+    try {
+        switch (res.action) {
+            case 'Home-Show':
+            case 'Default-Start':
+                return getHomeData();
+            case 'Account-Login':
+                return logIn(res);
+            case 'Account-SubmitRegistration':
+                return signUp(res);
+            case 'Product-Show':
+                return getPdpData(res);
+            case 'Search-Show':
+                return getSearchImpressionData(res);
+            case 'Cart-Show':
+                return viewCart(res);
+            case 'Cart-AddProduct':
+                if (!res.error) {
+                    return addToCart(res);
+                }
+                break;
+            case 'Cart-RemoveProductLineItem':
+                return removeFromCart(res);
+            case 'Wishlist-AddProduct':
+                return addToWishlist(res);
+            case 'Checkout-Login':
+                return getCheckoutData(2);
+            case 'Checkout-Begin':
+                return getCheckoutData(res);
+            case 'CheckoutShippingServices-SubmitShipping':
+                return addShipping(res);
+            case 'CheckoutServices-SubmitPayment':
+                return addPayment(res);
+            case 'Order-Confirm':
+                return getConfirmationData(res);
+            case 'Order-Check':
+                return getOrderCheckData(res);
+            default:
+                return false;
+        }
+    } catch (error) {
+        Logger.getLogger('GA_GTM', 'GA_GTM').error(
+            'Error when triggering GTM event' + error
+        );
+        return {};
+    }
+    return {};
+
 }
 
 module.exports = {

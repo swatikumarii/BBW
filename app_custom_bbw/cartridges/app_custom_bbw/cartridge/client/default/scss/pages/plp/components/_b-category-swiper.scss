@@ -1,10 +1,21 @@
 .plp-category-swiper {
     overflow: scroll hidden;
     scrollbar-width: none;
+    column-gap: 16px;
+    max-width: 1195px;
+
+    @include media-btw(sm, lg) {
+        scrollbar-color: unset;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
 
     &__link {
         min-width: 36vw;
         width: 100%;
+        box-sizing: content-box;
         letter-spacing: 0.01em;
         max-width: 200px;
         border: 1px solid colour(gray, 1);
@@ -14,7 +25,7 @@
         }
 
         @include media-up(lg) {
-            min-width: 17.5%;
+            min-width: 16.5%;
         }
 
         &:focus {
@@ -40,5 +51,6 @@
     &__name {
         padding: 8px;
         color: colour(black, 1);
+        line-height: 20px;
     }
 }

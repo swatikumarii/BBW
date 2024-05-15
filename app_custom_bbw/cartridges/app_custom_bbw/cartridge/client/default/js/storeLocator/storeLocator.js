@@ -142,10 +142,7 @@ function submitSearch(method, url, payload){
  * Search for stores with new zip code
  * @param {HTMLElement} element - the target html element
  */
-function search(element) {
-    var dialog = element.closest('.in-store-inventory-dialog');
-    var spinner = dialog.length ? dialog.spinner() : $.spinner();
-    spinner.start();
+function search(element) {         
     var $form = element.closest('.store-locator');
     var url = $form.attr('action');
     var postalCodeVal = $form.find('[name="postalCode"]').val();
@@ -176,7 +173,7 @@ function search(element) {
             return true;
         }
         return false;
-    });               
+    });
 }
 
 module.exports = $.extend({}, baseStore, {

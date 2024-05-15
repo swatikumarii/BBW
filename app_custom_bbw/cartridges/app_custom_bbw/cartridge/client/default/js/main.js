@@ -24,6 +24,7 @@ $(document).ready(function () {
     processInclude(require('./wishlist'));
     processInclude(require('notify/components/notify'));
     processInclude(require('./components/video'));
+    processInclude(require('./utils/lazyLoad'));
 });
 
 require('./thirdParty/bootstrap');

@@ -1,0 +1,42 @@
+<div class="card-body confirmation-details">
+    <div class="col-sm-10 col-md-6 col-xl-6 text-center confirmation-data">
+        <p class="mb-0">
+            <span class="summary-section-label  order-number-label">${Resource.msg('label.order.number', 'confirmation', null)}</span>
+            <span class="summary-details order-number h-clr--black h-fw--semibold">${pdict.order.orderNumber}</span>
+        </p>
+        <p  class="mb-0">
+            <span class="summary-section-label  order-date-label">${Resource.msg('label.order.date', 'confirmation', null)}</span>
+            <span class="summary-details order-date h-clr--black h-fw--semibold">
+                <isprint value="${pdict.order.creationDate}" style="DATE_SHORT" /></span>
+        </p>
+        <p  class="mb-0">
+            <span class="summary-section-label  order-date-label">${Resource.msg('label.total', 'confirmation', null)}</span>
+            <span class="summary-details order-date h-clr--black h-fw--semibold">${pdict.order.totals.grandTotal}
+            </span>
+        </p>
+        <isif condition="${pdict.order.orderEmail}">
+            <p class="order-thank-you-email-msg ">
+            <span class="summary-section-label  order-number-label">${Resource.msg('error.confirmation.error', 'confirmation', null)}</span>
+            <span class="summary-details order-number h-clr--black h-fw--semibold">${pdict.order.orderEmail}</span>
+            </p>
+        </isif>
+        <button id="invoiceDownload" class="h-fw--semibold print-text h-clr--gray bg-white border-0"
+            data-action="${pdict.order.invoiceDownloadUrl}">${Resource.msg('label.print', 'confirmation', null)}</button>
+    </div>
+</div>
+<isif condition="${pdict.order.orderStatus && pdict.order.orderStatus.value === 3}">
+    <div class="purhase-message">
+        <p class="h-clr--black-3 mb-0">${Resource.msg('purchase.label.message', 'confirmation', null)} <p>
+    </div>
+<iselseif condition="${pdict.order.orderStatus && pdict.order.orderStatus.value === 8}">
+    <div class="purhase-failed">
+        <p class="mb-0">${Resource.msg('message.order.failed', 'order', null)} <p>
+    </div>
+<iselse>
+    <div class="purhase-pending">
+        <p class="mb-0">${Resource.msg('message.order.pending', 'order', null)} <p>
+    </div>
+</isif>
+<h2 class="h-font-size--30 h-fw--normal h-clr--black-3 card-header-confirmation text-left text-uppercase">
+    ${Resource.msg('label.your.order', 'confirmation', null)}</h2>
+<isinclude template="checkout/confirmation/confirmationDetailsView" />

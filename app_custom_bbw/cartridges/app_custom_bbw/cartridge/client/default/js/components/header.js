@@ -3,7 +3,7 @@
 var layout = require('../utils/layout');
 
 /* Desktop & Ipad */
-if (layout.isDesktop()) {
+if (layout.isDesktop() || layout.isTablet()) {
     $('#header-search').on('click', function (e) {
         $('form').addClass('expand-towards-right');
         $('.utility-user, .minicart').addClass('d-lg-none d-md-none');
@@ -45,27 +45,63 @@ $('#ticker').easyTicker({
     interval: 3000
 });
 
-/* Stick Header - On Scroll */
-var t = 0;
-$(window).scroll(function () {
-    var e = $(this).scrollTop();
-    if (t < e) {
-        $('.header').removeClass('fixed-header');
-    } else {
-        $('.header').addClass('fixed-header');
-    }
-    if (e === 0) {
-        $('.header').removeClass('fixed-header');
-    }
-    t = e;
-});
 
 /**
  * To upen login popup
  */
 function openLoginPopup() {
-    $('.loginPopup').find('#loginModal').modal('show');
+    if ($('form').hasClass('registration')) {
+        $('.loginPopup').find('#loginModal').modal('hide');
+        var href = $('#log-in-page-url').attr('href');
+        window.location.href = href;
+    } else {
+        $('.loginPopup').find('#loginModal').modal('show');
+    }
 }
 module.exports = function () {
-    $('#loginPopupBtn').on('click', openLoginPopup);
+    $('.loginPopupBtn').on('click', openLoginPopup);
 };
+
+/** Sticky header padding on body */
+$(window).on('load resize', function () {
+    var $header = $('.header');
+    var $body = $('body');
+    if ($body.hasClass('checkout-page') === false) {
+        $body.css('padding-top', $header.outerHeight());
+    }
+
+});
+
+/* Stick Header - On Scroll */
+var t = $('header'); // Select header element
+var i = 0; // Initial height of header
+var n = 0; // New top position of header
+var r = $('body'); // Select body element
+var l = $(window); // Select window element
+var c = 0; // Current scroll position
+var m = 0; // Previous scroll position
+var v = 0; // Difference between previous and current scroll position
+
+// On scroll event
+l.on('scroll', function () {
+    if ($('body').hasClass('checkout-page') === false) {
+        i = t.outerHeight(); // Get current height of header
+        c = l.scrollTop(); // Get current scroll position
+        v = m - c; // Calculate difference between previous and current scroll position
+        n = parseInt(t.css('top'), 10) + v; // Calculate new top position of header
+
+        // Add padding to body to compensate for fixed header
+        r.css('padding-top', i);
+
+        // Determine header's position based on scroll direction
+        if (c <= 0) {
+            t.css('top', 0); // If at the top of the page, set header to top
+        } else if (v > 0) {
+            t.css('top', n > 0 ? 0 : n); // If scrolling up, move header up
+        } else if (v < 0 && n > -i) {
+            t.css('top', n); // If scrolling down but header is still within viewport, move header down
+        }
+
+        m = c; // Update previous scroll position
+    }
+});

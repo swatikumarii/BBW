@@ -7,14 +7,13 @@
  */
 .loader {
     /* Overlay covering the entire viewport */
-    background: color(white);
+    background: colour(white);
     height: 100%;
     left: 0;
     position: absolute;
     top: 0;
     width: 100%;
     z-index: 150;
-    filter: alpha(opacity=80);
     opacity: 0.8;
 
     /* Spinner animation */
