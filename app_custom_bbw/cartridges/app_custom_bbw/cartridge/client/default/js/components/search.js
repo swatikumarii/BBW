@@ -58,7 +58,7 @@ function tearDownSuggestions() {
     $('input.search-field').val('');
     clearModals();
     $('.search-mobile .suggestions').unbind('scroll');
-    $('.suggestions-wrapper').empty();
+    $('.suggestions').empty();
 }
 
 /**
@@ -122,8 +122,8 @@ function positionSuggestions(scope) {
  * suggestions template contents
  */
 function processResponse(response) {
-    var $suggestionsWrapper = getSuggestionsWrapper('.search-suggestions');
     if (typeof (response) !== 'object') {
+        var $suggestionsWrapper = getSuggestionsWrapper('.search-suggestions');
         $('.search-suggestions').find('.suggestions').empty().append(response);
         if (layout.isDesktop() || layout.isTablet()) {
             $suggestionsWrapper.parent().stop().slideDown();
@@ -157,7 +157,7 @@ function processResponse(response) {
         }
         lazyload.lazyLoad();
     } else {
-        $suggestionsWrapper.empty().hide();
+        $('.search-suggestions').find('.suggestions').empty().hide();
     }
 }
 
