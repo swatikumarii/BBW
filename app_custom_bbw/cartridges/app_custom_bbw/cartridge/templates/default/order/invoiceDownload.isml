@@ -110,13 +110,12 @@
                             class="summary-section-label payment-info-label h-fw--semibold h-clr--black-1 mb-1 h-font-size--16">${Resource.msg('label.order.shipping.method', 'confirmation', null)}</span>
                         <isloop var="shippingModel" items="${pdict.order.shipping}" status="shippingLoop">
                             <p class="shipping-method">
-                            ${Resource.msg('label.shipping', 'order', null)}-
                                 <span class="shipping-method-title h-font-size--16">${shippingModel.selectedShippingMethod.displayName}</span>
                             </p>
                         </isloop>
-                        <isif condition="${order.trackingNumber}">
-                            <a href="${order.trackingUrl + order.trackingNumber}" hreflang="${request.getLocale()}" target="_blank">
-                                <span>${order.trackingNumber}</span>
+                        <isif condition="${pdict.order.trackingNumber}">
+                            <a href="${pdict.order.trackingUrl + pdict.order.trackingNumber}" hreflang="${request.getLocale()}" target="_blank">
+                                <span>${pdict.order.trackingNumber}</span>
                             </a>
                         </isif>
                         </div>
