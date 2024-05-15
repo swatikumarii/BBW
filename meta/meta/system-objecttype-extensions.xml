@@ -1110,6 +1110,18 @@
                 <externally-managed-flag>true</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="openingTime">
+                <display-name xml:lang="x-default">Opening Time</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="closingTime">
+                <display-name xml:lang="x-default">Closing Time</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -1253,6 +1265,11 @@
                 <display-name xml:lang="x-default">Third Part Scripts</display-name>
                 <attribute attribute-id="liveChatEnabled"/>
                 <attribute attribute-id="chatScript"/>
+            </attribute-group>
+            <attribute-group group-id="Contact Us">
+                <display-name xml:lang="x-default">Contact Us Configurations</display-name>
+                <attribute attribute-id="openingTime"/>
+                <attribute attribute-id="closingTime"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
