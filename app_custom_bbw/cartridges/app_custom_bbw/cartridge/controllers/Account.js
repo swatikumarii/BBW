@@ -86,6 +86,7 @@ server.append('EditProfile', function (req, res, next) {
  */
 server.prepend('Login', function (req, res, next) {
     var Site = require('dw/system/Site');
+    var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
     var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
 
     var isReCaptchaEnable = Site.getCurrent().getCustomPreferenceValue(
@@ -110,7 +111,20 @@ server.prepend('Login', function (req, res, next) {
             return;
         }
     }
-    next();
+    if (accountHelpers.handleMigratedCustomers(req.form.loginEmail)) {
+        res.json({
+            error: [
+                Resource.msg(
+                    'reset.password.message.migrated.user',
+                    'login',
+                    null
+                )
+            ]
+        });
+        this.emit('route:Complete', req, res);
+    } else {
+        next();
+    }
 });
 
 server.replace(
@@ -787,6 +801,7 @@ server.replace(
 server.replace('SaveNewPassword', server.middleware.https, function (req, res, next) {
     var Transaction = require('dw/system/Transaction');
     var passwordForm = server.forms.getForm('newPasswords');
+    var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
     // Token used to be a query parameter, now it's in the body. Support both.
     var token = req.form.token || req.querystring.Token;
 
@@ -857,6 +872,9 @@ server.replace('SaveNewPassword', server.middleware.https, function (req, res, n
 
                 emailHelpers.sendEmail(emailObj, 'mail/account/password/passwordChangedEmail', objectForEmail);
                 res.redirect(URLUtils.url('Login-Show'));
+                accountHelpers.updateMigratedUsersPasswordChangeFlag(
+                    resettingCustomer
+                );
             }
         });
     } else {

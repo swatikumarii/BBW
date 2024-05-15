@@ -42,6 +42,12 @@ textarea,
 
     color: colour(black, 3);
     display: block;
+
+    .required-indicator {
+        margin-right: 0.125em;
+        float: left;
+        color: colour(red, 9);
+    }
 }
 
 // Invalid Message

@@ -43,6 +43,62 @@
     }
 }
 
+.purhase-failed {
+    height: fit-content;
+    background-color: colour(red);
+    padding: 7px 20px;
+    line-height: 0;
+    margin-bottom: 24px;
+
+    @include media-up(sm) {
+        background-color: colour(red);
+        padding: 7px 20px;
+        line-height: 0;
+        height: 39px;
+        margin-bottom: 24px;
+    }
+
+    p {
+        line-height: normal;
+        margin-bottom: 0;
+        color: colour(white);
+
+        @include media-up(sm) {
+            line-height: 21px;
+            margin-bottom: 0;
+            color: colour(white);
+        }
+    }
+}
+
+.purhase-pending {
+    height: fit-content;
+    background-color: colour(orange);
+    padding: 7px 20px;
+    line-height: 0;
+    margin-bottom: 24px;
+
+    @include media-up(sm) {
+        background-color: colour(orange);
+        padding: 7px 20px;
+        line-height: 0;
+        height: 39px;
+        margin-bottom: 24px;
+    }
+
+    p {
+        line-height: normal;
+        margin-bottom: 0;
+        color: colour(white);
+
+        @include media-up(sm) {
+            line-height: 21px;
+            margin-bottom: 0;
+            color: colour(white);
+        }
+    }
+}
+
 .card-header-confirmation {
     border-bottom: 1px solid colour(gray, 3);
     padding-bottom: 18px;
