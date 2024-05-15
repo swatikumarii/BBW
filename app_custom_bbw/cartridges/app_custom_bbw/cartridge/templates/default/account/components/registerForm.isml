@@ -267,9 +267,7 @@
         </button>
        </div>
     </isif>
-    <div class="success-message mt-3">
-        <p class="text-center">${Resource.msg('toast.success.register', 'account', null)}</p>
-    </div>
+    <div class="register-success d-none" id="register-success-message">${Resource.msg('toast.success.register', 'account', null)}</div>
     <iscomment> <div class="privacy-policy">
         ${Resource.msg('description.privacypolicy.registration', 'registration', null)}
         <a href="${'#'}">
