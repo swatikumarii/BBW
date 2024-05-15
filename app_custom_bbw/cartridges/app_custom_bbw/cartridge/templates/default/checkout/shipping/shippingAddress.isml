@@ -108,7 +108,7 @@
 
 <!--- make drop down--->
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-12">
         <div class="form-group
                 ${addressFields.country.mandatory === true ? 'required' : ''}
                 ${addressFields.country.htmlName}">
@@ -135,7 +135,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-12">
         <div class="form-group
                 ${addressFields.states.stateCode.mandatory === true ? 'required' : ''}
                 ${addressFields.states.stateCode.htmlName}">
