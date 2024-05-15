@@ -240,27 +240,30 @@ server.post('AddProductFromOrder', function (req, res, next) {
  * @memberof Cart
  */
 server.append('MiniCartShow', csrfProtection.generateToken, function (req, res, next) {
+    var Transaction = require('dw/system/Transaction');
     var currentBasket = BasketMgr.getCurrentBasket();
     if (currentBasket) {
         var allLineItems = currentBasket.allProductLineItems;
         if (allLineItems.length > 0) {
             var collections = require('*/cartridge/scripts/util/collections');
             var topOffers = [];
-            collections.forEach(allLineItems, function (pli) {
-                var PromotionMgr = require('dw/campaign/PromotionMgr');
-                var activePromotions = PromotionMgr.activeCustomerPromotions.getProductPromotions(pli.product);
-                if (activePromotions.length > 0) {
-                    for(var i = 0; i < activePromotions.length; i++) {
-                        var promo = activePromotions[i];
-                        if (promo.basedOnCoupon === true && promo.coupons[0].type === 'SINGLE_CODE') {
-                            var topOffer = {
-                                promoName: promo.name,
-                                couponCode: promo.coupons[0].ID
-                            };
-                            topOffers.push(topOffer);
+            Transaction.wrap(function () {
+                collections.forEach(allLineItems, function (pli) {
+                    var PromotionMgr = require('dw/campaign/PromotionMgr');
+                    var activePromotions = PromotionMgr.getActivePromotions().getProductPromotions(pli.product);
+                    if (activePromotions.length > 0) {
+                        for(var i = 0; i < activePromotions.length; i++) {
+                            var promo = activePromotions[i];
+                            if (promo.basedOnCoupon === true && promo.coupons[0].type === 'SINGLE_CODE') {
+                                var topOffer = {
+                                    promoName: promo.name,
+                                    couponCode: promo.coupons[0].ID
+                                };
+                                topOffers.push(topOffer);
+                            }
                         }
                     }
-                }
+                });
             });
             var viewData = res.getViewData();
             viewData.topOffers = topOffers;
