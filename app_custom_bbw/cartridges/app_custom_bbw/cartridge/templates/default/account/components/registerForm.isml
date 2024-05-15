@@ -97,7 +97,7 @@
         <span class="required-indicator">*</span>
             <isprint value="${pdict.profileForm.login.password.label}" encoding="htmlcontent" />
         </label>
-        <input type="password" id="newPassword" class="form-control select-dropdown-value h-clr--black-1" id="registration-form-password"
+        <input type="password" class="form-control select-dropdown-value h-clr--black-1" id="registration-form-password"
             data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.password.8_50characters', 'forms', null)}"
             data-pattern-mismatch="${Resource.msg('error.message.parse.password', 'forms', null)}"

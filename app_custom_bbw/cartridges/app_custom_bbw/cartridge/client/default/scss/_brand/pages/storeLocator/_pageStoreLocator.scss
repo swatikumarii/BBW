@@ -1,7 +1,10 @@
 .store-locator-header {
     padding: 1.375rem 0 0.25rem;
     border-bottom: 0.0625rem solid colour(black, 3);
-    margin: 2rem 0;
+    width: 100%;
+    max-width: 955px;
+    float: none;
+    margin: 2rem auto;
 
     p {
         line-height: 1.75rem;
@@ -16,20 +19,34 @@
 }
 
 .store-locator-container {
+    width: 100%;
+    max-width: 955px;
+    float: none;
+    margin: 0 auto;
+
+    .store-form {
+        float: left;
+        width: 39.5%;
+        min-height: 560px;
+        border: 3px solid #f2f2f2;
+        padding: 18px 45px 0;
+    }
+
+    .store-map-detail-block {
+        float: right;
+        width: 58%;
+        height: 560px;
+    }
+
     .store-form-detail {
         min-height: 35rem;
-        border-bottom: 0.1875rem solid colour(gray, 1);
         padding: 0;
-
-        @include media-up(sm) {
-            padding: 3.125rem 2.8125rem 0;
-            border: 0.1875rem solid colour(gray, 1);
-        }
 
         .sub-heading {
             line-height: 24px;
             letter-spacing: 0.005em;
             padding-bottom: 12px;
+            padding-top: 32px;
             margin: 0 0 0.9375rem;
             border-bottom: 1px solid colour(gray, 1);
         }
@@ -176,10 +193,171 @@
     }
 }
 
+.store-locator {
+    .b-select-wrap .b-select {
+        position: absolute;
+        z-index: 1;
+    }
+}
+
 .store-details-bottom-wrapper {
+    p {
+        color: colour(black, 1);
+    }
+
     a {
+        color: colour(blue, 12);
+
         &:hover {
-            color: colour(white);
+            text-decoration: underline;
+        }
+    }
+}
+
+.map-canvas {
+    .gm-style .gm-style-iw-a {
+        max-width: 265px;
+    }
+
+    .map-details {
+        h2 {
+            line-height: 16px;
+            padding: 0 0 5px;
+        }
+
+        .card {
+            margin: 15px 20px;
+
+            .card-body {
+                padding: 0;
+                line-height: 1rem;
+                font-family: SourceSansPro, Arial, sans-serif;
+
+                .store-address,
+                .store-phone {
+                    margin-bottom: 10px;
+                }
+
+                a:focus {
+                    outline: 0;
+                    outline-offset: 0;
+                }
+            }
+        }
+
+        .accordion .card .card-head h2::after {
+            background: none;
+        }
+    }
+}
+
+.store-detail-page {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+
+    h1 {
+        padding: 15px 0;
+    }
+
+    .store-details .store-map-details {
+        padding-left: 70px;
+
+        @include media-down(sm) {
+            padding-left: 0;
+        }
+
+        address {
+            line-height: 1.4;
+            font-size: 15px;
+        }
+
+        .open-now {
+            font-size: 12px;
+
+            span {
+                width: 8px;
+                height: 8px;
+                border-radius: 100%;
+                margin-right: 10px;
+            }
+        }
+
+        .phone-email {
+            .phone {
+                padding-right: 60px;
+                font-size: 15px;
+            }
+
+            .email {
+                font-size: 15px;
+            }
+        }
+    }
+
+    .get-direcetion {
+        background-color: colour(white);
+        border: 1px solid colour(blue);
+        border-radius: 0;
+        color: colour(blue);
+        cursor: pointer;
+        display: inline-block;
+        letter-spacing: 0.24px;
+        line-height: 2.063rem;
+        width: 165px;
+        min-height: 43px;
+        font-weight: 600;
+        font-size: 13px;
+        padding: 0 1.0625em;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .jumbotron.map-canvas {
+        height: 600px;
+    }
+
+    .nearby-store {
+        padding: 40px 70px;
+        border-bottom: 0.1875rem solid colour(gray, 1);
+
+        @include media-down(sm) {
+            padding: 0 40px 40px;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: 600;
+            padding: 20px 0;
+            margin: 0;
+        }
+
+        .near-by-wrap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 80px;
+
+            .near-stores {
+                img {
+                    width: 100%;
+                }
+                @include media-down(sm) {
+                    margin-top: 40px;
+                }
+            }
+
+            @include media-down(sm) {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+
+    .store-carousel {
+        padding-right: 70px;
+        margin-top: 27px;
+
+        @include media-down(sm) {
+            padding-right: 0;
         }
     }
 }
