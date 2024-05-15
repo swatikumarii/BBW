@@ -65,9 +65,10 @@ function register() {
                     $('form.registration').trigger('login:register:error', data);
                     formValidation(form, data);
                 } else {
-                    $('.success-message').toast('show');
+                    $('.register-success').removeClass('d-none');
                     $('form.registration').trigger('login:register:success', data);
                     setTimeout(function () {
+                        $('.register-success').addClass('d-none');
                         location.href = data.redirectUrl;
                     }, 2000);
                 }
