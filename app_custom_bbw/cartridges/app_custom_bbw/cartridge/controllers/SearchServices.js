@@ -86,6 +86,7 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
         } else {
             res.render('search/suggestions', {
                 suggestions: {
+                    searchTerms: searchTerms,
                     message: Resource.msgf(
                         'label.header.search.result.count.msg',
                         'common',
@@ -108,6 +109,7 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
                 recent: recentSuggestions,
                 popular: popularSuggestions,
                 brand: brandSuggestions,
+                searchTerms: searchTerms,
                 message: Resource.msgf(
                     'label.header.search.result.count.msg',
                     'common',

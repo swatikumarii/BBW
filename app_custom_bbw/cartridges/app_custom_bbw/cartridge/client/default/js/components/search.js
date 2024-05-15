@@ -6,6 +6,10 @@ var UP_KEY = 38;
 var DOWN_KEY = 40;
 var DIRECTION_DOWN = 1;
 var DIRECTION_UP = -1;
+var windowWidth = $(window).outerWidth();
+var lazyload = require('../utils/lazyLoad');
+var layout = require('../utils/layout');
+var helpers = require('../utils/helpers');
 
 /**
  * Retrieves Suggestions element relative to scope
@@ -115,15 +119,28 @@ function positionSuggestions(scope) {
 /**
  * Process Ajax response for SearchServices-GetSuggestions
  * @param {object | string} response - Empty object literal if null response or string with rendered
- *                                   suggestions template contents
+ * suggestions template contents
  */
 function processResponse(response) {
     var $suggestionsWrapper = getSuggestionsWrapper('.search-suggestions').empty();
     if (typeof (response) !== 'object') {
-        $suggestionsWrapper.append(response).addClass('active');
-        $suggestionsWrapper.parent().addClass('active');
-        $suggestionsWrapper.find('.suggestions').addClass('active');
-        $(this).siblings('.reset-button').addClass('d-sm-block');
+        $suggestionsWrapper.append(response);
+        if (layout.isDesktop() || layout.isTablet()) {
+            $suggestionsWrapper.parent().stop().slideDown();
+
+            //  Apply Max Height to Product Part
+            var productPart;
+            productPart = $('.suggestions__results .pdp-link');
+            var productPartMaxHeight = helpers.getMaxElementHeight(productPart);
+            productPart.css('height', productPartMaxHeight);
+
+        } else {
+            $suggestionsWrapper.show();
+            if (!$suggestionsWrapper.find('.suggestions').hasClass('active')) {
+                $suggestionsWrapper.find('.suggestions').addClass('active modal').offset({ top: + $('#header-search').outerHeight()}).stop().slideDown();
+            }
+        }
+
         positionSuggestions(this);
 
         if (isMobileSearch(this)) {
@@ -138,6 +155,7 @@ function processResponse(response) {
         } else {
             $('input.search-field').removeAttr('aria-describedby');
         }
+        lazyload.lazyLoad();
     } else {
         $suggestionsWrapper.hide();
     }
@@ -199,6 +217,41 @@ function handleArrow(direction) {
     }
 }
 
+/**
+ * Resizes the search suggestion wrapper and centers it on wider screens.
+ */
+function resizeSuggestionWrapper() {
+    if ($('#search-suggestion-wrapper-style').length === 0) {
+        var $suggestionWrapper = $('.js-search-suggestions');
+        var wrapperWidth = $suggestionWrapper.outerWidth();
+
+        if (windowWidth > 1400 && windowWidth > wrapperWidth) {
+            var newWidth = windowWidth + 'px';
+            var leftPosition = (windowWidth - wrapperWidth) / 2 * -1;
+
+            $suggestionWrapper.css({
+                width: newWidth,
+                left: leftPosition + 'px'
+            });
+
+            var styles = '.site-search .search-suggestions { width : ' + newWidth + ' !important; left : '+ leftPosition + 'px !important; }';
+            var headElement = document.head || document.getElementsByTagName('head')[0];
+            var styleElement = document.createElement('style');
+
+            headElement.appendChild(styleElement);
+            styleElement.type = 'text/css';
+            styleElement.id = 'search-suggestion-wrapper-style';
+
+            if (styleElement.styleSheet) {
+                styleElement.styleSheet.cssText = styles;
+            } else {
+                styleElement.appendChild(document.createTextNode(styles));
+            }
+        }
+    }
+}
+
+
 module.exports = function () {
     $('form[name="simpleSearch"]').submit(function (e) {
         var suggestionsList = $('.suggestions .item');
@@ -211,6 +264,7 @@ module.exports = function () {
     $('input.search-field').each(function () {
         var debounceSuggestions = debounce(getSuggestions, 300);
         var suggestionsProcessing = false;
+        resizeSuggestionWrapper();
 
         /**
          * Handle Search Suggestion Keyboard Arrow Keys
@@ -218,18 +272,31 @@ module.exports = function () {
          */
         function handleInputFocus(element) {
             debounceSuggestions(element);  // Run debounceSuggestions when input field is focused
+            lazyload.lazyLoad();
         }
 
         // Attach focus event handler
         $(this).on('focus', function () {
-            if (!suggestionsProcessing) {
-                suggestionsProcessing = true;  // Set flag to true to indicate processing is active
-                handleInputFocus(this);
+            // console.log('Focus In');
+            var phraseLength = $(this).val().length;
+            if (phraseLength > 0) {
+                $('.js-reset-button').show();
             }
         }).on('blur', function () {
+            // console.log('Focus out');
             suggestionsProcessing = false;  // Reset flag on blur
+            var phraseLength = $(this).val().length;
+            if (!phraseLength > 0) {
+                $('.js-reset-button').hide();
+            }
         }).on('keyup', function (e) {
             // Capture Down/Up Arrow Key Events
+            var phraseLength = $(this).val().length;
+            if (phraseLength > 0) {
+                $('.js-reset-button').show();
+            } else {
+                $('.js-reset-button').hide();
+            }
             switch (e.which) {
                 case DOWN_KEY:
                     handleArrow(DIRECTION_DOWN);
@@ -243,23 +310,40 @@ module.exports = function () {
                     // Always allow debounceSuggestions on keyup, regardless of focus status
                     debounceSuggestions(this, e);
             }
+        }).on('click', function name() {
+            $('.search-fly-out-opacity').removeClass('d-none');
+            if (!suggestionsProcessing) {
+                suggestionsProcessing = true;  // Set flag to true to indicate processing is active
+                handleInputFocus(this);
+                // var phraseLength = $(this).val().length;
+                // if (phraseLength > 0) {
+                // }
+            }
         });
     });
 
-    $('body').on('click', function (e) {
-        if (!$('.suggestions').has(e.target).length && !$(e.target).hasClass('search-field')) {
-            $('.suggestions').removeClass('active');
+    $(document.body).on('click', function (e) {
+        if (!$('.js-search-suggestions').has(e.target).length && !$(e.target).hasClass('search-field') && !$(e.target).hasClass('js-reset-button')) {
+            if (layout.isDesktop() || layout.isTablet()) {
+                $('.js-search-suggestions').stop().slideUp();
+            }
+            $('.js-reset-button').hide();
         }
     });
 
-    $('body').on('click touchend', '.search-mobile button.fa-close', function (e) {
+    $('.js-cancel-search-button').on('click touchend', function (e) {
+        // console.log('cancel button clicked');
         e.preventDefault();
         $('.suggestions').removeClass('active');
         toggleSuggestionsIcon('search');
         tearDownSuggestions();
     });
 
-    $('.site-search .reset-button').on('click', function () {
-        $(this).removeClass('d-sm-block');
+    $('.js-reset-button').on('click', function () {
+        $(this).hide();
+        $('.js-search-field').val('');
+        $('.js-search-field').focus();
+        var debounceSuggestions = debounce(getSuggestions, 300);
+        debounceSuggestions(this, $('input.search-field'));
     });
 };

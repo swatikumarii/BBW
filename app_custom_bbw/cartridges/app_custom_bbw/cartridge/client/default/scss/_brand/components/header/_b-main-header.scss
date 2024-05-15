@@ -1,6 +1,6 @@
 header {
     position: relative;
-    z-index: 1;
+    z-index: 3;
 
     &.minicart-show {
         z-index: 5;
@@ -13,6 +13,12 @@ header {
         top: 0;
         z-index: 9;
         animation: none;
+
+        .search-fly-out-opacity {
+            @include media-up(sm) {
+                top: 14.5rem;
+            }
+        }
     }
 
     .bbw-nav {
@@ -130,7 +136,11 @@ header {
 
                 .custom-search {
                     right: 0;
-                    z-index: 130;
+                    z-index: 202;
+
+                    @include media-up(md) {
+                        z-index: 130;
+                    }
 
                     .expand-towards-right {
                         width: 12.7rem;
@@ -145,6 +155,7 @@ header {
 
                     form {
                         right: 0;
+                        top: 3px;
                         width: 100%;
                         height: 3.375rem;
                         left: 0;
@@ -171,10 +182,19 @@ header {
                             text-overflow: ellipsis;
                             white-space: nowrap;
                             padding: 0 40px 0 12px;
+
+                            @include media-down(md) {
+                                border: none;
+                                padding: 0 2.5rem;
+                            }
                         }
 
                         input::placeholder {
                             color: colour(black, 3);
+
+                            @include media-down(sm) {
+                                font-size: 18px;
+                            }
                         }
 
                         .reset-button {
@@ -183,10 +203,16 @@ header {
                             background-position: 0;
                             padding: 0;
                             position: absolute;
-                            right: 40px;
-                            top: 0.5rem;
+                            right: 50px;
+                            top: 29.5%;
                             width: 20px;
                             height: 20px;
+                            display: none;
+
+                            @include media-up(md) {
+                                right: 40px;
+                                top: 0.5rem;
+                            }
 
                             &:hover {
                                 background: url("../images/header/remove-search-icon-hover.svg")
@@ -195,8 +221,24 @@ header {
                             }
                         }
 
+                        .cancel-search-button {
+                            @include media-down(sm) {
+                                background: url("../images/icons/Caret-left.svg")
+                                    no-repeat;
+                                background-size: 0.625rem;
+                                background-position: 0;
+                                padding: 0;
+                                position: absolute;
+                                left: 0.4375rem;
+                                top: 30%;
+                                width: 22px;
+                                height: 22px;
+                                margin: 0 0.125rem;
+                            }
+                        }
+
                         .search-icon {
-                            top: 0;
+                            top: 10%;
                             right: 0.4375rem;
                             padding: 0;
                             line-height: 1.25rem;
@@ -396,7 +438,7 @@ header {
     left: 0;
     z-index: 2;
 
-    @include media-up(sm) {
-        top: 14.5rem;
-    }
+    // @include media-up(sm) {
+    //     top: 14.5rem;
+    // }
 }

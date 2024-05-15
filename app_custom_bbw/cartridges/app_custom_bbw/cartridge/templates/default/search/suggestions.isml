@@ -1,5 +1,5 @@
 <div class="suggestions d-flex h-grid-gap-md--20">
-    <div class="suggestions__products-wrapper h-width-perc-md--80">
+    <div class="suggestions__products-wrapper h-width-perc-md--70 h-hidden-sm-down">
         <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
         <isif condition="${pdict.suggestions.product && pdict.suggestions.product.phrases.length > 0}">
             <div class="suggestions__search-product-header d-flex justify-content-between mb-2">
@@ -8,11 +8,14 @@
                         <div class="item term">
                             <isif condition="${!phrase.exactMatch}">
                                 <span class="d-block">
-                                    <isprint value="${Resource.msgf('label.suggest.doyoumean', 'search', null, phrase.value)}" encoding="off" />
+                                    <isprint
+                                        value="${Resource.msgf('label.suggest.doyoumean', 'search', null, phrase.value)}"
+                                        encoding="off" />
                                 </span>
                             </isif>
                             <span>
-                                <isprint value="${Resource.msgf('label.results.for', 'search', null, pdict.suggestions.searchProductCount, URLUtils.url('Search-Show', 'q', phrase.value), phrase.value)}" encoding="off" />
+                                <isprint value="${Resource.msgf('label.results.for', 'search', null, pdict.suggestions.searchProductCount, URLUtils.url('Search-Show',
+                                                'q', phrase.value), phrase.value)}" encoding="off" />
                             </span>
                         </div>
                     </div>
@@ -23,7 +26,7 @@
             <div role="listbox" id="search-results" class="suggestions__results">
                 <isif condition="${pdict.suggestions.product && pdict.suggestions.product.available}">
                     <div class="h-100 p-2">
-                        <div class="list h-dsp--grid h-grid-gap-md--20 suggestions__product-list">
+                        <div class="list h-dsp--grid suggestions__product-list">
                             <isloop items="${pdict.suggestions.product.products}" var="product" status="listindex">
                                 <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.id)}" />
                             </isloop>
@@ -36,7 +39,8 @@
                 <div class="row no-gutters header">
                     <div class="col">
                         <isif condition="${pdict.suggestions.searchTerms}">
-                            <isprint value="${Resource.msgf('message.when.no.search.result.found', 'search', pdict.suggestions.searchTerms)}" />
+                            <isprint
+                                value="${Resource.msgf('message.when.no.search.result.found', 'search', null, pdict.suggestions.searchTerms)}" />
                         <iselse/>
                             <h2 class="h-fw--bold">${Resource.msg('label.trending.now', 'search', null)}</h2>
                         </isif>
@@ -45,7 +49,7 @@
             </div>
             <div role="listbox" id="search-results" class="suggestions__results">
                 <div class="h-100 p-2">
-                    <div class="list h-dsp--grid h-grid-gap-md--20 suggestions__product-list">
+                    <div class="list h-dsp--grid suggestions__product-list">
                         <isslot id="search-popular-picks" description="Slot search popular pick for 0 search results"
                             context="global" />
                     </div>
@@ -65,7 +69,8 @@
                         <isloop items="${pdict.suggestions.recent.phrases}" var="phrase" status="listindex">
                             <div class="search-history-list__item sub-list__item d-flex align-items-center">
                                 <span class="search-history-list__icon sub-list__item__icon d-inline-block"></span>
-                                <a href="${phrase.url}" class="search-history-list__link sub-list__item__link">${phrase.value}</a>
+                                <a href="${phrase.url}"
+                                    class="search-history-list__link sub-list__item__link">${phrase.value}</a>
                             </div>
                         </isloop>
                     </div>
@@ -78,7 +83,8 @@
                         <isloop items="${pdict.suggestions.popular.phrases}" var="phrase" status="listindex">
                             <div class="search-popular-list__item sub-list__item d-flex align-items-center">
                                 <span class="search-popular-list__icon sub-list__item__icon d-inline-block"></span>
-                                <a href="${phrase.url}" class="search-popular-list__link sub-list__item__link">${phrase.value}</a>
+                                <a href="${phrase.url}"
+                                    class="search-popular-list__link sub-list__item__link">${phrase.value}</a>
                             </div>
                         </isloop>
                     </div>
@@ -94,12 +100,14 @@
                     <div class="search-category-list sub-list link-only" role="list">
                         <isloop items="${pdict.suggestions.category.categories}" var="category" status="listindex">
                             <div class="search-category-list__item sub-list__item d-flex align-items-center">
-                                <a href="${category.url}" class="search-category-list__link sub-list__item__link"><span class="h-fw--semibold">${category.name}</span>
-                                <isif condition="${category.parentID !== 'root'}">
-                                    <span class="category-parent"> ${Resource.msg('label.suggest.in', 'search', null)}
-                                        ${category.parentName} </span>
-                                </isif>
-                                <span class="h-clr--blue h-fw--semibold">(${category.productCount})</span></a>
+                                <a href="${category.url}" class="search-category-list__link sub-list__item__link"><span
+                                        class="h-fw--semibold">${category.name}</span>
+                                    <isif condition="${category.parentID !== 'root'}">
+                                        <span class="category-parent"> ${Resource.msg('label.suggest.in', 'search', null)}
+                                            ${category.parentName} </span>
+                                    </isif>
+                                    <span class="h-clr--blue h-fw--semibold">(${category.productCount})</span>
+                                </a>
                             </div>
                         </isloop>
                     </div>
@@ -115,7 +123,8 @@
                     <div class="search-content-list sub-list link-only" role="list">
                         <isloop items="${pdict.suggestions.content.contents}" var="content" status="listindex">
                             <div class="search-content-list__item sub-list__item d-flex align-items-center">
-                                <a href="${content.url}" class="search-content-list__link sub-list__item__link">${content.name}</a>
+                                <a href="${content.url}"
+                                    class="search-content-list__link sub-list__item__link">${content.name}</a>
                             </div>
                         </isloop>
                     </div>

@@ -20,23 +20,6 @@ if (layout.isDesktop() || layout.isTablet()) {
     });
 }
 
-/* Show reset button on key up */
-$('.search-field').on('keyup', function () {
-    $('.reset-button').addClass('d-block');
-});
-
-/* Remove reset button on clicking of it */
-$('.reset-button').on('click', function () {
-    $(this).removeClass('d-block');
-    $('.search-field').val('');
-    $('.search-field').focus();
-});
-
-/* Search overlay */
-$('.search-field').on('click', function () {
-    $('.search-fly-out-opacity').removeClass('d-none');
-});
-
 /* Mobile custom search */
 $('#mobile-custom-search').on('click', function (e) {
     $('.custom-search').removeClass('d-none');

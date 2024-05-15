@@ -57,7 +57,7 @@
                 <iscomment>Login</iscomment>
                 <div class="utility-user position-relative fa-pull-right">
                     <isinclude url="${URLUtils.url('Account-Header')}" />
-                    <isinclude url="${URLUtils.url('Page-Locale')}" />
+                    <iscomment> <isinclude url="${URLUtils.url('Page-Locale')}" /> </iscomment>
                 </div>
                 <iscomment>Search</iscomment>
                 <div class="search custom-search d-none d-md-block position-absolute w-100 m-0 fa-pull-right">
@@ -70,12 +70,8 @@
             <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
         </div>
     </nav>
-
-    <iscomment> Search Suggestions </iscomment>
-    <div class="search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>
-    <div class="search-suggestions position-absolute h-bg--white w-100 js-search-suggestions" id="search-suggestions">
-        <div class="suggestions-wrapper h-maxwidth--1400 mx-auto h-bg--white" data-url="${URLUtils.url('SearchServices-GetSuggestions', 'q')}"></div>
-    </div>
 </header>
+<iscomment> Search Suggestions - Overlay </iscomment>
+<div class="search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>
 <iscontentasset aid="top-header-ticker-promo" />
 <iscomment> <div class="mobile-search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>/ </iscomment>

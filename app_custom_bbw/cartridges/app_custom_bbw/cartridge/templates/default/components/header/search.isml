@@ -1,12 +1,13 @@
 <div class="site-search">
     <form id="header-search" role="search" action="${URLUtils.url('Search-Show')}" method="get" name="simpleSearch">
-        <fieldset class="position-relative d-flex">
-            <input class="form-control search-field h-text-fz--body-2" type="text" name="q" value=""
+        <fieldset class="position-relative d-flex h-100">
+            <button class="btn-no-style cancel-search-button js-cancel-search-button d-md-none" name="cancel-search-button" aria-label="${Resource.msg('label.header.search.clear', 'common', null)}"></button>
+            <input class="form-control search-field h-text-fz--body-2 h-bg--white h-100 js-search-field" type="text" name="q" value=""
                 placeholder="${Resource.msg('label.header.searchwatermark', 'common', null)}" role="combobox"
                 aria-describedby="search-assistive-text" aria-haspopup="listbox" aria-owns="search-results"
                 aria-expanded="false" aria-autocomplete="list" aria-activedescendant="" aria-controls="search-results"
                 aria-label="${Resource.msg('simplesearch.searchtext', 'common', null)}" autocomplete="off" />
-            <button type="reset" name="reset-button" class="btn-no-style reset-button d-none"
+            <button type="reset" name="reset-button" class="btn-no-style reset-button js-reset-button"
                 aria-label="${Resource.msg('label.header.search.clear', 'common', null)}"></button>
             <button type="submit" name="search-button"
                 class="search-icon h-minheight--20 w-auto position-relative border-0"
@@ -17,4 +18,9 @@
             <input type="hidden" value="${pdict.locale}" name="lang" />
         </fieldset>
     </form>
+    <iscomment> Search Suggestion Wrapper </iscomment>
+    <div class="search-suggestions h-bg--white w-100 js-search-suggestions" id="search-suggestions">
+        <div class="suggestions-wrapper h-maxwidth--1400 mx-auto h-bg--white" data-url="${URLUtils.url('SearchServices-GetSuggestions', 'q')}">
+        </div>
+    </div>
 </div>
