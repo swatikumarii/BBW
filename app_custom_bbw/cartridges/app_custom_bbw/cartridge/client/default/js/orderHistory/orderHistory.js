@@ -39,6 +39,13 @@ module.exports = function () {
                 data: form,
                 success: function (data) {
                     window.location.href = data.redirectUrl;
+
+                    var addToCartSnackbar = $('#add-order-to-cart-snackbar');
+                    addToCartSnackbar.addClass('show');
+                    setTimeout(function () {
+                        addToCartSnackbar.removeClass('show');
+                    }, 3000);
+
                     $(thisData).spinner().stop();
                 },
                 error: function () {
