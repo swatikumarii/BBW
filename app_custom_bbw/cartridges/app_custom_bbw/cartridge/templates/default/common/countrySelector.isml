@@ -1,34 +1,49 @@
 <div class="modal fade hide" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+    <div class="modal-dialog countrypopup-dialog" role="document">
+        <div class="modal-content country-content border-0">
+            <div class="modal-header border-0 pb-0">
+                <h1 class="h-font-size--24 h-fw--bold popup-header h-clr--black-3">${Resource.msg('msg.current.country', 'common', null)} ${pdict.reqCountryCode}</h1>
+                <button type="button" class="close close-icon-btn" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
+                    </span>
                 </button>
             </div>
-            <b>${Resource.msg('msg.current.country', 'common', null)} ${pdict.reqCountryCode}</b>
-            <div class="modal-body">
-                <div class="card">
-                    ${Resource.msg('msg.site.country.first', 'common', null)} ${pdict.siteCountryCode}
+            <div class="modal-body popup-body mt-0">
+                <p class="h-clr--black-1 h-font-size--18 "> ${Resource.msg('msg.site.country.first', 'common', null)}
+                    ${pdict.siteCountryCode}
                     ${Resource.msg('msg.site.country.last', 'common', null)}
-                    <div class="card-body">
-                        <label for="site">${Resource.msg('label.select.location', 'common', null)}</label>
-                        <select name="site" id="selected-site">
-                            <isloop iterator="${pdict.countrySiteMapping}" alias="countrySite" status="loopState">
-                                <option value="${countrySite.site}">${countrySite.country}</option>
-                            </isloop>
-                        </select>
-                        <div>
-                        </div>
-                    </div>
+                </p>
+                <label class="h-font-size--16 h-fw--semibold h-clr--black-1" for="site">${Resource.msg('label.select.location', 'common', null)}</label>
+                <div>
+                    <select name="site" id="selected-site" class="h-clr--black-1 country-select h-font-size--18">
+                        <isloop iterator="${pdict.countrySiteMapping}" alias="countrySite" status="loopState">
+                            <option value="${countrySite.site}">${countrySite.country}</option>
+                        </isloop>
+                    </select>
+
+                </div>
+                <div class="helper-text h-clr--gray-4 h-font-size--14">
+                ${Resource.msg('label.location', 'common', null)}
+                    <a class="ds-redirect-test-link h-clr--gray-4 h-font-size--14"
+                        href="#l" data-link-text="find a store"
+                        data-formname="international-redirect-modal">${Resource.msg('label.store', 'common', null)}</a>
+                   ${Resource.msg('label.near', 'common', null)}
                 </div>
             </div>
-            <button type="button" id="switch-site">${Resource.msg('label.switch.site', 'common', null)}
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <u><span aria-hidden="true"><b>${Resource.msg('msg.stay.current', 'common', null)}
-                                ${pdict.siteCountryCode}</b></span></u>
+            <div class="select-country-list d-flex align-items-center justify-content-end">
+                <button type="button" 
+                class="close country-stay-site h-clr--gray h-font-size--16 bg-white border-0  h-fw--normal" 
+                data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">${Resource.msg('msg.stay.current', 'common', null)}
+                                ${pdict.siteCountryCode}</span>
                 </button>
+                <button type="button" id="switch-site" 
+                class="country-switch-site text-white border-0 d-flex justify-content-center text-uppercase h-font-size--16 h-fw--semibold "
+                >${Resource.msg('label.switch.site', 'common', null)}
+                </button>
+            </div>
         </div>
     </div>
 </div>
