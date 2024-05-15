@@ -54,6 +54,7 @@ $(document).ready(function () {
         $('.payment-options .nav-item .active').parent().attr('data-method-id')
     );
     google.maps.event.addDomListener(window, 'load', addressAutocomplete.initialize);
+    google.maps.event.addDomListener(window, 'load', addressAutocomplete.initializeBilling);
     var phone = document.querySelector('.shippingPhoneNumber');
     intlTelInput(phone, {
         utilsScript: utils,
