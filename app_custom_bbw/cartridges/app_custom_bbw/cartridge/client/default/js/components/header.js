@@ -62,13 +62,13 @@ module.exports = function () {
 };
 
 /** Sticky header padding on body */
-$(window).on('load resize', function () {
+$(window).on('scroll resize', function () {
     var $header = $('.header');
     var $body = $('body');
     if ($body.hasClass('checkout-page') === false) {
         $body.css('padding-top', $header.outerHeight());
     }
-
+    $('.header').addClass('fixed-header');
 });
 
 /* Stick Header - On Scroll */
