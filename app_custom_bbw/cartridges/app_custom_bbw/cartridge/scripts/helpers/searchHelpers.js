@@ -8,24 +8,66 @@ var base = module.superModule;
  * @returns {object} - content search instance
  */
 function setupFaqContentSearch(params) {
+    var ContentMgr = require('dw/content/ContentMgr');
     var ContentSearchModel = require('dw/content/ContentSearchModel');
-    var ContentSearch = require('*/cartridge/models/search/contentSearch');
+    var ContentSearch = require('*/cartridge/models/search/faqContentSearch');
+    var faqFolder = ContentMgr.getFolder('faq');
+    var folders = [];
+
     var apiContentSearchModel = new ContentSearchModel();
 
-    apiContentSearchModel.setFolderID('faq');
+    apiContentSearchModel.setFolderID(faqFolder.ID);
     apiContentSearchModel.setRecursiveFolderSearch(true);
     apiContentSearchModel.setFilteredByFolder(true);
     apiContentSearchModel.setSearchPhrase(params.query);
     apiContentSearchModel.search();
-    var contentSearchResult = apiContentSearchModel.getContent();
     var count = Number(apiContentSearchModel.getCount());
-    var contentSearch = new ContentSearch(contentSearchResult, count, params.query, params.startingPage, null);
-    
-    // collection(apiContentSearchModel.refinements.matchingFolders, function (folder) {
-    //     folder.parent.ID
-    // });
-
-    return contentSearch;
+    var contentSearch = null;
+    var contentSearchResult = null;
+    if (!params.categoryId) {
+        contentSearchResult = apiContentSearchModel.getContent();
+        contentSearch = new ContentSearch(
+            contentSearchResult,
+            count,
+            params.query,
+            params.startingPage,
+            null
+        );
+    }
+    for (var i = 0; i < faqFolder.onlineSubFolders.length; i++) {
+        var folderContentSearchModel = new ContentSearchModel();
+        folderContentSearchModel.setFolderID(faqFolder.onlineSubFolders[i].ID);
+        folderContentSearchModel.setRecursiveFolderSearch(true);
+        folderContentSearchModel.setFilteredByFolder(true);
+        folderContentSearchModel.setSearchPhrase(params.query);
+        folderContentSearchModel.search();
+        count = Number(folderContentSearchModel.getCount());
+        if (count > 0) {
+            folders.push({
+                folderId: faqFolder.onlineSubFolders[i].ID,
+                folderName: faqFolder.onlineSubFolders[i].displayName,
+                searchResultCount: count
+            });
+        }
+        if (params.categoryId &&
+            params.categoryId === faqFolder.onlineSubFolders[i].ID) {
+            contentSearchResult = folderContentSearchModel.getContent();
+            contentSearch = new ContentSearch(
+                contentSearchResult,
+                count,
+                params.query,
+                params.startingPage,
+                null
+            );
+            count = Number(folderContentSearchModel.getCount());
+        }
+    }
+    return {
+        searchPhrase: params.query,
+        count: count,
+        folders: folders,
+        contentSearch: contentSearch
+    };
 }
 
 module.exports = {
