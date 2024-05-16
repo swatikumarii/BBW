@@ -5,7 +5,7 @@
 @import "bootstrap/scss/mixins/breakpoints";
 
 .gift-wrap-choose-div.open-giftwrap {
-    background-color: #f2f2f2;
+    background-color: $clr-gray-1;
 }
 
 .gift-wrap-product-card {
@@ -33,13 +33,13 @@
             .line-item-name {
                 font-size: 1.25rem;
                 line-height: 24px;
-                color: #1a1a1a;
+                color: $clr-black-1;
             }
 
             span {
                 font-size: 12px;
                 line-height: 24px;
-                color: #1a1a1a;
+                color: $clr-black-1;
             }
         }
     }
@@ -49,7 +49,7 @@
         padding-left: 24px;
         text-decoration: none;
         padding-right: 6px;
-        color: #1a1a1a;
+        color: $clr-black-1;
         font-size: 14px;
     }
 
@@ -93,7 +93,7 @@
             display: block;
             font-size: 16px;
             padding-top: 2px;
-            color: #1a1a1a;
+            color: $clr-black-1;
             cursor: pointer;
             margin-bottom: 0;
 
@@ -105,9 +105,9 @@
 
         input[type="radio"] + label::before,
         input[type="checkbox"] + label::before {
-            background-color: #fff;
-            border: 1px solid #d8d8d8;
-            color: #fff;
+            background-color: $clr-white;
+            border: 1px solid $clr-white-1;
+            color: $clr-white;
             content: "";
             font-size: 8px;
             height: 24px;
@@ -118,58 +118,24 @@
             top: 0;
             width: 24px;
         }
-
-        // input[type="radio"] + label::before,
-        // input[type="checkbox"] + label::before {
-        //     background-color: #fff;
-        //     border-radius: 50%;
-        //     border: 1px solid #d8d8d8;
-        //     color: #fff;
-        //     content: "";
-        //     font-size: 8px;
-        //     height: 24px;
-        //     left: 0;
-        //     letter-spacing: -1px;
-        //     line-height: 26px;
-        //     position: absolute;
-        //     text-align: center;
-        //     top: 0;
-        //     width: 24px;
-        // }
-
-        // label {
-        //     padding: 0 0 0 36px;
-        //     position: relative;
-        //     display: block;
-        //     font-size: 16px;
-        //     padding-top: 2px;
-        //     color: #1a1a1a;
-        //     cursor: pointer;
-        //     margin-bottom: 0;
-
-        //     &::before {
-        //         border-radius: 0;
-        //         cursor: pointer;
-        //     }
-        // }
     }
 
     input[type="checkbox"]:checked + label::before {
-        border-color: #000;
+        border-color: $clr-black;
         content: "";
         background: url("../images/check-32.svg");
         background-size: contain;
-        background-color: black;
+        background-color: $clr-black;
     }
 
     input[type="radio"]:checked + label::before {
-        border-color: #000;
+        border-color: $clr-black;
         content: "";
         background: url("../images/check-circle-fill-32.svg") 50% no-repeat;
     }
 
     &.open-giftwrap {
-        background-color: #f2f2f2;
+        background-color: $clr-gray-1;
     }
 
     .giftwrap-block-options {
@@ -178,7 +144,7 @@
 
         .giftwrap-block-radio-wrapper {
             margin-top: 24px;
-            border-top: 1px solid #d8d8d8;
+            border-top: 1px solid $clr-white-1;
 
             #giftwrap-block-radio {
                 padding-bottom: 8px;
@@ -204,7 +170,7 @@
                     top: 2px;
                     width: 1px;
                     border-radius: 2px;
-                    color: #1a1a1a;
+                    color: $clr-black-1;
                     font-size: 16px;
                 }
 
@@ -224,10 +190,10 @@
 
                 input[type="radio"] + label::before,
                 input[type="checkbox"] + label::before {
-                    background-color: #fff;
+                    background-color: $clr-white;
                     border-radius: 50%;
-                    border: 1px solid #d8d8d8;
-                    color: #fff;
+                    border: 1px solid $clr-white-1;
+                    color: $clr-white;
                     content: "";
                     font-size: 8px;
                     height: 24px;
@@ -241,7 +207,7 @@
 
                 input[type="radio"]:checked + label::before,
                 input[type="checkbox"]:checked + label::before {
-                    border-color: #000;
+                    border-color: $clr-black;
                     content: "";
                     background: url("../images/check-circle-fill-32.svg") 50%
                         no-repeat;
@@ -281,9 +247,9 @@
                     }
 
                     .gift-wrap-product-label {
-                        background-color: #fff;
-                        border: 1px solid #d8d8d8;
-                        color: #fff;
+                        background-color: $clr-white;
+                        border: 1px solid $clr-white-1;
+                        color: $clr-white;
                         content: "";
                         bottom: -18px;
                         left: 50%;
@@ -339,7 +305,7 @@
 
                         .giftwrap-container {
                             text-align: left;
-                            background-color: #fff;
+                            background-color: $clr-white;
                             height: 100%;
                             overflow: hidden auto;
                             width: 100%;
@@ -363,12 +329,12 @@
                                 p {
                                     font-size: 15px;
                                     line-height: 24px;
-                                    color: #1a1a1a;
+                                    color: $clr-black-1;
                                 }
 
                                 .inline-alert {
-                                    border: 1px solid #b4b4b4;
-                                    color: #000;
+                                    border: 1px solid $clr-gray-2;
+                                    color: $clr-black;
                                     font-size: 14px;
                                     letter-spacing: 0.4px;
                                     line-height: 24px;
@@ -384,8 +350,8 @@
                                         text-align: left;
 
                                         span::before {
-                                            background-color: #000;
-                                            color: #fff;
+                                            background-color: $clr-black;
+                                            color: $clr-white;
                                             content: "i";
                                             font-size: 11px;
                                             font-weight: 700;
@@ -416,12 +382,6 @@
                                 input {
                                     margin-left: 2px;
                                 }
-
-                                // label {
-                                //     padding-left: 25px;
-                                //     display: inline-block;
-                                //     cursor: pointer;
-                                // }
                             }
 
                             .vertical-tile-list {
@@ -431,7 +391,7 @@
                             .checkout-tile {
                                 height: 120px;
                                 position: relative;
-                                border: 1px solid #b4b4b4;
+                                border: 1px solid $clr-gray-2;
                                 cursor: pointer;
 
                                 .input-type-radio {
@@ -461,8 +421,8 @@
                                         left: auto;
                                         right: 24px;
                                         top: 22px;
-                                        border: 1px solid #d8d8d8;
-                                        color: #fff;
+                                        border: 1px solid $clr-white-1;
+                                        color: $clr-white;
                                         content: "";
                                         font-size: 8px;
                                         height: 24px;
@@ -499,13 +459,6 @@
                                     line-height: 24px;
                                 }
 
-                                .product-ritual {
-                                    color: #9a7b69;
-                                    font-size: 12px;
-                                    line-height: 16px;
-                                    text-transform: uppercase;
-                                }
-
                                 .product-title {
                                     line-height: 18px;
                                     font-size: 14px;
@@ -528,8 +481,8 @@
 
                                 .js-giftwrap-individual-cancel {
                                     background-color: transparent;
-                                    border: 1px solid #b4b4b4;
-                                    color: #1a1919;
+                                    border: 1px solid $clr-gray-2;
+                                    color: $clr-black-2;
                                 }
 
                                 .btn {
@@ -552,9 +505,9 @@
     display: inline-block;
     overflow-y: auto;
     box-shadow: 0 0 25px -5px rgba(0, 0, 0, 14%);
-    background-color: #fff;
+    background-color: $clr-white;
     width: 100%;
-    color: #000;
+    color: $clr-black;
     transition: right 0.5s ease-in-out;
     max-width: 340px;
     inset: 0 -100% 0 auto;
