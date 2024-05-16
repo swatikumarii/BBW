@@ -36,7 +36,7 @@ function isMobileSearch(scope) {
 function clearModals() {
     $('body').removeClass('modal-open');
     $('header').siblings().attr('aria-hidden', 'false');
-    $('.suggestions').removeClass('modal');
+    $('.suggestions').removeClass('active modal');
 }
 
 /**
@@ -58,7 +58,8 @@ function tearDownSuggestions() {
     $('input.search-field').val('');
     clearModals();
     $('.search-mobile .suggestions').unbind('scroll');
-    $('.suggestions').empty();
+    $('.suggestions').empty().removeAttr('style');
+    $('.site-search').hide();
 }
 
 /**
@@ -137,7 +138,7 @@ function processResponse(response) {
         } else {
             $suggestionsWrapper.show();
             if (!$suggestionsWrapper.find('.suggestions').hasClass('active')) {
-                $suggestionsWrapper.find('.suggestions').addClass('active modal').offset({ top: + $('#header-search').outerHeight()}).stop().slideDown();
+                $suggestionsWrapper.find('.suggestions').offset({ top: $('#header-search').outerHeight()}).addClass('active modal').slideDown();
             }
         }
 
@@ -277,13 +278,11 @@ module.exports = function () {
 
         // Attach focus event handler
         $(this).on('focus', function () {
-            // console.log('Focus In');
             var phraseLength = $(this).val().length;
             if (phraseLength > 0) {
                 $('.js-reset-button').show();
             }
         }).on('blur', function () {
-            // console.log('Focus out');
             suggestionsProcessing = false;  // Reset flag on blur
             var phraseLength = $(this).val().length;
             if (!phraseLength > 0) {
@@ -315,15 +314,19 @@ module.exports = function () {
             if (!suggestionsProcessing) {
                 suggestionsProcessing = true;  // Set flag to true to indicate processing is active
                 handleInputFocus(this);
-                // var phraseLength = $(this).val().length;
-                // if (phraseLength > 0) {
-                // }
             }
         });
     });
 
+    $(document.body).on('click', '.js-mobile-custom-search', function () {
+        if (layout.isMobile()) {
+            $('.site-search').show();
+            $('input.search-field').focus().trigger('click');
+        }
+    });
+
     $(document.body).on('click', function (e) {
-        if (!$('.js-search-suggestions').has(e.target).length && !$(e.target).hasClass('search-field') && !$(e.target).hasClass('js-reset-button')) {
+        if (!$(e.target).closest('.js-search-suggestions').length || !$(e.target).closest('.search-field') || !$(e.target).closest('.js-reset-button')) {
             if (layout.isDesktop() || layout.isTablet()) {
                 $('.js-search-suggestions').stop().slideUp();
             }
@@ -331,12 +334,16 @@ module.exports = function () {
         }
     });
 
+    $(document.body).on('click', '.js-search-suggestions .add-to-cart', function () {
+        $('#header-search').removeClass('expand-towards-right');
+        $('.utility-user, .minicart').removeClass('d-lg-none d-md-none');
+    });
+
     $('.js-cancel-search-button').on('click touchend', function (e) {
-        // console.log('cancel button clicked');
         e.preventDefault();
-        $('.suggestions').removeClass('active');
         toggleSuggestionsIcon('search');
         tearDownSuggestions();
+        $('.search-fly-out-opacity').addClass('d-none');
     });
 
     $('.js-reset-button').on('click', function () {

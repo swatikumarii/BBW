@@ -183,7 +183,7 @@ header {
                             white-space: nowrap;
                             padding: 0 40px 0 12px;
 
-                            @include media-down(md) {
+                            @include media-down(sm) {
                                 border: none;
                                 padding: 0 2.5rem;
                             }
@@ -248,7 +248,7 @@ header {
                             z-index: 101;
                             background-color: transparent;
 
-                            @include media-up(md) {
+                            @include media-up(sm) {
                                 top: -0.1875rem;
                                 right: 0.25rem;
                             }

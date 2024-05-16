@@ -11,7 +11,7 @@ if (layout.isDesktop() || layout.isTablet()) {
     });
 
     $(document).on('click', 'body', function (e) {
-        if (!$(e.target).closest('.search-suggestions.active').length) {
+        if (!$(e.target).closest('.js-search-suggestions').length) {
             $('#header-search').removeClass('expand-towards-right');
             $('.utility-user, .minicart').removeClass('d-lg-none d-md-none');
             $('.search-fly-out-opacity').addClass('d-none');

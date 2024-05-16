@@ -35,7 +35,7 @@
                 </button>
                 <iscomment>Mobile Menu</iscomment>
                 <div id="mobile-custom-search"
-                    class="mobile-custom-search d-md-none hidden-md-up fa-pull-left m-0 text-center">
+                    class="mobile-custom-search d-md-none hidden-md-up fa-pull-left m-0 text-center js-mobile-custom-search">
                     <a href="" role="button">
                         <img class="" src="${URLUtils.staticURL('/images/header/UI-Search-v2.svg')}"
                             alt="${Resource.msg('global.search', 'common', null)}" />
@@ -70,8 +70,8 @@
             <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
         </div>
     </nav>
+<div class="search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>
 </header>
 <iscomment> Search Suggestions - Overlay </iscomment>
-<div class="search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>
 <iscontentasset aid="top-header-ticker-promo" />
 <iscomment> <div class="mobile-search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>/ </iscomment>
