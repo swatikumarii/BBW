@@ -16,12 +16,12 @@
 <iselse/>
     <div class="user hidden-md-down nav-item">
         <div class="account-dropdown">
-            <a class="user-btn border-0 h-bg--white p-0 dropdown-toggle" href="${'#'}" id="myaccount"
+            <button class="user-btn border-0 h-bg--white p-0 dropdown-toggle" id="myaccount"
                 aria-haspopup="true" type="button" data-toggle="dropdown"
                 aria-label="${Resource.msg('link.header.myaccount', 'account', null)}" role="button">
                 <img src="${URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
                     alt="${Resource.msg('global.storename', 'common', null)}" />
-            </a>
+            </button>
 
             <ul class=" dropdown-menu dropdown-menu-right" role="menu"
                 aria-label="${Resource.msg('label.profile.myaccountlink', 'account', null)}" aria-hidden="true">
