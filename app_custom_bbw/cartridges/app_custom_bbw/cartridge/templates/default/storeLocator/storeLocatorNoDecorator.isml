@@ -28,8 +28,8 @@
         </div>
     </div>
 
-    <div class="row w-100">
-        <div class="col-sm-12 results-card store-result-wrap">
+    <div class="row w-100 mx-auto">
+        <div class="results-card store-result-wrap">
             <div class="number-of-stores-div d-none">
                 <span>${Resource.msg('msg.there.are', 'storeLocator', null)}</span>
                 <span id="number-of-stores"></span>
