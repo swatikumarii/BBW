@@ -14,7 +14,7 @@ function completeProfile() {
         'sendProfileCompletionReminderEmail'
     );
     if (sendProfileCompletionReminderEmail) {
-        var incompleteProfiles = CustomerMgr.queryProfiles('custom.isProfileComplete = {0} or custom.isProfileComplete = {1}', null, false, null);
+        var incompleteProfiles = CustomerMgr.queryProfiles('custom.isProfileComplete = {0} or custom.isProfileComplete = {1}', null, false);
         collections.map(incompleteProfiles, function (profile) {
             var emailObj = {
                 to: profile.email,

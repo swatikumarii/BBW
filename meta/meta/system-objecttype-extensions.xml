@@ -874,6 +874,18 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <default-value>true</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="metaPixelEnabled">
+                <display-name xml:lang="x-default">Enable Meta pixel</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="metaPixelScript">
+                <display-name xml:lang="x-default">Meta pixel script</display-name>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="apDisplayPlpInfo">
                 <display-name xml:lang="x-default">Afterpay Display Product List Page Information</display-name>
                 <description xml:lang="x-default">Determines if the Afterpay information is display on the product tile</description>
@@ -1144,6 +1156,8 @@
                 <attribute attribute-id="gtmScriptEnabled"/>
                 <attribute attribute-id="gtmHeadScript"/>
                 <attribute attribute-id="gtmBodyScript"/>
+                <attribute attribute-id="metaPixelEnabled"/>
+                <attribute attribute-id="metaPixelScript"/>
             </attribute-group>
             <attribute-group group-id="qwikcilver">
                 <display-name xml:lang="x-default">Qwikcilver</display-name>
