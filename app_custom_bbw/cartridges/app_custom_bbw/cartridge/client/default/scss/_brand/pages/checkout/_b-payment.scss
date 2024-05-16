@@ -17,7 +17,7 @@
             .customer {
                 &.registered {
                     display: none;
-
+                    /* stylelint-disable selector-no-redundant-nesting-selector*/
                     & + .shipping {
                         display: none;
 

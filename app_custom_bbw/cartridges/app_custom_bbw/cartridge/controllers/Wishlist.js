@@ -34,6 +34,7 @@ server.prepend('AddProduct', function (req, res, next) {
 server.append('Show', function (req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
     var Resource = require('dw/web/Resource');
+    var CustomObjectMgr = require('dw/object/CustomObjectMgr');
     var viewData = res.getViewData();
 
     var breadcrumbs = [
@@ -50,6 +51,17 @@ server.append('Show', function (req, res, next) {
             url: URLUtils.url('Wishlist-Show').toString()
         }
     ];
+
+    var userEmail = req.currentCustomer.raw.registered ? req.currentCustomer.profile.email : false;
+
+    for (var index = 0; index < viewData.wishlist.items.length; index++) {
+        var productRecord = CustomObjectMgr.getCustomObject('notifyBackInStock', viewData.wishlist.items[index].pid);
+        viewData.wishlist.items[index].productPresentInNotifyList = false;
+        if (userEmail && productRecord !== null && productRecord.custom.user.indexOf(userEmail) !== -1) {
+            viewData.wishlist.items[index].productPresentInNotifyList = true;
+        }
+    }
+
     viewData.breadcrumbs = breadcrumbs;
 
     res.setViewData(viewData);
