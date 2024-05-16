@@ -96,9 +96,12 @@ function updateStoresResults(data) {
     if (!hasResults) {
         $('.store-locator-no-results').removeClass('d-none');
         $('#no-stores-result').show();
+        $('.number-of-stores-div').addClass('d-none');
     } else {
         $('.store-locator-no-results').addClass('d-none');
         $('#no-stores-result').hide();
+        $('.number-of-stores-div').removeClass('d-none');
+        $('#number-of-stores').text(data.stores.length);
     }
 
     $resultsDiv.empty()
