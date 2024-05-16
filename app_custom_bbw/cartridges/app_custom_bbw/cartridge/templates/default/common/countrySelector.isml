@@ -24,10 +24,10 @@
                     </select>
 
                 </div>
-                <div class="helper-text h-clr--gray-4 h-font-size--14">
+                <div class="location-para  h-clr--gray-4 h-font-size--14">
                 ${Resource.msg('label.location', 'common', null)}
-                    <a class="ds-redirect-test-link h-clr--gray-4 h-font-size--14"
-                        href="#l" data-link-text="find a store"
+                    <a class="store-redirect h-clr--gray-4 h-font-size--14"
+                        href="${URLUtils.url('Page-Show', 'cid', 'global-locations')}" data-link-text="find a store"
                         data-formname="international-redirect-modal">${Resource.msg('label.store', 'common', null)}</a>
                    ${Resource.msg('label.near', 'common', null)}
                 </div>
