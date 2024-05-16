@@ -27,24 +27,24 @@
                         </div>
                     </div>
                 </div>
-                <isif condition="${pdict.noSavedPayments}">
+                <iscomment> <isif condition="${pdict.noSavedPayments}">
                     <div class="row justify-content-center h3 no-saved-payments">
                         <p>${Resource.msg('msg.no.saved.payments', 'payment', null)}</p>
                     </div>
-                </isif>
+                </isif> </iscomment>
                 <isinclude template="account/payment/savedPayments" />
                 <div class="row justify-content-center">
-                    <div class="col-8">
+                    <div class="col-12">
                         <div class="row">
-                            <div class="col">
+                            <iscomment> <div class="col">
                                 <a href="${URLUtils.url('Account-Show')}" class="text-center back-to-account-link"
                                     aria-label="${Resource.msg('label.addressbook.myaccount', 'account', null)}">
                                     ${Resource.msg('link.profile.backtomyaccount', 'account', null)}
                                 </a>
-                            </div>
+                            </div> </iscomment>
                             <isif condition="${pdict.addPaymentUrl}">
                                 <div class="col">
-                                    <a href="${pdict.addPaymentUrl}" class="btn btn-save btn-block btn-primary"
+                                    <a href="${pdict.addPaymentUrl}" class="btn btn-save btn-hover"
                                         aria-label="${Resource.msg('label.payment.addnewpayment', 'payment', null)}">${Resource.msg('label.payment.addnewpayment', 'payment', null)}</a>
                                 </div>
                             </isif>

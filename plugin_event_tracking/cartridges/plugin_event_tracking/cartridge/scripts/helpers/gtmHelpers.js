@@ -622,6 +622,21 @@ function signUp(res) {
     return {};
 }
 
+/**
+ * @param {object} res - current route response object
+ * @returns {object} Object containing order check failure data.
+ */
+function getOrderCheckData(res) {
+    if (res.error) {
+        var obj = {
+            event: gtmEvents.ORDER_CHCEK_FAILURE
+        };
+        return obj;
+    }
+    return {};
+}
+
+
 // eslint-disable-next-line jsdoc/require-returns-check
 /**
  * @param {object} res - current route response object
@@ -662,6 +677,8 @@ function getDataLayer(res) {
                 return addPayment(res);
             case 'Order-Confirm':
                 return getConfirmationData(res);
+            case 'Order-Check':
+                return getOrderCheckData(res);
             default:
                 return false;
         }
