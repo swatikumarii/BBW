@@ -382,9 +382,9 @@ function getSearchImpressionData(res) {
     var obj;
     if (!res.queryString.includes('cgid')) {
         obj = {
-            'event': 'search',
-            'ecommerce': {
-                'items': []
+            event: gtmEvents.SEARCH_SHOW,
+            ecommerce: {
+                items: []
             }
         };
         if ('productSearch' in res) {
