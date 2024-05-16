@@ -1,26 +1,49 @@
 @import "../../_brand/_api/api";
 
 .sitemap-page {
-    .sitemap-list {
-        line-height: 32px;
-    }
+    .customer-list {
+        h1 {
+            margin-bottom: 10px;
+        }
 
-    .corporate-title {
-        padding-top: 1rem;
+        .corporate-title {
+            margin-bottom: 10px;
+            line-height: 10px;
+        }
+
+        .sitemap-list {
+            margin: 20px 0;
+
+            a {
+                line-height: 16.5px;
+            }
+        }
     }
 
     .sitemap-banner {
         h1 {
-            padding-top: 22px;
+            margin-bottom: 40px;
+            line-height: 18.3px;
         }
     }
 
-    .sitemap-title-head {
-        margin-top: 48px;
+    .sitemap-cateogry {
+        text-decoration: underline;
+        line-height: 15px;
     }
 
-    .sitemap-cateogry {
-        color: colour(blue, 6);
-        line-height: 33px;
+    .sitemap-title {
+        a {
+            line-height: 16.5px;
+        }
+    }
+
+    .end-level-category {
+        margin: 20px 0;
+
+        a {
+            line-height: 16.5px;
+            word-wrap: break-word;
+        }
     }
 }
