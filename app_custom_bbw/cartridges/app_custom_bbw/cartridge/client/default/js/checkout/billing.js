@@ -1,6 +1,6 @@
 'use strict';
 
-var addressHelpers = require('base/checkout/address');
+var addressHelpers = require('./address');
 var cleave = require('base/components/cleave');
 
 /**
@@ -321,6 +321,21 @@ module.exports = {
                     $('.cardNumber').data('cleave').setRawValue(attrs[attr]);
                 } else {
                     $('[name$=' + element + ']', form).val(attrs[attr]);
+                }
+                // validate an hide/show errors
+                var $input = $('[name$=' + element + ']', form);
+                var $errorMessage = $input.next('.invalid-feedback');
+                if ($input[0].checkValidity()) {
+                    $errorMessage.hide();
+                    $input.removeClass('is-invalid');
+                } else {
+                    var errorText;
+                    if ($input.val().length === 0) {
+                        errorText = $input.data('missing-error');
+                    } else {
+                        errorText = $input.data('pattern-mismatch');
+                    }
+                    $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
                 }
             });
         });

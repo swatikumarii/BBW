@@ -52,9 +52,7 @@
     <div class="birthday-date">
         <p class="mb-0">${pdict.profileForm.customer.dob.value}</p>
     </div>
-    <iscomment>
         <p class="form-caption">${Resource.msg('form.birthday.caption', 'forms', null)}</p>
-    </iscomment>
 </div>
 
 
@@ -64,7 +62,6 @@
         <isprint value="${pdict.profileForm.customer.zipCode.label}" encoding="htmlcontent" />
     </label>
     <input type="text" class="form-control" id="zipCode"
-        data-missing-error="${Resource.msg('error.message.zip.required', 'forms', null)}"
         data-range-error="${Resource.msg('error.message.zip.upto4', 'forms', null)}"
         data-pattern-mismatch="${Resource.msg('error.message.parse.zip', 'forms', null)}"
         aria-describedby="form-zip-error" <isprint value=${pdict.profileForm.customer.zipCode.attributes} encoding="off" />
@@ -79,8 +76,9 @@
     </label>
     <div class="invalid-feedback"></div>
     <input type="password" class="form-control password" id="password"
-        data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
+        data-missing-error="${Resource.msg('error.message.password', 'forms', null)}"
         data-range-error="${Resource.msg('error.message.password.8_50characters', 'forms', null)}"
+        data-pattern-mismatch="${Resource.msg('error.message.parse.password', 'forms', null)}"
         aria-describedby="form-password-error" autocomplete="off" <isprint
         value=${pdict.profileForm.login.password.attributes} encoding="off" />/>
     <button type="button" class="show-hide-password" aria-label="Show Password"><span class="show">Show</span></button>
@@ -93,7 +91,7 @@
     value="${pdict.profileForm.customer.emailconfirm.attributes}" />
 
 
-<p class="h-font-size--12 text-center"><a class="h-clr--black-3"
+<p class="h-font-size--12 text-center"><a class="h-clr--black-3 privacy-text"
         href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}"
         title="Go to Privacy">${Resource.msg('form.privacy.policy', 'forms', null)}</a></p>
 
@@ -108,7 +106,7 @@
 <iselse/>
     <div class="row justify-content-center form-group">
         <button type="submit" name="save"
-            class="btn btn-save btn-hover text-uppercase btn-primary">${Resource.msg('button.update', 'account', null)}</button>
+            class="btn btn-save btn-hover text-uppercase btn-primary submit-edit-profile">${Resource.msg('button.update', 'account', null)}</button>
     </div>
 </isif>
 </form>

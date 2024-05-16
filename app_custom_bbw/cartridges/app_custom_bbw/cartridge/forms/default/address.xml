@@ -16,9 +16,9 @@
               type="string"
               mandatory="true"
               binding="firstName"
-              min-length="2"
+              min-length="1"
               max-length="50"
-              regexp="^[a-zA-Z0-9'\-]+$"
+              regexp="^[a-zA-Z0-9 ''\-]+$"
               missing-error="error.first.name"
               parse-error="error.message.parse.fname"
               range-error="error.message.50orless.fname"/>
@@ -28,9 +28,9 @@
               type="string"
               mandatory="true"
               binding="lastName"
-               min-length="2"
+              min-length="1"
               max-length="50"
-              regexp="^[a-zA-Z0-9'\-]+$"
+              regexp="^[a-zA-Z0-9 ''\-]+$"
               missing-error="error.last.name"
               parse-error="error.message.parse.lname"
               range-error="error.message.50orless.lname"/>

@@ -1,6 +1,11 @@
 <div id="order-list-accordion" class="accordion">
+    <isset name="previousYear" value="0" scope="page" />
     <input type="hidden" class="add-order-to-cart-url" value="${URLUtils.url('Cart-AddProductFromOrder')}" />
-    <isloop items="${pdict.orders}" var="order">
+    <isloop items="${pdict.orders}" var="order" status="loopstate">
+        <isif condition="${order.creationDate.getFullYear().toString() !== previousYear}">
+            <h3 class="headinfo-year">${order.creationDate.getFullYear().toString()} ${Resource.msg('label.orders', 'account', null)}</h3>
+            <isset name="previousYear" value="${order.creationDate.getFullYear().toString()}" scope="page" />
+        </isif>
         <isinclude template="account/order/orderHistoryCard" />
     </isloop>
 </div>

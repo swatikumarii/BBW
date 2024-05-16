@@ -16,16 +16,16 @@
                     ${item.name}
                 </a>
                 </div>
-                ${item.titlePartB}
-                <div class="line-item-id">
+                <p class="category-item mb-0">${item.titlePartB}</p>
+                <p class="line-item-id">
                     ${Resource.msg('label.item.no', 'wishlist', null)}${item.pid}
-                </div>
+                </p>
             </td>
             <td class="item-price">
                 <!---unit price and quantity --->
                 <isinclude template="wishlist/components/productListItemProductPrice" />
                 <isloop items="${item.promotions}" var="promotion" status="loopstatus">
-                    <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
+                    <div class="promotion-callout h-font-size--18 h-clr--red-9">
                         <span class="callout-message">
                             <isprint value="${promotion.calloutMsg}" encoding="off" />
                         </span>
@@ -51,7 +51,7 @@
                 <isinclude template="wishlist/components/wishlistProductCardAvailability" />
 
                 <isset name="creationDate" value="${new Date(item.creationDate)}" scope="page" />
-                <div class="createDate"> ${creationDate.getDate().toString() + '\\' + (creationDate.getMonth() + 1) + '\\' + creationDate.getFullYear().toString()} </div>
+                <div class="createDate">${Resource.msg('wishlist.date.added', 'wishlist', null)} ${creationDate.getDate().toString() + '\\' + (creationDate.getMonth() + 1) + '\\' + creationDate.getFullYear().toString()} </div>
                 <div class="wishlist-item">
                     <!-- Check if express shipping is available -->
                     <isif

@@ -62,12 +62,45 @@ $(document).ready(function () {
     }
 
     /**
+     * Generic validation function for password fields
+     * @param {object} passwordInput input field on which validation will be tested
+     * @returns {boolean} valid or not
+     */
+    function validatePasswordFieldWithValidation(passwordInput) {
+        if (!validateRequiredField(passwordInput)) return false;
+
+        // Remove existing success messages and ticks
+        passwordInput.closest('.form-group').find('.text-success').remove();
+        passwordInput.closest('.form-group').find('.far').remove();
+
+        // Check for each requirement and display a green tick with success message
+        var rules = [
+            { name: 'rule8to50char', pattern: /^.{8,50}$/ },
+            { name: 'rule1lowercase', pattern: /[a-z]/ },
+            { name: 'rule1uppercase', pattern: /[A-Z]/ },
+            { name: 'rule1number', pattern: /\d/ },
+            { name: 'ruleNoSpaces', pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,50}$/ },
+            { name: 'ruleSpecialChar', pattern: /[@$!%*?&]/ }
+        ];
+
+        rules.forEach(function (rule) {
+            if (rule.pattern.test(passwordInput.val())) {
+                $('#' + rule.name).removeClass('error').addClass('success');
+            } else {
+                $('#' + rule.name).removeClass('success').addClass('error');
+            }
+        });
+
+        return true;
+    }
+
+    /**
      * Generic validation function for first name and last name
      * @param {object} input input field on which validation will be tested
      * @returns {boolean} valid or not
      */
     function validMinLength(input) {
-        var pattern = /^[a-zA-Z0-9'-]{2,50}$/;
+        var pattern = /^[a-zA-Z0-9' -]{2,50}$/;
         if (!validateRequiredField(input)) return false;
         if (!pattern.test(input.val())) {
             input.addClass('is-invalid border-danger'); // Add class for input border error
@@ -112,17 +145,46 @@ $(document).ready(function () {
 
     /**
      * Generic validation function for zip code
+     * @param {object} inputField input field on which validation will be tested
+     * @returns {boolean} valid or not
+     */
+    function validZipCode(inputField) {
+        // Get the dynamic minlength and maxlength values
+        var minLength = parseInt(inputField.attr('minlength'), 10); // Specify radix 10
+        var maxLength = parseInt(inputField.attr('maxlength'), 10); // Specify radix 10
+
+        // Construct the regular expression
+        var regex = new RegExp('^[0-9]{' + minLength + ',' + maxLength + '}$');
+        if (inputField.val() && !regex.test(inputField.val())) {
+            inputField.addClass('is-invalid border-danger'); // Add classes for input border error
+            var errorMessage = $('#' + inputField.attr('id')).attr(
+                'data-pattern-mismatch'
+            );
+            $('#' + inputField.attr('id'))
+                .closest('.form-group')
+                .find('.invalid-feedback')
+                .text(errorMessage);
+            return false;
+        }
+        inputField.removeClass('is-invalid border-danger'); // Remove classes if input is valid
+        $('#' + inputField.attr('id') + '-error').empty(); // Clear error message
+        return true;
+    }
+
+    /**
+     * Generic validation function for zip code
      * @param {object} input input field on which validation will be tested
      * @returns {boolean} valid or not
      */
-    function validZipCode(input) {
+    function validZipCodeRequired(input) {
         // Get the dynamic minlength and maxlength values
         var minLength = parseInt(input.attr('minlength'), 10); // Specify radix 10
         var maxLength = parseInt(input.attr('maxlength'), 10); // Specify radix 10
 
         // Construct the regular expression
-        var pattern = new RegExp('^[0-9]{' + minLength + ',' + maxLength + '}$');
-        // var pattern = /^[0-9]{4}$/;
+        var pattern = new RegExp(
+            '^[0-9]{' + minLength + ',' + maxLength + '}$'
+        );
         if (!validateRequiredField(input)) return false;
         if (!pattern.test(input.val())) {
             input.addClass('is-invalid border-danger'); // Add class for input border error
@@ -146,11 +208,11 @@ $(document).ready(function () {
             selector: '#currentPassword',
             validationFunction: validatePasswordField
         },
-        { selector: '#newPassword', validationFunction: validatePasswordField },
+        { selector: '#newPassword', validationFunction: validatePasswordFieldWithValidation },
         { selector: '#firstName', validationFunction: validMinLength },
         { selector: '#lastName', validationFunction: validMinLength },
         { selector: '#phone', validationFunction: validPhoneNumber },
-        { selector: '#zip', validationFunction: validZipCode },
+        { selector: '#zip', validationFunction: validZipCodeRequired },
         { selector: '#password', validationFunction: validatePasswordField },
         { selector: '#addressId', validationFunction: validateRequiredField },
         { selector: '#address1', validationFunction: validateRequiredField },
@@ -160,10 +222,42 @@ $(document).ready(function () {
         { selector: '#phone', validationFunction: validPhoneNumber }
     ];
 
+    /**
+     * Add a function to check if the form is valid
+     */
+    function editProfileFormValidity() {
+        var isFormValid = true;
+        var editProfileForm = $('form.edit-profile-form');
+        validationFields.forEach(function (field) {
+            var inputField = $(field.selector);
+            if (
+                editProfileForm.is(inputField.closest('form')) &&
+                !field.validationFunction(inputField)
+            ) {
+                isFormValid = false;
+            }
+        });
+        var submitButtons = $('button[type="submit"].submit-edit-profile');
+        if (isFormValid && editProfileForm.get(0).checkValidity()) {
+            submitButtons.removeClass('disabled');
+        } else {
+            submitButtons.addClass('disabled');
+        }
+    }
+
     // Loop through the array and attach blur event handlers dynamically
     validationFields.forEach(function (field) {
+        if (field.selector === '#newPassword') {
+            $(document).on('keyup', field.selector, function () {
+                validateField(field.selector, field.validationFunction);
+            });
+        }
         $(document).on('blur', field.selector, function () {
             validateField(field.selector, field.validationFunction);
+            var form = $(this).closest('form.edit-profile-form');
+            if (form.length > 0) {
+                editProfileFormValidity();
+            }
         });
     });
 });
@@ -201,3 +295,14 @@ window.submitProfile = function (token) {
         grecaptcha.reset();
     });
 };
+
+$('#newPassword').click(function () {
+    $('.required-pass').removeClass('d-none');
+});
+
+$('body').click(function (event) {
+    // Check if the clicked element is not inside the #newPassword element
+    if (!$(event.target).closest('#newPassword').length) {
+        $('.required-pass').addClass('d-none');
+    }
+});

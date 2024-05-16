@@ -13,46 +13,45 @@
                 <option optionid="Miss" label="label.select.miss.salutation.profile" value="3" />
             </options>
         </field>
-		<field 
-			formid="firstname" 
-			label="label.input.firstname.profile" 
-			mandatory="true" 
+		<field
+			formid="firstname"
+			label="label.input.firstname.profile"
+			mandatory="true"
 			min-length="2"
 			max-length="50"
-			regexp="^[a-zA-Z0-9'\-]+$"
-			missing-error="error.message.fname.required" 
-			range-error="error.message.fname.2orGreater" 
+			regexp="^[a-zA-Z0-9 ''\-]+$"
+			missing-error="error.message.fname.required"
+			range-error="error.message.fname.2orGreater"
 			parse-error="error.message.parse.fname"
 			value-error="ValueErrorText"
 			type="string" />
 
-		<field 
-			formid="lastname" 
-			label="label.input.lastname.profile" 
-			mandatory="true" 
-			min-length="2"
-			max-length="50" 
+		<field
+			formid="lastname"
+			label="label.input.lastname.profile"
+			mandatory="true"
+			max-length="50"
 			regexp="^[a-zA-Z0-9'\-]+$"
 			missing-error="error.message.required"
-			range-error="error.message.lname.2orGreater" 
+			range-error="error.message.lname.2orGreater"
 			parse-error="error.message.parse.lname"
 			value-error="ValueErrorText"
 			type="string" />
 
 		<field
-			formid="email" 
-			label="label.input.email.profile" 
-			mandatory="true" 
-			max-length="50" 
+			formid="email"
+			label="label.input.email.profile"
+			mandatory="true"
+			max-length="50"
 			missing-error="error.message.email.required"
 			parse-error="error.message.parse.email"
 			range-error="error.message.email.50orless"
-			regexp="^[\w.%+\-]+@[\w.\-]+\.\w{2,}$" 
+			regexp="^[\w.%+\-]+@[\w.\-]+\.\w{2,}$"
 			value-error="ValueErrorText"
-			type="string"/> 
+			type="string"/>
 			<!-- TODO value-error not comming back from the platform -->
 
-		<field 
+		<field
 			formid="emailconfirm"
 			label="label.input.emailconfirm.profile"
 			mandatory="true"
@@ -62,17 +61,17 @@
 			range-error="error.message.email.50orless"
 			regexp="^[\w.%+\-]+@[\w.\-]+\.\w{2,}$"
 			value-error="ValueErrorText"
-			type="string"/> 
+			type="string"/>
 			<!-- TODO value-error not comming back from the platform -->
-			
-		<field 
+
+		<field
 			formid="phone"
 			label="label.input.phone.profile"
 			mandatory="true"
         	regexp="^((?!(0))[0-9]{8,12})$"
            	missing-error="error.phone.number"
            	parse-error="error.message.pattern.phone"
-			type="string"/> 
+			type="string"/>
 
 		<field
             formid="gender"
@@ -87,37 +86,36 @@
             </options>
         </field>
 
-		<field 
-			formid="dob" 
-			label="label.input.dob.profile" 
+		<field
+			formid="dob"
+			label="label.input.dob.profile"
 			mandatory="true"
             max-length="10"
 			regexp="^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$"
-			missing-error="error.message.dob.required" 
+			missing-error="error.message.dob.required"
 			parse-error="error.message.parse.dob"
 			value-error="ValueErrorText"
 			type="string" />
 
-		<field 
-			formid="zip" 
-			label="label.input.zip.profile" 
+		<field
+			formid="zip"
+			label="label.input.zip.profile"
 			min-length="4"
 			max-length="10"
-			regexp="^[0-9]*$"
-			range-error="error.message.zip.10orless" 
+			regexp="^[a-zA-Z0-9'\-]{4,10}$"
+			range-error="error.message.zip.10orless"
 			parse-error="error.message.zip.fname"
 			value-error="ValueErrorText"
 			type="string" />
 
-		<field 
-			formid="zipCode" 
-			label="label.input.zip.profile" 
-			mandatory="true"
+		<field
+			formid="zipCode"
+			label="label.input.zip.profile"
 			min-length="4"
 			max-length="10"
 			regexp="^[0-9]*$"
 			missing-error="error.message.zip.required"
-			range-error="error.message.zip.10orless" 
+			range-error="error.message.zip.10orless"
 			parse-error="error.message.zip.fname"
 			value-error="ValueErrorText"
 			type="string" />
@@ -131,45 +129,62 @@
             type="string">
         </field>
 
-		<field 
-			formid="addtoemaillist" 
-			label="description.checkbox.emailsignup.profile"  
+		<field
+			formid="addtoemaillist"
+			label="description.checkbox.emailsignup.profile"
 			type="boolean"/>
 	</group>
 
 	<group formid="login">
-		<field 
-			formid="password" 
+		<field
+			formid="password"
 			label="label.input.password.profile"
 			mandatory="true"
 			min-length="8"
-			max-length="255"
-			range-error="error.message.8_255characters"
+			max-length="50"
+			regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?])[A-Za-z\d@$!%*?]{8,50}$"
+			missing-error="error.message.password"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
 			value-error="error.message.currentpasswordnomatch"
 			type="string" />
 			<!-- TODO value-error -->
 
-		<field 
+		<field
 			formid="passwordconfirm"
 			label="label.input.passwordconfirm.profile"
 			type="string"
 			mandatory="true"
 			min-length="8"
-			max-length="255"
-			range-error="error.message.8_255characters"
+			max-length="50"
+			regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?])[A-Za-z\d@$!%*?]{8,50}$"
+			missing-error="error.message.password"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
 			value-error="error.message.currentpasswordnomatch"/>
 			<!-- TODO value-error -->
-		
-		<field 
-			formid="currentpassword" 
-			label="label.input.currentpassword.profile" 
+
+		<field
+			formid="currentpassword"
+			label="label.input.currentpassword.profile"
 			mandatory="true"
 			min-length="8"
-			max-length="255"
-			range-error="error.message.8_255characters"
+			max-length="50"
+			regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?])[A-Za-z\d@$!%*?]{8,50}$"
+			missing-error="error.message.currentpassword"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
 			value-error="error.message.currentpasswordnomatch"
 			type="string" />
-		
-		<include formid="newpasswords" name="newPasswords"/>
+
+		<include formid="newpasswords" name="newPasswords"
+			mandatory="true"
+			min-length="8"
+			max-length="50"
+			regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?])[A-Za-z\d@$!%*?]{8,50}$"
+			missing-error="error.message.password"
+			range-error="error.message.8_50aracters"
+			parse-error="error.message.parse.password"
+			type="string" />
 	</group>
 </form>

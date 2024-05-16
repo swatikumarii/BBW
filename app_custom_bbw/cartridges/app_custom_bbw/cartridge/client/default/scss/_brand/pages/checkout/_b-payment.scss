@@ -8,8 +8,25 @@
 
             .customer-section,
             .shipping-section,
+            .review-shipping-summary-content,
+            .review-order-summary,
             .card.ghost {
                 display: none;
+            }
+
+            .customer {
+                &.registered {
+                    display: none;
+
+                    & + .shipping {
+                        display: none;
+
+                        & + .billing {
+                            border-top: unset;
+                            padding-top: 0;
+                        }
+                    }
+                }
             }
 
             .payment-form,
@@ -92,6 +109,12 @@
             .place-order-step {
                 a {
                     pointer-events: none;
+                }
+            }
+
+            .payment-information {
+                .nav-tabs {
+                    border: unset;
                 }
             }
         }

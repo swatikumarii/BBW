@@ -32,6 +32,26 @@
     .form-group {
         margin: 10px 0 30px;
     }
+
+    .custom-select-wrap {
+        &::after {
+            content: "";
+            position: absolute;
+            right: 20px;
+            top: 55%;
+            transform: translateY(-46%);
+            height: 45px;
+            width: 35px;
+            border-left: 1px solid #828282;
+            background: #fff url("../../images/UI-Carat.svg") no-repeat 50%;
+            background-size: 15px;
+        }
+    }
+
+    .attribute {
+        padding-bottom: 25px;
+    }
+
 }
 
 #delete-gift-certificate-line-item-modal,

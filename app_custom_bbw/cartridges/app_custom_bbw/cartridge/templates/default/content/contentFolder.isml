@@ -1,14 +1,14 @@
-
-<isset name="level" value="${level-1}" scope="page" />
+<isset name="level" value="${level - 1}" scope="page" />
 <isloop items="${folders}" var="folder">
-    <h2 class="toggle">
-        <a class=""
-            href="${URLUtils.url('Page-Show', 'cid', folder.ID)}">
-            <span>${folder.displayName}</span>
-        </a>
-    </h2>
+    <div class="allcategories">
+        <h3>
+            <a href="${URLUtils.url('Page-Show', 'cid', folder.ID)}">
+                <span>${folder.displayName}</span>
+            </a>
+        </h3>
+    </div>
     <isif condition="${level > 0}">
         <isinclude template="/content/folderContentDecision" />
     </isif>
 </isloop>
-<isset name="level" value="${level+1}" scope="page" />
+<isset name="level" value="${level + 1}" scope="page" />

@@ -1,6 +1,11 @@
 .my-account {
     padding: 0.5rem 15px 1.6875rem;
 
+    .account-dashboard {
+        max-width: 955px;
+        margin: 0 auto;
+    }
+
     .mobile-my-account {
         display: block;
         padding: 1.4375rem 0.9375rem;
@@ -28,44 +33,82 @@
         }
     }
 
-    .my-account-nav {
-        display: block;
-        padding: 0;
+    .account-nav-wrap {
+        width: 100%;
 
-        @include media-down(sm) {
-            display: none;
-            padding: 20px 0;
+        @include media-up(sm) {
+            width: 225px;
         }
 
-        h1 {
-            margin: 0 0 20px;
+        .my-account-nav {
+            display: block;
+            padding: 0;
 
-            @include media-up(sm) {
-                line-height: 0.625rem;
-                margin-bottom: 1.375rem;
+            @include media-down(sm) {
+                display: none;
+                padding: 20px 0;
             }
-        }
 
-        ul {
-            li {
-                margin: 0;
-                padding: 10px 15px;
-                list-style: none;
+            h1 {
+                margin: 0 0 20px;
 
                 @include media-up(sm) {
-                    margin: 20px 0 23px;
-                    line-height: 1.25rem;
-                    padding: 0;
+                    line-height: 0.625rem;
+                    margin-bottom: 1.375rem;
                 }
+            }
 
-                a {
-                    letter-spacing: 0.01em;
-                    color: colour(gray);
+            ul {
+                li {
+                    margin: 0;
+                    padding: 10px 15px;
+                    list-style: none;
 
-                    &:hover {
-                        color: colour(blue);
+                    @include media-up(sm) {
+                        margin: 20px 0 23px;
+                        line-height: 1.25rem;
+                        padding: 0;
+                    }
+
+                    a {
+                        letter-spacing: 0.01em;
+                        color: colour(gray);
+
+                        &:hover {
+                            color: colour(blue);
+                        }
                     }
                 }
+            }
+        }
+    }
+
+    .description-detail {
+        padding: 0;
+        width: 100%;
+
+        @include media-up(sm) {
+            padding: 0 0 20px 25px;
+            width: calc(100% - 225px);
+        }
+
+        @include media-btw(sm, lg) {
+            padding: 0;
+        }
+
+        .wishlist-text {
+            line-height: 24px;
+        }
+
+        .add-wishlist {
+            .wishlist-btn {
+                padding: 0 1.25em;
+                line-height: 2.0625rem;
+                font-size: 0.6875rem;
+                min-height: auto;
+                margin-bottom: 20px;
+                letter-spacing: 0.12em;
+                background-color: colour(black, 3);
             }
         }
     }
@@ -77,10 +120,12 @@
                     border-bottom: 1px solid colour(black, 3);
                     padding-bottom: 0.625em;
                     margin-bottom: 1.5625em;
+                    line-height: 18px;
 
                     @include media-down(sm) {
                         font-size: 1rem;
                         border-bottom: 0;
+                        border-bottom: 1px solid colour(black, 3);
                     }
 
                     a {
@@ -105,6 +150,8 @@
 
                 li {
                     list-style: none;
+                    max-width: 341.92px;
+                    height: 84px;
 
                     a {
                         img {
@@ -159,5 +206,13 @@
         @include media-down(sm) {
             width: 100%;
         }
+    }
+
+    .btn-save.disabled {
+        opacity: 0.5;
+        background-color: colour(gray, 7);
+        border-color: colour(gray, 7);
+        color: colour(gray);
+        pointer-events: none;
     }
 }

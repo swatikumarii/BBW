@@ -11,16 +11,16 @@
         <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
         <isif condition="${pdict.loggedIn}">
 
-            <div class="row">
+            <div class="row account-dashboard">
                 <div class="col mobile-my-account h-font-size--14 h-bg--gray-1 h-clr--black-1 text-uppercase">
                     ${Resource.msg('label.myaccount', 'account', null)}
                 </div>
-                <div class="col-lg-2 col-md-4">
+                <div class="account-nav-wrap">
                     <div class="my-account-nav">
                         <isinclude template="account/accountNav" />
                     </div>
                 </div>
-                <div class="col-lg-10 col-md-8">
+                <div class="description-detail">
                     <div class="my-account-description profile">
                         <div class="account-profile">
                             <div class="wishlist-heading">
@@ -34,7 +34,7 @@
                                     </span>
 
                                     <button type="button"
-                                        class="share-love-it-list share-love-it-list border-0 bg-white pull-right"
+                                        class="share-love-it-list share-love-it-list border-0 bg-white pull-right pr-0"
                                         data-toggle="modal" data-target="#shareLoveItList">
                                         <img alt="image" src="${URLUtils.staticURL('/images/account/share.svg')}" />
                                         <span>
@@ -46,7 +46,7 @@
                                 <isinclude template="wishlist/components/shareLoveItListModal" />
                             </div>
                         </div>
-                        <div class="wishlist-list">
+                        <div class="wishlist-list dsd">
                             <isinclude template="wishlist/components/wishlist" />
                         </div>
                     </div>

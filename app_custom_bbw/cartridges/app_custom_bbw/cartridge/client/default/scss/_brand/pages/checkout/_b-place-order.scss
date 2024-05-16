@@ -8,11 +8,11 @@
             .card.payment-form,
             .card.ghost,
             .checkout-blocks,
-            .order-product-summary {
+            .order-product-summary,
+            .order-product-summary-heading {
                 display: none;
             }
 
-            button.place-order,
             .review-shipping-summary,
             .review-shipping-summary.shipping-summary,
             .review-product-summary {
@@ -50,6 +50,70 @@
                     color: $clr-blue;
                     border-color: $clr-blue;
                     background-color: $clr-white;
+                }
+            }
+
+            .order-summary {
+                background-color: $clr-gray-1;
+                border-color: $clr-gray-1;
+                padding: 0 15px 30px;
+            }
+
+            .cart-lineitem {
+                margin-top: 10px;
+                padding-top: 20px;
+
+                .headerPrice {
+                    @include media-down(sm) {
+                        padding-top: 10px;
+                    }
+                }
+            }
+
+            @include media-down(sm) {
+                .review-shipping-summary {
+                    .single-shipping {
+                        flex-direction: column;
+
+                        .summary-details {
+                            margin-top: 27px;
+
+                            &.shipping {
+                                margin-top: 0;
+                            }
+
+                            .shipping-method {
+                                display: flex;
+                                flex-direction: column;
+                            }
+                        }
+
+                        a {
+                            position: absolute;
+                            right: 30px;
+                        }
+                    }
+                }
+
+                .review-billing-summary {
+                    flex-direction: column;
+
+                    .summary-details {
+                        margin-top: 27px;
+
+                        &.billing {
+                            margin-top: 0;
+                        }
+                    }
+
+                    a {
+                        position: absolute;
+                        right: 30px;
+                    }
+                }
+
+                .order-summary {
+                    margin: 10px -15px;
                 }
             }
         }

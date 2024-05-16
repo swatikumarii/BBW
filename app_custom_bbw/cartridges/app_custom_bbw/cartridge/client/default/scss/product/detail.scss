@@ -463,7 +463,9 @@
             cursor: pointer;
             opacity: 1;
             background: url("../../images/pdp/PDP-Wishlist-2.svg") no-repeat 50%;
+        }
 
+        .add-to-wish-list.authenticated-user {
             &:hover {
                 background: url("../../images/pdp/PDP-Wishlist-3.svg") no-repeat
                     50%;
@@ -538,7 +540,7 @@
     position: absolute;
     right: -15px;
     top: 36px;
-    animation: expand 5s;
+    display: none;
 
     p {
         font-size: 16px;
@@ -547,16 +549,6 @@
         letter-spacing: 0.01em;
         color: colour(gray, 4);
         margin: 10px 0;
-    }
-}
-
-@keyframes expand {
-    0% {
-        height: 0;
-    }
-
-    100% {
-        height: 200px;
     }
 }
 

@@ -48,7 +48,6 @@ function parseHtml(html) {
  * @param {string} selectedValueUrl - url to be used to retrieve a new product model
  */
 function fillModalElement(selectedValueUrl) {
-    $('#quickViewModal .modal-body').spinner().start();
     $.ajax({
         url: selectedValueUrl,
         method: 'GET',
@@ -73,22 +72,25 @@ function fillModalElement(selectedValueUrl) {
             $('#quickViewModal').modal('show');
             $('body').trigger('quickview:ready');
 
-            $.spinner().stop();
         },
-        error: function () {
-            $.spinner().stop();
-        }
     });
 }
 
 module.exports = $.extend({}, base, {
     showQuickview: function () {
+        var quickViewButton;
         $('body').on('click', '.quickview', function (e) {
             e.preventDefault();
-            var selectedValueUrl = $(this).closest('a.quickview').attr('href');
+            quickViewButton = $(this);
+            var selectedValueUrl = $(this).data('href');
             $(e.target).trigger('quickview:show');
             getModalHtmlElement();
             fillModalElement(selectedValueUrl);
+        });
+        $('body').on('hidden.bs.modal', '.loginPopup #loginModal', function () {
+            if (quickViewButton) {
+                quickViewButton.trigger('click');
+            }
         });
     },
     popOver: function () {

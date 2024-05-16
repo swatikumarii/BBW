@@ -15,6 +15,26 @@ var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
     window.location.search
 );
 
+/**
+ * validateFields
+ * @param {object} $input input field
+ */
+function validateFields($input) {
+    var $errorMessage = $input.next('.invalid-feedback');
+    if ($input[0].checkValidity()) {
+        $errorMessage.hide();
+        $input.removeClass('is-invalid');
+    } else {
+        var errorText;
+        if ($input.val().length === 0) {
+            errorText = $input.data('missing-error');
+        } else {
+            errorText = $input.data('pattern-mismatch');
+        }
+        $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
+    }
+}
+
 $(document).ready(function () {
     var name = 'paymentError';
     var error = new RegExp(
@@ -41,6 +61,36 @@ $(document).ready(function () {
         showSelectedDialCode: true,
         initialCountry: 'au'
     });
+
+    $('.accordion-title').click(function () {
+        $(this).next('.accordion-content').slideToggle();
+        $(this).toggleClass('rotate-down');
+    });
+
+    $('.form-control').blur(function () {
+        validateFields($(this));
+    });
+
+    $('.form-control').on('input change', function () {
+        validateFields($(this));
+    });
+
+    $('.toggle-password').on('click', function () {
+        var $this = $(this);
+        var $password = $this.siblings('#password');
+        if ($password.attr('type') === 'password') {
+            $password.attr('type','text');
+            $this.text('Hide');
+        } else {
+            $password.attr('type', 'password');
+            $this.text('Show');
+        }
+    });
+
+    $('.place-order-trigger').on('click', function () {
+        $('button.place-order').click();
+    });
+
 });
 $('.payment-options .nav-link').click(function setAttr() {
     $('#selectedPaymentOption').val($(this).parent().attr('data-method-id'));

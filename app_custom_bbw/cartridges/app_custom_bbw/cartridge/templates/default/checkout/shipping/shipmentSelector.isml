@@ -1,0 +1,16 @@
+<div class="form-group">
+    <label class="form-control-label  h-font-size--16 h-fw--semibold" for="shipmentSelector-${lineItem ? lineItem.UUID : 'default'}">
+        ${Resource.msg('heading.ship.to.address', 'checkout', null)}
+    </label>
+    <div class="custom-select-wrap h-pos--relative">
+        <select id="shipmentSelector-${lineItem ? lineItem.UUID : 'default'}"
+                name="shipmentSelector"
+                class="addressSelector form-control custom-select"
+                data-create-shipment-url="${URLUtils.https('CheckoutAddressServices-CreateNewAddress')}"
+        >
+            <isinclude template="checkout/shipping/shipmentSelectorOptions" />
+        </select>
+    </div>
+
+    <div class="invalid-feedback"></div>
+</div>

@@ -9,7 +9,30 @@ server.extend(module.superModule);
 
 var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
+var URLUtils = require('dw/web/URLUtils');
+var Resource = require('dw/web/Resource');
 
+/**
+ * Append Account-Show controller: Update breadcrumbs
+ */
+server.append('Show', function (req, res, next) {
+    var viewData = res.getViewData();
+    var breadcrumbs = [
+        {
+            htmlValue: Resource.msg('global.home', 'common', null),
+            url: URLUtils.home().toString()
+        },
+        {
+            htmlValue: Resource.msg('page.title.login', 'login', null),
+            url: URLUtils.url('Login-Show').toString()
+        }
+    ];
+    viewData.breadcrumbs = breadcrumbs;
+
+    res.setViewData(viewData);
+
+    next();
+});
 
 /**
  * This Route is to render Registration form page
@@ -20,8 +43,6 @@ server.get(
     server.middleware.https,
     csrfProtection.generateToken,
     function (req, res, next) {
-        var URLUtils = require('dw/web/URLUtils');
-        var Resource = require('dw/web/Resource');
         var target = req.querystring.rurl || 1;
 
         var createAccountUrl = URLUtils.url(
@@ -66,7 +87,6 @@ server.get(
 );
 
 server.get('Popup', csrfProtection.generateToken, function (req, res, next) {
-    var URLUtils = require('dw/web/URLUtils');
     var loginRedirectExceptions = require('*/cartridge/config/loginRedirectExceptions');
     var target = req.querystring.rurl || 1;
     var loginRedirectRoute = req.querystring.loginRedirect;

@@ -50,7 +50,13 @@ $('#ticker').easyTicker({
  * To upen login popup
  */
 function openLoginPopup() {
-    $('.loginPopup').find('#loginModal').modal('show');
+    if ($('form').hasClass('registration')) {
+        $('.loginPopup').find('#loginModal').modal('hide');
+        var href = $('#log-in-page-url').attr('href');
+        window.location.href = href;
+    } else {
+        $('.loginPopup').find('#loginModal').modal('show');
+    }
 }
 module.exports = function () {
     $('.loginPopupBtn').on('click', openLoginPopup);

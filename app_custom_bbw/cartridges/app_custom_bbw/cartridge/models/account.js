@@ -21,7 +21,6 @@ function account(currentCustomer, addressModel, orderModel) {
     }
 };
 
+account.getCustomerPaymentInstruments = base.getCustomerPaymentInstruments;
 
-base.account = account;
-
-module.exports = base;
+module.exports = account;

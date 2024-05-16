@@ -167,8 +167,8 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-            <attribute-definition attribute-id="countryCode">
-                <display-name xml:lang="x-default">Country Code</display-name>
+            <attribute-definition attribute-id="dialCode">
+                <display-name xml:lang="x-default">Country DialCode</display-name>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -186,8 +186,14 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-            <attribute-definition attribute-id="migrationStatus">
-                <display-name xml:lang="x-default">Migration Status</display-name>
+            <attribute-definition attribute-id="isPasswordUpdated">
+                <display-name xml:lang="x-default">Password Updated Status</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+			<attribute-definition attribute-id="isProflieComplete">
+                <display-name xml:lang="x-default">Profile Complete Status</display-name>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -219,12 +225,46 @@
             <attribute-group group-id="MigrationAttribute">
                 <display-name xml:lang="x-default">Migration Attribute</display-name>
                 <attribute attribute-id="migratedCustomer"/>
-                <attribute attribute-id="migrationStatus"/>
+                <attribute attribute-id="isPasswordUpdated"/>
+				<attribute attribute-id="isProflieComplete"/>
                 <attribute attribute-id="registrationSource"/>
                 <attribute attribute-id="receiveOffers"/>
                 <attribute attribute-id="activatedDate"/>
                 <attribute attribute-id="lastModified"/>
-                <attribute attribute-id="countryCode"/>
+                <attribute attribute-id="dialCode"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="CustomerAddress">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="email">
+                <display-name xml:lang="x-default">Email</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="dialCode">
+				<display-name xml:lang="x-default">Country DialCode</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+			<attribute-definition attribute-id="lastModified">
+                <display-name xml:lang="x-default">Last Modified</display-name>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="MigrationAttribute">
+                <display-name xml:lang="x-default">Migration Attribute</display-name>
+                <attribute attribute-id="email"/>
+                <attribute attribute-id="lastModified"/>
+                <attribute attribute-id="dialCode"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -261,6 +301,24 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-value>0.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="gtmScriptEnabled">
+                <display-name xml:lang="x-default">Enable Google Tracking</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="gtmBodyScript">
+                <display-name xml:lang="x-default">GTM Body Script</display-name>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="gtmHeadScript">
+                <display-name xml:lang="x-default">GTM Head Script</display-name>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
             <attribute-definition attribute-id="disImageSourceEnvironment">
                 <display-name xml:lang="x-default">DIS Image Source Environment</display-name>
@@ -1052,11 +1110,29 @@
                 <externally-managed-flag>true</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="openingTime">
+                <display-name xml:lang="x-default">Opening Time</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="closingTime">
+                <display-name xml:lang="x-default">Closing Time</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
                 <display-name xml:lang="x-default">Dynamic Imaging Service</display-name>
                 <attribute attribute-id="disImageSourceEnvironment"/>
+            </attribute-group>
+            <attribute-group group-id="Event Tracking">
+                <display-name xml:lang="x-default">Event Tracking</display-name>
+                <attribute attribute-id="gtmScriptEnabled"/>
+                <attribute attribute-id="gtmHeadScript"/>
+                <attribute attribute-id="gtmBodyScript"/>
             </attribute-group>
             <attribute-group group-id="qwikcilver">
                 <display-name xml:lang="x-default">Qwikcilver</display-name>
@@ -1189,6 +1265,11 @@
                 <display-name xml:lang="x-default">Third Part Scripts</display-name>
                 <attribute attribute-id="liveChatEnabled"/>
                 <attribute attribute-id="chatScript"/>
+            </attribute-group>
+            <attribute-group group-id="Contact Us">
+                <display-name xml:lang="x-default">Contact Us Configurations</display-name>
+                <attribute attribute-id="openingTime"/>
+                <attribute attribute-id="closingTime"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -2712,6 +2793,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="customBundle">
+                <display-name xml:lang="x-default">Custom Bundle</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -2751,6 +2839,54 @@
         <attribute-group group-id="Afterpay IP Addresses">
                 <display-name xml:lang="x-default">Afterpay IP Addresses</display-name>
                 <attribute attribute-id="flowIPAddresses"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    <type-extension type-id="Content">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="isImportant">
+                <display-name xml:lang="x-default">Important</display-name>
+                <description xml:lang="x-default">Important</description>
+                <type>boolean</type>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="articleHelpfulNo">
+                <display-name xml:lang="x-default">Article Helpful (No)</display-name>
+                <description xml:lang="x-default">Article helpful - No</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="articleHelpfulYes">
+                <display-name xml:lang="x-default">Article Helpful (Yes)</display-name>
+                <description xml:lang="x-default">Article helpful - Yes</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="relatedArticles">
+                <display-name xml:lang="x-default">Related Articles / FAQ</display-name>
+                <description xml:lang="x-default">Related Articles / FAQ</description>
+                <type>set-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="faqConfigAttributes">
+                <display-name xml:lang="x-default">FAQ Config Attributes</display-name>
+                <attribute attribute-id="isImportant"/>
+                <attribute attribute-id="articleHelpfulYes"/>
+                <attribute attribute-id="articleHelpfulNo"/>
+                <attribute attribute-id="relatedArticles"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

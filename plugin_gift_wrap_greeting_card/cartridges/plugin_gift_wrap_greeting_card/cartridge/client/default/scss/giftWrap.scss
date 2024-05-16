@@ -10,7 +10,6 @@
 
 .giftwrap-block {
     background-color: transparent;
-    border: 1px solid #666;
     font-size: 14px;
     line-height: 24px;
     padding: 16px;
@@ -498,4 +497,47 @@ input[type="checkbox"] + label::before {
     text-align: center;
     top: 0;
     width: 24px;
+}
+
+.gift-wrap-product-card {
+    .item-detail {
+        padding: 0 0 0 37px;
+        width: 100%;
+
+        @include media-breakpoint-up(sm) {
+            width: 50%;
+        }
+    }
+
+    .item-desc {
+        padding-top: 16px;
+
+        .line-item-header {
+            .line-item-name {
+                font-size: 1.25rem;
+                line-height: 24px;
+                color: #1a1a1a;
+            }
+
+            span {
+                font-size: 12px;
+                line-height: 24px;
+                color: #1a1a1a;
+            }
+        }
+    }
+
+    .remove-product {
+        margin-top: 14px;
+        padding-left: 24px;
+        text-decoration: none;
+        padding-right: 6px;
+        color: #1a1a1a;
+        font-size: 14px;
+    }
+
+    .line-item-price {
+        padding-top: 16px !important;
+        font-weight: 400 !important;
+    }
 }
