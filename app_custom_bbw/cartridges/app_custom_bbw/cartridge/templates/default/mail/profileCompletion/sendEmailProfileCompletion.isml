@@ -1,0 +1,6 @@
+<body>
+    <h1>${Resource.msg('email.profile.incomplete', 'account', null)}</h1>
+    <p>${Resource.msg('email.profile.incomplete.body1', 'account', null)}</p>
+    ${pdict.emptyFields}
+    <a href="${dw.web.URLUtils.abs('Login-Show')}" hreflang="${request.getLocale()}">${Resource.msg('email.profile.redirect.button', 'account', null)}</a>
+</body>

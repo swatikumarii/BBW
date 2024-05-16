@@ -88,6 +88,32 @@
               }
             ]
           }
+        },
+        {
+            "@type-id": "custom.emailProfileCompletion",
+            "@supports-parallel-execution": "true",
+            "@supports-site-context": "true",
+            "@supports-organization-context": "false",
+            "description": "Send email notification if profile is not completed",
+            "module": "app_custom_bbw/cartridge/scripts/jobs/emailProfileCompletion.js",
+            "function": "completeProfile",
+            "transactional": "true",
+            "timeout-in-seconds": "900",
+            "parameters": {
+                "parameter": []
+            },
+            "status-codes": {
+                "status": [
+                    {
+                        "@code": "ERROR",
+                        "description": "The process cound not be completed successfully."
+                    },
+                    {
+                        "@code": "FINISHED",
+                        "description": "Successfully notified."
+                    }
+                ]
+            }
         }
       ]
     }

@@ -28,3 +28,5 @@ $(document).ready(function () {
 require('./thirdParty/bootstrap');
 require('./components/spinner');
 require('./thirdParty/jqueryTicker');
+require('./profileCompletionPopup');
+

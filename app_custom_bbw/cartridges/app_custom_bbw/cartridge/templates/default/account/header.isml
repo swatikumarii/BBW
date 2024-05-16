@@ -38,7 +38,7 @@
                         tabindex="0">${Resource.msg('label.loveItList', 'account', null)}</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a href="${URLUtils.url('Login-Logout')}" role="menuitem"
+                    <a href="${URLUtils.url('Login-Logout')}" role="menuitem" id="logoutButton"
                         tabindex="0">${Resource.msg('link.header.logout', 'account', null)}</a>
                 </li>
             </ul>
