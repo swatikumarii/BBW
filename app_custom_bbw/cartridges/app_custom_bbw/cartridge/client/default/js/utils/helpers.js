@@ -184,6 +184,17 @@ var helpers = {
                 }
             });
         }
+    },
+
+    /**
+     * Get the maximum height among a collection of elements.
+     * @param {jQuery} elements - A jQuery collection of elements.
+     * @returns {number} The maximum height of the elements.
+     */
+    getMaxElementHeight: function (elements) {
+        return Math.max.apply(null, elements.map(function () {
+            return $(this).height();
+        }).get());
     }
 };
 
