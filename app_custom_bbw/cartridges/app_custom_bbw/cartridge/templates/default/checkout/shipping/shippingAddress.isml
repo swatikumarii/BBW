@@ -217,7 +217,8 @@
             <input type="tel" class="form-control shippingPhoneNumber" initOptions.allowDropdown="true"
                 id="shippingPhoneNumber${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber"
-                data-missing-error="${Resource.msg('error.phone', 'forms', null)}"
+                data-missing-error="${Resource.msg('error.phone.missing', 'forms', null)}"
+                data-pattern-mismatch="${Resource.msg('valid.phone.number', 'forms', null)}"
                 value="${shippingAddress.phone || ''}" <isprint value="${addressFields.phone.attributes}"
                 encoding="off" />>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber">

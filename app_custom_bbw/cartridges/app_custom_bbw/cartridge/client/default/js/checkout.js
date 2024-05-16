@@ -24,6 +24,8 @@ function validateFields($input) {
     if ($input[0].checkValidity()) {
         $errorMessage.hide();
         $input.removeClass('is-invalid');
+        if ($input.parents('.iti').length)
+            $input.parents('.iti').removeClass('is-invalid border-danger');
     } else {
         var errorText;
         if ($input.val().length === 0) {
@@ -31,6 +33,8 @@ function validateFields($input) {
         } else {
             errorText = $input.data('pattern-mismatch');
         }
+        if ($input.parents('.iti').length)
+            $input.parents('.iti').addClass('is-invalid border-danger');
         $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
     }
 }
