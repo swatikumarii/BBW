@@ -113,3 +113,6 @@
 <div class="countrySelectPopup">
     <isinclude url="${URLUtils.url('Home-CountrySelector')}" />
 </div>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('sendProfileCompletionReminderPopup')}">
+    <isinclude template="profileCompletion" />
+</isif>

@@ -192,7 +192,7 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-			<attribute-definition attribute-id="isProflieComplete">
+			<attribute-definition attribute-id="isProfileComplete">
                 <display-name xml:lang="x-default">Profile Complete Status</display-name>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
@@ -226,7 +226,7 @@
                 <display-name xml:lang="x-default">Migration Attribute</display-name>
                 <attribute attribute-id="migratedCustomer"/>
                 <attribute attribute-id="isPasswordUpdated"/>
-				<attribute attribute-id="isProflieComplete"/>
+				<attribute attribute-id="isProfileComplete"/>
                 <attribute attribute-id="registrationSource"/>
                 <attribute attribute-id="receiveOffers"/>
                 <attribute attribute-id="activatedDate"/>
@@ -278,6 +278,18 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="sendProfileCompletionReminderEmail">
+                <display-name xml:lang="x-default">Send Profile Completion Reminder Email</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="sendProfileCompletionReminderPopup">
+                <display-name xml:lang="x-default">Send Profile Completion Reminder Popup</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
             <attribute-definition attribute-id="chatScript">
                 <display-name xml:lang="x-default">Live Chat Script</display-name>
@@ -892,7 +904,7 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-             <attribute-definition attribute-id="enableCashAppPay">
+            <attribute-definition attribute-id="enableCashAppPay">
                 <display-name xml:lang="x-default">Enable Cash App Pay</display-name>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
@@ -1034,7 +1046,6 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-
             <attribute-definition attribute-id="qwikcilverAPIPassword">
                 <display-name xml:lang="x-default">Qwikcilver API Password</display-name>
                 <type>string</type>
@@ -1163,6 +1174,8 @@
                 <attribute attribute-id="zeroOrderEmail"/>
                 <attribute attribute-id="careersEmail"/>
                 <attribute attribute-id="countrySiteMapping"/>
+                <attribute attribute-id="sendProfileCompletionReminderEmail"/>
+                <attribute attribute-id="sendProfileCompletionReminderPopup"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
