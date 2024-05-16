@@ -6,10 +6,8 @@
             <circle cx="4.5" cy="4.5" r="4" fill="none" stroke="currentColor" />
             <path stroke="currentColor" stroke-linecap="round" d="M11 11L7.5 7.5" />
         </svg>
-        <form role="search" class="search w-100" data-search="" action="${URLUtils.url('Faq-Search')}"
-            accept-charset="UTF-8" method="get">
-            <input name="utf8" type="hidden" value="&#x2713;" autocomplete="off" />
-            <input type="search" name="query" id="query" placeholder="Type your question here..." aria-label="Search" />
+        <form role="search" class="search w-100" data-search="" action="${URLUtils.url('Faq-Search')}" method="get">
+            <input type="text" name="query" id="query" placeholder="Type your question here..." aria-label="Search" />
         </form>
     </div>
 </div>

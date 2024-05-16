@@ -38,7 +38,7 @@ server.get('FaqLevel1', function (req, res, next) {
 server.get('FaqLevel2', function (req, res, next) {
     var currentFolder = ContentMgr.getFolder(req.querystring.cid);
     if (currentFolder) {
-        var parentFolder = ContentMgr.getFolder(req.querystring.pcid);
+        var parentFolder = ContentMgr.getFolder(req.querystring.pid);
         res.render('content/faqLevel2', {
             folder: currentFolder,
             parentFolder: parentFolder
