@@ -65,6 +65,7 @@
             <preference preference-id="chatScript"></preference>
             <preference preference-id="sendProfileCompletionReminderEmail">true</preference>
             <preference preference-id="sendProfileCompletionReminderPopup">true</preference>
+            <preference preference-id="metaPixelEnabled">true</preference>
             <preference preference-id="countrySiteMapping">
                 [
                     {"country":"India", "site": "https://www.bathandbody.in"},

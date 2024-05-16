@@ -1,0 +1,7 @@
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('metaPixelEnabled')}">
+    <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('metaPixelScript')}" encoding="off" />
+    <script defer="defer" src="${URLUtils.staticURL('/js/metaPixel.js')}"></script>
+    <script>
+        fbq('track','${pdict.fbqData.event}',<isprint value="${JSON.stringify(pdict.fbqData.data)}" encoding="off" />);
+    </script>
+</isif>
