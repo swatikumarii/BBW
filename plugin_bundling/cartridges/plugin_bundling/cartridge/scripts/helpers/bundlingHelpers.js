@@ -14,7 +14,8 @@ var cartHelper = require('*/cartridge/scripts/cart/cartHelpers');
  * @param {string[]} childProducts - the products' sub-products
  * @param {object[]} options - product options
  * @param {string} customBundle - custom bundle
- *  @returns {object} returns an error object
+ * @param {number} bundleIndex - custom bundle
+ * @returns {object} returns an error object
  */
 function addProductToCart(
     currentBasket,
@@ -22,7 +23,8 @@ function addProductToCart(
     quantity,
     childProducts,
     options,
-    customBundle
+    customBundle,
+    bundleIndex
 ) {
     // var availableToSell;
     var defaultShipment = currentBasket.defaultShipment;
@@ -118,6 +120,7 @@ function addProductToCart(
         defaultShipment
     );
     productLineItem.custom.customBundle = customBundle;
+    productLineItem.custom.customBundleIndex = bundleIndex;
     result.uuid = productLineItem.UUID;
     // result.pli = productLineItem;
     // }
@@ -125,6 +128,32 @@ function addProductToCart(
     return result;
 }
 
+/**
+ * Filter all the product line items matching productId and
+ * has the same items or options in the cart
+ * @param {string} productId - Product ID to match
+ * @param {dw.util.Collection<dw.order.ProductLineItem>} productLineItems - Collection of the Cart's
+ *     product line items
+ * @returns {dw.order.ProductLineItem[]} - Filtered all the product line item matching productId and
+ *     has the same items or options
+ */
+function getExistingNonBundleProductLineItemsInCart(productId, productLineItems) {
+    var matchingProductsObj = cartHelper.getMatchingProducts(
+        productId,
+        productLineItems
+    );
+    var matchingProducts = matchingProductsObj.matchingProducts;
+    var productLineItemsInCart;
+    for (var i = 0; i < matchingProducts.length; i++) {
+        if (!matchingProducts[i].custom.customBundle) {
+            productLineItemsInCart = matchingProducts[i];
+        }
+    }
+    return productLineItemsInCart;
+}
+
 module.exports = {
-    addProductToCart: addProductToCart
+    addProductToCart: addProductToCart,
+    getExistingNonBundleProductLineItemsInCart:
+        getExistingNonBundleProductLineItemsInCart
 };
