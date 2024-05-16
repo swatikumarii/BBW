@@ -157,6 +157,20 @@
 }
 
 @include media-breakpoint-down(sm) {
+    .dropdown-item.active,
+    .dropdown-item:active {
+        background-color: transparent;
+        color: colour(gray, 4);
+        text-decoration: none;
+    }
+
+    .dropdown-item:focus,
+    .dropdown-item:hover {
+        background-color: transparent;
+        color: colour(gray, 4);
+        text-decoration: none;
+    }
+
     a:focus {
         outline: 0;
     }
@@ -171,10 +185,6 @@
         z-index: 9;
         left: -100%;
         transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-        a:active {
-            color: colour(gray, 2);
-        }
 
         .mobile-navbar {
             overflow: hidden auto;
@@ -327,9 +337,10 @@
                 line-height: 1.25rem;
                 letter-spacing: 0.005em;
                 text-transform: capitalize;
+                color: colour(black, 1);
 
-                &:hover {
-                    color: colour(black, 1);
+                &:active {
+                    color: colour(gray, 2);
                 }
             }
 
@@ -366,6 +377,14 @@
             }
         }
 
+        .level-1-li.muted {
+            transition: none;
+
+            .level-2-ul {
+                transition: none;
+            }
+        }
+
         .level-2-ul {
             top: -15px;
             opacity: 0;
@@ -377,7 +396,7 @@
             display: initial;
 
             &.active {
-                top: auto;
+                top: 0;
                 opacity: 1;
                 pointer-events: auto;
                 visibility: visible;
@@ -387,7 +406,10 @@
             }
 
             .level-2-li {
-                background-color: transparent;
+                overflow: hidden;
+                text-transform: capitalize;
+                transition: max-height 0.3s ease-out;
+                max-height: 44px;
 
                 .level-2-link {
                     line-height: 1.25rem;
@@ -396,6 +418,11 @@
                     padding: 0.5625rem 0.3125rem 0.5625rem 2.1875rem;
                     display: inherit;
                     outline: 0;
+                    color: colour(gray, 4);
+
+                    &:active {
+                        color: colour(gray, 2);
+                    }
                 }
 
                 .level-2-link.dropdown-toggle {
@@ -413,40 +440,32 @@
                 }
 
                 &.active {
+                    position: relative;
+                    max-height: 1000px;
+
                     .level-2-link.dropdown-toggle {
                         &::after {
                             transform: rotate(180deg);
                             transform-origin: center center;
                         }
                     }
-
-                    .level-3-ul {
-                        top: 0;
-                        opacity: 1;
-                        pointer-events: auto;
-                        visibility: visible;
-                        transition: all 0.5s ease-out;
-                    }
                 }
 
                 .level-3-ul {
                     position: relative;
-                    top: auto;
+                    top: -8px;
                     opacity: 0;
                     visibility: hidden;
-                    transition: max-height 0.5s ease-out;
-                    max-height: 0;
-                    margin: 0;
-                    float: inherit;
+                    border: 0;
+                    transition: all 0.5s ease-out;
+                    display: block;
 
                     &.active {
                         top: 0;
                         opacity: 1;
                         pointer-events: auto;
                         visibility: visible;
-                        display: block;
-                        border: 0;
-                        max-height: 31.25rem;
+                        transition: all 0.5s ease-out;
                     }
 
                     li a {

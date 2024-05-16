@@ -563,6 +563,7 @@ module.exports = $.extend({}, base, {
 
                 var currentAction = $(this);
                 $('body').trigger('product:beforeAddToCart', this);
+                currentAction.parents('.product-tile').spinner().start();
 
                 if (
                     $('.set-items').length &&

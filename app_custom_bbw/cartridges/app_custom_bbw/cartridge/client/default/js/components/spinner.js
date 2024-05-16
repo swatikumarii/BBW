@@ -6,7 +6,7 @@
  * Pass body to block the whole page.
  */
 function addSpinner($target) {
-    var $veil = $('<div class="loader"><div class="visually-hidden" role="alert">Just a second, items loading</div></div>');
+    var $veil = $('<div class="loader"><div class="h-visually-hidden" role="alert">Just a second, items loading</div></div>');
     $veil.append('<div class="spinner"></div>');
     if ($target.get(0).tagName === 'IMG') {
         $target.after($veil);
@@ -22,6 +22,9 @@ function addSpinner($target) {
         }
         if ($target.get(0).tagName === 'BODY') {
             $veil.find('.spinner').css('position', 'fixed');
+        }
+        if ($target.get(0).tagName === 'div') {
+            $veil.find('.spinner').css('position', 'absolute');
         }
     }
     $veil.click(function (e) {
