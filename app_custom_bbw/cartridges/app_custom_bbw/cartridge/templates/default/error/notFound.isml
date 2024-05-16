@@ -1,5 +1,4 @@
 <isdecorate template="common/layout/page">
-
     <div class="hero slant-down error-hero">
         <h1 class="page-title">${Resource.msg('heading.error.general', 'error', null)}</h1>
     </div>
