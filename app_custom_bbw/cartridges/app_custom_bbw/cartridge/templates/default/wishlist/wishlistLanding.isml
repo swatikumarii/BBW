@@ -28,10 +28,13 @@
                                     class="title text-capitalize position-relative w-100 d-block d-md-flex align-items-center justify-content-between">
                                     <span>
                                         ${Resource.msg('label.love.it.list', 'wishlist', null)}
+                                        <span class="wishlist-owner">
+                                            ${Resource.msgf('wishlist.owner.name', 'wishlist', null, pdict.wishlist.owner.firstName)}
+                                        </span>
                                     </span>
 
                                     <button type="button"
-                                        class="share-love-it-list share-love-it-list border-0 bg-white pull-right"
+                                        class="share-love-it-list share-love-it-list border-0 bg-white pull-right pr-0"
                                         data-toggle="modal" data-target="#shareLoveItList">
                                         <img alt="image" src="${URLUtils.staticURL('/images/account/share.svg')}" />
                                         <span>

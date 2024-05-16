@@ -829,6 +829,21 @@ module.exports = {
             Object.keys(attrs).forEach(function (attr) {
                 element = attr === 'countryCode' ? 'country' : attr;
                 $('[name$=' + element + ']', form).val(attrs[attr]);
+                // validate an hide/show errors
+                var $input = $('[name$=' + element + ']', form);
+                var $errorMessage = $input.next('.invalid-feedback');
+                if ($input[0].checkValidity()) {
+                    $errorMessage.hide();
+                    $input.removeClass('is-invalid');
+                } else {
+                    var errorText;
+                    if ($input.val().length === 0) {
+                        errorText = $input.data('missing-error');
+                    } else {
+                        errorText = $input.data('pattern-mismatch');
+                    }
+                    $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
+                }
             });
             $('[name$=stateCode]', form).trigger('change');
             if (shipmentUUID === 'new') {

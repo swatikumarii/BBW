@@ -17,6 +17,15 @@
             .customer {
                 &.registered {
                     display: none;
+
+                    & + .shipping {
+                        display: none;
+
+                        & + .billing {
+                            border-top: unset;
+                            padding-top: 0;
+                        }
+                    }
                 }
             }
 
@@ -100,6 +109,12 @@
             .place-order-step {
                 a {
                     pointer-events: none;
+                }
+            }
+
+            .payment-information {
+                .nav-tabs {
+                    border: unset;
                 }
             }
         }

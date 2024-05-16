@@ -29,8 +29,8 @@ function maps() {
     imageUrlBlack = {
         url: imageUrlBlack,
         labelOrigin: {
-            x: 12,
-            y: 12
+            x: 15,
+            y: 15
         }
     };
 
@@ -38,8 +38,8 @@ function maps() {
     imageUrlPink = {
         url: imageUrlPink,
         labelOrigin: {
-            x: 12,
-            y: 12
+            x: 15,
+            y: 15
         }
     };
     var markers=[];
@@ -57,7 +57,7 @@ function maps() {
             map: map,
             title: item.name,
             icon: imageUrlBlack,
-            label: { text: lable.toString(), color: 'white', fontSize: '16px' }
+            label: { text: lable.toString(), color: 'black', fontSize: '16px' }
         });
         contents.push(item);
         markers.push(marker);

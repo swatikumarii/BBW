@@ -16,6 +16,8 @@
                 font-size: 0.8125rem;
                 margin-bottom: 3px;
                 text-transform: uppercase;
+                color: colour(black, 3);
+                line-height: 1.6;
             }
 
             .my-order-no,
@@ -26,10 +28,13 @@
             }
 
             a.btn {
-                line-height: 2;
-                padding: 3px 25px;
+                line-height: 2.0625rem;
                 min-height: auto;
+                padding: 0 1.25em;
                 text-transform: uppercase;
+                width: 104px;
+                font-size: 0.6875rem;
+                letter-spacing: 0.12em;
 
                 &:hover {
                     color: colour(white);
