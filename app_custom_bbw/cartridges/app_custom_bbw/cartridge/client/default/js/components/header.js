@@ -54,6 +54,11 @@ function openLoginPopup() {
 }
 module.exports = function () {
     $('.loginPopupBtn').on('click', openLoginPopup);
+    $('#logoutButton').on('click', function () {
+        if (sessionStorage.getItem('profileIncomplete') !== null) {
+            sessionStorage.removeItem('profileIncomplete');
+        }
+    });
 };
 
 /** Sticky header padding on body */

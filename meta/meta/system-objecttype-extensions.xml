@@ -192,7 +192,7 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-			<attribute-definition attribute-id="isProflieComplete">
+			<attribute-definition attribute-id="isProfileComplete">
                 <display-name xml:lang="x-default">Profile Complete Status</display-name>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
@@ -226,7 +226,7 @@
                 <display-name xml:lang="x-default">Migration Attribute</display-name>
                 <attribute attribute-id="migratedCustomer"/>
                 <attribute attribute-id="isPasswordUpdated"/>
-				<attribute attribute-id="isProflieComplete"/>
+				<attribute attribute-id="isProfileComplete"/>
                 <attribute attribute-id="registrationSource"/>
                 <attribute attribute-id="receiveOffers"/>
                 <attribute attribute-id="activatedDate"/>
