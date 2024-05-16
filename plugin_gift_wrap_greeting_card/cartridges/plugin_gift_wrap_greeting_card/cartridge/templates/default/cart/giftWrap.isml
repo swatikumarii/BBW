@@ -46,7 +46,7 @@
                         <div class="giftwrap-block-radio greeting-card-toggle" data-error-message="">
                             <isif condition="${pdict.isDisableIndividualOption}">
                                 <input type="radio" name="giftwrap-type" id="${constants.WRAP_INDIVIDUAL_ID}"
-                                    value="${constants.WRAP_INDIVIDUAL_VALUE}" disabled />
+                                    value="${constants.WRAP_INDIVIDUAL_VALUE}" />
                             <iselse/>
                                 <input type="radio" name="giftwrap-type" id="${constants.WRAP_INDIVIDUAL_ID}"
                                     value="${constants.WRAP_INDIVIDUAL_VALUE}" />
@@ -75,7 +75,7 @@
                         </isloop>
                     </div>
 
-                    <button id="addGiftWrapProduct" type="button" class="btn" data-target="#addGiftWrapProduct"
+                    <button id="addGiftWrapProduct" type="button" class="btn add-gift-wrap-product" data-target="#addGiftWrapProduct"
                         data-wraptype-error-message="${Resource.msg('error.select.giftwraptype', 'giftWrap', null)}"
                         data-select.wrappable.product-error-message="${Resource.msg('error.select.wrappable.product', 'giftWrap', null)}"
                         data-giftwrapproduct-error-message="${Resource.msg('error.select.giftwrap.product', 'giftWrap', null)}"

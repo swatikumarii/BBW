@@ -1,7 +1,6 @@
 'use strict';
 
 var base = require('base/product/base');
-var layout = require('../utils/layout');
 
 /**
  * Retrieves the relevant pid value
@@ -564,6 +563,7 @@ module.exports = $.extend({}, base, {
 
                 var currentAction = $(this);
                 $('body').trigger('product:beforeAddToCart', this);
+                currentAction.parents('.product-tile').spinner().start();
 
                 if (
                     $('.set-items').length &&
@@ -693,21 +693,6 @@ module.exports = $.extend({}, base, {
                             }
                             handlePostCartAdd(data);
                             $('body').trigger('product:afterAddToCart', data);
-                            if (layout.isDesktop() || layout.isTablet()) {
-                                $('.minicart .popover').addClass('show');
-                                $('.minicart-overlay').addClass('show');
-                                $('body').addClass('overflow-hidden');
-                                var minicartURL =
-                                    $('.minicart').data('action-url');
-                                $('.minicart .popover').spinner().start();
-                                $.get(minicartURL, function (minicartData) {
-                                    $('.minicart .popover').empty();
-                                    $('.minicart .popover').append(
-                                        minicartData
-                                    );
-                                });
-                            }
-
                             var addToCartSnackbar = $('#add-to-cart-snackbar');
                             addToCartSnackbar.addClass('show');
                             setTimeout(function () {

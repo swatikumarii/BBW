@@ -1130,7 +1130,7 @@
             </attribute-group>
             <attribute-group group-id="Event Tracking">
                 <display-name xml:lang="x-default">Event Tracking</display-name>
-                <attribute attribute-id="googleScriptEnabled"/>
+                <attribute attribute-id="gtmScriptEnabled"/>
                 <attribute attribute-id="gtmHeadScript"/>
                 <attribute attribute-id="gtmBodyScript"/>
             </attribute-group>
