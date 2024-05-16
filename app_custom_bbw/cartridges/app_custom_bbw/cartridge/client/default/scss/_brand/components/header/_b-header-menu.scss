@@ -406,7 +406,6 @@
             }
 
             .level-2-li {
-                // background-color: transparent;
                 overflow: hidden;
                 text-transform: capitalize;
                 transition: max-height 0.3s ease-out;
@@ -450,14 +449,6 @@
                             transform-origin: center center;
                         }
                     }
-
-                    // .level-3-ul {
-                    //     top: 0;
-                    //     opacity: 1;
-                    //     pointer-events: auto;
-                    //     visibility: visible;
-                    //     transition: all 0.5s ease-out;
-                    // }
                 }
 
                 .level-3-ul {
