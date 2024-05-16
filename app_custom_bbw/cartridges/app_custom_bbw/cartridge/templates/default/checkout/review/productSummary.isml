@@ -28,6 +28,17 @@
                         <div class="col-8">
                             <div class="line-item-header flex-column">
                                 <isinclude template="checkout/productCard/productCardProductName" />
+                                <isif condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
+                                <div class="giftcard-details my-2 h-font-size--12">
+                                    <span class="d-block mt-1 giftcard-receipient-name">
+                                    ${Resource.msg('label.input.recipientsname', 'forms', null) + ': '}
+                                    ${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails.recipientName : ''}</span>
+                                    <span class="d-block mt-1 giftcard-receipient-email">
+                                    ${Resource.msg('label.input.email.recipients', 'forms', null) + ': '}
+                                    ${lineItem.giftCardDetails.recipientEmail && lineItem.giftCardDetails.recipientEmail !== null ? lineItem.giftCardDetails.recipientEmail : ''}</span>
+                                    <span class="d-block mt-1 giftcard-message">${Resource.msg('label.egift.message', 'forms', null) + ': '}${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails.eGiftMessage : ''}</span>
+                                </div>
+                            </isif>
                                 <isset name="cartPage" value="${true}" scope="page" />
                                 <isinclude template="checkout/productCard/productCardProductPromotions" />
                                 <isset name="cartPage" value="${false}" scope="page" />
