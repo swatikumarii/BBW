@@ -56,6 +56,15 @@
                         </isif>
                     </div>
                 </div>
+                <div class="col">
+                    <div class="store-distance d-block">
+                        <isif condition="${store.distance}">
+                            <span>${Resource.msg('label.distance', 'storeLocator', null)}</span>
+                            <b><isprint value="${store.distance}" encoding="off" /></b>
+                            <span>${Resource.msg('label.mi', 'storeLocator', null)}</span>
+                        </isif>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
