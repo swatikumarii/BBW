@@ -15,11 +15,11 @@ function setupFaqContentSearch(params) {
     apiContentSearchModel.setFolderID('faq');
     apiContentSearchModel.setRecursiveFolderSearch(true);
     apiContentSearchModel.setFilteredByFolder(true);
-    apiContentSearchModel.setSearchPhrase(params.q);
+    apiContentSearchModel.setSearchPhrase(params.query);
     apiContentSearchModel.search();
     var contentSearchResult = apiContentSearchModel.getContent();
     var count = Number(apiContentSearchModel.getCount());
-    var contentSearch = new ContentSearch(contentSearchResult, count, params.q, params.startingPage, null);
+    var contentSearch = new ContentSearch(contentSearchResult, count, params.query, params.startingPage, null);
     
     // collection(apiContentSearchModel.refinements.matchingFolders, function (folder) {
     //     folder.parent.ID

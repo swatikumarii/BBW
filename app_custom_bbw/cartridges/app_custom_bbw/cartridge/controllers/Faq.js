@@ -63,27 +63,17 @@ server.post('GetContentAssets', function (req, res, next) {
     next();
 });
 
-// /**
-//  * Faq-Search : Search
-//  * @name Faq-Search
-//  */
-// server.post('Search', function (req, res, next) {
-//     var query = req.form.query;
-//     if (query) {
-//         contentIds = contentIds.split(',');
-//         for (var i = 0; i < contentIds.length; i++) {
-//             if (contentIds[i] !== req.form.currentContentId) {
-//                 var content = ContentMgr.getContent(contentIds[i]);
-//                 if (content) {
-//                     contentAssets.push(content);
-//                 }
-//             }
-//         }
-//     }
-//     res.render('/content/faqRecentArticlesLi', {
-//         contentAssets: contentAssets
-//     });
-//     next();
-// });
+/**
+ * Faq-Search : Search
+ * @name Faq-Search
+ */
+server.get('Search', function (req, res, next) {
+    var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
+    var contentSearch = searchHelper.setupFaqContentSearch(req.querystring);
+    res.render('/search/contentGrid', {
+        contentSearch: contentSearch
+    });
+    next();
+});
 
 module.exports = server.exports();
