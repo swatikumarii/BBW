@@ -173,3 +173,14 @@ ul li {
         pointer-events: none;
     }
 }
+
+// Hide the Google Invisible reCAPTCHA badge
+.grecaptcha-badge {
+    visibility: hidden !important;
+}
+
+// Afterpay Logo Size
+square-placement {
+    --messaging-font-size: 16px;
+    --logo-badge-width: 64px;
+}
