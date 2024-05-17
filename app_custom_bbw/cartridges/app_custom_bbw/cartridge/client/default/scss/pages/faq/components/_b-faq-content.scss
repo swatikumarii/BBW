@@ -2,8 +2,14 @@
     flex-direction: column;
     display: flex;
 
-    @include media-up(sm) {
-        flex-direction: row;
+    @include media-down(md) {
+        padding: 0 40px;
+        flex-direction: column;
+    }
+
+    @include media-down(sm) {
+        padding: 0 20px;
+        flex-direction: column;
     }
 
     .article-sidebar {
@@ -13,7 +19,7 @@
         margin-bottom: 20px;
         padding: 0;
 
-        @include media-up(sm) {
+        @include media-up(md) {
             height: auto;
             flex: 0 0 17%;
             border: 0;
@@ -25,7 +31,7 @@
             position: relative;
             overflow: hidden;
 
-            @include media-up(sm) {
+            @include media-up(md) {
                 padding: 0;
                 max-height: none;
             }
@@ -42,7 +48,7 @@
                 height: 25px;
                 border-radius: 50%;
 
-                @include media-up(sm) {
+                @include media-up(md) {
                     display: none;
                 }
 
@@ -71,13 +77,14 @@
                 position: relative;
                 font-weight: map-get($font-weight, semibold);
                 color: colour(black, 8);
+                line-height: 22.5px;
             }
 
             .collapsible-sidebar-body {
                 display: none;
                 margin-top: 10px;
 
-                @include media-up(sm) {
+                @include media-up(md) {
                     display: block;
                 }
 
@@ -96,6 +103,7 @@
                             margin-bottom: 10px;
                             padding: 10px;
                             font-size: 15px;
+                            line-height: 22.5px;
 
                             &:focus {
                                 outline: 0;
@@ -113,7 +121,9 @@
                 }
 
                 .article-sidebar-item {
-                    color: colour(blue, 12);
+                    color: colour(blue, 14);
+                    font-size: 15px;
+                    line-height: 22.5px;
 
                     &:hover {
                         text-decoration: underline;
@@ -153,7 +163,7 @@
                 flex-basis: 100%;
                 font-size: 32px;
                 margin: 37px 0 20px;
-                font-weight: 600;
+                font-weight: map-get($font-weight, bold);
                 color: colour(black, 8);
                 line-height: 1.5;
             }
@@ -180,9 +190,10 @@
                     }
 
                     h3 {
-                        font-size: 18px;
-                        font-weight: map-get($font-weight, semibold);
+                        font-size: 15px;
+                        font-weight: map-get($font-weight, bold);
                         color: colour(black, 8);
+                        line-height: 24px;
                     }
 
                     strong {
@@ -236,11 +247,18 @@
                     color 0.15s ease-in-out;
                 user-select: none;
                 white-space: nowrap;
+
+                &:hover {
+                    background-color: colour(blue, 10);
+                    color: colour(blue, 11);
+                    text-decoration: none;
+                }
             }
 
             .article-votes-count {
                 font-size: 12px;
                 color: colour(black, 8);
+                line-height: 18px;
             }
         }
 
@@ -261,6 +279,8 @@
                     margin-top: 0;
                     font-size: 18px;
                     font-weight: map-get($font-weight, bold);
+                    line-height: 27px;
+                    color: colour(black, 8);
                 }
 
                 ul {
@@ -274,6 +294,7 @@
                         a {
                             color: colour(blue, 12);
                             font-size: 15px;
+                            line-height: 22.5px;
 
                             &:hover {
                                 color: colour(pink, 5);

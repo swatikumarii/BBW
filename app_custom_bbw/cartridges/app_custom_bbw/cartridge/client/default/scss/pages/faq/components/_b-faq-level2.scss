@@ -2,6 +2,15 @@
     display: flex;
     justify-content: flex-end;
 
+    @include media-down(md) {
+        display: block;
+        padding: 0 40px;
+    }
+
+    @include media-down(sm) {
+        padding: 0 20px;
+    }
+
     .section-content {
         flex: 1;
 
@@ -19,10 +28,21 @@
                 padding: 15px 0;
 
                 .icon-star {
+                    color: #025394;
                     font-size: 18px;
                     height: 16px;
                     line-height: 27px;
-                    color: rgba(2, 83, 148, 100%);
+                    margin-top: -7px;
+                    margin-right: 3px;
+                }
+
+                a {
+                    color: colour(black, 8);
+
+                    &:hover {
+                        color: colour(black, 8);
+                        text-decoration: underline;
+                    }
                 }
             }
         }
