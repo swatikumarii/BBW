@@ -18,6 +18,8 @@ $(document).ready(function () {
     processInclude(require('./components/clientSideValidation'));
     processInclude(require('base/components/countrySelector'));
     processInclude(require('base/components/toolTip'));
+    // Session Out Popup js
+    processInclude(require('./components/autoLogout'));
     processInclude(require('./components/header'));
     processInclude(require('./wishlist'));
     processInclude(require('notify/components/notify'));

@@ -1700,7 +1700,7 @@
     &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Order-Status')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Order Tracking&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
-    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('CorporateGifting-Landing')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Corporate Sales &amp; Gifts&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
     &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$"&#13;
@@ -1725,7 +1725,7 @@
         &lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Careers-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Careers&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Search-Show', 'cgid', 'giftcards')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#13;
 &lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a class="footer-item-link h-clr--black-1 h-font-size--16" href="$url('Home-Show')$"&gt;Diversity, Equity &amp; Inclusion&lt;/a&gt;&#13;
@@ -1745,9 +1745,9 @@
     &lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse d-flex align-items-center justify-content-between collapsed h-font-size--14" aria-expanded="false" aria-controls="collapsible-finds" data-toggle="collapse" data-target="#collapsible-finds"&gt;FIND US&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-finds"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block  h-clr--black-1 h-fw--bold"&gt;FIND US&lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Store Locator&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Stores-Find')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Store Locator&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Global Locations&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'global-locations')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Global Locations&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
     &lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
@@ -11117,7 +11117,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </custom-attributes>
     </content>
 
-    <content content-id="contact-us">
+ <content content-id="contact-us">
         <display-name xml:lang="x-default">Contact Us</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -11126,8 +11126,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
     &lt;div class="contact-us row"&gt;&#13;
         &lt;div class="col s12 m3 contactOpts col-sm-6 col-md-8 col-xl-8"&gt;&#13;
-            &lt;div class="bg-img"&gt;&lt;img alt="" width="100%" height="100px"&#13;
-                    src="images/contact-us/customer_bg_img.webp?$staticlink$" title="" /&gt;&lt;/div&gt;&#13;
+            &lt;div class="bg-img"&gt;&lt;/div&gt;&#13;
 &#13;
             &lt;div class="optsContainer"&gt;&#13;
                 &lt;div class="mobile-img"&gt;&lt;img alt="" height="75px"&#13;
@@ -11145,8 +11144,8 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                             &lt;/div&gt;&#13;
 &#13;
                             &lt;p class="mb-0"&gt;Call us at &lt;a href="tel:1-800-57-6972"&gt;1-800-57-6972&lt;/a&gt;&lt;br /&gt;&#13;
-                                Monday-Friday&lt;br /&gt;&#13;
-                                9:00am-9:00pm AEST&lt;/p&gt;&#13;
+                                Monday-Friday&lt;/p&gt;&#13;
+                            &lt;p class="mb-0 mb-0 d-flex align-items-center"&gt; 9:00am-9:00pm AEST $include('ContactUs-Availability')$&lt;/p&gt;&#13;
 &#13;
                             &lt;p class="mb-0"&gt;&lt;strong class="h-fw--semibold h-clr--black-3"&gt;EMAIL US&lt;/strong&gt;&lt;/p&gt;&#13;
 &#13;
@@ -11171,13 +11170,15 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
             &lt;/div&gt;&#13;
 &#13;
             &lt;div class="bg-img"&gt;&#13;
-                &lt;img alt="" width="100%" height="100px" src="images/contact-us/customer_bg_img.webp?$staticlink$"&#13;
-                    title="" /&gt;&#13;
             &lt;/div&gt;&#13;
         &lt;/div&gt;&#13;
     &lt;/div&gt;&#13;
 &lt;/div&gt;&#13;
 &lt;style type="text/css"&gt;&#13;
+    .bg-img {&#13;
+        background-image: url("images/contact-us/customer_bg_img.png?$staticlink$");&#13;
+        height: 100px;&#13;
+    }&#13;
     .contactOpts {&#13;
         margin: 0 auto;&#13;
     }&#13;
@@ -11195,7 +11196,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         border: 3px solid #f2f2f2;&#13;
         padding: 0;&#13;
         margin: 70px auto;&#13;
-        max-width: 345px;&#13;
+        max-width: 365px;&#13;
     }&#13;
 }&#13;
 &#13;
@@ -11239,6 +11240,26 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &#13;
     #rn_ConditionalChatLink_6 .rn_Chat {&#13;
         line-height: 2;&#13;
+    }&#13;
+&#13;
+.green-background {&#13;
+        height: 10px;&#13;
+            width: 10px;&#13;
+            background-color: #649B26;&#13;
+            display: inline-block;&#13;
+            border-radius: 50%;&#13;
+            margin-right: 8px;&#13;
+    margin-left: 8px;&#13;
+  }&#13;
+&#13;
+.red-background {&#13;
+                        background-color: #dc3545;&#13;
+        height: 10px;&#13;
+            width: 10px;&#13;
+            display: inline-block;&#13;
+            border-radius: 50%;&#13;
+            margin-right: 8px;&#13;
+    margin-left: 8px;&#13;
     }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>

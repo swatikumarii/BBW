@@ -1,6 +1,6 @@
 <isset name="STORE_DETAIL_URL" value="${URLUtils.url('Page-Show', 'cid', store.ID)}" scope="PAGE" />
 <div class="card store-details border-0 p-0" data-store-id="${store.ID}">
-    <div class="card-head" id="${store.ID}">
+    <div class="card-head results-store-name" data-store-title="${store.name}" id="${store.ID}">
         <h2 class="mb-0 store-name ${loopState.count == 1 ? "not-collapsed" : "collapsed"} h-font-size--18 h-fw--bold h-clr--black-1 text-uppercase cursor-pointer"
             data-toggle="collapse" data-target="${'#collapse' + store.ID}" aria-expanded="true" aria-controls="collapseOne">
             <span>${loopState.count}.</span>${store.name}
@@ -53,6 +53,15 @@
                     <div class="store-hours d-block">
                         <isif condition="${store.storeHours}">
                             <isprint value="${store.storeHours}" encoding="off" />
+                        </isif>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="store-distance d-block">
+                        <isif condition="${store.distance}">
+                            <span class="distance-left">${Resource.msg('label.distance', 'storeLocator', null)}</span>
+                            <strong><isprint value="${store.distance}" encoding="off" /></strong>
+                            <span class="distanc-right">${Resource.msg('label.mi', 'storeLocator', null)}</span>
                         </isif>
                     </div>
                 </div>
