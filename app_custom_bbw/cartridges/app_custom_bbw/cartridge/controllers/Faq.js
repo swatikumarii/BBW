@@ -63,4 +63,17 @@ server.post('GetContentAssets', function (req, res, next) {
     next();
 });
 
+/**
+ * Faq-Search : Search
+ * @name Faq-Search
+ */
+server.get('Search', function (req, res, next) {
+    var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
+    var folderWiseSearch = searchHelper.setupFaqContentSearch(req.querystring);
+    res.render('/content/faqSearch', {
+        searchResult: folderWiseSearch
+    });
+    next();
+});
+
 module.exports = server.exports();

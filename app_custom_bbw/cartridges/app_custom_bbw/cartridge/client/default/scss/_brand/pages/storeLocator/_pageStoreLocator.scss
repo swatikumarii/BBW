@@ -24,18 +24,33 @@
     float: none;
     margin: 0 auto;
 
+    @include media-down(sm) {
+        padding: 0 15px;
+    }
+
     .store-form {
         float: left;
         width: 39.5%;
         min-height: 560px;
-        border: 3px solid #f2f2f2;
+        border: 3px solid colour(gray, 1);
         padding: 18px 45px 0;
+
+        @include media-down(sm) {
+            width: 100%;
+            border: 0;
+            padding: 0;
+        }
     }
 
     .store-map-detail-block {
         float: right;
         width: 58%;
         height: 560px;
+
+        @include media-down(sm) {
+            width: 100%;
+            height: auto;
+        }
     }
 
     .store-form-detail {
@@ -134,15 +149,33 @@
         .store-result {
             margin-top: 2.5rem;
 
+            @include media-down(sm) {
+                margin-top: 0;
+            }
+
             .store-details {
                 margin: 1.25rem 0;
 
                 .card-head {
+                    @include media-down(sm) {
+                        h2::after {
+                            top: 25px;
+                        }
+                    }
+
                     .store-name {
                         padding: 3.0625rem 1.75rem 3.125rem 2.375rem;
                         line-height: 1.25rem;
                         letter-spacing: 0.005em;
                         background-color: colour(white);
+
+                        span {
+                            padding-right: 15px;
+                        }
+
+                        @include media-down(sm) {
+                            padding: 26px 10px 33px;
+                        }
 
                         &.collapsed {
                             background-color: colour(gray, 1);
@@ -151,13 +184,16 @@
                 }
 
                 .card-body {
-                    padding: 0 38px;
+                    padding: 0 38px 0 70px;
                     margin-bottom: 3.75rem;
                     line-height: 1.25rem;
                     letter-spacing: 0.01em;
                     color: colour(gray, 4);
 
                     @include media-down(sm) {
+                        padding: 0 38px 0 40px;
+                        margin-bottom: 20px;
+
                         .col {
                             flex-basis: auto;
                         }

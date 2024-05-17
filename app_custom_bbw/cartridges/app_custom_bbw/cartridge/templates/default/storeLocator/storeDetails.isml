@@ -3,7 +3,7 @@
     <div class="card-head" id="${store.ID}">
         <h2 class="mb-0 store-name ${loopState.count == 1 ? "not-collapsed" : "collapsed"} h-font-size--18 h-fw--bold h-clr--black-1 text-uppercase cursor-pointer"
             data-toggle="collapse" data-target="${'#collapse' + store.ID}" aria-expanded="true" aria-controls="collapseOne">
-            ${loopState.count}. ${store.name}
+            <span>${loopState.count}.</span>${store.name}
         </h2>
     </div>
     <div id="${'collapse' + store.ID}" class="collapse ${loopState.count == 1 ? "show" : "not-show"}" aria-labelledby="${store.ID}" data-parent="#accordion">
