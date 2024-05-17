@@ -185,7 +185,7 @@
                         color: colour(black, 8);
 
                         strong {
-                            font-weight: map-get($font-weight, semibold);
+                            font-weight: map-get($font-weight, bold);
                         }
                     }
 

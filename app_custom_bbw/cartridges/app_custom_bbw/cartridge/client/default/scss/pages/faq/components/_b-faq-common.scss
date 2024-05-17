@@ -70,7 +70,7 @@
                 color: color(gray, 24);
             }
 
-            input[type="search"] {
+            input {
                 border: 1px solid colour(gray, 25);
                 border-radius: 30px;
                 box-sizing: border-box;
@@ -81,6 +81,8 @@
                 padding-right: 20px;
                 appearance: none;
                 width: 100%;
+                line-height: 16.1px;
+                letter-spacing: normal;
 
                 &:focus {
                     border: 1px solid rgba(2, 83, 148, 100%);
