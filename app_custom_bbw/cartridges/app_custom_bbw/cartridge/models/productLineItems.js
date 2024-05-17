@@ -199,15 +199,6 @@ function createProductLineItemsObject(allLineItems, view) {
                 lineItems.push(newLineItem);
             }
         }
-        if (
-            'custom' in item &&
-            'customBundle' in item.custom &&
-            item.custom.customBundle
-        ) {
-            newLineItem.customBundle = item.custom.customBundle;
-        } else {
-            newLineItem.customBundle = null;
-        }
         newLineItem.checkAvailable = product.available;
         newLineItem.enableNotifyMe = product.enableNotifyMe;
     });
