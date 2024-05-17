@@ -192,7 +192,7 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-			<attribute-definition attribute-id="isProflieComplete">
+			<attribute-definition attribute-id="isProfileComplete">
                 <display-name xml:lang="x-default">Profile Complete Status</display-name>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
@@ -226,7 +226,7 @@
                 <display-name xml:lang="x-default">Migration Attribute</display-name>
                 <attribute attribute-id="migratedCustomer"/>
                 <attribute attribute-id="isPasswordUpdated"/>
-				<attribute attribute-id="isProflieComplete"/>
+				<attribute attribute-id="isProfileComplete"/>
                 <attribute attribute-id="registrationSource"/>
                 <attribute attribute-id="receiveOffers"/>
                 <attribute attribute-id="activatedDate"/>
@@ -278,6 +278,18 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="sendProfileCompletionReminderEmail">
+                <display-name xml:lang="x-default">Send Profile Completion Reminder Email</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="sendProfileCompletionReminderPopup">
+                <display-name xml:lang="x-default">Send Profile Completion Reminder Popup</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
             <attribute-definition attribute-id="chatScript">
                 <display-name xml:lang="x-default">Live Chat Script</display-name>
@@ -862,6 +874,18 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <default-value>true</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="metaPixelEnabled">
+                <display-name xml:lang="x-default">Enable Meta pixel</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="metaPixelScript">
+                <display-name xml:lang="x-default">Meta pixel script</display-name>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="apDisplayPlpInfo">
                 <display-name xml:lang="x-default">Afterpay Display Product List Page Information</display-name>
                 <description xml:lang="x-default">Determines if the Afterpay information is display on the product tile</description>
@@ -892,7 +916,7 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-             <attribute-definition attribute-id="enableCashAppPay">
+            <attribute-definition attribute-id="enableCashAppPay">
                 <display-name xml:lang="x-default">Enable Cash App Pay</display-name>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
@@ -1034,7 +1058,6 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-
             <attribute-definition attribute-id="qwikcilverAPIPassword">
                 <display-name xml:lang="x-default">Qwikcilver API Password</display-name>
                 <type>string</type>
@@ -1122,6 +1145,30 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="hardTimeout">
+                <display-name xml:lang="x-default">Hard Timeout</display-name>
+                <description xml:lang="x-default">Hard Timeout(In Minutes)</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+             <attribute-definition attribute-id="popupDuration">
+                <display-name xml:lang="x-default">Popup Duration</display-name>
+                <description xml:lang="x-default">Popup Duration(In Minutes)</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="softTimeout">
+                <display-name xml:lang="x-default">Soft Timeout</display-name>
+                <description xml:lang="x-default">Soft Timeout(In Minutes)</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -1133,6 +1180,8 @@
                 <attribute attribute-id="gtmScriptEnabled"/>
                 <attribute attribute-id="gtmHeadScript"/>
                 <attribute attribute-id="gtmBodyScript"/>
+                <attribute attribute-id="metaPixelEnabled"/>
+                <attribute attribute-id="metaPixelScript"/>
             </attribute-group>
             <attribute-group group-id="qwikcilver">
                 <display-name xml:lang="x-default">Qwikcilver</display-name>
@@ -1162,7 +1211,12 @@
                 <attribute attribute-id="header_image"/>
                 <attribute attribute-id="zeroOrderEmail"/>
                 <attribute attribute-id="careersEmail"/>
+                <attribute attribute-id="hardTimeout"/>
+                <attribute attribute-id="softTimeout"/>
+                <attribute attribute-id="popupDuration"/>
                 <attribute attribute-id="countrySiteMapping"/>
+                <attribute attribute-id="sendProfileCompletionReminderEmail"/>
+                <attribute attribute-id="sendProfileCompletionReminderPopup"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
@@ -2795,6 +2849,13 @@
             </attribute-definition>
             <attribute-definition attribute-id="customBundle">
                 <display-name xml:lang="x-default">Custom Bundle</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customBundleIndex">
+                <display-name xml:lang="x-default">Custom Bundle Index</display-name>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>

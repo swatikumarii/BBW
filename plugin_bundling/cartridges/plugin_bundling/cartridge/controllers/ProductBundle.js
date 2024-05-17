@@ -262,6 +262,7 @@ server.post('AddProduct', function (req, res, next) {
     var pidsObj;
 
     var customBundlesInCart = {};
+    var index = 1;
     var bundle = JSON.parse(session.custom.bundle);
     var position = bundle.name.indexOf(req.form.currentBundle);
     var bundlesInCart = session.custom.customBundlesInCart;
@@ -300,6 +301,7 @@ server.post('AddProduct', function (req, res, next) {
         customBundlesInCart.qty[positionInCart]++;
         session.custom.customBundlesInCart =
             JSON.stringify(customBundlesInCart);
+        index = customBundlesInCart.qty[positionInCart];
     }
 
     if (currentBasket) {
@@ -326,7 +328,8 @@ server.post('AddProduct', function (req, res, next) {
                     quantity,
                     childProducts,
                     pidOptions,
-                    req.form.currentBundle
+                    req.form.currentBundle,
+                    index
                 );
 
                 if (PIDObjResult.error) {

@@ -1,4 +1,5 @@
 <footer id="footercontent">
+    <isinclude template="/account/autoLogout" />
     <div class="container pt-3 pb-5">
         <div class="footer-container footer-details p-sm-0 pb-4 h-dsp--grid">
             <div class="footer-item store pt-1">
@@ -50,7 +51,7 @@
                                     <a href="${URLUtils.url('Order-Status')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.order-tracking', 'footer', null)}</a>
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
-                                    <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
+                                    <a href="${URLUtils.url('Account-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
                                     <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.love-list', 'footer', null)}</a>
@@ -61,7 +62,7 @@
                                     class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold text-uppercase">
                                     ${Resource.msg('my.account.title', 'footer', null)}</li>
                                 <li class="footer-list-item mb-3 link-item">
-                                    <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
+                                    <a href="${URLUtils.url('Account-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
                                     <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.myorders', 'footer', null)}</a>
@@ -113,3 +114,6 @@
 <div class="countrySelectPopup">
     <isinclude url="${URLUtils.url('Home-CountrySelector')}" />
 </div>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('sendProfileCompletionReminderPopup')}">
+    <isinclude template="profileCompletion" />
+</isif>

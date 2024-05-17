@@ -59,10 +59,16 @@
             <preference preference-id="apStorePickupDescription">Available for next-day pickup</preference>
             <preference preference-id="enableAfterpay">true</preference>
             <preference preference-id="enableCashAppPay">true</preference>
+            <preference preference-id="hardTimeout">360</preference>
+            <preference preference-id="softTimeout">45</preference>
+            <preference preference-id="popupDuration">2</preference>
             <preference preference-id="zeroOrderEmail"></preference>
             <preference preference-id="careersEmail"></preference>
             <preference preference-id="liveChatEnabled">true</preference>
             <preference preference-id="chatScript"></preference>
+            <preference preference-id="sendProfileCompletionReminderEmail">true</preference>
+            <preference preference-id="sendProfileCompletionReminderPopup">true</preference>
+            <preference preference-id="metaPixelEnabled">true</preference>
             <preference preference-id="countrySiteMapping">
                 [
                     {"country":"India", "site": "https://www.bathandbody.in"},
@@ -124,6 +130,9 @@
             <preference preference-id="apStorePickupDescription">Available for next-day pickup</preference>
             <preference preference-id="enableAfterpay">false</preference>
             <preference preference-id="enableCashAppPay">false</preference>
+            <preference preference-id="hardTimeout">360</preference>
+            <preference preference-id="softTimeout">45</preference>
+            <preference preference-id="popupDuration">2</preference>
             <preference preference-id="zeroOrderEmail"></preference>
             <preference preference-id="chatScript"></preference>
             <preference preference-id="liveChatEnabled">true</preference>

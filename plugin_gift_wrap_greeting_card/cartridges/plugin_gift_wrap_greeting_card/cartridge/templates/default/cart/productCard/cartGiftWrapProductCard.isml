@@ -13,7 +13,7 @@
         </iscomment>
 
         <div class="d-flex w-100 ${bonuslineitemrow}">
-            <div class="col-md-7">
+            <div class="col-md-7 p-0">
                 <div class="d-flex">
                     <div class="item-image">
                         <img class="product-image" src="${lineItem.images.small[0].url}"
