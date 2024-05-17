@@ -1,45 +1,49 @@
-<div class="store-details" data-store-id="${store.ID}">
-    <div class="card store-details border-0 p-0" data-store-id="${store.ID}">
-    <div class="card-head" id="${store.ID}">
-        <h2 class="mb-0 store-name h-font-size--18 h-fw--bold h-clr--black-1 text-uppercase"aria-expanded="true">
-            ${store.name}
-        </h2>
-    </div>
-    <div class="card-body h-font-size--16">
-        <div class="row">
-            <div class="col">
-                <div class="store-address">
-                    <span class="text-uppercase">
-                        ${store.address1}
-                        <isif condition="${store.address2}">
-                            ${store.address2}
-                        </isif>
-                        <isif condition="${store.city}">
-                            ${store.city},
-                        </isif>
-                        <isif condition="${store.stateCode}">
-                            ${store.stateCode}
-                        </isif>
-                        ${store.postalCode}
-                    </span>
-                </div>
+<div class="store-details map-details" data-store-id="${store.ID}">
+<div class="accordion form-check-label" id="accordionMap">
+    <div class="card border-0 p-0" data-store-id="${store.ID}">
+        <div class="card-head" id="${store.ID}">
+            <h2 class="collapsed mb-0 store-name map-name h-font-size--14 h-fw--bold h-clr--black-1 text-uppercase" data-toggle="collapse" data-target="${'#collapse' + store.ID}" aria-expanded="true"
+            aria-controls="collapseOne">
+                ${store.name}
+            </h2>
+        </div>
+        <div id="${'collapse' + store.ID}" class="collapse store-detail show" aria-labelledby="${store.ID}" data-parent="#accordionMap">
+        <div class="card-body h-font-size--14">
+            <div class="row">
+                <div class="col">
+                    <div class="store-address">
+                        <span class="text-uppercase">
+                            ${store.address1}
+                            <isif condition="${store.address2}">
+                                ${store.address2}
+                            </isif>
+                            <isif condition="${store.city}">
+                                ${store.city},
+                            </isif>
+                            <isif condition="${store.stateCode}">
+                                ${store.stateCode}
+                            </isif>
+                            ${store.postalCode}
+                        </span>
+                    </div>
 
-                <div class="store-phone">
-                    <isif condition="${store.phone}">
-                        <span>${store.phone}</span>
-                    </isif>
-                </div>
+                    <div class="store-phone">
+                        <isif condition="${store.phone}">
+                            <span>${store.phone}</span>
+                        </isif>
+                    </div>
 
-                <div class="store-direction">
-                    <a class="h-fw--semibold h-clr--black-1" target='_blank'
-                        href="https://maps.google.com/?daddr=${store.latitude},${store.longitude}">
-                        ${Resource.msg('label.get.directions', 'storeLocator', null)}
-                    </a>
-                </div>
+                    <div class="store-direction">
+                        <a class="h-fw--semibold h-clr--black-1" target='_blank'
+                            href="https://maps.google.com/?daddr=${store.latitude},${store.longitude}">
+                            ${Resource.msg('label.get.directions', 'storeLocator', null)}
+                        </a>
+                    </div>
 
+                </div>
             </div>
+        </div>
         </div>
     </div>
 </div>
-
 </div>

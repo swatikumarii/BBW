@@ -233,6 +233,7 @@ server.replace(
                         profile.setEmail(formInfo.email);
                         profile.setPhoneHome(formInfo.phone);
                         profile.custom.zipCode = formInfo.zipCode;
+                        profile.custom.isProfileComplete = true;
                     });
 
                     // Send account edited email
@@ -473,6 +474,15 @@ server.append(
         viewData.showCartMergePopup =
             storedBasketProductQuantities && currentBasketProductQuantities;
         viewData.storedBasketProducts = storedBasketProducts;
+        if (viewData.authenticatedCustomer.authenticated) {
+            viewData.isIncomplete =
+                'custom' in viewData.authenticatedCustomer.profile &&
+                'isProfileComplete' in
+                    viewData.authenticatedCustomer.profile.custom
+                    ? !viewData.authenticatedCustomer.profile.custom
+                        .isProfileComplete
+                    : true;
+        }
         next();
     }
 );
@@ -705,6 +715,7 @@ server.replace(
                                     newCustomerProfile.birthday = registrationForm.birthday;
                                     newCustomerProfile.custom.zipCode = registrationForm.zipCode;
                                     newCustomerProfile.custom.nationality = registrationForm.nationality;
+                                    newCustomerProfile.custom.isProfileComplete = true;
                                 }
                             });
                         } catch (e) {

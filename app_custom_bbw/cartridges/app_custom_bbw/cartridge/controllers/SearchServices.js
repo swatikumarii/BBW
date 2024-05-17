@@ -33,7 +33,7 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
     var minChars = 3;
     // Unfortunately, by default, max suggestions is set to 10 and is not configurable in Business
     // Manager.
-    var maxSuggestions = 10;
+    var maxSuggestions = 5;
     suggestions = new SuggestModel();
     suggestions.setFilteredByFolder(false);
     suggestions.setSearchPhrase(searchTerms);
@@ -54,6 +54,9 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
             || recentSuggestions.available
             || popularSuggestions.available
             || brandSuggestions.available) {
+
+            var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
+            var result = searchHelper.search(req, res);
             total =
                 productSuggestions.products.length +
                 contentSuggestions.contents.length +
@@ -69,12 +72,21 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
                     recent: recentSuggestions,
                     popular: popularSuggestions,
                     brand: brandSuggestions,
-                    message: Resource.msgf('label.header.search.result.count.msg', 'common', null, ['' + total])
+                    searchTerms: searchTerms,
+                    searchProductCount:
+                        result && result.productSearch ? result.productSearch.count : 0,
+                    message: Resource.msgf(
+                        'label.header.search.result.count.msg',
+                        'common',
+                        null,
+                        ['' + total]
+                    )
                 }
             });
         } else {
             res.render('search/suggestions', {
                 suggestions: {
+                    searchTerms: searchTerms,
                     message: Resource.msgf(
                         'label.header.search.result.count.msg',
                         'common',
@@ -97,6 +109,7 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
                 recent: recentSuggestions,
                 popular: popularSuggestions,
                 brand: brandSuggestions,
+                searchTerms: searchTerms,
                 message: Resource.msgf(
                     'label.header.search.result.count.msg',
                     'common',
