@@ -11,7 +11,7 @@ var Money = require('dw/value/Money');
 function getPromoPrice(lineItem) {
     if (lineItem.adjustedGrossPrice.value !== lineItem.grossPrice.value) {
         if (lineItem.adjustedGrossPrice.value === 0) {
-            return 'Free';
+            return 'FREE';
         }
         var promoPrice = lineItem.adjustedGrossPrice.value / lineItem.quantityValue;
         return formatMoney(

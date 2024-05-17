@@ -1688,7 +1688,7 @@
   &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="customer-service"&gt;&#13;
     &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;&#13;
       CUSTOMER CARE&lt;/li&gt;&#13;
-    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard.')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Help &amp; FAQs&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
     &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
@@ -1697,10 +1697,10 @@
     &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Returns &amp; Exchanges&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
-    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Order-Status')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Order Tracking&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
-    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('CorporateGifting-Landing')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Corporate Sales &amp; Gifts&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
     &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$"&#13;
@@ -1723,9 +1723,9 @@
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;DISCOVER&lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;About Us&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Careers&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Careers-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Careers&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Search-Show', 'cgid', 'giftcards')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#13;
 &lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a class="footer-item-link h-clr--black-1 h-font-size--16" href="$url('Home-Show')$"&gt;Diversity, Equity &amp; Inclusion&lt;/a&gt;&#13;
@@ -1745,9 +1745,9 @@
     &lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse d-flex align-items-center justify-content-between collapsed h-font-size--14" aria-expanded="false" aria-controls="collapsible-finds" data-toggle="collapse" data-target="#collapsible-finds"&gt;FIND US&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-finds"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block  h-clr--black-1 h-fw--bold"&gt;FIND US&lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Store Locator&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Stores-Find')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Store Locator&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Global Locations&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'global-locations')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Global Locations&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
     &lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
@@ -3463,7 +3463,7 @@
         </custom-attributes>
     </content>
     
-    <content content-id="store-detail">
+     <content content-id="store-detail">
         <display-name xml:lang="x-default">Store Detail</display-name>
         <description xml:lang="x-default">Store Detail asset to add shop now button</description>
         <online-flag>true</online-flag>
@@ -3471,11 +3471,8 @@
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="store-details-bottom-wrapper text-center my-5"&gt;&#13;
-&lt;h1 class="h-fw--semibold"&gt;Can’t wait?&lt;/h1&gt;&#13;
-&lt;p class="h-clr--black-1 h-font-size--16"&gt;Shop your favourite products online.&lt;/p&gt;&#13;
-&lt;div class="wrapper__buttons"&gt;&#13;
-&lt;a href="$url('Home-Show','cid','home-show)$" class="btn btn-submit "&gt;Shop Now&lt;/a&gt;&#13;
-&lt;/div&gt;&#13;
+&lt;p class="h-font-size--16"&gt;Bath &amp; Body Works International store contact information&lt;br/&gt;&#13;
+To contact the Customer Service Department in the Malaysia, please call &lt;a href="phone:1800 81 7751" class="h-clr--blue-12"&gt;1800 81 7751&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.my"&gt;cs@bathandbodyworks.com.my.&lt;/a&gt;&lt;/p&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
@@ -5135,6 +5132,46 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <page-attributes/>
     </content>
 
+		<content content-id="menu-item-slot-1-detail-section">
+        <display-name xml:lang="x-default">Menu Item Slot-1 Detail Section</display-name>
+        <description xml:lang="x-default">Menu Item Slot-1 Detail Section</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="category-top-offers"&gt;&#13;
+&lt;a href="#" class="heading" aria-expanded="false"&gt;&lt;span&gt;Body Care Offers&lt;/span&gt;&lt;/a&gt;&#13;
+&#13;
+&lt;!-- BC_LeftNav_0516--&gt;&#13;
+&lt;span class="toggle"&gt;Top Offers&lt;/span&gt;&#13;
+&lt;ul&gt;&#13;
+&lt;li&gt;&#13;
+		&lt;a href="#"&gt;&#13;
+			2 for $12 All Skincare&#13;
+		&lt;/a&gt;&#13;
+	&lt;/li&gt;&#13;
+&lt;li&gt;&#13;
+		&lt;a href="#"&gt;&#13;
+			Buy 3, Get 2 FREE Select Body, Skin &amp;amp; Hair Care&#13;
+		&lt;/a&gt;&#13;
+	&lt;/li&gt;	&#13;
+&lt;li&gt;&#13;
+		&lt;a href="#"&gt;&#13;
+			Buy 3, Get 1 FREE Travel &amp;amp; Hand Cream&#13;
+		&lt;/a&gt;&#13;
+	&lt;/li&gt;&#13;
+&lt;li&gt;&#13;
+		&lt;a href="#"&gt;&#13;
+			Pride Month Collection&#13;
+		&lt;/a&gt;&#13;
+	&lt;/li&gt;&#13;
+&lt;/ul&gt;&#13;
+&#13;
+&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
     <content content-id="menu-item-slot-1-image-section">
         <display-name xml:lang="x-default">Menu Item Slot 1 Image Section</display-name>
         <description xml:lang="x-default">Menu Item Slot 1 Image Section</description>
@@ -5218,13 +5255,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;h1 class="h-font-size--18 "&gt;CUSTOMER CARE&lt;/h1&gt;&#13;
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;h1 class="h-font-size--12 text-uppercase h-clr--black-3 h-fw--semibold"&gt;CUSTOMER CARE&lt;/h1&gt;&#13;
 &lt;ul class="list-unstyled"&gt;&#13;
-	&lt;li class="sitemap-list"&gt;&lt;a class="h-clr--gray" href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;FAQs&lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li class="h-clr--black-3 corporate-title" &gt;CORPORATE INFORMATION&lt;/li&gt;&#13;
-	&lt;li class="sitemap-list"&gt;&lt;a class="h-clr--gray" href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Careers&lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li class="sitemap-list"&gt;&lt;a class="h-clr--gray"  href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Privacy &amp; Security&lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li class="sitemap-list"&gt;&lt;a class="h-clr--gray"  href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Terms of Use&lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li class="sitemap-list"&gt;&lt;a class="h-clr--gray h-font-size--14" href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;FAQs&lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li class="h-font-size--12 text-uppercase h-clr--black-3 h-fw--semibold corporate-title" &gt;CORPORATE INFORMATION&lt;/li&gt;&#13;
+	&lt;li class="sitemap-list"&gt;&lt;a class="h-clr--gray h-font-size--14" href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Careers&lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li class="sitemap-list"&gt;&lt;a class="h-clr--gray h-font-size--14"  href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Privacy &amp; Security&lt;/a&gt;&lt;/li&gt;&#13;
+	&lt;li class="sitemap-list"&gt;&lt;a class="h-clr--gray h-font-size--14"  href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&gt;Terms of Use&lt;/a&gt;&lt;/li&gt;&#13;
 &lt;/ul&gt;</custom-attribute>
         </custom-attributes>
     </content>
@@ -11600,7 +11637,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                 &lt;/tr&gt;&#13;
 				&lt;tr&gt;&#13;
                     &lt;td&gt;&#13;
-                        &lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation" style="padding-top: 40px;"&gt;&#13;
+                        &lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation" style="padding: 40px 0;"&gt;&#13;
                             &lt;tbody&gt;&#13;
                                 &lt;tr&gt;&#13;
                                     &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;&#13;
@@ -11981,4 +12018,192 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </custom-attributes>
     </content>
 	
+    <content content-id="email-delete-address">
+        <display-name xml:lang="x-default">Email Delete Address</display-name>
+        <description xml:lang="x-default">Email Delete Address: : In this body we can use {{customerName}} and  {{myAccountLink}} construction which will be replaced to appropriate data</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;h1 style="margin:0 0 20px;font-size:24px;color:#333;font-weight:500;line-height:24px"&gt;Hi {{customerName}},&lt;/h1&gt;&#13;
+&lt;p style="margin:0;font-size:18px;font-weight:400;text-align:center;color:#333"&gt;Success! You Deleted Your Address&lt;/p&gt;&#13;
+&lt;table align="center" cellpadding="0 " cellspacing="0" width="100%" style="margin:0 auto"&gt;&#13;
+    &lt;tbody&gt;&#13;
+        &lt;tr style="text-align:center"&gt;&#13;
+            &lt;td style="color:#333;font-size:14px"&gt;&#13;
+                &lt;div style="border:2px solid #ccc;text-align:center;margin:10px 0px;padding:20px"&gt;&#13;
+                    &lt;p style="margin-top:0"&gt;Want to check your info or make other changes?&lt;/p&gt;&#13;
+                    &lt;div&gt;&#13;
+                        &lt;!--[if mso]&gt;&#13;
+									&lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href=" {{myAccountLink}} " style="height:40px;v-text-anchor:middle;width:180px;" strokecolor="#333" fillcolor="#333"&gt;&#13;
+										&lt;w:anchorlock/&gt;&#13;
+										&lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"&gt;Go to my Account&lt;/center&gt;&#13;
+									&lt;/v:rect&gt;&#13;
+								&lt;![endif]--&gt;&lt;a href=" {{myAccountLink}} "&#13;
+                            style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;"&gt;Go to my Account&lt;/a&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/td&gt;&#13;
+        &lt;/tr&gt;&#13;
+    &lt;/tbody&gt;&#13;
+&lt;/table&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+	
+    <content content-id="email-add-address">
+        <display-name xml:lang="x-default">Email Add Address Content</display-name>
+        <description xml:lang="x-default">Add Address Email Content : In this body we can use {{customerName}} construction which will be replaced to appropriate data</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;h1 style="margin:0 0 20px;font-size:24px;color:#333;font-weight:500;line-height:24px"&gt;Hi {{customerName}},&lt;/h1&gt;&#13;
+&lt;p style="margin:0;font-size:18px;font-weight:400;text-align:center;color:#333"&gt;Success! You Added New Address&lt;/p&gt;&#13;
+&lt;table align="center" cellpadding="0 " cellspacing="0" width="100%" style="margin:0 auto"&gt;&#13;
+    &lt;tbody&gt;&#13;
+        &lt;tr style="text-align:center"&gt;&#13;
+            &lt;td style="color:#333;font-size:14px"&gt;&#13;
+                &lt;div style="border:2px solid #ccc;text-align:center;margin:10px 0px;padding:20px"&gt;&#13;
+                    &lt;p style="margin-top:0"&gt;Want to check your info or make other changes?&lt;/p&gt;&#13;
+                    &lt;div&gt;&#13;
+                        &lt;!--[if mso]&gt;&#13;
+									&lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="$url('Login-Show')$" style="height:40px;v-text-anchor:middle;width:180px;" strokecolor="#333" fillcolor="#333"&gt;&#13;
+										&lt;w:anchorlock/&gt;&#13;
+										&lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;"&gt;Go to my Account&lt;/center&gt;&#13;
+									&lt;/v:rect&gt;&#13;
+								&lt;![endif]--&gt;&lt;a href=" {{myAccountLink}} "&#13;
+                            style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;"&gt;Go to my Account&lt;/a&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/td&gt;&#13;
+        &lt;/tr&gt;&#13;
+    &lt;/tbody&gt;&#13;
+&lt;/table&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+	
+	 <content content-id="email-edit-address">
+        <display-name xml:lang="x-default">Email Edit Address</display-name>
+        <description xml:lang="x-default">Edit Address Email Content : In this body we can use {{customerName}} and  {{myAccountLink}} construction which will be replaced to appropriate data</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;h1 style="margin:0 0 20px;font-size:24px;color:#333;font-weight:500;line-height:24px"&gt;Hi {{customerName}},&lt;/h1&gt;&#13;
+&lt;p style="margin:0;font-size:18px;font-weight:400;text-align:center;color:#333"&gt;Success! You Updated Your Address&lt;/p&gt;&#13;
+&lt;table align="center" cellpadding="0 " cellspacing="0" width="100%" style="margin:0 auto"&gt;&#13;
+    &lt;tbody&gt;&#13;
+        &lt;tr style="text-align:center"&gt;&#13;
+            &lt;td style="color:#333;font-size:14px"&gt;&#13;
+                &lt;div style="border:2px solid #ccc;text-align:center;margin:10px 0px;padding:20px"&gt;&#13;
+                    &lt;p style="margin-top:0"&gt;Want to check your info or make other changes?&lt;/p&gt;&#13;
+                    &lt;div&gt;&#13;
+                        &lt;!--[if mso]&gt;&#13;
+									&lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="$url('Login-Show')$" style="height:40px;v-text-anchor:middle;width:180px;" strokecolor="#333" fillcolor="#333"&gt;&#13;
+										&lt;w:anchorlock/&gt;&#13;
+										&lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px"&gt;Go to my Account&lt;/center&gt;&#13;
+									&lt;/v:rect&gt;&#13;
+								&lt;![endif]--&gt;&lt;a href=" {{myAccountLink}} "&#13;
+                            style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:180px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;"&gt;Go to my Account&lt;/a&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/td&gt;&#13;
+        &lt;/tr&gt;&#13;
+    &lt;/tbody&gt;&#13;
+&lt;/table&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+<content content-id="Order-tracking-banner">
+        <display-name xml:lang="x-default">Order Tracking</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="row"&gt;&#13;
+&lt;div class="col-md-12 col-sm-12 d-flex justify-content-center slot-banner"&gt;&#13;
+&lt;img alt="${Resource.msg('lorder.tracking.banner.title', 'order', null)}" class="d-sm-none w-100 sm-banner-img" src="images/orderTracking/order-status-banner-asset_m.svg?$staticlink$" title="" /&gt; &#13;
+&lt;img alt="${Resource.msg('lorder.tracking.banner.title', 'order', null)}" class="d-none d-sm-block md-banner-img" src="images/orderTracking/order-status-banner.svg?$staticlink$" title="" /&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+	
+	<content content-id="corporate-gifting-top">
+        <display-name xml:lang="x-default">Corporate Gift Page Top Section</display-name>
+        <description xml:lang="x-default">Corporate Gift Page Top Section</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="row no-gutters"&gt;
+	&lt;div class="col-12"&gt;
+&lt;a class="d-block" href="$url('Search-Show','cgid','body-care')$"&gt;
+    &lt;img class="w-100" alt="shop New Body care " src="images/corporate-gift/BC-B2G1F-hm.jpg?$staticlink$" title="" /&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="container"&gt;
+	&lt;div class="row mx-auto mt-4"&gt;
+		&lt;div class="col-12 col-md-6"&gt; &lt;a href="$url('Search-Show','cgid','body-care')$"&gt;
+            &lt;img  class="lazy w-100"  alt="shop New Body care "
+                data-src="images/corporate-gift/resort-wl-ssc_sp3_hps.jpg?$staticlink$" title="" /&gt;
+        &lt;/a&gt;
+
+			&lt;div class="bottom-text text-center pt-3"&gt;
+				&lt;p class="sub-content m-0 h-fw--bold h-clr--black"&gt;Our most loved fragrances.&lt;/p&gt;
+				&lt;div class="bottom-text"&gt; &lt;a href="$url('Search-Show','cgid','body-care')$"&gt;
+                    &lt;p class="h-clr--black b-text-a-underline"&gt;SHOP FRAGRANCES&lt;/p&gt;
+                &lt;/a&gt;
+
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div class="col-12 col-md-6"&gt; &lt;a href="$url('Search-Show','cgid','body-care')$"&gt;
+            &lt;img class="lazy w-100" alt="shop All Mens-Collection "
+                data-src="images/corporate-gift/mens_grooming_sp3_hps.jpg?$staticlink$" title="" /&gt;
+        &lt;/a&gt;
+
+			&lt;div class="bottom-text text-center pt-3"&gt;
+				&lt;p class="sub-content m-0 h-fw--bold h-clr--black"&gt;The scents he loves.&lt;/p&gt;
+				&lt;div class="bottom-text"&gt; &lt;a href="$url('Search-Show','cgid','body-care')$"&gt;
+                    &lt;p class="h-clr--black b-text-a-underline"&gt;SHOP MEN'S COLLECTION &lt;/p&gt;
+                &lt;/a&gt;
+
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+	
+	<content content-id="corporate-gifting-bottom">
+        <display-name xml:lang="x-default">Corporate Gift Page Bottom Section</display-name>
+        <description xml:lang="x-default">Corporate Gift Page Bottom Section</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;a class="d-block" href="$url('Search-Show','cgid','body-care')$"&gt;&lt;img class="w-100 lazy" alt="shop New Body care "
+        data-src="images/corporate-gift/gifting-banner_sp3_hp-main.jpg?$staticlink$" title="" /&gt;&lt;/a&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+	
+	<content content-id="corporate-gifting-thankyou">
+        <display-name xml:lang="x-default">Corporate Gift Thank you text</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p class="h-font-size--40" style="line-height:normal;"&gt;Thank you for expressing
+	&lt;br&gt;interest in working with Bath and Body Works&lt;/p&gt;
+&lt;div class="b2b-contact-response"&gt;
+	&lt;p&gt;We value your inquiry and are excited about the potential of collaborating with you.&lt;/p&gt;
+	&lt;p&gt;Your request for a business proposal is being given the highest priority. We understand the significance of timeand are committed to delivering exceptional service. Expect to receive a comprehensive response as soon as possible.&lt;/p&gt;
+	&lt;p class="confirmation-note"&gt;If you have any additional informaton, questions or specific
+		&lt;br&gt;preferences, please feel free to share them with us at &lt;a href="gift@bathandbodyworks.com" class="h-clr--blue"&gt;gift@bathandbodyworks.com&lt;/a&gt;
+	&lt;/p&gt;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
 </library>

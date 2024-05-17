@@ -4,9 +4,72 @@
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins/breakpoints";
 
+.greeting-card {
+    .item-image {
+        img {
+            margin-right: 42px;
+            max-height: 160px;
+            max-width: 105px;
+            object-fit: cover;
+        }
+    }
+
+    .item-detail {
+        width: 100%;
+
+        @include media-breakpoint-up(sm) {
+            width: 50%;
+        }
+    }
+
+    .item-desc {
+        padding-top: 16px;
+
+        .line-item-header {
+            .line-item-name {
+                font-size: 1.25rem;
+                line-height: 24px;
+                color: #1a1a1a;
+            }
+
+            span {
+                font-size: 12px;
+                line-height: 24px;
+                color: #1a1a1a;
+            }
+        }
+    }
+
+    .remove-product {
+        text-decoration: none;
+        padding-left: 24px;
+        margin-top: 14px;
+        color: #1a1a1a;
+        font-size: 14px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .line-item-total-price {
+        padding-top: 0 !important;
+    }
+
+    .pricing {
+        padding-top: 0;
+        font-size: 16px !important;
+        line-height: 24px;
+        font-weight: 400 !important;
+
+        @include media-breakpoint-up(sm) {
+            padding-top: 16px;
+        }
+    }
+}
+
 .greeting-block {
     background-color: transparent;
-    border: 1px solid #666;
     font-size: 14px;
     line-height: 24px;
     padding: 16px;
@@ -299,62 +362,6 @@
                 width: 48%;
                 max-width: 292px;
             }
-        }
-    }
-}
-
-.greeting-card {
-    .item-detail {
-        padding: 0 0 0 37px;
-        width: 100%;
-
-        @include media-breakpoint-up(sm) {
-            width: 50%;
-        }
-    }
-
-    .item-desc {
-        padding-top: 16px;
-        
-        .line-item-header {
-            .line-item-name {
-                font-size: 1.25rem;
-                line-height: 24px;
-                color: #1a1a1a;
-            }
-
-            span {
-                font-size: 12px;
-                line-height: 24px;
-                color: #1a1a1a;
-            }
-        }
-    }
-
-    .remove-product {
-        text-decoration: none;
-        padding-left: 24px;
-        margin-top: 14px;
-        color: #1a1a1a;
-        font-size: 14px;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
-    .line-item-total-price {
-        padding-top: 0 !important;
-    }
-
-    .pricing {
-        padding-top: 0;
-        font-size: 16px !important;
-        line-height: 24px;
-        font-weight: 400 !important;
-
-        @include media-breakpoint-up(sm) {
-            padding-top: 16px;
         }
     }
 }

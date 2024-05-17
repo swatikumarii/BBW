@@ -71,7 +71,8 @@
     &.notify-me-btn,
     &.out-of-stock,
     &.add-to-bundle,
-    &.added-to-bundle {
+    &.added-to-bundle,
+    &.submit-form {
         font-size: 1rem;
         font-weight: map-get($font-weight, semibold);
         letter-spacing: 0.24px;
@@ -169,6 +170,14 @@
             background-color: colour(pink);
             color: colour(white);
         }
+    }
+
+    &:disabled {
+        background-color: colour(gray, 1);
+        color: colour(gray, 3);
+        border-color: colour(gray, 1);
+        cursor: default;
+        opacity: 0.5;
     }
 }
 

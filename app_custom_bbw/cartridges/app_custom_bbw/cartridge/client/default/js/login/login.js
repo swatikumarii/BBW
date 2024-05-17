@@ -65,9 +65,10 @@ function register() {
                     $('form.registration').trigger('login:register:error', data);
                     formValidation(form, data);
                 } else {
-                    $('.success-message').toast('show');
+                    $('.register-success').removeClass('d-none');
                     $('form.registration').trigger('login:register:success', data);
                     setTimeout(function () {
+                        $('.register-success').addClass('d-none');
                         location.href = data.redirectUrl;
                     }, 2000);
                 }
@@ -108,6 +109,9 @@ function login() {
                     form.trigger('login:error', data);
                 } else {
                     form.trigger('login:success', data);
+                    if (data.isIncomplete) {
+                        sessionStorage.setItem('profileIncomplete', true);
+                    }
                     if (data.showCartMergePopup) {
                         window.storedBasketProducts = data.storedBasketProducts;
                         $('.loginPopup').find('#loginModal').modal('hide');
@@ -116,6 +120,9 @@ function login() {
                             .find('#isMergeCartModal')
                             .modal('show');
                     } else {
+                        if ($('.loginPopup input[name="wishlist-pid"]').val()) {
+                            localStorage.setItem('addToWishList', true);
+                        }
                         window.location.href = data.redirectUrl;
                     }
                 }
@@ -203,6 +210,40 @@ function validateEmailField(emailInput) {
     $('#' + emailInput.attr('id') + '-error').empty(); // Clear error message
     return true;
 }
+
+/**
+ * Generic validation function for password fields
+ * @param {object} passwordInput input field on which validation will be tested
+ * @returns {boolean} valid or not
+ */
+function validatePasswordFieldWithValidation(passwordInput) {
+    if (!validateRequiredField(passwordInput)) return false;
+
+    // Remove existing success messages and ticks
+    passwordInput.closest('.form-group').find('.text-success').remove();
+    passwordInput.closest('.form-group').find('.far').remove();
+
+    // Check for each requirement and display a green tick with success message
+    var rules = [
+        { name: 'rule8to50char', pattern: /^.{8,50}$/ },
+        { name: 'rule1lowercase', pattern: /[a-z]/ },
+        { name: 'rule1uppercase', pattern: /[A-Z]/ },
+        { name: 'rule1number', pattern: /\d/ },
+        { name: 'ruleNoSpaces', pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,50}$/ },
+        { name: 'ruleSpecialChar', pattern: /[@$!%*?&]/ }
+    ];
+
+    rules.forEach(function (rule) {
+        if (rule.pattern.test(passwordInput.val())) {
+            $('#' + rule.name).removeClass('error').addClass('success');
+        } else {
+            $('#' + rule.name).removeClass('success').addClass('error');
+        }
+    });
+
+    return true;
+}
+
 /**
  * Generic validation function for password fields
  * @param {object} passwordInput input field on which validation will be tested
@@ -250,15 +291,36 @@ var validationFields = [
     {
         selector: '#reset-password-email',
         validationFunction: validateEmailField
+    },
+    {
+        selector: '#registration-form-password',
+        validationFunction: validatePasswordFieldWithValidation
     }
 ];
 // Loop through the array and attach blur event handlers dynamically
 validationFields.forEach(function (field) {
+
+    if (field.selector === '#registration-form-password') {
+        $(document).on('keyup', field.selector, function () {
+            validateField(field.selector, field.validationFunction);
+        });
+    }
+
     $(document).on('blur', field.selector, function () {
         validateField(field.selector, field.validationFunction);
     });
 });
 
+$('#registration-form-password').click(function () {
+    $('.required-pass').removeClass('d-none');
+});
+
+$('body').click(function (event) {
+    // Check if the clicked element is not inside the #registration-form-password element
+    if (!$(event.target).closest('#registration-form-password').length) {
+        $('.required-pass').addClass('d-none');
+    }
+});
 
 var exportDetails = $.extend({}, baselogin, {
     register: register,

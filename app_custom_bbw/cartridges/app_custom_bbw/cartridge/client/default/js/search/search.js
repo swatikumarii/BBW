@@ -2,7 +2,6 @@
 
 var helpers = require('../utils/scrollHelpers');
 var lazyload = require('../utils/lazyLoad');
-var layout = require('../utils/layout');
 var debounce = require('lodash/debounce');
 
 /**
@@ -323,15 +322,14 @@ module.exports = {
 
     resize: function () {
         // Close refinement bar and hide modal background if user resizes browser
-        $(window).resize(function () {
-            if (layout.isDesktop()) {
-                $('.refinement-bar, .modal-background').hide();
-                $('.refinement-bar').siblings().attr('aria-hidden', false);
-                $('.refinement-bar').closest('.row').siblings().attr('aria-hidden', false);
-                $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', false);
-                $('.refinement-bar').closest('.container.search-results').siblings().attr('aria-hidden', false);
-            }
-        });
+        // $(window).resize(function () {
+        //     console.log('resize triggred');
+        //     $('.refinement-bar, .modal-background').hide();
+        //     $('.refinement-bar').siblings().attr('aria-hidden', false);
+        //     $('.refinement-bar').closest('.row').siblings().attr('aria-hidden', false);
+        //     $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', false);
+        //     $('.refinement-bar').closest('.container.search-results').siblings().attr('aria-hidden', false);
+        // });
     },
 
     sort: function () {

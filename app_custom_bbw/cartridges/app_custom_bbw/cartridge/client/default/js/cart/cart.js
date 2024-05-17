@@ -27,11 +27,7 @@ function appendToUrl(url, params) {
 function validateBasket(data) {
     if (data.valid.error) {
         if (data.valid.message) {
-            var errorHtml = '<div class="alert alert-danger alert-dismissible valid-cart-error '
-                + 'fade show" role="alert">'
-                + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
-                + '<span aria-hidden="true">&times;</span>'
-                + '</button>' + data.valid.message + '</div>';
+            var errorHtml = '<span class="d-block">' + data.valid.message + '</span>';
 
             $('.cart-error').append(errorHtml);
         } else {
@@ -120,12 +116,7 @@ function updateCartTotals(data) {
  * @param {object} message - Error message to display
  */
 function createErrorNotification(message) {
-    var errorHtml = '<div class="alert alert-danger alert-dismissible valid-cart-error '
-        + 'fade show" role="alert">'
-        + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
-        + '<span aria-hidden="true">&times;</span>'
-        + '</button>' + message + '</div>';
-
+    var errorHtml = '<span class="d-block">' + message + '</span>';
     $('.cart-error').append(errorHtml);
 }
 
@@ -433,7 +424,7 @@ module.exports = function () {
         var quantity = Number($(this).siblings('.quantity').val());
         quantity += 1;
         var maxOrderQty = $(this).siblings('.quantity').data('max-order-qty');
-        if (maxOrderQty && maxOrderQty < quantity) {
+        if (maxOrderQty && Number(maxOrderQty) < quantity) {
             var errorElem = $(this)
                 .parents('.quantity-form')
                 .siblings('.max-order-qty-error');
@@ -449,15 +440,17 @@ module.exports = function () {
     $(document).on('click', '.quantity-form > .quantity-minus', function () {
         var quantity = Number($(this).siblings('.quantity').val());
         quantity -= 1;
-        $(this).siblings('.quantity').val(quantity).trigger('change');
+        if (quantity > 0) {
+            $(this).siblings('.quantity').val(quantity).trigger('change');
+        }
     });
 
     $('body').on('change', '.quantity-form > .quantity', function () {
         var preSelectQty = $(this).data('pre-select-qty');
-        var quantity = $(this).val();
+        var quantity = Number($(this).val());
         var maxOrderQty = $(this).data('max-order-qty');
 
-        if (maxOrderQty && maxOrderQty < quantity) {
+        if (maxOrderQty && Number(maxOrderQty) < quantity && quantity > 0) {
             var errorElem = $(this)
                 .parents('.quantity-form')
                 .siblings('.max-order-qty-error');

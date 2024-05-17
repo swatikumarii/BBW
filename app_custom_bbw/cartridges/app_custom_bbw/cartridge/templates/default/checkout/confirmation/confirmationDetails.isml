@@ -20,13 +20,23 @@
             <span class="summary-details order-number h-clr--black h-fw--semibold">${pdict.order.orderEmail}</span>
             </p>
         </isif>
-        <button id="invoiceDownload" class="h-fw--semibold print-text h-clr--gray"
+        <button id="invoiceDownload" class="h-fw--semibold print-text h-clr--gray bg-white border-0"
             data-action="${pdict.order.invoiceDownloadUrl}">${Resource.msg('label.print', 'confirmation', null)}</button>
     </div>
 </div>
-<div class="purhase-message">
-    <p class="h-clr--black-3 mb-0">${Resource.msg('purchase.label.message', 'confirmation', null)} <p>
-</div>
+<isif condition="${pdict.order.orderStatus && pdict.order.orderStatus.value === 3}">
+    <div class="purhase-message">
+        <p class="h-clr--black-3 mb-0">${Resource.msg('purchase.label.message', 'confirmation', null)} <p>
+    </div>
+<iselseif condition="${pdict.order.orderStatus && pdict.order.orderStatus.value === 8}">
+    <div class="purhase-failed">
+        <p class="mb-0">${Resource.msg('message.order.failed', 'order', null)} <p>
+    </div>
+<iselse>
+    <div class="purhase-pending">
+        <p class="mb-0">${Resource.msg('message.order.pending', 'order', null)} <p>
+    </div>
+</isif>
 <h2 class="h-font-size--30 h-fw--normal h-clr--black-3 card-header-confirmation text-left text-uppercase">
     ${Resource.msg('label.your.order', 'confirmation', null)}</h2>
 <isinclude template="checkout/confirmation/confirmationDetailsView" />
