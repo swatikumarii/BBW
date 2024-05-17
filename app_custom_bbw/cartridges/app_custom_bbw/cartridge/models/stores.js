@@ -10,7 +10,7 @@ var StoreModel = require('*/cartridge/models/store');
  * @param {Array} storeDistances - array containing all distances from searched location
  * @returns {Array} an array of objects that contains store information
  */
-function createStoresObject(storesObject, storeDistances) {  
+function createStoresObject(storesObject, storeDistances) {
     return Object.keys(storesObject).map(function (key) {
         var store = storesObject[key];
         var distance = storeDistances[key];
