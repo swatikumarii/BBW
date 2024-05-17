@@ -19,6 +19,7 @@ function OrderModel(lineItemContainer, options) {
     base.call(this, lineItemContainer, options);
     if (lineItemContainer) {
         var encrptedOrderNumber = encodeURIComponent( encryptionHelper.encryptPin(this.orderNumber));
+        this.exportStatus = lineItemContainer.exportStatus;
         this.invoiceDownloadUrl = URLUtils.https('Order-InvoiceDownload', 'token', encrptedOrderNumber).toString();
     }
 }
