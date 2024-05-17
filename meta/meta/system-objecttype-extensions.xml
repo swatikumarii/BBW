@@ -1058,6 +1058,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="estimatedDelivery">
+                <display-name xml:lang="x-default">Estimated Delivery</display-name>
+                <description xml:lang="x-default">Estimated Delivery date for orders</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="qwikcilverAPIPassword">
                 <display-name xml:lang="x-default">Qwikcilver API Password</display-name>
                 <type>string</type>
@@ -1277,6 +1284,10 @@
                 <attribute attribute-id="fragranceNames"/>
                 <attribute attribute-id="topFragrances"/>
                 <attribute attribute-id="productIngredients"/>
+            </attribute-group>
+            <attribute-group group-id="Tracking">
+                <display-name xml:lang="x-default">Tracking</display-name>
+                <attribute attribute-id="estimatedDelivery"/>
             </attribute-group>
             <attribute-group group-id="Integration_Afterpay">
                 <display-name xml:lang="x-default">Integration Afterpay</display-name>
