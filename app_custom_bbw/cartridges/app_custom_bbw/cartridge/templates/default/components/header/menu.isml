@@ -81,7 +81,7 @@
                 </isloop>
             </isif>
             <li class="nav-store-locator nav-item level-1-li" role="presentation">
-                <a href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold">${Resource.msg('mobile.menu.storeLocator', 'common', null)}</a>
+                <a href="${URLUtils.url('Stores-Find')}" class="level-1-link nav-link h-font-size--18 h-fw--semibold">${Resource.msg('mobile.menu.storeLocator', 'common', null)}</a>
             </li>
             <li class="nav-my-account nav-item level-1-li dropdown" role="presentation">
                 <a href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>

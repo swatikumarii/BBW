@@ -54,21 +54,21 @@
                     "required": false
                 },
                 {
-                    "id": "desktop_banner_image",
+                    "id": "desktopBannerImage",
                     "name": "Desktop Banner Image",
                     "description": "Add Desktop Banner Image Here",
                     "type": "image",
                     "required": false
                 },
                 {
-                    "id": "tablet_banner_image",
+                    "id": "tabletBannerImage",
                     "name": "Tablet Banner Image",
                     "description": "Add Tablet Banner Image Here",
                     "type": "image",
                     "required": false
                 },
                 {
-                    "id": "mobile_banner_image",
+                    "id": "mobileBannerImage",
                     "name": "Mobile Banner Image",
                     "description": "Add Mobile Banner Image Here",
                     "type": "image",
