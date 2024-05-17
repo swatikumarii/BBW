@@ -16,7 +16,7 @@
     (function(subdomain, id) {
       if (document.getElementById(id)) return;
       var js = document.createElement('script'); js.id = id;
-      js.src = subdomain + '.scarabresearch.com/js/${dw.system.Site.getCurrent().getCustomPreferenceValue("emrasysMerchantID")}/scarab-v2.js';
+      js.src = subdomain + '.scarabresearch.com/js/${dw.system.Site.getCurrent().getCustomPreferenceValue("emarsysMerchantID")}/scarab-v2.js';
       var fs = document.getElementsByTagName('script')[0];
       fs.parentNode.insertBefore(js, fs);
     })('https:' == document.location.protocol ? 'https://recommender' : 'http://cdn', 'scarab-js-api');
