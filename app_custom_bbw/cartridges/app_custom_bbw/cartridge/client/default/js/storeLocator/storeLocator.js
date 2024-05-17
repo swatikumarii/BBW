@@ -64,7 +64,6 @@ function maps() {
         // Create a minimum bound based on a set of storeLocations
         bounds.extend(marker.position);
     });
-    
     markers.forEach(function (element, index) {
         element.addListener('click', function () {
             map.setCenter(element.position);
@@ -134,9 +133,15 @@ function submitSearch(method, url, payload){
         type: method,
         data: payload,
         dataType: 'json',
-        success: function (data) {            
+        success: function (data) {
             updateStoresResults(data);
             $('.select-store').prop('disabled', true);
+            $('.results-store-name').click(function () {
+                // make accordian click and triger click on pin marker
+                var title = $(this).attr('data-store-title');
+                var a = $('div[title="' + title + '"]');
+                a.trigger('click');
+            });
         }
     });
 }
