@@ -1,4 +1,5 @@
 <footer id="footercontent">
+    <isinclude template="/account/autoLogout" />
     <div class="container pt-3 pb-5">
         <div class="footer-container footer-details p-sm-0 pb-4 h-dsp--grid">
             <div class="footer-item store pt-1">
