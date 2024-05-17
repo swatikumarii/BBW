@@ -18,12 +18,13 @@
                 <th class="order-description border-top-0">${Resource.msg('label.item.description', 'order', null)}</th>
                 <th class="order-qty border-top-0">${Resource.msg('label.qty', 'order', null)}</th>
                 <th class="order-price border-top-0">${Resource.msg('label.price', 'order', null)}</th>
+                <th class="order-price border-top-0"></th>
             </tr>
         </thead>
         <tbody>
             <isloop items="${pdict.order.shipping}" var="shippingModel">
                 <isloop items="${shippingModel.productLineItems.items}" var="lineItem">
-                    <tr>
+                    <tr class="product-info uuid-${lineItem.UUID} pid-${lineItem.id}">
                         <td>
                             <div class="d-flex">
                                 <div class="item-image">
@@ -50,6 +51,9 @@
                             <iselse/>
                                 ${lineItem.priceTotal.price}
                             </isif>
+                        </td>
+                        <td>
+                            <isinclude template="account/order/orderAddToCartButton" />
                         </td>
                     </tr>
                 </isloop>

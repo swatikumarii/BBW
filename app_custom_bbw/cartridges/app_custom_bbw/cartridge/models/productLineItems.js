@@ -4,6 +4,9 @@ var base = module.superModule;
 
 var collections = require('*/cartridge/scripts/util/collections');
 var ProductFactory = require('*/cartridge/scripts/factories/product');
+var ProductMgr = require('dw/catalog/ProductMgr');
+var fullProduct = require('*/cartridge/models/product/fullProduct');
+var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
 var URLUtils = require('dw/web/URLUtils');
 var Resource = require('dw/web/Resource');
 
@@ -74,6 +77,10 @@ function createProductLineItemsObject(allLineItems, view) {
     var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
 
     collections.forEach(allLineItems, function (item) {
+        var product = Object.create(null);
+        var apiProduct = ProductMgr.getProduct(item.productID);
+        var parameters = productHelper.getConfig(apiProduct, item.productID);
+        product = fullProduct(product, parameters.apiProduct, parameters);
         // when item's category is unassigned, return a lineItem with limited attributes
         if (!item.product) {
             lineItems.push({
@@ -192,6 +199,17 @@ function createProductLineItemsObject(allLineItems, view) {
                 lineItems.push(newLineItem);
             }
         }
+        if (
+            'custom' in item &&
+            'customBundle' in item.custom &&
+            item.custom.customBundle
+        ) {
+            newLineItem.customBundle = item.custom.customBundle;
+        } else {
+            newLineItem.customBundle = null;
+        }
+        newLineItem.checkAvailable = product.available;
+        newLineItem.enableNotifyMe = product.enableNotifyMe;
     });
     return [lineItems, giftWrapLineItem, greetingCardLineItem];
 }

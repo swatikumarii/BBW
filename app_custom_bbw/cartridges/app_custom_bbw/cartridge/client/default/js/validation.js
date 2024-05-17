@@ -305,4 +305,13 @@ $('body').click(function (event) {
     if (!$(event.target).closest('#newPassword').length) {
         $('.required-pass').addClass('d-none');
     }
+
+    var form = $(this).closest('form.edit-profile-form');
+    if (!$(event.target).closest(form).length) {
+        var submitButton = $('button[type="submit"].submit-edit-profile');
+        var field = $('#password');
+        if (field.val() === '') {
+            submitButton.addClass('disabled');
+        }
+    }
 });
