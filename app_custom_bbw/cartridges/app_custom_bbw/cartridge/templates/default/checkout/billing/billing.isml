@@ -1,7 +1,7 @@
 <div class="payment-form">
     <h2 class="card-header-custom h-font-size--20 h-fw--bold h-clr--black-1 billing-address-heading">
         ${Resource.msg('heading.billing.address', 'checkout', null)}</h2>
-    <form autocomplete="on" method="POST" action="${URLUtils.url('CheckoutServices-SubmitPayment')}"
+    <form autocomplete="on" class="billing-form" method="POST" action="${URLUtils.url('CheckoutServices-SubmitPayment')}"
         data-address-mode="${!pdict.order.billing.billingAddress.address ? 'new' : 'edit'}" <isprint
         value=${pdict.forms.billingForm.attributes} encoding="off" /> novalidate>
 
