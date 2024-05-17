@@ -7,23 +7,19 @@
  */
 function countdown(minutes, seconds) {
     var secs = seconds;
-    /**
-     *
-     */
-    function tick() {
-        var counter = document.getElementById('timer');
-        counter.innerHTML =
+    var counter = document.getElementById('timer');
+    counter.innerHTML =
             (minutes < 10 ? '0' : '') + minutes.toString() + ':' + (secs < 10 ? '0' : '') + String(secs);
-        secs--;
-        if (secs >= 0) {
-            setTimeout(tick, 1000);
-        } else if (minutes >= 1) {
-            setTimeout(function () {
-                countdown(minutes - 1, 59);
-            }, 1000);
-        }
+    secs--;
+    if (secs >= 0) {
+        setTimeout(function () {
+            countdown(minutes, secs);
+        }, 1000);
+    } else if (minutes >= 1) {
+        setTimeout(function () {
+            countdown(minutes - 1, 59);
+        }, 1000);
     }
-    tick();
 }
 
 /**
