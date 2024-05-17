@@ -4,10 +4,16 @@
     padding-bottom: 15px;
     align-items: baseline;
     margin-top: 3rem;
-    flex-direction: column;
+    flex-direction: row;
 
-    @include media-up(sm) {
+    @include media-down(md) {
+        padding: 0 40px;
         flex-direction: row;
+    }
+
+    @include media-down(sm) {
+        padding: 0 20px;
+        flex-direction: column;
     }
 
     .breadcrumbs {
@@ -17,12 +23,18 @@
             margin: 0;
         }
 
+        .current-breadcrumb {
+            color: colour(black, 9);
+            text-transform: uppercase;
+        }
+
         li {
             display: inline;
             font-size: 13px;
             max-width: 450px;
             padding: 2px;
             color: colour(blue, 9);
+            line-height: 19.5px;
 
             a {
                 color: colour(blue, 9);
