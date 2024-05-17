@@ -3,6 +3,7 @@
         var assets = require('*/cartridge/scripts/assets.js');
        assets.addCss('/css/wishlist.css');
         assets.addJs('/js/wishlist.js');
+        assets.addJs('/js/custom.js');
         assets.addCss('/css/account/account.css');
        assets.addCss('/css/login.css');
     </isscript>
@@ -28,7 +29,7 @@
                             </div>
 
                             <div class="row justify-content-center">
-                                <div class="account-info">
+                                <div class="account-info wishlist-list">
                                     <isinclude template="wishlist/components/wishlist" />
                                 </div>
                             </div>

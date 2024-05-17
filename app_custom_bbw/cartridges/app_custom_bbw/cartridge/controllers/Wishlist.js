@@ -4,7 +4,6 @@ var server = require('server');
 var Resource = require('dw/web/Resource');
 var URLUtils = require('dw/web/URLUtils');
 var PAGE_SIZE_ITEMS = 15;
-var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 
 server.extend(module.superModule);
 
@@ -53,7 +52,6 @@ server.append('Show', function (req, res, next) {
         }
     ];
     viewData.breadcrumbs = breadcrumbs;
-    viewData.shareWishlistUrl = URLUtils.https('Wishlist-ShowOthers', 'id', viewData.wishlist.UUID, 'token', encryptionHelper.encryptPin(req.currentCustomer.raw.profile.firstName));
 
     res.setViewData(viewData);
     next();
@@ -61,11 +59,9 @@ server.append('Show', function (req, res, next) {
 
 server.replace('ShowOthers', function (req, res, next) {
     var id = req.querystring.id;
-    var firstName = encryptionHelper.decryptPin(
-        decodeURIComponent(req.querystring.token)
-    );
     var productListMgr = require('dw/customer/ProductListMgr');
     var apiList = productListMgr.getProductList(id);
+    var firstName = apiList.owner.profile.firstName;
     var breadcrumbs = [
         {
             htmlValue: Resource.msg('global.home', 'common', null),
