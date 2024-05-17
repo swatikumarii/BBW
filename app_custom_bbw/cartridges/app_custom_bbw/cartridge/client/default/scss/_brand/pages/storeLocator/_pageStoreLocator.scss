@@ -124,6 +124,7 @@
 
     .store-result-wrap {
         padding: 0;
+        width: 100%;
 
         @include media-up(sm) {
             width: 100%;
@@ -135,8 +136,8 @@
             line-height: 24px;
             font-weight: 700;
             letter-spacing: 0.005em;
-            color: colour (black, 1);
-            border-bottom: 1px solid colour (gray, 1);
+            color: colour(black, 1);
+            border-bottom: 1px solid colour(gray, 1);
             padding: 15px 0 16px;
             text-transform: capitalize;
         }
@@ -182,17 +183,45 @@
                         line-height: 1.25rem;
                         letter-spacing: 0.005em;
                         background-color: colour(white);
+                        display: flex;
 
-                        span {
-                            padding-right: 15px;
+                        .store-head-heading {
+                            span {
+                                padding-right: 15px;
+                            }
+
+                            @include media-down(sm) {
+                                height: 40px;
+                            }
+                        }
+
+                        .store-head-distance {
+                            margin-left: 30px;
+                            font-size: 1rem;
+                            opacity: 0;
+                            transition: opacity 0.5s ease-in-out;
+
+                            span {
+                                padding-left: 5px;
+                            }
+
+                            @include media-down(sm) {
+                                opacity: 1;
+                            }
                         }
 
                         @include media-down(sm) {
+                            display: block;
                             padding: 26px 10px 33px;
                         }
 
                         &.collapsed {
                             background-color: colour(gray, 1);
+
+                            .store-head-distance {
+                                opacity: 1;
+                                transition: opacity 0.5s ease-in-out;
+                            }
                         }
                     }
                 }
@@ -246,6 +275,10 @@
                         color: colour(black, 1);
                         margin-left: 30px;
                         text-transform: none;
+
+                        @include media-down(sm) {
+                            display: none;
+                        }
 
                         .distance-left {
                             font-weight: 400;
@@ -319,6 +352,17 @@
                 .store-address,
                 .store-phone {
                     margin-bottom: 10px;
+
+                    span {
+                        font-weight: 400;
+                        color: colour(gray, 4);
+                    }
+                }
+
+                .store-direction {
+                    a {
+                        text-decoration: underline;
+                    }
                 }
 
                 a:focus {
