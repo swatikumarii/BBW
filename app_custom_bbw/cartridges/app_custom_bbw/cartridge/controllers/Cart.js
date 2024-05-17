@@ -15,6 +15,7 @@ var HashMap = require('dw/util/HashMap');
 var Template = require('dw/util/Template');
 var cartTemplate = new Template('cart/productCard/cartProductCardAjax');
 var miniCartTemplate = new Template('checkout/productCard/miniCartProductCardAjax');
+var miniCartTopOfferTemplate = new Template('checkout/cart/topOffers');
 
 /**
  * Cart-AddCoupon : The Cart-AddCoupon endpoint is responsible for adding a coupon to a basket
@@ -111,6 +112,12 @@ server.append('UpdateQuantity', function (req, res, next) {
             basketModel.refreshItemsTemplateMinicart =
                 miniCartTemplate.render(context).text;
         }
+        // get top offers
+        var topOffers = cartHelper.getTopOffers(currentBasket);
+        var topOfferContext = new HashMap();
+        topOfferContext.topOffers = topOffers;
+        basketModel.topOffers = miniCartTopOfferTemplate.render(topOfferContext).text;
+
         res.setViewData(basketModel);
     }
     next();
@@ -131,6 +138,13 @@ server.append('RemoveProductLineItem', function (req, res, next) {
             cartTemplate.render(context).text;
         viewData.refreshItemsTemplateMinicart =
             miniCartTemplate.render(context).text;
+    }
+    // get top offers
+    if (currentBasket) {
+        var topOffers = cartHelper.getTopOffers(currentBasket);
+        var topOfferContext = new HashMap();
+        topOfferContext.topOffers = topOffers;
+        viewData.topOffers = miniCartTopOfferTemplate.render(topOfferContext).text;
     }
 
     next();
@@ -240,35 +254,12 @@ server.post('AddProductFromOrder', function (req, res, next) {
  * @memberof Cart
  */
 server.append('MiniCartShow', csrfProtection.generateToken, function (req, res, next) {
-    var Transaction = require('dw/system/Transaction');
     var currentBasket = BasketMgr.getCurrentBasket();
+    var viewData = res.getViewData();
     if (currentBasket) {
-        var allLineItems = currentBasket.allProductLineItems;
-        if (allLineItems.length > 0) {
-            var collections = require('*/cartridge/scripts/util/collections');
-            var topOffers = [];
-            Transaction.wrap(function () {
-                collections.forEach(allLineItems, function (pli) {
-                    var PromotionMgr = require('dw/campaign/PromotionMgr');
-                    var activePromotions = PromotionMgr.getActivePromotions().getProductPromotions(pli.product);
-                    if (activePromotions.length > 0) {
-                        for(var i = 0; i < activePromotions.length; i++) {
-                            var promo = activePromotions[i];
-                            if (promo.basedOnCoupon === true && promo.coupons[0].type === 'SINGLE_CODE') {
-                                var topOffer = {
-                                    promoName: promo.name,
-                                    couponCode: promo.coupons[0].ID
-                                };
-                                topOffers.push(topOffer);
-                            }
-                        }
-                    }
-                });
-            });
-            var viewData = res.getViewData();
-            viewData.topOffers = topOffers;
-            res.setViewData(viewData);
-        }
+        var topOffers = cartHelper.getTopOffers(currentBasket);
+        viewData.topOffers = topOffers;
+        res.setViewData(viewData);
     }
     next();
 });

@@ -1,0 +1,12 @@
+<isif condition="${pdict.topOffers}">
+    <p>Available Offers</p>
+    <span>Apply up to 2 eligible offers.</span>
+    <span class="drawerOfferError" style="display:none"></span>
+    <span class="drawerOfferSuccess" style="display:block"></span>
+    <input type="hidden" class="topOfferCsrfToken" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+    <isloop iterator="${pdict.topOffers}" alias="topOffer">
+        <p>${topOffer.promoName}</p>
+        <button class="applyTopOffer" data-coupon="${topOffer.couponCode}"
+            data-action="${URLUtils.url('Cart-AddCoupon')}">Apply</button>
+    </isloop>
+</isif>

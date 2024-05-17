@@ -138,16 +138,6 @@ function updateApproachingDiscounts(approachingDiscounts) {
 }
 
 /**
- * re-renders the approaching discount messages
- * @param {object} approachingDiscounts - updated approaching discounts for the cart
- */
-function updateTopOfferDrawer() {
-    $('.topOfferDrawer').empty();
-    var html = '<p>updateing</p>';
-    $('.topOfferDrawer').append(html);
-}
-
-/**
  * Updates the availability of a product line item
  * @param {object} data - AJAX response from the server
  * @param {string} uuid - The uuid of the product line item to update
@@ -402,7 +392,10 @@ module.exports = function () {
                     $('body').trigger('setShippingMethodSelection', data.basket);
                     validateBasket(data.basket);
                     $('.item-removed-message').removeClass('d-none');
-                    updateTopOfferDrawer();
+                    // update top offers
+                    $('.mini-cart-content .miniCartTopOffers')
+                        .empty()
+                        .append(data.topOffers);
                 }
 
                 $('body').trigger('cart:update', data);
@@ -498,6 +491,10 @@ module.exports = function () {
                         $('.mini-cart-content .product-summary')
                             .empty()
                             .append(data.refreshItemsTemplateMinicart);
+                        // update top offers
+                        $('.mini-cart-content .miniCartTopOffers')
+                            .empty()
+                            .append(data.topOffers);
                     }
                     $.spinner().stop();
                     if (
