@@ -129,6 +129,7 @@ $(document).ready(function () {
         if (!validateRequiredField(input)) return false;
         if (!pattern.test(input.val())) {
             input.addClass('is-invalid border-danger'); // Add class for input border error
+            if(input.parents('.iti').length ) input.parents('.iti').addClass('is-invalid border-danger');
             var errorMessage = $('#' + input.attr('id')).attr(
                 'data-pattern-mismatch'
             );

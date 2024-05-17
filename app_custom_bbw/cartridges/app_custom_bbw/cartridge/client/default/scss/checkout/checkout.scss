@@ -382,14 +382,6 @@ input[type="tel"],
     }
 }
 
-.billing-address-block {
-    .custom-select-wrap {
-        &::after {
-            top: 52%;
-        }
-    }
-}
-
 .toggle-password {
     position: absolute;
     right: 0;

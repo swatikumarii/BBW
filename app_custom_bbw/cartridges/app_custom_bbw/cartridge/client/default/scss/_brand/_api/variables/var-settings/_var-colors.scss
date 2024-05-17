@@ -16,6 +16,7 @@ $clr-black-5: #222;
 $clr-black-6: #1a1919;
 $clr-black-7: #453f3f;
 $clr-black-8: #030303;
+$clr-black-9: #363636;
 $clr-white: #fff;
 $clr-white-1: #fafafa;
 $clr-white-2: #bababa;
@@ -102,7 +103,8 @@ $map-colors: (
         5: $clr-black-5,
         6: $clr-black-6,
         7: $clr-black-7,
-        8: $clr-black-8
+        8: $clr-black-8,
+        9: $clr-black-9
     ),
     white: (
         base: $clr-white,
