@@ -1145,6 +1145,30 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="hardTimeout">
+                <display-name xml:lang="x-default">Hard Timeout</display-name>
+                <description xml:lang="x-default">Hard Timeout(In Minutes)</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+             <attribute-definition attribute-id="popupDuration">
+                <display-name xml:lang="x-default">Popup Duration</display-name>
+                <description xml:lang="x-default">Popup Duration(In Minutes)</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="softTimeout">
+                <display-name xml:lang="x-default">Soft Timeout</display-name>
+                <description xml:lang="x-default">Soft Timeout(In Minutes)</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -1187,6 +1211,9 @@
                 <attribute attribute-id="header_image"/>
                 <attribute attribute-id="zeroOrderEmail"/>
                 <attribute attribute-id="careersEmail"/>
+                <attribute attribute-id="hardTimeout"/>
+                <attribute attribute-id="softTimeout"/>
+                <attribute attribute-id="popupDuration"/>
                 <attribute attribute-id="countrySiteMapping"/>
                 <attribute attribute-id="sendProfileCompletionReminderEmail"/>
                 <attribute attribute-id="sendProfileCompletionReminderPopup"/>

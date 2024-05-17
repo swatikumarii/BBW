@@ -1700,7 +1700,7 @@
     &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Order-Status')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Order Tracking&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
-    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('CorporateGifting-Landing')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Corporate Sales &amp; Gifts&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
     &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$"&#13;
@@ -1725,7 +1725,7 @@
         &lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Careers-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Careers&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Search-Show', 'cgid', 'giftcards')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#13;
 &lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a class="footer-item-link h-clr--black-1 h-font-size--16" href="$url('Home-Show')$"&gt;Diversity, Equity &amp; Inclusion&lt;/a&gt;&#13;
@@ -1745,9 +1745,9 @@
     &lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse d-flex align-items-center justify-content-between collapsed h-font-size--14" aria-expanded="false" aria-controls="collapsible-finds" data-toggle="collapse" data-target="#collapsible-finds"&gt;FIND US&lt;/button&gt;&#13;
     &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-finds"&gt;&#13;
         &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block  h-clr--black-1 h-fw--bold"&gt;FIND US&lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Store Locator&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Stores-Find')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Store Locator&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Global Locations&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'global-locations')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Global Locations&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
     &lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
@@ -5130,6 +5130,46 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 }</data>
         <online-flag>true</online-flag>
         <page-attributes/>
+    </content>
+
+		<content content-id="menu-item-slot-1-detail-section">
+        <display-name xml:lang="x-default">Menu Item Slot-1 Detail Section</display-name>
+        <description xml:lang="x-default">Menu Item Slot-1 Detail Section</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="category-top-offers"&gt;&#13;
+&lt;a href="#" class="heading" aria-expanded="false"&gt;&lt;span&gt;Body Care Offers&lt;/span&gt;&lt;/a&gt;&#13;
+&#13;
+&lt;!-- BC_LeftNav_0516--&gt;&#13;
+&lt;span class="toggle"&gt;Top Offers&lt;/span&gt;&#13;
+&lt;ul&gt;&#13;
+&lt;li&gt;&#13;
+		&lt;a href="#"&gt;&#13;
+			2 for $12 All Skincare&#13;
+		&lt;/a&gt;&#13;
+	&lt;/li&gt;&#13;
+&lt;li&gt;&#13;
+		&lt;a href="#"&gt;&#13;
+			Buy 3, Get 2 FREE Select Body, Skin &amp;amp; Hair Care&#13;
+		&lt;/a&gt;&#13;
+	&lt;/li&gt;	&#13;
+&lt;li&gt;&#13;
+		&lt;a href="#"&gt;&#13;
+			Buy 3, Get 1 FREE Travel &amp;amp; Hand Cream&#13;
+		&lt;/a&gt;&#13;
+	&lt;/li&gt;&#13;
+&lt;li&gt;&#13;
+		&lt;a href="#"&gt;&#13;
+			Pride Month Collection&#13;
+		&lt;/a&gt;&#13;
+	&lt;/li&gt;&#13;
+&lt;/ul&gt;&#13;
+&#13;
+&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
     </content>
 
     <content content-id="menu-item-slot-1-image-section">

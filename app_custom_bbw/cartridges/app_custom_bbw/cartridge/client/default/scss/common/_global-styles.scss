@@ -173,3 +173,8 @@ ul li {
         pointer-events: none;
     }
 }
+
+// Hide the Google Invisible reCAPTCHA badge
+.grecaptcha-badge {
+    visibility: hidden !important;
+}
