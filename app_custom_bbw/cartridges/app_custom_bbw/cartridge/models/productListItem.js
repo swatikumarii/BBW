@@ -137,6 +137,7 @@ function createProductListItemObject(productListItemObject) {
             bundleItems: productListItemObject.product.bundle ? getBundledListItems(productListItemObject) : [],
             options: options,
             selectedOptions: getSelectedOptions(options),
+            enableNotifyMe: 'enableNotifyMe' in productListItemObject.product.custom ? productListItemObject.product.custom.enableNotifyMe : false,
             variantAttributes: getVariantAttributes(productListItemObject.product)
         };
         readyToOrder(result, productListItemObject.product.variationModel);

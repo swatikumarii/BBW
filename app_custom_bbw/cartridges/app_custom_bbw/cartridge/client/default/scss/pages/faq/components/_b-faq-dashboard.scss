@@ -17,9 +17,8 @@
             transform: translateY(-50%);
             right: 15px;
             z-index: 1;
-            width: 18px;
-            height: 18px;
-            color: colour(gray, 24);
+            width: 14px;
+            height: 14px;
         }
 
         .search-input {
@@ -32,10 +31,14 @@
             width: 100%;
             border-style: hidden hidden groove;
             border-radius: 0%;
+            line-height: 1.15rem;
+            font-size: 14px;
+            letter-spacing: normal;
 
             &:focus {
                 outline: 0;
                 color: colour(gray, 26);
+                border-bottom: 1px solid colour(blue, 10);
             }
         }
     }
@@ -44,6 +47,14 @@
 .questions {
     margin-top: 58px;
     margin-bottom: 30px;
+
+    @include media-down(md) {
+        padding: 0 40px;
+    }
+
+    @include media-down(sm) {
+        padding: 0 20px;
+    }
 
     ul {
         line-height: 2em;
@@ -54,6 +65,7 @@
 
     li {
         padding: 2px;
+        line-height: 2em;
 
         a {
             font-size: 14px;
@@ -61,6 +73,7 @@
             line-height: 17px;
             font-weight: normal;
             border-style: none;
+            letter-spacing: 0.04em;
         }
     }
 
@@ -78,13 +91,22 @@
         font-weight: normal;
         letter-spacing: 0.04em;
         padding: 2px;
-        color: colour(blue, 10);
+        color: colour(blue, 14);
     }
 }
 
 .secondcategories {
     padding-top: 60px;
+    padding-bottom: 32px;
     border-top: 3px solid colour(gray, 1);
+
+    @include media-down(md) {
+        padding: 60px 40px;
+    }
+
+    @include media-down(sm) {
+        padding: 60px 20px;
+    }
 
     .menusections {
         width: 100%;
@@ -101,7 +123,7 @@
             vertical-align: top;
             width: 100%;
 
-            @include media-up(sm) {
+            @include media-up(md) {
                 width: 32%;
             }
 
@@ -124,6 +146,7 @@
                 font-weight: 700;
                 text-transform: uppercase;
                 margin-top: 19px;
+                letter-spacing: 0.04em;
 
                 a:hover {
                     text-decoration: underline;
@@ -145,6 +168,7 @@
                 line-height: 17px;
                 font-weight: normal;
                 border-style: none;
+                letter-spacing: 0.6px;
             }
         }
     }

@@ -1,0 +1,3 @@
+<li title="${Resource.msg('faq.breadcrumb.link', 'faq', null)}">
+    <a href="${URLUtils.url('Page-Show', 'cid', 'help-faq-dashboard')}">${Resource.msg('faq.breadcrumb.link', 'faq', null)}</a>
+</li>

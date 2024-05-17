@@ -109,6 +109,9 @@ function login() {
                     form.trigger('login:error', data);
                 } else {
                     form.trigger('login:success', data);
+                    if (data.isIncomplete) {
+                        sessionStorage.setItem('profileIncomplete', true);
+                    }
                     if (data.showCartMergePopup) {
                         window.storedBasketProducts = data.storedBasketProducts;
                         $('.loginPopup').find('#loginModal').modal('hide');

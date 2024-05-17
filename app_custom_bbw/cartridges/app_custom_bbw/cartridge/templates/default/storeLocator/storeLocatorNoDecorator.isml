@@ -28,8 +28,13 @@
         </div>
     </div>
 
-    <div class="row w-100">
-        <div class="col-sm-12 results-card store-result-wrap">
+    <div class="row w-100 mx-auto">
+        <div class="results-card store-result-wrap">
+            <div class="number-of-stores-div d-none">
+                <span>${Resource.msg('msg.there.are', 'storeLocator', null)}</span>
+                <span id="number-of-stores"></span>
+                <span>${Resource.msg('msg.near.you', 'storeLocator', null)}</span>
+            </div>
             <p class="store-locator-no-results d-none">
                 <span
                     class="store-error-header d-block h-font-size--20 h-fw--bold h-clr--black-1 mb-0 text-capitalize">${Resource.msg('error.no.results.header', 'storeLocator', null)}</span>

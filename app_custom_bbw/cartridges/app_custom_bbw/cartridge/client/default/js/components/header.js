@@ -54,16 +54,21 @@ function openLoginPopup() {
 }
 module.exports = function () {
     $('.loginPopupBtn').on('click', openLoginPopup);
+    $('#logoutButton').on('click', function () {
+        if (sessionStorage.getItem('profileIncomplete') !== null) {
+            sessionStorage.removeItem('profileIncomplete');
+        }
+    });
 };
 
 /** Sticky header padding on body */
-$(window).on('load resize', function () {
+$(window).on('scroll resize', function () {
     var $header = $('.header');
     var $body = $('body');
     if ($body.hasClass('checkout-page') === false) {
         $body.css('padding-top', $header.outerHeight());
     }
-
+    $('.header').addClass('fixed-header');
 });
 
 /* Stick Header - On Scroll */

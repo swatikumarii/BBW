@@ -12,6 +12,8 @@ header {
         right: 0;
         top: 0;
         z-index: 9;
+        width: 100%;
+        display: block;
         animation: none;
 
         .search-fly-out-opacity {
@@ -60,7 +62,7 @@ header {
                     width: auto;
                     margin: 27px auto 8px;
                     height: auto;
-                    left: 0.3125rem;
+                    left: 75px;
                 }
 
                 &:hover {
