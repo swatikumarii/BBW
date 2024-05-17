@@ -282,6 +282,10 @@
 
         // Mulit Product
         .experience-product_bundle-multiProduct {
+            &:hover {
+                cursor: default;
+            }
+
             .multi-product-mobile-link {
                 .product-name {
                     font-size: 1rem;
