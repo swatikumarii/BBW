@@ -1,5 +1,5 @@
 .article-container {
-    flex-direction: column;
+    flex-direction: row;
     display: flex;
 
     @include media-down(md) {
