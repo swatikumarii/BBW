@@ -6,15 +6,16 @@
  * @param {any} seconds countdown seconds
  */
 function countdown(minutes, seconds) {
+    var secs = seconds;
     /**
      *
      */
     function tick() {
         var counter = document.getElementById('timer');
         counter.innerHTML =
-            (minutes < 10 ? '0' : '') + minutes.toString() + ':' + (seconds < 10 ? '0' : '') + String(seconds);
-        seconds--;
-        if (seconds >= 0) {
+            (minutes < 10 ? '0' : '') + minutes.toString() + ':' + (secs < 10 ? '0' : '') + String(secs);
+        secs--;
+        if (secs >= 0) {
             setTimeout(tick, 1000);
         } else if (minutes >= 1) {
             setTimeout(function () {
