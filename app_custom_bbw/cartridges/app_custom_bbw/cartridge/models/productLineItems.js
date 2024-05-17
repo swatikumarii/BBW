@@ -5,7 +5,7 @@ var base = module.superModule;
 var collections = require('*/cartridge/scripts/util/collections');
 var ProductFactory = require('*/cartridge/scripts/factories/product');
 var ProductMgr = require('dw/catalog/ProductMgr');
-var fullProduct = require('*/cartridge/models/product/fullProduct');
+var productTile = require('*/cartridge/models/product/productTile');
 var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
 var URLUtils = require('dw/web/URLUtils');
 var Resource = require('dw/web/Resource');
@@ -79,8 +79,9 @@ function createProductLineItemsObject(allLineItems, view) {
     collections.forEach(allLineItems, function (item) {
         var product = Object.create(null);
         var apiProduct = ProductMgr.getProduct(item.productID);
-        var parameters = productHelper.getConfig(apiProduct, item.productID);
-        product = fullProduct(product, parameters.apiProduct, parameters);
+        var productType = productHelper.getProductType(apiProduct);
+        product = productTile(product, apiProduct, productType);
+
         // when item's category is unassigned, return a lineItem with limited attributes
         if (!item.product) {
             lineItems.push({
