@@ -69,6 +69,7 @@ $clr-gray-23: #d8d8d8;
 $clr-gray-24: #777;
 $clr-gray-25: #ddd;
 $clr-gray-26: #555;
+$clr-gray-27: #dee2e6;
 $clr-green: #36c981;
 $clr-green-1: #007d48;
 $clr-green-2: #007a14;
@@ -162,7 +163,8 @@ $map-colors: (
         23: $clr-gray-23,
         24: $clr-gray-24,
         25: $clr-gray-25,
-        26: $clr-gray-26
+        26: $clr-gray-26,
+        27: $clr-gray-27
     ),
     green: (
         base: $clr-green,

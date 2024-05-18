@@ -29,8 +29,11 @@
             <div class="description-detail">
                 <isif condition="${pdict.showSuccessMessage}">
                     <div
-                        class="alert alert-success alert-dismissible address-save-msg h-font-size--16 h-fw--bold d-flex align-items-center">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        class="alert alert-success alert-dismissible address-save-msg border-0 h-font-size--16 h-fw--bold d-flex align-items-center">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">
+                            <img src="${URLUtils.staticURL('/images/account/download.svg')}"
+                                alt="${Resource.msg('global.storename', 'common', null)}" />
+                        </a>
                         ${Resource.msg('address.save.success', 'account', null)}
                     </div>
                     <iscomment>
@@ -163,14 +166,11 @@
                             </isif>
                         </div>
                     </isloop>
-
-
                     <isinclude template="account/addressFormModal" />
                     <isinclude template="account/addressFormModalEdit" />
-
                 </div>
                 <isif condition="${pdict.addressBook.length > 1}">
-                    <div class="add-address-create-modal position-relative other-address-btn aaaaaaaaa">
+                    <div class="add-address-create-modal position-relative other-address-btn">
                         <isset name="prevoiusAddress"
                             value="${Resource.msg('label.addressbook.otheraddress', 'account', null)}" scope="page" />
                         <a data-toggle="modal" href="#add-address-form" class="btn btn-save btn-primary"
@@ -187,7 +187,7 @@
 
                     </div>
                 <iselse/>
-                    <div class="add-address-create-modal position-relative cccccccccc">
+                    <div class="add-address-create-modal position-relative">
                         <isset name="prevoiusAddress"
                             value="${Resource.msg('label.addressbook.otheraddress', 'account', null)}" scope="page" />
                         <a data-toggle="modal" href="#add-address-form" class="btn btn-save btn-primary "

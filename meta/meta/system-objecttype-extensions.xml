@@ -1039,6 +1039,19 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="emarsysEnabled">
+                <display-name xml:lang="x-default">Is Emarsys Enabled</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="emarsysMerchantID">
+                <display-name xml:lang="x-default">Emarsys Merchant ID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="zeroOrderEmail">
                 <display-name xml:lang="x-default">Zero Order Email Address</display-name>
                 <description xml:lang="x-default">Comma-separated Zero Order email addresses</description>
@@ -1169,6 +1182,19 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="pageDesignerID">
+                <display-name xml:lang="x-default">Page Designer ID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            <attribute-definition attribute-id="dangerousGoodsMessage">
+                <display-name xml:lang="x-default">Dangerous Goods Message</display-name>
+                <description xml:lang="x-default">Message to show on checkout page if there is a dangerous good in the cart.</description>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -1182,6 +1208,8 @@
                 <attribute attribute-id="gtmBodyScript"/>
                 <attribute attribute-id="metaPixelEnabled"/>
                 <attribute attribute-id="metaPixelScript"/>
+                <attribute attribute-id="emarsysEnabled"/>
+                <attribute attribute-id="emarsysMerchantID"/>
             </attribute-group>
             <attribute-group group-id="qwikcilver">
                 <display-name xml:lang="x-default">Qwikcilver</display-name>
@@ -1200,6 +1228,7 @@
             </attribute-group>
             <attribute-group group-id="Storefront Configs">
                 <display-name xml:lang="x-default">Storefront Configurations</display-name>
+                <attribute attribute-id="pageDesignerID"/>
                 <attribute attribute-id="listPriceDefault"/>
                 <attribute attribute-id="GoogleVerificationTag"/>
                 <attribute attribute-id="countryCode"/>
@@ -1217,6 +1246,7 @@
                 <attribute attribute-id="countrySiteMapping"/>
                 <attribute attribute-id="sendProfileCompletionReminderEmail"/>
                 <attribute attribute-id="sendProfileCompletionReminderPopup"/>
+                <attribute attribute-id="dangerousGoodsMessage"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
