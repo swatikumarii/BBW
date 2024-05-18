@@ -175,11 +175,106 @@
 }
 
 .order-product-summary {
-    table {
-        border-bottom: 1px solid colour(gray, 1);
+    border-bottom: 1px solid colour(black, 3);
 
-        th {
-            border-bottom: 1px solid colour(gray, 1);
+    table {
+        thead {
+            @include media-down(sm) {
+                display: none;
+            }
+
+            th {
+                border-bottom: 1px solid colour(gray, 1);
+            }
+        }
+
+        .item-image {
+            width: 120px;
+            height: 134px;
+
+            img {
+                max-width: 80px;
+                max-height: 160px;
+                margin: 0 auto;
+                display: block;
+            }
+
+            @include media-down(sm) {
+                width: 30%;
+                padding-top: 15px;
+            }
+        }
+
+        .item-qty {
+            text-align: center;
+            font-size: 14px;
+            font-weight: map-get($font-weight, bold);
+            color: colour(black, 1);
+
+            @include media-down(sm) {
+                width: 70%;
+                text-align: left;
+                padding: 0 0.75rem;
+                float: right;
+                display: block;
+            }
+        }
+
+        .item-total {
+            text-align: right;
+
+            @include media-down(sm) {
+                width: 70%;
+                text-align: left;
+                padding: 0 0.75rem;
+                float: right;
+                display: block;
+            }
+        }
+
+        .line-item-name {
+            width: 315px;
+
+            a {
+                font-size: 14px;
+                font-weight: map-get($font-weight, semibold);
+
+                &:hover {
+                    color: colour(black, 1);
+                }
+            }
+
+            .product-number {
+                font-size: 14px;
+                color: colour(gray, 4);
+            }
+
+            @include media-down(sm) {
+                width: 70%;
+            }
+        }
+
+        .pricing span {
+            font-size: 14px;
+            font-weight: map-get($font-weight, bold);
+            color: colour(black, 1);
+
+            @include media-down(sm) {
+                width: 70%;
+            }
+        }
+
+        @include media-down(sm) {
+            td {
+                float: left;
+                display: block;
+                border-top: 0;
+            }
+
+            .item-details {
+                width: 70%;
+                padding-top: 20px;
+            }
         }
     }
 
