@@ -5,7 +5,7 @@
         <ul class="breadcrumbs p-0">
             <isinclude template="/content/faqRootBreadcrumb" />
             <li title="${pdict.parentFolder.displayName}">
-                <a href="${URLUtils.url('Page-Show', 'cid', pdict.parentFolder.ID)}">${pdict.parentFolder.displayName}</a>
+                <a class="text-uppercase" href="${URLUtils.url('Page-Show', 'cid', pdict.parentFolder.ID)}">${pdict.parentFolder.displayName}</a>
             </li>
             <li title="${pdict.folder.displayName}">
                 <a href="${URLUtils.url('Page-Show', 'cid', pdict.folder.ID)}">${pdict.folder.displayName}</a>

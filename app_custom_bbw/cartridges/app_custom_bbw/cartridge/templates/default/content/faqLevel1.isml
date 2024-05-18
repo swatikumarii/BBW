@@ -4,7 +4,7 @@
     <nav class="sub-nav d-flex justify-content-between">
         <ul class="breadcrumbs p-0">
             <isinclude template="/content/faqRootBreadcrumb" />
-            <li title="${pdict.folder.displayName}">
+            <li class="current-breadcrumb" title="${pdict.folder.displayName}">
                 ${pdict.folder.displayName}
             </li>
         </ul>

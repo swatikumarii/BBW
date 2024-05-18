@@ -399,6 +399,7 @@ function createFreeLineItem(lineItemContainer) {
                 breakLoop = true;
             } else {
                 setFreeFalse(productLineItem);
+                breakLoop = true;
             }
         } else if (shouldHaveFreeItem) {
             var productQtyAfterReduce =

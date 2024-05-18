@@ -1,6 +1,15 @@
+<isif condition="${pdict.miniCart !== null}">
+    <isset name="miniCart" value="${pdict.miniCart}" scope="page" />
+</isif>
+<isif condition="${pdict.cartPage !== null}">
+    <isset name="cartPage" value="${pdict.cartPage}" scope="page" />
+</isif>
+<isif condition="${pdict.lineItem !== null}">
+    <isset name="lineItem" value="${pdict.lineItem}" scope="page" />
+</isif>
 <isif condition="${lineItem.promotions}">
     <isloop items="${lineItem.promotions}" var="promotion">
-            <div class="h-font-size--14${!(miniCart) ? ' promotion' : ''}">
+        <div class="h-font-size--14${!(miniCart) ? ' promotion' : ''}">
             <isprint value="${promotion.calloutMsg}" encoding="off" />
         </div>
         <isset name="showDescription" value="${false}" scope="page" />

@@ -106,7 +106,7 @@
                     </ul>
                 <iselse/>
                     <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true" aria-label="${category.id}">
-                        <li class="level-2-li p-0" role="presentation">
+                        <li class="level-2-li logged-user-name" role="presentation">
                             ${Resource.msg('mobile.menu.hi', 'common', null)} ${pdict.customerName} ${Resource.msg('mobile.menu.exclamation', 'common', null)}
                         </li>
                         <li class="level-2-li p-0" role="presentation">
