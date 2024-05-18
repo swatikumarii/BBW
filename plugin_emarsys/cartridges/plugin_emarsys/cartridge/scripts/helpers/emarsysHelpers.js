@@ -85,7 +85,11 @@ function getScarabQueueData(res) {
                     'CurrentUser' in res && 'profile' in res.CurrentUser
                         ? res.CurrentUser.profile.email
                         : '';
-                return dataHelpers.prepareEmrasysData(userEmail, 'Home', null);
+                return dataHelpers.prepareEmrasysData(
+                    userEmail,
+                    'homepage',
+                    null
+                );
             case 'Product-Show':
                 userEmail =
                     'CurrentUser' in res && 'profile' in res.CurrentUser
