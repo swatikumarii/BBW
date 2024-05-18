@@ -7,12 +7,15 @@ var StoreModel = require('*/cartridge/models/store');
 /**
  * Creates an array of objects containing store information
  * @param {dw.util.Set} storesObject - a set of <dw.catalog.Store> objects
+ * @param {Array} storeDistances - array containing all distances from searched location
  * @returns {Array} an array of objects that contains store information
  */
-function createStoresObject(storesObject) {
+function createStoresObject(storesObject, storeDistances) {
     return Object.keys(storesObject).map(function (key) {
         var store = storesObject[key];
-        var storeModel = new StoreModel(store);
+        var distance = storeDistances[key];
+        var storeModel = new StoreModel(store, distance);   
+        storeModel.distance = distance.toFixed(2).toString();
         return storeModel;
     });
 }
@@ -65,6 +68,7 @@ function getGoogleMapsApi(apiKey) {
  * @param {dw.web.URL} actionUrl - a relative url
  * @param {string} apiKey - the google maps api key that is set in site preferences
  * @param {Array} storeTypeValues - all store types
+ * @param {Array} storeDistances - all distances of stores from searched location
  */
 function stores(
     storesResultsObject,
@@ -72,9 +76,10 @@ function stores(
     searchRadius,
     actionUrl,
     apiKey,
-    storeTypeValues
+    storeTypeValues    ,
+    storeDistances
 ) {
-    this.stores = createStoresObject(storesResultsObject);
+    this.stores = createStoresObject(storesResultsObject,storeDistances);
     this.locations = JSON.stringify(
         createGeoLocationObject(storesResultsObject)
     );

@@ -226,20 +226,18 @@
                     text-align: left;
                 }
 
-                .add-to-cart-wishlist {
-                    .add-to-cart {
-                        float: right;
-                        width: auto;
-                        font-weight: 400;
-                        font-size: 0.6875rem;
-                        min-height: 35px;
-                        letter-spacing: 0.12em;
-                        line-height: 2.0625rem;
-                        padding: 0 15px;
+                .wishlist-btn {
+                    float: right;
+                    width: 104px;
+                    font-weight: 400;
+                    font-size: 0.6875rem;
+                    min-height: 35px;
+                    letter-spacing: 0.12em;
+                    line-height: 2.0625rem;
+                    padding: 0;
 
-                        @include media-down(sm) {
-                            float: left;
-                        }
+                    @include media-down(sm) {
+                        float: left;
                     }
                 }
 
