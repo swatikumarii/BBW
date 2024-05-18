@@ -1188,6 +1188,12 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
+            <attribute-definition attribute-id="dangerousGoodsMessage">
+                <display-name xml:lang="x-default">Dangerous Goods Message</display-name>
+                <description xml:lang="x-default">Message to show on checkout page if there is a dangerous good in the cart.</description>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
@@ -1240,6 +1246,7 @@
                 <attribute attribute-id="countrySiteMapping"/>
                 <attribute attribute-id="sendProfileCompletionReminderEmail"/>
                 <attribute attribute-id="sendProfileCompletionReminderPopup"/>
+                <attribute attribute-id="dangerousGoodsMessage"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
