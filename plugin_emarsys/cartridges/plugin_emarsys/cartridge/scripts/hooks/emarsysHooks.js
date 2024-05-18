@@ -45,11 +45,6 @@ function registerRoute(route) {
 
         if (isJson) {
             res.viewData.emarsysEvents = [];
-            if (res.viewData.action === 'CheckoutShippingServices-SubmitShipping') {
-                var aa = emarsysHelpers.getScarabQueueData(res.viewData);
-                var a = 1;
-
-            }
             var emarsysData = emarsysHelpers.getScarabQueueData(res.viewData);
             if (emarsysData) {
                 res.viewData.emarsysEvents.push(emarsysData);

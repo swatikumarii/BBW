@@ -105,8 +105,6 @@ function getScarabQueueData(res) {
         Logger.getLogger('Emarsys', 'Emarsys').error(
             'Error when triggering Emarsys event' + error
         );
-        var a=error;
-        var b=1;
         return {};
     }
     return {};
