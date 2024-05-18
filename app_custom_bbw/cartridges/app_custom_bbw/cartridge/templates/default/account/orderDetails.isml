@@ -7,13 +7,19 @@
         assets.addCss('/css/account/account.css');
     </isscript>
 
-    <div class="h-maxwidth--1400 mx-auto my-account receipt <isif condition=" ${pdict.order.shipping.length > 1}">multi-ship</isif>">
+    <div class="h-maxwidth--1400 mx-auto my-account">
         <!---Breadcrumbs--->
         <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+    </div>
+
+    <div class="container-fluid p-0">
+        <div class="col mobile-my-account h-font-size--16 h-clr--black-1">
+            ${Resource.msg('label.myaccount', 'account', null)}
+        </div>
+    </div>
+
+    <div class="h-maxwidth--1400 mx-auto my-account receipt <isif condition=" ${pdict.order.shipping.length > 1}">multi-ship</isif>">
         <div class="row account-dashboard">
-            <div class="col mobile-my-account h-font-size--14 h-bg--gray-1 h-clr--black-1 text-uppercase">
-                ${Resource.msg('label.myaccount', 'account', null)}
-            </div>
             <div class="account-nav-wrap">
                 <div class="my-account-nav">
                     <isinclude template="account/accountNav" />
@@ -22,18 +28,20 @@
             <div class="description-detail">
                 <div class="my-account-description">
                     <isinclude template="account/order/orderDetails" />
-                    <div class="order-btn text-center">
-                        <a class="btn btn-hover" href="${pdict.exitLinkUrl}"
-                            title="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
-                            aria-label="${Resource.msg('link.orderdetails.myaccount', 'account', null)}">
-                            ${pdict.exitLinkText}
-                        </a>
-                    </div>
-                    <div class="order-btn text-center">
-                        <a class="btn continue-shopping-link btn-hover" href="${URLUtils.url('Home-Show')}"
-                            title="${Resource.msg('link.continue.shopping', 'cart', null)}">
-                            ${Resource.msg('link.continue.shopping', 'cart', null)}
-                        </a>
+                    <div class="d-md-flex">
+                        <div class="order-btn mr-2 mb-2 mb-md-0">
+                            <a class="btn btn-hover btn-block" href="${pdict.exitLinkUrl}"
+                                title="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
+                                aria-label="${Resource.msg('link.orderdetails.myaccount', 'account', null)}">
+                                ${pdict.exitLinkText}
+                            </a>
+                        </div>
+                        <div class="order-btn">
+                            <a class="continue-shopping-link btn-block" href="${URLUtils.url('Home-Show')}"
+                                title="${Resource.msg('link.continue.shopping', 'cart', null)}">
+                                ${Resource.msg('link.continue.shopping', 'cart', null)}
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

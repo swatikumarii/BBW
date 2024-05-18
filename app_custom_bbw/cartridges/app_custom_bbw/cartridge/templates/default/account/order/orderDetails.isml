@@ -5,21 +5,23 @@
 </div>
 
 <div class="confirm-details">
-    <div class="card">
+    <div class="card border-0">
         <div class="card-head d-block d-md-flex align-items-center">
             <div class="order-detail-with-image">
                 <p>
-                    <span class="summary-section-label order-date-label pr-2">${Resource.msg('label.order.date', 'order', null)}</span>
+                    <span class="summary-section-label order-date-label pr-3">${Resource.msg('label.order.date', 'order', null)}</span>
                     <span class="summary-details order-date h-clr--black">
                         <isprint value="${pdict.order.creationDate}" style="DATE_SHORT" /></span>
                 </p>
-                <p>
-                    <isif condition="${pdict.order.estimatedArrivalTime}">
+                <isif condition="${pdict.order.estimatedArrivalTime}">
+                    <p>
                         <span
-                            class="summary-section-label order-number-label pr-2">${Resource.msg('label.estimated.delivery', 'order', null)}</span>
+                            class="summary-section-label order-number-label pr-3">${Resource.msg('label.estimated.delivery', 'order', null)}</span>
                         <span class="summary-details order-number">${pdict.order.estimatedArrivalTime}</span>
-                    </isif>
-                    <span class="summary-section-label order-number-label pr-2">${Resource.msg('label.order.number', 'order', null)}</span>
+                    </p>
+                </isif>
+                <p class="mb-0">
+                    <span class="summary-section-label order-number-label pr-3">${Resource.msg('label.order.number', 'order', null)}</span>
                     <span class="summary-details order-number h-clr--black">${pdict.order.orderNumber}</span>
                 </p>
             </div>
@@ -38,15 +40,14 @@
     </div>
 
     <div class="card">
-        <div class="row card-body">
+        <div class="row card-body ship-bill-details">
             <isset name="orderEmail" value="${pdict.order.orderEmail}" scope="page" />
             <!--- Shipping Address --->
             <isloop var="shippingModel" items="${pdict.order.shipping}" status="shippingLoop">
                 <isif condition="${shippingLoop.first}">
                     <div class="col-md-6">
                         <div class="single-shipping" data-shipment-summary="${shippingModel.UUID}">
-                            <p
-                                class="summary-section-label shipping-addr-label h-fw--semibold h-clr--black-1 mb-1 h-font-size--16">
+                            <p class="summary-section-label shipping-addr-label h-fw--bold h-clr--black-1 mb-1">
                                 ${Resource.msg('label.order.shipping.address', 'order', null)}</p>
                             <isif condition="${shippingModel.shippingAddress !== null}">
                                 <isset name="address" value="${shippingModel.shippingAddress}" scope="page" />
@@ -70,14 +71,14 @@
                     <div class="col-md-6">
                         <!--- Shipping information --->
                         <p
-                            class="summary-section-label shipping-method-label h-fw--semibold h-clr--black-1 mb-1 h-font-size--16">
+                            class="summary-section-label shipping-method-label h-fw--bold h-clr--black-1 mb-1 mt-4 mt-md-0">
                             ${Resource.msg('label.order.shipping.method', 'confirmation', null)}</p>
                         <div class="summary-details leading-lines">
                             <p class="shipping-method">
                                 <isset name="shippingMethod" value="${shippingModel.selectedShippingMethod.ID}"
                                     scope="page" />
                                 <span
-                                    class="shipping-method-title h-font-size--16">${shippingModel.selectedShippingMethod.displayName}</span>
+                                    class="shipping-method-title h-font-size--16 h-fw--semibold">${shippingModel.selectedShippingMethod.displayName}</span>
                             </p>
                         </div>
                         <isinclude template="checkout/shipping/giftMessageSummary" />
@@ -89,10 +90,10 @@
 
     <div class="card">
         <!--- Billing Address --->
-        <div class="row card-body">
+        <div class="row card-body ship-bill-details">
             <div class="col-md-6">
-                <span
-                    class="summary-section-label billing-addr-label h-fw--semibold h-clr--black-1 mb-1 h-font-size--16">${Resource.msg('label.order.billing.address', 'order', null)}</span>
+                <p class="summary-section-label billing-addr-label h-fw--bold h-clr--black-1 mb-1">
+                    ${Resource.msg('label.order.billing.address', 'order', null)}</p>
                 <isif condition="${pdict.order.billing.billingAddress.address !== null}">
                     <isset name="address" value="${pdict.order.billing.billingAddress.address}" scope="page" />
                     <iselse>
@@ -117,16 +118,16 @@
             <!--- Payment information --->
             <div class="col-md-6">
                 <div class="summary-details">
-                    <span
-                        class="summary-section-label payment-info-label h-fw--semibold h-clr--black-1 mb-1 h-font-size--16">${Resource.msg('label.order.payment.info', 'order', null)}</span>
+                    <p class="summary-section-label payment-info-label h-fw--bold h-clr--black-1 mb-1 mt-4 mt-md-0">
+                        ${Resource.msg('label.order.payment.info', 'order', null)}</p>
                     <isinclude template="checkout/billing/paymentOptions/paymentOptionsSummary" />
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="col-md-6 p-0">
-        <div class="card checkout-order-total-summary">
+    <div class="col-md-12 p-0">
+        <div class="card checkout-order-total-summary border-0">
             <div class="card-head">
                 <p class="payment-summary">${Resource.msg('label.order.payment.summary', 'order', null)}</p>
                 <div class="order-total-summary">
