@@ -69,6 +69,7 @@
             <preference preference-id="sendProfileCompletionReminderEmail">true</preference>
             <preference preference-id="sendProfileCompletionReminderPopup">true</preference>
             <preference preference-id="metaPixelEnabled">true</preference>
+            <preference preference-id="dangerousGoodsMessage">&lt;p&gt;Your cart contains product that are not shippable.&lt;/p&gt;</preference>
             <preference preference-id="countrySiteMapping">
                 [
                     {"country":"India", "site": "https://www.bathandbody.in"},
