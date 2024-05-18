@@ -1,25 +1,27 @@
 <div class="card border-0 product-info uuid-${item.UUID} pid-${item.pid}">
     <!--- image, attributes, availability --->
-    <input class="quantity" value="1" type="hidden"/>
+    <input class="quantity" value="1" type="hidden" />
     <table class="table">
         <tr>
             <td class="item-image">
                 <div class="item-image">
-                    <img width="70px" height="70px" class="product-image" src="${item.imageObj.small[0].url}" alt="${item.imageObj.small[0].alt}"
-                        title="${item.imageObj.small[0].title}" />
+                    <img width="70px" height="70px" class="product-image" src="${item.imageObj.small[0].url}"
+                        alt="${item.imageObj.small[0].alt}" title="${item.imageObj.small[0].title}" />
                 </div>
             </td>
-                <!--- product name--->
+            <!--- product name--->
             <td class="item-details">
-                <div class="line-item-name">
-                <a href = "${URLUtils.url('Product-Show','pid',item.pid)}">
-                    ${item.name}
-                </a>
+                <div class="product-list-item">
+                    <div class="line-item-name">
+                        <a href="${URLUtils.url('Product-Show', 'pid', item.pid)}">
+                            ${item.name}
+                        </a>
+                    </div>
+                    <p class="category-item mb-0">${item.titlePartB}</p>
+                    <p class="line-item-id">
+                        ${Resource.msg('label.item.no', 'wishlist', null)}${item.pid}
+                    </p>
                 </div>
-                <p class="category-item mb-0">${item.titlePartB}</p>
-                <p class="line-item-id">
-                    ${Resource.msg('label.item.no', 'wishlist', null)}${item.pid}
-                </p>
             </td>
             <td class="item-price">
                 <!---unit price and quantity --->
@@ -51,11 +53,11 @@
                 <isinclude template="wishlist/components/wishlistProductCardAvailability" />
 
                 <isset name="creationDate" value="${new Date(item.creationDate)}" scope="page" />
-                <div class="createDate">${Resource.msg('wishlist.date.added', 'wishlist', null)} ${creationDate.getDate().toString() + '\\' + (creationDate.getMonth() + 1) + '\\' + creationDate.getFullYear().toString()} </div>
+                <div class="createDate">${Resource.msg('wishlist.date.added', 'wishlist', null)}
+                    ${creationDate.getDate().toString() + '\\' + (creationDate.getMonth() + 1) + '\\' + creationDate.getFullYear().toString()} </div>
                 <div class="wishlist-item">
                     <!-- Check if express shipping is available -->
-                    <isif
-                        condition="${item.expressShip}">
+                    <isif condition="${item.expressShip}">
                         <span class="express-shipping-indication">${Resource.msg('wishlist.express.shipping.available', 'wishlist', null)}</span>
                     </isif>
                 </div>
