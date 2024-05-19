@@ -60,15 +60,28 @@ server.replace(
         // verify shipping form data
         var shippingFormErrors = COHelpers.validateShippingForm(form.shippingAddress.addressFields);
 
-        if (Object.keys(shippingFormErrors).length > 0) {
-            req.session.privacyCache.set(currentBasket.defaultShipment.UUID, 'invalid');
+        var applicableShippingMethods = ShippingMgr.getShipmentShippingModel(
+            currentBasket.getDefaultShipment()
+        ).getApplicableShippingMethods();
 
-            res.json({
-                form: form,
-                fieldErrors: [shippingFormErrors],
-                serverErrors: [],
-                error: true
-            });
+        if (Object.keys(shippingFormErrors).length > 0 || !applicableShippingMethods.length) {
+            if (!applicableShippingMethods.length) {
+                res.json({
+                    error: true,
+                    cartError: true,
+                    fieldErrors: [],
+                    serverErrors: [],
+                    redirectUrl: URLUtils.url('Cart-Show','error','dangerous-goods').toString()
+                });
+            } else {
+                req.session.privacyCache.set(currentBasket.defaultShipment.UUID, 'invalid');
+                res.json({
+                    form: form,
+                    fieldErrors: [shippingFormErrors],
+                    serverErrors: [],
+                    error: true
+                });
+            }
         } else {
             req.session.privacyCache.set(currentBasket.defaultShipment.UUID, 'valid');
 
@@ -97,22 +110,6 @@ server.replace(
 
             result.giftMessage = result.isGift ? form.shippingAddress.giftMessage.value : null;
             res.setViewData(result);
-
-
-
-            var applicableShippingMethods = ShippingMgr.getShipmentShippingModel(
-                currentBasket.getDefaultShipment()
-            ).getApplicableShippingMethods();
-            if (!applicableShippingMethods.length) {
-                res.setViewData({
-                    error: true,
-                    cartError: true,
-                    fieldErrors: [],
-                    serverErrors: [],
-                    redirectUrl: URLUtils.url('Cart-Show').toString()
-                });
-                return next();
-            }
 
             this.on('route:BeforeComplete', function (req, res) { // eslint-disable-line no-shadow
                 var AccountModel = require('*/cartridge/models/account');
