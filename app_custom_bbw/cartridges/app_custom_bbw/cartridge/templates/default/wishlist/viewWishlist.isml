@@ -10,6 +10,15 @@
     <div class="h-maxwidth--1400 mx-auto my-account">
         <!---Breadcrumbs--->
         <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+    </div>
+
+    <div class="container-fluid p-0">
+        <div class="col mobile-my-account h-font-size--16 h-clr--black-1">
+            ${Resource.msg('label.myaccount', 'account', null)}
+        </div>
+    </div>
+
+    <div class="h-maxwidth--1400 mx-auto my-account">
 
         <isif condition="${pdict.privateList}">
             <div class="row">
@@ -19,10 +28,6 @@
             </div>
             <iselse>
                 <div class="row">
-                    <div class="col mobile-my-account h-font-size--14 h-bg--gray-1 h-clr--black-1 text-uppercase">
-                        ${Resource.msg('label.myaccount', 'account', null)}
-                    </div>
-
                     <div class="col-lg-2 col-md-4">
                         <div class="my-account-nav">
                             <isinclude template="account/accountNav" />

@@ -9,11 +9,18 @@
       </div>
       <div class="modal-body">
         <p class="h-font-size--18 h-fw--bold h-clr--black-3">${Resource.msg('share.love.it.list', 'wishlist', null)}</p>
+        <div class="url-container" id="wishlistUrl">
+          <isprint name="shareUrl" value="${URLUtils.https('Wishlist-ShowOthers', 'id', pdict.wishlist.UUID)}"
+            scope="page" />
+        </div>
       </div>
       <div class="modal-footer border-top-0">
         <button type="button" class="btn btn-secondary border-0 h-font-size--16 text-uppercase"
           data-dismiss="modal">${Resource.msg('label.close', 'wishlist', null)}</button>
+        <a id="copyWishlistUrl" class="button-primary copy-url copy-code" href="#" tabindex="0"
+          data-analytics-trigger="share-love-it-list-copy-link">${Resource.msg('label.copy', 'wishlist', null)}</a>
       </div>
     </div>
   </div>
+</div>
 </div>
