@@ -2045,8 +2045,22 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="pageDesignerID">
+                <display-name xml:lang="x-default">Page Designer ID</display-name>
+                <description xml:lang="x-default">Page Designer ID</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
+            <attribute-group group-id="storefrontAttributes">
+                <display-name xml:lang="x-default">Storefront Attributes</display-name>
+                <attribute attribute-id="slotId"/>
+                <attribute attribute-id="pageDesignerID"/>
+            </attribute-group>
             <attribute-group group-id="promotionTileCommon">
                 <display-name xml:lang="x-default">Promotion Tile Common Attributes</display-name>
                 <attribute attribute-id="promotionTileIncrementalMobileRange"/>
@@ -2136,10 +2150,6 @@
                 <attribute attribute-id="promotionTilePositionDesktop20"/>
                 <attribute attribute-id="promotionTilePositionMobile20"/>
                 <attribute attribute-id="promotionTileRandom20"/>
-            </attribute-group>
-            <attribute-group group-id="slotId">
-                <display-name xml:lang="x-default">Slot Id</display-name>
-                <attribute attribute-id="slotId"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
