@@ -65,9 +65,10 @@ function register() {
                     $('form.registration').trigger('login:register:error', data);
                     formValidation(form, data);
                 } else {
-                    $('.success-message').toast('show');
+                    $('.register-success').removeClass('d-none');
                     $('form.registration').trigger('login:register:success', data);
                     setTimeout(function () {
+                        $('.register-success').addClass('d-none');
                         location.href = data.redirectUrl;
                     }, 2000);
                 }
@@ -108,6 +109,9 @@ function login() {
                     form.trigger('login:error', data);
                 } else {
                     form.trigger('login:success', data);
+                    if (data.isIncomplete) {
+                        sessionStorage.setItem('profileIncomplete', true);
+                    }
                     if (data.showCartMergePopup) {
                         window.storedBasketProducts = data.storedBasketProducts;
                         $('.loginPopup').find('#loginModal').modal('hide');
@@ -289,14 +293,14 @@ var validationFields = [
         validationFunction: validateEmailField
     },
     {
-        selector: '#newPassword',
+        selector: '#registration-form-password',
         validationFunction: validatePasswordFieldWithValidation
     }
 ];
 // Loop through the array and attach blur event handlers dynamically
 validationFields.forEach(function (field) {
 
-    if (field.selector === '#newPassword') {
+    if (field.selector === '#registration-form-password') {
         $(document).on('keyup', field.selector, function () {
             validateField(field.selector, field.validationFunction);
         });
@@ -307,13 +311,13 @@ validationFields.forEach(function (field) {
     });
 });
 
-$('#newPassword').click(function () {
+$('#registration-form-password').click(function () {
     $('.required-pass').removeClass('d-none');
 });
 
 $('body').click(function (event) {
-    // Check if the clicked element is not inside the #newPassword element
-    if (!$(event.target).closest('#newPassword').length) {
+    // Check if the clicked element is not inside the #registration-form-password element
+    if (!$(event.target).closest('#registration-form-password').length) {
         $('.required-pass').addClass('d-none');
     }
 });

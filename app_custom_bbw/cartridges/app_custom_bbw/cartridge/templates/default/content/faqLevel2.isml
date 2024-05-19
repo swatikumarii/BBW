@@ -3,30 +3,16 @@
 <div class="container">
     <nav class="sub-nav d-flex justify-content-between">
         <ul class="breadcrumbs p-0">
-            <li title="Bath and Body Works">
-                <a href="/hc/en-us">Bath and Body Works</a>
-            </li>
+            <isinclude template="/content/faqRootBreadcrumb" />
             <li title="${pdict.parentFolder.displayName}">
-                <a href="${URLUtils.url('Page-Show', 'cid', pdict.parentFolder.ID)}">${pdict.parentFolder.displayName}</a>
+                <a class="text-uppercase" href="${URLUtils.url('Page-Show', 'cid', pdict.parentFolder.ID)}">${pdict.parentFolder.displayName}</a>
             </li>
             <li title="${pdict.folder.displayName}">
                 <a href="${URLUtils.url('Page-Show', 'cid', pdict.folder.ID)}">${pdict.folder.displayName}</a>
             </li>
         </ul>
 
-        <div class="search-container position-relative">
-            <div class="search-wrap w-100">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12"
-                    class="search-icon">
-                    <circle cx="4.5" cy="4.5" r="4" fill="none" stroke="currentColor" />
-                    <path stroke="currentColor" stroke-linecap="round" d="M11 11L7.5 7.5" />
-                </svg>
-                <form role="search" class="search w-100" data-search="" action="/hc/en-us/search" accept-charset="UTF-8"
-                    method="get">
-                    <input name="utf8" type="hidden" value="&#x2713;" autocomplete="off" />
-                    <input type="search" name="query" id="query" placeholder="Type your question here..." aria-label="Search" /></form>
-            </div>
-        </div>
+        <isinclude template="/content/faqSearchField" />
     </nav>
 
     <div class="section-container">

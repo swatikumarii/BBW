@@ -6,14 +6,21 @@
         assets.addCss('/css/account/payment.css');
         assets.addCss('/css/account/account.css');
     </isscript>
+
     <div class="h-maxwidth--1400 mx-auto my-account">
-        <isinclude template="account/payment/deletePaymentModal" />
         <!---Breadcrumbs--->
         <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+    </div>
+
+    <div class="container-fluid p-0">
+        <div class="col mobile-my-account h-font-size--16 h-clr--black-1">
+            ${Resource.msg('label.myaccount', 'account', null)}
+        </div>
+    </div>
+
+    <div class="h-maxwidth--1400 mx-auto my-account">
+        <isinclude template="account/payment/deletePaymentModal" />
         <div class="row account-dashboard">
-            <div class="col mobile-my-account h-font-size--14 h-bg--gray-1 h-clr--black-1 text-uppercase">
-                ${Resource.msg('label.myaccount', 'account', null)}
-            </div>
             <div class="account-nav-wrap">
                 <div class="my-account-nav">
                     <isinclude template="account/accountNav" />
@@ -27,24 +34,28 @@
                         </div>
                     </div>
                 </div>
-                <isif condition="${pdict.noSavedPayments}">
-                    <div class="row justify-content-center h3 no-saved-payments">
-                        <p>${Resource.msg('msg.no.saved.payments', 'payment', null)}</p>
-                    </div>
-                </isif>
+                <iscomment>
+                    <isif condition="${pdict.noSavedPayments}">
+                        <div class="row justify-content-center h3 no-saved-payments">
+                            <p>${Resource.msg('msg.no.saved.payments', 'payment', null)}</p>
+                        </div>
+                    </isif>
+                </iscomment>
                 <isinclude template="account/payment/savedPayments" />
                 <div class="row justify-content-center">
-                    <div class="col-8">
+                    <div class="col-12">
                         <div class="row">
-                            <div class="col">
-                                <a href="${URLUtils.url('Account-Show')}" class="text-center back-to-account-link"
-                                    aria-label="${Resource.msg('label.addressbook.myaccount', 'account', null)}">
-                                    ${Resource.msg('link.profile.backtomyaccount', 'account', null)}
-                                </a>
-                            </div>
+                            <iscomment>
+                                <div class="col">
+                                    <a href="${URLUtils.url('Account-Show')}" class="text-center back-to-account-link"
+                                        aria-label="${Resource.msg('label.addressbook.myaccount', 'account', null)}">
+                                        ${Resource.msg('link.profile.backtomyaccount', 'account', null)}
+                                    </a>
+                                </div>
+                            </iscomment>
                             <isif condition="${pdict.addPaymentUrl}">
                                 <div class="col">
-                                    <a href="${pdict.addPaymentUrl}" class="btn btn-save btn-block btn-primary"
+                                    <a href="${pdict.addPaymentUrl}" class="btn btn-save btn-hover"
                                         aria-label="${Resource.msg('label.payment.addnewpayment', 'payment', null)}">${Resource.msg('label.payment.addnewpayment', 'payment', null)}</a>
                                 </div>
                             </isif>

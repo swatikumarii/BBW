@@ -75,8 +75,33 @@ function sendChangePasswordEmail(email) {
     emailHelpers.sendEmail(emailObj, 'mail/changePasswordEmail', email);
 }
 
+/**
+ * Get the status of contacting
+ * @returns {Array} responseArray activeClassName and activeMessage
+ */
+function getAvailability() {
+    var opening = Site.current.getCustomPreferenceValue('openingTime');
+    var closing = Site.current.getCustomPreferenceValue('closingTime');
+
+    var activeClassName;
+    var activeMessage;
+    var date = new Date();
+    var hour = date.getHours();
+
+    if (hour >= opening && hour < closing) {
+        activeClassName = Resource.msg('active.status.class', 'common', null);
+        activeMessage = Resource.msg('active.status.message', 'common', null);
+    } else {
+        activeClassName = Resource.msg('offline.status.class', 'common', null);
+        activeMessage = Resource.msg('offline.status.message', 'common', null);
+    }
+    var responseArray = [activeClassName, activeMessage];
+    return responseArray;
+}
+
 module.exports = {
     sendNewsLetterSubscribeEmail: sendNewsLetterSubscribeEmail,
     zeroOrderEmail: zeroOrderEmail,
-    sendChangePasswordEmail: sendChangePasswordEmail
+    sendChangePasswordEmail: sendChangePasswordEmail,
+    getAvailability: getAvailability
 };

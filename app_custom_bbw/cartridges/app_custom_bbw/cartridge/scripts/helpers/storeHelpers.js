@@ -121,7 +121,8 @@ function getStores(radius, postalCode, lat, long, geolocation, countryCode, stor
         resolvedRadius,
         actionUrl,
         apiKey,
-        StoreValues
+        StoreValues,
+        storeMgrResult.values()
     );
     return stores;
 }

@@ -1,0 +1,25 @@
+<div class="modal profile_complete" role="dialog">
+    <div class="modal-dialog modal-dialog-centered generic-modal-container modal-large" role="document">
+        <div class="modal-content profile-content">
+            <div class="modal-header border-0">
+                <p class="h-clr--black-1 h-font-size--18 modal-title"> ${Resource.msg('profileCompletion.header', 'account', null)}
+                </p>
+                <button type="button" class="close close-icon-btn modal-close-icon" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">
+                        <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
+                    </span>
+                </button>
+            </div>
+
+            <div class="modal-footer border-0">
+                <span class="redirect-profile btn profile_complete_btn h-fw--normal text-uppercase"
+                    data-action="${URLUtils.url('Account-EditProfile')}">
+                    ${Resource.msg('profileCompletion.button.continue', 'account', null)}</span>
+                <span class="modal-close-button btn profile_complete_btn h-fw--normal text-uppercase"
+                    data-action="${URLUtils.url('Account-Show')}">
+                    ${Resource.msg('profileCompletion.button.later', 'account', null)}</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,33 +6,6 @@
         margin: 0 auto;
     }
 
-    .mobile-my-account {
-        display: block;
-        padding: 1.4375rem 0.9375rem;
-        margin: 0.3125rem 0 12px;
-        letter-spacing: 0.02em;
-
-        @include media-up(sm) {
-            display: none;
-        }
-
-        &::after {
-            content: "";
-            width: 18px;
-            height: 18px;
-            float: right;
-            background: url("../../images/UI-Carat.svg") no-repeat;
-            background-position-x: 50%;
-            transition: transform 0.5s ease-out;
-        }
-
-        &.in {
-            &::after {
-                transform: rotate(180deg);
-            }
-        }
-    }
-
     .account-nav-wrap {
         width: 100%;
 
@@ -51,6 +24,7 @@
 
             h1 {
                 margin: 0 0 20px;
+                font-weight: map-get($font-weight, bold);
 
                 @include media-up(sm) {
                     line-height: 0.625rem;
@@ -75,6 +49,12 @@
                         color: colour(gray);
 
                         &:hover {
+                            color: colour(blue);
+                        }
+                    }
+
+                    &.active {
+                        a {
                             color: colour(blue);
                         }
                     }
@@ -108,6 +88,7 @@
                 min-height: auto;
                 margin-bottom: 20px;
                 letter-spacing: 0.12em;
+                background-color: colour(black, 3);
             }
         }
     }
@@ -118,13 +99,9 @@
                 h1 {
                     border-bottom: 1px solid colour(black, 3);
                     padding-bottom: 0.625em;
-                    margin-bottom: 1.5625em;
-
-                    @include media-down(sm) {
-                        font-size: 1rem;
-                        border-bottom: 0;
-                        border-bottom: 1px solid colour(black, 3);
-                    }
+                    margin-bottom: 25px;
+                    line-height: 18px;
+                    font-weight: map-get($font-weight, bold);
 
                     a {
                         text-decoration: underline;
@@ -212,5 +189,34 @@
         border-color: colour(gray, 7);
         color: colour(gray);
         pointer-events: none;
+    }
+}
+
+.mobile-my-account {
+    display: block;
+    letter-spacing: 0.02em;
+    margin: 0 0 1.4375rem;
+    padding: 0 15px 15px;
+    border-bottom: 1px solid colour(gray, 6);
+    font-weight: 600;
+
+    @include media-up(sm) {
+        display: none;
+    }
+
+    &::after {
+        content: "";
+        width: 1.5rem;
+        height: 1.375rem;
+        float: right;
+        background: url("../../images/UI-Carat.svg") no-repeat;
+        background-position-x: 50%;
+        transition: transform 0.5s ease-out;
+    }
+
+    &.in {
+        &::after {
+            transform: rotate(180deg);
+        }
     }
 }

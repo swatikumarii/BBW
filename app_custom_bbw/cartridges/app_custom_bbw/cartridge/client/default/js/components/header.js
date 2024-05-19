@@ -11,20 +11,14 @@ if (layout.isDesktop() || layout.isTablet()) {
     });
 
     $(document).on('click', 'body', function (e) {
-        $('#header-search').removeClass(
-            'expand-towards-right',
-            'all 0.3s ease'
-        );
-        $('.utility-user, .minicart').removeClass('d-lg-none d-md-none');
-        $('.search-fly-out-opacity').addClass('d-none');
-        e.stopPropagation();
+        if (!$(e.target).closest('.js-search-suggestions').length) {
+            $('#header-search').removeClass('expand-towards-right');
+            $('.utility-user, .minicart').removeClass('d-lg-none d-md-none');
+            $('.search-fly-out-opacity').addClass('d-none');
+            e.stopPropagation();
+        }
     });
 }
-
-/* Search overlay */
-$('.search-field').on('click', function () {
-    $('.search-fly-out-opacity').removeClass('d-none');
-});
 
 /* Mobile custom search */
 $('#mobile-custom-search').on('click', function (e) {
@@ -60,16 +54,21 @@ function openLoginPopup() {
 }
 module.exports = function () {
     $('.loginPopupBtn').on('click', openLoginPopup);
+    $('#logoutButton').on('click', function () {
+        if (sessionStorage.getItem('profileIncomplete') !== null) {
+            sessionStorage.removeItem('profileIncomplete');
+        }
+    });
 };
 
 /** Sticky header padding on body */
-$(window).on('load resize', function () {
+$(window).on('scroll resize', function () {
     var $header = $('.header');
     var $body = $('body');
     if ($body.hasClass('checkout-page') === false) {
         $body.css('padding-top', $header.outerHeight());
     }
-
+    $('.header').addClass('fixed-header');
 });
 
 /* Stick Header - On Scroll */
