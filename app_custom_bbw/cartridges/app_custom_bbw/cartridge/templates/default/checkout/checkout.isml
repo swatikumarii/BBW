@@ -141,6 +141,9 @@
                     <iscomment> Checkout Workflow Buttons </iscomment>
 
                     <div class="row">
+                        <div class="col-12">
+                            <p class="verify-msg text-center h-font-size--14 h-clr--black-1">${Resource.msg('msg.fill.all.required', 'checkout', null)}</p>
+                        </div>
                         <div class="col-12 next-step-button h-pos--relative">
                             <div class="mb-sm-3">
                                 <iscomment>Start of Afterpay</iscomment>
