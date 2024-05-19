@@ -58,14 +58,27 @@
                     <div class="form-group
                                         <isif condition=${pdict.forms.billingForm.contactInfoFields.email.mandatory === true}>required</isif>
                                         ${pdict.forms.billingForm.contactInfoFields.email.htmlName}">
-                        <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label" for="email"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.email', 'checkout', null)}</label>
-
+                        <div class="d-flex justify-content-between">
+                            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label" for="email"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.email', 'checkout', null)}</label>
+                            <span class="h-font-size--14"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('label.required', 'account', null)}</span>
+                        </div>
                         <input type="text" class="form-control email" id="email"
                             value="${pdict.order.billing.billingAddress.address ? pdict.order.billing.billingAddress.address.email || '' : ''}"
                             <isprint value=${pdict.forms.billingForm.contactInfoFields.email.attributes} encoding="off" />
                             data-missing-error="${Resource.msg('error.email.address', 'forms', null)}"
                             data-pattern-mismatch="${Resource.msg('valid.email.address', 'forms', null)}"
                         aria-describedby="emailInvalidMessage" >
+                        <span class="info-icon">
+                            <img src="${URLUtils.staticURL('/images/i-icon-gray.svg')}" alt="info icon" class="info-icon-img-gray"
+                                width="10px" />
+                            <img src="${URLUtils.staticURL('/images/i-icon-white.svg')}" alt="info icon" class="info-icon-img-white"
+                                width="10px" />
+                        </span>
+                        <div class="info-icon-text">
+                            <iscontentasset aid="email-info-icon-content" />
+                        </div>
+                        <div class="info-icon-border-arrow-outline"></div>
+                        <div class="info-icon-border-arrow"></div>
                         <div class="invalid-feedback" id="emailInvalidMessage"></div>
                     </div>
                 </div>

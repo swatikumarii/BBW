@@ -11,10 +11,13 @@
         <div class="form-group
                 ${addressFields.firstName.mandatory === true ? 'required' : ''}
                 ${addressFields.firstName.htmlName}">
-            <label class="form-control-label h-font-size--16 h-fw--semibold"
-                for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}">
-                <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.first.name', 'address', null)}
-            </label>
+            <div class="d-flex justify-content-between">
+                <label class="form-control-label h-font-size--16 h-fw--semibold"
+                    for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}">
+                    <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.first.name', 'address', null)}
+                </label>
+                <span class="h-font-size--14"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('label.required', 'account', null)}</span>
+            </div>
             <input autofocus type="text" class="form-control shippingFirstName"
                 id="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}FirstName"
