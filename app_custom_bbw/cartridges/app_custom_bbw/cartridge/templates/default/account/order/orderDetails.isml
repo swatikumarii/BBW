@@ -31,7 +31,7 @@
                     <isif condition="${((pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_OPEN) && pdict.order.shippingStatus.value == dw.order.Order.SHIPPING_STATUS_SHIPPED) || pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_COMPLETED}">
                         <span class="summary-details order-number h-clr--black">${Resource.msg('orderstatusinclude.ordershipped', 'order', null)}</span>
 
-                    <iselseif condition="${(pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_OPEN) && pdict.order.shippingStatus.value != dw.order.Order.SHIPPING_STATUS_SHIPPED || pdict.order.exportStatus.value == 1}" />
+                    <iselseif condition="${(pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_OPEN) && pdict.order.shippingStatus.value != dw.order.Order.SHIPPING_STATUS_SHIPPED || pdict.order.exportStatus.value == dw.order.Order.EXPORT_STATUS_EXPORTED}" />
                         <span class="summary-details order-number h-clr--black">${Resource.msg('orderstatusinclude.orderprocessed', 'order', null)}</span>
 
                     <iselseif condition="${pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_CANCELLED}" />

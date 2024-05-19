@@ -200,7 +200,9 @@ function createProductLineItemsObject(allLineItems, view) {
                 lineItems.push(newLineItem);
             }
         }
-        newLineItem.checkAvailable = product.available;
+        if (!('available' in newLineItem)){
+            newLineItem.available = 'available' in product ? product.available : false;
+        }
         newLineItem.enableNotifyMe = product.enableNotifyMe;
     });
     return [lineItems, giftWrapLineItem, greetingCardLineItem];

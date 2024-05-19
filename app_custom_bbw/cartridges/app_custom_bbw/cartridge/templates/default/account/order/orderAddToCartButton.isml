@@ -1,9 +1,9 @@
 <isinclude template="product/components/requestUserEmailForOOSModal" />
 <input class="quantity" value="1" type="hidden" />
-<isif condition="${lineItem.checkAvailable}">
+<isif condition="${lineItem.available}">
     <div class="add-to-cart-wishlist">
         <button class="add-to-cart btn btn-hover" data-pid="${lineItem.id}" data-url="${URLUtils.url('Cart-AddProduct')}"
-            data-option="${JSON.stringify(lineItem.selectedOptions)}" ${!lineItem.checkAvailable ? "disabled" : ""}>
+            data-option="${JSON.stringify(lineItem.selectedOptions)}" ${!lineItem.available ? "disabled" : ""}>
             ${Resource.msg('button.addToBag', 'common', null)}
         </button>
 

@@ -18,10 +18,9 @@ module.exports = function () {
                         $(thisData).spinner().stop();
                         printArea.document.write(data);
                         printArea.document.close();
-                        setTimeout(function () {
+                        printArea.onload = function () {
                             printArea.print();
-                            printArea.close();
-                        }, 60000);
+                        };
                     }
                     $(thisData).spinner().stop();
                 },
