@@ -11,15 +11,17 @@
             </td>
             <!--- product name--->
             <td class="item-details">
-                <div class="line-item-name">
-                    <a href="${URLUtils.url('Product-Show', 'pid', item.pid)}">
-                        ${item.name}
-                    </a>
+                <div class="product-list-item">
+                    <div class="line-item-name">
+                        <a href="${URLUtils.url('Product-Show', 'pid', item.pid)}">
+                            ${item.name}
+                        </a>
+                    </div>
+                    <p class="category-item mb-0">${item.titlePartB}</p>
+                    <p class="line-item-id">
+                        ${Resource.msg('label.item.no', 'wishlist', null)}${item.pid}
+                    </p>
                 </div>
-                <p class="category-item mb-0">${item.titlePartB}</p>
-                <p class="line-item-id">
-                    ${Resource.msg('label.item.no', 'wishlist', null)}${item.pid}
-                </p>
             </td>
             <td class="item-price">
                 <!---unit price and quantity --->
