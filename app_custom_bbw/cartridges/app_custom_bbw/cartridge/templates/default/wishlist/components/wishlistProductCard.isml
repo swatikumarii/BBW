@@ -52,9 +52,12 @@
 
                 <isinclude template="wishlist/components/wishlistProductCardAvailability" />
 
-                <isset name="creationDate" value="${new Date(item.creationDate)}" scope="page" />
-                <div class="createDate">${Resource.msg('wishlist.date.added', 'wishlist', null)}
-                    ${creationDate.getDate().toString() + '\\' + (creationDate.getMonth() + 1) + '\\' + creationDate.getFullYear().toString()} </div>
+                <isif condition="${!!!pdict.shareLink}">
+                    <isset name="creationDate" value="${new Date(item.creationDate)}" scope="page" />
+                    <div class="createDate">${Resource.msg('wishlist.date.added', 'wishlist', null)}
+                        ${creationDate.getDate().toString() + '\\' + (creationDate.getMonth() + 1) + '\\' + creationDate.getFullYear().toString()} </div>
+                </isif>
+
                 <div class="wishlist-item">
                     <!-- Check if express shipping is available -->
                     <isif condition="${item.expressShip}">

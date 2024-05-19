@@ -32,7 +32,7 @@
                                             && (category.hasOnlineProducts() || category.hasOnlineSubCategories())}">
                                     <div class="col-md-4 col-sm-12">
                                         <h1 class="sitemap-title">
-                                            <a class="text-uppercase h-fw--bold h-clr--black-3 h-font-size--20" href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
+                                            <a class="text-uppercase h-fw--semibold h-clr--black-3 h-font-size--20" href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
                                                 ${category.displayName}
                                             </a>
                                         </h1>
