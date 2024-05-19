@@ -136,6 +136,7 @@
     @include media-down(sm) {
         .wishlist-heading {
             border-bottom: 1px solid colour(gray, 6);
+            margin-bottom: 0.5rem;
 
             h1 {
                 font-size: 1.5rem;
@@ -224,7 +225,7 @@
             }
 
             @include media-down(sm) {
-                padding: 27px 0 8px 15px;
+                padding: 0 0 8px 15px;
                 width: 75%;
                 max-width: none;
             }
@@ -304,6 +305,8 @@
 
                     @include media-down(sm) {
                         padding: 0;
+                        min-height: auto;
+                        margin-top: 12px;
                     }
 
                     img {
@@ -410,6 +413,11 @@
     padding: 0 1.25em;
     background-color: colour(black, 3);
     letter-spacing: 0.12em;
+
+    @include media-down(sm) {
+        font-size: 12px;
+        width: 100%;
+    }
 }
 
 .pw-requirements {
