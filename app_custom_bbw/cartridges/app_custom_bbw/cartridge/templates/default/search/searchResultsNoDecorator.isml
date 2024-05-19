@@ -23,6 +23,7 @@
                         </div>
 
                         <div class="col-12 col-lg-10 col-md-9">
+                            <isinclude template="search/components/categoryBannerTop" />
                             <isinclude template="search/components/categorySlider" />
 
                             <!--- Product Grid --->
