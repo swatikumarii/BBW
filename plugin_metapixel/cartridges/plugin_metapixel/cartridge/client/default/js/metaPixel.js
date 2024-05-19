@@ -5,7 +5,7 @@ $(document).on(
     function (event, request, settings, data) {
         if (settings.dataTypes.indexOf('json') > -1) {
             if (data && 'fbqEvents' in data && Array.isArray(data.fbqEvents)) {
-                data.fbqEvents.forEach(function gtmEvent(fbqEvent) {
+                data.fbqEvents.forEach(function metaEvent(fbqEvent) {
                     if (fbqEvent) {
                         fbq('track', fbqEvent.event,fbqEvent.data);
                     }
