@@ -4,6 +4,7 @@ var base = module.superModule;
 
 var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 var URLUtils = require('dw/web/URLUtils');
+var Site = require('dw/system/Site');
 
 
 /**
@@ -17,9 +18,12 @@ var URLUtils = require('dw/web/URLUtils');
  */
 function OrderModel(lineItemContainer, options) {
     base.call(this, lineItemContainer, options);
+    var trackingUrl = Site.getCurrent().getCustomPreferenceValue('trackingUrl');
     if (lineItemContainer) {
         var encrptedOrderNumber = encodeURIComponent( encryptionHelper.encryptPin(this.orderNumber));
         this.invoiceDownloadUrl = URLUtils.https('Order-InvoiceDownload', 'token', encrptedOrderNumber).toString();
+        this.trackingUrl = trackingUrl;
+        this.trackingNumber = lineItemContainer.shipments[0].trackingNumber;
     }
 }
 

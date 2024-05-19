@@ -416,6 +416,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="trackingUrl">
+                <display-name xml:lang="x-default">Tracking URL</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="googleRecaptchaPageDefaultScore">
                 <display-name xml:lang="x-default">rCAPTCHA Page Default Score</display-name>
                 <type>double</type>
@@ -620,6 +627,28 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="BBWCompanyAddress">
+                <display-name xml:lang="x-default">BBW Company Address</display-name>
+                <description xml:lang="x-default">BBW Company Address</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="BBWCompanyPhone">
+                <display-name xml:lang="x-default">BBW Company Phone</display-name>
+                <description xml:lang="x-default">BBW Company Phone</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="BBWCustomerServiceEmail">
+                <display-name xml:lang="x-default">BBW Customer Service Email</display-name>
+                <type>email</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
             <attribute-definition attribute-id="ApplePayExpress_Enabled">
                 <display-name xml:lang="x-default">Enable Apple Pay express checkout</display-name>
@@ -1351,6 +1380,15 @@
                 <attribute attribute-id="liveChatEnabled"/>
                 <attribute attribute-id="chatScript"/>
             </attribute-group>
+            <attribute-group group-id="BBWconfigurations">
+                <display-name xml:lang="x-default">BBW Configurations</display-name>
+                <attribute attribute-id="BBWCompanyAddress"/>
+                <attribute attribute-id="BBWCustomerServiceEmail"/>
+                <attribute attribute-id="BBWCompanyPhone"/>
+            </attribute-group>
+            <attribute-group group-id="Tracking">
+                <display-name xml:lang="x-default">Tracking</display-name>
+                <attribute attribute-id="trackingUrl"/>
             <attribute-group group-id="Contact Us">
                 <display-name xml:lang="x-default">Contact Us Configurations</display-name>
                 <attribute attribute-id="openingTime"/>
