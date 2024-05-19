@@ -145,9 +145,21 @@
                     width: 25%;
                     padding: 20px 0 0;
                 }
+
+                img {
+                    height: auto;
+                }
             }
 
             td.item-details {
+                max-width: 251px;
+                width: 251px;
+
+                .product-list-item {
+                    max-width: 200px;
+                    width: 200px;
+                }
+
                 .line-item-name {
                     color: colour(black, 1);
                     font-weight: map-get($font-weight, semibold);
@@ -176,6 +188,8 @@
 
                 @include media-down(sm) {
                     padding: 27px 0 8px 15px;
+                    width: 75%;
+                    max-width: none;
                 }
             }
 
@@ -226,20 +240,18 @@
                     text-align: left;
                 }
 
-                .add-to-cart-wishlist {
-                    .add-to-cart {
-                        float: right;
-                        width: auto;
-                        font-weight: 400;
-                        font-size: 0.6875rem;
-                        min-height: 35px;
-                        letter-spacing: 0.12em;
-                        line-height: 2.0625rem;
-                        padding: 0 15px;
+                .wishlist-btn {
+                    float: right;
+                    width: 104px;
+                    font-weight: 400;
+                    font-size: 0.6875rem;
+                    min-height: 35px;
+                    letter-spacing: 0.12em;
+                    line-height: 2.0625rem;
+                    padding: 0;
 
-                        @include media-down(sm) {
-                            float: left;
-                        }
+                    @include media-down(sm) {
+                        float: left;
                     }
                 }
 
