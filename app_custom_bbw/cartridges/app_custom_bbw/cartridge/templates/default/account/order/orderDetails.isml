@@ -11,18 +11,33 @@
                 <p>
                     <span class="summary-section-label order-date-label pr-3">${Resource.msg('label.order.date', 'order', null)}</span>
                     <span class="summary-details order-date h-clr--black">
-                        <isprint value="${pdict.order.creationDate}" style="DATE_SHORT" /></span>
+                        <isprint value="${pdict.order.creationDate}" style="DATE_LONG" /></span>
                 </p>
-                <isif condition="${pdict.order.estimatedArrivalTime}">
+                <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('estimatedDelivery')}">
                     <p>
                         <span
                             class="summary-section-label order-number-label pr-3">${Resource.msg('label.estimated.delivery', 'order', null)}</span>
-                        <span class="summary-details order-number">${pdict.order.estimatedArrivalTime}</span>
+                        <span class="summary-details order-number">${dw.system.Site.getCurrent().getCustomPreferenceValue('estimatedDelivery')}</span>
                     </p>
                 </isif>
                 <p class="mb-0">
                     <span class="summary-section-label order-number-label pr-3">${Resource.msg('label.order.number', 'order', null)}</span>
                     <span class="summary-details order-number h-clr--black">${pdict.order.orderNumber}</span>
+                </p>
+                <p>
+                    <span class="summary-section-label order-number-label pr-2">${Resource.msg('label.orderDetail.status', 'order', null)}</span>
+
+                    <isif condition="${((pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_OPEN) && pdict.order.shippingStatus.value == dw.order.Order.SHIPPING_STATUS_SHIPPED) || pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_COMPLETED}">
+                        <span class="summary-details order-number h-clr--black">${Resource.msg('orderstatusinclude.ordershipped', 'order', null)}</span>
+
+                    <iselseif condition="${(pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_OPEN) && pdict.order.shippingStatus.value != dw.order.Order.SHIPPING_STATUS_SHIPPED || pdict.order.exportStatus.value == dw.order.Order.EXPORT_STATUS_EXPORTED}" />
+                        <span class="summary-details order-number h-clr--black">${Resource.msg('orderstatusinclude.orderprocessed', 'order', null)}</span>
+
+                    <iselseif condition="${pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_CANCELLED}" />
+                        <span class="summary-details order-number h-clr--black">${Resource.msg('orderstatusinclude.ordercanceled', 'order', null)}</span>
+                    <iselse/>
+                        <span class="value">${Resource.msg('orderstatusinclude.ordercontact', 'order', null)}</span>
+                    </isif>
                 </p>
             </div>
             <div class="order-detail-with-image d-flex align-items-center">

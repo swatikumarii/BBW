@@ -19,12 +19,13 @@
                 <th class="order-description border-top-0 text-uppercase" colspan="2">${Resource.msg('label.item.description', 'order', null)}</th>
                 <th class="order-qty border-top-0 text-center text-uppercase">${Resource.msg('label.qty', 'order', null)}</th>
                 <th class="order-price border-top-0 text-right text-uppercase">${Resource.msg('label.price', 'order', null)}</th>
+                <th class="order-price border-top-0"></th>
             </tr>
         </thead>
         <tbody>
             <isloop items="${pdict.order.shipping}" var="shippingModel">
                 <isloop items="${shippingModel.productLineItems.items}" var="lineItem">
-                    <tr>
+                    <tr class="product-info uuid-${lineItem.UUID} pid-${lineItem.id}">
                         <td class="item-image">
                                     <img class="product-image" src="${lineItem.images.small[0].url}"
                                         alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}"
@@ -54,6 +55,9 @@
                                     ${lineItem.priceTotal.price}
                                 </isif>
                             </span>
+                        </td>
+                        <td>
+                            <isinclude template="account/order/orderAddToCartButton" />
                         </td>
                     </tr>
                 </isloop>

@@ -15,6 +15,40 @@ var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 var Order = require('dw/order/Order');
 
 /**
+ * Order-Details : The Order-Details append to add notify-me functionality
+ * @name Order-Details
+ */
+server.append(
+    'Details',
+    consentTracking.consent,
+    server.middleware.https,
+    userLoggedIn.validateLoggedIn,
+    function (req, res, next) {
+        var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+        var viewData = res.getViewData();
+
+        var userEmail = req.currentCustomer.raw.registered
+            ? req.currentCustomer.profile.email
+            : false;
+        var products = viewData.order.shipping[0].productLineItems.items;
+        for (var index = 0; index < products.length; index++) {
+            var productRecord = CustomObjectMgr.getCustomObject(
+                'notifyBackInStock',
+                products[index].id
+            );
+            products[index].productPresentInNotifyList = false;
+            if (userEmail && productRecord !== null && productRecord.custom.user.indexOf(userEmail) !== -1) {
+                products[index].productPresentInNotifyList = true;
+            }
+        }
+
+        res.setViewData(viewData);
+        next();
+    });
+
+
+
+/**
  * Order-History : The Order-History append to update breadcrumbs
  * @name Order-History
  */
