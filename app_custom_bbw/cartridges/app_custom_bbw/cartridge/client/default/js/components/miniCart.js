@@ -9,6 +9,13 @@ var location = window.location;
 module.exports = function () {
     cart();
 
+    $(document).on('click','.minicart-login-btn', function () {
+        $('.loginPopup').find('#loginModal').modal('show');
+        $('input[name="loginRedirectUrl"]').val('Cart-Show');
+        $('input[name="loginRedirectQueryString"]').val('');
+    });
+
+
     $('.minicart').on('count:update', function (event, count) {
         if (count && $.isNumeric(count.quantityTotal)) {
             $('.minicart .minicart-quantity').text(count.quantityTotal);

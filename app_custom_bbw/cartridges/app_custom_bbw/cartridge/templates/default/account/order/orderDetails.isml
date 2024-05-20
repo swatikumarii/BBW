@@ -188,6 +188,18 @@
                         </div>
                     </div>
                 </isif>
+                <!--- Sales Tax --->
+                <div class="row leading-lines shipping-item">
+                    <div class="col-6 start-lines">
+                        <p class="order-receipt-label"><span>${Resource.msg('label.order.sales.tax', 'confirmation', null)}</span>
+                        </p>
+                    </div>
+                    <div class="col-6 end-lines">
+                        <p class="text-right"><span
+                                class="shipping-total-cost">${pdict.order.totals.totalTax}</span>
+                        </p>
+                    </div>
+                </div>
 
                 <!--- Shipping Discount --->
                 <isif condition="${pdict.order.totals.shippingLevelDiscountTotal.value != 0}">

@@ -526,6 +526,46 @@ function attributeSelect(selectedValueUrl, $productContainer) {
         });
     }
 }
+/**
+ * uploadVideo to upload video to s
+ * @param {string} videoUrl - video upload url
+ * @param {string} videoForm - video form
+ * @returns {string} uploaded link
+ */
+async function uploadVideo (videoUrl, videoForm) {
+    return new Promise(function(resolve, reject) {
+        var eGiftVideoLink;
+        $('#video-progress').show();
+        $.ajax({
+            method: 'post',
+            url: videoUrl,
+            timeout: 0,
+            processData: false,
+            mimeType: 'multipart/form-data',
+            contentType: false,
+            data: videoForm,
+            success: function (response) {
+                eGiftVideoLink = JSON.parse(response).Location;
+                $('#video-progress').hide();
+                resolve(eGiftVideoLink);
+            },
+            error: function(xhr, status, error) {
+                reject(error); // Reject the promise if there's an error
+            },
+            xhr: function () {
+                var xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener('progress', function (evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = (evt.loaded / evt.total) * 100;
+                        $('#video-progress').attr('value', percentComplete);
+                        $('#progress').empty().html('Uploading video... ' + Math.round(percentComplete) + '%');
+                    }
+                }, false);
+                return xhr;
+            }
+        });
+    });
+}
 
 base.selectAttribute = function () {
     $(document).on(
@@ -556,7 +596,7 @@ module.exports = $.extend({}, base, {
         $(document).on(
             'click',
             'button.add-to-cart, button.add-to-cart-global',
-            function () {
+            async function () {
                 var addToCartUrl;
                 var pid;
                 var pidsObj;
@@ -606,6 +646,7 @@ module.exports = $.extend({}, base, {
                     var eGiftScheduleMonth = $('.gift-card-form')
                         .find('#schedule-months-list')
                         .val();
+                    var eGiftVideoLink = '';
 
                     if (
                         senderName === '' ||
@@ -636,13 +677,35 @@ module.exports = $.extend({}, base, {
                             });
                         return false;
                     }
+                    var eGiftVideo = document.getElementById('giftCard-video');
+
+                    if (eGiftVideo.files.length > 0 && (eGiftVideo.files[0].type || '').indexOf('video/') === -1) {
+                        $('.giftcard-video').parent().find('.invalid-feedback').text($('#giftCard-video').data('error-type'));
+                        return false;
+                    }
+
+                    if (eGiftVideo.files.length > 0 && eGiftVideo.files[0].size > 15728640) {
+                        $('.giftcard-video').parent().find('.invalid-feedback').text($('#giftCard-video').data('error-size'));
+                        return false;
+                    }
+
+                    if (eGiftVideo.files.length > 0) {
+                        $.spinner().start();
+                        var videoForm = new FormData();
+                        videoForm.append('video', eGiftVideo.files[0], eGiftVideo.files[0].name);
+                        var videoUrl = $('input[name=s3Url]').val() + '/upload-video';
+                        eGiftVideoLink = await uploadVideo(videoUrl, videoForm);
+                        $.spinner().stop();
+                    }
+
                     var egiftCardDetails = {
                         senderName: senderName,
                         recipientName: recipientName,
                         recipientEmail: recipientEmail,
                         eGiftMessage: eGiftMessage,
                         eGiftScheduleDate: eGiftScheduleDate,
-                        eGiftScheduleMonth: eGiftScheduleMonth
+                        eGiftScheduleMonth: eGiftScheduleMonth,
+                        eGiftVideoLink: eGiftVideoLink
                     };
                     egiftCardDetailsObj = JSON.stringify(egiftCardDetails);
                 }
@@ -702,6 +765,11 @@ module.exports = $.extend({}, base, {
 
                             if ($('.gift-card-form').length > 0) {
                                 $('.gift-card-form')[0].reset();
+                                $('#video-preview').attr('src', '');
+                                $('.gift-card-video video').addClass('d-none');
+                                $('.gift-card-video .remove-video').addClass('d-none');
+                                $('.egift-video-label').removeClass('d-none');
+                                $('#progress').empty();
                             }
                             $.spinner().stop();
                             base.miniCartReportingUrl(data.reportingURL);
@@ -764,9 +832,20 @@ module.exports = $.extend({}, base, {
             var productID = $(this).data('pid');
             var removeGiftPliUrl = $(this).data('action');
             var addToCartUrl = $(this).data('addtocarturl');
+            var egiftCardDetailsObj;
+            var egiftCardDetails = {
+                senderName: $('.gift-card-form').find('input:text[name=\'sender-name\']').val(),
+                recipientEmail: $('.gift-card-form').find('input#recipient-email').val(),
+                recipientName: $('.gift-card-form').find('input:text[name=\'recipient-name\']').val(),
+                eGiftMessage:  $('.gift-card-form').find('#egift-message').val(),
+                eGiftScheduleDate: $('.gift-card-form').find('#schedule-days-list').val(),
+                eGiftScheduleMonth: $('.gift-card-form').find('#schedule-months-list').val()
+            };
+            egiftCardDetailsObj = JSON.stringify(egiftCardDetails);
             var form = {
                 pid: productID,
-                quantity: 1
+                quantity: 1,
+                egiftCardDetails: egiftCardDetailsObj
             };
             $.ajax({
                 type: 'GET',

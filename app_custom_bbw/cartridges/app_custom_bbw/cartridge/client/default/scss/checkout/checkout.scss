@@ -558,3 +558,105 @@ input[type="tel"],
         }
     }
 }
+
+.info-icon-text {
+    min-width: 260px;
+    max-width: 260px;
+    min-height: 300px;
+    position: absolute;
+    right: -290px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid;
+    overflow-y: scroll;
+    padding: 20px;
+    display: none;
+
+    &:hover {
+        display: block;
+
+        + .info-icon-border-arrow-outline {
+            display: block;
+
+            + .info-icon-border-arrow {
+                display: block;
+            }
+        }
+    }
+}
+
+.info-icon-border-arrow {
+    border-top: 9px solid transparent;
+    border-right: 8px solid $clr-white;
+    border-bottom: 9px solid transparent;
+    position: absolute;
+    right: -39px;
+    top: 48px;
+    transform: translate(-100%, -50%);
+    display: none;
+}
+
+.info-icon-border-arrow-outline {
+    border-top: 10px solid transparent;
+    border-right: 9px solid $clr-black-1;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    right: -39px;
+    top: 48px;
+    transform: translate(-100%, -50%);
+    display: none;
+}
+
+.info-icon {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    border: 1px solid $clr-gray-1;
+    border-radius: 50%;
+    background: $clr-gray-1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .info-icon-img-white {
+        display: none;
+    }
+
+    .info-icon-img-gray {
+        display: block;
+    }
+
+    &:hover {
+        background: $clr-black-3;
+        border-color: $clr-black-3;
+
+        .info-icon-img-white {
+            display: block;
+        }
+
+        .info-icon-img-gray {
+            display: none;
+        }
+
+        + .info-icon-text {
+            display: block;
+
+            + .info-icon-border-arrow-outline {
+                display: block;
+
+                + .info-icon-border-arrow {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.verify-msg {
+    margin: 20px 0;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+}

@@ -35,6 +35,9 @@
                             <div class="line-item-name">
                                 <a class="product-name" title="${lineItem.productName}"
                                     href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}"><span>${lineItem.productName}</span></a>
+                                <isif condition="${lineItem.titlePartB}">
+                                    <span class="product-number d-block">${lineItem.titlePartB}</span>
+                                </isif>
                                 <span class="product-number d-block">${Resource.msg('lable.orderDetail.item.id', 'order', null)} :
                                     ${lineItem.id}</span>
                                 <iscomment> <span class="order-email">${Resource.msg('label.bracket.open', 'order', null)}${orderEmail}${Resource.msg('label.bracket.close', 'order', null)}</span> </iscomment>
