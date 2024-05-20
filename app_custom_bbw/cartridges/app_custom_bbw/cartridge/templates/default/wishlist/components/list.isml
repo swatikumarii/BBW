@@ -12,12 +12,10 @@
             </isif>
         </isloop>
         <isif condition="${pdict.wishlist.items.length > 3}">
-            <div class="my-account col-12 text-center">
-                <a href="#" class="view-more-btn m-font-base--normal">
+            <div class="my-account col-12 text-center p-0">
                 <button type="button" class="btn btn-hover view-button more-wl-items">
                     ${Resource.msg('button.view.more', 'common', null)}
                 </button>
-                </a>
             </div>
         </isif>
         <span class="wishlistItemCardsData" data-uuid="${pdict.wishlist.UUID}" data-href="${URLUtils.url('Wishlist-MoreList')}" data-page-number="${pdict.wishlist.pageNumber || 1}"  data-public-view=${pdict.wishlist.publicView}></span>

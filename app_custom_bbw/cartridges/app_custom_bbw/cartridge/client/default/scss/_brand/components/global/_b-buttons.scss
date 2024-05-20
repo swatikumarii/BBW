@@ -178,6 +178,10 @@
         border-color: colour(gray, 1);
         cursor: default;
         opacity: 0.5;
+
+        &:hover {
+            color: colour(gray, 3);
+        }
     }
 }
 

@@ -100,7 +100,7 @@
                             <isinclude template="checkout/shipping/shipping" />
                             <isif condition="${pdict.containsDangerousGoods}">
                                 <div class="dangerous-goods-message">
-                                    ${Resource.msg('dangerous.goods.msg', 'checkout', null)}
+                                    <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('dangerousGoodsMessage')}" encoding="off" />
                                 </div>
                             </isif>
                         </div>

@@ -6,7 +6,7 @@ var metaPixelHelpers = require('*/cartridge/scripts/helpers/metaPixelHelpers');
 
 /** 
  * Should be executed inside of the head tags
- * Renders GTM code.
+ * Renders MetaPixel code.
  * @param {object} pdict - pdict data from the controller
  */
 function htmlHead(pdict) {
@@ -58,7 +58,7 @@ function registerRoute(route) {
     });
 }
 
-// Ensure gtm is enabled before registering hooks
+// Ensure metaPixel is enabled before registering hooks
 if (metaPixelHelpers.isEnabled) {
     module.exports = {
         htmlHead: htmlHead,
