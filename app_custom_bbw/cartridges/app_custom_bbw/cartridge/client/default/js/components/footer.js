@@ -104,7 +104,10 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
     $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
 });
 
-$('.countrySelectPopup').find('.modal').modal('show');
+if (!localStorage.getItem('is-country-selector')) {
+    $('.countrySelectPopup').find('.modal').modal('show');
+}
+
 var timer;
 $('body')
     .on('mouseleave', '[data-toggle="popover"], .popover', function () {
@@ -116,8 +119,12 @@ $('body')
         clearTimeout(timer);
     })
     .on('click', '#switch-site', function () {
+        localStorage.setItem('is-country-selector',true);
         var site = $('#selected-site').val();
         window.location.replace(site);
+    })
+    .on('click', '.country-stay-site', function () {
+        localStorage.setItem('is-country-selector',true);
     });
 // Close popover on close button click
 $(document).on('click', '.popover .close', function (e) {
