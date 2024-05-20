@@ -163,7 +163,7 @@
                 flex-basis: 100%;
                 font-size: 32px;
                 margin: 37px 0 20px;
-                font-weight: map-get($font-weight, bold);
+                font-weight: map-get($font-weight, semibold);
                 color: colour(black, 8);
                 line-height: 1.5;
             }
@@ -278,7 +278,7 @@
                     margin-bottom: 11px;
                     margin-top: 0;
                     font-size: 18px;
-                    font-weight: map-get($font-weight, bold);
+                    font-weight: map-get($font-weight, semibold);
                     line-height: 27px;
                     color: colour(black, 8);
                 }
