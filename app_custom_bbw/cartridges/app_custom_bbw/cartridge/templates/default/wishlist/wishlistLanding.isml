@@ -34,9 +34,11 @@
                                     class="title text-capitalize position-relative w-100 d-block d-md-flex align-items-center justify-content-between">
                                     <span>
                                         ${Resource.msg('label.love.it.list', 'wishlist', null)}
-                                        <span class="wishlist-owner">
-                                            ${Resource.msgf('wishlist.owner.name', 'wishlist', null, pdict.wishlist.owner.firstName)}
-                                        </span>
+                                        <isif condition="${pdict.wishlist.items.length > 0}">
+                                            <span class="wishlist-owner">
+                                                ${Resource.msgf('wishlist.owner.name', 'wishlist', null, pdict.wishlist.owner.firstName)}
+                                            </span>
+                                        </isif>
                                     </span>
 
                                     <button type="button"
