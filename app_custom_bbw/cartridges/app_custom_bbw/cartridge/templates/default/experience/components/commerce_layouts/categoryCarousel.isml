@@ -2,6 +2,7 @@
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addJs('/js/categoryCarousel.js');
     assets.addCss('/css/experience/components/commerceLayouts/categoryCarousel.css');
+    assets.addJs('/js/productDetail.js');
 </isscript>
 
 <div class="h-dsp-md--grid cmp-category-carousel ${pdict.sectionCustomClass ? pdict.sectionCustomClass : ''}">
@@ -15,6 +16,7 @@
             </h2>
         </isif>
         <div class="shop-the-module ds-smooth-scroll d-flex js-shop-the-module-scroll">
+            <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
             <isloop items="${pdict.selectedProducts}" var="onlineProduct" status="loopstate">
                 <div class="shop-the-module__slide js-shop-the-module-slide">
                     <div class="ds-shop-the-image-product-tile ${pdict.productDetailAlignment}">
