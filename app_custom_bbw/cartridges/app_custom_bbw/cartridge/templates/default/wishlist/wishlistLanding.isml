@@ -6,7 +6,7 @@
         assets.addCss('/css/account/account.css');
     </isscript>
 
-    <div class="h-maxwidth--1400 mx-auto my-account">
+    <div class="container h-maxwidth--1400 mx-auto">
         <!---Breadcrumbs--->
         <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
     </div>
