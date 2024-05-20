@@ -1,13 +1,12 @@
 <div class="store-details map-details" data-store-id="${store.ID}">
-<div class="accordion form-check-label" id="accordionMap">
+<div class="form-check-label">
     <div class="card border-0 p-0" data-store-id="${store.ID}">
         <div class="card-head" id="${store.ID}">
-            <h2 class="collapsed mb-0 store-name map-name h-font-size--14 h-fw--bold h-clr--black-1 text-uppercase" data-toggle="collapse" data-target="${'#collapse' + store.ID}" aria-expanded="true"
-            aria-controls="collapseOne">
+            <h2 class="mb-0 store-name map-name h-font-size--14 h-fw--bold h-clr--black-1 text-uppercase" aria-expanded="true">
                 ${store.name}
             </h2>
         </div>
-        <div id="${'collapse' + store.ID}" class="collapse store-detail show" aria-labelledby="${store.ID}" data-parent="#accordionMap">
+        <div class="store-detail show" aria-labelledby="${store.ID}">
         <div class="card-body h-font-size--14">
             <div class="row">
                 <div class="col">

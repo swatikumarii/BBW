@@ -1,6 +1,7 @@
 'use strict';
 
 var base = require('base/product/base');
+var layout = require('../utils/layout');
 
 /**
  * Retrieves the relevant pid value
@@ -148,19 +149,19 @@ function handlePostCartAdd(response) {
         Object.keys(response.newBonusDiscountLineItem).length !== 0
     ) {
         chooseBonusProducts(response.newBonusDiscountLineItem);
-    } else {
+    } else if (layout.isMobile()) {
         if ($('.add-to-cart-messages').length === 0) {
             $('body').append('<div class="add-to-cart-messages"></div>');
         }
 
+        $('.add-to-basket-alert').remove();
         $('.add-to-cart-messages').append(
             '<div class="alert ' +
-                messageType +
-                ' add-to-basket-alert text-center" role="alert">' +
-                response.message +
-                '</div>'
+            messageType +
+            ' add-to-basket-alert text-center" role="alert">' +
+            response.message +
+            '</div>'
         );
-
         setTimeout(function () {
             $('.add-to-basket-alert').remove();
         }, 5000);

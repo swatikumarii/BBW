@@ -32,6 +32,7 @@ module.exports.render = function (context) {
         || category.onlineProducts.length;
 
     model.carouselTitle = carouselTitle;
+    model.productDetailAlignment = content.productDetailAlignment === 'center' ? 'content-center' : content.productDetailAlignment === 'right' ? 'content-right' : 'content-left'; // eslint-disable-line
     model.shopButtonText = shopButtonText;
     model.shopButtonLink = URLUtils.url('Search-Show', 'cgid', category.ID);
     model.sectionCustomClass = content.sectionCustomClass;

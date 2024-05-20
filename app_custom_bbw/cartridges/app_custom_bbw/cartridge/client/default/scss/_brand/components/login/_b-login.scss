@@ -235,7 +235,7 @@
                 background-color: colour(white);
                 background-repeat: no-repeat;
                 background-size: 15px;
-                border-left: 1px px solid #828282;
+                border-left: 1px solid colour(gray, 5);
                 content: "";
                 height: 42px;
                 position: absolute;
@@ -243,20 +243,23 @@
                 top: 64px;
                 transform: translateY(-46%);
                 width: 35px;
+                cursor: pointer;
             }
         }
 
         .gender-select {
+            position: relative;
+
             &::after {
                 background: url("../../images/UI-Carat.svg") 50%;
                 background-color: colour(white);
                 background-repeat: no-repeat;
                 background-size: 15px;
-                border-left: 1px px solid #828282;
+                border-left: 1px solid colour(gray, 5);
                 content: "";
                 height: 42px;
                 position: absolute;
-                right: 26px;
+                right: 10px;
                 top: 51%;
                 transform: translateY(-53%);
                 width: 35px;
@@ -264,18 +267,20 @@
         }
 
         .nationality-select {
+            position: relative;
+
             &::after {
                 background: url("../../images/UI-Carat.svg") 50%;
                 background-color: colour(white);
                 background-repeat: no-repeat;
                 background-size: 15px;
-                border-left: 1px px solid #828282;
+                border-left: 1px solid colour(gray, 5);
                 content: "";
                 height: 42px;
                 position: absolute;
-                right: 26px;
-                top: 63%;
-                transform: translateY(-57%);
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
                 width: 35px;
             }
         }

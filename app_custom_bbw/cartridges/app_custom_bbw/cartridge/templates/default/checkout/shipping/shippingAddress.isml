@@ -108,7 +108,7 @@
 
 <!--- make drop down--->
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-12">
         <div class="form-group
                 ${addressFields.country.mandatory === true ? 'required' : ''}
                 ${addressFields.country.htmlName}">
@@ -135,7 +135,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-12">
         <div class="form-group
                 ${addressFields.states.stateCode.mandatory === true ? 'required' : ''}
                 ${addressFields.states.stateCode.htmlName}">
@@ -217,7 +217,8 @@
             <input type="tel" class="form-control shippingPhoneNumber" initOptions.allowDropdown="true"
                 id="shippingPhoneNumber${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber"
-                data-missing-error="${Resource.msg('error.phone', 'forms', null)}"
+                data-missing-error="${Resource.msg('error.phone.missing', 'forms', null)}"
+                data-pattern-mismatch="${Resource.msg('valid.phone.number', 'forms', null)}"
                 value="${shippingAddress.phone || ''}" <isprint value="${addressFields.phone.attributes}"
                 encoding="off" />>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber">
