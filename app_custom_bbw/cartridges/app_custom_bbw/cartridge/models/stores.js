@@ -14,7 +14,7 @@ function createStoresObject(storesObject, storeDistances) {
     return Object.keys(storesObject).map(function (key) {
         var store = storesObject[key];
         var distance = storeDistances[key];
-        var storeModel = new StoreModel(store, distance);   
+        var storeModel = new StoreModel(store);   
         storeModel.distance = distance.toFixed(2).toString();
         return storeModel;
     });
