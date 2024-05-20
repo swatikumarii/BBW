@@ -70,8 +70,39 @@ function setupFaqContentSearch(params) {
     };
 }
 
+/**
+ * Retrieves the Category Landing Page, if available in Page Designer
+ * @param {object} categoryID - the category ID as determined from the request
+ * @returns {object} a lookup result with these fields:
+ *  page - the page that is configured for this category, if any
+ *  invisiblePage - the page that is configured for this category if we ignore visibility, if it is different from page
+ *  aspectAttributes - the aspect attributes that should be passed to the PageMgr, null if no page was found
+ */
+function getPageDesignerCategoryPage(categoryID) {
+    var CatalogMgr = require('dw/catalog/CatalogMgr');
+    var PageMgr = require('dw/experience/PageMgr');
+    var HashMap = require('dw/util/HashMap');
+
+    var category = CatalogMgr.getCategory(categoryID.toLowerCase());
+
+    if (category && 'pageDesignerID' in category.custom && category.custom.pageDesignerID) {
+        var page = PageMgr.getPage(category.custom.pageDesignerID);
+        if (page && page.visible) {
+            var aspectAttributes = new HashMap();
+            aspectAttributes.category = category;
+            return {
+                page: page,
+                invisiblePage: null,
+                aspectAttributes: aspectAttributes
+            };
+        }
+    }
+    return base.getPageDesignerCategoryPage(categoryID);
+}
+
 module.exports = {
-    setupFaqContentSearch: setupFaqContentSearch
+    setupFaqContentSearch: setupFaqContentSearch,
+    getPageDesignerCategoryPage: getPageDesignerCategoryPage
 };
 
 Object.keys(base).forEach(function (prop) {
