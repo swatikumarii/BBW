@@ -251,6 +251,7 @@
             .line-item-availability .line-item-attributes {
                 font-size: 0.6875rem;
                 line-height: 1;
+                color: colour(green, 2);
             }
 
             .createDate {
@@ -402,6 +403,30 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.share-view-list {
+    max-width: 955px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    .profile .account-info {
+        width: 100%;
+    }
+
+    .profile-heading h1 {
+        font-weight: 400;
+    }
+
+    .wishlistItemCards table tr td.item-details {
+        max-width: 340px;
+        width: 340px;
+
+        @include media-down(sm) {
+            width: 75%;
+            max-width: none;
         }
     }
 }
