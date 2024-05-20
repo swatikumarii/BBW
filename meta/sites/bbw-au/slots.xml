@@ -95,7 +95,7 @@
             </content-assets>
         </content>
     </slot-configuration>
-    <slot-configuration slot-id="mini-cart-trending-now-product" context="global" configuration-id="mini-cart-recommendation" default="true" assigned-to-site="true">
+    <slot-configuration slot-id="minicart-recommendation-slider" context="global" configuration-id="minicart-recommendation-slider" default="true" assigned-to-site="true">
         <template>slots/product/minicartSlider.isml</template>
         <enabled-flag>true</enabled-flag>
         <callout-msg xml:lang="x-default">You'll Also Love</callout-msg>
