@@ -17,21 +17,19 @@
                 </div>
             </div>
             <iselse>
-                <div class="">
-                    <div class="share-view-list">
-                        <div class="my-account-description profile">
-                            <div class="account-profile">
-                                <div class="profile-heading">
-                                    <h1 class="title text-capitalize position-relative">
-                                        ${Resource.msgf('label.wishlist.header', 'account', null, pdict.firstName)}
-                                    </h1>
-                                </div>
+                <div class="share-view-list">
+                    <div class="my-account-description profile">
+                        <div class="account-profile">
+                            <div class="profile-heading">
+                                <h1 class="title text-capitalize position-relative">
+                                    ${Resource.msgf('label.wishlist.header', 'account', null, pdict.firstName)}
+                                </h1>
                             </div>
+                        </div>
 
-                            <div class="row justify-content-center">
-                                <div class="col-12 account-info wishlist-list">
-                                    <isinclude template="wishlist/components/wishlist" />
-                                </div>
+                        <div class="row justify-content-center">
+                            <div class="col-12 account-info wishlist-list">
+                                <isinclude template="wishlist/components/wishlist" />
                             </div>
                         </div>
                     </div>

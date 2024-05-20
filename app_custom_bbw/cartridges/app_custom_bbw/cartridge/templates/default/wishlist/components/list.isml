@@ -1,17 +1,17 @@
 <isif condition="${pdict.wishlist.items.length > 0}">
     <!---product cards--->
     <input class="is-reload-required-while-remove" value="${true}" type="hidden" />
-    <div class="wishlistItemCards" data-error-msg="${Resource.msg('wishlist.remove.error','wishlist',null)}">
+    <div class="wishlistItemCards" data-error-msg="${Resource.msg('wishlist.remove.error', 'wishlist', null)}">
         <div class="wishlist-cards">
-        <isloop items="${pdict.wishlist.items}" var="item">
-            <isif condition=${(pdict.wishlist.publicView && item.publicItem) || (!pdict.wishlist.publicView)}>
-                <isif condition="${!!item.bundle}">
-                    <isinclude template="wishlist/productCard/wishlistBundleCard" />
-                <iselse/>
-                    <isinclude template="wishlist/components/wishlistProductCard" />
+            <isloop items="${pdict.wishlist.items}" var="item">
+                <isif condition=${(pdict.wishlist.publicView && item.publicItem) || (!pdict.wishlist.publicView)}>
+                    <isif condition="${!!item.bundle}">
+                        <isinclude template="wishlist/productCard/wishlistBundleCard" />
+                    <iselse/>
+                        <isinclude template="wishlist/components/wishlistProductCard" />
+                    </isif>
                 </isif>
-            </isif>
-        </isloop>
+            </isloop>
         </div>
         <isif condition="${pdict.wishlist.items.length > 3}">
             <div class="my-account col-12 text-center p-0">
@@ -20,18 +20,23 @@
                 </button>
             </div>
         </isif>
-        <span class="wishlistItemCardsData" data-uuid="${pdict.wishlist.UUID}" data-href="${URLUtils.url('Wishlist-MoreList')}" data-page-number="${pdict.wishlist.pageNumber || 1}"  data-public-view=${pdict.wishlist.publicView}></span>
+        <span class="wishlistItemCardsData" data-uuid="${pdict.wishlist.UUID}"
+            data-href="${URLUtils.url('Wishlist-MoreList')}" data-page-number="${pdict.wishlist.pageNumber || 1}"
+            data-public-view=${pdict.wishlist.publicView}></span>
     </div>
-    <iscomment> <div>
-        <isset name="shareLinks" value="${pdict.socialLinks}" scope="page"/>
-        <isinclude template="wishlist/components/socialsharing" />
-    </div> </iscomment>
-<iselse>
-    <div class="col-12 text-left p-0">
-        <p class="wishlist-text">${Resource.msg('wishlist.empty.text','wishlist',null)}</p>
-        <div class="add-wishlist position-relative">
-            <a  href="${URLUtils.url('Home-Show')}" class="btn wishlist-btn btn-primary text-white text-uppercase btn-hover"
-                aria-label="${Resource.msg('wishlist.add.btn', 'wishlist', null)}">${Resource.msg('wishlist.add.btn', 'wishlist', null)}</a>
+    <iscomment>
+        <div>
+            <isset name="shareLinks" value="${pdict.socialLinks}" scope="page" />
+            <isinclude template="wishlist/components/socialsharing" />
         </div>
-    </div>
+    </iscomment>
+    <iselse>
+        <div class="col-12 text-left p-0">
+            <p class="wishlist-text">${Resource.msg('wishlist.empty.text', 'wishlist', null)}</p>
+            <div class="add-wishlist position-relative">
+                <a href="${URLUtils.url('Home-Show')}"
+                    class="btn wishlist-btn btn-primary text-white text-uppercase btn-hover"
+                    aria-label="${Resource.msg('wishlist.add.btn', 'wishlist', null)}">${Resource.msg('wishlist.add.btn', 'wishlist', null)}</a>
+            </div>
+        </div>
 </isif>

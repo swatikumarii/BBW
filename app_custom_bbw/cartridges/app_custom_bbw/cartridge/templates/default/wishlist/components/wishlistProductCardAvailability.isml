@@ -1,12 +1,12 @@
 <div class="line-item-availability availability-${item.UUID}">
     <isif condition="${item.enableNotifyMe}">
-        <p class="line-item-attributes mb-0">${Resource.msg('wishlist.stock.message.notify', 'wishlist', null)}</p>
+        <p class="line-item-attributes mb-0 text-danger">${Resource.msg('wishlist.stock.message.notify', 'wishlist', null)}</p>
     <iselse/>
         <isloop items="${item.availability.messages}" var="message">
             <isif condition="${message === Resource.msg('label.not.available', 'common', null)}">
-                <p class="line-item-attributes mb-0">${Resource.msg('label.not.available.product', 'common', null)}</p>
+                <p class="line-item-attributes mb-0 text-danger">${Resource.msg('label.not.available.product', 'common', null)}</p>
             <iselse/>
-                <p class="line-item-attributes mb-0">${message}</p>
+                <p class="line-item-attributes mb-0 text-green">${message}</p>
             </isif>
         </isloop>
     </isif>
