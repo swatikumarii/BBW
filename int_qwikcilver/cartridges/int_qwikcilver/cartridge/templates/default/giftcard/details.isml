@@ -123,7 +123,7 @@
                         </div>
 
                         <div class="row gift-card-video">
-                            <input type="hidden" name="s3Url" value="https://vs-thailand-sfcc.herokuapp.com">
+                            <input type="hidden" name="s3Url" value="${dw.system.Site.getcurrent().getCustomPreferenceValue('s3UploadLink')}">
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label class="msg-title form-control-label h-font-size--16 h-fw--semibold h-ls-02 egift-video-label" for="giftCard-video">
