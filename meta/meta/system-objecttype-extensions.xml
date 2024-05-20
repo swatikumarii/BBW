@@ -1203,6 +1203,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="businessTypes">
+                <display-name xml:lang="x-default">Business Types</display-name>
+                <description xml:lang="x-default">Business types for corporate gifting</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>            
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -1255,6 +1262,7 @@
                 <attribute attribute-id="sendProfileCompletionReminderEmail"/>
                 <attribute attribute-id="sendProfileCompletionReminderPopup"/>
                 <attribute attribute-id="dangerousGoodsMessage"/>
+                <attribute attribute-id="businessTypes"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>

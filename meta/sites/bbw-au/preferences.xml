@@ -82,6 +82,16 @@
             <preference preference-id="gtmScriptEnabled">false</preference>
             <preference preference-id="openingTime">2</preference>
             <preference preference-id="closingTime">11</preference>
+            <preference preference-id="businessTypes">
+                [
+                    {"key" : "GY", "value" : "Gym"},
+                    {"key" : "RE", "value" : "Restaurant"},
+                    {"key" : "HT", "value" : "Hotel"},
+                    {"key" : "SB", "value" : "Small business"},
+                    {"key" : "EN", "value" : "Enterprise"},
+                    {"key" : "O" , "value" : "Other"}
+                ]
+            </preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
@@ -149,6 +159,16 @@
             </preference>
             <preference preference-id="openingTime">2</preference>
             <preference preference-id="closingTime">11</preference>
+            <preference preference-id="businessTypes">
+                [
+                    {"key" : "GY", "value" : "Gym"},
+                    {"key" : "RE", "value" : "Restaurant"},
+                    {"key" : "HT", "value" : "Hotel"},
+                    {"key" : "SB", "value" : "Small business"},
+                    {"key" : "EN", "value" : "Enterprise"},
+                    {"key" : "O" , "value" : "Other"}
+                ]
+            </preference>
         </staging>
         <production/>
     </custom-preferences>

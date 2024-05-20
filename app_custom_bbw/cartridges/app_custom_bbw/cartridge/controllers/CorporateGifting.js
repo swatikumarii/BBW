@@ -19,8 +19,13 @@ var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
  */
 server.get('Landing', server.middleware.https, cache.applyDefaultCache, consentTracking.consent, function (req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
+    var Site = require('dw/system/Site');
+    var businessTypes = Site.getCurrent().getCustomPreferenceValue('businessTypes');
+    businessTypes = JSON.parse(businessTypes);
+
     res.render('corporateGifting/corporateGifting', {
-        actionUrl: URLUtils.url('CorporateGifting-Submit').toString()
+        actionUrl: URLUtils.url('CorporateGifting-Submit').toString(),
+        businessTypes: businessTypes,
     });
     return next();
 });
