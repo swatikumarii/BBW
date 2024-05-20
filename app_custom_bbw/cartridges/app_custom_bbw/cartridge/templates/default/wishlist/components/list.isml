@@ -12,12 +12,10 @@
             </isif>
         </isloop>
         <isif condition="${pdict.wishlist.items.length > 3}">
-            <div class="my-account col-12">
-                <a href="#" class="btn btn-primary view-more-btn m-font-base--normal">
-                <button type="button" class="btn btn-hover btn-block btn-primary btn-outline-primary view-button more-wl-items">
+            <div class="my-account col-12 text-center p-0">
+                <button type="button" class="btn btn-hover view-button more-wl-items">
                     ${Resource.msg('button.view.more', 'common', null)}
                 </button>
-                </a>
             </div>
         </isif>
         <span class="wishlistItemCardsData" data-uuid="${pdict.wishlist.UUID}" data-href="${URLUtils.url('Wishlist-MoreList')}" data-page-number="${pdict.wishlist.pageNumber || 1}"  data-public-view=${pdict.wishlist.publicView}></span>
@@ -30,7 +28,7 @@
     <div class="col-12 text-left p-0">
         <p class="wishlist-text">${Resource.msg('wishlist.empty.text','wishlist',null)}</p>
         <div class="add-wishlist position-relative">
-            <a  href="${URLUtils.url('Home-Show')}" class="btn wishlist-btn btn-primary text-white text-uppercase"
+            <a  href="${URLUtils.url('Home-Show')}" class="btn wishlist-btn btn-primary text-white text-uppercase btn-hover"
                 aria-label="${Resource.msg('wishlist.add.btn', 'wishlist', null)}">${Resource.msg('wishlist.add.btn', 'wishlist', null)}</a>
         </div>
     </div>

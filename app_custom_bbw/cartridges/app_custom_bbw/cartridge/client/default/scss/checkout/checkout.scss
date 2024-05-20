@@ -25,6 +25,18 @@
             }
         }
     }
+
+    .container {
+        @include media-down(sm) {
+            max-width: 100%;
+        }
+    }
+}
+
+footer {
+    @include media-down(sm) {
+        max-width: 100%;
+    }
 }
 
 .card.ghost {
@@ -67,6 +79,16 @@
 
     button {
         min-width: 175px;
+    }
+
+    @include media-down(sm) {
+        .mb-sm-3 {
+            margin: 15px;
+        }
+
+        button {
+            width: 100%;
+        }
     }
 }
 
@@ -274,6 +296,14 @@ span.ship-to-city-st-zip {
         line-height: 25px;
         background-color: $clr-gray-1;
     }
+
+    @include media-down(sm) {
+        width: 100%;
+
+        .step-text {
+            height: 30px;
+        }
+    }
 }
 
 .checkout-blocks {
@@ -348,14 +378,6 @@ input[type="tel"],
         &::after {
             transform: translateY(-50%);
             right: 5px;
-        }
-    }
-}
-
-.billing-address-block {
-    .custom-select-wrap {
-        &::after {
-            top: 52%;
         }
     }
 }

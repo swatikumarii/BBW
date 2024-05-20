@@ -6,21 +6,27 @@
         assets.addCss('/css/account/account.css');
     </isscript>
 
-    <div class="h-maxwidth--1400 mx-auto my-account ${pdict.loggedIn ? '' : 'login-page'}">
+    <div class="container h-maxwidth--1400 mx-auto">
         <!---Breadcrumbs--->
         <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+    </div>
+
+    <div class="container-fluid p-0">
+        <div class="col mobile-my-account h-font-size--16 h-clr--black-1">
+            ${Resource.msg('label.myaccount', 'account', null)}
+        </div>
+    </div>
+
+    <div class="h-maxwidth--1400 mx-auto my-account ${pdict.loggedIn ? '' : 'login-page'}">
         <isif condition="${pdict.loggedIn}">
 
             <div class="row account-dashboard">
-                <div class="col mobile-my-account h-font-size--14 h-bg--gray-1 h-clr--black-1 text-uppercase">
-                    ${Resource.msg('label.myaccount', 'account', null)}
-                </div>
-                <div class="col-lg-2 col-md-4">
+                <div class="account-nav-wrap">
                     <div class="my-account-nav">
                         <isinclude template="account/accountNav" />
                     </div>
                 </div>
-                <div class="col-lg-10 col-md-8 description-detail">
+                <div class="description-detail">
                     <div class="my-account-description profile">
                         <div class="account-profile">
                             <div class="wishlist-heading">
@@ -34,7 +40,7 @@
                                     </span>
 
                                     <button type="button"
-                                        class="share-love-it-list share-love-it-list border-0 bg-white pull-right"
+                                        class="share-love-it-list share-love-it-list border-0 bg-white pull-right pr-0"
                                         data-toggle="modal" data-target="#shareLoveItList">
                                         <img alt="image" src="${URLUtils.staticURL('/images/account/share.svg')}" />
                                         <span>

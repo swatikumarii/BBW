@@ -63,3 +63,13 @@ $(document).ready(function () {
         $(this).remove();
     });
 });
+
+$(document).ready(function() {
+    $('#copyWishlistUrl').on('click', function() {
+        // Select the input field
+        var textToCopy = $('#wishlistUrl').text();
+        navigator.clipboard.writeText(textToCopy);
+    });
+});
+
+

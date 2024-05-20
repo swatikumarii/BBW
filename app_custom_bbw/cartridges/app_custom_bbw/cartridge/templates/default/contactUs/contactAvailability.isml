@@ -1,0 +1,4 @@
+<span class="d-flex align-items-center">
+    <span class="${pdict.availability[0]}"></span>
+    <span>${pdict.availability[1]}</span>
+</span>

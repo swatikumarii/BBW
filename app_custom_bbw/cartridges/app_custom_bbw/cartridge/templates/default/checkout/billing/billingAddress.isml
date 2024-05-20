@@ -36,6 +36,17 @@
 
 <div class="row">
     <div class="col-sm-12">
+        <div class="form-group">
+            <label class="form-control-label h-font-size--16 h-fw--semibold" for="billingAddressAutoComplete">
+                ${Resource.msg('field.address.auto', 'address', null)}
+            </label>
+            <input id="billingAddressAutoComplete" type="text" size="50">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
         <div class="form-group
                 ${billingFields.address1.mandatory === true ? 'required' : ''}
                 ${billingFields.address1.htmlName}">

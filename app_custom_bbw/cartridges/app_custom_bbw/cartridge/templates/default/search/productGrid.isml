@@ -42,7 +42,7 @@
             </div>
         </div>
     </isif>
-
+    <isinclude template="search/components/categoryBannerBottom" />
     <iscomment> Desktop Filters </iscomment>
     <isinclude template="search/components/searchFiltersDesktop" />
 

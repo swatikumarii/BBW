@@ -7,9 +7,11 @@ module.exports = {
     ADD_SHIPPING_INFO: 'add_shipping_info',
     BEGIN_CHECKOUT: 'begin_checkout',
     LOGIN: 'login',
+    ORDER_CHCEK_FAILURE: 'order_tracking_failure',
     PRODUCT_SHOW: 'productView',
     PRODUCT_TILE_CLICK: 'productTileClick',
     REMOVE_PRODUCT_LINE_ITEM_FROM_CART: 'removeFromCart',
     SEARCH_SHOW: 'impressionSent',
+    SIGN_IN_FAILURE: 'signin_failure',
     SIGN_UP: 'sign_up'
 };

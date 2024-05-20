@@ -1,13 +1,28 @@
-<div class="add-to-cart-wishlist">
-    <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
-    <button class="add-to-cart btn btn-hover"
-        data-pid="${item.pid}"
-        data-url="${URLUtils.url('Cart-AddProduct')}"
-        data-option="${JSON.stringify(item.selectedOptions)}"
-        ${!item.available ? "disabled" : ""}
-    >
-        ${Resource.msg('button.addToBag', 'common', null)}
-    </button>
-</div>
+<isinclude template="product/components/requestUserEmailForOOSModal" />
+<isif condition="${item.available}">
+    <div class="add-to-cart-wishlist">
+        <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
+        <button class="add-to-cart btn btn-hover wishlist-btn" data-pid="${item.pid}" data-url="${URLUtils.url('Cart-AddProduct')}"
+            data-option="${JSON.stringify(item.selectedOptions)}" ${!item.available ? "disabled" : ""}>
+            ${Resource.msg('button.addToBag', 'common', null)}
+        </button>
 
-
+        <div id="add-wishlist-to-cart-snackbar">${Resource.msg('item.added.to.cart', 'common', null)}</div>
+    </div>
+<iselse/>
+    <div class="notify-me main-quantity-${item.pid}">
+        <span class="notify-me-available-msg"></span>
+        <input type="hidden" id="notify-list-msg" value="${Resource.msg('button.notifyInList', 'notifyMe', null)}" />
+        <input type="hidden" id="notify-msg" value="${Resource.msg('button.notifyMe', 'notifyMe', null)}" />
+        <isif condition="${item.enableNotifyMe}">
+            <button type="button" class="btn btn-block notifyBackInStockButton notify-me-btn wishlist-btn"
+                data-url="${URLUtils.url('BackInStock-CheckLogin')}" data-pid="${item.pid}"
+                data-img="${item.imageObj.large ? item.imageObj.large[0].url : item.imageObj.small[0].url}"
+                ${item.productPresentInNotifyList ? 'disabled='disabled'': ''}
+                data-pname="${item.name}"> ${item.productPresentInNotifyList ? Resource.msg('button.notifyInList', 'notifyMe', null) : Resource.msg('button.notifyMe', 'notifyMe', null)} </button>
+        <iselse/>
+            <button type="button" class="btn out-of-stock wishlist-btn"> ${Resource.msg('button.outOfStock', 'notifyMe', null)}
+            </button>
+        </isif>
+    </div>
+</isif>

@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
+
+<div class="secondcategories">
+    <div class="menusections">
+        <isloop items="${pdict.folders}" var="folder">
+            <div class="allcategories">
+                <img src="${folder.custom.image.absURL}" alt="${folder.custom.image.alt}" />
+                <h3>
+                    <a href="${URLUtils.url('Page-Show', 'cid', folder.ID)}" class="article-list-link">
+                        <span>${folder.displayName}</span>
+                    </a>
+                </h3>
+                <span></span>
+                <div class="menusections">
+                    <ul>
+                        <isloop items="${folder.onlineSubFolders}" var="content">
+                            <li>
+                                <a class="article-list-link" href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
+                                    <span>${content.displayName}</span>
+                                </a>
+                            </li>
+                        </isloop>
+                    </ul>
+                </div>
+            </div>
+        </isloop>
+    </div>
+</div>

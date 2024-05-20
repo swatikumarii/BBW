@@ -5,23 +5,31 @@ module.exports = function () {
     // Download invoice from order listing page
     $(document).on('click', '#invoiceDownload', function () {
         var invoiceUrl = $(this).data('action');
-        $.ajax({
-            url: invoiceUrl,
-            method: 'GET',
-            success: function (data) {
-                if (data) {
-                    var printDiv = data;
-                    var printArea = window.open('', '', 'height=1000, width=1000');
-                    if (printArea) {
-                        printArea.document.write(printDiv);
+        var thisData = this;
+        $(thisData).spinner().start();
+        var printArea = window.open('', '', 'height=1000, width=1000');
+
+        if (printArea) {
+            $.ajax({
+                url: invoiceUrl,
+                method: 'GET',
+                success: function (data) {
+                    if (data) {
+                        $(thisData).spinner().stop();
+                        printArea.document.write(data);
                         printArea.document.close();
                         printArea.onload = function () {
                             printArea.print();
                         };
                     }
+                    $(thisData).spinner().stop();
+                },
+                error: function () {
+                    printArea.close();
+                    $(thisData).spinner().stop();
                 }
-            }
-        });
+            });
+        }
     });
 
     $(document).on('click', 'button.add-order-to-cart', function (event) {
@@ -39,6 +47,13 @@ module.exports = function () {
                 data: form,
                 success: function (data) {
                     window.location.href = data.redirectUrl;
+
+                    var addToCartSnackbar = $('#add-order-to-cart-snackbar');
+                    addToCartSnackbar.addClass('show');
+                    setTimeout(function () {
+                        addToCartSnackbar.removeClass('show');
+                    }, 3000);
+
                     $(thisData).spinner().stop();
                 },
                 error: function () {

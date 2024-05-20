@@ -10,22 +10,26 @@
         assets.addCss('/css/account/profile.css');
     </isscript>
 
-    <div class="h-maxwidth--1400 mx-auto my-account">
+    <div class="container h-maxwidth--1400 mx-auto">
         <!---Breadcrumbs--->
         <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+    </div>
+
+    <div class="container-fluid p-0">
+        <div class="col mobile-my-account h-font-size--16 h-clr--black-1">
+            ${Resource.msg('label.myaccount', 'account', null)}
+        </div>
+    </div>
+
+    <div class="h-maxwidth--1400 mx-auto my-account">
         <div class="row account-dashboard">
-
-            <div class="col mobile-my-account h-font-size--14 h-bg--gray-1 h-clr--black-1 text-uppercase">
-                ${Resource.msg('label.myaccount', 'account', null)}
-            </div>
-
-            <div class="col-lg-2 col-md-4">
+            <div class="account-nav-wrap">
                 <div class="my-account-nav">
                     <isinclude template="account/accountNav" />
                 </div>
             </div>
 
-            <div class="col-lg-10 col-md-8 description-detail">
+            <div class="description-detail">
                 <div class="my-account-description profile">
                     <div class="account-profile">
                         <div class="profile-heading">
