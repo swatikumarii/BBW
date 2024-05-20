@@ -24,8 +24,8 @@
                                         </div>
                                         <div
                                             class="col-7 col-sm-10 col-md-10 d-flex flex-column align-items-start justify-content-start justify-content-md-start">
-                                            <h6 class="product-name b-text-h2 h-clr-black-1 h-fw--semibold">${pdict.title} <span>(1 Items selected)</span></h6>
-                                            <p class="d-block h-font-size--11">Calypso Clementine</p>
+                                            <h6 class="product-name b-text-h2 h-clr-black-1 h-fw--semibold">${pdict.title} <span class="d-none item-selected">${Resource.msg('bundle.item.selected', 'productBundle', null)}</span></h6>
+                                            <p class="d-block h-font-size--11 product-title-name"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -55,8 +55,8 @@
                                             </div>
                                         </div>
                                         <div class="col-7 col-sm-9 col-md-10 d-flex justify-content-center flex-column">
-                                            <h6 class="product-name b-text-h2 h-clr-black-1 h-fw--semibold">${pdict.title} <span>(1 Items selected)</span></h6>
-                                            <p class="d-block h-font-size--11">Calypso Clementine</p>
+                                            <h6 class="product-name b-text-h2 h-clr-black-1 h-fw--semibold">${pdict.title} <span class="d-none item-selected">${Resource.msg('bundle.item.selected', 'productBundle', null)}</span></h6>
+                                            <p class="d-block h-font-size--11 product-title-name"></p>
                                         </div>
                                     </div>
                                 </div>

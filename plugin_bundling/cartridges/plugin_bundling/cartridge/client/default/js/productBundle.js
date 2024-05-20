@@ -139,8 +139,11 @@ $(document).ready(function () {
         parent.attr('data-pid', productID); // make this product selected
         var newImage = button.closest('.product_container').find('.thumbnail-container img').attr('src');
         parent.find('.panel-heading .thumbnail-container img').attr('src', newImage);
+        var productName = button.closest('.bundle-product-details').find('.product-name').text();
+        parent.find('.panel-heading .product-title-name').text(productName);
         parent.find('.added-to-bundle').addClass('d-none');
         parent.find('.add-to-bundle').removeClass('d-none');
+        parent.find('.panel-heading .item-selected').removeClass('d-none');
         button.addClass('d-none');
         button.next().removeClass('d-none');
         $('body, html').removeClass('overflow-hidden');
