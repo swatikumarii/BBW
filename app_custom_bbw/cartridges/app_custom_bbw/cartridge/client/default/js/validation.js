@@ -298,13 +298,13 @@ window.submitProfile = function (token) {
 };
 
 $('#newPassword').click(function () {
-    $('.required-pass').removeClass('d-none');
+    $('.required-pass-my-info').removeClass('d-none');
 });
 
 $('body').click(function (event) {
     // Check if the clicked element is not inside the #newPassword element
     if (!$(event.target).closest('#newPassword').length) {
-        $('.required-pass').addClass('d-none');
+        $('.required-pass-my-info').addClass('d-none');
     }
 
     var form = $(this).closest('form.edit-profile-form');
