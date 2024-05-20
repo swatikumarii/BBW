@@ -379,8 +379,6 @@ function removeAllGiftPayments(currentBasket) {
     });
 }
 
-
-
 module.exports = {
     getMonths: getMonths,
     getNoOfDaysOfMonth: getNoOfDaysOfMonth,

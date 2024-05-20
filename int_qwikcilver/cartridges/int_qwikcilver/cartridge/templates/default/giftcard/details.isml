@@ -122,8 +122,28 @@
                             </div>
                         </div>
 
+                        <div class="row gift-card-video">
+                            <input type="hidden" name="s3Url" value="https://vs-thailand-sfcc.herokuapp.com">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="msg-title form-control-label h-font-size--16 h-fw--semibold h-ls-02 egift-video-label" for="giftCard-video">
+                                        <span class="video_img"> <img src="${URLUtils.staticURL('/images/video_upload.svg')}" alt=""></span>
+                                        <span class="video-upload-btn"> ${Resource.msg('label.egift.video.message', 'forms', null)}</span>
+                                    </label>
+                                    <input type="file" name="uploadVideo" class="d-none" id="giftCard-video" accept="video/*"
+                                        data-error-size="${Resource.msg('error.message.video.size', 'giftcard', null)}"
+                                        data-error-type="${Resource.msg('error.message.video.type', 'giftcard', null)}" />
+                                    <video id="video-preview" width="470" class="d-none videoThumnailc video_show" controls />
+                                </div>
+                            </div>
+                            <div class="progress-wrapper p-2 w-100">
+                                <div id="progress" class="progress-status-value text-center"></div>
+                                <progress id="video-progress" class="progress-bar my-2 w-100" value="0" max="100" style="display:none"></progress>
+                            </div>
+                        </div>
+
                         <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
-                            <div class="row" data-attr="${attr.id}">
+                            <div class="row ${attr.id}-wrap" data-attr="${attr.id}">
                                 <div class="col-8">
                                     <isinclude template="product/components/variationAttribute" />
                                 </div>
