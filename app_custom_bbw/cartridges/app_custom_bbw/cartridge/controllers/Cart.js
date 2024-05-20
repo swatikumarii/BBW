@@ -263,5 +263,19 @@ server.append('MiniCartShow', csrfProtection.generateToken, function (req, res, 
     }
     next();
 });
+/*
+ * Append Cart-Show method to show dangerous goods message
+ */
+server.append(
+    'Show',
+    server.middleware.https,
+    function (req, res, next) {
+        var dangerousGoodsExists = req.querystring.error === 'dangerous-goods';
+        var viewData = res.getViewData();
+        viewData.dangerousGoodsExists = dangerousGoodsExists;
+        res.setViewData(viewData);
+        next();
+    }
+);
 
 module.exports = server.exports();

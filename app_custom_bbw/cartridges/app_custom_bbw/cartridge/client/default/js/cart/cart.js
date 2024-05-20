@@ -86,10 +86,10 @@ function updateCartTotals(data) {
         if (data.totals.orderLevelDiscountTotal.value > 0) {
             $('.coupons-and-promos').empty().append(data.totals.discountsHtml);
         }
-        if (item.renderedPromotions) {
-            $('.item-' + item.UUID).empty().append(item.renderedPromotions);
+        if (item.promotionsHTML) {
+            $('line-item-promo.item-' + item.UUID).empty().append(item.promotionsHTML);
         } else {
-            $('.item-' + item.UUID).empty();
+            $('line-item-promo.item-' + item.UUID).empty();
         }
         if (item.promoPrice !== false) {
             var promoPriceHTML =
@@ -442,6 +442,8 @@ module.exports = function () {
         var preSelectQty = $(this).data('pre-select-qty');
         var quantity = Number($(this).val());
         var maxOrderQty = $(this).data('max-order-qty');
+        var isMiniCartTrigger = $(this).parents('.popover').length > 0;
+        var isCartPageTrigger = $(this).parents('.cart-page').length > 0;
 
         if (maxOrderQty && Number(maxOrderQty) < quantity && quantity > 0) {
             var errorElem = $(this)
@@ -460,7 +462,9 @@ module.exports = function () {
             var urlParams = {
                 pid: productID,
                 quantity: quantity,
-                uuid: uuid
+                uuid: uuid,
+                isMiniCartTrigger:isMiniCartTrigger,
+                isCartPageTrigger:isCartPageTrigger
             };
             url = appendToUrl(url, urlParams);
 

@@ -12,19 +12,21 @@ server.prepend('SubmitPayment', function (req, res, next) {
     var BasketMgr = require('dw/order/BasketMgr');
     var COHelpers = require('*/cartridge/scripts/checkout/checkoutHelpers');
     var currentBasket = BasketMgr.getCurrentBasket();
-    var paymentForm = server.forms.getForm('billing');
-    var contactInfoFormErrors = COHelpers.validateFields(
-        paymentForm.contactInfoFields
-    );
-    var formFieldErrors = [];
-    if (Object.keys(contactInfoFormErrors).length) {
-        formFieldErrors.push(contactInfoFormErrors);
-    } else {
-        Transaction.wrap(function () {
-            currentBasket.setCustomerEmail(
-                paymentForm.contactInfoFields.email.value
-            );
-        });
+    if (currentBasket) {
+        var paymentForm = server.forms.getForm('billing');
+        var contactInfoFormErrors = COHelpers.validateFields(
+            paymentForm.contactInfoFields
+        );
+        var formFieldErrors = [];
+        if (Object.keys(contactInfoFormErrors).length) {
+            formFieldErrors.push(contactInfoFormErrors);
+        } else {
+            Transaction.wrap(function () {
+                currentBasket.setCustomerEmail(
+                    paymentForm.contactInfoFields.email.value
+                );
+            });
+        }
     }
 
     next();

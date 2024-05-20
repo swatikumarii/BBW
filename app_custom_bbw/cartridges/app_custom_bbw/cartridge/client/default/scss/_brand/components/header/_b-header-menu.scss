@@ -485,7 +485,7 @@
                         height: auto;
                         position: absolute;
                         top: 0.5rem;
-                        right: 0.9375rem;
+                        right: 18px;
                         z-index: 30;
                         border: 0;
                         transition: all 0.3s ease-out;
@@ -560,6 +560,16 @@
         transition:
             visibility 0s 0.5s,
             opacity 0.5s linear;
+    }
+
+    .logged-user-name {
+        padding: 10px 10px 10px 15px;
+        font-size: 0.875rem;
+        line-height: 16px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: colour(blue);
     }
 }
 

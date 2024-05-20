@@ -237,4 +237,30 @@ $(document).ready(function () {
             $errorMessage.text(errorText).show();
         }
     });
+
+    $(document).on('change', '#giftCard-video', function (evt) {
+        if (this.files.length === 0) {
+            return;
+        }
+        $('.giftcard-video').parent().find('.invalid-feedback').empty();
+        if (this.files.length > 0 && (this.files[0].type || '').indexOf('video/') === -1) {
+            $('.giftcard-video').parent().find('.invalid-feedback').text($('#giftCard-video').data('error-type'));
+            evt.currentTarget.value = '';
+            return;
+        }
+
+        if (this.files.length > 0 && this.files[0].size > 15728640) {
+            $('.giftcard-video').parent().find('.invalid-feedback').text($('#giftCard-video').data('error-size'));
+            evt.currentTarget.value = '';
+            return;
+        }
+        $('.gift-card-video video').removeClass('d-none');
+        $('.gift-card-video .remove-video').removeClass('d-none');
+        $('.egift-video-label').addClass('d-none');
+        var videoPreview = document.getElementById('video-preview');
+        if (this.files[0]) {
+            var videoURL = URL.createObjectURL(this.files[0]);
+            videoPreview.src = videoURL;
+        }
+    });
 });

@@ -71,12 +71,26 @@
                 text-align: center;
                 letter-spacing: 0.5px;
             }
+
+            .close {
+                position: absolute;
+                top: 15px;
+                left: 0;
+
+                img {
+                    width: 25px;
+                }
+            }
         }
 
         .notifyme-modal-body {
             .image-container {
                 margin-top: 55px;
                 text-align: center;
+
+                img {
+                    height: auto;
+                }
             }
         }
 
@@ -89,14 +103,15 @@
             text-align: center;
 
             button {
+                font-size: 16px;
+                letter-spacing: 0.24px;
+                line-height: 20px;
+                margin: 43px auto 0;
                 min-width: 320px;
                 width: auto;
-                margin: 43px auto 0;
-                font-size: 14px;
-                line-height: 24px;
-                letter-spacing: 2px;
+                font-weight: 600;
 
-                @include media-breakpoint-down(sm) {
+                @include media-breakpoint-down(md) {
                     min-width: auto;
                     width: 100%;
                 }
@@ -106,17 +121,6 @@
                 opacity: 0.7;
                 pointer-events: none;
             }
-        }
-    }
-
-    /* The Close Button */
-    .close {
-        position: absolute;
-        top: 15px;
-        left: 0;
-
-        img {
-            width: 25px;
         }
     }
 

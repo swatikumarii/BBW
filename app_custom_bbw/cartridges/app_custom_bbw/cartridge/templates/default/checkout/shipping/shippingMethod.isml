@@ -11,7 +11,11 @@
                 </isif>
             </label>
             <div class="shipping-method-description">
-                ${shippingMethod.description}
+                <isif condition="${shippingMethod.htmlDescription !== ''}">
+                    <isprint value="${shippingMethod.htmlDescription}" encoding="off" />
+                <iselse/>
+                    ${shippingMethod.description}
+                </isif>
             </div>
         </div>
         <div class="col-3 text-right shipping-method-pricing end-lines">

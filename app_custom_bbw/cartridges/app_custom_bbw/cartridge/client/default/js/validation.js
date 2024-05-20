@@ -129,6 +129,7 @@ $(document).ready(function () {
         if (!validateRequiredField(input)) return false;
         if (!pattern.test(input.val())) {
             input.addClass('is-invalid border-danger'); // Add class for input border error
+            if(input.parents('.iti').length ) input.parents('.iti').addClass('is-invalid border-danger');
             var errorMessage = $('#' + input.attr('id')).attr(
                 'data-pattern-mismatch'
             );
@@ -297,12 +298,21 @@ window.submitProfile = function (token) {
 };
 
 $('#newPassword').click(function () {
-    $('.required-pass').removeClass('d-none');
+    $('.required-pass-my-info').removeClass('d-none');
 });
 
 $('body').click(function (event) {
     // Check if the clicked element is not inside the #newPassword element
     if (!$(event.target).closest('#newPassword').length) {
-        $('.required-pass').addClass('d-none');
+        $('.required-pass-my-info').addClass('d-none');
+    }
+
+    var form = $(this).closest('form.edit-profile-form');
+    if (!$(event.target).closest(form).length) {
+        var submitButton = $('button[type="submit"].submit-edit-profile');
+        var field = $('#password');
+        if (field.val() === '') {
+            submitButton.addClass('disabled');
+        }
     }
 });

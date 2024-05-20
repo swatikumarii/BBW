@@ -23,9 +23,10 @@
     max-width: 955px;
     float: none;
     margin: 0 auto;
+    padding: 0 15px;
 
-    @include media-down(sm) {
-        padding: 0 15px;
+    @include media-up(md) {
+        padding: 0;
     }
 
     .store-form {
@@ -88,6 +89,7 @@
 
                 .form-row {
                     margin: 0.625rem 0 1.6875rem;
+                    flex-wrap: nowrap;
 
                     label {
                         letter-spacing: 0.01em;
@@ -122,9 +124,22 @@
 
     .store-result-wrap {
         padding: 0;
+        width: 100%;
 
         @include media-up(sm) {
-            padding: 0 0.9375rem;
+            width: 100%;
+            padding-top: 22px;
+        }
+
+        .number-of-stores-div {
+            font-size: 1.25rem;
+            line-height: 24px;
+            font-weight: 700;
+            letter-spacing: 0.005em;
+            color: colour(black, 1);
+            border-bottom: 1px solid colour(gray, 1);
+            padding: 15px 0 16px;
+            text-transform: capitalize;
         }
 
         .store-error-header {
@@ -168,17 +183,45 @@
                         line-height: 1.25rem;
                         letter-spacing: 0.005em;
                         background-color: colour(white);
+                        display: flex;
 
-                        span {
-                            padding-right: 15px;
+                        .store-head-heading {
+                            span {
+                                padding-right: 15px;
+                            }
+
+                            @include media-down(sm) {
+                                height: 40px;
+                            }
+                        }
+
+                        .store-head-distance {
+                            margin-left: 30px;
+                            font-size: 1rem;
+                            opacity: 0;
+                            transition: opacity 0.5s ease-in-out;
+
+                            span {
+                                padding-left: 5px;
+                            }
+
+                            @include media-down(sm) {
+                                opacity: 1;
+                            }
                         }
 
                         @include media-down(sm) {
+                            display: block;
                             padding: 26px 10px 33px;
                         }
 
                         &.collapsed {
                             background-color: colour(gray, 1);
+
+                            .store-head-distance {
+                                opacity: 1;
+                                transition: opacity 0.5s ease-in-out;
+                            }
                         }
                     }
                 }
@@ -221,6 +264,43 @@
                         span {
                             color: colour(black, 1);
                             font-weight: map-get($font-weight, semibold);
+                        }
+                    }
+
+                    .store-distance {
+                        font-weight: 700;
+                        font-size: 1rem;
+                        line-height: 20px;
+                        letter-spacing: 0.01em;
+                        color: colour(black, 1);
+                        margin-left: 30px;
+                        text-transform: none;
+
+                        @include media-down(sm) {
+                            display: none;
+                        }
+
+                        .distance-left {
+                            font-weight: 400;
+                            font-size: 16px;
+                            font-size: 1rem;
+                            line-height: 20px;
+                            line-height: 1.25rem;
+                            letter-spacing: 0.01em;
+                            padding-right: 5px;
+                        }
+
+                        strong {
+                            font-weight: 700;
+                        }
+
+                        .distance-right {
+                            font-weight: 700;
+                            font-size: 16px;
+                            line-height: 20px;
+                            line-height: 1.25rem;
+                            letter-spacing: 0.01em;
+                            padding-right: 5px;
                         }
                     }
                 }
@@ -272,6 +352,17 @@
                 .store-address,
                 .store-phone {
                     margin-bottom: 10px;
+
+                    span {
+                        font-weight: 400;
+                        color: colour(gray, 4);
+                    }
+                }
+
+                .store-direction {
+                    a {
+                        text-decoration: underline;
+                    }
                 }
 
                 a:focus {

@@ -1,0 +1,411 @@
+@import "../../_brand/_api/api";
+
+.global-locations {
+    border: 0 none;
+    width: 100%;
+    max-width: 955px;
+    float: none;
+    margin: 0 auto;
+    padding: 0 15px 20px;
+
+    @include media-up(sm) {
+        padding: 0 25px 20px;
+    }
+
+    .locations-header {
+        margin-bottom: 50px;
+        text-align: center;
+        color: colour(black, 3);
+
+        @include media-down(sm) {
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 21px;
+            text-transform: uppercase;
+
+            @include media-up(sm) {
+                font-size: 24px;
+            }
+        }
+
+        h1 {
+            border-bottom: 1px solid colour(black, 3);
+            padding-bottom: 0.625em;
+            margin-bottom: 1.5625em;
+        }
+
+        .note-large {
+            margin: 0 0 5px;
+            padding: 0;
+            border: 0 none;
+            text-transform: uppercase;
+            line-height: 1;
+            font-size: 48px;
+            font-size: 3rem;
+        }
+
+        .note {
+            font-size: 16px;
+
+            .country-label {
+                display: inline-block;
+                width: 32px;
+                height: 18px;
+                font-size: 0;
+            }
+        }
+    }
+
+    .locations-nav {
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 14px;
+        line-height: 18px;
+        text-transform: uppercase;
+
+        .bold {
+            color: colour(black, 3);
+        }
+
+        div {
+            text-transform: none;
+
+            a {
+                padding: 0;
+            }
+        }
+
+        a {
+            padding: 0 15px;
+            margin-bottom: 15px;
+            display: inline-block;
+            white-space: nowrap;
+            vertical-align: top;
+        }
+
+        span {
+            display: inline-block;
+            margin-bottom: 0;
+            padding: 0 10px 0 0;
+            vertical-align: top;
+            white-space: nowrap;
+
+            &.active {
+                color: colour(blue);
+            }
+
+            @include media-down(sm) {
+                padding-right: 8px;
+            }
+        }
+
+        span ~ a {
+            border-left: 1px solid colour(black, 3);
+            padding: 0 15px;
+            margin-bottom: 30px;
+            color: colour(gray);
+
+            &:hover {
+                color: colour(blue);
+            }
+        }
+
+        span + a {
+            padding: 0 15px;
+            border-left: 1px solid colour(black, 3);
+            color: colour(gray);
+
+            &:hover {
+                color: colour(blue);
+            }
+        }
+
+        @include media-down(sm) {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+    }
+
+    .single-accordion {
+        .single-accordion-title {
+            text-align: center;
+            margin-top: -1px;
+            border-top: 1px solid colour(gray, 6);
+            border-bottom: 1px solid colour(gray, 6);
+            cursor: pointer;
+            padding: 18px 15px;
+            color: colour(black, 3);
+            position: relative;
+            list-style: none;
+            font-size: 21px;
+
+            @include media-up(sm) {
+                font-size: 24px;
+            }
+        }
+
+        .single-accordion-content {
+            .countries {
+                line-height: 1.6em;
+                margin: 12px 0;
+                padding: 0 18px;
+
+                li {
+                    list-style: none;
+                    margin-bottom: 1.5625em;
+
+                    a {
+                        display: inline-block;
+                        font-size: 16px;
+                        font-size: 1rem;
+                        line-height: 18px;
+                        line-height: 1.125rem;
+                        padding-left: 45px;
+                        color: colour(gray);
+
+                        &:hover {
+                            color: colour(gray);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .country-label {
+        background: url("../../images/global-locations/flag_sprites.gif")
+            no-repeat 0 0;
+        background-image: url("../../images/global-locations/flag_sprites@2x.webp");
+        background-size: 32px;
+
+        &.mexico {
+            background-position: 0 -378px;
+        }
+
+        &.austria {
+            background-image: url("../../images/global-locations/austria.svg");
+        }
+
+        &.belgium {
+            background-image: url("../../images/global-locations/belgium.svg");
+        }
+
+        &.greece {
+            background-image: url("../../images/global-locations/greece.svg");
+        }
+
+        &.italy {
+            background-position: 0 -540px;
+        }
+
+        &.netherlands {
+            background-position: 0 -612px;
+        }
+
+        &.poland {
+            background-position: 0 -54px;
+        }
+
+        &.romania {
+            background-image: url("../../images/global-locations/romania.svg");
+        }
+
+        &.turkey {
+            background-position: 0 -36px;
+        }
+
+        &.unitedkingdom {
+            background-image: url("../../images/global-locations/unitedkingdom.svg");
+        }
+
+        &.bahrain {
+            background-position: 0 -72px;
+        }
+
+        &.egypt {
+            background-position: 0 -180px;
+        }
+
+        &.jordan {
+            background-position: 0 -90px;
+        }
+
+        &.kuwait {
+            background-position: 0 -126px;
+        }
+
+        &.oman {
+            background-position: 0 -198px;
+        }
+
+        &.qatar {
+            background-position: 0 -162px;
+        }
+
+        &.saudiarabia {
+            background-position: 0 -108px;
+        }
+
+        &.uae {
+            background-position: 0 -144px;
+        }
+
+        &.chile {
+            background-position: 0 -432px;
+        }
+
+        &.colombia {
+            background-position: 0 -306px;
+        }
+
+        &.costarica {
+            background-position: 0 -270px;
+        }
+
+        &.curacao {
+            background-position: 0 -558px;
+        }
+
+        &.dominicanrepublic {
+            background-position: 0 -522px;
+        }
+
+        &.ecuador {
+            background-image: url("../../images/global-locations/ecuador.svg");
+        }
+
+        &.elsalvador {
+            background-position: 0 -324px;
+        }
+
+        &.guatemala {
+            background-position: 0 -594px;
+        }
+
+        &.panama {
+            background-position: 0 -234px;
+        }
+
+        &.paraguay {
+            background-image: url("../../images/global-locations/paraguay.svg");
+        }
+
+        &.peru {
+            background-position: 0 -504px;
+        }
+
+        &.uruguay {
+            background-image: url("../../images/global-locations/uruguay.svg");
+        }
+
+        &.venezuela {
+            background-position: 0 -252px;
+        }
+
+        &.hongkong {
+            background-image: url("../../images/global-locations/hongkong.svg");
+        }
+
+        &.india {
+            background-position: 0 -576px;
+        }
+
+        &.indonesia {
+            background-position: 0 -342px;
+        }
+
+        &.macau {
+            background-position: 0 -414px;
+        }
+
+        &.malaysia {
+            background-position: 0 -360px;
+        }
+
+        &.philippines {
+            background-position: 0 -468px;
+        }
+
+        &.singapore {
+            background-position: 0 -288px;
+        }
+
+        &.thailand {
+            background-position: 0 -396px;
+        }
+
+        &.australia {
+            background-position: 0 -486px;
+        }
+    }
+
+    .store-location-container {
+        .store-location {
+            border: 1px solid colour(gray, 6);
+            background: colour(gray, 1);
+            box-sizing: border-box;
+            padding: 2%;
+            float: left;
+            width: 23%;
+            margin-bottom: 2.6%;
+            margin-left: 2.6%;
+
+            &:nth-child(4n + 1) {
+                clear: left;
+                margin-left: 0;
+            }
+
+            @include media-breakpoint-between(sm, md) {
+                margin-bottom: 2.6%;
+                margin-left: 2%;
+                width: 32%;
+
+                &:nth-child(4n + 1) {
+                    clear: none;
+                    margin-left: 2%;
+                }
+
+                &:nth-child(3n + 1) {
+                    clear: left;
+                    margin-left: 0;
+                }
+            }
+
+            @include media-down(sm) {
+                width: 48.5%;
+                margin-bottom: 2%;
+
+                &:nth-child(odd) {
+                    margin-left: 0;
+                    clear: left;
+                }
+
+                &:nth-child(2n) {
+                    margin-right: 0;
+                    float: right;
+                }
+            }
+
+            p {
+                margin: 0;
+                color: colour(black, 3);
+                line-height: 1.6em;
+            }
+
+            p.store-name {
+                font-size: 18px;
+            }
+
+            p.location {
+                font-style: italic;
+            }
+
+            p.title {
+                margin-top: 15px;
+                color: colour(gray);
+            }
+        }
+    }
+}
