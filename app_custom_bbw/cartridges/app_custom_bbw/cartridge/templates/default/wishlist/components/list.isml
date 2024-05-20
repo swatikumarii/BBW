@@ -2,6 +2,7 @@
     <!---product cards--->
     <input class="is-reload-required-while-remove" value="${true}" type="hidden" />
     <div class="wishlistItemCards" data-error-msg="${Resource.msg('wishlist.remove.error','wishlist',null)}">
+        <div class="wishlist-cards">
         <isloop items="${pdict.wishlist.items}" var="item">
             <isif condition=${(pdict.wishlist.publicView && item.publicItem) || (!pdict.wishlist.publicView)}>
                 <isif condition="${!!item.bundle}">
@@ -11,6 +12,7 @@
                 </isif>
             </isif>
         </isloop>
+        </div>
         <isif condition="${pdict.wishlist.items.length > 3}">
             <div class="my-account col-12 text-center p-0">
                 <button type="button" class="btn btn-hover view-button more-wl-items">

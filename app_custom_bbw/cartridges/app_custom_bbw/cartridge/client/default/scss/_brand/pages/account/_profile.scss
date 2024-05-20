@@ -327,6 +327,10 @@
             }
         }
     }
+
+    .wishlist-cards .card:last-child tr {
+        border-bottom: 0;
+    }
 }
 
 .share-love-it-list-modal {
