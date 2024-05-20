@@ -25,7 +25,7 @@
                     text-transform: uppercase;
                     color: colour(black, 3);
                     line-height: 1.6;
-                    font-weight: map-get($font-weight, semibold);
+                    font-weight: map-get($font-weight, bold);
                     display: flex;
 
                     span {

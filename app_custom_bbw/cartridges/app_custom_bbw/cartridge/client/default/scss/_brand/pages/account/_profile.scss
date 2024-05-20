@@ -481,6 +481,16 @@
                 position: absolute;
                 top: -1px;
             }
+
+            &.pw-error {
+                color: colour(red, 9);
+                float: none;
+                top: 0;
+
+                .circle {
+                    border: 1px solid colour(red, 9);
+                }
+            }
         }
 
         &.success span {
@@ -562,4 +572,9 @@
             opacity: 0;
         }
     }
+}
+
+.invalid-feedback::after {
+    background: url("../../images/account/alert-triangle-24.svg");
+    background-repeat: no-repeat;
 }
