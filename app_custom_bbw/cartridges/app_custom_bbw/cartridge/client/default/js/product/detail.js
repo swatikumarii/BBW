@@ -242,9 +242,20 @@ module.exports = $.extend({}, detail, {
             var productID = $(this).data('pid');
             var removeGiftPliUrl = $(this).data('action');
             var addToCartUrl = $(this).data('addtocarturl');
+            var egiftCardDetailsObj;
+            var egiftCardDetails = {
+                senderName: $('.gift-card-form').find('input:text[name=\'sender-name\']').val(),
+                recipientEmail: $('.gift-card-form').find('input#recipient-email').val(),
+                recipientName: $('.gift-card-form').find('input:text[name=\'recipient-name\']').val(),
+                eGiftMessage:  $('.gift-card-form').find('#egift-message').val(),
+                eGiftScheduleDate: $('.gift-card-form').find('#schedule-days-list').val(),
+                eGiftScheduleMonth: $('.gift-card-form').find('#schedule-months-list').val()
+            };
+            egiftCardDetailsObj = JSON.stringify(egiftCardDetails);
             var form = {
                 pid: productID,
-                quantity: 1
+                quantity: 1,
+                egiftCardDetails: egiftCardDetailsObj
             };
             $.ajax({
                 type: 'GET',

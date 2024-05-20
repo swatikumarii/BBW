@@ -1,3 +1,4 @@
+<isinclude template="/components/modules" sf-toolkit="off" />
 <isset name="addressFields" value="${pdict.forms.shippingForm.shippingAddress.addressFields}" scope="page" />
 <isif condition="${shippingModel.shippingAddress}">
     <isset name="shippingAddress" value="${shippingModel.shippingAddress}" scope="page" />
@@ -10,10 +11,13 @@
         <div class="form-group
                 ${addressFields.firstName.mandatory === true ? 'required' : ''}
                 ${addressFields.firstName.htmlName}">
-            <label class="form-control-label h-font-size--16 h-fw--semibold"
-                for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}">
-                <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.first.name', 'address', null)}
-            </label>
+            <div class="d-flex justify-content-between">
+                <label class="form-control-label h-font-size--16 h-fw--semibold"
+                    for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}">
+                    <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.first.name', 'address', null)}
+                </label>
+                <span class="h-font-size--14"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('label.required', 'account', null)}</span>
+            </div>
             <input autofocus type="text" class="form-control shippingFirstName"
                 id="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}FirstName"
@@ -214,13 +218,22 @@
                 for="shippingPhoneNumber${lineItem ? lineItem.UUID : 'default'}">
                 <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.phone', 'address', null)}
             </label>
-            <input type="tel" class="form-control shippingPhoneNumber" initOptions.allowDropdown="true"
-                id="shippingPhoneNumber${lineItem ? lineItem.UUID : 'default'}"
-                aria-describedby="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber"
-                data-missing-error="${Resource.msg('error.phone.missing', 'forms', null)}"
-                data-pattern-mismatch="${Resource.msg('valid.phone.number', 'forms', null)}"
-                value="${shippingAddress.phone || ''}" <isprint value="${addressFields.phone.attributes}"
-                encoding="off" />>
+                <input type="tel" class="form-control shippingPhoneNumber" initOptions.allowDropdown="true"
+                    id="shippingPhoneNumber${lineItem ? lineItem.UUID : 'default'}"
+                    aria-describedby="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber"
+                    data-missing-error="${Resource.msg('error.phone.missing', 'forms', null)}"
+                    data-pattern-mismatch="${Resource.msg('valid.phone.number', 'forms', null)}"
+                    value="${shippingAddress.phone || ''}" <isprint value="${addressFields.phone.attributes}"
+                    encoding="off" />>
+                <span class="info-icon">
+                    <img src="${URLUtils.staticURL('/images/i-icon-gray.svg')}" alt="info icon" class="info-icon-img-gray" width="10px" />
+                    <img src="${URLUtils.staticURL('/images/i-icon-white.svg')}" alt="info icon" class="info-icon-img-white" width="10px" />
+                </span>
+                <div class="info-icon-text">
+                    <iscontentasset aid="phone-info-icon-content" />
+                </div>
+                <div class="info-icon-border-arrow-outline"></div>
+                <div class="info-icon-border-arrow"></div>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}TelephoneNumber">
                 <isprint value="${addressFields.phone.error}">
             </div>
