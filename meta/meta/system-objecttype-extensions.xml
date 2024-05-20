@@ -271,6 +271,13 @@
 
     <type-extension type-id="SitePreferences">
         <custom-attribute-definitions>
+            <attribute-definition attribute-id="s3UploadLink">
+                <display-name xml:lang="x-default">s3 Upload Link</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="liveChatEnabled">
                 <display-name xml:lang="x-default">Enable Live Chat</display-name>
                 <description xml:lang="x-default">Enable Live Chat</description>
@@ -1197,6 +1204,7 @@
                 <attribute attribute-id="qwikcilverMaxRedemptionAmount"/>
                 <attribute attribute-id="qwikclverAuthToken"/>
                 <attribute attribute-id="qwikcilverTransactionID"/>
+                <attribute attribute-id="s3UploadLink"/>
             </attribute-group>
             <attribute-group group-id="Storefront Configs">
                 <display-name xml:lang="x-default">Storefront Configurations</display-name>
@@ -2738,6 +2746,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <field-length>50</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="eGiftVideoLink">
+                <display-name xml:lang="x-default">eGift Video Link</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
             </attribute-definition>
             <attribute-definition attribute-id="isFreeItem">
                 <display-name xml:lang="x-default">Is a free item (not GWP)</display-name>
