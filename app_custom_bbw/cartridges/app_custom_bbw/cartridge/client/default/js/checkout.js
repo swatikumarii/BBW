@@ -47,9 +47,9 @@ $(document).ready(function () {
         }
         adyenCheckout.renderGenericComponent();
     }
+    processInclude(checkout);
     processInclude(require('./checkout/checkout'));
     processInclude(require('adyen/checkout/billing'));
-    processInclude(checkout);
     $('#selectedPaymentOption').val(
         $('.payment-options .nav-item .active').parent().attr('data-method-id')
     );
