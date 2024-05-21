@@ -265,6 +265,15 @@
                             color: colour(black, 1);
                             font-weight: map-get($font-weight, semibold);
                         }
+
+                        .time {
+                            font-weight: map-get($font-weight, semibold);
+                            font-size: 16px;
+                            line-height: 20px;
+                            letter-spacing: 0.01em;
+                            color: colour(black, 1);
+                            margin-left: 5px;
+                        }
                     }
 
                     .store-distance {

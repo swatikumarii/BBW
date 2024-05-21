@@ -423,6 +423,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="trackingUrl">
+                <display-name xml:lang="x-default">Tracking URL</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="googleRecaptchaPageDefaultScore">
                 <display-name xml:lang="x-default">rCAPTCHA Page Default Score</display-name>
                 <type>double</type>
@@ -623,6 +630,22 @@
             <attribute-definition attribute-id="ExpressPayments_order">
                 <display-name xml:lang="x-default">Order of the express payment buttons</display-name>
                 <description xml:lang="x-default">If you want to change the order go to the new config page (Adyen Settings)</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerServicePhone">
+                <display-name xml:lang="x-default">Customer Service Phone Number</display-name>
+                <description xml:lang="x-default">Phone number to display on order invoice</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="companyAddress">
+                <display-name xml:lang="x-default">Company Address</display-name>
+                <description xml:lang="x-default">Address to display on order invoice</description>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -1370,6 +1393,15 @@
                 <attribute attribute-id="liveChatEnabled"/>
                 <attribute attribute-id="chatScript"/>
             </attribute-group>
+            <attribute-group group-id="Order Invoice Configurations">
+                <display-name xml:lang="x-default">Order Invoice Configurations</display-name>
+                <attribute attribute-id="customerServiceEmail"/>
+                <attribute attribute-id="customerServicePhone"/>
+                <attribute attribute-id="companyAddress"/>
+            </attribute-group>
+            <attribute-group group-id="Tracking">
+                <display-name xml:lang="x-default">Tracking</display-name>
+                <attribute attribute-id="trackingUrl"/>
             <attribute-group group-id="Contact Us">
                 <display-name xml:lang="x-default">Contact Us Configurations</display-name>
                 <attribute attribute-id="openingTime"/>
