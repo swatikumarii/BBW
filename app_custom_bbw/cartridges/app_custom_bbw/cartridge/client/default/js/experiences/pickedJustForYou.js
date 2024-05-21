@@ -6,6 +6,5 @@ var pickedJustyouContainers = $('.js-picked-just-recomm');
 
 for (var t = 0; t < pickedJustyouContainers.length; t++) {
     var pickedJustyouSlide = $(pickedJustyouContainers[t]).find('.js-picked-just-recomm-item');
-    console.log(pickedJustyouSlide);
     helpers.syncProductTileParts(pickedJustyouSlide, elementsToSync);
 }
