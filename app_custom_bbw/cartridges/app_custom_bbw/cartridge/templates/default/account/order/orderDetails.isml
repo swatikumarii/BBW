@@ -41,14 +41,27 @@
                 </p>
             </div>
             <div class="order-detail-with-image d-flex align-items-center">
-                <img width="25px" height="25px" alt="${Resource.msg('label.heart.filled', 'order', null)}"
-                    src="${URLUtils.staticURL('/images/account/heart-filled-32.svg')}" />
-                <span class="image-space-1"></span>
-                <img width="70px" height="70px" alt="${Resource.msg('label.shipping.truck', 'order', null)}"
-                    src="${URLUtils.staticURL('/images/account/shipping-truck-32.svg')}" />
-                <span class="image-space-2"></span>
-                <img width="60px" height="60px" alt="${Resource.msg('label.shipping.box', 'order', null)}"
-                    src="${URLUtils.staticURL('/images/account/shipping-box-32.svg')}" />
+                <isif
+                    condition="${((pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || pdict.order.orderStatus.value == dw.order.Order
+                               .ORDER_STATUS_OPEN) && pdict.order.shippingStatus.value == dw.order.Order.SHIPPING_STATUS_SHIPPED) || pdict.order
+                               .orderStatus.value == dw.order.Order.ORDER_STATUS_COMPLETED}">
+                    <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
+                        src="${URLUtils.staticURL('/images/account/icon-shipped.png')}" />
+                
+                    <iselseif
+                        condition="${(pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || pdict.order.orderStatus.value == dw.order.Order
+                                   .ORDER_STATUS_OPEN) && pdict.order.shippingStatus.value != dw.order.Order.SHIPPING_STATUS_SHIPPED || pdict.order
+                                   .exportStatus.value == dw.order.Order.EXPORT_STATUS_EXPORTED}" />
+                    <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
+                        src="${URLUtils.staticURL('/images/account/icon-processed.png')}" />
+
+                <iselseif condition="${pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_CANCELLED}" />
+                    <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
+                        src="${URLUtils.staticURL('/images/account/heart-filled-32.svg')}" />
+                <iselse/>
+                    <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
+                        src="${URLUtils.staticURL('/images/account/heart-filled-32.svg')}" />
+                </isif>
             </div>
 
         </div>
