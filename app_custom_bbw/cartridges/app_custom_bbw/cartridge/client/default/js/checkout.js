@@ -5,11 +5,6 @@ var intlTelInput = require('intl-tel-input');
 var utils = require('utils.js');
 var adyenCheckout = require('adyen/adyenCheckout');
 var addressAutocomplete = require('./checkout/addressAutocomplete');
-// Compatibility Adyen SFRA 5.x.x & 6.x.x
-var checkout =
-    window.AdyenSFRA6Enabled !== 'null'
-        ? require('adyen/checkout/checkoutSFRA6')
-        : require('adyen/checkout/checkoutSFRA5');
 /* eslint-disable prefer-regex-literals */
 var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
     window.location.search
@@ -51,14 +46,21 @@ $(document).ready(function () {
         }
         adyenCheckout.renderGenericComponent();
     }
-    processInclude(checkout);
     processInclude(require('./checkout/checkout'));
     processInclude(require('adyen/checkout/billing'));
     $('#selectedPaymentOption').val(
         $('.payment-options .nav-item .active').parent().attr('data-method-id')
     );
-    google.maps.event.addDomListener(window, 'load', addressAutocomplete.initialize);
-    google.maps.event.addDomListener(window, 'load', addressAutocomplete.initializeBilling);
+    google.maps.event.addDomListener(
+        window,
+        'load',
+        addressAutocomplete.initialize
+    );
+    google.maps.event.addDomListener(
+        window,
+        'load',
+        addressAutocomplete.initializeBilling
+    );
     var phone = document.querySelector('.shippingPhoneNumber');
     intlTelInput(phone, {
         utilsScript: utils,
@@ -84,7 +86,7 @@ $(document).ready(function () {
         var $this = $(this);
         var $password = $this.siblings('#password');
         if ($password.attr('type') === 'password') {
-            $password.attr('type','text');
+            $password.attr('type', 'text');
             $this.text('Hide');
         } else {
             $password.attr('type', 'password');
@@ -95,7 +97,6 @@ $(document).ready(function () {
     $('.place-order-trigger').on('click', function () {
         $('button.place-order').click();
     });
-
 });
 $('.payment-options .nav-link').click(function setAttr() {
     $('#selectedPaymentOption').val($(this).parent().attr('data-method-id'));
