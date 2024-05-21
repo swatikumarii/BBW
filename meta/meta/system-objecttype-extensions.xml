@@ -628,27 +628,21 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
-            <attribute-definition attribute-id="BBWCompanyAddress">
-                <display-name xml:lang="x-default">BBW Company Address</display-name>
-                <description xml:lang="x-default">BBW Company Address</description>
+            <attribute-definition attribute-id="customerServicePhone">
+                <display-name xml:lang="x-default">Customer Service Phone Number</display-name>
+                <description xml:lang="x-default">Phone number to display on order invoice</description>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
-            <attribute-definition attribute-id="BBWCompanyPhone">
-                <display-name xml:lang="x-default">BBW Company Phone</display-name>
-                <description xml:lang="x-default">BBW Company Phone</description>
+            <attribute-definition attribute-id="companyAddress">
+                <display-name xml:lang="x-default">Company Address</display-name>
+                <description xml:lang="x-default">Address to display on order invoice</description>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
-            </attribute-definition>
-            <attribute-definition attribute-id="BBWCustomerServiceEmail">
-                <display-name xml:lang="x-default">BBW Customer Service Email</display-name>
-                <type>email</type>
-                <mandatory-flag>false</mandatory-flag>
-                <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
             <attribute-definition attribute-id="ApplePayExpress_Enabled">
                 <display-name xml:lang="x-default">Enable Apple Pay express checkout</display-name>
@@ -1391,11 +1385,11 @@
                 <attribute attribute-id="liveChatEnabled"/>
                 <attribute attribute-id="chatScript"/>
             </attribute-group>
-            <attribute-group group-id="BBWconfigurations">
-                <display-name xml:lang="x-default">BBW Configurations</display-name>
-                <attribute attribute-id="BBWCompanyAddress"/>
-                <attribute attribute-id="BBWCustomerServiceEmail"/>
-                <attribute attribute-id="BBWCompanyPhone"/>
+            <attribute-group group-id="Order Invoice Configurations">
+                <display-name xml:lang="x-default">Order Invoice Configurations</display-name>
+                <attribute attribute-id="customerServiceEmail"/>
+                <attribute attribute-id="customerServicePhone"/>
+                <attribute attribute-id="companyAddress"/>
             </attribute-group>
             <attribute-group group-id="Tracking">
                 <display-name xml:lang="x-default">Tracking</display-name>

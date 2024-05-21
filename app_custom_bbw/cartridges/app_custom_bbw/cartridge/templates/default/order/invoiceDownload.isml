@@ -26,26 +26,26 @@
                         <p style="margin-bottom:0px; margin-top:0px;">${Resource.msg('label.email', 'order', null)}</p>
                     </div>
                     <isif
-                        condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('BBWCustomerServiceEmail')}">
+                        condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServiceEmail')}">
                         <p
                             style="margin: 0;line-height: 18px; font:normal 14px/24px ScalaSansOT,sans-serif;letter-spacing:0.75px;color:#1a1919">
                             ${Resource.msg('label.email', 'order', null)}:
-                            ${dw.system.Site.getCurrent().getCustomPreferenceValue('BBWCustomerServiceEmail')}
+                            ${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServiceEmail')}
                         </p>
                     </isif>
-                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('BBWCompanyPhone')}">
+                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServicePhone')}">
                         <div
                             style="margin: 0;line-height: 18px; font:normal 14px/24px ScalaSansOT,sans-serif;letter-spacing:0.75px;color:#1a1919">
                             ${Resource.msg('phone.text.address', 'order', null)}:
-                            <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('BBWCompanyPhone')}"
+                            <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServicePhone')}"
                                 encoding="off" />
                         </div>
                     </isif>
-                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('BBWCompanyAddress')}">
+                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyAddress')}">
                         <div
                             style="margin: 0;line-height: 18px; font:normal 14px/24px ScalaSansOT,sans-serif;letter-spacing:0.75px;color:#1a1919">
                             <isprint
-                                value="${dw.system.Site.getCurrent().getCustomPreferenceValue('BBWCompanyAddress')}"
+                                value="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyAddress')}"
                                 encoding="off" />
                         </div>
                     </isif>
