@@ -481,15 +481,15 @@
                 position: absolute;
                 top: -1px;
             }
+        }
 
-            &.pw-error {
-                color: colour(red, 9);
-                float: none;
-                top: 0;
+        &.error span {
+            color: colour(red, 9);
+            float: none;
+            top: 0;
 
-                .circle {
-                    border: 1px solid colour(red, 9);
-                }
+            .circle {
+                border: 1px solid colour(red, 9);
             }
         }
 
