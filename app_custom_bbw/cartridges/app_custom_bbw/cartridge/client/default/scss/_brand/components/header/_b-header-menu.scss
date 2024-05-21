@@ -153,6 +153,59 @@
                 }
             }
         }
+
+        .category-top-offers {
+            height: 100%;
+            border-left: 1px solid colour(gray, 6);
+            transition: all 0.3s ease-out;
+            text-transform: capitalize;
+            max-height: none;
+            margin-bottom: 22px;
+            overflow: visible;
+
+            .heading {
+                padding: 6px 0 8px 30px;
+                pointer-events: none;
+                font-weight: 600;
+                font-size: 14px;
+                font-size: 0.875rem;
+                line-height: 16px;
+                line-height: 1rem;
+                letter-spacing: 0.015em;
+                height: auto;
+                color: colour(black, 1);
+                cursor: pointer;
+                display: block;
+                text-transform: uppercase;
+            }
+
+            .toggle {
+                display: none;
+            }
+
+            ul {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+
+                li {
+                    height: auto;
+                    display: block;
+                    position: relative;
+                    padding: 8px 15px 8px 31px;
+
+                    a {
+                        width: 180px;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 16px;
+                        letter-spacing: 0.015em;
+                        white-space: normal;
+                        display: block;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -432,7 +485,7 @@
                         height: auto;
                         position: absolute;
                         top: 0.5rem;
-                        right: 0.9375rem;
+                        right: 18px;
                         z-index: 30;
                         border: 0;
                         transition: all 0.3s ease-out;
@@ -508,6 +561,16 @@
             visibility 0s 0.5s,
             opacity 0.5s linear;
     }
+
+    .logged-user-name {
+        padding: 10px 10px 10px 15px;
+        font-size: 0.875rem;
+        line-height: 16px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: colour(blue);
+    }
 }
 
 .input-group-append .btn {
@@ -515,6 +578,11 @@
 }
 
 .utility-links-container {
+    @include media-down(sm) {
+        z-index: 1;
+        position: relative;
+    }
+
     .utility-links {
         padding-top: 0.75rem;
         background: colour(gray, 1);

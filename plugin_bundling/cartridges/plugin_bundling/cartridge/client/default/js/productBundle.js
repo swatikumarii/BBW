@@ -21,6 +21,7 @@ function checkIfBundleReady() {
 }
 
 $(document).ready(function () {
+    var deviceWidth = $(window).innerWidth();
     var bundleName = $('.storepage').attr('class').replace('storepage ', '');
     // check if bundle is unavailable and return
     if ($('.bundle-unavailable').length) {
@@ -30,12 +31,12 @@ $(document).ready(function () {
     // if fixed bundle this will enable button
     checkIfBundleReady();
     // Product Bundle - Click Event - Get data
-    $('body').on('click','.bundle-product', function () {
+    $('body').on('click', '.bundle-product', function () {
         $('#productbundle-modal').css({ display: 'none' });
         $('#productbundle-modal .productDetail').empty();
-
         var productID = $(this).attr('data-pid');
         var requestURL = $(this).attr('data-url');
+        var modalId = $(this).parents('#multiproductbundle-modal').data('id');
         $.spinner().start();
         $.ajax({
             url: requestURL,
@@ -47,6 +48,10 @@ $(document).ready(function () {
                 $('#productbundle-modal .productDetail').html(data);
                 // Show - Product Bundle Detail - Modal
                 $('#productbundle-modal').modal('show');
+                if (deviceWidth < 768) {
+                    $('.' + modalId).removeClass('show');
+                }
+                $('#productbundle-modal .close').attr('data-modal-parent', modalId);
                 $('body').css('overflow', 'hidden');
                 $('html').css('overflow', 'hidden');
             },
@@ -58,7 +63,9 @@ $(document).ready(function () {
 
     $('.multi-product-mobile-link').on('click', function () {
         // Show - Product Bundle Detail - Modal
-        $(this).parents('.experience-product_bundle-multiProduct').find('#multiproductbundle-modal, #multiproductbundle-modal .productbundle-dialog').addClass('show');
+        var modalId = '.' + $(this).parents('.experience-product_bundle-multiProduct').find('#multiproductbundle-modal').data('id');
+        $(modalId).addClass('show');
+        $(modalId).find('.productbundle-dialog').addClass('show');
     });
 
     $('#multiproductbundle-modal .close').on('click', function () {
@@ -67,7 +74,13 @@ $(document).ready(function () {
 
     // Product Bundle Detail - Modal - Close Event
     $('#productbundle-modal .close').on('click', function () {
-        $('#productbundle-modal, #productbundle-modal .productbundle-dialog').removeClass('show');
+        var parentModal = $(this).data('modal-parent');
+        if (deviceWidth < 768) {
+            $('.' + parentModal).addClass('show');
+            $('.' + parentModal + ' .productbundle-dialog').addClass('show');
+        }
+        $('#productbundle-modal').modal('hide');
+        $('#productbundle-modal .productbundle-dialog').removeClass('show');
         $('body').css('overflow', '');
         $('html').css('overflow', '');
         $('.carousel-indicators').hide();
@@ -83,7 +96,6 @@ $(document).ready(function () {
     $(document).on('click', '.zoomImage-link, .zoomDesktop, .zoomIpad', function () {
         $('.zoomImage-sec').css('display', 'block');
         $('body').css('overflow-y', 'hidden');
-        var deviceWidth = $(window).innerWidth();
         if (deviceWidth < 768) {
             $('body').css('overflow-y', '');
         }
@@ -110,10 +122,10 @@ $(document).ready(function () {
         $.ajax({
             beforeSend: function () {
                 $('body').css('overflow', 'hidden');
-                $('body').append('<div class= "bundle-spinner"><div><span class="bordered-spinner"></span><label>' + successMsg + '</label></div><label class="bundle-complete-spinner"></label></div>');
+                $('body').append('<div class="loader"><div class="h-visually-hidden" role="alert">Just a second, items loading</div><div class="spinner"></div><div class="success-msg h-clr--blue h-fw--bold text-uppercase">' + successMsg + '</div></div>');
             },
             complete: function () {
-                $('body').find('.bundle-spinner').remove();
+                $('body').find('.loader').remove();
                 parent.find('.panel-collapse.in').collapse('hide');
                 $('body').css('overflow', '');
                 parent.find('#productbundle-modal .productDetail, #productbundle-modal .productbundle-dialog').toggleClass('show');
@@ -127,8 +139,11 @@ $(document).ready(function () {
         parent.attr('data-pid', productID); // make this product selected
         var newImage = button.closest('.product_container').find('.thumbnail-container img').attr('src');
         parent.find('.panel-heading .thumbnail-container img').attr('src', newImage);
+        var productName = button.closest('.bundle-product-details').find('.product-name').text();
+        parent.find('.panel-heading .product-title-name').text(productName);
         parent.find('.added-to-bundle').addClass('d-none');
         parent.find('.add-to-bundle').removeClass('d-none');
+        parent.find('.panel-heading .item-selected').removeClass('d-none');
         button.addClass('d-none');
         button.next().removeClass('d-none');
         $('body, html').removeClass('overflow-hidden');

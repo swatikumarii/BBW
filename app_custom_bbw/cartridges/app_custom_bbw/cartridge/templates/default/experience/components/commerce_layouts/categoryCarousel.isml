@@ -2,6 +2,7 @@
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addJs('/js/categoryCarousel.js');
     assets.addCss('/css/experience/components/commerceLayouts/categoryCarousel.css');
+    assets.addJs('/js/productDetail.js');
 </isscript>
 
 <div class="h-dsp-md--grid cmp-category-carousel ${pdict.sectionCustomClass ? pdict.sectionCustomClass : ''}">
@@ -10,19 +11,24 @@
 
     <div class="shop-the-module-wrapper">
         <isif condition="${pdict.carouselTitle !== ''}">
-            <h2>${pdict.carouselTitle}</h2>
+            <h2>
+                <isprint value="${pdict.carouselTitle}" encoding="off" />
+            </h2>
         </isif>
         <div class="shop-the-module ds-smooth-scroll d-flex js-shop-the-module-scroll">
+            <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
             <isloop items="${pdict.selectedProducts}" var="onlineProduct" status="loopstate">
                 <div class="shop-the-module__slide js-shop-the-module-slide">
-                    <div class="ds-shop-the-image-product-tile">
+                    <div class="ds-shop-the-image-product-tile ${pdict.productDetailAlignment}">
                         <isinclude url="${URLUtils.url('Tile-Show', 'pid', onlineProduct.id)}" />
                     </div>
                 </div>
             </isloop>
         </div>
         <isif condition="${pdict.shopButtonLink !== ''}">
-            <a href="${pdict.shopButtonLink}">${pdict.shopButtonText}</a>
+            <a class="text-center" href="${pdict.shopButtonLink}">
+                <isprint value="${pdict.shopButtonText}" encoding="off" />
+            </a>
         </isif>
     </div>
 </div>

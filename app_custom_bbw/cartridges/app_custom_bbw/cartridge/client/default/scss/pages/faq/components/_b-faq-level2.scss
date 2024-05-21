@@ -2,6 +2,15 @@
     display: flex;
     justify-content: flex-end;
 
+    @include media-down(md) {
+        display: block;
+        padding: 0 40px;
+    }
+
+    @include media-down(sm) {
+        padding: 0 20px;
+    }
+
     .section-content {
         flex: 1;
 
@@ -17,6 +26,24 @@
             .article-list-item {
                 font-size: 16px;
                 padding: 15px 0;
+
+                .icon-star {
+                    color: color(blue, 10);
+                    font-size: 18px;
+                    height: 16px;
+                    line-height: 27px;
+                    margin-top: -7px;
+                    margin-right: 3px;
+                }
+
+                a {
+                    color: colour(black, 8);
+
+                    &:hover {
+                        color: colour(black, 8);
+                        text-decoration: underline;
+                    }
+                }
             }
         }
     }
@@ -32,7 +59,9 @@
             flex-grow: 1;
             font-size: 32px;
             margin: 0.67em 0 10px;
-            font-weight: 600;
+            line-height: 48px;
+            color: colour(black, 8);
+            font-weight: map-get($font-weight, bold);
         }
     }
 }
