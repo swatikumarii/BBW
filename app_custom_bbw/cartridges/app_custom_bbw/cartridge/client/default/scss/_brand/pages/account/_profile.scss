@@ -581,11 +581,10 @@
 
 .paymentInstruments {
     .remove-payment {
-        background: colour(white);
+        background: colour(none);
         bottom: auto;
         right: 2px;
         top: -9px;
-        background-color: #f2f2f200;
         width: 0;
     }
 
