@@ -13,6 +13,13 @@
               "type": "enum",
               "values": ["Einstein Recommendation", "Picked Just For You"],
               "required": true
+          },
+          {
+            "id": "contentSlotPdCustomClass",
+            "name": "Content Slot Asset Custom Class",
+            "description": "Add Content Slot Custom Class",
+            "type": "string",
+            "required": false
           }
       ]
     }
