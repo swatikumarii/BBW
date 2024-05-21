@@ -1,5 +1,6 @@
 <isset name="miniCart" value="${true}" scope="page" />
 <div class="cart container">
+    <iscomment> MiniCart- Recommendation </iscomment>
     <isslot id="minicart-recommendation-slider" context="global" description="This is for minicart sidebar recommendations" context-object="${dw.order.BasketMgr.getCurrentBasket()}" />
 
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
