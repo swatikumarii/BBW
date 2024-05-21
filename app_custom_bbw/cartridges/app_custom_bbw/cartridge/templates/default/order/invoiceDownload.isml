@@ -25,28 +25,26 @@
                         </p>
                         <p style="margin-bottom:0px; margin-top:0px;">${Resource.msg('label.email', 'order', null)}</p>
                     </div> </iscomment>
-                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServiceEmail')}">
-                        <p
-                            style="margin: 0;line-height: 18px; font:normal 14px/24px ScalaSansOT,sans-serif;letter-spacing:0.75px;color:#1a1919">
-                            ${Resource.msg('label.email', 'order', null)}:
-                            ${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServiceEmail')}
-                        </p>
-                    </isif>
-                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServicePhone')}">
-                        <div
-                            style="margin: 0;line-height: 18px; font:normal 14px/24px ScalaSansOT,sans-serif;letter-spacing:0.75px;color:#1a1919">
-                            ${Resource.msg('phone.text.address', 'order', null)}:
-                            <isprint
-                                value="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServicePhone')}"
-                                encoding="off" />
-                        </div>
-                    </isif>
                     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyAddress')}">
                         <div
                             style="margin: 0;line-height: 18px; font:normal 14px/24px ScalaSansOT,sans-serif;letter-spacing:0.75px;color:#1a1919">
                             <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyAddress')}"
                                 encoding="off" />
                         </div>
+                    </isif>
+                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServicePhone')}">
+                        <div
+                            style="margin: 0;line-height: 18px; font:normal 14px/24px ScalaSansOT,sans-serif;letter-spacing:0.75px;color:#1a1919">
+                            ${Resource.msg('label.contact', 'order', null)}:
+                            <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServicePhone')}"
+                                encoding="off" />
+                        </div>
+                    </isif>
+                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServiceEmail')}">
+                        <p
+                            style="margin: 0;line-height: 18px; font:normal 14px/24px ScalaSansOT,sans-serif;letter-spacing:0.75px;color:#1a1919">
+                            ${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServiceEmail')}
+                        </p>
                     </isif>
                 </td>
             </tr>
@@ -78,22 +76,6 @@
         <table style="table-layout: fixed; width: 100%;">
             <tbody>
                 <tr style="vertical-align: baseline;">
-                    <td style="vertical-align:baseline; width:56%;">
-                        <div style="    background-color: #c7c7c7;     margin-left: -4px;
-    padding-top: 8px;
-    padding-bottom: 15px;">
-                            <strong
-                                style="text-transform: uppercase;font-family:GaramondPro;font-size:16px;letter-sapcing:1px;line-height:normal;">
-                                ${Resource.msg('shipping.details.invoice', 'order', null)}:
-                            </strong>
-                        </div>
-                        <div>
-                            <isloop items="${pdict.order.shipping}" var="shippingModel" status="shippingLoop">
-                                <isset name="address" value="${shippingModel.shippingAddress}" scope="page" />
-                                <isinclude template="order/addressSummaryInvoice" />
-                            </isloop>
-                        </div>
-                    </td>
                     <td style="width:44%;">
                         <div>
                             <div style="    background-color: #c7c7c7;     margin-left: -4px;
@@ -111,6 +93,22 @@
                                     <isinclude template="order/addressSummaryInvoice" />
                                 </p>
                             </div>
+                        </div>
+                    </td>
+                    <td style="vertical-align:baseline; width:56%;">
+                        <div style="    background-color: #c7c7c7;     margin-left: -4px;
+                        padding-top: 8px;
+                        padding-bottom: 15px;">
+                            <strong
+                                style="text-transform: uppercase;font-family:GaramondPro;font-size:16px;letter-sapcing:1px;line-height:normal;">
+                                ${Resource.msg('shipping.details.invoice', 'order', null)}:
+                            </strong>
+                        </div>
+                        <div>
+                            <isloop items="${pdict.order.shipping}" var="shippingModel" status="shippingLoop">
+                                <isset name="address" value="${shippingModel.shippingAddress}" scope="page" />
+                                <isinclude template="order/addressSummaryInvoice" />
+                            </isloop>
                         </div>
                     </td>
                 </tr>
@@ -137,9 +135,14 @@
                                 class="summary-section-label payment-info-label h-fw--semibold h-clr--black-1 mb-1 h-font-size--16"><strong>${Resource.msg('label.order.shipping.method', 'confirmation', null)}</strong></span>
                             <isloop var="shippingModel" items="${pdict.order.shipping}" status="shippingLoop">
                                 <p class="shipping-method" style="text-align:left; margin-left: -3px;">
-                                    ${Resource.msg('label.shipping', 'order', null)}-
                                     <span
-                                        class="shipping-method-title h-font-size--16">${shippingModel.selectedShippingMethod.displayName}</span>
+                                        class="shipping-method-title h-font-size--16">${shippingModel.selectedShippingMethod.ID}(${Resource.msg('label.shipping', 'order', null)})
+                                        <isif condition="${pdict.order.trackingNumber}">
+                                            <a href="${pdict.order.trackingUrl + pdict.order.trackingNumber}" hreflang="${request.getLocale()}" target="_blank">
+                                                <span>${pdict.order.trackingNumber}</span>
+                                            </a>
+                                        </isif>
+                                        </span>
                                 </p>
                             </isloop>
                         </div>
@@ -154,7 +157,7 @@
                 <tr>
                     <th width="34%"
                         style="text-align:left;     background-color: #d0d0d0;    padding-top: 8px; padding-bottom: 15px;">
-                        ${Resource.msg('label.item.description', 'order', null)}
+                        ${Resource.msg('label.item.invoice.description', 'order', null)}
                     </th>
                     <th width="20%" style="    background-color: #d0d0d0;  padding-top: 8px; padding-bottom: 15px;">
                         ${Resource.msg('label.item.sku', 'order', null)}
