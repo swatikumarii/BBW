@@ -385,3 +385,32 @@ footer {
     background-repeat: repeat-y;
     height: 120vh;
 }
+
+/* Session time out popup */
+.autologout-modal {
+    .modal-dialog {
+        max-width: 306px;
+
+        .modal-content {
+            border-radius: 0;
+            text-align: center;
+            padding: 32px 35px;
+
+            .btn {
+                min-height: 48px;
+                font-weight: 600;
+                font-size: 1rem;
+                padding: 0 15px;
+                line-height: 35px;
+                text-transform: uppercase;
+            }
+
+            .timer {
+                margin-bottom: 25px;
+                font-size: 34px;
+                color: colour(black, 3);
+                line-height: 1;
+            }
+        }
+    }
+}
