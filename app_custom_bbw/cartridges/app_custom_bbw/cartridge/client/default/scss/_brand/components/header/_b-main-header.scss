@@ -12,6 +12,8 @@ header {
         right: 0;
         top: 0;
         z-index: 9;
+        width: 100%;
+        display: block;
         animation: none;
 
         .search-fly-out-opacity {
@@ -60,7 +62,7 @@ header {
                     width: auto;
                     margin: 27px auto 8px;
                     height: auto;
-                    left: 0.3125rem;
+                    left: 75px;
                 }
 
                 &:hover {
@@ -181,7 +183,7 @@ header {
                             letter-spacing: 0.01em;
                             text-overflow: ellipsis;
                             white-space: nowrap;
-                            padding: 0 70px 0 12px;
+                            padding: 0 45px 0 12px;
 
                             @include media-down(sm) {
                                 border: none;
@@ -249,7 +251,7 @@ header {
                             background-color: transparent;
 
                             @include media-up(sm) {
-                                top: -0.1875rem;
+                                top: -1px;
                                 right: 0.25rem;
                             }
 
@@ -438,7 +440,7 @@ header {
     left: 0;
     z-index: 2;
 
-    // @include media-up(sm) {
-    //     top: 14.5rem;
-    // }
+    @include media-up(sm) {
+        top: 14.5rem;
+    }
 }

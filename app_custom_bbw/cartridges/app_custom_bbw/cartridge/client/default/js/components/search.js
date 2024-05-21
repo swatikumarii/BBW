@@ -263,7 +263,7 @@ module.exports = function () {
     });
 
     $('input.search-field').each(function () {
-        var debounceSuggestions = debounce(getSuggestions, 300);
+        var debounceSuggestions = debounce(getSuggestions, 0);
         var suggestionsProcessing = false;
         resizeSuggestionWrapper();
 
@@ -340,10 +340,12 @@ module.exports = function () {
     });
 
     $('.js-cancel-search-button').on('click touchend', function (e) {
-        e.preventDefault();
-        toggleSuggestionsIcon('search');
-        tearDownSuggestions();
-        $('.search-fly-out-opacity').addClass('d-none');
+        if (layout.isMobile()) {
+            e.preventDefault();
+            toggleSuggestionsIcon('search');
+            tearDownSuggestions();
+            $('.search-fly-out-opacity').addClass('d-none');
+        }
     });
 
     $('.js-reset-button').on('click', function () {
