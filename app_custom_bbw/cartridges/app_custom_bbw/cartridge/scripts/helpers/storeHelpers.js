@@ -68,8 +68,10 @@ function getStores(radius, postalCode, lat, long, geolocation, countryCode, stor
             searchKey,
             distanceUnit,
             resolvedRadius,
-            'custom.storeType = {0}',
-            storeType
+            'custom.storeType = {0} or custom.storeType = {1} or custom.storeType = {2}',
+            storeType[0].length > 1 ? storeType[0] : storeType,
+            storeType[1].length > 1 ? storeType[1] : '',
+            storeType[2] && storeType[2].length > 1 ? storeType[2] : ''
         );
         searchKey = { 
             postalCode: searchKey,
@@ -94,8 +96,10 @@ function getStores(radius, postalCode, lat, long, geolocation, countryCode, stor
             location.long,
             distanceUnit,
             resolvedRadius,
-            'custom.storeType = {0}',
-            storeType
+            'custom.storeType = {0} or custom.storeType = {1} or custom.storeType = {2}',
+            storeType[0].length > 1 ? storeType[0] : storeType,
+            storeType[1].length > 1 ? storeType[1] : '',
+            storeType[2] && storeType[2].length > 1 ? storeType[2] : ''
         );
         searchKey = { lat: location.lat, long: location.long };
     } else {
