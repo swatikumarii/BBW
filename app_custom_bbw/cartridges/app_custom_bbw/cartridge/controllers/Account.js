@@ -504,7 +504,10 @@ server.append(
         viewData.currentBasketHasGiftProducts = currentBasketHasGiftProducts;
         viewData.storedBasketHasGiftProducts = storedBasketHasGiftProducts;
         viewData.storedBasketProducts = storedBasketProducts;
-        if (viewData.authenticatedCustomer.authenticated) {
+        if (
+            'authenticatedCustomer' in viewData &&
+            viewData.authenticatedCustomer.authenticated
+        ) {
             viewData.isIncomplete =
                 'custom' in viewData.authenticatedCustomer.profile &&
                 'isProfileComplete' in
