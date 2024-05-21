@@ -1402,6 +1402,7 @@
             <attribute-group group-id="Tracking">
                 <display-name xml:lang="x-default">Tracking</display-name>
                 <attribute attribute-id="trackingUrl"/>
+            </attribute-group>
             <attribute-group group-id="Contact Us">
                 <display-name xml:lang="x-default">Contact Us Configurations</display-name>
                 <attribute attribute-id="openingTime"/>
