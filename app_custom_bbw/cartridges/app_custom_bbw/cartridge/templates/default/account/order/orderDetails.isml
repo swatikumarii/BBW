@@ -57,10 +57,10 @@
 
                 <iselseif condition="${pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_CANCELLED}" />
                     <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
-                        src="${URLUtils.staticURL('/images/account/heart-filled-32.svg')}" />
+                        src="${URLUtils.staticURL('/images/account/icon-placed.png')}" />
                 <iselse/>
                     <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
-                        src="${URLUtils.staticURL('/images/account/heart-filled-32.svg')}" />
+                        src="${URLUtils.staticURL('/images/account/icon-placed.png')}" />
                 </isif>
             </div>
 
