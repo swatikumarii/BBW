@@ -99,7 +99,7 @@
                                                     ${fragrance.name}</a>
                                                 <isif condition="${fragrance.topFragrance}">
                                                     <img src="${URLUtils.httpStatic(URLUtils.CONTEXT_LIBRARY, pdict.currentSite, '/images/shop-by-fragrance/top-badge-lrg-2.svg')}"
-                                                        alt="top-fragrance">
+                                                      class="fragrance-img"  alt="top-fragrance">
                                                 </isif>
                                             </li>
                                         </isloop>
