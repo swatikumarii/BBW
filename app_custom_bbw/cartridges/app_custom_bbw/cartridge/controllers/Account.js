@@ -434,20 +434,23 @@ server.append(
     'Login',
     function (req, res, next) {
         var BasketMgr = require('dw/order/BasketMgr');
+        var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
         var loginRedirectExceptions = require('*/cartridge/config/loginRedirectExceptions');
         var storedBasket = BasketMgr.getStoredBasket();
         var currentBasket = BasketMgr.getCurrentOrNewBasket();
         var storedBasketProductQuantities =
             storedBasket ? storedBasket.getAllProductQuantities().length : 0;
         var storedBasketProducts = [];
+        var currentBasketHasGiftProducts = qwikcilverHelpers.validateGiftProduct(currentBasket);
+        var storedBasketHasGiftProducts = qwikcilverHelpers.validateGiftProduct(storedBasket);
         var productLineItemItr = storedBasket && storedBasket
             .getAllProductLineItems()
             .iterator();
         if (productLineItemItr) {
             while (productLineItemItr.hasNext()) {
                 var pli = productLineItemItr.next();
-                if (!pli.bundledProductLineItem && !pli.optionProductLineItem) {
-                    var mergeQty = pli.quantityValue;
+                var mergeQty = pli.quantityValue;
+                if (!pli.bundledProductLineItem && !pli.optionProductLineItem && !pli.custom.isEgiftCard) {
                     if (!pli.bonusProductLineItem) {
                         storedBasketProducts.push({
                             productID: pli.productID,
@@ -456,6 +459,26 @@ server.append(
                             optionProductLineItem: pli.optionProductLineItem
                         });
                     }
+                }
+                if (pli.custom.isEgiftCard) {
+                    storedBasketProducts.push({
+                        productID: pli.productID,
+                        quantityValue: mergeQty,
+                        bundledProductLineItem: pli.bundledProductLineItem,
+                        optionProductLineItem: pli.optionProductLineItem,
+                        isEgiftCard: true,
+                        eGiftCardScheduleDay: pli.custom.eGiftCardScheduleDay,
+                        eGiftCardScheduleMonth:
+                            pli.custom.eGiftCardScheduleMonth,
+                        eGiftEmailPending: pli.custom.eGiftEmailPending,
+                        eGiftMessage: pli.custom.eGiftMessage,
+                        eGiftReceiver: pli.custom.eGiftReceiver,
+                        eGiftReceiverEmail: pli.custom.eGiftReceiverEmail,
+                        eGiftScheduledYear: pli.custom.eGiftScheduledYear,
+                        eGiftSender: pli.custom.eGiftSender,
+                        eGiftVideoLink: pli.custom.eGiftVideoLink || '',
+
+                    });
                 }
             }
         }
@@ -470,9 +493,16 @@ server.append(
             : loginRedirectUrl;
         loginRedirectUrl = URLUtils.url(loginRedirectUrl, queryStringArr);
         var viewData = res.getViewData();
-        viewData.redirectUrl = loginRedirectUrl.toString();
-        viewData.showCartMergePopup =
+        var bothCartsHaveProducts =
             storedBasketProductQuantities && currentBasketProductQuantities;
+        var bothCartsHaveGiftProducts =
+            currentBasketHasGiftProducts && storedBasketHasGiftProducts;
+        var neitherCartsHaveGiftProducts =
+            !currentBasketHasGiftProducts && !storedBasketHasGiftProducts;
+        viewData.redirectUrl = loginRedirectUrl.toString();
+        viewData.showCartMergePopup = bothCartsHaveProducts && (bothCartsHaveGiftProducts || neitherCartsHaveGiftProducts);
+        viewData.currentBasketHasGiftProducts = currentBasketHasGiftProducts;
+        viewData.storedBasketHasGiftProducts = storedBasketHasGiftProducts;
         viewData.storedBasketProducts = storedBasketProducts;
         if (viewData.authenticatedCustomer.authenticated) {
             viewData.isIncomplete =

@@ -7,6 +7,10 @@ var billingHelpers = require('./billing');
 var summaryHelpers = require('./summary');
 var formHelpers = require('base/checkout/formErrors');
 var scrollAnimate = require('base/components/scrollAnimate');
+var adyenBilling = require('adyen/checkout/billing');
+// ### Custom Adyen cartridge start ###
+var adyenCheckout = require('adyen/adyenCheckout');
+// ### Custom Adyen cartridge end ###
 var location = window.location;
 var history = window.history;
 
@@ -211,7 +215,9 @@ var history = window.history;
 
                     formHelpers.clearPreviousErrors('.payment-form');
 
-                    var billingAddressForm = $('#dwfrm_billing :input').serialize();
+                    var billingAddressForm = $(
+                        '#dwfrm_billing .billing-address-block :input'
+                    ).serialize();
 
                     $('body').trigger('checkout:serializeBilling', {
                         form: $('#dwfrm_billing .billing-address-block'),
@@ -363,6 +369,11 @@ var history = window.history;
                                     // go to appropriate stage and display error message
                                     defer.reject(data);
                                 }
+                                // ### Custom Adyen cartridge start ###
+                            } else if (data.adyenAction) {
+                                window.orderToken = data.orderToken;
+                                adyenCheckout.actionHandler(data.adyenAction);
+                                // ### Custom Adyen cartridge end ###
                             } else {
                                 var redirect = $('<form>')
                                     .appendTo(document.body)
@@ -418,6 +429,10 @@ var history = window.history;
                 $('body').on('click', '.submit-customer-login', function (e) {
                     e.preventDefault();
                     members.currentStage = checkoutStages.indexOf('customer');
+                    members.nextStage();
+                });
+                $('body').on('click', '.submit-customer', function (e) {
+                    e.preventDefault();
                     members.nextStage();
                 });
 
@@ -593,12 +608,17 @@ var exports = {
                     data.options
                 );
             });
+            var currentStage = window.location.search.substring(window.location.search.indexOf('=') + 1);
+            if (currentStage === ('shipping' || 'payment')) {
+                adyenCheckout.renderGenericComponent();
+            }
             billingHelpers.methods.updateBillingInformation(
                 data.order,
                 data.customer,
                 data.options
             );
-            billingHelpers.methods.updatePaymentInformation(data.order, data.options);
+            adyenBilling.methods.updatePaymentInformation(data.order, data.options);
+            summaryHelpers.updateOrderProductSummaryInformation(data.order, data.options);
         });
     },
 

@@ -21,7 +21,7 @@
                 <isloop items="${pdict.categories}" var="category">
                     <isif condition="${category.siteMapIncluded === 1
                         && (category.hasOnlineProducts() || category.hasOnlineSubCategories())}">
-                        <h1 class="sitemap-title-head">
+                        <h1 class="sitemap-title-head mb-0">
                             <a class="sitemap-cateogry h-font-size--18 h-fw--bold text-uppercase text-left h-clr--blue" href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
                                 ${category.displayName} 
                             </a>

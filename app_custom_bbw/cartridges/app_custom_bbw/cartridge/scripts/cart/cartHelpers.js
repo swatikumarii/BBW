@@ -580,6 +580,23 @@ function mergeCart(storedBasketProducts) {
                             optionProducts
                         );
                         if (!result.error) {
+                            if (pli.isEgiftCard) {
+                                for (var i = 0;i < currentBasket.productLineItems.length;i++) {
+                                    if (currentBasket.productLineItems[i].UUID === result.uuid) {
+                                        currentBasket.productLineItems[i].custom.eGiftReceiver = pli.eGiftReceiver;
+                                        currentBasket.productLineItems[i].custom.eGiftReceiverEmail =pli.eGiftReceiverEmail;
+                                        currentBasket.productLineItems[i].custom.eGiftSender = pli.eGiftSender;
+                                        currentBasket.productLineItems[i].custom.eGiftMessage = pli.eGiftMessage;
+                                        currentBasket.productLineItems[i].custom.eGiftCardScheduleDay = pli.eGiftCardScheduleDay;
+                                        currentBasket.productLineItems[i].custom.eGiftCardScheduleMonth = pli.eGiftScheduleMonth;
+                                        currentBasket.productLineItems[i].custom.eGiftVideoLink = pli.eGiftVideoLink;
+                                        currentBasket.productLineItems[i].custom.eGiftScheduledYear = pli.eGiftScheduledYear;
+                                        currentBasket.productLineItems[i].custom.isEgiftCard = true;
+                                        currentBasket.productLineItems[i].custom.eGiftEmailPending = pli.eGiftEmailPending;
+                                        break;
+                                    }
+                                }
+                            }
                             isCartMerged = true;
                         }
                     }

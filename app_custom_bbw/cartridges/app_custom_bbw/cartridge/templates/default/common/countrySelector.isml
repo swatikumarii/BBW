@@ -4,7 +4,7 @@
         <div class="modal-content country-content border-0">
             <div class="modal-header border-0 pb-0">
                 <h1 class="h-font-size--24 h-fw--bold popup-header h-clr--black-3">${Resource.msg('msg.current.country', 'common', null)} 
-                ${pdict.reqCountryCode} !
+                <span id="request-country-name" data-country-code="${pdict.reqCountryCode}"></span> !
                 </h1>
                 <button type="button" class="close close-icon-btn" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">
