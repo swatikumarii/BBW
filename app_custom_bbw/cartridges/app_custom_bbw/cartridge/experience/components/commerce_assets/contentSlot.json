@@ -16,7 +16,7 @@
           },
           {
             "id": "contentSlotPdCustomClass",
-            "name": "Content Slot Asset Custom Class",
+            "name": "Content Slot Custom Class",
             "description": "Add Content Slot Custom Class",
             "type": "string",
             "required": false
