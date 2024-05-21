@@ -8,6 +8,11 @@
             value=${pdict.forms.registeredCustomerForm.attributes} encoding="off" /> novalidate>
             <fieldset class="customer-information-block">
                 <div class="row">
+                    <div class="col-sm-12 form-error-div d-none">
+                        <img alt="error alert" width="28px" height="28px" class="error-icon"
+                            src="${URLUtils.staticURL('/images/Alert-Error.svg')}" />
+                        <span class="text-danger error-class error-form h-font-size--14" id="form-error"></span>
+                    </div>
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block">
