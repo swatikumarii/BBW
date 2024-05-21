@@ -56,7 +56,7 @@ function validateRequiredField(inputField) {
  * @returns {boolean} valid or not
  */
 function validateEmailField(emailInput) {
-    var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+    var pattern = /^\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
     if (!validateRequiredField(emailInput)) return false;
     if (!pattern.test(emailInput.val())) {
         emailInput.addClass('is-invalid border-danger'); // Add class for input border error

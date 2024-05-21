@@ -108,9 +108,14 @@ var history = window.history;
                         type: 'post',
                         data: customerForm.serialize(),
                         success: function (data) {
-                            if (data.redirectUrl) {
+                            if (data.error) {
+                                $('#form-error').html(data.customerErrorMessage);
+                                $('.form-error-div').removeClass('d-none');
+                            } else if (data.redirectUrl) {
                                 window.location.href = data.redirectUrl;
                             } else {
+                                $('#form-error').html('');
+                                $('.form-error-div').addClass('d-none');
                                 customerHelpers.methods.customerFormResponse(defer, data);
                             }
                         },
