@@ -1210,6 +1210,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="showTopOffers">
+                <display-name xml:lang="x-default">Show Top Offers</display-name>
+                <description xml:lang="x-default">Show top offers on mini cart</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -3015,6 +3022,30 @@
                 <attribute attribute-id="articleHelpfulYes"/>
                 <attribute attribute-id="articleHelpfulNo"/>
                 <attribute attribute-id="relatedArticles"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    <type-extension type-id="Promotion">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="showOnMiniCart">
+                <display-name xml:lang="x-default">Show on mini cart</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="termsAndConditions">
+                <display-name xml:lang="x-default">Terms &amp; Conditions</display-name>
+                <type>html</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="miniCart">
+                <display-name xml:lang="x-default">Mini Cart</display-name>
+                <attribute attribute-id="showOnMiniCart"/>
+                <attribute attribute-id="termsAndConditions"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

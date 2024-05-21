@@ -607,28 +607,25 @@ function mergeCart(storedBasketProducts) {
  * @returns {Array} topOffers - contain top offers
  */
 function getTopOffers(currentBasket) {
-    var collections = require('*/cartridge/scripts/util/collections');
     var topOffers = [];
     if (currentBasket) {
         var allLineItems = currentBasket.allProductLineItems;
         if (allLineItems.length > 0) {
             Transaction.wrap(function () {
-                collections.forEach(allLineItems, function (pli) {
-                    var PromotionMgr = require('dw/campaign/PromotionMgr');
-                    var activePromotions = PromotionMgr.getActivePromotions().getProductPromotions(pli.product);
-                    if (activePromotions.length > 0) {
-                        for(var i = 0; i < activePromotions.length; i++) {
-                            var promo = activePromotions[i];
-                            if (promo.basedOnCoupon === true && promo.coupons[0].type === 'SINGLE_CODE') {
-                                var topOffer = {
-                                    promoName: promo.name,
-                                    couponCode: promo.coupons[0].ID
-                                };
-                                topOffers.push(topOffer);
-                            }
+                var PromotionMgr = require('dw/campaign/PromotionMgr');
+                var activePromotions = PromotionMgr.getActivePromotions().promotions;
+                if (activePromotions.length > 0) {
+                    for(var i = 0; i < activePromotions.length; i++) {
+                        var promo = activePromotions[i];
+                        if (('showOnMiniCart' in promo.custom && promo.custom.showOnMiniCart === true) && promo.basedOnCoupon === true && promo.coupons[0].type === 'SINGLE_CODE') {
+                            var topOffer = {
+                                promo: promo,
+                                couponCode: promo.coupons[0].ID
+                            };
+                            topOffers.push(topOffer);
                         }
                     }
-                });
+                }
             });
         }
     }

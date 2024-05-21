@@ -1,12 +1,27 @@
 <isif condition="${pdict.topOffers}">
-    <p>Available Offers</p>
-    <span>Apply up to 2 eligible offers.</span>
-    <span class="drawerOfferError" style="display:none"></span>
-    <span class="drawerOfferSuccess" style="display:block"></span>
+    <p>${Resource.msg('apply.top.offer.heading', 'cart', null)}</p>
+    <span class="topOfferError" style="display:none"></span>
+    <span class="topOfferSuccess" style="display:block"></span>
     <input type="hidden" class="topOfferCsrfToken" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
     <isloop iterator="${pdict.topOffers}" alias="topOffer">
-        <p>${topOffer.promoName}</p>
+        <p>${topOffer.promo.name}</p>
         <button class="applyTopOffer" data-coupon="${topOffer.couponCode}"
-            data-action="${URLUtils.url('Cart-AddCoupon')}">Apply</button>
+            data-action="${URLUtils.url('Cart-AddCoupon')}">${Resource.msg('apply.top.offer.button.text', 'cart', null)}</button>
+        <isif condition="${'termsAndConditions' in topOffer.promo.custom && topOffer.promo.custom.termsAndConditions}">
+            <button data-toggle="modal" data-target="${'#'+topOffer.promo.ID}">${Resource.msg('apply.top.offer.detail.text', 'cart', null)}</button>
+            <div class="modal fade" id="${topOffer.promo.ID}">
+                <div class="modal-dialog modal-dialog-centered">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header p-0 border-0">
+                            <button type="button" class="close" data-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <isprint value="${topOffer.promo.custom.termsAndConditions}" encoding="off" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </isif>
     </isloop>
 </isif>

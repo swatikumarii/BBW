@@ -392,10 +392,6 @@ module.exports = function () {
                     $('body').trigger('setShippingMethodSelection', data.basket);
                     validateBasket(data.basket);
                     $('.item-removed-message').removeClass('d-none');
-                    // update top offers
-                    $('.mini-cart-content .miniCartTopOffers')
-                        .empty()
-                        .append(data.topOffers);
                 }
 
                 $('body').trigger('cart:update', data);
@@ -495,10 +491,6 @@ module.exports = function () {
                         $('.mini-cart-content .product-summary')
                             .empty()
                             .append(data.refreshItemsTemplateMinicart);
-                        // update top offers
-                        $('.mini-cart-content .miniCartTopOffers')
-                            .empty()
-                            .append(data.topOffers);
                     }
                     $.spinner().stop();
                     if (
@@ -866,27 +858,31 @@ module.exports = function () {
             data: formData,
             processData: false,
             success: function (data) {
-                console.log('success');
-                console.log(data);
                 if (data.error) {
-                    $('.drawerOfferSuccess').hide();
-                    $('.drawerOfferError').text(data.errorMessage);
-                    $('.drawerOfferError').show();
+                    $('.topOfferSuccess').hide();
+                    $('.topOfferError').text(data.errorMessage);
+                    $('.topOfferError').show();
                     setTimeout(function () {
-                        $('.drawerOfferError').hide();
-                    }, 2000);
+                        $('.topOfferError').hide();
+                    }, 5000);
                 } else {
-                    $('.drawerOfferError').hide();
-                    $('.drawerOfferSuccess').text('Promotion applied successfully');
-                    $('.drawerOfferSuccess').show();
+                    updateCartTotals(data);
+                    $('.topOfferError').hide();
+                    $('.topOfferSuccess').text('Promotion applied successfully');
+                    $('.topOfferSuccess').show();
                     setTimeout(function () {
-                        $('.drawerOfferSuccess').hide();
-                    }, 2000);
+                        $('.topOfferSuccess').hide();
+                    }, 5000);
                 }
 
             },
             error: function () {
-                console.log('error');
+                $('.topOfferSuccess').hide();
+                $('.topOfferError').text('Something went wrong');
+                $('.topOfferError').show();
+                setTimeout(function () {
+                    $('.topOfferError').hide();
+                }, 5000);
             }
         });
     });

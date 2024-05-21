@@ -15,7 +15,7 @@ var HashMap = require('dw/util/HashMap');
 var Template = require('dw/util/Template');
 var cartTemplate = new Template('cart/productCard/cartProductCardAjax');
 var miniCartTemplate = new Template('checkout/productCard/miniCartProductCardAjax');
-var miniCartTopOfferTemplate = new Template('checkout/cart/topOffers');
+var Site = require('dw/system/Site');
 
 /**
  * Cart-AddCoupon : The Cart-AddCoupon endpoint is responsible for adding a coupon to a basket
@@ -112,11 +112,6 @@ server.append('UpdateQuantity', function (req, res, next) {
             basketModel.refreshItemsTemplateMinicart =
                 miniCartTemplate.render(context).text;
         }
-        // get top offers
-        var topOffers = cartHelper.getTopOffers(currentBasket);
-        var topOfferContext = new HashMap();
-        topOfferContext.topOffers = topOffers;
-        basketModel.topOffers = miniCartTopOfferTemplate.render(topOfferContext).text;
 
         res.setViewData(basketModel);
     }
@@ -138,13 +133,6 @@ server.append('RemoveProductLineItem', function (req, res, next) {
             cartTemplate.render(context).text;
         viewData.refreshItemsTemplateMinicart =
             miniCartTemplate.render(context).text;
-    }
-    // get top offers
-    if (currentBasket) {
-        var topOffers = cartHelper.getTopOffers(currentBasket);
-        var topOfferContext = new HashMap();
-        topOfferContext.topOffers = topOffers;
-        viewData.topOffers = miniCartTopOfferTemplate.render(topOfferContext).text;
     }
 
     next();
@@ -255,8 +243,9 @@ server.post('AddProductFromOrder', function (req, res, next) {
  */
 server.append('MiniCartShow', csrfProtection.generateToken, function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
+    var showTopOffers = Site.getCurrent().getCustomPreferenceValue('showTopOffers');
     var viewData = res.getViewData();
-    if (currentBasket) {
+    if (currentBasket && showTopOffers === true) {
         var topOffers = cartHelper.getTopOffers(currentBasket);
         viewData.topOffers = topOffers;
         res.setViewData(viewData);
