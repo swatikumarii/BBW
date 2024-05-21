@@ -18,6 +18,27 @@
                     <span class="d-block">
                         <isprint value="${order.orderNumber}" /></span>
                 </p>
+                <p>
+                    <span class="text-capitalize h-fw--normal">${Resource.msg('label.orderDetail.status', 'order', null)}</span>
+                
+                    <isif
+                        condition="${((order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || order.orderStatus.value == dw.order.Order
+                                   .ORDER_STATUS_OPEN) && order.shippingStatus.value == dw.order.Order.SHIPPING_STATUS_SHIPPED) || order
+                                   .orderStatus.value == dw.order.Order.ORDER_STATUS_COMPLETED}">
+                        <span class="summary-details order-number h-clr--black">${Resource.msg('orderstatusinclude.ordershipped', 'order', null)}</span>
+                
+                        <iselseif
+                            condition="${(order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || order.orderStatus.value == dw.order.Order
+                                       .ORDER_STATUS_OPEN) && order
+                                       .exportStatus.value == dw.order.Order.EXPORT_STATUS_EXPORTED}" />
+                        <span class="summary-details order-number h-clr--black">${Resource.msg('orderstatusinclude.orderprocessed', 'order', null)}</span>
+                
+                        <iselseif
+                            condition="${((order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || order.orderStatus.value == dw.order.Order
+                                       .ORDER_STATUS_OPEN) && order.exportStatus.value != dw.order.Order.EXPORT_STATUS_EXPORTED)}" />
+                        <span class="summary-details order-number h-clr--black">${Resource.msg('orderstatusinclude.orderplaced', 'order', null)}</span>
+                    </isif>
+                </p>
                 <p class="date-placed mb-2 mb-md-0">
                     <span class="d-block text-capitalize h-fw--normal">${Resource.msg('label.orderhistory.ordertotal', 'account', null)}</span>
                     <span class="d-block">${order.priceTotal}</span>
