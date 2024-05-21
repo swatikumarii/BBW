@@ -195,6 +195,10 @@
             .product-list-item {
                 max-width: 200px;
                 width: 200px;
+
+                @include media-down(md) {
+                    width: auto;
+                }
             }
 
             .line-item-name {
@@ -222,6 +226,11 @@
             .line-item-id {
                 font-size: 12px;
                 line-height: 10px;
+            }
+
+            @include media-down(md) {
+                max-width: 135px;
+                width: 135px;
             }
 
             @include media-down(sm) {
