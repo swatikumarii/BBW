@@ -5,23 +5,21 @@
     data-is-authenticated="${session.isCustomerAuthenticated()}">
     <div class="modal-dialog modal-dialog-centered generic-modal-container modal-large" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close modal-close-icon" data-dismiss="modal" aria-label="Close">
-                    <iscomment> <span aria-hidden="true">&times;</span> </iscomment>
-                </button>
-            </div>
-            <div class="modal-body">
+            <div class="modal-body p-0">
                 <div class="confirmation">
-                    <isif condition="${session.isCustomerAuthenticated() && session.customer.profile.firstName}"><p>${Resource.msgf('autologout.customer.name', 'account', null, session.customer.profile.firstName)}</p></isif>
+                    <isif condition="${session.isCustomerAuthenticated() && session.customer.profile.firstName}">
+                        <p class="mb-0">${Resource.msgf('autologout.customer.name', 'account', null, session.customer.profile.firstName)}
+                        </p>
+                    </isif>
                     <p>${Resource.msg('autologout.description', 'account', null)}</p>
                     <div timer id='timer' class=timer></div>
                 </div>
-                <p class="logout">${Resource.msg('autologout.session.expired', 'account', null)}</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="login-refresh" class="btn btn-secondary refresh-autologout"
+                <p class="logout h-clr--red-9 mb-0">${Resource.msg('autologout.session.expired1', 'account', null)}</p>
+                <p class="logout h-clr--red-9">${Resource.msg('autologout.session.expired2', 'account', null)}</p>
+
+                <button type="button" id="login-refresh" class="btn refresh-autologout btn-hover"
                     data-dismiss="modal">${Resource.msg('autologout.button.continue', 'account', null)}</button>
-                <button type="button" id="logout-refresh" class="btn btn-secondary refresh-autologout"
+                <button type="button" id="logout-refresh" class="btn refresh-autologout btn-hover"
                     data-dismiss="modal">${Resource.msg('autologout.button.refresh', 'account', null)}</button>
             </div>
         </div>
