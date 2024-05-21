@@ -25,7 +25,7 @@
                     <isinclude template="account/accountNav" />
                 </div>
             </div>
-            <div class="description-detail">
+            <div class="description-detail my-payment-add-new-card-form">
                 <div class="my-account-description">
                     <isif condition="${pdict.UUID}">
                         <h2>${Resource.msg('label.payment.editpayment', 'payment', null)}</h2>
