@@ -58,12 +58,12 @@
     <input type="hidden" name="loginRedirectUrl" value="${pdict.loginRedirectUrl}" />
     <input type="hidden" name="loginRedirectQueryString" value="${pdict.loginRedirectQueryString}" />
     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
-        <div class="login-btn register-btn">
+        <div class="login-btn register-btn text-center">
             <button
                 data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
                 data-callback="submitLogin"
                 data-action="submit"
-                class="btn btn-block btn-primary g-recaptcha">${Resource.msg('button.text.loginform', 'login', null)}</button>
+                class="btn btn-block btn-primary g-recaptcha text-uppercase signin-btn sign-in-btn">${Resource.msg('button.text.loginform', 'login', null)}</button>
         </div>
     <iselse/>
         <div class="login-btn register-btn text-center">
