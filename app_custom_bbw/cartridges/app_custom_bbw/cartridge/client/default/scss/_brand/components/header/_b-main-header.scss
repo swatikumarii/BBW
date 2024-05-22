@@ -393,6 +393,7 @@ header {
                                 right: 0.1875rem;
                                 line-height: 1.125rem;
                                 width: 1.75rem;
+                                cursor: pointer;
 
                                 @include media-up(sm) {
                                     top: 0.875rem;

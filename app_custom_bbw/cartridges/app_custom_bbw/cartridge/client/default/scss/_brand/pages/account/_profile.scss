@@ -183,6 +183,7 @@
                 float: left;
                 width: 25%;
                 padding: 20px 0 0;
+                margin-right: 0;
             }
 
             img {
@@ -245,6 +246,10 @@
         td.item-price {
             @include media-down(sm) {
                 padding-left: 15px;
+
+                .product-card-price {
+                    margin-left: 0;
+                }
             }
 
             .product-card-price {
@@ -299,6 +304,7 @@
                 letter-spacing: 0.12em;
                 line-height: 2.0625rem;
                 padding: 0;
+                margin-right: 0;
 
                 @include media-down(sm) {
                     float: left;
@@ -588,9 +594,24 @@
     }
 }
 
-.invalid-feedback::after {
-    background: url("../../images/account/alert-triangle-24.svg");
-    background-repeat: no-repeat;
+.invalid-feedback {
+    padding-left: 20px;
+    position: relative;
+
+    &::before {
+        background: url("../../images/account/alert-triangle-24.svg");
+        background-repeat: no-repeat;
+        content: "";
+        display: block;
+        height: 18px;
+        left: 0;
+        position: absolute;
+        text-align: left;
+        top: 0;
+        width: 18px;
+        background-position: 50%;
+        background-size: contain;
+    }
 }
 
 .paymentInstruments {
