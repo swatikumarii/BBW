@@ -104,14 +104,14 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
     $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
 });
 
-// if (!localStorage.getItem('is-country-selector')) {
-//     $('.countrySelectPopup').find('.modal').modal('show');
-//     var reqCountryDiv = $('#request-country-name');
-//     var countryCode = reqCountryDiv.data('country-code');
-//     var regionName = new Intl.DisplayNames(['en'], {type: 'region'});
-//     var countryDisplayName = regionName.of(countryCode);
-//     reqCountryDiv.value(countryDisplayName);
-// }
+if (!localStorage.getItem('is-country-selector')) {
+    $('.countrySelectPopup').find('.modal').modal('show');
+    var reqCountryDiv = $('#request-country-name');
+    var countryCode = reqCountryDiv.data('country-code');
+    var regionName = new Intl.DisplayNames(['en'], {type: 'region'});
+    var countryDisplayName = regionName.of(countryCode);
+    reqCountryDiv.value(countryDisplayName);
+}
 
 var timer;
 $('body')
