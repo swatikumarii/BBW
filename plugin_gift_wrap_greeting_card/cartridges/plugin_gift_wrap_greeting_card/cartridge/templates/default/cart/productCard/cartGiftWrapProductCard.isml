@@ -6,7 +6,7 @@
     <isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page" />
 
     <div class="gift-wrap-product-card card product-info ${bonusproductlineitem} uuid-${lineItem.UUID}"
-        data-uuid="${lineItem.UUID}" data-pid="${lineItem.id}" data-price="${lineItem.priceTotal.price}">
+        data-uuid="${lineItem.UUID}" data-pid="${lineItem.id}" data-price="${lineItem.price.sales.formatted}">
         <!--- name and remove buttons --->
         <iscomment>
             <isinclude template="cart/productCard/cartProductCardHeader" />
@@ -55,20 +55,11 @@
             <div class="col-md-5 col-3 pr-0">
                 <div class="d-flex">
                     <!---item price--->
-                    <div class="text-right w-100 line-item-price line-item-price-${lineItem.UUID}">
-                        <isset name="price" value="${lineItem.price}" scope="page" />
-                        <div class="unit-price">
-                            <isif condition="${!lineItem.appliedPromotions}">
-                                <isinclude template="/product/components/pricing/main" />
-                            <iselse>
-                                <isinclude template="/product/components/pricing/promoPrice" />
-                            </isif>
+                    <div class="text-right w-100 line-item-price line-item-total-price">
+                        <div class="item-total-${lineItem.UUID} price">
+                            <isinclude template="checkout/productCard/productCardProductTotalPrice" />
                         </div>
                     </div>
-
-                    <iscomment>
-                        <isinclude template="cart/productCard/cartProductCardProductPrice" />
-                    </iscomment>
 
                     <isif condition="${!lineItem.isBonusProductLineItem}">
 
