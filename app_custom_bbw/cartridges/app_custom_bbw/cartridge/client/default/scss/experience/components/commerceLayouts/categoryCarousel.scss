@@ -136,6 +136,10 @@
                         margin-bottom: 8px;
                     }
 
+                    &__price-link {
+                        pointer-events: none;
+                    }
+
                     .tile-body-footer {
                         margin-top: 8px;
                     }
