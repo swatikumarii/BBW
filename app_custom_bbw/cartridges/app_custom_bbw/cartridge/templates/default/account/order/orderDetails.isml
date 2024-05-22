@@ -24,33 +24,21 @@
                     <span class="summary-section-label order-number-label pr-3">${Resource.msg('label.order.number', 'order', null)}</span>
                     <span class="summary-details order-number h-clr--black">${pdict.order.orderNumber}</span>
                 </p>
-                <p>
-                    <span class="summary-section-label order-number-label pr-2">${Resource.msg('label.orderDetail.status', 'order', null)}</span>
-
-                    <isif condition="${((pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_OPEN) && pdict.order.shippingStatus.value == dw.order.Order.SHIPPING_STATUS_SHIPPED) || pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_COMPLETED}">
-                        <span class="summary-details order-number h-clr--black">${Resource.msg('orderstatusinclude.ordershipped', 'order', null)}</span>
-
-                    <iselseif condition="${(pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_OPEN) && pdict.order.shippingStatus.value != dw.order.Order.SHIPPING_STATUS_SHIPPED || pdict.order.exportStatus.value == dw.order.Order.EXPORT_STATUS_EXPORTED}" />
-                        <span class="summary-details order-number h-clr--black">${Resource.msg('orderstatusinclude.orderprocessed', 'order', null)}</span>
-
-                    <iselseif condition="${pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_CANCELLED}" />
-                        <span class="summary-details order-number h-clr--black">${Resource.msg('orderstatusinclude.ordercanceled', 'order', null)}</span>
-                    <iselse/>
-                        <span class="value">${Resource.msg('orderstatusinclude.ordercontact', 'order', null)}</span>
-                    </isif>
-                </p>
             </div>
             <div class="order-detail-with-image d-flex align-items-center">
-                <img width="25px" height="25px" alt="${Resource.msg('label.heart.filled', 'order', null)}"
-                    src="${URLUtils.staticURL('/images/account/heart-filled-32.svg')}" />
-                <span class="image-space-1"></span>
-                <img width="70px" height="70px" alt="${Resource.msg('label.shipping.truck', 'order', null)}"
-                    src="${URLUtils.staticURL('/images/account/shipping-truck-32.svg')}" />
-                <span class="image-space-2"></span>
-                <img width="60px" height="60px" alt="${Resource.msg('label.shipping.box', 'order', null)}"
-                    src="${URLUtils.staticURL('/images/account/shipping-box-32.svg')}" />
-            </div>
+                <isif condition="${pdict.order.shippingStatus.value == dw.order.Order.SHIPPING_STATUS_SHIPPED}">
+                    <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
+                        src="${URLUtils.staticURL('/images/account/icon-shipped.png')}" />
 
+                <iselseif condition="${pdict.order.exportStatus.value == dw.order.Order.EXPORT_STATUS_EXPORTED}" />
+                    <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
+                        src="${URLUtils.staticURL('/images/account/icon-processed.png')}" />
+
+                <iselseif condition="${pdict.order.exportStatus.value != dw.order.Order.EXPORT_STATUS_EXPORTED}"/>
+                    <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
+                        src="${URLUtils.staticURL('/images/account/icon-placed.png')}" />
+                </isif>
+            </div>
         </div>
     </div>
 
@@ -93,7 +81,7 @@
                                 <isset name="shippingMethod" value="${shippingModel.selectedShippingMethod.ID}"
                                     scope="page" />
                                 <span
-                                    class="shipping-method-title h-font-size--16 h-fw--semibold">${shippingModel.selectedShippingMethod.ID}</span>
+                                    class="shipping-method-title text-capitalize h-font-size--16 h-fw--semibold">${shippingModel.selectedShippingMethod.ID}</span>
                             </p>
                         </div>
                         <isinclude template="checkout/shipping/giftMessageSummary" />

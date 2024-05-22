@@ -120,9 +120,14 @@ module.exports = $.extend({}, wishlist, {
                         localStorage.setItem('addToWishListURL', url);
                     } else {
                         $('.loginPopup').find('#exampleModalLong').modal('hide');
-                        $('#add-to-wish-list').click(function () {
-                            $('.wishlist-toast.toast').toast('show');
-                        });
+                        $('.wishlist-toast.toast')
+                            .toast('show')
+                            .slideDown('slow');
+                        setTimeout(function () {
+                            $('.wishlist-toast.toast')
+                                .toast('hide')
+                                .slideUp('slow');
+                        }, 3000);
                     }
                     if (data.success) {
                         $('.remove-from-wishlist').removeClass('d-none');
