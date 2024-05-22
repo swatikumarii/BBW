@@ -33,7 +33,7 @@ server.append('Show', function (req, res, next) {
     var ContentMgr = require('dw/content/ContentMgr');
     var PageMgr = require('dw/experience/PageMgr');
     var ContentModel = require('*/cartridge/models/content');
-    var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
+    var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
 
     var viewData = res.getViewData();
 
@@ -43,9 +43,10 @@ server.append('Show', function (req, res, next) {
         var apiContent = ContentMgr.getContent(req.querystring.cid);
         if (apiContent) {
             var content = new ContentModel(apiContent, 'content/contentAsset');
-            var breadcrumbs = pageMetaHelper.getBreadcrumbForContentAsset(apiContent);
+            var breadcrumbs = commonHelper.getBreadcrumbForContentAsset(apiContent);
             if (content.template) {
                 viewData.breadcrumbs = breadcrumbs;
+                res.setViewData(viewData);
             }
         }
     }
