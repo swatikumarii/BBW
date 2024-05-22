@@ -16,6 +16,15 @@
                     <img class="product-image" src="${product.images.large[0].url}"
                         alt="${product.images.large[0].alt}" title="${product.images.large[0].title}" width="360" />
                 </div>
+                <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+                    <isif condition="${attr.id === 'style'}">
+                        <div class="row ${attr.id}-wrap" data-attr="${attr.id}">
+                            <div class="col-8">
+                                <isinclude template="product/components/variationAttribute" />
+                            </div>
+                        </div>
+                    </isif>
+                </isloop>
             </div>
             <div class="col-12 col-md-6 tablet-padding">
                 <h1 class="h-font-size--30 h-clr--black-1 h-fw--bold h-ls-02 h-lh-28"> ${Resource.msg('label.fast.fun', 'giftcards', null)}</h1>
@@ -143,11 +152,13 @@
                         </div>
 
                         <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
-                            <div class="row ${attr.id}-wrap" data-attr="${attr.id}">
-                                <div class="col-8">
-                                    <isinclude template="product/components/variationAttribute" />
+                            <isif condition="${attr.id !== 'style'}">
+                                <div class="row ${attr.id}-wrap" data-attr="${attr.id}">
+                                    <div class="col-8">
+                                        <isinclude template="product/components/variationAttribute" />
+                                    </div>
                                 </div>
-                            </div>
+                            </isif>
                         </isloop>
                     </form>
                     <isinclude template="product/components/addToCartProduct" />
