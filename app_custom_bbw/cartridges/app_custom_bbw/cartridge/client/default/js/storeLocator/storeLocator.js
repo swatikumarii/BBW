@@ -2,6 +2,20 @@
 
 var baseStore = require('base/storeLocator/storeLocator');
 
+/**
+ * @returns {boolean} True is valid else False
+ */
+function validatePostalCode() {
+    var postalCodeInput = $('#store-postal-code');
+    if (!postalCodeInput.val()) {
+        postalCodeInput.addClass('is-invalid'); // Add class for input border error
+        var errorMsg = postalCodeInput.data('missing-error');
+        $('#store-postal-code-error').text(errorMsg);
+        return false;
+    }
+    postalCodeInput.removeClass('is-invalid'); // Remove class if input is valid
+    return true;
+}
 
 /**
  * Uses google maps api to render a map
@@ -65,6 +79,14 @@ function maps() {
         bounds.extend(marker.position);
     });
     markers.forEach(function (element, index) {
+        if(index===0){
+            map.setCenter(markers[index].position);
+            infowindow.setOptions({
+                content: contents[index].infoWindowHtml
+            });
+            infowindow.open(map, markers[index]);
+            markers[index].setIcon(imageUrlPink);
+        }
         element.addListener('click', function () {
             map.setCenter(element.position);
             infowindow.setOptions({
@@ -75,6 +97,12 @@ function maps() {
                 ele.setIcon(imageUrlBlack);
             });
             element.setIcon(imageUrlPink);
+            $('.store-accordian-element-heading').addClass('collapsed');
+            $('.store-accordian-element-div').removeClass('show');
+            $('.store-accordian-element-heading:eq(' + index + ')')
+                .removeClass('collapsed');
+            $('.store-accordian-element-div:eq(' + index + ')')
+                .addClass('show');
         });
     });
     // Fit the all the store marks in the center of a minimum bounds when any store has been found.
@@ -142,6 +170,14 @@ function submitSearch(method, url, payload){
                 var a = $('div[title="' + title + '"]');
                 a.trigger('click');
             });
+            var accordianDiv = $('#' + data.stores[0].ID);
+
+            $('body,html').animate(
+                {
+                    scrollTop: accordianDiv.offset().top - 250
+                },
+                500
+            );
         }
     });
 }
@@ -296,3 +332,14 @@ function geolocation(){
     });
 }
 geolocation();
+
+/**
+ * On ready
+ */
+$(document).ready(function () {
+
+    $(document).on('blur', '#store-postal-code', function () {
+        validatePostalCode();
+    });
+
+});
