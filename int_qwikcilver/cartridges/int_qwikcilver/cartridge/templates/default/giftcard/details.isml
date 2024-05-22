@@ -17,7 +17,7 @@
                         alt="${product.images.large[0].alt}" title="${product.images.large[0].title}" width="360" />
                 </div>
             </div>
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 tablet-padding">
                 <h1 class="h-font-size--30 h-clr--black-1 h-fw--bold h-ls-02 h-lh-28"> ${Resource.msg('label.fast.fun', 'giftcards', null)}</h1>
                 <p class="m-0 h-lh-20 h-ls-01 h-clr--gray-4">
                     ${Resource.msg('label.delivery.24.hours', 'giftcards', null)}

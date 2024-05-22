@@ -130,3 +130,9 @@
 .h-lh-28 {
     line-height: 28px !important;
 }
+
+.tablet-padding {
+    @media (min-width:768px) and (max-width:1024px) {
+        padding-left: 40px;
+    }
+}
