@@ -26,26 +26,19 @@
                 </p>
             </div>
             <div class="order-detail-with-image d-flex align-items-center">
-                <isif
-                    condition="${((pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || pdict.order.orderStatus.value == dw.order.Order
-                               .ORDER_STATUS_OPEN) && pdict.order.shippingStatus.value == dw.order.Order.SHIPPING_STATUS_SHIPPED) || pdict.order
-                               .orderStatus.value == dw.order.Order.ORDER_STATUS_COMPLETED}">
+                <isif condition="${pdict.order.shippingStatus.value == dw.order.Order.SHIPPING_STATUS_SHIPPED}">
                     <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
                         src="${URLUtils.staticURL('/images/account/icon-shipped.png')}" />
-                    <iselseif
-                        condition="${(pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || pdict.order.orderStatus.value == dw.order.Order
-                                   .ORDER_STATUS_OPEN) && pdict.order.shippingStatus.value != dw.order.Order.SHIPPING_STATUS_SHIPPED || pdict.order
-                                   .exportStatus.value == dw.order.Order.EXPORT_STATUS_EXPORTED}" />
+
+                <iselseif condition="${pdict.order.exportStatus.value == dw.order.Order.EXPORT_STATUS_EXPORTED}" />
                     <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
                         src="${URLUtils.staticURL('/images/account/icon-processed.png')}" />
 
-                <iselseif condition="${((pdict.order.orderStatus.value == dw.order.Order.ORDER_STATUS_NEW || pdict.order.orderStatus.value == dw.order.Order
-                               .ORDER_STATUS_OPEN) && pdict.order.exportStatus.value != dw.order.Order.EXPORT_STATUS_EXPORTED)}"/>
+                <iselseif condition="${pdict.order.exportStatus.value != dw.order.Order.EXPORT_STATUS_EXPORTED}"/>
                     <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
                         src="${URLUtils.staticURL('/images/account/icon-placed.png')}" />
                 </isif>
             </div>
-
         </div>
     </div>
 
