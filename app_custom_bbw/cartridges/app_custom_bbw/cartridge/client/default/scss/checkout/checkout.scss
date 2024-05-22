@@ -571,6 +571,7 @@ input[type="tel"],
     overflow-y: scroll;
     padding: 20px;
     display: none;
+    z-index: 9;
 
     &:hover {
         display: block;
