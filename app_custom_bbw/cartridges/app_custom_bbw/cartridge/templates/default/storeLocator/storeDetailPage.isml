@@ -37,20 +37,31 @@
                 </address>
                 <p class="open-now d-flex align-items-center h-clr--black-1">${pdict.storeDetail.storeHours}</p>
                 <div class="phone-email d-flex">
-                    <p class="phone h-clr--black-1"><i class="fa fa-phone mr-2"></i>${pdict.storeDetail.phone}</p>
-                    <a href="#" class="email h-clr--black-1"><i
-                            class="fa fa-envelope-o mr-2"></i>${pdict.storeDetail.email}</a>
+                    <isif condition="${pdict.storeDetail.phone}">
+                        <p data-phone="${pdict.storeDetail.phone}" class="phone h-clr--black-1">
+                            <i class="fa fa-phone mr-2"></i>
+                            ${pdict.storeDetail.phone}
+                        </p>
+                    </isif>
+                    <isif condition="${pdict.storeDetail.email}">
+                        <a href="#" class="email h-clr--black-1">
+                            <i class="fa fa-envelope-o mr-2">
+                            </i>${pdict.storeDetail.email}
+                        </a>
+                    </isif>
                 </div>
-                <a class="text-uppercase get-direcetion" href="https://maps.google.com/?daddr=${pdict.storeDetail.latitude},${pdict.storeDetail.longitude}">${Resource.msg('label.get.direction', 'storeLocator', null)}</a>
+                <a class="text-uppercase get-direcetion" target="_blank" href="https://maps.google.com/?daddr=${pdict.storeDetail.latitude},${pdict.storeDetail.longitude}">${Resource.msg('label.get.direction', 'storeLocator', null)}</a>
             </div>
         </div>
         <div class="col-md-5 my-4">
             <div class="store-carousel">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img width="100%" alt="image" src="${pdict.storeDetail.imageUrl}" />
-                        </div>
+                        <isloop iterator="${pdict.storeDetail.imageUrl}" alias="imageUrl" status="loopState">
+                            <div class="carousel-item ${loopState.count == 1 ? "active" : ""}">
+                                <img width="100%" alt="image" src="${imageUrl}" />
+                            </div>
+                        </isloop>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -86,11 +97,11 @@
     </div>
     <div class="nearby-store">
         <div class="near-by-wrap">
-            <isloop iterator="${pdict.nearbyStores}" alias="nearbyStore" status="loopState">
+            <isloop iterator="${pdict.nearbyStores}" alias="nearbyStore" status="loopState" begin="0" end="2">
                 <div class="near-stores">
-                    <img alt="image" src="${nearbyStore.imageUrl}" />
+                    <img alt="image" src="${nearbyStore.imageUrl[0]}" />
                     <p class="h-clr--black-1 h-fw--semibold">${nearbyStore.name}</p>
-                    <a href="https://maps.google.com/?daddr=${nearbyStore.latitude},${nearbyStore.longitude}" class="text-uppercase get-direcetion w-100 mt-0">${Resource.msg('label.get.direction', 'storeLocator', null)}</a>
+                    <a href="https://maps.google.com/?daddr=${nearbyStore.latitude},${nearbyStore.longitude}" target="_blank" class="text-uppercase get-direcetion w-100 mt-0">${Resource.msg('label.get.direction', 'storeLocator', null)}</a>
                 </div>
             </isloop>
             

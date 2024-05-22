@@ -91,10 +91,12 @@
                     </div>
                 </div>
                 <isinclude template="cart/cartApproachingDiscount" />
-                <isinclude template="cart/greetingCard" />
-                <div class="gift-wrap-choose-div">
-                    <isinclude template="cart/giftWrap" />
-                </div>
+                <isif condition="${!(pdict.isGiftProductAvailable)}">
+                    <isinclude template="cart/greetingCard" />
+                    <div class="gift-wrap-choose-div">
+                        <isinclude template="cart/giftWrap" />
+                    </div>
+                </isif>
                 <!---totals, and checkout actions--->
                 <div class="cartFooter">
                     <div class="cartPromoCodeWrap">

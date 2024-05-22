@@ -4,6 +4,7 @@ var server = require('server');
 
 var ProductFactory = require('*/cartridge/scripts/factories/product');
 var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
+var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
 var URLUtils = require('dw/web/URLUtils');
 var BasketMgr = require('dw/order/BasketMgr');
 var Transaction = require('dw/system/Transaction');
@@ -17,6 +18,8 @@ server.get('Show', function (req, res, next) {
     var days = qwikcilverHelpers.getNoOfDaysOfMonth();
     var addToCartUrl = URLUtils.url('Cart-AddProduct');
     var removeLineItemURL = URLUtils.url('Giftcard-RemoveLineItems');
+    var breadcrumbs = productHelper.getAllBreadcrumbs(null, giftCardId, []).reverse();
+
 
     res.render('giftcard/details', {
         giftCard: giftCard,
@@ -24,7 +27,8 @@ server.get('Show', function (req, res, next) {
         months: months,
         days: days,
         addToCartUrl: addToCartUrl,
-        removeLineItemURL: removeLineItemURL
+        removeLineItemURL: removeLineItemURL,
+        breadcrumbs: breadcrumbs
     });
     next();
 });

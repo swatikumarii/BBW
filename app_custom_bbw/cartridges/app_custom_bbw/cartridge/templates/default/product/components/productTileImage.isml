@@ -124,13 +124,15 @@
                 </span>
             </a> </iscomment>
         <iscomment> Search suggestions - Add to Cart Button </iscomment>
-        <div class="suggestions__btn-add-to-cart position-absolute">
-            <button class="add-to-cart h-bg--white rounded-circle d-flex align-items-center justify-content-center"
-                data-toggle="modal" data-target="#chooseBonusProductModal" data-pid="${product.id}" ${!product.available ? "disabled" : ""}>
-                <img src="${URLUtils.staticURL('/images/icons/UI-AddToBag-plus.svg')}" alt="add-to-cart" width="30px"
-                    height="30px" />
-            </button>
-        </div>
+        <isif condition="${product.available}">
+            <div class="suggestions__btn-add-to-cart position-absolute">
+                <button class="add-to-cart h-bg--white rounded-circle d-flex align-items-center justify-content-center"
+                    data-toggle="modal" data-target="#chooseBonusProductModal" data-pid="${product.id}" ${!product.available ? "disabled" : ""}>
+                    <img src="${URLUtils.staticURL('/images/icons/UI-AddToBag-plus.svg')}" alt="add-to-cart" width="30px"
+                        height="30px" />
+                </button>
+            </div>
+        </isif>
         <isif condition="${pdict.display.showQuickView !== false}">
             <button class="b-product-tile__quickview quickview hidden-sm-down position-absolute"
                 data-href="${pdict.urls.quickView}"
