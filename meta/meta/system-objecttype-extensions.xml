@@ -2273,9 +2273,9 @@
                 <display-name xml:lang="x-default">Store Details</display-name>
                 <attribute attribute-id="storeHours" system="true"/>
                 <attribute attribute-id="storeEvents" system="true"/>
-                <attribute attribute-id="image" system="true"/>
                 <attribute attribute-id="posEnabled" system="true"/>
                 <attribute attribute-id="storeType"/>
+                <attribute attribute-id="image" system="true"/>
                 <attribute attribute-id="image2"/>
                 <attribute attribute-id="image3"/>
                 <attribute attribute-id="image4"/>
