@@ -104,7 +104,7 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
     $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
 });
 
-if (!localStorage.getItem('is-country-selector')) {
+if (!localStorage.getItem('is-country-selector') && ($('countrySelectPopup').data('country-selector-enabled'))) {
     $('.countrySelectPopup').find('.modal').modal('show');
     var reqCountryDiv = $('#request-country-name');
     var countryCode = reqCountryDiv.data('country-code');
