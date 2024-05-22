@@ -21,6 +21,10 @@ header {
                 top: 11.5rem;
             }
         }
+
+        &.no-menu-header {
+            position: relative;
+        }
     }
 
     .bbw-nav {
@@ -365,6 +369,12 @@ header {
                         .minicart-quantity {
                             transition: opacity 0.5s ease-out;
                             opacity: 0.65;
+                        }
+
+                        .mini-cart-content {
+                            .minicart-quantity {
+                                opacity: 1;
+                            }
                         }
                     }
 
