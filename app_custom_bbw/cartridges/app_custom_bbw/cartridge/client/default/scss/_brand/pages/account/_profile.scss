@@ -126,6 +126,8 @@
 
         .share-love-it-list {
             color: colour(black, 1);
+            line-height: 20px;
+            letter-spacing: 0.2px;
 
             &:hover {
                 color: colour(gray, 4);
@@ -325,6 +327,8 @@
 
                     span {
                         text-decoration: underline;
+                        line-height: 24px;
+                        letter-spacing: 0;
                     }
 
                     &:hover {
@@ -407,6 +411,7 @@
 
                     .btn-close {
                         margin-right: 1.5rem;
+                        color: colour(black, 10);
                     }
 
                     .copy-code {

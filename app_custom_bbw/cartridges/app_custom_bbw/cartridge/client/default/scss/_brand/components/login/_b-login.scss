@@ -34,6 +34,7 @@
     .modal-body {
         h4 {
             line-height: 1.25rem;
+            padding-top: 1px;
             letter-spacing: 0.005em;
         }
 
@@ -45,7 +46,12 @@
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 35px;
+        }
+
+        .modal-password {
+            margin-top: 33px;
+            margin-bottom: 36px;
         }
 
         .form-label {
@@ -60,8 +66,9 @@
         }
 
         .invalid-feedback {
-            margin-bottom: -17px;
-            margin-top: 5px;
+            margin-bottom: -35px;
+            margin-top: 4px;
+            letter-spacing: 0.21px;
         }
 
         .forgot-password {
@@ -82,11 +89,16 @@
             }
         }
 
+        .modal-login-btn {
+            font-size: 11px;
+        }
+
         .privacy-block {
-            margin: 1.25em 0 1em;
+            margin: 1.05em 0 1.7em;
 
             a {
                 text-decoration: underline;
+                padding: 5px;
 
                 &:hover {
                     text-decoration: none;
@@ -95,8 +107,8 @@
         }
 
         .register {
-            margin-top: 1.5625rem;
-            padding-top: 1em;
+            margin-top: 1em;
+            padding-top: 0.75em;
             border-top: 1px solid colour(black);
 
             h3 {
@@ -700,7 +712,7 @@
 }
 
 .login-modal-fade {
-    background: rgba(26, 26, 26, 60%);
+    background: rgb(77 77 77 / 25%);
     position: fixed;
     top: 0;
     left: 0;
