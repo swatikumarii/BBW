@@ -868,7 +868,7 @@ module.exports = function () {
                 } else {
                     updateCartTotals(data);
                     $('.topOfferError').hide();
-                    $('.topOfferSuccess').text('Promotion applied successfully');
+                    $('.topOfferSuccess').text(data.resources.couponApplied);
                     $('.topOfferSuccess').show();
                     setTimeout(function () {
                         $('.topOfferSuccess').hide();
@@ -878,7 +878,7 @@ module.exports = function () {
             },
             error: function () {
                 $('.topOfferSuccess').hide();
-                $('.topOfferError').text('Something went wrong');
+                $('.topOfferError').text($('.something-went-wrong').text());
                 $('.topOfferError').show();
                 setTimeout(function () {
                     $('.topOfferError').hide();

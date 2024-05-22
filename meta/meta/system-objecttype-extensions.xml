@@ -3068,7 +3068,7 @@
             <attribute-definition attribute-id="termsAndConditions">
                 <display-name xml:lang="x-default">Terms &amp; Conditions</display-name>
                 <type>html</type>
-                <localizable-flag>false</localizable-flag>
+                <localizable-flag>true</localizable-flag>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
