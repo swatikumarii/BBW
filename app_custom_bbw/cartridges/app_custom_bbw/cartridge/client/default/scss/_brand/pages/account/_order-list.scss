@@ -28,8 +28,12 @@
                     font-weight: map-get($font-weight, bold);
                     display: flex;
 
-                    span {
+                    .order-left-info {
                         width: 35%;
+                    }
+
+                    .order-right-info {
+                        width: 65%;
                     }
                 }
 
