@@ -12,7 +12,7 @@
         <isinclude template="product/components/imageCarousel" />
 
         <!-- Product Name and Number -->
-        <div class="col-sm-6">
+        <div class="col-sm-6 quickview-detail">
             <!-- Product Brand -->
             <isif condition="${product.brand}">
                 <div class="row">
@@ -45,10 +45,16 @@
                 </p>
             </isif>
 
-            <!-- Prices -->
-            <div class="prices">
-                <isset name="price" value="${product.price}" scope="page" />
-                <isinclude template="product/components/pricing/main" />
+            <div class="prices-add-to-cart-actions">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Prices -->
+                        <div class="prices">
+                            <isset name="price" value="${product.price}" scope="page" />
+                            <isinclude template="product/components/pricing/main" />
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="attributes">
