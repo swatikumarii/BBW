@@ -2344,6 +2344,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="giftMessage">
+                <display-name xml:lang="x-default">Gift Message</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="AdyenPayments">
@@ -2369,6 +2376,10 @@
             <attribute-group group-id="qwikcilver">
                 <display-name xml:lang="x-default">Qwikcilver</display-name>
                 <attribute attribute-id="eGiftCardData"/>
+            </attribute-group>
+            <attribute-group group-id="MigrationAttribute">
+                <display-name xml:lang="x-default">Migration Attribute</display-name>
+                <attribute attribute-id="giftMessage"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -2960,6 +2971,76 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="cancelQuantity">
+                <display-name xml:lang="x-default">Cancel Quantity</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="catalogCode">
+                <display-name xml:lang="x-default">Catalog Code</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="categoryTree">
+                <display-name xml:lang="x-default">Category Tree</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="itemStatus">
+                <display-name xml:lang="x-default">Item Status</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="receivedQuantity">
+                <display-name xml:lang="x-default">Received Quantity</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="refundQuantity">
+                <display-name xml:lang="x-default">Refund Quantity</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="replacementQuantity">
+                <display-name xml:lang="x-default">Replacement Quantity</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="returnQuantity">
+                <display-name xml:lang="x-default">Return Quantity</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="rtoQuantity">
+                <display-name xml:lang="x-default">Rto Quantity</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="shippedQuantity">
+                <display-name xml:lang="x-default">Shipped Quantity</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -2983,6 +3064,36 @@
                 <attribute attribute-id="eGiftCardNumber"/>
                 <attribute attribute-id="eGiftCardScheduleDay"/>
                 <attribute attribute-id="eGiftSender"/>
+            </attribute-group>
+            <attribute-group group-id="MigrationAttribute">
+                <display-name xml:lang="x-default">Migration Attribute</display-name>
+                <attribute attribute-id="catalogCode"/>
+                <attribute attribute-id="shippedQuantity"/>
+                <attribute attribute-id="categoryTree"/>
+                <attribute attribute-id="replacementQuantity"/>
+                <attribute attribute-id="refundQuantity"/>
+                <attribute attribute-id="returnQuantity"/>
+                <attribute attribute-id="itemStatus"/>
+                <attribute attribute-id="rtoQuantity"/>
+                <attribute attribute-id="receivedQuantity"/>
+                <attribute attribute-id="cancelQuantity"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    <type-extension type-id="Shipment">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="courierName">
+                <display-name xml:lang="x-default">Courier Name</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="MigrationAttribute">
+                <display-name xml:lang="x-default">Migration Attribute</display-name>
+                <attribute attribute-id="courierName"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
