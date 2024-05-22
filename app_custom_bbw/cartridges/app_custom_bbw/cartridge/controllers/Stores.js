@@ -157,8 +157,8 @@ server.get('Detail', server.middleware.https, cache.applyDefaultCache, consentTr
         googleMapsApi: 'https://maps.googleapis.com/maps/api/js?key=' + apiKey,
         nearbyStores: nearbyStores.stores
     };
-    viewData.storeDetail.phone = storeMgrResult.phone ? storeMgrResult.phone : '';
-    viewData.storeDetail.email = storeMgrResult.email ? storeMgrResult.email : '';
+    viewData.storeDetail.phone = storeMgrResult.phone;
+    viewData.storeDetail.email = storeMgrResult.email;
     res.render('storeLocator/storeDetailPage', viewData);
     next();
 });

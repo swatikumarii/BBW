@@ -35,10 +35,23 @@ function store(storeObject) {
         if (storeObject.storeHours) {
             this.storeHours = storeObject.storeHours.markup;
         }
-
+        var images = [];
         if (storeObject.image) {
-            this.imageUrl = storeObject.image.httpsURL.toString();
+            images.push(storeObject.image.httpsURL.toString());
         }
+        if (storeObject.custom.image2) {
+            images.push(storeObject.custom.image2.httpsURL.toString());
+        }
+        if (storeObject.custom.image3) {
+            images.push(storeObject.custom.image3.httpsURL.toString());
+        }
+        if (storeObject.custom.image4) {
+            images.push(storeObject.custom.image4.httpsURL.toString());
+        }
+        if (storeObject.custom.image5) {
+            images.push(storeObject.custom.image5.httpsURL.toString());
+        }
+        this.imageUrl = images;
     }
 }
 
