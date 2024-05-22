@@ -157,4 +157,17 @@ server.append('AddProduct', function (req, res, next) {
     next();
 });
 
+server.prepend('Show', function (req, res, next) {
+    if (enableQCeGift) {
+        var basket = BasketMgr.getCurrentBasket();
+        var viewData = res.getViewData();
+        var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(basket);
+        if (isGiftProductAvailable) {
+            viewData.isGiftProductAvailable = isGiftProductAvailable;
+        }
+        res.setViewData(viewData);
+    }
+    next();
+});
+
 module.exports = server.exports();
