@@ -6,7 +6,7 @@
     <isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page" />
 
     <div class="gift-wrap-product-card card product-info ${bonusproductlineitem} uuid-${lineItem.UUID}"
-        data-uuid="${lineItem.UUID}" data-pid="${lineItem.id}" data-price="${lineItem.priceTotal.price}">
+        data-uuid="${lineItem.UUID}" data-pid="${lineItem.id}" data-price="${lineItem.price.sales.formatted}">
         <!--- name and remove buttons --->
         <iscomment>
             <isinclude template="cart/productCard/cartProductCardHeader" />
