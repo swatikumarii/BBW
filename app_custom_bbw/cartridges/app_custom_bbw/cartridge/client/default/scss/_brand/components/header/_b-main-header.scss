@@ -21,6 +21,10 @@ header {
                 top: 11.5rem;
             }
         }
+
+        &.no-menu-header {
+            position: relative;
+        }
     }
 
     .bbw-nav {
