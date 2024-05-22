@@ -34,7 +34,7 @@
                         <td class="item-details">
                             <div class="line-item-name">
                                 <a class="product-name" title="${lineItem.productName}"
-                                    href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}"><span>${lineItem.productName}</span></a>
+                                    href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}"><span>${lineItem.fragranceName ? lineItem.fragranceName : lineItem.productName}</span></a>
                                 <isif condition="${lineItem.titlePartB}">
                                     <span class="product-number d-block">${lineItem.titlePartB}</span>
                                 </isif>

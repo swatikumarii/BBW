@@ -15,6 +15,17 @@
         </custom-attributes>
     </folder>
 
+	<folder folder-id="global-locations">
+        <display-name xml:lang="x-default">Global Locations</display-name>
+        <description xml:lang="x-default">Global Locations</description>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="isShow">false</custom-attribute>
+        </custom-attributes>
+    </folder>
+
     <content content-id="bottom-seo-3-wick-candles">
         <display-name xml:lang="x-default">Bottom Seo 3 Wick Candles</display-name>
         <description xml:lang="x-default">3 Wick Candles content</description>
@@ -5277,11 +5288,23 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="account-nav-help text-center"&gt;&#13;
             &lt;h3 class="h-clr--gray h-font-size--14 m-0"&gt;Questions? &lt;/h3&gt;&#13;
-            &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-756-5005.$include('ContactUs-Availability')$&lt;/p&gt;&#13;
+            &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-756-5005.&lt;/p&gt;&#13;
         &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-
+	<content content-id="myAccount-info-help">
+		<display-name xml:lang="x-default">My Account Info Help</display-name>
+		<description xml:lang="x-default">This shows contact number on my account page.</description>
+		<online-flag>true</online-flag>
+		<searchable-flag>false</searchable-flag>
+		<page-attributes/>
+		<custom-attributes>
+			<custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="account-nav-help text-center"&gt;&#13;
+            &lt;h3 class="h-clr--gray h-font-size--14 m-0"&gt;Questions? &lt;/h3&gt;&#13;
+            &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-756-5005.$include('ContactUs-Availability')$&lt;/p&gt;&#13;
+        &lt;/div&gt;</custom-attribute>
+		</custom-attributes>
+	</content>
     <content content-id="exchange-cannot-return">
         <display-name xml:lang="x-default">Exchange Cannot Return</display-name>
         <description xml:lang="x-default">Exchange cannot be returned</description>
@@ -5542,7 +5565,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
     </content>
 
     <content content-id="global-locations-australia">
-        <display-name xml:lang="x-default">Global Locations Australia</display-name>
+        <display-name xml:lang="x-default">Australia</display-name>
         <description xml:lang="x-default">Australia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5659,10 +5682,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-austria">
-        <display-name xml:lang="x-default">Global Locations Austria</display-name>
+        <display-name xml:lang="x-default">Austria</display-name>
         <description xml:lang="x-default">Austria store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5708,10 +5734,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-bahrain">
-        <display-name xml:lang="x-default">Global Locations Bahrain</display-name>
+        <display-name xml:lang="x-default">Bahrain</display-name>
         <description xml:lang="x-default">Bahrain store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5796,10 +5825,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-belgium">
-        <display-name xml:lang="x-default">Global Locations Belgium</display-name>
+        <display-name xml:lang="x-default">Belgium</display-name>
         <description xml:lang="x-default">Belgium store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5835,10 +5867,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-canada">
-        <display-name xml:lang="x-default">Global Locations Canada</display-name>
+        <display-name xml:lang="x-default">Canada</display-name>
         <description xml:lang="x-default">Canada store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6487,10 +6522,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-chile">
-        <display-name xml:lang="x-default">Global Locations Chile</display-name>
+        <display-name xml:lang="x-default">Chile</display-name>
         <description xml:lang="x-default">Chile store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6573,10 +6611,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-colombia">
-        <display-name xml:lang="x-default">Global Locations Colombia</display-name>
+        <display-name xml:lang="x-default">Colombia</display-name>
         <description xml:lang="x-default">Colombia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6712,10 +6753,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-costarica">
-        <display-name xml:lang="x-default">Global Locations Costarica</display-name>
+        <display-name xml:lang="x-default">Costarica</display-name>
         <description xml:lang="x-default">Costarica store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6781,10 +6825,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-curacao">
-        <display-name xml:lang="x-default">Global Locations Curacao</display-name>
+        <display-name xml:lang="x-default">Curacao</display-name>
         <description xml:lang="x-default">Curacao store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6818,10 +6865,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-dominican-republic">
-        <display-name xml:lang="x-default">Global Locations Dominican-republic</display-name>
+        <display-name xml:lang="x-default">Dominican-republic</display-name>
         <description xml:lang="x-default">Dominican-republic store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6867,10 +6917,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-ecuador">
-        <display-name xml:lang="x-default">Global Locations Ecuador</display-name>
+        <display-name xml:lang="x-default">Ecuador</display-name>
         <description xml:lang="x-default">Ecuador store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6925,10 +6978,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-egypt">
-        <display-name xml:lang="x-default">Global Locations Egypt</display-name>
+        <display-name xml:lang="x-default">Egypt</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes>
@@ -7044,10 +7100,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-elsalvador">
-        <display-name xml:lang="x-default">Global Locations Elsalvador</display-name>
+        <display-name xml:lang="x-default">Elsalvador</display-name>
         <description xml:lang="x-default">Elsalvador store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7083,10 +7142,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-greece">
-        <display-name xml:lang="x-default">Global Locations Greece</display-name>
+        <display-name xml:lang="x-default">Greece</display-name>
         <description xml:lang="x-default">Greece store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7132,10 +7194,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-guatemala">
-        <display-name xml:lang="x-default">Global Locations Guatemala</display-name>
+        <display-name xml:lang="x-default">Guatemala</display-name>
         <description xml:lang="x-default">Guatemala store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7199,10 +7264,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-hong-kong">
-        <display-name xml:lang="x-default">Global Locations Hongkong</display-name>
+        <display-name xml:lang="x-default">Hongkong</display-name>
         <description xml:lang="x-default">Hongkong store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7270,10 +7338,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-india">
-        <display-name xml:lang="x-default">Global Locations India</display-name>
+        <display-name xml:lang="x-default">India</display-name>
         <description xml:lang="x-default">India store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7544,10 +7615,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-indonesia">
-        <display-name xml:lang="x-default">Global Locations Indonesia</display-name>
+        <display-name xml:lang="x-default">Indonesia</display-name>
         <description xml:lang="x-default">Indonesia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7705,10 +7779,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 	&lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-italy">
-        <display-name xml:lang="x-default">Global Locations Italy</display-name>
+        <display-name xml:lang="x-default">Italy</display-name>
         <description xml:lang="x-default">Italy store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7784,10 +7861,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-jordan">
-        <display-name xml:lang="x-default">Global Locations Jordan</display-name>
+        <display-name xml:lang="x-default">Jordan</display-name>
         <description xml:lang="x-default">Jordan store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7848,10 +7928,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-kuwait">
-        <display-name xml:lang="x-default">Global Locations Kuwait</display-name>
+        <display-name xml:lang="x-default">Kuwait</display-name>
         <description xml:lang="x-default">Kuwait store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8072,10 +8155,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-macau">
-        <display-name xml:lang="x-default">Global Locations Macau</display-name>
+        <display-name xml:lang="x-default">Macau</display-name>
         <description xml:lang="x-default">Macau store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8111,10 +8197,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-malaysia">
-        <display-name xml:lang="x-default">Global Locations Malaysia</display-name>
+        <display-name xml:lang="x-default">Malaysia</display-name>
         <description xml:lang="x-default">Malaysia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8572,10 +8661,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-mexico">
-        <display-name xml:lang="x-default">Global Locations Mexico</display-name>
+        <display-name xml:lang="x-default">Mexico</display-name>
         <description xml:lang="x-default">Mexico store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8788,10 +8880,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-netherlands">
-        <display-name xml:lang="x-default">Global Locations Netherlands</display-name>
+        <display-name xml:lang="x-default">Netherlands</display-name>
         <description xml:lang="x-default">Netherlands store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8827,10 +8922,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-oman">
-        <display-name xml:lang="x-default">Global Locations Oman</display-name>
+        <display-name xml:lang="x-default">Oman</display-name>
         <description xml:lang="x-default">Oman store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8882,10 +8980,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-panama">
-        <display-name xml:lang="x-default">Global Locations Panama</display-name>
+        <display-name xml:lang="x-default">Panama</display-name>
         <description xml:lang="x-default">Panama store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8949,10 +9050,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-paraguay">
-        <display-name xml:lang="x-default">Global Locations Paraguay</display-name>
+        <display-name xml:lang="x-default">Paraguay</display-name>
         <description xml:lang="x-default">Paraguay store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8989,10 +9093,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-peru">
-        <display-name xml:lang="x-default">Global Locations Peru</display-name>
+        <display-name xml:lang="x-default">Peru</display-name>
         <description xml:lang="x-default">Peru store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9054,10 +9161,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-philippines">
-        <display-name xml:lang="x-default">Global Locations Philippines</display-name>
+        <display-name xml:lang="x-default">Philippines</display-name>
         <description xml:lang="x-default">Philippines store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9124,10 +9234,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-poland">
-        <display-name xml:lang="x-default">Global Locations Poland</display-name>
+        <display-name xml:lang="x-default">Poland</display-name>
         <description xml:lang="x-default">Poland store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9199,10 +9312,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-qatar">
-        <display-name xml:lang="x-default">Global Locations Qatar</display-name>
+        <display-name xml:lang="x-default">Qatar</display-name>
         <description xml:lang="x-default">Qatar store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9343,10 +9459,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-romania">
-        <display-name xml:lang="x-default">Global Locations Romania</display-name>
+        <display-name xml:lang="x-default">Romania</display-name>
         <description xml:lang="x-default">Romania store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9385,10 +9504,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-saudiarabia">
-        <display-name xml:lang="x-default">Global Locations Saudiarabia</display-name>
+        <display-name xml:lang="x-default">Saudiarabia</display-name>
         <description xml:lang="x-default">Saudiarabia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9969,10 +10091,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-singapore">
-        <display-name xml:lang="x-default">Global Locations Singapore</display-name>
+        <display-name xml:lang="x-default">Singapore</display-name>
         <description xml:lang="x-default">Singapore store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -10087,10 +10212,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-thailand">
-        <display-name xml:lang="x-default">Global Locations Thailand</display-name>
+        <display-name xml:lang="x-default">Thailand</display-name>
         <description xml:lang="x-default">Thailand store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -10315,10 +10443,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-turkey">
-        <display-name xml:lang="x-default">Global Locations Turkey</display-name>
+        <display-name xml:lang="x-default">Turkey</display-name>
         <description xml:lang="x-default">Store list turkey</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -10392,10 +10523,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-uae">
-        <display-name xml:lang="x-default">Global Locations UAE</display-name>
+        <display-name xml:lang="x-default">UAE</display-name>
         <description xml:lang="x-default">UAE store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -10960,10 +11094,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-united-kingdom">
-        <display-name xml:lang="x-default">Global Locations United-Kingdom</display-name>
+        <display-name xml:lang="x-default">United-Kingdom</display-name>
         <description xml:lang="x-default">United-Kingdom store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -11021,10 +11158,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-uruguay">
-        <display-name xml:lang="x-default">Global Locations Uruguay</display-name>
+        <display-name xml:lang="x-default">Uruguay</display-name>
         <description xml:lang="x-default">Uruguay store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -11079,10 +11219,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-venezuela">
-        <display-name xml:lang="x-default">Global Locations Venezuela</display-name>
+        <display-name xml:lang="x-default">Venezuela</display-name>
         <description xml:lang="x-default">Venezuela store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -11118,6 +11261,9 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
  <content content-id="contact-us">
