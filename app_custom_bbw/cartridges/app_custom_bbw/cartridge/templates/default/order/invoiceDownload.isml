@@ -197,9 +197,8 @@
                                         <p style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919;">
                                             ${Resource.msg('personalized.giftcard.name', 'common', null)}</p>
                                     <iselse/>
-                                        <p
-                                            style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919; margin-left:16px;">
-                                            ${lineItem.productName}</p>
+                                        <p style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919; margin-left:16px;">
+                                        ${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</p>
                                     </isif>
                                     <isif condition="${lineItem.productCategory === 'greetingCardProducts'}">
                                         <p

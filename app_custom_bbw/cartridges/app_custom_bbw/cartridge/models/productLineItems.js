@@ -203,6 +203,9 @@ function createProductLineItemsObject(allLineItems, view) {
         if (!('available' in newLineItem)){
             newLineItem.available = 'available' in product ? product.available : false;
         }
+        if (!('fragranceName' in newLineItem)){
+            newLineItem.fragranceName = 'fragranceName' in product && product.fragranceName !== '' ? product.fragranceName : false;
+        }
         newLineItem.enableNotifyMe = product.enableNotifyMe;
     });
     return [lineItems, giftWrapLineItem, greetingCardLineItem];
