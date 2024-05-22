@@ -79,6 +79,14 @@ function maps() {
         bounds.extend(marker.position);
     });
     markers.forEach(function (element, index) {
+        if(index===0){
+            map.setCenter(markers[index].position);
+            infowindow.setOptions({
+                content: contents[index].infoWindowHtml
+            });
+            infowindow.open(map, markers[index]);
+            markers[index].setIcon(imageUrlPink);
+        }
         element.addListener('click', function () {
             map.setCenter(element.position);
             infowindow.setOptions({
