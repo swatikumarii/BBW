@@ -110,7 +110,7 @@ if (!localStorage.getItem('is-country-selector')) {
     var countryCode = reqCountryDiv.data('country-code');
     var regionName = new Intl.DisplayNames(['en'], {type: 'region'});
     var countryDisplayName = regionName.of(countryCode);
-    reqCountryDiv.value(countryDisplayName);
+    reqCountryDiv.text(countryDisplayName);
 }
 
 var timer;

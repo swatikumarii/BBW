@@ -79,7 +79,7 @@ function maps() {
         bounds.extend(marker.position);
     });
     markers.forEach(function (element, index) {
-        if(index===0){
+        if(index === 0){
             map.setCenter(markers[index].position);
             infowindow.setOptions({
                 content: contents[index].infoWindowHtml
