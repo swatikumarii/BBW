@@ -2239,6 +2239,34 @@
                     </value-definition>
                 </value-definitions>
             </attribute-definition>
+            <attribute-definition attribute-id="image2">
+                <display-name xml:lang="x-default">Image 2</display-name>
+                <type>image</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="image3">
+                <display-name xml:lang="x-default">Image 3</display-name>
+                <type>image</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="image4">
+                <display-name xml:lang="x-default">Image 4</display-name>
+                <type>image</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="image5">
+                <display-name xml:lang="x-default">Image 5</display-name>
+                <type>image</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Details">
@@ -2248,6 +2276,10 @@
                 <attribute attribute-id="image" system="true"/>
                 <attribute attribute-id="posEnabled" system="true"/>
                 <attribute attribute-id="storeType"/>
+                <attribute attribute-id="image2"/>
+                <attribute attribute-id="image3"/>
+                <attribute attribute-id="image4"/>
+                <attribute attribute-id="image5"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
