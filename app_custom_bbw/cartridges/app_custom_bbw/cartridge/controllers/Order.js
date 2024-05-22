@@ -426,6 +426,8 @@ server.append(
                 commonHelper.zeroOrderEmail(viewData.order);
             }
             // redirection url
+            viewData.orderStatusVal = Order;
+            res.setViewData(viewData);
             if (order.status.value === Order.ORDER_STATUS_FAILED || order.status.value === Order.ORDER_STATUS_CANCELLED) {
                 res.redirect(URLUtils.url('Order-Failed'));
             }
