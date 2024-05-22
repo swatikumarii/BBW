@@ -8,7 +8,7 @@
             </div>
             <label class="form-control-label h-font-size--16 h-fw--bold h-clr--gray-4 text-capitalize"
                 for="store-postal-code">${Resource.msg('field.zip.postal.code', 'storeLocator', null)}</label>
-            <input autofocus type="text" class="form-control store-input" aria-required="true"
+            <input autofocus type="text" data-missing-error="${Resource.msg('error.msg.postal.code', 'storeLocator', null)}" class="form-control store-input" aria-required="true"
                 aria-describedby="store-postal-code-error" id="store-postal-code" name="postalCode" value=""
                 autocomplete="nofill" required>
             <div class="invalid-feedback" id="store-postal-code-error"></div>
