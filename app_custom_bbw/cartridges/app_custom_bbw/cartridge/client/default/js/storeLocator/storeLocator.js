@@ -97,6 +97,12 @@ function maps() {
                 ele.setIcon(imageUrlBlack);
             });
             element.setIcon(imageUrlPink);
+            $('.store-accordian-element-heading').addClass('collapsed');
+            $('.store-accordian-element-div').removeClass('show');
+            $('.store-accordian-element-heading:eq(' + index + ')')
+                .removeClass('collapsed');
+            $('.store-accordian-element-div:eq(' + index + ')')
+                .addClass('show');
         });
     });
     // Fit the all the store marks in the center of a minimum bounds when any store has been found.
