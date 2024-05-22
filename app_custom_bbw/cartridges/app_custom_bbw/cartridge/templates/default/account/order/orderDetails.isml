@@ -5,7 +5,7 @@
 </div>
 
 <div class="confirm-details">
-    <div class="card border-0">
+    <div class="card border-0 card-detail-img">
         <div class="card-head d-block d-md-flex align-items-center">
             <div class="order-detail-with-image">
                 <p>
@@ -17,15 +17,15 @@
                     <p>
                         <span
                             class="summary-section-label order-number-label pr-3">${Resource.msg('label.estimated.delivery', 'order', null)}</span>
-                        <span class="summary-details order-number">${dw.system.Site.getCurrent().getCustomPreferenceValue('estimatedDelivery')}</span>
+                        <span
+                            class="summary-details order-number">${dw.system.Site.getCurrent().getCustomPreferenceValue('estimatedDelivery')}</span>
                     </p>
                 </isif>
-                <p class="mb-0">
+                <p>
                     <span class="summary-section-label order-number-label pr-3">${Resource.msg('label.order.number', 'order', null)}</span>
                     <span class="summary-details order-number h-clr--black">${pdict.order.orderNumber}</span>
                 </p>
-            </div>
-            <div class="order-detail-with-image d-flex align-items-center">
+
                 <isif condition="${pdict.order.shippingStatus.value == dw.order.Order.SHIPPING_STATUS_SHIPPED}">
                     <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
                         src="${URLUtils.staticURL('/images/account/icon-shipped.png')}" />
@@ -34,11 +34,26 @@
                     <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
                         src="${URLUtils.staticURL('/images/account/icon-processed.png')}" />
 
-                <iselseif condition="${pdict.order.exportStatus.value != dw.order.Order.EXPORT_STATUS_EXPORTED}"/>
+                <iselseif condition="${pdict.order.exportStatus.value != dw.order.Order.EXPORT_STATUS_EXPORTED}" />
                     <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
                         src="${URLUtils.staticURL('/images/account/icon-placed.png')}" />
                 </isif>
             </div>
+        </div>
+        <div class="card-btn d-flex align-items-center justify-content-center">
+            <div class="order-detail-with-image d-flex flex-column">
+                <button id="invoiceDownload"
+                    class="invoice-download btn btn-secondary btn-hover mb-2 text-uppercase h-fw--bold"
+                    data-action="${order.invoiceDownloadUrl}">${Resource.msg('account.download', 'account', null)}
+                </button>
+
+                <button class="add-order-to-cart no-spinner btn btn-secondary btn-hover text-uppercase h-fw--bold"
+                    title="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}" data-oid="${order.orderNumber}"
+                    aria-label="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}" tabindex="0">
+                    <span>${Resource.msg('label.reorder.btn', 'order', null)}</span>
+                </button>
+            </div>
+            <div id="add-order-to-cart-snackbar">${Resource.msg('item.added.to.cart', 'common', null)}</div>
         </div>
     </div>
 
@@ -54,8 +69,8 @@
                                 ${Resource.msg('label.order.shipping.address', 'order', null)}</p>
                             <isif condition="${shippingModel.shippingAddress !== null}">
                                 <isset name="address" value="${shippingModel.shippingAddress}" scope="page" />
-                                <iselse/>
-                                    <isset name="address" value="${{}}" scope="page" />
+                            <iselse/>
+                                <isset name="address" value="${{}}" scope="page" />
                             </isif>
                             <div class="summary-details shipping">
                                 <isinclude template="checkout/addressSummary" />
@@ -99,8 +114,8 @@
                     ${Resource.msg('label.order.billing.address', 'order', null)}</p>
                 <isif condition="${pdict.order.billing.billingAddress.address !== null}">
                     <isset name="address" value="${pdict.order.billing.billingAddress.address}" scope="page" />
-                    <iselse/>
-                        <isset name="address" value="{}" scope="page" />
+                <iselse/>
+                    <isset name="address" value="{}" scope="page" />
                 </isif>
 
                 <div class="summary-details billing">
@@ -138,7 +153,7 @@
                     <isif condition="${pdict.order.totals.subTotal}">
                         <div class="row leading-lines subtotal-item">
                             <div class="col-6 start-lines">
-                                <p class="order-receipt-label"><span>${Resource.msg('label.order.subtotal', 'order', null)}</span>
+                                <p class="order-receipt-label mb-0"><span>${Resource.msg('label.order.subtotal', 'order', null)}</span>
                                 </p>
                             </div>
                             <div class="col-6 end-lines">
@@ -183,8 +198,7 @@
                         </p>
                     </div>
                     <div class="col-6 end-lines">
-                        <p class="text-right"><span
-                                class="shipping-total-cost">${pdict.order.totals.totalTax}</span>
+                        <p class="text-right"><span class="shipping-total-cost">${pdict.order.totals.totalTax}</span>
                         </p>
                     </div>
                 </div>
@@ -212,11 +226,11 @@
     <div class="grand-total leading-lines">
         <div class=" row">
             <div class="col-6 start-lines">
-                <p class="order-receipt-label"><span>${Resource.msg('label.order.grand.total', 'order', null)}</span>
+                <p class="order-receipt-label mb-0"><span>${Resource.msg('label.order.grand.total', 'order', null)}</span>
                 </p>
             </div>
             <div class="col-6 end-lines">
-                <p class="text-right"><span class="grand-total-sum">${pdict.order.totals.grandTotal}</span></p>
+                <p class="text-right mb-0"><span class="grand-total-sum">${pdict.order.totals.grandTotal}</span></p>
             </div>
         </div>
     </div>
