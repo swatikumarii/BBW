@@ -97,22 +97,36 @@
                                                             style="text-decoration:none;text-transform:uppercase;font-size:16px;color:#333;line-height:23px;margin-bottom:15px;font-family:'HelveticaNeue-Light',Arial,sans-serif"
                                                             target="_blank">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</a>
                                                     </div>
-                                                    <div style="color:#666;font-size:14px;line-height:18px">
-                                                        ${attribute.displayName}: ${attribute.displayValue}
-                                                    </div>
-                                                    <div style="color:#666;font-size:14px;line-height:18px">
-                                                        ${lineItem.volume ? lineItem.volume : ''}
-                                                    </div>
-                                                    <div style="color:#666;font-size:14px;line-height:18px">
-                                                        ${Resource.msg('email.order.itemno.label', 'confirmation', null)} ${lineItem.id}
-                                                    </div>
+                                                    <isif condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
+                                                        <div style="color:#666;font-size:14px;line-height:18px">
+                                                            ${lineItem.giftCardDetails.recipientName}
+                                                        </div>
+                                                        <isif condition="${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null}">
+                                                            <div style="color:#666;font-size:14px;line-height:18px">
+                                                                ${lineItem.giftCardDetails.eGiftMessage}
+                                                            </div>
+                                                        </isif>
+                                                        <div style="color:#666;font-size:14px;line-height:18px">
+                                                            ${lineItem.giftCardDetails.senderName}
+                                                        </div>
+                                                    <iselse/>
+                                                        <div style="color:#666;font-size:14px;line-height:18px">
+                                                            ${lineItem.titlePartB}
+                                                        </div>
+                                                        <div style="color:#666;font-size:14px;line-height:18px">
+                                                            ${lineItem.volume ? lineItem.volume : ''}
+                                                        </div>
+                                                        <div style="color:#666;font-size:14px;line-height:18px">
+                                                            ${Resource.msg('email.order.itemno.label', 'confirmation', null)} ${lineItem.id}
+                                                        </div>
+                                                    </isif>
                                                 </div>
                                             </td>
                                             <td
                                                 style="font-size:16px;color:#333;padding:50px 10px 20px;vertical-align:top;text-align:center;">
                                                 <span
                                                     style="text-transform: uppercase;">${Resource.msg('label.header.quantity', 'confirmation', null)} </span>
-                                                <isprint value="${lineItem.quantity}" />
+                                                <isprint value="${lineItem.quantity}" formatter="##" />
                                             </td>
                                             <td
                                                 style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:right">
