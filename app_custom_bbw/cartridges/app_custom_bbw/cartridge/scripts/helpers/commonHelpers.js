@@ -87,9 +87,11 @@ function getAvailability() {
     var activeClassName;
     var activeMessage;
     var date = new Date();
-    var hour = date.getHours();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var currentTime = hours + '.' + (minutes < 10 ? '0' : '') + minutes;
 
-    if (hour >= opening && hour < closing) {
+    if (currentTime >= opening && currentTime < closing) {
         activeClassName = Resource.msg('active.status.class', 'common', null);
         activeMessage = Resource.msg('active.status.message', 'common', null);
     } else {
