@@ -2,6 +2,20 @@
 
 var baseStore = require('base/storeLocator/storeLocator');
 
+/**
+ * @returns {boolean} True is valid else False
+ */
+function validatePostalCode() {
+    var postalCodeInput = $('#store-postal-code');
+    if (!postalCodeInput.val()) {
+        postalCodeInput.addClass('is-invalid'); // Add class for input border error
+        var errorMsg = postalCodeInput.data('missing-error');
+        $('#store-postal-code-error').text(errorMsg);
+        return false;
+    }
+    postalCodeInput.removeClass('is-invalid'); // Remove class if input is valid
+    return true;
+}
 
 /**
  * Uses google maps api to render a map
@@ -296,3 +310,14 @@ function geolocation(){
     });
 }
 geolocation();
+
+/**
+ * On ready
+ */
+$(document).ready(function () {
+
+    $(document).on('blur', '#store-postal-code', function () {
+        validatePostalCode();
+    });
+
+});
