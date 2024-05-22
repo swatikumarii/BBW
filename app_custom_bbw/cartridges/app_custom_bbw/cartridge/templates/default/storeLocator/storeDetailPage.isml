@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-7 store-details my-3 my-md-5" data-store-id="${pdict.storeDetail.ID}">
+        <div class="col-lg-7 store-details my-3 my-lg-5" data-store-id="${pdict.storeDetail.ID}">
             <div class="store-map-details">
                 <div class="store-name h-font-size--18 h-fw--bold h-clr--black-1 mb-4">
                     ${pdict.storeDetail.name}</div>
@@ -39,21 +39,23 @@
                 <div class="phone-email d-flex">
                     <isif condition="${pdict.storeDetail.phone}">
                         <p data-phone="${pdict.storeDetail.phone}" class="phone h-clr--black-1">
-                            <i class="fa fa-phone mr-2"></i>
+                            <img width="18px" height="18px" class="mr-2" src="${URLUtils.staticURL('/images/store-locator/phone-call.svg')}"
+                                alt="${Resource.msg('global.storename', 'common', null)}" />
                             ${pdict.storeDetail.phone}
                         </p>
                     </isif>
                     <isif condition="${pdict.storeDetail.email}">
                         <a href="#" class="email h-clr--black-1">
-                            <i class="fa fa-envelope-o mr-2">
-                            </i>${pdict.storeDetail.email}
+                            <img width="18px" height="18px" class="mr-2" src="${URLUtils.staticURL('/images/store-locator/email.svg')}"
+                                alt="${Resource.msg('global.storename', 'common', null)}" />
+                            ${pdict.storeDetail.email}
                         </a>
                     </isif>
                 </div>
                 <a class="text-uppercase get-direcetion" target="_blank" href="https://maps.google.com/?daddr=${pdict.storeDetail.latitude},${pdict.storeDetail.longitude}">${Resource.msg('label.get.direction', 'storeLocator', null)}</a>
             </div>
         </div>
-        <div class="col-md-5 my-4">
+        <div class="col-lg-5 my-4">
             <div class="store-carousel">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">

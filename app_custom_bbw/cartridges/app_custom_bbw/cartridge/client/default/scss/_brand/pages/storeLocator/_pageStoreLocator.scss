@@ -184,6 +184,7 @@
                         letter-spacing: 0.005em;
                         background-color: colour(white);
                         display: flex;
+                        cursor: pointer;
 
                         .store-head-heading {
                             span {
@@ -396,11 +397,30 @@
         padding: 15px 0;
     }
 
-    .store-details .store-map-details {
-        padding-left: 70px;
+    .store-hours {
+        width: 200px;
 
         @include media-down(sm) {
+            width: 100%;
+        }
+    }
+
+    .store-map {
+        width: 400px;
+        display: block;
+
+        @include media-down(sm) {
+            width: 100%;
+        }
+    }
+
+    .store-details .store-map-details {
+        padding-left: 70px;
+        padding-right: 70px;
+
+        @include media-down(md) {
             padding-left: 0;
+            padding-right: 0;
         }
 
         address {
@@ -439,18 +459,18 @@
         cursor: pointer;
         display: inline-block;
         letter-spacing: 0.24px;
-        line-height: 2.063rem;
         width: 165px;
         min-height: 43px;
         font-weight: 600;
         font-size: 13px;
-        padding: 0 1.0625em;
+        padding: 12px 1.0625em;
         text-align: center;
         margin-top: 10px;
     }
 
     .jumbotron.map-canvas {
         height: 600px;
+        border-radius: 0;
     }
 
     .nearby-store {
@@ -492,8 +512,67 @@
         padding-right: 70px;
         margin-top: 27px;
 
+        @include media-down(md) {
+            padding-left: 70px;
+        }
+
         @include media-down(sm) {
             padding-right: 0;
+            padding-left: 0;
+        }
+
+        .carousel-item {
+            img {
+                max-width: 500px;
+
+                @include media-down(md) {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .carousel-control-prev {
+            position: absolute;
+            left: -70px;
+            top: 45%;
+            display: inline-block;
+            opacity: 1;
+            height: 30px;
+
+            @include media-down(sm) {
+                display: none;
+            }
+
+            .carousel-control-prev-icon {
+                background-image: url("../images/store-locator/ARROW-left.svg");
+                width: 30px;
+                height: 30px;
+                background-position: 50%;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .carousel-control-next {
+            position: absolute;
+            right: -70px;
+            top: 45%;
+            display: inline-block;
+            opacity: 1;
+            height: 30px;
+
+            @include media-down(sm) {
+                display: none;
+            }
+
+            .carousel-control-next-icon {
+                background-image: url("../images/store-locator/ARROW-right.svg");
+                width: 30px;
+                height: 30px;
+                background-position: 50%;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
         }
     }
 }
