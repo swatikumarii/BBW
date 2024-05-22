@@ -43,6 +43,11 @@ function CartModel(basket) {
             'link.continue.shopping',
             'cart',
             null
+        ),
+        couponApplied: Resource.msg(
+            'coupon.applied.successfully',
+            'cart',
+            null
         )
     };
 }

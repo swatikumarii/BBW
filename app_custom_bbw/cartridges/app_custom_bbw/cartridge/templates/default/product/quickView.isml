@@ -13,7 +13,15 @@
 
         <!-- Product Name and Number -->
         <div class="col-sm-6">
-            <iscomment>Product Brand</iscomment>
+            <!-- Product Brand -->
+            <isif condition="${product.brand}">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="brand-name h-font-size--16 h-clr--black-1 text-capitalize mb-0">${product.brand}</h3>
+                    </div>
+                </div>
+            </isif>
+            <iscomment>Product Name</iscomment>
             <div class="row">
                 <div class="col">
                     <h1 class="product-name h-clr--black-1 text-capitalize h-font-size--18 h-fw--bold m-0">
@@ -29,15 +37,6 @@
                     </h1>
                 </div>
             </div>
-
-            <!-- Product Name -->
-            <isif condition="${product.brand}">
-                <div class="row">
-                    <div class="col">
-                        <h3 class="brand-name h-font-size--12 mb-0 h-clr--gray-4">${product.brand}</h3>
-                    </div>
-                </div>
-            </isif>
 
             <iscomment>Product Description</iscomment>
             <isif condition="${product.shortDescription}">
@@ -93,8 +92,8 @@
                     <div class='arrow-fill'></div>"
                     data-html="true" data-original-title="" aria-describedby="popover14574">
                     </button>
-                    </div>
-                </isloop>
+            </div>
+            </isloop>
 
 
 
@@ -116,10 +115,9 @@
                     </isif>
                 </div>
             </isloop>
-            <div class="d-sm-none row availability align-self-end " data-ready-to-order="${product.readyToOrder}"
-                data-available="${product.available}">
-                <isinclude template="product/components/availability" />
-            </div>
+
+            <!-- Product Availability -->
+            <isinclude template="product/components/productAvailability" />
 
             <div class="d-flex quantity-cart-wrap w-100">
                 <isif condition="${!product.variationAttributes && product.available}">

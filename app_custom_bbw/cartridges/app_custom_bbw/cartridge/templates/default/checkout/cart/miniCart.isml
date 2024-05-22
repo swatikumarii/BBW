@@ -63,6 +63,9 @@
                     </div>
                 </isloop>
             </div>
+            <div class="miniCartTopOffers">
+                <isinclude template="checkout/cart/topOffers" />
+            </div>
         <iselse/>
            <div class="empty-minicart h-fw--semibold h-font-size--16 text-center">
             <isslot id="empty-minicart-image-slot" context="global" description="This slot will be rendered on empty mini cart" context-object="" preview-url="" />

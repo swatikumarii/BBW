@@ -18,7 +18,7 @@ header {
 
         .search-fly-out-opacity {
             @include media-up(sm) {
-                top: 14.5rem;
+                top: 11.5rem;
             }
         }
     }
@@ -441,6 +441,6 @@ header {
     z-index: 2;
 
     @include media-up(sm) {
-        top: 14.5rem;
+        top: 11.5rem;
     }
 }
