@@ -164,6 +164,14 @@ function submitSearch(method, url, payload){
                 var a = $('div[title="' + title + '"]');
                 a.trigger('click');
             });
+            var accordianDiv = $('#' + data.stores[0].ID);
+
+            $('body,html').animate(
+                {
+                    scrollTop: accordianDiv.offset().top - 250
+                },
+                500
+            );
         }
     });
 }
