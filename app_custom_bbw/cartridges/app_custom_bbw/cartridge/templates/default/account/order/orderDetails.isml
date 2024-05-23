@@ -99,7 +99,6 @@
                                     class="shipping-method-title text-capitalize h-font-size--16 h-fw--semibold">${shippingModel.selectedShippingMethod.ID}</span>
                             </p>
                         </div>
-                        <isinclude template="checkout/shipping/giftMessageSummary" />
                     </div>
                 </isif>
             </isloop>

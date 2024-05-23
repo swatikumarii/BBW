@@ -87,7 +87,7 @@ function updateBillingAddressSelector(order, customer) {
             order.billing.billingAddress.address)
     ) {
         // show
-        $(form).attr('data-address-mode', 'details');
+        $(form).attr('data-address-mode', 'edit');
     } else {
         $(form).attr('data-address-mode', 'new');
     }

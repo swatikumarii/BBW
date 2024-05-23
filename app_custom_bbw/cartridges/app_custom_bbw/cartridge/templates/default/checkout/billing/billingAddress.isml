@@ -135,7 +135,7 @@
                 for="billingAddressCity"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.city', 'address', null)}</label>
             <input type="text" class="form-control billingAddressCity" id="billingAddressCity"
                 value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.city ? pdict.order.billing
-                    .billingAddress.address.city : ''}" <isprint value=${billingFields.city.attributes}
+                    .billingAddress.address.city : ' '}" <isprint value=${billingFields.city.attributes}
                 encoding="off" />
                 data-missing-error="${Resource.msg('error.city', 'forms', null)}"
                 autocomplete="billing address-level2">
