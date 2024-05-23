@@ -494,9 +494,17 @@
             column-gap: 80px;
 
             .near-stores {
-                img {
-                    width: 100%;
+                .img-wrap {
+                    height: 190px;
+
+                    img {
+                        width: 100%;
+                        max-width: 400px;
+                        max-height: 190px;
+                        object-fit: contain;
+                    }
                 }
+
                 @include media-down(sm) {
                     margin-top: 40px;
                 }
@@ -522,8 +530,20 @@
         }
 
         .carousel-item {
+            .item-img {
+                height: 400px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 500px;
+                object-fit: contain;
+                text-align: center;
+            }
+
             img {
-                max-width: 500px;
+                max-width: 450px;
+                height: auto;
+                max-height: 400px;
 
                 @include media-down(md) {
                     max-width: 100%;
