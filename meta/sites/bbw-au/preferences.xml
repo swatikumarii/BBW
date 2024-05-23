@@ -67,6 +67,8 @@
             <preference preference-id="liveChatEnabled">true</preference>
             <preference preference-id="emarsysEnabled">true</preference>
             <preference preference-id="emarsysMerchantID"></preference>
+            <preference preference-id="gaEnabled">true</preference>
+            <preference preference-id="gaScript"></preference>
             <preference preference-id="chatScript"></preference>
             <preference preference-id="sendProfileCompletionReminderEmail">true</preference>
             <preference preference-id="sendProfileCompletionReminderPopup">true</preference>
@@ -82,6 +84,16 @@
             <preference preference-id="gtmScriptEnabled">false</preference>
             <preference preference-id="openingTime">2</preference>
             <preference preference-id="closingTime">11</preference>
+            <preference preference-id="businessTypes">
+                [
+                    {"key" : "GY", "value" : "Gym"},
+                    {"key" : "RE", "value" : "Restaurant"},
+                    {"key" : "HT", "value" : "Hotel"},
+                    {"key" : "SB", "value" : "Small business"},
+                    {"key" : "EN", "value" : "Enterprise"},
+                    {"key" : "O" , "value" : "Other"}
+                ]
+            </preference>
             <preference preference-id="showTopOffers">false</preference>
         </development>
         <staging>
@@ -150,6 +162,16 @@
             </preference>
             <preference preference-id="openingTime">2</preference>
             <preference preference-id="closingTime">11</preference>
+            <preference preference-id="businessTypes">
+                [
+                    {"key" : "GY", "value" : "Gym"},
+                    {"key" : "RE", "value" : "Restaurant"},
+                    {"key" : "HT", "value" : "Hotel"},
+                    {"key" : "SB", "value" : "Small business"},
+                    {"key" : "EN", "value" : "Enterprise"},
+                    {"key" : "O" , "value" : "Other"}
+                ]
+            </preference>
             <preference preference-id="showTopOffers">false</preference>
         </staging>
         <production/>

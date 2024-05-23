@@ -13,7 +13,7 @@
                         <picture class="w-100 d-block content-image-block">
                             <source srcset="${pdict.useImgURL ? pdict.desktopImgUrl : pdict.desktopImage.src.desktop}"
                                 media="(min-width: 769px)" />
-                            <img class="w-100 d-block card-offers__image h-dsp--inline-block h-pos--relative"
+                            <img class="w-100 d-block card-offers__image h-dsp--inline-block h-pos--relative ${pdict.trackerClass}"
                                 src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}"
                                 alt="${pdict.alt}" width="96px" height="96px" />
                         </picture>
@@ -22,7 +22,7 @@
                             <source
                                 data-srcset="${pdict.useImgURL ? pdict.desktopImgUrl : pdict.desktopImage.src.desktop}"
                                 media="(min-width: 769px)" />
-                            <img class="w-100 d-block lazy card-offers__image h-dsp--inline-block h-pos--relative"
+                            <img class="w-100 d-block lazy card-offers__image h-dsp--inline-block h-pos--relative ${pdict.trackerClass}"
                                 data-src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}"
                                 alt="${pdict.alt}" width="96px" height="96px" />
                         </picture>

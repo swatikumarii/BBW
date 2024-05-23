@@ -16,6 +16,40 @@
     }
 }
 
+// Search Result - Page Style
+.search-results {
+    .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        @include media-btw(sm, lg) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include media-up(md) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .plp-category-swiper {
+        display: none !important;
+    }
+
+    .b-pagination__count {
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    .search-results__top-header__category-name {
+        margin-top: 0;
+        font-size: 24px;
+    }
+
+    .search__breadcrumb__category-name {
+        text-transform: capitalize;
+    }
+}
+
 .add-to-cart-messages {
     top: 9%;
     position: fixed;

@@ -257,6 +257,14 @@
     height: 100%;
 }
 
+.search-results {
+    .product-grid {
+        .product {
+            max-width: 250px;
+        }
+    }
+}
+
 .product-grid {
     .suggestions__btn-add-to-cart {
         display: none;

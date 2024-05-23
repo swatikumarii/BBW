@@ -126,7 +126,7 @@
         <iscomment> Search suggestions - Add to Cart Button </iscomment>
         <isif condition="${product.available}">
             <div class="suggestions__btn-add-to-cart position-absolute">
-                <button class="add-to-cart h-bg--white rounded-circle d-flex align-items-center justify-content-center"
+                <button class="add-to-cart-search h-bg--white rounded-circle d-flex align-items-center justify-content-center"
                     data-toggle="modal" data-target="#chooseBonusProductModal" data-pid="${product.id}" ${!product.available ? "disabled" : ""}>
                     <img src="${URLUtils.staticURL('/images/icons/UI-AddToBag-plus.svg')}" alt="add-to-cart" width="30px"
                         height="30px" />
