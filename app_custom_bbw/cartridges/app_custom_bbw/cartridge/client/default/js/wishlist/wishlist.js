@@ -163,6 +163,7 @@ module.exports = $.extend({}, wishlist, {
                         $('.remove-from-wishlist').addClass('d-none');
                         $('.add-to-wish-list').removeClass('d-none');
                         $('.remove-from-wishlist').removeClass('d-block');
+                        $('.added-to-wish-list').removeClass('d-block');
                     },
                     error: function () {
                         var $elToAppend = $('.wishlist-account-card');
@@ -188,6 +189,7 @@ module.exports = $.extend({}, wishlist, {
                             $('.remove-from-wishlist').addClass('d-none');
                             $('.add-to-wish-list').removeClass('d-none');
                             $('.remove-from-wishlist').removeClass('d-block');
+                            $('.added-to-wish-list').removeClass('d-block');
                         }
                     },
                     error: function () {
