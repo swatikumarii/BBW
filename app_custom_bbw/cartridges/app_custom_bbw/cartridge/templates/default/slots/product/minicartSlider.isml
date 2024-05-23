@@ -18,6 +18,7 @@
                             </isobject>
                         </div>
                     </isloop>
+                    <isinclude template="product/components/removeGiftLineItem" />
                 </div>
             </div>
         </div>
