@@ -7,6 +7,8 @@
 var server = require('server');
 var cache = require('*/cartridge/scripts/middleware/cache');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
+var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
+
 
 /**
  * CorporateGifting-Landing : This endpoint is used to load the Corporate Gifting page
@@ -44,6 +46,7 @@ server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentT
     var Transaction = require('dw/system/Transaction');
     var UUIDUtils = require('dw/util/UUIDUtils');
     var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+    var Site = require('dw/system/Site');
     var corporateGiftingDetails;
     var form = req.form;
     try{
@@ -61,6 +64,29 @@ server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentT
             corporateGiftingDetails.custom.topic = form.corporateGiftingTopic ? form.corporateGiftingTopic : '';
             corporateGiftingDetails.custom.question = form.corporateGiftingQuestion ? form.corporateGiftingQuestion : '';
         });
+
+        // content to be attached in the email
+        var formObject = {
+            formDetails: form
+        };
+
+        // email to, from and subject details
+        var emailObj = {
+            to: Site.current.getCustomPreferenceValue('customerServiceEmail'),
+            subject: Resource.msg(
+                'new.query.corporate.gifting',
+                'corporateGifting',
+                null
+            ),
+            from: 'no-reply@testorganization.com'
+        };
+
+        // send email
+        emailHelpers.sendEmail(
+            emailObj,
+            'mail/corporateGiftingDetails',
+            formObject
+        );
     }
     catch(e){
         res.setStatusCode(500);
