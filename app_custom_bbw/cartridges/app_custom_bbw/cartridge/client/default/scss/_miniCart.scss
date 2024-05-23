@@ -53,6 +53,14 @@
             &::-webkit-scrollbar {
                 width: 0;
             }
+
+            .comma::after {
+                content: ", ";
+            }
+
+            .comma:last-of-type::after {
+                content: "";
+            }
         }
 
         &::-webkit-scrollbar {
