@@ -1,14 +1,13 @@
 <isdecorate template="common/layout/page">
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
-       assets.addCss('/css/wishlist.css');
-        assets.addJs('/js/wishlist.js');
         assets.addJs('/js/custom.js');
         assets.addCss('/css/account/account.css');
        assets.addCss('/css/login.css');
+    assets.addCss('/css/notifyMe.css');
     </isscript>
 
-    <div class="h-maxwidth--1400 mx-auto my-account">
+    <div class="container h-maxwidth--1400 mx-auto my-account">
 
         <isif condition="${pdict.privateList}">
             <div class="row">
@@ -17,21 +16,19 @@
                 </div>
             </div>
             <iselse>
-                <div class="row">
-                    <div class="col-lg-10 col-md-8">
-                        <div class="my-account-description profile">
-                            <div class="account-profile">
-                                <div class="profile-heading">
-                                    <h1 class="title text-capitalize position-relative">
-                                        ${Resource.msgf('label.wishlist.header', 'account', null, pdict.firstName)}
-                                    </h1>
-                                </div>
+                <div class="share-view-list">
+                    <div class="my-account-description profile">
+                        <div class="account-profile">
+                            <div class="profile-heading">
+                                <h1 class="title text-capitalize position-relative">
+                                    ${Resource.msgf('label.wishlist.header', 'account', null, pdict.firstName)}
+                                </h1>
                             </div>
+                        </div>
 
-                            <div class="row justify-content-center">
-                                <div class="account-info wishlist-list">
-                                    <isinclude template="wishlist/components/wishlist" />
-                                </div>
+                        <div class="row justify-content-center">
+                            <div class="col-12 account-info wishlist-list">
+                                <isinclude template="wishlist/components/wishlist" />
                             </div>
                         </div>
                     </div>

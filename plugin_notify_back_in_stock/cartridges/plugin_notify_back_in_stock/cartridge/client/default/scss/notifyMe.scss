@@ -103,12 +103,13 @@
             text-align: center;
 
             button {
+                font-size: 16px;
+                letter-spacing: 0.24px;
+                line-height: 20px;
+                margin: 43px auto 0;
                 min-width: 320px;
                 width: auto;
-                margin: 43px auto 0;
-                font-size: 14px;
-                line-height: 24px;
-                letter-spacing: 2px;
+                font-weight: 600;
 
                 @include media-breakpoint-down(md) {
                     min-width: auto;
@@ -117,7 +118,6 @@
             }
 
             button[disabled="disabled"] {
-                opacity: 0.7;
                 pointer-events: none;
             }
         }

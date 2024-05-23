@@ -46,7 +46,8 @@
                         position: inherit;
 
                         .menu-wrap-level-1 {
-                            max-height: 500px;
+                            max-height: 0;
+                            padding: 0;
                             overflow: hidden;
                             object-fit: contain;
                             box-shadow: 0 12px 20px rgba(0, 0, 0, 15%);
@@ -120,6 +121,8 @@
                             opacity: 1;
                             visibility: visible;
                             transition: all 0.5s ease 0.15s;
+                            max-height: 500px;
+                            padding: 0.5rem 0;
                         }
                     }
                 }
@@ -485,7 +488,7 @@
                         height: auto;
                         position: absolute;
                         top: 0.5rem;
-                        right: 0.9375rem;
+                        right: 18px;
                         z-index: 30;
                         border: 0;
                         transition: all 0.3s ease-out;

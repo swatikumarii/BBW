@@ -92,6 +92,7 @@
                     {"key" : "O" , "value" : "Other"}
                 ]
             </preference>
+            <preference preference-id="showTopOffers">false</preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
@@ -169,6 +170,7 @@
                     {"key" : "O" , "value" : "Other"}
                 ]
             </preference>
+            <preference preference-id="showTopOffers">false</preference>
         </staging>
         <production/>
     </custom-preferences>

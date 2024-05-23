@@ -8,7 +8,7 @@
         <!--[if gt IE 9]><!-->
             <isinclude sf-toolkit="off" template="/common/scripts" />
         <!--<![endif]-->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzRo8iHR1RuFsw-MuDf6sshGtsFW-HuDc&libraries=places">
+        <script src="https://maps.googleapis.com/maps/api/js?key=${dw.system.Site.getCurrent().getCustomPreferenceValue('mapAPI')}&libraries=places">
         </script>
         <isinclude template="/common/htmlHead" />
         <isactivedatahead/>

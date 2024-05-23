@@ -15,6 +15,17 @@
         </custom-attributes>
     </folder>
 
+	<folder folder-id="global-locations">
+        <display-name xml:lang="x-default">Global Locations</display-name>
+        <description xml:lang="x-default">Global Locations</description>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="isShow">false</custom-attribute>
+        </custom-attributes>
+    </folder>
+
     <content content-id="bottom-seo-3-wick-candles">
         <display-name xml:lang="x-default">Bottom Seo 3 Wick Candles</display-name>
         <description xml:lang="x-default">3 Wick Candles content</description>
@@ -1728,7 +1739,9 @@
         &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Search-Show', 'cgid', 'giftcards')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#13;
 &lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
-        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a class="footer-item-link h-clr--black-1 h-font-size--16" href="$url('Home-Show')$"&gt;Diversity, Equity &amp; Inclusion&lt;/a&gt;&#13;
+        &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a class="footer-item-link h-clr--black-1 h-font-size--16" href="$url('Page-Show', 'cid', 'diversity-equity-inclusion')$"&gt;Diversity, Equity &amp; Inclusion&lt;/a&gt;&#13;
+        &lt;/li&gt;&#13;
+		   &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a class="footer-item-link h-clr--black-1 h-font-size--16" href="$url('Page-Show', 'cid', 'committed-future')$"&gt;Committed to the Future&lt;/a&gt;&#13;
         &lt;/li&gt;&#13;
     &lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
@@ -5275,11 +5288,23 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="account-nav-help text-center"&gt;&#13;
             &lt;h3 class="h-clr--gray h-font-size--14 m-0"&gt;Questions? &lt;/h3&gt;&#13;
-            &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-756-5005.$include('ContactUs-Availability')$&lt;/p&gt;&#13;
+            &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-756-5005.&lt;/p&gt;&#13;
         &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-
+	<content content-id="myAccount-info-help">
+		<display-name xml:lang="x-default">My Account Info Help</display-name>
+		<description xml:lang="x-default">This shows contact number on my account page.</description>
+		<online-flag>true</online-flag>
+		<searchable-flag>false</searchable-flag>
+		<page-attributes/>
+		<custom-attributes>
+			<custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="account-nav-help text-center"&gt;&#13;
+            &lt;h3 class="h-clr--gray h-font-size--14 m-0"&gt;Questions? &lt;/h3&gt;&#13;
+            &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-756-5005.$include('ContactUs-Availability')$&lt;/p&gt;&#13;
+        &lt;/div&gt;</custom-attribute>
+		</custom-attributes>
+	</content>
     <content content-id="exchange-cannot-return">
         <display-name xml:lang="x-default">Exchange Cannot Return</display-name>
         <description xml:lang="x-default">Exchange cannot be returned</description>
@@ -5348,6 +5373,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/html&gt;</custom-attribute>
         </custom-attributes>
     </content>
+		
 	<content content-id="global-locations">
         <display-name xml:lang="x-default">Global Locations</display-name>
         <description xml:lang="x-default">Global locations where stores are available</description>
@@ -5358,7 +5384,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
             <page-keywords xml:lang="x-default">Bath and Body Works</page-keywords>
         </page-attributes>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="content-asset"&gt;&#13;
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="h-maxwidth--1400 mx-auto"&gt;&#13;
 	&lt;!-- dwMarker="content" dwContentID="1676321fe94f2f0c68c797772f" --&gt;&#13;
 	&lt;div class="global-locations"&gt;&#13;
 		&lt;div class="locations-header" role="heading" aria-level="1"&gt;&#13;
@@ -5367,166 +5393,166 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 			&lt;div class="note"&gt;Find a Bath &amp;amp; Body Works in your part of the world!&lt;/div&gt;&#13;
 		&lt;/div&gt;&#13;
 		&lt;div class="single-accordion"&gt;&#13;
-			&lt;div class="single-accordion-title open" aria-expanded="true"&gt;North America&lt;/div&gt;&#13;
-			&lt;div class="single-accordion-content" aria-hidden="false" style="display: block;"&gt;&#13;
+			&lt;div class="single-accordion-title" data-toggle="collapse" data-target="#north-america" aria-expanded="false" aria-controls="north-america"&gt;North America&lt;/div&gt;&#13;
+			&lt;div class="single-accordion-content collapse" id="north-america"&gt;&#13;
 				&lt;ul class="countries"&gt;&#13;
 					&lt;li&gt;&lt;a class="country-label canada" href="$url('Page-Show','cid','global-locations-canada')$" title="Canada"&gt;Canada&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label mexico" href="https://www.bathandbodyworks.com/north-america/global-locations-mexico.html" title="Mexico"&gt;Mexico&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label mexico" href="$url('Page-Show','cid','global-locations-mexico')$"  title="Mexico"&gt;Mexico&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
 				&lt;/ul&gt;&#13;
 			&lt;/div&gt;&#13;
 		&lt;/div&gt;&#13;
 		&lt;div class="single-accordion"&gt;&#13;
-			&lt;div class="single-accordion-title open" aria-expanded="true"&gt;Europe &amp;amp; United Kingdom&lt;/div&gt;&#13;
-			&lt;div class="single-accordion-content" aria-hidden="false" style="display: block;"&gt;&#13;
+			&lt;div class="single-accordion-title" data-toggle="collapse" data-target="#europe-uk" aria-expanded="false" aria-controls="europe-uk"&gt;Europe &amp;amp; United Kingdom&lt;/div&gt;&#13;
+			&lt;div class="single-accordion-content collapse"  id="europe-uk"&gt;&#13;
 				&lt;ul class="countries"&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label austria" href="https://www.bathandbodyworks.com/europe/global-locations-austria.html" title="Austria"&gt;Austria&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label austria" href="$url('Page-Show','cid','global-locations-austria')$"  title="Austria"&gt;Austria&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label belgium" href="https://www.bathandbodyworks.com/europe/global-locations-belgium.html" title="Belgium"&gt;Belgium&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label belgium" href="$url('Page-Show','cid','global-locations-belgium')$" title="Belgium"&gt;Belgium&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label greece" href="https://www.bathandbodyworks.com/europe/global-locations-greece.html" title="Greece"&gt;Greece&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label greece" href="$url('Page-Show','cid','global-locations-greece')$" title="Greece"&gt;Greece&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label country-label italy" href="https://www.bathandbodyworks.com/europe/global-locations-italy.html" title="Italy"&gt;Italy&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label country-label italy" href="$url('Page-Show','cid','global-locations-italy')$" title="Italy"&gt;Italy&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label netherlands" href="https://www.bathandbodyworks.com/europe/global-locations-netherlands.html" title="Netherlands"&gt;Netherlands&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label netherlands" href="$url('Page-Show','cid','global-locations-netherlands')$" title="Netherlands"&gt;Netherlands&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label poland" href="https://www.bathandbodyworks.com/europe/global-locations-poland.html" title="Poland"&gt;Poland&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label poland" href="$url('Page-Show','cid','global-locations-poland')$" title="Poland"&gt;Poland&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label romania" href="https://www.bathandbodyworks.com/europe/global-locations-romania.html" title="Romania"&gt;Romania&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label romania" href="$url('Page-Show','cid','global-locations-romania')$" title="Romania"&gt;Romania&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label turkey" href="https://www.bathandbodyworks.com/europe/global-locations-turkey.html" title="Turkey"&gt;Turkey&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label turkey" href="$url('Page-Show','cid','global-locations-turkey')$" title="Turkey"&gt;Turkey&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label unitedkingdom" href="https://www.bathandbodyworks.com/europe/global-locations-united-kingdom.html" title="United Kingdom"&gt;United Kingdom&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label unitedkingdom" href="$url('Page-Show','cid','global-locations-united-kingdom')$" title="United Kingdom"&gt;United Kingdom&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
 				&lt;/ul&gt;&#13;
 			&lt;/div&gt;&#13;
 		&lt;/div&gt;&#13;
 		&lt;div class="single-accordion"&gt;&#13;
-			&lt;div class="single-accordion-title open" aria-expanded="true"&gt;Middle East &amp;amp; Africa&lt;/div&gt;&#13;
-			&lt;div class="single-accordion-content" aria-hidden="false" style="display: block;"&gt;&#13;
+			&lt;div class="single-accordion-title" data-toggle="collapse" data-target="#middle-east-africa" aria-expanded="false" aria-controls="middle-east-africa"&gt;Middle East &amp;amp; Africa&lt;/div&gt;&#13;
+			&lt;div class="single-accordion-content collapse"  id="middle-east-africa"&gt;&#13;
 				&lt;ul class="countries"&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label bahrain" href="https://www.bathandbodyworks.com/middle-east-and-africa/global-locations-bahrain.html" title="Bahrain"&gt;Bahrain&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label bahrain" href="$url('Page-Show','cid','global-locations-bahrain')$" title="Bahrain"&gt;Bahrain&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label egypt" href="https://www.bathandbodyworks.com/middle-east-and-africa/global-locations-egypt.html" title="Egypt"&gt;Egypt&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label egypt" href="$url('Page-Show','cid','global-locations-egypt')$" title="Egypt"&gt;Egypt&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label jordan" href="https://www.bathandbodyworks.com/middle-east-and-africa/global-locations-jordan.html" title="Jordan"&gt;Jordan&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label jordan" href="$url('Page-Show','cid','global-locations-jordan')$" title="Jordan"&gt;Jordan&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label kuwait" href="https://www.bathandbodyworks.com/middle-east-and-africa/global-locations-kuwait.html" title="Kuwait"&gt;Kuwait&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label kuwait" href="$url('Page-Show','cid','global-locations-kuwait')$" title="Kuwait"&gt;Kuwait&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;!-- &lt;li&gt;&lt;a class="country-label lebanon" href="https://www.bathandbodyworks.com/middle-east-and-africa/global-locations-lebanon.html" title="Lebanon"&gt;Lebanon&lt;/a&gt;&lt;/li&gt; --&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label oman" href="https://www.bathandbodyworks.com/middle-east-and-africa/global-locations-oman.html" title="Oman&amp;quot;&amp;quot;"&gt;Oman&lt;/a&gt;&#13;
+					&lt;!-- &lt;li&gt;&lt;a class="country-label lebanon" href="$url('Page-Show','cid','global-locations-lebanon')$" title="Lebanon"&gt;Lebanon&lt;/a&gt;&lt;/li&gt; --&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label oman" href="$url('Page-Show','cid','global-locations-oman')$" title="Oman&amp;quot;&amp;quot;"&gt;Oman&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label qatar" href="https://www.bathandbodyworks.com/middle-east-and-africa/global-locations-qatar.html" title="Qatar"&gt;Qatar&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label qatar" href="$url('Page-Show','cid','global-locations-qatar')$" title="Qatar"&gt;Qatar&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label saudiarabia" href="https://www.bathandbodyworks.com/middle-east-and-africa/global-locations-saudiarabia.html" title="Saudi Arabia"&gt;Saudi Arabia&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label saudiarabia" href="$url('Page-Show','cid','global-locations-saudiarabia')$" title="Saudi Arabia"&gt;Saudi Arabia&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label uae" href="https://www.bathandbodyworks.com/middle-east-and-africa/global-locations-uae.html" title="United Arab Emirates"&gt;United Arab Emirates&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label uae" href="$url('Page-Show','cid','global-locations-uae')$" title="United Arab Emirates"&gt;United Arab Emirates&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
 				&lt;/ul&gt;&#13;
 			&lt;/div&gt;&#13;
 		&lt;/div&gt;&#13;
 		&lt;div class="single-accordion"&gt;&#13;
-			&lt;div class="single-accordion-title open" aria-expanded="true"&gt;Latin America&lt;/div&gt;&#13;
-			&lt;div class="single-accordion-content" aria-hidden="false" style="display: block;"&gt;&#13;
+			&lt;div class="single-accordion-title" data-toggle="collapse" data-target="#latin-america" aria-expanded="false" aria-controls="latin-america"&gt;Latin America&lt;/div&gt;&#13;
+			&lt;div class="single-accordion-content collapse"  id="latin-america"&gt;&#13;
 				&lt;ul class="countries"&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label chile" href="https://www.bathandbodyworks.com/latin-america/global-locations-chile.html" title="Chile"&gt;Chile&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label chile" href="$url('Page-Show','cid','global-locations-chile')$" title="Chile"&gt;Chile&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label colombia" href="https://www.bathandbodyworks.com/latin-america/global-locations-colombia.html" title="Colombia"&gt;Colombia&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label colombia" href="$url('Page-Show','cid','global-locations-colombia')$" title="Colombia"&gt;Colombia&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label costarica" href="https://www.bathandbodyworks.com/latin-america/global-locations-costarica.html" title="Costa Rica"&gt;Costa Rica&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label costarica" href="$url('Page-Show','cid','global-locations-costarica')$"title="Costa Rica"&gt;Costa Rica&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label curacao" href="https://www.bathandbodyworks.com/latin-america/global-locations-curacao.html" title="Curaçao"&gt;Curaçao&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label curacao" href="$url('Page-Show','cid','global-locations-curacao')$" title="Curaçao"&gt;Curaçao&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label dominicanrepublic" href="https://www.bathandbodyworks.com/latin-america/global-locations-dominican-republic.html" title="Dominican Republic"&gt;Dominican Republic&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label dominicanrepublic" href="$url('Page-Show','cid','global-locations-dominican-republic')$" title="Dominican Republic"&gt;Dominican Republic&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label ecuador" href="https://www.bathandbodyworks.com/latin-america/global-locations-ecuador.html" title="Ecuador"&gt;Ecuador&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label ecuador" href="$url('Page-Show','cid','global-locations-ecuador')$"title="Ecuador"&gt;Ecuador&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label elsalvador" href="https://www.bathandbodyworks.com/latin-america/global-locations-elsalvador.html" title="El Salvador"&gt;El Salvador&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label elsalvador" href="$url('Page-Show','cid','global-locations-elsalvador')$" title="El Salvador"&gt;El Salvador&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label guatemala" href="https://www.bathandbodyworks.com/latin-america/global-locations-guatemala.html" title="Guatemala"&gt;Guatemala&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label guatemala" href="$url('Page-Show','cid','global-locations-guatemala')$" title="Guatemala"&gt;Guatemala&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label panama" href="https://www.bathandbodyworks.com/latin-america/global-locations-panama.html" title="Panama"&gt;Panama&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label panama" href="$url('Page-Show','cid','global-locations-panama')$" title="Panama"&gt;Panama&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label paraguay" href="https://www.bathandbodyworks.com/latin-america/global-locations-paraguay.html" title="Paraguay"&gt;Paraguay&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label paraguay" href="$url('Page-Show','cid','global-locations-paraguay')$" title="Paraguay"&gt;Paraguay&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label peru" href="https://www.bathandbodyworks.com/latin-america/global-locations-peru.html" title="Peru"&gt;Peru&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label peru" href="$url('Page-Show','cid','global-locations-peru')$" title="Peru"&gt;Peru&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label uruguay" href="https://www.bathandbodyworks.com/latin-america/global-locations-uruguay.html" title="Uruguay"&gt;Uruguay&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label uruguay" href="$url('Page-Show','cid','global-locations-uruguay')$" title="Uruguay"&gt;Uruguay&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label venezuela" href="https://www.bathandbodyworks.com/latin-america/global-locations-venezuela.html" title="Venezuela"&gt;Venezuela&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label venezuela" href="$url('Page-Show','cid','global-locations-venezuela')$" title="Venezuela"&gt;Venezuela&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
 				&lt;/ul&gt;&#13;
 			&lt;/div&gt;&#13;
 		&lt;/div&gt;&#13;
 		&lt;div class="single-accordion"&gt;&#13;
-			&lt;div class="single-accordion-title open" aria-expanded="true"&gt;Asia&lt;/div&gt;&#13;
-			&lt;div class="single-accordion-content" aria-hidden="false" style="display: block;"&gt;&#13;
+			&lt;div class="single-accordion-title" data-toggle="collapse" data-target="#asia" aria-expanded="false" aria-controls="asia"&gt;Asia&lt;/div&gt;&#13;
+&lt;div class="single-accordion-content collapse"  id="asia"&gt;&#13;
 				&lt;ul class="countries"&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label hongkong" href="https://www.bathandbodyworks.com/asia/global-locations-hong-kong.html" title="Hong Kong"&gt;Hong Kong&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label hongkong" href="$url('Page-Show','cid','global-locations-hong-kong')$" title="Hong Kong"&gt;Hong Kong&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label india" href="https://www.bathandbodyworks.com/asia/global-locations-india.html" title="India"&gt;India&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label india" href="$url('Page-Show','cid','global-locations-india')$" title="India"&gt;India&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label indonesia" href="https://www.bathandbodyworks.com/asia/global-locations-indonesia.html" title="Indonesia"&gt;Indonesia&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label indonesia" href="$url('Page-Show','cid','global-locations-indonesia')$" title="Indonesia"&gt;Indonesia&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label macau" href="https://www.bathandbodyworks.com/asia/global-locations-macau.html" title="Macau"&gt;Macau&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label macau" href="$url('Page-Show','cid','global-locations-macau')$" title="Macau"&gt;Macau&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label malaysia" href="https://www.bathandbodyworks.com/asia/global-locations-malaysia.html" title="Malaysia"&gt;Malaysia&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label malaysia" href="$url('Page-Show','cid','global-locations-malaysia')$" title="Malaysia"&gt;Malaysia&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label philippines" href="https://www.bathandbodyworks.com/asia/global-locations-philippines.html" title="Philippines"&gt;Philippines&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label philippines" href="$url('Page-Show','cid','global-locations-philippines')$" title="Philippines"&gt;Philippines&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label singapore" href="https://www.bathandbodyworks.com/asia/global-locations-singapore.html" title="Singapore"&gt;Singapore&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label singapore" href="$url('Page-Show','cid','global-locations-singapore')$" title="Singapore"&gt;Singapore&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label thailand" href="https://www.bathandbodyworks.com/asia/global-locations-thailand.html" title="Thailand"&gt;Thailand&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label thailand" href="$url('Page-Show','cid','global-locations-thailand')$" title="Thailand"&gt;Thailand&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
 				&lt;/ul&gt;&#13;
 			&lt;/div&gt;&#13;
-		&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
 		&lt;div class="single-accordion"&gt;&#13;
-			&lt;div class="single-accordion-title open" aria-expanded="true"&gt;Australia&lt;/div&gt;&#13;
-			&lt;div class="single-accordion-content" aria-hidden="false" style="display: block;"&gt;&#13;
+			&lt;div class="single-accordion-title"  data-toggle="collapse" data-target="#australia" aria-expanded="false" aria-controls="australia"&gt;Australia&lt;/div&gt;&#13;
+			&lt;div class="single-accordion-content collapse"  id="australia"&gt;&#13;
 				&lt;ul class="countries"&gt;&#13;
-					&lt;li&gt;&lt;a class="country-label australia" href="https://www.bathandbodyworks.com/australia/global-locations-australia.html" title="Australia"&gt;Australia&lt;/a&gt;&#13;
+					&lt;li&gt;&lt;a class="country-label australia" href="$url('Page-Show','cid','global-locations-australia')$" title="Australia"&gt;Australia&lt;/a&gt;&#13;
 &#13;
 					&lt;/li&gt;&#13;
 				&lt;/ul&gt;&#13;
@@ -5539,7 +5565,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
     </content>
 
     <content content-id="global-locations-australia">
-        <display-name xml:lang="x-default">Global Locations Australia</display-name>
+        <display-name xml:lang="x-default">Australia</display-name>
         <description xml:lang="x-default">Australia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5656,10 +5682,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-austria">
-        <display-name xml:lang="x-default">Global Locations Austria</display-name>
+        <display-name xml:lang="x-default">Austria</display-name>
         <description xml:lang="x-default">Austria store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5705,10 +5734,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-bahrain">
-        <display-name xml:lang="x-default">Global Locations Bahrain</display-name>
+        <display-name xml:lang="x-default">Bahrain</display-name>
         <description xml:lang="x-default">Bahrain store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5793,10 +5825,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-belgium">
-        <display-name xml:lang="x-default">Global Locations Belgium</display-name>
+        <display-name xml:lang="x-default">Belgium</display-name>
         <description xml:lang="x-default">Belgium store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5832,10 +5867,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-canada">
-        <display-name xml:lang="x-default">Global Locations Canada</display-name>
+        <display-name xml:lang="x-default">Canada</display-name>
         <description xml:lang="x-default">Canada store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6484,10 +6522,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-chile">
-        <display-name xml:lang="x-default">Global Locations Chile</display-name>
+        <display-name xml:lang="x-default">Chile</display-name>
         <description xml:lang="x-default">Chile store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6570,10 +6611,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-colombia">
-        <display-name xml:lang="x-default">Global Locations Colombia</display-name>
+        <display-name xml:lang="x-default">Colombia</display-name>
         <description xml:lang="x-default">Colombia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6709,10 +6753,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-costarica">
-        <display-name xml:lang="x-default">Global Locations Costarica</display-name>
+        <display-name xml:lang="x-default">Costarica</display-name>
         <description xml:lang="x-default">Costarica store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6778,10 +6825,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-curacao">
-        <display-name xml:lang="x-default">Global Locations Curacao</display-name>
+        <display-name xml:lang="x-default">Curacao</display-name>
         <description xml:lang="x-default">Curacao store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6815,10 +6865,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-dominican-republic">
-        <display-name xml:lang="x-default">Global Locations Dominican-republic</display-name>
+        <display-name xml:lang="x-default">Dominican-republic</display-name>
         <description xml:lang="x-default">Dominican-republic store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6864,10 +6917,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-ecuador">
-        <display-name xml:lang="x-default">Global Locations Ecuador</display-name>
+        <display-name xml:lang="x-default">Ecuador</display-name>
         <description xml:lang="x-default">Ecuador store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6922,10 +6978,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-egypt">
-        <display-name xml:lang="x-default">Global Locations Egypt</display-name>
+        <display-name xml:lang="x-default">Egypt</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes>
@@ -7041,10 +7100,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-elsalvador">
-        <display-name xml:lang="x-default">Global Locations Elsalvador</display-name>
+        <display-name xml:lang="x-default">Elsalvador</display-name>
         <description xml:lang="x-default">Elsalvador store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7080,10 +7142,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-greece">
-        <display-name xml:lang="x-default">Global Locations Greece</display-name>
+        <display-name xml:lang="x-default">Greece</display-name>
         <description xml:lang="x-default">Greece store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7129,10 +7194,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-guatemala">
-        <display-name xml:lang="x-default">Global Locations Guatemala</display-name>
+        <display-name xml:lang="x-default">Guatemala</display-name>
         <description xml:lang="x-default">Guatemala store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7196,10 +7264,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-hong-kong">
-        <display-name xml:lang="x-default">Global Locations Hongkong</display-name>
+        <display-name xml:lang="x-default">Hongkong</display-name>
         <description xml:lang="x-default">Hongkong store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7267,10 +7338,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-india">
-        <display-name xml:lang="x-default">Global Locations India</display-name>
+        <display-name xml:lang="x-default">India</display-name>
         <description xml:lang="x-default">India store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7541,10 +7615,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-indonesia">
-        <display-name xml:lang="x-default">Global Locations Indonesia</display-name>
+        <display-name xml:lang="x-default">Indonesia</display-name>
         <description xml:lang="x-default">Indonesia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7702,10 +7779,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 	&lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-italy">
-        <display-name xml:lang="x-default">Global Locations Italy</display-name>
+        <display-name xml:lang="x-default">Italy</display-name>
         <description xml:lang="x-default">Italy store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7781,10 +7861,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-jordan">
-        <display-name xml:lang="x-default">Global Locations Jordan</display-name>
+        <display-name xml:lang="x-default">Jordan</display-name>
         <description xml:lang="x-default">Jordan store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7845,10 +7928,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-kuwait">
-        <display-name xml:lang="x-default">Global Locations Kuwait</display-name>
+        <display-name xml:lang="x-default">Kuwait</display-name>
         <description xml:lang="x-default">Kuwait store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8069,10 +8155,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-macau">
-        <display-name xml:lang="x-default">Global Locations Macau</display-name>
+        <display-name xml:lang="x-default">Macau</display-name>
         <description xml:lang="x-default">Macau store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8108,10 +8197,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-malaysia">
-        <display-name xml:lang="x-default">Global Locations Malaysia</display-name>
+        <display-name xml:lang="x-default">Malaysia</display-name>
         <description xml:lang="x-default">Malaysia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8569,10 +8661,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-mexico">
-        <display-name xml:lang="x-default">Global Locations Mexico</display-name>
+        <display-name xml:lang="x-default">Mexico</display-name>
         <description xml:lang="x-default">Mexico store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8785,10 +8880,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-netherlands">
-        <display-name xml:lang="x-default">Global Locations Netherlands</display-name>
+        <display-name xml:lang="x-default">Netherlands</display-name>
         <description xml:lang="x-default">Netherlands store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8824,10 +8922,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-oman">
-        <display-name xml:lang="x-default">Global Locations Oman</display-name>
+        <display-name xml:lang="x-default">Oman</display-name>
         <description xml:lang="x-default">Oman store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8879,10 +8980,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-panama">
-        <display-name xml:lang="x-default">Global Locations Panama</display-name>
+        <display-name xml:lang="x-default">Panama</display-name>
         <description xml:lang="x-default">Panama store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8946,10 +9050,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-paraguay">
-        <display-name xml:lang="x-default">Global Locations Paraguay</display-name>
+        <display-name xml:lang="x-default">Paraguay</display-name>
         <description xml:lang="x-default">Paraguay store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8986,10 +9093,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-peru">
-        <display-name xml:lang="x-default">Global Locations Peru</display-name>
+        <display-name xml:lang="x-default">Peru</display-name>
         <description xml:lang="x-default">Peru store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9051,10 +9161,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-philippines">
-        <display-name xml:lang="x-default">Global Locations Philippines</display-name>
+        <display-name xml:lang="x-default">Philippines</display-name>
         <description xml:lang="x-default">Philippines store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9121,10 +9234,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-poland">
-        <display-name xml:lang="x-default">Global Locations Poland</display-name>
+        <display-name xml:lang="x-default">Poland</display-name>
         <description xml:lang="x-default">Poland store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9196,10 +9312,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-qatar">
-        <display-name xml:lang="x-default">Global Locations Qatar</display-name>
+        <display-name xml:lang="x-default">Qatar</display-name>
         <description xml:lang="x-default">Qatar store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9340,10 +9459,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-romania">
-        <display-name xml:lang="x-default">Global Locations Romania</display-name>
+        <display-name xml:lang="x-default">Romania</display-name>
         <description xml:lang="x-default">Romania store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9382,10 +9504,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-saudiarabia">
-        <display-name xml:lang="x-default">Global Locations Saudiarabia</display-name>
+        <display-name xml:lang="x-default">Saudiarabia</display-name>
         <description xml:lang="x-default">Saudiarabia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9966,10 +10091,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-singapore">
-        <display-name xml:lang="x-default">Global Locations Singapore</display-name>
+        <display-name xml:lang="x-default">Singapore</display-name>
         <description xml:lang="x-default">Singapore store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -10084,10 +10212,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-thailand">
-        <display-name xml:lang="x-default">Global Locations Thailand</display-name>
+        <display-name xml:lang="x-default">Thailand</display-name>
         <description xml:lang="x-default">Thailand store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -10312,10 +10443,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-turkey">
-        <display-name xml:lang="x-default">Global Locations Turkey</display-name>
+        <display-name xml:lang="x-default">Turkey</display-name>
         <description xml:lang="x-default">Store list turkey</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -10389,10 +10523,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-uae">
-        <display-name xml:lang="x-default">Global Locations UAE</display-name>
+        <display-name xml:lang="x-default">UAE</display-name>
         <description xml:lang="x-default">UAE store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -10957,10 +11094,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-united-kingdom">
-        <display-name xml:lang="x-default">Global Locations United-Kingdom</display-name>
+        <display-name xml:lang="x-default">United-Kingdom</display-name>
         <description xml:lang="x-default">United-Kingdom store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -11018,10 +11158,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-uruguay">
-        <display-name xml:lang="x-default">Global Locations Uruguay</display-name>
+        <display-name xml:lang="x-default">Uruguay</display-name>
         <description xml:lang="x-default">Uruguay store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -11076,10 +11219,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-venezuela">
-        <display-name xml:lang="x-default">Global Locations Venezuela</display-name>
+        <display-name xml:lang="x-default">Venezuela</display-name>
         <description xml:lang="x-default">Venezuela store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -11115,6 +11261,9 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
  <content content-id="contact-us">
@@ -11199,6 +11348,10 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         max-width: 365px;&#13;
     }&#13;
 }&#13;
+ .bg-img {&#13;
+        background-image: url("images/contact-us/customer_bg_img.png?$staticlink$");&#13;
+        height: 100px;&#13;
+    }&#13;
 &#13;
     .contact-us img.responsive-img,&#13;
     video.responsive-video {&#13;
@@ -12224,6 +12377,619 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 	&lt;p class="confirmation-note"&gt;If you have any additional informaton, questions or specific
 		&lt;br&gt;preferences, please feel free to share them with us at &lt;a href="gift@bathandbodyworks.com" class="h-clr--blue"&gt;gift@bathandbodyworks.com&lt;/a&gt;
 	&lt;/p&gt;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+	<content content-id="notFound-category">
+       <display-name xml:lang="x-default">Page Error</display-name>
+       <online-flag>true</online-flag>
+       <searchable-flag>false</searchable-flag>
+       <page-attributes />
+       <custom-attributes>
+              <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container py-5"&gt;&#13;
+                     &lt;h2 class="text-center h-fw--bold h-font-size--24 mb-5 mt-4"&gt;Shop by Category&lt;/h2&gt;&#13;
+                     &#13;
+                     &lt;div class="shop-category-details"&gt;&#13;
+                     &lt;div class="grid-layout__items-row"&gt;&#13;
+                     &lt;div class="category-items position-relative "&gt;&#13;
+                     &lt;div class="row no-gutters"&gt;&#13;
+                     &lt;div class="col px-0"&gt;&#13;
+                     &lt;div class="top "&gt;&lt;a&#13;
+                     class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
+                     &#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt;&#13;
+                     &lt;picture class="w-100 d-block content-image-block d-block"&gt;&#13;
+                     &lt;source&#13;
+                     data-srcset="images/errorpage/category1.jpg?$staticlink$"&#13;
+                     media="(min-width: 769px)"&#13;
+                     srcset="images/errorpage/category1.jpg?$staticlink$" /&gt;&#13;
+                     &lt;img alt="" class="w-100 d-block content-image"&#13;
+                     data-src="images/errorpage/category1.jpg?$staticlink$"&#13;
+                     data-was-processed="true" src="images/errorpage/category1.jpg?$staticlink$"&#13;
+                     title="" /&gt;&#13;
+                     &lt;/picture&gt;&#13;
+                     &lt;/a&gt;&#13;
+                     &lt;a class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
+                     &#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt; &lt;/a&gt;&#13;
+                     &#13;
+                     &lt;div class="w-100 d-block align-items-center text-center"&gt;&#13;
+                     &lt;div class="col-12 px-0"&gt;&lt;a class="text-center"&#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt;&lt;span&gt; &lt;span&#13;
+                     class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold"&gt;Body&#13;
+                     Care&lt;/span&gt; &lt;/span&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &#13;
+                     &lt;div class="category-items position-relative "&gt;&#13;
+                     &lt;div class="row no-gutters"&gt;&#13;
+                     &lt;div class="col px-0"&gt;&#13;
+                     &lt;div class="top "&gt;&lt;a&#13;
+                     class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
+                     &#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt;&#13;
+                     &lt;picture class="w-100 d-block content-image-block d-block"&gt;&#13;
+                     &lt;source&#13;
+                     data-srcset="images/errorpage/category2.jpg?$staticlink$"&#13;
+                     media="(min-width: 769px)"&#13;
+                     srcset="images/errorpage/category2.jpg?$staticlink$" /&gt;&#13;
+                     &lt;img alt="" class="w-100 d-block content-image"&#13;
+                     data-src="images/errorpage/category2.jpg?$staticlink$"&#13;
+                     data-was-processed="true" src="images/errorpage/category2.jpg?$staticlink$"&#13;
+                     title="" /&gt;&#13;
+                     &lt;/picture&gt;&#13;
+                     &lt;/a&gt;&#13;
+                     &lt;a class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
+                     &#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt; &lt;/a&gt;&#13;
+                     &#13;
+                     &lt;div class="w-100 d-block align-items-center text-center"&gt;&#13;
+                     &lt;div class="col-12 px-0"&gt;&lt;a class="text-center"&#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt;&lt;span&gt; &lt;span&#13;
+                     class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18
+                     h-fw--semibold"&gt;Candles&lt;/span&gt;&#13;
+                     &lt;/span&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &#13;
+                     &lt;div class="category-items position-relative "&gt;&#13;
+                     &lt;div class="row no-gutters"&gt;&#13;
+                     &lt;div class="col px-0"&gt;&#13;
+                     &lt;div class="top "&gt;&lt;a&#13;
+                     class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
+                     &#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt;&#13;
+                     &lt;picture class="w-100 d-block content-image-block d-block"&gt;&#13;
+                     &lt;source&#13;
+                     data-srcset="images/errorpage/category3.jpg?$staticlink$"&#13;
+                     media="(min-width: 769px)"&#13;
+                     srcset="images/errorpage/category3.jpg?$staticlink$" /&gt;&#13;
+                     &lt;img alt="" class="w-100 d-block content-image"&#13;
+                     data-src="images/errorpage/category3.jpg?$staticlink$"&#13;
+                     data-was-processed="true" src="images/errorpage/category3.jpg?$staticlink$"&#13;
+                     title="" /&gt;&#13;
+                     &lt;/picture&gt;&#13;
+                     &lt;/a&gt;&#13;
+                     &lt;a class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
+                     &#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt; &lt;/a&gt;&#13;
+                     &#13;
+                     &lt;div class="w-100 d-block align-items-center text-center"&gt;&#13;
+                     &lt;div class="col-12 px-0"&gt;&lt;a class="text-center"&#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt;&lt;span&gt; &lt;span&#13;
+                     class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18
+                     h-fw--semibold"&gt;Wallflowers&lt;/span&gt;&#13;
+                     &lt;/span&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &#13;
+                     &lt;div class="category-items position-relative "&gt;&#13;
+                     &lt;div class="row no-gutters"&gt;&#13;
+                     &lt;div class="col px-0"&gt;&#13;
+                     &lt;div class="top "&gt;&lt;a&#13;
+                     class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
+                     &#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt;&#13;
+                     &lt;picture class="w-100 d-block content-image-block d-block"&gt;&#13;
+                     &lt;source&#13;
+                     data-srcset="images/errorpage/category4.jpg?$staticlink$"&#13;
+                     media="(min-width: 769px)"&#13;
+                     srcset="images/errorpage/category4.jpg?$staticlink$" /&gt;&#13;
+                     &lt;img alt="" class="w-100 d-block content-image"&#13;
+                     data-src="images/errorpage/category4.jpg?$staticlink$"&#13;
+                     data-was-processed="true" src="images/errorpage/category4.jpg?$staticlink$"&#13;
+                     title="" /&gt;&#13;
+                     &lt;/picture&gt;&#13;
+                     &lt;/a&gt;&#13;
+                     &lt;a class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
+                     &#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt; &lt;/a&gt;&#13;
+                     &#13;
+                     &lt;div class="w-100 d-block align-items-center text-center"&gt;&#13;
+                     &lt;div class="col-12 px-0"&gt;&lt;a class="text-center"&#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt;&lt;span&gt; &lt;span&#13;
+                     class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold"&gt;Hand&#13;
+                     Soaps&lt;/span&gt; &lt;/span&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &#13;
+                     &lt;div class="category-items position-relative "&gt;&#13;
+                     &lt;div class="row no-gutters"&gt;&#13;
+                     &lt;div class="col px-0"&gt;&#13;
+                     &lt;div class="top "&gt;&lt;a&#13;
+                     class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
+                     &#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt;&#13;
+                     &lt;picture class="w-100 d-block content-image-block d-block"&gt;&#13;
+                     &lt;source&#13;
+                     data-srcset="images/errorpage/category5.jpg?$staticlink$"&#13;
+                     media="(min-width: 769px)"&#13;
+                     srcset="images/errorpage/category5.jpg?$staticlink$" /&gt;&#13;
+                     &lt;img alt="" class="w-100 d-block content-image"&#13;
+                     data-src="images/errorpage/category5.jpg?$staticlink$"&#13;
+                     data-was-processed="true" src="images/errorpage/category5.jpg?$staticlink$"&#13;
+                     title="" /&gt;&#13;
+                     &lt;/picture&gt;&#13;
+                     &lt;/a&gt;&#13;
+                     &lt;a class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
+                     &#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt; &lt;/a&gt;&#13;
+                     &#13;
+                     &lt;div class="w-100 d-block align-items-center text-center"&gt;&#13;
+                     &lt;div class="col-12 px-0"&gt;&lt;a class="text-center"&#13;
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt;&lt;span&gt; &lt;span&#13;
+                     class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18
+                     h-fw--semibold"&gt;Travel&lt;/span&gt;&#13;
+                     &lt;/span&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &#13;
+                     &lt;div class="category-items position-relative "&gt;&#13;
+                     &lt;div class="row no-gutters"&gt;&#13;
+                     &lt;div class="col px-0"&gt;&#13;
+                     &lt;div class="top "&gt;&lt;a class="image-link clpShopNowBtn w-100 h-100 d-block position-relative
+                     overflow-hidden"&#13;
+                     href="${URLUtils.url('Home-Show')}" hreflang="default"&gt;&#13;
+                     &lt;picture class="w-100 d-block content-image-block d-block"&gt;&#13;
+                     &lt;source data-srcset="images/errorpage/category7.jpg?$staticlink$" media="(min-width:
+                     769px)"&#13;
+                     srcset="images/errorpage/category7.jpg?$staticlink$" /&gt;&#13;
+                     &lt;img alt="" class="w-100 d-block content-image"&#13;
+                     data-src="images/errorpage/category7.jpg?$staticlink$" data-was-processed="true"&#13;
+                     src="images/errorpage/category7.jpg?$staticlink$" title="" /&gt;&#13;
+                     &lt;/picture&gt;&#13;
+                     &lt;/a&gt;&#13;
+                     &lt;a class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"
+                     href="${URLUtils.url('Home-Show')}"&#13;
+                     hreflang="default"&gt; &lt;/a&gt;&#13;
+                     &#13;
+                     &lt;div class="w-100 d-block align-items-center text-center"&gt;&#13;
+                     &lt;div class="col-12 px-0"&gt;&lt;a class="text-center" href="${URLUtils.url('Home-Show')}"
+                     hreflang="default"&gt;&lt;span&gt; &lt;span&#13;
+                     class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold"&gt;Gifts&#13;
+                     Sets&lt;/span&gt; &lt;/span&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;style type="text/css"&gt;&#13;
+                     .shop-category-details {&#13;
+                     display: grid;&#13;
+                     grid-template-columns: 2fr;&#13;
+                     }&#13;
+                     .grid-layout__items-row {&#13;
+                     display: flex;&#13;
+                     justify-content: center;&#13;
+                     gap: 27px;&#13;
+                     }&#13;
+                     @media only screen and (max-width: 600px) {&#13;
+                     .grid-layout__items-row {&#13;
+                     display: block;&#13;
+                     }&#13;
+                     }&#13;
+                     &lt;/style&gt;</custom-attribute>
+       </custom-attributes>
+</content>
+  
+
+<content content-id="notFound-error">
+       <display-name xml:lang="x-default">Page Error</display-name>
+       <online-flag>true</online-flag>
+       <searchable-flag>false</searchable-flag>
+       <page-attributes />
+       <custom-attributes>
+              <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container text-center"&gt;&#13;
+                     &lt;h1 class="m-font-justlovely--normal h-clr--pink h-font-size--80 mt-5 mb-5 pt-5"&gt;Wh ps! We c uln find
+                     he page!&lt;/h1&gt;&#13;
+                     &lt;p class="h-clr--black-3 h-font-size--20 mb-5"&gt;This page doesn’t exist or was removed &lt;br
+                     /&gt;&#13;
+                     Just breath in and out while we suggest you to explore other pages&lt;/p&gt;&#13;
+                     &lt;div&gt;&#13;
+                     &lt;button type="button" class="edit text-uppercase" data-href="${URLUtils.url('Home-Show')}"&#13;
+                     data-id="${address.address.ID}" data-toggle="modal" data-target="#address-form"&gt;&#13;
+                     Shop Now&#13;
+                     &lt;/button&gt;&#13;
+                     &lt;button type="button" class="edit text-uppercase" data-href="${URLUtils.url('Home-Show')}"&#13;
+                     data-id="${address.address.ID}" data-toggle="modal" data-target="#address-form"&gt;&#13;
+                     Shop Now&#13;
+                     &lt;/button&gt;&#13;
+                     &lt;button type="button" class="edit text-uppercase" data-href="${URLUtils.url('Home-Show')}"&#13;
+                     data-id="${address.address.ID}" data-toggle="modal" data-target="#address-form"&gt;&#13;
+                     Shop Now&#13;
+                     &lt;/button&gt;&lt;button type="button" class="edit text-uppercase"&#13;
+                     data-href="${URLUtils.url('Home-Show')}" data-id="${address.address.ID}" data-toggle="modal"&#13;
+                     data-target="#address-form"&gt;&#13;
+                     Shop Now&#13;
+                     &lt;/button&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;/div&gt;&#13;
+                     &lt;style&gt;&#13;
+                     .edit {&#13;
+                     border: 1px solid #365fa1;&#13;
+                     background-color: white;&#13;
+                     padding: 7px 25px;&#13;
+                     font-size: 16px;&#13;
+                     color: #365fa1;&#13;
+                     font-weight: 600;&#13;
+                     margin-left: 21px;&#13;
+                     }&#13;
+                     &lt;/style&gt;</custom-attribute>
+       </custom-attributes>
+</content>
+
+<content content-id="committed-future">
+        <display-name xml:lang="x-default">Committed to the Future</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+    &lt;div class="no-left-nav"&gt;&#13;
+        &lt;div class="py-3"&gt;&#13;
+            &lt;!---Breadcrumbs---&gt;&#13;
+            &lt;isinclude template="components/breadcrumbs/pageBreadcrumbs" /&gt;&#13;
+        &lt;/div&gt;&#13;
+        &lt;div class="landing-top-banner"&gt;&#13;
+            &lt;h1 class="ds-subcategory-header h-fw--bold h-font-size--24"&gt;Committed to the Future&lt;/h1&gt;&#13;
+        &lt;/div&gt;&#13;
+&#13;
+        &lt;div class="bottom-content"&gt;&#13;
+            &lt;div class="design-system ds-container banner-module"&gt;&#13;
+                &lt;div class="banner-component"&gt;&#13;
+                    &lt;div class="ds-link-image"&gt;&#13;
+                        &lt;div class="ds-live-text-image-container"&gt;&#13;
+                            &lt;div class="ds-live-text-image "&gt;&#13;
+                                &lt;picture&gt;&#13;
+                                    &lt;source media="(min-width:600px)"&#13;
+                                        srcset="images/committed-future/committed1.jpg?$staticlink$" /&gt;&#13;
+                                    &lt;img alt="Committed to the future by focusing on what matters most"&#13;
+                                        src="images/committed-future/committed1.jpg?$staticlink$" class="w-100" /&gt;&#13;
+                                &lt;/picture&gt;&#13;
+                            &lt;/div&gt;&#13;
+                        &lt;/div&gt;&#13;
+&#13;
+                        &lt;div class="ds-linkcontainer"&gt;&#13;
+                            &lt;div class="ds-paragraph h-font-size--18"&gt;We're on a journey towards positive change, that includes making&#13;
+                                sure that the things we do count in the places and spaces that really matter &amp;ndash;our&#13;
+                                people, communities &amp;amp; planet. From engaged people to thoughtful products and&#13;
+                                brighter spaces, we&amp;rsquo;re taking care of the things that matter most.&lt;/div&gt;&#13;
+                        &lt;/div&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+&#13;
+            &lt;div class="design-system ds-container banner-module"&gt;&#13;
+                &lt;div class="banner-component"&gt;&#13;
+                    &lt;div class="ds-link-image"&gt;&#13;
+                        &lt;div class="ds-live-text-image-container"&gt;&#13;
+                            &lt;div class="ds-live-text-image "&gt;&#13;
+                                &lt;picture&gt;&#13;
+                                    &lt;source media="(min-width:600px)"&#13;
+                                        srcset="images/committed-future/committed2.jpg?$staticlink$" /&gt;&#13;
+                                    &lt;img alt="We're committed to…"&#13;
+                                        src="images/committed-future/committed2.jpg?$staticlink$" class="w-100" /&gt;&#13;
+                                &lt;/picture&gt;&#13;
+                            &lt;/div&gt;&#13;
+                        &lt;/div&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+&#13;
+            &lt;div class="design-system ds-container banner-module"&gt;&#13;
+                &lt;div class="banner-component"&gt;&#13;
+                    &lt;div class="ds-link-image"&gt;&#13;
+                        &lt;div class="ds-live-text-image-container"&gt;&#13;
+                            &lt;div class="ds-live-text-image "&gt;&#13;
+                                &lt;picture&gt;&#13;
+                                    &lt;source media="(min-width:600px)"&#13;
+                                        srcset="images/committed-future/committed3.jpg?$staticlink$" /&gt;&#13;
+                                    &lt;img alt="Engaged People. Focus area: people and cultures, Diversity, equity and inclusion"&#13;
+                                        src="images/committed-future/committed3.jpg?$staticlink$" class="w-100" /&gt;&#13;
+                                &lt;/picture&gt;&#13;
+                            &lt;/div&gt;&#13;
+                        &lt;/div&gt;&#13;
+&#13;
+                        &lt;div class="ds-linkcontainer"&gt;&#13;
+                            &lt;div class="ds-paragraph"&gt;&#13;
+                                &lt;a href="#" class="h-font-size--18 h-clr--gray"&gt;&#13;
+                                    We&amp;rsquo;re going to do more&#13;
+                                    for all the people who touch our business, and we&amp;rsquo;ll work together with&#13;
+                                    openness and inclusivity to create meaningful and positive changes in our business,&#13;
+                                    communities and society.&#13;
+                                &lt;/a&gt;&#13;
+                            &lt;/div&gt;&#13;
+                        &lt;/div&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+&#13;
+            &lt;div class="design-system ds-container banner-module"&gt;&#13;
+                &lt;div class="banner-component"&gt;&#13;
+                    &lt;div class="ds-link-image"&gt;&#13;
+                        &lt;div class="ds-live-text-image-container"&gt;&#13;
+                            &lt;div class="ds-live-text-image "&gt;&#13;
+                                &lt;picture&gt;&#13;
+                                    &lt;source media="(min-width:600px)"&#13;
+                                        srcset="images/committed-future/committed4.jpg?$staticlink$" /&gt;&#13;
+                                    &lt;img alt="Thoughtful Products. Focus areas: sustainable sourcing, product transparency and ingredients"&#13;
+                                        src="images/committed-future/committed4.jpg?$staticlink$" class="w-100" /&gt;&#13;
+                                &lt;/picture&gt;&#13;
+                            &lt;/div&gt;&#13;
+                        &lt;/div&gt;&#13;
+&#13;
+                        &lt;div class="ds-linkcontainer"&gt;&#13;
+                            &lt;div class="ds-paragraph"&gt;&#13;
+                                &lt;a href="#" class="h-font-size--18 h-clr--gray" &gt;We&amp;rsquo;re reimagining a&#13;
+                                    resilient and responsible future by creating products with more sustainable&#13;
+                                    ingredients and by strengthening partnerships with our suppliers. We will also give&#13;
+                                    our customers more informed product choices with additional transparency on what&#13;
+                                    goes into making the products they love.&#13;
+                                &lt;/a&gt;&#13;
+                            &lt;/div&gt;&#13;
+                        &lt;/div&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+&#13;
+            &lt;div class="design-system ds-container banner-module"&gt;&#13;
+                &lt;div class="banner-component"&gt;&#13;
+                    &lt;div class="ds-link-image"&gt;&#13;
+                        &lt;div class="ds-live-text-image-container"&gt;&#13;
+                            &lt;div class="ds-live-text-image "&gt;&#13;
+                                &lt;picture&gt;&#13;
+                                    &lt;source media="(min-width:600px)"&#13;
+                                        srcset="images/committed-future/committed5.jpg?$staticlink$" /&gt;&#13;
+                                    &lt;img alt="Brighter Places. Focus areas: packaging and plastics, climate change and carbon emissions"&#13;
+                                        src="images/committed-future/committed5.jpg?$staticlink$" class="w-100" /&gt;&#13;
+                                &lt;/picture&gt;&#13;
+                            &lt;/div&gt;&#13;
+                        &lt;/div&gt;&#13;
+&#13;
+                        &lt;div class="ds-linkcontainer"&gt;&#13;
+                            &lt;div class="ds-paragraph"&gt;&#13;
+                                &lt;a class="h-font-size--18 h-clr--gray" href="#"&gt;We believe in the power of&#13;
+                                    fragrance and want to protect the planet that provides resources used to make&#13;
+                                    fragrances and our products. We are continually working to reduce our carbon&#13;
+                                    footprint and improve our packaging to make long-term positive changes for&#13;
+                                    everyone&amp;rsquo;s benefit.&lt;/a&gt;&#13;
+                            &lt;/div&gt;&#13;
+&#13;
+                            &lt;div class="ds-falselink text-center"&gt;&#13;
+                                &lt;a href="#" class="h-font-size--18 h-clr--black-3 h-fw--semibold"&gt;LEARN MORE&lt;/a&gt;&#13;
+                            &lt;/div&gt;&#13;
+                        &lt;/div&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+        &lt;/div&gt;&#13;
+    &lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;style&gt;&#13;
+    .landing-top-banner {&#13;
+        padding: 0 16px;&#13;
+    }&#13;
+&#13;
+    .landing-top-banner h1 {&#13;
+        line-height: 1.75rem;&#13;
+        letter-spacing: 0;&#13;
+        border-bottom: 1px solid #333;&#13;
+        padding-bottom: 16px;&#13;
+        margin: 5px 0 32px;&#13;
+    }&#13;
+&#13;
+    .ds-container {&#13;
+        margin-bottom: 56px;&#13;
+        margin: auto auto 48px;&#13;
+        padding: 0 16px;&#13;
+    }&#13;
+&#13;
+    .ds-linkcontainer {&#13;
+        padding-top: 8px;&#13;
+        width: 0;&#13;
+        min-width: 100%;&#13;
+    }&#13;
+    .ds-paragraph {&#13;
+    line-height: 1.25rem;&#13;
+    letter-spacing: .005em;&#13;
+    text-align: center;&#13;
+    color: #666;&#13;
+    margin-top: 8px;&#13;
+}&#13;
+.ds-falselink {&#13;
+    letter-spacing: .005em;&#13;
+    text-decoration-line: underline;&#13;
+    margin-top: 8px;&#13;
+}&#13;
+.ds-falselink:hover {&#13;
+    text-decoration: none;&#13;
+}&#13;
+&lt;/style&gt;</custom-attribute>
+        </custom-attributes>
+</content>
+
+   <content content-id="diversity-equity-inclusion">
+        <display-name xml:lang="x-default">Everyone Belongs at Bath &amp; Body Works</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;style&gt;&#13;
+    .subcategory-header {&#13;
+        line-height: 1.75rem;&#13;
+        letter-spacing: 0;&#13;
+        border-bottom: 1px solid #333;&#13;
+        padding-bottom: 16px;&#13;
+        margin: 5px 0 32px;&#13;
+    }&#13;
+&#13;
+    .ds-container {&#13;
+        margin-bottom: 56px;&#13;
+        line-height: 0;&#13;
+        margin: auto auto 48px;&#13;
+        padding: 0 16px;&#13;
+        text-align: center;&#13;
+    }&#13;
+&#13;
+    .search-promo {&#13;
+        border-top: 1px solid #333;&#13;
+            padding: 20px;&#13;
+    }&#13;
+&#13;
+    .search-promo-copy {&#13;
+        padding: 20px;&#13;
+    }&#13;
+&#13;
+    .diversity-content {&#13;
+        margin-top: 25px;&#13;
+    }&#13;
+&#13;
+    .search-promo h1 {&#13;
+        line-height: 1.9rem;&#13;
+        font-size: 1.5rem;&#13;
+        color: #333;&#13;
+        margin: 1.25rem 0;&#13;
+    }&#13;
+&#13;
+    .search-promo p {&#13;
+        font-size: 1rem;&#13;
+        line-height: 1.75;&#13;
+    }&#13;
+&lt;/style&gt;&#13;
+&lt;div class="container"&gt;&#13;
+    &lt;div class="py-3"&gt;&#13;
+        &lt;!---Breadcrumbs---&gt;&#13;
+        &lt;isinclude template="components/breadcrumbs/pageBreadcrumbs" /&gt;&#13;
+    &lt;/div&gt;&#13;
+    &lt;div class="no-left-nav"&gt;&#13;
+        &lt;div class="landing-top-banner"&gt;&#13;
+            &lt;h1 class="subcategory-header h-font-size--24 h-fw--bold "&gt;Everyone Belongs at Bath &amp;amp; Body Works&lt;/h1&gt;&#13;
+        &lt;/div&gt;&#13;
+        &lt;div class="bottom-content"&gt;&#13;
+            &lt;div class="design-system ds-container banner-module"&gt;&#13;
+                &lt;div class="banner-component"&gt;&#13;
+                    &lt;div class="ds-link-image"&gt;&#13;
+                        &lt;div class="ds-live-text-image-container"&gt;&#13;
+                            &lt;div class="ds-live-text-image "&gt;&#13;
+                                &lt;picture&gt;&#13;
+                                    &lt;source media="(min-width:600px)"&#13;
+                                        srcset="images/diversity-equity/diversity1.jpg?$staticlink$" /&gt;&#13;
+                                    &lt;img alt="Celebrate Asian American &amp;amp; Pacific Islander Heritage Month with an exclusive candle collection from perfumer Linda Song and designer Kenneth Chiem."&#13;
+                                        src="images/diversity-equity/diversity1.jpg?$staticlink$" class="w-100" /&gt;&#13;
+                                &lt;/picture&gt;&#13;
+                            &lt;/div&gt;&#13;
+                        &lt;/div&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+&#13;
+            &lt;div class="design-system ds-container banner-module"&gt;&#13;
+                &lt;div class="banner-component"&gt;&#13;
+                    &lt;div class="ds-link-image"&gt;&#13;
+                        &lt;div class="ds-live-text-image-container"&gt;&#13;
+                            &lt;div class="ds-live-text-image "&gt;&#13;
+                                &lt;picture&gt;&#13;
+                                    &lt;source media="(min-width:600px)"&#13;
+                                        srcset="images/diversity-equity/diversity2.jpg?$staticlink$" /&gt;&#13;
+                                    &lt;img alt="Celebrate love and Pride with the new scent of Love Always Wins—created by perfumers Victor Bartash and Chiaki Nomura and designed by Julianne Fletcher. SHOP &amp;amp; LEARN MORE"&#13;
+                                        src="images/diversity-equity/diversity2.jpg?$staticlink$" class="w-100" /&gt;&#13;
+                                &lt;/picture&gt;&#13;
+                            &lt;/div&gt;&#13;
+                        &lt;/div&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+&#13;
+            &lt;div class="design-system ds-container banner-module"&gt;&#13;
+                &lt;div class="banner-component"&gt;&#13;
+                    &lt;div class="ds-link-image"&gt;&#13;
+                        &lt;div class="ds-live-text-image-container"&gt;&#13;
+                            &lt;div class="ds-live-text-image "&gt;&#13;
+                                &lt;picture&gt;&#13;
+                                    &lt;source media="(min-width:600px)"&#13;
+                                        srcset="images/diversity-equity/diversity3.png?$staticlink$" /&gt;&#13;
+                                    &lt;img alt="Everyone belongs at Bath &amp;amp; Body Works. We believe everyone deserves a place where they feel safe, respected and valued for who they are, as they are, and we welcome customers and associates with open arms and authenticity—with a focus on diversity, equity and inclusion at the heart of everything we do. We champion diversity in our workforce by respecting and holding space for all races, genders, ages, ethnicities, orientations, religious backgrounds and identities. We ensure equity by examining our procedures and processes (and eliminating any barriers to full participation and resources) so that everyone is treated fairly, with equal pay, access and opportunities. We create a culture of inclusion and acceptance where everyone feels welcomed, respected and fully invited to contribute, embracing our differences every single day. What we’re focusing on. We’re actively working to foster an anti-racist culture full of allies that embrace social change, hold themselves accountable and celebrate all identities, cultures and heritages—with concrete steps to achieve all of the above. Inclusion resource groups. These groups supply associates with community volunteer opportunities, professional development resources and spaces to connect and collaborate on creating an inclusive workplace, all with a shared focus on education, cultural awareness and mentorship. Our six groups include: ALL IN (for Asian and/or Pacific Islander associates and allies), Conexión (for Hispanic and/or Latinx associates and allies), Evolve (for LGBTQIA+ associates and allies), Mosaic (for Black and/or African-American associates and allies), WIN (our Women’s Inclusion Network) and EMERGE (for young and early-career professionals and allies). Supplier Relationships. To make a concrete difference, our commitments to diversity, equity and inclusion must reach beyond our four walls. That’s why we seek relationships with suppliers that mirror our values by ensuring diversity in their supply base—which then supports the prosperity and economic vitality of the communities we serve. Our supplier diversity program is a key component of how we make this happen, by partnering with certified suppliers that are (at least) 51% owned and controlled by ethnic minorities, women, LGBTQIA+ community members or veterans, or are small businesses. Of course, our work and commitments toward diversity, equity and inclusion don’t stop there. We’re always looking for ways to do better, together, for everyone—and we commit to keep you updated on our progress."&#13;
+                                        src="images/diversity-equity/diversity3.png?$staticlink$" class="w-100" /&gt;&#13;
+                                &lt;/picture&gt;&#13;
+                            &lt;/div&gt;&#13;
+                        &lt;/div&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+            &lt;div class="search-promo"&gt;&#13;
+                &lt;div class="diversity-content row"&gt;&#13;
+                    &lt;div class="search-promo-copy col-xl-8 col-md-12 col-sm-12"&gt;&#13;
+                        &lt;h1&gt;How do we define &lt;a href="#" target="_blank"&gt;diversity, equity and inclusion (DE&amp;amp;I)&lt;/a&gt;,&#13;
+                            and why is it so&#13;
+                            important?&lt;/h1&gt;&#13;
+&#13;
+                        &lt;p&gt;We all inhabit several different identities, based on our race, gender, ethnicity, sexual&#13;
+                            orientation, religious background and so much more&amp;mdash;and we&amp;rsquo;re actively working to&#13;
+                            foster a diverse workforce that not only respects these identities, but removes any barriers&#13;
+                            to access and opportunity by continuously reassessing and updating processes within our&#13;
+                            business. Read more about our &lt;a href="#" target="_blank"&gt;Inclusion Resource Groups&lt;/a&gt; and&#13;
+                            &lt;a href="#" target="_blank"&gt;Supplier Diversity Program&lt;/a&gt; (that we touched on above) to see&#13;
+                            how&#13;
+                            we&amp;rsquo;re taking concrete steps to achieve true equity.&lt;/p&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+        &lt;/div&gt;&#13;
+    &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>

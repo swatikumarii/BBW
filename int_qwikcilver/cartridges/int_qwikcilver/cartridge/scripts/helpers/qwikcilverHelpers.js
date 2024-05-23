@@ -76,7 +76,7 @@ function getNoOfDaysOfMonth() {
  */
 function validateGiftProduct(basket) {
     var isGiftProductAvailable = false;
-    var lineItems = basket.getAllProductLineItems();
+    var lineItems = basket ? basket.getAllProductLineItems() : [];
     if (lineItems && lineItems.length > 0) {
         for (var i = 0; i < lineItems.length; i++) {
             if (lineItems[i].product.custom.isEgiftCard === true) {
@@ -378,8 +378,6 @@ function removeAllGiftPayments(currentBasket) {
         currentBasket.custom.eGiftTotalAmount = 0;
     });
 }
-
-
 
 module.exports = {
     getMonths: getMonths,

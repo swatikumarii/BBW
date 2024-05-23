@@ -1,4 +1,5 @@
 <footer id="footercontent">
+    <span class="something-went-wrong d-none">${Resource.msg('something.went.wrong', 'common', null)}</span>
     <isinclude template="/account/autoLogout" />
     <div class="container pt-3 pb-5">
         <div class="footer-container footer-details p-sm-0 pb-4 h-dsp--grid">
@@ -111,9 +112,11 @@
 <div class="loginPopup">
     <isinclude url="${URLUtils.url('Login-Popup','loginRedirect',pdict.action,'queryString',pdict.queryString)}" />
 </div>
-<div class="countrySelectPopup">
+
+<div class="countrySelectPopup" data-country-selector-enabled="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableCountrySelectorPopup')}">
     <isinclude url="${URLUtils.url('Home-CountrySelector')}" />
 </div>
+
 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('sendProfileCompletionReminderPopup')}">
     <isinclude template="profileCompletion" />
 </isif>

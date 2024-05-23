@@ -68,11 +68,14 @@
 
     &__products-wrapper {
         overflow-y: scroll;
+        max-height: 500px;
+        scrollbar-width: none;
     }
 
     &__product-list {
         @include media-up(md) {
             padding: 0 2.8125rem 2.8125rem 2.5rem;
+            flex-wrap: wrap;
         }
 
         @include media-btw(sm, md) {
@@ -125,10 +128,15 @@
                     }
                 }
 
+                &__price-link {
+                    pointer-events: none;
+                }
+
                 &__wishlistTile,
                 &__ratings,
                 &__quickview,
-                .social-badge-wrapper {
+                .social-badge-wrapper,
+                .notify-me {
                     display: none !important;
                 }
 
@@ -144,6 +152,13 @@
 
                 .price {
                     margin: 12px 0 5px;
+
+                    span:first-of-type {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        gap: 5px;
+                    }
                 }
 
                 &__name {
@@ -154,6 +169,10 @@
                     .add-to-cart {
                         display: none;
                     }
+                }
+
+                square-placement {
+                    display: none;
                 }
             }
         }
@@ -224,7 +243,7 @@
         width: 100%;
 
         @include media-up(md) {
-            height: 400px;
+            height: 500px;
             border-left: 1px solid colour(gray, 6);
             padding: 0 0 0 40px;
         }

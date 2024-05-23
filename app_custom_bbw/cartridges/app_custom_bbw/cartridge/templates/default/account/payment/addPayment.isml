@@ -7,7 +7,7 @@
         assets.addCss('/css/account/account.css');
     </isscript>
 
-    <div class="h-maxwidth--1400 mx-auto my-account">
+    <div class="container h-maxwidth--1400 mx-auto">
         <!---Breadcrumbs--->
         <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
     </div>
@@ -25,7 +25,7 @@
                     <isinclude template="account/accountNav" />
                 </div>
             </div>
-            <div class="description-detail">
+            <div class="description-detail my-payment-add-new-card-form">
                 <div class="my-account-description">
                     <isif condition="${pdict.UUID}">
                         <h2>${Resource.msg('label.payment.editpayment', 'payment', null)}</h2>

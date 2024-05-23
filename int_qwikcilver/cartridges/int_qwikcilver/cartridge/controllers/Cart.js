@@ -96,6 +96,7 @@ server.append('AddProduct', function (req, res, next) {
                 egiftCardDetails.eGiftScheduleDate
                 , 10);
             var eGiftScheduleMonth = egiftCardDetails.eGiftScheduleMonth;
+            var eGiftVideoLink = egiftCardDetails.eGiftVideoLink;
 
             for (var i = 0; i < basket.productLineItems.length; i++) {
                 if (
@@ -113,6 +114,8 @@ server.append('AddProduct', function (req, res, next) {
                         eGiftScheduleDate;
                     basket.productLineItems[i].custom.eGiftCardScheduleMonth =
                         eGiftScheduleMonth;
+                    basket.productLineItems[i].custom.eGiftVideoLink =
+                        eGiftVideoLink;
                     // Update year if the month of gift card scheduled is in next year
                     GCMonthindex = months.indexOf(eGiftScheduleMonth);
                     basket.productLineItems[i].custom.eGiftScheduledYear =
@@ -151,6 +154,19 @@ server.append('AddProduct', function (req, res, next) {
         }
         res.setViewData(viewData);
     });
+    next();
+});
+
+server.prepend('Show', function (req, res, next) {
+    if (enableQCeGift) {
+        var basket = BasketMgr.getCurrentBasket();
+        var viewData = res.getViewData();
+        var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(basket);
+        if (isGiftProductAvailable) {
+            viewData.isGiftProductAvailable = isGiftProductAvailable;
+        }
+        res.setViewData(viewData);
+    }
     next();
 });
 

@@ -31,6 +31,7 @@ module.exports = function productTile(product, apiProduct, productType) {
     decorators.notifyMe(product, apiProduct);
     decorators.isEgiftCard(product, apiProduct);
     decorators.badge(product, apiProduct);
+    decorators.fragrance(product, apiProduct);
     decorators.availability(
         product,
         options.quantity,

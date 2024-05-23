@@ -15,6 +15,7 @@ var HashMap = require('dw/util/HashMap');
 var Template = require('dw/util/Template');
 var cartTemplate = new Template('cart/productCard/cartProductCardAjax');
 var miniCartTemplate = new Template('checkout/productCard/miniCartProductCardAjax');
+var Site = require('dw/system/Site');
 
 /**
  * Cart-AddCoupon : The Cart-AddCoupon endpoint is responsible for adding a coupon to a basket
@@ -111,6 +112,7 @@ server.append('UpdateQuantity', function (req, res, next) {
             basketModel.refreshItemsTemplateMinicart =
                 miniCartTemplate.render(context).text;
         }
+
         res.setViewData(basketModel);
     }
     next();
@@ -234,6 +236,23 @@ server.post('AddProductFromOrder', function (req, res, next) {
 });
 
 /**
+ * Cart-MiniCartShow : The Cart-MiniCartShow extended for customization
+ * @name Cart-MiniCartShow
+ * @function
+ * @memberof Cart
+ */
+server.append('MiniCartShow', csrfProtection.generateToken, function (req, res, next) {
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var showTopOffers = Site.getCurrent().getCustomPreferenceValue('showTopOffers');
+    var viewData = res.getViewData();
+    if (currentBasket && showTopOffers === true) {
+        var topOffers = cartHelper.getTopOffers(currentBasket);
+        viewData.topOffers = topOffers;
+        res.setViewData(viewData);
+    }
+    next();
+});
+/*
  * Append Cart-Show method to show dangerous goods message
  */
 server.append(

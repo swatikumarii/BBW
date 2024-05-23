@@ -4,10 +4,11 @@
         //assets.addCss('/css/account/orderTrack.css');
         assets.addCss('/css/account/profile.css');
         assets.addJs('/js/custom.js');
+        assets.addJs('/js/orderHistory.js');
         assets.addCss('/css/account/account.css');
     </isscript>
 
-    <div class="h-maxwidth--1400 mx-auto my-account">
+    <div class="container h-maxwidth--1400 mx-auto">
         <!---Breadcrumbs--->
         <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
     </div>

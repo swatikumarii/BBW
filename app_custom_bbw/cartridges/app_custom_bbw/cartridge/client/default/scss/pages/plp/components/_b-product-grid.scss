@@ -8,6 +8,12 @@
     @include media-up(md) {
         grid-template-columns: repeat(4, minmax(0, 250px));
     }
+
+    .marketing {
+        &.mobile {
+            grid-column: span 2;
+        }
+    }
 }
 
 .add-to-cart-messages {

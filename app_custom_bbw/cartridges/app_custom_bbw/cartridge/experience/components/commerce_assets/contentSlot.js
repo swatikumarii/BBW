@@ -15,5 +15,6 @@ module.exports.render = function (context) {
     var content = context.content;
     var contentSlotId = content.contentSlotId;
     model.contentSlotId = contentSlotId;
+    model.contentSlotPdCustomClass = content.contentSlotPdCustomClass ? content.contentSlotPdCustomClass : '';
     return new Template('experience/components/commerce_assets/contentSlot').render(model).text;
 };

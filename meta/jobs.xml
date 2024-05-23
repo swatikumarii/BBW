@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jobs xmlns="http://www.demandware.com/xml/impex/jobs/2015-07-01">
+    <job job-id="qwickilverFutureDate">
+        <description/>
+        <parameters/>
+        <flow>
+            <context site-id="bbw-au"/>
+            <step step-id="qwikcilverFuture" type="custom.Qwikcilver.GiftCard.Send" enforce-restart="false">
+                <description/>
+                <parameters/>
+            </step>
+        </flow>
+        <rules/>
+        <triggers>
+            <run-once enabled="false">
+                <date>2024-05-19Z</date>
+                <time>19:15:00.000Z</time>
+            </run-once>
+        </triggers>
+    </job>
     <job job-id="sendNotifyMeEmails">
         <description>Job to send back in stock mails to the user who subscribed .</description>
         <parameters/>
