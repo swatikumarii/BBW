@@ -1,7 +1,6 @@
 .quick-view-dialog {
     max-width: 710px;
     padding: 15px 20px 30px;
-    height: 100%;
     transition: none !important;
     transform: none !important;
 
@@ -323,6 +322,7 @@
     .carousel-indicators li {
         width: 24px;
         margin-right: 45px;
+        height: auto;
     }
 
     #add-to-cart-snackbar {

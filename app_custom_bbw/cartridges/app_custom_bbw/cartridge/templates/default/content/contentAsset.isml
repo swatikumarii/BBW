@@ -1,8 +1,8 @@
 <isdecorate template="common/layout/page">
-    <!-- dwMarker="content" dwContentID="${pdict.content.UUID}" -->
-    <div class="container">
+    <div class="container h-maxwidth--1400 mx-auto ">
+        <!-- dwMarker="content" dwContentID="${pdict.content.UUID}" -->
         <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
     </div>
-    <isprint value="${pdict.content.body}" encoding="off" />
+        <isprint value="${pdict.content.body}" encoding="off" />
     <!-- END_dwmarker -->
 </isdecorate>

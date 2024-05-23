@@ -4,6 +4,7 @@
         //assets.addCss('/css/account/orderTrack.css');
         assets.addCss('/css/account/profile.css');
         assets.addJs('/js/custom.js');
+        assets.addJs('/js/orderHistory.js');
         assets.addCss('/css/account/account.css');
     </isscript>
 

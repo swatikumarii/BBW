@@ -646,10 +646,9 @@
             <attribute-definition attribute-id="companyAddress">
                 <display-name xml:lang="x-default">Company Address</display-name>
                 <description xml:lang="x-default">Address to display on order invoice</description>
-                <type>string</type>
+                <type>html</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
-                <min-length>0</min-length>
             </attribute-definition>
             <attribute-definition attribute-id="ApplePayExpress_Enabled">
                 <display-name xml:lang="x-default">Enable Apple Pay express checkout</display-name>

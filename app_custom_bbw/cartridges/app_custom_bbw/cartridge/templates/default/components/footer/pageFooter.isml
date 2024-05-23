@@ -112,9 +112,11 @@
 <div class="loginPopup">
     <isinclude url="${URLUtils.url('Login-Popup','loginRedirect',pdict.action,'queryString',pdict.queryString)}" />
 </div>
-<div class="countrySelectPopup">
+
+<div class="countrySelectPopup" data-country-selector-enabled="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableCountrySelectorPopup')}">
     <isinclude url="${URLUtils.url('Home-CountrySelector')}" />
 </div>
+
 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('sendProfileCompletionReminderPopup')}">
     <isinclude template="profileCompletion" />
 </isif>
