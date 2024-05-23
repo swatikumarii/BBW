@@ -1,0 +1,172 @@
+<isscript>
+    var orderBase = dw.crypto.Encoding.toBase64(new dw.util.Bytes(pdict.order.orderNumber))
+</isscript>
+     <table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#EFEDEB" style="background-color: #f6f4f2;">
+       <tbody>
+         <tr>
+           <td align="center" bgcolor="#EFEDEB" style="background-color: #f6f4f2;">
+             <table border="0" cellpadding="0" cellspacing="0" width="660" class="devicewidth" align="center">
+               <tbody>
+                 <tr>
+                   <td bgcolor="#F6F4F2" align="center" style="background-color: #f6f4f2;">
+                     <table border="0" cellpadding="0" cellspacing="0" width="600" class="devicewidth" align="center">
+                       <tbody>
+                         <tr>
+                           <td align="center" bgcolor="#F6F4F2" style="background-color: #F6F4F2;">
+                             <table border="0" cellpadding="0" cellspacing="0" width="560">
+                               <tbody>
+                                 <tr>
+                                   <td height="40" style="height: 40px;font-size:0px;mso-line-height-rule:exactly;line-height: 0px;"></td>
+                                 </tr>
+                                 <tr>
+                                   <td align="center" style="font-family: 'Times New Roman', Times, serif; font-size: 24px; letter-spacing: 1px; line-height: 30px; color:#1A1919"> ${Resource.msgf('egift.title','giftcards',null,pdict.recipientName)}</td>
+                                 </tr>
+                                 <tr>
+                                   <td height="20" style="height: 20px;font-size:0px;mso-line-height-rule:exactly;line-height: 0px;"></td>
+                                 </tr>
+                                 <tr>
+                                   <td align="center" style="font-family: 'Times New Roman',Times,serif;font-size: 24px;letter-spacing: 1px; line-height: 30px; color: #1a1919;">          ${lineItem.giftCardDetails.eGiftMessage} </td>
+                                 </tr>
+                                 <tr>
+                                   <td height="20" style="height: 20px;font-size:0px;mso-line-height-rule:exactly;line-height: 0px;"></td>
+                                 </tr>
+                                 <tr>
+                                   <td align="center" bgcolor="#F6F4F2" style="background-color: #F6F4F2;"></td>
+                                 </tr>
+                                 <tr>
+                                   <td height="20" style="height: 20px;font-size:0px;mso-line-height-rule:exactly;line-height: 0px;"></td>
+                                 </tr>
+                                 <tr>
+                                   <td align="center">
+                                     <table border="0" cellspacing="0" cellpadding="0" width="230">
+                                       <tbody>
+                                         <tr>
+                                           <td valign="top" width="10">
+                                            
+                                              <img width="100%" src="${lineItem.images.large[0].absURL}" alt="${lineItem.images.large[0].alt}" />
+                                              
+                                           </td>
+                                         </tr>
+                                        
+                                        
+                                       </tbody>
+                                     </table>
+                                   </td>
+                                 </tr>
+                               
+                                 <tr>
+                                   <td style="text-align:center">
+                                     <table width="600" style="width:600px;" align="center">
+                                       <tbody>
+                                         <tr>
+                                           <td align="center">
+                                             <h4 style="font-family: 'Times New Roman',Times,serif;font-size: 24px;letter-spacing: 1px;line-height: 30px;color: #1a1919; margin-bottom: 10px;">
+                                               <span>${Resource.msg('egift.card.number','giftcards',null)}</span>
+                                               <isif condition="${lineItem.giftCardDetails.cardNumber !== null}">
+                                                 <p style="font-size: 18px;color: black;font-weight:600;line-height:22px;margin:0;color: #1a1919;margin-bottom: 5px;">        ${lineItem.giftCardDetails.cardNumber}
+                                                 </p>
+                                               </isif>
+                                             </h4>
+                                           </td>
+                                         </tr>
+                                       </tbody>
+                                     </table>
+                                   </td>
+                                 </tr>
+                                 
+                                 <tr>
+                                   <td style="text-align:center">
+                                     <table width="600" style="width:600px;" align="center">
+                                       <tbody>
+                                         <tr>
+                                           <td align="center">
+                                             <h4 style="font-family: 'Times New Roman',Times,serif;font-size: 24px;letter-spacing: 1px;line-height: 30px;color: #1a1919;margin-top: 0; margin-bottom: 10px;">
+                                               <span>${Resource.msg('egift.card.pin','giftcards',null)}</span>${lineItem.giftCardDetails.cardPin}
+                                             </h4>
+                                           </td>
+                                         </tr>
+                                       </tbody>
+                                     </table>
+                                   </td>
+                                 </tr>
+                                 <tr>
+                                   <td>
+                                     <table align="center">
+                                       <tr>
+                                         <td>
+                                            <isif condition="${lineItem.priceTotal.nonAdjustedPrice}">
+                                                <h4 style="font-family: 'Times New Roman',Times,serif;font-size: 24px;letter-spacing: 1px;line-height: 30px;color: #1a1919;margin: 0px;"> ${lineItem.priceTotal.nonAdjustedPrice} </h4>
+                                            <iselse/>
+                                                <h4 style="font-family: 'Times New Roman',Times,serif;font-size: 24px;letter-spacing: 1px;line-height: 30px;color: #1a1919;margin: 0px;"> ${lineItem.priceTotal.price} </h4>
+                                            </isif>
+                                         </td>
+                                       </tr>
+                                       <iscomment> <tr>
+                                         <td height="15"></td>
+                                       </tr> </iscomment>
+                                     </table>
+                                   </td>
+                                 </tr>
+                               </tbody>
+                             </table>
+                           </td>
+                         </tr>
+                       </tbody>
+                     </table>
+                   </td>
+                 </tr>
+               </tbody>
+             </table>
+           </td>
+         </tr>
+         <tr>
+           <td>
+             <table align="center" style="width:600px">
+               <tbody>
+                 <tr>
+                   <td style="text-align:left;font:normal 14px/24px Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919;">
+                     <table align="center" style="width:600px">
+                       <tbody>
+                         <tr>
+                           <td>
+                             <table width="600" style="width: 600px;">
+                               <tbody>
+                                 <tr>
+                                   <td>
+                                     <div style="text-align: center; display:block;width: 100%;">
+                                       <img src="${lineItem.giftCardDetails.giftBarCode}" alt="eGift Barcode" />
+                                       <div class="bar-code">
+                                         <isif condition="${lineItem.giftCardDetails.giftBarCodeNumber}">
+                                           <span class="card-no">${lineItem.giftCardDetails.giftBarCodeNumber}</span>
+                                         </isif>
+                                       </div>
+                                     </div>
+                                   </td>
+                                 </tr>
+                               </tbody>
+                             </table>
+                           </td>
+                         </tr>
+                       </tbody>
+                     </table>
+                   </td>
+                 </tr>
+               </tbody>
+             </table>
+           </td>
+         </tr>
+         <isif condition="${'eGiftVideoLink' in lineItem.giftCardDetails && lineItem.giftCardDetails.eGiftVideoLink && lineItem.giftCardDetails.eGiftVideoLink !== 'undefined'}">
+            <tr>
+                <td align="center" style="font-family: 'Times New Roman',Times,serif;font-size: 24px;letter-spacing: 1px; line-height: 30px; color: #1a1919;"> <a href="${URLUtils.abs('Giftcard-GiftcardVideoLandingPage', 'video', orderBase, 'uuid', lineItem.UUID)}" style="font-family: 'Times New Roman',Times,serif;font-size: 24px;letter-spacing: 1px; line-height: 30px; color: #1a1919;text-decoration:underline;">${Resource.msg('special.message.text','giftcards',null)}</a></td>
+            </tr>
+         </isif>
+         <tr>
+         <tr>
+         <td height="20">
+         </td>
+         </tr>
+         <td colspan="2">
+                             <p style="text-align:center;font-size: 18px;color: black;font-weight:600;line-height:22px;margin:0;color: #1a1919;margin-bottom: 5px;">${Resource.msg('confirm.order.card.expiry.date', 'giftcards', null)}<span style="font-size: 15px; padding-left: 5px;font-style: italic;">${lineItem.giftCardDetails.cardExpiryDate}</span></p>
+         </td>
+       </tbody>
+     </table>

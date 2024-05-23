@@ -1,17 +1,14 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
 <isdecorate template="common/layout/email">
     <isset name="urlHelpers" value="${require('*/cartridge/scripts/helpers/urlHelpers')}" scope="page" />
-    <iscomment>
-        <isemailheaderdynamic heading="${Resource.msg('label.sitename', 'email', null)}"
-            title="${Resource.msg('headline.resetpassword.notification.email', 'email', null)}" />
-    </iscomment>
+    
     <tr style="padding: 0;">
         <td style="vertical-align: middle; text-align: center; color: #333; font-size:14px;">
             <table style="padding-top:35px;" cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
-                <iscomment> Order Line Items </iscomment>
+               
                 <tr style="padding: 0;">
                     <td style="padding:0 32px 15px;vertical-align:top;text-align:left;">
-                        <iscomment> Order Number and Order Date </iscomment>
+                       
                         <table cellpadding="0" cellspacing="0" style="width:100%">
                             <tbody>
                                 <tr>
@@ -42,9 +39,8 @@
                             ${Resource.msgf('email.title.confirmation.sender.name', 'confirmation', null, pdict.order.billing.billingAddress.address
                             .firstName)}
                         </h1>
-                        <p
-                            style="margin:0 0 20px;font-size:22px;line-height:33px;padding-right:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
-                            ${Resource.msgf('egift.card.msg.thank.you', 'confirmation', null, recipientName, recipientEmail)}
+                        <p style="margin:0 0 20px;font-size:22px;line-height:33px;padding-right:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
+                            ${Resource.msgf('egift.card.msg.thank.you', 'giftcards', null, pdict.recipientName, pdict.recipientEmail)}
                         </p>
                         <iscomment> View Order Status Image and Button </iscomment>
                         <div style="border:3px solid #f2f2f2;padding:36px 0;text-align:center">
@@ -93,9 +89,9 @@
                                                     <div
                                                         style="text-transform:uppercase;font-size:16px;color:#333;margin-bottom:15px;line-height:23px">
                                                         <a href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}"
-                                                            title="${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}"
+                                                            title="${lineItem.productName}"
                                                             style="text-decoration:none;text-transform:uppercase;font-size:16px;color:#333;line-height:23px;margin-bottom:15px;font-family:'HelveticaNeue-Light',Arial,sans-serif"
-                                                            target="_blank">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</a>
+                                                            target="_blank">${lineItem.productName}</a>
                                                     </div>
                                                     <div style="color:#666;font-size:14px;line-height:18px">
                                                         ${lineItem.giftCardDetails.recipientName}
@@ -132,7 +128,7 @@
                 <iscomment> Order Email Content Asset - Content </iscomment>
                 <tr style="padding: 0;">
                     <td style="padding:0 0 15px;vertical-align:top;text-align:left;">
-                        <iscomment> <isprint value="${pdict.markup}" encoding="off" /> </iscomment>
+                        <iscontentassetmail aid="egift-order-email" />
                     </td>
                 </tr>
             </table>

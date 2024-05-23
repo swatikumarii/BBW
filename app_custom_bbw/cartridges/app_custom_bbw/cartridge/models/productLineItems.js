@@ -22,6 +22,7 @@ function getEgiftCardDetails(item) {
     var eGiftScheduledMonths = item.custom.eGiftCardScheduleMonth;
     var eGiftScheduledYear = item.custom.eGiftScheduledYear;
     var eGiftScheduledDay = item.custom.eGiftCardScheduleDay;
+    var eGiftVideoLink = item.custom.eGiftVideoLink;
     var eGiftScheduledDate;
     var month = qwikcilverHelpers.getIndexOfMonths(eGiftScheduledMonths);
     if (eGiftScheduledMonths && eGiftScheduledYear && eGiftScheduledDay) {
@@ -57,7 +58,8 @@ function getEgiftCardDetails(item) {
         eGiftScheduledDay: eGiftScheduledDay || '',
         eGiftScheduledMonths: eGiftScheduledMonths || '',
         giftBarCode: giftCardBarCode,
-        giftBarCodeNumber: giftBarCodeNumber
+        giftBarCodeNumber: giftBarCodeNumber,
+        eGiftVideoLink: eGiftVideoLink || ''
     };
     return cardInfo;
 }
