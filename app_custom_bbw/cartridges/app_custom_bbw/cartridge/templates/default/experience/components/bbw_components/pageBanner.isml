@@ -25,7 +25,7 @@
             ${pdict.contentPositionMobile == 'top' ? 'banner-top-aligned-mobile' : ''}">
 
         <iscomment> Image - Banner - Image </iscomment>
-        <div class="js-banner-image image-holder dm-responsive-image js-dm-image none dm-responsive-image-initialized ${pdict.desktopBannerOverlay ? pdict.desktopBannerOverlay : ''} ${pdict.tabletBannerOverlay ? pdict.tabletBannerOverlay : ''} ${pdict.mobileBannerOverlay ? pdict.mobileBannerOverlay : ''}"
+        <div class="js-banner-image image-holder dm-responsive-image js-dm-image none dm-responsive-image-initialized ${pdict.trackerClass} ${pdict.desktopBannerOverlay ? pdict.desktopBannerOverlay : ''} ${pdict.tabletBannerOverlay ? pdict.tabletBannerOverlay : ''} ${pdict.mobileBannerOverlay ? pdict.mobileBannerOverlay : ''}"
             data-desktopv="${pdict.useBannerImgURL ? pdict.desktopBannerImageUrl : (pdict.desktopBannerImage && pdict.desktopBannerImage.src ? pdict.desktopBannerImage.src.desktop : '')}"
             data-mobilev="${pdict.useBannerImgURL ? pdict.mobileBannerImageUrl : (pdict.mobileBannerImage && pdict.mobileBannerImage.src ? pdict.mobileBannerImage.src.mobile : '')}"
             data-tabletv="${pdict.useBannerImgURL ? pdict.tabletBannerImageUrl : (pdict.tabletBannerImage && pdict.tabletBannerImage.src ? pdict.tabletBannerImage.src.tablet : '')}"

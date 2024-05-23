@@ -2,6 +2,7 @@
 
 var cart = require('../cart/cart');
 var layout = require('../utils/layout');
+var lazyload = require('../utils/lazyLoad');
 
 var updateMiniCart = true;
 var location = window.location;
@@ -9,7 +10,7 @@ var location = window.location;
 module.exports = function () {
     cart();
 
-    $(document).on('click','.minicart-login-btn', function () {
+    $(document).on('click', '.minicart-login-btn', function () {
         $('.loginPopup').find('#loginModal').modal('show');
         $('input[name="loginRedirectUrl"]').val('Cart-Show');
         $('input[name="loginRedirectQueryString"]').val('');
@@ -26,7 +27,7 @@ module.exports = function () {
         }
     });
 
-    $('.minicart').on('click', function () {
+    $('.minicart .minicart-total').on('click', function () {
         if (
             $('.search:visible').length === 0 ||
             $(this).find('.popover').hasClass('show')
@@ -59,12 +60,16 @@ module.exports = function () {
             $('.minicart .popover').removeClass('show');
             $('.minicart-overlay').removeClass('show');
             $('body').removeClass('overflow-hidden');
+            $('.minicart-recommendation-side-panel-wrap').removeClass('open');
+            $('.minicart-recommendation-side-panel').removeClass('show-recommendation-panel');
         }
     });
     $(document).on('click', '.minicart-close-icon', function () {
         $('.minicart .popover').removeClass('show');
         $('.minicart-overlay').removeClass('show');
         $('body').removeClass('overflow-hidden');
+        $('.minicart-recommendation-side-panel-wrap').removeClass('open');
+        $('.minicart-recommendation-side-panel').removeClass('show-recommendation-panel');
     });
     $('body').on('change', '.minicart .quantity', function () {
         if (
@@ -81,7 +86,7 @@ module.exports = function () {
             $('.minicart-overlay').addClass('show');
             $('body').addClass('overflow-hidden');
             var minicartURL =
-                    $('.minicart').data('action-url');
+                $('.minicart').data('action-url');
             $('.minicart .popover').spinner().start();
             $.get(minicartURL, function (minicartData) {
                 $('.minicart .popover').empty();
@@ -116,4 +121,23 @@ module.exports = function () {
             tooltip.hide();
         }
     );
+
+    /**
+     * Minicart - Click - Close recommendation panel
+     */
+    $(document).on('click', '.js-cart-recomm-close', function (e) {
+        e.preventDefault();
+        $('.minicart-recommendation-side-panel-wrap').removeClass('open');
+        $('.minicart-recommendation-side-panel').removeClass('show-recommendation-panel');
+    });
+
+    $(document).on('click', '.minicart .minicart-total', function () {
+        setTimeout(function () {
+            if ($('.minicart .popover').hasClass('show')) {
+                $('.minicart-recommendation-side-panel-wrap').addClass('open');
+                $('.minicart-recommendation-side-panel').addClass('show-recommendation-panel');
+                lazyload.lazyLoad();
+            }
+        }, 2000);
+    });
 };

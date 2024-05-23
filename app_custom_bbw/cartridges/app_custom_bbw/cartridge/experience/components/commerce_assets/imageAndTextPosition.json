@@ -90,6 +90,13 @@
           "description": "Add Component Custom Classes here",
           "type": "string",
           "required": false
+        },
+        {
+            "id": "trackerClass",
+            "name": "Tracker Custom Class",
+            "description": "Add Tracker Classes here (Use track-banner-promotion for GA/GTM)",
+            "type": "string",
+            "required": false
         }
       ]
     }
