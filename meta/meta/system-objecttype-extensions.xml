@@ -1246,6 +1246,21 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <default-value>true</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="gaEnabled">
+                <display-name xml:lang="x-default">GA Enabled</display-name>
+                <description xml:lang="x-default">Is Google Analytics Enabled (gtmScriptEnabled should be enabled for it to work)</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="gaScript">
+                <display-name xml:lang="x-default">GA Script</display-name>
+                <description xml:lang="x-default">Google analytics script with measurement ID (gtmScriptEnabled should be enabled for it to work)</description>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -1257,6 +1272,8 @@
                 <attribute attribute-id="gtmScriptEnabled"/>
                 <attribute attribute-id="gtmHeadScript"/>
                 <attribute attribute-id="gtmBodyScript"/>
+                <attribute attribute-id="gaEnabled"/>
+                <attribute attribute-id="gaScript"/>
                 <attribute attribute-id="metaPixelEnabled"/>
                 <attribute attribute-id="metaPixelScript"/>
                 <attribute attribute-id="emarsysEnabled"/>

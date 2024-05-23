@@ -67,6 +67,8 @@
             <preference preference-id="liveChatEnabled">true</preference>
             <preference preference-id="emarsysEnabled">true</preference>
             <preference preference-id="emarsysMerchantID"></preference>
+            <preference preference-id="gaEnabled">true</preference>
+            <preference preference-id="gaScript"></preference>
             <preference preference-id="chatScript"></preference>
             <preference preference-id="sendProfileCompletionReminderEmail">true</preference>
             <preference preference-id="sendProfileCompletionReminderPopup">true</preference>

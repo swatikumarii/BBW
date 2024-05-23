@@ -10,6 +10,15 @@ var Site = require('dw/system/Site');
 var gtmEnabled =
     Site.getCurrent().getCustomPreferenceValue('gtmScriptEnabled') || false;
 
+var orderStatusMatrix = {
+    0: 'Payment Pending',
+    3: 'Placed Payment Successful',
+    4: 'Placed Payment Successful',
+    8: 'Order Failed',
+    6: 'Order Cancelled',
+    5: 'Order Completed'
+};
+
 /**
  * @param {object} res - current route response object
  * @returns {object} an object of containing customer data
@@ -382,9 +391,9 @@ function getSearchImpressionData(res) {
     var obj;
     if (!res.queryString.includes('cgid')) {
         obj = {
-            'event': 'search',
-            'ecommerce': {
-                'items': []
+            event: gtmEvents.SEARCH_SHOW,
+            ecommerce: {
+                items: []
             }
         };
         if ('productSearch' in res) {
@@ -566,42 +575,49 @@ function addPayment(res) {
 function getConfirmationData(res) {
     var order = null;
     try {
-        if ('token' in request.httpParameterMap) {
-            order = dw.order.OrderMgr.getOrder(res.order.orderNumber, request.httpParameterMap.token.value);
-        } else {
-            order = dw.order.OrderMgr.getOrder(res.order.orderNumber);
-        }
+        order = dw.order.OrderMgr.getOrder(res.order.orderNumber);
     } catch (e) {
-        Logger.error('GTMHelpers - cannot retrieve order');
+        Logger.error('GTMHelpers - cannot retrieve order'.concat(e));
     }
 
 
     var obj = {
-        'event': 'purchase',
-        'ecommerce': {
-            'currency': order.currencyCode,
-            'transaction_id': order.orderNo,
-            'value': order.getAdjustedMerchandizeTotalPrice(true).getValue(),
-            // 'coupon':order.couponLineItems[0].couponCode,
-            'shipping': order.getAdjustedShippingTotalPrice().getValue(),
-            'tax': order.getTotalTax().getValue().toFixed(2),
-            'total': order.totalNetPrice.value,
-            'purchase': {
-                'items': []
-            }
+        event: gtmEvents.PURCHASE,
+        ecommerce: {
+            transaction_id: order.orderNo,
+            purchase: {
+                products: [],
+                actionField: {
+                    revenue: order.totalGrossPrice.value,
+                    tax: order.getTotalTax().getValue().toFixed(2),
+                    shipping: order.getAdjustedShippingTotalPrice().getValue(),
+                    coupon: order.couponLineItems.length
+                        ? order.couponLineItems[0].couponCode
+                        : '',
+                    currencyCode: order.currencyCode
+                }
+            },
+            orderStatus: orderStatusMatrix[order.status.value]
         }
     };
     if ('order' in res) {
         for (var i = 0; i < res.order.items.items.length; i++) {
-            obj.ecommerce.purchase.items.push({
+            obj.ecommerce.purchase.products.push({
                 item_name: res.order.items.items[i].productName,
                 item_id: res.order.items.items[i].id,
-                item_brand: res.order.items.items[i].brand ? res.order.items.items[i].brand:'' ,
+                item_brand: res.order.items.items[i].brand
+                    ? res.order.items.items[i].brand
+                    : '',
                 // coupon:res.order.totals.discounts[i].couponCode,
-                item_category: res.order.items.items[i].gtmData.item_category ?  res.order.items.items[i].gtmData.item_category:'',
-                item_categoryID: res.order.items.items[i].gtmData.item_categoryID ? res.order.items.items[i].gtmData.item_categoryID:'',
+                item_category: res.order.items.items[i].gtmData.item_category
+                    ? res.order.items.items[i].gtmData.item_category
+                    : '',
+                item_categoryID: res.order.items.items[i].gtmData
+                    .item_categoryID
+                    ? res.order.items.items[i].gtmData.item_categoryID
+                    : '',
                 price: res.order.items.items[i].gtmData.price,
-                quantity: res.order.productQuantityTotal,
+                quantity: res.order.productQuantityTotal
             });
         }
     }
