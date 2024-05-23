@@ -18,7 +18,7 @@
                         <span
                             class="summary-section-label order-number-label pr-3">${Resource.msg('label.estimated.delivery', 'order', null)}</span>
                         <span
-                            class="summary-details order-number">${dw.system.Site.getCurrent().getCustomPreferenceValue('estimatedDelivery')}</span>
+                            class="summary-details order-number h-clr--black">${dw.system.Site.getCurrent().getCustomPreferenceValue('estimatedDelivery')}</span>
                     </p>
                 </isif>
                 <p>
