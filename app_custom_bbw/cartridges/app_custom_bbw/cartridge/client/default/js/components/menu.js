@@ -48,7 +48,7 @@ if (layout.isMobile()) {
 /* Close slide panel on clicking of menu overlay */
 
 $('.mobile-menu-overlay').on('click', function () {
-    $('.bbw-menu').removeClass('in');
+    $('.bbw-menu, .bbw-brand-menu').removeClass('in');
 });
 
 /* Header my account dropdown */

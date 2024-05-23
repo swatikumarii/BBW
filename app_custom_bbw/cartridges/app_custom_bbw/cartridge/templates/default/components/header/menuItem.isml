@@ -1,7 +1,7 @@
 <div class="menu-wrap dropdown-menu position-absolute w-100 h-bg--white menu-wrap-level-1">
-    <div class="level-2-ul-wrap h-maxwidth--1500 text-left d-flex justify-content-between h-grid-gap--60">
+    <div class="level-2-ul-wrap text-left d-flex justify-content-between h-grid-gap--60">
         <isset name="categorySlotId" value="${category.slotId}" scope="page" />
-        <ul class="level-2-ul col d-flex" role="menu" aria-hidden="true" aria-label="${category.id}">
+        <ul class="level-2-ul col" role="menu" aria-hidden="true" aria-label="${category.id}">
             <isloop items="${menuItem.subCategories}" var="category">
                 <isif condition="${category.subCategories}">
                     <li class="dropdown-item dropdown level-2-li" role="presentation">

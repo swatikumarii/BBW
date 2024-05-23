@@ -66,6 +66,7 @@
                             .level-2-ul-wrap {
                                 margin: 1.3125rem auto;
                                 min-height: 25rem;
+                                max-width: 1500px;
 
                                 .menu-wrap {
                                     display: block;
@@ -73,6 +74,8 @@
                             }
 
                             .level-2-ul {
+                                display: flex;
+
                                 .dropdown-item.active,
                                 .dropdown-item:active {
                                     background-color: transparent;
@@ -210,6 +213,178 @@
             }
         }
     }
+
+    .bbw-brand-menu {
+        max-width: 1400px;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        list-style: none;
+        border: none;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 0;
+        text-transform: capitalize;
+
+        .dropdown-toggle::after {
+            border: 0;
+        }
+
+        .navbar {
+            position: inherit;
+
+            .level-1-ul {
+                .nav-link {
+                    padding: 0.8125rem 0.875rem 0.5rem;
+                    line-height: 1.25rem;
+                    letter-spacing: 0.01em;
+                    border-bottom: 0.1875rem solid transparent;
+                    transition: border 0.5s ease-out;
+                    text-transform: capitalize;
+
+                    &:hover {
+                        color: colour(black, 1);
+                    }
+
+                    @include media-up(sm) {
+                        &::after {
+                            content: none;
+                        }
+                    }
+
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+
+                .level-1-li {
+                    position: inherit;
+
+                    .menu-wrap-level-1 {
+                        z-index: 110;
+                        top: auto;
+                        left: 0;
+                        margin-top: 2px;
+                        box-shadow: 0 12px 20px rgba(0, 0, 0, 15%);
+                        opacity: 0;
+                        pointer-events: none;
+                        visibility: hidden;
+                        transition-property: visibility, opacity, top;
+                        transition-duration: 0.5s;
+                        transition-timing-function: cubic-bezier(
+                            0.25,
+                            0.46,
+                            0.45,
+                            0.94
+                        );
+
+                        &.show {
+                            top: auto;
+                            z-index: 120;
+                            opacity: 1;
+                            pointer-events: auto;
+                            visibility: visible;
+                        }
+
+                        .level-2-ul-wrap {
+                            max-width: 1160px;
+                            margin: 21px auto;
+                            min-height: 213px;
+
+                            .level-2-ul {
+                                width: 193px;
+                                margin-left: 54px;
+                                list-style: none;
+                                padding: 0;
+                                
+                                // margin: 0;
+                                display: inline-block;
+                                left: 0;
+                                position: relative;
+                                text-align: left;
+
+                                .level-2-li {
+                                    position: relative;
+
+                                    // overflow: hidden;
+                                    text-transform: capitalize;
+                                    transition: max-height 0.3s ease-out;
+                                    height: 36px;
+                                    max-height: none;
+                                    margin-bottom: 22px;
+
+                                    // overflow: visible;
+                                    background-color: colour(white);
+
+                                    .level-2-link {
+                                        font-weight: map-get(
+                                            $font-weight,
+                                            semibold
+                                        );
+                                        font-size: 14px;
+                                        font-size: 0.875rem;
+                                        line-height: 16px;
+                                        letter-spacing: 0.015em;
+                                        padding: 6px 60px 0 20px;
+                                        height: auto;
+                                        color: #4d4d4d;
+                                        cursor: pointer;
+                                        display: block;
+                                    }
+
+                                    &.show {
+                                        .menu-wrap-level-3 {
+                                            top: 0;
+                                            opacity: 1;
+                                            pointer-events: auto;
+                                            visibility: visible;
+                                            transition: all 0.5s ease-out;
+                                            left: 100%;
+                                            padding: 0;
+                                        }
+                                    }
+
+                                    .menu-wrap-level-3 {
+                                        position: absolute;
+                                        left: 95%;
+                                        column-fill: auto;
+
+                                        // transition: none;
+                                        opacity: 0;
+                                        visibility: hidden;
+
+                                        // transition: all 0.5s ease-out;
+
+                                        li {
+                                            height: auto;
+                                            min-height: 41px;
+                                            display: flex;
+                                            position: relative;
+
+                                            a {
+                                                text-transform: none;
+                                                color: #4d4d4d;
+                                                display: block;
+                                                line-height: 1rem;
+                                                letter-spacing: 0.015em;
+                                                white-space: normal;
+                                                box-sizing: initial;
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                                height: 100%;
+                                                padding: 0 30px 16px 0;
+                                                width: 180px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @include media-breakpoint-down(sm) {
@@ -231,7 +406,8 @@
         outline: 0;
     }
 
-    .bbw-menu {
+    .bbw-menu,
+    .bbw-brand-menu {
         max-width: 350px;
         width: 86%;
         position: fixed;
@@ -541,7 +717,8 @@
         }
     }
 
-    .bbw-menu.in {
+    .bbw-menu.in,
+    .bbw-brand-menu.in {
         left: 0;
         transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
