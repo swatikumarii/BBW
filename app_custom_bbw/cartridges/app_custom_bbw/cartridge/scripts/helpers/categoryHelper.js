@@ -46,6 +46,13 @@ function appendCategoryBreadcrum(req, res, next) {
         null,
         []
     );
+
+    if (!viewData.productSearch.isCategorySearch) {
+        breadcrumbs.push({
+            htmlValue: Resource.msgf('search.result.breadcrumb', 'search', null, viewData.productSearch.searchKeywords)
+        });
+    }
+
     breadcrumbs.push({
         htmlValue: Resource.msg('global.home', 'common', null),
         url: URLUtils.home().toString()

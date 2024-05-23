@@ -14,5 +14,6 @@
                 </isobject>
             </div>
         </isloop>
+        <isinclude template="product/components/removeGiftLineItem" />
     </div>
 </isif>

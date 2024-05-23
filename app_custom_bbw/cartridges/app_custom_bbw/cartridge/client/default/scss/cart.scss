@@ -170,6 +170,18 @@
                             line-height: 16px;
                             color: $clr-gray-4;
                         }
+
+                        .remove-from-wishlist {
+                            display: inline-flex;
+
+                            img {
+                                margin-top: 4px;
+                            }
+
+                            span {
+                                font-size: 14px;
+                            }
+                        }
                     }
 
                     .item-image {

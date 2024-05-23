@@ -242,9 +242,28 @@ server.post('AddProductFromOrder', function (req, res, next) {
  * @memberof Cart
  */
 server.append('MiniCartShow', csrfProtection.generateToken, function (req, res, next) {
+    var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
     var currentBasket = BasketMgr.getCurrentBasket();
     var showTopOffers = Site.getCurrent().getCustomPreferenceValue('showTopOffers');
     var viewData = res.getViewData();
+    var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
+        type: 10
+    });
+
+    var optionId = null;
+    var optionVal = null;
+
+    var config = {
+        qty: 1,
+        optionId: optionId,
+        optionValue: optionVal,
+        req: req,
+        type: 10
+    };
+
+    for (var i = 0; i < viewData.items.length; i++) {
+        viewData.items[i].itemExist = productListHelper.itemExists(list, viewData.items[i].id, config);
+    }
     if (currentBasket && showTopOffers === true) {
         var topOffers = cartHelper.getTopOffers(currentBasket);
         viewData.topOffers = topOffers;
@@ -259,9 +278,28 @@ server.append(
     'Show',
     server.middleware.https,
     function (req, res, next) {
+        var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
         var dangerousGoodsExists = req.querystring.error === 'dangerous-goods';
         var viewData = res.getViewData();
         viewData.dangerousGoodsExists = dangerousGoodsExists;
+        var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
+            type: 10
+        });
+
+        var optionId = null;
+        var optionVal = null;
+
+        var config = {
+            qty: 1,
+            optionId: optionId,
+            optionValue: optionVal,
+            req: req,
+            type: 10
+        };
+
+        for (var i = 0; i < viewData.items.length; i++) {
+            viewData.items[i].itemExist = productListHelper.itemExists(list, viewData.items[i].id, config);
+        }
         res.setViewData(viewData);
         next();
     }
