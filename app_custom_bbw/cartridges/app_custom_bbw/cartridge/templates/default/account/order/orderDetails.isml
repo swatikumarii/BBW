@@ -75,9 +75,6 @@
                             </isif>
                             <div class="summary-details shipping">
                                 <isinclude template="checkout/addressSummary" />
-                                <isif
-                                    condition="${shippingModel.shippingAddress && shippingModel.shippingAddress.countryCode.displayValue}">
-                                    ${shippingModel.shippingAddress.countryCode.displayValue}</isif>
                                 <div class="shipping-phone">
                                     <isif
                                         condition="${shippingModel.shippingAddress && shippingModel.shippingAddress.phone}">
@@ -126,11 +123,6 @@
 
                 <div class="summary-details billing">
                     <isinclude template="checkout/addressSummary" />
-                    <isif
-                        condition="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.countryCode.displayValue}">
-                        <span
-                            class="order-summary-country d-block">${pdict.order.billing.billingAddress.address.countryCode.displayValue}</span>
-                    </isif>
                     <isif
                         condition="${pdict.order.billing.billingAddress.address !== null && pdict.order.billing.billingAddress.address.phone}">
                         <span class="order-summary-phone">${Resource.msg('label.order.phone', 'order', null)}
