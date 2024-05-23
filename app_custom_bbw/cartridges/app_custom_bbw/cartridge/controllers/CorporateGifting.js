@@ -78,7 +78,7 @@ server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentT
                 'corporateGifting',
                 null
             ),
-            from: 'no-reply@testorganization.com'
+            from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com'
         };
 
         // send email
