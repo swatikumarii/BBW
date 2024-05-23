@@ -7,8 +7,8 @@
     <div class="d-flex align-items-center">
         <img width="40px" height="40px" alt="${Resource.msg('label.shipping.truck', 'order', null)}"
             src="${URLUtils.staticURL('/images/account/shipping-truck-32.svg')}" />
-        <p class="your-item h-font-size--16 px-2 mb-0 h-clr--black-1 h-fw--bold"><span
-                class="pr-1 h-clr--blue h-fw--bold">${Resource.msg('label.shipping', 'order', null)}</span>${Resource.msg('label.order.shipping', 'order', null)}</p>
+        <p class="your-item h-font-size--16 px-2 mb-0 h-clr--black-1 h-fw--bold text-capitalize"><span
+                class="pr-1 h-clr--blue h-fw--bold">${Resource.msg('label.shipping.via', 'order', null)}</span>${shippingMethod} - <isprint value="${totalProductLineItems}" formatter="##" /> ${Resource.msg('label.items', 'order', null)}</p>
     </div>
 </div>
 
