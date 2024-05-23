@@ -8,7 +8,7 @@ var categoryHelper = require('*/cartridge/scripts/helpers/categoryHelper');
 server.append(
     'Show',
     categoryHelper.appendLevelOneCategory,
-    categoryHelper.appendCategoryBreadcrum
+    categoryHelper.appendSearchBreadcrum
 );
 server.append(
     'ShowAjax',

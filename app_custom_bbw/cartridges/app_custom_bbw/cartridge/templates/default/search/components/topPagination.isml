@@ -1,6 +1,8 @@
 <div class="row no-gutters search-results__top-header justify-content-beetween">
     <div class="col">
-        <h1 class="search-results__top-header__category-name h-clr--black-1 h-fw--bold h-mb--0 h-mb-sm-down--0">${pdict.productSearch.category.name}</h1>
+        <h1 class="search-results__top-header__category-name h-clr--black-1 h-fw--bold h-mb--0 h-mb-sm-down--0">
+            ${Resource.msg('title.search.results', 'search', null)}
+        </h1>
     </div>
     <div class="col search-results__top-header__pagination d-none d-md-flex justify-content-end align-items-center">
         <isif condition="${require('*/cartridge/config/seoPreferences').enablePLPPagination}">
