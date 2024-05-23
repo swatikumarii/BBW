@@ -31,6 +31,7 @@ module.exports.render = function (context, modelIn) {
     model.linkUmpParameter = content.linkUmpParameter ? content.linkUmpParameter : '';
     model.link = content.link ? content.link : '#';
     model.customClass = content.customClass ? content.customClass : '';
+    model.trackerClass = content.trackerClass ? content.trackerClass : '';
 
     return new Template('experience/components/bbw_components/cardOffer').render(model).text;
 };
