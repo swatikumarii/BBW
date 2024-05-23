@@ -15,7 +15,7 @@
         </div>
         <isif condition="${pdict.wishlist.items.length > 3}">
             <div class="my-account col-12 text-center p-0">
-                <button type="button" class="btn btn-hover view-button more-wl-items">
+                <button type="button" class="btn btn-hover view-button view-more-btn more-wl-items">
                     ${Resource.msg('button.view.more', 'common', null)}
                 </button>
             </div>

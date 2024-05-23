@@ -50,7 +50,7 @@ server.replace(
         }
 
         if (page && page.isVisible()) {
-            res.page('homepage');
+            res.page(page.ID);
         } else {
             res.render('home/homePage');
         }
