@@ -19,17 +19,15 @@ module.exports.render = function (context) {
     var carouselTitle = content.carouselTitle ? content.carouselTitle : '';
     var category = content.category;
     var tileLimit = content.tileLimit;
+    var showOutOfStockProducts = content.showOutOfStockProducts;
     var shopButtonText = content.shopButtonText ? content.shopButtonText : '';
     var component = context.component;
 
     model.regions = PageRenderHelper.getRegionModelRegistry(component);
 
-    // productsCount decides number of product tiles to be displayed
     if (tileLimit) {
-        tileLimit = tileLimit > 0 ? tileLimit : false;
+        tileLimit = tileLimit > 0 ? tileLimit : category.onlineProducts.length;
     }
-    var productsCount = (tileLimit <= category.onlineProducts.length ? tileLimit : category.onlineProducts.length)
-        || category.onlineProducts.length;
 
     model.carouselTitle = carouselTitle;
     model.productDetailAlignment = content.productDetailAlignment === 'center' ? 'content-center' : content.productDetailAlignment === 'right' ? 'content-right' : 'content-left'; // eslint-disable-line
@@ -37,9 +35,22 @@ module.exports.render = function (context) {
     model.shopButtonLink = URLUtils.url('Search-Show', 'cgid', category.ID);
     model.sectionCustomClass = content.sectionCustomClass;
     var products = [];
-    // var categoryProducts = category.onlineProducts.slice(0, productsCount);
-    for (var index = 0; index < productsCount; index++) {
-        products.push(ProductFactory.get({ pid: category.onlineProducts[index].ID }));
+    // productsCount decides number of product tiles to be displayed
+    var productCount = 0;
+    for (var index = 0; index < category.onlineProducts.length; index++) {
+        var product = ProductFactory.get({ pid: category.onlineProducts[index].ID });
+        if (showOutOfStockProducts === false) {
+            if (product.available === true) {
+                products.push(product);
+                productCount++;
+            }
+        } else {
+            products.push(product);
+            productCount++;
+        }
+        if (productCount === tileLimit) {
+            break;
+        }
     }
     model.selectedProducts = products;
     return new Template('experience/components/commerce_layouts/categoryCarousel').render(model).text;
