@@ -24,17 +24,17 @@
             data-action="${pdict.order.invoiceDownloadUrl}">${Resource.msg('label.print', 'confirmation', null)}</button>
     </div>
 </div>
-<isif condition="${pdict.order.orderStatus && pdict.order.orderStatus.value === 3}">
-    <div class="purhase-message">
-        <p class="h-clr--black-3 mb-0">${Resource.msg('purchase.label.message', 'confirmation', null)} <p>
+<isif condition="${pdict.order.orderStatus && pdict.order.orderStatus.value === pdict.orderStatusVal.ORDER_STATUS_CREATED}">
+    <div class="purhase-pending">
+        <p class="mb-0">${Resource.msg('message.order.pending', 'order', null)} <p>
     </div>
-<iselseif condition="${pdict.order.orderStatus && pdict.order.orderStatus.value === 8}">
+<iselseif condition="${pdict.order.orderStatus && (pdict.order.orderStatus.value === pdict.orderStatusVal.ORDER_STATUS_FAILED || pdict.order.orderStatus.value === pdict.orderStatusVal.ORDER_STATUS_CANCELLED)}">
     <div class="purhase-failed">
         <p class="mb-0">${Resource.msg('message.order.failed', 'order', null)} <p>
     </div>
 <iselse>
-    <div class="purhase-pending">
-        <p class="mb-0">${Resource.msg('message.order.pending', 'order', null)} <p>
+    <div class="purhase-message">
+        <p class="h-clr--black-3 mb-0">${Resource.msg('purchase.label.message', 'confirmation', null)} <p>
     </div>
 </isif>
 <h2 class="h-font-size--30 h-fw--normal h-clr--black-3 card-header-confirmation text-left text-uppercase">

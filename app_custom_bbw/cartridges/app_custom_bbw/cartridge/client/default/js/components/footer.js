@@ -104,8 +104,13 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
     $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
 });
 
-if (!sessionStorage.getItem('is-country-selector')) {
+if (!localStorage.getItem('is-country-selector') && ($('.countrySelectPopup').data('country-selector-enabled'))) {
     $('.countrySelectPopup').find('.modal').modal('show');
+    var reqCountryDiv = $('#request-country-name');
+    var countryCode = reqCountryDiv.data('country-code');
+    var regionName = new Intl.DisplayNames(['en'], {type: 'region'});
+    var countryDisplayName = regionName.of(countryCode);
+    reqCountryDiv.text(countryDisplayName);
 }
 
 var timer;
@@ -119,12 +124,12 @@ $('body')
         clearTimeout(timer);
     })
     .on('click', '#switch-site', function () {
-        sessionStorage.setItem('is-country-selector',true);
+        localStorage.setItem('is-country-selector',true);
         var site = $('#selected-site').val();
-        window.location.replace(site);
+        window.location.assign(site);
     })
     .on('click', '.country-stay-site', function () {
-        sessionStorage.setItem('is-country-selector',true);
+        localStorage.setItem('is-country-selector',true);
     });
 // Close popover on close button click
 $(document).on('click', '.popover .close', function (e) {

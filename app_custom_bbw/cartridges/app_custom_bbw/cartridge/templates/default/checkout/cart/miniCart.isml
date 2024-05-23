@@ -1,8 +1,5 @@
 <isset name="miniCart" value="${true}" scope="page" />
 <div class="cart container">
-    <iscomment> MiniCart- Recommendation </iscomment>
-    <isslot id="minicart-recommendation-slider" context="global" description="This is for minicart sidebar recommendations" context-object="${dw.order.BasketMgr.getCurrentBasket()}" />
-
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
         <isinclude template="reporting/reportingUrls" />
     </isif>
@@ -62,6 +59,9 @@
                         </div>
                     </div>
                 </isloop>
+            </div>
+            <div class="miniCartTopOffers">
+                <isinclude template="checkout/cart/topOffers" />
             </div>
         <iselse/>
            <div class="empty-minicart h-fw--semibold h-font-size--16 text-center">

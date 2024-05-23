@@ -106,9 +106,6 @@ server.replace(
                 ? form.shippingAddress.shippingMethodID.value.toString()
                 : null;
 
-            result.isGift = form.shippingAddress.isGift.checked;
-
-            result.giftMessage = result.isGift ? form.shippingAddress.giftMessage.value : null;
             res.setViewData(result);
 
             this.on('route:BeforeComplete', function (req, res) { // eslint-disable-line no-shadow
@@ -122,21 +119,6 @@ server.replace(
                     shippingData,
                     currentBasket.defaultShipment
                 );
-
-                var giftResult = COHelpers.setGift(
-                    currentBasket.defaultShipment,
-                    shippingData.isGift,
-                    shippingData.giftMessage
-                );
-
-                if (giftResult.error) {
-                    res.json({
-                        error: giftResult.error,
-                        fieldErrors: [],
-                        serverErrors: [giftResult.errorMessage]
-                    });
-                    return;
-                }
 
                 if (
                     !currentBasket.billingAddress ||

@@ -571,6 +571,7 @@ input[type="tel"],
     overflow-y: scroll;
     padding: 20px;
     display: none;
+    z-index: 9;
 
     &:hover {
         display: block;
@@ -659,4 +660,74 @@ input[type="tel"],
     margin: 20px 0;
     line-height: 16px;
     letter-spacing: 0.2px;
+}
+
+.form-error-div {
+    background-color: colour(red, 11);
+    padding: 8px 20px 8px 44px;
+    margin: 5px 0;
+    width: 955px;
+
+    .error-icon {
+        float: left;
+        position: absolute;
+        left: 10px;
+        top: calc(50% - 14px);
+    }
+
+    .error-form {
+        width: 100%;
+        color: colour(red);
+        margin: 5px 0;
+        text-align: left;
+        position: relative;
+
+        @include media-up(sm) {
+            width: 955px;
+        }
+
+        @include media-btw(sm, lg) {
+            width: 100%;
+        }
+    }
+}
+
+.promo-details-tooltip {
+    border: 1px solid;
+    width: 260px;
+    display: block;
+    min-width: 260px;
+    max-height: 400px;
+    position: absolute;
+    left: 50%;
+    background: $clr-white;
+    padding: 24px 0;
+    z-index: 9;
+
+    .promo-details-content {
+        padding: 0 24px 0 16px;
+        overflow-y: scroll;
+    }
+
+    .tooltip-arrow {
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: -10px;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid #000;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            right: -11px;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid white;
+        }
+    }
 }

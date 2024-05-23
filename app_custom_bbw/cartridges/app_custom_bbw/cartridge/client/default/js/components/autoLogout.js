@@ -1,5 +1,7 @@
 'use strict';
 
+var helpers = require('../utils/scrollHelpers');
+
 /**
  * session out timer
  * @param {any} minutes countdown minutes
@@ -9,7 +11,11 @@ function countdown(minutes, seconds) {
     var secs = seconds;
     var counter = document.getElementById('timer');
     counter.innerHTML =
-            (minutes < 10 ? '0' : '') + minutes.toString() + ':' + (secs < 10 ? '0' : '') + String(secs);
+        (minutes < 10 ? '0' : '') +
+        minutes.toString() +
+        ':' +
+        (secs < 10 ? '0' : '') +
+        String(secs);
     secs--;
     if (secs >= 0) {
         setTimeout(function () {
@@ -36,13 +42,16 @@ function setLogoutTimer(autoLogout) {
         return 0;
     }
 
-    var softTimeout = Number($('[data-soft-timeout]').data('soft-timeout')) || 44;
-    var popupDuration = Number($('[data-popup-duration]').data('popup-duration')) || 2;
+    var softTimeout =
+        Number($('[data-soft-timeout]').data('soft-timeout')) || 44;
+    var popupDuration =
+        Number($('[data-popup-duration]').data('popup-duration')) || 2;
     var remainingTime = softTimeout - popupDuration;
     return setTimeout(function () {
         $('#autologout').find('.confirmation').show();
         $('#autologout').find('#login-refresh').show();
-        if(!$('.timer').is(':visible')) {
+        helpers.disableScroll();
+        if (!$('.timer').is(':visible')) {
             countdown(popupDuration, 0);
         }
         $('#autologout').find('.logout').hide();
@@ -56,11 +65,16 @@ function setLogoutTimer(autoLogout) {
     }, remainingTime * 60000);
 }
 
+$('#autologout').on('hide.bs.modal', function () {
+    helpers.enableScroll();
+});
+
 /**
  * set hard auto logout callback, this function will executes when user login & sign up
  */
 function setLogoutTime() {
-    var hardTimeout = Number($('[data-hard-timeout]').data('hard-timeout')) || 360;
+    var hardTimeout =
+        Number($('[data-hard-timeout]').data('hard-timeout')) || 360;
     var time = hardTimeout * 60 * 1000;
     var logoutTime = new Date().getTime() + time;
     localStorage.setItem('auto-logout', logoutTime);
@@ -92,6 +106,7 @@ module.exports = function () {
                 $('#autologout').find('#login-refresh').hide();
                 $('#autologout').find('.logout').show();
                 $('#autologout').find('#logout-refresh').show();
+                helpers.disableScroll();
                 $('#autologout').modal();
             }
             localStorage.removeItem('auto-logout:message');

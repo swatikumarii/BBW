@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@import "_brand/components/recommendation/minicart/b-minicart-recommendation-slider";
+
 .minicart-overlay {
     display: none;
     position: fixed;
@@ -19,6 +21,10 @@
 
 .minicart {
     .popover {
+        @include media-down(sm) {
+            display: none;
+        }
+
         top: 0;
         left: auto;
         min-height: 100%;
@@ -31,6 +37,7 @@
 
         &.show {
             right: 0;
+            border-radius: 0 4px 4px 0;
         }
 
         .remove-line-item {
