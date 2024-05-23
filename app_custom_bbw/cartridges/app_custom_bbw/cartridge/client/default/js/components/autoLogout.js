@@ -65,6 +65,10 @@ function setLogoutTimer(autoLogout) {
     }, remainingTime * 60000);
 }
 
+$('#autologout').on('hide.bs.modal', function () {
+    helpers.enableScroll();
+});
+
 /**
  * set hard auto logout callback, this function will executes when user login & sign up
  */
