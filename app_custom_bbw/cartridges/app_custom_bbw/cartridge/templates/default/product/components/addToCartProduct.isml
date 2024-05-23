@@ -10,5 +10,6 @@
         </isif>
     </div>
 </div>
+
 <isinclude template="product/components/removeGiftLineItem" />
 <isinclude template="product/components/removeLineItem" />
