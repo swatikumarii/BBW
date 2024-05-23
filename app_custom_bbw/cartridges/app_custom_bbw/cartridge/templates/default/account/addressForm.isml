@@ -88,7 +88,7 @@
 <div class="form-group">
     <div class="form-label-require d-flex align-items-center justify-content-between">
         <label class="form-control-label mb-0" for="address2">
-        <span class="required-indicator"></span>
+        <iscomment> <span class="required-indicator"></span> </iscomment>
             <isprint value="${pdict.addressForm.address2.label}" encoding="htmlcontent" />
         </label>
         <iscomment> <span

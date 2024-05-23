@@ -18,6 +18,11 @@
         &:focus {
             box-shadow: none;
         }
+
+        &.no-border {
+            border-radius: 0;
+            border: none;
+        }
     }
 
     &::after {

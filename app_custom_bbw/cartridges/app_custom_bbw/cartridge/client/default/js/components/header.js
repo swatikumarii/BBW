@@ -11,20 +11,14 @@ if (layout.isDesktop() || layout.isTablet()) {
     });
 
     $(document).on('click', 'body', function (e) {
-        $('#header-search').removeClass(
-            'expand-towards-right',
-            'all 0.3s ease'
-        );
-        $('.utility-user, .minicart').removeClass('d-lg-none d-md-none');
-        $('.search-fly-out-opacity').addClass('d-none');
-        e.stopPropagation();
+        if (!$(e.target).closest('.js-search-suggestions').length) {
+            $('#header-search').removeClass('expand-towards-right');
+            $('.utility-user, .minicart').removeClass('d-lg-none d-md-none');
+            $('.search-fly-out-opacity').addClass('d-none');
+            e.stopPropagation();
+        }
     });
 }
-
-/* Search overlay */
-$('.search-field').on('click', function () {
-    $('.search-fly-out-opacity').removeClass('d-none');
-});
 
 /* Mobile custom search */
 $('#mobile-custom-search').on('click', function (e) {
@@ -52,54 +46,61 @@ $('#ticker').easyTicker({
 function openLoginPopup() {
     if ($('form').hasClass('registration')) {
         $('.loginPopup').find('#loginModal').modal('hide');
+        var href = $('#log-in-page-url').attr('href');
+        window.location.href = href;
     } else {
         $('.loginPopup').find('#loginModal').modal('show');
     }
 }
 module.exports = function () {
     $('.loginPopupBtn').on('click', openLoginPopup);
+    $('#logoutButton').on('click', function () {
+        if (sessionStorage.getItem('profileIncomplete') !== null) {
+            sessionStorage.removeItem('profileIncomplete');
+        }
+    });
 };
 
 /** Sticky header padding on body */
-$(window).on('load resize', function () {
-    var $header = $('.header');
+$(window).on('scroll resize', function () {
+    var $header = $('header.header');
     var $body = $('body');
     if ($body.hasClass('checkout-page') === false) {
         $body.css('padding-top', $header.outerHeight());
     }
-
+    $('header.header').addClass('fixed-header');
 });
 
 /* Stick Header - On Scroll */
-var t = $('header'); // Select header element
-var i = 0; // Initial height of header
-var n = 0; // New top position of header
-var r = $('body'); // Select body element
-var l = $(window); // Select window element
-var c = 0; // Current scroll position
-var m = 0; // Previous scroll position
-var v = 0; // Difference between previous and current scroll position
+var selectElement = $('header'); // Select header element
+var initialHeight = 0; // Initial height of header
+var newTopPosition = 0; // New top position of header
+var selectBody = $('body'); // Select body element
+var selectWindow = $(window); // Select window element
+var currentScroll = 0; // Current scroll position
+var previousScroll = 0; // Previous scroll position
+var difference = 0; // Difference between previous and current scroll position
 
 // On scroll event
-l.on('scroll', function () {
+selectWindow.on('scroll', function () {
     if ($('body').hasClass('checkout-page') === false) {
-        i = t.outerHeight(); // Get current height of header
-        c = l.scrollTop(); // Get current scroll position
-        v = m - c; // Calculate difference between previous and current scroll position
-        n = parseInt(t.css('top'), 10) + v; // Calculate new top position of header
+        initialHeight = selectElement.outerHeight(); // Get current height of header
+        currentScroll = selectWindow.scrollTop(); // Get current scroll position
+        difference = previousScroll - currentScroll; // Calculate difference between previous and current scroll position
+        newTopPosition = parseInt(selectElement.css('top'), 10) + difference; // Calculate new top position of header
 
         // Add padding to body to compensate for fixed header
-        r.css('padding-top', i);
+        selectBody.css('padding-top', initialHeight);
 
         // Determine header's position based on scroll direction
-        if (c <= 0) {
-            t.css('top', 0); // If at the top of the page, set header to top
-        } else if (v > 0) {
-            t.css('top', n > 0 ? 0 : n); // If scrolling up, move header up
-        } else if (v < 0 && n > -i) {
-            t.css('top', n); // If scrolling down but header is still within viewport, move header down
+        if (currentScroll <= 0) {
+            selectElement.css('top', 0); // If at the top of the page, set header to top
+        } else if (difference > 0) {
+            selectElement.css('top', newTopPosition > 0 ? 0 : newTopPosition); // If scrolling up, move header up
+        } else if (difference < 0 && newTopPosition > -initialHeight) {
+            selectElement.css('top', newTopPosition); // If scrolling down but header is still within viewport, move header down
         }
 
-        m = c; // Update previous scroll position
+        previousScroll = currentScroll; // Update previous scroll position
     }
 });

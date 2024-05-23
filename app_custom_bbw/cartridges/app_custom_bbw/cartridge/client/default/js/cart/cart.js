@@ -27,11 +27,7 @@ function appendToUrl(url, params) {
 function validateBasket(data) {
     if (data.valid.error) {
         if (data.valid.message) {
-            var errorHtml = '<div class="alert alert-danger alert-dismissible valid-cart-error '
-                + 'fade show" role="alert">'
-                + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
-                + '<span aria-hidden="true">&times;</span>'
-                + '</button>' + data.valid.message + '</div>';
+            var errorHtml = '<span class="d-block">' + data.valid.message + '</span>';
 
             $('.cart-error').append(errorHtml);
         } else {
@@ -90,10 +86,10 @@ function updateCartTotals(data) {
         if (data.totals.orderLevelDiscountTotal.value > 0) {
             $('.coupons-and-promos').empty().append(data.totals.discountsHtml);
         }
-        if (item.renderedPromotions) {
-            $('.item-' + item.UUID).empty().append(item.renderedPromotions);
+        if (item.promotionsHTML) {
+            $('line-item-promo.item-' + item.UUID).empty().append(item.promotionsHTML);
         } else {
-            $('.item-' + item.UUID).empty();
+            $('line-item-promo.item-' + item.UUID).empty();
         }
         if (item.promoPrice !== false) {
             var promoPriceHTML =
@@ -120,12 +116,7 @@ function updateCartTotals(data) {
  * @param {object} message - Error message to display
  */
 function createErrorNotification(message) {
-    var errorHtml = '<div class="alert alert-danger alert-dismissible valid-cart-error '
-        + 'fade show" role="alert">'
-        + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">'
-        + '<span aria-hidden="true">&times;</span>'
-        + '</button>' + message + '</div>';
-
+    var errorHtml = '<span class="d-block">' + message + '</span>';
     $('.cart-error').append(errorHtml);
 }
 
@@ -422,7 +413,7 @@ module.exports = function () {
         var quantity = Number($(this).siblings('.quantity').val());
         quantity += 1;
         var maxOrderQty = $(this).siblings('.quantity').data('max-order-qty');
-        if (maxOrderQty && maxOrderQty < quantity) {
+        if (maxOrderQty && Number(maxOrderQty) < quantity) {
             var errorElem = $(this)
                 .parents('.quantity-form')
                 .siblings('.max-order-qty-error');
@@ -438,15 +429,19 @@ module.exports = function () {
     $(document).on('click', '.quantity-form > .quantity-minus', function () {
         var quantity = Number($(this).siblings('.quantity').val());
         quantity -= 1;
-        $(this).siblings('.quantity').val(quantity).trigger('change');
+        if (quantity > 0) {
+            $(this).siblings('.quantity').val(quantity).trigger('change');
+        }
     });
 
     $('body').on('change', '.quantity-form > .quantity', function () {
         var preSelectQty = $(this).data('pre-select-qty');
-        var quantity = $(this).val();
+        var quantity = Number($(this).val());
         var maxOrderQty = $(this).data('max-order-qty');
+        var isMiniCartTrigger = $(this).parents('.popover').length > 0;
+        var isCartPageTrigger = $(this).parents('.cart-page').length > 0;
 
-        if (maxOrderQty && maxOrderQty < quantity) {
+        if (maxOrderQty && Number(maxOrderQty) < quantity && quantity > 0) {
             var errorElem = $(this)
                 .parents('.quantity-form')
                 .siblings('.max-order-qty-error');
@@ -463,7 +458,9 @@ module.exports = function () {
             var urlParams = {
                 pid: productID,
                 quantity: quantity,
-                uuid: uuid
+                uuid: uuid,
+                isMiniCartTrigger:isMiniCartTrigger,
+                isCartPageTrigger:isCartPageTrigger
             };
             url = appendToUrl(url, urlParams);
 
@@ -845,6 +842,49 @@ module.exports = function () {
                 }
             });
         }
+    });
+
+    $('body').on('click', '.applyTopOffer', function (e) {
+        e.preventDefault();
+        var action = $(this).data('action');
+        var couponCode = $(this).data('coupon');
+        var csrfTokenFieldName = $('.topOfferCsrfToken').attr('name');
+        var csrfTokenValue = $('.topOfferCsrfToken').val();
+        var formData = 'couponCode='+couponCode+'&'+csrfTokenFieldName+'='+csrfTokenValue;
+        $.ajax({
+            url: action,
+            type: 'GET',
+            contentType: false,
+            data: formData,
+            processData: false,
+            success: function (data) {
+                if (data.error) {
+                    $('.topOfferSuccess').hide();
+                    $('.topOfferError').text(data.errorMessage);
+                    $('.topOfferError').show();
+                    setTimeout(function () {
+                        $('.topOfferError').hide();
+                    }, 5000);
+                } else {
+                    updateCartTotals(data);
+                    $('.topOfferError').hide();
+                    $('.topOfferSuccess').text(data.resources.couponApplied);
+                    $('.topOfferSuccess').show();
+                    setTimeout(function () {
+                        $('.topOfferSuccess').hide();
+                    }, 5000);
+                }
+
+            },
+            error: function () {
+                $('.topOfferSuccess').hide();
+                $('.topOfferError').text($('.something-went-wrong').text());
+                $('.topOfferError').show();
+                setTimeout(function () {
+                    $('.topOfferError').hide();
+                }, 5000);
+            }
+        });
     });
 
     base.selectAttribute();

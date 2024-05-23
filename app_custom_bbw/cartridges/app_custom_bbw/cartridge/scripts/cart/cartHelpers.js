@@ -399,6 +399,7 @@ function createFreeLineItem(lineItemContainer) {
                 breakLoop = true;
             } else {
                 setFreeFalse(productLineItem);
+                breakLoop = true;
             }
         } else if (shouldHaveFreeItem) {
             var productQtyAfterReduce =
@@ -579,6 +580,23 @@ function mergeCart(storedBasketProducts) {
                             optionProducts
                         );
                         if (!result.error) {
+                            if (pli.isEgiftCard) {
+                                for (var i = 0;i < currentBasket.productLineItems.length;i++) {
+                                    if (currentBasket.productLineItems[i].UUID === result.uuid) {
+                                        currentBasket.productLineItems[i].custom.eGiftReceiver = pli.eGiftReceiver;
+                                        currentBasket.productLineItems[i].custom.eGiftReceiverEmail =pli.eGiftReceiverEmail;
+                                        currentBasket.productLineItems[i].custom.eGiftSender = pli.eGiftSender;
+                                        currentBasket.productLineItems[i].custom.eGiftMessage = pli.eGiftMessage;
+                                        currentBasket.productLineItems[i].custom.eGiftCardScheduleDay = pli.eGiftCardScheduleDay;
+                                        currentBasket.productLineItems[i].custom.eGiftCardScheduleMonth = pli.eGiftScheduleMonth;
+                                        currentBasket.productLineItems[i].custom.eGiftVideoLink = pli.eGiftVideoLink;
+                                        currentBasket.productLineItems[i].custom.eGiftScheduledYear = pli.eGiftScheduledYear;
+                                        currentBasket.productLineItems[i].custom.isEgiftCard = true;
+                                        currentBasket.productLineItems[i].custom.eGiftEmailPending = pli.eGiftEmailPending;
+                                        break;
+                                    }
+                                }
+                            }
                             isCartMerged = true;
                         }
                     }
@@ -600,9 +618,41 @@ function mergeCart(storedBasketProducts) {
     return resultObj;
 }
 
+/**
+ * Function getTopOffers is using to get all active promotions
+ * @param {dw.order.Basket} currentBasket - Current users's basket
+ * @returns {Array} topOffers - contain top offers
+ */
+function getTopOffers(currentBasket) {
+    var topOffers = [];
+    if (currentBasket) {
+        var allLineItems = currentBasket.allProductLineItems;
+        if (allLineItems.length > 0) {
+            Transaction.wrap(function () {
+                var PromotionMgr = require('dw/campaign/PromotionMgr');
+                var activePromotions = PromotionMgr.getActivePromotions().promotions;
+                if (activePromotions.length > 0) {
+                    for(var i = 0; i < activePromotions.length; i++) {
+                        var promo = activePromotions[i];
+                        if (('showOnMiniCart' in promo.custom && promo.custom.showOnMiniCart === true) && promo.basedOnCoupon === true && promo.coupons[0].type === 'SINGLE_CODE') {
+                            var topOffer = {
+                                promo: promo,
+                                couponCode: promo.coupons[0].ID
+                            };
+                            topOffers.push(topOffer);
+                        }
+                    }
+                }
+            });
+        }
+    }
+    return topOffers;
+}
+
 base.createFreeLineItem = createFreeLineItem;
 base.checkCouponCodeError = checkCouponCodeError;;
 base.addProductToCart = addProductToCart;
 base.getProductPrice = getProductPrice;
 base.mergeCart = mergeCart;
+base.getTopOffers = getTopOffers;
 module.exports = base;

@@ -1,12 +1,20 @@
 'use strict';
 
 var cart = require('../cart/cart');
+var layout = require('../utils/layout');
 
 var updateMiniCart = true;
 var location = window.location;
 
 module.exports = function () {
     cart();
+
+    $(document).on('click','.minicart-login-btn', function () {
+        $('.loginPopup').find('#loginModal').modal('show');
+        $('input[name="loginRedirectUrl"]').val('Cart-Show');
+        $('input[name="loginRedirectQueryString"]').val('');
+    });
+
 
     $('.minicart').on('count:update', function (event, count) {
         if (count && $.isNumeric(count.quantityTotal)) {
@@ -27,16 +35,14 @@ module.exports = function () {
         }
         var url = $('.minicart').data('action-url');
         if (!updateMiniCart) {
-            $('.minicart .popover').addClass('show');
-            $('.minicart-overlay').addClass('show');
             $('.popover').scrollTop(0);
             $('.mini-cart-content').scrollTop(0);
             $('body').addClass('overflow-hidden');
+            $('.minicart .popover').addClass('show');
+            $('.minicart-overlay').addClass('show');
             return;
         }
 
-        $('.minicart .popover').addClass('show');
-        $('.minicart-overlay').addClass('show');
         $('body').addClass('overflow-hidden');
         $('.minicart .popover').spinner().start();
         $.get(url, function (data) {
@@ -45,6 +51,8 @@ module.exports = function () {
             updateMiniCart = false;
             $.spinner().stop();
         });
+        $('.minicart .popover').addClass('show');
+        $('.minicart-overlay').addClass('show');
     });
     $('body, .minicart-overlay').on('touchstart click', function (e) {
         if ($('.minicart').has(e.target).length <= 0) {
@@ -68,6 +76,20 @@ module.exports = function () {
     });
     $('body').on('product:afterAddToCart', function () {
         updateMiniCart = true;
+        if (layout.isDesktop() || layout.isTablet()) {
+            $('.minicart .popover').addClass('show');
+            $('.minicart-overlay').addClass('show');
+            $('body').addClass('overflow-hidden');
+            var minicartURL =
+                    $('.minicart').data('action-url');
+            $('.minicart .popover').spinner().start();
+            $.get(minicartURL, function (minicartData) {
+                $('.minicart .popover').empty();
+                $('.minicart .popover').append(
+                    minicartData
+                );
+            });
+        }
     });
     $('body').on('cart:update', function () {
         updateMiniCart = true;

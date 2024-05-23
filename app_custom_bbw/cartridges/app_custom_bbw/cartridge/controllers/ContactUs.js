@@ -7,6 +7,8 @@
 var server = require('server');
 server.extend(module.superModule);
 
+var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
+
 /**
  * ContactUs-Subscribe : This endpoint is called to submit the shopper's contact information
  */
@@ -37,6 +39,17 @@ server.prepend('Subscribe', function (req, res, next) {
             return;
         }
     }
+    next();
+});
+
+/**
+ * ContactUs-Availability : This endpoint is called to get contact's availability
+ */
+server.get('Availability', function (req, res, next) {
+    var availability = commonHelper.getAvailability();
+    res.render('contactUs/contactAvailability', {
+        availability: availability
+    });
     next();
 });
 

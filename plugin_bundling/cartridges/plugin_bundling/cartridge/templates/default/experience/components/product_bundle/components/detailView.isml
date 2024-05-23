@@ -1,9 +1,9 @@
-<div id="productbundle-modal" class="modal" role="dialog" data-backdrop="false">
-    <div class="modal-dialog productbundle-dialog">
+<div id="productbundle-modal" class="modal fade" role="dialog" data-backdrop="true">
+    <div class="modal-dialog productbundle-dialog modal-dialog-centered productbundle-detail" role="document">
         <iscomment> Modal content </iscomment>
         <div class="modal-content productbundle-content">
             <div class="modal-header border-bottom p-2 align-items-center">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-modal-parent="">
                     <i class="fa fa-light fa-angle-left" aria-hidden="true"></i>
                 </button>
                 <h5 tabindex="0" class="header-title text-center w-100">${Resource.msg('bundle.view', 'productBundle', null)}</h5>

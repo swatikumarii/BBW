@@ -3,13 +3,20 @@
         <div class="col-4">
             <iscomment> Image </iscomment>
             <div class="product-line-item-details d-flex flex-row">
-                <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                <isif condition="${lineItem.isEgiftCard}">
                     <div class="item-image">
-                        <img class="product-image" src="${lineItem.images.small[0].url}"
-                            alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}"
-                            width="100" />
+                        <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
+                            title="${lineItem.images.small[0].title}" width="100" />
                     </div>
-                </a>
+                <iselse/>
+                    <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                        <div class="item-image">
+                            <img class="product-image" src="${lineItem.images.small[0].url}"
+                                alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}"
+                                width="100" />
+                        </div>
+                    </a>
+                </isif>
             </div>
         </div>
         <div class="col-8 pr-md-0">
@@ -69,10 +76,7 @@
                         </div>
                     </div>
                     <div class="product-availability pt-2">
-                        <span>
-                            ${Resource.msg('label.availability', 'common', null)}
-                        </span>
-                        <span class="${lineItem.available ? 'h-clr--green' : 'h-clr--red'}">
+                        <span class="${lineItem.available ? 'h-clr--green-2' : 'h-clr--red'}">
                             ${lineItem.availability.messages[0]}
                         </span>
                     </div>

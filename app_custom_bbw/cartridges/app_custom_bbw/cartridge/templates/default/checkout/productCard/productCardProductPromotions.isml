@@ -1,6 +1,15 @@
+<isif condition="${pdict.miniCart !== null}">
+    <isset name="miniCart" value="${pdict.miniCart}" scope="page" />
+</isif>
+<isif condition="${pdict.cartPage !== null}">
+    <isset name="cartPage" value="${pdict.cartPage}" scope="page" />
+</isif>
+<isif condition="${pdict.lineItem !== null}">
+    <isset name="lineItem" value="${pdict.lineItem}" scope="page" />
+</isif>
 <isif condition="${lineItem.promotions}">
     <isloop items="${lineItem.promotions}" var="promotion">
-            <div class="h-font-size--${!(miniCart) ? '14 promotion' : '12'}">
+        <div class="h-font-size--14${!(miniCart) ? ' promotion' : ''} ${cartPage ? 'h-fw--semibold': ''}">
             <isprint value="${promotion.calloutMsg}" encoding="off" />
         </div>
         <isset name="showDescription" value="${false}" scope="page" />
@@ -12,7 +21,7 @@
 
         <isif condition="${showDescription && promotion.details !== ''}">
             <div class="h-pos--relative d-flex flex-column justify-content-center promo-details-wrap">
-                <span class="callout-detail promo-details h-font-size--${miniCart ? '12' : '14'} p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block">
+                <span class="callout-detail promo-details h-font-size--14 p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block h-mt--5">
                     ${Resource.msg('label.promo.details', 'cart', null)}
                 </span>
                 <span class="promo-details-tooltip" style="display:none">

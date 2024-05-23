@@ -25,6 +25,18 @@
             }
         }
     }
+
+    .container {
+        @include media-down(sm) {
+            max-width: 100%;
+        }
+    }
+}
+
+footer {
+    @include media-down(sm) {
+        max-width: 100%;
+    }
 }
 
 .card.ghost {
@@ -67,6 +79,16 @@
 
     button {
         min-width: 175px;
+    }
+
+    @include media-down(sm) {
+        .mb-sm-3 {
+            margin: 15px;
+        }
+
+        button {
+            width: 100%;
+        }
     }
 }
 
@@ -274,6 +296,14 @@ span.ship-to-city-st-zip {
         line-height: 25px;
         background-color: $clr-gray-1;
     }
+
+    @include media-down(sm) {
+        width: 100%;
+
+        .step-text {
+            height: 30px;
+        }
+    }
 }
 
 .checkout-blocks {
@@ -348,14 +378,6 @@ input[type="tel"],
         &::after {
             transform: translateY(-50%);
             right: 5px;
-        }
-    }
-}
-
-.billing-address-block {
-    .custom-select-wrap {
-        &::after {
-            top: 52%;
         }
     }
 }
@@ -533,6 +555,179 @@ input[type="tel"],
     &.promocode-title {
         &::after {
             right: 25px;
+        }
+    }
+}
+
+.info-icon-text {
+    min-width: 260px;
+    max-width: 260px;
+    min-height: 300px;
+    position: absolute;
+    right: -290px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid;
+    overflow-y: scroll;
+    padding: 20px;
+    display: none;
+    z-index: 9;
+
+    &:hover {
+        display: block;
+
+        + .info-icon-border-arrow-outline {
+            display: block;
+
+            + .info-icon-border-arrow {
+                display: block;
+            }
+        }
+    }
+}
+
+.info-icon-border-arrow {
+    border-top: 9px solid transparent;
+    border-right: 8px solid $clr-white;
+    border-bottom: 9px solid transparent;
+    position: absolute;
+    right: -39px;
+    top: 48px;
+    transform: translate(-100%, -50%);
+    display: none;
+}
+
+.info-icon-border-arrow-outline {
+    border-top: 10px solid transparent;
+    border-right: 9px solid $clr-black-1;
+    border-bottom: 10px solid transparent;
+    position: absolute;
+    right: -39px;
+    top: 48px;
+    transform: translate(-100%, -50%);
+    display: none;
+}
+
+.info-icon {
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    border: 1px solid $clr-gray-1;
+    border-radius: 50%;
+    background: $clr-gray-1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .info-icon-img-white {
+        display: none;
+    }
+
+    .info-icon-img-gray {
+        display: block;
+    }
+
+    &:hover {
+        background: $clr-black-3;
+        border-color: $clr-black-3;
+
+        .info-icon-img-white {
+            display: block;
+        }
+
+        .info-icon-img-gray {
+            display: none;
+        }
+
+        + .info-icon-text {
+            display: block;
+
+            + .info-icon-border-arrow-outline {
+                display: block;
+
+                + .info-icon-border-arrow {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.verify-msg {
+    margin: 20px 0;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+}
+
+.form-error-div {
+    background-color: colour(red, 11);
+    padding: 8px 20px 8px 44px;
+    margin: 5px 0;
+    width: 955px;
+
+    .error-icon {
+        float: left;
+        position: absolute;
+        left: 10px;
+        top: calc(50% - 14px);
+    }
+
+    .error-form {
+        width: 100%;
+        color: colour(red);
+        margin: 5px 0;
+        text-align: left;
+        position: relative;
+
+        @include media-up(sm) {
+            width: 955px;
+        }
+
+        @include media-btw(sm, lg) {
+            width: 100%;
+        }
+    }
+}
+
+.promo-details-tooltip {
+    border: 1px solid;
+    width: 260px;
+    display: block;
+    min-width: 260px;
+    max-height: 400px;
+    position: absolute;
+    left: 50%;
+    background: $clr-white;
+    padding: 24px 0;
+    z-index: 9;
+
+    .promo-details-content {
+        padding: 0 24px 0 16px;
+        overflow-y: scroll;
+    }
+
+    .tooltip-arrow {
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: -10px;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid #000;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            right: -11px;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid white;
         }
     }
 }

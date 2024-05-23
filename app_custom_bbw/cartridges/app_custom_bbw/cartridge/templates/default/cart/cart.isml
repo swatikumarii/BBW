@@ -32,7 +32,11 @@
             <div class="container cart cart-page">
                 <h1 class="shoppingBagTitle h-clr--black-1 h-fw--bold h-font-size--24">
                     ${Resource.msg('label.shopping.bag', 'cart', null)}</h1>
-                <div class="cartActionMessages"></div>
+                <div class="cartActionMessages">
+                    <isif condition="${pdict.dangerousGoodsExists}">
+                        <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('dangerousGoodsMessage')}" encoding="off" />
+                    </isif>
+                </div>
                 <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
                     <div class="cart-error-messaging cart-error h-font-size--14 h-bg--red-10 h-clr--red-9 px-3 py-2 mb-2">
                         <img src="${URLUtils.staticURL('images/Alert-Error.svg')}" alt="error alert" width="28px" height="28px">
@@ -87,10 +91,12 @@
                     </div>
                 </div>
                 <isinclude template="cart/cartApproachingDiscount" />
-                <isinclude template="cart/greetingCard" />
-                <div class="gift-wrap-choose-div">
-                    <isinclude template="cart/giftWrap" />
-                </div>
+                <isif condition="${!(pdict.isGiftProductAvailable)}">
+                    <isinclude template="cart/greetingCard" />
+                    <div class="gift-wrap-choose-div">
+                        <isinclude template="cart/giftWrap" />
+                    </div>
+                </isif>
                 <!---totals, and checkout actions--->
                 <div class="cartFooter">
                     <div class="cartPromoCodeWrap">

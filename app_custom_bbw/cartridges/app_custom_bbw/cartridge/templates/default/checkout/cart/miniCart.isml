@@ -1,5 +1,6 @@
 <isset name="miniCart" value="${true}" scope="page" />
 <div class="cart container">
+    <iscomment> MiniCart- Recommendation </iscomment>
     <isslot id="minicart-recommendation-slider" context="global" description="This is for minicart sidebar recommendations" context-object="${dw.order.BasketMgr.getCurrentBasket()}" />
 
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
@@ -23,8 +24,7 @@
                     <span class="d-block h-font-size--12 h-fw--semibold">
                         ${Resource.msg('minicart.login.message', 'cart', null)}
                     </span>
-                    <a href="${URLUtils.url('Login-Show')}"
-                        class="minicart-login-btn h-bdc--blue h-clr--blue d-block h-fw--bold text-center">${Resource.msg('action.customer.login', 'checkout', null)}</a>
+                    <button class="minicart-login-btn h-bg--white h-bdc--blue h-clr--blue d-block h-fw--bold text-center">${Resource.msg('action.customer.login', 'checkout', null)}</button>
                 </div>
             </isif>
             <iscomment> Motivator to be added here </iscomment>
@@ -62,6 +62,9 @@
                         </div>
                     </div>
                 </isloop>
+            </div>
+            <div class="miniCartTopOffers">
+                <isinclude template="checkout/cart/topOffers" />
             </div>
         <iselse/>
            <div class="empty-minicart h-fw--semibold h-font-size--16 text-center">

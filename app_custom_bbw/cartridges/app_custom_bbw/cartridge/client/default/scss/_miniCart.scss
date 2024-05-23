@@ -1,44 +1,39 @@
 @charset "UTF-8";
 
 .minicart-overlay {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.5;
+    transition: opacity 0.8s ease;
 
     &.show {
-        width: 100vw;
-        height: 100vh;
-        background-color: black;
-        opacity: 0.5;
         z-index: 131;
-    }
-}
-
-@keyframes show-minicart {
-    from {
-        right: -100%;
-    }
-
-    to {
-        right: 0;
+        display: block;
     }
 }
 
 .minicart {
     .popover {
+        @include media-down(sm) {
+            display: none;
+        }
+
         top: 0;
         left: auto;
-        right: -100%;
-        display: none;
         min-height: 100%;
         min-width: 425px;
         max-width: 425px;
         position: fixed;
         font-family: $ff-base;
+        right: -100%;
+        transition: right 0.8s ease-in-out;
 
         &.show {
-            display: block;
-            animation: 1s show-minicart;
             right: 0;
         }
 
@@ -238,6 +233,11 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+
+            &:hover {
+                color: $clr-white;
+                background-color: $clr-black-3;
+            }
         }
     }
 }

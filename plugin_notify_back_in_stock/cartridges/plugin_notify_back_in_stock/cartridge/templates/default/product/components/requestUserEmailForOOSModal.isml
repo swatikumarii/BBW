@@ -36,6 +36,7 @@
                                 name="notifyMeEmail" aria-describedby="emailHelp"
                                 data-pattern-mismatch="${Resource.msg('error.message.emailinvalid', 'notifyMe', null)}"
                                 required />
+                            <p class="pt-2 text-left">${Resource.msg('label.backinstock.msg', 'notifyMe', null)}</p>
                         </div>
                     </div>
                     <div class="send-email-btn">

@@ -1,0 +1,7 @@
+<isloop items="${pdict.contentAssets}" var="content">
+    <li>
+        <a href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
+            ${content.name}
+        </a>
+    </li>
+</isloop>

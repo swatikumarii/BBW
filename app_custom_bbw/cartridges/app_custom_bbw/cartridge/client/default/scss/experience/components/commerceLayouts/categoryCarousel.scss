@@ -27,10 +27,11 @@
 
     .shop-the-module-wrapper {
         padding-top: 16px;
+        margin-top: 16px;
 
         @include media-up(md) {
             grid-column: 7 / 13;
-            padding-top: 0;
+            padding-top: 16px;
         }
     }
 
@@ -49,7 +50,6 @@
 
         &__slide {
             min-height: 100%;
-            margin-top: auto;
             margin-bottom: 0;
             flex: 1;
             min-width: 253px;
@@ -76,9 +76,30 @@
                         max-width: 256px;
                     }
 
+                    &__body {
+                        margin-top: unset !important;
+
+                        square-placement {
+                            display: none;
+                        }
+
+                        .price {
+                            span:first-of-type {
+                                display: flex;
+                                align-items: center;
+                                justify-content: flex-start;
+                                gap: 5px;
+                            }
+                        }
+                    }
+
                     &__img-wrapper {
                         a {
                             user-select: none;
+                        }
+
+                        .suggestions__btn-add-to-cart {
+                            display: none;
                         }
                     }
 
@@ -90,7 +111,9 @@
 
                     &__quickview,
                     &__wishlistTile,
-                    &__availability {
+                    &__availability,
+                    &__ratings,
+                    &__product-promo {
                         display: none !important;
                     }
 
@@ -113,8 +136,56 @@
                         margin-bottom: 8px;
                     }
 
+                    &__price-link {
+                        pointer-events: none;
+                    }
+
                     .tile-body-footer {
                         margin-top: 8px;
+                    }
+                }
+
+                &.content-center {
+                    .pdp-link,
+                    .price,
+                    .b-product-tile__product-promo {
+                        text-align: center;
+                    }
+
+                    .price {
+                        margin: 8px 0;
+
+                        span:first-of-type {
+                            justify-content: center;
+                        }
+                    }
+                }
+
+                &.content-left {
+                    .pdp-link,
+                    .price,
+                    .b-product-tile__product-promo {
+                        text-align: left;
+                    }
+
+                    .price {
+                        span:first-of-type {
+                            justify-content: flex-start;
+                        }
+                    }
+                }
+
+                &.content-right {
+                    .pdp-link,
+                    .price,
+                    .b-product-tile__product-promo {
+                        text-align: right;
+                    }
+
+                    .price {
+                        span:first-of-type {
+                            justify-content: flex-end;
+                        }
                     }
                 }
             }

@@ -15,6 +15,40 @@ var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 var Order = require('dw/order/Order');
 
 /**
+ * Order-Details : The Order-Details append to add notify-me functionality
+ * @name Order-Details
+ */
+server.append(
+    'Details',
+    consentTracking.consent,
+    server.middleware.https,
+    userLoggedIn.validateLoggedIn,
+    function (req, res, next) {
+        var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+        var viewData = res.getViewData();
+
+        var userEmail = req.currentCustomer.raw.registered
+            ? req.currentCustomer.profile.email
+            : false;
+        var products = viewData.order.shipping[0].productLineItems.items;
+        for (var index = 0; index < products.length; index++) {
+            var productRecord = CustomObjectMgr.getCustomObject(
+                'notifyBackInStock',
+                products[index].id
+            );
+            products[index].productPresentInNotifyList = false;
+            if (userEmail && productRecord !== null && productRecord.custom.user.indexOf(userEmail) !== -1) {
+                products[index].productPresentInNotifyList = true;
+            }
+        }
+
+        res.setViewData(viewData);
+        next();
+    });
+
+
+
+/**
  * Order-History : The Order-History append to update breadcrumbs
  * @name Order-History
  */
@@ -272,40 +306,66 @@ server.get(
     consentTracking.consent,
     server.middleware.https,
     function (req, res, next) {
+        var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
         var OrderMgr = require('dw/order/OrderMgr');
-        var Locale = require('dw/util/Locale');
-        var OrderModel = require('*/cartridge/models/order');
         var orderId = encryptionHelper.decryptPin(
             decodeURIComponent(req.querystring.token)
         );
         if (orderId) {
             var order = OrderMgr.getOrder(orderId);
+            var breadcrumbs = [
+                {
+                    htmlValue: Resource.msg('global.home', 'common', null),
+                    url: URLUtils.home().toString()
+                },
+                {
+                    htmlValue: Resource.msg(
+                        'page.title.myaccount',
+                        'account',
+                        null
+                    ),
+                    url: URLUtils.url('Account-Show').toString()
+                },
+                {
+                    htmlValue: Resource.msg('label.orderhistory', 'account', null),
+                    url: URLUtils.url('Order-History').toString()
+                }
+            ];
+
             if (order) {
-                var currentLocale = Locale.getLocale(req.locale.id);
-
-                var config = {
-                    numberOfLineItems: 'single'
-                };
-
-                var orderModel = new OrderModel(order, {
-                    config: config,
-                    countryCode: currentLocale.country
-                });
-                res.render('account/orderDetail', {
+                var orderModel = orderHelpers.getOrderDetailsByID(
+                    orderId,
+                    req.locale.id
+                );
+                var exitLinkText = Resource.msg(
+                    'link.orderdetails.orderhistory',
+                    'account',
+                    null
+                );
+                var exitLinkUrl = URLUtils.https(
+                    'Order-History',
+                    'orderFilter',
+                    req.querystring.orderFilter
+                );
+                res.render('account/orderDetails', {
                     order: orderModel,
-                    accountlanding: false
+                    exitLinkText: exitLinkText,
+                    exitLinkUrl: exitLinkUrl,
+                    breadcrumbs: breadcrumbs
                 });
-                return next();
+            } else {
+                res.redirect(URLUtils.url('Account-Show'));
             }
+        } else {
+            res.redirect(URLUtils.url('Account-Show'));
         }
-        res.redirect(URLUtils.url('Home-Show'));
         return next();
     }
 );
 
 /**
- * Order-Tracking : This endpoint is used to track a placed Order
- * @name Order-Tracking
+ * Order-Check : This endpoint is used to track a placed Order
+ * @name Order-Check
  */
 server.post(
     'Check',
@@ -324,14 +384,8 @@ server.post(
                 order.customerEmail.toLowerCase() === req.form.orderEmail.toLowerCase().trim() &&
                 order.billingAddress.postalCode === req.form.billingZipCode.trim()
             ) {
-                var redirectURL;
-                if (req.currentCustomer.profile && req.currentCustomer.profile.customerNo) {
-                    redirectURL = URLUtils.url('Order-Details', 'orderID', req.form.orderNumber, 'orderFilter', '').toString();
-                } else {
-                    redirectURL = URLUtils.url('Order-Tracking', 'token', encryptionHelper.encryptPin(req.form.orderNumber)).toString();
-                }
                 res.json({
-                    redirectUrl: redirectURL
+                    redirectUrl: URLUtils.url('Order-Tracking', 'token', encryptionHelper.encryptPin(req.form.orderNumber)).toString()
                 });
             } else {
                 res.setStatusCode(400);
@@ -372,7 +426,9 @@ server.append(
                 commonHelper.zeroOrderEmail(viewData.order);
             }
             // redirection url
-            if (order.status.value === Order.ORDER_STATUS_FAILED) {
+            viewData.orderStatusVal = Order;
+            res.setViewData(viewData);
+            if (order.status.value === Order.ORDER_STATUS_FAILED || order.status.value === Order.ORDER_STATUS_CANCELLED) {
                 res.redirect(URLUtils.url('Order-Failed'));
             }
             if (order.status.value === Order.ORDER_STATUS_CREATED) {

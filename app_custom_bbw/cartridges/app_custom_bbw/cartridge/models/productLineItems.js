@@ -4,6 +4,9 @@ var base = module.superModule;
 
 var collections = require('*/cartridge/scripts/util/collections');
 var ProductFactory = require('*/cartridge/scripts/factories/product');
+var ProductMgr = require('dw/catalog/ProductMgr');
+var productDetailForAddToCart = require('*/cartridge/models/product/productDetailForAddToCart');
+var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
 var URLUtils = require('dw/web/URLUtils');
 var Resource = require('dw/web/Resource');
 
@@ -74,6 +77,11 @@ function createProductLineItemsObject(allLineItems, view) {
     var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
 
     collections.forEach(allLineItems, function (item) {
+        var product = Object.create(null);
+        var apiProduct = ProductMgr.getProduct(item.productID);
+        var productType = productHelper.getProductType(apiProduct);
+        product = productDetailForAddToCart(product, apiProduct, productType);
+
         // when item's category is unassigned, return a lineItem with limited attributes
         if (!item.product) {
             lineItems.push({
@@ -192,6 +200,13 @@ function createProductLineItemsObject(allLineItems, view) {
                 lineItems.push(newLineItem);
             }
         }
+        if (!('available' in newLineItem)){
+            newLineItem.available = 'available' in product ? product.available : false;
+        }
+        if (!('fragranceName' in newLineItem)){
+            newLineItem.fragranceName = 'fragranceName' in product && product.fragranceName !== '' ? product.fragranceName : false;
+        }
+        newLineItem.enableNotifyMe = product.enableNotifyMe;
     });
     return [lineItems, giftWrapLineItem, greetingCardLineItem];
 }

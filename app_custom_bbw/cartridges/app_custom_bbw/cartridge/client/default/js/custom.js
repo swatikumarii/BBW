@@ -63,3 +63,20 @@ $(document).ready(function () {
         $(this).remove();
     });
 });
+
+$(document).ready(function() {
+    $('#copyWishlistUrl').on('click', function() {
+        // Select the input field
+        var buttonName = $('#copyWishlistUrl').text();
+        var textToCopy = $('#wishlistUrl').text();
+        navigator.clipboard.writeText(textToCopy).then(function() {
+            // Change the button text to "Copied"
+            $('#copyWishlistUrl').text($('#copyWishlistUrl').data('copied'));
+            setTimeout(function() {
+                $('#copyWishlistUrl').text(buttonName);
+            }, 2000); // 2 seconds
+        });
+    });
+});
+
+
