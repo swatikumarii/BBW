@@ -30,5 +30,4 @@
     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha') == true}">
         <isinclude template="/common/googleRecaptcha" />
     </isif>
-    <iscontentasset aid="instagram-feed" />
 </isdecorate>

@@ -12994,7 +12994,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </custom-attributes>
     </content>
 
-  <content content-id="giftcards">
+    <content content-id="giftcards">
         <display-name xml:lang="x-default">Gift Cards</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -13053,54 +13053,55 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
     &lt;/div&gt;&#13;
 &#13;
     &lt;div class="gift-card-balance ui-accordion ui-widget ui-helper-reset"&gt;&#13;
-        &lt;h2 aria-controls="collapseExample" aria-expanded="false"&#13;
-            class="ui-accordion-header text-center h-font-size--16" data-toggle="collapse" href="#collapseExample"&#13;
-            role="button"&gt;&#13;
+    &lt;h2 aria-controls="collapseExample" aria-expanded="false"&#13;
+        class="ui-accordion-header text-center h-font-size--16" data-toggle="collapse" href="#collapseExample"&#13;
+        role="button"&gt;&#13;
 &#13;
-            &lt;p class="desk-title h-font-size--24 text-transform"&gt;Have a gift card?&lt;/p&gt;&#13;
-            &lt;span class="ui-accordion-header-icon ui-icon iconClosed"&gt;&lt;/span&gt;&lt;br /&gt;&#13;
-            &lt;span&gt;Check Card Balance&lt;/span&gt;&#13;
-        &lt;/h2&gt;&#13;
-    &lt;/div&gt;&#13;
-    &lt;div class="collapse" id="collapseExample"&gt;&#13;
-        &lt;div class="balance-box"&gt;&#13;
-            &lt;form class="clearfix" id="giftcard-landing-form" method="post" novalidate="novalidate"&gt;&#13;
-                &lt;div class="form-row number-max-length " data-required-text=""&gt;&lt;label&#13;
-                        for="dwfrm_giftcard_giftCardID"&gt;Gift Card Number&lt;span&#13;
-                            class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
+        &lt;p class="desk-title h-font-size--24 text-transform"&gt;Have a gift card?&lt;/p&gt;&#13;
+        &lt;span class="ui-accordion-header-icon ui-icon iconClosed"&gt;&lt;/span&gt;&lt;br /&gt;&#13;
+        &lt;span&gt;Check Card Balance&lt;/span&gt;&#13;
+    &lt;/h2&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div class="collapse" id="collapseExample"&gt;&#13;
+    &lt;div class="balance-box"&gt;&#13;
+        &lt;form class="clearfix" id="giftcard-landing-form" method="post" novalidate="novalidate"&gt;&#13;
+            &lt;div class="form-row number-max-length " data-required-text=""&gt;&lt;label&#13;
+                    for="dwfrm_giftcard_giftCardID"&gt;Gift Card Number&lt;span&#13;
+                        class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
 &#13;
-                    &lt;div class="field-wrapper "&gt;&lt;input aria-required="true" autocomplete="" class="input-text  required"&#13;
-                            data-maxlength="22" id="dwfrm_giftcard_giftCardID" maxlength="2147483647"&#13;
-                            name="dwfrm_giftcard_giftCardID" pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
-                    &lt;/div&gt;&#13;
-&#13;
-                    &lt;div class="form-caption " id="caption-dwfrm_giftcard_giftCardID"&gt;&amp;nbsp;&lt;/div&gt;&#13;
+                &lt;div class="field-wrapper "&gt;&lt;input aria-required="true" autocomplete="" class="input-text  required"&#13;
+                        data-maxlength="22" id="dwfrm_giftcard_giftCardID" maxlength="2147483647"&#13;
+                        name="dwfrm_giftcard_giftCardID" pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
                 &lt;/div&gt;&#13;
 &#13;
-                &lt;div class="form-row pin number-max-length help" data-required-text=""&gt;&lt;label&#13;
-                        for="dwfrm_giftcard_giftCardPin"&gt;&lt;span&gt;PIN&lt;/span&gt;&lt;span&#13;
-                            class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
+                &lt;div class="form-caption " id="caption-dwfrm_giftcard_giftCardID"&gt;&amp;nbsp;&lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
 &#13;
-                    &lt;div class="field-wrapper d-flex"&gt;&#13;
-                        &lt;input aria-required="true" autocomplete="" class="input-text help  required" data-maxlength="6"&#13;
-                            id="dwfrm_giftcard_giftCardPin" maxlength="2147483647" name="dwfrm_giftcard_giftCardPin"&#13;
-                            pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
-                        &lt;div class="tooltip-field"&gt;&#13;
-                            &lt;button type="button"&#13;
-                                class="btn btn-with-image btn-with-tooltip ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
-                                data-toggle="popover" data-placement="right"&#13;
-                                id="tooltip-footer_iroll_popover_emailcapture486"&#13;
-                                title="&amp;lt;a href='#' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
-                                data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt;&amp;lt;img src='https://cdn-fsly.yottaa.net/5d669b394f1bbf7cb77826ae/www.bathandbodyworks.com/v~4b.21a/on/demandware.static/-/Sites-BathAndBodyWorks-Library/default/dwdf049a99/images/gift-card/gift-card-pin.svg?yocs=w_A_' alt='Gift Card' /&amp;gt;&amp;lt;/div&amp;gt;"&#13;
-                                data-html="true"&gt;&#13;
-                            &lt;/button&gt;&#13;
-                        &lt;/div&gt;&#13;
+            &lt;div class="form-row pin number-max-length help" data-required-text=""&gt;&lt;label&#13;
+                    for="dwfrm_giftcard_giftCardPin"&gt;&lt;span&gt;PIN&lt;/span&gt;&lt;span&#13;
+                        class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
+&#13;
+                &lt;div class="field-wrapper d-flex"&gt;&#13;
+                    &lt;input aria-required="true" autocomplete="" class="input-text help  required" data-maxlength="6"&#13;
+                        id="dwfrm_giftcard_giftCardPin" maxlength="2147483647" name="dwfrm_giftcard_giftCardPin"&#13;
+                        pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
+                    &lt;div class="tooltip-field"&gt;&#13;
+                        &lt;button type="button"&#13;
+                            class="btn btn-with-image btn-with-tooltip ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
+                            data-toggle="popover" data-placement="right"&#13;
+                            id="tooltip-footer_iroll_popover_emailcapture486"&#13;
+                            title="&amp;lt;a href='#' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
+                            data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt;&amp;lt;img src='images/gift-cards/gift-card-pin.svg?$staticlink$' alt='Gift Card' /&amp;gt;&amp;lt;/div&amp;gt;"&#13;
+                            data-html="true"&gt;&#13;
+                        &lt;/button&gt;&#13;
                     &lt;/div&gt;&#13;
                 &lt;/div&gt;&#13;
-                &lt;button id="check-giftcert" class="btn"&gt;Check Gift Card Balance&lt;/button&gt;&#13;
-            &lt;/form&gt;&#13;
-        &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+            &lt;button id="check-giftcert" class="btn"&gt;Check Gift Card Balance&lt;/button&gt;&#13;
+        &lt;/form&gt;&#13;
     &lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&#13;
 &lt;/div&gt;&#13;
 &lt;style type="text/css"&gt;&#13;
     .gift-card-top-banner img {&#13;
@@ -13135,7 +13136,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
     }&#13;
 &#13;
     .btn-with-tooltip:hover {&#13;
-        background: #000000 url("images/gift-cards/UI-Information-hover.svg?$staticlink$_") no-repeat 50%;&#13;
+        background: #000000 url("images/gift-cards/UI-Information-hover.svg?$staticlink$") no-repeat 50%;&#13;
         background-size: 11px;&#13;
     }&#13;
 &#13;
@@ -13228,7 +13229,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         text-transform: uppercase;&#13;
     }&#13;
 &#13;
-    .ui-icon {&#13;
+    /* .ui-icon {&#13;
         background: url("images/gift-cards/up.svg?$staticlink$") no-repeat 50%;&#13;
         top: 31px;&#13;
         width: 15px;&#13;
@@ -13236,7 +13237,24 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         right: auto;&#13;
         left: calc(50% + 157px);&#13;
         position: absolute;&#13;
-    }&#13;
+    } */&#13;
+&#13;
+    .ui-icon {&#13;
+    background: url("images/gift-cards/up.svg?$staticlink$") no-repeat 50%;&#13;
+    top: 31px;&#13;
+    width: 15px;&#13;
+    height: 15px;&#13;
+    right: auto;&#13;
+    left: calc(50% + 157px);&#13;
+    position: absolute;&#13;
+    transition: transform 0.3s ease; /* Smooth transition for rotation */&#13;
+}&#13;
+&#13;
+/* Rotate the icon when the aria-expanded attribute is true */&#13;
+[aria-expanded="true"] .ui-icon {&#13;
+    transform: rotate(180deg);&#13;
+}&#13;
+&#13;
 &#13;
     .primary-content {&#13;
         padding: 0 0 20px 25px;&#13;
@@ -13374,6 +13392,76 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         min-height: 35px;&#13;
         max-height: 35px;&#13;
         letter-spacing: .12em;&#13;
+    }&#13;
+&lt;/style&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+	   <content content-id="Instagram-Feed">
+        <display-name xml:lang="x-default">Instagram Feed</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;&#13;
+&lt;div class="carousel slide" id="carouselExample"&gt;&#13;
+&lt;div class="carousel-inner"&gt;&#13;
+&lt;div class="carousel-item active"&gt;&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta2.png?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta3.png?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta4.png?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-item"&gt;&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-item"&gt;&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExample" type="button"&gt;&lt;span aria-hidden="true" class="carousel-control-prev-icon"&gt;&lt;/span&gt; &lt;span class="visually-hidden"&gt;&lt;/span&gt;&lt;/button&gt;&lt;button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExample" type="button"&gt;&lt;span aria-hidden="true" class="carousel-control-next-icon"&gt;&lt;/span&gt; &lt;span class="visually-hidden"&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&#13;
+&lt;style type="text/css"&gt;.carousel-inner {&#13;
+        display: flex;&#13;
+        flex-wrap: nowrap;&#13;
+        overflow: hidden;&#13;
+    }&#13;
+&#13;
+    .carousel-item {&#13;
+        flex: 0 0 auto;&#13;
+        width: 100%;&#13;
+    }&#13;
+&#13;
+    .active {&#13;
+        display: flex !important;&#13;
+    }&#13;
+&#13;
+    .carousel-col {&#13;
+        flex: 0 0 25%;&#13;
+        max-width: 25%;&#13;
+        padding: 0.5rem;&#13;
+        width: 25%;&#13;
+    }&#13;
+&#13;
+    .carousel-col img {&#13;
+        width: 100%;&#13;
+        height: auto;&#13;
     }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
