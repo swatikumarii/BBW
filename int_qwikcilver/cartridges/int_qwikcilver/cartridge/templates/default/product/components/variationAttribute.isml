@@ -13,8 +13,10 @@ Template Notes:
     <isif condition="${attr.swatchable}">
 
         <!-- Select <Attribute> Label -->
-        <span class="${attr.id} non-input-label">
-            ${Resource.msg('label.select', 'common', null)} ${attr.displayName}
+        <span class="${attr.id} h-font-size--12 h-lh-16 h-ls-02 h-clr--black-1 non-input-label">
+            <i>
+                <span class="h-clr--red">${'*'}</span>${Resource.msg('label.select', 'common', null)} ${attr.displayName}
+            </i>
         </span>
 
         <!-- Circular Swatch Image Attribute Values -->
@@ -47,8 +49,8 @@ Template Notes:
 
     <iselse>
         <!-- Select <Attribute> Label -->
-        <label class="${attr.id}" for="${attr.id}-${loopState && loopState.count ? loopState.count : '1' }">
-            ${Resource.msg('label.select', 'common', null)} ${attr.displayName}
+        <label class="${attr.id} text-capitalize h-font-size--16 h-clr--black-1 h-lh-20 h-fw--semibold h-ls-02" for="${attr.id}-${loopState && loopState.count ? loopState.count : '1' }">
+            <span class="h-clr--red">${'*'}</span> ${attr.displayName}
         </label>
 
         <!-- Attribute Values Drop Down Menu -->

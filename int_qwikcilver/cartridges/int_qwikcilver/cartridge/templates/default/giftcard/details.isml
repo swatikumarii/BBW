@@ -7,32 +7,42 @@
 </isscript>
 
     <div class="container">
-        <h1 class="h-clr--black-3 h-font-size--24 giftcard-heading">${Resource.msg('heading.e.giftcards', 'giftcards', null)}</h1>
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+        <h1 class="h-clr--black-3 h-font-size--24 h-lh-21 giftcard-heading">${Resource.msg('heading.e.giftcards', 'giftcards', null)}</h1>
         <isset name="product" value="${pdict.giftCard}" scope="page" />
 
         <div class="row gc-container product-detail m-auto">
-            <div class="col-6">
+            <div class="col-12 col-md-6">
                 <div class="main-image">
                     <img class="product-image" src="${product.images.large[0].url}"
                         alt="${product.images.large[0].alt}" title="${product.images.large[0].title}" width="360" />
                 </div>
+                <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+                    <isif condition="${attr.id === 'style'}">
+                        <div class="row ${attr.id}-wrap" data-attr="${attr.id}">
+                            <div class="col-8">
+                                <isinclude template="product/components/variationAttribute" />
+                            </div>
+                        </div>
+                    </isif>
+                </isloop>
             </div>
-            <div class="col-6">
-                <h1 class="h-font-size--30 h-clr--black-1 h-fw--bold h-ls-02"> ${Resource.msg('label.fast.fun', 'giftcards', null)}</h1>
-                <p class="m-0">
+            <div class="col-12 col-md-6 tablet-padding">
+                <h1 class="h-font-size--30 h-clr--black-1 h-fw--bold h-ls-02 h-lh-28"> ${Resource.msg('label.fast.fun', 'giftcards', null)}</h1>
+                <p class="m-0 h-lh-20 h-ls-01 h-clr--gray-4">
                     ${Resource.msg('label.delivery.24.hours', 'giftcards', null)}
                 </p>
-                <span>
+                <span class="h-lh-24 h-ls-02 h-clr--gray-4">
                     ${Resource.msg('label.giftcad.description', 'giftcards', null)}
                 </span>
                 <isset name="giftcardFields" value="${pdict.recepientForm}" scope="page" />
                 <iscomment> --------------------------- </iscomment>
                     <form class="gift-card-form mb-4" name="${pdict.recipientsForm.htmlName}">
-                        <div class="gift-required-fields text-right h-font-size--12 h-clr--black-1 h-ls-02">
+                        <div class="gift-required-fields text-right h-font-size--12 h-clr--black-1 h-ls-02 h-lh-16">
                             <span id="gift-required-fields"><span class="h-clr--red">${'*'}</span>${Resource.msg('gift.required.fields', 'forms', null)}</span>
                         </div>
                             <div class="form-group required">
-                                <label class="form-control-label h-font-size--16 h-fw--semibold h-ls-02" for="recipients-form-to">
+                                <label class="form-control-label h-font-size--16 h-clr--black-1 h-lh-20 h-fw--semibold h-ls-02" for="recipients-form-to">
                                     <span class="h-clr--red">${'*'}</span>${Resource.msg('label.input.recipientsname', 'forms', null)}
                                 </label>
                                 <input type="text" id="recipients-form-to" maxlength="80" name="recipient-name" size="20" required
@@ -45,7 +55,7 @@
                                 <div class="invalid-feedback" id="form-recipients-name-error"></div>
                             </div>
                             <div class="form-group required">
-                                <label class="form-control-label h-font-size--16 h-fw--semibold h-ls-02" for="recipients--from">
+                                <label class="form-control-label h-font-size--16 h-clr--black-1 h-lh-20 h-fw--semibold h-ls-02" for="recipients--from">
                                     <span class="h-clr--red">${'*'}</span>${Resource.msg('label.input.sendername', 'forms', null)}
                                 </label>
                                 <input type="text" id="recipients-form-from" maxlength="80" name="sender-name" size="20" required
@@ -58,7 +68,7 @@
                                 <div class="invalid-feedback" id="form-recipients-sendername-error"></div>
                             </div>
                             <div class="form-group required">
-                                <label class="form-control-label h-font-size--16 h-fw--semibold h-ls-02">
+                                <label class="form-control-label h-font-size--16 h-clr--black-1 h-lh-20 h-fw--semibold h-ls-02">
                                     <span class="h-clr--red">${'*'}</span>${Resource.msg('label.input.email.recipients', 'forms', null)}
                                 </label>
                                 <input type="email" id="recipient-email" maxlength="80" name="recipient-email" size="20" required
@@ -71,12 +81,12 @@
                             </div>
 
                         <div class="schedule-amout-date-field">
-                            <label class="schedule-date-label">${Resource.msg('label.input.egift.date', 'forms', null)}</label>
+                            <label class="schedule-date-label h-font-size--16 h-clr--black-1 h-lh-20 h-fw--semibold h-ls-02">${Resource.msg('label.input.egift.date', 'forms', null)}</label>
                             <div class="row schedule-date-field">
                                 <div class="schedule-egift-months col-6">
                                     <div class="form-group">
                                         <label
-                                            class="form-control-label h-font-size--16 h-fw--semibold h-ls-02">${Resource.msg('label.input.egift.month', 'forms', null)}</label>
+                                            class="form-control-label h-font-size--16 h-clr--black-1 h-lh-20 h-fw--semibold h-ls-02">${Resource.msg('label.input.egift.month', 'forms', null)}</label>
                                         <div class="custom-select-wrap">
                                             <select class="form-control" id="schedule-months-list" <isprint
                                                 value="${pdict.recipientsForm.recipients.egiftmonth.attributes}" encoding="off" />>
@@ -90,7 +100,7 @@
                                 </div>
                                 <div class="schedule-egift-date col-6">
                                     <div class="form-group">
-                                        <label class="form-control-label h-font-size--16 h-fw--semibold h-ls-02">${Resource.msg('label.input.egift.day', 'forms', null)}</label>
+                                        <label class="form-control-label h-font-size--16 h-clr--black-1 h-lh-20 h-fw--semibold h-ls-02">${Resource.msg('label.input.egift.day', 'forms', null)}</label>
                                         <div class="custom-select-wrap">
                                             <select class="form-control" id="schedule-days-list" <isprint
                                                 value="${pdict.recipientsForm.recipients.egiftday.attributes}" encoding="off" />>
@@ -113,7 +123,7 @@
                         <div class="row gift-cert-message">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label class="msg-title form-control-label h-font-size--16 h-fw--semibold h-ls-02 egift-message-label" for="message">
+                                    <label class="msg-title form-control-label h-font-size--16 h-clr--black-1 h-lh-20 h-fw--semibold h-ls-02 egift-message-label" for="message">
                                         ${Resource.msg('label.egift.message', 'forms', null)}
                                     </label>
                                     <textarea class="form-control egift-message h-bdc--black-1" rows="6" maxlength="250"
@@ -126,7 +136,7 @@
                             <input type="hidden" name="s3Url" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('s3UploadLink')}">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label class="msg-title form-control-label h-font-size--16 h-fw--semibold h-ls-02 egift-video-label" for="giftCard-video">
+                                    <label class="msg-title form-control-label h-font-size--16 h-clr--black-1 h-lh-20 h-fw--semibold h-ls-02 egift-video-label" for="giftCard-video">
                                         <span class="video_img"> <img src="${URLUtils.staticURL('/images/video_upload.svg')}" alt=""></span>
                                         <span class="video-upload-btn"> ${Resource.msg('label.egift.video.message', 'forms', null)}</span>
                                     </label>
@@ -143,11 +153,13 @@
                         </div>
 
                         <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
-                            <div class="row ${attr.id}-wrap" data-attr="${attr.id}">
-                                <div class="col-8">
-                                    <isinclude template="product/components/variationAttribute" />
+                            <isif condition="${attr.id !== 'style'}">
+                                <div class="row ${attr.id}-wrap" data-attr="${attr.id}">
+                                    <div class="col-8">
+                                        <isinclude template="product/components/variationAttribute" />
+                                    </div>
                                 </div>
-                            </div>
+                            </isif>
                         </isloop>
                     </form>
                     <isinclude template="product/components/addToCartProduct" />
