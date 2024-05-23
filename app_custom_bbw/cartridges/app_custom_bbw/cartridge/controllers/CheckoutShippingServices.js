@@ -121,27 +121,23 @@ server.replace(
                 );
 
                 if (
-                    !currentBasket.billingAddress ||
-                    shippingData.shippingBillingSame
+                    req.currentCustomer.addressBook &&
+                    req.currentCustomer.addressBook.preferredAddress &&
+                    !shippingData.shippingBillingSame
                 ) {
-                    if (
-                        req.currentCustomer.addressBook &&
-                        req.currentCustomer.addressBook.preferredAddress &&
-                        !shippingData.shippingBillingSame
-                    ) {
-                        // Copy over preferredAddress (use addressUUID for matching)
-                        COHelpers.copyBillingAddressToBasket(
-                            req.currentCustomer.addressBook.preferredAddress,
-                            currentBasket
-                        );
-                    } else {
-                        // Copy over first shipping address (use shipmentUUID for matching)
-                        COHelpers.copyBillingAddressToBasket(
-                            currentBasket.defaultShipment.shippingAddress,
-                            currentBasket
-                        );
-                    }
+                    // Copy over preferredAddress (use addressUUID for matching)
+                    COHelpers.copyBillingAddressToBasket(
+                        req.currentCustomer.addressBook.preferredAddress,
+                        currentBasket
+                    );
+                } else if (shippingData.shippingBillingSame) {
+                    // Copy over first shipping address (use shipmentUUID for matching)
+                    COHelpers.copyBillingAddressToBasket(
+                        currentBasket.defaultShipment.shippingAddress,
+                        currentBasket
+                    );
                 }
+
                 var usingMultiShipping = req.session.privacyCache.get('usingMultiShipping');
                 if (usingMultiShipping === true && currentBasket.shipments.length < 2) {
                     req.session.privacyCache.set('usingMultiShipping', false);
