@@ -149,7 +149,7 @@ exports.afterPATCH = function (order, orderInput) {
         );
         emailHelpers.sendEmail(
             emailObj,
-            'order/orderCompletedEmail',
+            'mail/orderCompletedEmail',
             orderObject
         );
     }
