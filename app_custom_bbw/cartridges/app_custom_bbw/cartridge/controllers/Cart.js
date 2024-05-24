@@ -194,7 +194,23 @@ server.post('AddProductFromOrder', function (req, res, next) {
     var OrderMgr = require('dw/order/OrderMgr');
     var order = OrderMgr.getOrder(req.form.orderNumber);
     var productLineItems = order.getProductLineItems();
+    var redirectUrl = URLUtils.url('Cart-Show');
     var result;
+
+    var existingLineItems = currentBasket ? currentBasket.getAllProductLineItems() : [];
+    if (existingLineItems && existingLineItems.length > 0) {
+        for (var j = 0; j < existingLineItems.length; j++) {
+            if (existingLineItems[j].product.custom.isEgiftCard === true) {
+                res.json({
+                    redirectUrl: redirectUrl.toString(),
+                    isGiftCardLineItemExist: true,
+                    message: Resource.msg('egift.delete.product.confirmation.modal.msg1','giftcards',null)
+                });
+                this.emit('route:Complete', req, res);
+                return;
+            }
+        }
+    }
 
     if (currentBasket) {
         Transaction.wrap(function () {
@@ -225,7 +241,6 @@ server.post('AddProductFromOrder', function (req, res, next) {
         });
     }
 
-    var redirectUrl = URLUtils.url('Cart-Show');
     res.json({
         redirectUrl: redirectUrl.toString(),
         error: result.error,

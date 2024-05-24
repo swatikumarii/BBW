@@ -34,6 +34,7 @@ module.exports.render = function (context) {
     model.shopButtonText = shopButtonText;
     model.shopButtonLink = URLUtils.url('Search-Show', 'cgid', category.ID);
     model.sectionCustomClass = content.sectionCustomClass;
+    model.leftContentCustomClass = content.leftContentCustomClass;
     var products = [];
     // productsCount decides number of product tiles to be displayed
     var productCount = 0;
