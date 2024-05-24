@@ -181,10 +181,11 @@ function updateShippingMethods(shipping) {
                             .text('(' + shippingMethod.estimatedArrivalTime + ')')
                             .show();
                     }
-                    if (
-                        shippingMethod.description !== '' &&
-                        shippingMethod.description !== null
-                    ) {
+                    if (shippingMethod.htmlDescription) {
+                        $('.shipping-method-description', tmpl)
+                            .html(shippingMethod.htmlDescription)
+                            .show();
+                    } else if (shippingMethod.description) {
                         $('.shipping-method-description', tmpl)
                             .text(shippingMethod.description)
                             .show();
@@ -398,7 +399,7 @@ function updateProductLineItemShipmentUUIDs(productLineItem, shipping) {
     $('body').trigger('shipping:updateProductLineItemShipmentUUIDs', {
         productLineItem: productLineItem,
         shipping: shipping
-    });
+    }); 
 }
 
 /**
@@ -411,11 +412,11 @@ function updateProductLineItemShipmentUUIDs(productLineItem, shipping) {
  */
 function updateShippingInformation(shipping, order, customer, options) {
     // First copy over shipmentUUIDs from response, to each PLI form
-    order.shipping.forEach(function (aShipping) {
-        aShipping.productLineItems.items.forEach(function (productLineItem) {
-            updateProductLineItemShipmentUUIDs(productLineItem, aShipping);
-        });
-    });
+    // order.shipping.forEach(function (aShipping) {
+    //     aShipping.productLineItems.items.forEach(function (productLineItem) {
+    //         updateProductLineItemShipmentUUIDs(productLineItem, aShipping);
+    //     });
+    // });
 
     // Now update shipping information, based on those associations
     updateShippingMethods(shipping);
