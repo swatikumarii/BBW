@@ -36,6 +36,7 @@ module.exports.render = function (context) {
     model.shopButtonText = shopButtonText;
     model.shopButtonLink = URLUtils.url('Search-Show', 'cgid', category.ID);
     model.sectionCustomClass = content.sectionCustomClass;
+    model.leftContentCustomClass = content.leftContentCustomClass;
     var products = [];
     // var categoryProducts = category.onlineProducts.slice(0, productsCount);
     for (var index = 0; index < productsCount; index++) {
