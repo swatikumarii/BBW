@@ -114,6 +114,35 @@
                     }
                 ]
             }
+        },
+        {
+          "@type-id":"custom.createGoogleFeed",
+          "@supports-parallel-execution":"true",
+          "@supports-site-context":"true",
+          "@supports-organization-context":"false",
+          "description":"Create google feed of the product assigned to the site.",
+          "module": "app_custom_bbw/cartridge/scripts/jobs/getFeeds.js",
+          "function":"getGoogleFeeds",
+          "transactional":"false",
+          "timeout-in-seconds":"900",
+          "status-codes":
+          {
+            "status":
+            [
+                {
+                  "@code": "ERROR",
+                  "description": "Used when the step failed with an error."
+                },
+                {
+                  "@code": "FINISHED",
+                  "description": "Used when the step finished successfully."
+                },
+                {
+                  "@code": "FINISHED_WITH_WARNINGS",
+                  "description": "Used when the step finished with warnings."
+                }
+            ]
+          }
         }
       ]
     }

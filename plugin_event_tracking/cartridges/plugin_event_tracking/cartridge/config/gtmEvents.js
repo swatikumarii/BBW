@@ -8,6 +8,7 @@ module.exports = {
     BEGIN_CHECKOUT: 'begin_checkout',
     LOGIN: 'login',
     ORDER_CHCEK_FAILURE: 'order_tracking_failure',
+    PRODUCT_SEARCH: 'search',
     PRODUCT_SHOW: 'productView',
     PRODUCT_TILE_CLICK: 'productTileClick',
     PURCHASE: 'transaction',
