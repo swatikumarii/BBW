@@ -99,7 +99,7 @@
     <div class="row justify-content-center form-group">
         <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
             data-callback="submitProfile" data-action="submit" name="save"
-            class="btn btn-save btn-hover text-uppercase btn-primary g-recaptcha">
+            class="btn btn-save btn-hover text-uppercase btn-primary submit-edit-profile g-recaptcha">
             ${Resource.msg('button.update', 'account', null)}
         </button>
     </div>
