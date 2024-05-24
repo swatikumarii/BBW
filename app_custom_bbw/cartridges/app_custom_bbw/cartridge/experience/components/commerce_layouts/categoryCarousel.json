@@ -52,6 +52,12 @@
                     "name": "Section Custom Class",
                     "type": "string",
                     "required": false
+                },
+                {
+                    "id": "leftContentCustomClass",
+                    "name": "Left Content Custom Class",
+                    "type": "string",
+                    "required": false
                 }
             ]
         }
