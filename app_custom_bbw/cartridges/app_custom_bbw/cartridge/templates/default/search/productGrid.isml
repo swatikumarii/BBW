@@ -66,7 +66,6 @@
     <div class="product-grid h-dsp--grid h-grid-gap--15 h-grid-gap-lg--55 no-gutters h-mt-md--30 h-mb-md--50"
         itemtype="http://schema.org/SomeProducts" itemid="#product">
         <isinclude template="search/components/productTiles" />
-        <isinclude template="product/components/requestUserEmailForOOSModal" />
         <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
     </div>
 

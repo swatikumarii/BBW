@@ -1,4 +1,8 @@
 <isif condition="${slotcontent}">
+<isscript>
+    var assets = require('*/cartridge/scripts/assets');
+    assets.addCss('/css/notifyMe.css');
+</isscript>
 <isset name="showOutOfStockProducts" value="${slotcontent.custom.showOutOfStockProducts === true ? true : false}" scope="page" />
     <isif condition="${!empty(slotcontent.content)}">
         <div class="picked-just-header-wrapper mb-3">

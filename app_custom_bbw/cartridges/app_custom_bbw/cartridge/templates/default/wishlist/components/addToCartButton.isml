@@ -1,4 +1,3 @@
-<isinclude template="product/components/requestUserEmailForOOSModal" />
 <isif condition="${item.available}">
     <div class="add-to-cart-wishlist">
         <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
