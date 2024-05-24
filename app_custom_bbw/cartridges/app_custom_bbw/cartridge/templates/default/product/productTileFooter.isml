@@ -19,7 +19,6 @@
             ${!product.available ? "disabled" : ""}>
             ${Resource.msg('button.addToBag', 'common', null)}
         </button>
-        <isinclude template="product/components/removeGiftLineItem" />
         <isinclude template="product/components/removeLineItem" />
         <span class="add-to-cart-error text-danger"></span>
     </isif>

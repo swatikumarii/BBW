@@ -8,3 +8,4 @@
     </div>
     <isinclude template="search/components/customPlpPromotionTilesAfter" />
 </isloop>
+<isinclude template="product/components/removeGiftLineItem" />

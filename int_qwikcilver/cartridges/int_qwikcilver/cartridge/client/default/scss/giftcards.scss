@@ -151,3 +151,10 @@
         padding-left: 40px;
     }
 }
+
+#video-preview {
+    @media (max-width:1024px) {
+        width: 100%;
+        max-height: 180px;
+    }
+}
