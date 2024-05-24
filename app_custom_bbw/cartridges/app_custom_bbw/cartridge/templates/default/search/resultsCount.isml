@@ -7,14 +7,20 @@
         <p>
             <span class="search-result-count">
                 <isif condition="${pdict.productSearch.productIds.length > 0}">
-                    ${Resource.msgf('label.resultsfor', 'search', null, pdict.productSearch.count)}
+                    <isif condition="${pdict.productSearch.isCategorySearch}">
+                        ${Resource.msgf('label.resultsfor', 'search', null, pdict.productSearch.count)}
+                    <iselse/>
+                        ${Resource.msgf('label.results', 'search', null, pdict.productSearch.count)}
+                    </isif>
                 <iselse>
                     ${Resource.msg('label.noresultsfor', 'search', null)}
                 </isif>
             </span>
-            <span class="search-keywords">
-                ${pdict.productSearch.searchKeywords ? pdict.productSearch.searchKeywords : ''}
-            </span>
+            <isif condition="${pdict.productSearch.isCategorySearch}">
+                <span class="search-keywords">
+                    ${pdict.productSearch.searchKeywords ? pdict.productSearch.searchKeywords : ''}
+                </span>
+            </isif>
         </p>
         <isif condition="${pdict.productSearch.isSearchSuggestionsAvailable && pdict.productSearch.productIds.length === 0}">
             <isloop items="${pdict.productSearch.suggestionPhrases}" alias="phrase" status="loopState" >

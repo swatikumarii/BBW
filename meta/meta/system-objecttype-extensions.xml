@@ -646,10 +646,9 @@
             <attribute-definition attribute-id="companyAddress">
                 <display-name xml:lang="x-default">Company Address</display-name>
                 <description xml:lang="x-default">Address to display on order invoice</description>
-                <type>string</type>
+                <type>html</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
-                <min-length>0</min-length>
             </attribute-definition>
             <attribute-definition attribute-id="ApplePayExpress_Enabled">
                 <display-name xml:lang="x-default">Enable Apple Pay express checkout</display-name>
@@ -1233,6 +1232,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="businessTypes">
+                <display-name xml:lang="x-default">Business Types</display-name>
+                <description xml:lang="x-default">Business types for corporate gifting</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>            
             <attribute-definition attribute-id="showTopOffers">
                 <display-name xml:lang="x-default">Show Top Offers</display-name>
                 <description xml:lang="x-default">Show top offers on mini cart</description>
@@ -1247,6 +1253,21 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <default-value>true</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="gaEnabled">
+                <display-name xml:lang="x-default">GA Enabled</display-name>
+                <description xml:lang="x-default">Is Google Analytics Enabled (gtmScriptEnabled should be enabled for it to work)</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>false</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="gaScript">
+                <display-name xml:lang="x-default">GA Script</display-name>
+                <description xml:lang="x-default">Google analytics script with measurement ID (gtmScriptEnabled should be enabled for it to work)</description>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -1258,6 +1279,8 @@
                 <attribute attribute-id="gtmScriptEnabled"/>
                 <attribute attribute-id="gtmHeadScript"/>
                 <attribute attribute-id="gtmBodyScript"/>
+                <attribute attribute-id="gaEnabled"/>
+                <attribute attribute-id="gaScript"/>
                 <attribute attribute-id="metaPixelEnabled"/>
                 <attribute attribute-id="metaPixelScript"/>
                 <attribute attribute-id="emarsysEnabled"/>
@@ -1300,6 +1323,7 @@
                 <attribute attribute-id="sendProfileCompletionReminderEmail"/>
                 <attribute attribute-id="sendProfileCompletionReminderPopup"/>
                 <attribute attribute-id="dangerousGoodsMessage"/>
+                <attribute attribute-id="businessTypes"/>
                 <attribute attribute-id="enableCountrySelectorPopup"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">

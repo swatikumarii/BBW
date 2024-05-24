@@ -18,11 +18,7 @@
                     "name": "Banner Height",
                     "description": "Set Banner Height",
                     "type": "enum",
-                    "values": [
-                        "Default",
-                        "Banner Small",
-                        "Banner Tall"
-                    ],
+                    "values": ["Default", "Banner Small", "Banner Tall"],
                     "required": true
                 },
                 {
@@ -132,10 +128,7 @@
                     "id": "contentsubTitleColor",
                     "name": "Content Sub Title Color",
                     "type": "enum",
-                    "values": [
-                        "white",
-                        "black"
-                    ],
+                    "values": ["white", "black"],
                     "required": false
                 },
                 {
@@ -148,10 +141,7 @@
                     "id": "contentTitleColor",
                     "name": "Content Title Color",
                     "type": "enum",
-                    "values": [
-                        "white",
-                        "black"
-                    ],
+                    "values": ["white", "black"],
                     "required": false
                 },
                 {
@@ -164,10 +154,7 @@
                     "id": "descriptionColor",
                     "name": "Description Title Color",
                     "type": "enum",
-                    "values": [
-                        "white",
-                        "black"
-                    ],
+                    "values": ["white", "black"],
                     "required": false
                 },
                 {
@@ -211,56 +198,43 @@
                     "id": "contentPositionDesktop",
                     "name": "Desktop Banner Content Position",
                     "type": "enum",
-                    "values": [
-                        "left",
-                        "right",
-                        "center"
-                    ],
+                    "values": ["left", "right", "center"],
                     "required": true
                 },
                 {
                     "id": "contentAlignmentTablet",
                     "name": "Tablet Banner Content Alignment",
                     "type": "enum",
-                    "values": [
-                        "right",
-                        "left",
-                        "center"
-                    ],
+                    "values": ["right", "left", "center"],
                     "required": false
                 },
                 {
                     "id": "contentPositionTablet",
                     "name": "Tablet Banner Content Position",
                     "type": "enum",
-                    "values": [
-                        "middle",
-                        "bottom",
-                        "top"
-                    ],
+                    "values": ["middle", "bottom", "top"],
                     "required": false
                 },
                 {
                     "id": "contentAlignmentMobile",
                     "name": "Mobile Banner Content Alignment",
                     "type": "enum",
-                    "values": [
-                        "right",
-                        "left",
-                        "center"
-                    ],
+                    "values": ["right", "left", "center"],
                     "required": true
                 },
                 {
                     "id": "contentPositionMobile",
                     "name": "Mobile Banner Content Position",
                     "type": "enum",
-                    "values": [
-                        "middle",
-                        "bottom",
-                        "top"
-                    ],
+                    "values": ["middle", "bottom", "top"],
                     "required": true
+                },
+                {
+                    "id": "trackerClass",
+                    "name": "Tracker Custom Class",
+                    "description": "Add Tracker Classes here (Use track-banner-promotion for GA/GTM)",
+                    "type": "string",
+                    "required": false
                 }
             ]
         },

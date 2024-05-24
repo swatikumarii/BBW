@@ -2,7 +2,6 @@
 
 'use strict';
 
-var ProductMgr = require('dw/catalog/ProductMgr');
 var Logger = require('dw/system/Logger');
 var Site = require('dw/system/Site');
 
@@ -29,14 +28,9 @@ function getScarabQueueData(res) {
                     res.category,
                     null
                 );
-            case 'Cart-AddProduct':
-                if (!res.error) {
-                    return addToCart(res);
-                }
-                break;
             case 'Cart-Show':
                 userEmail =
-                    'CurrentUser' in res && 'profile' in res.CurrentUser
+                    'CurrentUser' in res && 'profile' in res.CurrentUser && res.CurrentUser.profile
                         ? res.CurrentUser.profile.email
                         : '';
                 return dataHelpers.prepareEmrasysData(userEmail, 'cart', null);
@@ -111,7 +105,6 @@ function getScarabQueueData(res) {
         );
         return {};
     }
-    return {};
 }
 
 module.exports = {

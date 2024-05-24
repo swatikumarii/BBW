@@ -12,7 +12,9 @@
 function displayMessage(data, button) {
     $.spinner().stop();
     var status;
-    var message = data.msg ? data.msg : $('#newsletter-input').attr('data-csrf-error');
+    var message = data.msg
+        ? data.msg
+        : $('#newsletter-input').attr('data-csrf-error');
     if (data.success) {
         status = 'alert-success';
     } else {
@@ -53,12 +55,12 @@ function newsLetter(token) {
     var button = $('.subscribe-email');
     var emailId = $('input[name=hpEmailSignUp]').val();
     var csrfToken = $('input[name=csrf_token]').val();
-    var data = { emailId: emailId, 'csrf_token': csrfToken };
+    var data = { emailId: emailId, csrf_token: csrfToken };
     if (token) {
         data = {
             emailId: emailId,
             'g-recaptcha-response': token,
-            'csrf_token': csrfToken
+            csrf_token: csrfToken
         };
     }
 
@@ -104,11 +106,14 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
     $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
 });
 
-if (!localStorage.getItem('is-country-selector') && ($('.countrySelectPopup').data('country-selector-enabled'))) {
+if (
+    !localStorage.getItem('is-country-selector') &&
+    $('.countrySelectPopup').data('country-selector-enabled')
+) {
     $('.countrySelectPopup').find('.modal').modal('show');
     var reqCountryDiv = $('#request-country-name');
     var countryCode = reqCountryDiv.data('country-code');
-    var regionName = new Intl.DisplayNames(['en'], {type: 'region'});
+    var regionName = new Intl.DisplayNames(['en'], { type: 'region' });
     var countryDisplayName = regionName.of(countryCode);
     reqCountryDiv.text(countryDisplayName);
 }
@@ -124,12 +129,12 @@ $('body')
         clearTimeout(timer);
     })
     .on('click', '#switch-site', function () {
-        localStorage.setItem('is-country-selector',true);
+        localStorage.setItem('is-country-selector', true);
         var site = $('#selected-site').val();
         window.location.assign(site);
     })
     .on('click', '.country-stay-site', function () {
-        localStorage.setItem('is-country-selector',true);
+        localStorage.setItem('is-country-selector', true);
     });
 // Close popover on close button click
 $(document).on('click', '.popover .close', function (e) {
@@ -145,7 +150,10 @@ $(document).on('click', '.popover .close', function (e) {
 $(document).ready(function () {
     var windowHeight = $(window).height();
     var documentHeight = $(document).height();
-    var scrollThreshold = Math.max(documentHeight - windowHeight, 0.5 * windowHeight); // Ensure the scrollThreshold is at least 30% of window height
+    var scrollThreshold = Math.max(
+        documentHeight - windowHeight,
+        0.5 * windowHeight
+    ); // Ensure the scrollThreshold is at least 30% of window height
 
     $(window).scroll(function () {
         if ($(this).scrollTop() > scrollThreshold) {
@@ -160,8 +168,12 @@ $(document).ready(function () {
         $('html, body').animate({ scrollTop: 0 }, 800);
         return false;
     });
-});
 
+    // Calculate height of store in global locations
+    var storeHeight = $('.store-location').height();
+    var storeNewHeight = storeHeight + 20;
+    $('.store-location').height(storeNewHeight);
+});
 
 module.exports = function () {
     $('.subscribe-email').on('click', function (e) {

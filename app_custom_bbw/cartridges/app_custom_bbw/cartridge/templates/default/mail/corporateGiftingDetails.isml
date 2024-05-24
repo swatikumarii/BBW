@@ -1,0 +1,12 @@
+<isinclude template="/components/modules" sf-toolkit="off" />
+<p>${Resource.msg('email.msg.hello', 'corporateGifting', null)}</p>
+<p>${Resource.msg('email.msg.details', 'corporateGifting', null)}</p>
+<p>${Resource.msg('label.input.corporate-gifting-first-name','corporateGifting', null)} : ${pdict.formDetails.corporateGiftingFirstName}</p>
+<p>${Resource.msg('label.input.corporate-gifting-last-name','corporateGifting', null)} : ${pdict.formDetails.corporateGiftingLastName}</p>
+<p>${Resource.msg('label.input.corporate-gifting-email','corporateGifting', null)} : ${pdict.formDetails.corporateGiftingEmail}</p>
+<p>${Resource.msg('label.input.corporate-gifting-topic','corporateGifting', null)} : ${pdict.formDetails.corporateGiftingTopic}</p>
+<p>${Resource.msg('label.input.corporate-gifting-question','corporateGifting', null)} : ${pdict.formDetails.corporateGiftingQuestion}</p>
+<p>${Resource.msg('label.input.corporate-gifting-phone','corporateGifting', null)} : ${pdict.formDetails.corporateGiftingPhone}</p>
+<p>${Resource.msg('label.input.corporate-gifting-company-name','corporateGifting', null)} : ${pdict.formDetails.corporateGiftingCompanyName}</p>
+<p>${Resource.msg('label.input.corporate-gifting-vat','corporateGifting', null)} : ${pdict.formDetails.corporateGiftingVat}</p>
+<p>${Resource.msg('email.msg.thankyou', 'corporateGifting', null)}</p>

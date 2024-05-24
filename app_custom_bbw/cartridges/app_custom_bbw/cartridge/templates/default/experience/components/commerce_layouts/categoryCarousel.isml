@@ -24,6 +24,7 @@
                     </div>
                 </div>
             </isloop>
+            <isinclude template="product/components/removeGiftLineItem" />
         </div>
         <isif condition="${pdict.shopButtonLink !== ''}">
             <a class="text-center" href="${pdict.shopButtonLink}">

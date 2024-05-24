@@ -18,7 +18,7 @@
                         <span
                             class="summary-section-label order-number-label pr-3">${Resource.msg('label.estimated.delivery', 'order', null)}</span>
                         <span
-                            class="summary-details order-number">${dw.system.Site.getCurrent().getCustomPreferenceValue('estimatedDelivery')}</span>
+                            class="summary-details order-number h-clr--black">${dw.system.Site.getCurrent().getCustomPreferenceValue('estimatedDelivery')}</span>
                     </p>
                 </isif>
                 <p>
@@ -42,13 +42,14 @@
         </div>
         <div class="card-btn d-flex align-items-center justify-content-center">
             <div class="order-detail-with-image d-flex flex-column">
+                <input type="hidden" class="add-order-to-cart-url" value="${URLUtils.url('Cart-AddProductFromOrder')}" />
                 <button id="invoiceDownload"
                     class="invoice-download btn btn-secondary btn-hover mb-2 text-uppercase h-fw--bold"
-                    data-action="${order.invoiceDownloadUrl}">${Resource.msg('account.download', 'account', null)}
+                    data-action="${pdict.order.invoiceDownloadUrl}">${Resource.msg('account.download', 'account', null)}
                 </button>
 
                 <button class="add-order-to-cart no-spinner btn btn-secondary btn-hover text-uppercase h-fw--bold"
-                    title="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}" data-oid="${order.orderNumber}"
+                    title="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}" data-oid="${pdict.order.orderNumber}"
                     aria-label="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}" tabindex="0">
                     <span>${Resource.msg('label.reorder.btn', 'order', null)}</span>
                 </button>
@@ -74,9 +75,6 @@
                             </isif>
                             <div class="summary-details shipping">
                                 <isinclude template="checkout/addressSummary" />
-                                <isif
-                                    condition="${shippingModel.shippingAddress && shippingModel.shippingAddress.countryCode.displayValue}">
-                                    ${shippingModel.shippingAddress.countryCode.displayValue}</isif>
                                 <div class="shipping-phone">
                                     <isif
                                         condition="${shippingModel.shippingAddress && shippingModel.shippingAddress.phone}">
@@ -95,11 +93,15 @@
                             <p class="shipping-method">
                                 <isset name="shippingMethod" value="${shippingModel.selectedShippingMethod.ID}"
                                     scope="page" />
+                                <isset name="totalProductLineItems" value="${shippingModel.productLineItems.items.length}"  formatter="##" scope="page" />
                                 <span
                                     class="shipping-method-title text-capitalize h-font-size--16 h-fw--semibold">${shippingModel.selectedShippingMethod.ID}</span>
                             </p>
+                            <p class="shipping-method">
+                                <span
+                                    class="shipping-method-title text-capitalize h-font-size--16 h-fw--bold label h-clr--black-1">${shippingModel.selectedShippingMethod.shippingCost}</span>
+                            </p>
                         </div>
-                        <isinclude template="checkout/shipping/giftMessageSummary" />
                     </div>
                 </isif>
             </isloop>
@@ -120,11 +122,6 @@
 
                 <div class="summary-details billing">
                     <isinclude template="checkout/addressSummary" />
-                    <isif
-                        condition="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.countryCode.displayValue}">
-                        <span
-                            class="order-summary-country d-block">${pdict.order.billing.billingAddress.address.countryCode.displayValue}</span>
-                    </isif>
                     <isif
                         condition="${pdict.order.billing.billingAddress.address !== null && pdict.order.billing.billingAddress.address.phone}">
                         <span class="order-summary-phone">${Resource.msg('label.order.phone', 'order', null)}
