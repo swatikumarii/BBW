@@ -47,12 +47,13 @@
                     class="invoice-download btn btn-secondary btn-hover mb-2 text-uppercase h-fw--bold"
                     data-action="${pdict.order.invoiceDownloadUrl}">${Resource.msg('account.download', 'account', null)}
                 </button>
-
-                <button class="add-order-to-cart no-spinner btn btn-secondary btn-hover text-uppercase h-fw--bold"
-                    title="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}" data-oid="${pdict.order.orderNumber}"
-                    aria-label="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}" tabindex="0">
-                    <span>${Resource.msg('label.reorder.btn', 'order', null)}</span>
-                </button>
+                <isif condition="${!pdict.isEgiftCard}">
+                    <button class="add-order-to-cart no-spinner btn btn-secondary btn-hover text-uppercase h-fw--bold"
+                        title="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}" data-oid="${pdict.order.orderNumber}"
+                        aria-label="${Resource.msgf('label.reorder.btn', 'order', null, 'all')}" tabindex="0">
+                        <span>${Resource.msg('label.reorder.btn', 'order', null)}</span>
+                    </button>
+                </isif>
             </div>
             <div id="add-order-to-cart-snackbar">${Resource.msg('item.added.to.cart', 'common', null)}</div>
         </div>

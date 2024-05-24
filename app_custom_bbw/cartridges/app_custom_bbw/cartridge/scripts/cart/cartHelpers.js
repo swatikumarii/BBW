@@ -362,13 +362,15 @@ function createFreeLineItem(lineItemContainer) {
                 if (allLineItemsForProduct.length === 1) {
                     var productQtyAfterReduceFromFree =
                         productLineItem.quantityValue - qtyUpdateFreeItem;
-                    splitQuantityFromFreeToMain(
-                        productLineItem,
-                        productQtyAfterReduceFromFree,
-                        lineItemContainer,
-                        qtyUpdateFreeItem
-                    );
-                    breakLoop = true;
+                    if (productQtyAfterReduceFromFree > 0) {
+                        splitQuantityFromFreeToMain(
+                            productLineItem,
+                            productQtyAfterReduceFromFree,
+                            lineItemContainer,
+                            qtyUpdateFreeItem
+                        );
+                        breakLoop = true;
+                    }
                 } else if (qtyUpdateFreeItem < productLineItem.quantityValue) {
                     mergeQty =
                         productLineItem.quantityValue -
