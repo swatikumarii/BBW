@@ -2,7 +2,7 @@
 <isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}" scope="page" />
 <isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page" />
 
-<div class="card product-info ${bonusproductlineitem} uuid-${lineItem.UUID} ${!lineItem.promoPrice && lineItem.price.sales.value === 0 ? 'zero-price-item' :''}">
+<div class="card product-info product-line-item ${bonusproductlineitem} uuid-${lineItem.UUID} ${!lineItem.promoPrice && lineItem.price.sales.value === 0 ? 'zero-price-item' :''}" data-pid="${lineItem.id}">
     <!--- name and remove buttons --->
 
     <div class="line-item">

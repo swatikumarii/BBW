@@ -1,8 +1,5 @@
 <isset name="miniCart" value="${true}" scope="page" />
 <div class="cart container">
-    <iscomment> MiniCart- Recommendation </iscomment>
-    <isslot id="minicart-recommendation-slider" context="global" description="This is for minicart sidebar recommendations" context-object="${dw.order.BasketMgr.getCurrentBasket()}" />
-
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
         <isinclude template="reporting/reportingUrls" />
     </isif>
@@ -14,7 +11,19 @@
             <h1 class="text-center h-fw--semibold"><isprint value="${Resource.msgf('title.my.shopping.cart', 'cart', null, pdict.numItems)}" encoding="off" /></h1>
         </div>
         <isif condition="${pdict.items.length !== 0}">
-
+            <div class="text-center">
+                <isif condition="${pdict.numItemsMiniCart <= 1}">
+                    <span class="comma">${Resource.msgf('label.cart.product', 'common', null, pdict.numItemsMiniCart)}</span>
+                <iselse/>
+                    <span class="comma">${Resource.msgf('label.cart.products', 'common', null, pdict.numItemsMiniCart)}</span>
+                </isif>
+                <isif condition="${pdict.giftWrapItem}">
+                    <span class="comma">${Resource.msg('label.cart.gift.wrap', 'giftWrap', null)}</span>
+                </isif>
+                <isif condition="${pdict.greetingCardItem}">
+                    <span class="comma">${Resource.msg('label.cart.greeeting.card', 'greetingCard', null)}</span>
+                </isif>
+            </div>
             <isslot id="minicart-top-slot" context="global" description="This slot will apper on the top of minicart" />
 
             <iscomment> Motivator to be added here </iscomment>

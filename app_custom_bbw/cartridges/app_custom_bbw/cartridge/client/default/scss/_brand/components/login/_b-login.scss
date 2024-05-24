@@ -803,7 +803,7 @@
     .hide-show {
         min-height: 46px;
         max-height: 15px;
-        background: white;
+        background: colour(white);
         right: 10px;
         top: 23px;
         letter-spacing: normal;
@@ -811,7 +811,7 @@
         @include media-up(sm) {
             min-height: 46px;
             max-height: 15px;
-            background: white;
+            background: colour(white);
             right: 1px;
             top: 23px;
             letter-spacing: normal;
@@ -820,7 +820,7 @@
         @include media-btw(sm, lg) {
             min-height: 46px;
             max-height: 15px;
-            background: white;
+            background: colour(white);
             right: 1px;
             top: 23px;
             letter-spacing: normal;
@@ -840,30 +840,40 @@
 
 // -----Merge cart UI---------
 .merge-cart-modal {
-    .merge-cart-header {
-        h2 {
-            letter-spacing: 0.005em;
-            line-height: 1.25rem;
+    .merge-cart-content {
+        border-radius: 0;
+
+        .merge-cart-header {
+            h2 {
+                letter-spacing: 0.005em;
+                line-height: 1.25rem;
+            }
+
+            .close {
+                height: 48px;
+                opacity: 1;
+                width: 48px;
+            }
         }
 
-        .close {
-            height: 48px;
-            opacity: 1;
-            width: 48px;
-        }
-    }
+        .merge-cart-body {
+            .merge {
+                width: 85px;
+                font-size: 0.6875rem;
+                letter-spacing: 0.12em;
+                line-height: 2.0625rem;
+                min-height: 35px;
+                padding: 0 15px;
+            }
 
-    .merge-cart-body {
-        .merge {
-            max-height: 30px;
-            min-height: 30px;
-            width: 85px;
-        }
-
-        .dont-merge {
-            max-height: 30px;
-            min-height: 30px;
-            width: 115px;
+            .dont-merge {
+                width: 115px;
+                font-size: 0.6875rem;
+                letter-spacing: 0.12em;
+                line-height: 2.0625rem;
+                min-height: 35px;
+                padding: 0 15px;
+            }
         }
     }
 }

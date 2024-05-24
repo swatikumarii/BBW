@@ -89,12 +89,14 @@
             </div>
         </div>
     </div>
+  <div class="container-fluid">
     <div class="row">
         <!--  copyright content-->
-        <div class="col-sm-12 copyright-notice pr-0">
+        <div class="col-sm-12 copyright-notice pr-0 pl-0">
             <iscontentasset aid="footer-copyright" />
         </div>
     </div>
+  </div>
     <iscomment> Back to Top - Button </iscomment>
     <div class="scroll-to-top-link js-scrolltotop">
         <div class="scroll-to-top-wrapper">
@@ -112,9 +114,11 @@
 <div class="loginPopup">
     <isinclude url="${URLUtils.url('Login-Popup','loginRedirect',pdict.action,'queryString',pdict.queryString)}" />
 </div>
-<div class="countrySelectPopup">
+
+<div class="countrySelectPopup" data-country-selector-enabled="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableCountrySelectorPopup')}">
     <isinclude url="${URLUtils.url('Home-CountrySelector')}" />
 </div>
+
 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('sendProfileCompletionReminderPopup')}">
     <isinclude template="profileCompletion" />
 </isif>

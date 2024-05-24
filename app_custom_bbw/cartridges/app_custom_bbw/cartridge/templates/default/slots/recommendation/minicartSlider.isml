@@ -10,12 +10,12 @@
                             <div class="product" data-pid="${product.ID}">
                                 <isobject object="${product}" view="recommendation">
                                     <isinclude
-                                        url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', true, 'recommendationType',
-                                             slotcontent.calloutMsg, 'recommendationId', slotcontent.slotID, 'isRecommendedSlot', true)}" />
+                                        url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', false, 'swatches', false, 'recommendationType', slotcontent.calloutMsg, 'recommendationId', slotcontent.slotID, 'isRecommendedSlot', true)}" />
                                 </isobject>
                             </div>
                         </div>
                     </isloop>
+                    <isinclude template="product/components/removeGiftLineItem" />
                 </div>
             </div>
         </div>

@@ -27,7 +27,7 @@
                                         <span class="required-indicator">*</span>
                                         ${Resource.msg('label.input.corporate-gifting-first-name', 'corporateGifting', null)}
                                     </label>
-                                    <input type="text" required class="form-control required"
+                                    <input pattern="^[a-zA-Z0-9'\-]+$" type="text" required class="form-control required" 
                                         aria-describedby="form-corporate-gifting-first-name-error"
                                         id="corporate-gifting-first-name" name="corporateGiftingFirstName">
                                     <div class="invalid-feedback" id="form-corporate-gifting-first-name-error"></div>
@@ -39,7 +39,7 @@
                                         <span class="required-indicator">*</span>
                                         ${Resource.msg('label.input.corporate-gifting-last-name', 'corporateGifting', null)}
                                     </label>
-                                    <input type="text" required class="form-control required"
+                                    <input pattern="^[a-zA-Z0-9'\-]+$" type="text" required class="form-control required" 
                                         aria-describedby="form-corporate-gifting-last-name-error"
                                         id="corporate-gifting-last-name" name="corporateGiftingLastName">
                                     <div class="invalid-feedback" id="form-corporate-gifting-last-name-error"></div>
@@ -54,7 +54,7 @@
                                         <span class="required-indicator">*</span>
                                         ${Resource.msg('label.input.corporate-gifting-email', 'corporateGifting', null)}
                                     </label>
-                                    <input type="email" required class="form-control required"
+                                    <input pattern="^[\w.%+-]+@[\w.-]+\.\w{2,}$" type="email" required class="form-control required" 
                                         aria-describedby="form-corporate-gifting-email-error"
                                         id="corporate-gifting-email" name="corporateGiftingEmail">
                                     <div class="invalid-feedback" id="form-corporate-gifting-email-error"></div>
@@ -69,9 +69,9 @@
                                         <span class="required-indicator">*</span>
                                         ${Resource.msg('label.input.corporate-gifting-phone', 'corporateGifting', null)}
                                     </label>
-                                    <input type="tel" name="phone" required class="form-control required"
+                                    <input pattern="^((?!(0))[0-9]{8,12})$" type="tel" required class="form-control required" 
                                         aria-describedby="form-corporate-gifting-phone-error"
-                                        id="corporate-gifting-phone" name="corporateGiftingPhone">
+                                        id="phone" name="corporateGiftingPhone">
                                     <div class="invalid-feedback" id="form-corporate-gifting-phone-error"></div>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                                         <span class="required-indicator">*</span>
                                         ${Resource.msg('label.input.corporate-gifting-company-name', 'corporateGifting', null)}
                                     </label>
-                                    <input type="text" name="company-name" required class="form-control required"
+                                    <input pattern="^[a-zA-Z0-9'\-]+$" type="text" required class="form-control required" 
                                         aria-describedby="form-corporate-gifting-company-name-error"
                                         id="corporate-gifting-company-name" name="corporateGiftingCompanyName">
                                     <div class="invalid-feedback" id="form-corporate-gifting-company-name-error"></div>
@@ -99,7 +99,7 @@
                                         <span class="required-indicator">*</span>
                                         ${Resource.msg('label.input.corporate-gifting-vat', 'corporateGifting', null)}
                                     </label>
-                                    <input type="text" name="vat" required class="form-control required"
+                                    <input pattern="^[a-zA-Z0-9'\-]+$" type="text" required class="form-control required" 
                                         aria-describedby="form-corporate-gifting-vat-error" id="corporate-gifting-vat"
                                         name="corporateGiftingVat">
                                     <div class="invalid-feedback" id="form-corporate-gifting-vat-error"></div>
@@ -117,24 +117,11 @@
                                     <div class="b-select-wrap">
                                         <select type="text" required class="b-select form-control required"
                                             id="corporate-gifting-topic" name="corporateGiftingTopic">
-                                            <option value="GY">
-                                                ${Resource.msg('label.input-corporate-gifting-gym', 'corporateGifting', null)}
-                                            </option>
-                                            <option value="RE">
-                                                ${Resource.msg('label.input-corporate-gifting-restaurant', 'corporateGifting', null)}
-                                            </option>
-                                            <option value="HT">
-                                                ${Resource.msg('label.input-corporate-gifting-hotel', 'corporateGifting', null)}
-                                            </option>
-                                            <option value="SB">
-                                                ${Resource.msg('label.input-corporate-gifting-small-business', 'corporateGifting', null)}
-                                            </option>
-                                            <option value="EN">
-                                                ${Resource.msg('label.input-corporate-gifting-enterprise', 'corporateGifting', null)}
-                                            </option>
-                                            <option value="O">
-                                                ${Resource.msg('label.input-corporate-gifting-other', 'corporateGifting', null)}
-                                            </option>
+                                            <isloop iterator="${pdict.businessTypes}" alias="businessType" status="loopstatus">
+                                                <option value="${businessType.key}">
+                                                    ${businessType.value}
+                                                </option>
+                                            </isloop>
                                         </select>
                                     </div>
                                 </div>
@@ -147,8 +134,9 @@
                                     <label class="form-control-label" for="corporate-gifting-question">
                                         ${Resource.msg('label.input.corporate-gifting-question', 'corporateGifting', null)}
                                     </label>
-                                    <textarea id="corporate-gifting-question" name="corporateGiftingQuestion" rows="4"
-                                        maxlength="250"></textarea>
+                                    <textarea pattern="^[a-zA-Z0-9'\-]+$" id="corporate-gifting-question" name="corporateGiftingQuestion" rows="4"
+                                        maxlength="250" aria-describedby="corporate-gifting-question-error"></textarea>
+                                    <div class="invalid-feedback" id="corporate-gifting-question-error"></div>
                                 </div>
                             </div>
                         </div>

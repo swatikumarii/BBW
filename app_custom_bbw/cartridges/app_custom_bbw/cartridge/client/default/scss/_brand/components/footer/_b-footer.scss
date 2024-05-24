@@ -40,10 +40,11 @@ footer {
                 &::after {
                     background: colour(gray, 1);
                     content: "";
-                    margin-left: -16px;
                     display: block;
                     height: 1px;
-                    margin-right: -30px;
+                    position: absolute;
+                    width: 100%;
+                    left: 0;
                 }
 
                 @include media-up(sm) {
@@ -59,10 +60,11 @@ footer {
             &::after {
                 background: colour(gray, 1);
                 content: "";
-                margin-left: -16px;
                 display: block;
                 height: 1px;
-                margin-right: -30px;
+                position: absolute;
+                width: 100%;
+                left: 0;
 
                 @include media-up(sm) {
                     margin: 0;
