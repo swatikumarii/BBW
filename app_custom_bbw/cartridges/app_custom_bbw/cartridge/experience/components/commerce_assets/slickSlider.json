@@ -61,6 +61,12 @@
           "required": true
         },
         {
+          "id": "showOutOfStockProducts",
+          "name": "Show Out Of Stock Products",
+          "type": "boolean",
+          "required": false
+        },
+        {
           "id": "gapMobile",
           "name": "Gap Between slides Mobile Device",
           "description": "Add Integer value in (PX)",

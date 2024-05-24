@@ -67,21 +67,30 @@ $(document).ready(function () {
      * @returns {boolean} valid or not
      */
     function validatePasswordFieldWithValidation(passwordInput) {
-        if (!validateRequiredField(passwordInput)) return false;
-
-        // Remove existing success messages and ticks
-        passwordInput.closest('.form-group').find('.text-success').remove();
-        passwordInput.closest('.form-group').find('.far').remove();
-
-        // Check for each requirement and display a green tick with success message
         var rules = [
             { name: 'rule8to50char', pattern: /^.{8,50}$/ },
             { name: 'rule1lowercase', pattern: /[a-z]/ },
             { name: 'rule1uppercase', pattern: /[A-Z]/ },
             { name: 'rule1number', pattern: /\d/ },
-            { name: 'ruleNoSpaces', pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,50}$/ },
+            { name: 'ruleNoSpaces', pattern: /^\S*$/ },
             { name: 'ruleSpecialChar', pattern: /[@$!%*?&]/ }
         ];
+
+        validateRequiredField(passwordInput);
+
+        if (passwordInput.val().length === 0) {
+            rules.forEach(function (rule) {
+                if (rule.name !== 'ruleNoSpaces') {
+                    $('#' + rule.name)
+                        .removeClass('success')
+                        .addClass('error');
+                }
+            });
+            return false;
+        }
+        // Remove existing success messages and ticks
+        passwordInput.closest('.form-group').find('.text-success').remove();
+        passwordInput.closest('.form-group').find('.far').remove();
 
         rules.forEach(function (rule) {
             if (rule.pattern.test(passwordInput.val())) {
@@ -93,6 +102,7 @@ $(document).ready(function () {
 
         return true;
     }
+
 
     /**
      * Generic validation function for first name and last name
@@ -238,7 +248,7 @@ $(document).ready(function () {
                 isFormValid = false;
             }
         });
-        var submitButtons = $('button[type="submit"].submit-edit-profile');
+        var submitButtons = $('button.submit-edit-profile');
         if (isFormValid && editProfileForm.get(0).checkValidity()) {
             submitButtons.removeClass('disabled');
         } else {
@@ -309,7 +319,7 @@ $('body').click(function (event) {
 
     var form = $(this).closest('form.edit-profile-form');
     if (!$(event.target).closest(form).length) {
-        var submitButton = $('button[type="submit"].submit-edit-profile');
+        var submitButton = $('button.submit-edit-profile');
         var field = $('#password');
         if (field.val() === '') {
             submitButton.addClass('disabled');

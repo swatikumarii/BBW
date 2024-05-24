@@ -53,8 +53,8 @@
                         </td>
                         <td class="pricing item-total">
                             <span>
-                                <isif condition="${lineItem.isBonusProductLineItem}">
-                                    ${Resource.msg('lable.orderDetail.items.bonus', 'order', null)}
+                                <isif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
+                                    ${Resource.msg('label.free.price', 'cart', null)}
                                 <iselse/>
                                     ${lineItem.priceTotal.price}
                                 </isif>
