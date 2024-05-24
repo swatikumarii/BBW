@@ -37,6 +37,7 @@ module.exports.render = function (context, modelIn) {
     model.gapDesktop = content.gapDesktop ? content.gapDesktop : 0;
 
     model.regions = PageRenderHelper.getRegionModelRegistry(component);
+    model.showOutOfStockProducts = content.showOutOfStockProducts;
 
     return new Template('experience/components/commerce_assets/slickSlider').render(model).text;
 };

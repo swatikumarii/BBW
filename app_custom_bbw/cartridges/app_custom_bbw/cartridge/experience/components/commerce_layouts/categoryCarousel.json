@@ -58,6 +58,12 @@
                     "name": "Left Content Custom Class",
                     "type": "string",
                     "required": false
+                },
+                {
+                    "id": "showOutOfStockProducts",
+                    "name": "Show Out Of Stock Products",
+                    "type": "boolean",
+                    "required": false
                 }
             ]
         }
