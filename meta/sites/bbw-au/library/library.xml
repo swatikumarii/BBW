@@ -12634,9 +12634,9 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
        <page-attributes />
        <custom-attributes>
               <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container text-center"&gt;&#13;
-                     &lt;h1 class="m-font-justlovely--normal h-clr--pink h-font-size--80 mt-5 mb-5 pt-5"&gt;Wh ps! We c uln find
-                     he page!&lt;/h1&gt;&#13;
-                     &lt;p class="h-clr--black-3 h-font-size--20 mb-5"&gt;This page doesn’t exist or was removed &lt;br
+                     &lt;h1 class="m-font-justlovely--normal h-clr--pink h-font-size--80 mt-5 mb-5 pt-5"&gt;Whoops! We couldn't find
+                     the page!&lt;/h1&gt;&#13;
+                     &lt;p class="h-clr--black-3 h-font-size--20 mb-4"&gt;This page doesn’t exist or was removed &lt;br
                      /&gt;&#13;
                      Just breath in and out while we suggest you to explore other pages&lt;/p&gt;&#13;
                      &lt;div&gt;&#13;
@@ -12667,6 +12667,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                      color: #365fa1;&#13;
                      font-weight: 600;&#13;
                      margin-left: 21px;&#13;
+					 margin-top: 26px;&#13;
                      }&#13;
                      &lt;/style&gt;</custom-attribute>
        </custom-attributes>
