@@ -13,21 +13,21 @@ var Resource = require('dw/web/Resource');
 var ContentMgr = require('dw/content/ContentMgr');
 var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
 var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+var CustomObjectMgr = require('dw/object/CustomObjectMgr');
 
 /**
  * Append Account-Show controller: Update breadcrumbs
  */
 server.append('Show', function (req, res, next) {
     var viewData = res.getViewData();
-    var breadcrumbs = [
-        {
-            htmlValue: Resource.msg('global.home', 'common', null),
-            url: URLUtils.home().toString()
-        },
-        {
-            htmlValue: Resource.msg('page.title.myaccount', 'account', null),
-            url: URLUtils.url('Account-Show').toString()
-        }
+    var breadcrumbs = [{
+        htmlValue: Resource.msg('global.home', 'common', null),
+        url: URLUtils.home().toString()
+    },
+    {
+        htmlValue: Resource.msg('page.title.myaccount', 'account', null),
+        url: URLUtils.url('Account-Show').toString()
+    }
     ];
     viewData.breadcrumbs = breadcrumbs;
 
@@ -48,7 +48,9 @@ server.append('EditProfile', function (req, res, next) {
     var birthday = '-';
 
     if (accountModel.profile.birthday) {
-        var dob = accountModel.profile.birthday.toLocaleString('en-US', { month: 'long' });
+        var dob = accountModel.profile.birthday.toLocaleString('en-US', {
+            month: 'long'
+        });
         var birthdayArray = dob.split(', ');
         birthday = birthdayArray[0];
     }
@@ -59,19 +61,18 @@ server.append('EditProfile', function (req, res, next) {
         emailconfirm: accountModel.profile.email
     };
 
-    var breadcrumbs = [
-        {
-            htmlValue: Resource.msg('global.home', 'common', null),
-            url: URLUtils.home().toString()
-        },
-        {
-            htmlValue: Resource.msg('page.title.myaccount', 'account', null),
-            url: URLUtils.url('Account-Show').toString()
-        },
-        {
-            htmlValue: Resource.msg('label.profile.info', 'account', null),
-            url: URLUtils.url('Account-EditProfile').toString()
-        }
+    var breadcrumbs = [{
+        htmlValue: Resource.msg('global.home', 'common', null),
+        url: URLUtils.home().toString()
+    },
+    {
+        htmlValue: Resource.msg('page.title.myaccount', 'account', null),
+        url: URLUtils.url('Account-Show').toString()
+    },
+    {
+        htmlValue: Resource.msg('label.profile.info', 'account', null),
+        url: URLUtils.url('Account-EditProfile').toString()
+    }
     ];
     viewData.breadcrumbs = breadcrumbs;
     viewData.profileForm.copyFrom(profileModel);
@@ -191,7 +192,7 @@ server.replace(
         };
         if (profileForm.valid) {
             res.setViewData(result);
-            this.on('route:BeforeComplete', function (req, res) {  // eslint-disable-line no-shadow
+            this.on('route:BeforeComplete', function (req, res) { // eslint-disable-line no-shadow
                 var formInfo = res.getViewData();
                 var customer = CustomerMgr.getCustomerByCustomerNumber(
                     req.currentCustomer.profile.customerNo
@@ -468,8 +469,7 @@ server.append(
                         optionProductLineItem: pli.optionProductLineItem,
                         isEgiftCard: true,
                         eGiftCardScheduleDay: pli.custom.eGiftCardScheduleDay,
-                        eGiftCardScheduleMonth:
-                            pli.custom.eGiftCardScheduleMonth,
+                        eGiftCardScheduleMonth: pli.custom.eGiftCardScheduleMonth,
                         eGiftEmailPending: pli.custom.eGiftEmailPending,
                         eGiftMessage: pli.custom.eGiftMessage,
                         eGiftReceiver: pli.custom.eGiftReceiver,
@@ -488,17 +488,16 @@ server.append(
         var loginRedirectQueryString = req.form.loginRedirectQueryString || false;
         var queryStringArr =
             loginRedirectQueryString ? loginRedirectQueryString.split('=') : [];
-        loginRedirectUrl = loginRedirectExceptions.includes(loginRedirectUrl)
-            ? 'Account-Show'
-            : loginRedirectUrl;
+        loginRedirectUrl = loginRedirectExceptions.includes(loginRedirectUrl) ?
+            'Account-Show' :
+            loginRedirectUrl;
         loginRedirectUrl = URLUtils.url(loginRedirectUrl, queryStringArr);
         var viewData = res.getViewData();
         var bothCartsHaveProducts =
             storedBasketProductQuantities && currentBasketProductQuantities;
         var bothCartsHaveGiftProducts =
             currentBasketHasGiftProducts && storedBasketHasGiftProducts;
-        var neitherCartsHaveGiftProducts =
-            !currentBasketHasGiftProducts && !storedBasketHasGiftProducts;
+        var neitherCartsHaveGiftProducts = !currentBasketHasGiftProducts && !storedBasketHasGiftProducts;
         viewData.redirectUrl = loginRedirectUrl.toString();
         viewData.showCartMergePopup = bothCartsHaveProducts && (bothCartsHaveGiftProducts || neitherCartsHaveGiftProducts);
         viewData.currentBasketHasGiftProducts = currentBasketHasGiftProducts;
@@ -511,10 +510,10 @@ server.append(
             viewData.isIncomplete =
                 'custom' in viewData.authenticatedCustomer.profile &&
                 'isProfileComplete' in
-                    viewData.authenticatedCustomer.profile.custom
-                    ? !viewData.authenticatedCustomer.profile.custom
-                        .isProfileComplete
-                    : true;
+                viewData.authenticatedCustomer.profile.custom ?
+                    !viewData.authenticatedCustomer.profile.custom
+                        .isProfileComplete :
+                    true;
         }
         next();
     }
@@ -561,7 +560,9 @@ server.replace(
         var checkbox = req.form.checked;
         var registrationFormErrors = formErrors.getFormErrors(registrationForm);
         if (Object.keys(registrationFormErrors).length > 0) {
-            res.json({ fields: formErrors.getFormErrors(registrationForm) });
+            res.json({
+                fields: formErrors.getFormErrors(registrationForm)
+            });
         } else {
             var birthdayArray =
                 registrationForm.customer.dob.value.split('-');
@@ -749,6 +750,20 @@ server.replace(
                                     newCustomerProfile.custom.zipCode = registrationForm.zipCode;
                                     newCustomerProfile.custom.nationality = registrationForm.nationality;
                                     newCustomerProfile.custom.isProfileComplete = true;
+
+                                    if (registrationForm.form.customer.addtoemaillist.checked) {
+                                        var getCustomObject = CustomObjectMgr.getCustomObject('newsletterSubscriptions', newCustomerProfile.email);
+
+                                        newCustomerProfile.custom.newsletterSubscriptionStatus = true;
+
+                                        // create custom object
+                                        if (!getCustomObject) {
+                                            var newSubscriber = CustomObjectMgr.createCustomObject('newsletterSubscriptions', newCustomerProfile.email);
+                                            newSubscriber.custom.email = newCustomerProfile.email;
+                                            newSubscriber.custom.emailFrequency = Resource.msg('default.email.frequency', 'newsletter', null);
+                                            newSubscriber.custom.objectCreationTime = new Date();
+                                        }
+                                    }
                                 }
                             });
                         } catch (e) {
@@ -922,7 +937,10 @@ server.replace('SaveNewPassword', server.middleware.https, function (req, res, n
             }
         });
     } else {
-        res.render('account/password/newPassword', { passwordForm: passwordForm, token: token });
+        res.render('account/password/newPassword', {
+            passwordForm: passwordForm,
+            token: token
+        });
     }
     next();
 });
