@@ -32,6 +32,11 @@ server.append(
             : false;
         var products = viewData.order.shipping[0].productLineItems.items;
         for (var index = 0; index < products.length; index++) {
+            if (products[index].isEgiftCard) {
+                viewData.isEgiftCard = products[index].isEgiftCard;
+                break;
+            }
+
             var productRecord = CustomObjectMgr.getCustomObject(
                 'notifyBackInStock',
                 products[index].id
@@ -41,7 +46,7 @@ server.append(
                 products[index].productPresentInNotifyList = true;
             }
         }
-
+        viewData.isOrderBaseRemoveGiftCard = true;
         res.setViewData(viewData);
         next();
     });

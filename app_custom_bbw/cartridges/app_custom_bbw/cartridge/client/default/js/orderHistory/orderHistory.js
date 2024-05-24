@@ -46,6 +46,13 @@ module.exports = function () {
                 method: 'POST',
                 data: form,
                 success: function (data) {
+                    if (data.isGiftCardLineItemExist) {
+                        $('#delete-gift-certificate-line-item-modal').modal(
+                            'show'
+                        );
+                        $(thisData).spinner().stop();
+                        return true;
+                    }
                     window.location.href = data.redirectUrl;
 
                     var addToCartSnackbar = $('#add-order-to-cart-snackbar');
@@ -55,11 +62,48 @@ module.exports = function () {
                     }, 3000);
 
                     $(thisData).spinner().stop();
+                    return true;
                 },
                 error: function () {
                     $(thisData).spinner().stop();
                 }
             });
         }
+    });
+
+    $('.order-base-delete-egiftitem-confirmation-btn').on('click', function () {
+        // var thisData = this;
+        $(this).spinner().start();
+        var removeGiftPliUrl = $(this).data('action');
+        var addToCartUrl = $(this).data('addtocarturl');
+        var form = {
+            orderNumber: $(this).data('oid')
+        };
+        $.ajax({
+            type: 'GET',
+            url: removeGiftPliUrl,
+            success: function () {
+                $.ajax({
+                    type: 'POST',
+                    url: addToCartUrl,
+                    data: form,
+                    success: function (result) {
+                        window.location.href = result.redirectUrl;
+
+                        var addToCartSnackbar = $('#add-order-to-cart-snackbar');
+                        addToCartSnackbar.addClass('show');
+                        setTimeout(function () {
+                            addToCartSnackbar.removeClass('show');
+                        }, 3000);
+
+                        $(this).spinner().stop();
+
+                    },
+                    error: function () {
+                        $.spinner().stop();
+                    }
+                });
+            }
+        });
     });
 };
