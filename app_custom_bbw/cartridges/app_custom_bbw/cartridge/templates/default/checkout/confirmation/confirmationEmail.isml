@@ -109,6 +109,10 @@
                                                         <div style="color:#666;font-size:14px;line-height:18px">
                                                             ${lineItem.giftCardDetails.senderName}
                                                         </div>
+                                                    <iselseif condition="${'greetingCardMessage' in lineItem && lineItem.greetingCardMessage}" />
+                                                        <div style="color:#666;font-size:14px;line-height:18px">
+                                                            ${lineItem.greetingCardMessage}
+                                                        </div>
                                                     <iselse/>
                                                         <div style="color:#666;font-size:14px;line-height:18px">
                                                             ${lineItem.titlePartB}
