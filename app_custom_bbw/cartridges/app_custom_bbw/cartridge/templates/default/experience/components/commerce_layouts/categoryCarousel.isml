@@ -3,8 +3,8 @@
     assets.addJs('/js/categoryCarousel.js');
     assets.addCss('/css/experience/components/commerceLayouts/categoryCarousel.css');
     assets.addJs('/js/productDetail.js');
+    assets.addCss('/css/notifyMe.css');
 </isscript>
-
 <div class="h-dsp-md--grid cmp-category-carousel ${pdict.sectionCustomClass ? pdict.sectionCustomClass : ''}">
     <isprint value="${pdict.regions.leftContent.setClassName('cmp-category-carousel__leftContent ' + pdict.leftContentCustomClass).render()}"
         encoding="off" />
