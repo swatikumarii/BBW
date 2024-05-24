@@ -12672,7 +12672,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
        </custom-attributes>
 </content>
 
-<content content-id="committed-future">
+   <content content-id="committed-future">
         <display-name xml:lang="x-default">Committed to the Future</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -12680,10 +12680,6 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
     &lt;div class="no-left-nav"&gt;&#13;
-        &lt;div class="py-3"&gt;&#13;
-            &lt;!---Breadcrumbs---&gt;&#13;
-            &lt;isinclude template="components/breadcrumbs/pageBreadcrumbs" /&gt;&#13;
-        &lt;/div&gt;&#13;
         &lt;div class="landing-top-banner"&gt;&#13;
             &lt;h1 class="ds-subcategory-header h-fw--bold h-font-size--24"&gt;Committed to the Future&lt;/h1&gt;&#13;
         &lt;/div&gt;&#13;
@@ -12735,12 +12731,14 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                     &lt;div class="ds-link-image"&gt;&#13;
                         &lt;div class="ds-live-text-image-container"&gt;&#13;
                             &lt;div class="ds-live-text-image "&gt;&#13;
-                                &lt;picture&gt;&#13;
+                               &lt;a href="#"&gt;&#13;
+                                 &lt;picture&gt;&#13;
                                     &lt;source media="(min-width:600px)"&#13;
                                         srcset="images/committed-future/committed3.jpg?$staticlink$" /&gt;&#13;
                                     &lt;img alt="Engaged People. Focus area: people and cultures, Diversity, equity and inclusion"&#13;
                                         src="images/committed-future/committed3.jpg?$staticlink$" class="w-100" /&gt;&#13;
                                 &lt;/picture&gt;&#13;
+                               &lt;/a&gt;&#13;
                             &lt;/div&gt;&#13;
                         &lt;/div&gt;&#13;
 &#13;
@@ -12763,12 +12761,14 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                     &lt;div class="ds-link-image"&gt;&#13;
                         &lt;div class="ds-live-text-image-container"&gt;&#13;
                             &lt;div class="ds-live-text-image "&gt;&#13;
-                                &lt;picture&gt;&#13;
+                                &lt;a href="#"&gt;&#13;
+                                    &lt;picture&gt;&#13;
                                     &lt;source media="(min-width:600px)"&#13;
                                         srcset="images/committed-future/committed4.jpg?$staticlink$" /&gt;&#13;
                                     &lt;img alt="Thoughtful Products. Focus areas: sustainable sourcing, product transparency and ingredients"&#13;
                                         src="images/committed-future/committed4.jpg?$staticlink$" class="w-100" /&gt;&#13;
                                 &lt;/picture&gt;&#13;
+                                &lt;/a&gt;&#13;
                             &lt;/div&gt;&#13;
                         &lt;/div&gt;&#13;
 &#13;
@@ -12791,12 +12791,14 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                     &lt;div class="ds-link-image"&gt;&#13;
                         &lt;div class="ds-live-text-image-container"&gt;&#13;
                             &lt;div class="ds-live-text-image "&gt;&#13;
-                                &lt;picture&gt;&#13;
+                               &lt;a href="#"&gt;&#13;
+                                   &lt;picture&gt;&#13;
                                     &lt;source media="(min-width:600px)"&#13;
                                         srcset="images/committed-future/committed5.jpg?$staticlink$" /&gt;&#13;
                                     &lt;img alt="Brighter Places. Focus areas: packaging and plastics, climate change and carbon emissions"&#13;
                                         src="images/committed-future/committed5.jpg?$staticlink$" class="w-100" /&gt;&#13;
                                 &lt;/picture&gt;&#13;
+                               &lt;/a&gt;&#13;
                             &lt;/div&gt;&#13;
                         &lt;/div&gt;&#13;
 &#13;
@@ -12820,9 +12822,6 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
     &lt;/div&gt;&#13;
 &lt;/div&gt;&#13;
 &lt;style&gt;&#13;
-    .landing-top-banner {&#13;
-        padding: 0 16px;&#13;
-    }&#13;
 &#13;
     .landing-top-banner h1 {&#13;
         line-height: 1.75rem;&#13;
@@ -12830,12 +12829,16 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         border-bottom: 1px solid #333;&#13;
         padding-bottom: 16px;&#13;
         margin: 5px 0 32px;&#13;
+        max-width: 1168px;&#13;
     }&#13;
 &#13;
     .ds-container {&#13;
         margin-bottom: 56px;&#13;
         margin: auto auto 48px;&#13;
-        padding: 0 16px;&#13;
+    }&#13;
+&#13;
+    .ds-live-text-image {&#13;
+        max-width: 1168px;&#13;
     }&#13;
 &#13;
     .ds-linkcontainer {&#13;
@@ -12860,7 +12863,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
-</content>
+    </content>
 
     <content content-id="diversity-equity-inclusion">
         <display-name xml:lang="x-default">Everyone Belongs at Bath &amp; Body Works</display-name>
