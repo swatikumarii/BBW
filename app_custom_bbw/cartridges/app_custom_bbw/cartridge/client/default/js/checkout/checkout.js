@@ -200,6 +200,9 @@ var history = window.history;
                                 // enable the next:Payment button here
                                 $('body').trigger('checkout:enableButton', '.next-step-button button');
                                 shippingHelpers.methods.shippingFormResponse(defer, data);
+                                if ($('.billing .address-summary .firstName').text().trim() !== '') {
+                                    $('.summary-details.billing').removeClass('d-none');
+                                }
                             },
                             error: function (err) {
                                 // enable the next:Payment button here
