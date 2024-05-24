@@ -1,6 +1,7 @@
 <footer id="footercontent">
     <span class="something-went-wrong d-none">${Resource.msg('something.went.wrong', 'common', null)}</span>
     <isinclude template="/account/autoLogout" />
+    <isinclude template="product/components/requestUserEmailForOOSModal" />
     <div class="container pt-3 pb-5">
         <div class="footer-container footer-details p-sm-0 pb-4 h-dsp--grid">
             <div class="footer-item store pt-1">

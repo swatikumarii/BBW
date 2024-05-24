@@ -12,5 +12,4 @@
             <button type="button" class="btn out-of-stock"> ${Resource.msg('button.outOfStock', 'notifyMe', null)} </button>
         </isif>
     </div>
-    <isinclude template="product/components/requestUserEmailForOOSModal" />
 </isif>
