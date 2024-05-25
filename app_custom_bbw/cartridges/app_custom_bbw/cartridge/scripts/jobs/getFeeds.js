@@ -12,10 +12,11 @@ var CSVStreamWriter = require('dw/io/CSVStreamWriter');
  * @description This function creates google feed csv file and save it to library.
  */
 function getGoogleFeeds() {
+    var currentSite = require('dw/system/Site').getCurrent();
     var productsIterator = ProductMgr.queryAllSiteProducts();
     var fileName = 'google-feed';
     var outputFile = new File(
-        File.LIBRARIES + '/bbw-au/default/feeds/' + fileName + '.csv'
+        File.LIBRARIES + '/' + currentSite.ID + '/default/feeds/' + fileName + '.csv'
     );
     var csvFileWriter = new FileWriter(outputFile);
     var csvStreamWriter = new CSVStreamWriter(csvFileWriter, ',');
@@ -85,6 +86,71 @@ function getGoogleFeeds() {
     }
 }
 
+/**
+ * @description This function creates facebook feed csv file and save it to library.
+ */
+function getFacebookFeeds() {
+    var currentSite = require('dw/system/Site').getCurrent();
+    var productsIterator = ProductMgr.queryAllSiteProducts();
+    var fileName = 'google-feed';
+    var outputFile = new File(
+        File.LIBRARIES + '/' + currentSite.ID + '/default/feeds/' + fileName + '.csv'
+    );
+    var csvFileWriter = new FileWriter(outputFile);
+    var csvStreamWriter = new CSVStreamWriter(csvFileWriter, ',');
+    var product;
+    var objects = [];
+    try {
+        while (productsIterator.hasNext()) {
+            product = productsIterator.next();
+            var data = {
+                id: product.ID,
+                title: product.name,
+                description: product.longDescription
+                    ? StringUtils.decodeString(
+                        product.longDescription.toString(),
+                        0
+                    )
+                    : '',
+                link: URLUtils.abs('Product-Show', 'pid', product.ID),
+                price: product.priceModel.price.value,
+                // eslint-disable-next-line camelcase
+                image_link:
+                    product.getImages('large').length > 1
+                        ? product.getImages('large')[0].absURL.toString()
+                        : '',
+                brand: product.brand,
+                availability:
+                    product.availabilityModel.inventoryRecord &&
+                    product.availabilityModel.inventoryRecord.ATS
+                        ? product.availabilityModel.inventoryRecord.ATS
+                        : 1000,
+                condition:'new'
+            };
+            objects.push(data);
+        }
+        var csvHeader = Object.keys(objects[0]);
+        csvStreamWriter.writeNext(csvHeader);
+        objects.forEach(function (element) {
+            var csvData = [];
+            csvHeader.forEach(function (prop) {
+                csvData.push(element[prop] ? element[prop] : '');
+            });
+            csvStreamWriter.writeNext(csvData);
+        });
+        csvStreamWriter.close();
+        csvFileWriter.close();
+    } catch (err) {
+        Logger.getLogger('GoogleFeeds', 'GoogleFeeds').error(
+            'Error when creating Google Feeds' + err
+        );
+        productsIterator.close();
+        csvStreamWriter.close();
+        csvFileWriter.close();
+    }
+}
+
 module.exports = {
-    getGoogleFeeds: getGoogleFeeds
+    getGoogleFeeds: getGoogleFeeds,
+    getFacebookFeeds: getFacebookFeeds
 };
