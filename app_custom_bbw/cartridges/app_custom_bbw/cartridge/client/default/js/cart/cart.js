@@ -375,6 +375,13 @@ module.exports = function () {
                         }
                     }
                     $('.uuid-' + uuid).remove();
+                    if (data.removeProducts && data.removeProducts.length > 0) {
+                        for (var j = 0; j < data.removeProducts.length; j++) {
+                            if ($('.uuid-' + data.removeProducts[j])) {
+                                $('.uuid-' + data.removeProducts[j]).remove();
+                            }
+                        }
+                    }
                     if (!data.basket.hasBonusProduct) {
                         $('.bonus-product').remove();
                     }
