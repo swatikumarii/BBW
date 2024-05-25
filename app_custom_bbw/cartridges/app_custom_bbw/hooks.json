@@ -11,10 +11,6 @@
         {
             "name": "dw.extensions.facebook.feed.transformProduct",
             "script": "./cartridge/scripts/hooks/facebook.js"
-        },
-        {
-            "name": "app.template.afterFooter",
-            "script": "./cartridge/scripts/hooks/footer.js"
         }
     ]
 }

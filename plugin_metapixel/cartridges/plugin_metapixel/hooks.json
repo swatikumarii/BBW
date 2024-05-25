@@ -1,10 +1,6 @@
 {
     "hooks": [
         {
-            "name": "app.template.htmlHead",
-            "script": "./cartridge/scripts/hooks/metaHooks"
-        },
-        {
             "name": "app.server.registerRoute",
             "script": "./cartridge/scripts/hooks/metaHooks"
         }
