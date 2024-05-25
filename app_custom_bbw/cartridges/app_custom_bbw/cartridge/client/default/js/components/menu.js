@@ -76,6 +76,12 @@ if (layout.isDesktop() || layout.isTablet()) {
     var $level1li = $('.level-1-link');
 
     $level1li.hover(function () {
+        var $level1Parent = $(this).parent();
+        $(this).parent().find('.menu-wrap-level-1').hover(function () {
+            $level1Parent.addClass('show');
+        }, function () {
+            $level1Parent.removeClass('show');
+        });
         $('body').find('.menu-wrap-level-3').removeClass('show');
         $level2li.removeClass('show');
         $(this).parent().find('.level-2-li').first().addClass('show');
@@ -88,14 +94,12 @@ if (layout.isDesktop() || layout.isTablet()) {
         var $level2liWidth = $(this).parent().find('.level-2-li').first().width();
         var $menuWrapLevel3Width = $(this)
             .parent()
-            .find('.level-2-li')
-            .first()
-            .find('.menu-wrap-level-3')
+            .find('.level-3-ul')
             .width();
         $(this)
             .parent()
             .find('.menu-right')
-            .css('left', $level2liWidth + $menuWrapLevel3Width);
+            .css('left', $level2liWidth + $menuWrapLevel3Width + 30);
     });
 
     $level2li.hover(function (e) {

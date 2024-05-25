@@ -1,3 +1,4 @@
+<isset name="exploreCategory" value="${category}" scope="page" />
 <div class="menu-wrap dropdown-menu position-absolute w-100 h-bg--white menu-wrap-level-1">
     <div class="level-2-ul-wrap text-left d-flex justify-content-between h-grid-gap--60">
         <isset name="categorySlotId" value="${category.slotId}" scope="page" />
@@ -20,10 +21,10 @@
                 </isif>
             </isloop>
             <li class="nav-item dropdown level-1-li" role="presentation">
-                <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
-                id="${category.id}" class="level-1-link nav-link h-font-size--14 h-fw--semibold text-capitalize dropdown-toggle"
+                <a href="<isprint value=" ${exploreCategory.url}" encoding="htmldoublequote" />"
+                class="level-1-link nav-link h-font-size--14 h-fw--semibold text-capitalize dropdown-toggle"
                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                tabindex="0">${category.name}</a>
+                tabindex="0">${'Explore ' + exploreCategory.name}</a>
                 <isset name="menuItem" value="${category}" scope="page" />
             </li>
         </ul>
