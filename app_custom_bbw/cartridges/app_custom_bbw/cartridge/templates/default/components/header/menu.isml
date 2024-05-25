@@ -11,7 +11,8 @@
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                 tabindex="0">${category.name}</a>
                             <isset name="menuItem" value="${category}" scope="page" />
-                            <isinclude template="components/header/menuItem" />
+                            <iscomment> <isinclude template="components/header/menuItem" /> </iscomment>
+                            <isinclude template="components/header/brandMenuItem" />
                         </li>
                     <iselse/>
                         <li class="nav-item" role="presentation">

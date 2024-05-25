@@ -234,7 +234,7 @@
         .dropdown-item:focus,
         .dropdown-item:hover {
             background-color: transparent;
-            color: #005699;
+            color: colour(blue);
             text-decoration: none;
         }
 
@@ -251,7 +251,7 @@
                     text-transform: capitalize;
 
                     &:hover {
-                        border-color: #005699;
+                        border-color: colour(blue);
                     }
 
                     @include media-up(sm) {
@@ -270,14 +270,33 @@
 
                     &.show {
                         .level-1-link {
-                            border-color: #005699;
+                            border-color: colour(blue);
+                        }
+
+                        .menu-wrap-level-1 {
+                            top: auto;
+                            opacity: 1;
+                            pointer-events: auto;
+                            visibility: visible;
+                            max-height: max-content;
+                        }
+
+                        .menu-wrap-level-1 .level-2-ul-wrap .menu-right {
+                            height: 100%;
+                            visibility: visible;
+                            opacity: 1;
+                            transition: all 0.3s ease-out;
                         }
                     }
 
                     .menu-wrap-level-1 {
-                        z-index: 110;
-                        top: auto;
+                        padding: 0;
+                        max-height: 0;
+                        display: block;
+                        border: 0;
                         left: 0;
+                        top: auto;
+                        background-color: colour(white);
                         margin-top: 2px;
                         box-shadow: 0 12px 20px rgba(0, 0, 0, 15%);
                         opacity: 0;
@@ -291,14 +310,6 @@
                             0.45,
                             0.94
                         );
-
-                        &.show {
-                            top: auto;
-                            z-index: 120;
-                            opacity: 1;
-                            pointer-events: auto;
-                            visibility: visible;
-                        }
 
                         .level-2-ul-wrap {
                             max-width: 1160px;
@@ -316,7 +327,8 @@
                                 position: relative;
                                 text-align: left;
 
-                                .level-2-li {
+                                .level-2-li,
+                                .explore-li {
                                     position: relative;
                                     text-transform: capitalize;
                                     transition: max-height 0.3s ease-out;
@@ -326,13 +338,6 @@
                                     overflow: visible;
                                     background-color: colour(white);
 
-                                    &.explore-li {
-                                        &::after,
-                                        &::before {
-                                            content: none;
-                                        }
-                                    }
-
                                     &::before {
                                         content: "";
                                         width: 0;
@@ -340,7 +345,7 @@
                                         position: absolute;
                                         top: 0;
                                         left: 0;
-                                        background: #005699;
+                                        background: colour(blue);
                                         z-index: 30;
                                     }
 
@@ -364,11 +369,10 @@
                                             semibold
                                         );
                                         font-size: 14px;
-                                        font-size: 0.875rem;
                                         line-height: 16px;
                                         letter-spacing: 0.015em;
                                         padding: 6px 60px 0 20px;
-                                        color: #4d4d4d;
+                                        color: colour(gray, 4);
                                         cursor: pointer;
                                         display: block;
                                         height: 36px;
@@ -391,7 +395,7 @@
                                         }
 
                                         .level-2-link {
-                                            color: #005699;
+                                            color: colour(blue);
                                         }
 
                                         .menu-wrap-level-3 {
@@ -411,17 +415,9 @@
                                         column-fill: auto;
                                         opacity: 0;
                                         visibility: hidden;
-                                        transition: all 0.5s ease-out;
+                                        transition: none;
                                         background: transparent;
                                         padding: 0;
-
-                                        &.show {
-                                            left: 100%;
-                                            opacity: 1;
-                                            pointer-events: auto;
-                                            visibility: visible;
-                                            transition: all 0.5s ease-out;
-                                        }
 
                                         li {
                                             height: auto;
@@ -431,7 +427,7 @@
 
                                             a {
                                                 text-transform: none;
-                                                color: #4d4d4d;
+                                                color: colour(gray, 4);
                                                 display: block;
                                                 line-height: 1rem;
                                                 letter-spacing: 0.015em;
@@ -442,6 +438,10 @@
                                                 height: 100%;
                                                 padding: 0 30px 16px 0;
                                                 width: 180px;
+
+                                                &:hover {
+                                                    color: colour(blue);
+                                                }
                                             }
                                         }
                                     }
@@ -480,15 +480,29 @@
                                 position: absolute;
                                 left: auto;
                                 top: 0;
-                                height: 100%;
-                                transition: all 0.3s ease-out;
+                                height: 0;
+                                overflow: hidden;
                                 max-height: none;
                                 margin-bottom: 22px;
-                                overflow: visible;
                                 text-transform: capitalize;
+                                opacity: 0;
+                                visibility: hidden;
+                                transition: max-height 0.3s ease-out;
 
                                 .category-top-offers {
-                                    border-left: 1px solid #e5e5e5;
+                                    border-left: 1px solid colour(gray, 6);
+
+                                    .column-count-2 {
+                                        column-count: 2;
+                                    }
+
+                                    .column-count-3 {
+                                        column-count: 3;
+                                    }
+
+                                    .column-count-4 {
+                                        column-count: 4;
+                                    }
 
                                     .heading {
                                         padding: 6px 0 8px 30px;
@@ -660,7 +674,7 @@
                 position: absolute;
                 width: 19px;
                 height: 19px;
-                fill: #005699;
+                fill: colour(blue);
                 padding: 11px 0 0 15px;
                 left: 0;
                 content: url("../images/header/UI-Tag-v2.svg");
@@ -676,7 +690,7 @@
                 position: absolute;
                 width: 19px;
                 height: 19px;
-                fill: #005699;
+                fill: colour(blue);
                 padding: 11px 0 0 15px;
                 left: 0;
                 content: url("../images/header/UI-StoreLocator-v2.svg");
@@ -692,7 +706,7 @@
                 position: absolute;
                 width: 19px;
                 height: 19px;
-                fill: #005699;
+                fill: colour(blue);
                 padding: 11px 0 0 15px;
                 left: 0;
                 content: url("../images/header/UI-MyAccount-v2.svg");

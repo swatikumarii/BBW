@@ -16,8 +16,10 @@
             </li>
         </isif>
     </isloop>
+    <li>
+        <iscomment>Menu right with images and text</iscomment>
+        <div class="menu-right w-100">
+            <isinclude template="components/header/menuItemSlot" />
+        </div>
+    </li>
 </ul>
-<iscomment>Menu right with images and text</iscomment>
-<div class="menu-right w-100">
-    <isinclude template="components/header/menuItemSlot" />
-</div>

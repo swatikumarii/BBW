@@ -75,32 +75,57 @@ if (layout.isDesktop() || layout.isTablet()) {
     var $level2li = $('.level-2-li');
     var $level1li = $('.level-1-link');
 
-    $level1li.hover(function () {
-        var $level1Parent = $(this).parent();
-        $(this).parent().find('.menu-wrap-level-1').hover(function () {
-            $level1Parent.addClass('show');
-        }, function () {
-            $level1Parent.removeClass('show');
-        });
-        $('body').find('.menu-wrap-level-3').removeClass('show');
-        $level2li.removeClass('show');
-        $(this).parent().find('.level-2-li').first().addClass('show');
-        $(this).parent()
-            .find('.level-2-li')
-            .first()
-            .find('.menu-wrap-level-3')
-            .addClass('show');
-
-        var $level2liWidth = $(this).parent().find('.level-2-li').first().width();
-        var $menuWrapLevel3Width = $(this)
-            .parent()
-            .find('.level-3-ul')
-            .width();
-        $(this)
-            .parent()
-            .find('.menu-right')
-            .css('left', $level2liWidth + $menuWrapLevel3Width + 30);
-    });
+    $level1li.hover(
+        function () {
+            var $level1Parent = $(this).parent();
+            $(this)
+                .parent()
+                .find('.menu-wrap-level-1')
+                .hover(
+                    function () {
+                        $level1Parent.addClass('show');
+                        $level1Parent
+                            .find('.level-2-li')
+                            .first()
+                            .addClass('show');
+                    },
+                    function () {
+                        $('.level-2-li').removeClass('show');
+                        $level1Parent.removeClass('show');
+                        $('body')
+                            .find('.menu-wrap-level-3')
+                            .removeClass('show');
+                    }
+                );
+            $('body').find('.menu-wrap-level-3').removeClass('show');
+            $level2li.removeClass('show');
+            $(this).parent().find('.level-2-li').first().addClass('show');
+            $(this)
+                .parent()
+                .find('.level-2-li')
+                .first()
+                .find('.menu-wrap-level-3')
+                .addClass('show');
+            var $level2liWidth = $(this)
+                .parent()
+                .find('.level-2-li')
+                .first()
+                .width();
+            var $menuWrapLevel3Width = $(this)
+                .parent()
+                .find('.level-3-ul')
+                .width();
+            $(this)
+                .parent()
+                .find('.menu-right')
+                .css('left', $level2liWidth + $menuWrapLevel3Width);
+            window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
+        },
+        function () {
+            $('body').find('.menu-wrap-level-3').removeClass('show');
+            $(this).parent().find('.level-2-li').first().removeClass('show');
+        }
+    );
 
     $level2li.hover(function (e) {
         e.preventDefault();
@@ -110,9 +135,27 @@ if (layout.isDesktop() || layout.isTablet()) {
         $(this).find('.menu-wrap-level-3').addClass('show');
     });
 
+    $('.explore-li').hover(
+        function () {
+            var $level2liWidth = $(this).width();
+            $('body').find('.menu-wrap-level-3').removeClass('show');
+            $level2li.removeClass('show');
+            // $(this).addClass('show');
+            $(this)
+                .closest('div.level-2-ul-wrap')
+                .find('.menu-right')
+                .css('left', $level2liWidth);
+        },
+        function () {
+            $(this)
+                .closest('div.level-2-ul-wrap')
+                .find('.menu-right')
+                .css('left', window.menuRightWidth);
+        }
+    );
+
     // Calculate level 2 ul width
     var level2ul = $('.bbw-brand-menu .level-2-ul').width();
     $('.level-2-li').css('width', level2ul);
-
 }
 /** BBW Brand Header End */
