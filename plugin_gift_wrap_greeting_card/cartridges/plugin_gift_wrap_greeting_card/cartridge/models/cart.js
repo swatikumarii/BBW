@@ -144,11 +144,6 @@ function CartModel(basket) {
         this.giftWrapItem = productLineItemsModel.giftWrapItem;
         this.greetingCardItem = productLineItemsModel.greetingCardItem;
         this.numItems = productLineItemsModel.totalQuantity;
-        var totalQuantity = 0;
-        for(var i = 0; i < productLineItemsModel.items.length; i++) {
-            totalQuantity += productLineItemsModel.items[i].quantity;
-        }
-        this.numItemsMiniCart = totalQuantity;
         this.valid = hooksHelper(
             'app.validate.basket',
             'validateBasket',
@@ -161,7 +156,6 @@ function CartModel(basket) {
         this.giftWrapItem = null;
         this.greetingCardItem = null;
         this.numItems = 0;
-        this.numItemsMiniCart = 0;
     }
 
     this.resources = {

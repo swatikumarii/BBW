@@ -1,4 +1,9 @@
 <isif condition="${slotcontent}">
+<isscript>
+    var assets = require('*/cartridge/scripts/assets');
+    assets.addCss('/css/notifyMe.css');
+</isscript>
+<isset name="showOutOfStockProducts" value="${slotcontent.custom.showOutOfStockProducts === true ? true : false}" scope="page" />
     <isif condition="${!empty(slotcontent.content)}">
         <div class="picked-just-header-wrapper mb-3">
             <h2 class="picked-just-header-wrapper__title text-center h-fw--bold h-clr--black-1 mb-3 h-font-size--24">
@@ -10,7 +15,7 @@
         <isloop items="${slotcontent.content}" var="product" status="loopState">
             <div class="picked-just-recomm__item col js-picked-just-recomm-item">
                 <isobject object="${product}" view="recommendation">
-                    <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView', false, 'wishlist', false)}" />
+                    <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView', false, 'wishlist', false, 'showOutOfStockProducts', showOutOfStockProducts)}" />
                 </isobject>
             </div>
         </isloop>

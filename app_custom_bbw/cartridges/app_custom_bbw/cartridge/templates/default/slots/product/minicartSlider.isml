@@ -11,14 +11,13 @@
                     </button>
                 </div>
                 <div class="sidepanel-product-listing">
-                    <isloop items="${slotcontent.content}" var="product" begin="0" end="6">
+                    <isloop items="${slotcontent.content}" var="product">
                         <div class="item">
                             <isobject object="${product}" view="recommendation">
                                 <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', false, 'swatches', false, 'showQuickView', false, 'wishlist', false)}" />
                             </isobject>
                         </div>
                     </isloop>
-                    <isinclude template="product/components/removeGiftLineItem" />
                 </div>
             </div>
         </div>

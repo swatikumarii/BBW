@@ -1,4 +1,3 @@
-<isinclude template="product/components/requestUserEmailForOOSModal" />
 <isif condition="${item.available}">
     <div class="add-to-cart-wishlist">
         <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
@@ -18,7 +17,7 @@
             <button type="button" class="btn btn-block notifyBackInStockButton notify-me-btn wishlist-btn"
                 data-url="${URLUtils.url('BackInStock-CheckLogin')}" data-pid="${item.pid}"
                 data-img="${item.imageObj.large ? item.imageObj.large[0].url : item.imageObj.small[0].url}"
-                ${item.productPresentInNotifyList ? 'disabled='disabled'': ''}
+                ${item.productPresentInNotifyList ? 'disabled': ''}
                 data-pname="${item.name}"> ${item.productPresentInNotifyList ? Resource.msg('button.notifyInList', 'notifyMe', null) : Resource.msg('button.notifyMe', 'notifyMe', null)} </button>
         <iselse/>
             <button type="button" class="btn out-of-stock wishlist-btn"> ${Resource.msg('button.outOfStock', 'notifyMe', null)}

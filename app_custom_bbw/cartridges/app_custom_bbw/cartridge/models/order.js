@@ -24,7 +24,10 @@ function OrderModel(lineItemContainer, options) {
         this.exportStatus = 'exportStatus' in lineItemContainer ? lineItemContainer.exportStatus : 0;
         this.invoiceDownloadUrl = URLUtils.https('Order-InvoiceDownload', 'token', encrptedOrderNumber).toString();
         this.trackingUrl = trackingUrl;
-        this.trackingNumber = lineItemContainer.shipments[0].trackingNumber;
+        if (lineItemContainer.shipments && lineItemContainer.shipments.length > 0) {
+            this.shippingStatus = 'shippingStatus' in lineItemContainer.shipments[0] ? lineItemContainer.shipments[0].shippingStatus : '';
+            this.trackingNumber = 'trackingNumber' in lineItemContainer.shipments[0] ? lineItemContainer.shipments[0].trackingNumber : '';
+        }
     }
 }
 

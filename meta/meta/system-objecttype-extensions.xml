@@ -430,6 +430,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="carrier">
+                <display-name xml:lang="x-default">Carrier Name</display-name>
+                <type>string</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="googleRecaptchaPageDefaultScore">
                 <display-name xml:lang="x-default">rCAPTCHA Page Default Score</display-name>
                 <type>double</type>
@@ -1441,6 +1448,7 @@
             <attribute-group group-id="Tracking">
                 <display-name xml:lang="x-default">Tracking</display-name>
                 <attribute attribute-id="trackingUrl"/>
+                <attribute attribute-id="carrier"/>
             </attribute-group>
             <attribute-group group-id="Contact Us">
                 <display-name xml:lang="x-default">Contact Us Configurations</display-name>
@@ -3154,8 +3162,15 @@
     </type-extension>
     <type-extension type-id="Shipment">
         <custom-attribute-definitions>
-            <attribute-definition attribute-id="courierName">
-                <display-name xml:lang="x-default">Courier Name</display-name>
+            <attribute-definition attribute-id="carrier">
+                <display-name xml:lang="x-default">Carrier Name</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="trackingUrl">
+                <display-name xml:lang="x-default">Tracking URL</display-name>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -3163,9 +3178,10 @@
             </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
-            <attribute-group group-id="MigrationAttribute">
-                <display-name xml:lang="x-default">Migration Attribute</display-name>
-                <attribute attribute-id="courierName"/>
+            <attribute-group group-id="tracking">
+                <display-name xml:lang="x-default">Tracking</display-name>
+                <attribute attribute-id="carrier"/>
+                <attribute attribute-id="trackingUrl"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
