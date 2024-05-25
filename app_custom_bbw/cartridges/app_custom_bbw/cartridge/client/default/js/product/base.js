@@ -763,6 +763,11 @@ module.exports = $.extend({}, base, {
                                 addToCartSnackbar.removeClass('show');
                             }, 3000);
 
+
+                            if (data.pdpPromotions) {
+                                currentAction.parents('.product-detail-wrapper').find('.promotions-wrap').empty().append(data.pdpPromotions);
+                            }
+
                             if ($('.gift-card-form').length > 0) {
                                 $('.gift-card-form')[0].reset();
                                 $('#video-preview').attr('src', '');

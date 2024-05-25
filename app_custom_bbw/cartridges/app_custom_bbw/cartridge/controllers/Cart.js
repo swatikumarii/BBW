@@ -159,8 +159,23 @@ server.prepend('AddProduct', function (req, res, next) {
 });
 
 server.append('AddProduct', function (req, res, next) {
+    var ProductMgr = require('dw/catalog/ProductMgr');
+    var PromotionMgr = require('dw/campaign/PromotionMgr');
+    var promotionsDecorator = require('*/cartridge/models/product/decorators/promotions');
+    var pdpPromotions = new Template('product/components/promotions');
     var currentBasket = BasketMgr.getCurrentBasket();
+    var product = Object.create(null);
+    var promotions = PromotionMgr.activeCustomerPromotions.getProductPromotions(ProductMgr.getProduct(req.form.pid));
+    promotionsDecorator(product, promotions);
+    var Product = { product: product };
+    var context = new HashMap();
+    Object.keys(Product).forEach(function (key) {
+        context.put(key, Product[key]);
+    });
     cartHelper.createFreeLineItem(currentBasket, 0);
+    var viewData = res.getViewData();
+    viewData.pdpPromotions = pdpPromotions.render(context).text;
+    res.setViewData(viewData);
     next();
 });
 
