@@ -123,3 +123,4 @@
 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('sendProfileCompletionReminderPopup')}">
     <isinclude template="profileCompletion" />
 </isif>
+<isinclude template="popups/popupsGlobal" />
