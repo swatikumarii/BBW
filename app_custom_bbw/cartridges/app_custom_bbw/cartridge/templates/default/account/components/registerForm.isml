@@ -245,15 +245,6 @@
     </div>
     <iscontentasset aid="register-form" />
 
-    <div class="form-group register-form text-center custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="add-to-email-list" required <isprint
-            value=${pdict.profileForm.customer.addtoemaillist.attributes} encoding="off" />
-        />
-        <label class="custom-control-label" for="add-to-email-list">
-            <isprint value="${pdict.profileForm.customer.addtoemaillist.label}" encoding="htmlcontent" />
-        </label>
-    </div>
-
     <div class="form-group register-form text-center <isif condition="
         ${!!pdict.profileForm.customer.dob.mandatory === true}">required
         </isif>">
@@ -267,6 +258,16 @@
             data-pattern-mismatch="${Resource.msg('error.message.parse.dob', 'forms', null)}" required <isprint
             value=${pdict.profileForm.customer.dob.attributes} encoding="off" />>
         <div class="invalid-feedback text-left" id="dob-error=">${Resource.msg('error.message.dob.required', 'forms', null)}</div>
+    </div>
+
+    <div class="form-group register-form text-center custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="add-to-email-list" required <isprint
+            value=${pdict.profileForm.customer.addtoemaillist.attributes} encoding="off" />
+        />
+        <label class="custom-control-label" for="add-to-email-list">
+            <isprint value="${pdict.profileForm.customer.addtoemaillist.label}" encoding="htmlcontent" />
+            <a href="${URLUtils.url('terms-Show')}" class="h-clr--black-1 h-font-size--16">${Resource.msg('label.terms.contitions', 'forms', null)}</a>
+        </label>
     </div>
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
