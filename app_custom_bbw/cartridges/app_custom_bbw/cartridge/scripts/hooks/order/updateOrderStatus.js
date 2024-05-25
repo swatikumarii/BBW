@@ -68,7 +68,7 @@ exports.afterPATCH = function (order, orderInput) {
     // Below section is to handle two shipping providers for AU (Using Static code as per Veera's Request)
     var multipleShippers = true;
     var trackingUrl = Site.getCurrent().getCustomPreferenceValue('trackingUrl');
-    var carrier = Site.getCurrent().getCustomPreferenceValue('Carrier');
+    var carrier = Site.getCurrent().getCustomPreferenceValue('carrier');
     if (trackingUrl.indexOf(',') !== -1) {
         trackingUrl = trackingUrl.split(',');
         carrier = carrier.split(',');

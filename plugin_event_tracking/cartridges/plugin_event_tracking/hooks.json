@@ -1,14 +1,6 @@
 {
     "hooks": [
         {
-            "name": "app.template.htmlHead",
-            "script": "./cartridge/scripts/hooks/gtmHooks"
-        },
-        {
-            "name": "app.template.beforeHeader",
-            "script": "./cartridge/scripts/hooks/gtmHooks"
-        },
-        {
             "name": "app.server.registerRoute",
             "script": "./cartridge/scripts/hooks/gtmHooks"
         }
