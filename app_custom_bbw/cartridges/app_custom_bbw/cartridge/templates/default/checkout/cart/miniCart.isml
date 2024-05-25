@@ -12,11 +12,6 @@
         </div>
         <isif condition="${pdict.items.length !== 0}">
             <div class="text-center">
-                <isif condition="${pdict.numItemsMiniCart <= 1}">
-                    <span class="comma">${Resource.msgf('label.cart.product', 'common', null, pdict.numItemsMiniCart)}</span>
-                <iselse/>
-                    <span class="comma">${Resource.msgf('label.cart.products', 'common', null, pdict.numItemsMiniCart)}</span>
-                </isif>
                 <isif condition="${pdict.giftWrapItem}">
                     <span class="comma">${Resource.msg('label.cart.gift.wrap', 'giftWrap', null)}</span>
                 </isif>
