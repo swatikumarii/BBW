@@ -34,7 +34,7 @@ if (layout.isMobile()) {
     });
 
     $('.level-2-li').on('click', function (e) {
-        if ($(this).hasClass('active') && (e.target.role !== 'menuitem')) {
+        if ($(this).hasClass('active') && e.target.role !== 'menuitem') {
             $(this).children('.level-3-ul').removeClass('active');
             $(this).removeClass('active');
         } else {
@@ -68,3 +68,47 @@ $('body').on('click', function () {
         accountDropdownMenu.removeClass('show');
     }
 });
+
+/** BBW Brand Header Start */
+if (layout.isDesktop() || layout.isTablet()) {
+    // Show class on hover
+    var $level2li = $('.level-2-li');
+    var $level1li = $('.level-1-link');
+
+    $level1li.hover(function () {
+        $('body').find('.menu-wrap-level-3').removeClass('show');
+        $level2li.removeClass('show');
+        $(this).parent().find('.level-2-li').first().addClass('show');
+        $(this).parent()
+            .find('.level-2-li')
+            .first()
+            .find('.menu-wrap-level-3')
+            .addClass('show');
+
+        var $level2liWidth = $(this).parent().find('.level-2-li').first().width();
+        var $menuWrapLevel3Width = $(this)
+            .parent()
+            .find('.level-2-li')
+            .first()
+            .find('.menu-wrap-level-3')
+            .width();
+        $(this)
+            .parent()
+            .find('.menu-right')
+            .css('left', $level2liWidth + $menuWrapLevel3Width);
+    });
+
+    $level2li.hover(function (e) {
+        e.preventDefault();
+        $('body').find('.menu-wrap-level-3').removeClass('show');
+        $level2li.removeClass('show');
+        $(this).addClass('show');
+        $(this).find('.menu-wrap-level-3').addClass('show');
+    });
+
+    // Calculate level 2 ul width
+    var level2ul = $('.bbw-brand-menu .level-2-ul').width();
+    $('.level-2-li').css('width', level2ul);
+
+}
+/** BBW Brand Header End */

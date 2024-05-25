@@ -104,6 +104,7 @@
                                     .level-2-link {
                                         line-height: 1.25rem;
                                         letter-spacing: 0.01em;
+                                        text-transform: uppercase;
 
                                         &::after {
                                             content: none;
@@ -230,6 +231,13 @@
             border: 0;
         }
 
+        .dropdown-item:focus,
+        .dropdown-item:hover {
+            background-color: transparent;
+            color: #005699;
+            text-decoration: none;
+        }
+
         .navbar {
             position: inherit;
 
@@ -243,7 +251,7 @@
                     text-transform: capitalize;
 
                     &:hover {
-                        color: colour(black, 1);
+                        border-color: #005699;
                     }
 
                     @include media-up(sm) {
@@ -290,14 +298,13 @@
                             max-width: 1160px;
                             margin: 21px auto;
                             min-height: 213px;
+                            position: relative;
 
                             .level-2-ul {
                                 width: 193px;
                                 margin-left: 54px;
                                 list-style: none;
                                 padding: 0;
-                                
-                                // margin: 0;
                                 display: inline-block;
                                 left: 0;
                                 position: relative;
@@ -305,16 +312,45 @@
 
                                 .level-2-li {
                                     position: relative;
-
-                                    // overflow: hidden;
                                     text-transform: capitalize;
                                     transition: max-height 0.3s ease-out;
-                                    height: 36px;
                                     max-height: none;
                                     margin-bottom: 22px;
-
-                                    // overflow: visible;
+                                    padding: 0;
+                                    overflow: visible;
                                     background-color: colour(white);
+
+                                    &.explore-li {
+                                        &::after,
+                                        &::before {
+                                            content: none;
+                                        }
+                                    }
+
+                                    &::before {
+                                        content: "";
+                                        width: 0;
+                                        height: 36px;
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        background: #005699;
+                                        z-index: 30;
+                                    }
+
+                                    &::after {
+                                        content: "";
+                                        background-image: url("../images/header/megamenu-carat.svg");
+                                        top: 13px;
+                                        right: 30px;
+                                        transform: rotate(0deg);
+                                        height: 10px;
+                                        background-size: contain;
+                                        background-repeat: no-repeat;
+                                        width: 12px;
+                                        position: absolute;
+                                        pointer-events: none;
+                                    }
 
                                     .level-2-link {
                                         font-weight: map-get(
@@ -326,13 +362,32 @@
                                         line-height: 16px;
                                         letter-spacing: 0.015em;
                                         padding: 6px 60px 0 20px;
-                                        height: auto;
                                         color: #4d4d4d;
                                         cursor: pointer;
                                         display: block;
+                                        height: 36px;
                                     }
 
                                     &.show {
+                                        position: relative;
+                                        max-height: 1000px;
+
+                                        &::before {
+                                            width: 4px;
+                                            transition: all 0.3s ease-out;
+                                        }
+
+                                        &::after {
+                                            transform: rotate(0deg);
+                                            background-image: url("../images/header/megamenu-carat_active.svg");
+                                            right: 20px;
+                                            transition: right 0.3s ease-out;
+                                        }
+
+                                        .level-2-link {
+                                            color: #005699;
+                                        }
+
                                         .menu-wrap-level-3 {
                                             top: 0;
                                             opacity: 1;
@@ -348,12 +403,19 @@
                                         position: absolute;
                                         left: 95%;
                                         column-fill: auto;
-
-                                        // transition: none;
                                         opacity: 0;
                                         visibility: hidden;
+                                        transition: all 0.5s ease-out;
+                                        background: transparent;
+                                        padding: 0;
 
-                                        // transition: all 0.5s ease-out;
+                                        &.show {
+                                            left: 100%;
+                                            opacity: 1;
+                                            pointer-events: auto;
+                                            visibility: visible;
+                                            transition: all 0.5s ease-out;
+                                        }
 
                                         li {
                                             height: auto;
@@ -374,6 +436,91 @@
                                                 height: 100%;
                                                 padding: 0 30px 16px 0;
                                                 width: 180px;
+                                            }
+                                        }
+                                    }
+
+                                    &:first-child .menu-wrap-level-3 {
+                                        top: -2px;
+                                    }
+
+                                    &:nth-child(2) .menu-wrap-level-3 {
+                                        top: -59px;
+                                    }
+
+                                    &:nth-child(3) .menu-wrap-level-3 {
+                                        top: -116px !important;
+                                    }
+
+                                    &:nth-child(4) .menu-wrap-level-3 {
+                                        top: -173px !important;
+                                    }
+
+                                    &:nth-child(5) .menu-wrap-level-3 {
+                                        top: -230px !important;
+                                    }
+
+                                    &:nth-child(6) .menu-wrap-level-3 {
+                                        top: -287px !important;
+                                    }
+
+                                    &:nth-child(7) .menu-wrap-level-3 {
+                                        top: -287px !important;
+                                    }
+                                }
+                            }
+
+                            .menu-right {
+                                position: absolute;
+                                left: auto;
+                                top: 0;
+                                height: 100%;
+                                transition: all 0.3s ease-out;
+                                max-height: none;
+                                margin-bottom: 22px;
+                                overflow: visible;
+                                text-transform: capitalize;
+
+                                .category-top-offers {
+                                    border-left: 1px solid #e5e5e5;
+
+                                    .heading {
+                                        padding: 6px 0 8px 30px;
+                                        pointer-events: none;
+                                    }
+
+                                    .category-top-items {
+                                        pointer-events: auto;
+                                        display: block;
+                                        opacity: 1;
+                                        visibility: visible;
+                                        position: relative;
+                                        transition: all 0.5s ease-out;
+
+                                        .toggle {
+                                            display: none;
+                                        }
+
+                                        ul {
+                                            padding: 0;
+                                            margin: 0;
+
+                                            li {
+                                                min-height: 41px;
+                                                height: auto;
+                                                display: block;
+                                                position: relative;
+                                                list-style: none;
+
+                                                a {
+                                                    padding: 8px 15px 8px 30px;
+                                                    width: 180px;
+                                                    font-weight: 400;
+                                                    font-size: 14px;
+                                                    line-height: 16px;
+                                                    letter-spacing: 0.015em;
+                                                    display: block;
+                                                }
                                             }
                                         }
                                     }

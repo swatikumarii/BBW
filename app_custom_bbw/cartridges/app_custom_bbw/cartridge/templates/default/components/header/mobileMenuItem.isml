@@ -1,11 +1,11 @@
 <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true" aria-label="${category.id}">
+    <isset name="categorySlotId" value="${category.slotId}" scope="page" />
     <isloop items="${menuItem.subCategories}" var="category">
         <isif condition="${category.subCategories}">
             <li class="dropdown-item dropdown level-2-li p-0" role="presentation">
                 <a href="${category.url}" id="${category.id}"
-                    class="level-2-link dropdown-link dropdown-toggle h-font-size--16 h-fw--semibold"
-                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                    tabindex="0">${category.name}</a>
+                    class="level-2-link dropdown-link dropdown-toggle h-font-size--16 h-fw--semibold" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0">${category.name}</a>
                 <isset name="menuItem" value="${category}" scope="page" />
                 <isinclude template="components/header/mobileMenuItemsItem" />
             </li>
