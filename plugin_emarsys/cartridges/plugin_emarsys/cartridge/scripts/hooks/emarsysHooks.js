@@ -1,25 +1,8 @@
 'use strict';
 
-var ISML = require('dw/template/ISML');
 var emarsysHelpers = require('*/cartridge/scripts/helpers/emarsysHelpers');
 
-
-/** 
- * Should be executed inside of the head tags
- * Renders Emarsys code.
- * @param {object} pdict - pdict data from the controller
- */
-function htmlHead(pdict) {
-    var emarsysData = emarsysHelpers.getScarabQueueData(pdict);
-
-    ISML.renderTemplate('components/emarsys/emarsysScript', {
-        action: pdict.action,
-        emarsysData: emarsysData
-    });
-}
-
-
-/** 
+/**
  * Should be executed for all the routes.
  * @param {object} route - pdict data from the controller
  */
@@ -49,6 +32,10 @@ function registerRoute(route) {
             if (emarsysData) {
                 res.viewData.emarsysEvents.push(emarsysData);
             }
+        } else {
+            res.viewData.emarsysData = emarsysHelpers.getScarabQueueData(
+                res.viewData
+            );
         }
     });
 
@@ -61,12 +48,10 @@ function registerRoute(route) {
 // Ensure emarsys is enabled before registering hooks
 if (emarsysHelpers.isEnabled) {
     module.exports = {
-        htmlHead: htmlHead,
         registerRoute: registerRoute
     };
 } else {
     module.exports = {
-        htmlHead: function () {},
         registerRoute: function () {}
     };
 }

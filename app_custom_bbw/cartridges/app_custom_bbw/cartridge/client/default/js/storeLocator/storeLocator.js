@@ -88,21 +88,23 @@ function maps() {
             markers[index].setIcon(imageUrlPink);
         }
         element.addListener('click', function () {
+            var isAccordianClicked = $('#accordion').attr('data-is-accordian-clicked');
             map.setCenter(element.position);
             infowindow.setOptions({
                 content: contents[index].infoWindowHtml
             });
             infowindow.open(map, element);
-            markers.forEach(function (ele){
+            markers.forEach(function (ele) {
                 ele.setIcon(imageUrlBlack);
             });
             element.setIcon(imageUrlPink);
-            $('.store-accordian-element-heading').addClass('collapsed');
-            $('.store-accordian-element-div').removeClass('show');
-            $('.store-accordian-element-heading:eq(' + index + ')')
-                .removeClass('collapsed');
-            $('.store-accordian-element-div:eq(' + index + ')')
-                .addClass('show');
+            if ((isAccordianClicked === 'false')) {
+                $('.store-accordian-element-heading').addClass('collapsed');
+                $('.store-accordian-element-div').removeClass('show');
+                $('.store-accordian-element-heading:eq(' + index + ')').removeClass('collapsed');
+                $('.store-accordian-element-div:eq(' + index + ')').addClass('show');
+            }
+            $('#accordion').attr('data-is-accordian-clicked', 'false');
         });
     });
     // Fit the all the store marks in the center of a minimum bounds when any store has been found.
@@ -166,6 +168,7 @@ function submitSearch(method, url, payload){
             $('.select-store').prop('disabled', true);
             $('.results-store-name').click(function () {
                 // make accordian click and triger click on pin marker
+                $('#accordion').attr('data-is-accordian-clicked', 'true');
                 var title = $(this).attr('data-store-title');
                 var a = $('div[title="' + title + '"]');
                 a.trigger('click');
@@ -179,6 +182,53 @@ function submitSearch(method, url, payload){
                 500
             );
         }
+    });
+}
+
+/**
+ * Preparing all data to submit and submits to ajax functions
+ */
+function getAllDataAndSubmit() {
+    var element = $('.store-locator-container form.store-locator');
+    var $form = element.closest('.store-locator');
+    var url = $form.attr('action');
+    var postalCodeVal = $form.find('[name="postalCode"]').val();
+    var isNumber = Boolean(Number(postalCodeVal));
+    var method = $form.attr('method');
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ address: postalCodeVal }).then(function (response) {
+        if (response.results[0]) {
+            var location = response.results[0].geometry.location;
+            var addressComponents = response.results[0].address_components;
+            var countryCode = '';
+            for (var i = 0; i < addressComponents.length; i++) {
+                if (addressComponents[i].types[0] === 'country') {
+                    countryCode = addressComponents[i].short_name;
+                }
+            }
+            var lat = location.lat();
+            var long = location.lng();
+            var payload = '';
+            if (!isNumber) {
+                payload = $form.is('form')
+                    ? $form.serialize() +
+                      '&latitude=' +
+                      lat +
+                      '&longitude=' +
+                      long +
+                      '&countryCode=' +
+                      countryCode
+                    : { postalCode: postalCodeVal };
+                submitSearch(method, url, payload);
+            } else {
+                payload = $form.is('form')
+                    ? $form.serialize() + '&countryCode=' + countryCode
+                    : { postalCode: postalCodeVal };
+                submitSearch(method, url, payload);
+            }
+            return true;
+        }
+        return false;
     });
 }
 
@@ -243,52 +293,10 @@ module.exports = $.extend({}, baseStore, {
 
     changeRadius: function () {
         $('.store-locator-container .radius').change(function () {
-            var element = $('.store-locator-container form.store-locator');
-            var $form = element.closest('.store-locator');
-            var url = $form.attr('action');
-            var postalCodeVal = $form.find('[name="postalCode"]').val();
-            var isNumber = Boolean(Number(postalCodeVal));
-            var method = $form.attr('method');
-            var geocoder = new google.maps.Geocoder();
-            geocoder
-                .geocode({ address: postalCodeVal })
-                .then(function (response) {
-                    if (response.results[0]) {
-                        var location = response.results[0].geometry.location;
-                        var addressComponents =
-                            response.results[0].address_components;
-                        var countryCode = '';
-                        for (var i = 0; i < addressComponents.length; i++) {
-                            if (addressComponents[i].types[0] === 'country') {
-                                countryCode = addressComponents[i].short_name;
-                            }
-                        }
-                        var lat = location.lat();
-                        var long = location.lng();
-                        var payload = '';
-                        if (!isNumber) {
-                            payload = $form.is('form')
-                                ? $form.serialize() +
-                                  '&latitude=' +
-                                  lat +
-                                  '&longitude=' +
-                                  long +
-                                  '&countryCode=' +
-                                  countryCode
-                                : { postalCode: postalCodeVal };
-                            submitSearch(method, url, payload);
-                        } else {
-                            payload = $form.is('form')
-                                ? $form.serialize() +
-                                  '&countryCode=' +
-                                  countryCode
-                                : { postalCode: postalCodeVal };
-                            submitSearch(method, url, payload);
-                        }
-                        return true;
-                    }
-                    return false;
-                });
+            getAllDataAndSubmit();
+        });
+        $('.sl-storetype').change(function () {
+            getAllDataAndSubmit();
         });
     }
 });
@@ -328,10 +336,10 @@ function geolocation(){
                     $('#store-postal-code').val(city);
                 }
             }
+            $(document).trigger('getAllDataAndSubmit');
         }
     });
 }
-geolocation();
 
 /**
  * On ready
@@ -341,5 +349,9 @@ $(document).ready(function () {
     $(document).on('blur', '#store-postal-code', function () {
         validatePostalCode();
     });
+    $(document).on('getAllDataAndSubmit', function () {
+        getAllDataAndSubmit();
+    });
 
+    geolocation();
 });

@@ -563,4 +563,10 @@ module.exports = function () {
             return true;
         }
     );
+
+    $(document).on('submit', 'form#header-search', function (e) {
+        if (!$('.search-field').val() || $('.search-field').val().length < 3) {
+            e.preventDefault();
+        }
+    });
 };

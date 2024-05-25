@@ -399,7 +399,7 @@ function updateProductLineItemShipmentUUIDs(productLineItem, shipping) {
     $('body').trigger('shipping:updateProductLineItemShipmentUUIDs', {
         productLineItem: productLineItem,
         shipping: shipping
-    }); 
+    });
 }
 
 /**
