@@ -145,6 +145,9 @@ module.exports = $.extend({}, base, {
     enableQuickViewScroll: function () {
         $('body').on('hidden.bs.modal', '#quickViewModal', function () {
             helpers.enableScroll();
+            if ($('#quickViewModal').length !== 0) {
+                $('#quickViewModal').remove();
+            }
         });
     },
 
