@@ -77,7 +77,7 @@ function getGoogleFeeds() {
         csvStreamWriter.close();
         csvFileWriter.close();
     } catch (err) {
-        Logger.getLogger('GoogleFeeds', 'GoogleFeeds').error(
+        Logger.getLogger('SocialFeeds', 'SocialFeeds').error(
             'Error when creating Google Feeds' + err
         );
         productsIterator.close();
@@ -92,7 +92,7 @@ function getGoogleFeeds() {
 function getFacebookFeeds() {
     var currentSite = require('dw/system/Site').getCurrent();
     var productsIterator = ProductMgr.queryAllSiteProducts();
-    var fileName = 'google-feed';
+    var fileName = 'facebook-feed';
     var outputFile = new File(
         File.LIBRARIES + '/' + currentSite.ID + '/default/feeds/' + fileName + '.csv'
     );
@@ -141,8 +141,8 @@ function getFacebookFeeds() {
         csvStreamWriter.close();
         csvFileWriter.close();
     } catch (err) {
-        Logger.getLogger('GoogleFeeds', 'GoogleFeeds').error(
-            'Error when creating Google Feeds' + err
+        Logger.getLogger('SocialFeeds', 'SocialFeeds').error(
+            'Error when creating Facebook Feeds' + err
         );
         productsIterator.close();
         csvStreamWriter.close();
