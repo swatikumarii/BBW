@@ -28,8 +28,12 @@
                     font-weight: map-get($font-weight, bold);
                     display: flex;
 
-                    span {
+                    .order-left-info {
                         width: 35%;
+                    }
+
+                    .order-right-info {
+                        width: 65%;
                     }
                 }
 
@@ -84,8 +88,8 @@
                 font-size: 17px;
             }
 
-            .payment-amount {
-                margin-top: -15px;
+            .payment-details br {
+                display: none;
             }
         }
 
@@ -98,14 +102,6 @@
                 margin-bottom: 15px;
                 font-weight: map-get($font-weight, semibold);
             }
-
-            .order-detail-with-image {
-                width: 100%;
-
-                @include media-up(sm) {
-                    width: 50%;
-                }
-            }
         }
 
         .summary-details {
@@ -114,6 +110,41 @@
             .address-summary {
                 text-transform: capitalize;
                 line-height: 1.5;
+            }
+        }
+    }
+
+    .card-detail-img {
+        display: flex;
+        flex-direction: row;
+
+        @include media-down(sm) {
+            flex-direction: column;
+        }
+
+        .card-head {
+            width: 55%;
+            margin-right: 20px;
+
+            @include media-down(sm) {
+                width: 100%;
+            }
+        }
+
+        .card-btn {
+            width: 50%;
+            border: 1px solid rgba(0, 0, 0, 12.5%);
+
+            @include media-down(sm) {
+                width: 100%;
+                margin-top: 25px;
+                padding: 40px;
+            }
+
+            .btn {
+                font-size: 15px;
+                color: colour(gray, 4);
+                padding: 0 20px;
             }
         }
     }
@@ -225,8 +256,8 @@
             width: 315px;
 
             a {
-                font-size: 14px;
-                font-weight: map-get($font-weight, semibold);
+                font-size: 15px;
+                font-weight: map-get($font-weight, bold);
 
                 &:hover {
                     color: colour(black, 1);

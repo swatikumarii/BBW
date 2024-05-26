@@ -4,6 +4,7 @@
         //assets.addCss('/css/account/orderTrack.css');
         assets.addCss('/css/account/profile.css');
         assets.addJs('/js/custom.js');
+        assets.addJs('/js/orderHistory.js');
         assets.addCss('/css/account/account.css');
     </isscript>
 
@@ -17,7 +18,7 @@
             ${Resource.msg('label.myaccount', 'account', null)}
         </div>
     </div>
-
+    <isinclude template="product/components/removeGiftLineItem" />
     <div class="h-maxwidth--1400 mx-auto my-account receipt <isif condition=" ${pdict.order.shipping.length > 1}">multi-ship</isif>">
         <div class="row account-dashboard">
             <div class="account-nav-wrap">

@@ -120,9 +120,14 @@ module.exports = $.extend({}, wishlist, {
                         localStorage.setItem('addToWishListURL', url);
                     } else {
                         $('.loginPopup').find('#exampleModalLong').modal('hide');
-                        $('#add-to-wish-list').click(function () {
-                            $('.wishlist-toast.toast').toast('show');
-                        });
+                        $('.wishlist-toast.toast')
+                            .toast('show')
+                            .slideDown('slow');
+                        setTimeout(function () {
+                            $('.wishlist-toast.toast')
+                                .toast('hide')
+                                .slideUp('slow');
+                        }, 3000);
                     }
                     if (data.success) {
                         $('.remove-from-wishlist').removeClass('d-none');
@@ -158,6 +163,7 @@ module.exports = $.extend({}, wishlist, {
                         $('.remove-from-wishlist').addClass('d-none');
                         $('.add-to-wish-list').removeClass('d-none');
                         $('.remove-from-wishlist').removeClass('d-block');
+                        $('.added-to-wish-list').removeClass('d-block');
                     },
                     error: function () {
                         var $elToAppend = $('.wishlist-account-card');
@@ -183,6 +189,7 @@ module.exports = $.extend({}, wishlist, {
                             $('.remove-from-wishlist').addClass('d-none');
                             $('.add-to-wish-list').removeClass('d-none');
                             $('.remove-from-wishlist').removeClass('d-block');
+                            $('.added-to-wish-list').removeClass('d-block');
                         }
                     },
                     error: function () {

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>${Resource.msg('siteoffline.header','error',null)}</title>
+    </head>
+    <style>
+    .container {
+            max-width: 47%;
+            margin: 0 auto;
+    }
+    .siteoffline-para {
+        text-align: center;
+        font-size: 23px;
+        line-height: 34px;
+        max-width: 81%;
+        margin: 0 auto;
+    }
+    img {
+        width: 100%;
+    }
+    .site-offline {
+        margin-top: 15%;
+    }
+    span {
+        text-align: center;
+    }
+    .site-offline-assistance {
+        margin-top: 30%;
+    }
+    .site-offline-assistance p{
+        text-align: center;
+    }
+    .site-offline-assistance p span{
+        color: #005699;
+        cursor: pointer;
+    }
+    </style>
+    <body>
+        <div class="container">
+            <div class="site-offline">
+                <img src="${URLUtils.staticURL('/images/maintenance/maintenance-img.png')}" alt="Website maintenance page" />
+                <p class="siteoffline-para">${Resource.msg('siteoffline.message.para', 'error', null)}</p>
+            </div>
+            <div class="site-offline-assistance">
+                <p>${Resource.msg('siteoffline.message.assistance', 'error', null)}</p>
+                <p> 
+                   <span>${Resource.msg('siteoffline.message.assistance.msg', 'error', null)}</span> 
+                    ${Resource.msg('siteoffline.message.help', 'error', null)}
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

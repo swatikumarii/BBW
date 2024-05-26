@@ -10,6 +10,7 @@ var windowWidth = $(window).outerWidth();
 var lazyload = require('../utils/lazyLoad');
 var layout = require('../utils/layout');
 var helpers = require('../utils/helpers');
+var baseProductBase = require('base/product/base');
 
 /**
  * Retrieves Suggestions element relative to scope
@@ -252,6 +253,138 @@ function resizeSuggestionWrapper() {
     }
 }
 
+/**
+ * Parses the html for a modal window
+ * @param {string} html - representing the body and footer of the modal window
+ * @returns {object} - Object with properties body and footer.
+ */
+function parseHtml(html) {
+    var $html = $('<div>').append($.parseHTML(html));
+
+    var body = $html.find('.choice-of-bonus-product');
+    var footer = $html.find('.modal-footer').children();
+
+    return { body: body, footer: footer };
+}
+
+/**
+ * Retrieves url to use when adding a product to the cart
+ * @param {object} data - data object used to fill in dynamic portions of the html
+ */
+function chooseBonusProducts(data) {
+    $('.modal-body').spinner().start();
+
+    if ($('#chooseBonusProductModal').length !== 0) {
+        $('#chooseBonusProductModal').remove();
+    }
+    var bonusUrl;
+    if (data.bonusChoiceRuleBased) {
+        bonusUrl = data.showProductsUrlRuleBased;
+    } else {
+        bonusUrl = data.showProductsUrlListBased;
+    }
+
+    var htmlString =
+        '<!-- Modal -->' +
+        '<div class="modal fade" id="chooseBonusProductModal" tabindex="-1" role="dialog">' +
+        '<span class="enter-message sr-only" ></span>' +
+        '<div class="modal-dialog choose-bonus-product-dialog" ' +
+        'data-total-qty="' +
+        data.maxBonusItems +
+        '"' +
+        'data-UUID="' +
+        data.uuid +
+        '"' +
+        'data-pliUUID="' +
+        data.pliUUID +
+        '"' +
+        'data-addToCartUrl="' +
+        data.addToCartUrl +
+        '"' +
+        'data-pageStart="0"' +
+        'data-pageSize="' +
+        data.pageSize +
+        '"' +
+        'data-moreURL="' +
+        data.showProductsUrlRuleBased +
+        '"' +
+        'data-bonusChoiceRuleBased="' +
+        data.bonusChoiceRuleBased +
+        '">' +
+        '<!-- Modal content-->' +
+        '<div class="modal-content">' +
+        '<div class="modal-header">' +
+        '    <span class="">' +
+        data.labels.selectprods +
+        '</span>' +
+        '    <button type="button" class="close pull-right" data-dismiss="modal">' +
+        '        <span aria-hidden="true">&times;</span>' +
+        '        <span class="sr-only"> </span>' +
+        '    </button>' +
+        '</div>' +
+        '<div class="modal-body"></div>' +
+        '<div class="modal-footer"></div>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+    $('body').append(htmlString);
+    $('.modal-body').spinner().start();
+
+    $.ajax({
+        url: bonusUrl,
+        method: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            var parsedHtml = parseHtml(response.renderedTemplate);
+            $('#chooseBonusProductModal .modal-body').empty();
+            $('#chooseBonusProductModal .enter-message').text(
+                response.enterDialogMessage
+            );
+            $('#chooseBonusProductModal .modal-header .close .sr-only').text(
+                response.closeButtonText
+            );
+            $('#chooseBonusProductModal .modal-body').html(parsedHtml.body);
+            $('#chooseBonusProductModal .modal-footer').html(parsedHtml.footer);
+            $('#chooseBonusProductModal').modal('show');
+            $.spinner().stop();
+        },
+        error: function () {
+            $.spinner().stop();
+        }
+    });
+}
+
+/**
+ * Updates the Mini-Cart quantity value after the customer has pressed the "Add to Cart" button
+ * @param {string} response - ajax response from clicking the add to cart button
+ */
+function handlePostCartAdd(response) {
+    $('.minicart').trigger('count:update', response);
+    var messageType = response.error ? 'alert-danger' : 'alert-success';
+    // show add to cart toast
+    if (
+        response.newBonusDiscountLineItem &&
+        Object.keys(response.newBonusDiscountLineItem).length !== 0
+    ) {
+        chooseBonusProducts(response.newBonusDiscountLineItem);
+    } else if (layout.isMobile()) {
+        if ($('.add-to-cart-messages').length === 0) {
+            $('body').append('<div class="add-to-cart-messages"></div>');
+        }
+
+        $('.add-to-basket-alert').remove();
+        $('.add-to-cart-messages').append(
+            '<div class="alert ' +
+            messageType +
+            ' add-to-basket-alert text-center" role="alert">' +
+            response.message +
+            '</div>'
+        );
+        setTimeout(function () {
+            $('.add-to-basket-alert').remove();
+        }, 5000);
+    }
+}
 
 module.exports = function () {
     $('form[name="simpleSearch"]').submit(function (e) {
@@ -354,5 +487,86 @@ module.exports = function () {
         $('.js-search-field').focus();
         var debounceSuggestions = debounce(getSuggestions, 300);
         debounceSuggestions(this, $('input.search-field'));
+    });
+
+    $(document).on(
+        'click',
+        'button.add-to-cart-search',
+        async function () {
+            var addToCartUrl;
+            var pid;
+
+            var currentAction = $(this);
+            $('body').trigger('product:beforeAddToCart', this);
+            currentAction.parents('.product-tile').spinner().start();
+
+            pid = $(this).data('pid');
+            addToCartUrl = $('.add-to-cart-url').val();
+
+            var form = {
+                pid: pid,
+                quantity: 1
+            };
+
+            $(this).trigger('updateAddToCartFormData', form);
+            if (addToCartUrl) {
+                $.ajax({
+                    url: addToCartUrl,
+                    method: 'POST',
+                    data: form,
+                    success: function (data) {
+                        if (data.error) {
+                            $('.reserve-stock p').text(data.message);
+                            $('.reserve-stock').removeClass('d-none');
+                            return true;
+                        }
+                        if (data.isProductLineItemsExist) {
+                            $('#delete-line-item-modal').modal('show');
+                            $.spinner().stop();
+                            return true;
+                        }
+                        if (data.isGiftCardLineItemExist) {
+                            $('#delete-gift-certificate-line-item-modal').modal(
+                                'show'
+                            );
+                            $.spinner().stop();
+                            return true;
+                        }
+                        handlePostCartAdd(data);
+                        $('body').trigger('product:afterAddToCart', data);
+                        var addToCartSnackbar = $('#add-to-cart-snackbar');
+                        addToCartSnackbar.addClass('show');
+                        setTimeout(function () {
+                            addToCartSnackbar.removeClass('show');
+                        }, 3000);
+
+                        $.spinner().stop();
+                        baseProductBase.miniCartReportingUrl(data.reportingURL);
+                        return true;
+                    },
+                    error: function (err) {
+                        if (
+                            currentAction.siblings('.add-to-cart-error').length
+                        ) {
+                            currentAction
+                                .siblings('.add-to-cart-error')
+                                .text(err.responseJSON.errorMessage);
+                        } else {
+                            $('.add-to-cart-error-pdp').text(
+                                err.responseJSON.errorMessage
+                            );
+                        }
+                        $.spinner().stop();
+                    }
+                });
+            }
+            return true;
+        }
+    );
+
+    $(document).on('submit', 'form#header-search', function (e) {
+        if (!$('.search-field').val() || $('.search-field').val().length < 3) {
+            e.preventDefault();
+        }
     });
 };

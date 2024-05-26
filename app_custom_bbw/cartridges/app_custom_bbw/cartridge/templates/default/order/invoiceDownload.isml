@@ -3,7 +3,7 @@
         <tbody>
             <tr style="vertical-align: baseline;">
                 <td class="" style="vertical-align: bottom;">
-                    <div>
+                    <div style="margin-left: 30px;">
                         <isset name="headerImage"
                             value="${require('dw/system/Site').getCurrent().getCustomPreferenceValue('header_image')}"
                             scope="page" />
@@ -13,18 +13,6 @@
                     </div>
                 </td>
                 <td style="vertical-align: middle;">
-                    <iscomment> <div style="padding-bottom: 10px;">
-                        <strong
-                            style="text-transform: uppercase;font-family:GaramondPro;font-size:32px;letter-sapcing:1px;line-height:normal;">${Resource.msg('label.invoice', 'order', null)}
-                        </strong>
-                        <p style="margin-bottom:0px;">${Resource.msg('label.invoice.header1', 'order', null)}</p>
-                        <p style="margin-bottom:0px; margin-top:0px;">${Resource.msg('label.invoice.header2', 'order', null)}</p>
-                        <p style="margin-bottom:0px; margin-top:0px;">${Resource.msg('label.invoice.address', 'order', null)}</p>
-                        <p style="margin-bottom:0px; margin-top:0px;">${Resource.msg('label.gst', 'order', null)}</p>
-                        <p style="margin-bottom:0px; margin-top:0px;">${Resource.msg('label.contact', 'order', null)}
-                        </p>
-                        <p style="margin-bottom:0px; margin-top:0px;">${Resource.msg('label.email', 'order', null)}</p>
-                    </div> </iscomment>
                     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyAddress')}">
                         <div
                             style="margin: 0;line-height: 18px; font:normal 14px/24px ScalaSansOT,sans-serif;letter-spacing:0.75px;color:#1a1919">
@@ -53,7 +41,7 @@
 
     <div>
         <table
-            style="table-layout: fixed; width: 100%; background-color: #727272; padding-top: 20px; padding-bottom: 20px;">
+            style="table-layout: fixed; width: 100%; background-color: #727272e8; padding: 13px 7px; margin-top: 12px;">
             <tbody>
                 <tr style="vertical-align: baseline;">
                     <td style="vertical-align:baseline;">
@@ -76,11 +64,9 @@
         <table style="table-layout: fixed; width: 100%;">
             <tbody>
                 <tr style="vertical-align: baseline;">
-                    <td style="width:44%;">
+                    <td style="width:56%;">
                         <div>
-                            <div style="    background-color: #c7c7c7;     margin-left: -4px;
-    padding-top: 8px;
-    padding-bottom: 15px;">
+                            <div style="    background-color: #c7c7c7;  margin-left: -4px;     padding: 12px 9px;">
                                 <strong
                                     style="text-transform: uppercase;font-family:GaramondPro;font-size:16px;letter-sapcing:1px;line-height:normal;display: block;width: 100%;">
                                     ${Resource.msg('billing.details.invoice', 'order', null)}:
@@ -95,10 +81,8 @@
                             </div>
                         </div>
                     </td>
-                    <td style="vertical-align:baseline; width:56%;">
-                        <div style="    background-color: #c7c7c7;     margin-left: -4px;
-                        padding-top: 8px;
-                        padding-bottom: 15px;">
+                    <td style="vertical-align:baseline; width:44%;">
+                        <div style="    background-color: #c7c7c7; margin-left: -4px; padding: 12px 9px;">
                             <strong
                                 style="text-transform: uppercase;font-family:GaramondPro;font-size:16px;letter-sapcing:1px;line-height:normal;">
                                 ${Resource.msg('shipping.details.invoice', 'order', null)}:
@@ -116,33 +100,52 @@
         </table>
     </div>
 
-    <div style="padding-top: 1cm; padding-bottom: 1cm;">
-        <table style="table-layout: fixed; width: 100%; ">
+    <div style="padding-top:8px; padding-bottom:8px;">
+        <table style="table-layout: fixed; width: 100%;">
             <tbody>
                 <tr style="vertical-align: baseline;">
-                    <td style="vertical-align:baseline; width:56%;">
-                        <div class="summary-details">
-                            <span
-                                style="background-color:#c7c7c7; width:100%; display:block; padding-top: 8px; padding-bottom: 15px;"
-                                class="summary-section-label payment-info-label h-fw--semibold h-clr--black-1 mb-1 h-font-size--16"><strong>${Resource.msg('label.order.payment.info', 'order', null)}:</strong></span>
-                            <isinclude template="checkout/billing/paymentOptions/paymentOptionsSummary" />
+                    <td style="width:56%;">
+                        <div>
+                            <div style=" background-color: #c7c7c7;  margin-left: -4px;     padding: 12px 9px;">
+                                <strong
+                                    style="text-transform: uppercase;font-family:GaramondPro;font-size:16px;letter-sapcing:1px;line-height:normal;display: block;width: 100%;">
+                                ${Resource.msg('label.order.payment.info', 'order', null)}:
+                                </strong>
+                            </div>
+                            <div style="padding: 0 10px;">
+                            <p>${Resource.msg('label.online.payment', 'order', null)}:
+                               <isinclude template="checkout/billing/paymentOptions/paymentOptionsSummary" /> 
+                            </p>
+                            <div style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+                                class="email">
+                                <p>${Resource.msg('label.payer.email', 'order', null)}:
+                                <span>
+                                    <isif condition="${pdict.order.orderEmail}">${pdict.order.orderEmail}</isif>
+                                </span>
+                                </p>
+                            </div>
+                            </div>
                         </div>
                     </td>
-                    <td style="width:44%;">
-                        <div style="padding-bottom: 10px;text-align: right;">
-                            <span
-                                style="background-color:#c7c7c7; width:100%; margin-left: -5px; display:block; text-align:left; padding-top: 8px; padding-bottom: 15px;"
-                                class="summary-section-label payment-info-label h-fw--semibold h-clr--black-1 mb-1 h-font-size--16"><strong>${Resource.msg('label.order.shipping.method', 'confirmation', null)}</strong></span>
+                    <td style="vertical-align:baseline; width:44%;">
+                        <div style="    background-color: #c7c7c7; margin-left: -4px; padding: 12px 9px;">
+                            <strong
+                                style="text-transform: uppercase;font-family:GaramondPro;font-size:16px;letter-sapcing:1px;line-height:normal;">
+                                ${Resource.msg('label.order.shipping.method', 'confirmation', null)}
+                            </strong>
+                        </div>
+                        <div style="padding: 0 10px;">
                             <isloop var="shippingModel" items="${pdict.order.shipping}" status="shippingLoop">
                                 <p class="shipping-method" style="text-align:left; margin-left: -3px;">
                                     <span
-                                        class="shipping-method-title h-font-size--16">${shippingModel.selectedShippingMethod.ID}(${Resource.msg('label.shipping', 'order', null)})
+                                        class="shipping-method-title h-font-size--16">${shippingModel.selectedShippingMethod.ID}(${Resource.msg('label.shipping', 'order', null)}):
                                         <isif condition="${pdict.order.trackingNumber}">
-                                            <a href="${pdict.order.trackingUrl + pdict.order.trackingNumber}" hreflang="${request.getLocale()}" target="_blank">
+                                            <a href="${pdict.order.trackingUrl + pdict.order.trackingNumber}" hreflang="${request.getLocale()}"
+                                                target="_blank">
                                                 <span>${pdict.order.trackingNumber}</span>
                                             </a>
                                         </isif>
-                                        </span>
+                                    </span>
                                 </p>
                             </isloop>
                         </div>
@@ -153,23 +156,23 @@
     </div>
     <div>
         <table>
-            <thead>
+            <thead style="width: 100%; vertical-align:baseline;">
                 <tr>
-                    <th width="34%"
-                        style="text-align:left;     background-color: #d0d0d0;    padding-top: 8px; padding-bottom: 15px;">
+                    <th 
+                        style="text-align:left; width: 27%; background-color:#c7c7c7; padding: 12px 9px;">
                         ${Resource.msg('label.item.invoice.description', 'order', null)}
                     </th>
-                    <th width="20%" style="    background-color: #d0d0d0;  padding-top: 8px; padding-bottom: 15px;">
+                    <th  style=" width: 18%; background-color:#c7c7c7; padding: 12px 9px;">
                         ${Resource.msg('label.item.sku', 'order', null)}
                     </th>
-                    <th style="    background-color: #d0d0d0;  padding-top: 8px; padding-bottom: 15px;">
+                    <th style="    background-color:#c7c7c7; width: 16%; padding: 12px 9px;">
                         ${Resource.msg('label.qty', 'order', null)}
                     </th>
-                    <th style="    background-color: #d0d0d0;  padding-top: 8px; padding-bottom: 15px;">
+                    <th style="    background-color:#c7c7c7; width: 15%; padding: 12px 9px;">
                         ${Resource.msg('label.price', 'order', null)}
                     </th>
                     <th
-                        style="    background-color: #d0d0d0; text-align: right;  padding-top: 8px; padding-bottom: 15px;">
+                        style="    background-color:#c7c7c7; text-align: right;  width: 12%; padding: 12px 9px;">
                         ${Resource.msg('label.amount', 'order', null)}
                     </th>
                 </tr>
@@ -197,9 +200,8 @@
                                         <p style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919;">
                                             ${Resource.msg('personalized.giftcard.name', 'common', null)}</p>
                                     <iselse/>
-                                        <p
-                                            style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919; margin-left:16px;">
-                                            ${lineItem.productName}</p>
+                                        <p style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919; margin-left:16px;">
+                                        ${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</p>
                                     </isif>
                                     <isif condition="${lineItem.productCategory === 'greetingCardProducts'}">
                                         <p

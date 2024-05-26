@@ -375,6 +375,13 @@ module.exports = function () {
                         }
                     }
                     $('.uuid-' + uuid).remove();
+                    if (data.removeProducts && data.removeProducts.length > 0) {
+                        for (var j = 0; j < data.removeProducts.length; j++) {
+                            if ($('.uuid-' + data.removeProducts[j])) {
+                                $('.uuid-' + data.removeProducts[j]).remove();
+                            }
+                        }
+                    }
                     if (!data.basket.hasBonusProduct) {
                         $('.bonus-product').remove();
                     }
@@ -842,6 +849,49 @@ module.exports = function () {
                 }
             });
         }
+    });
+
+    $('body').on('click', '.applyTopOffer', function (e) {
+        e.preventDefault();
+        var action = $(this).data('action');
+        var couponCode = $(this).data('coupon');
+        var csrfTokenFieldName = $('.topOfferCsrfToken').attr('name');
+        var csrfTokenValue = $('.topOfferCsrfToken').val();
+        var formData = 'couponCode='+couponCode+'&'+csrfTokenFieldName+'='+csrfTokenValue;
+        $.ajax({
+            url: action,
+            type: 'GET',
+            contentType: false,
+            data: formData,
+            processData: false,
+            success: function (data) {
+                if (data.error) {
+                    $('.topOfferSuccess').hide();
+                    $('.topOfferError').text(data.errorMessage);
+                    $('.topOfferError').show();
+                    setTimeout(function () {
+                        $('.topOfferError').hide();
+                    }, 5000);
+                } else {
+                    updateCartTotals(data);
+                    $('.topOfferError').hide();
+                    $('.topOfferSuccess').text(data.resources.couponApplied);
+                    $('.topOfferSuccess').show();
+                    setTimeout(function () {
+                        $('.topOfferSuccess').hide();
+                    }, 5000);
+                }
+
+            },
+            error: function () {
+                $('.topOfferSuccess').hide();
+                $('.topOfferError').text($('.something-went-wrong').text());
+                $('.topOfferError').show();
+                setTimeout(function () {
+                    $('.topOfferError').hide();
+                }, 5000);
+            }
+        });
     });
 
     base.selectAttribute();

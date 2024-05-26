@@ -752,6 +752,7 @@ module.exports = $.extend({}, base, {
                                 $(
                                     '#delete-gift-certificate-line-item-modal'
                                 ).modal('show');
+                                $('.delete-egiftitem-confirmation-btn').attr('data-pid', data.pid);
                                 $.spinner().stop();
                                 return true;
                             }
@@ -778,6 +779,9 @@ module.exports = $.extend({}, base, {
                             }
                             $.spinner().stop();
                             base.miniCartReportingUrl(data.reportingURL);
+                            if ($('#quickViewModal')) {
+                                $('#quickViewModal').modal('hide');
+                            }
                             return true;
                         },
                         error: function (err) {

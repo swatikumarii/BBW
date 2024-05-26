@@ -15,6 +15,17 @@
         </custom-attributes>
     </folder>
 
+	<folder folder-id="global-locations">
+        <display-name xml:lang="x-default">Global Locations</display-name>
+        <description xml:lang="x-default">Global Locations</description>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="isShow">false</custom-attribute>
+        </custom-attributes>
+    </folder>
+
     <content content-id="bottom-seo-3-wick-candles">
         <display-name xml:lang="x-default">Bottom Seo 3 Wick Candles</display-name>
         <description xml:lang="x-default">3 Wick Candles content</description>
@@ -5277,11 +5288,23 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="account-nav-help text-center"&gt;&#13;
             &lt;h3 class="h-clr--gray h-font-size--14 m-0"&gt;Questions? &lt;/h3&gt;&#13;
-            &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-756-5005.$include('ContactUs-Availability')$&lt;/p&gt;&#13;
+            &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-756-5005.&lt;/p&gt;&#13;
         &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-
+	<content content-id="myAccount-info-help">
+		<display-name xml:lang="x-default">My Account Info Help</display-name>
+		<description xml:lang="x-default">This shows contact number on my account page.</description>
+		<online-flag>true</online-flag>
+		<searchable-flag>false</searchable-flag>
+		<page-attributes/>
+		<custom-attributes>
+			<custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="account-nav-help text-center"&gt;&#13;
+            &lt;h3 class="h-clr--gray h-font-size--14 m-0"&gt;Questions? &lt;/h3&gt;&#13;
+            &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-756-5005.$include('ContactUs-Availability')$&lt;/p&gt;&#13;
+        &lt;/div&gt;</custom-attribute>
+		</custom-attributes>
+	</content>
     <content content-id="exchange-cannot-return">
         <display-name xml:lang="x-default">Exchange Cannot Return</display-name>
         <description xml:lang="x-default">Exchange cannot be returned</description>
@@ -5542,7 +5565,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
     </content>
 
     <content content-id="global-locations-australia">
-        <display-name xml:lang="x-default">Global Locations Australia</display-name>
+        <display-name xml:lang="x-default">Australia</display-name>
         <description xml:lang="x-default">Australia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5659,10 +5682,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-austria">
-        <display-name xml:lang="x-default">Global Locations Austria</display-name>
+        <display-name xml:lang="x-default">Austria</display-name>
         <description xml:lang="x-default">Austria store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5708,10 +5734,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-bahrain">
-        <display-name xml:lang="x-default">Global Locations Bahrain</display-name>
+        <display-name xml:lang="x-default">Bahrain</display-name>
         <description xml:lang="x-default">Bahrain store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5796,10 +5825,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-belgium">
-        <display-name xml:lang="x-default">Global Locations Belgium</display-name>
+        <display-name xml:lang="x-default">Belgium</display-name>
         <description xml:lang="x-default">Belgium store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5835,10 +5867,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-canada">
-        <display-name xml:lang="x-default">Global Locations Canada</display-name>
+        <display-name xml:lang="x-default">Canada</display-name>
         <description xml:lang="x-default">Canada store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6487,10 +6522,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-chile">
-        <display-name xml:lang="x-default">Global Locations Chile</display-name>
+        <display-name xml:lang="x-default">Chile</display-name>
         <description xml:lang="x-default">Chile store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6573,10 +6611,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-colombia">
-        <display-name xml:lang="x-default">Global Locations Colombia</display-name>
+        <display-name xml:lang="x-default">Colombia</display-name>
         <description xml:lang="x-default">Colombia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6712,10 +6753,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-costarica">
-        <display-name xml:lang="x-default">Global Locations Costarica</display-name>
+        <display-name xml:lang="x-default">Costarica</display-name>
         <description xml:lang="x-default">Costarica store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6781,10 +6825,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-curacao">
-        <display-name xml:lang="x-default">Global Locations Curacao</display-name>
+        <display-name xml:lang="x-default">Curacao</display-name>
         <description xml:lang="x-default">Curacao store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6818,10 +6865,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-dominican-republic">
-        <display-name xml:lang="x-default">Global Locations Dominican-republic</display-name>
+        <display-name xml:lang="x-default">Dominican-republic</display-name>
         <description xml:lang="x-default">Dominican-republic store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6867,10 +6917,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-ecuador">
-        <display-name xml:lang="x-default">Global Locations Ecuador</display-name>
+        <display-name xml:lang="x-default">Ecuador</display-name>
         <description xml:lang="x-default">Ecuador store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -6925,10 +6978,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-egypt">
-        <display-name xml:lang="x-default">Global Locations Egypt</display-name>
+        <display-name xml:lang="x-default">Egypt</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes>
@@ -7044,10 +7100,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-elsalvador">
-        <display-name xml:lang="x-default">Global Locations Elsalvador</display-name>
+        <display-name xml:lang="x-default">Elsalvador</display-name>
         <description xml:lang="x-default">Elsalvador store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7083,10 +7142,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-greece">
-        <display-name xml:lang="x-default">Global Locations Greece</display-name>
+        <display-name xml:lang="x-default">Greece</display-name>
         <description xml:lang="x-default">Greece store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7132,10 +7194,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-guatemala">
-        <display-name xml:lang="x-default">Global Locations Guatemala</display-name>
+        <display-name xml:lang="x-default">Guatemala</display-name>
         <description xml:lang="x-default">Guatemala store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7199,10 +7264,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-hong-kong">
-        <display-name xml:lang="x-default">Global Locations Hongkong</display-name>
+        <display-name xml:lang="x-default">Hongkong</display-name>
         <description xml:lang="x-default">Hongkong store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7270,10 +7338,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-india">
-        <display-name xml:lang="x-default">Global Locations India</display-name>
+        <display-name xml:lang="x-default">India</display-name>
         <description xml:lang="x-default">India store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7544,10 +7615,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-indonesia">
-        <display-name xml:lang="x-default">Global Locations Indonesia</display-name>
+        <display-name xml:lang="x-default">Indonesia</display-name>
         <description xml:lang="x-default">Indonesia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7705,10 +7779,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 	&lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-italy">
-        <display-name xml:lang="x-default">Global Locations Italy</display-name>
+        <display-name xml:lang="x-default">Italy</display-name>
         <description xml:lang="x-default">Italy store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7784,10 +7861,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-jordan">
-        <display-name xml:lang="x-default">Global Locations Jordan</display-name>
+        <display-name xml:lang="x-default">Jordan</display-name>
         <description xml:lang="x-default">Jordan store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7848,10 +7928,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-kuwait">
-        <display-name xml:lang="x-default">Global Locations Kuwait</display-name>
+        <display-name xml:lang="x-default">Kuwait</display-name>
         <description xml:lang="x-default">Kuwait store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8072,10 +8155,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-macau">
-        <display-name xml:lang="x-default">Global Locations Macau</display-name>
+        <display-name xml:lang="x-default">Macau</display-name>
         <description xml:lang="x-default">Macau store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8111,10 +8197,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-malaysia">
-        <display-name xml:lang="x-default">Global Locations Malaysia</display-name>
+        <display-name xml:lang="x-default">Malaysia</display-name>
         <description xml:lang="x-default">Malaysia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8572,10 +8661,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-mexico">
-        <display-name xml:lang="x-default">Global Locations Mexico</display-name>
+        <display-name xml:lang="x-default">Mexico</display-name>
         <description xml:lang="x-default">Mexico store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8788,10 +8880,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-netherlands">
-        <display-name xml:lang="x-default">Global Locations Netherlands</display-name>
+        <display-name xml:lang="x-default">Netherlands</display-name>
         <description xml:lang="x-default">Netherlands store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8827,10 +8922,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-oman">
-        <display-name xml:lang="x-default">Global Locations Oman</display-name>
+        <display-name xml:lang="x-default">Oman</display-name>
         <description xml:lang="x-default">Oman store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8882,10 +8980,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-panama">
-        <display-name xml:lang="x-default">Global Locations Panama</display-name>
+        <display-name xml:lang="x-default">Panama</display-name>
         <description xml:lang="x-default">Panama store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8949,10 +9050,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-paraguay">
-        <display-name xml:lang="x-default">Global Locations Paraguay</display-name>
+        <display-name xml:lang="x-default">Paraguay</display-name>
         <description xml:lang="x-default">Paraguay store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -8989,10 +9093,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-peru">
-        <display-name xml:lang="x-default">Global Locations Peru</display-name>
+        <display-name xml:lang="x-default">Peru</display-name>
         <description xml:lang="x-default">Peru store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9054,10 +9161,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-philippines">
-        <display-name xml:lang="x-default">Global Locations Philippines</display-name>
+        <display-name xml:lang="x-default">Philippines</display-name>
         <description xml:lang="x-default">Philippines store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9124,10 +9234,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-poland">
-        <display-name xml:lang="x-default">Global Locations Poland</display-name>
+        <display-name xml:lang="x-default">Poland</display-name>
         <description xml:lang="x-default">Poland store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9199,10 +9312,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-qatar">
-        <display-name xml:lang="x-default">Global Locations Qatar</display-name>
+        <display-name xml:lang="x-default">Qatar</display-name>
         <description xml:lang="x-default">Qatar store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9343,10 +9459,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-romania">
-        <display-name xml:lang="x-default">Global Locations Romania</display-name>
+        <display-name xml:lang="x-default">Romania</display-name>
         <description xml:lang="x-default">Romania store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9385,10 +9504,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-saudiarabia">
-        <display-name xml:lang="x-default">Global Locations Saudiarabia</display-name>
+        <display-name xml:lang="x-default">Saudiarabia</display-name>
         <description xml:lang="x-default">Saudiarabia store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -9969,10 +10091,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-singapore">
-        <display-name xml:lang="x-default">Global Locations Singapore</display-name>
+        <display-name xml:lang="x-default">Singapore</display-name>
         <description xml:lang="x-default">Singapore store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -10087,10 +10212,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-thailand">
-        <display-name xml:lang="x-default">Global Locations Thailand</display-name>
+        <display-name xml:lang="x-default">Thailand</display-name>
         <description xml:lang="x-default">Thailand store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -10315,10 +10443,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-turkey">
-        <display-name xml:lang="x-default">Global Locations Turkey</display-name>
+        <display-name xml:lang="x-default">Turkey</display-name>
         <description xml:lang="x-default">Store list turkey</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -10392,10 +10523,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-uae">
-        <display-name xml:lang="x-default">Global Locations UAE</display-name>
+        <display-name xml:lang="x-default">UAE</display-name>
         <description xml:lang="x-default">UAE store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -10960,10 +11094,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-united-kingdom">
-        <display-name xml:lang="x-default">Global Locations United-Kingdom</display-name>
+        <display-name xml:lang="x-default">United-Kingdom</display-name>
         <description xml:lang="x-default">United-Kingdom store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -11021,10 +11158,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-uruguay">
-        <display-name xml:lang="x-default">Global Locations Uruguay</display-name>
+        <display-name xml:lang="x-default">Uruguay</display-name>
         <description xml:lang="x-default">Uruguay store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -11079,10 +11219,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
     <content content-id="global-locations-venezuela">
-        <display-name xml:lang="x-default">Global Locations Venezuela</display-name>
+        <display-name xml:lang="x-default">Venezuela</display-name>
         <description xml:lang="x-default">Venezuela store list</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -11118,6 +11261,9 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="global-locations"/>
+        </folder-links>
     </content>
 
  <content content-id="contact-us">
@@ -12488,9 +12634,9 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
        <page-attributes />
        <custom-attributes>
               <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container text-center"&gt;&#13;
-                     &lt;h1 class="m-font-justlovely--normal h-clr--pink h-font-size--80 mt-5 mb-5 pt-5"&gt;Wh ps! We c uln find
-                     he page!&lt;/h1&gt;&#13;
-                     &lt;p class="h-clr--black-3 h-font-size--20 mb-5"&gt;This page doesn’t exist or was removed &lt;br
+                     &lt;h1 class="m-font-justlovely--normal h-clr--pink h-font-size--80 mt-5 mb-5 pt-5"&gt;Whoops! We couldn't find
+                     the page!&lt;/h1&gt;&#13;
+                     &lt;p class="h-clr--black-3 h-font-size--20 mb-4"&gt;This page doesn’t exist or was removed &lt;br
                      /&gt;&#13;
                      Just breath in and out while we suggest you to explore other pages&lt;/p&gt;&#13;
                      &lt;div&gt;&#13;
@@ -12521,12 +12667,13 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                      color: #365fa1;&#13;
                      font-weight: 600;&#13;
                      margin-left: 21px;&#13;
+					 margin-top: 26px;&#13;
                      }&#13;
                      &lt;/style&gt;</custom-attribute>
        </custom-attributes>
 </content>
 
-<content content-id="committed-future">
+   <content content-id="committed-future">
         <display-name xml:lang="x-default">Committed to the Future</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -12534,10 +12681,6 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
     &lt;div class="no-left-nav"&gt;&#13;
-        &lt;div class="py-3"&gt;&#13;
-            &lt;!---Breadcrumbs---&gt;&#13;
-            &lt;isinclude template="components/breadcrumbs/pageBreadcrumbs" /&gt;&#13;
-        &lt;/div&gt;&#13;
         &lt;div class="landing-top-banner"&gt;&#13;
             &lt;h1 class="ds-subcategory-header h-fw--bold h-font-size--24"&gt;Committed to the Future&lt;/h1&gt;&#13;
         &lt;/div&gt;&#13;
@@ -12589,12 +12732,14 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                     &lt;div class="ds-link-image"&gt;&#13;
                         &lt;div class="ds-live-text-image-container"&gt;&#13;
                             &lt;div class="ds-live-text-image "&gt;&#13;
-                                &lt;picture&gt;&#13;
+                               &lt;a href="#"&gt;&#13;
+                                 &lt;picture&gt;&#13;
                                     &lt;source media="(min-width:600px)"&#13;
                                         srcset="images/committed-future/committed3.jpg?$staticlink$" /&gt;&#13;
                                     &lt;img alt="Engaged People. Focus area: people and cultures, Diversity, equity and inclusion"&#13;
                                         src="images/committed-future/committed3.jpg?$staticlink$" class="w-100" /&gt;&#13;
                                 &lt;/picture&gt;&#13;
+                               &lt;/a&gt;&#13;
                             &lt;/div&gt;&#13;
                         &lt;/div&gt;&#13;
 &#13;
@@ -12617,12 +12762,14 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                     &lt;div class="ds-link-image"&gt;&#13;
                         &lt;div class="ds-live-text-image-container"&gt;&#13;
                             &lt;div class="ds-live-text-image "&gt;&#13;
-                                &lt;picture&gt;&#13;
+                                &lt;a href="#"&gt;&#13;
+                                    &lt;picture&gt;&#13;
                                     &lt;source media="(min-width:600px)"&#13;
                                         srcset="images/committed-future/committed4.jpg?$staticlink$" /&gt;&#13;
                                     &lt;img alt="Thoughtful Products. Focus areas: sustainable sourcing, product transparency and ingredients"&#13;
                                         src="images/committed-future/committed4.jpg?$staticlink$" class="w-100" /&gt;&#13;
                                 &lt;/picture&gt;&#13;
+                                &lt;/a&gt;&#13;
                             &lt;/div&gt;&#13;
                         &lt;/div&gt;&#13;
 &#13;
@@ -12645,12 +12792,14 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                     &lt;div class="ds-link-image"&gt;&#13;
                         &lt;div class="ds-live-text-image-container"&gt;&#13;
                             &lt;div class="ds-live-text-image "&gt;&#13;
-                                &lt;picture&gt;&#13;
+                               &lt;a href="#"&gt;&#13;
+                                   &lt;picture&gt;&#13;
                                     &lt;source media="(min-width:600px)"&#13;
                                         srcset="images/committed-future/committed5.jpg?$staticlink$" /&gt;&#13;
                                     &lt;img alt="Brighter Places. Focus areas: packaging and plastics, climate change and carbon emissions"&#13;
                                         src="images/committed-future/committed5.jpg?$staticlink$" class="w-100" /&gt;&#13;
                                 &lt;/picture&gt;&#13;
+                               &lt;/a&gt;&#13;
                             &lt;/div&gt;&#13;
                         &lt;/div&gt;&#13;
 &#13;
@@ -12674,9 +12823,6 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
     &lt;/div&gt;&#13;
 &lt;/div&gt;&#13;
 &lt;style&gt;&#13;
-    .landing-top-banner {&#13;
-        padding: 0 16px;&#13;
-    }&#13;
 &#13;
     .landing-top-banner h1 {&#13;
         line-height: 1.75rem;&#13;
@@ -12684,12 +12830,16 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         border-bottom: 1px solid #333;&#13;
         padding-bottom: 16px;&#13;
         margin: 5px 0 32px;&#13;
+        max-width: 1168px;&#13;
     }&#13;
 &#13;
     .ds-container {&#13;
         margin-bottom: 56px;&#13;
         margin: auto auto 48px;&#13;
-        padding: 0 16px;&#13;
+    }&#13;
+&#13;
+    .ds-live-text-image {&#13;
+        max-width: 1168px;&#13;
     }&#13;
 &#13;
     .ds-linkcontainer {&#13;
@@ -12714,9 +12864,9 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
-</content>
+    </content>
 
-   <content content-id="diversity-equity-inclusion">
+    <content content-id="diversity-equity-inclusion">
         <display-name xml:lang="x-default">Everyone Belongs at Bath &amp; Body Works</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -12729,14 +12879,14 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         border-bottom: 1px solid #333;&#13;
         padding-bottom: 16px;&#13;
         margin: 5px 0 32px;&#13;
+        max-width: 1168px;&#13;
     }&#13;
 &#13;
     .ds-container {&#13;
         margin-bottom: 56px;&#13;
-        line-height: 0;&#13;
-        margin: auto auto 48px;&#13;
-        padding: 0 16px;&#13;
-        text-align: center;&#13;
+         line-height: 0;&#13;
+    padding: 0 1px;&#13;
+    text-align: center;&#13;
     }&#13;
 &#13;
     .search-promo {&#13;
@@ -12746,6 +12896,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &#13;
     .search-promo-copy {&#13;
         padding: 20px;&#13;
+        max-width: 820px;&#13;
     }&#13;
 &#13;
     .diversity-content {&#13;
@@ -12763,12 +12914,22 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         font-size: 1rem;&#13;
         line-height: 1.75;&#13;
     }&#13;
+&#13;
+    .search-promo p .hyperlink {&#13;
+        text-decoration: underline;&#13;
+    }&#13;
+&#13;
+    .search-promo p .hyperlink:hover {&#13;
+        text-decoration: none;&#13;
+    }&#13;
+    .h1-hyperlink {&#13;
+        text-decoration: underline;&#13;
+    }&#13;
+    .h1-hyperlink:hover {&#13;
+        text-decoration: underline;&#13;
+    }&#13;
 &lt;/style&gt;&#13;
 &lt;div class="container"&gt;&#13;
-    &lt;div class="py-3"&gt;&#13;
-        &lt;!---Breadcrumbs---&gt;&#13;
-        &lt;isinclude template="components/breadcrumbs/pageBreadcrumbs" /&gt;&#13;
-    &lt;/div&gt;&#13;
     &lt;div class="no-left-nav"&gt;&#13;
         &lt;div class="landing-top-banner"&gt;&#13;
             &lt;h1 class="subcategory-header h-font-size--24 h-fw--bold "&gt;Everyone Belongs at Bath &amp;amp; Body Works&lt;/h1&gt;&#13;
@@ -12824,27 +12985,500 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                     &lt;/div&gt;&#13;
                 &lt;/div&gt;&#13;
             &lt;/div&gt;&#13;
-            &lt;div class="search-promo"&gt;&#13;
-                &lt;div class="diversity-content row"&gt;&#13;
-                    &lt;div class="search-promo-copy col-xl-8 col-md-12 col-sm-12"&gt;&#13;
-                        &lt;h1&gt;How do we define &lt;a href="#" target="_blank"&gt;diversity, equity and inclusion (DE&amp;amp;I)&lt;/a&gt;,&#13;
+        &lt;/div&gt;&#13;
+    &lt;/div&gt;&#13;
+                &lt;div class="search-promo row"&gt;&#13;
+                &lt;div class="diversity-content "&gt;&#13;
+                    &lt;div class="search-promo-copy"&gt;&#13;
+                        &lt;h1&gt;How do we define &lt;a href="#" target="_blank" class="h-clr--black-3 h1-hyperlink"&gt;diversity, equity and inclusion (DE&amp;amp;I)&lt;/a&gt;,&#13;
                             and why is it so&#13;
                             important?&lt;/h1&gt;&#13;
 &#13;
-                        &lt;p&gt;We all inhabit several different identities, based on our race, gender, ethnicity, sexual&#13;
+                        &lt;p class="h-font-size--16"&gt;We all inhabit several different identities, based on our race, gender, ethnicity, sexual&#13;
                             orientation, religious background and so much more&amp;mdash;and we&amp;rsquo;re actively working to&#13;
                             foster a diverse workforce that not only respects these identities, but removes any barriers&#13;
                             to access and opportunity by continuously reassessing and updating processes within our&#13;
-                            business. Read more about our &lt;a href="#" target="_blank"&gt;Inclusion Resource Groups&lt;/a&gt; and&#13;
-                            &lt;a href="#" target="_blank"&gt;Supplier Diversity Program&lt;/a&gt; (that we touched on above) to see&#13;
+                            business. Read more about our &lt;a href="#" target="_blank" class="h-clr--black-3 hyperlink"&gt;Inclusion Resource Groups&lt;/a&gt; and&#13;
+                            &lt;a href="#" target="_blank" class="h-clr--black-3 hyperlink"&gt;Supplier Diversity Program&lt;/a&gt; (that we touched on above) to see&#13;
                             how&#13;
                             we&amp;rsquo;re taking concrete steps to achieve true equity.&lt;/p&gt;&#13;
                     &lt;/div&gt;&#13;
                 &lt;/div&gt;&#13;
             &lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="giftcards">
+        <display-name xml:lang="x-default">Gift Cards</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+    &lt;div class="primary-content"&gt;&#13;
+        &lt;div class="gift-card-top-banner"&gt;&#13;
+            &lt;picture&gt;&#13;
+                &lt;source media="(min-width: 768px)" srcset="images/gift-cards/giftcards.svg?$staticlink$" /&gt;&#13;
+                &lt;img alt="Gift Cards. The best way to know they'll love what you got them."&#13;
+                    src="images/gift-cards/giftcards.svg?$staticlink$" title="" /&gt;&#13;
+            &lt;/picture&gt;&#13;
+        &lt;/div&gt;&#13;
+&#13;
+        &lt;div class="gift-card-landing-subtitle text-center"&gt;&#13;
+            &lt;h2 class="h-font-size--24"&gt;Two easy ways to spoil someone special.&lt;/h2&gt;&#13;
+&#13;
+            &lt;p class="h-font-size--14"&gt;Redeemable In Stores &amp;amp; Online.&lt;/p&gt;&#13;
+        &lt;/div&gt;&#13;
+&#13;
+        &lt;div class="gift-card-options clearfix"&gt;&#13;
+            &lt;div class="giftcard-col1"&gt;&#13;
+                &lt;div class="gift-card-box e-gift"&gt;&#13;
+                    &lt;h3 class="card-name"&gt;E-Gift Cards&lt;/h3&gt;&#13;
+&#13;
+                    &lt;div class="card-img"&gt;&lt;img alt="E-Gift Cards" src="images/gift-cards/e-gift-card.webp?$staticlink$"&#13;
+                            title="" /&gt;&lt;/div&gt;&#13;
+&#13;
+                    &lt;div class="card-desc"&gt;Fast, easy &amp;amp; fun! We'll email it directly to your recipient, complete&#13;
+                        with your own message and the fun design you chose.&lt;/div&gt;&#13;
+                    &lt;a class="button btn text-white" href="#"&gt;Get&#13;
+                        Started&lt;/a&gt;&#13;
+&#13;
+                    &lt;p class="center"&gt;&lt;a href="#" target="_blank" title="about e-gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+&#13;
+            &lt;div class="divider"&gt;&amp;nbsp;&lt;/div&gt;&#13;
+&#13;
+            &lt;div class="giftcard-col2"&gt;&#13;
+                &lt;div class="gift-card-box gift"&gt;&#13;
+                    &lt;h3 class="card-name"&gt;Gift Cards&lt;/h3&gt;&#13;
+&#13;
+                    &lt;div class="card-img"&gt;&lt;img alt="Gift Cards" src="images/gift-cards/gift-card.webp?$staticlink$"&#13;
+                            title="" /&gt;&lt;/div&gt;&#13;
+&#13;
+                    &lt;div class="card-desc"&gt;The real deal! We'll ship the card to you (for free).&lt;/div&gt;&#13;
+                    &lt;a class="button btn text-white" href="#"&gt;Get&#13;
+                        Started&lt;/a&gt;&#13;
+&#13;
+                    &lt;p class="center"&gt;&lt;a href="#" target="_blank" title="about gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
         &lt;/div&gt;&#13;
     &lt;/div&gt;&#13;
-&lt;/div&gt;</custom-attribute>
+&#13;
+    &lt;div class="gift-card-balance ui-accordion ui-widget ui-helper-reset"&gt;&#13;
+    &lt;h2 aria-controls="collapseExample" aria-expanded="false"&#13;
+        class="ui-accordion-header text-center h-font-size--16" data-toggle="collapse" href="#collapseExample"&#13;
+        role="button"&gt;&#13;
+&#13;
+        &lt;p class="desk-title h-font-size--24 text-transform"&gt;Have a gift card?&lt;/p&gt;&#13;
+        &lt;span class="ui-accordion-header-icon ui-icon iconClosed"&gt;&lt;/span&gt;&lt;br /&gt;&#13;
+        &lt;span&gt;Check Card Balance&lt;/span&gt;&#13;
+    &lt;/h2&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div class="collapse" id="collapseExample"&gt;&#13;
+    &lt;div class="balance-box"&gt;&#13;
+        &lt;form class="clearfix" id="giftcard-landing-form" method="post" novalidate="novalidate"&gt;&#13;
+            &lt;div class="form-row number-max-length " data-required-text=""&gt;&lt;label&#13;
+                    for="dwfrm_giftcard_giftCardID"&gt;Gift Card Number&lt;span&#13;
+                        class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
+&#13;
+                &lt;div class="field-wrapper "&gt;&lt;input aria-required="true" autocomplete="" class="input-text  required"&#13;
+                        data-maxlength="22" id="dwfrm_giftcard_giftCardID" maxlength="2147483647"&#13;
+                        name="dwfrm_giftcard_giftCardID" pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
+                &lt;/div&gt;&#13;
+&#13;
+                &lt;div class="form-caption " id="caption-dwfrm_giftcard_giftCardID"&gt;&amp;nbsp;&lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+&#13;
+            &lt;div class="form-row pin number-max-length help" data-required-text=""&gt;&lt;label&#13;
+                    for="dwfrm_giftcard_giftCardPin"&gt;&lt;span&gt;PIN&lt;/span&gt;&lt;span&#13;
+                        class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
+&#13;
+                &lt;div class="field-wrapper d-flex"&gt;&#13;
+                    &lt;input aria-required="true" autocomplete="" class="input-text help  required" data-maxlength="6"&#13;
+                        id="dwfrm_giftcard_giftCardPin" maxlength="2147483647" name="dwfrm_giftcard_giftCardPin"&#13;
+                        pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
+                    &lt;div class="tooltip-field"&gt;&#13;
+                        &lt;button type="button"&#13;
+                            class="btn btn-with-image btn-with-tooltip ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
+                            data-toggle="popover" data-placement="right"&#13;
+                            id="tooltip-footer_iroll_popover_emailcapture486"&#13;
+                            title="&amp;lt;a href='#' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
+                            data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt;&amp;lt;img src='images/gift-cards/gift-card-pin.svg?$staticlink$' alt='Gift Card' /&amp;gt;&amp;lt;/div&amp;gt;"&#13;
+                            data-html="true"&gt;&#13;
+                        &lt;/button&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+            &lt;button id="check-giftcert" class="btn"&gt;Check Gift Card Balance&lt;/button&gt;&#13;
+        &lt;/form&gt;&#13;
+    &lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&#13;
+&lt;/div&gt;&#13;
+&lt;style type="text/css"&gt;&#13;
+    .gift-card-top-banner img {&#13;
+        width: 930px;&#13;
+        height: 90px;&#13;
+    }&#13;
+&#13;
+    @media only screen and (max-width: 600px) {&#13;
+        .gift-card-top-banner img {&#13;
+              width: 100%;&#13;
+    max-width: 100%;&#13;
+    vertical-align: top;&#13;
+        }&#13;
+    }&#13;
+&#13;
+      @media only screen and (max-width: 768px) {&#13;
+        .gift-card-top-banner img {&#13;
+            width: 100%;&#13;
+        }&#13;
+      }&#13;
+&#13;
+    .btn-with-tooltip {&#13;
+        border-radius: 20px;&#13;
+        cursor: pointer;&#13;
+        background: #f2f2f2 url("images/gift-cards/UI-Information.svg?$staticlink$") no-repeat 50%;&#13;
+        background-size: 11px;&#13;
+        display: inline-block;&#13;
+        height: 26px;&#13;
+        position: relative;&#13;
+        text-indent: -999em;&#13;
+        width: 26px;&#13;
+    }&#13;
+&#13;
+    .btn-with-tooltip:hover {&#13;
+        background: #000000 url("images/gift-cards/UI-Information-hover.svg?$staticlink$") no-repeat 50%;&#13;
+        background-size: 11px;&#13;
+    }&#13;
+&#13;
+    .tooltip-field {&#13;
+        width: 26px;&#13;
+        padding-top: 0;&#13;
+        padding-left: 0.6875rem;&#13;
+        float: left;&#13;
+    }&#13;
+&#13;
+    .popover {&#13;
+        border: 1px solid #666;&#13;
+        box-shadow: 0 0 13px 0 rgba(0, 0, 0, .15);&#13;
+        border-radius: 0px;&#13;
+        width: 260px;&#13;
+    }&#13;
+&#13;
+    .popover-header {&#13;
+        display: flex !important;&#13;
+        justify-content: flex-end !important;&#13;
+        padding: 0 !important;&#13;
+        border-bottom: none !important;&#13;
+        height: 0px;&#13;
+        margin-top: 17px;&#13;
+    }&#13;
+&#13;
+    .balance-box form {&#13;
+        width: 290px;&#13;
+        margin: 0 auto;&#13;
+    }&#13;
+&#13;
+    .form-row {&#13;
+        margin: 0.625rem 0 1.875rem;&#13;
+        text-align: center;&#13;
+    }&#13;
+&#13;
+    label {&#13;
+        display: block;&#13;
+        font-weight: 400;&#13;
+        font-size: 14px;&#13;
+        line-height: 1;&#13;
+        margin-bottom: 1.25rem;&#13;
+        color: #333;&#13;
+        text-align: left;&#13;
+    }&#13;
+&#13;
+    .required-indicator {&#13;
+        margin-right: 0.125em;&#13;
+        float: left;&#13;
+        color: #c00;&#13;
+    }&#13;
+&#13;
+    .input-text {&#13;
+        height: 3rem;&#13;
+        line-height: 1.25rem;&#13;
+        letter-spacing: .005em;&#13;
+        color: #1a1a1a;&#13;
+        padding: 0.3125rem 0.6875rem;&#13;
+        border: 1px solid #828282;&#13;
+    }&#13;
+&#13;
+    .help {&#13;
+        width: 156px;&#13;
+    }&#13;
+&#13;
+    .gift-card-balance {&#13;
+        margin: 15px 0 80px;&#13;
+        border-bottom: 0 none;&#13;
+    }&#13;
+&#13;
+    .gift-card-balance {&#13;
+        border-top: 1px solid #e5e5e5;&#13;
+        border-bottom: 1px solid #e5e5e5;&#13;
+        margin: 15px 0 17px;&#13;
+        max-width: none;&#13;
+    }&#13;
+&#13;
+    .gift-card-balance .ui-accordion-header {&#13;
+        text-transform: none;&#13;
+        padding: 1.25rem 0;&#13;
+        display: block;&#13;
+        cursor: pointer;&#13;
+        position: relative;&#13;
+        margin: 2px 0 0 0;&#13;
+    }&#13;
+&#13;
+    .desk-title {&#13;
+        margin-bottom: -10px;&#13;
+        line-height: 22px;&#13;
+        text-transform: uppercase;&#13;
+    }&#13;
+&#13;
+    /* .ui-icon {&#13;
+        background: url("images/gift-cards/up.svg?$staticlink$") no-repeat 50%;&#13;
+        top: 31px;&#13;
+        width: 15px;&#13;
+        height: 15px;&#13;
+        right: auto;&#13;
+        left: calc(50% + 157px);&#13;
+        position: absolute;&#13;
+    } */&#13;
+&#13;
+    .ui-icon {&#13;
+    background: url("images/gift-cards/up.svg?$staticlink$") no-repeat 50%;&#13;
+    top: 31px;&#13;
+    width: 15px;&#13;
+    height: 15px;&#13;
+    right: auto;&#13;
+    left: calc(50% + 157px);&#13;
+    position: absolute;&#13;
+    transition: transform 0.3s ease; /* Smooth transition for rotation */&#13;
+}&#13;
+&#13;
+/* Rotate the icon when the aria-expanded attribute is true */&#13;
+[aria-expanded="true"] .ui-icon {&#13;
+    transform: rotate(180deg);&#13;
+}&#13;
+&#13;
+&#13;
+    .primary-content {&#13;
+        padding: 0 0 20px 25px;&#13;
+        width: 100%;&#13;
+        max-width: 955px;&#13;
+        float: none;&#13;
+        margin: 0 auto;&#13;
+    }&#13;
+&#13;
+    .gift-card-landing-subtitle {&#13;
+        margin-top: 62px;&#13;
+    }&#13;
+&#13;
+    .gift-card-landing-subtitle h2 {&#13;
+        margin: 0 0 2px;&#13;
+        line-height: 1.625rem;&#13;
+    }&#13;
+&#13;
+    .gift-card-landing-subtitle p {&#13;
+        line-height: 1.625rem;&#13;
+    }&#13;
+&#13;
+    .gift-card-options {&#13;
+        margin: 2px 0 0;&#13;
+        position: relative;&#13;
+    }&#13;
+&#13;
+    .giftcard-col1 {&#13;
+        float: left;&#13;
+        margin: 4px 0;&#13;
+        width: 48%;&#13;
+    }&#13;
+&#13;
+    .gift-card-options .gift-card-box {&#13;
+        text-align: center;&#13;
+        padding: 21px 0 28px;&#13;
+    }&#13;
+&#13;
+    .gift-card-options .divider {&#13;
+        position: absolute;&#13;
+        width: 1px;&#13;
+        height: 300px;&#13;
+        left: 50%;&#13;
+        margin-left: -1px;&#13;
+        top: 37px;&#13;
+        background: #e5e5e5;&#13;
+    }&#13;
+&#13;
+    @media only screen and (max-width: 600px) {&#13;
+        .gift-card-options .divider {&#13;
+            width: 100%;&#13;
+            height: 1px;&#13;
+            background: #e5e5e5;&#13;
+            left: 0;&#13;
+            top: 50%;&#13;
+        }&#13;
+    }&#13;
+&#13;
+    .gift-card-options .gift-card-box .card-name {&#13;
+        text-transform: none;&#13;
+        font-size: 18px;&#13;
+        line-height: 1.25rem;&#13;
+        margin: 0 0 20px;&#13;
+    }&#13;
+&#13;
+    .gift-card-options .gift-card-box .card-img img {&#13;
+        vertical-align: top;&#13;
+        min-height: 169px;&#13;
+        max-height: 169px;&#13;
+    }&#13;
+&#13;
+    .gift-card-options .gift-card-box .card-desc {&#13;
+        margin: 22px 0 33px;&#13;
+        padding: 0;&#13;
+        font-size: .875rem;&#13;
+        line-height: 24px;&#13;
+    }&#13;
+&#13;
+    .button {&#13;
+        font-size: .6875rem;&#13;
+        padding: 0 1.25em;&#13;
+        min-height: 35px;&#13;
+        max-height: 35px;&#13;
+        width: 106.36px;&#13;
+        text-transform: uppercase;&#13;
+    }&#13;
+&#13;
+    .center {&#13;
+        margin-bottom: 0;&#13;
+        margin-top: 14px;&#13;
+    }&#13;
+&#13;
+    .center a {&#13;
+        color: #333;&#13;
+        text-decoration: underline;&#13;
+        font-size: .875rem;&#13;
+    }&#13;
+&#13;
+    .center a:hover {&#13;
+        text-decoration: none;&#13;
+    }&#13;
+&#13;
+    .gift-card-options .giftcard-col1,&#13;
+    .gift-card-options .giftcard-col2 {&#13;
+        margin-bottom: 0;&#13;
+    }&#13;
+&#13;
+    @media only screen and (max-width: 600px) {&#13;
+        .giftcard-col1 {&#13;
+            float: none;&#13;
+            width: 100%;&#13;
+        }&#13;
+    }&#13;
+&#13;
+    .giftcard-col2 {&#13;
+        float: right;&#13;
+        margin: 4px 0;&#13;
+        width: 48%;&#13;
+    }&#13;
+&#13;
+    @media only screen and (max-width: 600px) {&#13;
+        .giftcard-col2 {&#13;
+            float: none;&#13;
+            width: 100%;&#13;
+        }&#13;
+    }&#13;
+&#13;
+    #check-giftcert {&#13;
+        float: right;&#13;
+        width: auto;&#13;
+        font-size: 11px;&#13;
+        margin-top: 1.6875rem;&#13;
+        text-transform: uppercase;&#13;
+        padding: 0 1.25em;&#13;
+        min-height: 35px;&#13;
+        max-height: 35px;&#13;
+        letter-spacing: .12em;&#13;
+    }&#13;
+&lt;/style&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+	   <content content-id="Instagram-Feed">
+        <display-name xml:lang="x-default">Instagram Feed</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;&#13;
+&lt;div class="carousel slide" id="carouselExample"&gt;&#13;
+&lt;div class="carousel-inner"&gt;&#13;
+&lt;div class="carousel-item active"&gt;&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta2.png?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta3.png?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta4.png?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-item"&gt;&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-item"&gt;&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&#13;
+&lt;div class="carousel-col"&gt;&lt;a href="#" target="_blank"&gt;&lt;img alt="..." class="d-block w-100" src="images/instagram-feed/insta1.png?$staticlink$" /&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExample" type="button"&gt;&lt;span aria-hidden="true" class="carousel-control-prev-icon"&gt;&lt;/span&gt; &lt;span class="visually-hidden"&gt;&lt;/span&gt;&lt;/button&gt;&lt;button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExample" type="button"&gt;&lt;span aria-hidden="true" class="carousel-control-next-icon"&gt;&lt;/span&gt; &lt;span class="visually-hidden"&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&#13;
+&lt;style type="text/css"&gt;.carousel-inner {&#13;
+        display: flex;&#13;
+        flex-wrap: nowrap;&#13;
+        overflow: hidden;&#13;
+    }&#13;
+&#13;
+    .carousel-item {&#13;
+        flex: 0 0 auto;&#13;
+        width: 100%;&#13;
+    }&#13;
+&#13;
+    .active {&#13;
+        display: flex !important;&#13;
+    }&#13;
+&#13;
+    .carousel-col {&#13;
+        flex: 0 0 25%;&#13;
+        max-width: 25%;&#13;
+        padding: 0.5rem;&#13;
+        width: 25%;&#13;
+    }&#13;
+&#13;
+    .carousel-col img {&#13;
+        width: 100%;&#13;
+        height: auto;&#13;
+    }&#13;
+&lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
 </library>

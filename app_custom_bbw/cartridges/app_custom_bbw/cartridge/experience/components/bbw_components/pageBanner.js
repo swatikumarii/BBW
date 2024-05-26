@@ -88,6 +88,10 @@ module.exports.render = function (context, modelIn) {
     // Breadcrumb
     model.enableBreadcrumb = content.enableBreadcrumb ? content.enableBreadcrumb : false;
 
+    // Tracker Class
+    model.trackerClass = content.trackerClass ? content.trackerClass : '';
+
+
     expires.setDate(expires.getDate() + 1);
     response.setExpires(expires);
     return new Template('experience/components/bbw_components/pageBanner').render(model).text;

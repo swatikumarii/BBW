@@ -527,30 +527,30 @@
 }
 
 // ------find-your-wellness-----
-.content {
-    display: block;
+// .content {
+//     display: block;
 
-    @include media-up(sm) {
-        display: flex;
-        justify-content: center;
-    }
+//     @include media-up(sm) {
+//         display: flex;
+//         justify-content: center;
+//     }
 
-    img {
-        margin: 20px;
-    }
+//     img {
+//         margin: 20px;
+//     }
 
-    .sub-content {
-        .sub {
-            margin: 1% 15%;
-        }
+//     .sub-content {
+//         .sub {
+//             margin: 1% 15%;
+//         }
 
-        .start {
-            margin: 2%;
-            color: $clr-black-4;
-            text-decoration: underline;
-        }
-    }
-}
+//         .start {
+//             margin: 2%;
+//             color: $clr-black-4;
+//             text-decoration: underline;
+//         }
+//     }
+// }
 
 // ------fine-fragrance-mist------
 .bodycare-text-data {

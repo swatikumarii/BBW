@@ -5,7 +5,7 @@ var base = module.superModule;
 var collections = require('*/cartridge/scripts/util/collections');
 var ProductFactory = require('*/cartridge/scripts/factories/product');
 var ProductMgr = require('dw/catalog/ProductMgr');
-var productTile = require('*/cartridge/models/product/productTile');
+var productDetailForAddToCart = require('*/cartridge/models/product/productDetailForAddToCart');
 var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
 var URLUtils = require('dw/web/URLUtils');
 var Resource = require('dw/web/Resource');
@@ -80,7 +80,7 @@ function createProductLineItemsObject(allLineItems, view) {
         var product = Object.create(null);
         var apiProduct = ProductMgr.getProduct(item.productID);
         var productType = productHelper.getProductType(apiProduct);
-        product = productTile(product, apiProduct, productType);
+        product = productDetailForAddToCart(product, apiProduct, productType);
 
         // when item's category is unassigned, return a lineItem with limited attributes
         if (!item.product) {
@@ -164,6 +164,9 @@ function createProductLineItemsObject(allLineItems, view) {
         if ('titlePartB' in item.product.custom && item.product.custom.titlePartB) {
             newLineItem.titlePartB = item.product.custom.titlePartB;
         }
+        if ('greetingCardMessage' in item.custom && item.custom.greetingCardMessage) {
+            newLineItem.greetingCardMessage = item.custom.greetingCardMessage;
+        }
         newLineItem.bonusProducts = bonusProducts;
         if (enableQCeGift && 'custom' in item && 'isEgiftCard' in item.custom && item.custom.isEgiftCard) {
             newLineItem.giftCardDetails = getEgiftCardDetails(item);
@@ -202,6 +205,14 @@ function createProductLineItemsObject(allLineItems, view) {
         }
         if (!('available' in newLineItem)){
             newLineItem.available = 'available' in product ? product.available : false;
+        }
+        if (!('fragranceName' in newLineItem)){
+            newLineItem.fragranceName = 'fragranceName' in product && product.fragranceName !== '' ? product.fragranceName : false;
+        }
+        if ('custom' in apiProduct && 'isEgiftCard' in apiProduct.custom && apiProduct.custom.isEgiftCard && !('isEgiftCard' in newLineItem)) {
+            newLineItem.isEgiftCard = apiProduct.custom.isEgiftCard;
+        } else {
+            newLineItem.isEgiftCard = false;
         }
         newLineItem.enableNotifyMe = product.enableNotifyMe;
     });

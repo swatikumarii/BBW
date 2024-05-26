@@ -77,6 +77,7 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
                                 '';
                             // eslint-disable-next-line no-param-reassign
                             // currentProductLineItem.custom.isCustomBundleProduct = false;
+                            removeProductArray.push(currentProductLineItem.UUID);
                             if (productInCart) {
                                 nonBundleProduct = productInCart.product;
                                 maxProductQty =
@@ -110,9 +111,6 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
                                     currentProductLineItem.shipment;
                                 currentBasket.removeProductLineItem(
                                     currentProductLineItem
-                                );
-                                removeProductArray.push(
-                                    currentProductLineItem.UUID
                                 );
                                 if (
                                     shipmentToRemove.productLineItems.empty &&

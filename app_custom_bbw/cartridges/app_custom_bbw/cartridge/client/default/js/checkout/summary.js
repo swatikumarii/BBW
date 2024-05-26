@@ -136,7 +136,7 @@ function updateOrderProductSummaryInformation(order) {
         $productSummary.append($shippingSummary);
     });
 
-    $('.product-summary-block').html($productSummary.html());
+    // $('.product-summary-block').html($productSummary.html());
 
     // Also update the line item prices, as they might have been altered
     $('.grand-total-price').text(order.totals.subTotal);

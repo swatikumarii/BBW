@@ -10,12 +10,7 @@
                     "id": "selectImagePosition",
                     "name": "Select Image Position (Left, Right, Top, Bottom)",
                     "type": "enum",
-                    "values": [
-                        "left",
-                        "right",
-                        "top",
-                        "bottom"
-                    ],
+                    "values": ["left", "right", "top", "bottom"],
                     "required": true
                 },
                 {
@@ -110,6 +105,13 @@
                     "id": "customClass",
                     "name": "Component Custom Class",
                     "description": "Add Component Custom Classes here",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "trackerClass",
+                    "name": "Tracker Custom Class",
+                    "description": "Add Tracker Classes here (Use track-banner-promotion for GA/GTM)",
                     "type": "string",
                     "required": false
                 }

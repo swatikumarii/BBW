@@ -362,13 +362,15 @@ function createFreeLineItem(lineItemContainer) {
                 if (allLineItemsForProduct.length === 1) {
                     var productQtyAfterReduceFromFree =
                         productLineItem.quantityValue - qtyUpdateFreeItem;
-                    splitQuantityFromFreeToMain(
-                        productLineItem,
-                        productQtyAfterReduceFromFree,
-                        lineItemContainer,
-                        qtyUpdateFreeItem
-                    );
-                    breakLoop = true;
+                    if (productQtyAfterReduceFromFree > 0) {
+                        splitQuantityFromFreeToMain(
+                            productLineItem,
+                            productQtyAfterReduceFromFree,
+                            lineItemContainer,
+                            qtyUpdateFreeItem
+                        );
+                        breakLoop = true;
+                    }
                 } else if (qtyUpdateFreeItem < productLineItem.quantityValue) {
                     mergeQty =
                         productLineItem.quantityValue -
@@ -618,9 +620,41 @@ function mergeCart(storedBasketProducts) {
     return resultObj;
 }
 
+/**
+ * Function getTopOffers is using to get all active promotions
+ * @param {dw.order.Basket} currentBasket - Current users's basket
+ * @returns {Array} topOffers - contain top offers
+ */
+function getTopOffers(currentBasket) {
+    var topOffers = [];
+    if (currentBasket) {
+        var allLineItems = currentBasket.allProductLineItems;
+        if (allLineItems.length > 0) {
+            Transaction.wrap(function () {
+                var PromotionMgr = require('dw/campaign/PromotionMgr');
+                var activePromotions = PromotionMgr.getActivePromotions().promotions;
+                if (activePromotions.length > 0) {
+                    for(var i = 0; i < activePromotions.length; i++) {
+                        var promo = activePromotions[i];
+                        if (('showOnMiniCart' in promo.custom && promo.custom.showOnMiniCart === true) && promo.basedOnCoupon === true && promo.coupons[0].type === 'SINGLE_CODE') {
+                            var topOffer = {
+                                promo: promo,
+                                couponCode: promo.coupons[0].ID
+                            };
+                            topOffers.push(topOffer);
+                        }
+                    }
+                }
+            });
+        }
+    }
+    return topOffers;
+}
+
 base.createFreeLineItem = createFreeLineItem;
 base.checkCouponCodeError = checkCouponCodeError;;
 base.addProductToCart = addProductToCart;
 base.getProductPrice = getProductPrice;
 base.mergeCart = mergeCart;
+base.getTopOffers = getTopOffers;
 module.exports = base;

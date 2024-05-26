@@ -46,6 +46,11 @@
                                     <span class="d-block mt-1 giftcard-message">${Resource.msg('label.egift.message', 'forms', null) + ': '}${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails.eGiftMessage : ''}</span>
                                 </div>
                             </isif>
+                            <isif condition="${'greetingCardMessage' in lineItem && lineItem.greetingCardMessage}">
+                                <span class="d-block mt-1">
+                                    ${lineItem.greetingCardMessage}
+                                </span>
+                            </isif>
                                 <isset name="cartPage" value="${true}" scope="page" />
                                 <isinclude template="checkout/productCard/productCardProductPromotions" />
                                 <isset name="cartPage" value="${false}" scope="page" />

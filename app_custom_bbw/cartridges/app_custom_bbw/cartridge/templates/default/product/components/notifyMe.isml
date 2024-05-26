@@ -17,5 +17,4 @@
             </button>
         </isif>
     </div>
-    <isinclude template="product/components/requestUserEmailForOOSModal" />
 </isif>

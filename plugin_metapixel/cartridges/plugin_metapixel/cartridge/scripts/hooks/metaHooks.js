@@ -1,25 +1,8 @@
 'use strict';
 
-var ISML = require('dw/template/ISML');
 var metaPixelHelpers = require('*/cartridge/scripts/helpers/metaPixelHelpers');
 
-
-/** 
- * Should be executed inside of the head tags
- * Renders MetaPixel code.
- * @param {object} pdict - pdict data from the controller
- */
-function htmlHead(pdict) {
-    var fbqData = metaPixelHelpers.getFbqData(pdict);
-
-    ISML.renderTemplate('components/metaPixel/metaPixelScript', {
-        action: pdict.action,
-        fbqData: fbqData
-    });
-}
-
-
-/** 
+/**
  * Should be executed for all the routes.
  * @param {object} route - pdict data from the controller
  */
@@ -49,6 +32,8 @@ function registerRoute(route) {
             if (fbqData) {
                 res.viewData.fbqEvents.push(fbqData);
             }
+        } else {
+            res.viewData.fbqData = metaPixelHelpers.getFbqData(res.viewData);
         }
     });
 
@@ -61,12 +46,10 @@ function registerRoute(route) {
 // Ensure metaPixel is enabled before registering hooks
 if (metaPixelHelpers.isEnabled) {
     module.exports = {
-        htmlHead: htmlHead,
         registerRoute: registerRoute
     };
 } else {
     module.exports = {
-        htmlHead: function(){},
         registerRoute: function(){}
     };
 }

@@ -3,10 +3,10 @@
     assets.addJs('/js/categoryCarousel.js');
     assets.addCss('/css/experience/components/commerceLayouts/categoryCarousel.css');
     assets.addJs('/js/productDetail.js');
+    assets.addCss('/css/notifyMe.css');
 </isscript>
-
 <div class="h-dsp-md--grid cmp-category-carousel ${pdict.sectionCustomClass ? pdict.sectionCustomClass : ''}">
-    <isprint value="${pdict.regions.leftContent.setClassName('cmp-category-carousel__leftContent').render()}"
+    <isprint value="${pdict.regions.leftContent.setClassName('cmp-category-carousel__leftContent ' + pdict.leftContentCustomClass).render()}"
         encoding="off" />
 
     <div class="shop-the-module-wrapper">
@@ -24,6 +24,7 @@
                     </div>
                 </div>
             </isloop>
+            <isinclude template="product/components/removeGiftLineItem" />
         </div>
         <isif condition="${pdict.shopButtonLink !== ''}">
             <a class="text-center" href="${pdict.shopButtonLink}">
