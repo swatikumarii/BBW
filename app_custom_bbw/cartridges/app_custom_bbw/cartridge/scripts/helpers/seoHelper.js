@@ -11,12 +11,27 @@ var HashMap = require('dw/util/HashMap');
 /**
  * Get hreflang key
  * @param {boolean} isDefault - default url or not
+ * @param {boolean} isHomePage - is home page url or not
  * @param {string} locale - Locale ID
  * @param {object} currentSite - Current Site default
  * @param {object} urlParameters - Url parameters (pipeline, querystring)
  * @returns {string} the hreflang key
  */
-function getHreflang(isDefault, locale, currentSite, urlParameters) {
+function getHreflang(
+    isDefault,
+    isHomePage,
+    locale,
+    currentSite,
+    urlParameters
+) {
+    if (isHomePage) {
+        return {
+            url: 'https://' + request.httpHost,
+            hreflang: isDefault
+                ? 'x-default'
+                : locale.split('_').reverse().join('-').toLowerCase()
+        };
+    }
     var link = base.getLink(urlParameters, currentSite.ID, locale);
     return {
         url:
@@ -31,7 +46,7 @@ function getHreflang(isDefault, locale, currentSite, urlParameters) {
             ),
         hreflang: isDefault
             ? 'x-default'
-            : locale.ID.split('_').reverse().join('-').toLowerCase()
+            : locale.split('_').reverse().join('-').toLowerCase()
     };
 }
 
@@ -54,7 +69,13 @@ function getHreflangs(pdict) {
                 currentSite.allowedLocales.indexOf(locale.ID) > -1
             ) {
                 acc.push(
-                    getHreflang(false, locale.ID, currentSite, urlParameters)
+                    getHreflang(
+                        false,
+                        pdict.isHomePage,
+                        locale.ID,
+                        currentSite,
+                        urlParameters
+                    )
                 );
             }
             return acc;
@@ -62,6 +83,7 @@ function getHreflangs(pdict) {
         [
             getHreflang(
                 true,
+                pdict.isHomePage,
                 currentSite.defaultLocale,
                 currentSite,
                 urlParameters

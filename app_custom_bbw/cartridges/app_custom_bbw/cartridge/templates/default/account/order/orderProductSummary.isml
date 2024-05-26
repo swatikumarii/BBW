@@ -33,8 +33,12 @@
                         </td>
                         <td class="item-details">
                             <div class="line-item-name">
-                                <a class="product-name" title="${lineItem.productName}"
+                                <isif condition="${pdict.isEgiftCard}">
+                                    <span>${lineItem.fragranceName ? lineItem.fragranceName : lineItem.productName}</span>
+                                <iselse/>
+                                    <a class="product-name" title="${lineItem.productName}"
                                     href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}"><span>${lineItem.fragranceName ? lineItem.fragranceName : lineItem.productName}</span></a>
+                                </isif>
                                 <isif condition="${lineItem.titlePartB}">
                                     <span class="product-number d-block">${lineItem.titlePartB}</span>
                                 </isif>
