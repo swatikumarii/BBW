@@ -13,4 +13,5 @@ index.badge = require('*/cartridge/models/product/decorators/badge');
 index.maxOrderQty = require('*/cartridge/models/product/decorators/maxOrderQty');
 index.moreInfo = require('*/cartridge/models/product/decorators/moreInfo');
 index.isEgiftCard = require('*/cartridge/models/product/decorators/isEgiftCard');
+index.promotions = require('*/cartridge/models/product/decorators/promotions');
 module.exports = index;
