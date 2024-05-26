@@ -166,9 +166,14 @@ function createProductLineItemsObject(allLineItems, view) {
         if ('titlePartB' in item.product.custom && item.product.custom.titlePartB) {
             newLineItem.titlePartB = item.product.custom.titlePartB;
         }
+        if ('volume' in item.product.custom && item.product.custom.volume) {
+            newLineItem.volume = item.product.custom.volume;
+        }
+
         if ('greetingCardMessage' in item.custom && item.custom.greetingCardMessage) {
             newLineItem.greetingCardMessage = item.custom.greetingCardMessage;
         }
+
         newLineItem.bonusProducts = bonusProducts;
         if (enableQCeGift && 'custom' in item && 'isEgiftCard' in item.custom && item.custom.isEgiftCard) {
             newLineItem.giftCardDetails = getEgiftCardDetails(item);
