@@ -123,8 +123,14 @@
 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('sendProfileCompletionReminderPopup')}">
     <isinclude template="profileCompletion" />
 </isif>
-<isinclude template="components/gtm/gtmScript" />
-<isinclude template="components/metaPixel/metaPixelScript" />
-<isinclude template="components/emarsys/emarsysScript" />
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('gtmScriptEnabled')}">
+    <isinclude template="components/gtm/gtmScript" />
+</isif>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('metaPixelEnabled')}">
+    <isinclude template="components/metaPixel/metaPixelScript" />
+</isif>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('emarsysEnabled')}">
+    <isinclude template="components/emarsys/emarsysScript" />
+</isif>
 <isinclude template="popups/popupsGlobal" />
 <isinclude template="components/footer/footerScripts" />
