@@ -36,8 +36,22 @@
                     "required": false
                 },
                 {
+                    "id": "desktopBannerImageUrl2X",
+                    "name": "Desktop Banner Image URL 2x",
+                    "description": "Add Desktop Banner Image URL Here",
+                    "type": "string",
+                    "required": false
+                },
+                {
                     "id": "tabletBannerImageUrl",
                     "name": "Tablet Banner Image URL",
+                    "description": "Add Tablet Banner Image URL Here",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "tabletBannerImageUrl2X",
+                    "name": "Tablet Banner Image URL 2x",
                     "description": "Add Tablet Banner Image URL Here",
                     "type": "string",
                     "required": false
@@ -50,8 +64,22 @@
                     "required": false
                 },
                 {
+                    "id": "mobileBannerImageUrl2X",
+                    "name": "Mobile Banner Image URL 2x",
+                    "description": "Add Mobile Banner Image URL Here",
+                    "type": "string",
+                    "required": false
+                },
+                {
                     "id": "desktopBannerImage",
                     "name": "Desktop Banner Image",
+                    "description": "Add Desktop Banner Image Here",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "desktopBannerImage2X",
+                    "name": "Desktop Banner Image 2x",
                     "description": "Add Desktop Banner Image Here",
                     "type": "image",
                     "required": false
@@ -64,8 +92,22 @@
                     "required": false
                 },
                 {
+                    "id": "tabletBannerImage2X",
+                    "name": "Tablet Banner Image 2x",
+                    "description": "Add Tablet Banner Image Here",
+                    "type": "image",
+                    "required": false
+                },
+                {
                     "id": "mobileBannerImage",
                     "name": "Mobile Banner Image",
+                    "description": "Add Mobile Banner Image Here",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "mobileBannerImage2X",
+                    "name": "Mobile Banner Image 2x",
                     "description": "Add Mobile Banner Image Here",
                     "type": "image",
                     "required": false
