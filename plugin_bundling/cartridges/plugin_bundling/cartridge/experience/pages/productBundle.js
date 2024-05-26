@@ -12,11 +12,14 @@ var PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelpe
  */
 module.exports.render = function (context, modelIn) {
     var model = modelIn || new HashMap();
+    model.action = 'Page-Show';
 
     var page = context.page;
     model.page = page;
     model.content = context.content;
-
+    if (model && model.page && model.page.ID) {
+        model.queryString = 'cid=' + model.page.ID;
+    }
     // automatically register configured regions
     model.regions = PageRenderHelper.getRegionModelRegistry(page);
 
