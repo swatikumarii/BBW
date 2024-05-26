@@ -5154,32 +5154,30 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="category-top-offers"&gt;&#13;
 &lt;a href="#" class="heading" aria-expanded="false"&gt;&lt;span&gt;Body Care Offers&lt;/span&gt;&lt;/a&gt;&#13;
-&#13;
-&lt;!-- BC_LeftNav_0516--&gt;&#13;
-&lt;span class="toggle"&gt;Top Offers&lt;/span&gt;&#13;
-&lt;ul&gt;&#13;
-&lt;li&gt;&#13;
-		&lt;a href="#"&gt;&#13;
+&lt;div class="category-top-items"&gt;&#13;
+&lt;ul class="level-3-ul dropdown-menu p-0" role="menu"&gt;&#13;
+&lt;li class="dropdown-item p-0 border-0"&gt;&#13;
+		&lt;a href="#" role="menuitem" class="dropdown-link d-block"&gt;&#13;
 			2 for $12 All Skincare&#13;
 		&lt;/a&gt;&#13;
 	&lt;/li&gt;&#13;
-&lt;li&gt;&#13;
-		&lt;a href="#"&gt;&#13;
+&lt;li class="dropdown-item p-0 border-0"&gt;&#13;
+		&lt;a href="#" role="menuitem" class="dropdown-link d-block"&gt;&#13;
 			Buy 3, Get 2 FREE Select Body, Skin &amp;amp; Hair Care&#13;
 		&lt;/a&gt;&#13;
 	&lt;/li&gt;	&#13;
-&lt;li&gt;&#13;
-		&lt;a href="#"&gt;&#13;
+&lt;li class="dropdown-item p-0 border-0"&gt;&#13;
+		&lt;a href="#" role="menuitem" class="dropdown-link d-block"&gt;&#13;
 			Buy 3, Get 1 FREE Travel &amp;amp; Hand Cream&#13;
 		&lt;/a&gt;&#13;
 	&lt;/li&gt;&#13;
-&lt;li&gt;&#13;
-		&lt;a href="#"&gt;&#13;
+&lt;li class="dropdown-item p-0 border-0"&gt;&#13;
+		&lt;a href="#" role="menuitem" class="dropdown-link d-block"&gt;&#13;
 			Pride Month Collection&#13;
 		&lt;/a&gt;&#13;
 	&lt;/li&gt;&#13;
 &lt;/ul&gt;&#13;
-&#13;
+&lt;/div&gt;&#13;
 &#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
