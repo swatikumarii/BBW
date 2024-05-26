@@ -30,20 +30,23 @@ server.append(
         var userEmail = req.currentCustomer.raw.registered
             ? req.currentCustomer.profile.email
             : false;
-        var products = viewData.order.shipping[0].productLineItems.items;
-        for (var index = 0; index < products.length; index++) {
-            if (products[index].isEgiftCard) {
-                viewData.isEgiftCard = products[index].isEgiftCard;
-                break;
-            }
 
-            var productRecord = CustomObjectMgr.getCustomObject(
-                'notifyBackInStock',
-                products[index].id
-            );
-            products[index].productPresentInNotifyList = false;
-            if (userEmail && productRecord !== null && productRecord.custom.user.indexOf(userEmail) !== -1) {
-                products[index].productPresentInNotifyList = true;
+        if (viewData.order.shipping.length > 0){
+            var products = viewData.order.shipping[0].productLineItems.items;
+            for (var index = 0; index < products.length; index++) {
+                if (products[index].isEgiftCard) {
+                    viewData.isEgiftCard = products[index].isEgiftCard;
+                    break;
+                }
+
+                var productRecord = CustomObjectMgr.getCustomObject(
+                    'notifyBackInStock',
+                    products[index].id
+                );
+                products[index].productPresentInNotifyList = false;
+                if (userEmail && productRecord !== null && productRecord.custom.user.indexOf(userEmail) !== -1) {
+                    products[index].productPresentInNotifyList = true;
+                }
             }
         }
         viewData.isOrderBaseRemoveGiftCard = true;
@@ -352,10 +355,26 @@ server.get(
                     'orderFilter',
                     req.querystring.orderFilter
                 );
+
+                var isEgiftCard;
+                if (orderModel.shipping.length > 0){
+                    var products = orderModel.shipping[0].productLineItems.items;
+                    for (var index = 0; index < products.length; index++) {
+                        if (products[index].isEgiftCard) {
+                            isEgiftCard = products[index].isEgiftCard;
+                            break;
+                        }
+                    }
+                }
+
+                var isOrderBaseRemoveGiftCard = true;
+
                 res.render('account/orderDetails', {
                     order: orderModel,
                     exitLinkText: exitLinkText,
                     exitLinkUrl: exitLinkUrl,
+                    isOrderBaseRemoveGiftCard: isOrderBaseRemoveGiftCard,
+                    isEgiftCard: isEgiftCard,
                     breadcrumbs: breadcrumbs
                 });
             } else {

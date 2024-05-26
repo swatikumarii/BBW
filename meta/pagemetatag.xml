@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page-meta-tags xmlns="http://www.demandware.com/xml/impex/pagemetatag/2016-08-22">
+    <page-meta-tag-definitions>
+        <page-meta-tag-definition meta-tag-id="description" type="name"/>
+        <page-meta-tag-definition meta-tag-id="keywords" type="name"/>
+        <page-meta-tag-definition meta-tag-id="og:description" type="property"/>
+        <page-meta-tag-definition meta-tag-id="og:image" type="property"/>
+        <page-meta-tag-definition meta-tag-id="og:image:alt" type="property"/>
+        <page-meta-tag-definition meta-tag-id="og:image:height" type="property"/>
+        <page-meta-tag-definition meta-tag-id="og:image:type" type="property"/>
+        <page-meta-tag-definition meta-tag-id="og:image:width" type="property"/>
+        <page-meta-tag-definition meta-tag-id="og:site_name" type="property"/>
+        <page-meta-tag-definition meta-tag-id="og:title" type="property"/>
+        <page-meta-tag-definition meta-tag-id="og:type" type="property"/>
+        <page-meta-tag-definition meta-tag-id="og:url" type="property"/>
+        <page-meta-tag-definition meta-tag-id="title" type="title"/>
+    </page-meta-tag-definitions>
+    <page-meta-tag-rules>
+        <product-detail-page-meta-tag-rules>
+            <page-meta-tag-rule rule-id="OG Title" meta-tag-id="og:title">
+                <rule xml:lang="x-default">Buy ${Product.name} Online | ${Site.displayName}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="Page Title" meta-tag-id="title">
+                <rule xml:lang="x-default">Buy ${Product.name} Online | ${Site.displayName}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="Page Keywords" meta-tag-id="keywords">
+                <rule xml:lang="x-default">${Product.name}, ${Category.displayName}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="OG Url" meta-tag-id="og:url">
+                <rule xml:lang="x-default">${OriginalRequestURL}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="OG Site Name" meta-tag-id="og:site_name">
+                <rule xml:lang="x-default">${Site.displayName}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="OG Image" meta-tag-id="og:image">
+                <rule xml:lang="x-default">${ProductImageURL.large}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="OG Image Type" meta-tag-id="og:image:type">
+                <rule xml:lang="x-default">image/jpg</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="OG Type" meta-tag-id="og:type">
+                <rule xml:lang="x-default">Product</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="OG Image Width" meta-tag-id="og:image:width">
+                <rule xml:lang="x-default">300</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="OG Image Height" meta-tag-id="og:image:height">
+                <rule xml:lang="x-default">300</rule>
+            </page-meta-tag-rule>
+        </product-detail-page-meta-tag-rules>
+        <product-listing-page-meta-tag-rules>
+            <page-meta-tag-rule rule-id="PLP Title" meta-tag-id="title">
+                <rule xml:lang="x-default">${IF Category.pageTitle THEN Category.pageTitle ELSE Category.displayName} | ${Site.displayName}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="PLP OG Image" meta-tag-id="og:image">
+                <rule xml:lang="x-default">${Category.custom.categoryBanner}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="PLP OG Url" meta-tag-id="og:url">
+                <rule xml:lang="x-default">${OriginalRequestURL}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="PLP OG Type" meta-tag-id="og:type">
+                <rule xml:lang="x-default">website</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="PLP OG Title" meta-tag-id="og:title">
+                <rule xml:lang="x-default">${IF Category.pageTitle THEN Category.pageTitle ELSE Category.displayName} | ${Site.displayName}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="PLP Keywords" meta-tag-id="keywords">
+                <rule xml:lang="x-default">${IF Category.pageKeywords THEN Category.pageKeywords ELSE Category.displayName} | ${Site.displayName}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="PLP Description" meta-tag-id="description">
+                <rule xml:lang="x-default">${IF Category.pageDescription THEN Category.pageDescription ELSE Category.description} | ${Site.displayName}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="PLP OG Description" meta-tag-id="og:description">
+                <rule xml:lang="x-default">${IF Category.pageDescription THEN Category.pageDescription ELSE Category.description} | ${Site.displayName}</rule>
+            </page-meta-tag-rule>
+            <page-meta-tag-rule rule-id="PLP OG Site Name" meta-tag-id="og:site_name">
+                <rule xml:lang="x-default">${Site.displayName}</rule>
+            </page-meta-tag-rule>
+        </product-listing-page-meta-tag-rules>
+    </page-meta-tag-rules>
+</page-meta-tags>
+

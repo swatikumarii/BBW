@@ -117,4 +117,19 @@ server.get('Popup', csrfProtection.generateToken, function (req, res, next) {
     // next();
 });
 
+/**
+ * Login-Logout : This endpoint is called to log shopper out of the session
+ * @function
+ * @memberof Login
+ */
+server.replace('Logout', function (req, res, next) {
+    var CustomerMgr = require('dw/customer/CustomerMgr');
+
+    CustomerMgr.logoutCustomer(false);
+    res.redirect(URLUtils.url('Login-Show'));
+    next();
+});
+
+
+
 module.exports = server.exports();
