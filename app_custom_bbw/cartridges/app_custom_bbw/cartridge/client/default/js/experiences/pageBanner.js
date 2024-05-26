@@ -70,19 +70,26 @@ function videoPause(e) {
 
 $(window).on('resize', debounce(function () {
     if ($('body').find('.js-banner-image')) {
+        var is2X = window.devicePixelRatio >= 2;
         $('.js-banner-image').each(function () {
             if ($(window).width() < 768) {
-                var mobileBannerImage = $(this).data('mobilev');
+                var mobileBannerImage =
+                    (is2X ? $(this).data('mobilev-2x') : null) ||
+                    $(this).data('mobilev');
                 if (mobileBannerImage) {
                     $(this).css('background-image', 'url(' + mobileBannerImage + ')');
                 }
             } else if (tabletView() || tabletLandScape()) {
-                var tabletBannerImage = $(this).data('tabletv');
+                var tabletBannerImage =
+                    (is2X ? $(this).data('tabletv-2x') : null) ||
+                    $(this).data('tabletv');
                 if (tabletBannerImage) {
                     $(this).css('background-image', 'url(' + tabletBannerImage + ')');
                 }
             } else {
-                var desktopBannerImage = $(this).data('desktopv');
+                var desktopBannerImage =
+                    (is2X ? $(this).data('desktopv-2x') : null) ||
+                    $(this).data('desktopv');
                 if (desktopBannerImage) {
                     $(this).css('background-image', 'url(' + desktopBannerImage + ')');
                 }
@@ -208,19 +215,23 @@ $(document).ready(function () {
      * Banner - Image Changes Function
      */
     if ($('body').find('.js-banner-image')) {
+        var is2X = window.devicePixelRatio >= 2;
         $('.js-banner-image').each(function () {
             if ($(window).width() < 768) {
-                var mobileBannerImage = $(this).data('mobilev');
+                var mobileBannerImage =
+                    (is2X ? $(this).data('mobilev-2x') : null) || $(this).data('mobilev');
                 if (mobileBannerImage) {
                     $(this).css('background-image', 'url(' + mobileBannerImage + ')');
                 }
             } else if (tabletView() || tabletLandScape()) {
-                var tabletBannerImage = $(this).data('tabletv');
+                var tabletBannerImage = (is2X ? $(this).data('tabletv-2x') : null) || $(this).data('tabletv');
                 if (tabletBannerImage) {
                     $(this).css('background-image', 'url(' + tabletBannerImage + ')');
                 }
             } else {
-                var desktopBannerImage = $(this).data('desktopv');
+                var desktopBannerImage =
+                    (is2X ? $(this).data('desktopv-2x') : null) ||
+                    $(this).data('desktopv');
                 if (desktopBannerImage) {
                     $(this).css('background-image', 'url(' + desktopBannerImage + ')');
                 }
