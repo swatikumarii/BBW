@@ -100,8 +100,12 @@
         <display-name xml:lang="x-default">Privacy Policy</display-name>
         <description xml:lang="x-default">Privacy Policy</description>
         <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
-        <page-attributes/>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Privacy Policy</page-title>
+            <page-description xml:lang="x-default">Privacy Policy</page-description>
+            <page-keywords xml:lang="x-default">Privacy Policy</page-keywords>
+        </page-attributes>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container h-maxwidth--1400 mx-auto"&gt;&#13;
 	&#13;
@@ -248,7 +252,7 @@
         <display-name xml:lang="x-default">Terms of Use</display-name>
         <description xml:lang="x-default">Terms of Use</description>
         <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
+        <searchable-flag>true</searchable-flag>
         <page-attributes>
             <page-title xml:lang="x-default">Terms of Use</page-title>
             <page-description xml:lang="x-default">Terms of Use</page-description>
@@ -5444,7 +5448,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <page-attributes/>
     </content>
 
-		<content content-id="menu-item-slot-1-detail-section">
+		 <content content-id="menu-item-slot-1-detail-section">
         <display-name xml:lang="x-default">Menu Item Slot-1 Detail Section</display-name>
         <description xml:lang="x-default">Menu Item Slot-1 Detail Section</description>
         <online-flag>true</online-flag>
@@ -5453,8 +5457,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="category-top-offers"&gt;&#13;
 &lt;a href="#" class="heading" aria-expanded="false"&gt;&lt;span&gt;Body Care Offers&lt;/span&gt;&lt;/a&gt;&#13;
-&#13;
-&lt;!-- BC_LeftNav_0516--&gt;&#13;
+&lt;div class="category-top-items"&gt;&#13;
 &lt;span class="toggle"&gt;Top Offers&lt;/span&gt;&#13;
 &lt;ul&gt;&#13;
 &lt;li&gt;&#13;
@@ -5478,7 +5481,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 		&lt;/a&gt;&#13;
 	&lt;/li&gt;&#13;
 &lt;/ul&gt;&#13;
-&#13;
+&lt;/div&gt;&#13;
 &#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
