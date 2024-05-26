@@ -187,7 +187,11 @@
                 margin-bottom: 40px;
 
                 @include media-up(sm) {
-                    margin-bottom: 0;
+                    margin-bottom: 10px;
+                }
+                
+                .line-item-header {
+                    margin-top: 11px;
                 }
             }
         }

@@ -33,8 +33,22 @@
                     "required": false
                 },
                 {
+                    "id": "desktopImgUrl2X",
+                    "name": "Desktop Image URL 2x",
+                    "description": "Add Desktop Image URL here",
+                    "type": "string",
+                    "required": false
+                },
+                {
                     "id": "mobileImgUrl",
                     "name": "Mobile Image URL",
+                    "description": "Add Mobile Image URL Here",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "mobileImgUrl2X",
+                    "name": "Mobile Image URL 2x",
                     "description": "Add Mobile Image URL Here",
                     "type": "string",
                     "required": false
@@ -47,8 +61,22 @@
                     "required": false
                 },
                 {
+                    "id": "desktop_image2X",
+                    "name": "Desktop Image 2x",
+                    "description": "Add Desktop Image Here",
+                    "type": "image",
+                    "required": false
+                },
+                {
                     "id": "mobile_image",
                     "name": "Mobile Image",
+                    "description": "Add Mobile Image Here",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "mobile_image2X",
+                    "name": "Mobile Image 2x",
                     "description": "Add Mobile Image Here",
                     "type": "image",
                     "required": false

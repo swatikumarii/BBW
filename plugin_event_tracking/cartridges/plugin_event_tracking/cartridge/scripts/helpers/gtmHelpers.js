@@ -81,7 +81,7 @@ function logIn(res) {
     } else{
         obj = {
             event: gtmEvents.SIGN_IN_FAILURE,
-            loginError: 'error' in res ? res.error[0] : ''
+            error: 'error' in res ? res.error[0] : ''
         };
     }
     
@@ -295,32 +295,21 @@ function addToCart(res) {
  * @returns {object} obj - an object of containing product data
  */
 function removeFromCart(res) {
-    var currentBasket = dw.order.BasketMgr.getCurrentBasket();
-    var pliUuid = res.pliUUID;
-    var lineItem;
+    var lineItem=res.itemToRemove;
     var obj = [];
-
-    if (currentBasket !== null) {
-        for (var i = 0; i < res.cart.items.length; i++) {
-            if (res.cart.items[i].UUID === pliUuid) {
-                lineItem = res.cart.items[i];
-                break;
-            }
-        }
-        obj.push({
-            item_name: lineItem.productName,
-            item_id: lineItem.id,
-            discount: lineItem.tierPrice
-                ? (lineItem.tierPrice - lineItem.price.sales.value).toFixed(2)
-                : '',
-            item_brand: lineItem.brand ? lineItem.brand : '',
-            item_category: lineItem.product ? lineItem.product : '',
-            price: lineItem.price.sales.decimalPrice
-                ? lineItem.price.sales.decimalPrice
-                : '',
-            quantity: lineItem.quantity
-        });
-    }
+    obj.push({
+        item_name: lineItem.productName,
+        item_id: lineItem.productID,
+        discount: 'tierPrice' in lineItem
+            ? (lineItem.tierPrice - lineItem.price.sales.value).toFixed(2)
+            : '',
+        item_brand: lineItem.product.brand ? lineItem.product.brand : '',
+        item_category: lineItem.category ? lineItem.category : '',
+        price: lineItem.product.priceModel.price
+            ? lineItem.product.priceModel.price.value
+            : '',
+        quantity: lineItem.quantityValue
+    });
     var object = {
         event: gtmEvents.REMOVE_PRODUCT_LINE_ITEM_FROM_CART,
         ecommerce: {
@@ -391,7 +380,7 @@ function getSearchImpressionData(res) {
     var obj;
     if (!res.queryString.includes('cgid')) {
         obj = {
-            event: gtmEvents.SEARCH_SHOW,
+            event: gtmEvents.PRODUCT_SEARCH,
             ecommerce: {
                 items: []
             }
