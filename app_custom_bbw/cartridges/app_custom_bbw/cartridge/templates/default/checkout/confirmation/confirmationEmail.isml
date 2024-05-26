@@ -38,18 +38,18 @@
                         </table>
                         <iscomment> Order Customer Name and Thank you Text</iscomment>
                         <h1
-                            style="margin:35px 0 14px;font-size:28px;font-weight:normal;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
+                            style="margin:35px 30px 14px;font-size:28px;font-weight:normal;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
                             ${Resource.msgf('email.title.confirmation.sender.name', 'confirmation', null, pdict.order.billing.billingAddress.address
                             .firstName)}
                         </h1>
                         <p
-                            style="margin:0 0 20px;font-size:22px;line-height:33px;padding-right:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
+                            style="margin:0 30px 20px;font-size:22px;line-height:33px;padding-right:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
                             ${Resource.msg('msg.placed.order.thank.you', 'confirmation', null)}
                         </p>
                         <iscomment> View Order Status Image and Button </iscomment>
                         <div style="border:3px solid #f2f2f2;padding:36px 0;text-align:center">
                             <p style="margin:0 0 44px">
-                                <img src="${URLUtils.absStatic('/images/email/orders/icon-processed.png')}"
+                                <img src="${URLUtils.absStatic('/images/email/orders/status/icon-placed.png')}"
                                     alt="Progress" style="border:0;vertical-align:top;width:90%;" />
                             </p>
                             <div>
@@ -308,7 +308,7 @@
                                                 <tr>
                                                     <td
                                                         style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                        ${Resource.msg('label.shipping.and.handling.tax', 'confirmation', null)}
+                                                        ${Resource.msg('email.shipping.and.handling.tax', 'confirmation', null)}
                                                     </td>
                                                     <td
                                                         style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
@@ -364,9 +364,24 @@
                         </table>
                     </td>
                 </tr>
+                <iscomment> View Order Detail - Button </iscomment>
+                <tr style="padding: 0;">
+                    <td style="padding:15px 32px;vertical-align:top;text-align:center;">
+                        <div>
+                            <!--[if mso]>
+                            <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${dw.web.URLUtils.abs('Login-Show')}" style="height:40px;v-text-anchor:middle;width:200px;" strokecolor="#333" fillcolor="#333">
+                                <w:anchorlock/>
+                                <center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;">${Resource.msg('email.btn.view.order.details', 'confirmation', null)}</center>
+                            </v:rect>
+                            <![endif]-->
+                            <a href="${dw.web.URLUtils.abs('Login-Show')}"
+                                style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;">${Resource.msg('email.btn.view.order.details', 'confirmation', null)}</a>
+                        </div>
+                    </td>
+                </tr>
                 <iscomment> Order Email Content Asset - Content </iscomment>
                 <tr style="padding: 0;">
-                    <td style="padding:0 0 15px;vertical-align:top;text-align:left;">
+                    <td style="padding:0 32px 0;vertical-align:top;text-align:left;">
                         <isprint value="${pdict.markup}" encoding="off" />
                     </td>
                 </tr>
