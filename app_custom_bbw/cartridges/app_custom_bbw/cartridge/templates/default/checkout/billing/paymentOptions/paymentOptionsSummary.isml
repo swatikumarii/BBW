@@ -10,7 +10,11 @@
         <isif condition="${payment.amount}">
             <div class="payment-amount h-fw--bold">
                 <span class="label h-clr--black-1">
-                    <isprint value="${payment.amount}" />
+                    <isif condition="${pdict.order.currencyCode}">
+                        ${pdict.order.currencyCode} <isprint value="${payment.amount}" />
+                    <iselse/>
+                        <isprint value="${payment.amount}" />
+                    </isif>
                 </span>
             </div>
         </isif>
