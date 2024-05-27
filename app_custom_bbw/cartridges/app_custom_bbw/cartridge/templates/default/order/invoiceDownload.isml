@@ -155,7 +155,7 @@
         </table>
     </div>
     <div>
-        <table>
+        <table style="width: 100%;">
             <thead style="width: 100%; vertical-align:baseline;">
                 <tr>
                     <th 
