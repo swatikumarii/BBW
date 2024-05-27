@@ -1,0 +1,9 @@
+<isdecorate template="common/layout/page">
+    <div class="video-landing-wrap">
+        <h2>${Resource.msgf('video.landing.heading', 'giftcards', null, pdict.recipient, pdict.sender)}</h2>
+        <p>${pdict.message}</p>
+        <video autoplay controls class="">
+            <source src="${pdict.video}" type="video/mp4" />
+        </video>
+    </div>
+</isdecorate>
