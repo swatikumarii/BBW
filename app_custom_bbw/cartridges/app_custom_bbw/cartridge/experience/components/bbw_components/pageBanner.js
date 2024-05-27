@@ -81,6 +81,7 @@ module.exports.render = function (context, modelIn) {
 
     /** Content - Position */
     // Desktop - Content - Position
+    model.contentAlignmentDesktop = content.contentAlignmentDesktop ? content.contentAlignmentDesktop : '';
     model.contentPositionDesktop = content.contentPositionDesktop ? content.contentPositionDesktop : '';
 
     // Mobile - Content - Position
@@ -96,6 +97,9 @@ module.exports.render = function (context, modelIn) {
 
     // Tracker Class
     model.trackerClass = content.trackerClass ? content.trackerClass : '';
+
+    // Component Custom Class
+    model.customClass = content.customClass ? content.customClass : '';
 
 
     expires.setDate(expires.getDate() + 1);
