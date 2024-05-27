@@ -1,10 +1,9 @@
-<div class="modal fade out-of-stock-modal outOfstockModal right modal-right" id="requestUserEmailForOOSModal" tabindex="-1" role="dialog"
-    aria-labelledby="requestUserEmailForOOSModal">
-    <div class="modal-dialog modal-reset" role="document">
+<div class="modal fade out-of-stock-modal outOfstockModal right modal-right" id="requestUserEmailForOOSModal"
+    tabindex="-1" role="dialog" aria-labelledby="requestUserEmailForOOSModal">
+    <div class="modal-dialog modal-dialog-bottom modal-reset" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">${Resource.msg('label.notifyMe.title.oos', 'notifyMe', null)}</h2>
-                <span class="message">${Resource.msg('label.notifyMe.temporarily', 'notifyMe', null)}</span>
+
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">
                         <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
@@ -13,6 +12,8 @@
             </div>
 
             <div class="notifyme-modal-body">
+                <h2 class="modal-title">${Resource.msg('label.notifyMe.title.oos', 'notifyMe', null)}</h2>
+                <span class="message">${Resource.msg('label.notifyMe.temporarily', 'notifyMe', null)}</span>
                 <div class="image-container">
                     <iscomment> <span class="product-name"></span> </iscomment>
                     <img class="lozad image dm-responsive-image js-dm-image dm-responsive-image-initialized"
