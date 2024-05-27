@@ -4,6 +4,7 @@ var base = module.superModule;
 
 var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 var URLUtils = require('dw/web/URLUtils');
+var Site = require('dw/system/Site');
 
 
 /**
@@ -17,9 +18,19 @@ var URLUtils = require('dw/web/URLUtils');
  */
 function OrderModel(lineItemContainer, options) {
     base.call(this, lineItemContainer, options);
+    var trackingUrl = Site.getCurrent().getCustomPreferenceValue('trackingUrl');
     if (lineItemContainer) {
         var encrptedOrderNumber = encodeURIComponent( encryptionHelper.encryptPin(this.orderNumber));
+        this.exportStatus = 'exportStatus' in lineItemContainer ? lineItemContainer.exportStatus : 0;
         this.invoiceDownloadUrl = URLUtils.https('Order-InvoiceDownload', 'token', encrptedOrderNumber).toString();
+        this.trackingUrl = trackingUrl;
+        var currentSite = Site.getCurrent();
+        var currencyCode = currentSite.getDefaultCurrency();
+        this.currencyCode = currencyCode;
+        if (lineItemContainer.shipments && lineItemContainer.shipments.length > 0) {
+            this.shippingStatus = 'shippingStatus' in lineItemContainer.shipments[0] ? lineItemContainer.shipments[0].shippingStatus : '';
+            this.trackingNumber = 'trackingNumber' in lineItemContainer.shipments[0] ? lineItemContainer.shipments[0].trackingNumber : '';
+        }
     }
 }
 

@@ -8,7 +8,7 @@
             </div>
             <label class="form-control-label h-font-size--16 h-fw--bold h-clr--gray-4 text-capitalize"
                 for="store-postal-code">${Resource.msg('field.zip.postal.code', 'storeLocator', null)}</label>
-            <input autofocus type="text" class="form-control store-input" aria-required="true"
+            <input autofocus type="text" data-missing-error="${Resource.msg('error.msg.postal.code', 'storeLocator', null)}" class="form-control store-input" aria-required="true"
                 aria-describedby="store-postal-code-error" id="store-postal-code" name="postalCode" value=""
                 autocomplete="nofill" required>
             <div class="invalid-feedback" id="store-postal-code-error"></div>
@@ -25,9 +25,9 @@
             <p class="sub-heading h-font-size--18 h-fw--bold mb-0 h-clr--black-1 text-capitalize">
                 ${Resource.msg('field.filter', 'storeLocator', null)}</p>
             <div class="store-options">
-                <isloop items="${pdict.stores.storeTypeValues}" var="type">
+                <isloop items="${pdict.stores.storeTypeValues}" var="type" status="loopState">
                     <div class="form-row">
-                        <input type="checkbox" id="${type.value}" name="storeType" value="${type.value}" />
+                        <input class="sl-storetype" type="checkbox" id="${type.value}" name="storeType" value="${type.value}" ${loopState.count == 1 ? "checked" : ""} />
                         <label class="h-clr--gray-4 mb-0 cursor-pointer"
                             for="${type.value}">${type.displayValue}</label>
                     </div>

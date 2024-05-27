@@ -34,6 +34,7 @@
     .modal-body {
         h4 {
             line-height: 1.25rem;
+            padding-top: 1px;
             letter-spacing: 0.005em;
         }
 
@@ -45,7 +46,12 @@
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 35px;
+        }
+
+        .modal-password {
+            margin-top: 33px;
+            margin-bottom: 36px;
         }
 
         .form-label {
@@ -60,8 +66,9 @@
         }
 
         .invalid-feedback {
-            margin-bottom: -17px;
-            margin-top: 5px;
+            margin-bottom: -35px;
+            margin-top: 4px;
+            letter-spacing: 0.21px;
         }
 
         .forgot-password {
@@ -82,11 +89,16 @@
             }
         }
 
+        .modal-login-btn {
+            font-size: 11px;
+        }
+
         .privacy-block {
-            margin: 1.25em 0 1em;
+            margin: 1.05em 0 1.7em;
 
             a {
                 text-decoration: underline;
+                padding: 5px;
 
                 &:hover {
                     text-decoration: none;
@@ -95,8 +107,8 @@
         }
 
         .register {
-            margin-top: 1.5625rem;
-            padding-top: 1em;
+            margin-top: 1em;
+            padding-top: 0.75em;
             border-top: 1px solid colour(black);
 
             h3 {
@@ -229,6 +241,61 @@
             }
         }
 
+        .register-select {
+            &::after {
+                background: url("../../images/UI-Carat.svg") 50%;
+                background-color: colour(white);
+                background-repeat: no-repeat;
+                background-size: 15px;
+                border-left: 1px solid colour(gray, 5);
+                content: "";
+                height: 42px;
+                position: absolute;
+                right: 26px;
+                top: 64px;
+                transform: translateY(-46%);
+                width: 35px;
+                cursor: pointer;
+            }
+        }
+
+        .gender-select {
+            position: relative;
+
+            &::after {
+                background: url("../../images/UI-Carat.svg") 50%;
+                background-color: colour(white);
+                background-repeat: no-repeat;
+                background-size: 15px;
+                border-left: 1px solid colour(gray, 5);
+                content: "";
+                height: 42px;
+                position: absolute;
+                right: 10px;
+                top: 4%;
+                width: 35px;
+            }
+        }
+
+        .nationality-select {
+            position: relative;
+
+            &::after {
+                background: url("../../images/UI-Carat.svg") 50%;
+                background-color: colour(white);
+                background-repeat: no-repeat;
+                background-size: 15px;
+                border-left: 1px solid colour(gray, 5);
+                content: "";
+                height: 42px;
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 35px;
+            }
+        }
+
         .select-dropdown-value {
             height: 48px;
             width: 100%;
@@ -236,6 +303,8 @@
             border-radius: 0;
             letter-spacing: 0.005em;
             border: 1px solid colour(gray, 5);
+            cursor: pointer;
+            appearance: none;
 
             &:focus {
                 box-shadow: none;
@@ -249,6 +318,8 @@
                 border-radius: 0;
                 letter-spacing: 0.005em;
                 border: 1px solid colour(gray, 5);
+                cursor: pointer;
+                appearance: none;
             }
         }
 
@@ -641,7 +712,7 @@
 }
 
 .login-modal-fade {
-    background: rgba(26, 26, 26, 60%);
+    background: rgb(77 77 77 / 25%);
     position: fixed;
     top: 0;
     left: 0;
@@ -732,7 +803,7 @@
     .hide-show {
         min-height: 46px;
         max-height: 15px;
-        background: white;
+        background: colour(white);
         right: 10px;
         top: 23px;
         letter-spacing: normal;
@@ -740,7 +811,7 @@
         @include media-up(sm) {
             min-height: 46px;
             max-height: 15px;
-            background: white;
+            background: colour(white);
             right: 1px;
             top: 23px;
             letter-spacing: normal;
@@ -749,7 +820,7 @@
         @include media-btw(sm, lg) {
             min-height: 46px;
             max-height: 15px;
-            background: white;
+            background: colour(white);
             right: 1px;
             top: 23px;
             letter-spacing: normal;
@@ -769,30 +840,122 @@
 
 // -----Merge cart UI---------
 .merge-cart-modal {
-    .merge-cart-header {
-        h2 {
-            letter-spacing: 0.005em;
-            line-height: 1.25rem;
+    .merge-cart-content {
+        border-radius: 0;
+
+        .merge-cart-header {
+            h2 {
+                letter-spacing: 0.005em;
+                line-height: 1.25rem;
+            }
+
+            .close {
+                height: 48px;
+                opacity: 1;
+                width: 48px;
+            }
         }
 
-        .close {
-            height: 48px;
-            opacity: 1;
-            width: 48px;
+        .merge-cart-body {
+            .merge {
+                width: 85px;
+                font-size: 0.6875rem;
+                letter-spacing: 0.12em;
+                line-height: 2.0625rem;
+                min-height: 35px;
+                padding: 0 15px;
+            }
+
+            .dont-merge {
+                width: 115px;
+                font-size: 0.6875rem;
+                letter-spacing: 0.12em;
+                line-height: 2.0625rem;
+                min-height: 35px;
+                padding: 0 15px;
+            }
         }
     }
+}
 
-    .merge-cart-body {
-        .merge {
-            max-height: 30px;
-            min-height: 30px;
-            width: 85px;
+.pw-requirements {
+    list-style: none;
+    margin: 0 auto;
+    width: 270px;
+
+    .pw-requirement {
+        font-size: 12px;
+        font-size: 0.75rem;
+        background: none;
+        padding: 0 0 1.125rem;
+        position: relative;
+        top: 0.3125rem;
+        line-height: unset;
+
+        span {
+            display: inline-block;
+            padding: 0;
+            margin-bottom: -3px;
+            color: colour(gray);
+            font-size: 0.75rem;
+
+            &.circle {
+                border: 1px solid colour(gray);
+                width: 14px;
+                height: 14px;
+                border-radius: 50%;
+                display: inline-block;
+                left: 0;
+                margin: 3px;
+                position: absolute;
+                top: -1px;
+            }
         }
 
-        .dont-merge {
-            max-height: 30px;
-            min-height: 30px;
-            width: 115px;
+        &.success span {
+            color: colour(green, 4);
+
+            .circle {
+                width: 22px;
+                height: 22px;
+                border: none;
+                background: url("../../images/account/Alert-Check.svg");
+                background-repeat: no-repeat;
+                background-position: 50%;
+                margin: 0;
+            }
         }
     }
+}
+
+.pw-requirements .pw-requirement > span {
+    line-height: 1.375rem;
+    padding-left: 30px;
+}
+
+.alert-danger {
+    color: colour(red);
+    background-color: colour(gray, 28);
+    font-weight: 700;
+    padding: 8px 15px;
+    font-size: 0.875rem;
+    margin: 5px 0;
+    display: flex;
+    text-align: left;
+    border: none;
+
+    .error-icon {
+        margin-right: 6px;
+        margin-left: -3px;
+        margin-top: -5px;
+    }
+}
+
+.register-success {
+    background-color: colour(green, 2);
+    color: colour(white);
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 10%);
+    margin-top: 34px;
 }

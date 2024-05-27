@@ -4,6 +4,15 @@
     letter-spacing: 0.2px;
 }
 
+.h-ls-01 {
+    letter-spacing: 0.1px;
+}
+
+.product-image {
+    @media (max-width:768px) {
+        max-width: 100%;
+    }
+}
 .giftcard-heading {
     border-bottom: 1px solid #333;
     padding-bottom: 11px;
@@ -45,18 +54,107 @@
             border-left: 1px solid #828282;
             background: #fff url("../../images/UI-Carat.svg") no-repeat 50%;
             background-size: 15px;
+
+            @media (max-width:768px) {
+                top: 57%;
+            }
         }
     }
 
     .attribute {
         padding-bottom: 25px;
+
+        .custom-select-wrap {
+            &::after {
+                @media (max-width:768px) {
+                    top: 55%;
+                }
+            }
+        }
     }
 
+}
+
+
+.egift-video-label {
+    min-height: 155px;
+    width: 100%;
+    display: flex;
+    border: 1px solid;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .video-upload-btn {
+        margin-top: 15px;
+        background: #1B5699;
+        color: white;
+        padding: 10px;
+        border: 1px solid #1B5699;
+        border-radius: 20px;
+    }
+}
+
+.style-wrap {
+    padding-top: 40px;
+
+    .style-attribute {
+        border: unset;
+        background-color: transparent;
+        width: 150px;
+        height: 150px;
+
+        span {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+
+    .style {
+        width: 100%;
+        min-width: 500px;
+        padding-top: 20px;
+    }
 }
 
 #delete-gift-certificate-line-item-modal,
 #delete-line-item-modal {
     .modal-dialog {
         bottom: unset;
+    }
+}
+
+.h-lh-16 {
+    line-height: 16px !important;
+}
+.h-lh-20 {
+    line-height: 20px !important;
+}
+
+.h-lh-21 {
+    line-height: 21px !important;
+}
+
+.h-lh-24 {
+    line-height: 24px !important;
+}
+
+.h-lh-28 {
+    line-height: 28px !important;
+}
+
+.tablet-padding {
+    @media (min-width:768px) and (max-width:1024px) {
+        padding-left: 40px;
+    }
+}
+
+#video-preview {
+    @media (max-width:1024px) {
+        width: 100%;
+        max-height: 180px;
     }
 }

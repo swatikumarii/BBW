@@ -4,10 +4,13 @@ var server = require('server');
 
 var ProductFactory = require('*/cartridge/scripts/factories/product');
 var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
+var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
 var URLUtils = require('dw/web/URLUtils');
 var BasketMgr = require('dw/order/BasketMgr');
 var Transaction = require('dw/system/Transaction');
 var Resource = require('dw/web/Resource');
+var collection = require('*/cartridge/scripts/util/collections');
+var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
 
 server.get('Show', function (req, res, next) {
     var giftCardId = req.querystring.pid;
@@ -17,6 +20,8 @@ server.get('Show', function (req, res, next) {
     var days = qwikcilverHelpers.getNoOfDaysOfMonth();
     var addToCartUrl = URLUtils.url('Cart-AddProduct');
     var removeLineItemURL = URLUtils.url('Giftcard-RemoveLineItems');
+    var breadcrumbs = productHelper.getAllBreadcrumbs(null, giftCardId, []).reverse();
+
 
     res.render('giftcard/details', {
         giftCard: giftCard,
@@ -24,7 +29,8 @@ server.get('Show', function (req, res, next) {
         months: months,
         days: days,
         addToCartUrl: addToCartUrl,
-        removeLineItemURL: removeLineItemURL
+        removeLineItemURL: removeLineItemURL,
+        breadcrumbs: breadcrumbs
     });
     next();
 });
@@ -334,5 +340,33 @@ server.post('CheckBalance', function (req, res, next) {
     res.json();
     return next();
 });
+
+server.get('GiftcardVideoLandingPage', function (req, res, next) {
+    var Encoding = require('dw/crypto/Encoding');
+    var OrderMgr = require('dw/order/OrderMgr');
+    var orderDataEncoded = req.querystring.video;
+    var uuid = req.querystring.uuid;
+    var orderData = Encoding.fromBase64(orderDataEncoded).toString();
+    var order = OrderMgr.getOrder(orderData);
+    var videoLink;
+    var message;
+    var sender;
+    var recipient;
+    collection.forEach(order.allProductLineItems, function (item) {
+        if (item.UUID === uuid) {
+            videoLink = item.custom.eGiftVideoLink;
+            message = item.custom.eGiftMessage;
+            sender = item.custom.eGiftSender;
+            recipient = item.custom.eGiftReceiver;
+        }
+    });
+    res.render('videoLanding', {
+        video: videoLink,
+        message: message,
+        sender: sender,
+        recipient: recipient
+    });
+    next();
+}, pageMetaData.computedPageMetaData);
 
 module.exports = server.exports();

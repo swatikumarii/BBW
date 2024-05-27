@@ -11,7 +11,8 @@
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                 tabindex="0">${category.name}</a>
                             <isset name="menuItem" value="${category}" scope="page" />
-                            <isinclude template="components/header/menuItem" />
+                            <iscomment> <isinclude template="components/header/menuItem" /> </iscomment>
+                            <isinclude template="components/header/brandMenuItem" />
                         </li>
                     <iselse/>
                         <li class="nav-item" role="presentation">
@@ -81,7 +82,7 @@
                 </isloop>
             </isif>
             <li class="nav-store-locator nav-item level-1-li" role="presentation">
-                <a href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold">${Resource.msg('mobile.menu.storeLocator', 'common', null)}</a>
+                <a href="${URLUtils.url('Stores-Find')}" class="level-1-link nav-link h-font-size--18 h-fw--semibold">${Resource.msg('mobile.menu.storeLocator', 'common', null)}</a>
             </li>
             <li class="nav-my-account nav-item level-1-li dropdown" role="presentation">
                 <a href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
@@ -106,7 +107,7 @@
                     </ul>
                 <iselse/>
                     <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true" aria-label="${category.id}">
-                        <li class="level-2-li p-0" role="presentation">
+                        <li class="level-2-li logged-user-name" role="presentation">
                             ${Resource.msg('mobile.menu.hi', 'common', null)} ${pdict.customerName} ${Resource.msg('mobile.menu.exclamation', 'common', null)}
                         </li>
                         <li class="level-2-li p-0" role="presentation">
@@ -134,10 +135,10 @@
         <div class="utility-links-container d-block d-md-none">
             <ul class="utility-links mobile-only">
                 <li class="link">
-                    <a href="${URLUtils.url('Home-Show')}">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a>
+                    <a href="${URLUtils.url('Order-Status')}">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a>
                 </li>
                 <li class="link">
-                    <a href="${URLUtils.url('Home-Show')}">${Resource.msg('mobile.menu.shipping', 'common', null)}</a>
+                    <a href="${URLUtils.url('Page-Show', 'cid', 'help-faq-dashboard')}">${Resource.msg('mobile.menu.shipping', 'common', null)}</a>
                 </li>
                 <li class="link">
                     <a href="${URLUtils.url('Fragrance-Show')}">${Resource.msg('mobile.menu.shopByFragrance', 'common', null)}</a>

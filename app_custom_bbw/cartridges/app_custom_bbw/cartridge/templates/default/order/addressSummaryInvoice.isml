@@ -1,4 +1,4 @@
-<div class="address-summary">
+<div class="address-summary" style="margin-left: 6px;">
     <div>
         <span
             style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
@@ -40,11 +40,16 @@
     <span
         style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
         class="postalCode">
+        <isif condition="${address && address.countryCode}">${address.countryCode.value === 'AU' ? 'Australia' : address.countryCode.value}&#44;</isif>
+    </span>
+    <span
+        style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="postalCode">
         <isif condition="${address && address.postalCode}">${address.postalCode}&#44;</isif>
     </span>
     <br>
-    <span
-        style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919">${Resource.msg('phone.text.address', 'order', null)}</span>
+    <iscomment> <span
+        style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919">${Resource.msg('phone.text.address', 'order', null)}</span> </iscomment>
     <span
         style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
         class="postalCode">
@@ -52,4 +57,10 @@
             <isif condition="${address && address.phone}">${address.phone}&#44;</isif>
         </isif>
     </span>
+    <div style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="email">
+        <span>
+            <isif condition="${pdict.order.orderEmail}">${pdict.order.orderEmail}</isif>
+        </span>
+    </div>
 </div>

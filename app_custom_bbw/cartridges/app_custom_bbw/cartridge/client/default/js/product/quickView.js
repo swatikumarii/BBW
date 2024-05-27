@@ -2,6 +2,7 @@
 
 var base = require('./base');
 var detail = require('./detail');
+var helpers = require('../utils/scrollHelpers');
 
 /**
  * Generates the modal window on the first call.
@@ -12,7 +13,7 @@ function getModalHtmlElement() {
     }
     var htmlString =
         '<!-- Modal -->' +
-        '<div class="modal fade" id="quickViewModal" role="dialog">' +
+        '<div class="modal fade quick-view-modal" id="quickViewModal" role="dialog">' +
         '<span class="enter-message sr-only" ></span>' +
         '<div class="modal-dialog quick-view-dialog  modal-dialog-centered">' +
         '<!-- Modal content-->' +
@@ -54,6 +55,7 @@ function fillModalElement(selectedValueUrl) {
         dataType: 'json',
         success: function (data) {
             var parsedHtml = parseHtml(data.renderedTemplate);
+            helpers.disableScroll();
 
             $('#quickViewModal .modal-body').empty();
             $('#quickViewModal .modal-body').html(parsedHtml.body);
@@ -71,8 +73,7 @@ function fillModalElement(selectedValueUrl) {
             $('#quickViewModal .enter-message').text(data.enterDialogMessage);
             $('#quickViewModal').modal('show');
             $('body').trigger('quickview:ready');
-
-        },
+        }
     });
 }
 
@@ -82,7 +83,7 @@ module.exports = $.extend({}, base, {
         $('body').on('click', '.quickview', function (e) {
             e.preventDefault();
             quickViewButton = $(this);
-            var selectedValueUrl = $(this).closest('a.quickview').attr('href');
+            var selectedValueUrl = $(this).data('href');
             $(e.target).trigger('quickview:show');
             getModalHtmlElement();
             fillModalElement(selectedValueUrl);
@@ -139,6 +140,14 @@ module.exports = $.extend({}, base, {
         $(document).on('click', '.popover .close', function (e) {
             e.preventDefault(); // Prevent default behavior of anchor tag
             $(this).parents('.popover').popover('hide');
+        });
+    },
+    enableQuickViewScroll: function () {
+        $('body').on('hidden.bs.modal', '#quickViewModal', function () {
+            helpers.enableScroll();
+            if ($('#quickViewModal').length !== 0) {
+                $('#quickViewModal').remove();
+            }
         });
     },
 

@@ -1,5 +1,5 @@
 <iscomment>Individual Gift Wrapping File</iscomment>
-<div class="giftWrapIndividualProduct" id="rit-giftwrap-individual-modal">
+<div class="giftWrapIndividualProduct gift-wrap-individual-product" id="rit-giftwrap-individual-modal">
     <div class="rit-giftwrap-individual-modal">
         <div class="modal-content border-0">
             <div class="modal-body">
@@ -58,10 +58,10 @@
                             <input type="hidden" class="gift-wrap-individual-count" name="gift-wrap-individual-count"
                                 value />
                             <div class="giftwrap-bottom-controls">
-                                <button type="button"
-                                    class="close-button btn btn--secondary js-giftwrap-individual-cancel"
+                                <button type="button" data-dismiss="modal"
+                                    class="close-button btn btn--secondary js-giftwrap-individual-cancel gift-wrap-model-close"
                                     tabindex="0">${Resource.msg('cancel.label', 'common', null)}</button>
-                                <button type="button" class="apply-button btn js-giftwrap-individual-save btn-hover"
+                                <button type="button" data-dismiss="modal" class="apply-button btn js-giftwrap-individual-save btn-hover"
                                     tabindex="0">
                                     ${Resource.msg('add.label', 'common', null)}
                                 </button>

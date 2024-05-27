@@ -14,15 +14,18 @@
                 <isif condition="${pdict.productSearch.productIds.length > 0}">
                     <!--- Refinement bar --->
                     <div class="row no-gutters h-grid-gap--40 h-grid-gap-lg--50 h-pl-lg-25 flex-nowrap">
-                        <div class="left-navigation-bar col-md-3 col-lg-2 px-md-0 h-hidden-sm-down">
-                            <isinclude template="search/components/leftNavigation" />
-                        </div>
+                        <isif condition="${pdict.productSearch.isCategorySearch}">
+                            <div class="left-navigation-bar col-md-3 col-lg-2 px-md-0 h-hidden-sm-down">
+                                <isinclude template="search/components/leftNavigation" />
+                            </div>
+                        </isif>
 
                         <div class="refinement-bar col-md-3 col-lg-2 px-md-0">
                             <isinclude url="${pdict.refineurl}" />
                         </div>
 
-                        <div class="col-12 col-lg-10 col-md-9">
+                        <div class="${pdict.productSearch.isCategorySearch ? 'col-12 col-lg-10 col-md-9' : 'col-12 search-results'}">
+                            <isinclude template="search/components/categoryBannerTop" />
                             <isinclude template="search/components/categorySlider" />
 
                             <!--- Product Grid --->

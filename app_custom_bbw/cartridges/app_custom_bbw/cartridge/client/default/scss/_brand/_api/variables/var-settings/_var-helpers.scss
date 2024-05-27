@@ -448,6 +448,10 @@ $cssHelpers: (
             0,
             200
         ),
+        devicebreakpoints: (
+            sm,
+            lg
+        ),
         rangestep: (
             value: 80,
             step: 5
@@ -493,6 +497,10 @@ $cssHelpers: (
         range: (
             0,
             200
+        ),
+        devicebreakpoints: (
+            sm,
+            lg
         ),
         rangestep: (
             value: 50,

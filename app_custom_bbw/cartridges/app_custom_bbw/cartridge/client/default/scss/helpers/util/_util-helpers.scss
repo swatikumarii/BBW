@@ -285,3 +285,27 @@
         }
     }
 }
+
+// Mixin for button styles
+
+@mixin h-button($color-base, $color-hover, $color-active, $outline-color) {
+    background-color: $color-base;
+    border-color: $color-base;
+
+    &:hover {
+        background-color: $color-hover;
+        border-color: $color-hover;
+    }
+
+    &:active {
+        background-color: $color-active;
+        border-color: $color-active;
+    }
+
+    &:focus {
+        background-color: $color-hover;
+        border-color: $color-hover;
+        outline: 1px dotted $outline-color;
+        outline-offset: 2px;
+    }
+}

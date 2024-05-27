@@ -61,7 +61,7 @@ base.submitAddress = function () {
     $('body').on('submit', 'form.address-form', function (e) {
         var $form = $(this);
         e.preventDefault();
-        if ($form.serialize() !== window.addressForm) {
+        if ($form.find('input').serialize() !== window.addressForm) {
             action = $form.attr('action');
             $form.spinner().start();
             $('form.address-form').trigger('address:submit', e);
@@ -72,7 +72,7 @@ base.submitAddress = function () {
                 data: $form.serialize(),
                 success: function (data) {
                     $form.spinner().stop();
-                    window.addressForm = ''; 
+                    window.addressForm = '';
                     if (!data.success) {
                         formValidation($form, data);
                     } else {
@@ -167,7 +167,7 @@ $(document).on('click', '#editAddress', function () {
             $('#modalContent').html(response);
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
-            var addressForm = $(response)[0];
+            var addressForm = $($(response)[0]).find('input');
             window.addressForm = $(addressForm).serialize();
         }
     });

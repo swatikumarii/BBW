@@ -6,69 +6,57 @@
         margin: 0 auto;
     }
 
-    .mobile-my-account {
-        display: block;
-        padding: 1.4375rem 0.9375rem;
-        margin: 0.3125rem 0 12px;
-        letter-spacing: 0.02em;
+    .account-nav-wrap {
+        width: 100%;
 
         @include media-up(sm) {
-            display: none;
+            width: 225px;
         }
 
-        &::after {
-            content: "";
-            width: 18px;
-            height: 18px;
-            float: right;
-            background: url("../../images/UI-Carat.svg") no-repeat;
-            background-position-x: 50%;
-            transition: transform 0.5s ease-out;
-        }
+        .my-account-nav {
+            display: block;
+            padding: 0;
 
-        &.in {
-            &::after {
-                transform: rotate(180deg);
+            @include media-down(sm) {
+                display: none;
+                padding: 20px 0;
             }
-        }
-    }
 
-    .my-account-nav {
-        display: block;
-        padding: 0;
-
-        @include media-down(sm) {
-            display: none;
-            padding: 20px 0;
-        }
-
-        h1 {
-            margin: 0 0 20px;
-
-            @include media-up(sm) {
-                line-height: 0.625rem;
-                margin-bottom: 1.375rem;
-            }
-        }
-
-        ul {
-            li {
-                margin: 0;
-                padding: 10px 15px;
-                list-style: none;
+            h1 {
+                margin: 0 0 20px;
+                font-weight: map-get($font-weight, bold);
 
                 @include media-up(sm) {
-                    margin: 20px 0 23px;
-                    line-height: 1.25rem;
-                    padding: 0;
+                    line-height: 0.625rem;
+                    margin-bottom: 1.375rem;
                 }
+            }
 
-                a {
-                    letter-spacing: 0.01em;
-                    color: colour(gray);
+            ul {
+                li {
+                    margin: 0;
+                    padding: 10px 15px;
+                    list-style: none;
 
-                    &:hover {
-                        color: colour(blue);
+                    @include media-up(sm) {
+                        margin: 20px 0 23px;
+                        line-height: 1.25rem;
+                        padding: 0;
+                    }
+
+                    a {
+                        letter-spacing: 0.01em;
+                        color: colour(gray);
+
+                        &:hover {
+                            color: colour(blue);
+                        }
+                    }
+
+                    &.active {
+                        a {
+                            color: colour(blue);
+                        }
                     }
                 }
             }
@@ -77,11 +65,11 @@
 
     .description-detail {
         padding: 0;
-        max-width: 770px;
+        width: 100%;
 
         @include media-up(sm) {
-            padding: 0 0 0 65px;
-            max-width: 770px;
+            padding: 0 0 20px 25px;
+            width: calc(100% - 225px);
         }
 
         @include media-btw(sm, lg) {
@@ -100,6 +88,7 @@
                 min-height: auto;
                 margin-bottom: 20px;
                 letter-spacing: 0.12em;
+                background-color: colour(black, 3);
             }
         }
     }
@@ -110,13 +99,9 @@
                 h1 {
                     border-bottom: 1px solid colour(black, 3);
                     padding-bottom: 0.625em;
-                    margin-bottom: 1.5625em;
-
-                    @include media-down(sm) {
-                        font-size: 1rem;
-                        border-bottom: 0;
-                        border-bottom: 1px solid colour(black, 3);
-                    }
+                    margin-bottom: 25px;
+                    line-height: 18px;
+                    font-weight: map-get($font-weight, bold);
 
                     a {
                         text-decoration: underline;
@@ -195,6 +180,7 @@
 
         @include media-down(sm) {
             width: 100%;
+            font-size: 13px;
         }
     }
 
@@ -204,5 +190,34 @@
         border-color: colour(gray, 7);
         color: colour(gray);
         pointer-events: none;
+    }
+}
+
+.mobile-my-account {
+    display: block;
+    letter-spacing: 0.02em;
+    margin: 0 0 15px;
+    padding: 0 15px 15px;
+    border-bottom: 1px solid colour(gray, 6);
+    font-weight: 600;
+
+    @include media-up(sm) {
+        display: none;
+    }
+
+    &::after {
+        content: "";
+        width: 1.5rem;
+        height: 1.375rem;
+        float: right;
+        background: url("../../images/UI-Carat.svg") no-repeat;
+        background-position-x: 50%;
+        transition: transform 0.5s ease-out;
+    }
+
+    &.in {
+        &::after {
+            transform: rotate(180deg);
+        }
     }
 }

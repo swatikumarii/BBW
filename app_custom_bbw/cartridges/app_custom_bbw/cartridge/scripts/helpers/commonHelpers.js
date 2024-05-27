@@ -7,6 +7,7 @@ var Site = require('dw/system/Site');
 var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
 var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
 var ContentMgr = require('dw/content/ContentMgr');
+var URLUtils = require('dw/web/URLUtils');
 
 /**
  * sendNewsLetterSubscribeEmail function is responsible to trigger email for newsletter subscription
@@ -75,8 +76,89 @@ function sendChangePasswordEmail(email) {
     emailHelpers.sendEmail(emailObj, 'mail/changePasswordEmail', email);
 }
 
+/**
+ * Get the status of contacting
+ * @returns {Array} responseArray activeClassName and activeMessage
+ */
+function getAvailability() {
+    var opening = Site.current.getCustomPreferenceValue('openingTime');
+    var closing = Site.current.getCustomPreferenceValue('closingTime');
+
+    var activeClassName;
+    var activeMessage;
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var currentTime = hours + '.' + (minutes < 10 ? '0' : '') + minutes;
+
+    if (currentTime >= opening && currentTime < closing) {
+        activeClassName = Resource.msg('active.status.class', 'common', null);
+        activeMessage = Resource.msg('active.status.message', 'common', null);
+    } else {
+        activeClassName = Resource.msg('offline.status.class', 'common', null);
+        activeMessage = Resource.msg('offline.status.message', 'common', null);
+    }
+    var responseArray = [activeClassName, activeMessage];
+    return responseArray;
+}
+
+/**
+ * function : This point will get breadcrumb for a content asset folder
+ * @param {object} folder content folder
+ * @returns {object} - returns an element of the array that is breadcrumbs.
+ */
+function getBreadcrumbForContentAssetFolders(folder) {
+    if (folder.ID !== 'faq') {// displayName.
+        if (folder.parent !== null) {
+            var breadcrumbs = getBreadcrumbForContentAssetFolders(folder.parent);
+            if (breadcrumbs) {
+                breadcrumbs.push({
+                    htmlValue: folder.displayName,
+                    url: URLUtils.https('Page-Show', 'cid', folder.ID).toString()
+                });
+                return breadcrumbs;
+            }
+        } else {
+            return [{
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            }];
+        }
+    }
+    return '';
+}
+
+/**
+ * function : This point will get breadcrumb for a content asset 
+ * @param {object} content content assests
+ * @returns {object} - returns an element of the array that is breadcrumbs.
+ */
+function getBreadcrumbForContentAsset(content) {
+    var breadcrumbs = [];
+    if (content.folders && content.folders.length > 0) {
+        breadcrumbs = getBreadcrumbForContentAssetFolders(content.folders[0]);
+    } else {
+        breadcrumbs = [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            }
+        ];
+    }
+    if (breadcrumbs) {
+        breadcrumbs.push({
+            htmlValue: content.name,
+            url: URLUtils.https('Page-Show', 'cid', content.ID).toString()
+        });
+        return breadcrumbs;
+    }
+    return '';
+}
+
 module.exports = {
     sendNewsLetterSubscribeEmail: sendNewsLetterSubscribeEmail,
     zeroOrderEmail: zeroOrderEmail,
-    sendChangePasswordEmail: sendChangePasswordEmail
+    sendChangePasswordEmail: sendChangePasswordEmail,
+    getAvailability: getAvailability,
+    getBreadcrumbForContentAsset: getBreadcrumbForContentAsset
 };

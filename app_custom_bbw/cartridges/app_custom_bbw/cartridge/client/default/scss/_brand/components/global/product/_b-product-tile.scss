@@ -221,11 +221,13 @@
                 transform: translate(-50%, -50%);
                 transition: opacity 0.3s;
                 flex: 0 0 auto;
+                width: 100%;
             }
 
             &.main-img-wrapper {
                 position: static;
                 opacity: 1;
+                transition: opacity 0.3s;
             }
         }
 
@@ -245,10 +247,22 @@
             }
         }
     }
+
+    .loader {
+        z-index: 8;
+    }
 }
 
 .product {
     height: 100%;
+}
+
+.search-results {
+    .product-grid {
+        .product {
+            max-width: 250px;
+        }
+    }
 }
 
 .product-grid {

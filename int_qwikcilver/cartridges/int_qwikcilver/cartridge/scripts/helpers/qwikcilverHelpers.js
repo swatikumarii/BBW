@@ -76,7 +76,7 @@ function getNoOfDaysOfMonth() {
  */
 function validateGiftProduct(basket) {
     var isGiftProductAvailable = false;
-    var lineItems = basket.getAllProductLineItems();
+    var lineItems = basket ? basket.getAllProductLineItems() : [];
     if (lineItems && lineItems.length > 0) {
         for (var i = 0; i < lineItems.length; i++) {
             if (lineItems[i].product.custom.isEgiftCard === true) {
@@ -188,9 +188,23 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
     var Locale = require('dw/util/Locale');
     var Resource = require('dw/web/Resource');
     var Site = require('dw/system/Site');
+    var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+    var ContentMgr = require('dw/content/ContentMgr');
     // var sendgridApi = require('*/cartridge/scripts/service/sendgridApi');
     // var sendgridPref = require('*/cartridge/scripts/service/sendgridPreference');
     var currentLocale = Locale.getLocale(locale);
+    var emailMarkup = '';
+    var barcodeEmailMarkup = '';
+    var termsContent = ContentMgr.getContent('email-terms-and-conditions-block'); // Terms and Conditions Email Content
+    var youGotContent = ContentMgr.getContent('email-you-got-it-block'); // Terms and Conditions Email Content
+
+    if (!empty(termsContent) && termsContent.online) {
+        emailMarkup = termsContent.custom.body.markup;
+    }
+
+    if (!empty(youGotContent) && youGotContent.online) {
+        barcodeEmailMarkup = youGotContent.custom.body.markup;
+    }
 
     var orderModel = new OrderModel(order, { countryCode: currentLocale.country, containerView: 'order' });
 
@@ -211,23 +225,28 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
                 if (giftLineItem.custom.eGiftEmailPending && getCurrentMonth() === giftLineItem.custom.eGiftCardScheduleMonth && giftLineItem.custom.eGiftCardScheduleDay <= getCurrentDate()) {
                     sendEmailNow = true;
                 }
+
                 context = {
                     recipientEmail: giftLineItem.custom.eGiftReceiverEmail,
                     recipientName: giftLineItem.custom.eGiftReceiver,
                     order: orderModel,
+                    content: emailContentHelpers.getEmailContent('normal-footer', 'email-header'),
+                    markup: emailMarkup,
+                    barCodeMarkup: barcodeEmailMarkup,
                     giftcardNumber: GCNumber,
                     sendEmailNow: sendEmailNow
                 };
+
                 if (sendEmailNow && sentEmailRecipients.indexOf(giftLineItem.custom.eGiftReceiverEmail) < 0) {
                     // If sendgrid is enable then trigger the GC email from sendgrid else SF SMTP
                     // if (sendgridPref.isSendgridEnable) {
-                    //     var emailRequest = prepareGiftCardEmailData(giftLineItem.custom.eGiftReceiverEmail, Resource.msg('subject.order.confirmation.email', 'eGiftCard', null), context);
+                    //     var emailRequest = prepareGiftCardEmailData(giftLineItem.custom.eGiftReceiverEmail, Resource.msg('subject.order.confirmation.email', 'giftcards', null), context);
                     //     var receipientMail = sendgridApi.sendEmail(emailRequest);
                     //     logger.info('recipientGiftEmail: GC email status of order id {0} is {1}',  orderModel.orderNumber, JSON.stringify(receipientMail));
                     // } else {
                     var recipientGiftEmail = new Mail();
                     recipientGiftEmail.addTo(giftLineItem.custom.eGiftReceiverEmail);
-                    recipientGiftEmail.setSubject(Resource.msg('subject.order.confirmation.email', 'eGiftCard', null));
+                    recipientGiftEmail.setSubject(Resource.msg('subject.order.confirmation.email', 'giftcards', null));
                     recipientGiftEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
                     recipientGiftEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToRecipient'), 'text/html', 'UTF-8');
                     var receipientMail = recipientGiftEmail.send();
@@ -236,7 +255,7 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
                     if(Site.current.getCustomPreferenceValue('merchantEmailforGiftCard')){
                         var merchantGiftEmail = new Mail();
                         merchantGiftEmail.addTo(Site.current.getCustomPreferenceValue('merchantEmailforGiftCard'));
-                        merchantGiftEmail.setSubject(Resource.msg('subject.order.confirmation.email', 'eGiftCard', null));
+                        merchantGiftEmail.setSubject(Resource.msg('subject.order.confirmation.email', 'giftcards', null));
                         merchantGiftEmail.setFrom(Site.current.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
                         merchantGiftEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToRecipient'), 'text/html', 'UTF-8');
                         logger.info('merchantGiftEmail: GC email status, message and code of order id {0} is {1} {2} {3}',  orderModel.orderNumber, merchantGiftEmail.status, merchantGiftEmail.message, merchantGiftEmail.code);
@@ -378,8 +397,6 @@ function removeAllGiftPayments(currentBasket) {
         currentBasket.custom.eGiftTotalAmount = 0;
     });
 }
-
-
 
 module.exports = {
     getMonths: getMonths,

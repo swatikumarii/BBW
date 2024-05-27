@@ -20,16 +20,18 @@
                 <div class="col-12 start-lines">
                     <h2 class="h-clr--black-1 review-shipping-summary-content h-fw--bold">${Resource.msg('heading.shipping.method', 'checkout', null)}</h2>
                     <p class="shipping-method h-font-size--16 h-clr--black-1">
-                        <div>
-                            <span class="shipping-method-title h-clr--black-1">${shippingModel.selectedShippingMethod.displayName}</span>
-                            <span class="shipping-method-arrival-time h-clr--black-1">
-                                <isif condition="${shippingModel.selectedShippingMethod.estimatedArrivalTime}">
-                                    ( ${shippingModel.selectedShippingMethod.estimatedArrivalTime} )
-                                </isif>
-                            </span>
-                        </div>
+                        <span class="shipping-method-title h-clr--black-1">${Resource.msgf('text.shipping.method', 'checkout',null, shippingModel.selectedShippingMethod.displayName)}</span>
+                        <span class="shipping-method-arrival-time h-clr--black-1">
+                            <isif condition="${shippingModel.selectedShippingMethod.estimatedArrivalTime}">
+                                ( ${shippingModel.selectedShippingMethod.estimatedArrivalTime} )
+                            </isif>
+                        </span>
                         <span class="h-fw--semibold h-clr--black-1">
-                            ${shippingModel.selectedShippingMethod.shippingCost}
+                            <isif condition="${'isEgiftCard' in pdict.order.items.items[0] && pdict.order.items.items[0].isEgiftCard === true}">
+                                ${Resource.msg('text.shpping.free', 'order', null)}
+                            <iselse/>
+                                ${shippingModel.selectedShippingMethod.shippingCost}
+                            </isif>
                         </span>
                     </p>
                 </div>

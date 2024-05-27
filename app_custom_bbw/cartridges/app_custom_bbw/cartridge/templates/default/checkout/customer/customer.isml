@@ -8,6 +8,11 @@
             value=${pdict.forms.registeredCustomerForm.attributes} encoding="off" /> novalidate>
             <fieldset class="customer-information-block">
                 <div class="row">
+                    <div class="col-sm-12 form-error-div d-none">
+                        <img alt="error alert" width="28px" height="28px" class="error-icon"
+                            src="${URLUtils.staticURL('/images/Alert-Error.svg')}" />
+                        <span class="text-danger error-class error-form h-font-size--14" id="form-error"></span>
+                    </div>
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block">
@@ -34,9 +39,9 @@
                             class="ml-2 forgot-password-link-checkout h-clr--gray-4 text-capitalize">${Resource.msg('link.login.forgotpassword', 'login', null)}</a>
                     </div>
                 </div>
-                <div class="row login-button-section">
+                <div class="row login-button-section h-xs-mb--30">
                     <div class="col-12">
-                        <div class="mb-sm-3">
+                        <div class="mb-md-3">
                             <button class="btn btn-primary submit-customer-login ml-2 h-font-size--11" type="submit"
                                 name="submit" value="submit-login">
                                 ${Resource.msg('button.customer.login', 'checkout', null)}

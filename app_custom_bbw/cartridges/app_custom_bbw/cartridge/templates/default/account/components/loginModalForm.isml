@@ -1,4 +1,4 @@
-<form action="${pdict.actionUrl}" class="modal-login" method="POST" name="login-form">
+<form action="${pdict.actionUrl}" class="modal-login" method="POST" name="login-form" data-error-image="${URLUtils.staticURL('/images/alert-error-triangle.svg')}">
     <div class="form-group required">
         <label class="form-control-label h-font-size--16  h-fw--semibold mb-2 form-label" for="loginModal-form-email">
             <span class="required-indicator">*</span>
@@ -6,21 +6,21 @@
         </label>
         <input type="email" id="loginModal-form-email" required aria-required="true"
             data-missing-error="${Resource.msg('error.message.parse.email', 'forms', null)}"
-            data-pattern-mismatch="${Resource.msg('error.message.parse.email', 'forms', null)}"
-            class="form-control required login-form-input" aria-describedby="form-email-error" name="loginEmail"
+            data-pattern-mismatch="${Resource.msg('valid.email.address', 'forms', null)}"
+            class="form-control required login-form-input h-font-size--16" aria-describedby="form-email-error" name="loginEmail"
             value="${pdict.userName}" />
-        <div class="invalid-feedback" id="form-email-error">${Resource.msg('error.message.parse.email', 'forms', null)}
+        <div class="invalid-feedback" id="form-email-error">${Resource.msg('error.message.email.required', 'forms', null)}
         </div>
     </div>
 
-    <div class="form-group required password-box login-modal-password position-relative">
+    <div class="modal-password required password-box login-modal-password position-relative">
         <label class="form-control-label h-font-size--16  h-fw--semibold mb-2 form-label"
             for="login-modal-form-password">
             <span class="required-indicator">*</span>
             ${Resource.msg('label.input.login.password', 'login', null)}
         </label>
         <input type="password" id="login-modal-form-password" required aria-required="true"
-            class="form-control required login-form-input bg-white"
+            class="form-control required login-form-input bg-white h-font-size--16"
             data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
             aria-describedby="form-password-error" name="loginPassword">
         <div class="invalid-feedback" id="form-password-error">${Resource.msg('error.message.password', 'forms', null)}
@@ -48,12 +48,12 @@
         <div class="login-btn register-btn">
             <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
                 data-callback="submitLoginModal" data-action="submit"
-                class="btn btn-block btn-primary g-recaptcha">${Resource.msg('button.text.loginform', 'login', null)}</button>
+                class="btn btn-block btn-primary g-recaptcha signin-btn modal-login-btn text-uppercase">${Resource.msg('button.text.loginform', 'login', null)}</button>
         </div>
     <iselse/>
         <div class="login-btn register-btn">
             <button type="submit"
-                class="btn btn-block btn-primary signin-btn text-uppercase">${Resource.msg('button.text.loginform', 'login', null)}</button>
+                class="btn btn-block btn-primary signin-btn modal-login-btn text-uppercase">${Resource.msg('button.text.loginform', 'login', null)}</button>
         </div>
     </isif>
 </form>

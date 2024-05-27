@@ -11,19 +11,21 @@
                 <div class="card-offers__image-wrapper h-dsp--inline-block h-pos--relative">
                     <isif condition="${pdict.disableLazyLoad}">
                         <picture class="w-100 d-block content-image-block">
-                            <source srcset="${pdict.useImgURL ? pdict.desktopImgUrl : pdict.desktopImage.src.desktop}"
+                            <source srcset="${pdict.desktopImageSrcset}"
                                 media="(min-width: 769px)" />
-                            <img class="w-100 d-block card-offers__image h-dsp--inline-block h-pos--relative"
+                            <img class="w-100 d-block card-offers__image h-dsp--inline-block h-pos--relative ${pdict.trackerClass}"
                                 src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}"
+                                srcset="${pdict.mobileImageSrcset}"
                                 alt="${pdict.alt}" width="96px" height="96px" />
                         </picture>
                     <iselse/>
                         <picture class="w-100 d-block content-image-block">
                             <source
-                                data-srcset="${pdict.useImgURL ? pdict.desktopImgUrl : pdict.desktopImage.src.desktop}"
+                                data-srcset="${pdict.desktopImageSrcset}"
                                 media="(min-width: 769px)" />
-                            <img class="w-100 d-block lazy card-offers__image h-dsp--inline-block h-pos--relative"
+                            <img class="w-100 d-block lazy card-offers__image h-dsp--inline-block h-pos--relative ${pdict.trackerClass}"
                                 data-src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}"
+                                data-srcset="${pdict.mobileImageSrcset}"
                                 alt="${pdict.alt}" width="96px" height="96px" />
                         </picture>
                     </isif>

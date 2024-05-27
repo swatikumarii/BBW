@@ -15,6 +15,48 @@ var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 var Order = require('dw/order/Order');
 
 /**
+ * Order-Details : The Order-Details append to add notify-me functionality
+ * @name Order-Details
+ */
+server.append(
+    'Details',
+    consentTracking.consent,
+    server.middleware.https,
+    userLoggedIn.validateLoggedIn,
+    function (req, res, next) {
+        var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+        var viewData = res.getViewData();
+
+        var userEmail = req.currentCustomer.raw.registered
+            ? req.currentCustomer.profile.email
+            : false;
+
+        if (viewData.order.shipping.length > 0){
+            var products = viewData.order.shipping[0].productLineItems.items;
+            for (var index = 0; index < products.length; index++) {
+                if (products[index].isEgiftCard) {
+                    viewData.isEgiftCard = products[index].isEgiftCard;
+                    break;
+                }
+
+                var productRecord = CustomObjectMgr.getCustomObject(
+                    'notifyBackInStock',
+                    products[index].id
+                );
+                products[index].productPresentInNotifyList = false;
+                if (userEmail && productRecord !== null && productRecord.custom.user.indexOf(userEmail) !== -1) {
+                    products[index].productPresentInNotifyList = true;
+                }
+            }
+        }
+        viewData.isOrderBaseRemoveGiftCard = true;
+        res.setViewData(viewData);
+        next();
+    });
+
+
+
+/**
  * Order-History : The Order-History append to update breadcrumbs
  * @name Order-History
  */
@@ -313,10 +355,26 @@ server.get(
                     'orderFilter',
                     req.querystring.orderFilter
                 );
+
+                var isEgiftCard;
+                if (orderModel.shipping.length > 0){
+                    var products = orderModel.shipping[0].productLineItems.items;
+                    for (var index = 0; index < products.length; index++) {
+                        if (products[index].isEgiftCard) {
+                            isEgiftCard = products[index].isEgiftCard;
+                            break;
+                        }
+                    }
+                }
+
+                var isOrderBaseRemoveGiftCard = true;
+
                 res.render('account/orderDetails', {
                     order: orderModel,
                     exitLinkText: exitLinkText,
                     exitLinkUrl: exitLinkUrl,
+                    isOrderBaseRemoveGiftCard: isOrderBaseRemoveGiftCard,
+                    isEgiftCard: isEgiftCard,
                     breadcrumbs: breadcrumbs
                 });
             } else {
@@ -392,7 +450,9 @@ server.append(
                 commonHelper.zeroOrderEmail(viewData.order);
             }
             // redirection url
-            if (order.status.value === Order.ORDER_STATUS_FAILED) {
+            viewData.orderStatusVal = Order;
+            res.setViewData(viewData);
+            if (order.status.value === Order.ORDER_STATUS_FAILED || order.status.value === Order.ORDER_STATUS_CANCELLED) {
                 res.redirect(URLUtils.url('Order-Failed'));
             }
             if (order.status.value === Order.ORDER_STATUS_CREATED) {

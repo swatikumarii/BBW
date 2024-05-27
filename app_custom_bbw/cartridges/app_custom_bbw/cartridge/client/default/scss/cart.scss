@@ -9,6 +9,8 @@
     text-decoration: underline;
     font-family: $ff-base;
     font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.2px;
 }
 
 .cartContainer {
@@ -18,6 +20,10 @@
 
     .cart-page {
         padding: 0;
+
+        @include media-down(sm) {
+            padding: 0 15px;
+        }
 
         .shoppingBagTitle {
             width: 100%;
@@ -32,6 +38,10 @@
         .cartActionMessages {
             width: 100%;
             margin: 40px 0 16px;
+
+            @include media-down(sm) {
+                margin: 0 0 10px;
+            }
         }
 
         .html-slot-container {
@@ -63,9 +73,15 @@
                 border-bottom: 3px solid $clr-gray-1;
                 margin-bottom: 10px;
 
+                @include media-down(sm) {
+                    flex-direction: column;
+                }
+
                 .content {
                     padding: 20px 15px 0 0;
                     font-size: 16px;
+                    line-height: 20px;
+                    letter-spacing: 0.2px;
                     font-family: $ff-base;
                     font-weight: 700;
                     color: $clr-blue;
@@ -81,6 +97,11 @@
             font-family: $ff-base;
             color: $clr-black-1;
             line-height: 20px;
+            letter-spacing: 0.1px;
+
+            @include media-down(sm) {
+                display: none;
+            }
 
             .headerItem {
                 width: 400px;
@@ -116,10 +137,20 @@
                 margin: 0;
                 padding: 20px 0;
 
+                @include media-down(sm) {
+                    flex-direction: column;
+                    align-items: center;
+                }
+
                 .line-item {
                     width: 400px;
                     max-width: 400px;
                     display: flex;
+
+                    @include media-down(sm) {
+                        width: 100%;
+                        max-width: 100%;
+                    }
 
                     .item-attributes {
                         padding-top: 10px;
@@ -139,6 +170,18 @@
                             line-height: 16px;
                             color: $clr-gray-4;
                         }
+
+                        .remove-from-wishlist {
+                            display: inline-flex;
+
+                            img {
+                                margin-top: 4px;
+                            }
+
+                            span {
+                                font-size: 14px;
+                            }
+                        }
                     }
 
                     .item-image {
@@ -147,11 +190,22 @@
                             max-height: 160px;
                             object-fit: cover;
                             margin-right: 42px;
+
+                            @include media-down(sm) {
+                                max-width: 110px;
+                                margin-right: 25px;
+                            }
                         }
                     }
 
                     .line-item-promo {
                         margin-top: 10px;
+                        line-height: 20px;
+                        letter-spacing: 0.2px;
+
+                        .promotion {
+                            line-height: 16px;
+                        }
 
                         .promo-details-tooltip {
                             border: 1px solid;
@@ -202,6 +256,12 @@
                     font-weight: 600;
                     font-family: $ff-base;
                     padding-top: 10px;
+                    color: $clr-black-3;
+
+                    @include media-down(sm) {
+                        width: 25%;
+                        text-align: left;
+                    }
 
                     .strike-through {
                         text-decoration: line-through;
@@ -211,6 +271,11 @@
                 .line-item-quantity {
                     width: 240px;
                     padding-top: 10px;
+
+                    @include media-down(sm) {
+                        width: 25%;
+                        text-align: left;
+                    }
 
                     .quantity-form {
                         display: flex;
@@ -246,6 +311,11 @@
                             align-items: center;
                             justify-content: center;
                             cursor: pointer;
+
+                            &:hover {
+                                color: $clr-white;
+                                background-color: $clr-black-3;
+                            }
                         }
                     }
 
@@ -272,6 +342,16 @@
                     font-family: $ff-base;
                     text-align: right;
                     padding-top: 10px;
+                    color: $clr-black-1;
+
+                    @include media-down(sm) {
+                        width: 25%;
+                        text-align: left;
+                    }
+
+                    .line-item-total-price-amount {
+                        font-weight: 600 !important;
+                    }
 
                     .strike-through {
                         text-decoration: line-through;
@@ -283,6 +363,11 @@
                     min-width: 25px;
                     padding-right: 10px;
                     padding-top: 5px;
+
+                    @include media-down(sm) {
+                        position: absolute;
+                        right: 0;
+                    }
                 }
             }
         }
@@ -292,8 +377,16 @@
             display: flex;
             justify-content: space-between;
 
+            @include media-down(sm) {
+                flex-direction: column;
+            }
+
             .cartPromoCodeWrap {
                 width: 45%;
+
+                @include media-down(sm) {
+                    width: 100%;
+                }
 
                 .cartPromo {
                     padding: 22px 20px 30px;
@@ -302,6 +395,7 @@
                     .promoCodeLabel {
                         font-size: 18px;
                         line-height: 20px;
+                        letter-spacing: 0.1px;
                         font-weight: 600;
                         font-family: $ff-base;
                     }
@@ -330,9 +424,33 @@
             .cartTotalsWrap {
                 width: 53%;
 
+                @include media-down(sm) {
+                    width: 100%;
+                    margin: 20px 0 0;
+                }
+
                 .cart-totals-bg {
                     padding: 15px 25px;
                     background-color: $clr-gray-1;
+
+                    @include media-down(sm) {
+                        margin: 0 -15px;
+                    }
+
+                    p {
+                        line-height: 20px;
+                        letter-spacing: 0.2px;
+                    }
+
+                    .tax-estimated {
+                        line-height: 16px;
+                    }
+
+                    .order-total {
+                        p {
+                            letter-spacing: 0.1px;
+                        }
+                    }
                 }
 
                 .hide-order-discount {
@@ -380,6 +498,9 @@
 
 .promo-details {
     text-decoration: underline;
+    letter-spacing: 0.2px;
+    line-height: 16px;
+    color: $clr-gray-4;
 }
 
 .add-to-wish-list {
@@ -419,5 +540,11 @@
         display: inline-block;
         height: 16px;
         width: 16px;
+    }
+}
+
+footer {
+    @include media-down(sm) {
+        max-width: 100%;
     }
 }

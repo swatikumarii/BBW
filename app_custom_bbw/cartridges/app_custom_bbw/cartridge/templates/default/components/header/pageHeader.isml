@@ -1,6 +1,6 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
 
-<header class="header h-bg--white h-auto fixed-header" id="header">
+<header class="header h-bg--white h-auto" id="header">
     <div class="header-banner slide-up d-none">
         <div class="container-fluid px-0">
             <div class="content h-width-perc--100">
@@ -35,7 +35,7 @@
                 </button>
                 <iscomment>Mobile Menu</iscomment>
                 <div id="mobile-custom-search"
-                    class="mobile-custom-search d-md-none hidden-md-up fa-pull-left m-0 text-center">
+                    class="mobile-custom-search d-md-none hidden-md-up fa-pull-left m-0 text-center js-mobile-custom-search">
                     <a href="" role="button">
                         <img class="" src="${URLUtils.staticURL('/images/header/UI-Search-v2.svg')}"
                             alt="${Resource.msg('global.search', 'common', null)}" />
@@ -57,7 +57,7 @@
                 <iscomment>Login</iscomment>
                 <div class="utility-user position-relative fa-pull-right">
                     <isinclude url="${URLUtils.url('Account-Header')}" />
-                    <isinclude url="${URLUtils.url('Page-Locale')}" />
+                    <iscomment> <isinclude url="${URLUtils.url('Page-Locale')}" /> </iscomment>
                 </div>
                 <iscomment>Search</iscomment>
                 <div class="search custom-search d-none d-md-block position-absolute w-100 m-0 fa-pull-right">
@@ -65,11 +65,13 @@
                 </div>
             </div>
         </div>
-        <div class="bbw-menu mx-auto main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown"
+        <div class=" mx-auto main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown bbw-brand-menu"
             id="sg-navbar-collapse">
             <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
         </div>
     </nav>
-</header>
-<iscontentasset aid="top-header-ticker-promo" />
 <div class="search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>
+</header>
+<iscomment> Search Suggestions - Overlay </iscomment>
+<iscontentasset aid="top-header-ticker-promo" />
+<iscomment> <div class="mobile-search-fly-out-opacity h-100 position-fixed w-100 d-none"></div>/ </iscomment>

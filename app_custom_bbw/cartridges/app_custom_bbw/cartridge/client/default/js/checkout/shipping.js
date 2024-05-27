@@ -181,10 +181,11 @@ function updateShippingMethods(shipping) {
                             .text('(' + shippingMethod.estimatedArrivalTime + ')')
                             .show();
                     }
-                    if (
-                        shippingMethod.description !== '' &&
-                        shippingMethod.description !== null
-                    ) {
+                    if (shippingMethod.htmlDescription) {
+                        $('.shipping-method-description', tmpl)
+                            .html(shippingMethod.htmlDescription)
+                            .show();
+                    } else if (shippingMethod.description) {
                         $('.shipping-method-description', tmpl)
                             .text(shippingMethod.description)
                             .show();
@@ -411,11 +412,11 @@ function updateProductLineItemShipmentUUIDs(productLineItem, shipping) {
  */
 function updateShippingInformation(shipping, order, customer, options) {
     // First copy over shipmentUUIDs from response, to each PLI form
-    order.shipping.forEach(function (aShipping) {
-        aShipping.productLineItems.items.forEach(function (productLineItem) {
-            updateProductLineItemShipmentUUIDs(productLineItem, aShipping);
-        });
-    });
+    // order.shipping.forEach(function (aShipping) {
+    //     aShipping.productLineItems.items.forEach(function (productLineItem) {
+    //         updateProductLineItemShipmentUUIDs(productLineItem, aShipping);
+    //     });
+    // });
 
     // Now update shipping information, based on those associations
     updateShippingMethods(shipping);
@@ -829,6 +830,21 @@ module.exports = {
             Object.keys(attrs).forEach(function (attr) {
                 element = attr === 'countryCode' ? 'country' : attr;
                 $('[name$=' + element + ']', form).val(attrs[attr]);
+                // validate an hide/show errors
+                var $input = $('[name$=' + element + ']', form);
+                var $errorMessage = $input.next('.invalid-feedback');
+                if ($input[0].checkValidity()) {
+                    $errorMessage.hide();
+                    $input.removeClass('is-invalid');
+                } else {
+                    var errorText;
+                    if ($input.val().length === 0) {
+                        errorText = $input.data('missing-error');
+                    } else {
+                        errorText = $input.data('pattern-mismatch');
+                    }
+                    $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
+                }
             });
             $('[name$=stateCode]', form).trigger('change');
             if (shipmentUUID === 'new') {

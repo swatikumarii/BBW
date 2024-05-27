@@ -5,6 +5,10 @@
 </script>
 
 <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('gtmHeadScript')}" encoding="off" />
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('gaEnabled')}">
+    <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('gaScript')}" encoding="off" />
+</isif>
 
 <iscomment>This is where GTM events are initialized</iscomment>
 <script defer="defer" src="${URLUtils.staticURL('/js/gtm.js')}"></script>
+<isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('gtmBodyScript')}" encoding="off" />

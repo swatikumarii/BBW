@@ -171,5 +171,17 @@ ul li {
         text-decoration: none;
         cursor: text;
         pointer-events: none;
+        font-weight: map-get($font-weight, semibold);
     }
+}
+
+// Hide the Google Invisible reCAPTCHA badge
+.grecaptcha-badge {
+    visibility: hidden !important;
+}
+
+// Afterpay Logo Size
+square-placement {
+    --messaging-font-size: 16px;
+    --logo-badge-width: 64px;
 }
