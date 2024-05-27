@@ -98,22 +98,11 @@ $(document).ready(function () {
         $('button.place-order').click();
     });
 });
-$(document).on('click', '#paymentMethodsList .paymentMethod, .payment-method-options .afterpay-tab', function (event) {
-    var paymentMethod = $(this).closest('.payment-method-options');
-    if (paymentMethod !== 'AdyenComponent') {
+$('.payment-options .nav-link').click(function setAttr() {
+    $('#selectedPaymentOption').val($(this).parent().attr('data-method-id'));
+    if ($(this).parent().attr('data-method-id') === 'AdyenComponent') {
+        adyenCheckout.renderGenericComponent();
+    } else {
         $('button[value="submit-payment"]').attr('disabled', false);
-    } else if (paymentMethod === 'AdyenComponent') {
-        // adyenCheckout.renderGenericComponent();
     }
-    $('#selectedPaymentOption').val(paymentMethod);
-    $('.payment-method-options').find('[type="radio"]').prop('checked', false);
-    $('.additionalFields').css('display', 'none');
-    $(event.target)
-        .closest('.paymentMethod, .afterpay-tab')
-        .find('[type="radio"]')
-        .prop('checked', true).trigger('change');
-    $(event.target)
-        .closest('.paymentMethod, .afterpay-tab')
-        .find('.additionalFields')
-        .css('display', 'block');
 });
