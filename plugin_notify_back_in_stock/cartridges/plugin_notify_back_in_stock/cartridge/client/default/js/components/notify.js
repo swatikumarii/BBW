@@ -36,6 +36,8 @@ function addToNotifyList(data, pId) {
                     $('#requestUserEmailForOOSModal').modal('hide');
                     $('.notify-me-oos-success-msg').fadeOut();
                 }, 5000);
+            } else {
+                $('.notify-me-oos-success-msg').addClass('h-clr--red');
             }
         },
         error: function () {
