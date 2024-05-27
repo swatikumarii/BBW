@@ -50,6 +50,10 @@
         border: none;
         position: relative;
 
+        @include media-breakpoint-down(sm) {
+            height: 700px;
+        }
+
         .modal-header {
             background-color: #fff;
             border: 0;
