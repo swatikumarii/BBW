@@ -3,6 +3,7 @@
 var server = require('server');
 
 var Site = require('dw/system/Site');
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 /**
  * Fragrance-Show : The Fragrance-Show enpoint show the fragrance categories and fragrance name
@@ -67,7 +68,7 @@ server.get('Show', function(req, res, next) {
     });
 
     next();
-});
+}, seo.addCurrentPageMetaData);
 
 /**
  * Fragrance-Ingredient : The Fragrance-Ingredient enpoint show the ingredients of proudcts
@@ -104,6 +105,6 @@ server.get('Ingredient', function (req, res, next) {
     });
 
     next();
-});
+}, seo.addCurrentPageMetaData);
 
 module.exports = server.exports();
