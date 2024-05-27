@@ -2680,6 +2680,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="timezone">
+                <display-name xml:lang="x-default">Timezone</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Details">
@@ -2693,6 +2701,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="image3"/>
                 <attribute attribute-id="image4"/>
                 <attribute attribute-id="image5"/>
+                <attribute attribute-id="timezone"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

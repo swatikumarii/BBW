@@ -57,6 +57,16 @@
         </custom-attributes>
     </folder>
 
+	<folder folder-id="seo-title">
+        <display-name xml:lang="x-default">Seo Title</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="isShow">false</custom-attribute>
+        </custom-attributes>
+    </folder>
+
     <content content-id="bottom-seo-3-wick-candles">
         <display-name xml:lang="x-default">Bottom Seo 3 Wick Candles</display-name>
         <description xml:lang="x-default">3 Wick Candles content</description>
@@ -1986,6 +1996,291 @@
     &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
+    </content>
+
+	    <content content-id="account.editpassword.seo">
+        <display-name xml:lang="x-default">Account EditPassword Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount Password Edit</page-title>
+            <page-description xml:lang="x-default">MyAccount Password Edit</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="account.editprofile.seo">
+        <display-name xml:lang="x-default">Account EditProfile Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount Profile Edit</page-title>
+            <page-description xml:lang="x-default">MyAccount Profile Edit</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="account.passwordreset.seo">
+        <display-name xml:lang="x-default">Account PasswordReset Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount Password Reset</page-title>
+            <page-description xml:lang="x-default">MyAccount Password Reset</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="account.setnewpassword.seo">
+        <display-name xml:lang="x-default">Account SetNewPassword Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount Set NewPassword</page-title>
+            <page-description xml:lang="x-default">MyAccount Set NewPassword</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="account.show.seo">
+        <display-name xml:lang="x-default">Account Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount</page-title>
+            <page-description xml:lang="x-default">MyAccount</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="address.addaddress.seo">
+        <display-name xml:lang="x-default">Address AddAddress Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount AddAddress</page-title>
+            <page-description xml:lang="x-default">MyAccount Add Address</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="address.editaddress.seo">
+        <display-name xml:lang="x-default">Address EditAddress Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount EditAddress</page-title>
+            <page-description xml:lang="x-default">MyAccount EditAddress</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="blogs.show.seo">
+        <display-name xml:lang="x-default">Blogs Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Get Inspired</page-title>
+            <page-description xml:lang="x-default">Fresh ideas. Fun how-tos. Fragrance guides. Welcome to your happy place for inspiration from Bath &amp; Body Works.</page-description>
+            <page-keywords xml:lang="x-default">Get Inspired</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	 <content content-id="cart.show.seo">
+        <display-name xml:lang="x-default">Cart Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">DisplayCart</page-title>
+            <page-description xml:lang="x-default">DisplayCart</page-description>
+            <page-keywords xml:lang="x-default">DisplayCart</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="checkout.shipping.seo">
+        <display-name xml:lang="x-default">Checkout Shipping Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Checkout</page-title>
+            <page-description xml:lang="x-default">Checkout</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="corporategifting.landing.seo">
+        <display-name xml:lang="x-default">CorporateGifting Landing Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Corporate Gifting</page-title>
+            <page-description xml:lang="x-default">Corporate Gifting</page-description>
+            <page-keywords xml:lang="x-default">Bath and Body Works</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="fragrance.ingredient.seo">
+        <display-name xml:lang="x-default">Fragrance Ingredient Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Shop by Ingredient</page-title>
+            <page-description xml:lang="x-default">Shop by Ingredient</page-description>
+            <page-keywords xml:lang="x-default">Bath and Body Works</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="fragrance.show.seo">
+        <display-name xml:lang="x-default">Fragrance Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Body Care &amp; Home Fragrances you'll love</page-title>
+            <page-description xml:lang="x-default">Explore the list of our top fragrances! Choose from our favourite scents and all sorts of goodies.</page-description>
+            <page-keywords xml:lang="x-default">shop by fragrance</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="home.show.seo">
+        <display-name xml:lang="x-default">Home Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Buy Body Care &amp; Home Fragrances You'll Love</page-title>
+            <page-description xml:lang="x-default">Shop Bath &amp; Body Works for the best fragrance, gifts, body &amp; bath products! Find your favorite fragrances and browse bath supplies to treat your body.</page-description>
+            <page-keywords xml:lang="x-default">Home</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="login.show.seo">
+        <display-name xml:lang="x-default">Login Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Registration | Login</page-title>
+            <page-description xml:lang="x-default">Create an account to access the best of your favorite store. Sign In or Sign Up at Bath &amp; Body Works Australia</page-description>
+            <page-keywords xml:lang="x-default">Login</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="order.confirm.seo">
+        <display-name xml:lang="x-default">Order Confirm Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Order Completed</page-title>
+            <page-description xml:lang="x-default">Order Completed</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="order.history.seo">
+        <display-name xml:lang="x-default">Order History Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount Order History</page-title>
+            <page-description xml:lang="x-default">MyAccount Order History</page-description>
+            <page-keywords xml:lang="x-default">MyAccount</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="order.track.seo">
+        <display-name xml:lang="x-default">Order Track Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Track Order</page-title>
+            <page-description xml:lang="x-default">After your order ships, tracking information may take 48 hours to appear. But don't worry! It's on the way. Get email offers &amp; the latest news</page-description>
+            <page-keywords xml:lang="x-default">Track Order</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="paymentinstruments.addpayment.seo">
+        <display-name xml:lang="x-default">Paymentinstruments AddPayment Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">My Payment Methods</page-title>
+            <page-description xml:lang="x-default">My Payment Methods</page-description>
+            <page-keywords xml:lang="x-default">My Payment Methods Bath and Body Works</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="paymentinstruments.list.seo">
+        <display-name xml:lang="x-default">PaymentInstruments List Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">My Payment Methods List</page-title>
+            <page-description xml:lang="x-default">My Payment Methods List</page-description>
+            <page-keywords xml:lang="x-default">My Payment Methods List Bath and Body Works</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="stores.find.seo">
+        <display-name xml:lang="x-default">Stores Find Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Store Locator</page-title>
+            <page-description xml:lang="x-default">Store Locator</page-description>
+            <page-keywords xml:lang="x-default">Bath and Body Works</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
     </content>
 
     <content content-id="footer-customer-care">
@@ -10101,7 +10396,11 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <display-name xml:lang="x-default">Contact Us</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes/>
+        <page-attributes>
+            <page-title xml:lang="x-default">Contact Us</page-title>
+            <page-description xml:lang="x-default">Find your favourite fragrances and browse bath supplies to treat your body. ?Free Shipping above $90 Bath &amp; Body Works Australia</page-description>
+            <page-keywords xml:lang="x-default">Contact Us</page-keywords>
+        </page-attributes>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
     &lt;div class="contact-us row"&gt;&#13;
