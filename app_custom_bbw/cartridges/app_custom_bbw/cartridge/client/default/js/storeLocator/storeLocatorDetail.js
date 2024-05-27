@@ -59,6 +59,8 @@ $(document).ready(function () {
     var daysOfWeek = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
     var dayOfWeek = daysOfWeek[now.getDay()];
     var todaysOpeningTime = $(`li:contains(` + dayOfWeek + `)`).children('.sl-time').text();
+    var firstEleDiv = $('.sl-weekday').first()
+    $('#first-element').text(firstEleDiv.html() + ' ' + ' ' + firstEleDiv.siblings().first().html()); 
     if(todaysOpeningTime){
         var arr = todaysOpeningTime.split(/\s*\-\s*/g);
         var currTime = now.getHours();
