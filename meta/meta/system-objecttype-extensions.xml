@@ -1367,6 +1367,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="essentialFragrances">
+                <display-name xml:lang="x-default">essentialFragrances</display-name>
+                <description xml:lang="x-default">This fragrance will always present on shop by fragrance page.</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="estimatedDelivery">
                 <display-name xml:lang="x-default">Estimated Delivery</display-name>
                 <description xml:lang="x-default">Estimated Delivery date for orders</description>
@@ -1740,6 +1747,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="fragranceNames"/>
                 <attribute attribute-id="topFragrances"/>
                 <attribute attribute-id="productIngredients"/>
+                <attribute attribute-id="essentialFragrances"/>
             </attribute-group>
             <attribute-group group-id="Tracking">
                 <display-name xml:lang="x-default">Tracking</display-name>
