@@ -141,31 +141,61 @@
               }
           },
           {
-              "@type-id": "custom.createFacebookFeed",
-              "@supports-parallel-execution": "true",
-              "@supports-site-context": "true",
-              "@supports-organization-context": "false",
-              "description": "Create Facebook feed of the product assigned to the site.",
-              "module": "app_custom_bbw/cartridge/scripts/jobs/getFeeds.js",
-              "function": "getFacebookFeeds",
-              "transactional": "false",
-              "timeout-in-seconds": "900",
-              "status-codes": {
-                  "status": [
-                      {
-                          "@code": "ERROR",
-                          "description": "Used when the step failed with an error."
-                      },
-                      {
-                          "@code": "FINISHED",
-                          "description": "Used when the step finished successfully."
-                      },
-                      {
-                          "@code": "FINISHED_WITH_WARNINGS",
-                          "description": "Used when the step finished with warnings."
-                      }
-                  ]
-              }
+            "@type-id": "custom.createFacebookFeed",
+            "@supports-parallel-execution": "true",
+            "@supports-site-context": "true",
+            "@supports-organization-context": "false",
+            "description": "Create Facebook feed of the product assigned to the site.",
+            "module": "app_custom_bbw/cartridge/scripts/jobs/getFeeds.js",
+            "function": "getFacebookFeeds",
+            "transactional": "false",
+            "timeout-in-seconds": "900",
+            "status-codes": {
+                "status": [
+                    {
+                        "@code": "ERROR",
+                        "description": "Used when the step failed with an error."
+                    },
+                    {
+                        "@code": "FINISHED",
+                        "description": "Used when the step finished successfully."
+                    },
+                    {
+                        "@code": "FINISHED_WITH_WARNINGS",
+                        "description": "Used when the step finished with warnings."
+                    }
+                ]
+            }
+          },
+          {
+            "@type-id": "custom.CreateDynamicBadges",
+            "@supports-parallel-execution": "false",
+            "@supports-site-context": "true",
+            "@supports-organization-context": "false",
+            "description": "Create dynamic badges for all products",
+            "module": "app_custom_bbw/cartridge/scripts/jobs/createDynamicBadges.js",
+            "function": "execute",
+            "transactional": "true",
+            "timeout-in-seconds": "900",
+            "parameters": {
+              "parameter": []
+            },
+            "status-codes": {
+              "status": [
+                {
+                  "@code": "ERROR",
+                  "description": "Used when the step failed with an error."
+                },
+                {
+                  "@code": "FINISHED",
+                  "description": "Used when the step finished successfully."
+                },
+                {
+                  "@code": "FINISHED_WITH_WARNINGS",
+                  "description": "Used when the step finished with warnings."
+                }
+              ]
+            }
           }
       ]
     }
