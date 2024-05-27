@@ -43,6 +43,13 @@
                 <p class="short-descrition h-font-size--14 h-clr--gray">
                     <isprint value="${product.shortDescription}" encoding="off" />
                 </p>
+                <iselse>
+                    <isif condition="${product.longDescription}">
+                        <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
+                            <isprint value="${product.longDescription}" encoding="off" />
+                        </p>
+                    </isif>
+                </iselse>
             </isif>
 
             <div class="prices-add-to-cart-actions">

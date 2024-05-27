@@ -42,6 +42,9 @@
                                 <isif condition="${lineItem.titlePartB}">
                                     <span class="product-number d-block">${lineItem.titlePartB}</span>
                                 </isif>
+                                <isif condition="${lineItem.volume}">
+                                    <span class="product-number d-block">${lineItem.volume}</span>
+                                </isif>
                                 <span class="product-number d-block">${Resource.msg('lable.orderDetail.item.id', 'order', null)} :
                                     ${lineItem.id}</span>
                                 <iscomment> <span class="order-email">${Resource.msg('label.bracket.open', 'order', null)}${orderEmail}${Resource.msg('label.bracket.close', 'order', null)}</span>

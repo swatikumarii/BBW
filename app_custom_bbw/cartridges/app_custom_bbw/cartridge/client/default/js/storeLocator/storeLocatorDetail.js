@@ -50,4 +50,38 @@ async function initMap() {
     });
 }
 
-initMap();
+/**
+ * On ready
+ */
+$(document).ready(function () {
+    initMap();
+    var now = new Date(); // get the current day of the week 
+    var daysOfWeek = [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ];
+    var dayOfWeek = daysOfWeek[now.getDay()];
+    var todaysOpeningTime = $(`li:contains(` + dayOfWeek + `)`).children('.sl-time').text();
+    var firstEleDiv = $('.sl-weekday').first()
+    $('#first-element').text(firstEleDiv.html() + ' ' + ' ' + firstEleDiv.siblings().first().html()); 
+    if(todaysOpeningTime){
+        var arr = todaysOpeningTime.split(/\s*\-\s*/g);
+        var currTime = now.getHours();
+        //break time to get open hour
+        var exactOpenHr = (arr[0].toLowerCase()).includes('am')
+            ? Number(arr[0].split(/\s*\:\s*/g)[0])
+            : Number(arr[0].split(/\s*\:\s*/g)[0]) + 12; ;      
+        
+        var exactClosingHr = (arr[1].toLowerCase()).includes('am') ? Number((arr[1].split(/\s*\:\s*/g))[0]) : Number((arr[1].split(/\s*\:\s*/g))[0]) + 12;
+        if(exactOpenHr > currTime){
+            $('.closed').removeClass('d-none');
+        }
+        if (currTime >= exactOpenHr) {
+            $('.closed').addClass('d-none');
+            $('.opened').removeClass('d-none');
+            $('#open-now').append(arr[1]);
+        }
+        if(currTime > exactClosingHr){
+            $('.closed').removeClass('d-none');
+            $('.opened').addClass('d-none'); 
+        }
+    }
+
+});
