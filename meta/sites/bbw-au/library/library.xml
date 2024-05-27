@@ -13782,7 +13782,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         class="ui-accordion-header text-center h-font-size--16" data-toggle="collapse" href="#collapseExample"&#13;
         role="button"&gt;&#13;
 &#13;
-        &lt;p class="desk-title h-font-size--24 text-transform"&gt;Have a gift card?&lt;/p&gt;&#13;
+        &lt;p class="desk-title h-font-size--24 text-transform h-clr--black-3"&gt;Have a gift card?&lt;/p&gt;&#13;
         &lt;span class="ui-accordion-header-icon ui-icon iconClosed"&gt;&lt;/span&gt;&lt;br /&gt;&#13;
         &lt;span&gt;Check Card Balance&lt;/span&gt;&#13;
     &lt;/h2&gt;&#13;
@@ -13790,7 +13790,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;div class="collapse" id="collapseExample"&gt;&#13;
     &lt;div class="balance-box"&gt;&#13;
         &lt;form class="clearfix" id="giftcard-landing-form" method="post" novalidate="novalidate"&gt;&#13;
-            &lt;div class="form-row number-max-length " data-required-text=""&gt;&lt;label&#13;
+            &lt;div class="form-row number-max-length d-block" data-required-text=""&gt;&lt;label&#13;
                     for="dwfrm_giftcard_giftCardID"&gt;Gift Card Number&lt;span&#13;
                         class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
 &#13;

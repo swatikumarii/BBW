@@ -321,24 +321,46 @@ server.get(
         );
         if (orderId) {
             var order = OrderMgr.getOrder(orderId);
-            var breadcrumbs = [
-                {
-                    htmlValue: Resource.msg('global.home', 'common', null),
-                    url: URLUtils.home().toString()
-                },
-                {
-                    htmlValue: Resource.msg(
-                        'page.title.myaccount',
-                        'account',
-                        null
-                    ),
-                    url: URLUtils.url('Account-Show').toString()
-                },
-                {
-                    htmlValue: Resource.msg('label.orderhistory', 'account', null),
-                    url: URLUtils.url('Order-History').toString()
-                }
-            ];
+            var breadcrumbs = [];
+            if (req.currentCustomer.profile) {
+                breadcrumbs = [
+                    {
+                        htmlValue: Resource.msg('global.home', 'common', null),
+                        url: URLUtils.home().toString()
+                    },
+                    {
+                        htmlValue: Resource.msg(
+                            'page.title.myaccount',
+                            'account',
+                            null
+                        ),
+                        url: URLUtils.url('Account-Show').toString()
+                    },
+                    {
+                        htmlValue: Resource.msg('label.orderhistory', 'account', null),
+                        url: URLUtils.url('Order-History').toString()
+                    }
+                ];
+            } else {
+                breadcrumbs = [
+                    {
+                        htmlValue: Resource.msg('global.home', 'common', null),
+                        url: URLUtils.home().toString()
+                    },
+                    {
+                        htmlValue: Resource.msg(
+                            'label.order.tracking',
+                            'order',
+                            null
+                        ),
+                        url: URLUtils.url('Order-Status').toString()
+                    },
+                    {
+                        htmlValue: Resource.msg('order.title.receipt', 'order', null),
+                        url: URLUtils.url('Order-Tracking').toString()
+                    }
+                ];
+            }
 
             if (order) {
                 var orderModel = orderHelpers.getOrderDetailsByID(
@@ -357,7 +379,7 @@ server.get(
                 );
 
                 var isEgiftCard;
-                if (orderModel.shipping.length > 0){
+                if (orderModel.shipping.length > 0) {
                     var products = orderModel.shipping[0].productLineItems.items;
                     for (var index = 0; index < products.length; index++) {
                         if (products[index].isEgiftCard) {
