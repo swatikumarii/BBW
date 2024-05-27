@@ -1245,7 +1245,7 @@
                 <type>text</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
-            </attribute-definition>            
+            </attribute-definition>
             <attribute-definition attribute-id="showTopOffers">
                 <display-name xml:lang="x-default">Show Top Offers</display-name>
                 <description xml:lang="x-default">Show top offers on mini cart</description>
@@ -3249,8 +3249,119 @@
             </attribute-group>
         </group-definitions>
     </type-extension>
-    <type-extension type-id="Promotion">
+        <type-extension type-id="Promotion">
         <custom-attribute-definitions>
+            <attribute-definition attribute-id="Buy">
+                <display-name xml:lang="x-default">Buy</display-name>
+                <type>set-of-double</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="For">
+                <display-name xml:lang="x-default">For</display-name>
+                <type>double</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="ForSelector">
+                <display-name xml:lang="x-default">ForSelector</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Percent Off</display>
+                        <value>Percent Off</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Amount Off</display>
+                        <value>Amount Off</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Fixed Price</display>
+                        <value>Fixed Price</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Bonus Product</display>
+                        <value>Bonus Product</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Choice of Bonus Product</display>
+                        <value>Choice of Bonus Product</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Free</display>
+                        <value>Free</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Free Shipping</display>
+                        <value>Free Shipping</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="Get">
+                <display-name xml:lang="x-default">Get</display-name>
+                <type>set-of-double</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="addFreeMessage">
+                <display-name xml:lang="x-default">Add Free Item Message</display-name>
+                <type>html</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="discountedProducts">
+                <display-name xml:lang="x-default">Discounted Products</display-name>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="promotionCondition">
+                <display-name xml:lang="x-default">Promotion Condition</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Amount of products</display>
+                        <value>Amount</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Number of products</display>
+                        <value>Number</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="qualificationMessage">
+                <display-name xml:lang="x-default">Qualification Message</display-name>
+                <type>html</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="qualificationMsg">
+                <display-name xml:lang="x-default">Qualification Message</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="qualifyingProducts">
+                <display-name xml:lang="x-default">Qualifying Products</display-name>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="showOnMiniCart">
                 <display-name xml:lang="x-default">Show on mini cart</display-name>
                 <type>boolean</type>
@@ -3266,10 +3377,42 @@
             </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
+            <attribute-group group-id="couponQualification">
+                <display-name xml:lang="x-default">Coupon Qualification</display-name>
+                <attribute attribute-id="qualificationMsg"/>
+            </attribute-group>
+            <attribute-group group-id="motivator">
+                <display-name xml:lang="x-default">Motivator</display-name>
+                <attribute attribute-id="promotionCondition"/>
+                <attribute attribute-id="Buy"/>
+                <attribute attribute-id="Get"/>
+                <attribute attribute-id="For"/>
+                <attribute attribute-id="ForSelector"/>
+                <attribute attribute-id="qualifyingProducts"/>
+                <attribute attribute-id="discountedProducts"/>
+                <attribute attribute-id="addFreeMessage"/>
+                <attribute attribute-id="qualificationMessage"/>
+            </attribute-group>
             <attribute-group group-id="miniCart">
                 <display-name xml:lang="x-default">Mini Cart</display-name>
                 <attribute attribute-id="showOnMiniCart"/>
                 <attribute attribute-id="termsAndConditions"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+    <type-extension type-id="SlotConfiguration">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="showOutOfStockProducts">
+                <display-name xml:lang="x-default">Show Out Of Stock Products</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Custom Configurations">
+                <display-name xml:lang="x-default">Custom Configurations</display-name>
+                <attribute attribute-id="showOutOfStockProducts"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

@@ -22,6 +22,7 @@ function getEgiftCardDetails(item) {
     var eGiftScheduledMonths = item.custom.eGiftCardScheduleMonth;
     var eGiftScheduledYear = item.custom.eGiftScheduledYear;
     var eGiftScheduledDay = item.custom.eGiftCardScheduleDay;
+    var eGiftVideoLink = item.custom.eGiftVideoLink;
     var eGiftScheduledDate;
     var month = qwikcilverHelpers.getIndexOfMonths(eGiftScheduledMonths);
     if (eGiftScheduledMonths && eGiftScheduledYear && eGiftScheduledDay) {
@@ -57,7 +58,8 @@ function getEgiftCardDetails(item) {
         eGiftScheduledDay: eGiftScheduledDay || '',
         eGiftScheduledMonths: eGiftScheduledMonths || '',
         giftBarCode: giftCardBarCode,
-        giftBarCodeNumber: giftBarCodeNumber
+        giftBarCodeNumber: giftBarCodeNumber,
+        eGiftVideoLink: eGiftVideoLink || ''
     };
     return cardInfo;
 }
@@ -164,9 +166,14 @@ function createProductLineItemsObject(allLineItems, view) {
         if ('titlePartB' in item.product.custom && item.product.custom.titlePartB) {
             newLineItem.titlePartB = item.product.custom.titlePartB;
         }
+        if ('volume' in item.product.custom && item.product.custom.volume) {
+            newLineItem.volume = item.product.custom.volume;
+        }
+
         if ('greetingCardMessage' in item.custom && item.custom.greetingCardMessage) {
             newLineItem.greetingCardMessage = item.custom.greetingCardMessage;
         }
+
         newLineItem.bonusProducts = bonusProducts;
         if (enableQCeGift && 'custom' in item && 'isEgiftCard' in item.custom && item.custom.isEgiftCard) {
             newLineItem.giftCardDetails = getEgiftCardDetails(item);

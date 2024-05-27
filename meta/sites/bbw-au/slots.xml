@@ -58,7 +58,7 @@
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-1-image-section"/>
+                <content-asset content-id="menu-item-slot-1-detail-section"/>
             </content-assets>
         </content>
     </slot-configuration>
@@ -69,7 +69,7 @@
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-2-image-section"/>
+                <content-asset content-id="menu-item-slot-1-detail-section"/>
             </content-assets>
         </content>
     </slot-configuration>
@@ -80,7 +80,7 @@
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-3-image-section"/>
+                <content-asset content-id="menu-item-slot-1-detail-section"/>
             </content-assets>
         </content>
     </slot-configuration>
@@ -91,7 +91,7 @@
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-4-image-section"/>
+                <content-asset content-id="menu-item-slot-1-detail-section"/>
             </content-assets>
         </content>
     </slot-configuration>
