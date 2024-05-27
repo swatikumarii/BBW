@@ -121,6 +121,23 @@
                         </div>
                     </div>
 
+                    <!-- Display Afterpay Widget during Express Checkout finalization -->
+                    <isinclude template="product/components/afterpaywidget" />
+                    <isif condition="${ecFinalize}">
+                        <div class="ap-checkout-pay-tab-ecf ap-checkout-pay-tab-noecf ap-checkout-po-ecf">
+                            <div id="afterpay-widget-container"></div>
+                        </div>
+                    <iselse/>
+                        <div class="ap-checkout-pay-tab-noecf">
+                            <input type="hidden" class="checkout-widget" value="${URLUtils.https('AfterpayWidget-updateCheckoutWidget')}">
+                            <div class="afterpay-checkout-widget"></div>
+                        </div>
+                    </isif>
+                    <!-- Display Cash App Pay Popup -->
+                    <div class="cap-checkout-content">
+                        <isinclude template="product/components/cashappwidget" />
+                        <div id="cash-app-pay"></div>
+                    </div>
                     <iscomment> Checkout Workflow Buttons </iscomment>
 
                     <div class="row">
