@@ -1,5 +1,12 @@
 <div class="image-container b-product-tile__img-wrapper position-relative">
     <div class="social-badge-wrapper d-flex h-grid-gap--5 position-absolute flex-wrap h-maxwidth--100">
+        <isif condition="${product.dynamicBadge}">
+            <div class="b-product-tile__social-badge">
+                <div
+                    class="b-product-tile__social-badge-text h-bg--blue h-clr--white d-inline-flex h-fw--bold justify-content-center b-text-a text-decoration-none">
+                    ${product.dynamicBadge}</div>
+            </div>
+        </isif>
         <isif condition="${product.badge1}">
             <div class="b-product-tile__social-badge">
                 <div
