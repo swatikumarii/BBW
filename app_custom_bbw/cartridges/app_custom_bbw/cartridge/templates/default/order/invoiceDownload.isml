@@ -203,6 +203,13 @@
                                         <p style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919; margin-left:16px;">
                                         ${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</p>
                                     </isif>
+                                    <isif condition="${lineItem.titlePartB}">
+                                        <p style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919; margin-left:16px;">${lineItem.titlePartB}
+                                        </p>
+                                    </isif>
+                                    <isif condition="${lineItem.volume}">
+                                        <p style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919; margin-left:16px;">${lineItem.volume}</p>
+                                    </isif>
                                     <isif condition="${lineItem.productCategory === 'greetingCardProducts'}">
                                         <p
                                             style="margin:0px;font-size:14px;font: normal 14px/24px ScalaSansOT,sans-serif; letter-spacing: 0.75px;color: #1a1919;">
