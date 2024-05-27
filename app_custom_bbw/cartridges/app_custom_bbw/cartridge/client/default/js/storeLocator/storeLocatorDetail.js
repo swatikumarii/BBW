@@ -66,7 +66,7 @@ $(document).ready(function () {
         ? Number(nowTime.split(/\s*\:\s*/g)[0])
         : Number(nowTime.split(/\s*\:\s*/g)[0]) + 12;
     var todaysOpeningTime = $(`li:contains(` + currday + `)`).children('.sl-time').text();
-    var firstEleDiv = $('.sl-weekday').first()
+    var firstEleDiv = $(`.sl-weekday:contains(`+currday+`)`).first()
     $('#first-element').text(firstEleDiv.html() + ' ' + ' ' + firstEleDiv.siblings().first().html()); 
     if(todaysOpeningTime){
         var arr = todaysOpeningTime.split(/\s*\-\s*/g);      
