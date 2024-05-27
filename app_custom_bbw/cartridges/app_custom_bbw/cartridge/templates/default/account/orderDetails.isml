@@ -21,31 +21,62 @@
     <isinclude template="product/components/removeGiftLineItem" />
     <div class="h-maxwidth--1400 mx-auto my-account receipt <isif condition=" ${pdict.order.shipping.length > 1}">multi-ship</isif>">
         <div class="row account-dashboard">
-            <div class="account-nav-wrap">
-                <div class="my-account-nav">
-                    <isinclude template="account/accountNav" />
+            <isif condition="${!session.isCustomerAuthenticated()}">
+                <div class="account-nav-wrap d-none">
+                    <div class="my-account-nav">
+                        <isinclude template="account/accountNav" />
+                    </div>
                 </div>
-            </div>
-            <div class="description-detail">
-                <div class="my-account-description">
-                    <isinclude template="account/order/orderDetails" />
-                    <div class="d-md-flex">
-                        <div class="order-btn mr-2 mb-2 mb-md-0">
-                            <a class="btn btn-hover btn-block" href="${pdict.exitLinkUrl}"
-                                title="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
-                                aria-label="${Resource.msg('link.orderdetails.myaccount', 'account', null)}">
-                                ${pdict.exitLinkText}
-                            </a>
-                        </div>
-                        <div class="order-btn">
-                            <a class="continue-shopping-link btn-block" href="${URLUtils.url('Home-Show')}"
-                                title="${Resource.msg('link.continue.shopping', 'cart', null)}">
-                                ${Resource.msg('link.continue.shopping', 'cart', null)}
-                            </a>
+            <iselse/>
+                <div class="account-nav-wrap">
+                    <div class="my-account-nav">
+                        <isinclude template="account/accountNav" />
+                    </div>
+                </div>
+            </isif>
+            <isif condition="${!session.isCustomerAuthenticated()}">
+                <div class="description-detail description-order-details">
+                    <div class="my-account-description">
+                        <isinclude template="account/order/orderDetails" />
+                        <div class="d-md-flex">
+                            <div class="order-btn mr-2 mb-2 mb-md-0">
+                                <a class="btn btn-hover btn-block" href="${pdict.exitLinkUrl}"
+                                    title="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
+                                    aria-label="${Resource.msg('link.orderdetails.myaccount', 'account', null)}">
+                                    ${pdict.exitLinkText}
+                                </a>
+                            </div>
+                            <div class="order-btn">
+                                <a class="continue-shopping-link btn-block" href="${URLUtils.url('Home-Show')}"
+                                    title="${Resource.msg('link.continue.shopping', 'cart', null)}">
+                                    ${Resource.msg('link.continue.shopping', 'cart', null)}
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <iselse/>
+                <div class="description-detail">
+                    <div class="my-account-description">
+                        <isinclude template="account/order/orderDetails" />
+                        <div class="d-md-flex">
+                            <div class="order-btn mr-2 mb-2 mb-md-0">
+                                <a class="btn btn-hover btn-block" href="${pdict.exitLinkUrl}"
+                                    title="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
+                                    aria-label="${Resource.msg('link.orderdetails.myaccount', 'account', null)}">
+                                    ${pdict.exitLinkText}
+                                </a>
+                            </div>
+                            <div class="order-btn">
+                                <a class="continue-shopping-link btn-block" href="${URLUtils.url('Home-Show')}"
+                                    title="${Resource.msg('link.continue.shopping', 'cart', null)}">
+                                    ${Resource.msg('link.continue.shopping', 'cart', null)}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </isif>
         </div>
     </div>
 </isdecorate>
