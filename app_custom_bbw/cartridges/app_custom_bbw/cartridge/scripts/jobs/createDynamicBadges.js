@@ -102,6 +102,95 @@ function setInPurchase(products) {
 }
 
 /**
+ * @param {Array} productCarts - ProductCart
+ * @param {string} productId - ProductID
+ * @returns {object} data from productCarts with matching productId
+ */
+function getFromProductCarts(productCarts, productId) {
+    for (var p = 0; p < productCarts.length; p++) {
+        var pc = productCarts[p];
+        if (pc.productId === productId) {
+            return pc;
+        }
+    }
+    return null;
+}
+
+/**
+ * @param {Array} productCarts - ProductCart
+ * @param {string} productId - ProductID
+ * @returns {number} index of productCarts with matching productId
+ */
+function getIndexOfProductCarts(productCarts, productId) {
+    for (var p = 0; p < productCarts.length; p++) {
+        var pc = productCarts[p];
+        if (pc.productId === productId) {
+            return p;
+        }
+    }
+    return -1;
+}
+
+/**
+ * Set dynamic badge for In Cart
+ * @param {Array} products - Products
+ */
+function setInCart(products) {
+    if (site.current.getCustomPreferenceValue('isInCartDynamicBadgeEnabled')) {
+        var CustomerMgr = require('dw/customer/CustomerMgr');
+        var query = 'firstName like \'*\'';
+        var customerProfiles = CustomerMgr.queryProfiles(query, null, null, 1, 1);
+        var productCarts = [];
+        while (customerProfiles !== null && customerProfiles.hasNext()) {
+            var cp = customerProfiles.next();
+            if (
+                cp.custom &&
+                'cartProducts' in cp.custom &&
+                cp.custom.cartProducts
+            ) {
+                var cartProducts = cp.custom.cartProducts;
+                if (cartProducts && cartProducts.length > 0) {
+                    for (var i = 0; i < cartProducts.length; i++) {
+                        var cartProduct = cartProducts[i];
+                        var obj = cartProduct.split('#');
+                        if (obj && obj.length === 2) {
+                            var productCartIndex = getIndexOfProductCarts(productCarts, obj[0]);
+                            if (productCartIndex >= 0) {
+                                productCarts[productCartIndex].count +=
+                                    Number(obj[1], 10);
+                            } else {
+                                productCarts.push({
+                                    productId: obj[0],
+                                    count: Number(obj[1], 10)
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        Transaction.wrap(function () {
+            for (var ci = 0; ci < products.length; ci++) {
+                var product = products[ci];
+                var productInCart = getFromProductCarts(
+                    productCarts,
+                    product.ID
+                );
+                if (productInCart) {
+                    product.custom.dynamicBadge = Resource.msgf(
+                        'label.dynamic.badge.carts',
+                        'common',
+                        null,
+                        productInCart.count
+                    );
+                }
+            }
+        });
+    }
+}
+
+/**
  * @description This function is run by the job to get fragrance names list from all products.
  */
 function execute() {
@@ -114,6 +203,7 @@ function execute() {
         );
     });
     setInPurchase(allProducts);
+    setInCart(allProducts);
     setTrending(allProducts);
     setFastSeller(allProducts);
 }

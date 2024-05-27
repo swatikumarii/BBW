@@ -287,6 +287,30 @@
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="dynamicBadge">
+                <display-name xml:lang="x-default">Dynamic Badge</display-name>
+                <description xml:lang="x-default">Dynamic Badge</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="isDynamicBadgeEnabled">
+                <display-name xml:lang="x-default">Is Dynamic Badge Enabled</display-name>
+                <description xml:lang="x-default">Is Dynamic Badge Enabled</description>
+                <type>boolean</type>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="dangerousGoods">
                 <display-name xml:lang="x-default">Dangerous Goods</display-name>
                 <type>boolean</type>
@@ -354,6 +378,11 @@
                 <display-name xml:lang="x-default">Storefront Attributes</display-name>
                 <attribute attribute-id="refinementColor"/>
                 <attribute attribute-id="titlePartB"/>
+            </attribute-group>
+            <attribute-group group-id="dynamicBadgeAttributes">
+                <display-name xml:lang="x-default">Dynamic Badge Attributes</display-name>
+                <attribute attribute-id="isDynamicBadgeEnabled"/>
+                <attribute attribute-id="dynamicBadge"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -431,6 +460,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="cartProducts">
+                <display-name xml:lang="x-default">Cart Products</display-name>
+                <description xml:lang="x-default">Cart Products</description>
+                <type>set-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Standard">
@@ -452,6 +488,10 @@
                 <attribute attribute-id="activatedDate"/>
                 <attribute attribute-id="lastModified"/>
                 <attribute attribute-id="dialCode"/>
+            </attribute-group>
+            <attribute-group group-id="dynamicBadgesAttribute">
+                <display-name xml:lang="x-default">Dynamic Badges Attribute</display-name>
+                <attribute attribute-id="cartProducts"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -1495,6 +1535,71 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="trendingBadge">
+                <display-name xml:lang="x-default">Trending Badge</display-name>
+                <description xml:lang="x-default">Trending Badge will be applicable on selected configuration</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Day</display>
+                        <value>unitsDay</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Month</display>
+                        <value>unitsMonth</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Week</display>
+                        <value>unitsWeek</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Year</display>
+                        <value>unitsYear</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="fastSellerThreshold">
+                <display-name xml:lang="x-default">Fast Seller Threshold</display-name>
+                <description xml:lang="x-default">This attribute hold value to set Fast Seller dynamic badge.&#13;
+Logic: We will set Fast Seller whose inventory is less than set threshold.</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="isInCartDynamicBadgeEnabled">
+                <display-name xml:lang="x-default">Is In Cart Enabled</display-name>
+                <description xml:lang="x-default">Is In Cart Enabled</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="isInPurchaseDynamicBadgeEnabled">
+                <display-name xml:lang="x-default">Is In Purchase Enabled</display-name>
+                <description xml:lang="x-default">Is In Purchase Enabled</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="isLowStockDynamicBadgeEnabled">
+                <display-name xml:lang="x-default">Is Low Stock Enabled</display-name>
+                <description xml:lang="x-default">Is Low Stock Dynamic Badge Enabled</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="isTrendingDynamicBadgeEnabled">
+                <display-name xml:lang="x-default">Is Trending Enabled</display-name>
+                <description xml:lang="x-default">Is Trending Enabled</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="mapAPI">
                 <display-name xml:lang="x-default">google map api key</display-name>
                 <type>string</type>
@@ -1697,6 +1802,15 @@
                 <display-name xml:lang="x-default">Contact Us Configurations</display-name>
                 <attribute attribute-id="openingTime"/>
                 <attribute attribute-id="closingTime"/>
+            </attribute-group>
+            <attribute-group group-id="dynamicBadgeConfiguration">
+                <display-name xml:lang="x-default">Dynamic Badge Configuration</display-name>
+                <attribute attribute-id="fastSellerThreshold"/>
+                <attribute attribute-id="trendingBadge"/>
+                <attribute attribute-id="isLowStockDynamicBadgeEnabled"/>
+                <attribute attribute-id="isTrendingDynamicBadgeEnabled"/>
+                <attribute attribute-id="isInCartDynamicBadgeEnabled"/>
+                <attribute attribute-id="isInPurchaseDynamicBadgeEnabled"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
