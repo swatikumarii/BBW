@@ -5,6 +5,7 @@ var endpoint = $('.suggestions-wrapper').data('url');
 var UP_KEY = 38;
 var DOWN_KEY = 40;
 var DIRECTION_DOWN = 1;
+var ESCAPE_KEY = 27;
 var DIRECTION_UP = -1;
 var windowWidth = $(window).outerWidth();
 var lazyload = require('../utils/lazyLoad');
@@ -437,6 +438,15 @@ module.exports = function () {
                 case UP_KEY:
                     handleArrow(DIRECTION_UP);
                     e.preventDefault();  // prevent moving the cursor
+                    break;
+                case ESCAPE_KEY:
+                    if (layout.isDesktop() || layout.isTablet()) {
+                        $('.js-search-suggestions').stop().slideUp();
+                    }
+                    $('.js-reset-button').hide();
+                    $('.search-fly-out-opacity').addClass('d-none');
+                    $('#header-search').removeClass('expand-towards-right');
+                    $('.utility-user, .minicart').removeClass('d-lg-none d-md-none');
                     break;
                 default:
                     // Always allow debounceSuggestions on keyup, regardless of focus status
