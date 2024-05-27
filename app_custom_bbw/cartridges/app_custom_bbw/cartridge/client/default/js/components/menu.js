@@ -82,6 +82,13 @@ if (layout.isDesktop() || layout.isTablet()) {
     $level1li.hover(
         function () {
             var $level1Parent = $(this).parent();
+            var maxWidth;
+            $(this).find('.level-2-li').each(function () {
+                if ($(this).width() > maxWidth) {
+                    maxWidth = $(this).width();
+                }
+            });
+            $(this).find('.level-2-li').width(maxWidth);
             $(this)
                 .parent()
                 .find('.menu-wrap-level-1')
@@ -162,8 +169,8 @@ if (layout.isDesktop() || layout.isTablet()) {
     );
 
     // Calculate level 2 ul width
-    var level2ul = $('.bbw-brand-menu .level-2-ul').width();
-    $('.level-2-li').css('width', level2ul);
+    // var level2ul = $('.bbw-brand-menu .level-2-ul').width();
+    // $('.level-2-li').css('width', level2ul);
 
     /** 2 Column layout */
     // Select the main container div

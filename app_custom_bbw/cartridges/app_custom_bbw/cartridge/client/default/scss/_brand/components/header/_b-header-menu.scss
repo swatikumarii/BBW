@@ -326,10 +326,11 @@
                                 position: relative;
                                 text-align: left;
 
-                                .explore-li.show {
+                                .explore-li.level-2-li {
                                     &::after,
                                     &::before {
                                         content: none;
+                                        background: none;
                                     }
                                 }
 
