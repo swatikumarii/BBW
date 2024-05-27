@@ -99,4 +99,25 @@ server.prepend(
     }
 );
 
+/**
+ * Handle dynamic badges
+ */
+server.append(
+    'LoginCustomer',
+    function (req, res, next) {
+        var dynamicBadgeHelpers = require('*/cartridge/scripts/helpers/dynamicBadgeHelpers');
+        var viewData = res.getViewData();
+        if (
+            viewData.customerLoginResult &&
+            viewData.customerLoginResult.authenticatedCustomer &&
+            viewData.customerLoginResult.authenticatedCustomer.profile
+        ) {
+            dynamicBadgeHelpers.updateCartDetailInProfile(
+                viewData.customerLoginResult.authenticatedCustomer.profile
+            );
+        }
+        return next();
+    }
+);
+
 module.exports = server.exports();
