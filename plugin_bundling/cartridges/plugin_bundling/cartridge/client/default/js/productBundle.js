@@ -22,7 +22,7 @@ function checkIfBundleReady() {
 
 $(document).ready(function () {
     var deviceWidth = $(window).innerWidth();
-    var bundleName = $('.storepage').attr('class').replace('storepage ', '');
+    var bundleName = $('.bundleName').val();
     // check if bundle is unavailable and return
     if ($('.bundle-unavailable').length) {
         $('.bundleRow').remove();
