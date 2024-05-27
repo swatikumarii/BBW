@@ -15,29 +15,18 @@
                 <div class="store-name h-font-size--18 h-fw--bold h-clr--black-1 mb-4">
                     ${pdict.storeDetail.name}</div>
                 <address class="h-clr--black-1">
-                    <div class="store-hours mt-2">
-                        <div class="">
-                           
-                        </div>
-                        <div class="store-dropdown store-hours-details position-relative">
-                            <button class="border-0 h-bg--white dropdown-toggle p-0" type="button" id="store-hours-details" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                    <div class="store-dropdown store-hours-details position-relative">
+                        <button class="border-0 h-bg--white dropdown-toggle p-0" type="button" id="store-hours-details"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span id="first-element"></span>
+                            <img src="${URLUtils.staticURL('/images/store-locator/UI-Carat.svg')}"
+                                alt="${Resource.msg('global.storename', 'common', null)}" />
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="store-hours-details">
+                            <div class="store-hours mt-2">
                                 <isif condition="${pdict.storeDetail.storeHours}">
                                     <isprint value="${pdict.storeDetail.storeHours}" encoding="off" />
                                 </isif>
-                                <img src="${URLUtils.staticURL('/images/store-locator/UI-Carat.svg')}"
-                                    alt="${Resource.msg('global.storename', 'common', null)}" />
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="store-hours-details">
-                                <ul>
-                                    <li class="dropdown-item"><span class="sl-weekday">Mon</span><span class="sl-time">11:00 AM - 10:00PM</span></li>
-                                    <li class="dropdown-item"><span class="sl-weekday">Tue</span><span class="sl-time">11:00 AM - 10:00PM</span></li>
-                                    <li class="dropdown-item"><span class="sl-weekday">Wed</span><span class="sl-time">11:00 AM - 10:00PM</span></li>
-                                    <li class="dropdown-item"><span class="sl-weekday">Thu</span><span class="sl-time">11:00 AM - 10:00PM</span></li>
-                                    <li class="dropdown-item"><span class="sl-weekday">Fri</span><span class="sl-time">11:00 AM - 10:00PM</span></li>
-                                    <li class="dropdown-item"><span class="sl-weekday">Sat</span><span class="sl-time">11:00 AM - 10:00PM</span></li>
-                                    <li class="dropdown-item"><span class="sl-weekday">Sun</span><span class="sl-time">11:00 AM - 10:00PM</span></li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -56,7 +45,13 @@
                         ${pdict.storeDetail.postalCode}
                     </a>
                 </address>
-                <p class="open-now d-flex align-items-center h-clr--black-1">${pdict.storeDetail.storeHours}</p>
+                <div class="opened d-none">
+                    <p id="open-now" class="open-now d-flex align-items-center h-clr--black-1"><span class="h-bg--green"></span>${Resource.msg('msg.open.now', 'storeLocator', null)}</p>
+                </div>
+
+                <div class="closed d-none">
+                    <p id="closed-now" class="open-now d-flex align-items-center h-clr--black-1"><span class="h-bg--red"></span>${Resource.msg('msg.closed.now', 'storeLocator', null)}</p>
+                </div>
                 <div class="phone-email d-flex">
                     <isif condition="${pdict.storeDetail.phone}">
                         <p data-phone="${pdict.storeDetail.phone}" class="phone h-clr--black-1">

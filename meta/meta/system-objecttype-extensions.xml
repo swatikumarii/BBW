@@ -102,6 +102,192 @@
                 <externally-defined-flag>false</externally-defined-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="titlePartB">
+                <display-name xml:lang="x-default">Title Part B</display-name>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="fragranceName">
+                <display-name xml:lang="x-default">Fragrance Name</display-name>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="fragranceDescription">
+                <display-name xml:lang="x-default">Fragrance Description</display-name>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="volume">
+                <display-name xml:lang="x-default">Volume</display-name>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="expressShip">
+                <display-name xml:lang="x-default">Can be express shipped?</display-name>
+                <type>boolean</type>
+                <site-specific-flag>true</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="showReturnSection">
+                <display-name xml:lang="x-default">Show Return Section</display-name>
+                <type>boolean</type>
+                <site-specific-flag>true</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="canBeReturned">
+                <display-name xml:lang="x-default">Can Be Returned?</display-name>
+                <type>boolean</type>
+                <site-specific-flag>true</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="usageInstruction">
+                <display-name xml:lang="x-default">Usage Instruction</display-name>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="ingredients">
+                <display-name xml:lang="x-default">Ingredients</display-name>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="badge1">
+                <display-name xml:lang="x-default">Badge 1</display-name>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="badge2">
+                <display-name xml:lang="x-default">Badge 2</display-name>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="badge3">
+                <display-name xml:lang="x-default">Badge 3</display-name>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="moreInfo">
+                <display-name xml:lang="x-default">More Info</display-name>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="isEgiftCard">
+                <display-name xml:lang="x-default">is E-Giftcard?</display-name>
+                <type>boolean</type>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="fragranceCategory">
+                <display-name xml:lang="x-default">Fragrance Category</display-name>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="isBonusProduct">
+                <display-name xml:lang="x-default">Is a bonus product?</display-name>
+                <type>boolean</type>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="giftWrapable">
+                <display-name xml:lang="x-default">Can be gift wrapped?</display-name>
+                <type>boolean</type>
+                <site-specific-flag>true</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -134,6 +320,100 @@
                 <display-name xml:lang="x-default">E Giftcards</display-name>
                 <attribute attribute-id="amount"/>
                 <attribute attribute-id="style"/>
+            </attribute-group>
+            <attribute-group group-id="descriptionTabs">
+                <display-name xml:lang="x-default">Description Tabs</display-name>
+                <attribute attribute-id="moreInfo"/>
+                <attribute attribute-id="usageInstruction"/>
+                <attribute attribute-id="ingredients"/>
+                <attribute attribute-id="showReturnSection"/>
+                <attribute attribute-id="canBeReturned"/>
+            </attribute-group>
+            <attribute-group group-id="badges">
+                <display-name xml:lang="x-default">Badges</display-name>
+                <attribute attribute-id="badge3"/>
+                <attribute attribute-id="badge1"/>
+                <attribute attribute-id="badge2"/>
+            </attribute-group>
+            <attribute-group group-id="fragrance">
+                <display-name xml:lang="x-default">Fragrance</display-name>
+                <attribute attribute-id="fragranceCategory"/>
+                <attribute attribute-id="fragranceName"/>
+                <attribute attribute-id="fragranceDescription"/>
+            </attribute-group>
+            <attribute-definition attribute-id="refinementColor">
+                <display-name xml:lang="x-default">Refinement Color</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Black</display>
+                        <value>black</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Blue</display>
+                        <value>blue</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Green</display>
+                        <value>green</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Red</display>
+                        <value>red</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Orange</display>
+                        <value>orange</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Pink</display>
+                        <value>pink</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Purple</display>
+                        <value>purple</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">White</display>
+                        <value>white</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Yellow</display>
+                        <value>yellow</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Grey</display>
+                        <value>grey</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Beige</display>
+                        <value>beige</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Miscellaneous</display>
+                        <value>miscellaneous</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Brown</display>
+                        <value>brown</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Navy</display>
+                        <value>navy</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-group group-id="storefrontAttributes">
+                <display-name xml:lang="x-default">Storefront Attributes</display-name>
+                <attribute attribute-id="refinementColor"/>
+                <attribute attribute-id="titlePartB"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
