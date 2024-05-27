@@ -1,19 +1,24 @@
 <isif condition="${slotcontent}">
+<isscript>
+    var assets = require('*/cartridge/scripts/assets');
+    assets.addCss('/css/notifyMe.css');
+</isscript>
+<isset name="showOutOfStockProducts" value="${slotcontent.custom.showOutOfStockProducts === true ? true : false}" scope="page" />
     <isif condition="${!empty(slotcontent.content)}">
-        <div class="col-md-12 mt-4 headerDivider p-0">
-            <h2 class="headerText">
-                    <isprint value="${slotcontent.calloutMsg}" encoding="off" /></h2>
+        <div class="picked-just-header-wrapper mb-3">
+            <h2 class="picked-just-header-wrapper__title text-center h-fw--bold h-clr--black-1 mb-3 h-font-size--24">
+                <isprint value="${slotcontent.calloutMsg}" encoding="off" />
+            </h2>
         </div>
     </isif>
-    <div class="container">
+    <div class="row no-gutters picked-just-recomm ds-smooth-scroll js-picked-just-recomm">
         <isloop items="${slotcontent.content}" var="product" status="loopState">
-            <div class="item">
-                <div class="product" data-pid="${product.ID}">
-                    <isobject object="${product}" view="recommendation">
-                        <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView', false, 'wishlist', false)}" />
-                    </isobject>
-                </div>
+            <div class="picked-just-recomm__item col js-picked-just-recomm-item">
+                <isobject object="${product}" view="recommendation">
+                    <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView', false, 'wishlist', false, 'showOutOfStockProducts', showOutOfStockProducts)}" />
+                </isobject>
             </div>
         </isloop>
+        <isinclude template="product/components/removeGiftLineItem" />
     </div>
 </isif>

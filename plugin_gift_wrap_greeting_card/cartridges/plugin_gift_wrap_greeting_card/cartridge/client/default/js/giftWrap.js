@@ -379,4 +379,10 @@ $(document).ready(function () {
             $('.gift-wrap-choose-div').empty();
         }
     });
+
+    $('.gift-wrap-model-close').on('click', function () {
+        $('.input-wrap-individual').prop('checked', false);
+        $('#checkall').prop('checked', false);
+    });
+
 });

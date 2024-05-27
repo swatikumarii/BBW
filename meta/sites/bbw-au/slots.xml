@@ -58,7 +58,7 @@
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-1-image-section"/>
+                <content-asset content-id="menu-item-slot-1-detail-section"/>
             </content-assets>
         </content>
     </slot-configuration>
@@ -69,7 +69,7 @@
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-2-image-section"/>
+                <content-asset content-id="menu-item-slot-1-detail-section"/>
             </content-assets>
         </content>
     </slot-configuration>
@@ -80,7 +80,7 @@
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-3-image-section"/>
+                <content-asset content-id="menu-item-slot-1-detail-section"/>
             </content-assets>
         </content>
     </slot-configuration>
@@ -91,8 +91,37 @@
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-4-image-section"/>
+                <content-asset content-id="menu-item-slot-1-detail-section"/>
             </content-assets>
+        </content>
+    </slot-configuration>
+    <slot-configuration slot-id="minicart-recommendation-slider" context="global" configuration-id="minicart-recommendation-slider" default="true" assigned-to-site="true">
+        <template>slots/product/minicartSlider.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">You'll Also Love</callout-msg>
+        <content>
+            <products>
+                <product product-id="20837440"/>
+                <product product-id="20989571"/>
+                <product product-id="20989955"/>
+                <product product-id="20989956"/>
+                <product product-id="20989958"/>
+                <product product-id="20989959"/>
+                <product product-id="20989967"/>
+                <product product-id="21340384"/>
+                <product product-id="21340410"/>
+                <product product-id="21759110"/>
+                <product product-id="21759183"/>
+                <product product-id="21980233"/>
+                <product product-id="21980250"/>
+                <product product-id="21980608"/>
+                <product product-id="22180981"/>
+                <product product-id="22206130"/>
+                <product product-id="22206227"/>
+                <product product-id="22206289"/>
+                <product product-id="22206290"/>
+                <product product-id="22472373"/>
+            </products>
         </content>
     </slot-configuration>
 

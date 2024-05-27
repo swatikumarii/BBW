@@ -4,6 +4,9 @@ var base = module.superModule;
 
 var collections = require('*/cartridge/scripts/util/collections');
 var ProductFactory = require('*/cartridge/scripts/factories/product');
+var ProductMgr = require('dw/catalog/ProductMgr');
+var productDetailForAddToCart = require('*/cartridge/models/product/productDetailForAddToCart');
+var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
 var URLUtils = require('dw/web/URLUtils');
 var Resource = require('dw/web/Resource');
 
@@ -19,6 +22,7 @@ function getEgiftCardDetails(item) {
     var eGiftScheduledMonths = item.custom.eGiftCardScheduleMonth;
     var eGiftScheduledYear = item.custom.eGiftScheduledYear;
     var eGiftScheduledDay = item.custom.eGiftCardScheduleDay;
+    var eGiftVideoLink = item.custom.eGiftVideoLink;
     var eGiftScheduledDate;
     var month = qwikcilverHelpers.getIndexOfMonths(eGiftScheduledMonths);
     if (eGiftScheduledMonths && eGiftScheduledYear && eGiftScheduledDay) {
@@ -54,7 +58,8 @@ function getEgiftCardDetails(item) {
         eGiftScheduledDay: eGiftScheduledDay || '',
         eGiftScheduledMonths: eGiftScheduledMonths || '',
         giftBarCode: giftCardBarCode,
-        giftBarCodeNumber: giftBarCodeNumber
+        giftBarCodeNumber: giftBarCodeNumber,
+        eGiftVideoLink: eGiftVideoLink || ''
     };
     return cardInfo;
 }
@@ -74,6 +79,11 @@ function createProductLineItemsObject(allLineItems, view) {
     var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
 
     collections.forEach(allLineItems, function (item) {
+        var product = Object.create(null);
+        var apiProduct = ProductMgr.getProduct(item.productID);
+        var productType = productHelper.getProductType(apiProduct);
+        product = productDetailForAddToCart(product, apiProduct, productType);
+
         // when item's category is unassigned, return a lineItem with limited attributes
         if (!item.product) {
             lineItems.push({
@@ -156,6 +166,14 @@ function createProductLineItemsObject(allLineItems, view) {
         if ('titlePartB' in item.product.custom && item.product.custom.titlePartB) {
             newLineItem.titlePartB = item.product.custom.titlePartB;
         }
+        if ('volume' in item.product.custom && item.product.custom.volume) {
+            newLineItem.volume = item.product.custom.volume;
+        }
+
+        if ('greetingCardMessage' in item.custom && item.custom.greetingCardMessage) {
+            newLineItem.greetingCardMessage = item.custom.greetingCardMessage;
+        }
+
         newLineItem.bonusProducts = bonusProducts;
         if (enableQCeGift && 'custom' in item && 'isEgiftCard' in item.custom && item.custom.isEgiftCard) {
             newLineItem.giftCardDetails = getEgiftCardDetails(item);
@@ -192,6 +210,18 @@ function createProductLineItemsObject(allLineItems, view) {
                 lineItems.push(newLineItem);
             }
         }
+        if (!('available' in newLineItem)){
+            newLineItem.available = 'available' in product ? product.available : false;
+        }
+        if (!('fragranceName' in newLineItem)){
+            newLineItem.fragranceName = 'fragranceName' in product && product.fragranceName !== '' ? product.fragranceName : false;
+        }
+        if ('custom' in apiProduct && 'isEgiftCard' in apiProduct.custom && apiProduct.custom.isEgiftCard && !('isEgiftCard' in newLineItem)) {
+            newLineItem.isEgiftCard = apiProduct.custom.isEgiftCard;
+        } else {
+            newLineItem.isEgiftCard = false;
+        }
+        newLineItem.enableNotifyMe = product.enableNotifyMe;
     });
     return [lineItems, giftWrapLineItem, greetingCardLineItem];
 }

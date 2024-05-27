@@ -17,14 +17,19 @@
                 <isif condition="${isBundlePage}">
                     <button type="button" class="btn delete-egiftitem-confirmation-btn"
                         data-dismiss="modal"
-                        data-pid="${product.id}"
                         data-addtocarturl="${addToCartUrl}"
                         data-action="${removeLineItemURL}"
+                    >${Resource.msg('button.confirm','address',null)}</button>
+                <iselseif condition="${pdict.isOrderBaseRemoveGiftCard}" />
+                    <button type="button" class="btn order-base-delete-egiftitem-confirmation-btn"
+                        data-dismiss="modal"
+                        data-oid="${pdict.order.orderNumber}"
+                        data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
+                        data-action="${URLUtils.url('Giftcard-RemoveLineItems')}"
                     >${Resource.msg('button.confirm','address',null)}</button>
                 <iselse/>
                     <button type="button" class="btn delete-egiftitem-confirmation-btn"
                         data-dismiss="modal"
-                        data-pid="${product.id}"
                         data-addtocarturl="${URLUtils.url('Cart-AddProduct')}"
                         data-action="${URLUtils.url('Giftcard-RemoveLineItems')}"
                     >${Resource.msg('button.confirm','address',null)}</button>

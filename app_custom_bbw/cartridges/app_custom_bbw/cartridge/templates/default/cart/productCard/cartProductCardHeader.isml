@@ -1,7 +1,7 @@
 <isif condition="${lineItem.isBonusProductLineItem}">
     <div class="d-block">${Resource.msg('msg.bonus.product', 'cart', null)}</div>
 </isif>
-<a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+<isif condition="${lineItem.isEgiftCard}">
     <div class="line-item-header">
         <div class="line-item-name">
             ${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}
@@ -9,5 +9,16 @@
         <div class="line-item-name-partB">
             ${lineItem.titlePartB ? lineItem.titlePartB : ''}
         </div>
-    </div>
-</a>
+</div>
+<iselse/>
+    <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+        <div class="line-item-header">
+            <div class="line-item-name">
+                ${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}
+            </div>
+            <div class="line-item-name-partB">
+                ${lineItem.titlePartB ? lineItem.titlePartB : ''}
+            </div>
+        </div>
+    </a>
+</isif>

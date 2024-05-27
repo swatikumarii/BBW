@@ -7,4 +7,5 @@
         <iscomment> <div class="product" data-pid="${product.ID}">
         </div> </iscomment>
     </isloop>
+    <isinclude template="product/components/removeGiftLineItem" />
 </isif>

@@ -1,13 +1,23 @@
 // Pop-up Modal
-.profile-content {
-    border-radius: 0;
+.profile_complete {
+    background: rgba(77, 77, 77, 25%);
+    height: 100%;
+    left: 0;
+    padding-right: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
 
-    .profile_complete_btn {
-        font-size: 0.6875rem;
-        letter-spacing: 0.12em;
-        line-height: 2.0625rem;
-        min-height: 35px;
-        padding: 0 15px;
-        width: auto;
+    .profile-content {
+        border-radius: 0;
+
+        .profile_complete_btn {
+            font-size: 0.6875rem;
+            letter-spacing: 0.12em;
+            line-height: 2.0625rem;
+            min-height: 35px;
+            padding: 0 15px;
+            width: auto;
+        }
     }
 }

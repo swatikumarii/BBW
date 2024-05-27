@@ -63,6 +63,7 @@
             </div>
         </div>
     </isif>
+    <isinclude template="product/components/removeGiftLineItem" />
 </div>
 
 <div class="suggestions__group h-width-perc-sm--30 h-width-perc-md--30">

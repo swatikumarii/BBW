@@ -48,6 +48,14 @@
     margin-top: 58px;
     margin-bottom: 30px;
 
+    @include media-down(md) {
+        padding: 0 40px;
+    }
+
+    @include media-down(sm) {
+        padding: 0 20px;
+    }
+
     ul {
         line-height: 2em;
         list-style: none;
@@ -92,6 +100,14 @@
     padding-bottom: 32px;
     border-top: 3px solid colour(gray, 1);
 
+    @include media-down(md) {
+        padding: 60px 40px;
+    }
+
+    @include media-down(sm) {
+        padding: 60px 20px;
+    }
+
     .menusections {
         width: 100%;
         display: inline-block;
@@ -107,7 +123,7 @@
             vertical-align: top;
             width: 100%;
 
-            @include media-up(sm) {
+            @include media-up(md) {
                 width: 32%;
             }
 
@@ -152,6 +168,7 @@
                 line-height: 17px;
                 font-weight: normal;
                 border-style: none;
+                letter-spacing: 0.6px;
             }
         }
     }

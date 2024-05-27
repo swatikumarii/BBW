@@ -182,7 +182,7 @@ function getStoresData(res) {
 
 /**
  * @param {object} res - current route response object
- * @returns {object} Object containing gtm data corresponding to the controller.
+ * @returns {object} Object containing meta event data corresponding to the controller.
  */
 function getFbqData(res) {
     try {

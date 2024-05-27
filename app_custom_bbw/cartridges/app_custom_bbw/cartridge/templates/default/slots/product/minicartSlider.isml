@@ -1,21 +1,21 @@
 <iscontent type="text/html" charset="UTF-8" compact="true" />
 <isif condition="${slotcontent}">
-    <div class="minicart-recommendation-slider">
-        <div class="minicart-recommendation">
+    <div class="minicart-recommendation-side-panel-wrap">
+        <div class="minicart-recommendation-side-panel">
             <div class="recommendations">
-                <span class="slot-callout">${slotcontent.calloutMsg}</span>
-                <button type="button" class="collapse-arrow" tabindex="-1">
-                    <span class="sr-only">${Resource.msg('minicart.flyout.close', 'cart', null)}</span>
-                </button>
+                <div class="minicart-recommendation-header d-flex justify-flex-between align-item-center flex-nowrap">
+                    <h3 class="slot-callout text-center h-font-size--16 d-block w-100 h-fw--semibold mb-0">${slotcontent.calloutMsg}</h3>
+                    <button type="button" class="cart-product-recommendation-close js-cart-recomm-close px-0"
+                        tabindex="-1">
+                        <img width="18px" height="18px" class="icon-close" src="${URLUtils.staticURL('/images/icons/carat-right-blue.svg')}" alt="${Resource.msg('minicart.flyout.close', 'cart', null)}" />
+                    </button>
+                </div>
                 <div class="sidepanel-product-listing">
-                    <isloop items="${slotcontent.content}" var="product" begin="0" end="6">
+                    <isloop items="${slotcontent.content}" var="product">
                         <div class="item">
-                            <div class="product" data-pid="${product.ID}">
-                                <isobject object="${product}" view="recommendation">
-                                    <isinclude
-                                        url="${URLUtils.url('Tile-Show', 'pid', product.ID)}" />
-                                </isobject>
-                            </div>
+                            <isobject object="${product}" view="recommendation">
+                                <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', false, 'swatches', false, 'showQuickView', false, 'wishlist', false)}" />
+                            </isobject>
                         </div>
                     </isloop>
                 </div>

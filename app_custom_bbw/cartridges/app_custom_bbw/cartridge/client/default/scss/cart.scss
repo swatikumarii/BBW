@@ -9,6 +9,8 @@
     text-decoration: underline;
     font-family: $ff-base;
     font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.2px;
 }
 
 .cartContainer {
@@ -168,6 +170,18 @@
                             line-height: 16px;
                             color: $clr-gray-4;
                         }
+
+                        .remove-from-wishlist {
+                            display: inline-flex;
+
+                            img {
+                                margin-top: 4px;
+                            }
+
+                            span {
+                                font-size: 14px;
+                            }
+                        }
                     }
 
                     .item-image {
@@ -188,6 +202,10 @@
                         margin-top: 10px;
                         line-height: 20px;
                         letter-spacing: 0.2px;
+
+                        .promotion {
+                            line-height: 16px;
+                        }
 
                         .promo-details-tooltip {
                             border: 1px solid;
@@ -377,6 +395,7 @@
                     .promoCodeLabel {
                         font-size: 18px;
                         line-height: 20px;
+                        letter-spacing: 0.1px;
                         font-weight: 600;
                         font-family: $ff-base;
                     }
@@ -421,6 +440,16 @@
                     p {
                         line-height: 20px;
                         letter-spacing: 0.2px;
+                    }
+
+                    .tax-estimated {
+                        line-height: 16px;
+                    }
+
+                    .order-total {
+                        p {
+                            letter-spacing: 0.1px;
+                        }
                     }
                 }
 
@@ -469,6 +498,9 @@
 
 .promo-details {
     text-decoration: underline;
+    letter-spacing: 0.2px;
+    line-height: 16px;
+    color: $clr-gray-4;
 }
 
 .add-to-wish-list {

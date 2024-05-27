@@ -124,6 +124,7 @@
 
     .store-result-wrap {
         padding: 0;
+        width: 100%;
 
         @include media-up(sm) {
             width: 100%;
@@ -135,8 +136,8 @@
             line-height: 24px;
             font-weight: 700;
             letter-spacing: 0.005em;
-            color: colour (black, 1);
-            border-bottom: 1px solid colour (gray, 1);
+            color: colour(black, 1);
+            border-bottom: 1px solid colour(gray, 1);
             padding: 15px 0 16px;
             text-transform: capitalize;
         }
@@ -182,17 +183,46 @@
                         line-height: 1.25rem;
                         letter-spacing: 0.005em;
                         background-color: colour(white);
+                        display: flex;
+                        cursor: pointer;
 
-                        span {
-                            padding-right: 15px;
+                        .store-head-heading {
+                            span {
+                                padding-right: 15px;
+                            }
+
+                            @include media-down(sm) {
+                                height: 40px;
+                            }
+                        }
+
+                        .store-head-distance {
+                            margin-left: 30px;
+                            font-size: 1rem;
+                            opacity: 0;
+                            transition: opacity 0.5s ease-in-out;
+
+                            span {
+                                padding-left: 5px;
+                            }
+
+                            @include media-down(sm) {
+                                opacity: 1;
+                            }
                         }
 
                         @include media-down(sm) {
+                            display: block;
                             padding: 26px 10px 33px;
                         }
 
                         &.collapsed {
                             background-color: colour(gray, 1);
+
+                            .store-head-distance {
+                                opacity: 1;
+                                transition: opacity 0.5s ease-in-out;
+                            }
                         }
                     }
                 }
@@ -236,6 +266,15 @@
                             color: colour(black, 1);
                             font-weight: map-get($font-weight, semibold);
                         }
+
+                        .time {
+                            font-weight: map-get($font-weight, semibold);
+                            font-size: 16px;
+                            line-height: 20px;
+                            letter-spacing: 0.01em;
+                            color: colour(black, 1);
+                            margin-left: 5px;
+                        }
                     }
 
                     .store-distance {
@@ -246,6 +285,10 @@
                         color: colour(black, 1);
                         margin-left: 30px;
                         text-transform: none;
+
+                        @include media-down(sm) {
+                            display: none;
+                        }
 
                         .distance-left {
                             font-weight: 400;
@@ -319,6 +362,17 @@
                 .store-address,
                 .store-phone {
                     margin-bottom: 10px;
+
+                    span {
+                        font-weight: 400;
+                        color: colour(gray, 4);
+                    }
+                }
+
+                .store-direction {
+                    a {
+                        text-decoration: underline;
+                    }
                 }
 
                 a:focus {
@@ -343,11 +397,74 @@
         padding: 15px 0;
     }
 
-    .store-details .store-map-details {
-        padding-left: 70px;
+    .store-hours {
+        width: 200px;
 
         @include media-down(sm) {
+            width: 100%;
+        }
+
+        .store-hours-details {
+            .dropdown-toggle {
+                &::after {
+                    border: 0;
+                }
+
+                img {
+                    width: 13px;
+                    margin-left: 4px;
+                    transition: all 0.3s ease-out;
+                }
+
+                &.in {
+                    img {
+                        transform: rotate(180deg);
+                        transition: all 0.3s ease-out;
+                    }
+                }
+            }
+
+            .dropdown-menu {
+                min-width: 228px;
+                padding: 0;
+
+                ul li {
+                    color: colour(black, 1);
+                    padding: 5px 10px;
+
+                    &.dropdown-item:hover {
+                        background-color: colour(white);
+                        color: colour(black, 1);
+                    }
+
+                    span.sl-weekday {
+                        width: 90px;
+                        margin-right: 5px;
+                        font-size: 16px;
+                        display: block;
+                        float: left;
+                    }
+                }
+            }
+        }
+    }
+
+    .store-map {
+        width: 400px;
+        display: block;
+
+        @include media-down(sm) {
+            width: 100%;
+        }
+    }
+
+    .store-details .store-map-details {
+        padding-left: 70px;
+        padding-right: 70px;
+
+        @include media-down(md) {
             padding-left: 0;
+            padding-right: 0;
         }
 
         address {
@@ -386,18 +503,18 @@
         cursor: pointer;
         display: inline-block;
         letter-spacing: 0.24px;
-        line-height: 2.063rem;
         width: 165px;
         min-height: 43px;
         font-weight: 600;
         font-size: 13px;
-        padding: 0 1.0625em;
+        padding: 12px 1.0625em;
         text-align: center;
         margin-top: 10px;
     }
 
     .jumbotron.map-canvas {
         height: 600px;
+        border-radius: 0;
     }
 
     .nearby-store {
@@ -421,9 +538,17 @@
             column-gap: 80px;
 
             .near-stores {
-                img {
-                    width: 100%;
+                .img-wrap {
+                    height: 190px;
+
+                    img {
+                        width: 100%;
+                        max-width: 400px;
+                        max-height: 190px;
+                        object-fit: contain;
+                    }
                 }
+
                 @include media-down(sm) {
                     margin-top: 40px;
                 }
@@ -439,8 +564,82 @@
         padding-right: 70px;
         margin-top: 27px;
 
+        @include media-down(md) {
+            padding-left: 70px;
+        }
+
         @include media-down(sm) {
             padding-right: 0;
+            padding-left: 0;
+        }
+
+        .carousel-item {
+            .item-img {
+                height: 300px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 500px;
+
+                @include media-down(sm) {
+                    width: 100%;
+                }
+
+                img {
+                    max-width: 450px;
+                    height: auto;
+                    max-height: 300px;
+                    object-fit: contain;
+
+                    @include media-down(md) {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+
+        .carousel-control-prev {
+            position: absolute;
+            left: -70px;
+            top: 45%;
+            display: inline-block;
+            opacity: 1;
+            height: 30px;
+
+            @include media-down(sm) {
+                display: none;
+            }
+
+            .carousel-control-prev-icon {
+                background-image: url("../images/store-locator/ARROW-left.svg");
+                width: 30px;
+                height: 30px;
+                background-position: 50%;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .carousel-control-next {
+            position: absolute;
+            right: -70px;
+            top: 45%;
+            display: inline-block;
+            opacity: 1;
+            height: 30px;
+
+            @include media-down(sm) {
+                display: none;
+            }
+
+            .carousel-control-next-icon {
+                background-image: url("../images/store-locator/ARROW-right.svg");
+                width: 30px;
+                height: 30px;
+                background-position: 50%;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 <h2 class="h-font-size--24 h-clr--black-1 h-mt--30 h-mb--10 pb-3 h-fw--bold border-bottom border-dark">${Resource.msg('label.order.your.items', 'order', null)}</h2>
-<div class="h-px--15">
+<div class="h-px--15 confirmation-product-details">
     <div class="itemsHeader row border-bottom d-none d-md-flex">
         <div class="headerItem h-font-size--18 h-fw--bold h-clr--black-1 col-8 p-3">${Resource.msg('label.item.header.item', 'cart', null)}</div>
         <div class="col-4">
@@ -17,17 +17,40 @@
                         <div class="col-4">
                             <iscomment> Image </iscomment>
                             <div class="product-line-item-details d-flex flex-row">
-                                <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                                <isif condition="${lineItem.isEgiftCard}">
                                     <div class="item-image">
-                                        <img class="product-image" src="${lineItem.images.small[0].url}"
-                                            alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}" width="100" />
+                                        <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
+                                            title="${lineItem.images.small[0].title}" width="100" />
                                     </div>
-                                </a>
+                                <iselse/>
+                                    <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                                        <div class="item-image">
+                                            <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
+                                                title="${lineItem.images.small[0].title}" width="100" />
+                                        </div>
+                                    </a>
+                                </isif>
                             </div>
                         </div>
                         <div class="col-8">
                             <div class="line-item-header flex-column">
                                 <isinclude template="checkout/productCard/productCardProductName" />
+                                <isif condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
+                                <div class="giftcard-details my-2 h-font-size--12">
+                                    <span class="d-block mt-1 giftcard-receipient-name">
+                                    ${Resource.msg('label.input.recipientsname', 'forms', null) + ': '}
+                                    ${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails.recipientName : ''}</span>
+                                    <span class="d-block mt-1 giftcard-receipient-email">
+                                    ${Resource.msg('label.input.email.recipients', 'forms', null) + ': '}
+                                    ${lineItem.giftCardDetails.recipientEmail && lineItem.giftCardDetails.recipientEmail !== null ? lineItem.giftCardDetails.recipientEmail : ''}</span>
+                                    <span class="d-block mt-1 giftcard-message">${Resource.msg('label.egift.message', 'forms', null) + ': '}${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails.eGiftMessage : ''}</span>
+                                </div>
+                            </isif>
+                            <isif condition="${'greetingCardMessage' in lineItem && lineItem.greetingCardMessage}">
+                                <span class="d-block mt-1">
+                                    ${lineItem.greetingCardMessage}
+                                </span>
+                            </isif>
                                 <isset name="cartPage" value="${true}" scope="page" />
                                 <isinclude template="checkout/productCard/productCardProductPromotions" />
                                 <isset name="cartPage" value="${false}" scope="page" />

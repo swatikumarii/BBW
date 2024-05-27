@@ -3,23 +3,29 @@
     assets.addCss('/css/experience/components/commerceAssets/imageAndTextPosition.css');
 </isscript>
 
-<div class="row no-gutters">
+<div class="row no-gutters w-100">
     <div class="col px-0">
         <div class="d-flex ${pdict.imagePositionClass} ${pdict.customClass}">
-            <a href="${pdict.link}" class="image-link clpShopNowBtn w-100 h-100 d-block position-relative lazy-skeleton overflow-hidden" hreflang="${request.getLocale()}" data-lazy="${pdict.disableLazyLoad}">
+            <a href="${pdict.link}"
+                class="image-link clpShopNowBtn w-100 h-100 d-block position-relative lazy-skeleton overflow-hidden"
+                hreflang="${request.getLocale()}" data-lazy="${pdict.disableLazyLoad}">
                 <isif condition="${pdict.disableLazyLoad}">
                     <picture class="w-100 d-block content-image-block d-block">
-                        <source srcset="${pdict.useImgURL ? pdict.desktopImgUrl : pdict.desktopImage.src.desktop}"
+                        <source srcset="${pdict.desktopImageSrcset}"
                             media="(min-width: 769px)" />
-                        <img class="w-100 d-block content-image"
+                        <img class="w-100 d-block content-image ${pdict.trackerClass}"
                             src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}"
-                            alt="${pdict.alt}"/>
+                            srcset="${pdict.mobileImageSrcset}"
+                            alt="${pdict.alt}" />
                     </picture>
                 <iselse/>
                     <picture class="w-100 d-block content-image-block d-block">
-                        <source data-srcset="${pdict.useImgURL ? pdict.desktopImgUrl : pdict.desktopImage.src.desktop}"
+                        <source data-srcset="${pdict.desktopImageSrcset}"
                             media="(min-width: 769px)" />
-                        <img class="w-100 d-block content-image lazy" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E" data-src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}" alt="${pdict.alt}"/>
+                        <img class="w-100 d-block content-image lazy ${pdict.trackerClass}"
+                            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E"
+                            data-src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}"
+                            data-srcset="${pdict.mobileImageSrcset}" alt="${pdict.alt}" />
                     </picture>
                     <!-- Skeleton Loader -->
                     <div class="skeleton-loader"></div>

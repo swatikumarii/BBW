@@ -86,10 +86,10 @@ function updateCartTotals(data) {
         if (data.totals.orderLevelDiscountTotal.value > 0) {
             $('.coupons-and-promos').empty().append(data.totals.discountsHtml);
         }
-        if (item.renderedPromotions) {
-            $('.item-' + item.UUID).empty().append(item.renderedPromotions);
+        if (item.promotionsHTML) {
+            $('line-item-promo.item-' + item.UUID).empty().append(item.promotionsHTML);
         } else {
-            $('.item-' + item.UUID).empty();
+            $('line-item-promo.item-' + item.UUID).empty();
         }
         if (item.promoPrice !== false) {
             var promoPriceHTML =
@@ -375,6 +375,13 @@ module.exports = function () {
                         }
                     }
                     $('.uuid-' + uuid).remove();
+                    if (data.removeProducts && data.removeProducts.length > 0) {
+                        for (var j = 0; j < data.removeProducts.length; j++) {
+                            if ($('.uuid-' + data.removeProducts[j])) {
+                                $('.uuid-' + data.removeProducts[j]).remove();
+                            }
+                        }
+                    }
                     if (!data.basket.hasBonusProduct) {
                         $('.bonus-product').remove();
                     }
@@ -438,6 +445,8 @@ module.exports = function () {
         var preSelectQty = $(this).data('pre-select-qty');
         var quantity = Number($(this).val());
         var maxOrderQty = $(this).data('max-order-qty');
+        var isMiniCartTrigger = $(this).parents('.popover').length > 0;
+        var isCartPageTrigger = $(this).parents('.cart-page').length > 0;
 
         if (maxOrderQty && Number(maxOrderQty) < quantity && quantity > 0) {
             var errorElem = $(this)
@@ -456,7 +465,9 @@ module.exports = function () {
             var urlParams = {
                 pid: productID,
                 quantity: quantity,
-                uuid: uuid
+                uuid: uuid,
+                isMiniCartTrigger:isMiniCartTrigger,
+                isCartPageTrigger:isCartPageTrigger
             };
             url = appendToUrl(url, urlParams);
 
@@ -838,6 +849,49 @@ module.exports = function () {
                 }
             });
         }
+    });
+
+    $('body').on('click', '.applyTopOffer', function (e) {
+        e.preventDefault();
+        var action = $(this).data('action');
+        var couponCode = $(this).data('coupon');
+        var csrfTokenFieldName = $('.topOfferCsrfToken').attr('name');
+        var csrfTokenValue = $('.topOfferCsrfToken').val();
+        var formData = 'couponCode='+couponCode+'&'+csrfTokenFieldName+'='+csrfTokenValue;
+        $.ajax({
+            url: action,
+            type: 'GET',
+            contentType: false,
+            data: formData,
+            processData: false,
+            success: function (data) {
+                if (data.error) {
+                    $('.topOfferSuccess').hide();
+                    $('.topOfferError').text(data.errorMessage);
+                    $('.topOfferError').show();
+                    setTimeout(function () {
+                        $('.topOfferError').hide();
+                    }, 5000);
+                } else {
+                    updateCartTotals(data);
+                    $('.topOfferError').hide();
+                    $('.topOfferSuccess').text(data.resources.couponApplied);
+                    $('.topOfferSuccess').show();
+                    setTimeout(function () {
+                        $('.topOfferSuccess').hide();
+                    }, 5000);
+                }
+
+            },
+            error: function () {
+                $('.topOfferSuccess').hide();
+                $('.topOfferError').text($('.something-went-wrong').text());
+                $('.topOfferError').show();
+                setTimeout(function () {
+                    $('.topOfferError').hide();
+                }, 5000);
+            }
+        });
     });
 
     base.selectAttribute();

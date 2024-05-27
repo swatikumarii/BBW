@@ -1,0 +1,116 @@
+@import "../../../_brand/_api/api";
+
+// Header
+.picked-just-header-wrapper {
+    &__title {
+        @include media-up(sm) {
+            line-height: 1.75rem;
+            letter-spacing: 0;
+            margin-top: 20px;
+        }
+    }
+}
+
+.picked-just-contatiner {
+    margin: 48px 16px;
+
+    @include media-up(sm) {
+        margin: 56px auto;
+    }
+}
+
+.picked-just-recomm {
+    column-gap: 16px;
+    overflow-y: auto;
+    flex-flow: row nowrap;
+    align-items: flex-end;
+    scrollbar-width: none;
+
+    @include media-up(sm) {
+        padding-bottom: 28px;
+        column-gap: 32px;
+        margin: 0 16px;
+        scrollbar-width: auto;
+    }
+
+    &__item {
+        .product {
+            .b-product-tile {
+                min-height: 100%;
+                margin-top: auto;
+                margin-bottom: 0;
+                min-width: 228px;
+                max-width: 256px;
+                overflow: visible;
+
+                &__body {
+                    display: flex;
+                    flex-direction: column;
+
+                    .tile-body-footer {
+                        margin-top: auto;
+
+                        .add-to-cart,
+                        .notify-me-btn,
+                        .out-of-stock {
+                            @include h-button(
+                                colour(black, 1),
+                                // Base Button color
+                                colour(gray, 4),
+                                // Hover Color
+                                colour(gray, 5),
+                                // Active Color
+                                colour(black) // Outline Color
+                            );
+                        }
+                    }
+
+                    .price {
+                        min-height: 30px;
+                        display: flex;
+                        align-items: center;
+
+                        span:first-of-type {
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-start;
+                            gap: 5px;
+                        }
+                    }
+                }
+
+                &__img-wrapper {
+                    margin-bottom: 12px;
+
+                    .suggestions__btn-add-to-cart {
+                        display: none;
+                    }
+                }
+
+                &__carousel {
+                    .carousel-controls-wrapper,
+                    .slider-control {
+                        display: none;
+                    }
+                }
+
+                square-placement {
+                    display: none;
+                }
+
+                &__ratings,
+                &__availability {
+                    display: none;
+                }
+
+                &__price-link {
+                    pointer-events: none;
+
+                    &:hover {
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -5,11 +5,6 @@ var intlTelInput = require('intl-tel-input');
 var utils = require('utils.js');
 var adyenCheckout = require('adyen/adyenCheckout');
 var addressAutocomplete = require('./checkout/addressAutocomplete');
-// Compatibility Adyen SFRA 5.x.x & 6.x.x
-var checkout =
-    window.AdyenSFRA6Enabled !== 'null'
-        ? require('adyen/checkout/checkoutSFRA6')
-        : require('adyen/checkout/checkoutSFRA5');
 /* eslint-disable prefer-regex-literals */
 var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
     window.location.search
@@ -24,6 +19,8 @@ function validateFields($input) {
     if ($input[0].checkValidity()) {
         $errorMessage.hide();
         $input.removeClass('is-invalid');
+        if ($input.parents('.iti').length)
+            $input.parents('.iti').removeClass('is-invalid border-danger');
     } else {
         var errorText;
         if ($input.val().length === 0) {
@@ -31,6 +28,8 @@ function validateFields($input) {
         } else {
             errorText = $input.data('pattern-mismatch');
         }
+        if ($input.parents('.iti').length)
+            $input.parents('.iti').addClass('is-invalid border-danger');
         $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
     }
 }
@@ -49,11 +48,19 @@ $(document).ready(function () {
     }
     processInclude(require('./checkout/checkout'));
     processInclude(require('adyen/checkout/billing'));
-    processInclude(checkout);
     $('#selectedPaymentOption').val(
         $('.payment-options .nav-item .active').parent().attr('data-method-id')
     );
-    google.maps.event.addDomListener(window, 'load', addressAutocomplete.initialize);
+    google.maps.event.addDomListener(
+        window,
+        'load',
+        addressAutocomplete.initialize
+    );
+    google.maps.event.addDomListener(
+        window,
+        'load',
+        addressAutocomplete.initializeBilling
+    );
     var phone = document.querySelector('.shippingPhoneNumber');
     intlTelInput(phone, {
         utilsScript: utils,
@@ -79,7 +86,7 @@ $(document).ready(function () {
         var $this = $(this);
         var $password = $this.siblings('#password');
         if ($password.attr('type') === 'password') {
-            $password.attr('type','text');
+            $password.attr('type', 'text');
             $this.text('Hide');
         } else {
             $password.attr('type', 'password');
@@ -90,13 +97,23 @@ $(document).ready(function () {
     $('.place-order-trigger').on('click', function () {
         $('button.place-order').click();
     });
-
 });
-$('.payment-options .nav-link').click(function setAttr() {
-    $('#selectedPaymentOption').val($(this).parent().attr('data-method-id'));
-    if ($(this).parent().attr('data-method-id') === 'AdyenComponent') {
-        adyenCheckout.renderGenericComponent();
-    } else {
+$(document).on('click', '#paymentMethodsList .paymentMethod, .payment-method-options .afterpay-tab', function (event) {
+    var paymentMethod = $(this).closest('.payment-method-options');
+    if (paymentMethod !== 'AdyenComponent') {
         $('button[value="submit-payment"]').attr('disabled', false);
+    } else if (paymentMethod === 'AdyenComponent') {
+        // adyenCheckout.renderGenericComponent();
     }
+    $('#selectedPaymentOption').val(paymentMethod);
+    $('.payment-method-options').find('[type="radio"]').prop('checked', false);
+    $('.additionalFields').css('display', 'none');
+    $(event.target)
+        .closest('.paymentMethod, .afterpay-tab')
+        .find('[type="radio"]')
+        .prop('checked', true).trigger('change');
+    $(event.target)
+        .closest('.paymentMethod, .afterpay-tab')
+        .find('.additionalFields')
+        .css('display', 'block');
 });

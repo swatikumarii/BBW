@@ -25,4 +25,5 @@ module.exports = function (object, apiProduct) {
                 ? apiProduct.custom.fragranceDescription
                 : false
     });
+
 };
