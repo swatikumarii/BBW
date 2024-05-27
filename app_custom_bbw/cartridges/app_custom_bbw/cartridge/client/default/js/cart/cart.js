@@ -894,6 +894,26 @@ module.exports = function () {
         });
     });
 
+    $('.cart-checkout-btn').on('click', function (e) {
+        e.preventDefault();
+        var checkFreeURL = $(this).data('check-motivator');
+        var url = $(this).attr('href');
+        $.ajax({
+            type: 'GET',
+            url: checkFreeURL,
+            success: function (data) {
+                if (data.loosingFree) {
+                    alert('Add Free Product');
+                } else {
+                    window.location.href = url;
+                }
+            },
+            error: function () {
+                window.location.href = url;
+            }
+        });
+    });
+
     base.selectAttribute();
     base.colorAttribute();
     base.removeBonusProduct();
