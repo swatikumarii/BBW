@@ -108,12 +108,8 @@ module.exports = $.extend({}, base, {
             function () {
                 $(this).popover('show');
                 $('.pdp-title')
-                    .parents('.popover')
-                    .addClass('pdp-popover bs-popover-top');
-                $('.pdp-title')
-                    .parents('.popover')
-                    .removeClass('bs-popover-right');
-                $('.popover-header').addClass('d-none');
+                    .parents('.bs-popover-top')
+                    .addClass('pdp-popover');
             }
         );
 

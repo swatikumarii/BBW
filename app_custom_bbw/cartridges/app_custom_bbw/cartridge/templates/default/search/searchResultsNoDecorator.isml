@@ -3,7 +3,7 @@
 </isif>
 
 <!--- Search Results Banner --->
-<div class="container-fluid search-results">
+<div class="container-fluid ${!pdict.productSearch.isCategorySearch ? 'search-results' : ''}">
     <iscomment> Bread Crumb </iscomment>
     <isinclude template="search/components/searchBreadcrumb" />
 
