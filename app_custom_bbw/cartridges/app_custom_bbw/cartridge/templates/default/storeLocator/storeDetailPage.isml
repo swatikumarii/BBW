@@ -75,25 +75,27 @@
             </div>
         </div>
         <div class="col-lg-5 my-4">
-            <div class="store-carousel">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <isloop iterator="${pdict.storeDetail.imageUrl}" alias="imageUrl" status="loopState">
-                            <div class="carousel-item ${loopState.count == 1 ? " active" : ""}">
-                                <div class="item-img">
-                                    <img width="100%" alt="image" src="${imageUrl}" />
+            <isif condition="${nearbyStore.imageUrl[0]}">
+                <div class="store-carousel">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <isloop iterator="${pdict.storeDetail.imageUrl}" alias="imageUrl" status="loopState">
+                                <div class="carousel-item ${loopState.count == 1 ? " active" : ""}">
+                                    <div class="item-img">
+                                        <img width="100%" alt="image" src="${imageUrl}" />
+                                    </div>
                                 </div>
-                            </div>
-                        </isloop>
+                            </isloop>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </a>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    </a>
                 </div>
-            </div>
+            </isif>
         </div>
     </div>
     <div class="row">
