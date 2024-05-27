@@ -287,7 +287,16 @@
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
             </attribute-definition>
-            
+            <attribute-definition attribute-id="dangerousGoods">
+                <display-name xml:lang="x-default">Dangerous Goods</display-name>
+                <type>boolean</type>
+                <site-specific-flag>true</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -341,75 +350,6 @@
                 <attribute attribute-id="fragranceName"/>
                 <attribute attribute-id="fragranceDescription"/>
             </attribute-group>
-            <attribute-definition attribute-id="refinementColor">
-                <display-name xml:lang="x-default">Refinement Color</display-name>
-                <type>enum-of-string</type>
-                <localizable-flag>false</localizable-flag>
-                <site-specific-flag>false</site-specific-flag>
-                <mandatory-flag>false</mandatory-flag>
-                <visible-flag>false</visible-flag>
-                <externally-managed-flag>false</externally-managed-flag>
-                <order-required-flag>false</order-required-flag>
-                <externally-defined-flag>false</externally-defined-flag>
-                <value-definitions>
-                    <value-definition>
-                        <display xml:lang="x-default">Black</display>
-                        <value>black</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Blue</display>
-                        <value>blue</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Green</display>
-                        <value>green</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Red</display>
-                        <value>red</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Orange</display>
-                        <value>orange</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Pink</display>
-                        <value>pink</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Purple</display>
-                        <value>purple</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">White</display>
-                        <value>white</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Yellow</display>
-                        <value>yellow</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Grey</display>
-                        <value>grey</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Beige</display>
-                        <value>beige</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Miscellaneous</display>
-                        <value>miscellaneous</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Brown</display>
-                        <value>brown</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Navy</display>
-                        <value>navy</value>
-                    </value-definition>
-                </value-definitions>
-            </attribute-definition>
             <attribute-group group-id="storefrontAttributes">
                 <display-name xml:lang="x-default">Storefront Attributes</display-name>
                 <attribute attribute-id="refinementColor"/>
@@ -1555,6 +1495,29 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="mapAPI">
+                <display-name xml:lang="x-default">google map api key</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="GoogleVerificationTag">
+                <display-name xml:lang="x-default">GoogleVerificationTag - Content Attribute</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerServiceEmail">
+                <display-name xml:lang="x-default">Customer Service Email</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+                <default-value>no-reply@testorganization.com</default-value>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -2434,12 +2397,20 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="showInMenu">
+                <display-name xml:lang="x-default">Show in Menu Navigation</display-name>
+                <description xml:lang="x-default">Used to indicate that a category (such as Mens -&gt; Footwear -&gt; Boots) will display in the roll-over navigation. A sub-category only shows if also the parent category is marked as showInMenu. Up to three category levels are shown in roll-over navigation.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="storefrontAttributes">
                 <display-name xml:lang="x-default">Storefront Attributes</display-name>
                 <attribute attribute-id="slotId"/>
                 <attribute attribute-id="pageDesignerID"/>
+                <attribute attribute-id="showInMenu"/>
             </attribute-group>
             <attribute-group group-id="promotionTileCommon">
                 <display-name xml:lang="x-default">Promotion Tile Common Attributes</display-name>
@@ -3401,6 +3372,22 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="bonusProductLineItemUUID">
+                <display-name xml:lang="x-default">Bonus Product Line Item UUID</display-name>
+                <description xml:lang="x-default">This represents the UUID of the product line item that holds the qualifying product.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="preOrderUUID">
+                <display-name xml:lang="x-default">pre order uuid</display-name>
+                <description xml:lang="x-default">this custom attribute captures the original product line item uuid before it is part of an placed order</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -3439,6 +3426,19 @@
                 <attribute attribute-id="cancelQuantity"/>
             </attribute-group>
         </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="BonusDiscountLineItem">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="bonusProductLineItemUUID">
+                <display-name xml:lang="x-default">Bonus Product Line Item UUID</display-name>
+                <description xml:lang="x-default">This represents the UUID of the product line item that holds the qualifying product.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
     </type-extension>
     <type-extension type-id="Shipment">
         <custom-attribute-definitions>
@@ -3483,6 +3483,14 @@
     </type-extension>
     <type-extension type-id="Content">
         <custom-attribute-definitions>
+            <attribute-definition attribute-id="body">
+                <display-name xml:lang="x-default">Body</display-name>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="isImportant">
                 <display-name xml:lang="x-default">Important</display-name>
                 <description xml:lang="x-default">Important</description>
@@ -3520,6 +3528,15 @@
             </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
+            <attribute-group group-id="Presentation">
+                <display-name xml:lang="x-default">Presentation</display-name>
+                <attribute attribute-id="template" system="true"/>
+                <attribute attribute-id="customCSSFile"/>
+            </attribute-group>
+            <attribute-group group-id="Content">
+                <display-name xml:lang="x-default">Content</display-name>
+                <attribute attribute-id="body"/>
+            </attribute-group>
             <attribute-group group-id="faqConfigAttributes">
                 <display-name xml:lang="x-default">FAQ Config Attributes</display-name>
                 <attribute attribute-id="isImportant"/>
