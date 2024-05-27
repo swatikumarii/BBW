@@ -16,7 +16,7 @@
             </li>
         </isif>
     </isloop>
-    <li>
+    <li class="dropdown-item dropdown level-2-li p-0">
         <iscomment>Menu right with images and text</iscomment>
         <div class="menu-right w-100">
             <isinclude template="components/header/menuItemSlot" />

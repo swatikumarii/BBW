@@ -318,7 +318,6 @@
                             position: relative;
 
                             .level-2-ul {
-                                width: 193px;
                                 margin-left: 54px;
                                 list-style: none;
                                 padding: 0;
@@ -327,14 +326,20 @@
                                 position: relative;
                                 text-align: left;
 
+                                .explore-li.show {
+                                    &::after,
+                                    &::before {
+                                        content: none;
+                                    }
+                                }
+
                                 .level-2-li,
                                 .explore-li {
                                     position: relative;
                                     text-transform: capitalize;
                                     transition: max-height 0.3s ease-out;
                                     max-height: none;
-                                    margin-bottom: 22px;
-                                    padding: 0;
+                                    padding: 0 0 22px;
                                     overflow: visible;
                                     background-color: colour(white);
 
@@ -476,6 +481,10 @@
                                 }
                             }
 
+                            .two-column {
+                                column-count: 2;
+                            }
+
                             .menu-right {
                                 position: absolute;
                                 left: auto;
@@ -491,6 +500,7 @@
 
                                 .category-top-offers {
                                     border-left: 1px solid colour(gray, 6);
+                                    height: 100%;
 
                                     .column-count-2 {
                                         column-count: 2;
@@ -507,6 +517,7 @@
                                     .heading {
                                         padding: 6px 0 8px 30px;
                                         pointer-events: none;
+                                        font-weight: 600;
                                     }
 
                                     .category-top-items {
@@ -517,13 +528,12 @@
                                         position: relative;
                                         transition: all 0.5s ease-out;
 
-                                        .toggle {
-                                            display: none;
-                                        }
-
                                         ul {
                                             padding: 0;
                                             margin: 0;
+                                            display: block;
+                                            position: relative;
+                                            border: 0;
 
                                             li {
                                                 min-height: 41px;
@@ -555,6 +565,46 @@
 }
 
 @include media-breakpoint-down(sm) {
+    .level-2-li.active .menu-right .category-top-offers a.heading::after {
+        transform: rotate(180deg);
+        transform-origin: center center;
+    }
+
+    .menu-right {
+        .category-top-offers {
+            a.heading {
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 20px;
+                letter-spacing: 0.01em;
+                color: #4d4d4d;
+                height: 44px;
+                padding: 9px 5px 9px 35px;
+                cursor: pointer;
+                display: block;
+                position: relative;
+
+                &::after {
+                    border: 0;
+                    content: url("../images/header/megamenu-mobile_secondary-carat.svg");
+                    height: auto;
+                    position: absolute;
+                    right: 18px;
+                    top: 0.5rem;
+                    transition: all 0.3s ease-out;
+                    width: auto;
+                }
+            }
+        }
+
+        .category-top-items {
+            a {
+                color: colour(gray, 4);
+                font-size: 16px;
+            }
+        }
+    }
+
     .dropdown-item.active,
     .dropdown-item:active {
         background-color: transparent;

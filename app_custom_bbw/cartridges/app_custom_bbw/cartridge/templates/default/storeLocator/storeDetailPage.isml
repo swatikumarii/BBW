@@ -16,9 +16,30 @@
                     ${pdict.storeDetail.name}</div>
                 <address class="h-clr--black-1">
                     <div class="store-hours mt-2">
-                        <isif condition="${pdict.storeDetail.storeHours}">
-                            <isprint value="${pdict.storeDetail.storeHours}" encoding="off" />
-                        </isif>
+                        <div class="">
+                           
+                        </div>
+                        <div class="store-dropdown store-hours-details position-relative">
+                            <button class="border-0 h-bg--white dropdown-toggle p-0" type="button" id="store-hours-details" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <isif condition="${pdict.storeDetail.storeHours}">
+                                    <isprint value="${pdict.storeDetail.storeHours}" encoding="off" />
+                                </isif>
+                                <img src="${URLUtils.staticURL('/images/store-locator/UI-Carat.svg')}"
+                                    alt="${Resource.msg('global.storename', 'common', null)}" />
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="store-hours-details">
+                                <ul>
+                                    <li class="dropdown-item"><span class="sl-weekday">Mon</span><span class="sl-time">11:00 AM - 10:00PM</span></li>
+                                    <li class="dropdown-item"><span class="sl-weekday">Tue</span><span class="sl-time">11:00 AM - 10:00PM</span></li>
+                                    <li class="dropdown-item"><span class="sl-weekday">Wed</span><span class="sl-time">11:00 AM - 10:00PM</span></li>
+                                    <li class="dropdown-item"><span class="sl-weekday">Thu</span><span class="sl-time">11:00 AM - 10:00PM</span></li>
+                                    <li class="dropdown-item"><span class="sl-weekday">Fri</span><span class="sl-time">11:00 AM - 10:00PM</span></li>
+                                    <li class="dropdown-item"><span class="sl-weekday">Sat</span><span class="sl-time">11:00 AM - 10:00PM</span></li>
+                                    <li class="dropdown-item"><span class="sl-weekday">Sun</span><span class="sl-time">11:00 AM - 10:00PM</span></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                     <a class="store-map h-clr--gray-4" target='_blank'
                         href="https://maps.google.com/?daddr=${pdict.storeDetail.latitude},${pdict.storeDetail.longitude}">
@@ -111,7 +132,7 @@
             <isloop iterator="${pdict.nearbyStores}" alias="nearbyStore" status="loopState" begin="0" end="2">
                 <div class="near-stores">
                     <div class="img-wrap">
-                    <img alt="image" src="${nearbyStore.imageUrl[0]}" />
+                        <img alt="image" src="${nearbyStore.imageUrl[0]}" />
                     </div>
                     <p class="h-clr--black-1 h-fw--semibold">${nearbyStore.name}</p>
                     <a href="https://maps.google.com/?daddr=${nearbyStore.latitude},${nearbyStore.longitude}"
