@@ -244,6 +244,10 @@
                 display: block;
                 transition: opacity 0.3s;
                 color: colour(black, 3);
+
+                @include media-down(sm) {
+                    display: none;
+                }
             }
         }
     }

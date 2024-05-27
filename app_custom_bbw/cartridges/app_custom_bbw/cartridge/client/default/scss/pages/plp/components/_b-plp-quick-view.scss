@@ -555,6 +555,10 @@
     left: 5% !important;
     border-radius: 0;
 
+    @include media-btw(sm,md) {
+        left: 12% !important;
+    }
+
     .popover-body {
         overflow-y: scroll;
         max-height: 6.25rem;
