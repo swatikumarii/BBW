@@ -35,7 +35,13 @@
                         ${pdict.storeDetail.postalCode}
                     </a>
                 </address>
-                <p class="open-now d-flex align-items-center h-clr--black-1">${pdict.storeDetail.storeHours}</p>
+                <div class="opened d-none">
+                    <p id="open-now" class="open-now d-flex align-items-center h-clr--black-1"><span class="h-bg--green"></span>${Resource.msg('msg.open.now', 'storeLocator', null)}</p>
+                </div>
+
+                <div class="closed d-none">
+                    <p id="closed-now" class="open-now d-flex align-items-center h-clr--black-1"><span class="h-bg--red"></span>${Resource.msg('msg.closed.now', 'storeLocator', null)}</p>
+                </div>
                 <div class="phone-email d-flex">
                     <isif condition="${pdict.storeDetail.phone}">
                         <p data-phone="${pdict.storeDetail.phone}" class="phone h-clr--black-1">
