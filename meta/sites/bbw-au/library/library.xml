@@ -14191,4 +14191,124 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
+	<content content-id="bbw_chadstone">
+        <display-name xml:lang="x-default">BBW CHADSTONE</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_chadstone')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_dfo_homebush">
+        <display-name xml:lang="x-default">BBW DFO HOMEBUSH</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_dfo_homebush')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_dfo_south_wharf">
+        <display-name xml:lang="x-default">BBW DFO SOUTH WHARF</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_dfo_south_wharf')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_emporium">
+        <display-name xml:lang="x-default">BBW EMPORIUM</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_emporium')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_harbour_town">
+        <display-name xml:lang="x-default">BBW HARBOUR TOWN</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_harbour_town')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_melbourne_central">
+        <display-name xml:lang="x-default">BBW MELBOURNE CENTRAL</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_melbourne_central')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_qvb">
+        <display-name xml:lang="x-default">BBW QVB</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_qvb')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_westfield_chermside">
+        <display-name xml:lang="x-default">BBW WESTFIELD CHERMSIDE</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_westfield_chermside')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_westfield_kotara">
+        <display-name xml:lang="x-default">BBW WESTFIELD KOTARA</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_westfield_kotara')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_westfield_mt_gravatt">
+        <display-name xml:lang="x-default">BBW WESTFIELD MT GRAVATT</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_westfield_mt_gravatt')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_westfield_parramatta">
+        <display-name xml:lang="x-default">BBW WESTFIELD PARRAMATTA</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_westfield_parramatta')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_westfield_penrith">
+        <display-name xml:lang="x-default">BBW WESTFIELD PENRITH</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_westfield_penrith')$</custom-attribute>
+        </custom-attributes>
+    </content>
 </library>
