@@ -400,10 +400,29 @@
                         top: 1.125rem;
                     }
                 }
-            }
 
-            .content p {
-                padding: 0 1rem;
+                .content {
+                    padding: 0 60px 0 0;
+
+                    p {
+                        padding: 0 0 0 1rem;
+                    }
+
+                    .pdp_ov_ul {
+                        padding: 0 0 0 34px;
+                        list-style: none;
+                        margin: 0;
+
+                        li {
+                            list-style: disc;
+                            font-weight: 400;
+                            font-size: 1rem;
+                            line-height: 1.5rem;
+                            letter-spacing: 0.01em;
+                            color: #4d4d4d;
+                        }
+                    }
+                }
             }
         }
 
