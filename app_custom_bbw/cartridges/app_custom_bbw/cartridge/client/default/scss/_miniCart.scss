@@ -270,6 +270,12 @@
     }
 }
 
+.choice-of-bonus-product {
+    img {
+        max-height: 180px;
+    }
+}
+
 .cart-checkout-btn,
 .checkout-btn {
     &.disabled {
