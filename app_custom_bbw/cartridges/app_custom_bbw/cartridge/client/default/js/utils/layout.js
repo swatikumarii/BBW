@@ -1,7 +1,7 @@
 'use strict';
 
 var viewportWidth = {
-    mobile: { maxWidth: window.MEDIA_BREAKPOINTS.md - 2, minWidth: 320 },
+    mobile: { maxWidth: window.MEDIA_BREAKPOINTS.sm - 2, minWidth: 320 },
     tablet: { maxWidth: window.MEDIA_BREAKPOINTS.sm, minWidth: window.MEDIA_BREAKPOINTS.sm - 1 },
     largeTablet: { maxWidth: 1366, minWidth: window.MEDIA_BREAKPOINTS.md - 1 }
 };
