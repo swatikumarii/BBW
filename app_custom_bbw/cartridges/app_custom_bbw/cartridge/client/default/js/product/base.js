@@ -739,8 +739,21 @@ module.exports = $.extend({}, base, {
                         data: form,
                         success: function (data) {
                             if (data.error) {
-                                $('.reserve-stock p').text(data.message);
-                                $('.reserve-stock').removeClass('d-none');
+                                if (data.errorCode === 'ZERO-PRICE-PRODUCT') {
+                                    if (currentAction.siblings('.add-to-cart-error').length) {
+                                        currentAction
+                                            .siblings('.add-to-cart-error')
+                                            .text(data.errorMessage);
+                                    } else if ($('.add-to-cart-error-pdp').length) {
+                                        $('.add-to-cart-error-pdp').text(
+                                            data.errorMessage
+                                        );
+                                    }
+                                    $.spinner().stop();
+                                } else {
+                                    $('.reserve-stock p').text(data.message);
+                                    $('.reserve-stock').removeClass('d-none');
+                                }
                                 return true;
                             }
                             if (data.isProductLineItemsExist) {

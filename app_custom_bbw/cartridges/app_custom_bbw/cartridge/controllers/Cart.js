@@ -165,9 +165,9 @@ server.prepend('AddProduct', function (req, res, next) {
     var Resource = require('dw/web/Resource');
     var price = cartHelper.getProductPrice(req.form.pid);
     if (price === 0) {
-        res.setStatusCode(400);
         res.json({
             error: true,
+            errorCode: 'ZERO-PRICE-PRODUCT',
             errorMessage: Resource.msg(
                 'error.can.not.add.zero.price.item',
                 'product',
