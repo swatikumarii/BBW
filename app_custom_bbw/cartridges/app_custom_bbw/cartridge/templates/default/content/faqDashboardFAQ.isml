@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
+<script src="${URLUtils.staticURL('/js/faqSearch.js')}"></script>
 
 <div class="faq-search text-center h-clr--black position-relative">
     <h1 class="text-capitalize h-font-size--24 h-fw--bold">
@@ -10,9 +11,16 @@
             <circle cx="4.5" cy="4.5" fill="none" r="4" stroke="currentColor"></circle>
             <path d="M11 11L7.5 7.5" stroke="currentColor" stroke-linecap="round"></path>
         </svg>
-        <form role="search " data-search="" action="${URLUtils.url('Faq-Search')}" method="get">
+        <input type="hidden" class="faq-search-url" data-url="${URLUtils.url('Faq-Content', 'query')}"/>
+        <form role="search" data-search="" action="${URLUtils.url('Faq-Search')}" method="get">
             <input type="text" name="query" id="query" class="search-input" placeholder="${Resource.msg('faq.type.your.question.here', 'faq', null)}"/>
         </form>
+        <div class="faq-search-suggestions h-bg--white w-100 js-faq-search-suggestions" id="faq-search-suggestions">
+            <div class="faq-suggestions-wrapper h-bg--white" data-url="${URLUtils.url('Faq-Content', 'query')}">
+                <div class="faq-suggestions d-flex">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="container">
