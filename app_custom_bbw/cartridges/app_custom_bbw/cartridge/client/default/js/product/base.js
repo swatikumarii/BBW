@@ -749,11 +749,11 @@ module.exports = $.extend({}, base, {
                                             data.errorMessage
                                         );
                                     }
-                                    $.spinner().stop();
                                 } else {
                                     $('.reserve-stock p').text(data.message);
                                     $('.reserve-stock').removeClass('d-none');
                                 }
+                                $.spinner().stop();
                                 return true;
                             }
                             if (data.isProductLineItemsExist) {

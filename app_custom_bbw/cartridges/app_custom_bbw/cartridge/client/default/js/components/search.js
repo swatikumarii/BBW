@@ -526,8 +526,28 @@ module.exports = function () {
                     data: form,
                     success: function (data) {
                         if (data.error) {
-                            $('.reserve-stock p').text(data.message);
-                            $('.reserve-stock').removeClass('d-none');
+                            if (data.errorCode === 'ZERO-PRICE-PRODUCT') {
+                                if (
+                                    currentAction.closest('.product-tile')
+                                        .length &&
+                                    currentAction
+                                        .closest('.product-tile')
+                                        .find('.add-to-cart-error').length
+                                ) {
+                                    currentAction
+                                        .closest('.product-tile')
+                                        .find('.add-to-cart-error')
+                                        .text(data.errorMessage);
+                                } else if ($('.add-to-cart-error-pdp').length) {
+                                    $('.add-to-cart-error-pdp').text(
+                                        data.errorMessage
+                                    );
+                                }
+                            } else {
+                                $('.reserve-stock p').text(data.message);
+                                $('.reserve-stock').removeClass('d-none');
+                            }
+                            $.spinner().stop();
                             return true;
                         }
                         if (data.isProductLineItemsExist) {
@@ -549,7 +569,6 @@ module.exports = function () {
                         setTimeout(function () {
                             addToCartSnackbar.removeClass('show');
                         }, 3000);
-
                         $.spinner().stop();
                         baseProductBase.miniCartReportingUrl(data.reportingURL);
                         return true;
