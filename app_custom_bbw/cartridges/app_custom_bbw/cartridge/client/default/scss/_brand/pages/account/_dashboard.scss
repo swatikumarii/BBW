@@ -1,0 +1,228 @@
+.my-account {
+    padding: 0.5rem 15px 1.6875rem;
+
+    .account-dashboard {
+        max-width: 955px;
+        margin: 0 auto;
+    }
+
+    .account-nav-wrap {
+        width: 100%;
+
+        @include media-up(sm) {
+            width: 225px;
+        }
+
+        .my-account-nav {
+            display: block;
+            padding: 0;
+
+            @include media-down(sm) {
+                display: none;
+                padding: 20px 0;
+            }
+
+            h1 {
+                margin: 0 0 20px;
+                font-weight: map-get($font-weight, bold);
+
+                @include media-up(sm) {
+                    line-height: 0.625rem;
+                    margin-bottom: 1.375rem;
+                }
+            }
+
+            ul {
+                li {
+                    margin: 0;
+                    padding: 10px 15px;
+                    list-style: none;
+
+                    @include media-up(sm) {
+                        margin: 20px 0 23px;
+                        line-height: 1.25rem;
+                        padding: 0;
+                    }
+
+                    a {
+                        letter-spacing: 0.01em;
+                        color: colour(gray);
+
+                        &:hover {
+                            color: colour(blue);
+                        }
+                    }
+
+                    &.active {
+                        a {
+                            color: colour(blue);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .description-order-details {
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .description-detail {
+        padding: 0;
+        width: 100%;
+
+        @include media-up(sm) {
+            padding: 0 0 20px 25px;
+            width: calc(100% - 225px);
+        }
+
+        @include media-btw(sm, lg) {
+            padding: 0;
+        }
+
+        .wishlist-text {
+            line-height: 24px;
+        }
+
+        .add-wishlist {
+            .wishlist-btn {
+                padding: 0 1.25em;
+                line-height: 2.0625rem;
+                font-size: 0.6875rem;
+                min-height: auto;
+                margin-bottom: 20px;
+                letter-spacing: 0.12em;
+                background-color: colour(black, 3);
+            }
+        }
+    }
+
+    .my-account-description {
+        .account-profile {
+            .profile-heading {
+                h1 {
+                    border-bottom: 1px solid colour(black, 3);
+                    padding-bottom: 0.625em;
+                    margin-bottom: 25px;
+                    line-height: 18px;
+                    font-weight: map-get($font-weight, bold);
+
+                    a {
+                        text-decoration: underline;
+
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+
+            ul.account-options {
+                grid-template-columns: auto;
+                gap: 41px;
+                margin-bottom: 2.5625rem;
+
+                @include media-up(sm) {
+                    gap: 41px 20px;
+                    grid-template-columns: auto auto;
+                }
+
+                li {
+                    list-style: none;
+                    max-width: 341.92px;
+                    height: 84px;
+
+                    a {
+                        img {
+                            width: 5.25rem;
+                            height: 5.25rem;
+                            margin-right: 1.875rem;
+                        }
+
+                        .info {
+                            line-height: 1rem;
+
+                            h3 {
+                                margin: 0.3125rem 0;
+                            }
+
+                            p {
+                                line-height: 1.25rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .account-nav-help {
+                p {
+                    line-height: 1.6em;
+                }
+            }
+        }
+
+        .cancel-payment {
+            line-height: 2;
+            min-height: auto;
+            padding: 3px 25px;
+            text-transform: uppercase;
+        }
+    }
+
+    .btn-save {
+        margin-bottom: 15px;
+        font-size: 11px;
+        padding: 0 2.8125em;
+        max-height: 35px;
+        text-transform: uppercase;
+        min-height: auto;
+        letter-spacing: 0.12em;
+
+        &:hover {
+            color: colour(white);
+        }
+
+        @include media-down(sm) {
+            width: 100%;
+            font-size: 13px;
+        }
+    }
+
+    .btn-save.disabled {
+        opacity: 0.5;
+        background-color: colour(gray, 7);
+        border-color: colour(gray, 7);
+        color: colour(gray);
+        pointer-events: none;
+    }
+}
+
+.mobile-my-account {
+    display: block;
+    letter-spacing: 0.02em;
+    margin: 0 0 15px;
+    padding: 0 15px 15px;
+    border-bottom: 1px solid colour(gray, 6);
+    font-weight: 600;
+
+    @include media-up(sm) {
+        display: none;
+    }
+
+    &::after {
+        content: "";
+        width: 1.5rem;
+        height: 1.375rem;
+        float: right;
+        background: url("../../images/UI-Carat.svg") no-repeat;
+        background-position-x: 50%;
+        transition: transform 0.5s ease-out;
+    }
+
+    &.in {
+        &::after {
+            transform: rotate(180deg);
+        }
+    }
+}

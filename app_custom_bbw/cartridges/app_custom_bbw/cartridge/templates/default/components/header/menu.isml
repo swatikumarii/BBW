@@ -1,0 +1,150 @@
+<iscomment>Desktop and Ipad Menu</iscomment>
+<nav class="navbar navbar-expand-md bg-inverse p-0 w-100 d-none d-md-block">
+    <div class="menu-group w-100" role="navigation">
+        <ul class="nav navbar-nav justify-content-between level-1-ul" role="menu">
+            <isif condition="${pdict.categories}">
+                <isloop items="${pdict.categories}" var="category">
+                    <isif condition="${category.subCategories}">
+                        <li class="nav-item dropdown level-1-li" role="presentation">
+                            <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
+                                id="${category.id}" class="level-1-link nav-link h-font-size--14 h-fw--semibold text-capitalize dropdown-toggle"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                tabindex="0">${category.name}</a>
+                            <isset name="menuItem" value="${category}" scope="page" />
+                            <iscomment> <isinclude template="components/header/menuItem" /> </iscomment>
+                            <isinclude template="components/header/brandMenuItem" />
+                        </li>
+                    <iselse/>
+                        <li class="nav-item" role="presentation">
+                            <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
+                                id="${category.id}" class="nav-link h-font-size--14 h-fw--semibold" role="link"
+                                tabindex="0">${category.name}</a>
+                        </li>
+                    </isif>
+                </isloop>
+            </isif>
+            <isinclude url="${URLUtils.url('Page-Locale', 'mobile', true)}" />
+        </ul>
+    </div>
+</nav>
+
+<iscomment>Mobile Menu</iscomment>
+<nav class="navbar mobile-navbar navbar-expand-md bg-inverse p-0 w-100 d-block d-md-none h-100">
+    <div class="close-menu clearfix w-100 h-bg--white">
+        <div class="back pull-left">
+            <span class="h-clr--blue h-font-size--18 h-fw--bold">${Resource.msg('label.header.menu.title', 'common', null)}</span>
+        </div>
+        <div class="close-button pull-right">
+            <button class="border-0 p-0 h-bg--white" role="button"
+                aria-label="${Resource.msg('label.header.menu.close', 'common', null)}">
+                <img class="h-width--20" src="${URLUtils.staticURL('/images/header/UI-Close-blue.svg')}" alt="${Resource.msg('global.close', 'common', null)}" />
+            </button>
+        </div>
+    </div>
+    <div class="menu-group w-100 h-bg--white" role="navigation">
+        <div class="mobile-slide-menu-search position-relative">
+            <form role="search">
+                <fieldset>
+                    <input class="h-font-size--18 p-0" type="search" id="mobile-slide-search" value=""
+                        placeholder="Search" />
+                    <button type="submit" id="menusearch"
+                        class="position-absolute h-100 border-0 p-0 h-bg--white "></button>
+                    <span role="button" class="mobile-slide-cancel h-font-size--14 h-clr--black-3 position-absolute"
+                        tabindex="-1" style="display: none;">${Resource.msg('label.header.menu.cancel', 'common', null)}</span>
+                </fieldset>
+            </form>
+        </div>
+
+        <ul class="nav navbar-nav justify-content-between level-1-ul" role="menu">
+            <li class="nav-top-offers nav-item level-1-li" role="presentation">
+                <a href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold"
+                >${Resource.msg('mobile.menu.topOffers', 'common', null)}</a>
+            </li>
+            <isif condition="${pdict.categories}">
+                <isloop items="${pdict.categories}" var="category">
+                    <isif condition="${category.subCategories}">
+                        <li class="nav-item dropdown level-1-li" role="presentation">
+                            <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
+                                id="${category.id}" class="level-1-link nav-link h-font-size--18 h-fw--semibold
+                                    dropdown-toggle"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                tabindex="0">${category.name}</a>
+                            <isset name="menuItem" value="${category}" scope="page" />
+                            <isinclude template="components/header/mobileMenuItem" />
+                        </li>
+                    <iselse/>
+                        <li class="nav-item" role="presentation">
+                            <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
+                                id="${category.id}" class="nav-link h-font-size--18 h-fw--semibold" role="link"
+                                tabindex="0">${category.name}</a>
+                        </li>
+                    </isif>
+                </isloop>
+            </isif>
+            <li class="nav-store-locator nav-item level-1-li" role="presentation">
+                <a href="${URLUtils.url('Stores-Find')}" class="level-1-link nav-link h-font-size--18 h-fw--semibold">${Resource.msg('mobile.menu.storeLocator', 'common', null)}</a>
+            </li>
+            <li class="nav-my-account nav-item level-1-li dropdown" role="presentation">
+                <a href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
+                <isif condition="${pdict.customerName === null}">
+                    <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true" aria-label="${category.id}">
+                        <li class="level-2-li p-0" role="presentation">
+                            <a href="${URLUtils.url('Login-Show')}" class="level-2-link h-clr--gray h-font-size--16"
+                                role="button">${Resource.msg('mobile.menu.signIn', 'common', null)}</a>
+                        </li>
+                        <li class="level-2-li p-0" role="presentation">
+                            <a href="${URLUtils.url('Order-Status')}" class="level-2-link h-clr--gray h-font-size--16"
+                                role="button">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a>
+                        </li>
+                        <li class="level-2-li p-0" role="presentation">
+                            <a href="${URLUtils.url('Login-Show')}" class="level-2-link h-clr--gray h-font-size--16"
+                                role="button">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
+                        </li>
+                        <li class="level-2-li p-0" role="presentation">
+                            <a href="${URLUtils.url('Login-Show')}" class="level-2-link h-clr--gray h-font-size--16"
+                                role="button">${Resource.msg('mobile.menu.myLoveItList', 'common', null)}</a>
+                        </li>
+                    </ul>
+                <iselse/>
+                    <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true" aria-label="${category.id}">
+                        <li class="level-2-li logged-user-name" role="presentation">
+                            ${Resource.msg('mobile.menu.hi', 'common', null)} ${pdict.customerName} ${Resource.msg('mobile.menu.exclamation', 'common', null)}
+                        </li>
+                        <li class="level-2-li p-0" role="presentation">
+                            <a href="${URLUtils.url('Account-Show')}" class="level-2-link h-clr--gray h-font-size--16"
+                                role="button">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
+                        </li>
+                        <li class="level-2-li p-0" role="presentation">
+                            <a href="${URLUtils.url('Order-History')}" class="level-2-link h-clr--gray h-font-size--16"
+                                role="button">${Resource.msg('label.myorders', 'account', null)}</a>
+                        </li>
+                        <li class="level-2-li p-0" role="presentation">
+                            <a href="${URLUtils.url('Wishlist-Show')}" class="level-2-link h-clr--gray h-font-size--16"
+                                role="button">${Resource.msg('mobile.menu.myLoveItList', 'common', null)}</a>
+                        </li>
+                        <li class="level-2-li p-0" role="presentation">
+                            <a href="${URLUtils.url('Login-Logout')}" class="level-2-link h-clr--gray h-font-size--16"
+                                role="button">${Resource.msg('link.header.logout', 'account', null)}</a>
+                        </li>
+                    </ul>
+                </isif>
+            </li>
+            <isinclude url="${URLUtils.url('Page-Locale', 'mobile', true)}" />
+        </ul>
+
+        <div class="utility-links-container d-block d-md-none">
+            <ul class="utility-links mobile-only">
+                <li class="link">
+                    <a href="${URLUtils.url('Order-Status')}">${Resource.msg('mobile.menu.orderTracking', 'common', null)}</a>
+                </li>
+                <li class="link">
+                    <a href="${URLUtils.url('Page-Show', 'cid', 'help-faq-dashboard')}">${Resource.msg('mobile.menu.shipping', 'common', null)}</a>
+                </li>
+                <li class="link">
+                    <a href="${URLUtils.url('Fragrance-Show')}">${Resource.msg('mobile.menu.shopByFragrance', 'common', null)}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="mobile-menu-overlay position-fixed h-bg--black-3 h-100 w-100 d-block d-md-none"></div>

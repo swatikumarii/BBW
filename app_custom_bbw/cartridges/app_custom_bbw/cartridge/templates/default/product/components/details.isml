@@ -1,0 +1,5 @@
+<div class="value content collapse" id="collapse-details" aria-labelledby="details" data-parent="#pdp-accordion">
+    <p class="h-font-size--16 h-clr--gray-4 card-body">
+        <isprint value="${product.longDescription}" encoding="off" />
+    </p>
+</div>

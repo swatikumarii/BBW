@@ -11,8 +11,11 @@ elif [ "$1" = 'docker:up' ]
 then
     echo "Starting Docker"
     cd Docker
-    docker-compose up -d
-    docker exec -it -u $(id -u):$(id -g) bbw bash
+    export USER_INFO=$(id -u):$(id -g)
+    export USER_ID=$(id -u)
+    export GROUP_ID=$(id -g)
+    docker-compose build
+    USER_INFO=$(id -u):$(id -g) docker-compose run --rm bbw
 
 
 elif [ "$1" = 'docker:down' ]
@@ -24,29 +27,81 @@ then
 elif [ "$1" = 'init' ]
 then
     DIR=`pwd`
-    CartridgePath='storefront-reference-architecture:plugin_bundling:plugin_event_traking:plugin_gift_wrap_greeting_card:plugin_marketing_tiles:plugin_plugin_notify_back_in_stock:plugin_popups'
+    CartridgePath='storefront-reference-architecture:adyen-salesforce-commerce-cloud:afterpay-salesforce-commerce-cloud:int_qwikcilver:plugin_bundling:plugin_emarsys:plugin_event_traking:plugin_gift_wrap_greeting_card:plugin_marketing_tiles:plugin_metapixel:plugin_notify_back_in_stock:plugin_popups:plugin_wishlists:app_custom_bbw'
+    # setting environment variable for afterpay backward compatibilty
+    export NODE_OPTIONS="--openssl-legacy-provider"
     for i in $(echo $CartridgePath | tr ":" "\n")
         do
-            echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-            echo "Cartridge Path => " $i
-            echo "Command => " $1
-            cd $DIR/$i
-            echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-            echo "npm Install"
-            echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-            npm install
-            echo "Compiling Fonts"
-            echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-            npm run compile:fonts
-            echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-            echo "Compiling scss"
-            echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-            npm run compile:scss
-            echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-            echo "Compiling js"
-            echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-            npm run compile:js
+            if [ $i = 'adyen-salesforce-commerce-cloud' ]
+            then
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                echo "Cartridge Path => " $i
+                echo "Command => " $1
+                cd $DIR/$i
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                echo "npm Install"
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                npm install
+                echo "Transpiling code"
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                npm run transpile
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                echo "Compiling js"
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                npm run compile:js
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+            else
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                echo "Cartridge Path => " $i
+                echo "Command => " $1
+                cd $DIR/$i
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                echo "npm Install"
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                npm install
+                echo "Compiling Fonts"
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                npm run compile:fonts
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                echo "Compiling scss"
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                npm run compile:scss
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                echo "Compiling js"
+                echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+                npm run compile:js
+            fi
         done
+
+elif [ "$1" = 'meta:import' ]
+then
+    echo "Approve 2 factor-Auth with Salesforce Authenticator."
+    SFCC_CI_AUTH_RES=$(sfcc-ci client:auth)
+    echo "$SFCC_CI_AUTH_RES"
+    if [ "$SFCC_CI_AUTH_RES" = 'Authentication succeeded' ]
+    then
+        npm install -g underscore-cli
+        echo "SFCC-CI Authenticated Successfully!"
+        SFCC_CI_AUTH_STATUS=true
+        OCAPIACCESS_TOKEN=$(sfcc-ci client:auth:token)
+        FOLDER_TO_UPLOAD="meta"
+        echo "Start Archiving $FOLDER_TO_UPLOAD folder into $FOLDER_TO_UPLOAD.zip"
+        zip -r -q $FOLDER_TO_UPLOAD.zip $FOLDER_TO_UPLOAD
+        SANDBOX_URL=$(cat dw.json | underscore select '.hostname' --outfmt text)
+        echo "$SANDBOX_URL"
+        IS_DATA_UPLOADED=$(sfcc-ci instance:upload $FOLDER_TO_UPLOAD.zip -i ${SANDBOX_URL})
+        if [ "$IS_DATA_UPLOADED" = 'Instance import file '$FOLDER_TO_UPLOAD'.zip uploaded to '${SANDBOX_URL} ]
+        then
+            IS_DATA_IMPORTED=$(sfcc-ci instance:import $FOLDER_TO_UPLOAD.zip -i ${SANDBOX_URL} -s)
+            echo "${IS_DATA_IMPORTED}"
+        else
+            echo "Metadata not uploaded."
+        fi
+    else
+    echo "Authentication Failed."
+    fi
+    rm $FOLDER_TO_UPLOAD.zip
+    echo "${IS_DATA_IMPORTED.status}"
 fi
 echo "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-"
 echo "Done!"

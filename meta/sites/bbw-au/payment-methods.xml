@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<payment-settings xmlns="http://www.demandware.com/xml/impex/paymentsettings/2009-09-15">
+      <payment-method method-id="AdyenPOS">
+        <name xml:lang="x-default">AdyenPOS</name>
+        <description xml:lang="x-default">Adyen POS</description>
+        <enabled-flag>false</enabled-flag>
+        <processor-id>Adyen_POS</processor-id>
+    </payment-method>
+    <payment-method method-id="AdyenComponent">
+        <name xml:lang="x-default">AdyenComponent</name>
+        <description xml:lang="x-default">This method id is used for alternative payment methods</description>
+        <enabled-flag>true</enabled-flag>
+        <processor-id>Adyen_Component</processor-id>
+    </payment-method>
+    <payment-method method-id="CREDIT_CARD">
+        <name xml:lang="x-default">Credit Card</name>
+        <description xml:lang="x-default">This method id is used for payments with credit cards</description>
+        <enabled-flag>true</enabled-flag>
+        <processor-id>Adyen_Component</processor-id>
+    </payment-method>
+    <payment-method method-id="CLEARPAY">
+        <name xml:lang="x-default">Clearpay</name>
+        <image>logo-clearpay-colour.png</image>
+        <enabled-flag>true</enabled-flag>
+        <processor-id>AFTERPAY_CREDIT</processor-id>
+        <countries>
+            <country country-code="GB"/>
+        </countries>
+        <currencies>
+            <currency>GBP</currency>
+        </currencies>
+        <ranges>
+            <range currency="GBP">
+            </range>
+        </ranges>
+    </payment-method>
+
+    <payment-method method-id="AFTERPAY">
+        <name xml:lang="x-default">Afterpay</name>
+        <image>logo-afterpay-colour.png</image>
+        <enabled-flag>true</enabled-flag>
+        <processor-id>AFTERPAY_CREDIT</processor-id>
+        <countries>
+            <country country-code="AU"/>
+            <country country-code="CA"/>
+            <country country-code="NZ"/>
+            <country country-code="US"/>
+        </countries>
+        <currencies>
+            <currency>AUD</currency>
+            <currency>CAD</currency>
+            <currency>NZD</currency>
+            <currency>USD</currency>
+        </currencies>
+        <ranges>
+            <range currency="AUD">
+            </range>
+            <range currency="CAD">
+            </range>
+            <range currency="NZD">
+            </range>
+            <range currency="USD">
+            </range>
+        </ranges>
+    </payment-method>
+
+    <payment-method method-id="CASHAPPPAY">
+        <name xml:lang="x-default">Cash App Pay</name>
+        <image>cashapppay-logomark1x.png</image>
+        <enabled-flag>true</enabled-flag>
+        <processor-id>CASHAPP_CREDIT</processor-id>
+        <countries>
+            <country country-code="US"/>
+        </countries>
+        <currencies>
+            <currency>USD</currency>
+        </currencies>
+        <ranges>
+            <range currency="USD">
+            </range>
+        </ranges>
+    </payment-method>
+</payment-settings>

@@ -1,0 +1,26 @@
+<isif condition="${pdict.order.billing.billingAddress.address !== null}">
+    <isset name="address" value="${pdict.order.billing.billingAddress.address}" scope="page"/>
+    <iselse>
+    <isset name="address" value="{}" scope="page"/>
+</isif>
+
+<div class="summary-details billing">
+    <span class="summary-section-label billing-addr-label d-block mb-2 h-clr--black-1 h-fw--bold">${Resource.msg('label.order.billing.address', 'order', null)}</span>
+     <isinclude template="checkout/addressSummary" />
+    <isif condition="${pdict.order.billing.billingAddress.address !== null}">
+        <span class="order-summary-phone">${pdict.order.billing.billingAddress.address.phone}</span>
+        <iselse>
+        <span class="order-summary-phone"></span>
+    </isif>
+</div>
+
+<!--- Payment information --->
+<div class="summary-details">
+    <span class="summary-section-label payment-info-label d-block mb-2 h-clr--black-1 h-fw--bold">${Resource.msg('label.order.payment.info', 'order', null)}</span>
+    <isinclude template="checkout/billing/paymentOptions/paymentOptionsSummary" />
+</div>
+<iscomment> ### Custom Adyen cartridge start ### </iscomment>
+<isinclude template="adyenActionModal" />
+<iscomment> ### Custom Adyen cartridge end ### </iscomment>
+    <a href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}" class="edit-button pull-right text-muted"
+    aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</a>

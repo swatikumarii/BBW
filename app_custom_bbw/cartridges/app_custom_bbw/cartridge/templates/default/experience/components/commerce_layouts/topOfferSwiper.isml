@@ -1,0 +1,15 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceLayouts/topOfferSwiper.css');
+</isscript>
+
+<div class="top-offer ${pdict.customClass}">
+    <div class="top-offer__title text-center h-dsp--inline-block w-100">
+        <h2 class="h-pos--relative h-mx-md--auto h-mt-md--0 h-mb-md--0 h-fw--bold">
+            <isprint value="${pdict.title}" encoding="off" /></h2>
+    </div>
+    <isprint value="${pdict.regions.items
+            .setClassName(' top-offer__wrapper d-flex ds-smooth-scroll')
+            .setAttribute('style','--col-gap-lg: ' + pdict.columnGapDesktop + 'px; --col-gap-sm: ' + pdict.columnGapMobile + 'px; --col-gap-md:' + pdict.columnGapTablet)
+            .render()}" encoding="off" />
+</div>

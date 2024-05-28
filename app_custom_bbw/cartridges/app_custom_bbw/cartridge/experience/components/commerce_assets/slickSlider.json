@@ -1,0 +1,128 @@
+{
+  "name": "CMP: Slick Slider",
+  "description": "This is a component to integrate Slick Slider",
+  "group": "commerce_assets",
+  "attribute_definition_groups": [
+    {
+      "id": "slicksliderLoopConfigurations",
+      "name": "Slick Slider Configuration",
+      "description": "Infinity loop. Duplicate last and first items to get loop illusion.",
+      "attribute_definitions": [
+        {
+          "id": "infinityLoop",
+          "name": "Infinity loop",
+          "type": "boolean",
+          "required": false,
+          "default_value": true
+        },
+        {
+          "id": "autoplay",
+          "name": "AutoPlay",
+          "type": "boolean",
+          "required": false,
+          "default_value": true
+        },
+        {
+          "id": "autoPlaySpeed",
+          "name": "Auto Play Speed",
+          "description": "Add Auto Play Speed in Seconds Here",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "id": "slideAnimation",
+          "name": "Slides Animation",
+          "type": "enum",
+          "required": false,
+          "values": [
+            "Normal",
+            "Fade"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "slicksliderConfigurations",
+      "name": "slick Slider Configuration",
+      "description": "Configure how many slides should be visible at a time",
+      "attribute_definitions": [
+        {
+          "id": "slideToShowMobile",
+          "name": "Number of slides to display in Mobile Device",
+          "description": "Enter in this format (3 OR 3.5)",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "slideToShowDesktop",
+          "name": "Number of slides to display in Desktop Device",
+          "description": "Enter in this format (3 OR 3.5)",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "showOutOfStockProducts",
+          "name": "Show Out Of Stock Products",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "id": "gapMobile",
+          "name": "Gap Between slides Mobile Device",
+          "description": "Add Integer value in (PX)",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "id": "gapDesktop",
+          "name": "Gap Between slides Desktop Device",
+          "description": "Add Integer value in (PX)",
+          "type": "integer",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "slickslidernavigationConfiguration",
+      "name": "Slick Slider Navigation configurations",
+      "description": "Configuration For indicators/dots navigation controls",
+      "attribute_definitions": [
+        {
+          "id": "sliderCustomClass",
+          "name": "Slider Custom Class",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "CarouselIndicators",
+          "name": "Display Dots Navigation",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "id": "CarouselControls",
+          "name": "Display Slider controls",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "id": "arrowStyle",
+          "name": "Navigation Arrow Style",
+          "type": "enum",
+          "required": false,
+          "values": [
+            "default",
+            "transparent"
+          ]
+        }
+      ]
+    }
+  ],
+  "region_definitions": [
+    {
+      "id": "slides",
+      "name": "Slides",
+      "component_type_exclusions": []
+    }
+  ]
+}

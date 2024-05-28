@@ -1,0 +1,9 @@
+<li>
+        <ol class="breadcrumbs search-result-breadcrumbs">
+                <isinclude template="/content/faqRootBreadcrumb" />
+                <li class="text-uppercase" title="${pdict.level1Name}"><a href="${pdict.level1url}">
+                                ${pdict.level1Name}</a></li>
+                <li title="${pdict.level2Name}"><a href="${pdict.level2url}">
+                                ${pdict.level2Name}</a></li>
+        </ol>
+</li>

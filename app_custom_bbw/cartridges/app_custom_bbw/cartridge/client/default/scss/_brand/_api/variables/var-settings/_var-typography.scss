@@ -1,0 +1,184 @@
+// ==============================
+// Typography Configuration Map
+// ==============================
+// This map defines a comprehensive typographic system for the brand, ensuring consistency across various UI components.
+// It includes specifications for root elements, body text, headings (h1-h4), paragraphs (p), links (a), and specialized text styles.
+// Each style is configured with font size, line height, color, font weight, and font family, ensuring a harmonized visual hierarchy.
+// Additionally, media query adjustments (mediasmup, mediamdup) provide responsive typography for improved readability across devices.
+// 'configtags' serve as a reference for applying these styles to specific HTML tags or custom classes, enhancing maintainability and scalability.
+
+$brandTypography: (
+    "root": (
+        letter-spacing: normal
+    ),
+    "body": (
+        font-size: 16px,
+        line-height: normal,
+        color: colour(gray),
+        font-weight: map-get($font-weight, normal),
+        font-family: get-ff(base),
+        font-style: map-get($font-style, normal),
+        configtags: body
+    ),
+    "h1": (
+        font-size: 21px,
+        color: colour(black, 3),
+        line-height: 21px,
+        margin: 1.25rem 0,
+        font-family: get-ff(base),
+        font-weight: map-get($font-weight, normal),
+        mediasmup: (
+            font-size: 24px,
+            line-height: 24px
+        ),
+        configtags: h1
+    ),
+    "h2": (
+        font-size: 1rem,
+        color: colour(black, 3),
+        line-height: 1.125rem,
+        font-family: get-ff(base),
+        font-weight: map-get($font-weight, normal),
+        configtags: h2
+    ),
+    "h3": (
+        font-size: 0.8125rem,
+        color: colour(black, 3),
+        line-height: 1.125rem,
+        font-family: get-ff(base),
+        font-weight: map-get($font-weight, normal),
+        configtags: h3
+    ),
+    "h4": (
+        font-size: 0.875rem,
+        line-height: 1rem,
+        font-family: get-ff(base),
+        font-weight: map-get($font-weight, normal),
+        configtags: "h4, h5, h6"
+    ),
+    "p": (
+        font-size: 0.875rem,
+        line-height: 1.5rem,
+        color: colour(gray),
+        font-family: get-ff(base),
+        font-weight: map-get($font-weight, normal),
+        configtags: p
+    ),
+    "a": (
+        font-size: 0.875rem,
+        line-height: 1rem,
+        letter-spacing: 0.21px,
+        font-weight: map-get($font-weight, normal),
+        color: colour(gray),
+        text-decoration: underline
+    ),
+    "a-underline": (
+        text-decoration: underline
+    ),
+    "body-1": (
+        font-size: 1.125rem,
+        line-height: 1.75rem,
+        letter-spacing: 0.09px,
+        font-weight: map-get($font-weight, normal),
+        color: colour(gray, 4)
+    ),
+    "body-14": (
+        font-size: 0.875rem,
+        line-height: 1rem,
+        letter-spacing: 0.02em,
+        font-weight: map-get($font-weight, bold)
+    ),
+    "body-24": (
+        font-size: 24px
+    ),
+    "body-22": (
+        font-size: 22px
+    ),
+    "body-1-strong": (
+        font-size: 20px,
+        line-height: 30px,
+        font-weight: map-get($font-weight, medium)
+    ),
+    "body-2": (
+        font-size: 16px,
+        line-height: 24px
+    ),
+    "body-2-strong": (
+        font-size: 16px,
+        line-height: 24px,
+        font-weight: map-get($font-weight, medium)
+    ),
+    "body-2-bold": (
+        font-size: 1.125rem,
+        line-height: 1.25rem,
+        letter-spacing: 0.005em,
+        font-weight: map-get($font-weight, bold)
+    ),
+    "body-3": (
+        font-size: 14px,
+        line-height: 21px
+    ),
+    "body-3-strong": (
+        font-size: 14px,
+        line-height: 21px,
+        font-weight: map-get($font-weight, medium)
+    ),
+    "body-4": (
+        font-size: 12px,
+        line-height: 18px
+    ),
+    "body-4-strong": (
+        font-size: 12px,
+        line-height: 18px,
+        font-weight: map-get($font-weight, medium)
+    ),
+    "body-5-strong": (
+        font-size: 12px,
+        line-height: 20px,
+        font-weight: map-get($font-weight, medium)
+    ),
+    "body-5": (
+        font-size: 16px,
+        line-height: 24px,
+        mediamdup: (
+            font-size: 20px,
+            line-height: 28px
+        )
+    ),
+    "formlabel": (
+        font-size: 14px,
+        line-height: 1
+    ),
+    "formlabel-medium": (
+        font-size: 16px,
+        line-height: 16px
+    ),
+    "button": (
+        font-size: 16px,
+        line-height: 1,
+        font-weight: map-get($font-weight, medium),
+        text-transform: initial
+    ),
+    "forminput": (
+        font-family: get-ff(base),
+        font-size: 1rem,
+        line-height: 1.25rem,
+        letter-spacing: 0.09px,
+        font-weight: map-get($font-weight, normal)
+    ),
+    "forminput-medium": (
+        font-family: get-ff(base),
+        font-size: 18px,
+        line-height: 1,
+        font-weight: map-get($font-weight, medium)
+    ),
+    "checkbox": (
+        font-family: get-ff(base),
+        font-size: 16px,
+        line-height: 24px
+    ),
+    "icon": (
+        font-size: 36px,
+        line-height: 1
+    )
+);

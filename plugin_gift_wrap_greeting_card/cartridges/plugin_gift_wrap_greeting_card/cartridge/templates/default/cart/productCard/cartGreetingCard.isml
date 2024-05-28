@@ -1,0 +1,69 @@
+<isif condition="${pdict.greetingCardItem}">
+    <isset name="lineItem" value="${pdict.greetingCardItem}" scope="page" />
+    <isset name="hasEmbeddedBonusProducts" value="${lineItem.bonusProductLineItemUUID === 'bonus'}" scope="page" />
+    <isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}"
+        scope="page" />
+    <isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page" />
+
+    <div class="greeting-card card product-info ${bonusproductlineitem} uuid-${lineItem.UUID}"
+        data-uuid="${lineItem.UUID}" data-pid="${lineItem.id}" data-price="${lineItem.priceTotal.price}"
+        data-text="${lineItem.greetingCardMessage}">
+        <!--- name and remove buttons --->
+
+        <div class="d-flex w-100 ${bonuslineitemrow}">
+            <div class="col-md-7 col-9 p-0">
+
+                <div class="d-flex">
+                    <div class="item-image">
+                        <img class="product-image" src="${lineItem.images.small[0].url}"
+                            alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}" />
+                    </div>
+                    <div class="item-detail">
+                        <div class="item-desc">
+
+                            <div class="line-item-header">
+                                <div class="line-item-name">
+                                    ${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}
+                                </div>
+                                <div class="line-item-name-partB">
+                                    ${lineItem.titlePartB ? lineItem.titlePartB : ''}
+                                </div>
+                            </div>
+
+                            <span class="label">${Resource.msg('greeting.card.message', 'greetingCard', null)}${lineItem.greetingCardMessage}</span>
+                        </div>
+                        <div class="item-attributes d-flex flex-column">
+                            <iscomment>
+                                <isloop items="${lineItem.variationAttributes}" var="attribute">
+                                    <p class="line-item-attributes ${attribute.displayName}-${lineItem.UUID}">
+                                        ${attribute.displayName}: ${attribute.displayValue}</p>
+                                </isloop>
+                            </iscomment>
+                            <isloop items="${lineItem.options}" var="option">
+                                <isif condition="${!!option}">
+                                    <div class="lineItem-options-values" data-option-id="${option.optionId}"
+                                        data-value-id="${option.selectedValueId}">
+                                        <p class="line-item-attributes">${option.displayName}</p>
+                                    </div>
+                                </isif>
+                            </isloop>
+
+                            <iscomment>
+                                <isinclude template="cart/productCard/cartProductCardAvailability" />
+                            </iscomment>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <isinclude template="cart/productCard/cartGreetingCardProductPrice" />
+        </div>
+
+
+        <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
+            <isinclude template="cart/productCard/cartEmbeddedBonusProducts" />
+        </isif>
+
+    </div>
+</isif>

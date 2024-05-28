@@ -1,0 +1,67 @@
+<isinclude template="/components/modules" sf-toolkit="off" />
+<div class="row mb-3 mt-3">
+    <div class="col-12 text-center">
+        <div class="bundle-added-overlay d-none"></div>
+        <input type="hidden" name="bundle-complete-msg" class="bundle-complete-msg"
+            value="${Resource.msg('bundle.complete.msg', 'productBundle', null)}" />
+        <div class="bundle-added d-none">
+            <img class="bundle-all-set-img" alt="${Resource.msg('bundle.all.set', 'productBundle', null)}" src="${URLUtils.staticURL('/images/all-set.svg')}" width="80px" height="80px" />
+            <p class="h-font-size--18 h-fw--bold h-clr--black-1 bundle-added-allset-text">${Resource.msg('bundle.all.set', 'productBundle', null)}</p>
+            <p class="bundleMessage h-font-size--16 h-mb--20">${Resource.msg('bundle.is.in.bag', 'productBundle', null)}</p>
+            <isif condition=" ${dw.system.Site.getCurrent().getCustomPreferenceValue('hasAliases')}">
+                <isif
+                    condition="${require('dw/system/Site').current.getCustomPreferenceValue('SelectSite').value === 'multilingualSite'}">
+                    <a href="https://${request.httpHost}/${pdict.CurrentRequest.getLocale().toString().substring(0, 2)}"
+                        class="btn btn-primary d-flex align-items-center justify-content-center">
+                        ${Resource.msg('link.continue.shopping', 'cart', null)}
+                    </a>
+                <iselse/>
+                    <a href="https://${request.httpHost}/" class="btn btn-primary d-flex align-items-center justify-content-center">
+                        ${Resource.msg('link.continue.shopping', 'cart', null)}
+                    </a>
+                </isif>
+            <iselse/>
+                <a href="${URLUtils.url('Home-Show')}" class="btn btn-primary d-flex align-items-center justify-content-center">
+                    ${Resource.msg('link.continue.shopping', 'cart', null)}
+                </a>
+            </isif>
+
+            <a href="${URLUtils.https('Checkout-Begin')}"
+                class="btn btn--secondary checkout-btn no-spinner btn-blue">${Resource.msg('button.checkout', 'cart', null)}</a>
+        </div>
+        <div class="bundle-not-added d-none">
+            <p class="bundleMessage"></p>
+        </div>
+        <isif condition="${pdict.isBundleAvailable}">
+            <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+            <span class="add-to-bundle-msg">${Resource.msg('add.to.bundle.msg', 'productBundle', null)}</span>
+            <button id="main-cart-button" class="add-to-cart btn btn-primary" data-maxadds="${pdict.buyLimit}" disabled>
+                ${Resource.msg('button.add_bundle_to_bag', 'productBundle', null)}
+            </button>
+            <input type="hidden" id="add-to-cart-url" value="${URLUtils.url('ProductBundle-AddProduct')}" />
+        <iselse/>
+            <iscontentasset aid="${pdict.oosContetnt}" />
+            <div class="bundle-unavailable">
+                <h3>${Resource.msg('outofstock.title', 'productBundle', null)}</h3>
+                <p>${Resource.msg('outofstock.msg', 'productBundle', null)}</p>
+                <isif condition=" ${dw.system.Site.getCurrent().getCustomPreferenceValue('hasAliases')}">
+                    <isif
+                        condition="${require('dw/system/Site').current.getCustomPreferenceValue('SelectSite').value === 'multilingualSite'}">
+                        <a href="https://${request.httpHost}/${pdict.CurrentRequest.getLocale().toString().substring(0, 2)}"
+                            class="btn btn-primary">
+                            ${Resource.msg('link.continue.shopping', 'cart', null)}
+                        </a>
+                    <iselse/>
+                        <a href="https://${request.httpHost}/" class="btn btn-primary">
+                            ${Resource.msg('link.continue.shopping', 'cart', null)}
+                        </a>
+                    </isif>
+                <iselse/>
+                    <a href="${URLUtils.url('Home-Show')}" class="btn btn-primary">
+                        ${Resource.msg('link.continue.shopping', 'cart', null)}
+                    </a>
+                </isif>
+            </div>
+        </isif>
+    </div>
+</div>

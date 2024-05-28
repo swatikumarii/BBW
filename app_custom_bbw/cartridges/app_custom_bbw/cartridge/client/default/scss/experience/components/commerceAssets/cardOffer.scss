@@ -1,0 +1,104 @@
+@import "../../../_brand/_api/api";
+
+.experience-bbw_components-cardOffer {
+    margin: 8px 0;
+    display: flex;
+}
+
+.card-offers {
+    &__tile {
+        width: 85vw;
+        min-height: 136px;
+        line-height: 20px;
+        overflow: hidden;
+        flex: 1;
+
+        @include media-btw(sm, md) {
+            width: 38vw;
+        }
+
+        @include media-up(lg) {
+            width: 300px;
+        }
+    }
+
+    &__wrapper {
+        background: colour(white);
+        border-radius: 4px;
+        border: colour(gray, 1);
+        gap: 0;
+
+        &.top {
+            padding-bottom: 32px;
+        }
+
+        &.bottom {
+            padding-top: 32px;
+        }
+
+        &.left,
+        &.right {
+            grid-template-columns: 96px 1fr;
+            padding: 16px;
+            gap: 16px;
+
+            .card-offers__image-wrapper {
+                width: 96px;
+                height: 96px;
+
+                .card-offers__image {
+                    vertical-align: top;
+                    object-fit: cover;
+                    overflow: hidden;
+                }
+            }
+
+            .card-offers__tile-copy {
+                padding: 0;
+                align-items: flex-start;
+                justify-content: flex-start;
+                text-align: left;
+            }
+        }
+    }
+
+    &__tile-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        color: colour(black, 1);
+    }
+
+    &__image-wrapper {
+        .card-offers__image {
+            vertical-align: top;
+        }
+    }
+
+    &__urgency {
+        color: colour(blue);
+    }
+
+    &__price,
+    &__urgency {
+        line-height: 20px;
+        letter-spacing: 0.09px;
+    }
+}
+
+.top {
+    flex-direction: column;
+}
+
+.bottom {
+    flex-direction: column-reverse;
+}
+
+.right {
+    grid-auto-flow: dense;
+    direction: rtl;
+
+    .card-offers__tile-copy {
+        direction: ltr;
+    }
+}

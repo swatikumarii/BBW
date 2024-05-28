@@ -1,0 +1,56 @@
+@import "../../../_brand/_api/api";
+
+.grid-layout {
+    &__container {
+        margin: 0 auto;
+        background-image: var(--mobile-bg-image);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+
+        @include media-btw(sm, md) {
+            background-image: var(--tablet-bg-image);
+        }
+
+        @include media-up(md) {
+            background-image: var(--desktop-bg-image);
+        }
+    }
+
+    &__row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__top-content {
+        &__items {
+            display: flex;
+        }
+    }
+
+    &__items-row {
+        display: grid;
+        grid-template-columns: repeat(var(--items-per-row-mobile), 1fr);
+        gap: var(--row-gap-mobile) var(--column-gap-mobile);
+
+        @include media-up(md) {
+            grid-template-columns: repeat(var(--items-per-row-desktop), 1fr);
+            gap: var(--row-gap-desktop) var(--column-gap-desktop);
+        }
+
+        @include media-btw(sm, md) {
+            grid-template-columns: repeat(var(--items-per-row-tablet), 1fr);
+            gap: var(--row-gap-tablet) var(--column-gap-tablet);
+        }
+
+        &__items {
+            display: flex;
+        }
+    }
+
+    &__bottom-content {
+        &__items {
+            display: flex;
+        }
+    }
+}

@@ -1,0 +1,165 @@
+<isdecorate template="common/layout/page">
+    <isinclude template="/components/modules" />
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/corporateGifting.js');
+        assets.addCss('/css/pages/corporategift/pageCorporate.css');
+    </isscript>
+    <div class="container-fluid corporate-gifting-landing-page px-0">
+        <iscomment> Top Content Asset </iscomment>
+        <iscontentasset aid="corporate-gifting-top" />
+        <div class="row h-maxwidth--1400 mx-auto justify-content-center">
+            <div class="col-12 col-md-8 mx-auto">
+                <div id="corporate-thanks-element" class="text-center d-none">
+                    <iscomment> Thank you text content Asset </iscomment>
+                    <iscontentasset aid="corporate-gifting-thankyou" />
+                </div>
+            </div>
+            <div class="col-12 col-md-5 mx-auto">
+                <div class="card-body" id="corporate-gifting-form-card">
+                    <form id="corporate-gifting-form" action="${pdict.actionUrl}" class="corporate-gifting"
+                        method="POST" name="corporate-gifting">
+                        <!--- corporate gifting us first name, last name --->
+                        <div class="row corporate-gifting-name">
+                            <div class="col-sm-12">
+                                <div class="form-group required">
+                                    <label class="form-control-label" for="corporate-gifting-first-name">
+                                        <span class="required-indicator">*</span>
+                                        ${Resource.msg('label.input.corporate-gifting-first-name', 'corporateGifting', null)}
+                                    </label>
+                                    <input pattern="^[a-zA-Z0-9'\-]+$" type="text" required class="form-control required" 
+                                        aria-describedby="form-corporate-gifting-first-name-error"
+                                        id="corporate-gifting-first-name" name="corporateGiftingFirstName">
+                                    <div class="invalid-feedback" id="form-corporate-gifting-first-name-error"></div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group required">
+                                    <label class="form-control-label" for="corporate-gifting-last-name">
+                                        <span class="required-indicator">*</span>
+                                        ${Resource.msg('label.input.corporate-gifting-last-name', 'corporateGifting', null)}
+                                    </label>
+                                    <input pattern="^[a-zA-Z0-9'\-]+$" type="text" required class="form-control required" 
+                                        aria-describedby="form-corporate-gifting-last-name-error"
+                                        id="corporate-gifting-last-name" name="corporateGiftingLastName">
+                                    <div class="invalid-feedback" id="form-corporate-gifting-last-name-error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--- corporate gifting us email --->
+                        <div class="row corporate-gifting-email">
+                            <div class="col">
+                                <div class="form-group required">
+                                    <label class="form-control-label" for="corporate-gifting-email">
+                                        <span class="required-indicator">*</span>
+                                        ${Resource.msg('label.input.corporate-gifting-email', 'corporateGifting', null)}
+                                    </label>
+                                    <input pattern="^[\w.%+-]+@[\w.-]+\.\w{2,}$" type="email" required class="form-control required" 
+                                        aria-describedby="form-corporate-gifting-email-error"
+                                        id="corporate-gifting-email" name="corporateGiftingEmail">
+                                    <div class="invalid-feedback" id="form-corporate-gifting-email-error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--- corporate gifting us phone --->
+                        <div class="row corporate-gifting-phone">
+                            <div class="col">
+                                <div class="form-group required">
+                                    <label class="form-control-label" for="corporate-gifting-phone">
+                                        <span class="required-indicator">*</span>
+                                        ${Resource.msg('label.input.corporate-gifting-phone', 'corporateGifting', null)}
+                                    </label>
+                                    <input pattern="^((?!(0))[0-9]{8,12})$" type="tel" required class="form-control required" 
+                                        aria-describedby="form-corporate-gifting-phone-error"
+                                        id="phone" name="corporateGiftingPhone">
+                                    <div class="invalid-feedback" id="form-corporate-gifting-phone-error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--- corporate gifting us company name --->
+                        <div class="row corporate-gifting-company-name">
+                            <div class="col">
+                                <div class="form-group required">
+                                    <label class="form-control-label" for="corporate-gifting-company-name">
+                                        <span class="required-indicator">*</span>
+                                        ${Resource.msg('label.input.corporate-gifting-company-name', 'corporateGifting', null)}
+                                    </label>
+                                    <input pattern="^[a-zA-Z0-9'\-]+$" type="text" required class="form-control required" 
+                                        aria-describedby="form-corporate-gifting-company-name-error"
+                                        id="corporate-gifting-company-name" name="corporateGiftingCompanyName">
+                                    <div class="invalid-feedback" id="form-corporate-gifting-company-name-error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--- corporate gifting us VAT --->
+                        <div class="row corporate-gifting-vat">
+                            <div class="col">
+                                <div class="form-group required">
+                                    <label class="form-control-label" for="corporate-gifting-vat">
+                                        <span class="required-indicator">*</span>
+                                        ${Resource.msg('label.input.corporate-gifting-vat', 'corporateGifting', null)}
+                                    </label>
+                                    <input pattern="^[a-zA-Z0-9'\-]+$" type="text" required class="form-control required" 
+                                        aria-describedby="form-corporate-gifting-vat-error" id="corporate-gifting-vat"
+                                        name="corporateGiftingVat">
+                                    <div class="invalid-feedback" id="form-corporate-gifting-vat-error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--- corporate gifting us topic --->
+                        <div class="row corporate-gifting-topic">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="corporate-gifting-topic">
+                                        <span class="required-indicator">*</span>
+                                        ${Resource.msg('label.input.corporate-gifting-topic', 'corporateGifting', null)}
+                                    </label>
+                                    <div class="b-select-wrap">
+                                        <select type="text" required class="b-select form-control required"
+                                            id="corporate-gifting-topic" name="corporateGiftingTopic">
+                                            <isloop iterator="${pdict.businessTypes}" alias="businessType" status="loopstatus">
+                                                <option value="${businessType.key}">
+                                                    ${businessType.value}
+                                                </option>
+                                            </isloop>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--- corporate gifting us question --->
+                        <div class="row corporate-gifting-question">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="corporate-gifting-question">
+                                        ${Resource.msg('label.input.corporate-gifting-question', 'corporateGifting', null)}
+                                    </label>
+                                    <textarea pattern="^[a-zA-Z0-9'\-]+$" id="corporate-gifting-question" name="corporateGiftingQuestion" rows="4"
+                                        maxlength="250" aria-describedby="corporate-gifting-question-error"></textarea>
+                                    <div class="invalid-feedback" id="corporate-gifting-question-error"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--- corporate gifting us submit --->
+                        <div class="row corporate-gifting-submnit">
+                            <div class="col-6 mx-auto">
+                                <div class="form-group">
+                                    <button class="btn btn-block submit-form subscribe-corporate-gifting" type="submit"
+                                        name="submit" value="submit">
+                                        ${Resource.msg('label.input.corporate-gifting-submit', 'corporateGifting', null)}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-12">
+                <iscomment> Bottom Content Asset </iscomment>
+                <iscontentasset aid="corporate-gifting-bottom" />
+            </div>
+        </div>
+    </div>
+</isdecorate>

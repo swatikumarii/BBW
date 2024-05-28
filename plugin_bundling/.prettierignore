@@ -4,3 +4,4 @@ coverage/
 doc/
 bin/
 codecept.conf.js
+ismllinter.config.js

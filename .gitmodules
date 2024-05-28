@@ -1,3 +1,24 @@
 [submodule "storefront-reference-architecture"]
 	path = storefront-reference-architecture
 	url = https://github.com/SalesforceCommerceCloud/storefront-reference-architecture.git
+[submodule "adyen-salesforce-commerce-cloud"]
+	path = adyen-salesforce-commerce-cloud
+	url = https://github.com/Adyen/adyen-salesforce-commerce-cloud.git
+[submodule "plugin_csvimpex"]
+	path = plugin_csvimpex
+	url = https://gitlab.com/ranosys/plugin_csvimpex.git
+[submodule "dis-product-image-wrapper"]
+	path = dis-product-image-wrapper
+	url = https://github.com/SalesforceCommerceCloud/dis-product-image-wrapper.git
+[submodule "plugin_seo"]
+	path = plugin_seo
+	url = https://github.com/SalesforceCommerceCloud/plugin_seo.git
+[submodule "plugin_wishlists"]
+	path = plugin_wishlists
+	url = https://github.com/SalesforceCommerceCloud/plugin_wishlists.git
+[submodule "lib_productlist"]
+	path = lib_productlist
+	url = https://github.com/SalesforceCommerceCloud/lib_productlist.git
+[submodule "afterpay-salesforce-commerce-cloud"]
+	path = afterpay-salesforce-commerce-cloud
+	url = https://github.com/afterpay/afterpay-salesforce-commerce-cloud.git

@@ -1,0 +1,62 @@
+<isdecorate template="common/layout/page">
+    <isinclude template="/components/modules" sf-toolkit="off" />
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+    </isscript>
+
+    <div class="hero slant-down login-banner bg-white">
+
+        <div class="container login-page">
+            <!---Breadcrumbs--->
+            <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+            <div class="row justify-content-center equal-height">
+                <div class="col-sm-12 col-md-12 col-xl-12 register-form-head">
+                    <h1 class="page-title text-justify h-font-size--24 h-clr--black-3 w-100">
+                        ${Resource.msg('label.signin.name', 'login', null)}</h1>
+                </div>
+            </div>
+            <div class="login-page-setion">
+                <div class="login-section">
+                    <div class="login-form-nav login-account">
+                        <h2 class="h-clr--black-3 h-font-size--16 text-center">${Resource.msg('login.label', 'login', null)}</h2>
+                        <p class="h-clr--gray text-center">${Resource.msg('login.para', 'login', null)}</p>
+                        <div class="login-box">
+                            <isinclude template="account/components/loginForm" />
+                        </div>
+                    </div>
+                </div>
+                <div class="spacer ">
+                    <div class="line"></div>
+                    <div
+                        class="or h-clr--gray h-bg--white h-font-size--14 text-center position-absolute text-uppercase">
+                        ${Resource.msg('login.or.separator', 'login', null)}
+                    </div>
+                </div>
+                <div class="login-section">
+                    <div class="login-form-nav login-account">
+                        <h2 class="h-clr--black-3 h-font-size--16 text-center">${Resource.msg('msg.signup', 'login', null)}</h2>
+                        <div class="signup-overview-msg d-flex justify-content-center">
+                        <p class="h-clr--gray text-center">${Resource.msg('msg.signup.overview', 'login', null)}</p>
+                        </div>
+                        <div class="signup-img d-flex justify-content-center">
+                            <img src="${URLUtils.staticURL('/images/login/login-img.jpg')}"
+                                alt="${Resource.msg('login.image.message', 'login', null)} "
+                                class="w-100" />
+                        </div>
+                       <div class="d-flex justify-content-center">
+                        <a href="${URLUtils.https('Login-CreateAccount')}" role="button" class="w-100 d-flex justify-content-center"
+                            aria-label="${Resource.msg('header.hero.image.login', 'login', null)}">
+                            <button type="submit" class="btn btn-block btn-primary text-uppercase signin-btn">
+                                ${Resource.msg('header.hero.image.login', 'login', null)}
+                            </button>
+                        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="signin-question pt-4">
+                <iscontentasset aid="myAccount-help" />
+            </div>
+        </div>
+    </div>
+</isdecorate>

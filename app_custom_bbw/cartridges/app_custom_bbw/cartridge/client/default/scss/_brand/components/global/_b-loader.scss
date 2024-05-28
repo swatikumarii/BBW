@@ -1,0 +1,55 @@
+/**
+ * Site Loaders
+ *
+ * This CSS defines the styles for site loaders, which are used to indicate
+ * that content is loading or processing. It includes a translucent overlay
+ * covering the entire viewport and a spinner animation at the center.
+ */
+.loader {
+    /* Overlay covering the entire viewport */
+    background: colour(white);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    opacity: 0.8;
+
+    /* Spinner animation */
+    .spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 32px;
+        height: 32px;
+        background: url("../../images/icons/spinner-rewards.gif") no-repeat;
+        background-size: 32px;
+        margin-left: -16px;
+        z-index: 1;
+
+        /* Centering spinner vertically on smaller screens */
+        @include media-down(md) {
+            margin-top: -16px;
+        }
+
+        /* Hide the spinner from screen readers */
+        .visually-hidden {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+    }
+
+    .loader-element {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

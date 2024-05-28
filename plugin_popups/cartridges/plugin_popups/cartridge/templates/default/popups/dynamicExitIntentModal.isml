@@ -1,0 +1,13 @@
+<div id="dynamic-modal-exit-intent-popup" data-href="${URLUtils.url('Popup-PopupConfig')}"
+    hreflang="${request.getLocale()}" class="modal fade" role="dialog" data-backdrop="false">
+    <div class="modal-dialog dynamic-popup-dialog dynamicPopup-exitIntent">
+        <div class="modal-content dynamic-popup-content dynamicPopup-exitIntent">
+            <div class="modal-header">
+                <button type="button" class="close modal-close-icon" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="modal fade out-of-stock-modal outOfstockModal right modal-right" id="requestUserEmailForOOSModal"
+    tabindex="-1" role="dialog" aria-labelledby="requestUserEmailForOOSModal">
+    <div class="modal-dialog modal-dialog-bottom modal-reset" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
+                    </span>
+                </button>
+            </div>
+
+            <div class="notifyme-modal-body">
+                <h2 class="modal-title">${Resource.msg('label.notifyMe.title.oos', 'notifyMe', null)}</h2>
+                <span class="message">${Resource.msg('label.notifyMe.temporarily', 'notifyMe', null)}</span>
+                <div class="image-container">
+                    <iscomment> <span class="product-name"></span> </iscomment>
+                    <img class="lozad image dm-responsive-image js-dm-image dm-responsive-image-initialized"
+                        alt="${Resource.msg('product.fragrance', 'notifyMe', null)}"
+                        data-src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                        src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-loaded-width="240"
+                        width="240px" height="240px" />
+                </div>
+                <form class="notify-me-form" action="${URLUtils.url('BackInStock-Notify')}" method="POST"
+                    name="email-form" id="email-form" data-pid="">
+                    <div class="ff-primary fw-light ls-sm">
+                        <p class="notify-me-oos-success-msg" style="display:none"></p>
+                        <div class="form-group required">
+                            <label class="form-control-label ff-primary fw-light ls-sm" for="notify-me-email">
+                                <isprint value="${Resource.msg('label.input.email', 'notifyMe', null)}"
+                                    encoding="htmlcontent" />
+                            </label>
+                            <div class="invalid-feedback"></div>
+                            <input id="notify-me-email" type="email" class="form-control"
+                                placeholder="${Resource.msg('label.input.email', 'notifyMe', null)}"
+                                name="notifyMeEmail" aria-describedby="emailHelp"
+                                data-pattern-mismatch="${Resource.msg('error.message.emailinvalid', 'notifyMe', null)}"
+                                required />
+                            <p class="pt-2 text-left">${Resource.msg('label.backinstock.msg', 'notifyMe', null)}</p>
+                        </div>
+                    </div>
+                    <div class="send-email-btn">
+                        <input type="hidden" name="pid" class="notifyProductID" value="" />
+                        <button type="button" id="submitNotifyMeButton" class="btn btn-block" disabled="disabled">
+                            ${Resource.msg('button.subscribe.notifyMe', 'notifyMe', null)}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceLayouts/grid.css');
+</isscript>
+<div class="grid-layout__container ${pdict.gridSectionClass}" style="--desktop-bg-image: url(${pdict.girdBgDesktop.src.desktop});--mobile-bg-image:url(${pdict.girdBgMobile.src.mobile});--tablet-bg-image:url(${pdict.girdBgTablet.src.tablet});">
+    <div class="grid-layout__row">
+        <isif condition="${pdict.title}">
+            <isprint value="${pdict.title}" encoding="off" />
+        </isif>
+        <isif condition="${pdict.regions.gridTopContent.region.size > 0}">
+            <div class="gird-layout__top-content">
+                <isprint value="${pdict.regions.gridTopContent.setClassName("gird-layout__top-content__items ").render()}" encoding="off" />
+            </div>
+        </isif>
+        <isif condition="${pdict.regions.gridItems.region.size > 0}">
+            <div class="${pdict.rowCustomClass ? pdict.rowCustomClass : ''}" style="--items-per-row-desktop: ${pdict.itemsPerRowDesktop}; --column-gap-desktop: ${pdict.columnGapDesktop}px; --row-gap-desktop: ${pdict.rowGapDesktop}px;--items-per-row-mobile: ${pdict.itemsPerRowMobile}; --column-gap-mobile: ${pdict.columnGapMobile}px; --row-gap-mobile: ${pdict.rowGapMobile}px;--items-per-row-tablet: ${pdict.itemsPerRowTablet}; --column-gap-tablet: ${pdict.columnGapTablet}px; --row-gap-tablet: ${pdict.rowGapTablet}px;">
+                <isprint value="${pdict.regions.gridItems
+                        .setClassName('grid-layout__items-row')
+                        .setComponentClassName('grid-layout__items-row__items position-relative' + ' ' + (pdict.columnCustomClass ? pdict.columnCustomClass : ''))
+                        .render()}" encoding="off" />
+            </div>
+        </isif>
+        <isif condition="${pdict.regions.gridBottomContent.region.size > 0}">
+            <div class="gird-layout__bottom-content">
+                <isprint value="${pdict.regions.gridBottomContent.setClassName("gird-layout__bottom-content__items ").render()}" encoding="off" />
+            </div>
+        </isif>
+    </div>
+</div>

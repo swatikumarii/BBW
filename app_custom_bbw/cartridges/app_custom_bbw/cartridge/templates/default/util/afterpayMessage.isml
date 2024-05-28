@@ -1,0 +1,38 @@
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+<isif condition="${pdict.totalprice}">
+    <isif condition="${pdict.classname != 'checkout-afterpay-message'}">
+        <isif condition="${pdict.classname == 'cart-afterpay-message'}">
+            <isset name="pageType" value="cart" scope ="page"/>
+        <iselseif condition="${pdict.classname == 'pdp-afterpay-message'}" />
+            <isset name="pageType" value="product" scope ="page"/>
+        <iselseif condition="${pdict.classname == 'plp-afterpay-message'}" />
+            <isset name="pageType" value="category" scope ="page"/>
+        </isif>
+        <isif condition="${pdict.size}"><square-placement data-cart-is-eligible="${pdict.eligible}" data-consumer-locale="${request.getLocale()}"
+            data-badge-theme="black-on-mint" data-amount="${pdict.totalprice}" data-modal-link-style="circled-info-icon"
+            data-mpid="${pdict.mpid}" data-currency="${session.currency.getCurrencyCode()}" data-page-type="${pageType}"
+            data-platform="SFCC/SFRA" data-item-skus="${pdict.approductids}" data-size="${pdict.size}"></square-placement>
+        <iselse/>
+            <square-placement
+                data-cart-is-eligible="${pdict.eligible}"
+                data-consumer-locale="${request.getLocale()}"
+                data-badge-theme="black-on-mint"
+                data-amount="${pdict.totalprice}"
+                data-modal-link-style="circled-info-icon"
+                data-mpid="${pdict.mpid}"
+                data-currency="${session.currency.getCurrencyCode()}"
+                data-page-type="${pageType}"
+                data-platform="SFCC/SFRA"
+                data-item-skus="${pdict.approductids}"
+            ></square-placement>
+        </isif>
+    <iselse/>
+        <square-placement
+            data-type="payment-schedule"
+            data-mpid="${pdict.mpid}"
+            data-platform="SFCC/SFRA"
+            data-currency="${session.currency.getCurrencyCode()}"
+            data-amount="${pdict.totalprice}"
+        ></square-placement>
+    </isif>
+</isif>

@@ -1,0 +1,74 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/blogs.js');
+        assets.addCss('/css/pages/blogs/b-blog.css');
+    </isscript>
+    <div class="container">
+        <div class="header_img">
+            <img class="mob-only" width="100%" alt="${Resource.msg('label.blog.image', 'common', null)}"
+                src="${URLUtils.staticURL('/images/blogs/getinspire_header_mob.webp')}" />
+            <img class="desk-only" alt="${Resource.msg('label.blog.image', 'common', null)}"
+                src="${URLUtils.staticURL('/images/blogs/getinspire_header_desk.webp')}" />
+        </div>
+        <div class="header_section">
+            <p class="text-center h-font-size--16 mt-5">${Resource.msg('header.content', 'blogs', null)}
+            </p>
+        </div>
+        <div class="folder_content navi-list d-flex justify-content-between flex-wrap">
+            <isloop items="${pdict.blog.onlineSubFolders}" var="list" status="loopstatus" begin=0>
+                <isif condition="${list.custom.isShow === true}">
+                    <div class="folder_list mt-5">
+                        <a href="#">
+                            <img class="list_content d-block" width="100%" src="${list.custom.image.absURL}"
+                                alt="${list.displayName}" />
+                        </a>
+                        <p class="navi_content text-center mb-0 h-font-size--16 h-fw--semibold mt-4 text-uppercase">
+                            <a class="h-clr--black-3" href="#">${list.displayName}</a>
+                        </p>
+                    </div>
+                </isif>
+            </isloop>
+        </div>
+        <div class="m-grid-contain">
+            <isloop items="${pdict.blog.onlineSubFolders}" var="folder" status="loopstatus" begin=0>
+                <div class="blog_list">
+                    <div class="head-img d-flex align-items-center">
+                        <isif condition="${folder.custom.isShow === true}">
+                            <div class="folder-conten-img">
+                                <img class="folder_content" src="${folder.custom.image.absURL}"
+                                    alt="${folder.displayName}" />
+                            </div>
+                        </isif>
+                        <h2 class="head-feature text-uppercase  m-font-base--normal">${folder.displayName}</h2>
+                    </div>
+
+
+                    <div class="m-grid-contain-childblog d-flex flex-wrap justify-content-between">
+                        <isloop items="${folder.onlineContent}" var="content" status="loopstatus" begin=0>
+                            <div class="blog_child_content">
+                                <img class="blogImage w-100" src="${content.custom.image.absURL}"
+                                    alt="${content.name}" />
+                                <h3 class="text-uppercase h-fw--semibold m-font-base--normal">${content.name}</h3>
+                                <p class="h-clr--gray h-fw--normal h-font-size--16">${content.description}</p>
+                                <a class="btn btn-primary read-button h-font-size--14 h-fw--medium"
+                                    href="${URLUtils.url('Page-Show', 'cid', content.ID)}">
+                                    <span>${Resource.msg('button.read.more', 'common', null)}</span>
+                                </a>
+                            </div>
+                        </isloop>
+                    </div>
+                    <isif condition="${folder.onlineContent.length > 4}">
+                        <div class="text-center">
+                            <a href="#" class="btn btn-primary show-more-btn m-font-base--normal">
+                                <button type="button"
+                                    class="bg-white border-0 h-font-size--16 text-uppercase h-fw--semibold text-center show-button m-font-base--normal h-clr--black-3">${Resource.msg('button.show.more', 'common', null)}
+                                </button>
+                            </a>
+                        </div>
+                    </isif>
+                </div>
+            </isloop>
+        </div>
+    </div>
+</isdecorate>

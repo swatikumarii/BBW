@@ -1,0 +1,50 @@
+// ====================
+// Select Fields Styling
+// ====================
+// This section defines styles for various select fields.
+
+// Select Fields
+.b-select-wrap {
+    height: 3.125rem;
+    border: 0.0625rem solid colour(gray, 5);
+
+    .b-select {
+        background: transparent;
+        padding: 0 2.25rem 0 0.625rem;
+        height: 3rem;
+        line-height: 1.25rem;
+        letter-spacing: 0.005em;
+
+        &:focus {
+            box-shadow: none;
+        }
+
+        &.no-border {
+            border-radius: 0;
+            border: none;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 2.1875rem;
+        border-left: 0.0625rem solid colour(gray, 5);
+        background: colour(white) url("../images/UI-Carat.svg") no-repeat 50%;
+        background-size: 0.9375rem;
+    }
+
+    &:hover {
+        background: colour(gray, 1);
+        border: 0.0625rem solid colour(gray, 1);
+
+        &::after {
+            border-left: 0.0625rem solid colour(white);
+            background-color: colour(gray, 1);
+            background-position: 50%;
+        }
+    }
+}

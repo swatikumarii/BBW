@@ -1,0 +1,46 @@
+<isdecorate template="common/layout/page">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/login.css');
+        assets.addJs('/js/fragranceName.js');
+    </isscript>
+    <div class="row">
+        <div class="col-md-8 offset-md-2 mt-5">
+            <h2 class="subtitle ml-2">${Resource.msg('ingredient.name.title', 'fragrance', null)}</h2>
+            <isif condition="${!empty(pdict.ingredientsNames)}">
+                <div class="fragrance-header-search">
+                    <div class="fragrance-search search-wrapper">
+                        <fieldset>
+                            <input type="text" id="ingredient-search" name="ingredient-search" autocomplete="off" />
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 ">
+                        <isloop iterator="${pdict.ingredientsNames}" alias="ingredientGroup" status="loopstate">
+                            <div id="${ingredientGroup.key}" class="alphabet-group-${ingredientGroup.key}">
+                                <div class="level-1-${ingredientGroup.key} static-level h-width-perc--80 text-justify">
+                                    <h3 class="title m-0 p-0">${ingredientGroup.key}</h3>
+                                    <div class="alphabet-border"></div>
+                                </div>
+                                <ul>
+                                    <isloop iterator="${ingredientGroup.value}" alias="ingredient" status="loopstate">
+                                        <li class="level-2 text-justify mt-3 mb-3">
+                                            <a class="h-clr--black-3"
+                                                href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'ingredients', 'prefv1', ingredient.name)}"
+                                                data-ingredientname="${ingredient.name}">
+                                                ${ingredient.name}</a>
+                                        </li>
+                                    </isloop>
+                                </ul>
+                            </div>
+                        </isloop>
+                    </div>
+                </div>
+                <div class="noresult" id="noresult">${Resource.msg('ingredient.name.noresult', 'fragrance', null)}</div>
+            <iselse>
+                <div class="nofragrance">${Resource.msg('ingredient.name.empty', 'fragrance', null)}</div>
+            </isif>
+        </div>
+    </div>
+</isdecorate>

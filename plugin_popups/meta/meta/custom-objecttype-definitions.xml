@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <custom-type type-id="DynamicPopup">
+        <display-name xml:lang="x-default">Dynamic popup</display-name>
+        <description xml:lang="x-default">This is created to configure dynamic popup settings.</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="popupName">
+            <display-name xml:lang="x-default">Popup Name</display-name>
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="animationPopup">
+                <display-name xml:lang="x-default">Animation Popup</display-name>
+                <description xml:lang="x-default">Through which animation popup will appear</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Fade Out</display>
+                        <value>fade-out</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Slide Left</display>
+                        <value>slide-left</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Slide Top</display>
+                        <value>slide-top</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Slide Right</display>
+                        <value>slide-right</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Slide Bottom</display>
+                        <value>slide-bottom</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Zoom In</display>
+                        <value>zoom-in</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Zoom Out</display>
+                        <value>zoom-out</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="autoCloseTime">
+                <display-name xml:lang="x-default">Popup Auto Close Time</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <unit xml:lang="x-default">Seconds</unit>
+            </attribute-definition>
+            <attribute-definition attribute-id="closeButtonPosition">
+                <display-name xml:lang="x-default">Close Button Position</display-name>
+                <description xml:lang="x-default">To decide where close button will be placed on the popup.</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Inside</display>
+                        <value>inside</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Outside</display>
+                        <value>outside</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="delayTime">
+                <display-name xml:lang="x-default">Delay Time of Popup in seconds</display-name>
+                <description xml:lang="x-default">Time when pop-up will be shown to the user after landing on a page, it can be 0 as well.</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>0.0</min-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="frequency">
+                <display-name xml:lang="x-default">Popup Frequency</display-name>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">One time popup</display>
+                        <value>oneTime</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Session based popup</display>
+                        <value>sessionBased</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">All Time(Page Load)</display>
+                        <value>allTime</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="popupClickEventId">
+                <display-name xml:lang="x-default">Click event Id</display-name>
+                <description xml:lang="x-default">Id of element to be clicked for the popup to appear on the page</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="popupContent">
+                <display-name xml:lang="x-default">Content of Popup</display-name>
+                <description xml:lang="x-default">What content will be displayed in the popup</description>
+                <type>html</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="popupEnabled">
+                <display-name xml:lang="x-default">Popup Enabled</display-name>
+                <description xml:lang="x-default">To enable or disable popup</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="popupTrigger">
+                <display-name xml:lang="x-default">Trigger of Popup</display-name>
+                <description xml:lang="x-default">What will be the trigger of the popup</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">On Page Load</display>
+                        <value>onLoad</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">On Page Scroll</display>
+                        <value>onScroll</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">On Click of Particular Id</display>
+                        <value>onClick</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">On Exiting from Page</display>
+                        <value>onExit</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="position">
+                <display-name xml:lang="x-default">Position</display-name>
+                <description xml:lang="x-default">Position of Popup</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">center</display>
+                        <value>center</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">top</display>
+                        <value>top</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">bottom</display>
+                        <value>bottom</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="scrollPercent">
+                <display-name xml:lang="x-default">Scroll Popup in %</display-name>
+                <description xml:lang="x-default">What will be trigger scroll percent for the page</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-value>0.0</min-value>
+                <max-value>100.0</max-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="size">
+                <display-name xml:lang="x-default">Size of Popup</display-name>
+                <description xml:lang="x-default">What will be the size of the Popup</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Small</display>
+                        <value>small</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Medium</display>
+                        <value>medium</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Large</display>
+                        <value>large</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="url">
+                <display-name xml:lang="x-default">Url</display-name>
+                <description xml:lang="x-default">contains information about popup on which url popup should appear</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="visibility">
+                <display-name xml:lang="x-default">Visibility users</display-name>
+                <description xml:lang="x-default">Which users can see the Popup</description>
+                <type>enum-of-string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Registered</display>
+                        <value>registered</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Non-Registered</display>
+                        <value>non-registered</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">All</display>
+                        <value>all</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="CustomDynamicPopup">
+                <display-name xml:lang="x-default">Custom Dynamic Popup</display-name>
+                <attribute attribute-id="popupName"/>
+                <attribute attribute-id="url"/>
+                <attribute attribute-id="position"/>
+                <attribute attribute-id="visibility"/>
+                <attribute attribute-id="size"/>
+                <attribute attribute-id="frequency"/>
+                <attribute attribute-id="popupTrigger"/>
+                <attribute attribute-id="scrollPercent"/>
+                <attribute attribute-id="popupClickEventId"/>
+                <attribute attribute-id="closeButtonPosition"/>
+                <attribute attribute-id="delayTime"/>
+                <attribute attribute-id="autoCloseTime"/>
+                <attribute attribute-id="animationPopup"/>
+                <attribute attribute-id="popupContent"/>
+                <attribute attribute-id="popupEnabled"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+</metadata>

@@ -1,10 +1,15 @@
 {
     "tabWidth": 4,
-    "trailingComma" : "none",
+    "trailingComma": "none",
     "singleQuote": true,
+    "endOfLine": "auto",
     "overrides": [
         {
-            "files": ["**/*.css", "**/*.scss", "**/*.html"],
+            "files": [
+                "**/*.css",
+                "**/*.scss",
+                "**/*.html"
+            ],
             "options": {
                 "singleQuote": false
             }

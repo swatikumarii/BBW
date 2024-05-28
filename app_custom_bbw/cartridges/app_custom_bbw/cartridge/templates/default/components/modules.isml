@@ -1,0 +1,23 @@
+<ismodule template="/components/content/contentAsset" name="contentasset" attribute="aid" />
+
+<ismodule template="/components/modules/video"
+    name="video"
+    attribute="video_config"
+    attribute="video_id"
+    attribute="video_poster"
+    attribute="video_container_class"
+    attribute="video_openinmodal"
+/>
+
+<ismodule template="/components/content/contentassetmail" name="contentassetmail" attribute="aid" />
+
+<ismodule template="/mail/components/headerDynamic"
+    name="emailheaderdynamic"
+    attribute="heading"
+    attribute="title"
+    attribute="text"
+    attribute="textsecond"
+    attribute="number"
+    attribute="cta"
+    attribute="url"
+/>

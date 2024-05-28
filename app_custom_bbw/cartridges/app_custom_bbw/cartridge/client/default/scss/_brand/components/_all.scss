@@ -1,0 +1,48 @@
+// =======================
+// Global Components Import
+// =======================
+
+// Importing global components for loader, buttons, and modal.
+
+@import "./global/b-loader";
+@import "./global/b-buttons";
+@import "./global/b-modal";
+@import "./global/toast";
+@import "./global/b-skeleton";
+
+// ===========
+// Form Import
+// ===========
+
+// Importing form components.
+
+@import "./form/b-field";
+@import "./form/b-select";
+@import "./form/b-accordion";
+
+// =========================
+// Login and Register Import
+// =========================
+
+// Importing login and register components.
+
+@import "./login/b-login";
+
+// =============
+// Header Import
+// =============
+
+// Importing Header top banner components.
+
+@import "./header/b-top-header";
+@import "./header/b-main-header";
+@import "./header/b-header-menu";
+@import "./header/b-headerSearch";
+
+// Product
+
+@import "./global/product/b-product-tile";
+
+// Importing footer
+
+@import "./footer/b-footer";

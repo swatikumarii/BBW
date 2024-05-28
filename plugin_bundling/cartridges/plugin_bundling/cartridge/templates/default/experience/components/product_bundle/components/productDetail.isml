@@ -1,0 +1,197 @@
+<isset name="product" value="${pdict.product}" scope="page" />
+<div class="row product-detail-inner-row set-bg-white m-auto flex-column flex-md-row">
+    <!-- Product Images Carousel -->
+    <div class="col product-name-badge d-md-none">
+        <p class="mb-0 text-uppercase cat-name">
+            <isprint value="${product.collection}" />
+        </p>
+        <h1 class="product-name h-fw--bold h-font-size--18">
+            <a href="${URLUtils.url('Product-Show', 'pid', product.id)}" target="_blank">${product.productName}</a>
+        </h1>
+        <div class="prices h-font-size--18 h-fw--semibold h-clr--black-1">
+            <isset name="price" value="${product.price}" scope="page" />
+            <isinclude template="/product/components/pricing/main" />
+        </div>
+        <isif condition="${product.volume}">
+            <h3 class="volume-name h-clr--gray-4">${product.volume}</h3>
+        </isif>
+    </div>
+    <div class="primary-images col-6 col-sm-7 pr-lg-2 d-none d-md-block ">
+        <div id="pdpCarousel-${product.id}-carousel"
+            class="desktopCarousel desktopCarousel-${product.id} pdp-images-desktop carousel slide carousel-slide"
+            data-interval="0" data-prev="${Resource.msg('button.previous', 'common', null)}"
+            data-next="${Resource.msg('button.next', 'common', null)}">
+            <div class="row m-auto">
+                <div class="col-8 col-sm-12 col-md-12 pr-0 pr-md-0 pl-md-2 bundle-thumbnail-images">
+                    <div class="bundle-carousel-inner carousel-inner" role="listbox">
+                        <isloop items="${product.images['large']}" var="image" status="loopStatus">
+                            <div class="thumbnail-container carousel-item ${loopStatus.index === 0 ? 'active' : ''}">
+                                <img src="${image.url}" class="d-block img-fluid zoomDesktop"
+                                    alt="${image.alt} image number ${image.index}" itemprop="image" />
+                            </div>
+                        </isloop>
+                    </div>
+                </div>
+                <isif condition="${product.images['large'].length > 1}">
+                    <button class="carousel-control-prev" data-target="${'#pdpCarousel-' + product.id + '-carousel'}"
+                        role="button" data-slide="prev">
+                        <span class="fa icon-prev" aria-hidden="true"></span>
+                        <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
+                    </button>
+                    <button class="carousel-control-next" data-target="${'#pdpCarousel-' + product.id + '-carousel'}"
+                        role="button" data-slide="next">
+                        <span class="fa icon-next" aria-hidden="true"></span>
+                        <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
+                    </button>
+                </isif>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="zoomImage-sec">
+                    <div class="zoomImages">
+                        <span class="zoomOut-link"></span>
+                        <div id="pdpCarousel-${product.id}" class="desktopCarousel desktopCarousel-${product.id}">
+                            <isloop items="${product.images['large']}" var="image" status="loopStatus">
+                                <div class='thumbnail-container'>
+                                    <img src="${image.url}" class="d-block img-fluid"
+                                        alt="${image.alt} image number ${image.index}" itemprop="image" />
+                                </div>
+                            </isloop>
+                        </div>
+                    </div>
+                </div>
+                <p class="zoomImage-link">${Resource.msg('zoom.link-text', 'common', null)}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Images - Mobile View -->
+    <div class="primary-images col-12 col-sm-12 d-md-none hidden-md-down product-name-badgeiv">
+        <div id="pdpCarousel-${product.id}-mobile" class="carousel slide" data-interval="false" data-ride="carousel">
+            <isif condition="${product.images['large'].length > 1}">
+                <ol class="carousel-indicators" aria-hidden="true">
+                    <isloop items="${product.images['large']}" var="image" status="loopStatus">
+                        <li data-target="${'#pdpCarousel-' + product.id + '-mobile'}"
+                            data-slide-to="${loopStatus.index}"
+                            class='carousel-image <isif condition="${loopStatus.index == 0}">active</isif>'>
+                        </li>
+                    </isloop>
+                </ol>
+            </isif>
+
+            <div class="bundle-carousel-inner carousel-inner zoomIpad">
+                <isloop items="${product.images['large']}" var="image" status="loopStatus">
+                    <div class="thumbnail-container carousel-item ${loopStatus.index === 0 ? 'active' : ''}">
+                        <img src="${image.url}" class="d-block img-fluid" alt="${image.alt} image number ${image.index}"
+                            itemprop="image" />
+                    </div>
+                </isloop>
+            </div>
+            <isif condition="${product.images['large'].length > 1}">
+                <button class="carousel-control-prev" type="button"
+                    data-target="${'#pdpCarousel-' + product.id + '-mobile'}" role="button" data-slide="prev">
+                    <span class="fa icon-prev" aria-hidden="true"></span>
+                    <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
+                </button>
+                <button class="carousel-control-next" type="button"
+                    data-target="${'#pdpCarousel-' + product.id + '-mobile'}" role="button" data-slide="next">
+                    <span class="fa icon-next" aria-hidden="true"></span>
+                    <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
+                </button>
+            </isif>
+
+            <div class="hidden hi-resolution" role="listbox">
+                <isloop items="${product.images['hi-res']}" var="image" status="loopStatus">
+                    <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
+                        <img src="${image.url}" class="d-block img-fluid" alt="${image.alt} image number ${image.index}"
+                            itemprop="image" />
+                    </div>
+                </isloop>
+            </div>
+        </div>
+        <div class="zoomImage-sec">
+            <div class="zoomImages">
+                <span class="zoomOut-link"></span>
+                <div id="pdpCarousel-${product.id}" class="desktopCarousel desktopCarousel-${product.id}">
+                    <isloop items="${product.images['large']}" var="image" status="loopStatus">
+                        <div class='thumbnail-container'>
+                            <img src="${image.url}" class="d-block img-fluid"
+                                alt="${image.alt} image number ${image.index}" itemprop="image" />
+                        </div>
+                    </isloop>
+                </div>
+            </div>
+        </div>
+        <p class="zoomImage-link">${Resource.msg('zoom.link-text', 'common', null)}</p>
+    </div>
+    <!-- Product Availability - Mobile -->
+    <div class="col product-bundle-availability d-md-none mt-4">
+        <div class="row mx-auto">
+            <div class="col px-0">
+                <isinclude template="product/components/productAvailability" />
+            </div>
+        </div>
+    </div>
+    <!-- Product Description - Mobile -->
+    <div class="col d-md-none">
+        <div id="accordion" class="product-description-mobile">
+            <button class="btn btn-product-description w-100 px-0 collapsed" data-toggle="collapse"
+                data-target="#product-description" aria-expanded="true" aria-controls="product-description">
+                <div class="row m-auto">
+                    <div class="col-11 px-0">
+                        <p class="product-bundle-description-title text-left">
+                            ${Resource.msg('title.bundle.product.description', 'productBundle', null)}</p>
+                    </div>
+                    <div class="col-1">
+                        <span class="toggle-button"></span>
+                    </div>
+                </div>
+            </button>
+            <div id="product-description" class="collapse" data-parent="#accordion">
+                <div class="card-body">
+                    <isinclude template="product/components/descriptionAndDetails" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 col-sm-12 col-md-5 hidden-sm-down pl-md-2 h-hidden-sm-down">
+        <!-- Product Name -->
+        <div class="row m-auto">
+            <div class="col-12 hidden-xs-down product-name-badge">
+                <p class="mb-0 text-uppercase cat-name">
+                    <isprint value="${product.collection}" />
+                </p>
+                <h1 class="product-name h-fw--bold h-font-size--18">
+                    <a href="${URLUtils.url('Product-Show', 'pid', product.id)}" target="_blank">${product.productName}</a>
+                </h1>
+                <isif condition="${product.volume}">
+                    <h3 class="volume-name h-clr--gray-4">${product.volume}</h3>
+                </isif>
+                <div class="prices h-font-size--18 h-fw--semibold h-clr--black-1">
+                    <isset name="price" value="${product.price}" scope="page" />
+                    <isinclude template="/product/components/pricing/main" />
+                </div>
+            </div>
+            <!-- Product Availability - Desktop -->
+            <div class="col-12 product-bundle-availability">
+                <!-- Product Availability -->
+                <div class="row">
+                    <div class="col-12">
+                        <isinclude template="product/components/productAvailability" />
+                    </div>
+                </div>
+            </div>
+            <!-- Product Description - Desktop -->
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="product-bundle-description-title d-md-none">
+                            ${Resource.msg('title.bundle.product.description', 'productBundle', null)}</p>
+                        <isinclude template="product/components/descriptionAndDetails" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

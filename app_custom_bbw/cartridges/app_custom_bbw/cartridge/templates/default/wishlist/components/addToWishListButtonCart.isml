@@ -1,0 +1,16 @@
+<span type="submit" class="add-to-wish-list h-clr--black-1 ${lineItem.itemExist ? 'd-none' : ''}"
+    data-href="${URLUtils.url('Wishlist-AddProduct')}">
+    <img src="${URLUtils.staticURL('images/wishlist-heart-icon.svg')}" alt="wishlist icon" width="14px" height="14px" /> <span class="d-inline-block pl-1">${Resource.msg('button.add_to_love_list.txt', 'wishlist', null)}</span>
+</span>
+<span type="submit" class="d-none remove-from-wishlist h-clr--black-1 mt-2">
+    <img src="${URLUtils.staticURL('images/wishlist-heart-icon.svg')}" alt="wishlist icon" width="14px" height="14px" />
+    <span class="d-inline-block pl-1">
+        ${Resource.msg('label.added_to_love_list', 'wishlist', null)}
+    </span>
+</span>
+<span type="submit" class="d-none added-to-wish-list h-clr--black-1 mt-2 ${lineItem.itemExist ? 'd-block' : ''}">
+    <img src="${URLUtils.staticURL('images/wishlist-heart-icon.svg')}" alt="wishlist icon" width="14px" height="14px" />
+    <span class="d-inline-block pl-1">
+        ${Resource.msg('already_added_to_love_list', 'wishlist', null)}
+    </span>
+</span>

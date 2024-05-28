@@ -1,0 +1,25 @@
+<div class="minicart-total hide-link-med position-relative d-none d-md-block" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+    <span class="minicart-link"
+        title="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}"
+        aria-label="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}" aria-haspopup="true">
+        <div class="cart-icon"></div>
+        <span class="minicart-quantity h-font-size--10 h-clr--blue position-absolute text-center h-font-size--10 h-font-size-sm--14">
+            <isprint value="${pdict.quantityTotal}" formatter="##" />
+        </span>
+    </span>
+</div>
+
+<iscomment> MiniCart- Recommendation Slider </iscomment>
+<isslot id="minicart-recommendation-slider" context="global" description="This is for minicart sidebar recommendations" context-object="${dw.order.BasketMgr.getCurrentBasket()}" />
+
+<div class="popover popover-bottom"></div>
+<div class="minicart-total hide-link-med position-relative d-block d-md-none" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+    <a href="${URLUtils.url('Cart-Show')}" class="minicart-link" title="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}"
+        aria-label="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}" aria-haspopup="true">
+        <div class="cart-icon"></div>
+        <span
+            class="minicart-quantity h-font-size--10 h-clr--blue position-absolute text-center h-font-size--10 h-font-size-sm--14">
+            <isprint value="${pdict.quantityTotal}" formatter="##" />
+        </span>
+    </a>
+</div>

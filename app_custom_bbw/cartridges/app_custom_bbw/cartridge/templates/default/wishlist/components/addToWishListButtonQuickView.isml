@@ -1,0 +1,15 @@
+<button type="submit" title="${Resource.msg('wishlist.add.list', 'wishlist', null)}" id="add-to-wish-list"
+    class="border-0 h-bg--white add-to-wish-list ${pdict.itemExist ? 'd-none' : ''} ${session.isCustomerAuthenticated() ? 'authenticated-user' : ''}"
+    data-href="${URLUtils.url('Wishlist-AddProduct')}">
+</button>
+
+<button type="button" title="${Resource.msg('wishlist.remove.list', 'wishlist', null)}"
+    class="d-none bg-white border-0 remove-btn-lg remove-from-wishlist ${pdict.itemExist ? 'd-block' : ''}"
+    data-url="${URLUtils.url('Wishlist-RemoveProduct', 'pid', product.id)}">
+    <img width="24px" height="24px" alt="image" src="${URLUtils.staticURL('/images/account/broken-heart.svg')}" />
+</button>
+
+<div class="wishlist-toast toast mt-3" data-autohide="false">
+    <div class="wish-list-image"></div>
+    <p class="text-center">${Resource.msg('toast.added.love.it.list', 'wishlist', null)}</p>
+</div>

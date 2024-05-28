@@ -1,0 +1,34 @@
+<isinclude template="/components/modules" sf-toolkit="off" />
+
+<header class="header h-bg--white h-auto no-menu-header">
+    <div class="header-banner slide-up d-none">
+        <div class="container-fluid px-0">
+            <div class="content h-width-perc--100">
+                <isslot id="checkout-header-banner-m" description="Slot above the checkout page header" context="global" />
+            </div>
+        </div>
+    </div>
+    <nav class="bbw-nav h-bg--white">
+        <div class="header bbw-nav-wrap h-maxwidth--1400 mx-auto position-relative">
+            <div class="navbar-header brand primary-logo">
+                <a class="logo-home d-block" href="${URLUtils.url('Home-Show')}" title="${Resource.msgf('global.homepage.tooltip', 'common', null, Resource.msg('global.storename', 'common', null), Resource.msg( 'global.home', 'common', null))}">
+                    <isset name="headerImage"
+                        value="${require('dw/system/Site').getCurrent().getCustomPreferenceValue('header_image')}"
+                        scope="page" />
+                    <img class="hidden-md-down img-fluid w-100"
+                        src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/header/Logos-main.svg')}"
+                        alt="${Resource.msg('global.storename', 'common', null)}" />
+                </a>
+            </div>
+            <div class="navbar-header icon-items h-float-md--right">
+                <iscomment>Minicart</iscomment>
+                <div class="minicart-overlay"></div>
+                <div class="minicart fa-pull-right position-relative">
+                    <a href="${URLUtils.url('Cart-Show')}">
+                        <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

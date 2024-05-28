@@ -1,0 +1,155 @@
+{
+  "name": "CMP: Grid",
+  "group": "commerce_layouts",
+  "description": "This is a Grid layout component",
+  "attribute_definition_groups": [
+    {
+      "id": "gridMobileConfig",
+      "name": "Mobile: Grid Configuration",
+      "description": "Mobile: Grid Configuration",
+      "attribute_definitions": [
+        {
+          "id": "itemsPerRowMobile",
+          "name": "Mobile Items Per Row",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "id": "rowGapMobile",
+          "name": "Mobile Row Gap (px)",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "id": "columnGapMobile",
+          "name": "Mobile Column Gap (px)",
+          "type": "integer",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "gridDesktopConfig",
+      "name": "Desktop: Grid Configuration",
+      "description": "Desktop: Grid Configuration",
+      "attribute_definitions": [
+        {
+          "id": "itemsPerRowDesktop",
+          "name": "Desktop Items Per Row",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "id": "rowGapDesktop",
+          "name": "Desktop Row Gap (px)",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "id": "columnGapDesktop",
+          "name": "Desktop Column Gap (px)",
+          "type": "integer",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "gridTabletConfig",
+      "name": "Tablet: Grid Configuration",
+      "description": "Tablet: Grid Configuration",
+      "attribute_definitions": [
+        {
+          "id": "itemsPerRowTablet",
+          "name": "Tablet Items Per Row",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "id": "rowGapTablet",
+          "name": "Tablet Row Gap (px)",
+          "type": "integer",
+          "required": true
+        },
+        {
+          "id": "columnGapTablet",
+          "name": "Tablet Column Gap (px)",
+          "type": "integer",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "gridBackgroundOptions",
+      "name": "Grid Backgrond Image options",
+      "description": "Set Grid Backgrond Image",
+      "attribute_definitions": [
+        {
+          "id": "girdBgDesktop",
+          "name": "Set Desktop Grid Background",
+          "type": "image",
+          "required": false
+        },
+        {
+          "id": "girdBgTablet",
+          "name": "Set Tablet Grid Background",
+          "type": "image",
+          "required": false
+        },
+        {
+          "id": "girdBgMobile",
+          "name": "Set Mobile Grid Background",
+          "type": "image",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "gridGenericOptions",
+      "name": "Grid generic options",
+      "description": "Grid generic options",
+      "attribute_definitions": [
+        {
+          "id": "gridSectionClass",
+          "name": "Grid Section Class",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "rowCustomClass",
+          "name": "Row Custom Class",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "columnCustomClass",
+          "name": "Column Custom Class",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "title",
+          "name": "Grid Section Title",
+          "type": "text",
+          "required": false
+        }
+      ]
+    }
+  ],
+  "region_definitions": [
+    {
+      "id": "gridTopContent",
+      "name": "Grid top content",
+      "component_type_exclusions": []
+    },
+    {
+      "id": "gridItems",
+      "name": "Grid items",
+      "component_type_exclusions": []
+    },
+    {
+      "id": "gridBottomContent",
+      "name": "Grid bottom content",
+      "component_type_exclusions": []
+    }
+  ]
+}

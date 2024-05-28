@@ -1,0 +1,61 @@
+/**
+ * Mixin to generate media queries for screen sizes equal to or greater than the specified breakpoint.
+ *
+ * @param {String} $media - The breakpoint name.
+ */
+
+@mixin media-up($media) {
+    // Media query for screen sizes equal to or greater than the specified breakpoint
+    @media only screen and #{map-get(map-get($view-modes, #{$media}_up),
+    'media')
+} {
+        @content;
+    }
+}
+
+/**
+ * Mixin to generate media queries for screen sizes equal to or smaller than the specified breakpoint.
+ *
+ * @param {String} $media - The breakpoint name.
+ */
+
+@mixin media-down($media) {
+    // Media query for screen sizes equal to or smaller than the specified breakpoint
+    @media only screen and #{map-get(map-get($view-modes, #{$media}_down),
+    'media')
+} {
+        @content;
+    }
+}
+
+/**
+ * Mixin to generate media queries for screen sizes between two specified breakpoints.
+ *
+ * @param {String} $mediaUp - The upper breakpoint name.
+ * @param {String} $mediaDown - The lower breakpoint name.
+ */
+
+@mixin media-btw($mediaUp, $mediaDown) {
+    // Construct media query strings
+    $mediaUpQuery: map-get(map-get($view-modes, #{$mediaUp}_up), "media");
+    $mediaDownQuery: map-get(map-get($view-modes, #{$mediaDown}_down), "media");
+
+    @media only screen and #{unquote($mediaUpQuery)} and #{unquote($mediaDownQuery)} {
+        @content;
+    }
+}
+
+// @mixin media-btw($mediaUp, $mediaDown) {
+//     // Media query for screen sizes between two specified breakpoints
+//     @media only screen and #{map-get(map-get($view-modes, #{$mediaUp}_up),
+//     'media')
+// }
+
+// and #{map-get(map-get($view-modes, #{$mediaDown}_down),
+// 'media')
+// }
+
+//     {
+//     @content;
+// }
+// }

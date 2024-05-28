@@ -1,20 +1,53 @@
 {
   "root": true,
   "extends": [
-      "airbnb-base/legacy",
-      "prettier"
+    "airbnb-base/legacy",
+    "prettier",
+    "plugin:jsdoc/recommended-error"
   ],
   "rules": {
-      "import/no-unresolved": "off",
-      "indent": ["error", 4, { "SwitchCase": 1, "VariableDeclarator": 1 }],
-      "func-names": "off",
-      "require-jsdoc": "error",
-      "valid-jsdoc": ["error", { "preferType": { "Boolean": "boolean", "Number": "number", "object": "Object", "String": "string" }, "requireReturn": false}],
-      "vars-on-top": "off",
-      "global-require": "off",
-      "no-shadow": ["error", { "allow": ["err", "callback"]}],
-      "max-len": "off",
-      "no-plusplus": "off"
+    "camelcase": [
+      "error",
+      {
+        "properties": "always"
+      }
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "import/no-unresolved": "off",
+    "indent": [
+      "error",
+      4,
+      {
+        "SwitchCase": 1,
+        "VariableDeclarator": 1
+      }
+    ],
+    "func-names": "off",
+    "vars-on-top": "off",
+    "global-require": "off",
+    "no-shadow": [
+      "error",
+      {
+        "allow": [
+          "err",
+          "callback"
+        ]
+      }
+    ],
+    "max-len": "off",
+    "no-plusplus": "off",
+    // "no-undefined-types": ["off"],
+    "eqeqeq": [
+      "error",
+      "always"
+    ] // , {"null": "ignore"}
   },
   "globals": {
     "empty": true,
@@ -27,6 +60,11 @@
     "document": true,
     "window": true,
     "location": true,
-    "$": true
+    "$": true,
+    "middleware": true,
+    "querystringparameter": true,
+    "renders": true,
+    "serverfunction": true,
+    "httpparameter": true
   }
 }

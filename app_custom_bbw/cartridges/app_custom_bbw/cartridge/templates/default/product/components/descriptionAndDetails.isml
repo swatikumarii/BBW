@@ -1,0 +1,125 @@
+<div class="description-and-detail accordion" id="pdp-accordion">
+    <iscomment> Fragrance Card </iscomment>
+    <isif condition="${product.fragranceDescription}">
+        <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
+            <div class="fragrance card-head" id="fragrance">
+                <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
+                    data-target="#collapse-fragrance" aria-expanded="true" aria-controls="collapse-fragrance">
+                    ${Resource.msg('label.fragrance.details', 'product', null)}
+                </h2>
+
+                <div class="value content collapse" id="collapse-fragrance" aria-labelledby="fragrance"
+                    data-parent="#pdp-accordion">
+                    <p class="h-font-size--16 h-clr--gray-4 card-body">
+                        <isprint value="${product.fragranceDescription}" encoding="off" />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </isif>
+
+    <iscomment> Description Card </iscomment>
+    <isif condition="${product.shortDescription}">
+        <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
+            <div class="description card-head" id="description">
+                <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
+                    data-target="#collapse-description" aria-expanded="true" aria-controls="collapse-description">
+                    ${Resource.msg('label.description', 'product', null)}
+                </h2>
+                <isinclude template="product/components/description" />
+            </div>
+        </div>
+    </isif>
+
+    <iscomment> Overview Card </iscomment>
+    <isif condition="${product.longDescription}">
+        <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
+            <div class="details card-head" id="details">
+                <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
+                    data-target="#collapse-details" aria-expanded="true" aria-controls="collapse-details">
+                    ${Resource.msg('label.details', 'product', null)}
+                </h2>
+                <isinclude template="product/components/details" />
+            </div>
+        </div>
+    </isif>
+
+    <iscomment> Usage Instruction Card </iscomment>
+    <isif condition="${product.usageInstruction}">
+        <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
+            <div class="instruction card-head" id="usage-instruction">
+                <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
+                    data-target="#collapse-usage-instruction" aria-expanded="true"
+                    aria-controls="collapse-usage-instruction">
+                    ${Resource.msg('label.usage.instruction', 'product', null)}
+                </h2>
+
+                <div class="value content collapse" id="collapse-usage-instruction" aria-labelledby="usage-instruction"
+                    data-parent="#pdp-accordion">
+                    <p class="h-font-size--16 h-clr--gray-4 card-body">
+                        <isprint value="${product.usageInstruction}" encoding="off" />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </isif>
+
+    <iscomment> Ingredients Card </iscomment>
+    <isif condition="${product.ingredients}">
+        <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
+            <div class="ingredients card-head" id="ingredients">
+                <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
+                    data-target="#collapse-ingredients" aria-expanded="true" aria-controls="collapse-ingredients">
+                    ${Resource.msg('label.usage.ingredients', 'product', null)}
+                </h2>
+                <div class="value content collapse" id="collapse-ingredients" aria-labelledby="ingredients"
+                    data-parent="#pdp-accordion">
+                    <p class="h-font-size--16 h-clr--gray-4 card-body">
+                        <isprint value="${product.ingredients}" encoding="off" />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </isif>
+
+    <iscomment> Product Return/Exchange Card </iscomment>
+    <isif condition="${product.showReturnSection}">
+        <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
+            <div class="return card-head" id="return-exchange">
+                <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
+                    data-target="#collapse-return-exchange" aria-expanded="true"
+                    aria-controls="collapse-return-exchange">
+                    ${Resource.msg('label.return.and.exchanges', 'product', null)}
+                </h2>
+            </div>
+            <div class="value content collapse" id="collapse-return-exchange" aria-labelledby="return-exchange"
+                data-parent="#pdp-accordion">
+                <isif condition="${product.canBeReturned}">
+                    <iscontentasset aid="exchange-return" />
+                <iselse/>
+                    <iscontentasset aid="exchange-cannot-return" />
+                    ${Resource.msg('label.return.and.exchanges.canNotBeReturned', 'product', null)}
+                </isif>
+            </div>
+        </div>
+    </isif>
+
+    <iscomment> More Info </iscomment>
+    <isif condition="${product.moreInfo}">
+        <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
+            <div class="moreInfo card-head" id="moreInfo">
+                <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
+                    data-target="#collapse-moreInfo" aria-expanded="true" aria-controls="collapse-moreInfo">
+                    ${Resource.msg('label.usage.moreInfo', 'product', null)}
+                </h2>
+                <div class="value content collapse" id="collapse-moreInfo" aria-labelledby="moreInfo"
+                    data-parent="#pdp-accordion">
+                    <p class="h-font-size--16 h-clr--gray-4 card-body">
+                        <isprint value="${product.moreInfo}" encoding="off" />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </isif>
+
+</div>

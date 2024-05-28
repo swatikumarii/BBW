@@ -1,0 +1,273 @@
+@import "../../../_brand/_api/api";
+
+// Slick List
+.slick-list {
+    margin: 0 calc(var(--slides-gap-sm) / -2);
+
+    @include media-up(md) {
+        margin: 0 calc(var(--slides-gap-md) / -2);
+    }
+
+    .slick-track {
+        display: flex;
+    }
+
+    .slick-slide {
+        margin: 0 calc(var(--slides-gap-sm) / 2);
+
+        @include media-up(md) {
+            margin: 0 calc(var(--slides-gap-md) / 2);
+        }
+    }
+}
+
+// Slider - Bar - Default
+.slider-bar {
+    display: none;
+    width: 100%;
+    max-width: 300px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: colour(white);
+    position: relative;
+    margin: 20px auto;
+
+    @include media-btw(sm, md) {
+        height: 4px;
+        border-radius: 4px;
+    }
+
+    .indicator {
+        display: block;
+        position: absolute;
+        background-color: colour(gray, 4);
+        height: 100%;
+        border-radius: 4px;
+        left: 0;
+        transition: left 0.2s ease-out;
+    }
+}
+
+// Slider - Dots - Default
+.slider-dots {
+    bottom: 0;
+    left: 50%;
+    max-width: 300px;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 100%;
+
+    .slick-dots {
+        display: flex;
+        height: 4px;
+        overflow: hidden;
+        text-align: center;
+        width: 100%;
+        bottom: 0;
+        background-color: transparent;
+        border-radius: 4px;
+
+        @include media-up(md) {
+            height: 4px;
+        }
+
+        button {
+            background-color: transparent;
+            display: block;
+            font-size: 0;
+            height: 4px;
+            width: 100%;
+            border: 0;
+            cursor: pointer;
+            padding: 0;
+
+            @include media-up(md) {
+                height: 4px;
+            }
+
+            &:focus,
+            &:active {
+                outline: none;
+            }
+        }
+    }
+
+    li {
+        display: block;
+        flex-grow: 1;
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin: 0;
+
+        &.slick-active {
+            background-color: colour(white);
+        }
+    }
+}
+
+// Slider -  Arrow - Button - Default
+.slider-button {
+    text-decoration: none;
+    border-radius: 50%;
+    border: none;
+    font-size: 0;
+    height: auto;
+    width: auto;
+    transition: all 0.4s cubic-bezier(0.05, 0.5, 0.3, 1);
+    cursor: pointer;
+    padding: 0;
+    background: none;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 90%);
+    }
+
+    &:focus &:active {
+        outline: none;
+    }
+}
+
+// Slider - Block
+.pd-slick-slider-section {
+    position: relative;
+
+    .pd-slick-slider {
+        margin-bottom: 0;
+    }
+
+    // Slick - Arrow
+    .slick-arrow {
+        opacity: 0;
+        display: none;
+        visibility: visible;
+        position: absolute;
+        top: calc(50% - 20px);
+        transform: translateY(-50%);
+        transition: opacity 0.6s cubic-bezier(0.05, 0.5, 0.3, 1);
+        z-index: 1;
+        border-radius: 50%;
+        height: auto;
+        width: auto;
+        border: none;
+        cursor: pointer;
+        user-select: none;
+        padding: 0;
+
+        &::before {
+            content: none;
+        }
+
+        @include media-up(md) {
+            display: block;
+            opacity: 1;
+            top: 50%;
+            transform: translateY(-50%);
+            visibility: visible;
+            z-index: 5;
+        }
+
+        &.slick-next {
+            right: 20px;
+        }
+
+        // Slick - Pre - Arrow
+        &.slick-prev {
+            left: 20px;
+        }
+    }
+
+    .slider-button {
+        opacity: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        visibility: visible;
+        z-index: 5;
+
+        span {
+            height: 40px;
+            width: 40px;
+            display: block;
+        }
+
+        &:focus,
+        &:active {
+            outline: none;
+        }
+    }
+
+    // Transparent - Arrow Style
+    .arrow-transparent {
+        .slider-button {
+            background-color: transparent;
+            border: none;
+        }
+    }
+
+    .slick-disabled {
+        .slider-button {
+            color: colour(gray, 5);
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+
+    .icon-arrow3--left {
+        span {
+            background: url("../../../../images/icons/left-arrow.png") no-repeat
+                50%;
+        }
+    }
+
+    .icon-arrow3--right {
+        span {
+            background: url("../../../../images/icons/right-arrow.png")
+                no-repeat 50%;
+        }
+    }
+
+    .slider-bar {
+        margin: 40px auto 0;
+
+        @include media-up(md) {
+            background-color: colour(gray, 5);
+            bottom: 48px;
+            left: 50%;
+            margin: 0;
+            position: absolute;
+            transform: translateX(-50%);
+            display: block;
+            height: 4px;
+        }
+
+        @include media-btw(sm, md) {
+            bottom: 35px;
+        }
+    }
+
+    .slider-bar .indicator {
+        background-color: colour(white);
+    }
+
+    .slider-dots {
+        bottom: 60px;
+        height: 4px;
+
+        @include media-up(md) {
+            bottom: 48px;
+        }
+
+        @include media-btw(sm, md) {
+            bottom: 35px;
+        }
+    }
+
+    // Slider - Item
+    .slide-item {
+        text-align: center;
+
+        @include media-up(md) {
+            background-color: colour(white);
+        }
+    }
+}

@@ -1,0 +1,410 @@
+@charset "UTF-8";
+
+@import "variables";
+@import "animations";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
+// Scrolling - on Modal Open
+// .modal-open {
+//     overflow-y: auto;
+// }
+
+#dynamic-modal,
+#dynamic-modal-all,
+#dynamic-modal-exit-intent-popup {
+    justify-content: center;
+    padding-left: 0 !important;
+    background-color: rgba(0, 0, 0, 90%);
+    overflow: auto;
+    overflow-x: hidden;
+
+    .dynamic-popup-dialog {
+        padding: 0 10px;
+        height: calc(100% - 100px);
+        max-width: unset;
+        transition: none;
+        transform: none;
+
+        &.center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &.top {
+            margin-top: 0;
+        }
+
+        // Dynamic Modal - Animation
+        &.fade-out {
+            animation: fade-out 0.5s ease forwards;
+        }
+
+        &.slide-left {
+            animation: slide-out-left 0.5s ease forwards;
+        }
+
+        &.slide-top {
+            animation: slide-out-top 0.3s ease forwards;
+        }
+
+        &.slide-right {
+            animation: slide-out-right 0.5s ease forwards;
+        }
+
+        &.slide-bottom {
+            animation: slide-out-bottom 0.5s ease forwards;
+        }
+
+        &.zoom-in,
+        &.zoom-out {
+            animation: zoom-out 0.5s ease forwards;
+        }
+
+        // Dynamic Modal - Size
+        &.small {
+            width: 300px;
+        }
+
+        &.medium {
+            @include media-breakpoint-up(lg) {
+                width: 500px;
+            }
+
+            @include media-breakpoint-between(md, lg) {
+                width: 400px;
+            }
+
+            @include media-breakpoint-down(sm) {
+                width: 300px !important;
+            }
+        }
+
+        &.large {
+            @include media-breakpoint-up(lg) {
+                width: 800px;
+                max-width: 800px;
+            }
+
+            @include media-breakpoint-between(md, lg) {
+                width: 700px !important;
+            }
+
+            @include media-breakpoint-down(sm) {
+                width: 300px !important;
+            }
+        }
+    }
+
+    // Dynamic Modal - Center
+    &.center {
+        align-items: center;
+    }
+
+    // Dynamic Modal - Top
+    &.top {
+        align-items: flex-start;
+    }
+
+    // Dynamic Modal - Bottom
+    &.bottom {
+        align-items: flex-end;
+
+        .dynamic-popup-dialog {
+            bottom: 100px;
+            height: auto;
+            top: unset;
+        }
+    }
+
+    // Dynamic Modal - Show
+    &.show {
+        padding-right: unset !important;
+        z-index: 20;
+        right: -14px;
+        width: calc(100% + 14px);
+
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+            right: 0;
+        }
+
+        .dynamic-popup-dialog {
+            height: calc(100% - 100px);
+            margin: 0 auto;
+            padding-top: 0;
+            transition: none;
+
+            &.center {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            &.bottom {
+                display: flex;
+                align-items: flex-end;
+            }
+
+            &.fade-out {
+                animation: fade-in-popup 0.5s ease forwards;
+            }
+
+            &.slide-left {
+                animation: slide-in-left 0.5s ease forwards;
+            }
+
+            &.slide-top {
+                animation: slide-in-top 0.5s ease forwards;
+            }
+
+            &.slide-right {
+                animation: slide-in-right 0.5s ease forwards;
+            }
+
+            &.slide-bottom {
+                animation: slide-in-bottom 0.5s ease forwards;
+            }
+
+            &.zoom-in,
+            &.zoom-out {
+                animation: zoom-in 0.5s ease forwards;
+            }
+        }
+
+        &.bottom {
+            .dynamic-popup-dialog {
+                top: unset;
+                height: auto;
+                bottom: 100px;
+            }
+        }
+    }
+
+    button.close {
+        position: absolute;
+        right: -28px;
+        top: -14px;
+        width: 30px;
+        background-color: transparent;
+        height: 30px;
+        opacity: 1;
+        margin: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        z-index: 1;
+        cursor: pointer;
+
+        span {
+            background: url("../images/close-icon.svg") no-repeat center;
+            background-size: 1rem;
+            background-color: $white;
+            z-index: 1;
+            right: auto;
+            top: auto;
+            border: none;
+            opacity: 1;
+            transition: opacity 0.15s;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            position: absolute;
+            border-radius: 50%;
+            filter: invert(1);
+
+            @include media-breakpoint-down(sm) {
+                top: 22px;
+            }
+        }
+
+        &:hover {
+            span {
+                background-color: $white;
+                opacity: 1;
+                filter: unset;
+            }
+        }
+    }
+
+    .modal-header {
+        position: relative;
+        margin-top: -15px;
+        z-index: 1;
+
+        @include media-breakpoint-down(sm) {
+            margin-top: -23px;
+        }
+
+        &.inside {
+            margin-top: unset;
+            padding-bottom: 0;
+            border: none;
+
+            @include media-breakpoint-down(sm) {
+                margin-top: unset;
+            }
+        }
+
+        .close {
+            &.inside {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 32px;
+                background-color: transparent;
+                height: 32px;
+                opacity: 1;
+                margin: unset;
+
+                span {
+                    background-size: 1rem;
+                    background-color: transparent;
+                    z-index: 1;
+                    right: auto;
+                    top: auto;
+                    border: none;
+                    opacity: 1;
+                    transition: opacity 0.15s;
+                    width: 100%;
+                    height: 100%;
+                    cursor: pointer;
+                    position: relative;
+                    border-radius: 0;
+                    filter: unset;
+                }
+
+                &:hover {
+                    background-color: #f2f2f2;
+                    opacity: 0.75;
+                }
+            }
+
+            &.outside {
+                position: absolute;
+                right: -28px;
+                top: -14px;
+                width: 30px;
+                background-color: transparent;
+                height: 30px;
+                opacity: 1;
+                margin: unset;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 5px;
+                z-index: 1;
+                cursor: pointer;
+
+                span {
+                    background: url("../images/close-icon.svg") no-repeat center;
+                    background-size: 1rem;
+                    background-color: $white;
+                    z-index: 1;
+                    right: auto;
+                    top: auto;
+                    border: none;
+                    opacity: 1;
+                    transition: opacity 0.15s;
+                    width: 100%;
+                    height: 100%;
+                    cursor: pointer;
+                    position: absolute;
+                    border-radius: 50%;
+                    filter: invert(1);
+
+                    @include media-breakpoint-down(sm) {
+                        top: 22px;
+                    }
+                }
+
+                &:hover {
+                    span {
+                        background-color: $white;
+                        opacity: 1;
+                        filter: unset;
+                    }
+                }
+            }
+        }
+    }
+
+    .modal-body {
+        overflow: auto;
+        margin-right: unset !important;
+        max-height: 100%;
+        overflow-x: hidden;
+
+        @include media-breakpoint-down(sm) {
+            max-height: 100vh;
+            padding-bottom: 0;
+        }
+    }
+}
+
+.dynamic-popup-form {
+    position: fixed;
+    top: 15%;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    right: 0;
+    margin: 0 auto !important;
+    z-index: 10;
+}
+
+#dynamic-modal-all,
+#dynamic-modal {
+    overflow: auto;
+    overflow-x: hidden;
+
+    .modal-body {
+        @include media-breakpoint-down(sm) {
+            padding-bottom: 0;
+        }
+    }
+}
+
+#dynamic-modal {
+    .slick-slide {
+        margin: 0 !important;
+    }
+
+    .slick-prev,
+    .slick-next {
+        top: 50% !important;
+
+        @include media-breakpoint-down(sm) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 42% !important;
+
+            &::before {
+                width: 10px !important;
+                height: 10px !important;
+            }
+        }
+    }
+
+    .slick-prev::before,
+    .slick-next::before {
+        content: "" !important;
+        width: 20px;
+        height: 20px;
+        border-top: 2px solid $light-gray;
+        border-right: 2px solid $light-gray;
+        display: block;
+        left: 39px;
+    }
+
+    .slick-prev::before {
+        transform: rotate(-135deg);
+    }
+
+    .slick-next::before {
+        transform: rotate(45deg);
+    }
+}

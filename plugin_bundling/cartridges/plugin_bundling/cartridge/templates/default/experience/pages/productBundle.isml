@@ -1,0 +1,40 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+
+<isdecorate template="common/layout/pdStorePage">
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/experience/storePage.css');
+        assets.addCss('/css/product/detail.css');
+        assets.addJs('/js/productBundle.js');
+        assets.addCss('/css/experience/components/productBundle/productBundle.css');
+        var currentBundle = pdict.page.ID;
+        var currentBundleQtyinCart = 0;
+        var bundlesinCart = session.custom.customBundlesInCart ? JSON.parse(session.custom.customBundlesInCart) : false;
+        if(bundlesinCart){
+            bundlesinCart.name.forEach( function (elem, index) {
+                if (elem === currentBundle) {
+                    currentBundleQtyinCart = bundlesinCart.qty[index];
+                }
+            });
+        }
+    </isscript>
+
+    <div class="storepage bundling ${pdict.page.ID}">
+        <input class="bundleName" value="${pdict.page.ID}" type="hidden"/>
+        <div class="container-fluid">
+            <div class="row bundleRow">
+                <input class="successMsgBundleProduct" type="hidden"
+                    value="${Resource.msg('bundle.product.success.msg', 'productBundle', null)}" />
+                <input class="updateMsgBundleProduct" type="hidden"
+                    value="${Resource.msg('bundle.product.update.msg', 'productBundle', null)}" />
+                <input type="hidden" class="currentBundleinCart" name="currentBundleinCart"
+                    value="${currentBundleQtyinCart}" />
+                <isprint value="${pdict.regions.head.setClassName(" col-12").render()}" encoding="off" />
+                <span class="maxLimitMessageBunlde pb-0">${Resource.msgf('bundle.max.add', 'productBundle', null, currentBundleQtyinCart)}</span>
+                <isprint value="${pdict.regions.main.setClassName(" col-12 pt-4").render()}" encoding="off" />
+                <isinclude template="experience/components/product_bundle/components/detailView" />
+            </div>
+            <isprint value="${pdict.regions.footer.setClassName(" col-12").render()}" encoding="off" />
+        </div>
+    </div>
+</isdecorate>

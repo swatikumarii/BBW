@@ -1,0 +1,204 @@
+// ----------------------------------------------------------------------
+// Generic Button Styles
+// ----------------------------------------------------------------------
+// This section defines styles for generic buttons used throughout the application.
+
+.btn {
+    font-family: get-ff(base);
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 2.063rem;
+    cursor: pointer;
+    background-color: colour(black, 3);
+    border: 1px solid colour(black, 3);
+    color: colour(white);
+    display: inline-block;
+    padding: 0 1.0625em;
+    text-align: center;
+    transition: all 0.3s ease;
+    max-height: 35px;
+    min-height: 48px;
+    letter-spacing: 0.24px;
+    border-radius: 0;
+
+    &.btn-submit {
+        font-size: 1rem;
+        max-height: 48px;
+        line-height: 3rem;
+        padding: 0 2rem;
+        transition-property: background-color, border-color;
+        transition-duration: 0.3s;
+        font-weight: 600;
+        letter-spacing: 0.015em;
+        background-color: colour(black, 1);
+        border-color: colour(black, 1);
+        text-transform: uppercase;
+        margin-top: 5px;
+    }
+
+    &.btn-hover {
+        background-color: colour(black, 1);
+        border-color: colour(black, 1);
+
+        &:hover {
+            background-color: colour(gray, 4);
+            border-color: colour(gray, 4);
+        }
+
+        &:active {
+            background-color: colour(gray, 5);
+            border-color: colour(gray, 5);
+        }
+
+        &:focus {
+            background-color: colour(gray, 4);
+            border-color: colour(gray, 4);
+            outline: 1px dotted colour(black);
+            outline-offset: 2px;
+        }
+    }
+
+    &.btn-popup {
+        &:hover {
+            background: colour(white);
+            color: colour(black, 3);
+            border-color: colour(gray, 6);
+        }
+    }
+
+    &.add-to-cart,
+    &.shop,
+    &.notify-me-btn,
+    &.out-of-stock,
+    &.add-to-bundle,
+    &.added-to-bundle,
+    &.submit-form {
+        font-size: 1rem;
+        font-weight: map-get($font-weight, semibold);
+        letter-spacing: 0.24px;
+        text-transform: uppercase;
+        transition: transform 0s;
+        transition-property: background-color, border-color;
+        transition-duration: 0.3s;
+        line-height: 1.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        &:active,
+        &:hover {
+            color: colour(white);
+        }
+    }
+
+    &.btn-secondary {
+        background: colour(white);
+        border: 2px solid colour(black, 1);
+        color: colour(black, 1);
+
+        &:hover {
+            background: colour(white);
+            color: colour(gray, 4);
+            border-color: colour(gray, 5);
+        }
+
+        &:active {
+            background: colour(gray, 1);
+            color: colour(gray, 4);
+            border-color: colour(gray, 5);
+        }
+
+        &:focus {
+            background: colour(white);
+            color: colour(gray, 4);
+            border-color: colour(gray, 5);
+            outline: 1px dotted colour(gray, 5);
+            outline-offset: 2px;
+        }
+    }
+
+    &.btn-blue {
+        background-color: colour(blue);
+        color: colour(white);
+        border-color: colour(blue, 2);
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        border: 0;
+        text-transform: uppercase;
+        transition:
+            color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            text-decoration-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            fill 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            stroke 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+            -webkit-backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover {
+            background-color: colour(pink);
+            color: colour(white);
+        }
+    }
+
+    &.btn-dark-blue {
+        background-color: colour(blue, 1);
+        border-color: colour(blue, 2);
+        border: 0;
+
+        &:hover {
+            background-color: colour(pink);
+            color: colour(white);
+        }
+    }
+
+    &.btn-white {
+        color: colour(blue);
+        background-color: colour(white);
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        text-transform: uppercase;
+
+        &:hover {
+            background-color: colour(pink);
+            color: colour(white);
+        }
+    }
+
+    &:disabled {
+        background-color: colour(gray, 7);
+        color: colour(gray);
+        border-color: colour(gray, 7);
+        cursor: default;
+        opacity: 0.5;
+
+        &:hover {
+            color: colour(gray);
+        }
+    }
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-no-style {
+    background: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    text-decoration: none;
+    outline: none;
+
+    &:focus {
+        outline: none;
+    }
+}

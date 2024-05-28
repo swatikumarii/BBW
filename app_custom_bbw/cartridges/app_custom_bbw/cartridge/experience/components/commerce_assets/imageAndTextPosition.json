@@ -1,0 +1,133 @@
+{
+  "name": "CMP: Image And Text Position",
+  "description": "This is a component combined image with text",
+  "group": "commerce_assets",
+  "attribute_definition_groups": [
+    {
+      "id": "ITCImage",
+      "attribute_definitions": [
+        {
+          "id": "selectImagePosition",
+          "name": "Select Image Position (Left, Right, Top, Bottom)",
+          "type": "enum",
+          "values": ["left", "right", "top", "bottom"],
+          "required": true
+        },
+        {
+          "id": "disableLazyLoad",
+          "name": "Disable Lazy Load",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "id": "useImgURL",
+          "name": "Use Image URL",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "id": "desktopImgUrl",
+          "name": "Desktop Image URL",
+          "description": "Add Desktop Image URL here",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "desktopImgUrl2X",
+          "name": "Desktop Image URL 2x",
+          "description": "Add Desktop Image URL here",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "mobileImgUrl",
+          "name": "Mobile Image URL",
+          "description": "Add Mobile Image URL Here",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "mobileImgUrl2X",
+          "name": "Mobile Image URL 2x",
+          "description": "Add Mobile Image URL Here",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "desktop_image",
+          "name": "Desktop Image",
+          "description": "Add Desktop Image Here",
+          "type": "image",
+          "required": false
+        },
+        {
+          "id": "desktop_image2X",
+          "name": "Desktop Image 2x",
+          "description": "Add Desktop Image Here",
+          "type": "image",
+          "required": false
+        },
+        {
+          "id": "mobile_image",
+          "name": "Mobile Image",
+          "description": "Add Mobile Image Here",
+          "type": "image",
+          "required": false
+        },
+        {
+          "id": "mobile_image2X",
+          "name": "Mobile Image 2x",
+          "description": "Add Mobile Image Here",
+          "type": "image",
+          "required": false
+        },
+        {
+          "id": "alt",
+          "name": "Image Alt Text",
+          "description": "The image alt text shown by the component.",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "description",
+          "name": "Description",
+          "type": "text",
+          "required": false
+        },
+        {
+          "id": "linkText",
+          "name": "Link Text",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "link",
+          "name": "Link",
+          "type": "url",
+          "required": false
+        },
+        {
+          "id": "linkUmpParameter",
+          "name": "Link UMP Parameter",
+          "type": "string",
+          "required": false
+        },
+        {
+          "id": "customClass",
+          "name": "Component Custom Class",
+          "description": "Add Component Custom Classes here",
+          "type": "string",
+          "required": false
+        },
+        {
+            "id": "trackerClass",
+            "name": "Tracker Custom Class",
+            "description": "Add Tracker Classes here (Use track-banner-promotion for GA/GTM)",
+            "type": "string",
+            "required": false
+        }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

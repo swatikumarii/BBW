@@ -1,0 +1,9 @@
+<div class="quantity-form">
+    <span class="quantity-minus ${lineItem.isFreeItem || lineItem.isEgiftCard? 'd-none' : ''}">-</span>
+    <input type="number" class="quantity form-control h-fw--semibold" data-uuid="${lineItem.UUID}" data-pid="${lineItem.id}"
+        data-action="${pdict.actionUrls.updateQuantityUrl}" data-pre-select-qty="${StringUtils.formatInteger(lineItem.quantity)}"
+        id="quantity-${lineItem.UUID}" name="quantity-${lineItem.UUID}" data-max-order-qty="${lineItem.maxOrderQty}"
+        aria-label="quantity: ${StringUtils.formatInteger(lineItem.quantity)}" value="${StringUtils.formatInteger(lineItem.quantity)}" ${lineItem.isFreeItem || lineItem.isEgiftCard ? 'disabled' : ''}>
+    <span class="quantity-plus ${lineItem.isFreeItem || lineItem.isEgiftCard ? 'd-none' : ''}">+</span>
+</div>
+<span class="max-order-qty-error h-clr--red-1 h-font-size--12" style="display:none">${Resource.msgf('max.order.qty.error', 'cart', null, lineItem.maxOrderQty)}</span>

@@ -1,0 +1,35 @@
+{
+  "step-types": {
+    "script-module-step": [
+      {
+        "@type-id": "custom.Qwikcilver.GiftCard.Send",
+        "@supports-parallel-execution": "true",
+        "@supports-site-context": "true",
+        "@supports-organization-context": "false",
+        "description": "Send Qwikcilver GiftCard to Recipient's",
+        "module": "int_qwikcilver/cartridge/scripts/jobs/sendEgiftCardEmail.js",
+        "function": "sendEgiftEmail",
+        "transactional": "true",
+        "timeout-in-seconds": "900",
+        "parameters": {
+        },
+        "status-codes": {
+          "status": [
+            {
+              "@code": "ERROR",
+              "description": "Used when the step failed with an error."
+            },
+            {
+              "@code": "FINISHED",
+              "description": "Used when the step finished successfully."
+            },
+            {
+              "@code": "FINISHED_WITH_WARNINGS",
+              "description": "Used when the step finished with warnings."
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

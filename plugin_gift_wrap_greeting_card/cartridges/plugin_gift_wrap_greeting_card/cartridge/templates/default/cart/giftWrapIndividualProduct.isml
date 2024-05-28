@@ -1,0 +1,75 @@
+<iscomment>Individual Gift Wrapping File</iscomment>
+<div class="giftWrapIndividualProduct gift-wrap-individual-product" id="rit-giftwrap-individual-modal">
+    <div class="rit-giftwrap-individual-modal">
+        <div class="modal-content border-0">
+            <div class="modal-body">
+                <div
+                    class=" js-generic-flyout js-flyout-container generic-dialog-flyout open checkout-v3 giftwrap-flyout">
+                    <span class="sr-only flyout-sr-only js-genericflyout-skip-to-content" tabindex="0"
+                        aria-hidden="true"></span>
+
+                    <section class="js-flyout-content generic-flyout-content">
+                        <div id="giftwrap-container" class="giftwrap-container">
+                            <div class="giftwrap-title">
+                                <h2>${Resource.msg('individual.select.products', 'giftWrap', null)}</h2>
+                                <p>${Resource.msg('individual.wrapping.cost', 'giftWrap', null)}</br>
+                                    <span class="cost-per-item-message"
+                                        data-cost-per-item-message="${Resource.msgf('individual.cost.per.item', 'giftWrap', null)}">
+                                    </span>
+                                </p>
+                                <div class="inline-alert notify">
+                                    <span>${Resource.msg('msg.giftwrap.notify.modal', 'giftWrap', null)}</span>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div id="check-all-giftwrap" class="checkall">
+                                    <input type="checkbox" name="checkall" id="checkall" tabindex="0" />
+                                    <label for="checkall">${Resource.msg('individual.select.deselect', 'giftWrap', null)}</label>
+                                </div>
+                            </div>
+                            <div class="giftservice-products vertical-tile-list">
+                                <isloop items="${pdict.wrappableProducts}" var="wrappableProduct" status="loopstate">
+                                    <isloop begin="1" end="${wrappableProduct.quantity}">
+                                        <div class="checkout-tile gift-wrap-individual-js">
+                                            <div class="input-type-radio">
+                                                <input class="input-wrap-individual" type="checkbox"
+                                                    id="individual-lineItem-${loopstate.count}"
+                                                    name="individual-lineItem" value="${wrappableProduct.id}" />
+                                                <label for="${wrappableProduct.id}">
+                                                    <figure>
+                                                        <img src="${wrappableProduct.images.small[0].url}"
+                                                            alt="${wrappableProduct.images.small[0].alt}"
+                                                            title="${wrappableProduct.images.small[0].title}"
+                                                            class="dm-responsive-image js-dm-image dm-responsive-image-initialized" />
+                                                    </figure>
+                                                    <span class="tile-title">
+                                                        <iscomment> <span
+                                                                class="product-ritual">${wrappableProduct.ancientRitualFullName}</span>
+                                                        </iscomment>
+                                                        <span
+                                                            class="product-title">${wrappableProduct.productName}</span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </isloop>
+                                </isloop>
+                            </div>
+                            <input type="hidden" class="gift-wrap-individual-count" name="gift-wrap-individual-count"
+                                value />
+                            <div class="giftwrap-bottom-controls">
+                                <button type="button" data-dismiss="modal"
+                                    class="close-button btn btn--secondary js-giftwrap-individual-cancel gift-wrap-model-close"
+                                    tabindex="0">${Resource.msg('cancel.label', 'common', null)}</button>
+                                <button type="button" data-dismiss="modal" class="apply-button btn js-giftwrap-individual-save btn-hover"
+                                    tabindex="0">
+                                    ${Resource.msg('add.label', 'common', null)}
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

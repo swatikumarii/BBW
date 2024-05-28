@@ -1,0 +1,1005 @@
+@include media-up(sm) {
+    .bbw-menu {
+        max-width: 1400px;
+
+        .navbar {
+            position: inherit;
+
+            .level-1-ul {
+                .nav-link {
+                    padding: 0.8125rem 0.875rem 0.5rem;
+                    line-height: 1.25rem;
+                    letter-spacing: 0.01em;
+                    border-bottom: 0.1875rem solid transparent;
+                    transition: border 0.5s ease-out;
+                    text-transform: capitalize;
+
+                    &:hover {
+                        color: colour(black, 1);
+                    }
+
+                    @include media-up(sm) {
+                        &::after {
+                            content: none;
+                        }
+                    }
+
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+
+                .nav-item {
+                    &:hover {
+                        .nav-link {
+                            border-bottom: 0.1875rem solid colour(blue);
+                        }
+                    }
+                }
+
+                .level-1-li {
+                    .dropdown-link {
+                        text-wrap: wrap;
+                    }
+
+                    @include media-up(sm) {
+                        position: inherit;
+
+                        .menu-wrap-level-1 {
+                            max-height: 0;
+                            padding: 0;
+                            overflow: hidden;
+                            object-fit: contain;
+                            box-shadow: 0 12px 20px rgba(0, 0, 0, 15%);
+                            visibility: hidden;
+                            opacity: 0;
+                            transition: all 0.5s ease 0.15s;
+                            display: block;
+                        }
+
+                        .menu-wrap {
+                            z-index: 110;
+                            top: auto;
+                            left: 0;
+                            margin-top: 0;
+
+                            .level-2-ul-wrap {
+                                margin: 1.3125rem auto;
+                                min-height: 25rem;
+                                max-width: 1500px;
+
+                                .menu-wrap {
+                                    display: block;
+                                }
+                            }
+
+                            .level-2-ul {
+                                display: flex;
+
+                                .dropdown-item.active,
+                                .dropdown-item:active {
+                                    background-color: transparent;
+                                    color: colour(black);
+                                }
+
+                                .dropdown-item:focus,
+                                .dropdown-item:hover {
+                                    background-color: transparent;
+                                    color: colour(black);
+                                }
+
+                                .level-2-li {
+                                    min-width: 10.875rem;
+
+                                    @include media-up(md) {
+                                        min-width: 14.875rem;
+                                    }
+
+                                    &:hover {
+                                        .level-2-link {
+                                            color: colour(blue);
+                                        }
+                                    }
+
+                                    .level-2-link {
+                                        line-height: 1.25rem;
+                                        letter-spacing: 0.01em;
+                                        text-transform: uppercase;
+
+                                        &::after {
+                                            content: none;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .menu-right .menu-image {
+                                .menu-small-img {
+                                    grid-template-columns: 1fr 1fr;
+                                    column-gap: 1.25rem;
+                                }
+                            }
+                        }
+
+                        .menu-wrap-level-1.show {
+                            opacity: 1;
+                            visibility: visible;
+                            transition: all 0.5s ease 0.15s;
+                            max-height: 500px;
+                            padding: 0.5rem 0;
+                        }
+                    }
+                }
+            }
+
+            .level-1-li {
+                .level-2-ul {
+                    display: block;
+                    opacity: 0;
+                    pointer-events: none;
+                    top: -15px;
+                    transition-duration: 0.5s;
+                    transition-property: visibility, opacity, top;
+                    transition-timing-function: cubic-bezier(
+                        0.25,
+                        0.46,
+                        0.45,
+                        0.94
+                    );
+                    visibility: hidden;
+                }
+
+                &:hover {
+                    .level-2-ul {
+                        border: 0;
+                        opacity: 1;
+                        pointer-events: auto;
+                        top: 0;
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+
+        .category-top-offers {
+            height: 100%;
+            border-left: 1px solid colour(gray, 6);
+            transition: all 0.3s ease-out;
+            text-transform: capitalize;
+            max-height: none;
+            margin-bottom: 22px;
+            overflow: visible;
+
+            .heading {
+                padding: 6px 0 8px 30px;
+                pointer-events: none;
+                font-weight: 600;
+                font-size: 14px;
+                font-size: 0.875rem;
+                line-height: 16px;
+                line-height: 1rem;
+                letter-spacing: 0.015em;
+                height: auto;
+                color: colour(black, 1);
+                cursor: pointer;
+                display: block;
+                text-transform: uppercase;
+            }
+
+            .toggle {
+                display: none;
+            }
+
+            ul {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+
+                li {
+                    height: auto;
+                    display: block;
+                    position: relative;
+                    padding: 8px 15px 8px 31px;
+
+                    a {
+                        width: 180px;
+                        font-weight: 400;
+                        font-size: 14px;
+                        line-height: 16px;
+                        letter-spacing: 0.015em;
+                        white-space: normal;
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+    .bbw-brand-menu {
+        max-width: 1400px;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        list-style: none;
+        border: none;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 0;
+        text-transform: capitalize;
+
+        .dropdown-toggle::after {
+            border: 0;
+        }
+
+        .dropdown-item:focus,
+        .dropdown-item:hover {
+            background-color: transparent;
+            color: colour(blue);
+            text-decoration: none;
+        }
+
+        .navbar {
+            position: inherit;
+
+            .level-1-ul {
+                .nav-link {
+                    padding: 0.8125rem 0.875rem 0.5rem;
+                    line-height: 1.25rem;
+                    letter-spacing: 0.01em;
+                    border-bottom: 0.1875rem solid transparent;
+                    transition: border 0.5s ease-out;
+                    text-transform: capitalize;
+
+                    &:hover {
+                        border-color: colour(blue);
+                    }
+
+                    @include media-up(sm) {
+                        &::after {
+                            content: none;
+                        }
+                    }
+
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+
+                .level-1-li {
+                    position: inherit;
+
+                    &.show {
+                        .level-1-link {
+                            border-color: colour(blue);
+                        }
+
+                        .menu-wrap-level-1 {
+                            top: auto;
+                            opacity: 1;
+                            pointer-events: auto;
+                            visibility: visible;
+                            max-height: max-content;
+                        }
+
+                        .menu-wrap-level-1 .level-2-ul-wrap .menu-right {
+                            height: 100%;
+                            visibility: visible;
+                            opacity: 1;
+                            transition: all 0.3s ease-out;
+                        }
+                    }
+
+                    .menu-wrap-level-1 {
+                        padding: 0;
+                        max-height: 0;
+                        display: block;
+                        border: 0;
+                        left: 0;
+                        top: auto;
+                        background-color: colour(white);
+                        margin-top: 2px;
+                        box-shadow: 0 12px 20px rgba(0, 0, 0, 15%);
+                        opacity: 0;
+                        pointer-events: none;
+                        visibility: hidden;
+                        transition-property: visibility, opacity, top;
+                        transition-duration: 0.2s;
+                        transition-timing-function: cubic-bezier(
+                            0.25,
+                            0.46,
+                            0.45,
+                            0.94
+                        );
+
+                        .level-2-ul-wrap {
+                            max-width: 1160px;
+                            margin: 21px auto;
+                            min-height: 213px;
+                            position: relative;
+
+                            .level-2-ul {
+                                margin-left: 54px;
+                                list-style: none;
+                                padding: 0;
+                                display: inline-block;
+                                left: 0;
+                                position: relative;
+                                text-align: left;
+
+                                .explore-li.level-2-li {
+                                    &::after,
+                                    &::before {
+                                        content: none;
+                                        background: none;
+                                    }
+                                }
+
+                                .level-2-li,
+                                .explore-li {
+                                    position: relative;
+                                    text-transform: capitalize;
+                                    transition: max-height 0.3s ease-out;
+                                    max-height: none;
+                                    padding: 0 0 22px;
+                                    overflow: visible;
+                                    background-color: colour(white);
+
+                                    &::before {
+                                        content: "";
+                                        width: 0;
+                                        height: 36px;
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        background: colour(blue);
+                                        z-index: 30;
+                                    }
+
+                                    &::after {
+                                        content: "";
+                                        background-image: url("../images/header/megamenu-carat.svg");
+                                        top: 13px;
+                                        right: 30px;
+                                        transform: rotate(0deg);
+                                        height: 10px;
+                                        background-size: contain;
+                                        background-repeat: no-repeat;
+                                        width: 12px;
+                                        position: absolute;
+                                        pointer-events: none;
+                                    }
+
+                                    .level-2-link {
+                                        font-weight: map-get(
+                                            $font-weight,
+                                            semibold
+                                        );
+                                        font-size: 14px;
+                                        line-height: 21px;
+                                        letter-spacing: 0.015em;
+                                        padding: 6px 60px 0 20px;
+                                        color: colour(gray, 4);
+                                        cursor: pointer;
+                                        display: block;
+                                        height: 36px;
+                                    }
+
+                                    &.show {
+                                        position: relative;
+                                        max-height: 1000px;
+
+                                        &::before {
+                                            width: 4px;
+                                            transition: all 0.3s ease-out;
+                                        }
+
+                                        &::after {
+                                            transform: rotate(0deg);
+                                            background-image: url("../images/header/megamenu-carat_active.svg");
+                                            right: 20px;
+                                            transition: right 0.3s ease-out;
+                                        }
+
+                                        .level-2-link {
+                                            color: colour(blue);
+                                        }
+
+                                        .menu-wrap-level-3 {
+                                            top: 0;
+                                            opacity: 1;
+                                            pointer-events: auto;
+                                            visibility: visible;
+                                            transition: all 0.5s ease-out;
+                                            left: 100%;
+                                            padding: 0;
+                                        }
+                                    }
+
+                                    .menu-wrap-level-3 {
+                                        position: absolute;
+                                        left: 95%;
+                                        column-fill: auto;
+                                        opacity: 0;
+                                        visibility: hidden;
+                                        transition: none;
+                                        background: transparent;
+                                        padding: 0;
+                                        display: block;
+
+                                        li {
+                                            height: auto;
+                                            min-height: 41px;
+                                            display: flex;
+                                            position: relative;
+                                            padding: 0 1.5rem;
+
+                                            a {
+                                                text-transform: none;
+                                                color: colour(gray, 4);
+                                                display: block;
+                                                line-height: 1rem;
+                                                letter-spacing: 0.015em;
+                                                white-space: normal;
+                                                box-sizing: initial;
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                                height: 100%;
+                                                padding: 9px 30px 0 0;
+                                                width: 180px;
+
+                                                &:hover {
+                                                    color: colour(blue);
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    &:first-child .menu-wrap-level-3 {
+                                        top: -2px;
+                                    }
+
+                                    &:nth-child(2) .menu-wrap-level-3 {
+                                        top: -59px;
+                                    }
+
+                                    &:nth-child(3) .menu-wrap-level-3 {
+                                        top: -116px !important;
+                                    }
+
+                                    &:nth-child(4) .menu-wrap-level-3 {
+                                        top: -173px !important;
+                                    }
+
+                                    &:nth-child(5) .menu-wrap-level-3 {
+                                        top: -230px !important;
+                                    }
+
+                                    &:nth-child(6) .menu-wrap-level-3 {
+                                        top: -287px !important;
+                                    }
+
+                                    &:nth-child(7) .menu-wrap-level-3 {
+                                        top: -287px !important;
+                                    }
+                                }
+                            }
+
+                            .two-column {
+                                column-count: 2;
+                                column-fill: auto;
+                                height: 213px;
+                            }
+
+                            .menu-right {
+                                position: absolute;
+                                left: auto;
+                                top: 0;
+                                height: 0;
+                                overflow: hidden;
+                                max-height: none;
+                                margin-bottom: 22px;
+                                text-transform: capitalize;
+                                opacity: 0;
+                                visibility: hidden;
+
+                                // transition: all 0.5s ease-out;
+                                // transition: max-height 0.3s ease-out;
+
+                                .category-top-offers {
+                                    border-left: 1px solid colour(gray, 6);
+                                    height: 100%;
+
+                                    .column-count-2 {
+                                        column-count: 2;
+                                    }
+
+                                    .column-count-3 {
+                                        column-count: 3;
+                                    }
+
+                                    .column-count-4 {
+                                        column-count: 4;
+                                    }
+
+                                    .heading {
+                                        padding: 6px 0 8px 30px;
+                                        pointer-events: none;
+                                        font-weight: 600;
+                                    }
+
+                                    .category-top-items {
+                                        pointer-events: auto;
+                                        display: block;
+                                        opacity: 1;
+                                        visibility: visible;
+                                        position: relative;
+                                        transition: all 0.5s ease-out;
+
+                                        ul {
+                                            padding: 0;
+                                            margin: 0;
+                                            display: block;
+                                            position: relative;
+                                            border: 0;
+
+                                            li {
+                                                min-height: 41px;
+                                                height: auto;
+                                                display: block;
+                                                position: relative;
+                                                list-style: none;
+
+                                                a {
+                                                    padding: 8px 15px 8px 30px;
+                                                    font-weight: 400;
+                                                    font-size: 14px;
+                                                    line-height: 16px;
+                                                    letter-spacing: 0.015em;
+                                                    width: 225px;
+                                                    text-wrap: wrap;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .level-2-li.active .menu-right .category-top-offers a.heading::after {
+        transform: rotate(180deg);
+        transform-origin: center center;
+    }
+
+    .menu-right {
+        .category-top-offers {
+            a.heading {
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 20px;
+                letter-spacing: 0.01em;
+                color: #4d4d4d;
+                height: 44px;
+                padding: 9px 5px 9px 35px;
+                cursor: pointer;
+                display: block;
+                position: relative;
+
+                &::after {
+                    border: 0;
+                    content: url("../images/header/megamenu-mobile_secondary-carat.svg");
+                    height: auto;
+                    position: absolute;
+                    right: 18px;
+                    top: 0.5rem;
+                    transition: all 0.3s ease-out;
+                    width: auto;
+                }
+            }
+        }
+
+        .category-top-items {
+            a {
+                color: colour(gray, 4);
+                font-size: 16px;
+            }
+        }
+    }
+
+    .dropdown-item.active,
+    .dropdown-item:active {
+        background-color: transparent;
+        color: colour(gray, 4);
+        text-decoration: none;
+    }
+
+    .dropdown-item:focus,
+    .dropdown-item:hover {
+        background-color: transparent;
+        color: colour(gray, 4);
+        text-decoration: none;
+    }
+
+    a:focus {
+        outline: 0;
+    }
+
+    .bbw-menu,
+    .bbw-brand-menu {
+        max-width: 350px;
+        width: 86%;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        background-color: colour(white);
+        z-index: 9;
+        left: -100%;
+        transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+        .mobile-navbar {
+            overflow: hidden auto;
+            z-index: 113;
+            background: colour(gray, 1);
+            padding-bottom: 6.25rem;
+        }
+
+        .close-menu {
+            padding: 17px 1.1875rem 1.25rem 12px;
+
+            img {
+                height: 1.25rem;
+            }
+        }
+
+        .mobile-slide-menu-search {
+            padding: 12.5px 0;
+
+            &::before {
+                content: url("../images/header/UI-Search.svg");
+                height: 1.75rem;
+                position: absolute;
+                width: 1.75rem;
+                fill: color(blue);
+                padding: 0.6875rem 0 0 0.5625rem;
+                z-index: 1;
+                margin-left: 0.1875rem;
+            }
+
+            input[type="search"] {
+                border: none;
+                border-bottom: 0.0625rem solid colour(black, 6);
+                width: 80%;
+                height: 1.5625rem;
+                margin: 0.5625rem 0 0 13%;
+                transition: all 0.3s ease-out;
+                background-color: colour(white);
+                border-radius: 0;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            #menusearch {
+                top: 13px;
+                left: 0;
+                width: 2.25rem;
+                max-height: 2.1875rem;
+                opacity: 1;
+                line-height: 2.0625rem;
+            }
+        }
+
+        .mobile-slide-menu-search.active {
+            &::before {
+                content: url("../images/header/UI-Search-v2.svg");
+            }
+
+            #mobile-slide-search {
+                width: 70%;
+            }
+
+            .mobile-slide-cancel {
+                right: 0.3125rem;
+                opacity: 1;
+            }
+        }
+
+        .mobile-slide-cancel {
+            display: none;
+            line-height: 1rem;
+            letter-spacing: 0.015em;
+            border-bottom-width: 0.0625rem;
+            border-bottom-style: solid;
+            top: 40%;
+            right: -1.875rem;
+            opacity: 0;
+            transition: all 0.3s ease-out;
+        }
+
+        .level-1-ul .nav-top-offers a {
+            padding-left: 49px;
+            position: relative;
+
+            &::after {
+                position: absolute;
+                width: 19px;
+                height: 19px;
+                fill: colour(blue);
+                padding: 11px 0 0 15px;
+                left: 0;
+                content: url("../images/header/UI-Tag-v2.svg");
+                top: 0;
+            }
+        }
+
+        .level-1-ul .nav-store-locator a {
+            padding-left: 49px;
+            position: relative;
+
+            &::after {
+                position: absolute;
+                width: 19px;
+                height: 19px;
+                fill: colour(blue);
+                padding: 11px 0 0 15px;
+                left: 0;
+                content: url("../images/header/UI-StoreLocator-v2.svg");
+                top: 7px;
+            }
+        }
+
+        .level-1-ul .nav-my-account .level-1-link {
+            padding-left: 49px;
+            position: relative;
+
+            &::before {
+                position: absolute;
+                width: 19px;
+                height: 19px;
+                fill: colour(blue);
+                padding: 11px 0 0 15px;
+                left: 0;
+                content: url("../images/header/UI-MyAccount-v2.svg");
+                top: 9px;
+            }
+        }
+
+        .nav-item {
+            transition: max-height 0.5s ease-out;
+            max-height: 58px;
+            border-top: 0.0625rem solid colour(gray, 6);
+            width: 100%;
+
+            &::before {
+                content: "";
+                width: 0;
+                height: 3.5rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: colour(blue);
+                z-index: 30;
+            }
+
+            .nav-link {
+                padding: 1.25rem 0.9375rem;
+                line-height: 1.25rem;
+                letter-spacing: 0.005em;
+                text-transform: capitalize;
+                color: colour(black, 1);
+
+                &:active {
+                    color: colour(gray, 2);
+                }
+            }
+
+            .level-1-link.dropdown-toggle {
+                &::after {
+                    content: url("../images/header/megamenu-mobile_primary-carat.svg");
+                    width: auto;
+                    height: auto;
+                    position: absolute;
+                    top: 1.3125rem;
+                    right: 0.9375rem;
+                    z-index: 30;
+                    border: 0;
+                    transform: rotate(180deg);
+                    transition: all 0.3s ease-out;
+                }
+            }
+
+            &.active {
+                max-height: 2450px;
+
+                &::before {
+                    width: 0.25rem;
+                    transition: all 0.3s ease-out;
+                }
+
+                .level-1-link.dropdown-toggle {
+                    &::after {
+                        transform: rotate(1turn);
+                        transform-origin: center center;
+                        transition: all 0.3s ease-out;
+                    }
+                }
+            }
+        }
+
+        .level-1-li.muted {
+            transition: none;
+
+            .level-2-ul {
+                transition: none;
+            }
+        }
+
+        .level-2-ul {
+            top: -15px;
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+            transition-property: visibility, opacity, top;
+            transition-duration: 0.5s;
+            transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: initial;
+
+            &.active {
+                top: 0;
+                opacity: 1;
+                pointer-events: auto;
+                visibility: visible;
+                border: 0;
+                margin: 0;
+                float: none;
+            }
+
+            .level-2-li {
+                overflow: hidden;
+                text-transform: capitalize;
+                transition: max-height 0.3s ease-out;
+                max-height: 44px;
+
+                .level-2-link {
+                    line-height: 20px;
+                    letter-spacing: 0.01em;
+                    height: 2.75rem;
+                    padding: 9px 5px 9px 35px;
+                    display: inherit;
+                    outline: 0;
+                    color: colour(gray, 4);
+
+                    &:active {
+                        color: colour(gray, 2);
+                    }
+                }
+
+                .level-2-link.dropdown-toggle {
+                    &::after {
+                        content: url("../images/header/megamenu-mobile_secondary-carat.svg");
+                        width: auto;
+                        height: auto;
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 18px;
+                        z-index: 30;
+                        border: 0;
+                        transition: all 0.3s ease-out;
+                    }
+                }
+
+                &.active {
+                    position: relative;
+                    max-height: 1000px;
+
+                    .level-2-link.dropdown-toggle {
+                        &::after {
+                            transform: rotate(180deg);
+                            transform-origin: center center;
+                        }
+                    }
+                }
+
+                .level-3-ul {
+                    position: relative;
+                    top: -8px;
+                    opacity: 0;
+                    visibility: hidden;
+                    border: 0;
+                    transition: all 0.5s ease-out;
+                    display: block;
+
+                    &.active {
+                        top: 0;
+                        opacity: 1;
+                        pointer-events: auto;
+                        visibility: visible;
+                        transition: all 0.5s ease-out;
+                    }
+
+                    li a {
+                        letter-spacing: 0.01em;
+                        padding: 8px 34px 8px 55px;
+                        line-height: 1.25rem;
+                        height: 100%;
+                        text-wrap: wrap;
+                    }
+                }
+            }
+
+            .nav-menu,
+            .top-category {
+                display: none;
+            }
+        }
+    }
+
+    .bbw-menu.in,
+    .bbw-brand-menu.in {
+        left: 0;
+        transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+        .mobile-menu-overlay {
+            visibility: visible;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+            transition: opacity 0.5s linear;
+        }
+    }
+
+    .mobile-menu-overlay {
+        visibility: hidden;
+        z-index: 112;
+        top: 0;
+        left: 0;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        transition:
+            visibility 0s 0.5s,
+            opacity 0.5s linear;
+    }
+
+    .logged-user-name {
+        padding: 10px 10px 10px 15px;
+        font-size: 0.875rem;
+        line-height: 16px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: colour(blue);
+    }
+}
+
+.input-group-append .btn {
+    z-index: auto;
+}
+
+.utility-links-container {
+    @include media-down(sm) {
+        z-index: 1;
+        position: relative;
+    }
+
+    .utility-links {
+        padding-top: 0.75rem;
+        background: colour(gray, 1);
+        padding-bottom: 6.25rem;
+
+        li a {
+            font-weight: map-get($font-weight, bold);
+            font-size: 1rem;
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+            padding: 12px 15px;
+            color: colour(gray);
+            display: block;
+        }
+    }
+}

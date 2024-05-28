@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences xmlns="http://www.demandware.com/xml/impex/preferences/2007-03-31">
+    <custom-preferences>
+        <all-instances/>
+        <development>
+            <preference preference-id="reserveQty">5</preference>
+            <preference preference-id="notifyEmailThreshold">5</preference>
+            <preference preference-id="mapAPI">AIzaSyAzRo8iHR1RuFsw-MuDf6sshGtsFW-HuDc</preference>
+            <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
+            <preference preference-id="AdyenCardHolderName_enabled">true</preference>
+            <preference preference-id="AdyenLevel23DataEnabled">true</preference>
+            <preference preference-id="Adyen_API_Key">WxH7rsW/bZpBGzfDdGmSwu8YiTosY7oHUsLgCFjEOUCy1V4ubZ2BPbz3jFdXCfXWs3W+zWeGwH3fba9e8cW3cv4hsi+mP8OCvbDFg9bW2djr2PEeFc/zFOq5kekqnXGcfcbucfy85cq4Upzp461jatpwIPgLd+hFc7dqOrP9IONPGfDCFOL+/1t0kzx8O9BDsTZfvElQwR2y/GweaU2aUzqOt8H5lG4M83c+h5rtlrOjyG7XscdBEiHc0KKr48lW</preference>
+            <preference preference-id="Adyen_ClientKey">test_JNWE6YYQEVESRDDDWXJDE2FBGQGZ6UU7</preference>
+            <preference preference-id="Adyen_Frontend_Region">AU</preference>
+            <preference preference-id="Adyen_Mode">TEST</preference>
+            <preference preference-id="Adyen_SFRA6_Compatibility">true</preference>
+            <preference preference-id="Adyen_merchantCode">BBW_AU</preference>
+            <preference preference-id="Adyen_notification_password">rZv15VjL2ilSWEo0pSN3eXB3v3a7dOhpl8MDcCEfRFMSuGFhtiuxJG0Z1kyFcqCS</preference>
+            <preference preference-id="Adyen_notification_user">admin</preference>
+            <preference preference-id="AmazonPayExpress_Enabled">false</preference>
+            <preference preference-id="ApplePayExpress_Enabled">true</preference>
+            <preference preference-id="ExpressPayments_enabled">true</preference>
+            <preference preference-id="greetingCardMessageLimit">500</preference>
+            <preference preference-id="isGiftWrapEnable">true</preference>
+            <preference preference-id="isGreetingCardEnable">true</preference>
+            <preference preference-id="wrapItemMethod">wrapIndividualTogether</preference>
+            <preference preference-id="apBrandSettings">{
+                "GB": {
+                    "brand": "clearpay",
+                    "service": "clearpay.service.GB.v2"
+                },
+                "AU": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.AU.v2"
+                },
+                "NZ": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.NZ.v2"
+                },
+                "CA": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.CA.v2"
+                },
+                "US": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.US.v2"
+                }
+            }</preference>
+            <preference preference-id="apDisplayCartInfo">true</preference>
+            <preference preference-id="apDisplayPdpInfo">true</preference>
+            <preference preference-id="apDisplayPlpInfo">true</preference>
+            <preference preference-id="apEnableExpressCheckout">true</preference>
+            <preference preference-id="apEnableExpressCheckoutBuyNow">true</preference>
+            <preference preference-id="apEnableExpressCheckoutCart">true</preference>
+            <preference preference-id="apEnableExpressCheckoutPdp">false</preference>
+            <preference preference-id="apExpressCheckoutShippingStrategy">integrated</preference>
+            <preference preference-id="apJavaScript">https://js-sandbox.squarecdn.com/square-marketplace.js</preference>
+            <preference preference-id="apPaymentMode">DIRECT_CAPTURE</preference>
+            <preference preference-id="apStorePickupDescription">Available for next-day pickup</preference>
+            <preference preference-id="enableAfterpay">true</preference>
+            <preference preference-id="enableCashAppPay">true</preference>
+            <preference preference-id="hardTimeout">360</preference>
+            <preference preference-id="softTimeout">45</preference>
+            <preference preference-id="popupDuration">2</preference>
+            <preference preference-id="zeroOrderEmail"></preference>
+            <preference preference-id="careersEmail"></preference>
+            <preference preference-id="liveChatEnabled">true</preference>
+            <preference preference-id="emarsysEnabled">true</preference>
+            <preference preference-id="emarsysMerchantID"></preference>
+            <preference preference-id="gaEnabled">true</preference>
+            <preference preference-id="gaScript"></preference>
+            <preference preference-id="chatScript"></preference>
+            <preference preference-id="sendProfileCompletionReminderEmail">true</preference>
+            <preference preference-id="sendProfileCompletionReminderPopup">true</preference>
+            <preference preference-id="metaPixelEnabled">true</preference>
+            <preference preference-id="dangerousGoodsMessage">&lt;p&gt;Your cart contains product that are not shippable.&lt;/p&gt;</preference>
+            <preference preference-id="countrySiteMapping">
+                [
+                    {"country":"India", "site": "https://www.bathandbody.in"},
+                    {"country":"USA", "site": "https://www.bathandbody.com"},
+                    {"country":"Malasiya", "site": "https://www.bathandbody.my"}
+                ]
+            </preference>
+            <preference preference-id="gtmScriptEnabled">false</preference>
+            <preference preference-id="openingTime">2</preference>
+            <preference preference-id="closingTime">11</preference>
+            <preference preference-id="businessTypes">
+                [
+                    {"key" : "GY", "value" : "Gym"},
+                    {"key" : "RE", "value" : "Restaurant"},
+                    {"key" : "HT", "value" : "Hotel"},
+                    {"key" : "SB", "value" : "Small business"},
+                    {"key" : "EN", "value" : "Enterprise"},
+                    {"key" : "O" , "value" : "Other"}
+                ]
+            </preference>
+            <preference preference-id="showTopOffers">false</preference>
+        </development>
+        <staging>
+            <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
+            <preference preference-id="AdyenCardHolderName_enabled">true</preference>
+            <preference preference-id="AdyenLevel23DataEnabled">true</preference>
+            <preference preference-id="Adyen_API_Key">WxH7rsW/bZpBGzfDdGmSwu8YiTosY7oHUsLgCFjEOUCy1V4ubZ2BPbz3jFdXCfXWs3W+zWeGwH3fba9e8cW3cv4hsi+mP8OCvbDFg9bW2djr2PEeFc/zFOq5kekqnXGcfcbucfy85cq4Upzp461jatpwIPgLd+hFc7dqOrP9IONPGfDCFOL+/1t0kzx8O9BDsTZfvElQwR2y/GweaU2aUzqOt8H5lG4M83c+h5rtlrOjyG7XscdBEiHc0KKr48lW</preference>
+            <preference preference-id="Adyen_ClientKey">test_JNWE6YYQEVESRDDDWXJDE2FBGQGZ6UU7</preference>
+            <preference preference-id="Adyen_Frontend_Region">AU</preference>
+            <preference preference-id="Adyen_Mode">TEST</preference>
+            <preference preference-id="Adyen_SFRA6_Compatibility">true</preference>
+            <preference preference-id="Adyen_merchantCode">BBW_AU</preference>
+            <preference preference-id="Adyen_notification_password">rZv15VjL2ilSWEo0pSN3eXB3v3a7dOhpl8MDcCEfRFMSuGFhtiuxJG0Z1kyFcqCS</preference>
+            <preference preference-id="Adyen_notification_user">admin</preference>
+            <preference preference-id="AmazonPayExpress_Enabled">false</preference>
+            <preference preference-id="ApplePayExpress_Enabled">true</preference>
+            <preference preference-id="ExpressPayments_enabled">true</preference>
+            <preference preference-id="apBrandSettings">{
+                "GB": {
+                    "brand": "clearpay",
+                    "service": "clearpay.service.GB.v2"
+                },
+                "AU": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.AU.v2"
+                },
+                "NZ": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.NZ.v2"
+                },
+                "CA": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.CA.v2"
+                },
+                "US": {
+                    "brand": "afterpay",
+                    "service": "afterpay.service.US.v2"
+                }
+            }</preference>
+            <preference preference-id="apDisplayCartInfo">true</preference>
+            <preference preference-id="apDisplayPdpInfo">true</preference>
+            <preference preference-id="apDisplayPlpInfo">true</preference>
+            <preference preference-id="apEnableExpressCheckout">true</preference>
+            <preference preference-id="apEnableExpressCheckoutBuyNow">true</preference>
+            <preference preference-id="apEnableExpressCheckoutCart">true</preference>
+            <preference preference-id="apEnableExpressCheckoutPdp">false</preference>
+            <preference preference-id="apExpressCheckoutShippingStrategy">integrated</preference>
+            <preference preference-id="apJavaScript">https://js-sandbox.squarecdn.com/square-marketplace.js</preference>
+            <preference preference-id="apPaymentMode">DIRECT_CAPTURE</preference>
+            <preference preference-id="apStorePickupDescription">Available for next-day pickup</preference>
+            <preference preference-id="enableAfterpay">true</preference>
+            <preference preference-id="enableCashAppPay">false</preference>
+            <preference preference-id="hardTimeout">360</preference>
+            <preference preference-id="softTimeout">45</preference>
+            <preference preference-id="popupDuration">2</preference>
+            <preference preference-id="zeroOrderEmail"></preference>
+            <preference preference-id="chatScript"></preference>
+            <preference preference-id="liveChatEnabled">true</preference>
+            <preference preference-id="careersEmail"></preference>
+            <preference preference-id="countrySiteMapping">
+                [
+                    {"country":"India", "site": "https://www.bathandbodyworks.in"},
+                    {"country":"USA", "site": "https://www.bathandbodyworks.com"},
+                    {"country":"Malasiya", "site": "https://www.bathandbodyworks.my"}
+                ]
+            </preference>
+            <preference preference-id="openingTime">2</preference>
+            <preference preference-id="closingTime">11</preference>
+            <preference preference-id="businessTypes">
+                [
+                    {"key" : "GY", "value" : "Gym"},
+                    {"key" : "RE", "value" : "Restaurant"},
+                    {"key" : "HT", "value" : "Hotel"},
+                    {"key" : "SB", "value" : "Small business"},
+                    {"key" : "EN", "value" : "Enterprise"},
+                    {"key" : "O" , "value" : "Other"}
+                ]
+            </preference>
+            <preference preference-id="showTopOffers">false</preference>
+        </staging>
+        <production/>
+    </custom-preferences>
+</preferences>
+

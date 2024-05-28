@@ -1,0 +1,8 @@
+<isset name="level" value="${pdict.level}" scope="page" />
+<isif condition="${pdict.folders.length > 0}">
+    <isset name="folders" value="${pdict.folders}" scope="page" />
+    <isinclude template="content/contentFolder" />
+<iselseif condition="${pdict.contents}" />
+    <isset name="contents" value="${pdict.contents}" scope="page" />
+    <isinclude template="/content/contentHyperlink" />
+</isif>

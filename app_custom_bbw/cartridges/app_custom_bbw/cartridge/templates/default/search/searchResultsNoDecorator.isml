@@ -1,0 +1,53 @@
+<isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
+    <isinclude template="reporting/reportingUrls" />
+</isif>
+
+<!--- Search Results Banner --->
+<div class="container-fluid ${!pdict.productSearch.isCategorySearch ? 'search-results' : ''}">
+    <iscomment> Bread Crumb </iscomment>
+    <isinclude template="search/components/searchBreadcrumb" />
+
+    <div class="row no-gutters">
+        <div class="tab-content col-12">
+            <div class="tab-pane container active h-maxwidth--1400 px-0" id="product-search-results" role="tabpanel"
+                aria-labelledby="product-tab">
+                <isif condition="${pdict.productSearch.productIds.length > 0}">
+                    <!--- Refinement bar --->
+                    <div class="row no-gutters h-grid-gap--40 h-grid-gap-lg--50 h-pl-lg-25 flex-nowrap">
+                        <isif condition="${pdict.productSearch.isCategorySearch}">
+                            <div class="left-navigation-bar col-md-3 col-lg-2 px-md-0 h-hidden-sm-down">
+                                <isinclude template="search/components/leftNavigation" />
+                            </div>
+                        </isif>
+
+                        <div class="refinement-bar col-md-3 col-lg-2 px-md-0">
+                            <isinclude url="${pdict.refineurl}" />
+                        </div>
+
+                        <div class="${pdict.productSearch.isCategorySearch ? 'col-12 col-lg-10 col-md-9' : 'col-12 search-results'}">
+                            <isinclude template="search/components/categoryBannerTop" />
+                            <isinclude template="search/components/categorySlider" />
+
+                            <!--- Product Grid --->
+                            <isinclude template="search/productGrid" />
+                        </div>
+                    </div>
+                 <iselse/>
+                    <isif condition="${!pdict.productSearch.productIds.length}">
+                        <div class="product-grid-wrapper">
+                            <div class="no-results">
+                                <h3 class="no-items-available">${Resource.msg('label.no.results.found', 'search', null)}</h3>
+                                <p class="no-results-para">${Resource.msg('label.no.results.found.desc', 'search', null)}</p>
+                            </div>
+                        </div>
+                    </isif>
+                </isif>
+            </div>
+            <!--- Content Grid --->
+            <div class="tab-pane container" id="content-search-results-pane" role="tabpanel"
+                aria-labelledby="articles-tab">
+                <div id="content-search-results" class="content-grid-header"></div>
+            </div>
+        </div>
+    </div>
+</div>
