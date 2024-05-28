@@ -132,7 +132,6 @@ server.prepend('UpdateQuantity', function (req, res, next) {
         );
         if (giftWrapProductLineItem) {
             if (giftWrapProductLineItem.product.ID === req.querystring.pid) {
-                res.setStatusCode(400);
                 res.json({
                     error: true,
                     errorMessage: Resource.msg(

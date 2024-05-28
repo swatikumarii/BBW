@@ -435,7 +435,6 @@ server.post(
                     redirectUrl: URLUtils.url('Order-Tracking', 'token', encryptionHelper.encryptPin(req.form.orderNumber)).toString()
                 });
             } else {
-                res.setStatusCode(400);
                 res.json({
                     error: true,
                     message: Resource.msg(
@@ -446,7 +445,6 @@ server.post(
                 });
             }
         } else {
-            res.setStatusCode(400);
             res.json({
                 error: true,
                 fieldErrors: error
