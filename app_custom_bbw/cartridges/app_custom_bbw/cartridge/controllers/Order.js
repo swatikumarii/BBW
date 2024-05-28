@@ -13,6 +13,7 @@ var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 var Order = require('dw/order/Order');
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 /**
  * Order-Details : The Order-Details append to add notify-me functionality
@@ -91,8 +92,8 @@ server.append(
         res.setViewData(viewData);
 
         next();
-    }
-);
+    },
+    seo.addCurrentPageMetaData);
 
 /**
  * Order-InvoiceDownload : The Order-InvoiceDownload endpoint get order details to download invoice
@@ -406,8 +407,8 @@ server.get(
             res.redirect(URLUtils.url('Account-Show'));
         }
         return next();
-    }
-);
+    },
+    seo.addCurrentPageMetaData);
 
 /**
  * Order-Check : This endpoint is used to track a placed Order
@@ -482,7 +483,7 @@ server.append(
             }
         });
         return next();
-    }
-);
+    },
+    seo.addCurrentPageMetaData);
 
 module.exports = server.exports();
