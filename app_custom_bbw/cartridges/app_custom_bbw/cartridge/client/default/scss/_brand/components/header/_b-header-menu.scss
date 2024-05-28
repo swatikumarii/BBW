@@ -303,7 +303,7 @@
                         pointer-events: none;
                         visibility: hidden;
                         transition-property: visibility, opacity, top;
-                        transition-duration: 0.5s;
+                        transition-duration: 0.2s;
                         transition-timing-function: cubic-bezier(
                             0.25,
                             0.46,
@@ -375,7 +375,7 @@
                                             semibold
                                         );
                                         font-size: 14px;
-                                        line-height: 16px;
+                                        line-height: 21px;
                                         letter-spacing: 0.015em;
                                         padding: 6px 60px 0 20px;
                                         color: colour(gray, 4);
@@ -444,7 +444,7 @@
                                                 font-size: 14px;
                                                 font-weight: 400;
                                                 height: 100%;
-                                                padding: 11px 30px 0 0;
+                                                padding: 9px 30px 0 0;
                                                 width: 180px;
 
                                                 &:hover {
@@ -486,6 +486,8 @@
 
                             .two-column {
                                 column-count: 2;
+                                column-fill: auto;
+                                height: 213px;
                             }
 
                             .menu-right {
@@ -499,7 +501,9 @@
                                 text-transform: capitalize;
                                 opacity: 0;
                                 visibility: hidden;
-                                transition: max-height 0.3s ease-out;
+
+                                // transition: all 0.5s ease-out;
+                                // transition: max-height 0.3s ease-out;
 
                                 .category-top-offers {
                                     border-left: 1px solid colour(gray, 6);
@@ -547,12 +551,12 @@
 
                                                 a {
                                                     padding: 8px 15px 8px 30px;
-                                                    width: 180px;
                                                     font-weight: 400;
                                                     font-size: 14px;
                                                     line-height: 16px;
                                                     letter-spacing: 0.015em;
-                                                    display: block;
+                                                    width: 225px;
+                                                    text-wrap: wrap;
                                                 }
                                             }
                                         }
@@ -864,10 +868,10 @@
                 max-height: 44px;
 
                 .level-2-link {
-                    line-height: 1.25rem;
+                    line-height: 20px;
                     letter-spacing: 0.01em;
                     height: 2.75rem;
-                    padding: 0.5625rem 0.3125rem 0.5625rem 2.1875rem;
+                    padding: 9px 5px 9px 35px;
                     display: inherit;
                     outline: 0;
                     color: colour(gray, 4);
