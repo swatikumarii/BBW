@@ -3695,12 +3695,21 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="image">
+                <display-name xml:lang="x-default">Image</display-name>
+                <type>image</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Presentation">
                 <display-name xml:lang="x-default">Presentation</display-name>
                 <attribute attribute-id="template" system="true"/>
                 <attribute attribute-id="customCSSFile"/>
+                <attribute attribute-id="image"/>
             </attribute-group>
             <attribute-group group-id="Content">
                 <display-name xml:lang="x-default">Content</display-name>
