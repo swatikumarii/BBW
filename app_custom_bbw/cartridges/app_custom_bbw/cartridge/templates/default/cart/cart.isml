@@ -90,7 +90,6 @@
                         <isinclude template="cart/productCard/cartGiftWrapProductCard" />
                     </div>
                 </div>
-                <isinclude template="cart/cartApproachingDiscount" />
                 <isif condition="${!(pdict.isGiftProductAvailable)}">
                     <isinclude template="cart/greetingCard" />
                     <div class="gift-wrap-choose-div">

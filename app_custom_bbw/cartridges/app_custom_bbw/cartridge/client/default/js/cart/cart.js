@@ -123,18 +123,58 @@ function createErrorNotification(message) {
 
 /**
  * re-renders the approaching discount messages
- * @param {object} approachingDiscounts - updated approaching discounts for the cart
+ * @param {object} orderApproachingDiscounts - updated approaching discounts for the cart
+ * @param {object} shippingApproachingDiscounts - updated approaching discounts for the cart
  */
-function updateApproachingDiscounts(approachingDiscounts) {
-    var html = '';
-    $('.approaching-discounts').empty();
-    if (approachingDiscounts.length > 0) {
-        approachingDiscounts.forEach(function (item) {
-            html += '<div class="single-approaching-discount text-center">'
-                + item.discountMsg + '</div>';
-        });
+function updateApproachingDiscounts(orderApproachingDiscounts, shippingApproachingDiscounts) {
+    var orderhtml = '';
+    var shippinghtml = '';
+    if (orderApproachingDiscounts) {
+        orderhtml = '<div class="d-flex w-100 align-items-center">\n';
+        if ('image' in orderApproachingDiscounts[0]) {
+            orderhtml += '<div>\n'+
+                '<img src="' + orderApproachingDiscounts[0].image + '" alt="product image" width="50" />\n'+
+            '</div>';
+        }
+        orderhtml += '<div class="single-approaching-discount d-flex flex-column w-100 pl-3">\n'+
+            orderApproachingDiscounts[0].discountMsg +
+            '<progress class="w-100" value="' + (orderApproachingDiscounts[0].conditionThreshold - orderApproachingDiscounts[0].distanceFromConditionThreshold) + '" max="' + orderApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
+        '</div>\n'+
+    '</div>';
     }
-    $('.approaching-discounts').append(html);
+
+    if(shippingApproachingDiscounts) {
+        shippinghtml = '<div class="row align-items-center">\n'+
+                            '<div class="col-2 icon">\n'+
+        // <img src="${URLUtils.staticURL('images/icons/bopis-shipping.svg')}" alt="shipping icon" width="50" />
+        '</div>\n'+
+        '<div class="d-flex flex-column col-10 pl-0">\n';
+        if (shippingApproachingDiscounts[0].distanceFromConditionThreshold > 0) {
+            shippinghtml += '<p class="h-font-size--13 h-clr--blue h-fw--bold m-0"></p>';
+        } else {
+            shippinghtml += '<p class="h-font-size--13 h-clr--blue h-fw--bold m-0"></p>';
+        }
+        shippinghtml += '<div class="single-approaching-discount">\n'+
+                shippingApproachingDiscounts[0].discountMsg +
+            '</div>\n'+
+            '<div class="d-flex w-100 justify-content-around align-items-center">\n'+
+                '<span class="pr-1 text-nowrap d-block">\n'+
+                    0 +
+                '</span>\n'+
+                '<progress class="w-100';
+        if (shippingApproachingDiscounts[0].distanceFromConditionThreshold === 0) {
+            shippinghtml += ' full ';
+        }
+        shippinghtml +='" value="' + (shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold) + '"max="' + shippingApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
+                '<span class="pl-1 text-nowrap d-block">\n'+
+                    shippingApproachingDiscounts[0].formattedConditionThreshold+
+                '</span>\n'+
+            '</div>\n'+
+        '</div>\n'+
+    '</div>';
+    }
+    $('.shipping-approaching-discounts').empty().append(shippinghtml);
+    $('.order-approaching-discounts').empty().append(orderhtml);
 }
 
 /**
@@ -395,7 +435,7 @@ module.exports = function () {
                     }
                     $('.coupons-and-promos').empty().append(data.basket.totals.discountsHtml);
                     updateCartTotals(data.basket);
-                    updateApproachingDiscounts(data.basket.approachingDiscounts);
+                    updateApproachingDiscounts(data.basket.orderApproachingDiscounts, data.basket.shippingApproachingDiscounts);
                     $('body').trigger('setShippingMethodSelection', data.basket);
                     validateBasket(data.basket);
                     $('.item-removed-message').removeClass('d-none');
@@ -493,7 +533,7 @@ module.exports = function () {
                         .empty()
                         .append(data.totals.discountsHtml);
                     updateCartTotals(data);
-                    updateApproachingDiscounts(data.approachingDiscounts);
+                    updateApproachingDiscounts(data.orderApproachingDiscounts, data.shippingApproachingDiscounts);
                     updateAvailability(data, uuid);
                     validateBasket(data);
                     $(this).data('pre-select-qty', quantity);
@@ -549,7 +589,7 @@ module.exports = function () {
                 } else {
                     $('.coupons-and-promos').empty().append(data.totals.discountsHtml);
                     updateCartTotals(data);
-                    updateApproachingDiscounts(data.approachingDiscounts);
+                    updateApproachingDiscounts(data.orderApproachingDiscounts, data.shippingApproachingDiscounts);
                     validateBasket(data);
                 }
 
@@ -601,7 +641,7 @@ module.exports = function () {
                 } else {
                     $('.coupons-and-promos').empty().append(data.totals.discountsHtml);
                     updateCartTotals(data);
-                    updateApproachingDiscounts(data.approachingDiscounts);
+                    updateApproachingDiscounts(data.orderApproachingDiscounts, data.shippingApproachingDiscounts);
                     validateBasket(data);
                     $('body').trigger('promotion:success', data);
                 }
@@ -659,7 +699,7 @@ module.exports = function () {
             success: function (data) {
                 $('.coupon-uuid-' + uuid).remove();
                 updateCartTotals(data);
-                updateApproachingDiscounts(data.approachingDiscounts);
+                updateApproachingDiscounts(data.orderApproachingDiscounts, data.shippingApproachingDiscounts);
                 validateBasket(data);
                 $.spinner().stop();
                 $('body').trigger('promotion:success', data);
@@ -675,7 +715,7 @@ module.exports = function () {
             }
         });
     });
-    $('body').on('click', '.cart-page .bonus-product-button', function () {
+    $('body').on('click', '.bonus-product-button', function () {
         $.spinner().start();
         $(this).addClass('launched-modal');
         $.ajax({
@@ -832,7 +872,7 @@ module.exports = function () {
 
                     $('.coupons-and-promos').empty().append(data.cartModel.totals.discountsHtml);
                     updateCartTotals(data.cartModel);
-                    updateApproachingDiscounts(data.cartModel.approachingDiscounts);
+                    updateApproachingDiscounts(data.cartModel.orderApproachingDiscounts, data.cartModel.shippingApproachingDiscounts);
                     updateAvailability(data.cartModel, uuid);
                     updateProductDetails(data, uuid);
 
@@ -897,6 +937,26 @@ module.exports = function () {
                 setTimeout(function () {
                     $('.topOfferError').hide();
                 }, 5000);
+            }
+        });
+    });
+
+    $('.cart-checkout-btn').on('click', function (e) {
+        e.preventDefault();
+        var checkFreeURL = $(this).data('check-motivator');
+        var url = $(this).attr('href');
+        $.ajax({
+            type: 'GET',
+            url: checkFreeURL,
+            success: function (data) {
+                if (data.loosingFree) {
+                    alert('Add Free Product');
+                } else {
+                    window.location.href = url;
+                }
+            },
+            error: function () {
+                window.location.href = url;
             }
         });
     });
