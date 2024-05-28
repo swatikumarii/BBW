@@ -114,12 +114,19 @@
                                                             ${lineItem.greetingCardMessage}
                                                         </div>
                                                     <iselse/>
-                                                        <div style="color:#666;font-size:14px;line-height:18px">
-                                                            ${lineItem.titlePartB}
-                                                        </div>
+                                                        <isif condition="${'titlePartB' in lineItem && lineItem.titlePartB}">
+                                                            <div style="color:#666;font-size:14px;line-height:18px">
+                                                                ${lineItem.titlePartB}
+                                                            </div>
+                                                        </isif>
                                                         <div style="color:#666;font-size:14px;line-height:18px">
                                                             ${lineItem.volume ? lineItem.volume : ''}
                                                         </div>
+                                                        <isif condition="${'customBundle' in lineItem && lineItem.customBundle}">
+                                                            <div style="color:#666;font-size:14px;line-height:18px">
+                                                                ${dw.experience.PageMgr.getPage(lineItem.customBundle).name}
+                                                            </div>
+                                                        </isif>
                                                         <div style="color:#666;font-size:14px;line-height:18px">
                                                             ${Resource.msg('email.order.itemno.label', 'confirmation', null)} ${lineItem.id}
                                                         </div>
