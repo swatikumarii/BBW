@@ -161,7 +161,11 @@ function updateApproachingDiscounts(orderApproachingDiscounts, shippingApproachi
                 '<span class="pr-1 text-nowrap d-block">\n'+
                     0 +
                 '</span>\n'+
-                '<progress class="w-100" value="' + (shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold) + '"max="' + shippingApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
+                '<progress class="w-100';
+        if (shippingApproachingDiscounts[0].distanceFromConditionThreshold === 0) {
+            shippinghtml += ' full ';
+        }
+        shippinghtml +='" value="' + (shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold) + '"max="' + shippingApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
                 '<span class="pl-1 text-nowrap d-block">\n'+
                     shippingApproachingDiscounts[0].formattedConditionThreshold+
                 '</span>\n'+

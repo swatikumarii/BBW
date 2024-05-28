@@ -1,7 +1,7 @@
-<div class="order-approaching-discounts approaching-discounts">
+<div class="order-approaching-discounts approaching-discounts mb-3">
     <isif condition="${pdict.orderApproachingDiscounts.length > 0}">
         <isset name="approachingDiscount" value="${pdict.orderApproachingDiscounts[0]}" scope="page" />
-        <div class="d-flex w-100 align-items-center">
+        <div class="d-flex w-100 align-items-center h-bg--blue single-approaching-discount-wrap">
             <isif condition="${'image' in approachingDiscount}">
                 <div>
                     <img src="${approachingDiscount.image}" alt="product image" width="50" />

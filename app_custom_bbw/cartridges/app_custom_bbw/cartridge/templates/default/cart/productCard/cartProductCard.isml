@@ -71,13 +71,23 @@
         </div>
     </isif>
 
-    <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
-        <isinclude template="cart/productCard/cartEmbeddedBonusProducts" />
-    </isif>
-
     <isif condition="${lineItem.customBundle}">
         <div class="currentCustomBundle">
             ${dw.experience.PageMgr.getPage(lineItem.customBundle).name} ${Resource.msg('bundle', 'productBundle', null)}
         </div>
     </isif>
 </div>
+<isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
+    <div class="d-flex justify-content-between pt-3">
+        <div class="bonus-line-item-msg">${Resource.msg('text.lineitem.bonus.msg','cart',null)}:</div>
+        <isloop items="${lineItem.discountLineItems}" var="discountLineItem">
+            <div class="bonus-product-button" data-duuid="${discountLineItem.uuid}" data-pliuuid="${discountLineItem.pliuuid}"
+                data-maxpids="${discountLineItem.maxpids}" data-pageStart="0" data-pageSize="0"
+                data-url="${discountLineItem.url}">
+                <button class="btn btn-outline-primary" data-toggle="modal"
+                    data-target="#chooseBonusProductModal">${discountLineItem.msg}</button>
+            </div>
+        </isloop>
+    </div>
+    <isinclude template="cart/productCard/cartEmbeddedBonusProducts" />
+</isif>

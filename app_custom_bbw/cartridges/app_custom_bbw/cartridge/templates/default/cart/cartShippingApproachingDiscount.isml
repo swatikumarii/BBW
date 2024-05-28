@@ -19,7 +19,7 @@
                         <span class="pr-1 text-nowrap d-block">
                             ${dw.util.StringUtils.formatMoney(new dw.value.Money(0, session.currency.getCurrencyCode()))}
                         </span>
-                        <progress class="w-100"
+                        <progress class="w-100 ${approachingDiscount.distanceFromConditionThreshold === 0 ? 'full' : ''}"
                             value="${approachingDiscount.conditionThreshold - approachingDiscount.distanceFromConditionThreshold}"
                             max="${approachingDiscount.conditionThreshold}"></progress>
                         <span class="pl-1 text-nowrap d-block">

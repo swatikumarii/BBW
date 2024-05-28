@@ -44,6 +44,7 @@ function getApproachingDiscounts(basket, discountPlan) {
                 var qualificationMessage = promotion.custom && promotion.custom !== null && 'qualificationMessage' in promotion.custom && promotion.custom.qualificationMessage ? promotion.custom.qualificationMessage.source : false;
                 var buy = formatMoney(approachingOrderDiscount.getDistanceFromConditionThreshold());
                 var get = promotion.custom && promotion.custom !== null && 'Get' in promotion.custom && promotion.custom.Get.length > 0 ? promotion.custom.Get[0] : '';
+                var image = promotion.custom && 'productToShowImage' in promotion.custom ? ProductMgr.getProduct(promotion.custom.productToShowImage).getImage('large').absURL.toString() : '';
                 var discountMsg;
                 if (qualificationMessage) {
                     discountMsg = qualificationMessage.replace('{{Buy}}', buy).replace('{{Get}}', get);
@@ -64,7 +65,8 @@ function getApproachingDiscounts(basket, discountPlan) {
                 return {
                     discountMsg: discountMsg,
                     conditionThreshold: approachingOrderDiscount.conditionThreshold.value,
-                    distanceFromConditionThreshold: approachingOrderDiscount.distanceFromConditionThreshold.value
+                    distanceFromConditionThreshold: approachingOrderDiscount.distanceFromConditionThreshold.value,
+                    image: image
                 };
             }
         );

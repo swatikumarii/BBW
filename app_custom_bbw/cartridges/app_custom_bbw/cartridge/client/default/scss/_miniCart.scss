@@ -266,4 +266,78 @@
         display: flex;
         min-height: 80px;
     }
+
+    progress {
+        height: 8px;
+        border: 1px solid $clr-blue;
+        -webkit-appearance: none;
+        appearance: none;
+
+        &::-webkit-progress-bar {
+            background-color: rgba(255, 255, 255, 20%);
+            border-radius: 0;
+        }
+
+        &::-webkit-progress-value {
+            background-color: $clr-blue;
+            border-radius: 0;
+        }
+
+        &::-moz-progress-bar {
+            background-color: $clr-blue;
+            border-radius: 0;
+        }
+
+        &.full {
+            border: 1px solid $clr-green;
+
+            &::-webkit-progress-value {
+                background-color: $clr-green;
+                border-radius: 0;
+            }
+
+            &::-moz-progress-bar {
+                background-color: $clr-green;
+                border-radius: 0;
+            }
+        }
+    }
+}
+
+.order-approaching-discounts {
+    .single-approaching-discount-wrap {
+        height: 80px;
+        padding: 10px 25px;
+
+        .single-approaching-discount {
+            p,
+            span,
+            div {
+                color: $clr-white !important;
+            }
+
+            progress {
+                margin-top: 10px;
+                height: 10px;
+                border: 1px solid rgba(255, 255, 255, 50%);
+                -webkit-appearance: none;
+                appearance: none;
+
+                &::-webkit-progress-bar {
+                    background-color: rgba(255, 255, 255, 20%);
+                    border-radius: 0;
+                }
+
+                &::-webkit-progress-value {
+                    background-color: $clr-white;
+                    border-radius: 0;
+                }
+
+                &::-moz-progress-bar {
+                    background-color: $clr-white;
+                    border-radius: 0;
+                }
+            }
+        }
+    }
 }
