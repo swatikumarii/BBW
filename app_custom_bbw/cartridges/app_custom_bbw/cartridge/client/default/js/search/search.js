@@ -103,9 +103,15 @@ function adjustProductGrid(elements) {
             // Reset inline styles
             slicedElements.removeAttr('style');
             slicedElements.find('.b-product-tile__name').removeAttr('style');
+            slicedElements.find('.js-promo-wrapper').removeAttr('style');
+            slicedElements.find('.pdp-link').removeAttr('style');
+            slicedElements.find('.price').removeAttr('style');
 
             // Sync heights of various elements
             slicedElements.find('.b-product-tile__name').syncHeight();
+            slicedElements.find('.js-promo-wrapper').syncHeight();
+            slicedElements.find('.pdp-link').syncHeight();
+            slicedElements.find('.price').syncHeight();
             // slicedElements.syncHeight();
 
             // Update start and end index for the next iteration

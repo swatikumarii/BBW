@@ -14,20 +14,22 @@
         <iselse/>
             <isinclude template="product/components/pricing/main" />
         </isif>
-        <isif condition="${product.promotions}">
-            <isloop items="${product.promotions}" var="promotion" status="promdet">
-                <div class="b-product-tile__product-promo mb-3">
-                    <div class="b-product-tile__promotional-message">
-                        <a href="${pdict.urls.product}" class="b-product-tile__promo-link b-text-a text-decoration-none"
-                            title="${'Go to Product:' + product.productName}" data-name="${product.productName}"
-                            data-pid="${pdict.product.id}">
-                            <span class="h-clr--pink h-fw--semibold">
-                                <isprint value="${promotion.calloutMsg}" encoding="off" /></span>
-                        </a>
+        <div class="b-product-tile__promo-wrapper js-promo-wrapper">
+            <isif condition="${product.promotions}">
+                <isloop items="${product.promotions}" var="promotion" status="promdet">
+                    <div class="b-product-tile__product-promo mb-3">
+                        <div class="b-product-tile__promotional-message">
+                            <a href="${pdict.urls.product}" class="b-product-tile__promo-link b-text-a text-decoration-none"
+                                title="${'Go to Product:' + product.productName}" data-name="${product.productName}"
+                                data-pid="${pdict.product.id}">
+                                <span class="h-clr--pink h-fw--semibold">
+                                    <isprint value="${promotion.calloutMsg}" encoding="off" /></span>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </isloop>
-        </isif>
+                </isloop>
+            </isif>
+        </div>
         <iscomment>
             <div class="row">
                 <div class="col-12 promotions">
