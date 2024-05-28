@@ -5,6 +5,7 @@ var endpoint = $('.suggestions-wrapper').data('url');
 var UP_KEY = 38;
 var DOWN_KEY = 40;
 var DIRECTION_DOWN = 1;
+var ESCAPE_KEY = 27;
 var DIRECTION_UP = -1;
 var windowWidth = $(window).outerWidth();
 var lazyload = require('../utils/lazyLoad');
@@ -438,6 +439,15 @@ module.exports = function () {
                     handleArrow(DIRECTION_UP);
                     e.preventDefault();  // prevent moving the cursor
                     break;
+                case ESCAPE_KEY:
+                    if (layout.isDesktop() || layout.isTablet()) {
+                        $('.js-search-suggestions').stop().slideUp();
+                    }
+                    $('.js-reset-button').hide();
+                    $('.search-fly-out-opacity').addClass('d-none');
+                    $('#header-search').removeClass('expand-towards-right');
+                    $('.utility-user, .minicart').removeClass('d-lg-none d-md-none');
+                    break;
                 default:
                     // Always allow debounceSuggestions on keyup, regardless of focus status
                     debounceSuggestions(this, e);
@@ -516,8 +526,28 @@ module.exports = function () {
                     data: form,
                     success: function (data) {
                         if (data.error) {
-                            $('.reserve-stock p').text(data.message);
-                            $('.reserve-stock').removeClass('d-none');
+                            if (data.errorCode === 'ZERO-PRICE-PRODUCT') {
+                                if (
+                                    currentAction.closest('.product-tile')
+                                        .length &&
+                                    currentAction
+                                        .closest('.product-tile')
+                                        .find('.add-to-cart-error').length
+                                ) {
+                                    currentAction
+                                        .closest('.product-tile')
+                                        .find('.add-to-cart-error')
+                                        .text(data.errorMessage);
+                                } else if ($('.add-to-cart-error-pdp').length) {
+                                    $('.add-to-cart-error-pdp').text(
+                                        data.errorMessage
+                                    );
+                                }
+                            } else {
+                                $('.reserve-stock p').text(data.message);
+                                $('.reserve-stock').removeClass('d-none');
+                            }
+                            $.spinner().stop();
                             return true;
                         }
                         if (data.isProductLineItemsExist) {
@@ -539,7 +569,6 @@ module.exports = function () {
                         setTimeout(function () {
                             addToCartSnackbar.removeClass('show');
                         }, 3000);
-
                         $.spinner().stop();
                         baseProductBase.miniCartReportingUrl(data.reportingURL);
                         return true;

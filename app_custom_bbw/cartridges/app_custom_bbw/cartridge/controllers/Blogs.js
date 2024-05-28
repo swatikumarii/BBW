@@ -1,6 +1,8 @@
 'use strict';
 
 var ContentMgr = require('dw/content/ContentMgr');
+var seo = require('*/cartridge/scripts/middleware/seo');
+
 /**
  * @namespace Blogs
  */
@@ -19,6 +21,6 @@ server.get('Show', function (req, res, next) {
     });
 
     next();
-});
+},seo.addCurrentPageMetaData);
 
 module.exports = server.exports();

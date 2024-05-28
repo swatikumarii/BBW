@@ -162,10 +162,6 @@ $(document).ready(function () {
             validationFunction: validateRequiredField
         },
         {
-            selector: '#add-to-email-list',
-            validationFunction: validateRequiredField
-        },
-        {
             selector: '#registration-form-dob',
             validationFunction: validateRequiredField
         },

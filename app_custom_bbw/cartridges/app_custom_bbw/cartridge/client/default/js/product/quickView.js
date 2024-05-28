@@ -2,7 +2,6 @@
 
 var base = require('./base');
 var detail = require('./detail');
-var helpers = require('../utils/scrollHelpers');
 
 /**
  * Generates the modal window on the first call.
@@ -55,7 +54,6 @@ function fillModalElement(selectedValueUrl) {
         dataType: 'json',
         success: function (data) {
             var parsedHtml = parseHtml(data.renderedTemplate);
-            helpers.disableScroll();
 
             $('#quickViewModal .modal-body').empty();
             $('#quickViewModal .modal-body').html(parsedHtml.body);
@@ -73,6 +71,12 @@ function fillModalElement(selectedValueUrl) {
             $('#quickViewModal .enter-message').text(data.enterDialogMessage);
             $('#quickViewModal').modal('show');
             $('body').trigger('quickview:ready');
+            $('.quick-view-modal .notifyBackInStockButton').on(
+                'click',
+                function () {
+                    $('#quickViewModal').modal('hide');
+                }
+            );
         }
     });
 }
@@ -144,7 +148,7 @@ module.exports = $.extend({}, base, {
     },
     enableQuickViewScroll: function () {
         $('body').on('hidden.bs.modal', '#quickViewModal', function () {
-            helpers.enableScroll();
+            // helpers.enableScroll();
             if ($('#quickViewModal').length !== 0) {
                 $('#quickViewModal').remove();
             }

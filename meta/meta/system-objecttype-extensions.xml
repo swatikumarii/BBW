@@ -1367,6 +1367,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="essentialFragrances">
+                <display-name xml:lang="x-default">essentialFragrances</display-name>
+                <description xml:lang="x-default">This fragrance will always present on shop by fragrance page.</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="estimatedDelivery">
                 <display-name xml:lang="x-default">Estimated Delivery</display-name>
                 <description xml:lang="x-default">Estimated Delivery date for orders</description>
@@ -1680,6 +1687,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="dangerousGoodsMessage"/>
                 <attribute attribute-id="businessTypes"/>
                 <attribute attribute-id="enableCountrySelectorPopup"/>
+                <attribute attribute-id="showTopOffers"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
@@ -1740,6 +1748,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="fragranceNames"/>
                 <attribute attribute-id="topFragrances"/>
                 <attribute attribute-id="productIngredients"/>
+                <attribute attribute-id="essentialFragrances"/>
             </attribute-group>
             <attribute-group group-id="Tracking">
                 <display-name xml:lang="x-default">Tracking</display-name>
@@ -2672,6 +2681,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="timezone">
+                <display-name xml:lang="x-default">Timezone</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Details">
@@ -2685,6 +2702,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="image3"/>
                 <attribute attribute-id="image4"/>
                 <attribute attribute-id="image5"/>
+                <attribute attribute-id="timezone"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -3502,6 +3520,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="fromStoreId">
+                <display-name xml:lang="x-default">From Store ID</display-name>
+                <description xml:lang="x-default">Links the store to the product line item for grouping shipments in the checkout process.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -3570,12 +3596,42 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="fromStoreId">
+                <display-name xml:lang="x-default">Pickup Store ID</display-name>
+                <description xml:lang="x-default">Used to map the shipment to a  brick and mortar store.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="shipmentType">
+                <display-name xml:lang="x-default">When this attribute equals 'instore', the checkout flow will assign the shipping method (005) which has a no shipping charge.</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="storePickupMessage">
+                <display-name xml:lang="x-default">Store Pickup Message</display-name>
+                <description xml:lang="x-default">This is text used by the end user when sending a message to the brick and mortar store about the shipment.  This is reflected in the order export.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="tracking">
                 <display-name xml:lang="x-default">Tracking</display-name>
                 <attribute attribute-id="carrier"/>
                 <attribute attribute-id="trackingUrl"/>
+            </attribute-group>
+            <attribute-group group-id="storepickup">
+                <display-name xml:lang="x-default">Store Pickup Information</display-name>
+                <attribute attribute-id="fromStoreId"/>
+                <attribute attribute-id="storePickupMessage"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -3640,12 +3696,21 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="image">
+                <display-name xml:lang="x-default">Image</display-name>
+                <type>image</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Presentation">
                 <display-name xml:lang="x-default">Presentation</display-name>
                 <attribute attribute-id="template" system="true"/>
                 <attribute attribute-id="customCSSFile"/>
+                <attribute attribute-id="image"/>
             </attribute-group>
             <attribute-group group-id="Content">
                 <display-name xml:lang="x-default">Content</display-name>
@@ -3660,7 +3725,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             </attribute-group>
         </group-definitions>
     </type-extension>
-        <type-extension type-id="Promotion">
+    <type-extension type-id="Promotion">
         <custom-attribute-definitions>
             <attribute-definition attribute-id="Buy">
                 <display-name xml:lang="x-default">Buy</display-name>
@@ -3794,6 +3859,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="couponCode">
+                <display-name xml:lang="x-default">Coupon Code</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="showProgressBar">
                 <display-name xml:lang="x-default">Show Progress Bar</display-name>
                 <description xml:lang="x-default">Only Applicable if the alert is turned on and is an Order level promotion</description>
@@ -3806,6 +3879,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-group group-id="couponQualification">
                 <display-name xml:lang="x-default">Coupon Qualification</display-name>
                 <attribute attribute-id="qualificationMsg"/>
+                <attribute attribute-id="couponCode"/>
             </attribute-group>
             <attribute-group group-id="motivator">
                 <display-name xml:lang="x-default">Motivator</display-name>
@@ -3844,6 +3918,36 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-group group-id="Custom Configurations">
                 <display-name xml:lang="x-default">Custom Configurations</display-name>
                 <attribute attribute-id="showOutOfStockProducts"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="ShippingMethod">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="estimatedArrivalTime">
+                <display-name xml:lang="x-default">Estimated Arrival Time</display-name>
+                <description xml:lang="x-default">Estimated days until delivery</description>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="storePickupEnabled">
+                <display-name xml:lang="x-default">Store Pickup Enabled</display-name>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="storePickUp">
+                <display-name xml:lang="x-default">Store Pick Up</display-name>
+                <attribute attribute-id="storePickupEnabled"/>
+            </attribute-group>
+            <attribute-group group-id="shippingMethodAttr">
+                <display-name xml:lang="x-default">Shipping Method Attributes</display-name>
+                <attribute attribute-id="estimatedArrivalTime"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

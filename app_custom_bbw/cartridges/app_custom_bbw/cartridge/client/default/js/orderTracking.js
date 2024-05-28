@@ -87,31 +87,38 @@ function checkStatus() {
                 method: 'POST',
                 data: form,
                 success: function (data) {
-                    window.location.href = data.redirectUrl;
-                },
-                error: function (err) {
-                    $('.error-class').empty();
-                    if (err.responseJSON.fieldErrors) {
-                        for (
-                            var i = 0;
-                            i < err.responseJSON.fieldErrors.length;
-                            i++
-                        ) {
-                            var fieldError = err.responseJSON.fieldErrors[i];
-                            $('#' + fieldError.key + '-error').html(
-                                fieldError.message
-                            );
-                        }
-                        // Scroll to the first error position if the page is not already at the top
-                        var firstErrorPosition = $('.is-invalid').first().offset().top;
-                        if ($(window).scrollTop() > 0) {
-                            $('html, body').animate({
-                                scrollTop: (firstErrorPosition - 500) // Adjusted to scroll up 300 pixels above the error position
-                            }, 500); // Reduced duration to make scrolling faster (500 milliseconds)
+                    if (data.error) {
+                        $('.error-class').empty();
+                        if (data.fieldErrors) {
+                            for (
+                                var i = 0;
+                                i < data.fieldErrors.length;
+                                i++
+                            ) {
+                                var fieldError =
+                                    data.fieldErrors[i];
+                                $('#' + fieldError.key + '-error').html(
+                                    fieldError.message
+                                );
+                            }
+                            // Scroll to the first error position if the page is not already at the top
+                            var firstErrorPosition = $('.is-invalid')
+                                .first()
+                                .offset().top;
+                            if ($(window).scrollTop() > 0) {
+                                $('html, body').animate(
+                                    {
+                                        scrollTop: firstErrorPosition - 500 // Adjusted to scroll up 300 pixels above the error position
+                                    },
+                                    500
+                                ); // Reduced duration to make scrolling faster (500 milliseconds)
+                            }
+                        } else {
+                            $('#form-error').html(data.message);
+                            $('.form-error-div').removeClass('d-none');
                         }
                     } else {
-                        $('#form-error').html(err.responseJSON.message);
-                        $('.form-error-div').removeClass('d-none');
+                        window.location.href = data.redirectUrl;
                     }
                 }
             });

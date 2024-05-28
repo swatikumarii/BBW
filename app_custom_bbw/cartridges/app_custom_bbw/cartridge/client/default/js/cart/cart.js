@@ -521,6 +521,13 @@ module.exports = function () {
                 context: this,
                 dataType: 'json',
                 success: function (data) {
+                    if (data.error) {
+                        if (data.errorCode === 'ZERO-PRICE-PRODUCT') {
+                            createErrorNotification(data.errorMessage);
+                            $.spinner().stop();
+                        }
+                        return;
+                    }
                     $('.quantity[data-uuid="' + uuid + '"]').val(quantity);
                     $('.coupons-and-promos')
                         .empty()

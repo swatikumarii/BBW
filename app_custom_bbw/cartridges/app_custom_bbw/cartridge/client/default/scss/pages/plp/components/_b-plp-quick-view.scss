@@ -555,6 +555,10 @@
     left: 5% !important;
     border-radius: 0;
 
+    @include media-btw(sm, md) {
+        left: 12% !important;
+    }
+
     .popover-body {
         overflow-y: scroll;
         max-height: 6.25rem;
@@ -577,4 +581,8 @@
         right: 8px;
         background-size: 0.8125rem;
     }
+}
+
+.open-notify {
+    overflow: hidden;
 }

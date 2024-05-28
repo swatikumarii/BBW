@@ -3,6 +3,7 @@
 var Template = require('dw/util/Template');
 var HashMap = require('dw/util/HashMap');
 var PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelper.js');
+var ImageTransformation = require('*/cartridge/experience/utilities/ImageTransformation.js');
 
 /**
  * Render logic for the custom.gridLayout component.
@@ -33,7 +34,12 @@ module.exports.render = function (context) {
     model.rowCustomClass = content.rowCustomClass ? content.rowCustomClass: '';
     model.columnCustomClass = content.columnCustomClass ? content.columnCustomClass : '';
     model.title = content.title ? content.title : '' ;
-    model.backgroundColor = content.backgroundColor;
+
+    // Bacground Images
+    model.girdBgDesktop = content.girdBgDesktop ? ImageTransformation.getScaledImage(content.girdBgDesktop) : '';
+    model.girdBgTablet = content.girdBgTablet ? ImageTransformation.getScaledImage(content.girdBgTablet) : '';
+    model.girdBgMobile = content.girdBgMobile ? ImageTransformation.getScaledImage(content.girdBgMobile) : '';
+
 
     model.regions = PageRenderHelper.getRegionModelRegistry(component);
 
