@@ -636,10 +636,10 @@ function getTopOffers(currentBasket) {
                 if (activePromotions.length > 0) {
                     for(var i = 0; i < activePromotions.length; i++) {
                         var promo = activePromotions[i];
-                        if (('showOnMiniCart' in promo.custom && promo.custom.showOnMiniCart === true) && promo.basedOnCoupon === true && promo.coupons[0].type === 'SINGLE_CODE') {
+                        if (('couponCode' in promo.custom && promo.custom.couponCode) && ('showOnMiniCart' in promo.custom && promo.custom.showOnMiniCart === true) && promo.basedOnCoupon === true && promo.coupons[0].type === 'SINGLE_CODE') {
                             var topOffer = {
                                 promo: promo,
-                                couponCode: promo.coupons[0].ID
+                                couponCode: promo.custom.couponCode
                             };
                             topOffers.push(topOffer);
                         }
