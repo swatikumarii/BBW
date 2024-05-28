@@ -16,7 +16,7 @@
             <input type="text" name="query" id="query" class="search-input" placeholder="${Resource.msg('faq.type.your.question.here', 'faq', null)}"/>
         </form>
         <div class="faq-search-suggestions h-bg--white w-100 js-faq-search-suggestions" id="faq-search-suggestions">
-            <div class="faq-suggestions-wrapper h-bg--white" data-url="${URLUtils.url('Faq-Content', 'query')}">
+            <div class="faq-suggestions-wrapper h-bg--white">
                 <div class="faq-suggestions d-flex">
                 </div>
             </div>
