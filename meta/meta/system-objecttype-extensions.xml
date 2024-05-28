@@ -287,7 +287,40 @@
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
             </attribute-definition>
-            
+            <attribute-definition attribute-id="dynamicBadge">
+                <display-name xml:lang="x-default">Dynamic Badge</display-name>
+                <description xml:lang="x-default">Dynamic Badge</description>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="isDynamicBadgeEnabled">
+                <display-name xml:lang="x-default">Is Dynamic Badge Enabled</display-name>
+                <description xml:lang="x-default">Is Dynamic Badge Enabled</description>
+                <type>boolean</type>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="dangerousGoods">
+                <display-name xml:lang="x-default">Dangerous Goods</display-name>
+                <type>boolean</type>
+                <site-specific-flag>true</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -341,79 +374,15 @@
                 <attribute attribute-id="fragranceName"/>
                 <attribute attribute-id="fragranceDescription"/>
             </attribute-group>
-            <attribute-definition attribute-id="refinementColor">
-                <display-name xml:lang="x-default">Refinement Color</display-name>
-                <type>enum-of-string</type>
-                <localizable-flag>false</localizable-flag>
-                <site-specific-flag>false</site-specific-flag>
-                <mandatory-flag>false</mandatory-flag>
-                <visible-flag>false</visible-flag>
-                <externally-managed-flag>false</externally-managed-flag>
-                <order-required-flag>false</order-required-flag>
-                <externally-defined-flag>false</externally-defined-flag>
-                <value-definitions>
-                    <value-definition>
-                        <display xml:lang="x-default">Black</display>
-                        <value>black</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Blue</display>
-                        <value>blue</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Green</display>
-                        <value>green</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Red</display>
-                        <value>red</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Orange</display>
-                        <value>orange</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Pink</display>
-                        <value>pink</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Purple</display>
-                        <value>purple</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">White</display>
-                        <value>white</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Yellow</display>
-                        <value>yellow</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Grey</display>
-                        <value>grey</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Beige</display>
-                        <value>beige</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Miscellaneous</display>
-                        <value>miscellaneous</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Brown</display>
-                        <value>brown</value>
-                    </value-definition>
-                    <value-definition>
-                        <display xml:lang="x-default">Navy</display>
-                        <value>navy</value>
-                    </value-definition>
-                </value-definitions>
-            </attribute-definition>
             <attribute-group group-id="storefrontAttributes">
                 <display-name xml:lang="x-default">Storefront Attributes</display-name>
                 <attribute attribute-id="refinementColor"/>
                 <attribute attribute-id="titlePartB"/>
+            </attribute-group>
+            <attribute-group group-id="dynamicBadgeAttributes">
+                <display-name xml:lang="x-default">Dynamic Badge Attributes</display-name>
+                <attribute attribute-id="isDynamicBadgeEnabled"/>
+                <attribute attribute-id="dynamicBadge"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -491,6 +460,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="cartProducts">
+                <display-name xml:lang="x-default">Cart Products</display-name>
+                <description xml:lang="x-default">Cart Products</description>
+                <type>set-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Standard">
@@ -512,6 +488,10 @@
                 <attribute attribute-id="activatedDate"/>
                 <attribute attribute-id="lastModified"/>
                 <attribute attribute-id="dialCode"/>
+            </attribute-group>
+            <attribute-group group-id="dynamicBadgesAttribute">
+                <display-name xml:lang="x-default">Dynamic Badges Attribute</display-name>
+                <attribute attribute-id="cartProducts"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -1387,6 +1367,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="essentialFragrances">
+                <display-name xml:lang="x-default">essentialFragrances</display-name>
+                <description xml:lang="x-default">This fragrance will always present on shop by fragrance page.</description>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="estimatedDelivery">
                 <display-name xml:lang="x-default">Estimated Delivery</display-name>
                 <description xml:lang="x-default">Estimated Delivery date for orders</description>
@@ -1555,6 +1542,94 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="trendingBadge">
+                <display-name xml:lang="x-default">Trending Badge</display-name>
+                <description xml:lang="x-default">Trending Badge will be applicable on selected configuration</description>
+                <type>enum-of-string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <value-definitions>
+                    <value-definition>
+                        <display xml:lang="x-default">Day</display>
+                        <value>unitsDay</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Month</display>
+                        <value>unitsMonth</value>
+                    </value-definition>
+                    <value-definition>
+                        <display xml:lang="x-default">Week</display>
+                        <value>unitsWeek</value>
+                    </value-definition>
+                    <value-definition default="true">
+                        <display xml:lang="x-default">Year</display>
+                        <value>unitsYear</value>
+                    </value-definition>
+                </value-definitions>
+            </attribute-definition>
+            <attribute-definition attribute-id="fastSellerThreshold">
+                <display-name xml:lang="x-default">Fast Seller Threshold</display-name>
+                <description xml:lang="x-default">This attribute hold value to set Fast Seller dynamic badge.&#13;
+Logic: We will set Fast Seller whose inventory is less than set threshold.</description>
+                <type>int</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="isInCartDynamicBadgeEnabled">
+                <display-name xml:lang="x-default">Is In Cart Enabled</display-name>
+                <description xml:lang="x-default">Is In Cart Enabled</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="isInPurchaseDynamicBadgeEnabled">
+                <display-name xml:lang="x-default">Is In Purchase Enabled</display-name>
+                <description xml:lang="x-default">Is In Purchase Enabled</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="isLowStockDynamicBadgeEnabled">
+                <display-name xml:lang="x-default">Is Low Stock Enabled</display-name>
+                <description xml:lang="x-default">Is Low Stock Dynamic Badge Enabled</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="isTrendingDynamicBadgeEnabled">
+                <display-name xml:lang="x-default">Is Trending Enabled</display-name>
+                <description xml:lang="x-default">Is Trending Enabled</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
+            <attribute-definition attribute-id="mapAPI">
+                <display-name xml:lang="x-default">google map api key</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="GoogleVerificationTag">
+                <display-name xml:lang="x-default">GoogleVerificationTag - Content Attribute</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="customerServiceEmail">
+                <display-name xml:lang="x-default">Customer Service Email</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+                <default-value>no-reply@testorganization.com</default-value>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -1672,6 +1747,7 @@
                 <attribute attribute-id="fragranceNames"/>
                 <attribute attribute-id="topFragrances"/>
                 <attribute attribute-id="productIngredients"/>
+                <attribute attribute-id="essentialFragrances"/>
             </attribute-group>
             <attribute-group group-id="Tracking">
                 <display-name xml:lang="x-default">Tracking</display-name>
@@ -1734,6 +1810,15 @@
                 <display-name xml:lang="x-default">Contact Us Configurations</display-name>
                 <attribute attribute-id="openingTime"/>
                 <attribute attribute-id="closingTime"/>
+            </attribute-group>
+            <attribute-group group-id="dynamicBadgeConfiguration">
+                <display-name xml:lang="x-default">Dynamic Badge Configuration</display-name>
+                <attribute attribute-id="fastSellerThreshold"/>
+                <attribute attribute-id="trendingBadge"/>
+                <attribute attribute-id="isLowStockDynamicBadgeEnabled"/>
+                <attribute attribute-id="isTrendingDynamicBadgeEnabled"/>
+                <attribute attribute-id="isInCartDynamicBadgeEnabled"/>
+                <attribute attribute-id="isInPurchaseDynamicBadgeEnabled"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -2434,12 +2519,20 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="showInMenu">
+                <display-name xml:lang="x-default">Show in Menu Navigation</display-name>
+                <description xml:lang="x-default">Used to indicate that a category (such as Mens -&gt; Footwear -&gt; Boots) will display in the roll-over navigation. A sub-category only shows if also the parent category is marked as showInMenu. Up to three category levels are shown in roll-over navigation.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="storefrontAttributes">
                 <display-name xml:lang="x-default">Storefront Attributes</display-name>
                 <attribute attribute-id="slotId"/>
                 <attribute attribute-id="pageDesignerID"/>
+                <attribute attribute-id="showInMenu"/>
             </attribute-group>
             <attribute-group group-id="promotionTileCommon">
                 <display-name xml:lang="x-default">Promotion Tile Common Attributes</display-name>
@@ -2587,6 +2680,14 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="timezone">
+                <display-name xml:lang="x-default">Timezone</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Details">
@@ -2600,6 +2701,7 @@
                 <attribute attribute-id="image3"/>
                 <attribute attribute-id="image4"/>
                 <attribute attribute-id="image5"/>
+                <attribute attribute-id="timezone"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -3401,6 +3503,30 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="bonusProductLineItemUUID">
+                <display-name xml:lang="x-default">Bonus Product Line Item UUID</display-name>
+                <description xml:lang="x-default">This represents the UUID of the product line item that holds the qualifying product.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="preOrderUUID">
+                <display-name xml:lang="x-default">pre order uuid</display-name>
+                <description xml:lang="x-default">this custom attribute captures the original product line item uuid before it is part of an placed order</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="fromStoreId">
+                <display-name xml:lang="x-default">From Store ID</display-name>
+                <description xml:lang="x-default">Links the store to the product line item for grouping shipments in the checkout process.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -3440,6 +3566,19 @@
             </attribute-group>
         </group-definitions>
     </type-extension>
+
+    <type-extension type-id="BonusDiscountLineItem">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="bonusProductLineItemUUID">
+                <display-name xml:lang="x-default">Bonus Product Line Item UUID</display-name>
+                <description xml:lang="x-default">This represents the UUID of the product line item that holds the qualifying product.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+        </custom-attribute-definitions>
+    </type-extension>
     <type-extension type-id="Shipment">
         <custom-attribute-definitions>
             <attribute-definition attribute-id="carrier">
@@ -3456,12 +3595,42 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="fromStoreId">
+                <display-name xml:lang="x-default">Pickup Store ID</display-name>
+                <description xml:lang="x-default">Used to map the shipment to a  brick and mortar store.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="shipmentType">
+                <display-name xml:lang="x-default">When this attribute equals 'instore', the checkout flow will assign the shipping method (005) which has a no shipping charge.</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="storePickupMessage">
+                <display-name xml:lang="x-default">Store Pickup Message</display-name>
+                <description xml:lang="x-default">This is text used by the end user when sending a message to the brick and mortar store about the shipment.  This is reflected in the order export.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="tracking">
                 <display-name xml:lang="x-default">Tracking</display-name>
                 <attribute attribute-id="carrier"/>
                 <attribute attribute-id="trackingUrl"/>
+            </attribute-group>
+            <attribute-group group-id="storepickup">
+                <display-name xml:lang="x-default">Store Pickup Information</display-name>
+                <attribute attribute-id="fromStoreId"/>
+                <attribute attribute-id="storePickupMessage"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -3483,6 +3652,14 @@
     </type-extension>
     <type-extension type-id="Content">
         <custom-attribute-definitions>
+            <attribute-definition attribute-id="body">
+                <display-name xml:lang="x-default">Body</display-name>
+                <type>html</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="isImportant">
                 <display-name xml:lang="x-default">Important</display-name>
                 <description xml:lang="x-default">Important</description>
@@ -3518,8 +3695,26 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="image">
+                <display-name xml:lang="x-default">Image</display-name>
+                <type>image</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
+            <attribute-group group-id="Presentation">
+                <display-name xml:lang="x-default">Presentation</display-name>
+                <attribute attribute-id="template" system="true"/>
+                <attribute attribute-id="customCSSFile"/>
+                <attribute attribute-id="image"/>
+            </attribute-group>
+            <attribute-group group-id="Content">
+                <display-name xml:lang="x-default">Content</display-name>
+                <attribute attribute-id="body"/>
+            </attribute-group>
             <attribute-group group-id="faqConfigAttributes">
                 <display-name xml:lang="x-default">FAQ Config Attributes</display-name>
                 <attribute attribute-id="isImportant"/>
@@ -3529,7 +3724,7 @@
             </attribute-group>
         </group-definitions>
     </type-extension>
-        <type-extension type-id="Promotion">
+    <type-extension type-id="Promotion">
         <custom-attribute-definitions>
             <attribute-definition attribute-id="Buy">
                 <display-name xml:lang="x-default">Buy</display-name>
@@ -3693,6 +3888,36 @@
             <attribute-group group-id="Custom Configurations">
                 <display-name xml:lang="x-default">Custom Configurations</display-name>
                 <attribute attribute-id="showOutOfStockProducts"/>
+            </attribute-group>
+        </group-definitions>
+    </type-extension>
+
+    <type-extension type-id="ShippingMethod">
+        <custom-attribute-definitions>
+            <attribute-definition attribute-id="estimatedArrivalTime">
+                <display-name xml:lang="x-default">Estimated Arrival Time</display-name>
+                <description xml:lang="x-default">Estimated days until delivery</description>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="storePickupEnabled">
+                <display-name xml:lang="x-default">Store Pickup Enabled</display-name>
+                <type>boolean</type>
+                <mandatory-flag>true</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="storePickUp">
+                <display-name xml:lang="x-default">Store Pick Up</display-name>
+                <attribute attribute-id="storePickupEnabled"/>
+            </attribute-group>
+            <attribute-group group-id="shippingMethodAttr">
+                <display-name xml:lang="x-default">Shipping Method Attributes</display-name>
+                <attribute attribute-id="estimatedArrivalTime"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

@@ -948,6 +948,30 @@ $pd-content-banner-after-bg: linear-gradient(
     }
 }
 
+.content-banner.banner-middle-aligned-desktop {
+    @include media-up(md) {
+        align-items: center;
+    }
+}
+
+.content-banner.banner-top-aligned-desktop {
+    @include media-up(md) {
+        align-items: flex-start;
+    }
+}
+
+.content-banner.banner-bottom-aligned-desktop {
+    @include media-up(md) {
+        align-items: flex-end;
+    }
+
+    .text-holder {
+        @include media-up(md) {
+            padding: 50px 0;
+        }
+    }
+}
+
 .content-banner.banner-pagedesigner {
     .btn-content-video {
         color: colour(black, 1);

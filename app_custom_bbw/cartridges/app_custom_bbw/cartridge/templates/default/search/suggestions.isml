@@ -1,31 +1,44 @@
 <div class="suggestions__products-wrapper h-width-perc-sm--70 h-width-perc-md--70 h-hidden-sm-down">
     <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
-    <isif condition="${pdict.suggestions.product && pdict.suggestions.product.phrases.length > 0}">
+    <isif condition="${pdict.suggestions.product}">
         <div class="suggestions__search-product-header d-flex justify-content-between mb-2">
-            <isset name="phrase" value="${pdict.suggestions.product.phrases[0]}" scope="page"/>
-            <div class="items" id="phrase-1-0" role="option">
-                <div class="item term">
-                    <isif condition="${!phrase.exactMatch}">
-                        <span class="d-block">
-                            <isprint
-                                value="${Resource.msgf('label.suggest.doyoumean', 'search', null, phrase.value, URLUtils.url('Search-Show', 'q', phrase.value))}"
-                                encoding="off" />
-                        </span>
-                        <span>
-                            <isprint value="${Resource.msgf('label.results.for.without.link', 'search', null, pdict.suggestions.searchProductCount, pdict.suggestions.searchTerms)}" encoding="off" />
-                        </span>
-                    <iselse/>
-                        <span>
-                            <isprint
-                                value="${Resource.msgf('label.results.for', 'search', null, pdict.suggestions.searchProductCount, URLUtils.url('Search-Show',
-                                    'q', phrase.value), phrase.value)}"
-                                encoding="off" />
-                        </span>
-                    </isif>
+            <isif condition="${pdict.suggestions.product.phrases.length > 0}">
+                <isset name="phrase" value="${pdict.suggestions.product.phrases[0]}" scope="page"/>
+                <div class="items" id="phrase-1-0" role="option">
+                    <div class="item term">
+                        <isif condition="${!phrase.exactMatch}">
+                            <span class="d-block">
+                                <isprint
+                                    value="${Resource.msgf('label.suggest.doyoumean', 'search', null, phrase.value, URLUtils.url('Search-Show', 'q', phrase.value))}"
+                                    encoding="off" />
+                            </span>
+                            <span>
+                                <isprint value="${Resource.msgf('label.results.for.without.link', 'search', null, pdict.suggestions.searchProductCount, pdict.suggestions.searchTerms)}" encoding="off" />
+                            </span>
+                        <iselse/>
+                            <span>
+                                <isprint
+                                    value="${Resource.msgf('label.results.for', 'search', null, pdict.suggestions.searchProductCount, URLUtils.url('Search-Show',
+                                        'q', phrase.value), phrase.value)}"
+                                    encoding="off" />
+                            </span>
+                        </isif>
+                    </div>
                 </div>
-            </div>
-            <a data-viewall="" href="${URLUtils.https('Search-Show', 'q', phrase.value)}"
-                class="viewall-link h-clr--blue-1 h-fw--semibold d-none d-md-block">${Resource.msg('label.view.all', 'search', null)}</a>
+                <a data-viewall="" href="${URLUtils.https('Search-Show', 'q', phrase.value)}"
+                    class="viewall-link h-clr--blue-1 h-fw--semibold d-none d-md-block">${Resource.msg('label.view.all', 'search', null)}</a>
+            <iselse/>
+                <div class="items" id="phrase-1-0" role="option">
+                    <div class="item term">
+                        <span>
+                            <isprint value="${Resource.msgf('label.results.for', 'search', null, pdict.suggestions.searchProductCount, URLUtils.url('Search-Show',
+                                'q', pdict.suggestions.searchTerms), pdict.suggestions.searchTerms)}" encoding="off" />
+                        </span>
+                    </div>
+                </div>
+                <a data-viewall="" href="${URLUtils.https('Search-Show', 'q', pdict.suggestions.searchTerms)}"
+                    class="viewall-link h-clr--blue-1 h-fw--semibold d-none d-md-block">${Resource.msg('label.view.all', 'search', null)}</a>
+            </isif>
         </div>
         <div role="listbox" id="search-results" class="suggestions__results">
             <isif condition="${pdict.suggestions.product && pdict.suggestions.product.available}">
@@ -68,33 +81,46 @@
 
 <div class="suggestions__group h-width-perc-sm--30 h-width-perc-md--30">
     <div class="search-right-suggestions">
-        <isif condition="${pdict.suggestions.product && pdict.suggestions.product.phrases.length > 0}">
+        <isif condition="${pdict.suggestions.product}">
             <div class="suggestions__search-product-header d-flex d-md-none justify-content-between mb-2">
-                <isset name="phrase" value="${pdict.suggestions.product.phrases[0]}" scope="page" />
-                <div class="items" id="phrase-1-0" role="option">
-                    <div class="item term">
-                        <isif condition="${!phrase.exactMatch}">
-                            <span class="d-block">
-                                <isprint
-                                    value="${Resource.msgf('label.suggest.doyoumean', 'search', null, phrase.value, URLUtils.url('Search-Show', 'q', phrase.value))}"
-                                    encoding="off" />
-                            </span>
-                            <span>
-                                <isprint
-                                    value="${Resource.msgf('label.results.for.without.link', 'search', null, pdict.suggestions.searchProductCount, pdict.suggestions
-                                            .searchTerms)}"
-                                    encoding="off" />
-                            </span>
-                        <iselse/>
+                <isif condition="${pdict.suggestions.product.phrases.length > 0}">
+                    <isset name="phrase" value="${pdict.suggestions.product.phrases[0]}" scope="page" />
+                    <div class="items" id="phrase-1-0" role="option">
+                        <div class="item term">
+                            <isif condition="${!phrase.exactMatch}">
+                                <span class="d-block">
+                                    <isprint
+                                        value="${Resource.msgf('label.suggest.doyoumean', 'search', null, phrase.value, URLUtils.url('Search-Show', 'q', phrase.value))}"
+                                        encoding="off" />
+                                </span>
+                                <span>
+                                    <isprint
+                                        value="${Resource.msgf('label.results.for.without.link', 'search', null, pdict.suggestions.searchProductCount, pdict.suggestions
+                                                .searchTerms)}"
+                                        encoding="off" />
+                                </span>
+                            <iselse/>
+                                <span>
+                                    <isprint value="${Resource.msgf('label.results.for', 'search', null, pdict.suggestions.searchProductCount, URLUtils.url('Search-Show',
+                                                    'q', phrase.value), phrase.value)}" encoding="off" />
+                                </span>
+                            </isif>
+                        </div>
+                    </div>
+                    <a data-viewall="" href="${URLUtils.https('Search-Show', 'q', phrase.value)}"
+                        class="viewall-link h-clr--blue-1 h-fw--semibold d-none d-md-block">${Resource.msg('label.view.all', 'search', null)}</a>
+                <iselse/>
+                    <div class="items" id="phrase-1-0" role="option">
+                        <div class="item term">
                             <span>
                                 <isprint value="${Resource.msgf('label.results.for', 'search', null, pdict.suggestions.searchProductCount, URLUtils.url('Search-Show',
-                                                'q', phrase.value), phrase.value)}" encoding="off" />
+                                    'q', pdict.suggestions.searchTerms), pdict.suggestions.searchTerms)}" encoding="off" />
                             </span>
-                        </isif>
+                        </div>
                     </div>
-                </div>
-                <a data-viewall="" href="${URLUtils.https('Search-Show', 'q', phrase.value)}"
-                    class="viewall-link h-clr--blue-1 h-fw--semibold d-none d-md-block">${Resource.msg('label.view.all', 'search', null)}</a>
+                    <a data-viewall="" href="${URLUtils.https('Search-Show', 'q', pdict.suggestions.searchTerms)}"
+                        class="viewall-link h-clr--blue-1 h-fw--semibold d-none d-md-block">${Resource.msg('label.view.all', 'search', null)}</a>
+                </isif>
             </div>
         </isif>
 

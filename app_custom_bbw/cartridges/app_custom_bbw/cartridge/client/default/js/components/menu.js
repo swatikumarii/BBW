@@ -82,6 +82,33 @@ if (layout.isDesktop() || layout.isTablet()) {
     $level1li.hover(
         function () {
             var $level1Parent = $(this).parent();
+            var maxWidth;
+            $(this)
+                .find('.level-2-li')
+                .each(function () {
+                    if ($(this).width() > maxWidth) {
+                        maxWidth = $(this).width();
+                    }
+                });
+            $(this).find('.level-2-li').width(maxWidth);
+
+            var $ul = $level1Parent
+                .find('.level-2-li')
+                .first()
+                .find('.level-3-ul');
+            var totalLiHeight = 0;
+
+            // Calculate the total height of all li elements in the current ul
+            $ul.find('li').each(function () {
+                totalLiHeight += $(this).height();
+            });
+
+            var containerHeight = $(this).parent().find('.level-2-ul').height();
+            // Compare total height of li elements with main container height
+            if (totalLiHeight > containerHeight) {
+                $ul.addClass('two-column');
+            }
+
             $(this)
                 .parent()
                 .find('.menu-wrap-level-1')
@@ -160,10 +187,6 @@ if (layout.isDesktop() || layout.isTablet()) {
                 .css('left', window.menuRightWidth);
         }
     );
-
-    // Calculate level 2 ul width
-    var level2ul = $('.bbw-brand-menu .level-2-ul').width();
-    $('.level-2-li').css('width', level2ul);
 
     /** 2 Column layout */
     // Select the main container div

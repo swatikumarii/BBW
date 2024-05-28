@@ -13,6 +13,7 @@ var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 var Order = require('dw/order/Order');
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 /**
  * Order-Details : The Order-Details append to add notify-me functionality
@@ -91,8 +92,8 @@ server.append(
         res.setViewData(viewData);
 
         next();
-    }
-);
+    },
+    seo.addCurrentPageMetaData);
 
 /**
  * Order-InvoiceDownload : The Order-InvoiceDownload endpoint get order details to download invoice
@@ -321,24 +322,46 @@ server.get(
         );
         if (orderId) {
             var order = OrderMgr.getOrder(orderId);
-            var breadcrumbs = [
-                {
-                    htmlValue: Resource.msg('global.home', 'common', null),
-                    url: URLUtils.home().toString()
-                },
-                {
-                    htmlValue: Resource.msg(
-                        'page.title.myaccount',
-                        'account',
-                        null
-                    ),
-                    url: URLUtils.url('Account-Show').toString()
-                },
-                {
-                    htmlValue: Resource.msg('label.orderhistory', 'account', null),
-                    url: URLUtils.url('Order-History').toString()
-                }
-            ];
+            var breadcrumbs = [];
+            if (req.currentCustomer.profile) {
+                breadcrumbs = [
+                    {
+                        htmlValue: Resource.msg('global.home', 'common', null),
+                        url: URLUtils.home().toString()
+                    },
+                    {
+                        htmlValue: Resource.msg(
+                            'page.title.myaccount',
+                            'account',
+                            null
+                        ),
+                        url: URLUtils.url('Account-Show').toString()
+                    },
+                    {
+                        htmlValue: Resource.msg('label.orderhistory', 'account', null),
+                        url: URLUtils.url('Order-History').toString()
+                    }
+                ];
+            } else {
+                breadcrumbs = [
+                    {
+                        htmlValue: Resource.msg('global.home', 'common', null),
+                        url: URLUtils.home().toString()
+                    },
+                    {
+                        htmlValue: Resource.msg(
+                            'label.order.tracking',
+                            'order',
+                            null
+                        ),
+                        url: URLUtils.url('Order-Status').toString()
+                    },
+                    {
+                        htmlValue: Resource.msg('order.title.receipt', 'order', null),
+                        url: URLUtils.url('Order-Tracking').toString()
+                    }
+                ];
+            }
 
             if (order) {
                 var orderModel = orderHelpers.getOrderDetailsByID(
@@ -357,7 +380,7 @@ server.get(
                 );
 
                 var isEgiftCard;
-                if (orderModel.shipping.length > 0){
+                if (orderModel.shipping.length > 0) {
                     var products = orderModel.shipping[0].productLineItems.items;
                     for (var index = 0; index < products.length; index++) {
                         if (products[index].isEgiftCard) {
@@ -384,8 +407,8 @@ server.get(
             res.redirect(URLUtils.url('Account-Show'));
         }
         return next();
-    }
-);
+    },
+    seo.addCurrentPageMetaData);
 
 /**
  * Order-Check : This endpoint is used to track a placed Order
@@ -412,7 +435,6 @@ server.post(
                     redirectUrl: URLUtils.url('Order-Tracking', 'token', encryptionHelper.encryptPin(req.form.orderNumber)).toString()
                 });
             } else {
-                res.setStatusCode(400);
                 res.json({
                     error: true,
                     message: Resource.msg(
@@ -423,7 +445,6 @@ server.post(
                 });
             }
         } else {
-            res.setStatusCode(400);
             res.json({
                 error: true,
                 fieldErrors: error
@@ -460,7 +481,7 @@ server.append(
             }
         });
         return next();
-    }
-);
+    },
+    seo.addCurrentPageMetaData);
 
 module.exports = server.exports();

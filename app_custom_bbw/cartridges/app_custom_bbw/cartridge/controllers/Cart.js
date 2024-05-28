@@ -15,6 +15,7 @@ var HashMap = require('dw/util/HashMap');
 var Template = require('dw/util/Template');
 var cartTemplate = new Template('cart/productCard/cartProductCardAjax');
 var miniCartTemplate = new Template('checkout/productCard/miniCartProductCardAjax');
+var dynamicBadgeHelpers = require('*/cartridge/scripts/helpers/dynamicBadgeHelpers');
 var Site = require('dw/system/Site');
 
 /**
@@ -112,7 +113,15 @@ server.append('UpdateQuantity', function (req, res, next) {
             basketModel.refreshItemsTemplateMinicart =
                 miniCartTemplate.render(context).text;
         }
-
+        if (
+            req.currentCustomer &&
+            req.currentCustomer.raw &&
+            req.currentCustomer.raw.profile
+        ) {
+            dynamicBadgeHelpers.updateCartDetailInProfile(
+                req.currentCustomer.raw.profile
+            );
+        }
         res.setViewData(basketModel);
     }
     next();
@@ -134,6 +143,15 @@ server.append('RemoveProductLineItem', function (req, res, next) {
         viewData.refreshItemsTemplateMinicart =
             miniCartTemplate.render(context).text;
     }
+    if (
+        req.currentCustomer &&
+        req.currentCustomer.raw &&
+        req.currentCustomer.raw.profile
+    ) {
+        dynamicBadgeHelpers.updateCartDetailInProfile(
+            req.currentCustomer.raw.profile
+        );
+    }
 
     next();
 });
@@ -147,9 +165,9 @@ server.prepend('AddProduct', function (req, res, next) {
     var Resource = require('dw/web/Resource');
     var price = cartHelper.getProductPrice(req.form.pid);
     if (price === 0) {
-        res.setStatusCode(400);
         res.json({
             error: true,
+            errorCode: 'ZERO-PRICE-PRODUCT',
             errorMessage: Resource.msg(
                 'error.can.not.add.zero.price.item',
                 'product',
@@ -178,6 +196,15 @@ server.append('AddProduct', function (req, res, next) {
     cartHelper.createFreeLineItem(currentBasket, 0);
     var viewData = res.getViewData();
     viewData.pdpPromotions = pdpPromotions.render(context).text;
+    if (
+        req.currentCustomer &&
+        req.currentCustomer.raw &&
+        req.currentCustomer.raw.profile
+    ) {
+        dynamicBadgeHelpers.updateCartDetailInProfile(
+            req.currentCustomer.raw.profile
+        );
+    }
     res.setViewData(viewData);
     next();
 });
@@ -192,6 +219,15 @@ server.post('Merge', function (req, res, next) {
         Transaction.wrap(function () {
             result = cartHelpers.mergeCart(storedBasketProducts);
         });
+        if (
+            req.currentCustomer &&
+            req.currentCustomer.raw &&
+            req.currentCustomer.raw.profile
+        ) {
+            dynamicBadgeHelpers.updateCartDetailInProfile(
+                req.currentCustomer.raw.profile
+            );
+        }
     }
     res.json(result);
     next();

@@ -237,10 +237,21 @@
                     "required": false
                 },
                 {
-                    "id": "contentPositionDesktop",
-                    "name": "Desktop Banner Content Position",
+                    "id": "contentAlignmentDesktop",
+                    "name": "Desktop Banner Content Alignment",
                     "type": "enum",
                     "values": ["left", "right", "center"],
+                    "required": true
+                },
+                {
+                    "id": "contentPositionDesktop",
+                    "name": "Desktop Banner Content Vertical Position",
+                    "type": "enum",
+                    "values": [
+                        "center",
+                        "top",
+                        "bottom"
+                    ],
                     "required": true
                 },
                 {
@@ -275,6 +286,13 @@
                     "id": "trackerClass",
                     "name": "Tracker Custom Class",
                     "description": "Add Tracker Classes here (Use track-banner-promotion for GA/GTM)",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "customClass",
+                    "name": "Component Custom Class",
+                    "description": "Add Component Custom Classes here",
                     "type": "string",
                     "required": false
                 }

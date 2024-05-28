@@ -244,7 +244,7 @@ exports.afterPATCH = function (order, orderInput) {
         );
         emailHelpers.sendEmail(
             emailObj,
-            'mail/orderReadyToShipEmail',
+            'mail/orderStatus/orderReadyToShipEmail',
             orderObject
         );
     }

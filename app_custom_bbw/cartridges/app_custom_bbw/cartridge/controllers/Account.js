@@ -437,6 +437,7 @@ server.append(
         var BasketMgr = require('dw/order/BasketMgr');
         var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
         var loginRedirectExceptions = require('*/cartridge/config/loginRedirectExceptions');
+        var dynamicBadgeHelpers = require('*/cartridge/scripts/helpers/dynamicBadgeHelpers');
         var storedBasket = BasketMgr.getStoredBasket();
         var currentBasket = BasketMgr.getCurrentOrNewBasket();
         var storedBasketProductQuantities =
@@ -507,6 +508,11 @@ server.append(
             'authenticatedCustomer' in viewData &&
             viewData.authenticatedCustomer.authenticated
         ) {
+            if (viewData.authenticatedCustomer.profile) {
+                dynamicBadgeHelpers.updateCartDetailInProfile(
+                    viewData.authenticatedCustomer.profile
+                );
+            }
             viewData.isIncomplete =
                 'custom' in viewData.authenticatedCustomer.profile &&
                 'isProfileComplete' in

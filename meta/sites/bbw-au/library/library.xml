@@ -57,6 +57,16 @@
         </custom-attributes>
     </folder>
 
+	<folder folder-id="seo-title">
+        <display-name xml:lang="x-default">Seo Title</display-name>
+        <online-flag>true</online-flag>
+        <parent>root</parent>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="isShow">false</custom-attribute>
+        </custom-attributes>
+    </folder>
+
     <content content-id="bottom-seo-3-wick-candles">
         <display-name xml:lang="x-default">Bottom Seo 3 Wick Candles</display-name>
         <description xml:lang="x-default">3 Wick Candles content</description>
@@ -598,10 +608,10 @@
 					&lt;h2&gt;About Body Care from Bath &amp;amp; Body Works&amp;ZeroWidthSpace;&lt;/h2&gt;&#13;
 					&lt;p&gt;Lotions, scrubs, creams, mists, oils…we get it, body care can be overwhelming. That’s why we created a step-by-step skincare guide (and some fabulous products) to get you started:&lt;/p&gt;&#13;
 					&lt;p&gt;It all starts with exfoliation. Our &lt;a href="$url('Search-Show','cgid','body-scrub')$"&gt;body scrubs&lt;/a&gt; buff away dead skins (and bad moods), leaving you soft, smooth and primed for the rest of your body care routine.&lt;/p&gt;&#13;
-					&lt;p&gt;Next, get into the cleansing mood with a dreamily scented &lt;a href="$url('Search-Show','cgid','body-wash-and-shower-gel,PageNo=2')$"&gt;body wash or shower gel&lt;/a&gt;. From floral to fresh, citrusy to warm, you’ll find the perfect wake-up call…even if the alarm did go off a little too early.&lt;/p&gt;&#13;
+					&lt;p&gt;Next, get into the cleansing mood with a dreamily scented &lt;a href="$url('Search-Show','cgid','body-wash-and-shower-gel')$"&gt;body wash or shower gel&lt;/a&gt;. From floral to fresh, citrusy to warm, you’ll find the perfect wake-up call…even if the alarm did go off a little too early.&lt;/p&gt;&#13;
 					&lt;p&gt;Now, add some moisture to your skin with either body cream or body lotion. What’s the difference? Our &lt;a href="$url('Search-Show','cgid','body-lotion')$"&gt;body lotions&lt;/a&gt; are packed with super-fluffy shea butter and hydrating vitamin E to keep you incredibly soft, smooth and nourished. Our &lt;a href="$url('Search-Show','cgid','body-cream-and-butter')$"&gt; body cream &lt;/a&gt; is also super-hydrating, but with a lush mix of glow-giving coconut oil, moisturizing shea butter and super-rich cocoa butter. Bonus: they leave you feeling smooth and refreshed, &lt;i&gt;without&lt;/i&gt; feeling oily or heavy.&lt;/p&gt;&#13;
-					&lt;p&gt;And the best for last: it’s time to indulge! Finish off the process with a spritz of your favorite &lt;a href="$url('Search-Show','cgid','body-spray-and-mists,PageNo=2')$"&gt;fine fragrance mist &lt;/a&gt; to complement your mood.&lt;/p&gt;&#13;
-					&lt;p&gt;What if you want to spend a Saturday afternoon relaxing in the tub? Perfect! Light your favorite Bath &amp;amp; Body Works &lt;a href="$url('Search-Show','cgid','3-wick-candles,PageNo=2')$"&gt;3-wick candle&lt;/a&gt;, grab a matching (or completely different!) &lt;a href="$url('Search-Show','cgid','bath-fizzies-and-bubble-bath')$"&gt;bubble bath or bath fizzie &lt;/a&gt; (think: bath bomb) and soak up some suds and good vibes.&lt;/p&gt;&#13;
+					&lt;p&gt;And the best for last: it’s time to indulge! Finish off the process with a spritz of your favorite &lt;a href="$url('Search-Show','cgid','body-spray-and-mists')$"&gt;fine fragrance mist &lt;/a&gt; to complement your mood.&lt;/p&gt;&#13;
+					&lt;p&gt;What if you want to spend a Saturday afternoon relaxing in the tub? Perfect! Light your favorite Bath &amp;amp; Body Works &lt;a href="$url('Search-Show','cgid','3-wick-candles')$"&gt;3-wick candle&lt;/a&gt;, grab a matching (or completely different!) &lt;a href="$url('Search-Show','cgid','bath-fizzies-and-bubble-bath')$"&gt;bubble bath or bath fizzie &lt;/a&gt; (think: bath bomb) and soak up some suds and good vibes.&lt;/p&gt;&#13;
 					&lt;p&gt;Explore more body care and &lt;a href="$url('Search-Show','cgid','skincare-routine')$"&gt;skincare routine&lt;/a&gt; products made for specifics: like Aromatherapy, foot care or hand care. Don’t forget that your hair and face need TLC, too!&lt;/p&gt;&#13;
 				&lt;/div&gt;&#13;
 			&lt;/div&gt;&#13;
@@ -1988,6 +1998,291 @@
         </custom-attributes>
     </content>
 
+	    <content content-id="account.editpassword.seo">
+        <display-name xml:lang="x-default">Account EditPassword Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount Password Edit</page-title>
+            <page-description xml:lang="x-default">MyAccount Password Edit</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="account.editprofile.seo">
+        <display-name xml:lang="x-default">Account EditProfile Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount Profile Edit</page-title>
+            <page-description xml:lang="x-default">MyAccount Profile Edit</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="account.passwordreset.seo">
+        <display-name xml:lang="x-default">Account PasswordReset Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount Password Reset</page-title>
+            <page-description xml:lang="x-default">MyAccount Password Reset</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="account.setnewpassword.seo">
+        <display-name xml:lang="x-default">Account SetNewPassword Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount Set NewPassword</page-title>
+            <page-description xml:lang="x-default">MyAccount Set NewPassword</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="account.show.seo">
+        <display-name xml:lang="x-default">Account Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount</page-title>
+            <page-description xml:lang="x-default">MyAccount</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="address.addaddress.seo">
+        <display-name xml:lang="x-default">Address AddAddress Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount AddAddress</page-title>
+            <page-description xml:lang="x-default">MyAccount Add Address</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="address.editaddress.seo">
+        <display-name xml:lang="x-default">Address EditAddress Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount EditAddress</page-title>
+            <page-description xml:lang="x-default">MyAccount EditAddress</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="blogs.show.seo">
+        <display-name xml:lang="x-default">Blogs Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Get Inspired</page-title>
+            <page-description xml:lang="x-default">Fresh ideas. Fun how-tos. Fragrance guides. Welcome to your happy place for inspiration from Bath &amp; Body Works.</page-description>
+            <page-keywords xml:lang="x-default">Get Inspired</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	 <content content-id="cart.show.seo">
+        <display-name xml:lang="x-default">Cart Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">DisplayCart</page-title>
+            <page-description xml:lang="x-default">DisplayCart</page-description>
+            <page-keywords xml:lang="x-default">DisplayCart</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="checkout.shipping.seo">
+        <display-name xml:lang="x-default">Checkout Shipping Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Checkout</page-title>
+            <page-description xml:lang="x-default">Checkout</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="corporategifting.landing.seo">
+        <display-name xml:lang="x-default">CorporateGifting Landing Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Corporate Gifting</page-title>
+            <page-description xml:lang="x-default">Corporate Gifting</page-description>
+            <page-keywords xml:lang="x-default">Bath and Body Works</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="fragrance.ingredient.seo">
+        <display-name xml:lang="x-default">Fragrance Ingredient Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Shop by Ingredient</page-title>
+            <page-description xml:lang="x-default">Shop by Ingredient</page-description>
+            <page-keywords xml:lang="x-default">Bath and Body Works</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="fragrance.show.seo">
+        <display-name xml:lang="x-default">Fragrance Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Body Care &amp; Home Fragrances you'll love</page-title>
+            <page-description xml:lang="x-default">Explore the list of our top fragrances! Choose from our favourite scents and all sorts of goodies.</page-description>
+            <page-keywords xml:lang="x-default">shop by fragrance</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="home.show.seo">
+        <display-name xml:lang="x-default">Home Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Buy Body Care &amp; Home Fragrances You'll Love</page-title>
+            <page-description xml:lang="x-default">Shop Bath &amp; Body Works for the best fragrance, gifts, body &amp; bath products! Find your favorite fragrances and browse bath supplies to treat your body.</page-description>
+            <page-keywords xml:lang="x-default">Home</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="login.show.seo">
+        <display-name xml:lang="x-default">Login Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Registration | Login</page-title>
+            <page-description xml:lang="x-default">Create an account to access the best of your favorite store. Sign In or Sign Up at Bath &amp; Body Works Australia</page-description>
+            <page-keywords xml:lang="x-default">Login</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="order.confirm.seo">
+        <display-name xml:lang="x-default">Order Confirm Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Order Completed</page-title>
+            <page-description xml:lang="x-default">Order Completed</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="order.history.seo">
+        <display-name xml:lang="x-default">Order History Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">MyAccount Order History</page-title>
+            <page-description xml:lang="x-default">MyAccount Order History</page-description>
+            <page-keywords xml:lang="x-default">MyAccount</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="order.track.seo">
+        <display-name xml:lang="x-default">Order Track Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Track Order</page-title>
+            <page-description xml:lang="x-default">After your order ships, tracking information may take 48 hours to appear. But don't worry! It's on the way. Get email offers &amp; the latest news</page-description>
+            <page-keywords xml:lang="x-default">Track Order</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="paymentinstruments.addpayment.seo">
+        <display-name xml:lang="x-default">Paymentinstruments AddPayment Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">My Payment Methods</page-title>
+            <page-description xml:lang="x-default">My Payment Methods</page-description>
+            <page-keywords xml:lang="x-default">My Payment Methods Bath and Body Works</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="paymentinstruments.list.seo">
+        <display-name xml:lang="x-default">PaymentInstruments List Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">My Payment Methods List</page-title>
+            <page-description xml:lang="x-default">My Payment Methods List</page-description>
+            <page-keywords xml:lang="x-default">My Payment Methods List Bath and Body Works</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+	<content content-id="stores.find.seo">
+        <display-name xml:lang="x-default">Stores Find Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Store Locator</page-title>
+            <page-description xml:lang="x-default">Store Locator</page-description>
+            <page-keywords xml:lang="x-default">Bath and Body Works</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
     <content content-id="footer-customer-care">
         <display-name xml:lang="x-default">Customer Care</display-name>
         <online-flag>true</online-flag>
@@ -2002,7 +2297,7 @@
   &lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="customer-service"&gt;&#13;
     &lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;&#13;
       CUSTOMER CARE&lt;/li&gt;&#13;
-    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard.')$"&#13;
+    &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$"&#13;
         class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Help &amp; FAQs&lt;/a&gt;&#13;
     &lt;/li&gt;&#13;
     &lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Home-Show')$"&#13;
@@ -3976,1477 +4271,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </custom-attributes>
     </content>
 
-    <content content-id="homepage">
-        <display-name xml:lang="x-default">Homepage</display-name>
-        <description xml:lang="x-default">Homepage</description>
-        <type>page.storePage</type>
-        <config>{
-            "visibility" : [ ]
-        }</config>
-        <visibility-mode xml:lang="x-default">visible</visibility-mode>
-        <data xml:lang="x-default">{ }</data>
-        <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Homepage</page-title>
-            <page-description xml:lang="x-default">Homepage</page-description>
-        </page-attributes>
-        <content-links>
-            <content-link content-id="0c8c8d6accb3eec0caed92dca6" type="page.storePage.main">
-                <position>2.0</position>
-            </content-link>
-            <content-link content-id="450c492d576c8f63689f2e1db0" type="page.storePage.main">
-                <position>0.0</position>
-            </content-link>
-            <content-link content-id="322ad0a287d0220abe2d1d5fa3" type="page.storePage.main">
-                <position>6.0</position>
-            </content-link>
-            <content-link content-id="6574fdc43751f7c0f05c59c412" type="page.storePage.main">
-                <position>1.0</position>
-            </content-link>
-            <content-link content-id="da95d59f96618fd653f7ed9936" type="page.storePage.main">
-                <position>3.0</position>
-            </content-link>
-            <content-link content-id="0a272611690e0731aa7d4dec17" type="page.storePage.main">
-                <position>5.0</position>
-            </content-link>
-            <content-link content-id="2557390a64a9ab64679e0b4156" type="page.storePage.main">
-                <position>4.0</position>
-            </content-link>
-        </content-links>
-        <sitemap-included-flag>false</sitemap-included-flag>
-    </content>
 
-    <content content-id="2557390a64a9ab64679e0b4156">
-        <type>component.commerce_layouts.grid</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "rowGapMobile" : 0,
-  "itemsPerRowTablet" : 1,
-  "columnGapMobile" : 0,
-  "rowCustomClass" : null,
-  "columnGapDesktop" : 0,
-  "rowGapDesktop" : 0,
-  "rowGapTablet" : 0,
-  "itemsPerRowMobile" : 1,
-  "columnGapTablet" : 0,
-  "title" : null,
-  "itemsPerRowDesktop" : 1,
-  "columnCustomClass" : null,
-  "gridSectionClass" : "h-maxwidth--1200 mx-auto h-mb--50 px-3 px-md-0"
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-        <content-links>
-            <content-link content-id="36b941cfe8dab38c3329327c16" type="component.commerce_layouts.grid.gridItems">
-                <position>0.0</position>
-            </content-link>
-        </content-links>
-    </content>
-
-    <content content-id="36b941cfe8dab38c3329327c16">
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/sp3_000275983_000284367_xct_mdaygifts_sit_hb_01_00.gif",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 240,
-      "width" : 1440
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : null,
-  "mobile_image" : {
-    "path" : "/images/homepage/sp3_000275983_000284332_xct_mdaygifts_sit_mhb_01_00.gif",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 450,
-      "width" : 600
-    }
-  },
-  "description" : null,
-  "customClass" : "h-mt--50",
-  "linkText" : null,
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="0a272611690e0731aa7d4dec17">
-        <display-name xml:lang="x-default">Shop By category Grid</display-name>
-        <type>component.commerce_layouts.grid</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "rowGapMobile" : 40,
-  "itemsPerRowTablet" : 3,
-  "columnGapMobile" : 16,
-  "rowCustomClass" : null,
-  "columnGapDesktop" : 32,
-  "rowGapDesktop" : 40,
-  "rowGapTablet" : 40,
-  "itemsPerRowMobile" : 2,
-  "columnGapTablet" : 16,
-  "title" : "&lt;h2 class=\"text-center h-fw--bold b-text-h1 mt-0\"&gt;Shop By Category&lt;/h2&gt;",
-  "itemsPerRowDesktop" : 8,
-  "columnCustomClass" : null,
-  "gridSectionClass" : "h-mb--50 h-maxwidth--1200 mx-auto px-3 px-md-0"
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-        <content-links>
-            <content-link content-id="cb76d3c95e5829ef180da52650" type="component.commerce_layouts.grid.gridItems">
-                <position>3.0</position>
-            </content-link>
-            <content-link content-id="917f6c75287d60a98802e900b3" type="component.commerce_layouts.grid.gridItems">
-                <position>6.0</position>
-            </content-link>
-            <content-link content-id="934d722edc2c6e81df74b19a22" type="component.commerce_layouts.grid.gridItems">
-                <position>5.0</position>
-            </content-link>
-            <content-link content-id="574efb00a80f5766310d612393" type="component.commerce_layouts.grid.gridItems">
-                <position>7.0</position>
-            </content-link>
-            <content-link content-id="d64fda6dad575547f27ec6274d" type="component.commerce_layouts.grid.gridItems">
-                <position>0.0</position>
-            </content-link>
-            <content-link content-id="17dd5a49379c228f206e5634c2" type="component.commerce_layouts.grid.gridItems">
-                <position>2.0</position>
-            </content-link>
-            <content-link content-id="9e5c3cd55d218626ca7237464b" type="component.commerce_layouts.grid.gridItems">
-                <position>1.0</position>
-            </content-link>
-            <content-link content-id="b3d6c5c75ee4aaa6aed036b485" type="component.commerce_layouts.grid.gridItems">
-                <position>4.0</position>
-            </content-link>
-        </content-links>
-    </content>
-
-    <content content-id="b3d6c5c75ee4aaa6aed036b485">
-        <display-name xml:lang="x-default">shop category item 5</display-name>
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/shop-category/sp2_000315611_000315614_bc_travelviznav_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'travel-size')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/shop-category/sp2_000315611_000315614_bc_travelviznav_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "description" : null,
-  "customClass" : null,
-  "linkText" : "&lt;span class=\"mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold\"&gt;Travel&lt;/span&gt;",
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="9e5c3cd55d218626ca7237464b">
-        <display-name xml:lang="x-default">shop category item 2</display-name>
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/shop-category/sp3_000283842_000284477_can_acvn_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'candles')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/shop-category/sp3_000283842_000284477_can_acvn_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "description" : null,
-  "customClass" : null,
-  "linkText" : "&lt;span class=\"mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold\"&gt;Candles&lt;/span&gt;",
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="17dd5a49379c228f206e5634c2">
-        <display-name xml:lang="x-default">shop category item 3</display-name>
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/shop-category/sp3_000276320_000284550_dif_mothdaydiff_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'wallflowers')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/shop-category/sp3_000276320_000284550_dif_mothdaydiff_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "description" : null,
-  "customClass" : null,
-  "linkText" : "&lt;span class=\"mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold\"&gt;Wallflowers&lt;/span&gt;",
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="d64fda6dad575547f27ec6274d">
-        <display-name xml:lang="x-default">shop category item 1</display-name>
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/shop-category/sp3_000275996_000284384_fbc_fbcnew_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'body-care')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/shop-category/sp3_000275996_000284384_fbc_fbcnew_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "description" : null,
-  "customClass" : null,
-  "linkText" : "&lt;span class=\"mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold\"&gt;Body Care&lt;/span&gt;",
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="574efb00a80f5766310d612393">
-        <display-name xml:lang="x-default">shop category item 8</display-name>
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/shop-category/sp3_000275983_000298355_xct_mdaygifts_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'gifts')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/shop-category/sp3_000275983_000298355_xct_mdaygifts_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "description" : null,
-  "customClass" : null,
-  "linkText" : "&lt;span class=\"mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold\"&gt;Gift Cards&lt;/span&gt;",
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="934d722edc2c6e81df74b19a22">
-        <display-name xml:lang="x-default">shop category item 6</display-name>
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/shop-category/sp1_000300405_000301287_ldy_laundry-viz-nav_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'accessories')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/shop-category/sp1_000300405_000301287_ldy_laundry-viz-nav_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "description" : null,
-  "customClass" : null,
-  "linkText" : "&lt;span class=\"mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold\"&gt;Laundry&lt;/span&gt;",
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="917f6c75287d60a98802e900b3">
-        <display-name xml:lang="x-default">shop category item 7</display-name>
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/shop-category/sp3_000275989_000284378_gft_gssbc_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'gifts')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/shop-category/sp3_000275989_000284378_gft_gssbc_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "description" : null,
-  "customClass" : null,
-  "linkText" : "&lt;span class=\"mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold\"&gt;Gifts Sets&lt;/span&gt;",
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="cb76d3c95e5829ef180da52650">
-        <display-name xml:lang="x-default">shop category item 4</display-name>
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/shop-category/sp3_000276352_000284427_sop_mdsoap_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'hand-soap')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/shop-category/sp3_000276352_000284427_sop_mdsoap_sit_vn_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "description" : null,
-  "customClass" : null,
-  "linkText" : "&lt;span class=\"mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold\"&gt;Hand Soaps&lt;/span&gt;",
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="da95d59f96618fd653f7ed9936">
-        <type>component.commerce_layouts.grid</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "rowGapMobile" : 0,
-  "itemsPerRowTablet" : 1,
-  "columnGapMobile" : 0,
-  "rowCustomClass" : null,
-  "columnGapDesktop" : 0,
-  "rowGapDesktop" : 0,
-  "rowGapTablet" : 0,
-  "itemsPerRowMobile" : 1,
-  "columnGapTablet" : 0,
-  "title" : " ",
-  "itemsPerRowDesktop" : 1,
-  "columnCustomClass" : null,
-  "gridSectionClass" : "h-maxwidth-md--1200 mx-auto h-mb--50 h-maxwidth-md-down--350"
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-        <content-links>
-            <content-link content-id="7bfa676a8ed9e8854360dac926" type="component.commerce_layouts.grid.gridItems">
-                <position>0.0</position>
-            </content-link>
-            <content-link content-id="4f9c6ce36149b203512ab17499" type="component.commerce_layouts.grid.gridBottomContent">
-                <position>0.0</position>
-            </content-link>
-        </content-links>
-    </content>
-
-    <content content-id="4f9c6ce36149b203512ab17499">
-        <type>component.commerce_assets.html</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "html" : "&lt;a class=\"btn shop h-width--350 mx-auto h-mt--30\"&gt;Shop the Bridgerton Collection&lt;/a&gt;"
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="7bfa676a8ed9e8854360dac926">
-        <type>component.bbw_components.pageBanner</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "videoFileTablet" : null,
-  "videoHideonTablet" : false,
-  "buttonColor" : null,
-  "mobileBannerImageUrl" : null,
-  "tabletBannerOverlay" : false,
-  "contenttitle" : null,
-  "videoTablet" : "https://static.videezy.com/system/resources/previews/000/044/903/original/telepoorte_fnl.mp4",
-  "bannerImgAlt" : null,
-  "desktopBannerImageUrl" : null,
-  "contentLogo" : null,
-  "videoAlt" : null,
-  "tablet_banner_image" : null,
-  "contentdescription" : null,
-  "useContentImgURL" : false,
-  "button" : null,
-  "videoLoop" : false,
-  "desktopBannerOverlay" : false,
-  "customContent" : "&lt;style&gt;\n.experience-bbw_components-pageBanner {\nwidth: 100%;\n}\n&lt;/style&gt;",
-  "mobileBannerOverlay" : false,
-  "contentAlignmentTablet" : "left",
-  "buttonLink" : null,
-  "contentPositionMobile" : "bottom",
-  "usevideoURL" : true,
-  "contentAlignmentMobile" : "left",
-  "contentLogoUrl" : null,
-  "enableBreadcrumb" : false,
-  "videoMobile" : "https://static.videezy.com/system/resources/previews/000/044/903/original/telepoorte_fnl.mp4",
-  "desktop_banner_image" : null,
-  "bannerheight" : "Default",
-  "videoHideonMobile" : false,
-  "descriptionColor" : null,
-  "videoFileMobile" : null,
-  "videoDesktop" : "https://static.videezy.com/system/resources/previews/000/044/903/original/telepoorte_fnl.mp4",
-  "contentPositionDesktop" : "left",
-  "mobile_banner_image" : null,
-  "contentsubTitleColor" : null,
-  "videoSoundEnable" : true,
-  "contentTitleColor" : null,
-  "contentPositionTablet" : "middle",
-  "videoEnable" : true,
-  "buttonLinkScrollId" : null,
-  "contentsubTitle" : null,
-  "useBannerImgURL" : false,
-  "tabletBannerImageUrl" : null,
-  "videoFileDesktop" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="6574fdc43751f7c0f05c59c412">
-        <type>component.commerce_layouts.topOfferSwiper</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "columnGapMobile" : 16,
-  "columnGapDesktop" : 32,
-  "customClass" : "h-maxwidth--1200 mx-auto h-mb--50",
-  "columnGapTablet" : 24,
-  "title" : "Today's Top Offers"
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-        <content-links>
-            <content-link content-id="4dfc689281fb897f9487e6958c" type="component.commerce_layouts.topOfferSwiper.items">
-                <position>5.0</position>
-            </content-link>
-            <content-link content-id="0a34ddc92baf6ba778c0041d74" type="component.commerce_layouts.topOfferSwiper.items">
-                <position>7.0</position>
-            </content-link>
-            <content-link content-id="ba7f3b5626cba5b2646211a41f" type="component.commerce_layouts.topOfferSwiper.items">
-                <position>6.0</position>
-            </content-link>
-            <content-link content-id="7229cd300089e90c054d950b9e" type="component.commerce_layouts.topOfferSwiper.items">
-                <position>0.0</position>
-            </content-link>
-            <content-link content-id="14b6081eb39854bc06c7d31afb" type="component.commerce_layouts.topOfferSwiper.items">
-                <position>3.0</position>
-            </content-link>
-            <content-link content-id="3512faaaa2557d63e32bc83809" type="component.commerce_layouts.topOfferSwiper.items">
-                <position>1.0</position>
-            </content-link>
-            <content-link content-id="a8615c7ef4aa5723ab6473aef1" type="component.commerce_layouts.topOfferSwiper.items">
-                <position>2.0</position>
-            </content-link>
-            <content-link content-id="a5562b32b26043e97c0cfe20a5" type="component.commerce_layouts.topOfferSwiper.items">
-                <position>4.0</position>
-            </content-link>
-        </content-links>
-    </content>
-
-    <content content-id="a5562b32b26043e97c0cfe20a5">
-        <type>component.bbw_components.cardOffer</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "left",
-  "offersCategory" : "Wallflowers Fragrance Refills",
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'body-care')$",
-  "offersDetails" : null,
-  "linkUmpParameter" : null,
-  "desktop_image" : {
-    "path" : "/images/homepage/top-offers/sp3_000276367_000284526_dif_allwfss_sit_s_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "offersUrgency" : null,
-  "offersPrice" : "5/$27",
-  "useImgURL" : false,
-  "mobile_image" : {
-    "path" : "/images/homepage/top-offers/sp3_000276367_000284526_dif_allwfss_sit_s_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "customClass" : null,
-  "desktopImgUrl" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="a8615c7ef4aa5723ab6473aef1">
-        <type>component.bbw_components.cardOffer</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "left",
-  "offersCategory" : "All 3-Wick Candles",
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'body-care')$",
-  "offersDetails" : null,
-  "linkUmpParameter" : null,
-  "desktop_image" : {
-    "path" : "/images/homepage/top-offers/sp3_000276323_000284539_can_3wss_sit_s_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "offersUrgency" : "Limited time only!",
-  "offersPrice" : "$10 Off",
-  "useImgURL" : false,
-  "mobile_image" : {
-    "path" : "/images/homepage/top-offers/sp3_000276323_000284539_can_3wss_sit_s_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "customClass" : null,
-  "desktopImgUrl" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="3512faaaa2557d63e32bc83809">
-        <type>component.bbw_components.cardOffer</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "left",
-  "offersCategory" : "All Foaming Hand Soap Refills",
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'body-care')$",
-  "offersDetails" : "Limit 24 with code: SOAPY",
-  "linkUmpParameter" : null,
-  "desktop_image" : {
-    "path" : "/images/homepage/top-offers/sp1_000232445_000240133_sop_reflnewfrag_sit_s_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 300,
-      "width" : 300
-    }
-  },
-  "offersUrgency" : "Limited time only!",
-  "offersPrice" : "$9.95",
-  "useImgURL" : false,
-  "mobile_image" : {
-    "path" : "/images/homepage/top-offers/sp1_000232445_000240133_sop_reflnewfrag_sit_s_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 300,
-      "width" : 300
-    }
-  },
-  "customClass" : null,
-  "desktopImgUrl" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="14b6081eb39854bc06c7d31afb">
-        <type>component.bbw_components.cardOffer</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "left",
-  "offersCategory" : "All Full-Size Body, Skin &amp; Hair Care",
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'body-care')$",
-  "offersDetails" : "Lowest-priced items are free",
-  "linkUmpParameter" : null,
-  "desktop_image" : {
-    "path" : "/images/homepage/top-offers/sp3_000276355_000284462_bc_bclp_sit_s_06_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "offersUrgency" : null,
-  "offersPrice" : "Buy 3, Get 3 FREE",
-  "useImgURL" : false,
-  "mobile_image" : {
-    "path" : "/images/homepage/top-offers/sp3_000276355_000284462_bc_bclp_sit_s_06_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "customClass" : null,
-  "desktopImgUrl" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="7229cd300089e90c054d950b9e">
-        <type>component.bbw_components.cardOffer</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "left",
-  "offersCategory" : "All Hand Soaps &amp; Bar Soaps              ",
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'body-care')$",
-  "offersDetails" : "Limit 24 with code: SOAPY",
-  "linkUmpParameter" : null,
-  "desktop_image" : {
-    "path" : "/images/homepage/top-offers/sp3_000276302_000284420_sop_allsoapss_sit_s_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "offersUrgency" : "Limited time only!",
-  "offersPrice" : "$2.95",
-  "useImgURL" : false,
-  "mobile_image" : {
-    "path" : "/images/homepage/top-offers/sp3_000276302_000284420_sop_allsoapss_sit_s_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "customClass" : null,
-  "desktopImgUrl" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="ba7f3b5626cba5b2646211a41f">
-        <type>component.bbw_components.cardOffer</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "left",
-  "offersCategory" : "All Fragrance Boosters &amp; Laundry Detergent",
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'body-care')$",
-  "offersDetails" : null,
-  "linkUmpParameter" : null,
-  "desktop_image" : {
-    "path" : "/images/homepage/top-offers/sp2_000301857_000309100_xct_na_sit_s_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "offersUrgency" : "Limited time only!",
-  "offersPrice" : "2/$30",
-  "useImgURL" : false,
-  "mobile_image" : {
-    "path" : "/images/homepage/top-offers/sp2_000301857_000309100_xct_na_sit_s_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "customClass" : null,
-  "desktopImgUrl" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="0a34ddc92baf6ba778c0041d74">
-        <type>component.bbw_components.cardOffer</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "left",
-  "offersCategory" : "Hand Sanitizer 5-Packs",
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'body-care')$",
-  "offersDetails" : null,
-  "linkUmpParameter" : null,
-  "desktop_image" : {
-    "path" : "/images/homepage/top-offers/sp3_000276283_000284541_san_pbacss_sit_s_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "offersUrgency" : null,
-  "offersPrice" : "$8.50",
-  "useImgURL" : false,
-  "mobile_image" : {
-    "path" : "/images/homepage/top-offers/sp3_000276283_000284541_san_pbacss_sit_s_01_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "customClass" : null,
-  "desktopImgUrl" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="4dfc689281fb897f9487e6958c">
-        <type>component.bbw_components.cardOffer</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "left",
-  "offersCategory" : "Travel, Hand &amp; Lip Care",
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'body-care')$",
-  "offersDetails" : "Lowest-priced item is free                ",
-  "linkUmpParameter" : null,
-  "desktop_image" : {
-    "path" : "/images/homepage/top-offers/sp3_000276355_000284435_bc_bclp_sit_s_08_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "offersUrgency" : null,
-  "offersPrice" : "Buy 3, Get 1 FREE",
-  "useImgURL" : false,
-  "mobile_image" : {
-    "path" : "/images/homepage/top-offers/sp3_000276355_000284435_bc_bclp_sit_s_08_00.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 452,
-      "width" : 452
-    }
-  },
-  "customClass" : null,
-  "desktopImgUrl" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="322ad0a287d0220abe2d1d5fa3">
-        <display-name xml:lang="x-default">More Good Things, This Way</display-name>
-        <type>component.commerce_layouts.grid</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "rowGapMobile" : 40,
-  "itemsPerRowTablet" : 3,
-  "columnGapMobile" : 16,
-  "rowCustomClass" : null,
-  "columnGapDesktop" : 32,
-  "rowGapDesktop" : 40,
-  "rowGapTablet" : 40,
-  "itemsPerRowMobile" : 2,
-  "columnGapTablet" : 16,
-  "title" : "&lt;h2 class=\"text-center h-fw--bold b-text-h1 mt-0\"&gt;More Good Things, This Way&lt;/h2&gt;",
-  "itemsPerRowDesktop" : 6,
-  "columnCustomClass" : null,
-  "gridSectionClass" : "h-mb--50 h-maxwidth--1200 mx-auto px-3 px-md-0"
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-        <content-links>
-            <content-link content-id="8515513daba06d80e8e9e31101" type="component.commerce_layouts.grid.gridBottomContent">
-                <position>0.0</position>
-            </content-link>
-            <content-link content-id="0fd51d48a189e9a8fa39d3fb78" type="component.commerce_layouts.grid.gridItems">
-                <position>0.0</position>
-            </content-link>
-            <content-link content-id="d0f20729a50ea04be77d4163ec" type="component.commerce_layouts.grid.gridItems">
-                <position>1.0</position>
-            </content-link>
-            <content-link content-id="2a098357bbb49b462346af6f9c" type="component.commerce_layouts.grid.gridItems">
-                <position>2.0</position>
-            </content-link>
-            <content-link content-id="ced247b71f498481e71d36b060" type="component.commerce_layouts.grid.gridItems">
-                <position>3.0</position>
-            </content-link>
-            <content-link content-id="f2be8b9b4a69b5e23011039cb4" type="component.commerce_layouts.grid.gridItems">
-                <position>4.0</position>
-            </content-link>
-            <content-link content-id="87f8f6682d9727bf01c34b3a8f" type="component.commerce_layouts.grid.gridItems">
-                <position>5.0</position>
-            </content-link>
-        </content-links>
-    </content>
-
-    <content content-id="87f8f6682d9727bf01c34b3a8f">
-        <display-name xml:lang="x-default">more thing item 6</display-name>
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/more-things/xcat_mwts-returns_sp2_vn.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 704,
-      "width" : 704
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'accessories')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/more-things/xcat_mwts-returns_sp2_vn.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 704,
-      "width" : 704
-    }
-  },
-  "description" : null,
-  "customClass" : null,
-  "linkText" : "&lt;span class=\"mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold\"&gt;See Return Policy for details and conditions&lt;/span&gt;",
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="f2be8b9b4a69b5e23011039cb4">
-        <display-name xml:lang="x-default">more thing item 5</display-name>
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/more-things/xcat_mwts-autorefresh_sp2_vn.png",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 704,
-      "width" : 704
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'travel-size')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/more-things/xcat_mwts-autorefresh_sp2_vn.png",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 704,
-      "width" : 704
-    }
-  },
-  "description" : null,
-  "customClass" : null,
-  "linkText" : "&lt;span class=\"mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold\"&gt;Check out Auto Refresh&lt;/span&gt;",
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="ced247b71f498481e71d36b060">
-        <display-name xml:lang="x-default">more thing item 4</display-name>
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/more-things/xcat_mwts-email_sp2_vn.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 704,
-      "width" : 704
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'hand-soap')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/more-things/xcat_mwts-email_sp2_vn.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 704,
-      "width" : 704
-    }
-  },
-  "description" : null,
-  "customClass" : null,
-  "linkText" : "&lt;span class=\"mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold\"&gt;Sign uo for emails&lt;/span&gt;",
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="2a098357bbb49b462346af6f9c">
-        <display-name xml:lang="x-default">more thing item 3</display-name>
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/more-things/xcat_mwts-sms_sp2_vn.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 704,
-      "width" : 704
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'wallflowers')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/more-things/xcat_mwts-sms_sp2_vn.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 704,
-      "width" : 704
-    }
-  },
-  "description" : null,
-  "customClass" : null,
-  "linkText" : "&lt;span class=\"mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold\"&gt;Sign up for emails&lt;/span&gt;",
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="d0f20729a50ea04be77d4163ec">
-        <display-name xml:lang="x-default">more thing item 2</display-name>
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/more-things/xcat_bopisgeneric_c1_vn.png",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 704,
-      "width" : 704
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'candles')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/more-things/xcat_bopisgeneric_c1_vn.png",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 704,
-      "width" : 704
-    }
-  },
-  "description" : null,
-  "customClass" : null,
-  "linkText" : "&lt;span class=\"mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold\"&gt;Shop Your way&lt;/span&gt;",
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="0fd51d48a189e9a8fa39d3fb78">
-        <display-name xml:lang="x-default">more thing item 1</display-name>
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/more-things/boc-launch-prospects_vn_0.png",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 704,
-      "width" : 704
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'body-care')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/more-things/boc-launch-prospects_vn_0.png",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 704,
-      "width" : 704
-    }
-  },
-  "description" : null,
-  "customClass" : null,
-  "linkText" : "&lt;span class=\"mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold\"&gt;Join the VIPs&lt;/span&gt;",
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="8515513daba06d80e8e9e31101">
-        <type>component.commerce_assets.html</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "html" : "&lt;div class=\"ds-text h-maxwidth--600 mx-auto\"&gt;\n            \n            \n                &lt;div class=\"ds-text-paragraph\"&gt;\n                    &lt;h1&gt;Bath &amp;amp; Body Works&lt;/h1&gt;\n\t\t\t\t\t&lt;p class=\"b-text-body-1\"&gt;Bath and Body Works is your go-to place for &lt;a href=\"/c/gifts/gift-sets\" class=\"b-link--underlined h-clr--gray-4\" manual_cm_re=\"Home-_-seo1-_-gifts\"&gt;gifts&lt;/a&gt; &amp;amp; goodies that surprise &amp;amp; delight. From fresh fragrances to soothing skin care, we make finding your perfect something special a happy-memory-making experience. Searching for new seasonal creations or your favorite &lt;a href=\"/c/body-care/retired-fragrances\" class=\"b-link--underlined h-clr--gray-4\" manual_cm_re=\"Home-_-seo2-_-retired_frag\"&gt;discontinued scents&lt;/a&gt;? We’ve got you covered there, too. Oh! And while you're browsing, shop our latest &amp;amp; greatest selection of &lt;a href=\"/c/body-care/body-lotion\" class=\"b-link--underlined h-clr--gray-4\"&gt;lotions&lt;/a&gt;, &lt;a href=\"/c/hand-soaps/all-hand-soaps\" class=\"b-link--underlined h-clr--gray-4\"&gt;soaps&lt;/a&gt; and &lt;a class=\"b-link--underlined h-clr--gray-4\"href=\"/c/home-fragrance/all-candles\"&gt;candles&lt;/a&gt;! &lt;/p&gt;\n                &lt;/div&gt;            \n        &lt;/div&gt;"
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="450c492d576c8f63689f2e1db0">
-        <type>component.commerce_layouts.grid</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "rowGapMobile" : 0,
-  "itemsPerRowTablet" : 1,
-  "columnGapMobile" : 0,
-  "rowCustomClass" : null,
-  "columnGapDesktop" : 0,
-  "rowGapDesktop" : 0,
-  "rowGapTablet" : 0,
-  "itemsPerRowMobile" : 1,
-  "columnGapTablet" : 0,
-  "title" : " ",
-  "itemsPerRowDesktop" : 1,
-  "columnCustomClass" : null,
-  "gridSectionClass" : "h-maxwidth--1200 mx-auto h-mb--50 h-mt--50 px-3 px-lg-3"
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-        <content-links>
-            <content-link content-id="d05fad23c5d898c202464fc4eb" type="component.commerce_layouts.grid.gridTopContent">
-                <position>0.0</position>
-            </content-link>
-            <content-link content-id="daa2e95615c6a801534fac581f" type="component.commerce_layouts.grid.gridItems">
-                <position>0.0</position>
-            </content-link>
-        </content-links>
-    </content>
-
-    <content content-id="daa2e95615c6a801534fac581f">
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/promo-banner-desktop.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 810,
-      "width" : 1440
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : null,
-  "mobile_image" : {
-    "path" : "/images/homepage/promo-banner_mobile.jpg",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 800,
-      "width" : 600
-    }
-  },
-  "description" : "&lt;span class=\"h-fw--semibold b-text-h2 clr--black-1 textdecoration\"&gt;*Promo Details&lt;/span&gt;",
-  "customClass" : null,
-  "linkText" : null,
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="d05fad23c5d898c202464fc4eb">
-        <type>component.commerce_assets.html</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "html" : "&lt;div style=\"background: #5b4fa2; color: #ffffff;padding: 12px 16px;\n\" class=\"w-100 h-fw--semibold h-bg d-flex justify-content-center b-text-h2 mb-0\"&gt;LIMITED TIME ONLY!&lt;/div&gt;"
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
-
-    <content content-id="0c8c8d6accb3eec0caed92dca6">
-        <type>component.commerce_assets.imageAndTextPosition</type>
-        <config>{
-  "visibility" : [ ]
-}</config>
-        <data xml:lang="x-default">{
-  "selectImagePosition" : "top",
-  "desktop_image" : {
-    "path" : "/images/homepage/sp3_000276221_000284064_xct_bbmday_sit_hm_01_00.gif",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 810,
-      "width" : 1440
-    }
-  },
-  "useImgURL" : false,
-  "alt" : null,
-  "link" : "$url('Search-Show', 'cgid', 'body-care')$",
-  "mobile_image" : {
-    "path" : "/images/homepage/sp3_000276221_000283826_xct_bbmday_sit_mhm_01_01.gif",
-    "focal_point" : {
-      "x" : 0.5,
-      "y" : 0.5
-    },
-    "meta_data" : {
-      "height" : 800,
-      "width" : 600
-    }
-  },
-  "description" : null,
-  "customClass" : "h-maxwidth--1200 mx-auto h-mb--50 px-3 px-lg-0",
-  "linkText" : null,
-  "desktopImgUrl" : null,
-  "linkUmpParameter" : null,
-  "mobileImgUrl" : null
-}</data>
-        <online-flag>true</online-flag>
-        <page-attributes/>
-    </content>
 
 		<content content-id="menu-item-slot-1-detail-section">
         <display-name xml:lang="x-default">Menu Item Slot-1 Detail Section</display-name>
@@ -11571,7 +10396,11 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <display-name xml:lang="x-default">Contact Us</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes/>
+        <page-attributes>
+            <page-title xml:lang="x-default">Contact Us</page-title>
+            <page-description xml:lang="x-default">Find your favourite fragrances and browse bath supplies to treat your body. ?Free Shipping above $90 Bath &amp; Body Works Australia</page-description>
+            <page-keywords xml:lang="x-default">Contact Us</page-keywords>
+        </page-attributes>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
     &lt;div class="contact-us row"&gt;&#13;
@@ -13782,7 +12611,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         class="ui-accordion-header text-center h-font-size--16" data-toggle="collapse" href="#collapseExample"&#13;
         role="button"&gt;&#13;
 &#13;
-        &lt;p class="desk-title h-font-size--24 text-transform"&gt;Have a gift card?&lt;/p&gt;&#13;
+        &lt;p class="desk-title h-font-size--24 text-transform h-clr--black-3"&gt;Have a gift card?&lt;/p&gt;&#13;
         &lt;span class="ui-accordion-header-icon ui-icon iconClosed"&gt;&lt;/span&gt;&lt;br /&gt;&#13;
         &lt;span&gt;Check Card Balance&lt;/span&gt;&#13;
     &lt;/h2&gt;&#13;
@@ -13790,7 +12619,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &lt;div class="collapse" id="collapseExample"&gt;&#13;
     &lt;div class="balance-box"&gt;&#13;
         &lt;form class="clearfix" id="giftcard-landing-form" method="post" novalidate="novalidate"&gt;&#13;
-            &lt;div class="form-row number-max-length " data-required-text=""&gt;&lt;label&#13;
+            &lt;div class="form-row number-max-length d-block" data-required-text=""&gt;&lt;label&#13;
                     for="dwfrm_giftcard_giftCardID"&gt;Gift Card Number&lt;span&#13;
                         class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
 &#13;
@@ -14188,6 +13017,392 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         width: 100%;&#13;
         height: auto;&#13;
     }&#13;
+&lt;/style&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+	<content content-id="bbw_chadstone">
+        <display-name xml:lang="x-default">BBW CHADSTONE</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_chadstone')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_dfo_homebush">
+        <display-name xml:lang="x-default">BBW DFO HOMEBUSH</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_dfo_homebush')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_dfo_south_wharf">
+        <display-name xml:lang="x-default">BBW DFO SOUTH WHARF</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_dfo_south_wharf')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_emporium">
+        <display-name xml:lang="x-default">BBW EMPORIUM</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_emporium')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_harbour_town">
+        <display-name xml:lang="x-default">BBW HARBOUR TOWN</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_harbour_town')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_melbourne_central">
+        <display-name xml:lang="x-default">BBW MELBOURNE CENTRAL</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_melbourne_central')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_qvb">
+        <display-name xml:lang="x-default">BBW QVB</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_qvb')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_westfield_chermside">
+        <display-name xml:lang="x-default">BBW WESTFIELD CHERMSIDE</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_westfield_chermside')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_westfield_kotara">
+        <display-name xml:lang="x-default">BBW WESTFIELD KOTARA</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_westfield_kotara')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_westfield_mt_gravatt">
+        <display-name xml:lang="x-default">BBW WESTFIELD MT GRAVATT</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_westfield_mt_gravatt')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_westfield_parramatta">
+        <display-name xml:lang="x-default">BBW WESTFIELD PARRAMATTA</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_westfield_parramatta')$</custom-attribute>
+        </custom-attributes>
+    </content>
+    <content content-id="bbw_westfield_penrith">
+        <display-name xml:lang="x-default">BBW WESTFIELD PENRITH</display-name>
+        <description xml:lang="x-default"></description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_westfield_penrith')$</custom-attribute>
+        </custom-attributes>
+    </content>
+	<content content-id="about-us-faq-block">
+        <display-name xml:lang="x-default">About Us Faq Block</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-md-12"&gt;
+            &lt;h1 style="line-height:40px;" class="h-font-size-lg--62 h-font-size-md-down--36 faq-title mb-2 lg:mb-4 h-clr--blue"&gt;Frequently Asked Questions&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class="col-md-10 pt-4"&gt;
+            &lt;div class="border-bottom pb-4 mb-4"&gt;
+                &lt;div class="d-flex align-items-center"&gt;
+                    &lt;button class="border-0 h-bg--white d-flex " type="button"
+                        data-toggle="collapse" data-target="#collapseProducts" aria-expanded="false"
+                        aria-controls="collapseProducts"&gt;
+                    &lt;span class="dropdown-icon"&gt;&lt;/span&gt;
+                    &lt;h6 class="ml-md-4 ml-3 text-md-center text-left heading-label h-fw--bold h-font-size--16"&gt;   Do you sell your products wholesale and can I carry your brand in my shop?
+                   &lt;/h6&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="collapse ml-5" id="collapseProducts"&gt;
+                    &lt;p class="pt-4 pb-4 h-font-size--16"&gt;No, we do not sell our products at wholesale for resale
+                        purposes.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="border-bottom pb-4 mb-4"&gt;
+                &lt;div class="d-flex  align-items-center"&gt;
+                    &lt;button class="border-0 h-bg--white d-flex " type="button"
+                        data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                        aria-controls="collapseExample"&gt;
+                        &lt;span class="dropdown-icon" &gt;&lt;/span&gt;
+                    &lt;h6 class="ml-md-4 ml-3 text-md-center text-left heading-label h-fw--bold h-font-size--16"&gt;  How can I open a franchise or establish a business partnership with one of your brands?
+                   &lt;/h6&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="collapse ml-5" id="collapseExample"&gt;
+                    &lt;p class="pt-4 pb-4 h-font-size--16"&gt;In the U.S. and Canada, all of our stores are owned and
+                        operated by Bath &amp; Body Works and therefore are not franchise
+                        operations. Throughout the rest of the world, we currently work with a small number of
+                        international partners to deliver
+                        our brand to customers. We are not entertaining requests for new partners, distributors or
+                        licensees.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="border-bottom pb-4 mb-4"&gt;
+                &lt;div class="d-flex  align-items-center"&gt;
+                    &lt;button class="border-0 h-bg--white d-flex  " type="button"
+                        data-toggle="collapse" data-target="#collapseFoundation" aria-expanded="false"
+                        aria-controls="collapseFoundation"&gt;
+                        &lt;span class="dropdown-icon" &gt;&lt;/span&gt;
+                    &lt;h6 class="ml-md-4 ml-3 text-md-center text-left heading-label h-fw--bold h-font-size--16"&gt;  When was the company founded? &lt;/h6&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="collapse ml-5" id="collapseFoundation"&gt;
+                    &lt;p class="pt-4 pb-4 h-font-size--16"&gt;Bath &amp; Body Works was founded in 1990. In August 2021, L Brands
+                        separated Victoria’s Secret and became an independent
+                        public company as Bath &amp; Body Works.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="border-bottom pb-4 mb-4"&gt;
+                &lt;div class="d-flex  align-items-center"&gt;
+                    &lt;button class="border-0 h-bg--white d-flex " type="button"
+                        data-toggle="collapse" data-target="#collapseHeadquarters" aria-expanded="false"
+                        aria-controls="collapseHeadquarters"&gt;
+                        &lt;span class="dropdown-icon"&gt;&lt;/span&gt;
+                    &lt;h6 class="ml-md-4 ml-3 text-md-center text-left heading-label h-fw--bold h-font-size--16"&gt; Where are the headquarters of Bath &amp; Body Works? &lt;/h6&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="collapse ml-5" id="collapseHeadquarters"&gt;
+                    &lt;p class="pt-4 pb-4 h-font-size--16"&gt;Bath &amp; Body Works world headquarters are located at: &lt;br /&gt;
+                        Bath &amp; Body Works, Inc. &lt;br /&gt;
+                        3 Limited Parkway &lt;br /&gt;
+                        Columbus, Ohio 43230&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="border-bottom pb-4 mb-4"&gt;
+                &lt;div class="d-flex  align-items-center"&gt;
+                    &lt;button class="border-0 h-bg--white  d-flex" type="button"
+                        data-toggle="collapse" data-target="#collapseProposal" aria-expanded="false"
+                        aria-controls="collapseProposal"&gt;
+                        &lt;span class="dropdown-icon"&gt;&lt;/span&gt;
+                    &lt;h6 class="ml-md-4 ml-3 text-md-center text-left heading-label h-fw--bold h-font-size--16"&gt; How can I submit a product idea or proposal? &lt;/h6&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="collapse ml-5" id="collapseProposal"&gt;
+                    &lt;p class="pt-4 pb-4 h-font-size--16"&gt;Bath &amp; Body Works appreciates and values our customers' input,
+                        and we welcome comments regarding our products and
+                        service. However, neither Bath &amp; Body Works nor any of its associates accept or consider
+                        unsolicited ideas for new or
+                        improved products, materials, advertisements, marketing campaigns, promotions or product names
+                        ("Submissions").&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="border-bottom pb-4 mb-4"&gt;
+                &lt;div class="d-flex align-items-center"&gt;
+                    &lt;button class="border-0 h-bg--white d-flex " type="button"
+                        data-toggle="collapse" data-target="#collapseCompany" aria-expanded="false"
+                        aria-controls="collapseCompany"&gt;
+                        &lt;span class="dropdown-icon"&gt;&lt;/span&gt;
+                        &lt;h6 class="ml-md-4 ml-3 text-md-center text-left heading-label h-fw--bold h-font-size--16"&gt;Where can I submit questions about the company for a school project?&lt;/h6&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="collapse ml-5" id="collapseCompany"&gt;
+                    &lt;p class="pt-4 pb-4 h-font-size--16"&gt;Bath &amp; Body Works appreciates and values our customers' input,
+                        and we
+                        welcome comments regarding our products
+                        and
+                        service. However, neither Bath &amp; Body Works nor any of its associates accept or consider
+                        unsolicited ideas
+                        for new or
+                        improved products, materials, advertisements, marketing campaigns, promotions or product names
+                        ("Submissions").&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+    .faq-title {
+        line-height: 3.875rem;
+    }
+
+    .dropdown-icon {
+        background: url("images/icons/UI-Carat-blue.svg?$staticlink$") no-repeat 50%;
+        width: 15px;
+        height: 15px;
+        position: relative;
+        transition: transform 0.3s ease;
+        display: block;
+        margin-top: 5px;
+    }
+
+    [aria-expanded="true"] .dropdown-icon {
+        transform: rotate(180deg);
+    }
+
+
+
+    .heading-label {
+        color: #383838;
+        line-height: 24px;
+    }
+
+    [aria-expanded="true"] .heading-label {
+        color: #005699;
+    }
+
+    p {
+        color: #5D6265;
+        line-height: 28px;
+        margin-left: 20px;
+    }
+&lt;/style&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+	<content content-id="aboutus-locations-block">
+        <display-name xml:lang="x-default">About Us Location Block</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="aboutus-location-bg"&gt;
+&lt;div class="container location-header"&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-md-6 col-xl-4 col-sm-12"&gt;
+&lt;p class="h-fw--bold  h-font-size--16"&gt;Store Locations&lt;/p&gt;
+
+&lt;h3 class="mb-5 mt-2 h-font-size--30 h-clr--blue more-head"&gt;More than&lt;strong class="h-clr--pink"&gt; 1,850&lt;/strong&gt; company-operated Bath &amp;amp; Body Works locations in the U.S. and Canada and more than &lt;strong class="h-clr--pink"&gt;485&lt;/strong&gt; international franchised locations.&lt;/h3&gt;
+
+&lt;div class="mt-8"&gt;&lt;a class="explore-bath h-font-size--16 text-uppercase" href="#" rel="noopener" target="_blank"&gt;explore bathandbodyworks.com &lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="h-dsp--grid location-tab"&gt;
+&lt;div class="border-l-2 border-bbw-magenta pl-4 mr-2 mt-2"&gt;
+&lt;h2 class="h-fw--bold text-bbw-magenta h-font-size--36 h-clr--pink"&gt;208&lt;/h2&gt;
+
+&lt;h3 class="h-font-size--16"&gt;Middle East Locations&lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;div class="border-l-2 border-bbw-magenta pl-4 mr-2 mt-2"&gt;
+&lt;h2 class="h-fw--bold text-bbw-magenta h-font-size--36 h-clr--pink"&gt;161&lt;/h2&gt;
+
+&lt;h3 class="h-font-size--16"&gt;Asia + Australia Locations&lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;div class="border-l-2 border-bbw-magenta pl-4 mr-2 mt-2"&gt;
+&lt;h2 class="h-fw--bold text-bbw-magenta h-font-size--36 h-clr--pink"&gt;89&lt;/h2&gt;
+
+&lt;h3 class="h-font-size--16"&gt;Americas Locations&lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;div class="border-l-2 border-bbw-magenta pl-4 mr-2 mt-2"&gt;
+&lt;h2 class="h-fw--bold text-bbw-magenta h-font-size--36 h-clr--pink"&gt;19&lt;/h2&gt;
+
+&lt;h3 class="h-font-size--16"&gt;Europe + UK Locations&lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;div class="border-l-2 border-bbw-magenta pl-4 mr-2 mt-2"&gt;
+&lt;h2 class="h-fw--bold text-bbw-magenta h-font-size--36 h-clr--pink"&gt;8&lt;/h2&gt;
+
+&lt;h3 class="h-font-size--16"&gt;Caribbean Locations&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;.location-header {
+        gap: 4rem;
+        display: grid;
+    }
+
+    .aboutus-location-bg {
+        background-image: url("images/about-us/bbw-locations-map-revised.jpg?$staticlink$");
+        background-repeat: no-repeat;
+        padding-bottom: 4rem;
+        padding-top: 4rem;
+        background-size: cover;
+    }
+
+    .aboutus-location-bg p {
+        line-height: 24px;
+        color: colour(gray, 5);
+    }
+
+    .more-head {
+        line-height: 36px;
+    }
+
+    .explore-bath {
+        color: #005699;
+    }
+
+    .explore-bath:hover {
+        text-decoration: none;
+        color: #E20887;
+    }
+
+    .location-tab {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 2rem;
+    }
+
+    @media only screen and (max-width: 768px) {
+ .location-tab {
+          grid-template-columns: repeat(2,minmax(0,1fr));
+        gap: 2rem;
+    }
+    }
+
+    .border-bbw-magenta {
+        border-left: 2px solid #E20887;
+    }
+
+    .text-bbw-magenta {
+        line-height: 40px;
+    }
+
+    .border-bbw-magenta h3 {
+        color: #5D6265;
+        line-height: 24px;
+    }
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>

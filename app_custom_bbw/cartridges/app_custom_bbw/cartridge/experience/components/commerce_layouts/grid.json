@@ -79,6 +79,31 @@
       ]
     },
     {
+      "id": "gridBackgroundOptions",
+      "name": "Grid Backgrond Image options",
+      "description": "Set Grid Backgrond Image",
+      "attribute_definitions": [
+        {
+          "id": "girdBgDesktop",
+          "name": "Set Desktop Grid Background",
+          "type": "image",
+          "required": false
+        },
+        {
+          "id": "girdBgTablet",
+          "name": "Set Tablet Grid Background",
+          "type": "image",
+          "required": false
+        },
+        {
+          "id": "girdBgMobile",
+          "name": "Set Mobile Grid Background",
+          "type": "image",
+          "required": false
+        }
+      ]
+    },
+    {
       "id": "gridGenericOptions",
       "name": "Grid generic options",
       "description": "Grid generic options",

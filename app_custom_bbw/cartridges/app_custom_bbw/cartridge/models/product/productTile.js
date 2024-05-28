@@ -14,6 +14,7 @@ module.exports = function productTile(product, apiProduct, productType) {
     var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
     var productSearchHit = productHelper.getProductSearchHit(apiProduct);
     decorators.base(product, apiProduct, productType);
+    decorators.dynamicBadge(product, apiProduct);
     decorators.searchPrice(product, productSearchHit, promotionCache.promotions, productHelper.getProductSearchHit);
     decorators.images(product, apiProduct, { types: ['medium'], quantity: 'all' });
     decorators.ratings(product);
@@ -32,6 +33,7 @@ module.exports = function productTile(product, apiProduct, productType) {
     decorators.isEgiftCard(product, apiProduct);
     decorators.badge(product, apiProduct);
     decorators.fragrance(product, apiProduct);
+    decorators.titlePartB(product, apiProduct);
     decorators.availability(
         product,
         options.quantity,

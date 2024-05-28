@@ -2,7 +2,11 @@
     <isinclude template="/components/modules" sf-toolkit="off" />
     <div class="seo-wrapper h-mt--40">
         <div class="inner-wrapper" data-asset="${'bottom-seo-' + pdict.productSearch.category.id}">
-            <iscontentasset aid="bottom-seo-${pdict.productSearch.category.id}" />
+            <isset name="bottomSEO" value="${dw.content.ContentMgr.getContent('bottom-seo-' + pdict.productSearch.category.id)}" scope="page" />
+            <isif condition="${bottomSEO}">
+                <isprint value="${bottomSEO.custom.body.toString()}" encoding="off" />
+            </isif>
+            <iscomment> <iscontentasset aid="bottom-seo-${pdict.productSearch.category.id}" /> </iscomment>
         </div>
     </div>
 </isif>
