@@ -1,18 +1,23 @@
+<link rel="stylesheet" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
+
 <isif condition="${pdict.contentSearch.contents.length > 0}">
-    ${Resource.msg('faq.search.suggestion.title', 'faq', null)}
-    <div>
+    <div class="faq-search-card card">
+        <div class="card-header clearfix">
+            ${Resource.msg('faq.search.suggestion.title', 'faq', null)}
+        </div>
         <isloop items="${pdict.contentSearch.contents}" var="contentAsset">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header clearfix">
-                            <h4><a href="${contentAsset.url}">${contentAsset.name}</a></h4>
-                        </div>
-                        <div class="card-body card-info-group">
-                            ${contentAsset.description}
-                        </div>
-                    </div>
-                </div>
+            <div class="card-body card-info-group">
+                <a class="btn" href="${contentAsset.url}">${contentAsset.name}</a>
+                <iscomment> <p class="mb-0">${contentAsset.description}</p> </iscomment>
+
+                <nav class="sub-nav d-flex justify-content-between my-0 py-0">
+                    <ol class="breadcrumbs">
+                        <isinclude template="/content/faqRootBreadcrumb" />
+                        <li title="${Resource.msg('faq.search.results', 'faq', null)}">
+                            ${Resource.msg('faq.search.results', 'faq', null)}
+                        </li>
+                    </ol>
+                </nav>
             </div>
         </isloop>
     </div>
