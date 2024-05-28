@@ -148,25 +148,39 @@ $(document).on('click', '.popover .close', function (e) {
  */
 // Define a function to handle scroll event and show/hide back-to-top button
 $(document).ready(function () {
-    var windowHeight = $(window).height();
-    var documentHeight = $(document).height();
-    var scrollThreshold = Math.max(
-        documentHeight - windowHeight,
-        0.5 * windowHeight
-    ); // Ensure the scrollThreshold is at least 30% of window height
+    // Cache the window and document objects for performance
+    var $window = $(window);
+    var $document = $(document);
+    var $scrollToTopButton = $('.js-scrolltotop');
 
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > scrollThreshold) {
-            $('.js-scrolltotop').fadeIn();
+    // Function to calculate the scroll threshold
+    function calculateScrollThreshold() {
+        var windowHeight = $window.height();
+        // Show the button when the user has scrolled past 50% of the window height
+        return 0.5 * windowHeight;
+    }
+
+    // Initial threshold calculation
+    var scrollThreshold = calculateScrollThreshold();
+
+    // Recalculate the threshold on window resize
+    $window.resize(function () {
+        scrollThreshold = calculateScrollThreshold();
+    });
+
+    // Show or hide the scroll to top button based on scroll position
+    $window.scroll(function () {
+        if ($window.scrollTop() > scrollThreshold) {
+            $scrollToTopButton.fadeIn();
         } else {
-            $('.js-scrolltotop').fadeOut();
+            $scrollToTopButton.fadeOut();
         }
     });
 
-    // Function to scroll to top when the button is clicked
-    $('.js-scrolltotop').click(function () {
+    // Scroll to top when the button is clicked
+    $scrollToTopButton.click(function () {
         $('html, body').animate({ scrollTop: 0 }, 800);
-        return false;
+        return false
     });
 
     // Calculate height of store in global locations
