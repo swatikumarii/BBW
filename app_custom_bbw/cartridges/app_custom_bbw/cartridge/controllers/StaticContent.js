@@ -18,6 +18,21 @@ server.get('Dashboard', function (req, res, next) {
 });
 
 /**
+ * StaticContent-DashboardFAQ : Show FAQs and search field
+ * @name StaticContent-DashboardFAQ
+ */
+server.get('DashboardFAQ', function (req, res, next) {
+    var folder = ContentMgr.getFolder(req.querystring.fid);
+    if (folder) {
+        res.render('content/faqDashboardFAQ', {
+            folder: folder,
+            isWrapped: req.querystring.isWrapped === 'true'
+        });
+    }
+    next();
+});
+
+/**
  * StaticContent-FaqLevel1 : Show folder heirarchy on UI
  * @name StaticContent-FaqLevel1
  */
