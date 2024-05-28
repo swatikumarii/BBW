@@ -1,0 +1,9 @@
+<!-- Quantity Drop Down Menu -->
+<div class="bonus-quantity">
+    <div class="quantity-field qty bundle-footer  d-flex h-bg--gray-1">
+        <span class="quantity-button decrease h-fw--semibold d-flex align-items-center justify-content-center float-left w-25">${Resource.msg('label.quantity.decrease', 'product', null)}</span>
+        <input type="number" class="h-bg--gray-1 input-text text-center p-0 float-left border-0 h-fw--semibold quantity-select w-50"
+            name="Quantity" id="Quantity" value="1" />
+        <span class="quantity-button increase h-fw--semibold d-flex align-items-center justify-content-center float-left w-25">${Resource.msg('label.quantity.increase', 'product', null)}</span>
+    </div>
+</div>

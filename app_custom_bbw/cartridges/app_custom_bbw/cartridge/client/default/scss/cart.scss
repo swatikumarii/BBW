@@ -131,7 +131,7 @@
             border-bottom: 1px solid $clr-gray;
             border-radius: unset;
 
-            &.product-info {
+            .product-info {
                 display: flex;
                 flex-direction: row;
                 margin: 0;
@@ -369,6 +369,13 @@
                         right: 0;
                     }
                 }
+            }
+
+            .choose-bonus-button {
+                background: transparent;
+                border: none;
+                text-decoration: underline;
+                margin-bottom: 20px;
             }
         }
 

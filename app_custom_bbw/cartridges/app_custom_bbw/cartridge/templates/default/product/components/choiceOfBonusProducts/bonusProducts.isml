@@ -9,9 +9,21 @@
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-12">
-                            <section class="product-name-wrapper">
-                                <h4 class="product-name">${product.productName}</h4>
-                            </section>
+                            <isif condition="${product.brand}">
+                                <h3 class="brand-name h-font-size--10 h-clr--black-1 text-capitalize mb-0">
+                                ${product.brand}</h3>
+                            </isif>
+                            <h1 class="product-name hidden-sm-down h-font-size--12 text-capitalize h-clr--black-1 h-fw--semibold mt-0">
+                                ${product.fragranceName ? product.fragranceName : product.productName}
+                                <isif condition="${product.titlePartB}">
+                                    <div class="row">
+                                        <div class="col">
+                                            <span
+                                                class="titlePartB-name small-title h-font-size--12 h-fw--normal h-clr--gray-4 d-block">${product.titlePartB}</span>
+                                        </div>
+                                    </div>
+                                </isif>
+                            </h1>
                         </div>
                     </div>
                     <div class="row">
@@ -71,7 +83,7 @@
                                         ${product.bonusUnitPrice}
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mt-3">
                                     <div class="col-sm-12">
                                         <button class="btn btn-block btn-outline-primary select-bonus-product"
                                                 data-pid="${product.id}"
@@ -98,11 +110,13 @@
 </isloop>
 <div class="modal-footer">
     <div class="container">
-        <div class="row align-items-end">
+        <div class="row align-items-center">
             <!--<div class="col-sm-3 hidden-xs-down"></div>-->
-            <div class="col-6 selected-bonus-products">
+            <div class="selected-bonus-products">
                 <div class="bonus-summary row">
-                    <span class="pre-cart-products">${pdict.selectedBonusProducts.length}</span> ${Resource.msgf('label.choiceofbonus.selectproducts', 'product', null, pdict.maxPids)}
+                    <div class="col-12">
+                        <span class="pre-cart-products">${pdict.selectedBonusProducts.length}</span> ${Resource.msgf('label.choiceofbonus.selectproducts', 'product', null, pdict.maxPids)}
+                    </div>
                 </div>
                 <isloop items="${pdict.selectedBonusProducts}" var="selectedProduct" status="productLoopStatus">
                     <div class="selected-pid row"
@@ -110,18 +124,16 @@
                         data-qty='<isprint value="${selectedProduct.submittedQty}" encoding="htmlsinglequote" formatter="#"/>'
                         data-optionid="${selectedProduct.option.optionid}"
                         data-option-selected-value="${selectedProduct.option.selectedvalue}" >
-                        <div class="col-11 bonus-product-name">${selectedProduct.name}</div>
+                        <div class="col-10 bonus-product-name">${selectedProduct.name}</div>
                         <div class="col-1"><i class="fa fa-times" aria-hidden="true"></i></div>
                     </div>
                 </isloop>
             </div>
-            <div class="col-6 col-sm-3">
-                <button class="btn btn-primary add-bonus-products"
-                    ${!product.readyToOrder || !product.available ? "disabled" : ""}>
-                        <i class="fa fa-shopping-bag"></i>
-                        ${Resource.msg('button.addtocart', 'common', null)}
-                </button>
-            </div>
+            <button class="btn btn-primary add-bonus-products"
+                ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+                    <i class="fa fa-shopping-bag"></i>
+                    ${Resource.msg('button.addtocart', 'common', null)}
+            </button>
             <div class="col-sm-3 hidden-xs-down"></div>
         </div>
     </div>

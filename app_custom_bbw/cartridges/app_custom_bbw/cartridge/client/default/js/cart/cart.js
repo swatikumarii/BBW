@@ -708,7 +708,7 @@ module.exports = function () {
             }
         });
     });
-    $('body').on('click', '.cart-page .bonus-product-button', function () {
+    $('body').on('click', '.bonus-product-button', function () {
         $.spinner().start();
         $(this).addClass('launched-modal');
         $.ajax({

@@ -253,6 +253,23 @@
     }
 }
 
+.choose-bonus-button {
+    background: transparent;
+    border: none;
+    text-decoration: underline;
+}
+
+.bonus-quantity {
+    input {
+        border-left: 1px solid $clr-white;
+        border-right: 1px solid $clr-white;
+    }
+
+    .quantity-field {
+        min-height: 35px;
+    }
+}
+
 .cart-checkout-btn,
 .checkout-btn {
     &.disabled {
