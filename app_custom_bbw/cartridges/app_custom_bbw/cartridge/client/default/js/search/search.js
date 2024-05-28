@@ -23,7 +23,9 @@ function updateDom($results, selector) {
 function handleRefinements($results) {
     $('.refinement.active').each(function () {
         $(this).removeClass('active');
-        var activeDiv = $results.find('.' + $(this)[0].className.replace(/ /g, '.'));
+        var activeDiv = $results.find(
+            '.' + $(this)[0].className.replace(/ /g, '.')
+        );
         activeDiv.addClass('active');
         activeDiv.find('button.title').attr('aria-expanded', 'true');
     });
@@ -62,7 +64,6 @@ $.fn.syncHeight = function () {
     return this.height($(elements[elements.length - 1]).height());
 };
 
-
 /**
  * Adjusts the layout of a product grid based on the viewport width.
  * @param {jQuery} elements - The jQuery collection of product grid elements.
@@ -71,12 +72,18 @@ function adjustProductGrid(elements) {
     /**
      * @type {jQuery} filteredElements - Filtered elements based on viewport width.
      */
-    var filteredElements = window.matchMedia('(max-width: 479px)').matches ? elements.filter(':not(.grid-slot)') : elements;
+    var filteredElements = window.matchMedia('(max-width: 479px)').matches
+        ? elements.filter(':not(.grid-slot)')
+        : elements;
 
     /**
      * @type {number} itemsPerRow - Number of items per row in the product grid.
      */
-    var itemsPerRow = window.matchMedia('(max-width: 1024px)').matches ? (window.matchMedia('(max-width: 479px)').matches ? 2 : 3) : 4; // eslint-disable-line
+    var itemsPerRow = window.matchMedia('(max-width: 1024px)').matches
+        ? window.matchMedia('(max-width: 479px)').matches
+            ? 2
+            : 3
+        : 4; // eslint-disable-line
 
     /**
      * @type {number} totalItems - Total number of items in the product grid.
@@ -110,7 +117,10 @@ function adjustProductGrid(elements) {
 
             // Update start and end index for the next iteration
             startIndex = endIndex;
-            endIndex = endIndex + itemsPerRow > totalItems ? totalItems : endIndex + itemsPerRow;
+            endIndex =
+                endIndex + itemsPerRow > totalItems
+                    ? totalItems
+                    : endIndex + itemsPerRow;
         }
     }
 }
@@ -198,7 +208,9 @@ function getContent($element, $target) {
  */
 function updateSortOptions(response) {
     var $tempDom = $('<div>').append($(response));
-    var sortOptions = $tempDom.find('.grid-footer').data('sort-options').options;
+    var sortOptions = $tempDom
+        .find('.grid-footer')
+        .data('sort-options').options;
     sortOptions.forEach(function (option) {
         $('option.' + option.id).val(option.url);
     });
@@ -209,13 +221,22 @@ function updateSortOptions(response) {
  * @function searchAlphabetSort
  */
 function searchAlphabetSort() {
-
     // Sort list items alphabetically
-    var sortedItems = $('.fragrance-name .filter-list li').sort(function (a, b) {
-        var textA = $(a).find('span[aria-hidden="true"]').text().trim().toUpperCase();
-        var textB = $(b).find('span[aria-hidden="true"]').text().trim().toUpperCase();
-        return textA.localeCompare(textB);
-    });
+    var sortedItems = $('.fragrance-name .filter-list li').sort(
+        function (a, b) {
+            var textA = $(a)
+                .find('span[aria-hidden="true"]')
+                .text()
+                .trim()
+                .toUpperCase();
+            var textB = $(b)
+                .find('span[aria-hidden="true"]')
+                .text()
+                .trim()
+                .toUpperCase();
+            return textA.localeCompare(textB);
+        }
+    );
 
     // Create an object to store unique text values
     var uniqueItems = {};
@@ -245,7 +266,12 @@ function searchAlphabetSort() {
         // Check if we need to add a new header
         if (firstLetter !== currentLetter) {
             currentLetter = firstLetter;
-            $('<li class="fragrance-filter-header h-bg--gray-1 h-pl--25 h-fw--bold"></li>').text(currentLetter).css('font-weight', 'bold').insertBefore(this);
+            $(
+                '<li class="fragrance-filter-header h-bg--gray-1 h-pl--25 h-fw--bold"></li>'
+            )
+                .text(currentLetter)
+                .css('font-weight', 'bold')
+                .insertBefore(this);
         }
     });
 }
@@ -255,12 +281,18 @@ function searchAlphabetSort() {
  * @param {jQuery|string|Element} slider - The jQuery object, selector, or DOM element of the slider.
  */
 function checkitem(slider) {
-    if ($(slider).find('.carousel-inner .carousel-item:first').hasClass('active')) {
+    if (
+        $(slider)
+            .find('.carousel-inner .carousel-item:first')
+            .hasClass('active')
+    ) {
         // But show right arrow
         $(slider).find('.carousel-control-next').show();
         // Hide left arrow
         $(slider).find('.carousel-control-prev').hide();
-    } else if ($(slider).find('.carousel-inner .carousel-item:last').hasClass('active')) {
+    } else if (
+        $(slider).find('.carousel-inner .carousel-item:last').hasClass('active')
+    ) {
         // Hide right arrow
         $(slider).find('.carousel-control-prev').show();
         // But show left arrow
@@ -290,9 +322,18 @@ module.exports = {
             helpers.disableScroll();
             $('.refinement-bar, .modal-background').addClass('active');
             $('.refinement-bar').siblings().attr('aria-hidden', true);
-            $('.refinement-bar').closest('.row').siblings().attr('aria-hidden', true);
-            $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', true);
-            $('.refinement-bar').closest('.container.search-results').siblings().attr('aria-hidden', true);
+            $('.refinement-bar')
+                .closest('.row')
+                .siblings()
+                .attr('aria-hidden', true);
+            $('.refinement-bar')
+                .closest('.tab-pane.active')
+                .siblings()
+                .attr('aria-hidden', true);
+            $('.refinement-bar')
+                .closest('.container.search-results')
+                .siblings()
+                .attr('aria-hidden', true);
             $('.refinement-bar .close').focus();
         });
     },
@@ -300,7 +341,11 @@ module.exports = {
     closeFilter: function () {
         $('body').on('click', function (e) {
             // Check if the clicked element is not inside the collapse area and the collapse is open
-            if (!$(e.target).closest('.js-desktop-filters .collapse').length && $('.js-desktop-filters .collapse').hasClass('show') && !$(e.target).hasClass('ref-toggle')) {
+            if (
+                !$(e.target).closest('.js-desktop-filters .collapse').length &&
+                $('.js-desktop-filters .collapse').hasClass('show') &&
+                !$(e.target).hasClass('ref-toggle')
+            ) {
                 // Close all open collapses
                 $('.js-desktop-filters .collapse.show').collapse('hide');
             }
@@ -309,15 +354,28 @@ module.exports = {
 
     closeRefinements: function () {
         // Refinements close button
-        $('.container').on('click', '.refinement-bar button.close, .modal-background', function () {
-            $('.refinement-bar, .modal-background').removeClass('active');
-            $('.refinement-bar').siblings().attr('aria-hidden', false);
-            $('.refinement-bar').closest('.row').siblings().attr('aria-hidden', false);
-            $('.refinement-bar').closest('.tab-pane.active').siblings().attr('aria-hidden', false);
-            $('.refinement-bar').closest('.container.search-results').siblings().attr('aria-hidden', false);
-            $('.btn.filter-results').focus();
-            helpers.enableScroll();
-        });
+        $('.container').on(
+            'click',
+            '.refinement-bar button.close, .modal-background',
+            function () {
+                $('.refinement-bar, .modal-background').removeClass('active');
+                $('.refinement-bar').siblings().attr('aria-hidden', false);
+                $('.refinement-bar')
+                    .closest('.row')
+                    .siblings()
+                    .attr('aria-hidden', false);
+                $('.refinement-bar')
+                    .closest('.tab-pane.active')
+                    .siblings()
+                    .attr('aria-hidden', false);
+                $('.refinement-bar')
+                    .closest('.container.search-results')
+                    .siblings()
+                    .attr('aria-hidden', false);
+                $('.btn.filter-results').focus();
+                helpers.enableScroll();
+            }
+        );
     },
 
     resize: function () {
@@ -420,7 +478,10 @@ module.exports = {
                         $(attributeId).parent('button').focus();
                     }
                 });
-                if ($(this).hasClass('reset-filters') && $('.js-desktop-filters .collapse').hasClass('show')) {
+                if (
+                    $(this).hasClass('reset-filters') &&
+                    $('.js-desktop-filters .collapse').hasClass('show')
+                ) {
                     $('.js-desktop-filters .collapse.show').collapse('hide');
                 }
             }
@@ -449,28 +510,39 @@ module.exports = {
     },
 
     searchFilter: function () {
-        $(document).on('keyup', '.fragrance-name .js-frag-search', debounce(function () {
-            var filter = $(this).val().toUpperCase();
-            $('.fragrance-name .filter-list li').each(function () {
-                // Skip headers
-                if ($(this).hasClass('fragrance-filter-header')) return;
+        $(document).on(
+            'keyup',
+            '.fragrance-name .js-frag-search',
+            debounce(function () {
+                var filter = $(this).val().toUpperCase();
+                $('.fragrance-name .filter-list li').each(function () {
+                    // Skip headers
+                    if ($(this).hasClass('fragrance-filter-header')) return;
 
-                var text = $(this).find('span[aria-hidden="true"]').text().toUpperCase();
-                if (text.indexOf(filter) > -1) {
-                    $(this).show();
-                } else {
-                    $(this).hide();
-                }
-            });
+                    var text = $(this)
+                        .find('span[aria-hidden="true"]')
+                        .text()
+                        .toUpperCase();
+                    if (text.indexOf(filter) > -1) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
 
-            // Hide headers that have no visible items underneath
-            $('.fragrance-name .filter-list li.fragrance-filter-header').each(function () {
-                var header = $(this);
-                var nextItems = header.nextUntil('.fragrance-filter-header');
-                var visibleItems = nextItems.filter(':visible');
-                header.toggle(visibleItems.length > 0);
-            });
-        }, 500));
+                // Hide headers that have no visible items underneath
+                $(
+                    '.fragrance-name .filter-list li.fragrance-filter-header'
+                ).each(function () {
+                    var header = $(this);
+                    var nextItems = header.nextUntil(
+                        '.fragrance-filter-header'
+                    );
+                    var visibleItems = nextItems.filter(':visible');
+                    header.toggle(visibleItems.length > 0);
+                });
+            }, 500)
+        );
     },
 
     hideCarouselArrow: function () {
@@ -487,11 +559,90 @@ module.exports = {
     },
 
     handleOutSideClick: function () {
-        $(document).on('mouseleave', '.js-product-tile', debounce(function () {
-            if ($(this).find('.js-product-carousel').length > 0) {
-                var sliderId = '#' + $(this).find('.js-product-carousel').attr('id');
-                $(sliderId).carousel(0);
+        $(document).on(
+            'mouseleave',
+            '.js-product-tile',
+            debounce(function () {
+                if ($(this).find('.js-product-carousel').length > 0) {
+                    var sliderId =
+                        '#' + $(this).find('.js-product-carousel').attr('id');
+                    $(sliderId).carousel(0);
+                }
+            }, 500)
+        );
+    },
+
+    searchIngredient: function () {
+        $('#search-ingredient li.level-2').on('click', function () {
+            $.spinner().start();
+            var searchUrl = $(this).find('a').data('href');
+            var seoUrl = $(this).find('a').data('seo-href') || searchUrl;
+            if (seoUrl) {
+                window.history.pushState({}, null, seoUrl);
             }
-        }, 500));
+
+            $.ajax({
+                url: searchUrl,
+                data: {
+                    page: $('.grid-footer').data('page-number'),
+                    selectedUrl: searchUrl
+                },
+                method: 'GET',
+                success: function (response) {
+                    parseResults(response);
+                    searchAlphabetSort();
+                    $.spinner().stop();
+                    lazyload.lazyLoad();
+                },
+                error: function () {
+                    $.spinner().stop();
+                }
+            });
+        });
+
+        $('#ingredient-search').on('keydown', function (event) {
+            var inputValue = $(this).val();
+            if (
+                event.key === 'Enter' ||
+                event.which === 13 ||
+                $(event.target).hasClass('search-icon')
+            ) {
+                // var inputValue = $(this).val();
+                $.spinner().start();
+                var seoHref = $(this).data('seo-href');
+                var href = $(this).data('href');
+                var updatedSEOHref = seoHref + '&prefv1=' + inputValue;
+                var updatedHref = href + ('prefv1', inputValue);
+                var searchUrl = $('#shopByIngredientUrl').data('href');
+                var seoUrl = $('#shopByIngredientUrl').data('seo-href');
+
+                if (inputValue.length !== 0) {
+                    searchUrl = updatedHref;
+                    seoUrl = updatedSEOHref || searchUrl;
+                }
+
+                if (seoUrl) {
+                    window.history.pushState({}, null, seoUrl);
+                }
+
+                $.ajax({
+                    url: searchUrl,
+                    data: {
+                        page: $('.grid-footer').data('page-number'),
+                        selectedUrl: searchUrl
+                    },
+                    method: 'GET',
+                    success: function (response) {
+                        parseResults(response);
+                        searchAlphabetSort();
+                        $.spinner().stop();
+                        lazyload.lazyLoad();
+                    },
+                    error: function () {
+                        $.spinner().stop();
+                    }
+                });
+            }
+        });
     }
 };
