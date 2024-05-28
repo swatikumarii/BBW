@@ -54,15 +54,15 @@
                 </div>
                 <div class="phone-email d-flex">
                     <isif condition="${pdict.storeDetail.phone}">
-                        <p data-phone="${pdict.storeDetail.phone}" class="phone h-clr--black-1">
+                        <a href="phoneto:${pdict.storeDetail.phone}" class="phone h-clr--black-1">
                             <img width="18px" height="18px" class="mr-2"
                                 src="${URLUtils.staticURL('/images/store-locator/phone-call.svg')}"
                                 alt="${Resource.msg('global.storename', 'common', null)}" />
                             ${pdict.storeDetail.phone}
-                        </p>
+                        </a>
                     </isif>
                     <isif condition="${pdict.storeDetail.email}">
-                        <a href="#" class="email h-clr--black-1">
+                        <a href="mailto:${pdict.storeDetail.email}" class="email h-clr--black-1">
                             <img width="18px" height="18px" class="mr-2"
                                 src="${URLUtils.staticURL('/images/store-locator/email.svg')}"
                                 alt="${Resource.msg('global.storename', 'common', null)}" />
