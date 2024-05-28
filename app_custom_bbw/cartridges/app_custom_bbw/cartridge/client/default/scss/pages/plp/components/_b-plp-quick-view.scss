@@ -555,7 +555,7 @@
     left: 5% !important;
     border-radius: 0;
 
-    @include media-btw(sm,md) {
+    @include media-btw(sm, md) {
         left: 12% !important;
     }
 
@@ -581,4 +581,8 @@
         right: 8px;
         background-size: 0.8125rem;
     }
+}
+
+.open-notify {
+    overflow: hidden;
 }
