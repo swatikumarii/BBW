@@ -38,7 +38,7 @@
 
             <li>
                 <a title="${Resource.msg('label.payment.title', 'account', null)}"
-                    href="${URLUtils.url('PaymentInstruments-AddPayment')}">
+                   href="${URLUtils.url('PaymentInstruments-List')}">
                     <img class="pull-left"
                         src="${URLUtils.staticURL('/images/account/desktop-my-payment-methods-icon.svg')}"
                         alt="${Resource.msg('label.payment', 'account', null)}" />

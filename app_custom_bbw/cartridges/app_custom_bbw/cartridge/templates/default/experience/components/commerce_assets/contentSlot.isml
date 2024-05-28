@@ -1,0 +1,15 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
+    assets.addJs('/js/pickedJustForYou.js');
+</isscript>
+<isif condition="${pdict.contentSlotId === Resource.msg('slot.recommendation.einstein', 'common', null)}">
+    <div class="content-slot-component ${pdict.contentSlotPdCustomClass}">
+        <isslot id="einstein-recommendation-panel" description="Einstein recommendation Panel" context="global" />
+    </div>
+</isif>
+<isif condition="${pdict.contentSlotId === Resource.msg('slot.recommendation.picked.for.you', 'common', null)}">
+    <div class="content-slot-component picked-just-contatiner ${pdict.contentSlotPdCustomClass}">
+        <isslot id="picked-just-for-you" description="Picked Just for You" context="global" />
+    </div>
+</isif>

@@ -1,6 +1,7 @@
 'use strict';
 
 var base = require('./base');
+var detail = require('./detail');
 
 /**
  * Generates the modal window on the first call.
@@ -9,24 +10,22 @@ function getModalHtmlElement() {
     if ($('#quickViewModal').length !== 0) {
         $('#quickViewModal').remove();
     }
-    var htmlString = '<!-- Modal -->'
-        + '<div class="modal fade" id="quickViewModal" role="dialog">'
-        + '<span class="enter-message sr-only" ></span>'
-        + '<div class="modal-dialog quick-view-dialog">'
-        + '<!-- Modal content-->'
-        + '<div class="modal-content">'
-        + '<div class="modal-header">'
-        + '    <a class="full-pdp-link" href=""></a>'
-        + '    <button type="button" class="close pull-right" data-dismiss="modal">'
-        + '        <span aria-hidden="true">&times;</span>'
-        + '        <span class="sr-only"> </span>'
-        + '    </button>'
-        + '</div>'
-        + '<div class="modal-body"></div>'
-        + '<div class="modal-footer"></div>'
-        + '</div>'
-        + '</div>'
-        + '</div>';
+    var htmlString =
+        '<!-- Modal -->' +
+        '<div class="modal fade quick-view-modal" id="quickViewModal" role="dialog">' +
+        '<span class="enter-message sr-only" ></span>' +
+        '<div class="modal-dialog quick-view-dialog  modal-dialog-centered">' +
+        '<!-- Modal content-->' +
+        '<div class="modal-content border-0">' +
+        '<div class="modal-header border-bottom-0">' +
+        '    <button type="button" class="close h-bg--gray-1 pull-right" data-dismiss="modal">' +
+        '    </button>' +
+        '</div>' +
+        '<div class="modal-body"></div>' +
+        '<div class="modal-footer border-top-0"></div>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
     $('body').append(htmlString);
 }
 
@@ -49,7 +48,6 @@ function parseHtml(html) {
  * @param {string} selectedValueUrl - url to be used to retrieve a new product model
  */
 function fillModalElement(selectedValueUrl) {
-    $('#quickViewModal .modal-body').spinner().start();
     $.ajax({
         url: selectedValueUrl,
         method: 'GET',
@@ -60,30 +58,102 @@ function fillModalElement(selectedValueUrl) {
             $('#quickViewModal .modal-body').empty();
             $('#quickViewModal .modal-body').html(parsedHtml.body);
             $('#quickViewModal .modal-footer').html(parsedHtml.footer);
-            $('.full-pdp-link').text(data.quickViewFullDetailMsg);
-            $('#quickViewModal .full-pdp-link').attr('href', data.productUrl);
-            $('#quickViewModal .size-chart').attr('href', data.productUrl);
-            $('#quickViewModal .modal-header .close .sr-only').text(data.closeButtonText);
+            $('#quickViewModal .modal-body .full-link').html(
+                '<a class="full-pdp-link" href=' +
+                    data.productUrl +
+                    '>' +
+                    data.quickViewFullDetailMsg +
+                    '</a>'
+            );
+            $('#quickViewModal .modal-header .close .sr-only').text(
+                data.closeButtonText
+            );
             $('#quickViewModal .enter-message').text(data.enterDialogMessage);
             $('#quickViewModal').modal('show');
             $('body').trigger('quickview:ready');
-
-            $.spinner().stop();
-        },
-        error: function () {
-            $.spinner().stop();
+            $('.quick-view-modal .notifyBackInStockButton').on(
+                'click',
+                function () {
+                    $('#quickViewModal').modal('hide');
+                }
+            );
         }
     });
 }
 
 module.exports = $.extend({}, base, {
     showQuickview: function () {
+        var quickViewButton;
         $('body').on('click', '.quickview', function (e) {
             e.preventDefault();
-            var selectedValueUrl = $(this).closest('a.quickview').attr('href');
+            quickViewButton = $(this);
+            var selectedValueUrl = $(this).data('href');
             $(e.target).trigger('quickview:show');
             getModalHtmlElement();
             fillModalElement(selectedValueUrl);
         });
+        $('body').on('hidden.bs.modal', '.loginPopup #loginModal', function () {
+            if (quickViewButton) {
+                quickViewButton.trigger('click');
+            }
+        });
     },
+    popOver: function () {
+        // Initialize popover
+        $('body').find('#quickViewModal [data-toggle="popover"]').popover({
+            placement: 'top',
+            html: true
+        });
+
+        // Show popover on mouseenter
+        $('body').on(
+            'mouseenter',
+            '#quickViewModal [data-toggle="popover"]',
+            function () {
+                $(this).popover('show');
+                $('.pdp-title')
+                    .parents('.popover')
+                    .addClass('pdp-popover bs-popover-top');
+                $('.pdp-title')
+                    .parents('.popover')
+                    .removeClass('bs-popover-right');
+                $('.popover-header').addClass('d-none');
+            }
+        );
+
+        var timer;
+        $('body')
+            .on(
+                'mouseleave',
+                '#quickViewModal [data-toggle="popover"], .popover',
+                function () {
+                    timer = setTimeout(function () {
+                        $('.popover').popover('hide');
+                    }, 50);
+                }
+            )
+            .on(
+                'mouseenter',
+                '.popover[data-toggle="popover"], .popover',
+                function () {
+                    clearTimeout(timer);
+                }
+            );
+
+        // Close popover on close button click
+        $(document).on('click', '.popover .close', function (e) {
+            e.preventDefault(); // Prevent default behavior of anchor tag
+            $(this).parents('.popover').popover('hide');
+        });
+    },
+    enableQuickViewScroll: function () {
+        $('body').on('hidden.bs.modal', '#quickViewModal', function () {
+            // helpers.enableScroll();
+            if ($('#quickViewModal').length !== 0) {
+                $('#quickViewModal').remove();
+            }
+        });
+    },
+
+    quantityUpdate: detail.quantityUpdate
 });

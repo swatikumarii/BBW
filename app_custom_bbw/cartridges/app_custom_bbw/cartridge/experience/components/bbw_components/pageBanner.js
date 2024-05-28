@@ -23,17 +23,23 @@ module.exports.render = function (context, modelIn) {
 
     // Desktop - Banner Image
     model.desktopBannerImageUrl = content.desktopBannerImageUrl ? content.desktopBannerImageUrl : '';
+    model.desktopBannerImageUrl2X = content.desktopBannerImageUrl2X ? content.desktopBannerImageUrl2X : '';
     model.desktopBannerImage = content.desktopBannerImage ? ImageTransformation.getScaledImage(content.desktopBannerImage) : '';
+    model.desktopBannerImage2X = content.desktopBannerImage2X ? ImageTransformation.getScaledImage(content.desktopBannerImage2X) : '';
     model.desktopBannerOverlay = content.desktopBannerOverlay ? 'gradient-overlay-subtle' : '';
 
     // Tablet - Banner Image
     model.tabletBannerImageUrl = content.tabletBannerImageUrl ? content.tabletBannerImageUrl : '';
+    model.tabletBannerImageUrl2X = content.tabletBannerImageUrl2X ? content.tabletBannerImageUrl2X : '';
     model.tabletBannerImage = content.tabletBannerImage ? ImageTransformation.getScaledImage(content.tabletBannerImage) : '';
+    model.tabletBannerImage2X = content.tabletBannerImage2X ? ImageTransformation.getScaledImage(content.tabletBannerImage2X) : '';
     model.tabletBannerOverlay = content.tabletBannerOverlay ? 'gradient-overlay-tablet' : '';
 
     // Mobile - Banner Image
     model.mobileBannerImageUrl = content.mobileBannerImageUrl ? content.mobileBannerImageUrl : '';
+    model.mobileBannerImageUrl2X = content.mobileBannerImageUrl2X ? content.mobileBannerImageUrl2X : '';
     model.mobileBannerImage = content.mobileBannerImage ? ImageTransformation.getScaledImage(content.mobileBannerImage) : '';
+    model.mobileBannerImage2X = content.mobileBannerImage2X ? ImageTransformation.getScaledImage(content.mobileBannerImage2X) : '';
     model.mobileBannerOverlay = content.mobileBannerOverlay ? 'gradient-overlay-mobile' : '';
 
     model.bannerImgAlt = content.bannerImgAlt ? content.bannerImgAlt : '';
@@ -75,6 +81,7 @@ module.exports.render = function (context, modelIn) {
 
     /** Content - Position */
     // Desktop - Content - Position
+    model.contentAlignmentDesktop = content.contentAlignmentDesktop ? content.contentAlignmentDesktop : '';
     model.contentPositionDesktop = content.contentPositionDesktop ? content.contentPositionDesktop : '';
 
     // Mobile - Content - Position
@@ -87,6 +94,13 @@ module.exports.render = function (context, modelIn) {
 
     // Breadcrumb
     model.enableBreadcrumb = content.enableBreadcrumb ? content.enableBreadcrumb : false;
+
+    // Tracker Class
+    model.trackerClass = content.trackerClass ? content.trackerClass : '';
+
+    // Component Custom Class
+    model.customClass = content.customClass ? content.customClass : '';
+
 
     expires.setDate(expires.getDate() + 1);
     response.setExpires(expires);

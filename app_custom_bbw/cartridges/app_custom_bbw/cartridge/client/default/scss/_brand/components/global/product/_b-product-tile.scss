@@ -43,9 +43,17 @@
         margin-top: 12px;
     }
 
+    .social-badge-wrapper {
+        z-index: 1;
+
+        @include media-down(md) {
+            flex-wrap: wrap;
+        }
+    }
+
     &__social-badge-text {
         border-radius: 2px;
-        margin-bottom: 32px;
+        margin-bottom: 0;
         padding: 4px 8px;
         letter-spacing: 0.015em;
     }
@@ -101,6 +109,45 @@
     &__wishlistTile {
         top: 0;
         right: 0;
+
+        .fa-stack {
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+        }
+
+        .icon-wishlist {
+            background-size: contain;
+            width: 24px;
+            height: 24px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .icon-heart-filled {
+            display: none;
+        }
+
+        .icon-heart-o {
+            background-image: url("../../images/plp/wishlist/heart-24.svg");
+        }
+
+        &:hover {
+            .icon-heart-o {
+                background-image: url("../../images/plp/wishlist/heart-pink-24.svg");
+            }
+        }
+
+        &.added {
+            .icon-heart-o {
+                display: none;
+            }
+
+            .icon-heart-filled {
+                display: inline-block;
+                background-image: url("../../images/plp/wishlist/heart-filled-24.svg");
+            }
+        }
     }
 
     &__choose-store {
@@ -159,6 +206,8 @@
     }
 
     &__img-wrapper {
+        overflow: hidden;
+
         .img-inner-wrapper {
             @include media-up(md) {
                 max-height: 300px;
@@ -172,11 +221,13 @@
                 transform: translate(-50%, -50%);
                 transition: opacity 0.3s;
                 flex: 0 0 auto;
+                width: 100%;
             }
 
             &.main-img-wrapper {
                 position: static;
                 opacity: 1;
+                transition: opacity 0.3s;
             }
         }
 
@@ -192,13 +243,36 @@
             .b-product-tile__quickview {
                 display: block;
                 transition: opacity 0.3s;
+                color: colour(black, 3);
+
+                @include media-down(sm) {
+                    display: none;
+                }
             }
         }
+    }
+
+    .loader {
+        z-index: 8;
     }
 }
 
 .product {
     height: 100%;
+}
+
+.search-results {
+    .product-grid {
+        .product {
+            max-width: 250px;
+        }
+    }
+}
+
+.product-grid {
+    .suggestions__btn-add-to-cart {
+        display: none;
+    }
 }
 
 .product-quickview {

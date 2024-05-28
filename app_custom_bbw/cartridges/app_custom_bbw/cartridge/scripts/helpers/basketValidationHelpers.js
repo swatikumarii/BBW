@@ -5,6 +5,8 @@ var ProductMgr = require('dw/catalog/ProductMgr');
 var ProductInventoryMgr = require('dw/catalog/ProductInventoryMgr');
 var StoreMgr = require('dw/catalog/StoreMgr');
 var Logger = require('dw/system/Logger');
+var productValidationHelpers = require('*/cartridge/scripts/helpers/productValidationHelpers');
+var collections = require('*/cartridge/scripts/util/collections');
 
 /**
  * validates that the product line items exist, are online, and have available inventory.
@@ -12,7 +14,6 @@ var Logger = require('dw/system/Logger');
  * @returns {object} an error object
  */
 function validateProducts(basket) {
-    var collections = require('*/cartridge/scripts/util/collections');
     var result = {
         error: false,
         hasInventory: true
@@ -20,13 +21,6 @@ function validateProducts(basket) {
     var productLineItems = basket.productLineItems;
     collections.forEach(productLineItems, function (item) {
         var apiProduct = ProductMgr.getProduct(item.productID);
-        var productLevelMaxOrderQty =
-        'custom' in apiProduct &&
-        'maxOrderQty' in apiProduct.custom &&
-        apiProduct.custom.maxOrderQty
-            ? apiProduct.custom.maxOrderQty
-            : false;
-        var globalLevelMaxOrderQty = dw.system.Site.getCurrent().getCustomPreferenceValue('maxOrderQty');
         var productLevelReserveQty =
             'custom' in apiProduct &&
             'reserveQty' in apiProduct.custom &&
@@ -35,7 +29,8 @@ function validateProducts(basket) {
                 : 0;
         var globalLevelReserveQty = dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
         var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
-        var maxOrderQty = productLevelMaxOrderQty || globalLevelMaxOrderQty;
+        var maxOrderQty =
+            productValidationHelpers.getProductMaxOrderQty(apiProduct);;
         if (item.product === null || !item.product.online) {
             result.error = true;
             return;
@@ -66,6 +61,24 @@ function validateProducts(basket) {
     return result;
 }
 
+/**
+ * validates Pricing
+ * @param {object} basket current basket
+ * @returns {object} result
+ */
+function validatePricing(basket) {
+    var result = {
+        error: false
+    };
+    collections.forEach(basket.productLineItems, function (item) {
+        if (item.basePrice.value === 0) {
+            result.error = true;
+        }
+    });
+    return result;
+}
+
 base.validateProducts = validateProducts;
+base.validatePricing = validatePricing;
 
 module.exports = base;

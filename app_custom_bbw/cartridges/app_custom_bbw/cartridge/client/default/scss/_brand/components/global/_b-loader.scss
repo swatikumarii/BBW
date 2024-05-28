@@ -7,19 +7,18 @@
  */
 .loader {
     /* Overlay covering the entire viewport */
-    background: color(white);
+    background: colour(white);
     height: 100%;
     left: 0;
     position: absolute;
     top: 0;
     width: 100%;
-    z-index: 150;
-    filter: alpha(opacity=80);
+    z-index: 2;
     opacity: 0.8;
 
     /* Spinner animation */
     .spinner {
-        position: fixed;
+        position: absolute;
         top: 50%;
         left: 50%;
         width: 32px;
@@ -45,5 +44,12 @@
             position: absolute;
             width: 1px;
         }
+    }
+
+    .loader-element {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 }

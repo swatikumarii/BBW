@@ -11,7 +11,7 @@
 
 <ismodule template="/components/content/contentassetmail" name="contentassetmail" attribute="aid" />
 
-<ismodule template="/emails/components/headerDynamic"
+<ismodule template="/mail/components/headerDynamic"
     name="emailheaderdynamic"
     attribute="heading"
     attribute="title"

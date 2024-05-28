@@ -7,6 +7,9 @@
 var server = require('server');
 var cache = require('*/cartridge/scripts/middleware/cache');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
+var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
+var seo = require('*/cartridge/scripts/middleware/seo');
+
 
 /**
  * CorporateGifting-Landing : This endpoint is used to load the Corporate Gifting page
@@ -19,11 +22,16 @@ var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
  */
 server.get('Landing', server.middleware.https, cache.applyDefaultCache, consentTracking.consent, function (req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
+    var Site = require('dw/system/Site');
+    var businessTypes = Site.getCurrent().getCustomPreferenceValue('businessTypes');
+    businessTypes = JSON.parse(businessTypes);
+
     res.render('corporateGifting/corporateGifting', {
-        actionUrl: URLUtils.url('CorporateGifting-Submit').toString()
+        actionUrl: URLUtils.url('CorporateGifting-Submit').toString(),
+        businessTypes: businessTypes,
     });
     return next();
-});
+},seo.addCurrentPageMetaData);
 
 /**
  * CorporateGifting-Submit : This endpoint is used submit Corporate Gifting form
@@ -39,6 +47,7 @@ server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentT
     var Transaction = require('dw/system/Transaction');
     var UUIDUtils = require('dw/util/UUIDUtils');
     var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+    var Site = require('dw/system/Site');
     var corporateGiftingDetails;
     var form = req.form;
     try{
@@ -56,6 +65,29 @@ server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentT
             corporateGiftingDetails.custom.topic = form.corporateGiftingTopic ? form.corporateGiftingTopic : '';
             corporateGiftingDetails.custom.question = form.corporateGiftingQuestion ? form.corporateGiftingQuestion : '';
         });
+
+        // content to be attached in the email
+        var formObject = {
+            formDetails: form
+        };
+
+        // email to, from and subject details
+        var emailObj = {
+            to: Site.current.getCustomPreferenceValue('customerServiceEmail'),
+            subject: Resource.msg(
+                'new.query.corporate.gifting',
+                'corporateGifting',
+                null
+            ),
+            from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com'
+        };
+
+        // send email
+        emailHelpers.sendEmail(
+            emailObj,
+            'mail/corporateGiftingDetails',
+            formObject
+        );
     }
     catch(e){
         res.setStatusCode(500);

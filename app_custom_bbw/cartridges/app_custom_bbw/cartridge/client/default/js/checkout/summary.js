@@ -5,7 +5,12 @@
  * @param {Array} totals - the totals data
  */
 function updateTotals(totals) {
-    $('.shipping-total-cost').text(totals.totalShippingCost);
+    if ($('.order-summary .shipping-cost').hasClass('tax-exclusive')) {
+        $('.order-summary .shipping-cost').text(totals.shippingTotalExclTax);
+    } else {
+        $('.order-summary .shipping-cost').text(totals.totalShippingCost);
+    }
+    $('.order-summary .shipping-tax').text(totals.shippingTotalTax);
     $('.tax-total').text(totals.totalTax);
     $('.sub-total').text(totals.subTotal);
     $('.grand-total-sum').text(totals.grandTotal);
@@ -131,7 +136,7 @@ function updateOrderProductSummaryInformation(order) {
         $productSummary.append($shippingSummary);
     });
 
-    $('.product-summary-block').html($productSummary.html());
+    // $('.product-summary-block').html($productSummary.html());
 
     // Also update the line item prices, as they might have been altered
     $('.grand-total-price').text(order.totals.subTotal);

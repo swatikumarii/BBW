@@ -3,6 +3,18 @@
 .grid-layout {
     &__container {
         margin: 0 auto;
+        background-image: var(--mobile-bg-image);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+
+        @include media-btw(sm, md) {
+            background-image: var(--tablet-bg-image);
+        }
+
+        @include media-up(md) {
+            background-image: var(--desktop-bg-image);
+        }
     }
 
     &__row {

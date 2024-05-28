@@ -12,6 +12,50 @@ var URLUtils = require('dw/web/URLUtils');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
+var Order = require('dw/order/Order');
+var seo = require('*/cartridge/scripts/middleware/seo');
+
+/**
+ * Order-Details : The Order-Details append to add notify-me functionality
+ * @name Order-Details
+ */
+server.append(
+    'Details',
+    consentTracking.consent,
+    server.middleware.https,
+    userLoggedIn.validateLoggedIn,
+    function (req, res, next) {
+        var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+        var viewData = res.getViewData();
+
+        var userEmail = req.currentCustomer.raw.registered
+            ? req.currentCustomer.profile.email
+            : false;
+
+        if (viewData.order.shipping.length > 0){
+            var products = viewData.order.shipping[0].productLineItems.items;
+            for (var index = 0; index < products.length; index++) {
+                if (products[index].isEgiftCard) {
+                    viewData.isEgiftCard = products[index].isEgiftCard;
+                    break;
+                }
+
+                var productRecord = CustomObjectMgr.getCustomObject(
+                    'notifyBackInStock',
+                    products[index].id
+                );
+                products[index].productPresentInNotifyList = false;
+                if (userEmail && productRecord !== null && productRecord.custom.user.indexOf(userEmail) !== -1) {
+                    products[index].productPresentInNotifyList = true;
+                }
+            }
+        }
+        viewData.isOrderBaseRemoveGiftCard = true;
+        res.setViewData(viewData);
+        next();
+    });
+
+
 
 /**
  * Order-History : The Order-History append to update breadcrumbs
@@ -48,8 +92,8 @@ server.append(
         res.setViewData(viewData);
 
         next();
-    }
-);
+    },
+    seo.addCurrentPageMetaData);
 
 /**
  * Order-InvoiceDownload : The Order-InvoiceDownload endpoint get order details to download invoice
@@ -91,8 +135,10 @@ server.get(
     consentTracking.consent,
     server.middleware.https,
     function (req, res, next) {
+        var reportingUrlsHelper = require('*/cartridge/scripts/reportingUrls');
         var OrderMgr = require('dw/order/OrderMgr');
-        // var OrderModel = require('*/cartridge/models/order');
+        var OrderModel = require('*/cartridge/models/order');
+        var Locale = require('dw/util/Locale');
 
         var order;
         var orderID = session.privacy.orderNo;
@@ -114,7 +160,44 @@ server.get(
 
             return next();
         }
-        res.render('checkout/failedOrder');
+        var lastOrderID = Object.prototype.hasOwnProperty.call(req.session.raw.custom, 'orderID') ? req.session.raw.custom.orderID : null;
+        if (lastOrderID === req.querystring.ID) {
+            res.redirect(URLUtils.url('Home-Show'));
+            return next();
+        }
+
+        var config = {
+            numberOfLineItems: '*'
+        };
+
+        var currentLocale = Locale.getLocale(req.locale.id);
+
+        var orderModel = new OrderModel(
+            order,
+            { config: config, countryCode: currentLocale.country, containerView: 'order' }
+        );
+        var passwordForm;
+
+        var reportingURLs = reportingUrlsHelper.getOrderReportingURLs(order);
+
+        if (!req.currentCustomer.profile) {
+            passwordForm = server.forms.getForm('newPasswords');
+            passwordForm.clear();
+            res.render('checkout/failedOrder', {
+                order: orderModel,
+                returningCustomer: false,
+                passwordForm: passwordForm,
+                reportingURLs: reportingURLs,
+                orderUUID: order.getUUID()
+            });
+        } else {
+            res.render('checkout/failedOrder', {
+                order: orderModel,
+                returningCustomer: true,
+                reportingURLs: reportingURLs,
+                orderUUID: order.getUUID()
+            });
+        }
         return next();
     }
 );
@@ -132,8 +215,10 @@ server.get(
     consentTracking.consent,
     server.middleware.https,
     function (req, res, next) {
+        var reportingUrlsHelper = require('*/cartridge/scripts/reportingUrls');
         var OrderMgr = require('dw/order/OrderMgr');
-        // var OrderModel = require('*/cartridge/models/order');
+        var OrderModel = require('*/cartridge/models/order');
+        var Locale = require('dw/util/Locale');
 
         var order;
         var orderID = session.privacy.orderNo;
@@ -155,7 +240,44 @@ server.get(
 
             return next();
         }
-        res.render('checkout/pendingOrder');
+        var lastOrderID = Object.prototype.hasOwnProperty.call(req.session.raw.custom, 'orderID') ? req.session.raw.custom.orderID : null;
+        if (lastOrderID === req.querystring.ID) {
+            res.redirect(URLUtils.url('Home-Show'));
+            return next();
+        }
+
+        var config = {
+            numberOfLineItems: '*'
+        };
+
+        var currentLocale = Locale.getLocale(req.locale.id);
+
+        var orderModel = new OrderModel(
+            order,
+            { config: config, countryCode: currentLocale.country, containerView: 'order' }
+        );
+        var passwordForm;
+
+        var reportingURLs = reportingUrlsHelper.getOrderReportingURLs(order);
+
+        if (!req.currentCustomer.profile) {
+            passwordForm = server.forms.getForm('newPasswords');
+            passwordForm.clear();
+            res.render('checkout/pendingOrder', {
+                order: orderModel,
+                returningCustomer: false,
+                passwordForm: passwordForm,
+                reportingURLs: reportingURLs,
+                orderUUID: order.getUUID()
+            });
+        } else {
+            res.render('checkout/pendingOrder', {
+                order: orderModel,
+                returningCustomer: true,
+                reportingURLs: reportingURLs,
+                orderUUID: order.getUUID()
+            });
+        }
         return next();
     }
 );
@@ -168,6 +290,18 @@ server.get(
     consentTracking.consent,
     server.middleware.https,
     function (req, res, next) {
+        var viewData = res.getViewData();
+        var breadcrumbs = [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            },
+            {
+                htmlValue: Resource.msg('label.order.tracking', 'order', null),
+                url: URLUtils.url('Order-Status').toString()
+            }
+        ];
+        viewData.breadcrumbs = breadcrumbs;
         res.render('account/orderTracking');
         return next();
     }
@@ -181,40 +315,104 @@ server.get(
     consentTracking.consent,
     server.middleware.https,
     function (req, res, next) {
+        var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
         var OrderMgr = require('dw/order/OrderMgr');
-        var Locale = require('dw/util/Locale');
-        var OrderModel = require('*/cartridge/models/order');
         var orderId = encryptionHelper.decryptPin(
             decodeURIComponent(req.querystring.token)
         );
         if (orderId) {
             var order = OrderMgr.getOrder(orderId);
-            if (order) {
-                var currentLocale = Locale.getLocale(req.locale.id);
-
-                var config = {
-                    numberOfLineItems: 'single'
-                };
-
-                var orderModel = new OrderModel(order, {
-                    config: config,
-                    countryCode: currentLocale.country
-                });
-                res.render('account/orderDetail', {
-                    order: orderModel,
-                    accountlanding: false
-                });
-                return next();
+            var breadcrumbs = [];
+            if (req.currentCustomer.profile) {
+                breadcrumbs = [
+                    {
+                        htmlValue: Resource.msg('global.home', 'common', null),
+                        url: URLUtils.home().toString()
+                    },
+                    {
+                        htmlValue: Resource.msg(
+                            'page.title.myaccount',
+                            'account',
+                            null
+                        ),
+                        url: URLUtils.url('Account-Show').toString()
+                    },
+                    {
+                        htmlValue: Resource.msg('label.orderhistory', 'account', null),
+                        url: URLUtils.url('Order-History').toString()
+                    }
+                ];
+            } else {
+                breadcrumbs = [
+                    {
+                        htmlValue: Resource.msg('global.home', 'common', null),
+                        url: URLUtils.home().toString()
+                    },
+                    {
+                        htmlValue: Resource.msg(
+                            'label.order.tracking',
+                            'order',
+                            null
+                        ),
+                        url: URLUtils.url('Order-Status').toString()
+                    },
+                    {
+                        htmlValue: Resource.msg('order.title.receipt', 'order', null),
+                        url: URLUtils.url('Order-Tracking').toString()
+                    }
+                ];
             }
+
+            if (order) {
+                var orderModel = orderHelpers.getOrderDetailsByID(
+                    orderId,
+                    req.locale.id
+                );
+                var exitLinkText = Resource.msg(
+                    'link.orderdetails.orderhistory',
+                    'account',
+                    null
+                );
+                var exitLinkUrl = URLUtils.https(
+                    'Order-History',
+                    'orderFilter',
+                    req.querystring.orderFilter
+                );
+
+                var isEgiftCard;
+                if (orderModel.shipping.length > 0) {
+                    var products = orderModel.shipping[0].productLineItems.items;
+                    for (var index = 0; index < products.length; index++) {
+                        if (products[index].isEgiftCard) {
+                            isEgiftCard = products[index].isEgiftCard;
+                            break;
+                        }
+                    }
+                }
+
+                var isOrderBaseRemoveGiftCard = true;
+
+                res.render('account/orderDetails', {
+                    order: orderModel,
+                    exitLinkText: exitLinkText,
+                    exitLinkUrl: exitLinkUrl,
+                    isOrderBaseRemoveGiftCard: isOrderBaseRemoveGiftCard,
+                    isEgiftCard: isEgiftCard,
+                    breadcrumbs: breadcrumbs
+                });
+            } else {
+                res.redirect(URLUtils.url('Account-Show'));
+            }
+        } else {
+            res.redirect(URLUtils.url('Account-Show'));
         }
-        res.redirect(URLUtils.url('Home-Show'));
         return next();
-    }
-);
+    },
+    seo.addCurrentPageMetaData);
 
 /**
- * Order-Tracking : This endpoint is used to track a placed Order
- * @name Order-Tracking
+ * Order-Check : This endpoint is used to track a placed Order
+ * @name Order-Check
  */
 server.post(
     'Check',
@@ -230,16 +428,11 @@ server.post(
             var order = OrderMgr.getOrder(req.form.orderNumber);
             if (
                 order &&
-                order.customerEmail === req.form.orderEmail.trim() &&
-                order.shipments[0].shippingAddress.postalCode ===
-                    req.form.billingZipCode.trim()
+                order.customerEmail.toLowerCase() === req.form.orderEmail.toLowerCase().trim() &&
+                order.billingAddress.postalCode === req.form.billingZipCode.trim()
             ) {
                 res.json({
-                    redirectUrl: URLUtils.url(
-                        'Order-Tracking',
-                        'token',
-                        encryptionHelper.encryptPin(req.form.orderNumber)
-                    ).toString()
+                    redirectUrl: URLUtils.url('Order-Tracking', 'token', encryptionHelper.encryptPin(req.form.orderNumber)).toString()
                 });
             } else {
                 res.setStatusCode(400);
@@ -262,5 +455,35 @@ server.post(
         next();
     }
 );
+
+/**
+ * Order-Confirm : Append to extend the order confirm functionality
+ * @name Order-Confirm
+ */
+server.append(
+    'Confirm',
+    function (req, res, next) {
+        this.on('route:BeforeComplete', function () {
+            // send email when order total 0
+            var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
+            var viewData = res.getViewData();
+            var OrderMgr = require('dw/order/OrderMgr');
+            var order = OrderMgr.getOrder(viewData.order.orderNumber);
+            if (order && order.totalGrossPrice.value === 0) {
+                commonHelper.zeroOrderEmail(viewData.order);
+            }
+            // redirection url
+            viewData.orderStatusVal = Order;
+            res.setViewData(viewData);
+            if (order.status.value === Order.ORDER_STATUS_FAILED || order.status.value === Order.ORDER_STATUS_CANCELLED) {
+                res.redirect(URLUtils.url('Order-Failed'));
+            }
+            if (order.status.value === Order.ORDER_STATUS_CREATED) {
+                res.redirect(URLUtils.url('Order-Pending'));
+            }
+        });
+        return next();
+    },
+    seo.addCurrentPageMetaData);
 
 module.exports = server.exports();

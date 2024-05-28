@@ -11,3 +11,4 @@ require('bootstrap/js/src/scrollspy.js');
 require('bootstrap/js/src/tab.js');
 require('bootstrap/js/src/tooltip.js');
 require('bootstrap/js/src/popover.js');
+require('bootstrap/js/src/toast.js');

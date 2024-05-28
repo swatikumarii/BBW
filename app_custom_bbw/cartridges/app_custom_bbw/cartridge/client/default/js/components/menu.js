@@ -18,26 +18,32 @@ $('.mobile-slide-cancel').on('click', function () {
 /* Responsive menu and its sub-menues */
 if (layout.isMobile()) {
     $('.level-1-li').on('click', function () {
+        $('.level-1-li').not(this).addClass('muted');
         if ($(this).hasClass('active')) {
             $(this).children('.level-2-ul').removeClass('active');
+            $('.level-2-li, .level-3-ul').removeClass('active');
             $(this).removeClass('active');
+            $('.level-1-li.muted').removeClass('muted');
         } else {
-            $('.level-1-li').removeClass('active');
-            $('.level-2-ul').removeClass('active');
-            $('.level-2-li').removeClass('active');
-            $('.level-3-ul').removeClass('active');
+            $('.level-1-li, .level-2-ul, .level-2-li, .level-3-ul').removeClass(
+                'active'
+            );
             $(this).addClass('active');
             $(this).children('.level-2-ul').addClass('active');
         }
     });
 
     $('.level-2-li').on('click', function (e) {
-        if ($(this).hasClass('active')) {
+        if ($(this).hasClass('active') && e.target.role !== 'menuitem') {
             $(this).children('.level-3-ul').removeClass('active');
+            $('.category-top-items').removeClass('in');
             $(this).removeClass('active');
+            $('.category-top-items .level-3-ul').removeClass('active');
         } else {
             $(this).addClass('active');
             $(this).children('.level-3-ul').addClass('active');
+            $('.category-top-items').addClass('in');
+            $('.category-top-items .level-3-ul').addClass('active');
         }
         e.stopImmediatePropagation();
     });
@@ -46,22 +52,183 @@ if (layout.isMobile()) {
 /* Close slide panel on clicking of menu overlay */
 
 $('.mobile-menu-overlay').on('click', function () {
-    $('.bbw-menu').removeClass('in');
+    $('.bbw-menu, .bbw-brand-menu').removeClass('in');
 });
 
 /* Header my account dropdown */
 $('.account-dropdown').on('click', function (e) {
-    if($(this).find('.dropdown-menu').hasClass('show')){
+    if ($(this).find('.dropdown-menu').hasClass('show')) {
         $(this).find('.dropdown-menu').removeClass('show');
-    }else{
+    } else {
         $(this).find('.dropdown-menu').addClass('show');
     }
     e.stopPropagation();
 });
 
+/** Close header account dropdown on body click */
 $('body').on('click', function () {
     var accountDropdownMenu = $('.account-dropdown').find('.dropdown-menu');
     if (accountDropdownMenu && accountDropdownMenu.hasClass('show')) {
         accountDropdownMenu.removeClass('show');
     }
 });
+
+/** BBW Brand Header Start */
+if (layout.isDesktop() || layout.isTablet()) {
+    // Show class on hover
+    var $level2li = $('.level-2-li');
+    var $level1li = $('.level-1-link');
+
+    $level1li.hover(
+        function () {
+            var $level1Parent = $(this).parent();
+            var maxWidth;
+            $(this)
+                .find('.level-2-li')
+                .each(function () {
+                    if ($(this).width() > maxWidth) {
+                        maxWidth = $(this).width();
+                    }
+                });
+            $(this).find('.level-2-li').width(maxWidth);
+
+            var $ul = $level1Parent
+                .find('.level-2-li')
+                .first()
+                .find('.level-3-ul');
+            var totalLiHeight = 0;
+
+            // Calculate the total height of all li elements in the current ul
+            $ul.find('li').each(function () {
+                totalLiHeight += $(this).height();
+            });
+
+            var containerHeight = $(this).parent().find('.level-2-ul').height();
+            // Compare total height of li elements with main container height
+            if (totalLiHeight > containerHeight) {
+                $ul.addClass('two-column');
+            }
+
+            $(this)
+                .parent()
+                .find('.menu-wrap-level-1')
+                .hover(
+                    function () {
+                        $level1Parent.addClass('show');
+                        $level1Parent
+                            .find('.level-2-li')
+                            .first()
+                            .addClass('show');
+                        $level1Parent
+                            .find('.level-2-li .menu-wrap-level-3')
+                            .first()
+                            .addClass('show');
+                    },
+                    function () {
+                        $('.level-2-li').removeClass('show');
+                        $level1Parent.removeClass('show');
+                        $('body')
+                            .find('.menu-wrap-level-3')
+                            .removeClass('show');
+                    }
+                );
+            $('body').find('.menu-wrap-level-3').removeClass('show');
+            $level2li.removeClass('show');
+            $(this).parent().find('.level-2-li').first().addClass('show');
+            $(this)
+                .parent()
+                .find('.level-2-li')
+                .first()
+                .find('.menu-wrap-level-3')
+                .addClass('show');
+            var $level2liWidth = $(this)
+                .parent()
+                .find('.level-2-li')
+                .first()
+                .width();
+            var $menuWrapLevel3Width = $(this)
+                .parent()
+                .find('.level-3-ul')
+                .width();
+            $(this)
+                .parent()
+                .find('.menu-right')
+                .css('left', $level2liWidth + $menuWrapLevel3Width);
+            window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
+        },
+        function () {
+            $('body').find('.menu-wrap-level-3').removeClass('show');
+            $(this).parent().find('.level-2-li').first().removeClass('show');
+        }
+    );
+
+    $level2li.hover(function (e) {
+        e.preventDefault();
+        $('body').find('.menu-wrap-level-3').removeClass('show');
+        $level2li.removeClass('show');
+        $(this).addClass('show');
+        $(this).find('.menu-wrap-level-3').addClass('show');
+    });
+
+    $('.explore-li').hover(
+        function () {
+            var $level2liWidth = $(this).width();
+            $('body').find('.menu-wrap-level-3').removeClass('show');
+            $level2li.removeClass('show');
+            $(this)
+                .closest('div.level-2-ul-wrap')
+                .find('.menu-right')
+                .css('left', $level2liWidth);
+        },
+        function () {
+            $(this)
+                .closest('div.level-2-ul-wrap')
+                .find('.menu-right')
+                .css('left', window.menuRightWidth);
+        }
+    );
+
+    /** 2 Column layout */
+    // Select the main container div
+
+    $level2li.hover(function () {
+        var this1 = $(this);
+        var $level2liWidth = $(this).width();
+        var $menuWrapLevel3Width = $(this).find('.level-3-ul').width();
+        $(this)
+            .parent()
+            .find('.menu-right')
+            .css('left', $level2liWidth + $menuWrapLevel3Width);
+        window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
+
+        var $mainContainer = $(this).parent();
+
+        // Get the height of the main container div
+        var containerHeight = $mainContainer.height();
+
+        // Iterate over each ul within the container
+        $mainContainer.find('.level-3-ul').each(function () {
+            var $ul = $(this);
+            var totalLiHeight = 0;
+
+            // Calculate the total height of all li elements in the current ul
+            $ul.find('li').each(function () {
+                totalLiHeight += $(this).height();
+            });
+
+            // Compare total height of li elements with main container height
+            if (totalLiHeight > containerHeight) {
+                $ul.addClass('two-column');
+
+                $level2liWidth = this1.width();
+                $menuWrapLevel3Width = this1.find('.level-3-ul').width();
+                this1
+                    .parent()
+                    .find('.menu-right')
+                    .css('left', $level2liWidth + $menuWrapLevel3Width);
+                window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
+            }
+        });
+    });
+}
+/** BBW Brand Header End */

@@ -9,8 +9,15 @@
 
         <div class="line-item">
             <div class="item-image">
-                <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
-                    title="${lineItem.images.small[0].title}">
+                <isif condition="${lineItem.isEgiftCard}">
+                    <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
+                        title="${lineItem.images.small[0].title}" />
+                <iselse/>
+                    <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                        <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
+                            title="${lineItem.images.small[0].title}" />
+                    </a>
+                </isif>
             </div>
             <div class="item-attributes d-flex flex-column">
                 <isinclude template="cart/productCard/cartProductCardHeader" />
@@ -27,6 +34,8 @@
                 </isloop>
                 <!--- promotions --->
                 <div class="line-item-promo item-${lineItem.UUID}">
+                    <isset name="cartPage" value="${true}" scope="page" />
+                    <isset name="miniCart" value="${false}" scope="page" />
                     <isinclude template="checkout/productCard/productCardProductPromotions" />
                 </div>
             </div>

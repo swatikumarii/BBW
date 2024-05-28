@@ -6,19 +6,28 @@
     <isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page" />
 
     <div class="gift-wrap-product-card card product-info ${bonusproductlineitem} uuid-${lineItem.UUID}"
-        data-uuid="${lineItem.UUID}" data-pid="${lineItem.id}" data-price="${lineItem.priceTotal.price}">
+        data-uuid="${lineItem.UUID}" data-pid="${lineItem.id}" data-price="${lineItem.price.sales.formatted}">
         <!--- name and remove buttons --->
-        <isinclude template="cart/productCard/cartProductCardHeader" />
+        <iscomment>
+            <isinclude template="cart/productCard/cartProductCardHeader" />
+        </iscomment>
 
-        <div class="row ${bonuslineitemrow}">
-            <div class="col-lg-5">
-                <div class="row">
-                    <div class="col-lg-12 d-flex flex-row">
-                        <div class="item-image">
-                            <img class="product-image" src="${lineItem.images.small[0].url}"
-                                alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}" />
+        <div class="d-flex w-100 ${bonuslineitemrow}">
+            <div class="col-md-7 p-0">
+                <div class="d-flex">
+                    <div class="item-image">
+                        <img class="product-image" src="${lineItem.images.small[0].url}"
+                            alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}" />
+                    </div>
+                    <div class="item-detail item-attributes d-flex flex-column">
+                        <div class="item-desc">
+                            <div class="line-item-header">
+                                <div class="line-item-name">
+                                    ${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}
+                                </div>
+                            </div>
                         </div>
-                        <div class="item-attributes d-flex flex-column">
+                        <iscomment>
                             <isloop items="${lineItem.variationAttributes}" var="attribute">
                                 <p class="line-item-attributes ${attribute.displayName}-${lineItem.UUID}">
                                     ${attribute.displayName}: ${attribute.displayValue}</p>
@@ -31,24 +40,43 @@
                                     </div>
                                 </isif>
                             </isloop>
+                        </iscomment>
 
+                        <iscomment>
                             <isinclude template="cart/productCard/cartProductCardAvailability" />
+                        </iscomment>
+                        <iscomment>
                             <isinclude template="cart/productCard/cartProductCardEdit" />
-                        </div>
+                        </iscomment>
                     </div>
                 </div>
             </div>
-            <div class="col-12 d-lg-none">
-                <hr class="line-item-divider" />
-            </div>
 
-            <isinclude template="cart/productCard/cartProductCardProductPrice" />
+            <div class="col-md-5 col-3 pr-0">
+                <div class="d-flex">
+                    <!---item price--->
+                    <div class="text-right w-100 line-item-price line-item-total-price">
+                        <div class="item-total-${lineItem.UUID} price">
+                            <isinclude template="checkout/productCard/productCardProductTotalPrice" />
+                        </div>
+                    </div>
 
-            <isif condition="${!lineItem.isBonusProductLineItem}">
-                <div class="hidden-md-down">
-                    <isinclude template="components/deleteButton" />
+                    <isif condition="${!lineItem.isBonusProductLineItem}">
+
+                        <button type="button" class="remove-btn-lg remove-product bg-white border-0" data-toggle="modal"
+                            data-target=".cart.cart-page #removeProductModal" data-pid="${lineItem.id}"
+                            data-name="${lineItem.productName}"
+                            data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}"
+                            aria-label="${Resource.msgf('text.remove.line.item', 'cart', null, lineItem.productName)}">
+                            <span aria-hidden="true">
+                                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon"
+                                    width="20" />
+                            </span>
+                        </button>
+
+                    </isif>
                 </div>
-            </isif>
+            </div>
         </div>
 
         <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">

@@ -1,4 +1,7 @@
 <footer id="footercontent">
+    <span class="something-went-wrong d-none">${Resource.msg('something.went.wrong', 'common', null)}</span>
+    <isinclude template="/account/autoLogout" />
+    <isinclude template="product/components/requestUserEmailForOOSModal" />
     <div class="container pt-3 pb-5">
         <div class="footer-container footer-details p-sm-0 pb-4 h-dsp--grid">
             <div class="footer-item store pt-1">
@@ -7,7 +10,7 @@
                     <div
                         class="footer-tooltip-details d-flex align-items-center justify-content-between mb-2 mt-2 text-left">
                         <!-- Heading text -->
-                        <div class="heading-text h-clr--black-3 mr-3">${Resource.msg('footer.title', 'footer', null)}
+                        <div class="heading-text h-clr--black-3 mr-3 h-width-perc-sm--80 h-width-perc--100">${Resource.msg('footer.title', 'footer', null)}
                         </div>
                         <!-- Tooltip container for more information -->
                         <div class="tooltip-container">
@@ -16,47 +19,14 @@
                         </div>
                     </div>
                     <!-- Form for newsletter subscription -->
-                    <div class="home-email-signup bg-transparent">
-                        <div class="container">
-                            <form role="form" class="newsletter"  data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <div data-required-text="">
-                                            <label for="email-footer_social_emailcapture"
-                                                class="h-clr--black-3 h-fw--semibold h-auto mb-1">
-                                                ${Resource.msg('form.title', 'footer', null)}
-                                            </label>
-                                            <div class="input-group">
-                                               <div class="w-100">
-                                                <input type="text" class="form-control input-text rounded-0 w-100"
-                                                    name="hpEmailSignUp"
-                                                    aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" />
-                                                    <div class="newletter-msg js-newsletter-msg bg-transparent h-font-size--14 m-0"></div>
-                                               </div>
-                                                <span class="input-group-append ml-0">
-                                                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
-                                                        <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
-                                                            class="btn btn-primary g-recaptcha" data-callback="submitNewsLetter"
-                                                            data-action="submit">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
-                                                    <iselse/>
-                                                        <button type="submit"
-                                                            class="btn btn-primary subscribe-email btn-hover text-uppercase submit-btn h-fw--semibold mt-3 h-font-size--16"
-                                                            data-href="${URLUtils.url('EmailSubscribe-Subscribe')}">${Resource.msg('button.form', 'footer', null)}</button>
-                                                    </isif>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    <isinclude url="${URLUtils.url('EmailSubscribe-Show')}" />
                 </div>
                 <!-- Social list content -->
                 <iscontentasset aid="footer-social-list" />
             </div>
             <!-- Footer list details -->
             <div class="footer-list-details h-dsp--grid">
+            <div class="footer-list-data d-sm-none"> </div>
                 <!-- Footer item for customer care -->
                 <div class="footer-item  collapsible-xs">
                     <iscontentasset aid="footer-customer-care" />
@@ -70,48 +40,40 @@
                             data-target="#collapsible-account">${Resource.msg('my.account.title', 'footer', null)}</button>
                         <ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block"
                             id="collapsible-account">
-                            <isif condition="${pdict.navTabValue === 'login'}">
-                                <!-- If customer is 'login' -->
-                                <li
-                                    class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold text-uppercase">
-                                    ${Resource.msg('my.account.title', 'footer', null)}</li>
-                                <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
-                                </li>
-                                <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.myorders', 'footer', null)}</a>
-                                </li>
-                                <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.love-list', 'footer', null)}</a>
-                                </li>
-                                <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.sign-out', 'footer', null)}</a>
-                                </li>
-                            <iselse/>
-                                <!-- If customer is not 'login', assuming it's 'register' -->
+                            <isif condition="${!session.isCustomerAuthenticated()}">
+                                <!-- If customer is not 'login' assuming it's 'register'-->
                                 <li
                                     class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold text-uppercase">
                                     ${Resource.msg('my.account.title', 'footer', null)}
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16 ">${Resource.msg('account.sign-in', 'footer', null)}</a>
+                                    <a href="${URLUtils.url('Login-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16 ">${Resource.msg('account.sign-in', 'footer', null)}</a>
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.order-tracking', 'footer', null)}</a>
+                                    <a href="${URLUtils.url('Order-Status')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.order-tracking', 'footer', null)}</a>
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
+                                    <a href="${URLUtils.url('Account-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
-                                    <a href="#"
-                                        class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.love-list', 'footer', null)}</a>
+                                    <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.love-list', 'footer', null)}</a>
+                                </li>
+                            <iselse/>
+                                <!-- If customer is Logged in,  -->
+                                <li
+                                    class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold text-uppercase">
+                                    ${Resource.msg('my.account.title', 'footer', null)}</li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="${URLUtils.url('Account-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
+                                </li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.myorders', 'footer', null)}</a>
+                                </li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.love-list', 'footer', null)}</a>
+                                </li>
+                                <li class="footer-list-item mb-3 link-item">
+                                    <a href="${URLUtils.url('Login-Logout')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.sign-out', 'footer', null)}</a>
                                 </li>
                             </isif>
                         </ul>
@@ -128,19 +90,21 @@
             </div>
         </div>
     </div>
-    <div class="row no-gutters">
+  <div class="container-fluid">
+    <div class="row">
         <!--  copyright content-->
-        <div class="col-sm-12 copyright-notice pr-0">
+        <div class="col-sm-12 copyright-notice pr-0 pl-0">
             <iscontentasset aid="footer-copyright" />
         </div>
     </div>
+  </div>
     <iscomment> Back to Top - Button </iscomment>
     <div class="scroll-to-top-link js-scrolltotop">
         <div class="scroll-to-top-wrapper">
             <button id="backtotop" aria-label="${Resource.msg('aria.label.title', 'footer', null)}"
                 data-once="backtotop sprinklr-back-to-top"
                 class="sprinklr-enabled d-flex align-items-center bg-transparent">
-                ${Resource.msg('aria.label.title', 'footer', null)}
+              <a class="h-clr--black-3" href="javascript:;">${Resource.msg('aria.label.title', 'footer', null)}</a>
             </button>
         </div>
         <div class="col-lg-8 col-sm-7 pull-sm-5 pull-lg-4 copyright-notice">
@@ -151,3 +115,23 @@
 <div class="loginPopup">
     <isinclude url="${URLUtils.url('Login-Popup','loginRedirect',pdict.action,'queryString',pdict.queryString)}" />
 </div>
+
+<div class="countrySelectPopup" data-country-selector-enabled="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableCountrySelectorPopup')}">
+    <isinclude url="${URLUtils.url('Home-CountrySelector')}" />
+</div>
+
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('sendProfileCompletionReminderPopup')}">
+    <isinclude template="profileCompletion" />
+</isif>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('gtmScriptEnabled')}">
+    <isinclude template="components/gtm/gtmScript" />
+</isif>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('metaPixelEnabled')}">
+    <isinclude template="components/metaPixel/metaPixelScript" />
+</isif>
+<isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('emarsysEnabled')}">
+    <isinclude template="components/emarsys/emarsysScript" />
+</isif>
+<isinclude template="popups/popupsGlobal" />
+<isinclude template="components/footer/footerScripts" />
+<input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />

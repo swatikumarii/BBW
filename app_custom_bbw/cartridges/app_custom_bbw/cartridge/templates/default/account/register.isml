@@ -8,21 +8,32 @@
         <div class="container login-page">
             <!---Breadcrumbs--->
             <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
-            <img src="${URLUtils.staticURL('/images/login/create-account_d.png')}"
-                alt="${Resource.msg('login.create.account-image', 'login', null)}" class="w-100" />
-            <div class="mt-5 w-100">
-                <h1 class="page-title text-justify h-font-size--24 h-clr--black-3 mb-0">
-                    ${Resource.msg('header.hero.image.login', 'login', null)}</h1>
-                <p class="required-field-para w-100 d-flex justify-content-end h-clr--black-1 mb-0">${Resource.msg('required.field.label', 'login', null)}</p>
+            <div class="d-flex justify-content-center slot-banner">
+                <img class="d-sm-none w-100" src="${URLUtils.staticURL('/images/login/create-account_m.png')}"
+                    alt="${Resource.msg('login.create.account-image', 'login', null)}" />
+                <img class="d-none d-sm-block register-banner-img"
+                    src="${URLUtils.staticURL('/images/login/create-account_d.png')}"
+                    alt="${Resource.msg('login.create.account-image', 'login', null)}" />
+            </div>
+            <div class="row m-0">
+                <div class="col-md-12 col-xl-10 col-sm-12 p-0 register-form-head">
+                    <h1 class="page-title text-justify h-font-size--24 h-clr--black-3 mb-0 ">
+                        ${Resource.msg('header.hero.image.login', 'login', null)}</h1>
+                    <p class="required-field-para d-flex justify-content-end h-clr--black-1 mb-0"><span
+                            class="required-indicator">*</span>${Resource.msg('required.field.label', 'login', null)}
+                    </p>
+                    <div class="register-success d-none" id="register-success-message">
+                        ${Resource.msg('toast.success.register', 'account', null)}</div>
+                </div>
             </div>
             <div class="row justify-content-center equal-height">
-                <div class="col-sm-8 col-md-4">
-                    <div class="login-form-nav">
+                <div class="col-sm-12 col-md-5 col-xl-4">
+                    <div class="register-form-nav">
                         <isinclude template="account/components/registerForm" />
                     </div>
                 </div>
             </div>
-            <div class="my-5">
+            <div class="col-md-12">
                 <iscontentasset aid="myAccount-help" />
             </div>
         </div>

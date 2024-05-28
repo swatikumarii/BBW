@@ -1,0 +1,136 @@
+@charset "UTF-8";
+
+@import "variables";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
+.out-of-stock-modal {
+    &.modal {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 40%);
+    }
+
+    /* Modal Content */
+    .modal-dialog {
+        margin: 0 auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        @include media-breakpoint-down(sm) {
+            max-width: 343px;
+        }
+    }
+
+    .modal-dialog-bottom {
+        margin-top: 3vh;
+        inset: 0;
+        position: fixed;
+        margin-bottom: 0;
+        animation: slide-in 0.3s cubic-bezier(0.2, 0.05, 0.55, 0.2);
+    }
+
+    @keyframes slide-in {
+        0% {
+            transform: translateY(100%);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .modal-content {
+        border-radius: 0;
+        border: none;
+        position: relative;
+
+        @include media-breakpoint-down(sm) {
+            height: 700px;
+        }
+
+        .modal-header {
+            background-color: #fff;
+            border: 0;
+
+            .close {
+                position: absolute;
+                top: 9px;
+                right: 12px;
+                opacity: 1;
+
+                img {
+                    width: 19px;
+                }
+            }
+        }
+
+        .notifyme-modal-body {
+            max-height: calc(114vh - 84px);
+            overflow-y: auto;
+            padding: 33px 40px 70px;
+
+            h2 {
+                font-size: 32px;
+                line-height: 40px;
+                margin-bottom: 22px;
+                text-align: center;
+            }
+
+            span {
+                font-size: 14px;
+                line-height: 24px;
+                color: colour(black, 1);
+                display: block;
+                text-align: center;
+                letter-spacing: 0.5px;
+            }
+
+            .image-container {
+                margin-top: 55px;
+                text-align: center;
+
+                img {
+                    height: auto;
+                }
+            }
+        }
+
+        .invalid-feedback {
+            padding: 0 0 0.3125rem;
+        }
+
+        .send-email-btn {
+            margin: 0 auto;
+            text-align: center;
+
+            button {
+                font-size: 16px;
+                letter-spacing: 0.24px;
+                line-height: 20px;
+                margin: 43px auto 0;
+                min-width: 320px;
+                width: auto;
+                font-weight: 600;
+
+                @include media-breakpoint-down(md) {
+                    min-width: auto;
+                    width: 100%;
+                }
+            }
+
+            button[disabled="disabled"] {
+                pointer-events: none;
+            }
+        }
+    }
+
+    .modal-body {
+        padding: 2px 16px;
+    }
+}

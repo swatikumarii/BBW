@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19" secure="false">
+			<field
+			formid="name"
+			label="label.input.name"
+			mandatory="true"
+			max-length="50"
+			missing-error="error.message.required"
+			range-error="error.message.50orless"
+			type="string" />
+
+			<field
+			formid="phone"
+			label="label.input.contact"
+			mandatory="true"
+			regexp="^([0-9]{8,12})$"
+			missing-error="error.message.required"
+			parse-error="error.message.parse.phone.form"
+			type="string"/>
+
+			<field
+			formid="email"
+			label="label.input.email"
+			mandatory="true"
+			max-length="50"
+			missing-error="error.message.required"
+			parse-error="error.message.parse.email.form"
+			range-error="error.message.50orless"
+			regexp="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+			value-error="ValueErrorText"
+			type="string"/>
+
+            <field
+			formid="yourself"
+			label="label.input.yourself"
+			mandatory="true"
+			max-length="500"
+			rows="10"
+			cols="40"
+			missing-error="error.message.required"
+			parse-error="error.message.parse.yourself.form"
+			range-error="error.message.50orless"
+			type="string"/>
+</form>

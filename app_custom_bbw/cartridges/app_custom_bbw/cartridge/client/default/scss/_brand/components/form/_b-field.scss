@@ -42,6 +42,12 @@ textarea,
 
     color: colour(black, 3);
     display: block;
+
+    .required-indicator {
+        margin-right: 0.125em;
+        float: left;
+        color: colour(red, 9);
+    }
 }
 
 // Invalid Message
@@ -49,4 +55,10 @@ textarea,
 .invalid-feedback {
     color: colour-cmp(error);
     padding: 0 0 0.3125rem 0.625rem;
+}
+
+// Remove input spinner
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    appearance: none;
 }

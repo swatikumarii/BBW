@@ -1,4 +1,4 @@
-<p class="line-item-quantity-info h-font-size--12 mb-0">
+<p class="line-item-quantity-info h-font-size--14 mb-0">
     <span class="line-item-total-text qty-card-quantity-label">
         ${Resource.msg('field.selectquantity', 'cart', null)}
     </span>

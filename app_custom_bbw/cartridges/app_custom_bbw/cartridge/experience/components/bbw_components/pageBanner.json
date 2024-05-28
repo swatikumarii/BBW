@@ -18,11 +18,7 @@
                     "name": "Banner Height",
                     "description": "Set Banner Height",
                     "type": "enum",
-                    "values": [
-                        "Default",
-                        "Banner Small",
-                        "Banner Tall"
-                    ],
+                    "values": ["Default", "Banner Small", "Banner Tall"],
                     "required": true
                 },
                 {
@@ -40,8 +36,22 @@
                     "required": false
                 },
                 {
+                    "id": "desktopBannerImageUrl2X",
+                    "name": "Desktop Banner Image URL 2x",
+                    "description": "Add Desktop Banner Image URL Here",
+                    "type": "string",
+                    "required": false
+                },
+                {
                     "id": "tabletBannerImageUrl",
                     "name": "Tablet Banner Image URL",
+                    "description": "Add Tablet Banner Image URL Here",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "tabletBannerImageUrl2X",
+                    "name": "Tablet Banner Image URL 2x",
                     "description": "Add Tablet Banner Image URL Here",
                     "type": "string",
                     "required": false
@@ -54,22 +64,50 @@
                     "required": false
                 },
                 {
-                    "id": "desktop_banner_image",
+                    "id": "mobileBannerImageUrl2X",
+                    "name": "Mobile Banner Image URL 2x",
+                    "description": "Add Mobile Banner Image URL Here",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "desktopBannerImage",
                     "name": "Desktop Banner Image",
                     "description": "Add Desktop Banner Image Here",
                     "type": "image",
                     "required": false
                 },
                 {
-                    "id": "tablet_banner_image",
+                    "id": "desktopBannerImage2X",
+                    "name": "Desktop Banner Image 2x",
+                    "description": "Add Desktop Banner Image Here",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "tabletBannerImage",
                     "name": "Tablet Banner Image",
                     "description": "Add Tablet Banner Image Here",
                     "type": "image",
                     "required": false
                 },
                 {
-                    "id": "mobile_banner_image",
+                    "id": "tabletBannerImage2X",
+                    "name": "Tablet Banner Image 2x",
+                    "description": "Add Tablet Banner Image Here",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "mobileBannerImage",
                     "name": "Mobile Banner Image",
+                    "description": "Add Mobile Banner Image Here",
+                    "type": "image",
+                    "required": false
+                },
+                {
+                    "id": "mobileBannerImage2X",
+                    "name": "Mobile Banner Image 2x",
                     "description": "Add Mobile Banner Image Here",
                     "type": "image",
                     "required": false
@@ -132,10 +170,7 @@
                     "id": "contentsubTitleColor",
                     "name": "Content Sub Title Color",
                     "type": "enum",
-                    "values": [
-                        "white",
-                        "black"
-                    ],
+                    "values": ["white", "black"],
                     "required": false
                 },
                 {
@@ -148,10 +183,7 @@
                     "id": "contentTitleColor",
                     "name": "Content Title Color",
                     "type": "enum",
-                    "values": [
-                        "white",
-                        "black"
-                    ],
+                    "values": ["white", "black"],
                     "required": false
                 },
                 {
@@ -164,10 +196,7 @@
                     "id": "descriptionColor",
                     "name": "Description Title Color",
                     "type": "enum",
-                    "values": [
-                        "white",
-                        "black"
-                    ],
+                    "values": ["white", "black"],
                     "required": false
                 },
                 {
@@ -208,13 +237,20 @@
                     "required": false
                 },
                 {
+                    "id": "contentAlignmentDesktop",
+                    "name": "Desktop Banner Content Alignment",
+                    "type": "enum",
+                    "values": ["left", "right", "center"],
+                    "required": true
+                },
+                {
                     "id": "contentPositionDesktop",
-                    "name": "Desktop Banner Content Position",
+                    "name": "Desktop Banner Content Vertical Position",
                     "type": "enum",
                     "values": [
-                        "left",
-                        "right",
-                        "center"
+                        "center",
+                        "top",
+                        "bottom"
                     ],
                     "required": true
                 },
@@ -222,45 +258,43 @@
                     "id": "contentAlignmentTablet",
                     "name": "Tablet Banner Content Alignment",
                     "type": "enum",
-                    "values": [
-                        "right",
-                        "left",
-                        "center"
-                    ],
+                    "values": ["right", "left", "center"],
                     "required": false
                 },
                 {
                     "id": "contentPositionTablet",
                     "name": "Tablet Banner Content Position",
                     "type": "enum",
-                    "values": [
-                        "middle",
-                        "bottom",
-                        "top"
-                    ],
+                    "values": ["middle", "bottom", "top"],
                     "required": false
                 },
                 {
                     "id": "contentAlignmentMobile",
                     "name": "Mobile Banner Content Alignment",
                     "type": "enum",
-                    "values": [
-                        "right",
-                        "left",
-                        "center"
-                    ],
+                    "values": ["right", "left", "center"],
                     "required": true
                 },
                 {
                     "id": "contentPositionMobile",
                     "name": "Mobile Banner Content Position",
                     "type": "enum",
-                    "values": [
-                        "middle",
-                        "bottom",
-                        "top"
-                    ],
+                    "values": ["middle", "bottom", "top"],
                     "required": true
+                },
+                {
+                    "id": "trackerClass",
+                    "name": "Tracker Custom Class",
+                    "description": "Add Tracker Classes here (Use track-banner-promotion for GA/GTM)",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "customClass",
+                    "name": "Component Custom Class",
+                    "description": "Add Component Custom Classes here",
+                    "type": "string",
+                    "required": false
                 }
             ]
         },

@@ -3,16 +3,17 @@
 <isdecorate template="common/layout/pdStorePage">
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
+        assets.addJs('/js/storePage.js');
         assets.addCss('/css/experience/storePage.css');
     </isscript>
 
     <div class="storepage" id="${pdict.page.ID}">
-        <div class="container-fluid px-0">
+        <div class="container-fluid">
             <div class="row">
-                <isprint value="${pdict.regions.main.setClassName("col-12").render()}" encoding="off" />
+                <isprint value="${pdict.regions.main.setClassName("col-12 px-0").render()}" encoding="off" />
             </div>
             <div class="row">
-                <isprint value="${pdict.regions.legalnotice.setClassName("col-12").render()}" encoding="off" />
+                <isprint value="${pdict.regions.legalnotice.setClassName("col-12 px-0").render()}" encoding="off" />
             </div>
         </div>
     </div>

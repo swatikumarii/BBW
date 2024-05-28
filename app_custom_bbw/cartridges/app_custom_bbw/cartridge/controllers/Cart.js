@@ -10,6 +10,13 @@ server.extend(module.superModule);
 var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var BasketMgr = require('dw/order/BasketMgr');
 var cartHelper = require('*/cartridge/scripts/cart/cartHelpers');
+var CartModel = require('*/cartridge/models/cart');
+var HashMap = require('dw/util/HashMap');
+var Template = require('dw/util/Template');
+var cartTemplate = new Template('cart/productCard/cartProductCardAjax');
+var miniCartTemplate = new Template('checkout/productCard/miniCartProductCardAjax');
+var dynamicBadgeHelpers = require('*/cartridge/scripts/helpers/dynamicBadgeHelpers');
+var Site = require('dw/system/Site');
 
 /**
  * Cart-AddCoupon : The Cart-AddCoupon endpoint is responsible for adding a coupon to a basket
@@ -31,7 +38,6 @@ server.replace(
         var Resource = require('dw/web/Resource');
         var Transaction = require('dw/system/Transaction');
         var URLUtils = require('dw/web/URLUtils');
-        var CartModel = require('*/cartridge/models/cart');
         var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
 
         var currentBasket = BasketMgr.getCurrentBasket();
@@ -92,10 +98,6 @@ server.replace(
 
 server.append('UpdateQuantity', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
-    var CartModel = require('*/cartridge/models/cart');
-    var Template = require('dw/util/Template');
-    var template = new Template('cart/productCard/cartProductCardAjax');
-    var HashMap = require('dw/util/HashMap');
     var viewData = res.getViewData();
     var changes = cartHelper.createFreeLineItem(currentBasket, 0);
     if (!viewData.errorMessage) {
@@ -106,7 +108,19 @@ server.append('UpdateQuantity', function (req, res, next) {
             Object.keys(basketModel).forEach(function (key) {
                 context.put(key, basketModel[key]);
             });
-            basketModel.refreshItemsTemplate = template.render(context).text;
+            basketModel.refreshItemsTemplate =
+                cartTemplate.render(context).text;
+            basketModel.refreshItemsTemplateMinicart =
+                miniCartTemplate.render(context).text;
+        }
+        if (
+            req.currentCustomer &&
+            req.currentCustomer.raw &&
+            req.currentCustomer.raw.profile
+        ) {
+            dynamicBadgeHelpers.updateCartDetailInProfile(
+                req.currentCustomer.raw.profile
+            );
         }
         res.setViewData(basketModel);
     }
@@ -115,9 +129,33 @@ server.append('UpdateQuantity', function (req, res, next) {
 
 server.append('RemoveProductLineItem', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
-    cartHelper.createFreeLineItem(currentBasket, 0);
+    var changes = cartHelper.createFreeLineItem(currentBasket, 0);
+    var viewData = res.getViewData();
+    var basketModel = new CartModel(currentBasket);
+    if (changes) {
+        viewData.refreshItems = true;
+        var context = new HashMap();
+        Object.keys(basketModel).forEach(function (key) {
+            context.put(key, basketModel[key]);
+        });
+        viewData.refreshItemsTemplate =
+            cartTemplate.render(context).text;
+        viewData.refreshItemsTemplateMinicart =
+            miniCartTemplate.render(context).text;
+    }
+    if (
+        req.currentCustomer &&
+        req.currentCustomer.raw &&
+        req.currentCustomer.raw.profile
+    ) {
+        dynamicBadgeHelpers.updateCartDetailInProfile(
+            req.currentCustomer.raw.profile
+        );
+    }
+
     next();
 });
+
 
 /**
  * Cart-AddProduct : The Cart-AddProduct endpoint check product price and retrun if price is zero
@@ -142,19 +180,56 @@ server.prepend('AddProduct', function (req, res, next) {
 });
 
 server.append('AddProduct', function (req, res, next) {
+    var ProductMgr = require('dw/catalog/ProductMgr');
+    var PromotionMgr = require('dw/campaign/PromotionMgr');
+    var promotionsDecorator = require('*/cartridge/models/product/decorators/promotions');
+    var pdpPromotions = new Template('product/components/promotions');
     var currentBasket = BasketMgr.getCurrentBasket();
+    var product = Object.create(null);
+    var promotions = PromotionMgr.activeCustomerPromotions.getProductPromotions(ProductMgr.getProduct(req.form.pid));
+    promotionsDecorator(product, promotions);
+    var Product = { product: product };
+    var context = new HashMap();
+    Object.keys(Product).forEach(function (key) {
+        context.put(key, Product[key]);
+    });
     cartHelper.createFreeLineItem(currentBasket, 0);
+    var viewData = res.getViewData();
+    viewData.pdpPromotions = pdpPromotions.render(context).text;
+    if (
+        req.currentCustomer &&
+        req.currentCustomer.raw &&
+        req.currentCustomer.raw.profile
+    ) {
+        dynamicBadgeHelpers.updateCartDetailInProfile(
+            req.currentCustomer.raw.profile
+        );
+    }
+    res.setViewData(viewData);
     next();
 });
 
-server.get('Merge', function (req, res, next) {
+server.post('Merge', function (req, res, next) {
     var Transaction = require('dw/system/Transaction');
     var cartHelpers = require('*/cartridge/scripts/cart/cartHelpers');
-    if (req.currentCustomer.raw.authenticated) {
+    var storedBasketProducts = req.form.storedBasketProducts;
+    var result;
+    storedBasketProducts = JSON.parse(storedBasketProducts);
+    if (req.currentCustomer.raw.authenticated && storedBasketProducts.length) {
         Transaction.wrap(function () {
-            cartHelpers.mergeCart();
+            result = cartHelpers.mergeCart(storedBasketProducts);
         });
+        if (
+            req.currentCustomer &&
+            req.currentCustomer.raw &&
+            req.currentCustomer.raw.profile
+        ) {
+            dynamicBadgeHelpers.updateCartDetailInProfile(
+                req.currentCustomer.raw.profile
+            );
+        }
     }
+    res.json(result);
     next();
 });
 
@@ -171,7 +246,23 @@ server.post('AddProductFromOrder', function (req, res, next) {
     var OrderMgr = require('dw/order/OrderMgr');
     var order = OrderMgr.getOrder(req.form.orderNumber);
     var productLineItems = order.getProductLineItems();
+    var redirectUrl = URLUtils.url('Cart-Show');
     var result;
+
+    var existingLineItems = currentBasket ? currentBasket.getAllProductLineItems() : [];
+    if (existingLineItems && existingLineItems.length > 0) {
+        for (var j = 0; j < existingLineItems.length; j++) {
+            if (existingLineItems[j].product.custom.isEgiftCard === true) {
+                res.json({
+                    redirectUrl: redirectUrl.toString(),
+                    isGiftCardLineItemExist: true,
+                    message: Resource.msg('egift.delete.product.confirmation.modal.msg1','giftcards',null)
+                });
+                this.emit('route:Complete', req, res);
+                return;
+            }
+        }
+    }
 
     if (currentBasket) {
         Transaction.wrap(function () {
@@ -202,7 +293,6 @@ server.post('AddProductFromOrder', function (req, res, next) {
         });
     }
 
-    var redirectUrl = URLUtils.url('Cart-Show');
     res.json({
         redirectUrl: redirectUrl.toString(),
         error: result.error,
@@ -211,5 +301,75 @@ server.post('AddProductFromOrder', function (req, res, next) {
 
     next();
 });
+
+/**
+ * Cart-MiniCartShow : The Cart-MiniCartShow extended for customization
+ * @name Cart-MiniCartShow
+ * @function
+ * @memberof Cart
+ */
+server.append('MiniCartShow', csrfProtection.generateToken, function (req, res, next) {
+    var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var showTopOffers = Site.getCurrent().getCustomPreferenceValue('showTopOffers');
+    var viewData = res.getViewData();
+    var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
+        type: 10
+    });
+
+    var optionId = null;
+    var optionVal = null;
+
+    var config = {
+        qty: 1,
+        optionId: optionId,
+        optionValue: optionVal,
+        req: req,
+        type: 10
+    };
+
+    for (var i = 0; i < viewData.items.length; i++) {
+        viewData.items[i].itemExist = productListHelper.itemExists(list, viewData.items[i].id, config);
+    }
+    if (currentBasket && showTopOffers === true) {
+        var topOffers = cartHelper.getTopOffers(currentBasket);
+        viewData.topOffers = topOffers;
+        res.setViewData(viewData);
+    }
+    next();
+});
+/*
+ * Append Cart-Show method to show dangerous goods message
+ */
+server.append(
+    'Show',
+    server.middleware.https,
+    function (req, res, next) {
+        var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
+        var dangerousGoodsExists = req.querystring.error === 'dangerous-goods';
+        var viewData = res.getViewData();
+        viewData.dangerousGoodsExists = dangerousGoodsExists;
+        var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
+            type: 10
+        });
+
+        var optionId = null;
+        var optionVal = null;
+
+        var config = {
+            qty: 1,
+            optionId: optionId,
+            optionValue: optionVal,
+            req: req,
+            type: 10
+        };
+
+        for (var i = 0; i < viewData.items.length; i++) {
+            viewData.items[i].itemExist = productListHelper.itemExists(list, viewData.items[i].id, config);
+        }
+        res.setViewData(viewData);
+        next();
+    }
+);
 
 module.exports = server.exports();

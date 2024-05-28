@@ -3,8 +3,7 @@
         <isloop items="${pdict.productSearch.productSort.options}" var="option">
             <option class="${option.id}" value="${option.url}"
                 data-id="${option.id}"
-                ${pdict.productSearch.productSort.ruleId === option.id ? 'selected' : '' }
-            >
+                ${pdict.productSearch.productSort.ruleId === option.id ? 'selected' : '' }    >
                 ${option.displayName}
             </option>
         </isloop>

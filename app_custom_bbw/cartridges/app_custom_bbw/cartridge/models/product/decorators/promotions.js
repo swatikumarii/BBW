@@ -1,0 +1,136 @@
+'use strict';
+
+var collections = require('*/cartridge/scripts/util/collections');
+var formatMoney = require('dw/util/StringUtils').formatMoney;
+var Money = require('dw/value/Money');
+var BasketMgr = require('dw/order/BasketMgr');
+var currentBasket = BasketMgr.getCurrentBasket();
+
+/**
+ * toFixedIfNecessary
+ * @param {number} value - to be formatted
+ * @returns {number} updated value
+ */
+function toFixedIfNecessary(value){
+    return +value.toFixed(2);
+}
+
+/**
+ *
+ * @param {object} promotion - promotion to check
+ * @returns {string} motivator message
+ */
+function checkMotivator(promotion) {
+    var qualifyingValueInCart = 0;
+    var buy = promotion.custom && 'Buy' in promotion.custom && promotion.custom.Buy ? promotion.custom.Buy : false;
+    var get = promotion.custom && 'Get' in promotion.custom && promotion.custom.Get ? promotion.custom.Get : false;
+    var discountType = promotion.custom && 'ForSelector' in promotion.custom && promotion.custom.ForSelector ? promotion.custom.ForSelector.value : false;
+    var promotionCondition = promotion.custom && 'promotionCondition' in promotion.custom && promotion.custom.promotionCondition ? promotion.custom.promotionCondition.value : false;
+    var qualifyingProducts = promotion.custom && 'qualifyingProducts' in promotion.custom && promotion.custom.qualifyingProducts ? promotion.custom.qualifyingProducts.split(',') : false;
+    var discountedProducts = promotion.custom && 'discountedProducts' in promotion.custom && promotion.custom.discountedProducts ? promotion.custom.discountedProducts.split(',') : false;
+    var qualificationMessage = promotion.custom && 'qualificationMessage' in promotion.custom && promotion.custom.qualificationMessage ? promotion.custom.qualificationMessage.source : false;
+    var addFreeMessage = promotion.custom && 'addFreeMessage' in promotion.custom && promotion.custom.addFreeMessage ? promotion.custom.addFreeMessage.source : false;
+    var message;
+    if (!discountedProducts && qualifyingProducts) {
+        discountedProducts = qualifyingProducts;
+    }
+
+    if (!addFreeMessage) {
+        addFreeMessage = qualificationMessage;
+    }
+
+    if (!(buy && get && discountType && promotionCondition && qualifyingProducts && discountedProducts && qualificationMessage && addFreeMessage)) {
+        return false;
+    }
+    var indexToApply = buy.length - 1;
+    switch (promotionCondition) {
+        case 'Amount':
+            collections.forEach(currentBasket.allProductLineItems, function (item) {
+                if (qualifyingProducts.includes(item.productID)) {
+                    qualifyingValueInCart += item.adjustedGrossPrice.value;
+                }
+            });
+            if (buy[indexToApply] <= qualifyingValueInCart) {
+                return false;
+            }
+            if (qualifyingValueInCart === 0) {
+                return false;
+            }
+            message = qualificationMessage.replace('{{Buy}}', formatMoney(new Money(toFixedIfNecessary(buy[indexToApply] - qualifyingValueInCart), currentBasket.currencyCode))).replace('{{Get}}', get[indexToApply]);
+            return message;
+
+        case 'Number':
+            collections.forEach(currentBasket.allProductLineItems, function (item) {
+                if (qualifyingProducts.includes(item.productID)) {
+                    qualifyingValueInCart += item.quantityValue;
+                }
+            });
+            if (discountType === 'Free') {
+                var getValue;
+                if (qualifyingValueInCart < (buy[indexToApply] + get[indexToApply]) && ((buy[indexToApply] + get[indexToApply]) - qualifyingValueInCart) >= (buy[indexToApply - 1] + get[indexToApply - 1])) {
+                    indexToApply--;
+                } else {
+                    while ((buy[indexToApply] + get[indexToApply]) <= qualifyingValueInCart) {
+                        qualifyingValueInCart -= (buy[indexToApply] + get[indexToApply]);
+                    }
+                    if (qualifyingValueInCart < (buy[indexToApply] + get[indexToApply]) && ((buy[indexToApply] + get[indexToApply]) - qualifyingValueInCart) >= (buy[indexToApply - 1] + get[indexToApply - 1])) {
+                        indexToApply--;
+                    }
+                }
+
+                getValue = get[indexToApply];
+
+                if (indexToApply > 0) {
+                    qualifyingValueInCart -= get[indexToApply -1 ];
+                    getValue -= get[indexToApply -1 ];
+                }
+
+                if (qualifyingValueInCart === 0) {
+                    return false;
+                }
+                if (qualifyingValueInCart === buy[indexToApply]) {
+                    message = addFreeMessage.replace('{{Get}}', getValue);
+                    return message;
+                }
+                if (qualifyingValueInCart > buy[indexToApply]) {
+                    message = addFreeMessage.replace('{{Get}}', toFixedIfNecessary(getValue - (qualifyingValueInCart - buy[indexToApply])));
+                    return message;
+                }
+                message = qualificationMessage.replace('{{Buy}}', toFixedIfNecessary(buy[indexToApply] - qualifyingValueInCart)).replace('{{Get}}', getValue);
+                return message;
+            }
+
+            if (buy[indexToApply] <= qualifyingValueInCart) {
+                return false;
+            }
+            if (qualifyingValueInCart === 0) {
+                return false;
+            }
+
+            message = qualificationMessage.replace('{{Buy}}', toFixedIfNecessary(buy[indexToApply] - qualifyingValueInCart)).replace('{{Get}}', get[indexToApply]);
+            return message;
+
+        default:
+            return false;
+    }
+}
+
+module.exports = function (object, promotions) {
+    Object.defineProperty(object, 'promotions', {
+        enumerable: true,
+        writable: true,
+        value: promotions.length === 0 ? null : collections.map(promotions, function (promotion) {
+            var motivator = currentBasket ? checkMotivator(promotion) : false;
+            var calloutMsg = promotion.calloutMsg ? promotion.calloutMsg.markup : '';
+            return {
+                calloutMsg: motivator || calloutMsg,
+                details: promotion.details ? promotion.details.markup : '',
+                enabled: promotion.enabled,
+                id: promotion.ID,
+                name: promotion.name,
+                promotionClass: promotion.promotionClass,
+                rank: promotion.rank
+            };
+        })
+    });
+};

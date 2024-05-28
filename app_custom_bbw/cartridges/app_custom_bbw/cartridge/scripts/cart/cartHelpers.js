@@ -60,14 +60,23 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
     var globalLevelReserveQty = dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
     var maxOrderQty = productLevelMaxOrderQty || globalLevelMaxOrderQty;
     var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
+    var maxOrderQtyByReserveStock =
+        product.availabilityModel.inventoryRecord.ATS.value - reserveOosQty;
+    if (maxOrderQty && maxOrderQtyByReserveStock) {
+        maxOrderQty =
+            maxOrderQtyByReserveStock < maxOrderQty
+                ? maxOrderQtyByReserveStock
+                : maxOrderQty;
+    } else if (!maxOrderQty) {
+        maxOrderQty = maxOrderQtyByReserveStock;
+    }
     var errorType = '';
     if (product.bundle) {
         canBeAdded = base.checkBundledProductCanBeAdded(childProducts, productLineItems, quantity);
     } else if (maxOrderQty) {
         totalQtyRequested = quantity + base.getQtyAlreadyInCart(productId, productLineItems);
         perpetual = product.availabilityModel.inventoryRecord.perpetual;
-        canBeAdded = (perpetual
-                || totalQtyRequested <= (product.availabilityModel.inventoryRecord.ATS.value - reserveOosQty)) && totalQtyRequested <= maxOrderQty;
+        canBeAdded = perpetual || totalQtyRequested <= maxOrderQty;
         errorType = 'maxOrderQty';
     } else {
         totalQtyRequested = quantity + base.getQtyAlreadyInCart(productId, productLineItems);
@@ -98,20 +107,37 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
     }
 
     productInCart = base.getExistingProductLineItemInCart(product, productId, productLineItems, childProducts, options);
+    var isGiftCard =
+        'custom' in product &&
+        'isEgiftCard' in product.custom &&
+        product.custom.isEgiftCard &&
+        product.custom.isEgiftCard === true;
 
-    if (productInCart) {
+    if (productInCart && !isGiftCard) {
         productQuantityInCart = productInCart.quantity.value;
-        quantityToSet = quantity ? quantity + productQuantityInCart : productQuantityInCart + 1;
-        availableToSell = productInCart.product.availabilityModel.inventoryRecord.ATS.value;
+        quantityToSet = quantity
+            ? quantity + productQuantityInCart
+            : productQuantityInCart + 1;
+        availableToSell =
+            productInCart.product.availabilityModel.inventoryRecord.ATS.value;
 
         if (availableToSell >= quantityToSet || perpetual) {
             productInCart.setQuantityValue(quantityToSet);
             result.uuid = productInCart.UUID;
         } else {
             result.error = true;
-            result.message = availableToSell === productQuantityInCart
-                ? Resource.msg('error.alert.max.quantity.in.cart', 'product', null)
-                : Resource.msg('error.alert.selected.quantity.cannot.be.added', 'product', null);
+            result.message =
+                availableToSell === productQuantityInCart
+                    ? Resource.msg(
+                        'error.alert.max.quantity.in.cart',
+                        'product',
+                        null
+                    )
+                    : Resource.msg(
+                        'error.alert.selected.quantity.cannot.be.added',
+                        'product',
+                        null
+                    );
         }
     } else {
         var productLineItem;
@@ -235,6 +261,41 @@ function callBackSetItemAsFree(productLineItem) {
     });
 }
 
+/**
+ * splitQuantityFromFreeToMain
+ * @param {object} productLineItem - productLineItem
+ * @param {number} productQtyAfterReduce - productQtyAfterReduce
+ * @param {object} lineItemContainer - lineItemContainer
+ * @param {number} qtyUpdateFreeItem - qtyUpdateFreeItem
+ */
+function splitQuantityFromFreeToMain(
+    productLineItem,
+    productQtyAfterReduce,
+    lineItemContainer,
+    qtyUpdateFreeItem
+) {
+    Transaction.wrap(function () {
+        // eslint-disable-next-line no-param-reassign
+        productLineItem.custom.isFreeItem = false;
+    });
+    callBackCreateNewFreeItem(
+        productLineItem,
+        productQtyAfterReduce,
+        lineItemContainer,
+        qtyUpdateFreeItem
+    );
+}
+
+/**
+ * setFreeFalse
+ * @param {object} productLineItem - productLineItem
+ */
+function setFreeFalse(productLineItem) {
+    Transaction.wrap(function () {
+        // eslint-disable-next-line no-param-reassign
+        productLineItem.custom.isFreeItem = false;
+    });
+}
 
 /**
  * createFreeLineItem - Creates a different lineItem for BOGO promo free products
@@ -298,7 +359,19 @@ function createFreeLineItem(lineItemContainer) {
                 }
             }
             if (shouldHaveFreeItem) {
-                if (qtyUpdateFreeItem < productLineItem.quantityValue) {
+                if (allLineItemsForProduct.length === 1) {
+                    var productQtyAfterReduceFromFree =
+                        productLineItem.quantityValue - qtyUpdateFreeItem;
+                    if (productQtyAfterReduceFromFree > 0) {
+                        splitQuantityFromFreeToMain(
+                            productLineItem,
+                            productQtyAfterReduceFromFree,
+                            lineItemContainer,
+                            qtyUpdateFreeItem
+                        );
+                        breakLoop = true;
+                    }
+                } else if (qtyUpdateFreeItem < productLineItem.quantityValue) {
                     mergeQty =
                         productLineItem.quantityValue -
                         qtyUpdateFreeItem +
@@ -313,7 +386,7 @@ function createFreeLineItem(lineItemContainer) {
                     );
                     breakLoop = true;
                 }
-            } else {
+            } else if (allLineItemsForProduct.length > 1) {
                 // Removing the free lineitem and merging its qty in main lineitem
                 mergeQty =
                     allLineItemsForProduct[indexOfMainItem].quantityValue +
@@ -325,6 +398,9 @@ function createFreeLineItem(lineItemContainer) {
                     indexOfMainItem,
                     mergeQty
                 );
+                breakLoop = true;
+            } else {
+                setFreeFalse(productLineItem);
                 breakLoop = true;
             }
         } else if (shouldHaveFreeItem) {
@@ -479,23 +555,20 @@ function checkCouponCodeError (couponCode, errorCode) {
 
 /**
  * Function mergeCart merges the items from the stored basket to the currentBasket.
+ * @param {Array} storedBasketProducts - Stored Basket Product detail list
  * @returns {object} resultObj - contain updated basket and boolean value
  */
-function mergeCart() {
+function mergeCart(storedBasketProducts) {
     var Logger = require('dw/system/Logger');
-    var storedBasket = BasketMgr.getStoredBasket();
     var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
     var currentBasket = BasketMgr.getCurrentOrNewBasket();
     var isCartMerged = false;
     var resultObj = {};
 
     try {
-        if (currentBasket && storedBasket) {
-            var productLineItemItr = storedBasket
-                .getAllProductLineItems()
-                .iterator();
-            while (productLineItemItr.hasNext()) {
-                var pli = productLineItemItr.next();
+        if (currentBasket && storedBasketProducts.length) {
+            for (var index = 0; index < storedBasketProducts.length; index++) {
+                var pli = storedBasketProducts[index];
                 if (!pli.bundledProductLineItem && !pli.optionProductLineItem) {
                     var childProducts = [];
                     var optionProducts = [];
@@ -509,6 +582,23 @@ function mergeCart() {
                             optionProducts
                         );
                         if (!result.error) {
+                            if (pli.isEgiftCard) {
+                                for (var i = 0;i < currentBasket.productLineItems.length;i++) {
+                                    if (currentBasket.productLineItems[i].UUID === result.uuid) {
+                                        currentBasket.productLineItems[i].custom.eGiftReceiver = pli.eGiftReceiver;
+                                        currentBasket.productLineItems[i].custom.eGiftReceiverEmail =pli.eGiftReceiverEmail;
+                                        currentBasket.productLineItems[i].custom.eGiftSender = pli.eGiftSender;
+                                        currentBasket.productLineItems[i].custom.eGiftMessage = pli.eGiftMessage;
+                                        currentBasket.productLineItems[i].custom.eGiftCardScheduleDay = pli.eGiftCardScheduleDay;
+                                        currentBasket.productLineItems[i].custom.eGiftCardScheduleMonth = pli.eGiftScheduleMonth;
+                                        currentBasket.productLineItems[i].custom.eGiftVideoLink = pli.eGiftVideoLink;
+                                        currentBasket.productLineItems[i].custom.eGiftScheduledYear = pli.eGiftScheduledYear;
+                                        currentBasket.productLineItems[i].custom.isEgiftCard = true;
+                                        currentBasket.productLineItems[i].custom.eGiftEmailPending = pli.eGiftEmailPending;
+                                        break;
+                                    }
+                                }
+                            }
                             isCartMerged = true;
                         }
                     }
@@ -530,9 +620,41 @@ function mergeCart() {
     return resultObj;
 }
 
+/**
+ * Function getTopOffers is using to get all active promotions
+ * @param {dw.order.Basket} currentBasket - Current users's basket
+ * @returns {Array} topOffers - contain top offers
+ */
+function getTopOffers(currentBasket) {
+    var topOffers = [];
+    if (currentBasket) {
+        var allLineItems = currentBasket.allProductLineItems;
+        if (allLineItems.length > 0) {
+            Transaction.wrap(function () {
+                var PromotionMgr = require('dw/campaign/PromotionMgr');
+                var activePromotions = PromotionMgr.getActivePromotions().promotions;
+                if (activePromotions.length > 0) {
+                    for(var i = 0; i < activePromotions.length; i++) {
+                        var promo = activePromotions[i];
+                        if (('showOnMiniCart' in promo.custom && promo.custom.showOnMiniCart === true) && promo.basedOnCoupon === true && promo.coupons[0].type === 'SINGLE_CODE') {
+                            var topOffer = {
+                                promo: promo,
+                                couponCode: promo.coupons[0].ID
+                            };
+                            topOffers.push(topOffer);
+                        }
+                    }
+                }
+            });
+        }
+    }
+    return topOffers;
+}
+
 base.createFreeLineItem = createFreeLineItem;
 base.checkCouponCodeError = checkCouponCodeError;;
 base.addProductToCart = addProductToCart;
 base.getProductPrice = getProductPrice;
 base.mergeCart = mergeCart;
+base.getTopOffers = getTopOffers;
 module.exports = base;

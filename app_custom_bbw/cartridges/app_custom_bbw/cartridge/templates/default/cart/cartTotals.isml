@@ -39,9 +39,9 @@
             <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}</p>
         </div>
         <div class="col-4">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost">
+            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive">
                 ${pdict.totals.shippingTotalExclTax}</p>
-        </div>
+            </div>
     </div>
 <iselse/>
     <div class="row">
@@ -49,7 +49,7 @@
             <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling', 'cart', null)}</p>
         </div>
         <div class="col-4">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost">
+            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive">
                 ${pdict.totals.totalShippingCost}</p>
         </div>
     </div>
@@ -100,11 +100,11 @@
 
 <div class="row">
     <div class="col-12">
-        <p class="h-font-size--14 h-clr--gray-4">${Resource.msg('label.tax.estimated', 'cart', null)}</p>
+        <p class="h-font-size--14 h-clr--gray-4 tax-estimated">${Resource.msg('label.tax.estimated', 'cart', null)}</p>
     </div>
 </div>
 
-<div class="row">
+<div class="row order-total">
     <div class="col-8">
         <p class="h-font-size--18 h-clr--black-1 h-fw--semibold">${Resource.msg('label.estimatedtotal', 'cart', null)}
         </p>

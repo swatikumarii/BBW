@@ -1,24 +1,101 @@
 @charset "UTF-8";
 
 @import "variables";
+@import "animations";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins/breakpoints";
 
 // Scrolling - on Modal Open
-.modal-open {
-    overflow-y: auto;
-}
+// .modal-open {
+//     overflow-y: auto;
+// }
 
 #dynamic-modal,
 #dynamic-modal-all,
 #dynamic-modal-exit-intent-popup {
-    visibility: hidden;
-    display: flex !important;
     justify-content: center;
     padding-left: 0 !important;
     background-color: rgba(0, 0, 0, 90%);
     overflow: auto;
     overflow-x: hidden;
+
+    .dynamic-popup-dialog {
+        padding: 0 10px;
+        height: calc(100% - 100px);
+        max-width: unset;
+        transition: none;
+        transform: none;
+
+        &.center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        &.top {
+            margin-top: 0;
+        }
+
+        // Dynamic Modal - Animation
+        &.fade-out {
+            animation: fade-out 0.5s ease forwards;
+        }
+
+        &.slide-left {
+            animation: slide-out-left 0.5s ease forwards;
+        }
+
+        &.slide-top {
+            animation: slide-out-top 0.3s ease forwards;
+        }
+
+        &.slide-right {
+            animation: slide-out-right 0.5s ease forwards;
+        }
+
+        &.slide-bottom {
+            animation: slide-out-bottom 0.5s ease forwards;
+        }
+
+        &.zoom-in,
+        &.zoom-out {
+            animation: zoom-out 0.5s ease forwards;
+        }
+
+        // Dynamic Modal - Size
+        &.small {
+            width: 300px;
+        }
+
+        &.medium {
+            @include media-breakpoint-up(lg) {
+                width: 500px;
+            }
+
+            @include media-breakpoint-between(md, lg) {
+                width: 400px;
+            }
+
+            @include media-breakpoint-down(sm) {
+                width: 300px !important;
+            }
+        }
+
+        &.large {
+            @include media-breakpoint-up(lg) {
+                width: 800px;
+                max-width: 800px;
+            }
+
+            @include media-breakpoint-between(md, lg) {
+                width: 700px !important;
+            }
+
+            @include media-breakpoint-down(sm) {
+                width: 300px !important;
+            }
+        }
+    }
 
     // Dynamic Modal - Center
     &.center {
@@ -33,81 +110,17 @@
     // Dynamic Modal - Bottom
     &.bottom {
         align-items: flex-end;
-    }
 
-    .dynamic-popup-dialog {
-        padding: 0 10px;
-        height: 100%;
-
-        &.center {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        &.top {
-            margin-top: 0;
-        }
-
-        &.bottom {
-            margin-bottom: 0;
-            display: flex;
-            align-items: flex-end;
-        }
-
-        // Dynamic Modal - Animation
-        &.fade-out,
-        &.zoom-in,
-        &.zoom-out,
-        &.slide-left,
-        &.slide-right,
-        &.slide-top,
-        &.slide-bottom {
-            transition: all 0.5s;
-            opacity: 0;
-        }
-
-        // Dynamic Modal - Size
-        &.small {
-            width: 300px;
-        }
-
-        &.medium {
-            @include media-breakpoint-up(sm) {
-                width: 500px;
-            }
-
-            @media (width <= 768px) {
-                width: 400px;
-            }
-
-            @include media-breakpoint-down(sm) {
-                width: 300px !important;
-                top: 35px;
-            }
-        }
-
-        &.large {
-            @include media-breakpoint-up(sm) {
-                width: 800px;
-                max-width: 800px;
-            }
-
-            @media (width <= 768px) {
-                width: 700px !important;
-            }
-
-            @include media-breakpoint-down(sm) {
-                width: 300px !important;
-            }
+        .dynamic-popup-dialog {
+            bottom: 100px;
+            height: auto;
+            top: unset;
         }
     }
 
     // Dynamic Modal - Show
     &.show {
-        display: flex !important;
         padding-right: unset !important;
-        visibility: visible;
         z-index: 20;
         right: -14px;
         width: calc(100% + 14px);
@@ -119,11 +132,9 @@
 
         .dynamic-popup-dialog {
             height: calc(100% - 100px);
-            padding-top: 50px;
-
-            @include media-breakpoint-down(sm) {
-                padding-top: 0;
-            }
+            margin: 0 auto;
+            padding-top: 0;
+            transition: none;
 
             &.center {
                 display: flex;
@@ -136,49 +147,84 @@
                 align-items: flex-end;
             }
 
-            // Dynamic Modal - Animation
             &.fade-out {
-                transition: all 0.5s;
-                opacity: 1;
+                animation: fade-in-popup 0.5s ease forwards;
             }
 
-            &.slide-left,
-            &.slide-top,
-            &.slide-right,
+            &.slide-left {
+                animation: slide-in-left 0.5s ease forwards;
+            }
+
+            &.slide-top {
+                animation: slide-in-top 0.5s ease forwards;
+            }
+
+            &.slide-right {
+                animation: slide-in-right 0.5s ease forwards;
+            }
+
             &.slide-bottom {
-                transform: translate(0);
-                transition: all 0.5s cubic-bezier(0.25, 0.5, 0.5, 0.9);
-                opacity: 1;
+                animation: slide-in-bottom 0.5s ease forwards;
             }
 
-            &.zoom-out,
-            &.zoom-in {
-                transform: scale3d(1);
-                transition: all 0.5s ease-in-out;
-                opacity: 1;
+            &.zoom-in,
+            &.zoom-out {
+                animation: zoom-in 0.5s ease forwards;
+            }
+        }
+
+        &.bottom {
+            .dynamic-popup-dialog {
+                top: unset;
+                height: auto;
+                bottom: 100px;
             }
         }
     }
 
     button.close {
+        position: absolute;
+        right: -28px;
+        top: -14px;
+        width: 30px;
+        background-color: transparent;
+        height: 30px;
+        opacity: 1;
+        margin: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        z-index: 1;
+        cursor: pointer;
+
         span {
+            background: url("../images/close-icon.svg") no-repeat center;
+            background-size: 1rem;
+            background-color: $white;
             z-index: 1;
-            top: -9px;
-            right: -9px;
+            right: auto;
+            top: auto;
             border: none;
-            opacity: 0.7;
+            opacity: 1;
             transition: opacity 0.15s;
-            width: 18px;
-            height: 18px;
+            width: 100%;
+            height: 100%;
             cursor: pointer;
             position: absolute;
-            border-radius: 30px;
-            background: #575757 url("../images/forgot-password-close.svg")
-                no-repeat center;
-            background-size: 9px;
+            border-radius: 50%;
+            filter: invert(1);
 
-            &:hover {
+            @include media-breakpoint-down(sm) {
+                top: 22px;
+            }
+        }
+
+        &:hover {
+            span {
+                background-color: $white;
                 opacity: 1;
+                filter: unset;
             }
         }
     }
@@ -186,57 +232,100 @@
     .modal-header {
         position: relative;
         margin-top: -15px;
+        z-index: 1;
 
         @include media-breakpoint-down(sm) {
             margin-top: -23px;
         }
 
-        z-index: 1;
+        &.inside {
+            margin-top: unset;
+            padding-bottom: 0;
+            border: none;
+
+            @include media-breakpoint-down(sm) {
+                margin-top: unset;
+            }
+        }
 
         .close {
-            margin: -34px -70px 0 auto;
+            &.inside {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 32px;
+                background-color: transparent;
+                height: 32px;
+                opacity: 1;
+                margin: unset;
+
+                span {
+                    background-size: 1rem;
+                    background-color: transparent;
+                    z-index: 1;
+                    right: auto;
+                    top: auto;
+                    border: none;
+                    opacity: 1;
+                    transition: opacity 0.15s;
+                    width: 100%;
+                    height: 100%;
+                    cursor: pointer;
+                    position: relative;
+                    border-radius: 0;
+                    filter: unset;
+                }
+
+                &:hover {
+                    background-color: #f2f2f2;
+                    opacity: 0.75;
+                }
+            }
 
             &.outside {
+                position: absolute;
+                right: -28px;
+                top: -14px;
+                width: 30px;
+                background-color: transparent;
+                height: 30px;
+                opacity: 1;
+                margin: unset;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 5px;
+                z-index: 1;
+                cursor: pointer;
+
                 span {
+                    background: url("../images/close-icon.svg") no-repeat center;
+                    background-size: 1rem;
+                    background-color: $white;
                     z-index: 1;
-                    top: 14px;
-                    right: -33px;
+                    right: auto;
+                    top: auto;
                     border: none;
-                    opacity: 0.7;
+                    opacity: 1;
                     transition: opacity 0.15s;
-                    width: 32px;
-                    height: 32px;
+                    width: 100%;
+                    height: 100%;
                     cursor: pointer;
                     position: absolute;
-                    border-radius: unset;
-                    background: url("../images/forgot-password-close.svg")
-                        no-repeat center;
-                    background-size: 14px;
+                    border-radius: 50%;
                     filter: invert(1);
-                    background-color: $white;
 
                     @include media-breakpoint-down(sm) {
                         top: 22px;
                     }
                 }
-            }
 
-            &.inside {
-                span {
-                    z-index: 1;
-                    top: 37px;
-                    right: 19px;
-                    border: none;
-                    opacity: 0.7;
-                    transition: opacity 0.15s;
-                    width: 32px;
-                    height: 32px;
-                    cursor: pointer;
-                    position: absolute;
-                    border-radius: 0;
-                    background: url("../images/CLOSE.svg") no-repeat center
-                        $white;
-                    background-size: 18px;
+                &:hover {
+                    span {
+                        background-color: $white;
+                        opacity: 1;
+                        filter: unset;
+                    }
                 }
             }
         }
@@ -250,7 +339,7 @@
 
         @include media-breakpoint-down(sm) {
             max-height: 100vh;
-            padding-bottom: 100px;
+            padding-bottom: 0;
         }
     }
 }
@@ -273,7 +362,7 @@
 
     .modal-body {
         @include media-breakpoint-down(sm) {
-            padding-bottom: 100px;
+            padding-bottom: 0;
         }
     }
 }

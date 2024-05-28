@@ -1,0 +1,98 @@
+.sub-nav {
+    margin-bottom: 30px;
+    min-height: 50px;
+    padding-bottom: 15px;
+    align-items: baseline;
+    margin-top: 3rem;
+    flex-direction: row;
+
+    @include media-down(md) {
+        padding: 0 40px;
+        flex-direction: row;
+    }
+
+    @include media-down(sm) {
+        padding: 0 20px;
+        flex-direction: column;
+    }
+
+    .breadcrumbs {
+        margin: 0 0 15px;
+
+        @include media-up(sm) {
+            margin: 0;
+        }
+
+        .current-breadcrumb {
+            color: colour(black, 9);
+            text-transform: uppercase;
+        }
+
+        li {
+            display: inline;
+            font-size: 13px;
+            max-width: 450px;
+            padding: 2px;
+            color: colour(blue, 9);
+            line-height: 19.5px;
+
+            a {
+                color: colour(blue, 9);
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        li + li::before {
+            content: ">";
+            margin: 0 4px;
+        }
+    }
+
+    .search-container {
+        width: 100%;
+
+        @include media-up(sm) {
+            width: 300px;
+        }
+
+        .search-wrap {
+            .search-icon {
+                top: 50%;
+                transform: translateY(-50%);
+                position: absolute;
+                right: 15px;
+                z-index: 1;
+                width: 14px;
+                height: 14px;
+                color: color(gray, 24);
+            }
+
+            input {
+                border: 1px solid colour(gray, 25);
+                border-radius: 30px;
+                box-sizing: border-box;
+                color: colour(gray);
+                font-size: 14px;
+                height: 30px;
+                padding-left: 8px;
+                padding-right: 20px;
+                appearance: none;
+                width: 100%;
+                line-height: 16.1px;
+                letter-spacing: normal;
+
+                &:focus {
+                    border: 1px solid rgba(2, 83, 148, 100%);
+                    color: colour(gray, 26);
+                }
+
+                &:focus-visible {
+                    outline: 0;
+                }
+            }
+        }
+    }
+}

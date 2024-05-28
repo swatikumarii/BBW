@@ -159,6 +159,42 @@ var helpers = {
             expires: -1,
             path: '/'
         });
+    },
+
+    /**
+     * Helper function to synchronize the height of elements inside product tiles.
+     * @param {HTMLElement[]} elements - Array of container elements containing product tiles.
+     * @param {string[]} selectors - Array of CSS selectors for elements inside product tiles whose height should be synchronized.
+     */
+    syncProductTileParts: function (elements, selectors) {
+        if (elements && selectors) {
+            selectors.forEach(function (selector) {
+                var matchedElements = Array.prototype.map.call(elements, function (element) {
+                    return element.querySelector(selector);
+                });
+                if (matchedElements.length) {
+                    var maxHeight = Math.max.apply(null, matchedElements.map(function (element) {
+                        return element ? element.clientHeight : 0;
+                    }));
+                    matchedElements.forEach(function (e) {
+                        if (e) {
+                            e.style.height = maxHeight + 'px';
+                        }
+                    });
+                }
+            });
+        }
+    },
+
+    /**
+     * Get the maximum height among a collection of elements.
+     * @param {jQuery} elements - A jQuery collection of elements.
+     * @returns {number} The maximum height of the elements.
+     */
+    getMaxElementHeight: function (elements) {
+        return Math.max.apply(null, elements.map(function () {
+            return $(this).height();
+        }).get());
     }
 };
 

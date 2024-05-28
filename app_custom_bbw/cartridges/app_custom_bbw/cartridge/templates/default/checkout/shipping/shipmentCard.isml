@@ -1,6 +1,6 @@
 <div class="shipping-content">
     <form class="shipping-form" autocomplete="on" novalidate action="${shipmentLoopState ? URLUtils.url('CheckoutAddressServices-AddNewAddress') : URLUtils.url('CheckoutShippingServices-SubmitShipping')}"
-        data-address-mode="${shippingModel.matchingAddressId ? 'edit' : 'new'}" <isprint
+        data-address-mode="${shippingModel.matchingAddressId ? 'details' : 'new'}" <isprint
         value=${pdict.forms.shippingForm.attributes} encoding="off" />>
         <isif condition="${lineItem}">
             <input name="productLineItemUUID" type="hidden" value="${lineItem.UUID}" />
@@ -23,12 +23,8 @@
                 <isinclude template="checkout/shipping/shippingAddressUseAsBillingAddress" />
             </fieldset>
 
-            <fieldset class="gift-message-block d-none">
-                <isinclude template="checkout/shipping/isGift" />
-            </fieldset>
-
             <fieldset class="shipping-method-block">
-                <h2 class="h-font-size--18 h-fw--bold h-clr--black-1">${Resource.msg('heading.shipping.method', 'checkout', null)}</h2>
+                <h2 class="h-font-size--20 h-fw--bold h-clr--black-1">${Resource.msg('heading.shipping.method', 'checkout', null)}</h2>
 
                 <isinclude template="checkout/shipping/shippingMethod" />
             </fieldset>

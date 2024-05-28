@@ -3,7 +3,7 @@
     <isset name="shipmentLoopState" value="${null}" scope="page" />
     <isset name="lineItem" value="${null}" scope="page" />
     <div data-shipment-uuid="${shippingModel.UUID}">
-        <h2 class="h-font-size--18 h-fw--bold h-clr--black-1 card-header-custom">${Resource.msg('heading.checkout.shipping', 'checkout', null)}</h2>
+        <h2 class="h-font-size--20 h-fw--bold h-clr--black-1 card-header-custom">${Resource.msg('heading.checkout.shipping', 'checkout', null)}</h2>
         <div class="shipping-error"></div>
         <isinclude template="checkout/shipping/shipmentCard" />
     </div>

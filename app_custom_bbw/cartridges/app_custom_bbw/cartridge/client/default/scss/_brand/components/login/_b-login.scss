@@ -4,19 +4,29 @@
     margin-top: 3vh;
     max-width: 343px;
 
+    @include media-down(sm) {
+        margin: 3vh auto;
+    }
+
     .login-form-input {
         height: 3rem;
     }
 
     .modal-header {
-        height: 35px;
+        height: 20px;
 
         .close-icon-btn {
             opacity: 1;
+            width: 48px;
+            height: 48px;
 
             &:hover {
                 background-color: colour(gray, 1);
                 box-shadow: inset 0 0 0 8px colour(white);
+            }
+
+            img {
+                margin-top: -13px;
             }
         }
     }
@@ -24,12 +34,24 @@
     .modal-body {
         h4 {
             line-height: 1.25rem;
+            padding-top: 1px;
             letter-spacing: 0.005em;
         }
 
         .login-para {
             line-height: 1.5rem;
             letter-spacing: 0.01em;
+            margin-top: 16px;
+            margin-bottom: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 35px;
+        }
+
+        .modal-password {
+            margin-top: 33px;
+            margin-bottom: 36px;
         }
 
         .form-label {
@@ -38,8 +60,15 @@
 
             .required-indicator {
                 margin-right: 0.125em;
+                float: left;
                 color: colour(red, 9);
             }
+        }
+
+        .invalid-feedback {
+            margin-bottom: -35px;
+            margin-top: 4px;
+            letter-spacing: 0.21px;
         }
 
         .forgot-password {
@@ -52,13 +81,24 @@
             max-height: 35px;
             min-height: 35px;
             letter-spacing: 0.12em;
+
+            &:active {
+                color: colour(black, 3);
+                border-color: colour(gray, 1);
+                background-color: colour(white);
+            }
+        }
+
+        .modal-login-btn {
+            font-size: 11px;
         }
 
         .privacy-block {
-            margin: 1.25em 0 1em;
+            margin: 1.05em 0 1.7em;
 
             a {
                 text-decoration: underline;
+                padding: 5px;
 
                 &:hover {
                     text-decoration: none;
@@ -68,7 +108,7 @@
 
         .register {
             margin-top: 1em;
-            padding-top: 1em;
+            padding-top: 0.75em;
             border-top: 1px solid colour(black);
 
             h3 {
@@ -99,10 +139,71 @@
 
 // -----Register form---
 .login-page {
-    .page-title {
-        line-height: 1.3125rem;
-        padding-bottom: 15px;
-        border-bottom: 1px solid colour(black, 3);
+    .slot-banner {
+        padding: 0;
+        margin-bottom: 45px;
+        margin-top: 0;
+
+        .register-banner-img {
+            width: 100%;
+
+            @include media-up(sm) {
+                width: 955px;
+            }
+
+            @include media-btw(sm, lg) {
+                width: 100%;
+            }
+        }
+    }
+
+    .register-form-head {
+        margin: 0 auto;
+
+        .page-title {
+            line-height: 1.3125rem;
+            padding-bottom: 15px;
+            border-bottom: 1px solid colour(black, 3);
+            width: 100%;
+            margin-left: 0;
+
+            @include media-up(sm) {
+                width: 955px;
+                margin-left: 1rem;
+            }
+
+            @include media-btw(sm, lg) {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+
+        .required-field-para {
+            float: right;
+            font-style: italic;
+            line-height: 1rem;
+            width: 100%;
+
+            @include media-up(sm) {
+                float: right;
+                font-style: italic;
+                line-height: 1rem;
+                width: 955px;
+            }
+
+            @include media-btw(sm, lg) {
+                width: 100%;
+            }
+
+            .required-indicator {
+                margin-right: 0.125em;
+                color: colour(red, 9);
+            }
+        }
+    }
+
+    .register-form-nav {
+        padding-left: 2%;
     }
 
     .phone-drpdwn {
@@ -113,6 +214,20 @@
 
     .register-form {
         margin: 0.625rem 0 1.875rem;
+
+        &.banner-img {
+            position: relative;
+            right: 0;
+
+            @include media-up(sm) {
+                position: relative;
+                right: 64%;
+            }
+
+            @include media-btw(sm, lg) {
+                right: 59%;
+            }
+        }
 
         img {
             width: 100%;
@@ -126,16 +241,85 @@
             }
         }
 
+        .register-select {
+            &::after {
+                background: url("../../images/UI-Carat.svg") 50%;
+                background-color: colour(white);
+                background-repeat: no-repeat;
+                background-size: 15px;
+                border-left: 1px solid colour(gray, 5);
+                content: "";
+                height: 42px;
+                position: absolute;
+                right: 26px;
+                top: 64px;
+                transform: translateY(-46%);
+                width: 35px;
+                cursor: pointer;
+            }
+        }
+
+        .gender-select {
+            position: relative;
+
+            &::after {
+                background: url("../../images/UI-Carat.svg") 50%;
+                background-color: colour(white);
+                background-repeat: no-repeat;
+                background-size: 15px;
+                border-left: 1px solid colour(gray, 5);
+                content: "";
+                height: 42px;
+                position: absolute;
+                right: 10px;
+                top: 4%;
+                width: 35px;
+            }
+        }
+
+        .nationality-select {
+            position: relative;
+
+            &::after {
+                background: url("../../images/UI-Carat.svg") 50%;
+                background-color: colour(white);
+                background-repeat: no-repeat;
+                background-size: 15px;
+                border-left: 1px solid colour(gray, 5);
+                content: "";
+                height: 42px;
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 35px;
+            }
+        }
+
         .select-dropdown-value {
-            height: 3rem;
+            height: 48px;
+            width: 100%;
             line-height: 1.25rem;
             border-radius: 0;
             letter-spacing: 0.005em;
             border: 1px solid colour(gray, 5);
+            cursor: pointer;
+            appearance: none;
 
             &:focus {
                 box-shadow: none;
                 outline: 1px dotted colour(black);
+            }
+
+            @include media-up(sm) {
+                height: 48px;
+                width: 356.25px;
+                line-height: 1.25rem;
+                border-radius: 0;
+                letter-spacing: 0.005em;
+                border: 1px solid colour(gray, 5);
+                cursor: pointer;
+                appearance: none;
             }
         }
 
@@ -162,10 +346,33 @@
         }
     }
 
+    .changepassowrd-btn {
+        transition: all 0.3s ease;
+        max-height: 35px;
+        min-height: 35px;
+        letter-spacing: 0.12em;
+
+        &:active {
+            background-color: colour(white);
+            color: colour(black, 3);
+        }
+    }
+
+    .changepassword {
+        margin: 0.625rem 0 1.875rem;
+
+        .create-btn {
+            padding: 0 2.8125em;
+        }
+    }
+
+    .iti__selected-country {
+        background: colour(white);
+    }
+
     // -----Login page
     .login-page-setion {
-        display: block;
-        padding: 2em 2em 3em;
+        margin-top: -25px;
 
         @include media-up(sm) {
             display: flex;
@@ -188,15 +395,34 @@
                     line-height: 1.125rem;
                 }
 
-                p {
-                    margin: 0 0 17px;
-                    line-height: 1.5rem;
+                .signup-overview-msg {
+                    p {
+                        margin: 0 0 17px;
+                        line-height: 1.5rem;
+                        width: 71%;
+
+                        @include media-up(sm) {
+                            width: 100%;
+                            margin: 0 0 17px;
+                            line-height: 1.5rem;
+                        }
+
+                        @include media-btw(sm, lg) {
+                            width: 100%;
+                        }
+                    }
                 }
 
                 .login-box {
                     padding-top: 24px;
-                    max-width: 290px;
+                    max-width: 360px;
                     margin: auto;
+
+                    @include media-up(sm) {
+                        padding-top: 24px;
+                        max-width: 290px;
+                        margin: auto;
+                    }
 
                     .login-form {
                         .required-indicator {
@@ -205,23 +431,209 @@
                         }
                     }
                 }
+
+                .signin-btn {
+                    transition: all 0.3s ease;
+                    max-height: 35px;
+                    min-height: 35px;
+                    letter-spacing: 0.12em;
+                    max-width: 360px;
+
+                    @include media-up(sm) {
+                        transition: all 0.3s ease;
+                        min-height: 35px;
+                        max-height: 35px;
+                        font-size: 11px;
+                        letter-spacing: 0.12em;
+                        max-width: 184.44px;
+                    }
+
+                    @include media-btw(sm, lg) {
+                        transition: all 0.3s ease;
+                        min-height: 35px;
+                        max-height: 35px;
+                        font-size: 11px;
+                        letter-spacing: 0.12em;
+                        max-width: 184.44px;
+                    }
+
+                    &:active {
+                        color: colour(black, 3);
+                        border-color: colour(gray, 1);
+                        background-color: colour(white);
+                    }
+                }
+
+                .sign-in-forgot {
+                    text-decoration: underline;
+                    line-height: 11.7px;
+                }
+
+                .sign-in-btn {
+                    padding: 0 1.25em;
+                    max-height: 35px;
+                    min-height: 35px;
+                    max-width: 360px;
+
+                    @include media-up(sm) {
+                        transition: all 0.3s ease;
+                        min-height: 35px;
+                        max-height: 35px;
+                        font-size: 11px;
+                        letter-spacing: 0.12em;
+                        max-width: 108px;
+                    }
+
+                    @include media-btw(sm, lg) {
+                        transition: all 0.3s ease;
+                        min-height: 35px;
+                        max-height: 35px;
+                        font-size: 11px;
+                        letter-spacing: 0.12em;
+                        max-width: 108px;
+                    }
+                }
+
+                .privacy-policy {
+                    margin: 1.25em 0 1em;
+
+                    a {
+                        text-decoration: underline;
+                        line-height: 24px;
+
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                .signup-img {
+                    margin-bottom: 20px;
+
+                    img {
+                        max-width: 360px;
+
+                        @include media-up(sm) {
+                            max-width: 408px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .login-form-input {
+            height: 3rem;
+            width: 360px;
+
+            @include media-up(sm) {
+                width: 290px;
+                height: 3rem;
             }
 
-            .sign-in-forgot {
-                text-decoration: underline;
-                line-height: 11.7px;
+            @include media-btw(sm, lg) {
+                width: 290px;
+                height: 3rem;
+            }
+        }
+
+        .spacer {
+            width: 100%;
+            margin-top: 50px;
+
+            @include media-up(sm) {
+                background: none;
+                position: relative;
+                display: inline-block;
+                margin-top: 0;
+                width: 9%;
             }
 
-            .sign-in-btn {
-                padding: 0 2.8125em;
-                transition: all 0.3s ease;
-                min-height: 35px;
-                max-height: 35px;
-                letter-spacing: 0.12em;
+            .line {
+                border-left: 0 solid colour(gray, 3);
+                border-top: 1px solid colour(gray, 3);
+                width: 100%;
+                height: 1px;
+                left: inherit;
+                top: 50%;
+
+                @include media-up(sm) {
+                    border-left: 1px solid colour(gray, 3);
+                    top: 0;
+                    width: 1px;
+                    height: 100%;
+                    position: absolute;
+                    left: 50%;
+                }
             }
 
-            .privacy-policy {
-                margin: 1.25em 0 1em;
+            .or {
+                width: 37px;
+                height: 37px;
+                border: 1px solid colour(gray, 3);
+                border-radius: 20px;
+                letter-spacing: 0.52px;
+                left: 50%;
+                line-height: 37px;
+                transform: translate(-50%, -50%);
+
+                @include media-up(sm) {
+                    width: 37px;
+                    height: 37px;
+                    border: 1px solid colour(gray, 3);
+                    border-radius: 20px;
+                    letter-spacing: 0.52px;
+                    top: 53px;
+                    left: 50%;
+                    line-height: 37px;
+                }
+
+                @include media-btw(sm, lg) {
+                    width: 37px;
+                    height: 37px;
+                    border: 1px solid colour(gray, 3);
+                    border-radius: 20px;
+                    letter-spacing: 0.52px;
+                    top: 53px;
+                    left: 50%;
+                    line-height: 37px;
+                }
+            }
+        }
+    }
+
+    // -----forgot password
+    .forgot-pass-page {
+        .page-title {
+            line-height: 1.3125rem;
+            padding-bottom: 0.625em;
+            margin-bottom: 1.5625em;
+            border-bottom: 1px solid colour(black, 3);
+            width: 100%;
+            margin-left: 0;
+
+            @include media-up(sm) {
+                line-height: 1.3125rem;
+                padding-bottom: 0.625em;
+                margin-bottom: 1.5625em;
+                border-bottom: 1px solid colour(black, 3);
+                width: 705px;
+                margin-left: 0;
+            }
+        }
+
+        .request-password-body {
+            p {
+                line-height: 1.5rem;
+                padding-top: 20px;
+                color: colour(gray);
+                width: 100%;
+
+                @include media-up(sm) {
+                    line-height: 1.5rem;
+                    padding-top: 20px;
+                    color: colour(gray);
+                    width: 705px;
+                }
 
                 a {
                     text-decoration: underline;
@@ -232,152 +644,122 @@
                 }
             }
 
-            .signup-img {
-                margin-bottom: 20px;
-            }
-        }
-    }
+            .forgot-password-form {
+                margin: 0.625rem 0 1.875rem;
+                width: 100%;
 
-    .login-form-input {
-        height: 3rem;
-    }
+                @include media-up(sm) {
+                    width: 705px;
+                    margin: 0.625rem 0 1.875rem;
+                }
 
-    .spacer {
-        width: 100%;
-        margin-top: 50px;
+                .reset-label-name {
+                    margin-bottom: 1.25rem;
+                }
 
-        @include media-up(sm) {
-            background: none;
-            position: relative;
-            display: inline-block;
-            margin-top: 0;
-            width: 9%;
-        }
+                .required-indicator {
+                    margin-right: 0.125em;
+                    color: colour(red, 9);
+                }
 
-        .line {
-            border-left: 0 solid colour(gray, 3);
-            border-top: 1px solid colour(gray, 3);
-            width: 100%;
-            height: 1px;
-            left: inherit;
-            top: 50%;
+                .forgotPassword {
+                    width: calc(100% - 65px);
 
-            @include media-up(sm) {
-                border-left: 1px solid colour(gray, 3);
-                top: 0;
-                width: 1px;
-                height: 100%;
-                position: absolute;
-                left: 50%;
-            }
-        }
+                    @include media-up(sm) {
+                        width: calc(50% - 65px);
+                    }
 
-        .or {
-            top: calc(33% - 16px);
-            width: 37px;
-            height: 37px;
-            border: 1px solid colour(gray, 3);
-            border-radius: 20px;
-            letter-spacing: 0.52px;
-            left: calc(50% - 19px);
-            line-height: 37px;
-
-            @include media-up(sm) {
-                width: 37px;
-                height: 37px;
-                border: 1px solid colour(gray, 3);
-                border-radius: 20px;
-                letter-spacing: 0.52px;
-                top: 27px;
-                left: calc(50% - 19px);
-                line-height: 37px;
-            }
-        }
-    }
-
-    // -----forgot password
-    .request-password-body {
-        p {
-            line-height: 1.5rem;
-            padding-top: 20px;
-            color: colour(gray);
-
-            a {
-                text-decoration: underline;
-
-                &:hover {
-                    text-decoration: none;
+                    @include media-btw(sm, lg) {
+                        width: calc(50% - 65px);
+                    }
                 }
             }
         }
 
-        .forgot-password-form {
-            margin: 0.625rem 0 1.875rem;
+        .resetpassword-btn {
+            transition: all 0.3s ease;
+            max-height: 37px;
+            min-height: 37px;
+            letter-spacing: 0.12em;
+        }
 
-            .reset-label-name {
-                margin-bottom: 1.25rem;
-            }
+        .reset-password-form {
+            margin: 0 auto;
+        }
+
+        .form-reset-password {
+            margin: 0 auto;
+        }
+
+        .required-field-para {
+            float: right;
+            font-style: italic;
+            line-height: 1rem;
 
             .required-indicator {
                 margin-right: 0.125em;
                 color: colour(red, 9);
             }
-
-            .forgotPassword {
-                width: calc(100% - 65px);
-
-                @include media-up(sm) {
-                    width: calc(50% - 65px);
-                }
-
-                @include media-btw(sm, lg) {
-                    width: calc(100% - 65px);
-                }
-            }
         }
     }
+}
 
-    .resetpassword-btn {
-        transition: all 0.3s ease;
-        max-height: 48px;
-        min-height: 48px;
-        letter-spacing: 0.12em;
+// -----login modal-----
+.login-modal-body {
+    overflow-y: auto;
+    max-height: calc(114vh - 84px);
+    padding: 4px 16px 16px;
+}
+
+.login-modal-fade {
+    background: rgb(77 77 77 / 25%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-right: 0;
+}
+
+.login-modal-fade .modal-dialog-bottom {
+    transition: transform 0.2s ease-out;
+    transform: translateY(100%);
+}
+
+.modal-dialog-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+    right: 0%;
+    margin-bottom: 0;
+    animation: slide-in 0.3s cubic-bezier(0.2, 0.05, 0.55, 0.2);
+}
+
+.login-modal-fade.show .modal-dialog-bottom {
+    transform: translateY(0);
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateY(100%);
     }
 
-    .reset-password-form {
-        margin: 0 auto;
+    100% {
+        transform: translateY(0);
     }
+}
 
-    .required-field-para {
-        float: right;
-        font-style: italic;
-        line-height: 1rem;
+.modal-content-head {
+    border-radius: 0;
+}
 
-        .required-indicator {
-            margin-right: 0.125em;
-            color: colour(red, 9);
-        }
-    }
-
-    .changepassowrd-btn {
-        transition: all 0.3s ease;
-        max-height: 35px;
-        min-height: 35px;
-        letter-spacing: 0.12em;
-    }
-
-    .create-btn {
-        padding: 0 2.8125em;
-    }
-
-    .iti__selected-country {
-        background: colour(white);
-    }
+.border-danger {
+    border-color: colour(red);
 }
 
 // -----hide show---
 .password-box {
-    .login-modal-hide {
+    .login-modal-password-hide {
         top: 29px;
         min-height: 46px;
         max-height: 15px;
@@ -396,9 +778,16 @@
         min-height: 43px;
         max-height: 15px;
         background: colour(white);
-        right: 1px;
-        z-index: 5;
+        right: 15px;
         letter-spacing: normal;
+
+        @include media-up(sm) {
+            right: 7px;
+        }
+
+        @include media-breakpoint-only(md) {
+            right: -71px;
+        }
 
         &:hover {
             background-color: colour(gray, 1);
@@ -414,10 +803,28 @@
     .hide-show {
         min-height: 46px;
         max-height: 15px;
-        background: white;
-        right: 1px;
+        background: colour(white);
+        right: 10px;
         top: 23px;
         letter-spacing: normal;
+
+        @include media-up(sm) {
+            min-height: 46px;
+            max-height: 15px;
+            background: colour(white);
+            right: 1px;
+            top: 23px;
+            letter-spacing: normal;
+        }
+
+        @include media-btw(sm, lg) {
+            min-height: 46px;
+            max-height: 15px;
+            background: colour(white);
+            right: 1px;
+            top: 23px;
+            letter-spacing: normal;
+        }
 
         &:hover {
             background-color: colour(gray, 1);
@@ -431,41 +838,124 @@
     }
 }
 
-// -----login modal-----
-.modal-body {
-    overflow-y: auto;
-    max-height: calc(114vh - 64px);
+// -----Merge cart UI---------
+.merge-cart-modal {
+    .merge-cart-content {
+        border-radius: 0;
+
+        .merge-cart-header {
+            h2 {
+                letter-spacing: 0.005em;
+                line-height: 1.25rem;
+            }
+
+            .close {
+                height: 48px;
+                opacity: 1;
+                width: 48px;
+            }
+        }
+
+        .merge-cart-body {
+            .merge {
+                width: 85px;
+                font-size: 0.6875rem;
+                letter-spacing: 0.12em;
+                line-height: 2.0625rem;
+                min-height: 35px;
+                padding: 0 15px;
+            }
+
+            .dont-merge {
+                width: 115px;
+                font-size: 0.6875rem;
+                letter-spacing: 0.12em;
+                line-height: 2.0625rem;
+                min-height: 35px;
+                padding: 0 15px;
+            }
+        }
+    }
 }
 
-.modal {
-    background: rgba(26, 26, 26, 60%);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding-right: 0;
+.pw-requirements {
+    list-style: none;
+    margin: 0 auto;
+    width: 270px;
+
+    .pw-requirement {
+        font-size: 12px;
+        font-size: 0.75rem;
+        background: none;
+        padding: 0 0 1.125rem;
+        position: relative;
+        top: 0.3125rem;
+        line-height: unset;
+
+        span {
+            display: inline-block;
+            padding: 0;
+            margin-bottom: -3px;
+            color: colour(gray);
+            font-size: 0.75rem;
+
+            &.circle {
+                border: 1px solid colour(gray);
+                width: 14px;
+                height: 14px;
+                border-radius: 50%;
+                display: inline-block;
+                left: 0;
+                margin: 3px;
+                position: absolute;
+                top: -1px;
+            }
+        }
+
+        &.success span {
+            color: colour(green, 4);
+
+            .circle {
+                width: 22px;
+                height: 22px;
+                border: none;
+                background: url("../../images/account/Alert-Check.svg");
+                background-repeat: no-repeat;
+                background-position: 50%;
+                margin: 0;
+            }
+        }
+    }
 }
 
-.modal.fade .modal-dialog {
-    transition: transform 0.3s ease-out;
-    transform: translate(0, 50px);
+.pw-requirements .pw-requirement > span {
+    line-height: 1.375rem;
+    padding-left: 30px;
 }
 
-.modal-dialog {
-    position: fixed;
-    bottom: 0;
-    left: 0%;
-    right: 0%;
-    margin-bottom: 0;
-    animation: e 0.2s;
-    animation-timing-function: cubic-bezier(0.2, 0.05, 0.55, 0.2);
+.alert-danger {
+    color: colour(red);
+    background-color: colour(gray, 28);
+    font-weight: 700;
+    padding: 8px 15px;
+    font-size: 0.875rem;
+    margin: 5px 0;
+    display: flex;
+    text-align: left;
+    border: none;
+
+    .error-icon {
+        margin-right: 6px;
+        margin-left: -3px;
+        margin-top: -5px;
+    }
 }
 
-.modal.show .modal-dialog {
-    transform: none;
-}
-
-.modal-content {
-    border-radius: 0;
+.register-success {
+    background-color: colour(green, 2);
+    color: colour(white);
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 10%);
+    margin-top: 34px;
 }

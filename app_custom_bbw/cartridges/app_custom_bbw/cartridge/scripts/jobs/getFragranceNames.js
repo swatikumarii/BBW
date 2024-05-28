@@ -85,6 +85,17 @@ function getFragranceNames() {
                     }
                 }
 
+                // Fragrance names that should be visible always
+                var essentialFragrances = Site.current.getCustomPreferenceValue('essentialFragrances');
+                if (essentialFragrances) {
+                    var essentialFragrance =  essentialFragrances.split(', ');
+                    for (var i = 0; i < essentialFragrance.length; i++) {
+                        if (!fragranceNamesArray.includes(essentialFragrance[i].trim())) {
+                            fragranceNamesArray.push(essentialFragrance[i].trim());
+                        }
+                    }
+                }
+
                 // get ingredients from all products
                 if (product.custom.ingredients) {
                     productIngredients = StringUtils.trim(product.custom.ingredients);

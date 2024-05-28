@@ -67,7 +67,12 @@
     }
 
     &.add-to-cart,
-    &.shop {
+    &.shop,
+    &.notify-me-btn,
+    &.out-of-stock,
+    &.add-to-bundle,
+    &.added-to-bundle,
+    &.submit-form {
         font-size: 1rem;
         font-weight: map-get($font-weight, semibold);
         letter-spacing: 0.24px;
@@ -164,6 +169,18 @@
         &:hover {
             background-color: colour(pink);
             color: colour(white);
+        }
+    }
+
+    &:disabled {
+        background-color: colour(gray, 7);
+        color: colour(gray);
+        border-color: colour(gray, 7);
+        cursor: default;
+        opacity: 0.5;
+
+        &:hover {
+            color: colour(gray);
         }
     }
 }
