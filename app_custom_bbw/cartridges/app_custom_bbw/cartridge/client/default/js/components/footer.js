@@ -158,22 +158,14 @@ $(document).ready(function () {
         var windowHeight = $window.height();
         // Show the button when the user has scrolled past 70% of the document height
         // Ensure it is within the scrollable content
-        return 0.7 * documentHeight;
+        return Math.min(0.7 * documentHeight, documentHeight - 630);
     }
-
-    // Initial threshold calculation
-    var scrollThreshold = calculateScrollThreshold();
-
-    // Recalculate the threshold on window resize
-    $window.resize(function () {
-        scrollThreshold = calculateScrollThreshold();
-    });
 
     // Show or hide the scroll to top button based on scroll position
     $window.scroll(function () {
+        let scrollThreshold = calculateScrollThreshold();
         var scrollTop = $window.scrollTop();
         var windowHeight = $window.height();
-        var documentHeight = $(document).height();
 
         // Adjust the threshold for smaller pages
         var showButtonScrollTop = Math.max(scrollThreshold, windowHeight);
