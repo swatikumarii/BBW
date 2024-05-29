@@ -386,6 +386,26 @@ function handlePostCartAdd(response) {
     }
 }
 
+
+/**
+ * Makes a call to the server to report the event of adding an item to the cart
+ * @param {string | boolean} url - a string representing the end point to hit so that the event can be recorded, or false
+ */
+function miniCartReportingUrlSearch(url) {
+    if (url) {
+        $.ajax({
+            url: url,
+            method: 'GET',
+            success: function () {
+                // reporting urls hit on the server
+            },
+            error: function () {
+                // no reporting urls hit on the server
+            }
+        });
+    }
+}
+
 module.exports = function () {
     $('form[name="simpleSearch"]').submit(function (e) {
         var suggestionsList = $('.suggestions .item');
@@ -575,6 +595,7 @@ module.exports = function () {
                             addToCartSnackbar.removeClass('show');
                         }, 3000);
                         $.spinner().stop();
+                        miniCartReportingUrlSearch(data.reportingURL);
                         return true;
                     },
                     error: function (err) {
