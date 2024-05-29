@@ -22,7 +22,7 @@
             <search-refinement-name>fragranceCategory</search-refinement-name>
         </url-search-refinements>
     </category-search-refinements>
-    <product-rule>[ [ constant, p ] , / , [ attribute, name ] ]</product-rule>
+    <product-rule>[ [ constant, p ] , / , [ [ attribute, custom.fragranceName, name ] , - , [ attribute, custom.titlePartB ] ] ]</product-rule>
     <product-page-url-override>true</product-page-url-override>
     <product-id-separator>-</product-id-separator>
     <folder-rule>[ attribute, ID ]</folder-rule>
