@@ -83,12 +83,26 @@ server.get('ContentNames', function (req, res, next) {
  * @name StaticContent-FaqFooter
  */
 server.get('FaqFooter', function (req, res, next) {
+    var CustomObjectMgr = require('dw/object/CustomObjectMgr');
     var apiContent = ContentMgr.getContent(req.querystring.cid);
     if (apiContent) {
-        var articleHelpful = apiContent.custom.articleHelpfulYes
-            ? apiContent.custom.articleHelpfulYes : 0;
-        var articleTotalResponse =
-            articleHelpful + apiContent.custom.articleHelpfulNo;
+        var faq = CustomObjectMgr.getCustomObject(
+            'faqVotes',
+            req.querystring.cid
+        );
+        var articleHelpful;
+        var articleTotalResponse;
+        if (faq) {
+            articleHelpful = faq.custom.articleHelpfulYes
+                ? faq.custom.articleHelpfulYes
+                : 0;
+            articleTotalResponse = articleHelpful + (faq.custom.articleHelpfulNo
+                ? faq.custom.articleHelpfulNo
+                : 0);
+        } else {
+            articleHelpful = 0;
+            articleTotalResponse = 0;
+        }
         var relatedArticles = [];
         apiContent.custom.relatedArticles.forEach(
             function (relatedArticle, index) {
