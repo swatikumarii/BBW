@@ -21,6 +21,11 @@
     <isinclude template="cart/productCard/cartProductCardAvailability" />
 </div>
 
+<!--- Savings --->
+<div class="line-item-savings">
+        <span class="value">${lineItem.totalSavings ? lineItem.totalSavings : '-'}</span>
+</div>
+
 <!--- line item total price --->
 <div class="line-item-total-price">
     <div class="item-total-${lineItem.UUID} price">
