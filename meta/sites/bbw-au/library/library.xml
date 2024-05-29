@@ -12081,52 +12081,56 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
     </content>
   
 
-  <content content-id="notFound-error">
+   <content content-id="notFound-error">
         <display-name xml:lang="x-default">Page Error</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container text-center"&gt;&#13;
-                     &lt;h1 class="m-font-justlovely--normal h-clr--pink h-font-size--80 mt-5 mb-3 pt-5"&gt;Whoops! We couldn't find&#13;
-                     the page!&lt;/h1&gt;&#13;
-                     &lt;p class="h-clr--black-3 h-font-size--20 mb-4"&gt;This page doesn’t exist or was removed &lt;br&#13;
-                     /&gt;&#13;
-                     Just breath in and out while we suggest you to explore other pages&lt;/p&gt;&#13;
-                     &lt;div&gt;&#13;
-                     &lt;button type="button" class="edit text-uppercase" data-href="${URLUtils.url('Home-Show')}"&#13;
-                     data-id="${address.address.ID}" data-toggle="modal" data-target="#address-form"&gt;&#13;
-                     Shop Now&#13;
-                     &lt;/button&gt;&#13;
-                     &lt;button type="button" class="edit text-uppercase" data-href="${URLUtils.url('Home-Show')}"&#13;
-                     data-id="${address.address.ID}" data-toggle="modal" data-target="#address-form"&gt;&#13;
-                     Shop Now&#13;
-                     &lt;/button&gt;&#13;
-                     &lt;button type="button" class="edit text-uppercase" data-href="${URLUtils.url('Home-Show')}"&#13;
-                     data-id="${address.address.ID}" data-toggle="modal" data-target="#address-form"&gt;&#13;
-                     Shop Now&#13;
-                     &lt;/button&gt;&lt;button type="button" class="edit text-uppercase"&#13;
-                     data-href="${URLUtils.url('Home-Show')}" data-id="${address.address.ID}" data-toggle="modal"&#13;
-                     data-target="#address-form"&gt;&#13;
-                     Shop Now&#13;
-                     &lt;/button&gt;&#13;
-                     &lt;/div&gt;&#13;
-                     &lt;/div&gt;&#13;
-                     &lt;style&gt;&#13;
-                     h1 {&#13;
-                        line-height: 88px;&#13;
-                     }&#13;
-                     .edit {&#13;
-                     border: 1px solid #365fa1;&#13;
-                     background-color: white;&#13;
-                     padding: 7px 25px;&#13;
-                     font-size: 16px;&#13;
-                     color: #365fa1;&#13;
-                     font-weight: 600;&#13;
-                     margin-left: 21px;&#13;
-                     margin-top: 26px;&#13;
-                     }&#13;
-                     &lt;/style&gt;</custom-attribute>
+    &lt;h1 class="m-font-justlovely--normal h-clr--pink h-font-size--80 mt-5 mb-3 pt-5"&gt;Whoops! We couldn't find&#13;
+        the page!&lt;/h1&gt;&#13;
+    &lt;p class="h-clr--black-3 h-font-size--20 mb-4"&gt;This page doesn’t exist or was removed &lt;br /&gt;&#13;
+        Just breath in and out while we suggest you to explore other pages&lt;/p&gt;&#13;
+    &lt;div&gt;&#13;
+        &lt;a  href="$url('Search-Show', 'cgid', 'body-care')$" &gt;&#13;
+            &lt;button type="button" class="edit text-uppercase"&gt;&#13;
+            Body Care&#13;
+            &lt;/button&gt;&#13;
+        &lt;/a&gt;&#13;
+        &lt;a href="$url('Search-Show', 'cgid', 'candles')$"&gt;&#13;
+            &lt;button type="button" class="edit text-uppercase"&gt;&#13;
+                Candles&#13;
+            &lt;/button&gt;&#13;
+        &lt;/a&gt;&#13;
+        &lt;a href="$url('Search-Show','cgid', 'hand-soaps')$"&gt;&#13;
+            &lt;button type="button" class="edit text-uppercase"&gt;&#13;
+                Hand Soaps&#13;
+            &lt;/button&gt;&#13;
+        &lt;/a&gt;&#13;
+        &lt;a href="$url('Search-Show', 'cgid', 'fragrance')$"&gt;&#13;
+            &lt;button type="button" class="edit text-uppercase"&gt;&#13;
+                Fragrances&#13;
+            &lt;/button&gt;&#13;
+        &lt;/a&gt;&#13;
+    &lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;style&gt;&#13;
+    h1 {&#13;
+        line-height: 88px;&#13;
+    }&#13;
+&#13;
+    .edit {&#13;
+        border: 1px solid #365fa1;&#13;
+        background-color: white;&#13;
+        padding: 7px 25px;&#13;
+        font-size: 16px;&#13;
+        color: #365fa1;&#13;
+        font-weight: 600;&#13;
+        margin-left: 21px;&#13;
+        margin-top: 26px;&#13;
+    }&#13;
+&lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
 
