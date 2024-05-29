@@ -55,8 +55,8 @@
                                 <li class="footer-list-item mb-3 link-item">
                                     <a href="${URLUtils.url('Account-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('my.account.title', 'footer', null)}</a>
                                 </li>
-                                <li class="footer-list-item mb-3 link-item">
-                                    <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.love-list', 'footer', null)}</a>
+                                <li class="footer-list-item mb-3 link-item footer-item-link h-clr--black-1 h-font-size--16 loginPopupBtn love-list-item">
+                                    ${Resource.msg('account.love-list', 'footer', null)}
                                 </li>
                             <iselse/>
                                 <!-- If customer is Logged in,  -->
@@ -70,7 +70,7 @@
                                     <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.myorders', 'footer', null)}</a>
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
-                                    <a href="${URLUtils.url('Home-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.love-list', 'footer', null)}</a>
+                                    <a href="${URLUtils.url('Wishlist-Show')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.love-list', 'footer', null)}</a>
                                 </li>
                                 <li class="footer-list-item mb-3 link-item">
                                     <a href="${URLUtils.url('Login-Logout')}" class="footer-item-link h-clr--black-1 h-font-size--16">${Resource.msg('account.sign-out', 'footer', null)}</a>
