@@ -129,7 +129,7 @@ function createErrorNotification(message) {
 function updateApproachingDiscounts(orderApproachingDiscounts, shippingApproachingDiscounts) {
     var orderhtml = '';
     var shippinghtml = '';
-    if (orderApproachingDiscounts) {
+    if (orderApproachingDiscounts && orderApproachingDiscounts.length) {
         orderhtml = '<div class="d-flex w-100 align-items-center">\n';
         if ('image' in orderApproachingDiscounts[0]) {
             orderhtml += '<div>\n'+
@@ -143,7 +143,7 @@ function updateApproachingDiscounts(orderApproachingDiscounts, shippingApproachi
     '</div>';
     }
 
-    if(shippingApproachingDiscounts) {
+    if(shippingApproachingDiscounts && shippingApproachingDiscounts.length) {
         shippinghtml = '<div class="row align-items-center">\n'+
                             '<div class="col-2 icon">\n'+
         // <img src="${URLUtils.staticURL('images/icons/bopis-shipping.svg')}" alt="shipping icon" width="50" />

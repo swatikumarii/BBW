@@ -83,6 +83,10 @@ footer {
             }
         }
 
+        .love-list-item {
+            cursor: pointer;
+        }
+
         .user-info-heading {
             margin-bottom: 2.5rem;
 
@@ -167,7 +171,8 @@ footer {
             .alert-danger {
                 background-color: transparent;
                 border: none;
-                padding-bottom: 8px;
+                padding: 0px;
+                margin: 0px;
                 color: colour(red, 9);
             }
 
