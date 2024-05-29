@@ -20,7 +20,7 @@
                     </li>
                 </isif>
             </isloop>
-            <li class="dropdown-item dropdown explore-li" role="presentation">
+            <li class="dropdown-item dropdown level-2-li explore-li" role="presentation">
                 <a href="<isprint value=" ${exploreCategory.url}" encoding="htmldoublequote" />"
                 class="level-2-link dropdown-link dropdown-toggle h-font-size--14 h-fw--semibold"
                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"

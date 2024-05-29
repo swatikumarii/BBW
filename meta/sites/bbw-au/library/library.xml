@@ -608,10 +608,10 @@
 					&lt;h2&gt;About Body Care from Bath &amp;amp; Body Works&amp;ZeroWidthSpace;&lt;/h2&gt;&#13;
 					&lt;p&gt;Lotions, scrubs, creams, mists, oils…we get it, body care can be overwhelming. That’s why we created a step-by-step skincare guide (and some fabulous products) to get you started:&lt;/p&gt;&#13;
 					&lt;p&gt;It all starts with exfoliation. Our &lt;a href="$url('Search-Show','cgid','body-scrub')$"&gt;body scrubs&lt;/a&gt; buff away dead skins (and bad moods), leaving you soft, smooth and primed for the rest of your body care routine.&lt;/p&gt;&#13;
-					&lt;p&gt;Next, get into the cleansing mood with a dreamily scented &lt;a href="$url('Search-Show','cgid','body-wash-and-shower-gel,PageNo=2')$"&gt;body wash or shower gel&lt;/a&gt;. From floral to fresh, citrusy to warm, you’ll find the perfect wake-up call…even if the alarm did go off a little too early.&lt;/p&gt;&#13;
+					&lt;p&gt;Next, get into the cleansing mood with a dreamily scented &lt;a href="$url('Search-Show','cgid','body-wash-and-shower-gel')$"&gt;body wash or shower gel&lt;/a&gt;. From floral to fresh, citrusy to warm, you’ll find the perfect wake-up call…even if the alarm did go off a little too early.&lt;/p&gt;&#13;
 					&lt;p&gt;Now, add some moisture to your skin with either body cream or body lotion. What’s the difference? Our &lt;a href="$url('Search-Show','cgid','body-lotion')$"&gt;body lotions&lt;/a&gt; are packed with super-fluffy shea butter and hydrating vitamin E to keep you incredibly soft, smooth and nourished. Our &lt;a href="$url('Search-Show','cgid','body-cream-and-butter')$"&gt; body cream &lt;/a&gt; is also super-hydrating, but with a lush mix of glow-giving coconut oil, moisturizing shea butter and super-rich cocoa butter. Bonus: they leave you feeling smooth and refreshed, &lt;i&gt;without&lt;/i&gt; feeling oily or heavy.&lt;/p&gt;&#13;
-					&lt;p&gt;And the best for last: it’s time to indulge! Finish off the process with a spritz of your favorite &lt;a href="$url('Search-Show','cgid','body-spray-and-mists,PageNo=2')$"&gt;fine fragrance mist &lt;/a&gt; to complement your mood.&lt;/p&gt;&#13;
-					&lt;p&gt;What if you want to spend a Saturday afternoon relaxing in the tub? Perfect! Light your favorite Bath &amp;amp; Body Works &lt;a href="$url('Search-Show','cgid','3-wick-candles,PageNo=2')$"&gt;3-wick candle&lt;/a&gt;, grab a matching (or completely different!) &lt;a href="$url('Search-Show','cgid','bath-fizzies-and-bubble-bath')$"&gt;bubble bath or bath fizzie &lt;/a&gt; (think: bath bomb) and soak up some suds and good vibes.&lt;/p&gt;&#13;
+					&lt;p&gt;And the best for last: it’s time to indulge! Finish off the process with a spritz of your favorite &lt;a href="$url('Search-Show','cgid','body-spray-and-mists')$"&gt;fine fragrance mist &lt;/a&gt; to complement your mood.&lt;/p&gt;&#13;
+					&lt;p&gt;What if you want to spend a Saturday afternoon relaxing in the tub? Perfect! Light your favorite Bath &amp;amp; Body Works &lt;a href="$url('Search-Show','cgid','3-wick-candles')$"&gt;3-wick candle&lt;/a&gt;, grab a matching (or completely different!) &lt;a href="$url('Search-Show','cgid','bath-fizzies-and-bubble-bath')$"&gt;bubble bath or bath fizzie &lt;/a&gt; (think: bath bomb) and soak up some suds and good vibes.&lt;/p&gt;&#13;
 					&lt;p&gt;Explore more body care and &lt;a href="$url('Search-Show','cgid','skincare-routine')$"&gt;skincare routine&lt;/a&gt; products made for specifics: like Aromatherapy, foot care or hand care. Don’t forget that your hair and face need TLC, too!&lt;/p&gt;&#13;
 				&lt;/div&gt;&#13;
 			&lt;/div&gt;&#13;
@@ -13138,6 +13138,272 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">$include('Stores-Detail', 'storeId', 'bbw_westfield_penrith')$</custom-attribute>
+        </custom-attributes>
+    </content>
+	<content content-id="about-us-faq-block">
+        <display-name xml:lang="x-default">About Us Faq Block</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-md-12"&gt;
+            &lt;h1 style="line-height:40px;" class="h-font-size-lg--62 h-font-size-md-down--36 faq-title mb-2 lg:mb-4 h-clr--blue"&gt;Frequently Asked Questions&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class="col-md-10 pt-4"&gt;
+            &lt;div class="border-bottom pb-4 mb-4"&gt;
+                &lt;div class="d-flex align-items-center"&gt;
+                    &lt;button class="border-0 h-bg--white d-flex " type="button"
+                        data-toggle="collapse" data-target="#collapseProducts" aria-expanded="false"
+                        aria-controls="collapseProducts"&gt;
+                    &lt;span class="dropdown-icon"&gt;&lt;/span&gt;
+                    &lt;h6 class="ml-md-4 ml-3 text-md-center text-left heading-label h-fw--bold h-font-size--16"&gt;   Do you sell your products wholesale and can I carry your brand in my shop?
+                   &lt;/h6&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="collapse ml-5" id="collapseProducts"&gt;
+                    &lt;p class="pt-4 pb-4 h-font-size--16"&gt;No, we do not sell our products at wholesale for resale
+                        purposes.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="border-bottom pb-4 mb-4"&gt;
+                &lt;div class="d-flex  align-items-center"&gt;
+                    &lt;button class="border-0 h-bg--white d-flex " type="button"
+                        data-toggle="collapse" data-target="#collapseExample" aria-expanded="false"
+                        aria-controls="collapseExample"&gt;
+                        &lt;span class="dropdown-icon" &gt;&lt;/span&gt;
+                    &lt;h6 class="ml-md-4 ml-3 text-md-center text-left heading-label h-fw--bold h-font-size--16"&gt;  How can I open a franchise or establish a business partnership with one of your brands?
+                   &lt;/h6&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="collapse ml-5" id="collapseExample"&gt;
+                    &lt;p class="pt-4 pb-4 h-font-size--16"&gt;In the U.S. and Canada, all of our stores are owned and
+                        operated by Bath &amp; Body Works and therefore are not franchise
+                        operations. Throughout the rest of the world, we currently work with a small number of
+                        international partners to deliver
+                        our brand to customers. We are not entertaining requests for new partners, distributors or
+                        licensees.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="border-bottom pb-4 mb-4"&gt;
+                &lt;div class="d-flex  align-items-center"&gt;
+                    &lt;button class="border-0 h-bg--white d-flex  " type="button"
+                        data-toggle="collapse" data-target="#collapseFoundation" aria-expanded="false"
+                        aria-controls="collapseFoundation"&gt;
+                        &lt;span class="dropdown-icon" &gt;&lt;/span&gt;
+                    &lt;h6 class="ml-md-4 ml-3 text-md-center text-left heading-label h-fw--bold h-font-size--16"&gt;  When was the company founded? &lt;/h6&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="collapse ml-5" id="collapseFoundation"&gt;
+                    &lt;p class="pt-4 pb-4 h-font-size--16"&gt;Bath &amp; Body Works was founded in 1990. In August 2021, L Brands
+                        separated Victoria’s Secret and became an independent
+                        public company as Bath &amp; Body Works.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="border-bottom pb-4 mb-4"&gt;
+                &lt;div class="d-flex  align-items-center"&gt;
+                    &lt;button class="border-0 h-bg--white d-flex " type="button"
+                        data-toggle="collapse" data-target="#collapseHeadquarters" aria-expanded="false"
+                        aria-controls="collapseHeadquarters"&gt;
+                        &lt;span class="dropdown-icon"&gt;&lt;/span&gt;
+                    &lt;h6 class="ml-md-4 ml-3 text-md-center text-left heading-label h-fw--bold h-font-size--16"&gt; Where are the headquarters of Bath &amp; Body Works? &lt;/h6&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="collapse ml-5" id="collapseHeadquarters"&gt;
+                    &lt;p class="pt-4 pb-4 h-font-size--16"&gt;Bath &amp; Body Works world headquarters are located at: &lt;br /&gt;
+                        Bath &amp; Body Works, Inc. &lt;br /&gt;
+                        3 Limited Parkway &lt;br /&gt;
+                        Columbus, Ohio 43230&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="border-bottom pb-4 mb-4"&gt;
+                &lt;div class="d-flex  align-items-center"&gt;
+                    &lt;button class="border-0 h-bg--white  d-flex" type="button"
+                        data-toggle="collapse" data-target="#collapseProposal" aria-expanded="false"
+                        aria-controls="collapseProposal"&gt;
+                        &lt;span class="dropdown-icon"&gt;&lt;/span&gt;
+                    &lt;h6 class="ml-md-4 ml-3 text-md-center text-left heading-label h-fw--bold h-font-size--16"&gt; How can I submit a product idea or proposal? &lt;/h6&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="collapse ml-5" id="collapseProposal"&gt;
+                    &lt;p class="pt-4 pb-4 h-font-size--16"&gt;Bath &amp; Body Works appreciates and values our customers' input,
+                        and we welcome comments regarding our products and
+                        service. However, neither Bath &amp; Body Works nor any of its associates accept or consider
+                        unsolicited ideas for new or
+                        improved products, materials, advertisements, marketing campaigns, promotions or product names
+                        ("Submissions").&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="border-bottom pb-4 mb-4"&gt;
+                &lt;div class="d-flex align-items-center"&gt;
+                    &lt;button class="border-0 h-bg--white d-flex " type="button"
+                        data-toggle="collapse" data-target="#collapseCompany" aria-expanded="false"
+                        aria-controls="collapseCompany"&gt;
+                        &lt;span class="dropdown-icon"&gt;&lt;/span&gt;
+                        &lt;h6 class="ml-md-4 ml-3 text-md-center text-left heading-label h-fw--bold h-font-size--16"&gt;Where can I submit questions about the company for a school project?&lt;/h6&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="collapse ml-5" id="collapseCompany"&gt;
+                    &lt;p class="pt-4 pb-4 h-font-size--16"&gt;Bath &amp; Body Works appreciates and values our customers' input,
+                        and we
+                        welcome comments regarding our products
+                        and
+                        service. However, neither Bath &amp; Body Works nor any of its associates accept or consider
+                        unsolicited ideas
+                        for new or
+                        improved products, materials, advertisements, marketing campaigns, promotions or product names
+                        ("Submissions").&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;style&gt;
+    .faq-title {
+        line-height: 3.875rem;
+    }
+
+    .dropdown-icon {
+        background: url("images/icons/UI-Carat-blue.svg?$staticlink$") no-repeat 50%;
+        width: 15px;
+        height: 15px;
+        position: relative;
+        transition: transform 0.3s ease;
+        display: block;
+        margin-top: 5px;
+    }
+
+    [aria-expanded="true"] .dropdown-icon {
+        transform: rotate(180deg);
+    }
+
+
+
+    .heading-label {
+        color: #383838;
+        line-height: 24px;
+    }
+
+    [aria-expanded="true"] .heading-label {
+        color: #005699;
+    }
+
+    p {
+        color: #5D6265;
+        line-height: 28px;
+        margin-left: 20px;
+    }
+&lt;/style&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+	<content content-id="aboutus-locations-block">
+        <display-name xml:lang="x-default">About Us Location Block</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="aboutus-location-bg"&gt;
+&lt;div class="container location-header"&gt;
+&lt;div class="row"&gt;
+&lt;div class="col-md-6 col-xl-4 col-sm-12"&gt;
+&lt;p class="h-fw--bold  h-font-size--16"&gt;Store Locations&lt;/p&gt;
+
+&lt;h3 class="mb-5 mt-2 h-font-size--30 h-clr--blue more-head"&gt;More than&lt;strong class="h-clr--pink"&gt; 1,850&lt;/strong&gt; company-operated Bath &amp;amp; Body Works locations in the U.S. and Canada and more than &lt;strong class="h-clr--pink"&gt;485&lt;/strong&gt; international franchised locations.&lt;/h3&gt;
+
+&lt;div class="mt-8"&gt;&lt;a class="explore-bath h-font-size--16 text-uppercase" href="#" rel="noopener" target="_blank"&gt;explore bathandbodyworks.com &lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="h-dsp--grid location-tab"&gt;
+&lt;div class="border-l-2 border-bbw-magenta pl-4 mr-2 mt-2"&gt;
+&lt;h2 class="h-fw--bold text-bbw-magenta h-font-size--36 h-clr--pink"&gt;208&lt;/h2&gt;
+
+&lt;h3 class="h-font-size--16"&gt;Middle East Locations&lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;div class="border-l-2 border-bbw-magenta pl-4 mr-2 mt-2"&gt;
+&lt;h2 class="h-fw--bold text-bbw-magenta h-font-size--36 h-clr--pink"&gt;161&lt;/h2&gt;
+
+&lt;h3 class="h-font-size--16"&gt;Asia + Australia Locations&lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;div class="border-l-2 border-bbw-magenta pl-4 mr-2 mt-2"&gt;
+&lt;h2 class="h-fw--bold text-bbw-magenta h-font-size--36 h-clr--pink"&gt;89&lt;/h2&gt;
+
+&lt;h3 class="h-font-size--16"&gt;Americas Locations&lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;div class="border-l-2 border-bbw-magenta pl-4 mr-2 mt-2"&gt;
+&lt;h2 class="h-fw--bold text-bbw-magenta h-font-size--36 h-clr--pink"&gt;19&lt;/h2&gt;
+
+&lt;h3 class="h-font-size--16"&gt;Europe + UK Locations&lt;/h3&gt;
+&lt;/div&gt;
+
+&lt;div class="border-l-2 border-bbw-magenta pl-4 mr-2 mt-2"&gt;
+&lt;h2 class="h-fw--bold text-bbw-magenta h-font-size--36 h-clr--pink"&gt;8&lt;/h2&gt;
+
+&lt;h3 class="h-font-size--16"&gt;Caribbean Locations&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;style type="text/css"&gt;.location-header {
+        gap: 4rem;
+        display: grid;
+    }
+
+    .aboutus-location-bg {
+        background-image: url("images/about-us/bbw-locations-map-revised.jpg?$staticlink$");
+        background-repeat: no-repeat;
+        padding-bottom: 4rem;
+        padding-top: 4rem;
+        background-size: cover;
+    }
+
+    .aboutus-location-bg p {
+        line-height: 24px;
+        color: colour(gray, 5);
+    }
+
+    .more-head {
+        line-height: 36px;
+    }
+
+    .explore-bath {
+        color: #005699;
+    }
+
+    .explore-bath:hover {
+        text-decoration: none;
+        color: #E20887;
+    }
+
+    .location-tab {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 2rem;
+    }
+
+    @media only screen and (max-width: 768px) {
+ .location-tab {
+          grid-template-columns: repeat(2,minmax(0,1fr));
+        gap: 2rem;
+    }
+    }
+
+    .border-bbw-magenta {
+        border-left: 2px solid #E20887;
+    }
+
+    .text-bbw-magenta {
+        line-height: 40px;
+    }
+
+    .border-bbw-magenta h3 {
+        color: #5D6265;
+        line-height: 24px;
+    }
+&lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
 </library>
