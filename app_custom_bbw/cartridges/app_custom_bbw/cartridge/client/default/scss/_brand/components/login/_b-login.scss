@@ -779,6 +779,7 @@
 
         @include media-up(sm) {
             right: 10px;
+            background-color: colour(white);
         }
 
         @include media-breakpoint-only(md) {
