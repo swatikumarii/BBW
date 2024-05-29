@@ -5,20 +5,16 @@
         <div class="card-header clearfix">
             ${Resource.msg('faq.search.suggestion.title', 'faq', null)}
         </div>
-        <isloop items="${pdict.contentSearch.contents}" var="contentAsset">
-            <div class="card-body card-info-group">
-                <a class="btn" href="${contentAsset.url}">${contentAsset.name}</a>
-                <iscomment> <p class="mb-0">${contentAsset.description}</p> </iscomment>
+        <isloop items="${pdict.contentSearch.contents}" var="content">
+            <a href="${content.url}">
+                <div class="card-body card-info-group">
+                    ${content.name}
 
-                <nav class="sub-nav d-flex justify-content-between my-0 py-0">
-                    <ol class="breadcrumbs">
-                        <isinclude template="/content/faqRootBreadcrumb" />
-                        <li title="${Resource.msg('faq.search.results', 'faq', null)}">
-                            ${Resource.msg('faq.search.results', 'faq', null)}
-                        </li>
-                    </ol>
-                </nav>
-            </div>
+                    <nav class="sub-nav d-flex justify-content-between my-0 py-0">
+                        <isinclude template="content/faqSearchSuggestionsBreadcrumb">
+                    </nav>
+                </div>
+            </a>
         </isloop>
     </div>
 </isif>
