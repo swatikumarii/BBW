@@ -17,9 +17,11 @@ $clr-black-6: #1a1919;
 $clr-black-7: #453f3f;
 $clr-black-8: #030303;
 $clr-black-9: #363636;
+$clr-black-10: #2f3941;
 $clr-white: #fff;
 $clr-white-1: #fafafa;
 $clr-white-2: #bababa;
+$clr-white-3: #c2c8cc;
 $clr-blue: #005699;
 $clr-blue-1: #024a82;
 $clr-blue-2: #f0f8ff;
@@ -35,6 +37,7 @@ $clr-blue-11: #b8d2ed;
 $clr-blue-12: #00599f;
 $clr-blue-13: #dce8f5;
 $clr-blue-14: #00e;
+$clr-blue-15: #1f73b7;
 $clr-pink: #e20887;
 $clr-pink-1: #dd0493;
 $clr-pink-2: #ec3fa8;
@@ -106,11 +109,14 @@ $map-colors: (
         6: $clr-black-6,
         7: $clr-black-7,
         8: $clr-black-8,
-        9: $clr-black-9
+        9: $clr-black-9,
+        10: $clr-black-10
     ),
     white: (
         base: $clr-white,
-        1: $clr-white-1
+        1: $clr-white-1,
+        2: $clr-white-2,
+        3: $clr-white-3
     ),
     blue: (
         base: $clr-blue,
@@ -127,7 +133,8 @@ $map-colors: (
         11: $clr-blue-11,
         12: $clr-blue-12,
         13: $clr-blue-13,
-        14: $clr-blue-14
+        14: $clr-blue-14,
+        15: $clr-blue-15
     ),
     pink: (
         base: $clr-pink,
