@@ -87,4 +87,17 @@ server.get('Search', function (req, res, next) {
     next();
 });
 
+/**
+ * Faq-Content : Content search
+ */
+server.get('Content', function (req, res, next) {
+    var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
+
+    var contentSearch = searchHelper.getContentSearch(req.querystring);
+    res.render('/content/faqContentSearch', {
+        contentSearch: contentSearch
+    });
+    next();
+});
+
 module.exports = server.exports();

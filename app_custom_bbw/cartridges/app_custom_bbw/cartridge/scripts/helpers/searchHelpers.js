@@ -100,9 +100,33 @@ function getPageDesignerCategoryPage(categoryID) {
     return base.getPageDesignerCategoryPage(categoryID);
 }
 
+/**
+ * Set content search configuration values
+ * @param {object} params - Provided HTTP query parameters
+ * @returns {object} - content search instance
+ */
+function getContentSearch(params) {
+    var ContentMgr = require('dw/content/ContentMgr');
+    var ContentSearchModel = require('dw/content/ContentSearchModel');
+    var ContentSearch = require('*/cartridge/models/search/faqContentSearch');
+    var faqFolder = ContentMgr.getFolder('faq');
+    var apiContentSearchModel = new ContentSearchModel();
+    apiContentSearchModel.setFolderID(faqFolder.ID);
+    apiContentSearchModel.setRecursiveFolderSearch(true);
+    apiContentSearchModel.setFilteredByFolder(true);
+    apiContentSearchModel.setSearchPhrase(params.query);
+    apiContentSearchModel.search();
+    var contentSearchResult = apiContentSearchModel.getContent();
+    var count = Number(apiContentSearchModel.getCount());
+    var contentSearch = new ContentSearch(contentSearchResult, count, params.q, params.startingPage, 6);
+
+    return contentSearch;
+}
+
 module.exports = {
     setupFaqContentSearch: setupFaqContentSearch,
-    getPageDesignerCategoryPage: getPageDesignerCategoryPage
+    getPageDesignerCategoryPage: getPageDesignerCategoryPage,
+    getContentSearch: getContentSearch
 };
 
 Object.keys(base).forEach(function (prop) {
