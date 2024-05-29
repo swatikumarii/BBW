@@ -71,6 +71,7 @@
                     <div class="headerItem">${Resource.msg('label.item.header.item', 'cart', null)}</div>
                     <div class="headerPrice">${Resource.msg('label.item.header.price', 'cart', null)}</div>
                     <div class="headerQty">${Resource.msg('label.item.header.quantity', 'cart', null)}</div>
+                    <div class="headerSavings">${Resource.msg('label.item.header.savings', 'cart', null)}</div>
                     <div class="headerTotal">${Resource.msg('label.item.header.total', 'cart', null)}</div>
                 </div>
                 <div class="cart-lineitems">

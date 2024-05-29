@@ -173,7 +173,7 @@ module.exports = $.extend({}, detail, {
 
         $(document).on('keyup', '.quantity-field > #Quantity', function () {
             var quantity = Number($(this).val());
-            if (quantity < 1) {
+            if (quantity < 0) {
                 quantity = 1;
                 $(this).val(quantity).trigger('change');
             }
@@ -183,6 +183,13 @@ module.exports = $.extend({}, detail, {
                 $('.reserve-stock').removeClass('d-none');
             } else {
                 $('.reserve-stock').addClass('d-none');
+            }
+        });
+        $(document).on('focusout', '.quantity-field > #Quantity', function () {
+            var quantity = Number($(this).val());
+            if (quantity < 1) {
+                quantity = 1;
+                $(this).val(quantity).trigger('change');
             }
         });
     },
