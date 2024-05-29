@@ -11,7 +11,6 @@ var windowWidth = $(window).outerWidth();
 var lazyload = require('../utils/lazyLoad');
 var layout = require('../utils/layout');
 var helpers = require('../utils/helpers');
-var baseProductBase = require('base/product/base');
 
 /**
  * Retrieves Suggestions element relative to scope
@@ -562,6 +561,12 @@ module.exports = function () {
                             $.spinner().stop();
                             return true;
                         }
+                        $('.js-search-suggestions').stop().slideUp();
+                        $('.js-reset-button').hide();
+                        $('.search-fly-out-opacity').addClass('d-none');
+                        $('#header-search').removeClass('expand-towards-right');
+                        $('.utility-user, .minicart').removeClass('d-lg-none d-md-none');
+
                         handlePostCartAdd(data);
                         $('body').trigger('product:afterAddToCart', data);
                         var addToCartSnackbar = $('#add-to-cart-snackbar');
@@ -570,7 +575,6 @@ module.exports = function () {
                             addToCartSnackbar.removeClass('show');
                         }, 3000);
                         $.spinner().stop();
-                        baseProductBase.miniCartReportingUrl(data.reportingURL);
                         return true;
                     },
                     error: function (err) {
