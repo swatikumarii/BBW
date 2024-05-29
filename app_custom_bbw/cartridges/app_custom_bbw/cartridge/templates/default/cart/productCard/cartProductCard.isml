@@ -2,82 +2,94 @@
 <isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}" scope="page" />
 <isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page" />
 
-<div class="card product-info product-line-item ${bonusproductlineitem} uuid-${lineItem.UUID} ${!lineItem.promoPrice && lineItem.price.sales.value === 0 ? 'zero-price-item' :''}" data-pid="${lineItem.id}">
-    <!--- name and remove buttons --->
+<div class="card">
+    <div class="product-info product-line-item ${bonusproductlineitem} uuid-${lineItem.UUID} ${!lineItem.promoPrice && lineItem.price.sales.value === 0 ? 'zero-price-item' :''}" data-pid="${lineItem.id}">
+        <!--- name and remove buttons --->
 
-    <div class="line-item">
-        <div class="item-image">
-            <isif condition="${lineItem.isEgiftCard}">
-                <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
-                title="${lineItem.images.small[0].title}" />
-            <iselse/>
-                <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+        <div class="line-item">
+            <div class="item-image">
+                <isif condition="${lineItem.isEgiftCard}">
                     <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
-                        title="${lineItem.images.small[0].title}" />
-                </a>
-            </isif>
-        </div>
-        <div class="item-attributes d-flex flex-column">
-            <isinclude template="cart/productCard/cartProductCardHeader" />
-            <isloop items="${lineItem.variationAttributes}" var="attribute" status="loopstate">
-                <p class="line-item-attributes  ${lineItem.variationAttributes.length > 0 && loopstate.index !== lineItem.variationAttributes.length - 1 ? 'mb-0' : ''} ${attribute.displayName}-${lineItem.UUID}">${attribute.displayName}:
-                    ${attribute.displayValue}</p>
-            </isloop>
-            <isloop items="${lineItem.options}" var="option">
-                <isif condition="${!!option}" >
-                    <div class="lineItem-options-values" data-option-id="${option.optionId}"
-                        data-value-id="${option.selectedValueId}">
-                        <p class="line-item-attributes">${option.displayName}</p>
-                    </div>
+                    title="${lineItem.images.small[0].title}" />
+                <iselse/>
+                    <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                        <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
+                            title="${lineItem.images.small[0].title}" />
+                    </a>
                 </isif>
-            </isloop>
-
-            <iscomment> Giftcard Details </iscomment>
-
-                <isif condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
-                    <div class="giftcard-details">
-                        <span class="d-block giftcard-receipient-name">${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails
-                                                                       .recipientName : ''}</span>
-                        <span class="d-block giftcard-receipient-email">${lineItem.giftCardDetails.recipientEmail && lineItem.giftCardDetails.recipientEmail !== null ? lineItem.giftCardDetails
-                                                                        .recipientEmail : ''}</span>
-                        <span class="d-block giftcard-message">${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails
-                                                               .eGiftMessage : ''}</span>
-                    </div>
-                </isif>
-            <!--- promotions --->
-            <div class="line-item-promo item-${lineItem.UUID}">
-                <isset name="cartPage" value="${true}" scope="page" />
-                <isinclude template="checkout/productCard/productCardProductPromotions" />
             </div>
-            <iscomment> wishlist </iscomment>
-            <isinclude template="wishlist/components/addToWishListButtonCart" sf-toolkit="on" />
-        </div>
-        <div class="row">
-            <div class="col-lg-12 d-flex flex-row">
+            <div class="item-attributes d-flex flex-column">
+                <isinclude template="cart/productCard/cartProductCardHeader" />
+                <isloop items="${lineItem.variationAttributes}" var="attribute" status="loopstate">
+                    <p class="line-item-attributes  ${lineItem.variationAttributes.length > 0 && loopstate.index !== lineItem.variationAttributes.length - 1 ? 'mb-0' : ''} ${attribute.displayName}-${lineItem.UUID}">${attribute.displayName}:
+                        ${attribute.displayValue}</p>
+                </isloop>
+                <isloop items="${lineItem.options}" var="option">
+                    <isif condition="${!!option}" >
+                        <div class="lineItem-options-values" data-option-id="${option.optionId}"
+                            data-value-id="${option.selectedValueId}">
+                            <p class="line-item-attributes">${option.displayName}</p>
+                        </div>
+                    </isif>
+                </isloop>
+
+                <iscomment> Giftcard Details </iscomment>
+
+                    <isif condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
+                        <div class="giftcard-details">
+                            <span class="d-block giftcard-receipient-name">${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails
+                                                                        .recipientName : ''}</span>
+                            <span class="d-block giftcard-receipient-email">${lineItem.giftCardDetails.recipientEmail && lineItem.giftCardDetails.recipientEmail !== null ? lineItem.giftCardDetails
+                                                                            .recipientEmail : ''}</span>
+                            <span class="d-block giftcard-message">${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails
+                                                                .eGiftMessage : ''}</span>
+                        </div>
+                    </isif>
+                <!--- promotions --->
+                <div class="line-item-promo item-${lineItem.UUID}">
+                    <isset name="cartPage" value="${true}" scope="page" />
+                    <isinclude template="checkout/productCard/productCardProductPromotions" />
+                </div>
+                <iscomment> wishlist </iscomment>
+                <isinclude template="wishlist/components/addToWishListButtonCart" sf-toolkit="on" />
+            </div>
+            <div class="row">
+                <div class="col-lg-12 d-flex flex-row">
+                </div>
             </div>
         </div>
+
+        <iscomment> Price, Qty, Total Price </iscomment>
+
+        <isinclude template="cart/productCard/cartProductCardProductPrice" />
+
+        <isif condition="${!lineItem.isBonusProductLineItem}">
+            <div class="line-item-remove">
+                <span class="cart-delete-confirmation-btn" data-pid="${lineItem.id}" data-name="${lineItem.productName}"
+                    data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}">
+                    <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
+                </span>
+            </div>
+        </isif>
+
+        <isif condition="${lineItem.customBundle}">
+            <div class="currentCustomBundle">
+                ${dw.experience.PageMgr.getPage(lineItem.customBundle).name} ${Resource.msg('bundle', 'productBundle', null)}
+            </div>
+        </isif>
     </div>
-
-    <iscomment> Price, Qty, Total Price </iscomment>
-
-    <isinclude template="cart/productCard/cartProductCardProductPrice" />
-
-    <isif condition="${!lineItem.isBonusProductLineItem}">
-        <div class="line-item-remove">
-            <span class="cart-delete-confirmation-btn" data-pid="${lineItem.id}" data-name="${lineItem.productName}"
-                data-action="${pdict.actionUrls.removeProductLineItemUrl}" data-uuid="${lineItem.UUID}">
-                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="20" />
-            </span>
-        </div>
-    </isif>
-
     <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
-        <isinclude template="cart/productCard/cartEmbeddedBonusProducts" />
-    </isif>
-
-    <isif condition="${lineItem.customBundle}">
-        <div class="currentCustomBundle">
-            ${dw.experience.PageMgr.getPage(lineItem.customBundle).name} ${Resource.msg('bundle', 'productBundle', null)}
+        <div class="d-flex justify-content-between pt-3">
+            <div class="bonus-line-item-msg">${Resource.msg('text.lineitem.bonus.msg','cart',null)}:</div>
+            <isloop items="${lineItem.discountLineItems}" var="discountLineItem">
+                <div class="bonus-product-button" data-duuid="${discountLineItem.uuid}" data-pliuuid="${discountLineItem.pliuuid}"
+                    data-maxpids="${discountLineItem.maxpids}" data-pageStart="0" data-pageSize="0"
+                    data-url="${discountLineItem.url}">
+                    <button class="choose-bonus-button" data-toggle="modal"
+                        data-target="#chooseBonusProductModal">${discountLineItem.msg}</button>
+                </div>
+            </isloop>
         </div>
+        <isinclude template="cart/productCard/cartEmbeddedBonusProducts" />
     </isif>
 </div>

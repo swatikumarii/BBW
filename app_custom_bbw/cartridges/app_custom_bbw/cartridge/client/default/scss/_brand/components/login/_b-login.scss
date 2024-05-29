@@ -760,11 +760,9 @@
 // -----hide show---
 .password-box {
     .login-modal-password-hide {
-        top: 29px;
-        min-height: 46px;
-        max-height: 15px;
-        right: 1px;
-        letter-spacing: normal;
+        min-height: 44px;
+        right: 8px;
+        top: 30px;
 
         .show {
             border-left: 1px solid colour(gray, 22);
@@ -775,14 +773,13 @@
 
     .register-hide {
         top: 33px;
-        min-height: 43px;
-        max-height: 15px;
-        background: colour(white);
+        min-height: 44px;
         right: 15px;
         letter-spacing: normal;
 
         @include media-up(sm) {
-            right: 7px;
+            right: 10px;
+            background-color: colour(white);
         }
 
         @include media-breakpoint-only(md) {
@@ -809,12 +806,9 @@
         letter-spacing: normal;
 
         @include media-up(sm) {
-            min-height: 46px;
-            max-height: 15px;
-            background: colour(white);
             right: 1px;
             top: 23px;
-            letter-spacing: normal;
+            min-height: 45px;
         }
 
         @include media-btw(sm, lg) {

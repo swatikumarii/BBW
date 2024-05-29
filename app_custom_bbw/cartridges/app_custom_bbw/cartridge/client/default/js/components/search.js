@@ -11,7 +11,6 @@ var windowWidth = $(window).outerWidth();
 var lazyload = require('../utils/lazyLoad');
 var layout = require('../utils/layout');
 var helpers = require('../utils/helpers');
-var baseProductBase = require('base/product/base');
 
 /**
  * Retrieves Suggestions element relative to scope
@@ -387,6 +386,26 @@ function handlePostCartAdd(response) {
     }
 }
 
+
+/**
+ * Makes a call to the server to report the event of adding an item to the cart
+ * @param {string | boolean} url - a string representing the end point to hit so that the event can be recorded, or false
+ */
+function miniCartReportingUrlSearch(url) {
+    if (url) {
+        $.ajax({
+            url: url,
+            method: 'GET',
+            success: function () {
+                // reporting urls hit on the server
+            },
+            error: function () {
+                // no reporting urls hit on the server
+            }
+        });
+    }
+}
+
 module.exports = function () {
     $('form[name="simpleSearch"]').submit(function (e) {
         var suggestionsList = $('.suggestions .item');
@@ -526,8 +545,28 @@ module.exports = function () {
                     data: form,
                     success: function (data) {
                         if (data.error) {
-                            $('.reserve-stock p').text(data.message);
-                            $('.reserve-stock').removeClass('d-none');
+                            if (data.errorCode === 'ZERO-PRICE-PRODUCT') {
+                                if (
+                                    currentAction.closest('.product-tile')
+                                        .length &&
+                                    currentAction
+                                        .closest('.product-tile')
+                                        .find('.add-to-cart-error').length
+                                ) {
+                                    currentAction
+                                        .closest('.product-tile')
+                                        .find('.add-to-cart-error')
+                                        .text(data.errorMessage);
+                                } else if ($('.add-to-cart-error-pdp').length) {
+                                    $('.add-to-cart-error-pdp').text(
+                                        data.errorMessage
+                                    );
+                                }
+                            } else {
+                                $('.reserve-stock p').text(data.message);
+                                $('.reserve-stock').removeClass('d-none');
+                            }
+                            $.spinner().stop();
                             return true;
                         }
                         if (data.isProductLineItemsExist) {
@@ -542,6 +581,12 @@ module.exports = function () {
                             $.spinner().stop();
                             return true;
                         }
+                        $('.js-search-suggestions').stop().slideUp();
+                        $('.js-reset-button').hide();
+                        $('.search-fly-out-opacity').addClass('d-none');
+                        $('#header-search').removeClass('expand-towards-right');
+                        $('.utility-user, .minicart').removeClass('d-lg-none d-md-none');
+
                         handlePostCartAdd(data);
                         $('body').trigger('product:afterAddToCart', data);
                         var addToCartSnackbar = $('#add-to-cart-snackbar');
@@ -549,9 +594,8 @@ module.exports = function () {
                         setTimeout(function () {
                             addToCartSnackbar.removeClass('show');
                         }, 3000);
-
                         $.spinner().stop();
-                        baseProductBase.miniCartReportingUrl(data.reportingURL);
+                        miniCartReportingUrlSearch(data.reportingURL);
                         return true;
                     },
                     error: function (err) {

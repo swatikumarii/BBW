@@ -395,6 +395,8 @@
                 h2 {
                     padding: 1.25rem 0.875rem;
                     cursor: pointer;
+                    line-height: 20px;
+                    letter-spacing: 0.1px;
 
                     &::after {
                         top: 1.125rem;
@@ -406,6 +408,7 @@
 
                     p {
                         padding: 0 0 0 1rem;
+                        letter-spacing: 0.2px;
                     }
 
                     .pdp_ov_ul {
