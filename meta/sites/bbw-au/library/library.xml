@@ -1934,14 +1934,14 @@
 	&lt;nav class="nav-link-list ml-auto mr-auto mb-3" aria-label="Footer Links"&gt;&#13;
 		&lt;ul class="sub-list-links d-block d-md-flex justify-content-center h-flex-wrap-sm--wrap" "&gt;&#13;
             &lt;li class="content pr-2 mb-2 mr-2 " role="menu "&gt;&#13;
-                &lt;a class="ds-link " role="menuitem " href="/customer-care/terms-of-use.html "&#13;
+                &lt;a class="ds-link " role="menuitem " href="$url('Page-Show', 'cid', 'terms-of-use')$"&#13;
                     data-analytics-trigger="link-list " data-module-name="link-group " data-slot-id="footer-legal-links "&#13;
                     data-content-asset-id="footer_module_legallinks1-0 " data-analytics-promo-code="null " tabindex="0 "&gt;&#13;
                     Terms of use &lt;/a&gt;&#13;
             &lt;/li&gt;&#13;
 &#13;
             &lt;li class="content pr-2 mb-2 mr-2 " role="menu "&gt;&#13;
-                &lt;a class="ds-link " role="menuitem " href="/customer-care/privacy-policy.html "&#13;
+                &lt;a class="ds-link " role="menuitem " href="$url('Page-Show', 'cid', 'privacy-policy')$"&#13;
                     data-analytics-trigger="link-list " data-module-name="link-group " data-slot-id="footer-legal-links "&#13;
                     data-content-asset-id="footer_module_legallinks1-1 " data-analytics-promo-code="null " tabindex="0 "&gt;&#13;
                     Privacy Policy &lt;/a&gt;&#13;
@@ -2297,7 +2297,7 @@
 	&lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14 d-flex align-items-center justify-content-between cursor-pointer" aria-expanded="false" aria-controls="collapsible-discover" data-toggle="collapse" data-target="#collapsible-discover"&gt;DISCOVER&lt;/button&gt;&#13;
 	&lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-discover"&gt;&#13;
 		&lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;DISCOVER&lt;/li&gt;&#13;
-		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href='/aboutus.html' class="footer-item-link h-clr--black-1 h-font-size--16"&gt;About Us&lt;/a&gt;&#13;
+		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'aboutus')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;About Us&lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
 		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Careers-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Careers&lt;/a&gt;&#13;
