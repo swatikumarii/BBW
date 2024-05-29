@@ -35,7 +35,7 @@
     <content-id-separator>/</content-id-separator>
     <pipeline-aliases xml:lang="x-default">
         <pipeline-alias pipeline="Account-EditProfile">profile</pipeline-alias>
-        <pipeline-alias pipeline="Fragrance-Show">fragrance</pipeline-alias>
+        <pipeline-alias pipeline="Fragrance-Show">shop-by-fragrance</pipeline-alias>
         <pipeline-alias pipeline="Careers-Show">careers</pipeline-alias>
         <pipeline-alias pipeline="Checkout-Begin">checkout-begin</pipeline-alias>
         <pipeline-alias pipeline="Login-CreateAccount">registration/user-registration</pipeline-alias>
@@ -48,6 +48,7 @@
         <pipeline-alias pipeline="Stores-Find">store-locator</pipeline-alias>
         <pipeline-alias pipeline="Order-Status">track-order</pipeline-alias>
         <pipeline-alias pipeline="Cart-Show">cart</pipeline-alias>
+        <pipeline-alias pipeline="Blogs-Show">get-inspired</pipeline-alias>
     </pipeline-aliases>
     <pipeline-trailing-slash>false</pipeline-trailing-slash>
     <pipeline-perform-redirect>false</pipeline-perform-redirect>
