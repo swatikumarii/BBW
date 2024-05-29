@@ -42,14 +42,14 @@
     }
 
     &__product-type {
-        margin-top: 3px;
+        margin: 3px 0 0;
         line-height: 20px;
         letter-spacing: 0.16px;
         color: colour(black, 1);
     }
 
     .price {
-        margin: 5px 0;
+        margin: 12px 2px 0;
     }
 
     &__price-link {

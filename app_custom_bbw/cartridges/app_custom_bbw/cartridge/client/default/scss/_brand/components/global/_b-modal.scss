@@ -49,11 +49,10 @@
 
         .promotion-body {
             text-align: left;
-            overflow-y: scroll;
             max-height: 75%;
             padding: 12px 8px;
             flex-grow: 1;
-            overflow: auto !important;
+            overflow: auto scroll !important;
             overscroll-behavior: contain;
             border: 1px solid colour(gray, 5);
 
