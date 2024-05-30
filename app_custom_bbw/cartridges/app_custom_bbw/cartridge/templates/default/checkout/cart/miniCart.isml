@@ -22,6 +22,8 @@
             <isslot id="minicart-top-slot" context="global" description="This slot will apper on the top of minicart" />
 
             <iscomment> Motivator to be added here </iscomment>
+            <isinclude template="cart/cartOrderApproachingDiscount" sf-toolkit="on" />
+
 
             <isif condition="${!session.isCustomerAuthenticated()}">
                 <div class="minicart-login d-flex justify-content-between align-items-center">
@@ -32,6 +34,8 @@
                 </div>
             </isif>
             <iscomment> Motivator to be added here </iscomment>
+            <isinclude template="cart/cartShippingApproachingDiscount" sf-toolkit="on" />
+
             <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
                 <div class="minicart-error cart-error cart-error-messaging h-font-size--14 h-bg--red-10 h-clr--red-9 px-3 py-2 my-3 d-flex">
                     <img src="${URLUtils.staticURL('images/Alert-Error.svg')}" alt="error alert" width="28px" height="28px" class="pr-2" />

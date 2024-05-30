@@ -6,5 +6,6 @@ index.isFreeItem = require('*/cartridge/models/productLineItem/decorators/isFree
 index.promoPrice = require('*/cartridge/models/productLineItem/decorators/promoPrice');
 index.dangerousGoods = require('*/cartridge/models/productLineItem/decorators/dangerousGoods');
 index.promotionsHTML = require('*/cartridge/models/productLineItem/decorators/promotionsHTML');
+index.totalSavings = require('*/cartridge/models/productLineItem/decorators/totalSavings');
 
 module.exports = index;

@@ -255,6 +255,123 @@
     }
 }
 
+.pagination {
+    margin: 20px 0;
+    text-align: center;
+    display: block;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        .pagination-next,
+        .pagination-prev,
+        .pagination-first,
+        .pagination-last {
+            display: inline-block;
+        }
+
+        .pagination-next-link {
+            padding-right: 10px;
+
+            .pagination-next-text {
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+.pagination-first-text,
+.pagination-last-text {
+    border: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap;
+}
+
+.pagination-next-link,
+.pagination-prev-link,
+.pagination-first-link,
+.pagination-last-link {
+    background-color: transparent;
+    border: 1px solid colour(blue, 10);
+    border-radius: 4px;
+    color: colour(blue, 10);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 2.34;
+    margin: 0;
+    padding: 0 20px;
+    text-align: center;
+    transition:
+        background-color 0.12s ease-in-out,
+        border-color 0.12s ease-in-out,
+        color 0.15s ease-in-out;
+    user-select: none;
+    white-space: nowrap;
+    width: 100%;
+    -webkit-touch-callout: none;
+}
+
+.faq-search-card {
+    position: absolute;
+    top: auto;
+    margin-top: 15px;
+    width: 100%;
+    border: 0;
+    box-shadow:
+        0 0 4px 0 rgba(0, 0, 0, 20%),
+        0 4px 10px 0 rgba(0, 0, 0, 10%);
+
+    .card-header {
+        color: colour(black, 10);
+        padding: 20px;
+        background: colour(white);
+    }
+
+    .card-body {
+        border-bottom: 1px solid colour(white, 3);
+        color: colour(black, 10);
+        padding: 20px;
+        text-align: left;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 3%);
+        }
+
+        a.btn {
+            color: colour(blue, 15);
+            font-size: 15px;
+            background: colour(white);
+            border: 0;
+            padding: 0;
+            min-height: auto;
+            line-height: 0;
+            padding-bottom: 4px;
+        }
+
+        .sub-nav {
+            min-height: 100%;
+
+            .breadcrumbs li a {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+input:-internal-autofill-selected {
+    background-color: colour(white);
+}
+
 @include media-down(md) {
     .collapsible-sidebar {
         .multibrand-filter-list {

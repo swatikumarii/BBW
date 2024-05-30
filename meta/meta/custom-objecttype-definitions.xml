@@ -780,4 +780,41 @@
         </group-definitions>
     </custom-type>
 
+    <custom-type type-id="faqVotes">
+        <display-name xml:lang="x-default">FAQ Votes</display-name>
+        <description xml:lang="x-default">FAQ Votes</description>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="faqId">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="articleHelpfulNo">
+                <display-name xml:lang="x-default">Article Helpful (No)</display-name>
+                <description xml:lang="x-default">Article helpful - No</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="articleHelpfulYes">
+                <display-name xml:lang="x-default">Article Helpful (Yes)</display-name>
+                <description xml:lang="x-default">Article Helpful - Yes</description>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="attributes">
+                <display-name xml:lang="x-default">attributes</display-name>
+                <attribute attribute-id="articleHelpfulNo"/>
+                <attribute attribute-id="articleHelpfulYes"/>
+                <attribute attribute-id="faqId"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
+
 </metadata>
