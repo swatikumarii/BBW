@@ -2372,16 +2372,21 @@
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="socials mb-5"&gt;&#13;
-&lt;h6 class="social-header text-capitalize mb-4 font-weight-bold text-start h-clr--black-1 h-font-size--16"&gt;Get connected&lt;/h6&gt;&#13;
-&#13;
-&lt;ul class="social-links d-flex m-0"&gt;&#13;
-	&lt;li&gt;&lt;a class="facebook" href="https://www.facebook.com/bathandbodyworks" target="_blank" title="Go to facebook"&gt;&lt;img alt="" src="images/footer/social-icon/Social-fb-black.svg?$staticlink$" title="facebook" /&gt;&lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li&gt;&lt;a class="twitter" href="https://twitter.com/bathbodyworks" target="_blank" title="Go to twitter"&gt;&lt;img alt="" src="images/footer/social-icon/social-x-24.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li&gt;&lt;a class="instagram" href="https://www.instagram.com/bathandbodyworks/" target="_blank" title="Go to instagram"&gt;&lt;img alt="" src="images/footer/social-icon/Social-ig-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li&gt;&lt;a class="tiktok" href="https://www.tiktok.com/@bathandbodyworks" target="_blank" title="Go to tiktok"&gt;&lt;img alt="" src="images/footer/social-icon/Social-tiktok-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li&gt;&lt;a class="youtube" href="https://www.youtube.com/user/bathandbodyworks/" target="_blank" title="Go to youtube"&gt;&lt;img alt="" src="images/footer/social-icon/Social-youtube-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li&gt;&lt;a class="pinterest" href="https://www.pinterest.com/bathbodyworks/" target="_blank" title="Go to pinterest"&gt;&lt;img alt="" src="images/footer/social-icon/Social-pinterest-black.svg?$staticlink$" title="" /&gt;&lt;/a&gt;&lt;/li&gt;&#13;
-&lt;/ul&gt;&#13;
+	&lt;h6 class="social-header text-capitalize mb-4 font-weight-bold text-start h-clr--black-1 h-font-size--16"&gt;Get connected&lt;/h6&gt;&#13;
+	&lt;ul class="social-links d-flex m-0"&gt;&#13;
+		&lt;li&gt;&lt;a class="facebook" href="https://www.facebook.com/bbwaustralia/" target="_blank" title="Go to facebook"&gt;&lt;img alt="" src="images/footer/social-icon/Social-fb-black.svg?$staticlink$" title="facebook" /&gt;&lt;/a&gt;&#13;
+		&lt;/li&gt;&#13;
+		&lt;li&gt;&lt;a class="twitter" href="https://twitter.com/bathbodyworks" target="_blank" title="Go to twitter"&gt;&lt;img alt="" src="images/footer/social-icon/social-x-24.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;/li&gt;&#13;
+		&lt;li&gt;&lt;a class="instagram" href="https://www.instagram.com/bathandbodyworks.au/" target="_blank" title="Go to instagram"&gt;&lt;img alt="" src="images/footer/social-icon/Social-ig-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;/li&gt;&#13;
+		&lt;li&gt;&lt;a class="tiktok" href="https://www.tiktok.com/@bathandbodyworks" target="_blank" title="Go to tiktok"&gt;&lt;img alt="" src="images/footer/social-icon/Social-tiktok-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;/li&gt;&#13;
+		&lt;li&gt;&lt;a class="youtube" href="https://www.youtube.com/channel/UCi4-fFB4Odqjttdwomvg3rQ" target="_blank" title="Go to youtube"&gt;&lt;img alt="" src="images/footer/social-icon/Social-youtube-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;/li&gt;&#13;
+		&lt;li&gt;&lt;a class="pinterest" href="https://www.pinterest.com/bathbodyworks/" target="_blank" title="Go to pinterest"&gt;&lt;img alt="" src="images/footer/social-icon/Social-pinterest-black.svg?$staticlink$" title="" /&gt;&lt;/a&gt;&#13;
+		&lt;/li&gt;&#13;
+	&lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
