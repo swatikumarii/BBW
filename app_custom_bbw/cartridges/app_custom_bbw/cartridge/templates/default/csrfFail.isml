@@ -1,0 +1,20 @@
+<isdecorate template="common/layout/page">
+    <isinclude template="/components/modules" sf-toolkit="off" />
+    <isscript>
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
+    assets.addJs('/js/pickedJustForYou.js');
+</isscript>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <iscontentasset aid="csrf-fail" />
+                <div class="pt-5">
+                    <isslot id="picked-just-for-you" description="Picked Just for You" context="global" />
+                </div>
+                <iscontentasset aid="notFound-category" />
+
+            </div>
+        </div>
+    </div>
+</isdecorate>

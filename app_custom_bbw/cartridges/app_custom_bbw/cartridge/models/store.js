@@ -52,6 +52,7 @@ function store(storeObject) {
             images.push(storeObject.custom.image5.httpsURL.toString());
         }
         this.imageUrl = images;
+        this.storeMapLink = storeObject.custom.storeMapLink;
     }
 }
 

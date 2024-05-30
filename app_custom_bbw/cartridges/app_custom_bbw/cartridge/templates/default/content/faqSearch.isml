@@ -90,7 +90,7 @@
                             </div>
                             <article>
                                 <ul class="meta-group">
-                                    <isprint value="${content.breadcrumb}" encoding="off" />
+                                    <isinclude template="content/faqSearchBreadcrumb">
                                     <li class="meta-data">
                                         <time datetime="${content.creationDate}" title="${content.creationDate}"
                                             data-datetime="calendar">${content.creationDate}</time>

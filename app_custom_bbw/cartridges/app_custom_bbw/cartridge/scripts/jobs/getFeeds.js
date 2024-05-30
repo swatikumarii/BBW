@@ -44,16 +44,22 @@ function getGoogleFeeds() {
             var data = {
                 'Product ID': product.ID,
                 SKU: product.ID,
-                Name: product.name,
+                Name: StringUtils.decodeString(product.name, 0).replace(
+                    ',',
+                    ' '
+                ),
                 'Product URL': URLUtils.abs('Product-Show', 'pid', product.ID),
                 Price: product.priceModel.price.value,
                 'Retail Price': product.priceModel.price.value,
                 'Thumbnail URL':
-                    product.getImages('large').length > 1
+                    product.getImages('large').length > 0
                         ? product.getImages('large')[0].absURL.toString()
                         : '',
                 Description: product.longDescription
-                    ? StringUtils.decodeString(product.longDescription.toString(),0)
+                    ? StringUtils.decodeString(
+                        product.longDescription.toString(),
+                        0
+                    ).replace(',', ' ')
                     : '',
                 Brand: product.brand,
                 Badges: badgeString,

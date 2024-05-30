@@ -5,6 +5,77 @@ var HashMap = require('dw/util/HashMap');
 var URLUtils = require('dw/web/URLUtils');
 var ProductFactory = require('*/cartridge/scripts/factories/product');
 var PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelper.js');
+var products = [];
+var pids = [];
+var productCount = 0;
+var tileLimit = 0;
+/**
+ * Add Product
+ * @param {object} product product object
+ * @param {string} productId product id
+ */
+function addProduct(product, productId) {
+    products.push(product);
+    pids.push(productId);
+    productCount++;
+}
+
+/**
+ * Process Products
+ * @param {string} productId product id
+ * @param {boolean} showOutOfStockProducts true/false
+ * @returns {boolean} true/false
+ */
+function processProduct(productId, showOutOfStockProducts) {
+    if (pids.indexOf(productId) < 0) {
+        var product = ProductFactory.get({ pid: productId });
+        if (showOutOfStockProducts || product.available) {
+            addProduct(product, productId);
+            if (productCount === tileLimit) {
+                return true; // tile limit reached
+            }
+        }
+    }
+    return false; // continue processing
+}
+
+/**
+ * Process category products
+ * @param {object} productsList product list
+ * @param {boolean} showOutOfStockProducts true/false
+ * @returns {boolean} true/false
+ */
+function processCategoryProducts(productsList, showOutOfStockProducts) {
+    for (var index = 0; index < productsList.length; index++) {
+        if (processProduct(productsList[index].ID, showOutOfStockProducts)) {
+            return true; // tile limit reached
+        }
+    }
+    return false; // continue processing
+}
+
+/**
+ * Process Category
+ * @param {object} categories category object
+ * @param {boolean} showOutOfStockProducts true/false
+ * @returns {boolean} true/false
+ */
+function processCategories(categories, showOutOfStockProducts) {
+    for (var i = 0; i < categories.length; i++) {
+        var category = categories[i];
+        if (category.onlineProducts.length > 0) {
+            if (processCategoryProducts(category.onlineProducts, showOutOfStockProducts)) {
+                return true; // tile limit reached
+            }
+        }
+        if (category.onlineSubCategories.length > 0) {
+            if (processCategories(category.onlineSubCategories, showOutOfStockProducts)) {
+                return true; // tile limit reached
+            }
+        }
+    }
+    return false; // continue processing
+}
 
 /**
  * Render logic for storefront to get content of category carousel
@@ -18,16 +89,16 @@ module.exports.render = function (context) {
     var content = context.content;
     var carouselTitle = content.carouselTitle ? content.carouselTitle : '';
     var category = content.category;
-    var tileLimit = content.tileLimit;
+    tileLimit = content.tileLimit;
     var showOutOfStockProducts = content.showOutOfStockProducts;
     var shopButtonText = content.shopButtonText ? content.shopButtonText : '';
     var component = context.component;
 
     model.regions = PageRenderHelper.getRegionModelRegistry(component);
 
-    if (tileLimit) {
-        tileLimit = tileLimit > 0 ? tileLimit : category.onlineProducts.length;
-    }
+    // if (tileLimit) {
+    tileLimit = tileLimit > 0 ? tileLimit : 30;
+    // }
 
     model.carouselTitle = carouselTitle;
     model.productDetailAlignment = content.productDetailAlignment === 'center' ? 'content-center' : content.productDetailAlignment === 'right' ? 'content-right' : 'content-left'; // eslint-disable-line
@@ -35,24 +106,16 @@ module.exports.render = function (context) {
     model.shopButtonLink = URLUtils.url('Search-Show', 'cgid', category.ID);
     model.sectionCustomClass = content.sectionCustomClass;
     model.leftContentCustomClass = content.leftContentCustomClass;
-    var products = [];
-    // productsCount decides number of product tiles to be displayed
-    var productCount = 0;
-    for (var index = 0; index < category.onlineProducts.length; index++) {
-        var product = ProductFactory.get({ pid: category.onlineProducts[index].ID });
-        if (showOutOfStockProducts === false) {
-            if (product.available === true) {
-                products.push(product);
-                productCount++;
-            }
-        } else {
-            products.push(product);
-            productCount++;
-        }
-        if (productCount === tileLimit) {
-            break;
-        }
+    var found = false;
+
+    if (category.onlineProducts.length > 0) {
+        found = processCategoryProducts(category.onlineProducts, showOutOfStockProducts);
     }
+
+    if (!found && category.onlineSubCategories.length > 0) {
+        found = processCategories(category.onlineSubCategories, showOutOfStockProducts);
+    }
+
     model.selectedProducts = products;
     return new Template('experience/components/commerce_layouts/categoryCarousel').render(model).text;
 };

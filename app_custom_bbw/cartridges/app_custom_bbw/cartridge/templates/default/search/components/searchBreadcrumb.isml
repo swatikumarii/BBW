@@ -4,7 +4,7 @@
             <isloop items="${pdict.breadcrumbs}" var="breadcrumbValue" status="loopState">
                 <isif condition="${loopState.last}">
                     <div class="search__breadcrumb__category-name">
-                        <span class="${pdict.productSearch.isCategorySearch ? 'h-clr--gray-4' : 'h-clr--black-1'}">
+                        <span class="${pdict.productSearch.isCategorySearch ? 'h-clr--black-1 h-fw--semibold' : 'h-clr--black-1'}">
                             <isprint value="${breadcrumbValue.htmlValue}" encoding="off" />
                         </span>
                     </div>
