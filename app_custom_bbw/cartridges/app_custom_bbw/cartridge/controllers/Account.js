@@ -128,6 +128,32 @@ server.prepend('Login', function (req, res, next) {
     }
 });
 
+/**
+ * Account-Login : The Account-Login endpoint will render the shopper's account page. Once a shopper logs in they will see is a dashboard that displays profile, address, payment and order information.
+ */
+server.append('Login', function (req, res, next) {
+    var accountHelper = require('*/cartridge/scripts/helpers/accountHelpers');
+    var email = req.form.loginEmail;
+    var viewData = res.getViewData();
+    var remainingLoginAttempts = accountHelper.remainingLoginAttempts(email);
+    if(remainingLoginAttempts !== -1){
+        viewData.error =
+            [Resource.msg('error.message.login.form.attempts.first', 'login', null)
+            + ' ' + remainingLoginAttempts + ' '
+            + Resource.msg('error.message.login.form.attempts.last', 'login', null)];
+    
+        if(!remainingLoginAttempts || remainingLoginAttempts === 0){
+            viewData.error = [
+                Resource.msg('error.message.account.locked', 'login', null)
+            ];
+        }
+        viewData.remainingLoginAttempts = remainingLoginAttempts;
+        res.setViewData(viewData);
+    }
+    next();
+});
+
+
 server.replace(
     'SaveProfile',
     server.middleware.https,
