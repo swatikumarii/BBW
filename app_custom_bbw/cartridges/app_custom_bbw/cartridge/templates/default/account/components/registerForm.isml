@@ -67,12 +67,12 @@
         </label>
         <input type="tel" class="form-control select-dropdown-value h-clr--black-1" required
             id="registration-form-phone" initOptions.allowDropdown="true"
-            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+            data-missing-error="${Resource.msg('error.message.phone.required', 'forms', null)}"
             data-pattern-mismatch="${Resource.msg('error.message.parse.phone.profile.form', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
             aria-describedby="form-phone-error" <isprint value=${pdict.profileForm.customer.phone.attributes}
             encoding="off" /> />
-        <div class="invalid-feedback text-left" id="phone-error">${Resource.msg('error.message.required', 'forms', null)}</div>
+        <div class="invalid-feedback text-left" id="phone-error">${Resource.msg('error.message.phone.required', 'forms', null)}</div>
     </div>
 
     <div class="form-group register-form text-center <isif condition="

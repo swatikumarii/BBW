@@ -114,6 +114,8 @@ $(document).ready(function () {
             );
         }
     );
+    var errorMessage = '<div class="invalid-feedback text-left" id="phone-error">Phone Number is required.</div>';
+    $('#registration-form-phone').after(errorMessage);
 
     // Define an array of validation fields with selector and validation function
     var validationFields = [
