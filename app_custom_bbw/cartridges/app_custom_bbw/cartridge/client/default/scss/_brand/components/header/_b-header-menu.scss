@@ -290,10 +290,9 @@
                         }
 
                         .menu-wrap-level-1 .level-2-ul-wrap .menu-right {
-                            height: 100%;
+                            max-height: max-content;
                             visibility: visible;
                             opacity: 1;
-                            transition: all 0.3s ease-out;
                         }
                     }
 
@@ -500,18 +499,15 @@
 
                             .menu-right {
                                 position: absolute;
-                                left: auto;
+                                left: 0;
                                 top: 0;
-                                height: 0;
-                                overflow: hidden;
-                                max-height: none;
+                                max-height: 0;
+                                overflow: visible;
                                 margin-bottom: 22px;
                                 text-transform: capitalize;
                                 opacity: 0;
                                 visibility: hidden;
-
-                                // transition: all 0.5s ease-out;
-                                // transition: max-height 0.3s ease-out;
+                                transition: left 0.3s ease-out;
 
                                 .category-top-offers {
                                     border-left: 1px solid colour(gray, 6);
@@ -536,13 +532,6 @@
                                     }
 
                                     .category-top-items {
-                                        pointer-events: auto;
-                                        display: block;
-                                        opacity: 1;
-                                        visibility: visible;
-                                        position: relative;
-                                        transition: all 0.5s ease-out;
-
                                         ul {
                                             padding: 0;
                                             margin: 0;
