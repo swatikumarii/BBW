@@ -116,22 +116,26 @@
                             <!-- Applicable Promotions -->
                             <div class="promotions-wrap">
                                 <isloop items="${product.promotions}" var="promotion" status="loopstatus">
-                                    <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
-                                        <span class="callout-message">
-                                            <isprint value="${promotion.calloutMsg}" encoding="off">
-                                        </span>
-                                        <button type="button"
-                                            class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
-                                            data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
-                                            title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a>
-                                            <div class='popover-content pdp-pop-content ds-tooltip-content'>
-                                                <isprint value=" ${promotion.details}" />
-                                    </div>
-                                    <div class='arrow-fill'></div>"
-                                    data-html="true" data-original-title="" aria-describedby="popover14574">
-                                    </button>
-                            </div>
-                            </isloop>
+                                    <isif condition="${!empty(promotion.calloutMsg)}">
+                                        <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
+                                            <span class="callout-message">
+                                                <isprint value="${promotion.calloutMsg}" encoding="off"/>
+                                            </span>
+                                            <isif condition="${!empty(promotion.details)}">
+                                                    <button type="button"
+                                                        class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
+                                                        data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
+                                                        title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a>
+                                                        <div class='popover-content pdp-pop-content ds-tooltip-content'>
+                                                            <isprint value=" ${promotion.details}" />
+                                                </div>
+                                                <div class='arrow-fill'></div>"
+                                                data-html="true" data-original-title="" aria-describedby="popover14574">
+                                                </button>
+                                            </isif>
+                                        </div>
+                                    </isif>
+                                </isloop>
                             </div>
 
                         <iscomment> Hiding Bopis Options for now </iscomment>

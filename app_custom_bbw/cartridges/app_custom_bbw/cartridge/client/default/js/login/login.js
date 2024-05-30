@@ -123,7 +123,13 @@ function login() {
                         if ($('.loginPopup input[name="wishlist-pid"]').val()) {
                             localStorage.setItem('addToWishList', true);
                         }
-                        window.location.href = data.redirectUrl;
+                        // window.location.href = data.redirectUrl;
+                        // window.location.reload();
+                        if (data.redirectUrl.indexOf('Page-Show') !== -1) {
+                            window.location.reload();
+                        } else {
+                            window.location.href = data.redirectUrl;
+                        }
                     }
                 }
             },
@@ -153,7 +159,11 @@ function cartMerge() {
             data: { storedBasketProducts: JSON.stringify(storedBasketProducts) },
             dataType: 'json',
             success: function () {
-                window.location.href = redirectUrl;
+                if (redirectUrl.indexOf('Page-Show') !== -1) {
+                    window.location.reload();
+                } else {
+                    window.location.href = redirectUrl;
+                }
             },
             error: function () {
                 window.location.href = redirectUrl;
@@ -163,11 +173,19 @@ function cartMerge() {
     });
     $('.dont-merge').on('click', function () {
         var redirectUrl = $('.redirect-url').val();
-        window.location.href = redirectUrl;
+        if (redirectUrl.indexOf('Page-Show') !== -1) {
+            window.location.reload();
+        } else {
+            window.location.href = redirectUrl;
+        }
     });
     $('#isMergeCartModal').on('hidden.bs.modal', function () {
         var redirectUrl = $('.redirect-url').val();
-        window.location.href = redirectUrl;
+        if (redirectUrl.indexOf('Page-Show') !== -1) {
+            window.location.reload();
+        } else {
+            window.location.href = redirectUrl;
+        }
     });
 };
 /**

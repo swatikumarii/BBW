@@ -1,13 +1,16 @@
+<isinclude template="product/components/removeGiftLineItem" />
 <div class="card border-0 product-info uuid-${item.UUID} pid-${item.pid}">
     <!--- image, attributes, availability --->
     <input class="quantity" value="1" type="hidden" />
     <table class="table">
         <tr>
             <td class="item-image">
-                <div class="item-image">
-                    <img width="70px" height="70px" class="product-image" src="${item.imageObj.small[0].url}"
-                        alt="${item.imageObj.small[0].alt}" title="${item.imageObj.small[0].title}" />
-                </div>
+                <a href="${URLUtils.url('Product-Show', 'pid', item.pid)}">
+                    <div class="item-image">
+                        <img width="70px" height="70px" class="product-image" src="${item.imageObj.small[0].url}"
+                            alt="${item.imageObj.small[0].alt}" title="${item.imageObj.small[0].title}" />
+                    </div>
+                </a>
             </td>
             <!--- product name--->
             <td class="item-details">
