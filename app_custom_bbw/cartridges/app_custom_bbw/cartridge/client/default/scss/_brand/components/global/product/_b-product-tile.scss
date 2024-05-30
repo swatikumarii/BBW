@@ -226,6 +226,7 @@
 
     &__img-wrapper {
         overflow: hidden;
+        margin-bottom: 16px;
 
         .img-inner-wrapper {
             @include media-up(md) {
