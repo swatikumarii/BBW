@@ -11,8 +11,11 @@
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                 tabindex="0">${category.name}</a>
                             <isset name="menuItem" value="${category}" scope="page" />
-                            <iscomment> <isinclude template="components/header/menuItem" /> </iscomment>
-                            <isinclude template="components/header/brandMenuItem" />
+                            <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('navSameAsDotCom')}">
+                                <isinclude template="components/header/brandMenuItem" />
+                            <iselse/>
+                                <isinclude template="components/header/menuItem" />
+                            </isif>
                         </li>
                     <iselse/>
                         <li class="nav-item" role="presentation">
