@@ -95,6 +95,7 @@
                 ]
             </preference>
             <preference preference-id="showTopOffers">false</preference>
+            <preference preference-id="navSameAsDotCom">true</preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
@@ -173,6 +174,7 @@
                 ]
             </preference>
             <preference preference-id="showTopOffers">false</preference>
+            <preference preference-id="navSameAsDotCom">true</preference>
         </staging>
         <production/>
     </custom-preferences>

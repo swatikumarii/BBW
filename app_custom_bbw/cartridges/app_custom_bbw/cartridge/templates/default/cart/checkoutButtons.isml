@@ -74,7 +74,7 @@
             </div>
         <iselse/>
             <div class="mb-sm-3">
-                <a href="${URLUtils.https('Checkout-Begin')}"
+                <a href="${URLUtils.https('Checkout-Begin')}" data-check-motivator="${URLUtils.https('Cart-MissingFree')}"
                     class="btn btn-primary btn-block checkout-btn h-fw--semibold h-font-size--16 cart-checkout-btn ${pdict.valid.error ? 'disabled' : ''}" role="button">
                     <span class="checkout-button-lock"></span>
                     ${Resource.msg('button.checkout', 'cart', null)}

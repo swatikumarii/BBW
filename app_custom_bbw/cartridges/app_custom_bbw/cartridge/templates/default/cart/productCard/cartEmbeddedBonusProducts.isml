@@ -1,0 +1,3 @@
+<isloop items="${lineItem.bonusProducts}" var="productLineItem" status="loopState">
+    <isinclude template="cart/productCard/cartNestedBonusProductCard" />
+</isloop>
