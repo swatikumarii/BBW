@@ -4,7 +4,11 @@
     <div class="header-banner slide-up d-none">
         <div class="container-fluid px-0">
             <div class="content h-width-perc--100">
-                <isslot id="header-banner-m" description="Slot above the site header" context="global" />
+                <isslot id="gingham-header-banner" description="Slot above the site header" context="global" />
+            </div>
+
+            <div class="content h-width-perc--100">
+                <isslot id="promotional-header-banner" description="Slot above the site header" context="global" />
             </div>
 
             <div class="content h-width-perc--100 d-none d-md-block">
@@ -65,7 +69,7 @@
                 </div>
             </div>
         </div>
-        <div class=" mx-auto main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown bbw-brand-menu"
+        <div class=" mx-auto main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown ${dw.system.Site.getCurrent().getCustomPreferenceValue('navSameAsDotCom') ? 'bbw-brand-menu' : 'bbw-menu'}"
             id="sg-navbar-collapse">
             <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
         </div>

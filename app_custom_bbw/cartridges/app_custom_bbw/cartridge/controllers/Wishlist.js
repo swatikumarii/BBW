@@ -38,28 +38,29 @@ server.append('Show', function (req, res, next) {
     var CustomObjectMgr = require('dw/object/CustomObjectMgr');
     var viewData = res.getViewData();
 
-    var breadcrumbs = [
-        {
-            htmlValue: Resource.msg('global.home', 'common', null),
-            url: URLUtils.home().toString()
-        },
-        {
-            htmlValue: Resource.msg('page.title.myaccount', 'account', null),
-            url: URLUtils.url('Account-Show').toString()
-        },
-        {
-            htmlValue: Resource.msg('label.wishlist', 'account', null),
-            url: URLUtils.url('Wishlist-Show').toString()
-        }
+    var breadcrumbs = [{
+        htmlValue: Resource.msg('global.home', 'common', null),
+        url: URLUtils.home().toString()
+    },
+    {
+        htmlValue: Resource.msg('page.title.myaccount', 'account', null),
+        url: URLUtils.url('Account-Show').toString()
+    },
+    {
+        htmlValue: Resource.msg('label.wishlist', 'account', null),
+        url: URLUtils.url('Wishlist-Show').toString()
+    }
     ];
 
     var userEmail = req.currentCustomer.raw.registered ? req.currentCustomer.profile.email : false;
 
-    for (var index = 0; index < viewData.wishlist.items.length; index++) {
-        var productRecord = CustomObjectMgr.getCustomObject('notifyBackInStock', viewData.wishlist.items[index].pid);
-        viewData.wishlist.items[index].productPresentInNotifyList = false;
-        if (userEmail && productRecord !== null && productRecord.custom.user.indexOf(userEmail) !== -1) {
-            viewData.wishlist.items[index].productPresentInNotifyList = true;
+    if (viewData.wishlist && viewData.wishlist.items && viewData.wishlist.items.length > 0) {
+        for (var index = 0; index < viewData.wishlist.items.length; index++) {
+            var productRecord = CustomObjectMgr.getCustomObject('notifyBackInStock', viewData.wishlist.items[index].pid);
+            viewData.wishlist.items[index].productPresentInNotifyList = false;
+            if (userEmail && productRecord !== null && productRecord.custom.user.indexOf(userEmail) !== -1) {
+                viewData.wishlist.items[index].productPresentInNotifyList = true;
+            }
         }
     }
 
@@ -74,12 +75,10 @@ server.replace('ShowOthers', function (req, res, next) {
     var productListMgr = require('dw/customer/ProductListMgr');
     var apiList = productListMgr.getProductList(id);
     var firstName = apiList.owner.profile.firstName;
-    var breadcrumbs = [
-        {
-            htmlValue: Resource.msg('global.home', 'common', null),
-            url: URLUtils.home().toString()
-        }
-    ];
+    var breadcrumbs = [{
+        htmlValue: Resource.msg('global.home', 'common', null),
+        url: URLUtils.home().toString()
+    }];
     var loggedIn = req.currentCustomer.profile;
     if (loggedIn) {
         breadcrumbs.push({

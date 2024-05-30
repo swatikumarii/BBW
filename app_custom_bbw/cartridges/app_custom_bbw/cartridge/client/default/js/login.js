@@ -208,4 +208,9 @@ $(document).ready(function () {
             }
         }, 100);
     });
+    $(function () {
+        $('#registration-form-dob').prop('max', function () {
+            return new Date().toJSON().split('T')[0];
+        });
+    });
 });

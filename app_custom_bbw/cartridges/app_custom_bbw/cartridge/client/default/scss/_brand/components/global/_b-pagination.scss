@@ -8,6 +8,13 @@
         }
     }
 
+    &__count {
+        font-size: 14px;
+        letter-spacing: 0.21px;
+        line-height: 16px;
+        color: colour(gray, 4);
+    }
+
     &__next-wrapper {
         &__last,
         &__next-step {
@@ -19,6 +26,8 @@
     &__links {
         &__link-number {
             padding: 5px 8px;
+            line-height: 20px;
+            letter-spacing: 0.16px;
 
             &.active {
                 padding: 5px 0;
