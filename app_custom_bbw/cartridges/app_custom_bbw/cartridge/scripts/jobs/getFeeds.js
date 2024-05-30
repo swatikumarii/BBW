@@ -111,18 +111,21 @@ function getFacebookFeeds() {
             product = productsIterator.next();
             var data = {
                 id: product.ID,
-                title: product.name,
+                title: StringUtils.decodeString(product.name, 0).replace(
+                    ',',
+                    ' '
+                ),
                 description: product.longDescription
                     ? StringUtils.decodeString(
                         product.longDescription.toString(),
                         0
-                    )
+                    ).replace(',', ' ')
                     : '',
                 link: URLUtils.abs('Product-Show', 'pid', product.ID),
                 price: product.priceModel.price.value,
                 // eslint-disable-next-line camelcase
                 image_link:
-                    product.getImages('large').length > 1
+                    product.getImages('large').length > 0
                         ? product.getImages('large')[0].absURL.toString()
                         : '',
                 brand: product.brand,
@@ -131,7 +134,7 @@ function getFacebookFeeds() {
                     product.availabilityModel.inventoryRecord.ATS
                         ? product.availabilityModel.inventoryRecord.ATS
                         : 1000,
-                condition:'new'
+                condition: 'new'
             };
             objects.push(data);
         }
