@@ -48,7 +48,7 @@
             }</preference>
             <preference preference-id="apDisplayCartInfo">true</preference>
             <preference preference-id="apDisplayPdpInfo">true</preference>
-            <preference preference-id="apDisplayPlpInfo">true</preference>
+            <preference preference-id="apDisplayPlpInfo">false</preference>
             <preference preference-id="apEnableExpressCheckout">true</preference>
             <preference preference-id="apEnableExpressCheckoutBuyNow">true</preference>
             <preference preference-id="apEnableExpressCheckoutCart">true</preference>
@@ -136,7 +136,7 @@
             }</preference>
             <preference preference-id="apDisplayCartInfo">true</preference>
             <preference preference-id="apDisplayPdpInfo">true</preference>
-            <preference preference-id="apDisplayPlpInfo">true</preference>
+            <preference preference-id="apDisplayPlpInfo">false</preference>
             <preference preference-id="apEnableExpressCheckout">true</preference>
             <preference preference-id="apEnableExpressCheckoutBuyNow">true</preference>
             <preference preference-id="apEnableExpressCheckoutCart">true</preference>
