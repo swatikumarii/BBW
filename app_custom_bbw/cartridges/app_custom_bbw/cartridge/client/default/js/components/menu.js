@@ -1,6 +1,6 @@
 'use strict';
 
-var keyboardAccessibility = require('./keyboardAccessibility');
+var keyboardAccessibility = require('base/components/keyboardAccessibility');
 var layout = require('../utils/layout');
 var timeoutId;
 
@@ -74,184 +74,6 @@ $('body').on('click', function () {
         accountDropdownMenu.removeClass('show');
     }
 });
-
-/** BBW Brand Header Start */
-if (layout.isDesktop() || layout.isTablet()) {
-    // Show class on hover
-    var $level2li = $('.level-2-li');
-    var $level1li = $('.level-1-link');
-
-    $level1li
-        .on('mouseenter', function () {
-            var $level1Parent = $(this).parent();
-            var maxWidth;
-            $(this)
-                .find('.level-2-li')
-                .each(function () {
-                    if ($(this).width() > maxWidth) {
-                        maxWidth = $(this).width();
-                    }
-                });
-            $(this).find('.level-2-li').width(maxWidth);
-
-            var $ul = $level1Parent
-                .find('.level-2-li')
-                .first()
-                .find('.level-3-ul');
-            var totalLiHeight = 0;
-
-            // Calculate the total height of all li elements in the current ul
-            $ul.find('li').each(function () {
-                totalLiHeight += $(this).height();
-            });
-
-            var containerHeight = $(this).parent().find('.level-2-ul').height();
-            // Compare total height of li elements with main container height
-            if (totalLiHeight > containerHeight) {
-                $ul.addClass('two-column');
-            }
-
-            $(this)
-                .parent()
-                .find('.menu-wrap-level-1')
-                .hover(
-                    function () {
-                        $level1Parent.addClass('show');
-                        $level1Parent
-                            .find('.level-2-li')
-                            .first()
-                            .addClass('show');
-                        $level1Parent
-                            .find('.level-2-li .menu-wrap-level-3')
-                            .first()
-                            .addClass('show');
-                    },
-                    function () {
-                        $('.level-2-li').removeClass('show');
-                        $level1Parent.removeClass('show');
-                        $('body')
-                            .find('.menu-wrap-level-3')
-                            .removeClass('show');
-                    }
-                );
-            $('body').find('.menu-wrap-level-3').removeClass('show');
-            $level2li.removeClass('show');
-            $(this).parent().find('.level-2-li').first().addClass('show');
-            $(this)
-                .parent()
-                .find('.level-2-li')
-                .first()
-                .find('.menu-wrap-level-3')
-                .addClass('show');
-            var $level2liWidth = $(this)
-                .parent()
-                .find('.level-2-li')
-                .first()
-                .width();
-            var $menuWrapLevel3Width = $(this)
-                .parent()
-                .find('.level-3-ul')
-                .width();
-            $(this)
-                .parent()
-                .find('.menu-right')
-                .css('left', $level2liWidth + $menuWrapLevel3Width);
-            window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
-        })
-        .on('mouseleave', function () {
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(() => {
-                $('body').find('.menu-wrap-level-3').removeClass('show');
-                $('body').find('.menu-wrap-level-3').removeClass('show');
-                $(this)
-                    .parent()
-                    .find('.level-2-li')
-                    .first()
-                    .removeClass('show');
-                $(this)
-                    .parent()
-                    .find('.level-2-li')
-                    .first()
-                    .removeClass('show');
-            }, 3000);
-        });
-
-    $level2li.hover(function (e) {
-        e.preventDefault();
-        $('body').find('.menu-wrap-level-3').removeClass('show');
-        $level2li.removeClass('show');
-        $(this).addClass('show');
-        $(this).find('.menu-wrap-level-3').addClass('show');
-    });
-
-    $('.explore-li').hover(
-        function () {
-            var $level2liWidth = $(this).width();
-            $('body').find('.menu-wrap-level-3').removeClass('show');
-            $level2li.removeClass('show');
-            $(this)
-                .closest('div.level-2-ul-wrap')
-                .find('.menu-right')
-                .css('left', $level2liWidth);
-        },
-        function () {
-            $(this)
-                .closest('div.level-2-ul-wrap')
-                .find('.menu-right')
-                .css('left', window.menuRightWidth);
-        }
-    );
-
-    /** 2 Column layout */
-    // Select the main container div
-
-    $level2li.hover(function () {
-        var this1 = $(this);
-        var $level2liWidth = $(this).width();
-        var $menuWrapLevel3Width = $(this).find('.level-3-ul').width();
-        $(this)
-            .parent()
-            .find('.menu-right')
-            .css('left', $level2liWidth + $menuWrapLevel3Width);
-        window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
-
-        var $mainContainer = $(this).parent();
-
-        // Get the height of the main container div
-        var containerHeight = $mainContainer.height();
-
-        // Iterate over each ul within the container
-        $mainContainer.find('.level-3-ul').each(function () {
-            var $ul = $(this);
-            var totalLiHeight = 0;
-
-            // Calculate the total height of all li elements in the current ul
-            $ul.find('li').each(function () {
-                totalLiHeight += $(this).height();
-            });
-
-            // Compare total height of li elements with main container height
-            if (totalLiHeight > containerHeight) {
-                $ul.addClass('two-column');
-
-                $level2liWidth = this1.width();
-                $menuWrapLevel3Width = this1.find('.level-3-ul').width();
-                this1
-                    .parent()
-                    .find('.menu-right')
-                    .css('left', $level2liWidth + $menuWrapLevel3Width);
-                window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
-            }
-        });
-    });
-}
-$('.menu-wrap-level-1').hover(function () {
-    clearTimeout(timeoutId);
-});
-
-/** BBW Brand Header End */
-
-// var clearSelection = function (element) {
 //     $(element)
 //         .closest('.dropdown')
 //         .children('.dropdown-menu')
@@ -311,13 +133,9 @@ module.exports = function () {
             e.preventDefault();
             var self = $(this);
             if (isDesktop(this)) {
-                timeoutId = setTimeout(function () {
-                    $(self).removeClass('show');
-                    $(self).children('.dropdown-menu').removeClass('show');
-                    $(self)
-                        .children('.nav-link')
-                        .attr('aria-expanded', 'false');
-                }, 3000); // 2000 milliseconds = 2 seconds
+                $(self).removeClass('show');
+                $(self).children('.dropdown-menu').removeClass('show');
+                $(self).children('.nav-link').attr('aria-expanded', 'false');
             }
         });
 

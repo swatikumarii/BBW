@@ -10,7 +10,8 @@ $(document).ready(function () {
     processInclude(require('base/components/cookie'));
     processInclude(require('base/components/consentTracking'));
     processInclude(require('./components/header'));
-    processInclude(require('./components/menu'));
+    // processInclude(require('./components/menu'));
+    processInclude(require('./components/brandMenu'));
     processInclude(require('./components/footer'));
     processInclude(require('./components/miniCart'));
     processInclude(require('base/components/collapsibleItem'));
