@@ -18,7 +18,7 @@
         </custom-attributes>
     </slot-configuration>
 
-    <slot-configuration slot-id="promotional-header-banner" context="global" configuration-id="promotional-header-banner" default="true" assigned-to-site="true">
+   <slot-configuration slot-id="promotional-header-banner" context="global" configuration-id="promotional-header-banner" default="true" assigned-to-site="true">
         <template>slots/html/htmlSlotContainer.isml</template>
         <enabled-flag>true</enabled-flag>
         <content>
@@ -27,7 +27,7 @@
 	&lt;div class="content-text-wrap mx-auto h-maxwidth-perc--90 position-relative"&gt;
 		&lt;ul class="text-center"&gt;
 			&lt;li class="content-heading mr-2 h-clr--white"&gt;
-				&lt;span class="content-title h-fw--semibold h-text-fz--body "&gt;Enjoy an improved shopping experience with enhanced features. Read more &lt;a href=""&gt;&lt;span class="content-title text-underline h-text-fz--body "&gt;here&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;
+				&lt;span class="content-title h-fw--semibold h-text-fz--body "&gt;Enjoy an improved shopping experience with enhanced features. Read more &lt;a href="$url('Page-Show', 'cid', 'offers')$"&gt;&lt;span class="content-title text-underline h-text-fz--body "&gt;here&lt;/span&gt;&lt;/a&gt;&lt;/span&gt;
 			&lt;/li&gt;
 		&lt;/ul&gt;
 	&lt;/div&gt;
@@ -39,9 +39,9 @@
         </custom-attributes>
     </slot-configuration>
 
-   <slot-configuration slot-id="store-header-banner" context="global" configuration-id="Store-banner" default="true" assigned-to-site="true">
+   <slot-configuration slot-id="store-header-banner" context="global" configuration-id="Store-banner" assigned-to-site="true">
         <template>slots/html/htmlSlotContainer.isml</template>
-        <enabled-flag>true</enabled-flag>
+        <enabled-flag>false</enabled-flag>
         <content>
             <html>
                 <body xml:lang="x-default">&lt;div class="store-header-banner  h-bg--gray-1 h-width-perc--100"&gt;
