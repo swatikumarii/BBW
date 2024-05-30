@@ -23,7 +23,7 @@
                             <img class="list_content d-block" width="100%" src="${list.custom.image.absURL}"
                                 alt="${list.displayName}" />
                         </a>
-                        <p class="navi_content text-center mb-0 h-font-size--16 h-fw--semibold mt-4 text-uppercase">
+                        <p cl   ass="navi_content text-center mb-0 h-font-size--16 h-fw--semibold mt-4 text-uppercase">
                             <a class="h-clr--black-3" href="${'#'+list.displayName.replace(' ', '')}">${list.displayName}</a>
                         </p>
                     </div>
@@ -33,7 +33,7 @@
         <div class="m-grid-contain">
             <isloop items="${pdict.blog.onlineSubFolders}" var="folder" status="loopstatus" begin=0>
                 <div class="blog_list">
-                    <div id="${folder.displayName.replace(' ', '')}" class="head-img d-flex align-items-center">
+                    <div id="${folder.displayName.replace(' ', '')}" class="head-img d-flex align-items-center scroll-margin">
                         <isif condition="${folder.custom.isShow === true}">
                             <div class="folder-conten-img">
                                 <img class="folder_content" src="${folder.custom.image.absURL}"
