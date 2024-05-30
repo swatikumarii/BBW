@@ -23,7 +23,7 @@
                             <img class="list_content d-block" width="100%" src="${list.custom.image.absURL}"
                                 alt="${list.displayName}" />
                         </a>
-                        <p cl   ass="navi_content text-center mb-0 h-font-size--16 h-fw--semibold mt-4 text-uppercase">
+                        <p class="navi_content text-center mb-0 h-font-size--16 h-fw--semibold mt-4 text-uppercase">
                             <a class="h-clr--black-3" href="${'#'+list.displayName.replace(' ', '')}">${list.displayName}</a>
                         </p>
                     </div>
