@@ -132,4 +132,19 @@
         </content>
     </slot-configuration>
 
+    <slot-configuration slot-id="search-popular-picks" context="global" configuration-id="search-popular-picks-au" assigned-to-site="true">
+        <description>Slot search popular pick for 0 search results</description>
+        <template>slots/product/searchPopulatPicks.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <products>
+                <product product-id="22486926"/>
+                <product product-id="24329446"/>
+                <product product-id="24401763"/>
+                <product product-id="24448962"/>
+                <product product-id="24554865"/>
+            </products>
+        </content>
+    </slot-configuration>
+
 </slot-configurations>
