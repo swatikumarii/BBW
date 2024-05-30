@@ -18,10 +18,10 @@
     <page-meta-tag-rules>
         <product-detail-page-meta-tag-rules>
             <page-meta-tag-rule rule-id="OG Title" meta-tag-id="og:title">
-                <rule xml:lang="x-default">Buy ${Product.name} Online | ${Site.displayName}</rule>
+                <rule xml:lang="x-default">Buy ${IF Product.custom.fragranceName THEN Product.custom.fragranceName ELSE Product.name} ${Product.custom.titlePartB} Online | ${Site.displayName}</rule>
             </page-meta-tag-rule>
             <page-meta-tag-rule rule-id="Page Title" meta-tag-id="title">
-                <rule xml:lang="x-default">Buy ${Product.name} Online | ${Site.displayName}</rule>
+                <rule xml:lang="x-default">Buy ${IF Product.custom.fragranceName THEN Product.custom.fragranceName ELSE Product.name} ${Product.custom.titlePartB} Online | ${Site.displayName}</rule>
             </page-meta-tag-rule>
             <page-meta-tag-rule rule-id="Page Keywords" meta-tag-id="keywords">
                 <rule xml:lang="x-default">${Product.name}, ${Category.displayName}</rule>

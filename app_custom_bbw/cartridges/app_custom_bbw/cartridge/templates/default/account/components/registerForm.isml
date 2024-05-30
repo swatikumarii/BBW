@@ -272,7 +272,7 @@
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
     <div class="text-center register-privacy">
-        <a href="${'#'}" class="h-font-size--12 h-clr--black-3">
+        <a href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="h-font-size--12 h-clr--black-3">
             ${Resource.msg('link.privacypolicy.registration', 'login', null)}
         </a>
     </div>

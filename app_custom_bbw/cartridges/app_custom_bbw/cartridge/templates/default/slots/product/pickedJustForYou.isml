@@ -2,6 +2,8 @@
 <isscript>
     var assets = require('*/cartridge/scripts/assets');
     assets.addCss('/css/notifyMe.css');
+    assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
+    assets.addJs('/js/pickedJustForYou.js');
 </isscript>
 <isset name="showOutOfStockProducts" value="${slotcontent.custom.showOutOfStockProducts === true ? true : false}" scope="page" />
     <isif condition="${!empty(slotcontent.content)}">

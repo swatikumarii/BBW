@@ -48,7 +48,7 @@
             }</preference>
             <preference preference-id="apDisplayCartInfo">true</preference>
             <preference preference-id="apDisplayPdpInfo">true</preference>
-            <preference preference-id="apDisplayPlpInfo">true</preference>
+            <preference preference-id="apDisplayPlpInfo">false</preference>
             <preference preference-id="apEnableExpressCheckout">true</preference>
             <preference preference-id="apEnableExpressCheckoutBuyNow">true</preference>
             <preference preference-id="apEnableExpressCheckoutCart">true</preference>
@@ -95,6 +95,7 @@
                 ]
             </preference>
             <preference preference-id="showTopOffers">false</preference>
+            <preference preference-id="navSameAsDotCom">true</preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
@@ -135,7 +136,7 @@
             }</preference>
             <preference preference-id="apDisplayCartInfo">true</preference>
             <preference preference-id="apDisplayPdpInfo">true</preference>
-            <preference preference-id="apDisplayPlpInfo">true</preference>
+            <preference preference-id="apDisplayPlpInfo">false</preference>
             <preference preference-id="apEnableExpressCheckout">true</preference>
             <preference preference-id="apEnableExpressCheckoutBuyNow">true</preference>
             <preference preference-id="apEnableExpressCheckoutCart">true</preference>
@@ -173,6 +174,7 @@
                 ]
             </preference>
             <preference preference-id="showTopOffers">false</preference>
+            <preference preference-id="navSameAsDotCom">true</preference>
         </staging>
         <production/>
     </custom-preferences>

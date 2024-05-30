@@ -26,13 +26,15 @@
             }
 
             ul {
-                padding: 0.625rem 1rem;
+                padding: 12px 1rem;
 
                 li {
-                    line-height: 1.6;
+                    line-height: 0;
                     display: contents;
 
                     .content-title {
+                        line-height: 0;
+
                         &::before {
                             background-color: colour(white);
                             border-radius: 50%;
@@ -60,6 +62,8 @@
     }
 
     .store-header-banner {
+        border-bottom: 2px solid colour(gray, 1);
+
         .store-header-wrap {
             height: 2.25rem;
 
