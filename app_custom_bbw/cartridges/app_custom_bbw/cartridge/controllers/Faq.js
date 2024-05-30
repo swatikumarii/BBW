@@ -9,34 +9,45 @@ var ContentMgr = require('dw/content/ContentMgr');
  * Faq-UpdateVote : UpdateVote
  * @name Faq-UpdateVote
  */
-server.post('UpdateVote', function (req) {
-    var apiContent = ContentMgr.getContent(req.form.currentContentId);
-    if (apiContent) {
-        // TODO: We need to uncomment below block after SFCC Team discussion
-        // Transaction.wrap(function () {
-        //     if (req.form.articleHelpful) {
-        //         apiContent.custom.articleHelpfulYes =
-        //             apiContent.custom && apiContent.custom.articleHelpfulYes
-        //                 ? apiContent.custom.articleHelpfulYes
-        //                 : 0 + 1;
-        //     } else if (req.form.articleNotHelpful) {
-        //         apiContent.custom.articleHelpfulNo =
-        //             apiContent.custom && apiContent.custom.articleHelpfulNo
-        //                 ? apiContent.custom.articleHelpfulNo
-        //                 : 0 + 1;
-        //     }
-        // });
-    }
-    return {
+server.post('UpdateVote', function (req, res, next) {
+    var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+    var Transaction = require('dw/system/Transaction');
+    var faq = CustomObjectMgr.getCustomObject(
+        'faqVotes',
+        req.form.currentContentId
+    );
+    Transaction.wrap(function () {
+        if (!faq) {
+            // create custom object
+            faq = CustomObjectMgr.createCustomObject(
+                'faqVotes',
+                req.form.currentContentId
+            );
+        }
+        if (faq) {
+            if (req.form.articleHelpful) {
+                faq.custom.articleHelpfulYes =
+                    (faq.custom && faq.custom.articleHelpfulYes
+                        ? faq.custom.articleHelpfulYes
+                        : 0) + 1;
+            } else if (req.form.articleNotHelpful) {
+                faq.custom.articleHelpfulNo =
+                    (faq.custom && faq.custom.articleHelpfulNo
+                        ? faq.custom.articleHelpfulNo
+                        : 0) + 1;
+            }
+        }
+    });
+    res.json({
         articleVoteStatusMessage: Resource.msgf(
             'faq.found.helpful',
             'faq',
             null,
-            apiContent.custom.articleHelpfulYes,
-            apiContent.custom.articleHelpfulNo +
-                apiContent.custom.articleHelpfulYes
+            faq.custom.articleHelpfulYes,
+            faq.custom.articleHelpfulNo + faq.custom.articleHelpfulYes
         )
-    };
+    });
+    next();
 });
 
 /**
@@ -72,6 +83,19 @@ server.get('Search', function (req, res, next) {
     var folderWiseSearch = searchHelper.setupFaqContentSearch(req.querystring);
     res.render('/content/faqSearch', {
         searchResult: folderWiseSearch
+    });
+    next();
+});
+
+/**
+ * Faq-Content : Content search
+ */
+server.get('Content', function (req, res, next) {
+    var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
+
+    var contentSearch = searchHelper.getContentSearch(req.querystring);
+    res.render('/content/faqContentSearch', {
+        contentSearch: contentSearch
     });
     next();
 });

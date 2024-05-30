@@ -1630,6 +1630,13 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <field-length>0</field-length>
                 <default-value>no-reply@testorganization.com</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="navSameAsDotCom">
+                <display-name xml:lang="x-default">Navigation Same As Dot Com</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -2689,6 +2696,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="storeMapLink">
+                <display-name xml:lang="x-default">Store Map Link</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Details">
@@ -2703,6 +2718,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="image4"/>
                 <attribute attribute-id="image5"/>
                 <attribute attribute-id="timezone"/>
+                <attribute attribute-id="storeMapLink"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -3851,6 +3867,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+             <attribute-definition attribute-id="productToShowImage">
+                <display-name xml:lang="x-default">Product ID to show image in motivator</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="couponCode">
                 <display-name xml:lang="x-default">Coupon Code</display-name>
                 <type>string</type>
@@ -3858,6 +3882,13 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="showProgressBar">
+                <display-name xml:lang="x-default">Show Progress Bar</display-name>
+                <description xml:lang="x-default">Only Applicable if the alert is turned on and is an Order level promotion</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
@@ -3882,6 +3913,11 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <display-name xml:lang="x-default">Mini Cart</display-name>
                 <attribute attribute-id="showOnMiniCart"/>
                 <attribute attribute-id="termsAndConditions"/>
+            </attribute-group>
+            <attribute-group group-id="progressBarMotivator">
+                <display-name xml:lang="x-default">Progress Bar Motivator</display-name>
+                <attribute attribute-id="showProgressBar"/>
+                <attribute attribute-id="productToShowImage"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

@@ -21,7 +21,7 @@
                     </p>
                     <isinclude template="account/components/loginModalForm" />
                   <div class="privacy-block w-100 text-center h-clr--black-3 h-font-size--14">
-                    <a href="${'#'}" class="text-center">
+                    <a href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="text-center">
                         ${Resource.msg('link.privacypolicy.registration', 'login', null)}
                     </a>
                     </div>

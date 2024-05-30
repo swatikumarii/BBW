@@ -1,5 +1,3 @@
-<link rel="stylesheet" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
-
 <div class="secondcategories">
     <div class="menusections">
         <isloop items="${pdict.folders}" var="folder">
