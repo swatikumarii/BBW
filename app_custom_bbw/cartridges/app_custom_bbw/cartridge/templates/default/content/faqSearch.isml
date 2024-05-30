@@ -35,7 +35,7 @@
                     <ul class="multibrand-filter-list multibrand-filter-list--collapsed">
                         <li>
                             <a href="${URLUtils.url('Faq-Search', 'query', pdict.searchPhrase)}"
-                                class="sidenav-item current" aria-current="page">
+                                class="sidenav-item <isif condition="${pdict.selectedCategoryId === null}">current</isif>" aria-current="page">
                                 <span class="sidenav-subitem filter-name">${Resource.msg('faq.all.categories', 'faq', null)}</span>
                                 <span class="sidenav-subitem doc-count">${'(' +pdict.allResultCount+ ')'}</span>
                             </a>
@@ -43,15 +43,15 @@
                         <isloop items="${pdict.folders}" var="folder">
                             <li>
                                 <a href="${URLUtils.url('Faq-Search', 'categoryId', folder.folderId, 'query', pdict.searchPhrase)}"
-                                    class="sidenav-item">
+                                    class="sidenav-item <isif condition="${pdict.selectedCategoryId !== null && folder.folderId === pdict.selectedCategoryId}">current</isif>">
                                     <span class="sidenav-subitem filter-name">${folder.folderName}</span>
                                     <span class="sidenav-subitem doc-count">${'(' + folder.searchResultCount + ')'}</span>
                                 </a>
                             </li>
                         </isloop>
                         <button class="see-all-filters" aria-hidden="true"
-                            aria-label="${Resource.msg('faq.show.more.categires', 'faq', null)}">
-                            ${Resource.msg('faq.show.more.categires', 'faq', null)}
+                            aria-label="${Resource.msg('faq.show.more.categories', 'faq', null)}">
+                            ${Resource.msg('faq.show.more.categories', 'faq', null)}
                         </button>
                     </ul>
                 </section>
