@@ -1,0 +1,96 @@
+<div class="product-line-item" data-pid="${lineItem.id}" data-product-line-item="${lineItem.UUID} ">
+    <div class="row">
+        <div class="col-3 p-0">
+            <iscomment> Image </iscomment>
+            <div class="product-line-item-details d-flex flex-row">
+                <isif condition="${lineItem.isEgiftCard}">
+                    <div class="item-image">
+                        <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
+                            title="${lineItem.images.small[0].title}" width="100" />
+                    </div>
+                <iselse/>
+                    <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                        <div class="item-image">
+                            <img class="product-image" src="${lineItem.images.small[0].url}"
+                                alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}"
+                                width="100" />
+                        </div>
+                    </a>
+                </isif>
+            </div>
+        </div>
+        <div class="col-9 pr-md-0">
+            <div class="line-item-header flex-column">
+                <iscomment> Display Name </iscomment>
+                <div class="line-item-name">
+                    <isif condition="${lineItem.isEgiftCard}">
+                        <span class="d-block h-fw--semibold h-clr--black-1 h-font-size--16">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</span>
+                    <iselse/>
+                        <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                            <span class="d-block h-fw--semibold h-clr--black-1 h-font-size--16">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</span>
+                        </a>
+                    </isif>
+                    <span class="d-block h-font-size--14 h-clr--gray-4">${lineItem.titlePartB ? lineItem.titlePartB : ''}</span>
+                    <span class="d-block h-font-size--14 h-clr--gray-4">${lineItem.volume ? lineItem.volume : ''}</span>
+                </div>
+                <isif condition="${!lineItem.isBonusProductLineItem}">
+                    <div class="remove-line-item h-pos--absolute">
+                        <span type="button" class="cart-delete-confirmation-btn" data-pid="${lineItem.id}"
+                            data-name="${lineItem.productName}" data-action="${pdict.actionUrls.removeProductLineItemUrl}"
+                            data-uuid="${lineItem.UUID}"
+                            aria-label="${Resource.msgf('text.remove.line.item', 'cart', null, lineItem.productName)}">
+                            <img src="${URLUtils.staticURL('/images/icons/minicart-popup-remove-btn.svg')}" alt="close icon" width="20" />
+                        </span>
+                    </div>
+                </isif>
+                <iscomment> Variation Attributes </iscomment>
+                <div class="item-attributes">
+                    <isloop items="${lineItem.variationAttributes}" var="attribute" status="loopstate">
+                        <p
+                            class="line-item-attributes ${lineItem.variationAttributes.length > 0 && loopstate.index !== lineItem.variationAttributes.length - 1 ? 'mb-0' : ''}">
+                            ${attribute.displayName}: ${attribute.displayValue}</p>
+                    </isloop>
+                    <iscomment> Options </iscomment>
+                    <div class="item-options">
+                        <isloop items="${lineItem.options}" var="option">
+                            <div class="line-item-option">${option.displayName}</div>
+                        </isloop>
+                    </div>
+                </div>
+                <isif condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
+                    <div class="giftcard-details">
+                        <span class="d-block giftcard-receipient-name">${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails
+                                                                       .recipientName : ''}</span>
+                        <span class="d-block giftcard-receipient-email">${lineItem.giftCardDetails.recipientEmail && lineItem.giftCardDetails.recipientEmail !== null ? lineItem.giftCardDetails
+                                                                        .recipientEmail : ''}</span>
+                        <span class="d-block giftcard-message">${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails
+                                                               .eGiftMessage : ''}</span>
+                    </div>
+                </isif>
+                <iscomment> Quantity </iscomment>
+                <div class="d-flex flex-column justify-content-between">
+                    <div class="line-item-quantity">
+                        <p class="line-item-quantity-info h-font-size--14 mb-1">
+                            <span class="line-item-total-text h-clr--gray-4 qty-card-quantity-label">
+                                ${Resource.msg('field.selectquantity', 'cart', null)}
+                            </span>
+                            <span class="pricing qty-card-quantity-count h-clr--gray-4">
+                                <isprint value="${lineItem.quantity}" formatter="##" /></span>
+                        </p>
+                    </div>
+                    <div class="line-item-promo item-${lineItem.UUID} h-pb--10">
+                        <isset name="miniCart" value="${false}" scope="page" />
+
+                        <isinclude template="checkout/productCard/productCardProductPromotions" />
+                    </div>
+                </div>
+            </div>
+            <iscomment> Price </iscomment>
+            <div class="line-item-total-price w-100 text-right">
+                <div class="item-total-${lineItem.UUID} price">
+                    <isinclude template="checkout/productCard/productCardProductTotalPrice" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
