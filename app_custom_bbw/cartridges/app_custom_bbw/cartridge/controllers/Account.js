@@ -138,9 +138,9 @@ server.append('Login', function (req, res, next) {
     var remainingLoginAttempts = accountHelper.remainingLoginAttempts(email);
     if(remainingLoginAttempts !== -1){
         viewData.error =
-            [Resource.msg('error.message.login.form.attempts.first', 'login', null)
-            + ' ' + remainingLoginAttempts + ' '
-            + Resource.msg('error.message.login.form.attempts.last', 'login', null)];
+            [
+                Resource.msgf('error.message.login.form.attempts', 'login', null, remainingLoginAttempts)
+            ];
     
         if(!remainingLoginAttempts || remainingLoginAttempts === 0){
             viewData.error = [
