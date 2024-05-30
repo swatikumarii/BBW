@@ -12113,7 +12113,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                 Hand Soaps&#13;
             &lt;/button&gt;&#13;
         &lt;/a&gt;&#13;
-        &lt;a href="$url('Search-Show', 'cgid', 'fragrance')$"&gt;&#13;
+        &lt;a href="$url('Fragrance-Show')$"&gt;&#13;
             &lt;button type="button" class="edit text-uppercase"&gt;&#13;
                 Fragrances&#13;
             &lt;/button&gt;&#13;
@@ -13327,7 +13327,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
  &lt;a class="edit text-uppercase" href="$url('Search-Show', 'cgid', 'hand-soaps')$"&gt;&#13;
                 Hand Soaps&#13;
             &lt;/a&gt;&#13;
- &lt;a class="edit text-uppercase" href="$url('Search-Show', 'cgid', 'fragrance')$"&gt;&#13;
+ &lt;a class="edit text-uppercase" href="$url('Fragrance-Show')$"&gt;&#13;
                 Fragrances&#13;
             &lt;/a&gt;&#13;
 &#13;
