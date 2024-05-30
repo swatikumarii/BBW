@@ -67,12 +67,11 @@
         </label>
         <input type="tel" class="form-control select-dropdown-value h-clr--black-1" required
             id="registration-form-phone" initOptions.allowDropdown="true"
-            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+            data-missing-error="${Resource.msg('error.message.phone.required', 'forms', null)}"
             data-pattern-mismatch="${Resource.msg('error.message.parse.phone.profile.form', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
             aria-describedby="form-phone-error" <isprint value=${pdict.profileForm.customer.phone.attributes}
             encoding="off" /> />
-        <div class="invalid-feedback text-left" id="phone-error">${Resource.msg('error.message.required', 'forms', null)}</div>
     </div>
 
     <div class="form-group register-form text-center <isif condition="
@@ -180,7 +179,7 @@
         <div class="invalid-feedback text-left" id="confirm-password-error">
             ${Resource.msg('error.message.password.required', 'forms', null)}</div>
         <button type="button" id="toggle-password"
-            class="register-form-confirm-password register-hide border-0 d-flex justify-content-center align-items-center text-captialize h-50 position-absolute p-0 h-clr--black-3"
+            class="register-form-confirm-password register-hide border-0 d-flex justify-content-center align-items-center text-captialize position-absolute p-0 h-clr--black-3"
             aria-label="Show Password">
             <span class="show h-font-size--16">${Resource.msg('password.show.label', 'login', null)}</span>
         </button>

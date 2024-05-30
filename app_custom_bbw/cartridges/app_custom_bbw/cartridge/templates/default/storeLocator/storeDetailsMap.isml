@@ -34,7 +34,7 @@
 
                     <div class="store-direction">
                         <a class="h-fw--semibold h-clr--black-1" target='_blank'
-                            href="https://maps.google.com/?daddr=${store.latitude},${store.longitude}">
+                            href="${store.storeMapLink}">
                             ${Resource.msg('label.get.directions', 'storeLocator', null)}
                         </a>
                     </div>
