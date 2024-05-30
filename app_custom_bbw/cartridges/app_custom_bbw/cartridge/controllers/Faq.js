@@ -81,9 +81,7 @@ server.post('GetContentAssets', function (req, res, next) {
 server.get('Search', function (req, res, next) {
     var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
     var folderWiseSearch = searchHelper.setupFaqContentSearch(req.querystring);
-    res.render('/content/faqSearch', {
-        searchResult: folderWiseSearch
-    });
+    res.render('/content/faqSearch', folderWiseSearch);
     next();
 });
 
