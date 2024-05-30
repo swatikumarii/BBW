@@ -4,9 +4,9 @@ var PagingModel = require('dw/web/PagingModel');
 var collections = require('*/cartridge/scripts/util/collections');
 var URLUtils = require('dw/web/URLUtils');
 var preferences = require('*/cartridge/config/preferences');
-var ACTION_ENDPOINT_GRID = 'Search-Content';
+var ACTION_ENDPOINT_GRID = 'Faq-Search';
 var ACTION_ENDPOINT_CONTENT = 'Page-Show';
-var DEFAULT_PAGE_SIZE = preferences.defaultPageSize ? preferences.defaultPageSize : 12;
+var DEFAULT_PAGE_SIZE = preferences.defaultPageSize ? preferences.defaultPageSize : 10;
 
 /**
  * Configures and returns a PagingModel instance *
@@ -96,14 +96,25 @@ function ContentSearch(contentSearchResult, count, queryPhrase, startingPage, pa
     var ps = pageSize === null ? DEFAULT_PAGE_SIZE : pageSize;
     var pagingModel = getPagingModel(contentSearchResult, count, ps, startingPage);
     var contents = getContentSearchPageJSON(pagingModel.pageElements.asList());
-
-    var moreContentUrl = pagingModel.maxPage > pagingModel.currentPage
-        ? URLUtils.url(ACTION_ENDPOINT_GRID, 'q', queryPhrase, 'startingPage', pagingModel.end + 1)
-        : null;
+    var firstPageUrl = null;
+    var previousPageUrl = null;
+    var nextPageUrl = null;
+    var lastPageUrl = null;
+    if (pagingModel.currentPage > 0) {
+        firstPageUrl = URLUtils.url(ACTION_ENDPOINT_GRID, 'query', queryPhrase, 'startingPage', 0).toString();
+        previousPageUrl = URLUtils.url(ACTION_ENDPOINT_GRID, 'query', queryPhrase, 'startingPage', pagingModel.start - ps).toString();
+    }
+    if (pagingModel.maxPage > pagingModel.currentPage) {
+        nextPageUrl = URLUtils.url(ACTION_ENDPOINT_GRID, 'query', queryPhrase, 'startingPage', pagingModel.end + 1).toString();
+        lastPageUrl = URLUtils.url(ACTION_ENDPOINT_GRID, 'query', queryPhrase, 'startingPage', pagingModel.maxPage * ps).toString();
+    }
     this.queryPhrase = queryPhrase;
     this.contents = contents;
     this.contentCount = count;
-    this.moreContentUrl = moreContentUrl;
+    this.firstPageUrl = firstPageUrl;
+    this.previousPageUrl = previousPageUrl;
+    this.nextPageUrl = nextPageUrl;
+    this.lastPageUrl = lastPageUrl;
     this.hasMessage = startingPage === 0;
 }
 
