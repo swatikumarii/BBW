@@ -1990,12 +1990,17 @@
 &#13;
     &lt;div class="under-footer  py-4"&gt;&#13;
                 &lt;p class="copyright h-fw--normal"&gt;©&#13;
-                   2024 Bath &amp;amp; Body Works Direct, Inc.&#13;
+                   &lt;span id="copyrightYear"&gt;&lt;/span&gt; Bath &amp;amp; Body Works, Inc.&#13;
                     &lt;span&gt;All Rights Reserved.&lt;/span&gt;&#13;
                 &lt;/p&gt;&#13;
     &lt;/div&gt;&#13;
-&lt;/div&gt;</custom-attribute>
-        </custom-attributes>
+&lt;/div&gt;&#13;
+&lt;script&gt;&#13;
+  var date = new Date();&#13;
+  var year = date.getFullYear();&#13;
+  document.getElementById("copyrightYear").innerHTML = year;&#13;
+&lt;/script&gt;</custom-attribute>
+</custom-attributes>
     </content>
 
 	    <content content-id="account.editpassword.seo">
