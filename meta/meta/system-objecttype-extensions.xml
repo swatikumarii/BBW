@@ -1630,6 +1630,13 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <field-length>0</field-length>
                 <default-value>no-reply@testorganization.com</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="showMinicartPopup">
+                <display-name xml:lang="x-default">Show Minicart popup</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="navSameAsDotCom">
                 <display-name xml:lang="x-default">Navigation Same As Dot Com</display-name>
                 <type>boolean</type>
@@ -1695,6 +1702,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="businessTypes"/>
                 <attribute attribute-id="enableCountrySelectorPopup"/>
                 <attribute attribute-id="showTopOffers"/>
+                <attribute attribute-id="showMinicartPopup"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
