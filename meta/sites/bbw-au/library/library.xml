@@ -12597,7 +12597,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                             title="" /&gt;&lt;/div&gt;&#13;
 &#13;
                     &lt;div class="card-desc"&gt;The real deal! We'll ship the card to you (for free).&lt;/div&gt;&#13;
-                    &lt;a class="button btn text-white" href="#"&gt;Get&#13;
+                    &lt;a class="button btn text-white" href="$url('Search-Show', 'cgid', 'giftcards')$"&gt;Get&#13;
                         Started&lt;/a&gt;&#13;
 &#13;
                     &lt;p class="center"&gt;&lt;a href="#" target="_blank" title="about gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
