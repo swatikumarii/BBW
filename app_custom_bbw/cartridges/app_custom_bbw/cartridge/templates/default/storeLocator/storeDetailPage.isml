@@ -71,7 +71,7 @@
                     </isif>
                 </div>
                 <a class="text-uppercase get-direcetion" target="_blank"
-                    href="https://maps.google.com/?daddr=${pdict.storeDetail.latitude},${pdict.storeDetail.longitude}">${Resource.msg('label.get.direction', 'storeLocator', null)}</a>
+                    href="${pdict.storeMapLink}">${Resource.msg('label.get.direction', 'storeLocator', null)}</a>
             </div>
         </div>
         <div class="col-lg-5 my-4">
@@ -126,7 +126,7 @@
                         <img alt="image" src="${nearbyStore.imageUrl[0]}" />
                     </div>
                     <p class="h-clr--black-1 h-fw--semibold">${nearbyStore.name}</p>
-                    <a href="https://maps.google.com/?daddr=${nearbyStore.latitude},${nearbyStore.longitude}"
+                    <a href="${pdict.storeMapLink}"
                         target="_blank"
                         class="text-uppercase get-direcetion w-100 mt-0">${Resource.msg('label.get.direction', 'storeLocator', null)}</a>
                 </div>
