@@ -23,7 +23,7 @@
 
 <!--- Savings --->
 <div class="line-item-savings">
-        <span class="value">${lineItem.totalSavings ? lineItem.totalSavings : '-'}</span>
+        <span class="value">${lineItem.totalSavings && lineItem.totalSavings.value ? lineItem.totalSavings : '-'}</span>
 </div>
 
 <!--- line item total price --->
