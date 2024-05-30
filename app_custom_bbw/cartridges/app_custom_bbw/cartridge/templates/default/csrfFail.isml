@@ -1,41 +1,7 @@
 <isdecorate template="common/layout/page">
-    <isscript>
-        var assets = require('*/cartridge/scripts/assets.js');
-        assets.addCss('/css/csrf.css');
-    </isscript>
 
-    <div class="container text-center">
-        <h1 class="m-font-justlovely--normal h-clr--pink h-font-size--80 mt-5 mb-3 pt-5">${Resource.msg('header.csrf.error.heading','error',null)}</h1>
-        <p class="h-clr--black-3 h-font-size--20 mb-4">${Resource.msg('header.csrf.error.message','error',null)}</p>
-        <p class="h-clr--black-3 h-font-size--20 mb-4">${Resource.msg('header.csrf.error.try.again','error',null)}</p>
-        <div>
-            <a class="edit text-uppercase" href="${URLUtils.url('Search-Show', 'cgid', 'body-care')}">
-                ${Resource.msg('category.name.body.care','common',null)}
-            </a>
-            <a class="edit text-uppercase" href="${URLUtils.url('Search-Show', 'cgid', 'candles')}">
-                ${Resource.msg('category.name.candles','common',null)}
-            </a>
-            <a class="edit text-uppercase" href="${URLUtils.url('Search-Show', 'cgid', 'hand-soaps')}">
-                ${Resource.msg('category.name.hand.soaps','common',null)}
-            </a>
-            <a class="edit text-uppercase" href="${URLUtils.url('Search-Show', 'cgid', 'fragrance')}">
-                ${Resource.msg('category.name.fragrances','common',null)}
-            </a>
-        </div>
-    </div>
-    <style>
-        h1 {
-            line-height: 88px;
-        }
-        .edit {
-            border: 1px solid #365fa1;
-            background-color: white;
-            padding: 7px 25px;
-            font-size: 16px;
-            color: #365fa1;
-            font-weight: 600;
-            margin-left: 21px;
-            margin-top: 26px;
-        }
-    </style>
+    <isinclude template="/components/modules" sf-toolkit="off" />
+    
+    <iscontentasset aid="csrf-fail" />
+
 </isdecorate>
