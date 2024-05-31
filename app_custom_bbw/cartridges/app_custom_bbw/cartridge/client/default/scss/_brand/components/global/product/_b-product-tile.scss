@@ -25,6 +25,12 @@
         color: colour(black, 1);
     }
 
+    &__promo-link {
+        .promo-callout-msg {
+            line-height: 1rem;
+        }
+    }
+
     &__img {
         max-width: 195px;
         max-height: 195px;
