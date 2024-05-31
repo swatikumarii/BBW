@@ -34,24 +34,24 @@
                     </h3>
                     <ul class="multibrand-filter-list multibrand-filter-list--collapsed">
                         <li>
-                            <a href="${URLUtils.url('Faq-Search', 'query', pdict.searchResult.searchPhrase)}"
-                                class="sidenav-item current" aria-current="page">
+                            <a href="${URLUtils.url('Faq-Search', 'query', pdict.searchPhrase)}"
+                                class="sidenav-item <isif condition="${pdict.selectedCategoryId === null}">current</isif>" aria-current="page">
                                 <span class="sidenav-subitem filter-name">${Resource.msg('faq.all.categories', 'faq', null)}</span>
-                                <span class="sidenav-subitem doc-count">(${pdict.searchResult.count})</span>
+                                <span class="sidenav-subitem doc-count">${'(' +pdict.allResultCount+ ')'}</span>
                             </a>
                         </li>
-                        <isloop items="${pdict.searchResult.folders}" var="folder">
+                        <isloop items="${pdict.folders}" var="folder">
                             <li>
-                                <a href="${URLUtils.url('Faq-Search', 'categoryId', folder.folderId, 'query', pdict.searchResult.searchPhrase)}"
-                                    class="sidenav-item">
+                                <a href="${URLUtils.url('Faq-Search', 'categoryId', folder.folderId, 'query', pdict.searchPhrase)}"
+                                    class="sidenav-item <isif condition="${pdict.selectedCategoryId !== null && folder.folderId === pdict.selectedCategoryId}">current</isif>">
                                     <span class="sidenav-subitem filter-name">${folder.folderName}</span>
-                                    <span class="sidenav-subitem doc-count">(${folder.searchResultCount})</span>
+                                    <span class="sidenav-subitem doc-count">${'(' + folder.searchResultCount + ')'}</span>
                                 </a>
                             </li>
                         </isloop>
                         <button class="see-all-filters" aria-hidden="true"
-                            aria-label="${Resource.msg('faq.show.more.categires', 'faq', null)}">
-                            ${Resource.msg('faq.show.more.categires', 'faq', null)}
+                            aria-label="${Resource.msg('faq.show.more.categories', 'faq', null)}">
+                            ${Resource.msg('faq.show.more.categories', 'faq', null)}
                         </button>
                     </ul>
                 </section>
@@ -60,11 +60,11 @@
 
             <section id="main-content" class="search-results-column">
                 <h1 class="search-results-subheading">
-                    ${Resource.msgf('faq.results.in.all.categories', 'faq', null, pdict.searchResult.count, pdict.searchResult.searchPhrase)}
+                    ${Resource.msgf('faq.results.in.selected.categories', 'faq', null, pdict.selectedCategoryResultCount, pdict.searchPhrase, pdict.selectedCategoryName)}
                 </h1>
 
                 <ul class="search-results-list">
-                    <isloop items="${pdict.searchResult.contentSearch.contents}" var="content">
+                    <isloop items="${pdict.contentSearch.contents}" var="content">
                         <li class="search-result-list-item result-article">
                             <h2 class="search-result-title">
                                 <a href="${content.url}" class="results-list-item-link">${content.name}</a>
@@ -73,7 +73,7 @@
 
                                 <span class="search-result-votes">
                                     <span class="visibility-hidden">
-                                        ${content.likes} votes
+                                        ${content.likes+''} votes
                                     </span>
                                     <span aria-hidden="true">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false"
@@ -84,13 +84,13 @@
                                                 <rect width="2" height="7" x=".5" y="4.5" rx=".5" ry=".5" />
                                             </g>
                                         </svg>
-                                        ${content.likes}
+                                        ${content.likes+''}
                                     </span>
                                 </span>
                             </div>
                             <article>
                                 <ul class="meta-group">
-                                    <isinclude template="content/faqSearchBreadcrumb">
+                                    <isinclude template="content/faqSearchBreadcrumb"/>
                                     <li class="meta-data">
                                         <time datetime="${content.creationDate}" title="${content.creationDate}"
                                             data-datetime="calendar">${content.creationDate}</time>
@@ -107,34 +107,38 @@
         </div>
         <nav class="pagination">
             <ul class="pagination-list">
-                <li class="pagination-first">
-                    <a href="/hc/en-us/search?page=1&amp;query=what&amp;utf8=%E2%9C%93#results"
-                        class="pagination-first-link" rel="nofollow">
-                        <span class="pagination-first-icon" aria-hidden="true">«</span>
-                        <span class="pagination-first-text">${Resource.msg('faq.first', 'faq', null)}</span>
-                    </a>
-                </li>
-                <li class="pagination-prev">
-                    <a href="/hc/en-us/search?page=4&amp;query=what&amp;utf8=%E2%9C%93#results"
-                        class="pagination-prev-link" rel="prev nofollow">
-                        <span class="pagination-prev-icon" aria-hidden="true">‹</span>
-                        <span class="pagination-prev-text">${Resource.msg('faq.previous', 'faq', null)}</span>
-                    </a>
-                </li>
-                <li class="pagination-next">
-                    <a href="/hc/en-us/search?page=6&amp;query=what&amp;utf8=%E2%9C%93#results"
-                        class="pagination-next-link" rel="next nofollow">
-                        <span class="pagination-next-text">${Resource.msg('faq.next', 'faq', null)}</span>
-                        <span class="pagination-next-icon" aria-hidden="true">›</span>
-                    </a>
-                </li>
-                <li class="pagination-last">
-                    <a href="/hc/en-us/search?page=6&amp;query=what&amp;utf8=%E2%9C%93#results"
-                        class="pagination-last-link" rel="nofollow">
-                        <span class="pagination-last-text">${Resource.msg('faq.last', 'faq', null)}</span>
-                        <span class="pagination-last-icon" aria-hidden="true">»</span>
-                    </a>
-                </li>
+                <isif condition="${pdict.contentSearch.firstPageUrl}">
+                    <li class="pagination-first">
+                        <a href="${pdict.contentSearch.firstPageUrl}"
+                            class="pagination-first-link" rel="nofollow">
+                            <span class="pagination-first-icon" aria-hidden="true">«</span>
+                            <span class="pagination-first-text">${Resource.msg('faq.first', 'faq', null)}</span>
+                        </a>
+                    </li>
+                    <li class="pagination-prev">
+                        <a href="${pdict.contentSearch.previousPageUrl}"
+                            class="pagination-prev-link" rel="prev nofollow">
+                            <span class="pagination-prev-icon" aria-hidden="true">‹</span>
+                            <span class="pagination-prev-text">${Resource.msg('faq.previous', 'faq', null)}</span>
+                        </a>
+                    </li>
+                </isif>
+                <isif condition="${pdict.contentSearch.nextPageUrl}">
+                    <li class="pagination-next">
+                        <a href="${pdict.contentSearch.nextPageUrl}"
+                            class="pagination-next-link" rel="next nofollow">
+                            <span class="pagination-next-text">${Resource.msg('faq.next', 'faq', null)}</span>
+                            <span class="pagination-next-icon" aria-hidden="true">›</span>
+                        </a>
+                    </li>
+                    <li class="pagination-last">
+                        <a href="${pdict.contentSearch.lastPageUrl}"
+                            class="pagination-last-link" rel="nofollow">
+                            <span class="pagination-last-text">${Resource.msg('faq.last', 'faq', null)}</span>
+                            <span class="pagination-last-icon" aria-hidden="true">»</span>
+                        </a>
+                    </li>
+                </isif>
             </ul>
         </nav>
     </div>

@@ -46,9 +46,9 @@
                     </a>
                 </div>
                 <iscomment>Minicart</iscomment>
-                <div class="minicart-overlay"></div>
-                <div class="minicart fa-pull-right position-relative"
-                    data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+                <div class="minicart-overlay ${dw.system.Site.getCurrent().getCustomPreferenceValue('showMinicartPopup') ? 'd-none': ''}"></div>
+                <div class="minicart ${dw.system.Site.getCurrent().getCustomPreferenceValue('showMinicartPopup') ? 'popup': ''} fa-pull-right position-relative"
+                    data-action-url="${URLUtils.url('Cart-MiniCartShow')}" data-redirect-url="${URLUtils.url('Cart-Show')}">
                     <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
                 </div>
                 <iscomment>Offers</iscomment>
@@ -69,6 +69,8 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" id="navLikeDotCom" name="navLikeDotCom"
+            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('navSameAsDotCom')}" />
         <div class=" mx-auto main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown ${dw.system.Site.getCurrent().getCustomPreferenceValue('navSameAsDotCom') ? 'bbw-brand-menu' : 'bbw-menu'}"
             id="sg-navbar-collapse">
             <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
