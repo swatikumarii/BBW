@@ -88,6 +88,10 @@
                                     color: colour(black);
                                 }
 
+                                li {
+                                    list-style-type: none;
+                                }
+
                                 .level-2-li {
                                     min-width: 10.875rem;
 
@@ -162,53 +166,51 @@
         }
 
         .category-top-offers {
-            height: 100%;
             border-left: 1px solid colour(gray, 6);
-            transition: all 0.3s ease-out;
-            text-transform: capitalize;
-            max-height: none;
-            margin-bottom: 22px;
-            overflow: visible;
+            height: 100%;
+
+            .column-count-2 {
+                column-count: 2;
+            }
+
+            .column-count-3 {
+                column-count: 3;
+            }
+
+            .column-count-4 {
+                column-count: 4;
+            }
 
             .heading {
                 padding: 6px 0 8px 30px;
                 pointer-events: none;
                 font-weight: 600;
-                font-size: 14px;
-                font-size: 0.875rem;
-                line-height: 16px;
-                line-height: 1rem;
-                letter-spacing: 0.015em;
-                height: auto;
-                color: colour(black, 1);
-                cursor: pointer;
-                display: block;
-                text-transform: uppercase;
             }
 
-            .toggle {
-                display: none;
-            }
-
-            ul {
-                padding: 0;
-                margin: 0;
-                list-style: none;
-
-                li {
-                    height: auto;
+            .category-top-items {
+                ul {
+                    padding: 0;
+                    margin: 0;
                     display: block;
                     position: relative;
-                    padding: 8px 15px 8px 31px;
+                    border: 0;
 
-                    a {
-                        width: 180px;
-                        font-weight: 400;
-                        font-size: 14px;
-                        line-height: 16px;
-                        letter-spacing: 0.015em;
-                        white-space: normal;
+                    li {
+                        min-height: 41px;
+                        height: auto;
                         display: block;
+                        position: relative;
+                        list-style: none;
+
+                        a {
+                            padding: 8px 15px 8px 30px;
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 16px;
+                            letter-spacing: 0.015em;
+                            width: 225px;
+                            text-wrap: wrap;
+                        }
                     }
                 }
             }
@@ -290,10 +292,9 @@
                         }
 
                         .menu-wrap-level-1 .level-2-ul-wrap .menu-right {
-                            height: 100%;
+                            max-height: max-content;
                             visibility: visible;
                             opacity: 1;
-                            transition: all 0.3s ease-out;
                         }
                     }
 
@@ -500,18 +501,15 @@
 
                             .menu-right {
                                 position: absolute;
-                                left: auto;
+                                left: 0;
                                 top: 0;
-                                height: 0;
-                                overflow: hidden;
-                                max-height: none;
+                                max-height: 0;
+                                overflow: visible;
                                 margin-bottom: 22px;
                                 text-transform: capitalize;
                                 opacity: 0;
                                 visibility: hidden;
-
-                                // transition: all 0.5s ease-out;
-                                // transition: max-height 0.3s ease-out;
+                                transition: left 0.3s ease-out;
 
                                 .category-top-offers {
                                     border-left: 1px solid colour(gray, 6);
@@ -536,13 +534,6 @@
                                     }
 
                                     .category-top-items {
-                                        pointer-events: auto;
-                                        display: block;
-                                        opacity: 1;
-                                        visibility: visible;
-                                        position: relative;
-                                        transition: all 0.5s ease-out;
-
                                         ul {
                                             padding: 0;
                                             margin: 0;
