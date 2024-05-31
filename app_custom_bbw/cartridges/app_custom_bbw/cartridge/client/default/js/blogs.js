@@ -23,4 +23,22 @@ $(document).ready(function () {
         showBlog.show();
         $(this).remove();
     });
+
+    // Scroll position
+    $('a[href^="#"]').on('click', function (e) {
+        e.preventDefault();
+
+        let targetId = $(this).attr('href').substring(1);
+        let targetElement = $('#' + targetId);
+
+        if (targetElement.length) {
+            let headerHeight = 237; // Height of sticky header
+            let elementPosition = targetElement.offset().top;
+            let offsetPosition = elementPosition - headerHeight;
+
+            $('html, body').animate({
+                scrollTop: offsetPosition
+            }, 'smooth');
+        }
+    });
 });
