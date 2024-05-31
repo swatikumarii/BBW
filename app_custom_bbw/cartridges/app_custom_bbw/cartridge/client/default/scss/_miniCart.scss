@@ -361,6 +361,20 @@
 }
 
 .choice-of-bonus-product {
+    .product-detail {
+        .carousel {
+            width: 100%;
+
+            .carousel-indicators {
+                li {
+                    img {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
     img {
         max-height: 180px;
     }
