@@ -69,6 +69,8 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" id="navLikeDotCom" name="navLikeDotCom"
+            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('navSameAsDotCom')}" />
         <div class=" mx-auto main-menu navbar-toggleable-sm menu-toggleable-left multilevel-dropdown ${dw.system.Site.getCurrent().getCustomPreferenceValue('navSameAsDotCom') ? 'bbw-brand-menu' : 'bbw-menu'}"
             id="sg-navbar-collapse">
             <isinclude url="${URLUtils.url('Page-IncludeHeaderMenu')}" />
