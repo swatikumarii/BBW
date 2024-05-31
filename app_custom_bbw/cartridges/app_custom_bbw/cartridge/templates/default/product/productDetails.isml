@@ -263,21 +263,16 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div>
-            <isslot id="cts-recommendations-m" description="Complete the set products" context="global"
-                context-object="${pdict.product.raw}" />
+            <div class="recommendations">
+                <isslot id="recently-viewed-product" description="Recently viewed product slot" context="global" context-object="${pdict.product.raw}" />
+            </div>
+            <div class="recommendations">
+                <isslot id="more-youll-adore" description="More You’ll Adore" context="global" context-object="${pdict.product.raw}" />
+            </div>
         </div>
 
         <isset name="loopState" value="${{
                                        count: 1}}" scope="page" />
-
-
-        <div class="recommendations">
-            <isslot id="product-recommendations-m" description="Recommended products" context="global"
-                context-object="${pdict.product.raw}" />
-        </div>
         </div>
     </isobject>
     <isif condition="${product.maxOrderQty}">
@@ -285,6 +280,4 @@
     <iselse/>
         <input type="hidden" name="maxOrderQty" value="0" />
     </isif>
-    <isslot id="pdp-recommendation-slot-1" description="Main home page slot." context="global" />
-    <isslot id="pdp-recommendation-slot-2z" description="Main home page slot." context="global" />
 </isdecorate>
