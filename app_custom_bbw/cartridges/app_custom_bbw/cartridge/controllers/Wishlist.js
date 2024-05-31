@@ -60,22 +60,32 @@ server.replace('Show', function (req, res, next) {
         .relative()
         .toString();
     var navTabValue = req.querystring.action;
+    var breadcrumbs;
     if (loggedIn) {
         firstName = req.currentCustomer.profile.firstName;
+        breadcrumbs = [{
+            htmlValue: Resource.msg('global.home', 'common', null),
+            url: URLUtils.home().toString()
+        },
+        {
+            htmlValue: Resource.msg('page.title.myaccount', 'account', null),
+            url: URLUtils.url('Account-Show').toString()
+        },
+        {
+            htmlValue: Resource.msg('label.wishlist', 'account', null),
+            url: URLUtils.url('Wishlist-Show').toString()
+        }
+        ];
+    } else {
+        breadcrumbs = [{
+            htmlValue: Resource.msg('global.home', 'common', null),
+            url: URLUtils.home().toString()
+        },
+        {
+            htmlValue: Resource.msg('label.signin.name', 'login', null)
+        }
+        ];
     }
-    var breadcrumbs = [{
-        htmlValue: Resource.msg('global.home', 'common', null),
-        url: URLUtils.home().toString()
-    },
-    {
-        htmlValue: Resource.msg('page.title.myaccount', 'account', null),
-        url: URLUtils.url('Account-Show').toString()
-    },
-    {
-        htmlValue: Resource.msg('label.wishlist', 'account', null),
-        url: URLUtils.url('Wishlist-Show').toString()
-    }
-    ];
 
     var userEmail = req.currentCustomer.raw.registered ? req.currentCustomer.profile.email : false;
 
