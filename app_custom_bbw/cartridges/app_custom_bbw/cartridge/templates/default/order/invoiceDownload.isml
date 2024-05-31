@@ -13,6 +13,7 @@
                     </div>
                 </td>
                 <td style="vertical-align: middle;">
+                 <h1>${Resource.msg('label.invoice', 'order', null)}</h1>
                     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyAddress')}">
                         <div
                             style="margin: 0;line-height: 18px; font:normal 14px/24px ScalaSansOT,sans-serif;letter-spacing:0.75px;color:#1a1919">
@@ -136,9 +137,10 @@
                         </div>
                         <div style="padding: 0 10px;">
                             <isloop var="shippingModel" items="${pdict.order.shipping}" status="shippingLoop">
-                                <p class="shipping-method" style="text-align:left; margin-left: -3px;">
+                             <p  style="text-align:left; margin-left: -3px;">${Resource.msg('label.shipping', 'order', null)}:</p>
+                                <p class="shipping-method"  style="text-align:left; margin-left: -3px;">
                                     <span
-                                        class="shipping-method-title h-font-size--16">${shippingModel.selectedShippingMethod.ID}(${Resource.msg('label.shipping', 'order', null)}):
+                                        class="shipping-method-title h-font-size--16">${shippingModel.selectedShippingMethod.ID}(${Resource.msg('label.shipping', 'order', null)})
                                         <isif condition="${pdict.order.trackingNumber}">
                                             <a href="${pdict.order.trackingUrl + pdict.order.trackingNumber}" hreflang="${request.getLocale()}"
                                                 target="_blank">
@@ -521,24 +523,24 @@
             <tbody>
                 <tr style="vertical-align: baseline; display:flex;  margin-left: 40px;">
                     <td style="vertical-align:baseline; display:flex; align-items:center;">
-                        <img class="hidden-md-down img-fluid w-100"
-                            src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
+                        <img class=" img-fluid w-100"
+                            src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/InvoiceReports-revis-logo-01.png')}"
                             alt="${Resource.msg('global.storename', 'common', null)}" style="width: 50px" />
                         <p style="font-size:16px; margin-bottom: 20px; width: 227px; margin-left: 20px;">
                             ${Resource.msg('label.return.faulty', 'order', null)}
                         </p>
                     </td>
                     <td style="vertical-align:baseline;  display:flex; align-items:center;">
-                        <img class="hidden-md-down img-fluid w-100"
-                            src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
+                        <img class=" img-fluid w-100"
+                            src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/InvoiceReports-revis-logo-02.png')}"
                             alt="${Resource.msg('global.storename', 'common', null)}" style="width: 50px" />
                         <p style="font-size:16px; margin-bottom: 20px; width: 176px; margin-left: 10px;">
                             ${Resource.msg('label.invoice.available', 'order', null)}
                         </p>
                     </td>
                     <td style="vertical-align:baseline;  display:flex; align-items:center;">
-                        <img class="hidden-md-down img-fluid w-100"
-                            src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/header/UI-MyAccount.svg')}"
+                        <img class="img-fluid w-100"
+                            src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/InvoiceReports-revis-logo-03.png')}"
                             alt="${Resource.msg('global.storename', 'common', null)}" style="width: 50px" />
                         <p style="font-size:16px; margin-bottom: 20px; width: 174px; margin-left: 20px;">
                             ${Resource.msg('label.packaging', 'order', null)}
