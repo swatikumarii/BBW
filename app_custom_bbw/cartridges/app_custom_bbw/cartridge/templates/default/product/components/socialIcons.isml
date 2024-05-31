@@ -5,7 +5,7 @@
 <div class="col-12 social-container hidden-sm-down">
     <ul class="social-icons social-icons d-flex justify-content-center">
         <li class="facebook d-flex justify-content-center align-items-center">
-            <a href="https://www.facebook.com/share.php?u=${productUrlencode}"
+            <a href="https://www.facebook.com/share.php?u=${productUrlencode}&picture=${productImageLarge}"
                 title="${Resource.msgf('label.social.facebook', 'product', null, product.productName)}"
                 data-share="facebook"
                 aria-label="${Resource.msgf('label.social.facebook', 'product', null, product.productName)}"
@@ -14,7 +14,7 @@
             </a>
         </li>
         <li class="twitter d-flex justify-content-center align-items-center">
-            <a href="https://twitter.com/share?url=${productUrlencode}&text=${product.productName}" data-share="twitter"
+            <a href="https://twitter.com/share?text=${encodeURIComponent(Resource.msgf('link.product.post.twitter', 'common', null, product.productName))}&url=${productUrlencode}&via=${dw.system.Site.getCurrent().httpsHostName}" data-share="twitter"
                 title="${Resource.msgf('label.social.twitter', 'product', null, product.productName)}"
                 aria-label="${Resource.msgf('label.social.twitter', 'product', null, product.productName)}"
                 class="share-icons" target="_blank">
