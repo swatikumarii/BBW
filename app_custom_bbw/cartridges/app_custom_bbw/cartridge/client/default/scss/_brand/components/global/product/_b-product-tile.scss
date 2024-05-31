@@ -19,6 +19,12 @@
         }
     }
 
+    &__name {
+        line-height: 20px;
+        letter-spacing: 0.16px;
+        color: colour(black, 1);
+    }
+
     &__img {
         max-width: 195px;
         max-height: 195px;
@@ -36,11 +42,24 @@
     }
 
     &__product-type {
-        margin-top: 3px;
+        margin: 3px 0 0;
+        line-height: 20px;
+        letter-spacing: 0.16px;
+        color: colour(black, 1);
+    }
+
+    .price {
+        margin: 12px 2px 0;
     }
 
     &__price-link {
         margin-top: 12px;
+        line-height: 20px;
+        letter-spacing: 0.09px;
+
+        &:hover {
+            color: colour(black, 1);
+        }
     }
 
     .social-badge-wrapper {
@@ -207,6 +226,7 @@
 
     &__img-wrapper {
         overflow: hidden;
+        margin-bottom: 16px;
 
         .img-inner-wrapper {
             @include media-up(md) {
@@ -244,6 +264,10 @@
                 display: block;
                 transition: opacity 0.3s;
                 color: colour(black, 3);
+
+                @include media-down(sm) {
+                    display: none;
+                }
             }
         }
     }

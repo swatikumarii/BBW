@@ -10,6 +10,8 @@ exports.afterPATCH = function (order, orderInput) {
     var OrderModel = require('*/cartridge/models/order');
     var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
     var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
+    var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+    var ContentMgr = require('dw/content/ContentMgr');
     var orderStatus = orderInput.status || null;
     var exportStatus = orderInput.exportStatus || null;
     var shipment = orderInput.shipments || null;
@@ -27,7 +29,8 @@ exports.afterPATCH = function (order, orderInput) {
             'Order-InvoiceDownload',
             'token',
             encodedOrderNumber
-        ).toString()
+        ).toString(),
+        content: emailContentHelpers.getEmailContent('normal-footer', 'email-header')
     };
     var emailObj = {
         to: orderModel.orderEmail,
@@ -59,7 +62,7 @@ exports.afterPATCH = function (order, orderInput) {
         logger.info('order model is ' + JSON.stringify(orderModel));
         emailHelpers.sendEmail(
             emailObj,
-            'mail/orderExportedEmail',
+            'mail/orderStatus/orderExportedEmail',
             orderObject
         );
     }
@@ -108,6 +111,33 @@ exports.afterPATCH = function (order, orderInput) {
             }
         });
 
+        var shippedEmailMarkup = '';
+        var shippedEmailFooterMarkup = '';
+        var shippedemailContent = ContentMgr.getContent('email-good-to-konw-shipped-block'); // Canceled Order Email Content Asset Id
+        var cancelEmailFooterContent = ContentMgr.getContent('email-order-confirmation'); // Canceled Order Email Footer Image Content Asset Id
+
+        if (!empty(shippedemailContent) && shippedemailContent.online) {
+            shippedEmailMarkup = shippedemailContent.custom.body.markup;
+        }
+
+        if (!empty(cancelEmailFooterContent) && cancelEmailFooterContent.online) {
+            shippedEmailFooterMarkup = cancelEmailFooterContent.custom.body.markup;
+        }
+
+
+        emailObj.subject = Resource.msg(
+            'email.subject.order.ready.to.ship',
+            'order',
+            null
+        );
+
+        var shippedorderObject = {
+            order: orderModel,
+            content: emailContentHelpers.getEmailContent('normal-footer', 'email-header'),
+            markup: shippedEmailMarkup,
+            footermarkup: shippedEmailFooterMarkup
+        };
+
         // Trigger shipping email
         emailObj.subject = Resource.msg(
             'email.subject.order.shipping',
@@ -116,8 +146,8 @@ exports.afterPATCH = function (order, orderInput) {
         );
         emailHelpers.sendEmail(
             emailObj,
-            'mail/orderShippingEmail',
-            orderObject
+            'mail/orderStatus/orderShippingEmail',
+            shippedorderObject
         );
     }
 
@@ -149,7 +179,7 @@ exports.afterPATCH = function (order, orderInput) {
         );
         emailHelpers.sendEmail(
             emailObj,
-            'order/orderCompletedEmail',
+            'mail/orderStatus/orderCompletedEmail',
             orderObject
         );
     }
@@ -171,10 +201,35 @@ exports.afterPATCH = function (order, orderInput) {
             'order',
             null
         );
+
+        var cancelEmailMarkup = '';
+        var cancelEmailFooterMarkup = '';
+        var emailContent = ContentMgr.getContent('email-good-to-konw-block'); // Canceled Order Email Content Asset Id
+        var emailFooterContent = ContentMgr.getContent('email-order-confirmation'); // Canceled Order Email Footer Image Content Asset Id
+
+        if (!empty(emailContent) && emailContent.online) {
+            cancelEmailMarkup = emailContent.custom.body.markup;
+        }
+
+        if (!empty(emailFooterContent) && emailFooterContent.online) {
+            cancelEmailFooterMarkup = emailFooterContent.custom.body.markup;
+        }
+
+        var cancelorderObject = {
+            order: orderModel,
+            invoiceUrl: URLUtils.https(
+                'Order-InvoiceDownload',
+                'token',
+                encodedOrderNumber
+            ).toString(),
+            content: emailContentHelpers.getEmailContent('normal-footer', 'email-header'),
+            markup: cancelEmailMarkup,
+            footermarkup: cancelEmailFooterMarkup
+        };
         emailHelpers.sendEmail(
             emailObj,
-            'mail/orderCancelledEmail',
-            orderObject
+            'mail/orderStatus/orderCancelledEmail',
+            cancelorderObject
         );
     }
     // trigger ready to ship email
@@ -189,7 +244,7 @@ exports.afterPATCH = function (order, orderInput) {
         );
         emailHelpers.sendEmail(
             emailObj,
-            'mail/orderReadyToShipEmail',
+            'mail/orderStatus/orderReadyToShipEmail',
             orderObject
         );
     }

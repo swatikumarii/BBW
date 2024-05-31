@@ -8,6 +8,7 @@ var base = module.superModule;
  * @returns {object} - content search instance
  */
 function setupFaqContentSearch(params) {
+    var Resource = require('dw/web/Resource');
     var ContentMgr = require('dw/content/ContentMgr');
     var ContentSearchModel = require('dw/content/ContentSearchModel');
     var ContentSearch = require('*/cartridge/models/search/faqContentSearch');
@@ -21,18 +22,23 @@ function setupFaqContentSearch(params) {
     apiContentSearchModel.setFilteredByFolder(true);
     apiContentSearchModel.setSearchPhrase(params.query);
     apiContentSearchModel.search();
-    var count = Number(apiContentSearchModel.getCount());
+    var allResultCount = Number(apiContentSearchModel.getCount());
     var contentSearch = null;
     var contentSearchResult = null;
+    var selectedCategoryResultCount = 0;
+    var selectedCategoryName;
+    var selectedCategoryId;
     if (!params.categoryId) {
+        selectedCategoryResultCount = allResultCount;
         contentSearchResult = apiContentSearchModel.getContent();
         contentSearch = new ContentSearch(
             contentSearchResult,
-            count,
+            allResultCount,
             params.query,
             params.startingPage,
-            null
+            10
         );
+        selectedCategoryName = Resource.msg('faq.all.categories', 'faq', null);
     }
     for (var i = 0; i < faqFolder.onlineSubFolders.length; i++) {
         var folderContentSearchModel = new ContentSearchModel();
@@ -41,7 +47,7 @@ function setupFaqContentSearch(params) {
         folderContentSearchModel.setFilteredByFolder(true);
         folderContentSearchModel.setSearchPhrase(params.query);
         folderContentSearchModel.search();
-        count = Number(folderContentSearchModel.getCount());
+        var count = Number(folderContentSearchModel.getCount());
         if (count > 0) {
             folders.push({
                 folderId: faqFolder.onlineSubFolders[i].ID,
@@ -57,16 +63,23 @@ function setupFaqContentSearch(params) {
                 count,
                 params.query,
                 params.startingPage,
-                null
+                10
             );
-            count = Number(folderContentSearchModel.getCount());
+            selectedCategoryId = faqFolder.onlineSubFolders[i].ID;
+            selectedCategoryName = faqFolder.onlineSubFolders[i].displayName;
+            selectedCategoryResultCount = Number(
+                folderContentSearchModel.getCount()
+            );
         }
     }
     return {
         searchPhrase: params.query,
-        count: count,
         folders: folders,
-        contentSearch: contentSearch
+        contentSearch: contentSearch,
+        selectedCategoryResultCount: selectedCategoryResultCount,
+        allResultCount: allResultCount,
+        selectedCategoryName: selectedCategoryName,
+        selectedCategoryId: selectedCategoryId
     };
 }
 
@@ -100,9 +113,33 @@ function getPageDesignerCategoryPage(categoryID) {
     return base.getPageDesignerCategoryPage(categoryID);
 }
 
+/**
+ * Set content search configuration values
+ * @param {object} params - Provided HTTP query parameters
+ * @returns {object} - content search instance
+ */
+function getContentSearch(params) {
+    var ContentMgr = require('dw/content/ContentMgr');
+    var ContentSearchModel = require('dw/content/ContentSearchModel');
+    var ContentSearch = require('*/cartridge/models/search/faqContentSearch');
+    var faqFolder = ContentMgr.getFolder('faq');
+    var apiContentSearchModel = new ContentSearchModel();
+    apiContentSearchModel.setFolderID(faqFolder.ID);
+    apiContentSearchModel.setRecursiveFolderSearch(true);
+    apiContentSearchModel.setFilteredByFolder(true);
+    apiContentSearchModel.setSearchPhrase(params.query);
+    apiContentSearchModel.search();
+    var contentSearchResult = apiContentSearchModel.getContent();
+    var count = Number(apiContentSearchModel.getCount());
+    var contentSearch = new ContentSearch(contentSearchResult, count, params.q, params.startingPage, 6);
+
+    return contentSearch;
+}
+
 module.exports = {
     setupFaqContentSearch: setupFaqContentSearch,
-    getPageDesignerCategoryPage: getPageDesignerCategoryPage
+    getPageDesignerCategoryPage: getPageDesignerCategoryPage,
+    getContentSearch: getContentSearch
 };
 
 Object.keys(base).forEach(function (prop) {

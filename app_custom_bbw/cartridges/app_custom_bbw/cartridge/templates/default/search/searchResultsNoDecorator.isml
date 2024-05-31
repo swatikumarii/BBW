@@ -101,3 +101,6 @@
         </div>
     </div>
 </div>
+<div class="recommendations">
+    <isslot id="plp-recently-viewed-product" description="Recently viewed product slot for PLP" context="global" />
+</div>

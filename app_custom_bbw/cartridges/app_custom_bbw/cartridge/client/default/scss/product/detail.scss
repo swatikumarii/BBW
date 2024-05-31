@@ -395,15 +395,41 @@
                 h2 {
                     padding: 1.25rem 0.875rem;
                     cursor: pointer;
+                    line-height: 20px;
+                    letter-spacing: 0.1px;
 
                     &::after {
                         top: 1.125rem;
                     }
                 }
-            }
 
-            .content p {
-                padding: 0 1rem;
+                .content {
+                    padding: 0 60px 0 0;
+
+                    p {
+                        padding: 0 0 0 1rem;
+                        font-size: 1rem;
+                        line-height: 1.5rem;
+                        letter-spacing: 0.01em;
+                        color: colour(gray, 4);
+                        font-weight: 400;
+                    }
+
+                    .pdp_ov_ul {
+                        padding: 0 0 0 34px;
+                        list-style: none;
+                        margin: 0;
+
+                        li {
+                            list-style: disc;
+                            font-weight: 400;
+                            font-size: 1rem;
+                            line-height: 1.5rem;
+                            letter-spacing: 0.01em;
+                            color: colour(gray, 4);
+                        }
+                    }
+                }
             }
         }
 

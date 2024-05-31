@@ -345,6 +345,18 @@ function updateMigratedUsersPasswordChangeFlag(customer) {
     }
 }
 
+/**
+ * @param {email} email - email
+ * @returns {number} - number of login attempts remaining
+ */
+function remainingLoginAttempts(email) {
+    var CustomerMgr = require('dw/customer/CustomerMgr');
+    var customer = CustomerMgr.getCustomerByLogin(email);
+    var leftLoginAttempts = customer.profile.credentials.remainingLoginAttempts;
+    return leftLoginAttempts;
+}
+
+
 module.exports = {
     isValidDate: isValidDate,
     sendPasswordResetEmail: sendPasswordResetEmail,
@@ -354,7 +366,8 @@ module.exports = {
     sendEditAddressEmail: sendEditAddressEmail,
     sendDeleteAddressEmail: sendDeleteAddressEmail,
     handleMigratedCustomers: handleMigratedCustomers,
-    updateMigratedUsersPasswordChangeFlag: updateMigratedUsersPasswordChangeFlag
+    updateMigratedUsersPasswordChangeFlag: updateMigratedUsersPasswordChangeFlag,
+    remainingLoginAttempts: remainingLoginAttempts
 };
 
 Object.keys(base).forEach(function (prop) {

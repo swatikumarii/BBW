@@ -3,7 +3,8 @@
 var server = require('server');
 var Resource = require('dw/web/Resource');
 var URLUtils = require('dw/web/URLUtils');
-var PAGE_SIZE_ITEMS = 15;
+var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
+var PAGE_SIZE_ITEMS = 1000;
 
 server.extend(module.superModule);
 
@@ -34,12 +35,35 @@ server.prepend('AddProduct', function (req, res, next) {
  * Wishlist-Show : The Wishlist-Show append to update breadcrumbs
  * @name Wishlist-Show
  */
-server.append('Show', function (req, res, next) {
+server.replace('Show', function (req, res, next) {
     var CustomObjectMgr = require('dw/object/CustomObjectMgr');
-    var viewData = res.getViewData();
+    var list = productListHelper.getList(req.currentCustomer.raw, {
+        type: 10
+    });
+    var WishlistModel = require('*/cartridge/models/productList');
+    var userName = '';
+    var firstName;
+    var rememberMe = false;
+    if (req.currentCustomer.credentials) {
+        rememberMe = true;
+        userName = req.currentCustomer.credentials.username;
+    }
+    var loggedIn = req.currentCustomer.profile;
 
-    var breadcrumbs = [
-        {
+    var target = req.querystring.rurl || 1;
+    var actionUrl = URLUtils.url('Account-Login');
+    var createAccountUrl = URLUtils.url(
+        'Account-SubmitRegistration',
+        'rurl',
+        target
+    )
+        .relative()
+        .toString();
+    var navTabValue = req.querystring.action;
+    var breadcrumbs;
+    if (loggedIn) {
+        firstName = req.currentCustomer.profile.firstName;
+        breadcrumbs = [{
             htmlValue: Resource.msg('global.home', 'common', null),
             url: URLUtils.home().toString()
         },
@@ -51,21 +75,57 @@ server.append('Show', function (req, res, next) {
             htmlValue: Resource.msg('label.wishlist', 'account', null),
             url: URLUtils.url('Wishlist-Show').toString()
         }
-    ];
+        ];
+    } else {
+        breadcrumbs = [{
+            htmlValue: Resource.msg('global.home', 'common', null),
+            url: URLUtils.home().toString()
+        },
+        {
+            htmlValue: Resource.msg('label.signin.name', 'login', null)
+        }
+        ];
+    }
 
     var userEmail = req.currentCustomer.raw.registered ? req.currentCustomer.profile.email : false;
 
-    for (var index = 0; index < viewData.wishlist.items.length; index++) {
-        var productRecord = CustomObjectMgr.getCustomObject('notifyBackInStock', viewData.wishlist.items[index].pid);
-        viewData.wishlist.items[index].productPresentInNotifyList = false;
-        if (userEmail && productRecord !== null && productRecord.custom.user.indexOf(userEmail) !== -1) {
-            viewData.wishlist.items[index].productPresentInNotifyList = true;
+    var profileForm = server.forms.getForm('profile');
+    profileForm.clear();
+    var wishlistModel = new WishlistModel(list, {
+        type: 'wishlist',
+        publicView: false,
+        pageSize: PAGE_SIZE_ITEMS,
+        pageNumber: 1
+    }).productList;
+
+    if (wishlistModel && wishlistModel.items && wishlistModel.items.length > 0) {
+        for (var index = 0; index < wishlistModel.items.length; index++) {
+            var productRecord = CustomObjectMgr.getCustomObject('notifyBackInStock', wishlistModel.items[index].pid);
+            wishlistModel.items[index].productPresentInNotifyList = false;
+            if (userEmail && productRecord !== null && productRecord.custom.user.indexOf(userEmail) !== -1) {
+                wishlistModel.items[index].productPresentInNotifyList = true;
+            }
         }
     }
 
-    viewData.breadcrumbs = breadcrumbs;
-
-    res.setViewData(viewData);
+    res.render('/wishlist/wishlistLanding', {
+        wishlist: wishlistModel,
+        navTabValue: navTabValue || 'login',
+        rememberMe: rememberMe,
+        userName: userName,
+        actionUrl: actionUrl,
+        actionUrls: {
+            updateQuantityUrl: ''
+        },
+        profileForm: profileForm,
+        breadcrumbs: breadcrumbs,
+        oAuthReentryEndpoint: 1,
+        loggedIn: loggedIn,
+        firstName: firstName,
+        socialLinks: loggedIn,
+        publicOption: loggedIn,
+        createAccountUrl: createAccountUrl
+    });
     next();
 });
 
@@ -74,12 +134,10 @@ server.replace('ShowOthers', function (req, res, next) {
     var productListMgr = require('dw/customer/ProductListMgr');
     var apiList = productListMgr.getProductList(id);
     var firstName = apiList.owner.profile.firstName;
-    var breadcrumbs = [
-        {
-            htmlValue: Resource.msg('global.home', 'common', null),
-            url: URLUtils.home().toString()
-        }
-    ];
+    var breadcrumbs = [{
+        htmlValue: Resource.msg('global.home', 'common', null),
+        url: URLUtils.home().toString()
+    }];
     var loggedIn = req.currentCustomer.profile;
     if (loggedIn) {
         breadcrumbs.push({

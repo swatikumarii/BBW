@@ -21,3 +21,45 @@
         }
     }
 }
+
+// -------promotion details-----
+.promotion-dialog {
+    display: block;
+    animation: d 0.2s;
+    animation-timing-function: cubic-bezier(0.2, 0.05, 0.55, 0.2);
+    transform: translate(-50%, -50%) !important;
+    background: colour(white);
+    bottom: 0;
+    left: 48%;
+    width: 464px;
+    max-width: 464px;
+    position: fixed;
+    height: 408px;
+    top: 46%;
+
+    .promotion-content {
+        border-radius: 0;
+        padding: 15px;
+        height: 100%;
+
+        .promotion-header {
+            line-height: 1.25rem;
+            letter-spacing: 0.005em;
+        }
+
+        .promotion-body {
+            text-align: left;
+            max-height: 75%;
+            padding: 12px 8px;
+            flex-grow: 1;
+            overflow: auto scroll !important;
+            overscroll-behavior: contain;
+            border: 1px solid colour(gray, 5);
+
+            p {
+                line-height: 1.5rem;
+                letter-spacing: 0.01em;
+            }
+        }
+    }
+}

@@ -28,10 +28,10 @@ function displayMessage(data, button) {
     }
     $('.email-signup-message').append(
         '<div class="email-signup-alert text-justify ' +
-            status +
-            '">' +
-            message +
-            '</div>'
+        status +
+        '">' +
+        message +
+        '</div>'
     );
     var newsLetterInput = $('#newsletterInput');
     if (status === 'alert-danger') {
@@ -148,23 +148,39 @@ $(document).on('click', '.popover .close', function (e) {
  */
 // Define a function to handle scroll event and show/hide back-to-top button
 $(document).ready(function () {
-    var windowHeight = $(window).height();
-    var documentHeight = $(document).height();
-    var scrollThreshold = Math.max(
-        documentHeight - windowHeight,
-        0.5 * windowHeight
-    ); // Ensure the scrollThreshold is at least 30% of window height
+    // Cache the window and document objects for performance
+    var $window = $(window);
+    var $scrollToTopButton = $('.js-scrolltotop');
 
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > scrollThreshold) {
-            $('.js-scrolltotop').fadeIn();
+    // Function to calculate the scroll threshold
+    /**
+    * @returns {object} a promise
+    */
+    function calculateScrollThreshold() {
+        var documentHeight = $(document).height();
+        // Show the button when the user has scrolled past 70% of the document height
+        // Ensure it is within the scrollable content
+        return Math.min(0.7 * documentHeight, documentHeight - 630);
+    }
+
+    // Show or hide the scroll to top button based on scroll position
+    $window.scroll(function () {
+        let scrollThreshold = calculateScrollThreshold();
+        var scrollTop = $window.scrollTop();
+        var windowHeight = $window.height();
+
+        // Adjust the threshold for smaller pages
+        var showButtonScrollTop = Math.max(scrollThreshold, windowHeight);
+
+        if (scrollTop > showButtonScrollTop - windowHeight) {
+            $scrollToTopButton.fadeIn();
         } else {
-            $('.js-scrolltotop').fadeOut();
+            $scrollToTopButton.fadeOut();
         }
     });
 
-    // Function to scroll to top when the button is clicked
-    $('.js-scrolltotop').click(function () {
+    // Scroll to top when the button is clicked
+    $scrollToTopButton.click(function () {
         $('html, body').animate({ scrollTop: 0 }, 800);
         return false;
     });

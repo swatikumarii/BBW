@@ -2,10 +2,160 @@
 
 var base = module.superModule;
 
+var formatMoney = require('dw/util/StringUtils').formatMoney;
+var collections = require('*/cartridge/scripts/util/collections');
+var Money = require('dw/value/Money');
+
 var TotalsModel = require('*/cartridge/models/totals');
 var apUtilities = require('*/cartridge/scripts/util/afterpayUtilities');
 var Resource = require('dw/web/Resource');
 var URLUtils = require('dw/web/URLUtils');
+var PromotionMgr = require('dw/campaign/PromotionMgr');
+var ProductMgr = require('dw/catalog/ProductMgr');
+
+/**
+ * Generates an object of approaching discounts
+ * @param {dw.order.Basket} basket - Current users's basket
+ * @param {dw.campaign.DiscountPlan} discountPlan - set of applicable discounts
+ * @returns {object} an object of approaching discounts
+ */
+function getApproachingDiscounts(basket, discountPlan) {
+    var approachingOrderDiscounts;
+    var approachingShippingDiscounts;
+    var orderDiscountObject;
+    var shippingDiscountObject;
+    var discountObject;
+    var promotion;
+    var appliedOrderDiscounts;
+    var appliedShippingDiscounts;
+
+    if (basket && basket.productLineItems) {
+        approachingOrderDiscounts = discountPlan.getApproachingOrderDiscounts();
+        approachingShippingDiscounts =
+            discountPlan.getApproachingShippingDiscounts(
+                basket.defaultShipment
+            );
+        appliedShippingDiscounts = discountPlan.getShippingDiscounts(basket.defaultShipment);
+
+        orderDiscountObject = collections.map(
+            approachingOrderDiscounts,
+            function (approachingOrderDiscount) {
+                promotion = approachingOrderDiscount.discount.promotion;
+                var qualificationMessage = promotion.custom && promotion.custom !== null && 'qualificationMessage' in promotion.custom && promotion.custom.qualificationMessage ? promotion.custom.qualificationMessage.source : false;
+                var buy = formatMoney(approachingOrderDiscount.getDistanceFromConditionThreshold());
+                var get = promotion.custom && promotion.custom !== null && 'Get' in promotion.custom && promotion.custom.Get.length > 0 ? promotion.custom.Get[0] : '';
+                var image = promotion.custom && 'productToShowImage' in promotion.custom ? ProductMgr.getProduct(promotion.custom.productToShowImage).getImage('large').absURL.toString() : '';
+                var discountMsg;
+                if (qualificationMessage) {
+                    discountMsg = qualificationMessage.replace('{{Buy}}', buy).replace('{{Get}}', get);
+                } else {
+                    discountMsg = Resource.msgf(
+                        'msg.approachingpromo',
+                        'cart',
+                        null,
+                        formatMoney(
+                            approachingOrderDiscount.getDistanceFromConditionThreshold()
+                        ),
+                        approachingOrderDiscount
+                            .getDiscount()
+                            .getPromotion()
+                            .getCalloutMsg()
+                    );
+                }
+                return {
+                    discountMsg: discountMsg,
+                    conditionThreshold: approachingOrderDiscount.conditionThreshold.value,
+                    distanceFromConditionThreshold: approachingOrderDiscount.distanceFromConditionThreshold.value,
+                    image: image
+                };
+            }
+        );
+
+        if (orderDiscountObject.length === 0) {
+            appliedOrderDiscounts = discountPlan.getOrderDiscounts();
+            if (appliedOrderDiscounts.length > 0) {
+                var discountMsg;
+                var thresholdValue = 0;
+                var image;
+                collections.forEach(appliedOrderDiscounts, function (appliedOrderDiscount) {
+                    if ('custom' in appliedOrderDiscount.promotion &&
+                        'showProgressBar' in appliedOrderDiscount.promotion.custom &&
+                        appliedOrderDiscount.promotion.custom.showProgressBar &&
+                        'Buy' in appliedOrderDiscount.promotion.custom &&
+                        appliedOrderDiscount.promotion.custom.Buy &&
+                        appliedOrderDiscount.promotion.custom.Buy.length > 0 &&
+                        'addFreeMessage' in appliedOrderDiscount.promotion.custom &&
+                        'productToShowImage' in appliedOrderDiscount.promotion.custom &&
+                        appliedOrderDiscount.promotion.custom.Buy[appliedOrderDiscount.promotion.custom.Buy.length - 1] > thresholdValue
+                    ) {
+                        thresholdValue = appliedOrderDiscount.promotion.custom.Buy[appliedOrderDiscount.promotion.custom.Buy.length - 1];
+                        discountMsg = appliedOrderDiscount.promotion.custom.addFreeMessage.source;
+                        image = ProductMgr.getProduct(appliedOrderDiscount.promotion.custom.productToShowImage).getImage('large').absURL.toString();
+                    }
+                });
+
+                if(discountMsg && discountMsg !== '') {
+                    orderDiscountObject = [];
+                    orderDiscountObject.push({
+                        discountMsg: discountMsg,
+                        conditionThreshold: thresholdValue,
+                        distanceFromConditionThreshold: 0,
+                        image: image
+                    });
+                }
+            }
+        }
+
+        shippingDiscountObject = collections.map(
+            approachingShippingDiscounts,
+            function (approachingShippingDiscount) {
+                return {
+                    discountMsg: Resource.msgf(
+                        'msg.approachingpromo.shipping',
+                        'cart',
+                        null,
+                        formatMoney(
+                            approachingShippingDiscount.getDistanceFromConditionThreshold()
+                        ),
+                        approachingShippingDiscount
+                            .getDiscount()
+                            .getPromotion()
+                            .getCalloutMsg()
+                    ),
+                    conditionThreshold: approachingShippingDiscount.conditionThreshold.value,
+                    formattedConditionThreshold: formatMoney(approachingShippingDiscount.conditionThreshold),
+                    distanceFromConditionThreshold: approachingShippingDiscount.distanceFromConditionThreshold.value
+                };
+            }
+        );
+
+        if (shippingDiscountObject.length === 0) {
+            shippingDiscountObject = collections.map(
+                appliedShippingDiscounts,
+                function (appliedShippingDiscount) {
+                    var conditionThreshold = 'custom' in appliedShippingDiscount.promotion && 'Buy' in appliedShippingDiscount.promotion.custom &&
+                            appliedShippingDiscount.promotion.custom.Buy && appliedShippingDiscount.promotion.custom.Buy.length > 0 ? appliedShippingDiscount.promotion.custom.Buy[appliedShippingDiscount.promotion.custom.Buy.length - 1] : 0;
+                    return {
+                        discountMsg: Resource.msg(
+                            'msg.appliedpromo.shipping',
+                            'cart',
+                            null,
+                        ),
+                        conditionThreshold: conditionThreshold,
+                        formattedConditionThreshold: formatMoney(new Money(conditionThreshold, basket.currencyCode)),
+                        distanceFromConditionThreshold: 0
+                    };
+                }
+            );
+        }
+
+        discountObject = {
+            orderDiscountObject: orderDiscountObject,
+            shippingDiscountObject: shippingDiscountObject
+        };
+    }
+    return discountObject;
+}
 
 /**
  * @class
@@ -19,6 +169,17 @@ function CartModel(basket) {
     this.apEligible = apUtilities.brandUtilities.isAfterpayApplicable();
     this.classname = 'cart-afterpay-message';
     this.continueShoppingLink = URLUtils.url('Home-Show').toString();
+    if (basket) {
+        var discountPlan = PromotionMgr.getDiscounts(basket);
+        if (discountPlan) {
+            var approachingDiscounts = getApproachingDiscounts(
+                basket,
+                discountPlan
+            );
+            this.orderApproachingDiscounts = approachingDiscounts.orderDiscountObject;
+            this.shippingApproachingDiscounts = approachingDiscounts.shippingDiscountObject;
+        }
+    }
 
 
     this.resources = {

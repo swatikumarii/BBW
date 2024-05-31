@@ -405,6 +405,53 @@
         }
     }
 
+    .store-hours-details {
+        display: inline-block;
+
+        .dropdown-toggle {
+            &::after {
+                border: 0;
+            }
+
+            img {
+                width: 13px;
+                margin-left: 4px;
+                transition: all 0.3s ease-out;
+            }
+
+            &.in {
+                img {
+                    transform: rotate(180deg);
+                    transition: all 0.3s ease-out;
+                }
+            }
+        }
+
+        .dropdown-menu {
+            min-width: 228px;
+            padding: 0;
+            z-index: 1;
+
+            ul li {
+                color: colour(black, 1);
+                padding: 5px 10px;
+
+                &.dropdown-item:hover {
+                    background-color: colour(white);
+                    color: colour(black, 1);
+                }
+
+                span.sl-weekday {
+                    width: 90px;
+                    margin-right: 5px;
+                    font-size: 16px;
+                    display: block;
+                    float: left;
+                }
+            }
+        }
+    }
+
     .store-map {
         width: 400px;
         display: block;
@@ -531,22 +578,25 @@
 
         .carousel-item {
             .item-img {
-                height: 400px;
+                height: 300px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 width: 500px;
-                object-fit: contain;
-                text-align: center;
-            }
 
-            img {
-                max-width: 450px;
-                height: auto;
-                max-height: 400px;
+                @include media-down(sm) {
+                    width: 100%;
+                }
 
-                @include media-down(md) {
-                    max-width: 100%;
+                img {
+                    max-width: 450px;
+                    height: auto;
+                    max-height: 300px;
+                    object-fit: contain;
+
+                    @include media-down(md) {
+                        max-width: 100%;
+                    }
                 }
             }
         }

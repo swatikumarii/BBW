@@ -18,6 +18,21 @@ server.get('Dashboard', function (req, res, next) {
 });
 
 /**
+ * StaticContent-DashboardFAQ : Show FAQs and search field
+ * @name StaticContent-DashboardFAQ
+ */
+server.get('DashboardFAQ', function (req, res, next) {
+    var folder = ContentMgr.getFolder(req.querystring.fid);
+    if (folder) {
+        res.render('content/faqDashboardFAQ', {
+            folder: folder,
+            isWrapped: req.querystring.isWrapped === 'true'
+        });
+    }
+    next();
+});
+
+/**
  * StaticContent-FaqLevel1 : Show folder heirarchy on UI
  * @name StaticContent-FaqLevel1
  */
@@ -68,12 +83,26 @@ server.get('ContentNames', function (req, res, next) {
  * @name StaticContent-FaqFooter
  */
 server.get('FaqFooter', function (req, res, next) {
+    var CustomObjectMgr = require('dw/object/CustomObjectMgr');
     var apiContent = ContentMgr.getContent(req.querystring.cid);
     if (apiContent) {
-        var articleHelpful = apiContent.custom.articleHelpfulYes
-            ? apiContent.custom.articleHelpfulYes : 0;
-        var articleTotalResponse =
-            articleHelpful + apiContent.custom.articleHelpfulNo;
+        var faq = CustomObjectMgr.getCustomObject(
+            'faqVotes',
+            req.querystring.cid
+        );
+        var articleHelpful;
+        var articleTotalResponse;
+        if (faq) {
+            articleHelpful = faq.custom.articleHelpfulYes
+                ? faq.custom.articleHelpfulYes
+                : 0;
+            articleTotalResponse = articleHelpful + (faq.custom.articleHelpfulNo
+                ? faq.custom.articleHelpfulNo
+                : 0);
+        } else {
+            articleHelpful = 0;
+            articleTotalResponse = 0;
+        }
         var relatedArticles = [];
         apiContent.custom.relatedArticles.forEach(
             function (relatedArticle, index) {

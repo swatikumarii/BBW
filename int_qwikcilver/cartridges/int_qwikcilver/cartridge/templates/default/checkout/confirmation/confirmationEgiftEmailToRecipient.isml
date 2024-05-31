@@ -1,26 +1,165 @@
-<!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <isinclude template="/components/modules" sf-toolkit="off" />
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    </head>
-
-    <body>
-        <isloop items="${pdict.order.items.items}" var="lineItem" status="loopState">
-            <isif
-                condition="${pdict.sendEmailNow && pdict.recipientEmail === lineItem.giftCardDetails.recipientEmail && pdict.giftcardNumber ===
-                           loopState.index}">
-                <h4 style="font-size: 18px;color: black;font-weight:600;line-height:22px;margin:0;color: #EF5F96;margin-bottom: 5px;">
-                    ${lineItem.giftCardDetails.cardNumber}
-                </h4>
-                <h4 style="font-size: 18px;color: black;font-weight:600;line-height:22px;margin:0;color: #EF5F96;margin-bottom: 5px;">
-                    ${lineItem.giftCardDetails.cardPin}
-                </h4>
-            </isif>
-        </isloop>
-    </body>
-
-</html>
+<isinclude template="/components/modules" sf-toolkit="off" />
+<isdecorate template="common/layout/email">
+    <isset name="urlHelpers" value="${require('*/cartridge/scripts/helpers/urlHelpers')}" scope="page" />
+    <isscript>
+        var orderBase = dw.crypto.Encoding.toBase64(new dw.util.Bytes(pdict.order.orderNumber))
+    </isscript>
+    <tr style="padding: 0;">
+        <td style="vertical-align: middle; text-align: center; color: #333; font-size:14px;">
+            <table style="padding-top:35px;" cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                <tr style="padding: 0;">
+                    <td style="padding:0 32px 15px;vertical-align:top;text-align:left;">
+                        <iscomment> Gift Card Image Details </iscomment>
+                        <div style="border:2px solid #f2f2f2;padding:15px 0 24px; margin-bottom:30px;">
+                            <p
+                                style="margin:0;font-size:36px;line-height:50px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center">
+                                <isprint value="${Resource.msg('egift.surprise.heading', 'giftcards', null)}"
+                                    encoding="off" />
+                            </p>
+                            <p
+                                style="margin:0 0 20px;font-size:16px;line-height:18px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center;text-transform: capitalize;">
+                                <isprint
+                                    value="${Resource.msgf('egift.treated.msg', 'giftcards', null, pdict.recipientName)}"
+                                    encoding="off" />
+                            </p>
+                            <iscomment> Normal Product Line Items </iscomment>
+                            <table width="100%" cellpadding="0" cellspacing="0"
+                                style="border-collapse:collapse;margin-top:15px;">
+                                <tbody>
+                                    <isloop items="${pdict.order.items.items}" var="lineItem" status="loopState">
+                                        <isif
+                                            condition="${pdict.sendEmailNow && pdict.recipientEmail === lineItem.giftCardDetails.recipientEmail && pdict.giftcardNumber === loopState.index}">
+                                            <tr>
+                                                <td
+                                                    style="vertical-align:middle;padding-left: 32px;padding-right: 15px;width: 50%;">
+                                                    <a style="display:block;text-align:left;"
+                                                        href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}">
+                                                        <img src="${lineItem.images.small[0].absURL}"
+                                                            alt="${lineItem.images.small[0].alt}"
+                                                            title="${lineItem.images.small[0].title}"
+                                                            style="border:0;vertical-align:top;width:100%;max-height: 261px;height: 100%;max-width:261px;"
+                                                            width="261" />
+                                                    </a>
+                                                    <p
+                                                        style="color:#666;font-size:14px;line-height:18px;padding: 0;margin: 5px 0 0;text-align:left;">
+                                                        ${Resource.msg('egift.amount.label', 'giftcards', null)}
+                                                    </p>
+                                                    <p
+                                                        style="color:#000000;font-size:20px;font-weight:bold;padding:0;margin: 5px 0;text-align:left;">
+                                                        ${lineItem.priceTotal.price}</p>
+                                                    <p
+                                                        style="margin:0;color:#000000;font-size:14px;line-height:18px;padding:0;text-align:left;">
+                                                        ${Resource.msg('egift.useit.store.text', 'giftcards', null)}
+                                                    </p>
+                                                </td>
+                                                <td style="padding: 0;vertical-align:top;width: 30%;">
+                                                    <iscomment>
+                                                        <div
+                                                            style="text-transform:uppercase;font-size:16px;color:#333;margin-bottom:15px;line-height:23px">
+                                                            <a href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}"
+                                                                title="${lineItem.productName}"
+                                                                style="text-decoration:none;text-transform:uppercase;font-size:16px;color:#333;line-height:23px;margin-bottom:15px;font-family:'HelveticaNeue-Light',Arial,sans-serif"
+                                                                target="_blank">${lineItem.productName}</a>
+                                                        </div>
+                                                    </iscomment>
+                                                    <div
+                                                        style="text-transform: capitalize;color:#666;font-size:14px;line-height:18px;margin-bottom:15px;">
+                                                        ${lineItem.giftCardDetails.recipientName + ','}
+                                                    </div>
+                                                    <isif
+                                                        condition="${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null}">
+                                                        <div
+                                                            style="color:#666;font-size:14px;line-height:18px;margin-bottom:15px;">
+                                                            ${lineItem.giftCardDetails.eGiftMessage}
+                                                        </div>
+                                                    </isif>
+                                                    <div
+                                                        style="color:#666;font-size:14px;line-height:18px;text-transform: capitalize;">
+                                                        ${'- ' + lineItem.giftCardDetails.senderName}
+                                                    </div>
+                                                </td>
+                                                <td style="width: 20%;"></td>
+                                            </tr>
+                                        </isif>
+                                    <tr>
+                                        <td align="center" colspan="3">
+                                            <div style="margin-top:24px;">
+                                                <!--[if mso]>
+                                                    <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${dw.web.URLUtils.abs('Home-Show')}" style="height:35px;v-text-anchor:middle;width:300px;" strokecolor="#333" fillcolor="#333">
+                                                        <w:anchorlock/>
+                                                        <center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;">${Resource.msg('egift.redeem.card.btn.label', 'giftcards', null)}</center>
+                                                    </v:rect>
+                                                <![endif]-->
+                                                <a href="${dw.web.URLUtils.abs('Home-Show')}" style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:35px;text-align:center;text-decoration:none;width:300px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;">${Resource.msg('egift.redeem.card.btn.label', 'giftcards', null)}
+                                                </a>
+                                            </div>
+                                            <div style="margin:15px 0 30px;text-align:center;">
+                                                <a href="${dw.web.URLUtils.abs('Home-Show')}" style="font-size:16px;color:#005699;font-weight:bold;text-decoration:underline;">Get Shopping</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#000000;font-size:14px;border-top:1px solid #f2f2f2;margin-bottom:30px;text-align:center;padding:20px 0;">
+                                            <a style="font-weight:600;color:#000000;font-size:14px;text-decoration:none;" href="${dw.web.URLUtils.abs('Page-Show', 'cid', 'giftcards')}">${Resource.msg('egift.check.balance.text', 'giftcards', null)}</a> | <a style="font-weight:600;text-decoration:none;color:#000000;font-size:14px;" href="${dw.web.URLUtils.abs('Page-Show', 'cid', 'help-faq-dashboard')}">${Resource.msg('egift.faq.text', 'giftcards', null)}</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" align="center">
+                                            <p style="margin:0;font-size:30px;line-height:40px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center">
+                                                <isprint value="${Resource.msg('egift.card.number', 'giftcards', null)}" encoding="off" />
+                                            </p>
+                                            <isif condition="${lineItem.giftCardDetails.cardNumber !== null}">
+                                                <p style="margin:0;font-size:18px;line-height:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center">
+                                                    ${lineItem.giftCardDetails.cardNumber}
+                                                </p>
+                                            </isif>
+                                            <p
+                                                style="margin:15px 0 0;font-size:30px;line-height:40px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center">
+                                                <isprint value="${Resource.msg('egift.card.pin', 'giftcards', null)}" encoding="off" /><span> - ${lineItem.giftCardDetails.cardPin}</span>
+                                            </p>
+                                            <p
+                                                style="margin:15px 0 0;font-size:30px;line-height:40px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center">
+                                                <isif condition="${lineItem.priceTotal.nonAdjustedPrice}">
+                                                    ${lineItem.priceTotal.nonAdjustedPrice}
+                                                <iselse/>
+                                                    ${lineItem.priceTotal.price}
+                                                </isif>
+                                            </p>
+                                            <p style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#000000;font-size: 14px;text-align:center;">
+                                                <img style="display:block;margin:0 auto;" src="${lineItem.giftCardDetails.giftBarCode}" alt="eGift Barcode" />
+                                                <isif condition="${lineItem.giftCardDetails.giftBarCodeNumber}">
+                                                    <span style="display:inline-block" class="card-no">${lineItem.giftCardDetails.giftBarCodeNumber}</span>
+                                                </isif>
+                                            </p>
+                                            <p style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#000000;font-weight:600;">
+                                                ${Resource.msg('confirm.order.card.expiry.date', 'giftcards', null)}<span
+                                                    style="font-size: 14px; padding-left: 5px;font-style: italic;">${lineItem.giftCardDetails.cardExpiryDate}</span>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3" style="border-top:1px solid #f2f2f2;margin-bottom:30px;">
+                                            <p
+                                                style="margin:15px 0 0;font-size:14px;line-height:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;text-align:center">
+                                                <isif condition="${'eGiftVideoLink' in lineItem.giftCardDetails && lineItem.giftCardDetails.eGiftVideoLink && lineItem.giftCardDetails.eGiftVideoLink !== 'undefined'}">
+                                                    <a style="font-size: 16px;font-weight: 600;text-decoration:underline;color:#005699;text-align:center;" href="${URLUtils.abs('Giftcard-GiftcardVideoLandingPage', 'video', orderBase, 'uuid', lineItem.UUID)}">
+                                                        ${Resource.msg('special.message.text', 'giftcards', null)}
+                                                    </a>
+                                                </isif>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    </isloop>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <iscomment> You've got it Content Asset </iscomment>
+                            <isprint value="${pdict.barCodeMarkup}" encoding="off" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</isdecorate>

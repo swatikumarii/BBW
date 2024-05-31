@@ -6,12 +6,10 @@
     </isscript>
     <div class="container">
         <div class="header_img">
-            <img class="mob-only"
-                src="//storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/banners/Get-Inspired/get-inspire/getinspire_header_mob.jpg"
-                width="100%" alt="get inspired" />
-            <img class="desk-only" alt="get inspired"
-                src="//storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Images/userimages/banners/Get-Inspired/get-inspire/getinspire_header_desk.jpg"
-                />
+            <img class="mob-only" width="100%" alt="${Resource.msg('label.blog.image', 'common', null)}"
+                src="${URLUtils.staticURL('/images/blogs/getinspire_header_mob.webp')}" />
+            <img class="desk-only" alt="${Resource.msg('label.blog.image', 'common', null)}"
+                src="${URLUtils.staticURL('/images/blogs/getinspire_header_desk.webp')}" />
         </div>
         <div class="header_section">
             <p class="text-center h-font-size--16 mt-5">${Resource.msg('header.content', 'blogs', null)}
@@ -21,12 +19,12 @@
             <isloop items="${pdict.blog.onlineSubFolders}" var="list" status="loopstatus" begin=0>
                 <isif condition="${list.custom.isShow === true}">
                     <div class="folder_list mt-5">
-                        <a href="#">
+                        <a href="${'#'+list.displayName.replace(' ', '')}">
                             <img class="list_content d-block" width="100%" src="${list.custom.image.absURL}"
                                 alt="${list.displayName}" />
                         </a>
                         <p class="navi_content text-center mb-0 h-font-size--16 h-fw--semibold mt-4 text-uppercase">
-                            <a class="h-clr--black-3" href="#">${list.displayName}</a>
+                            <a class="h-clr--black-3" href="${'#'+list.displayName.replace(' ', '')}">${list.displayName}</a>
                         </p>
                     </div>
                 </isif>
@@ -35,7 +33,7 @@
         <div class="m-grid-contain">
             <isloop items="${pdict.blog.onlineSubFolders}" var="folder" status="loopstatus" begin=0>
                 <div class="blog_list">
-                    <div class="head-img d-flex align-items-center">
+                    <div id="${folder.displayName.replace(' ', '')}" class="head-img d-flex align-items-center scroll-margin">
                         <isif condition="${folder.custom.isShow === true}">
                             <div class="folder-conten-img">
                                 <img class="folder_content" src="${folder.custom.image.absURL}"
@@ -63,9 +61,9 @@
                     <isif condition="${folder.onlineContent.length > 4}">
                         <div class="text-center">
                             <a href="#" class="btn btn-primary show-more-btn m-font-base--normal">
-                            <button type="button"
-                                class="bg-white border-0 h-font-size--16 text-uppercase h-fw--semibold text-center show-button m-font-base--normal h-clr--black-3">${Resource.msg('button.show.more', 'common', null)}
-                            </button>
+                                <button type="button"
+                                    class="bg-white border-0 h-font-size--16 text-uppercase h-fw--semibold text-center show-button m-font-base--normal h-clr--black-3">${Resource.msg('button.show.more', 'common', null)}
+                                </button>
                             </a>
                         </div>
                     </isif>

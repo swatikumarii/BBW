@@ -36,7 +36,7 @@
     }
 
     .shop-the-module {
-        overflow: hidden scroll;
+        overflow: auto hidden;
         cursor: grab;
         column-gap: 16px;
 
@@ -142,6 +142,20 @@
 
                     .tile-body-footer {
                         margin-top: 8px;
+
+                        .add-to-cart,
+                        .notify-me-btn,
+                        .out-of-stock {
+                            @include h-button(
+                                colour(black, 1),
+                                // Base Button color
+                                colour(gray, 4),
+                                // Hover Color
+                                colour(gray, 5),
+                                // Active Color
+                                colour(black) // Outline Color
+                            );
+                        }
                     }
                 }
 

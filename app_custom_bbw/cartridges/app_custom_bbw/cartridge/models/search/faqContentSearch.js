@@ -2,12 +2,11 @@
 
 var PagingModel = require('dw/web/PagingModel');
 var collections = require('*/cartridge/scripts/util/collections');
-var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
 var URLUtils = require('dw/web/URLUtils');
 var preferences = require('*/cartridge/config/preferences');
-var ACTION_ENDPOINT_GRID = 'Search-Content';
+var ACTION_ENDPOINT_GRID = 'Faq-Search';
 var ACTION_ENDPOINT_CONTENT = 'Page-Show';
-var DEFAULT_PAGE_SIZE = preferences.defaultPageSize ? preferences.defaultPageSize : 12;
+var DEFAULT_PAGE_SIZE = preferences.defaultPageSize ? preferences.defaultPageSize : 10;
 
 /**
  * Configures and returns a PagingModel instance *
@@ -29,18 +28,42 @@ function getPagingModel(contentHits, count, pageSize, startIndex) {
  * @param {dw.content.Content} content - Content for which breadcrumb wants to retrieve
  * @returns {object} - HTML content
  */
-function getBreadcrumb(content) {
-    var template = 'content/faqSearchBreadcrumb.isml';
+function getBreadcrumbData(content) {
     if (content.folders.length > 0) {
-        var context = {
+        return {
             level1Name: content.folders[0].parent.displayName,
             level1url: content.folders[0].parent.ID,
             level2Name: content.folders[0].displayName,
             level2url: content.folders[0].ID
         };
-        return renderTemplateHelper.getRenderedHtml(context, template);
     }
-    return '';
+    return null;
+}
+
+/**
+ * Get Likes
+ * @param {dw.content.Content} contentAsset - Content asset
+ * @returns {number} - like count
+ */
+function getLikes(contentAsset) {
+    var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+    var faq = CustomObjectMgr.getCustomObject('faqVotes', contentAsset.ID);
+    var articleHelpful;
+    var articleNotHelpful;
+    if (faq) {
+        articleHelpful =
+            faq.custom && 'articleHelpfulYes' in faq.custom && faq.custom.articleHelpfulYes
+                ? faq.custom.articleHelpfulYes
+                : 0;
+        articleNotHelpful =
+            faq.custom && 'articleHelpfulNo' in faq.custom && faq.custom.articleHelpfulNo
+                ? faq.custom.articleHelpfulNo
+                : 0;
+    } else {
+        articleHelpful = 0;
+        articleNotHelpful = 0;
+    }
+    return articleHelpful - articleNotHelpful;
 }
 
 /**
@@ -53,12 +76,8 @@ function getContentSearchPageJSON(pageElements) {
         return {
             name: contentAsset.name,
             url: URLUtils.url(ACTION_ENDPOINT_CONTENT, 'cid', contentAsset.ID),
-            likes: ('articleHelpfulYes' in contentAsset.custom && contentAsset.custom.articleHelpfulYes
-                ? contentAsset.custom.articleHelpfulYes : 0)
-                - ('articleHelpfulNo' in contentAsset.custom && contentAsset.custom.articleHelpfulNo
-                    ? contentAsset.custom.articleHelpfulNo
-                    : 0),
-            breadcrumb: getBreadcrumb(contentAsset),
+            likes: getLikes(contentAsset),
+            breadcrumb: getBreadcrumbData(contentAsset),
             creationDate: contentAsset.creationDate,
             description: contentAsset.description
         };
@@ -77,14 +96,25 @@ function ContentSearch(contentSearchResult, count, queryPhrase, startingPage, pa
     var ps = pageSize === null ? DEFAULT_PAGE_SIZE : pageSize;
     var pagingModel = getPagingModel(contentSearchResult, count, ps, startingPage);
     var contents = getContentSearchPageJSON(pagingModel.pageElements.asList());
-
-    var moreContentUrl = pagingModel.maxPage > pagingModel.currentPage
-        ? URLUtils.url(ACTION_ENDPOINT_GRID, 'q', queryPhrase, 'startingPage', pagingModel.end + 1)
-        : null;
+    var firstPageUrl = null;
+    var previousPageUrl = null;
+    var nextPageUrl = null;
+    var lastPageUrl = null;
+    if (pagingModel.currentPage > 0) {
+        firstPageUrl = URLUtils.url(ACTION_ENDPOINT_GRID, 'query', queryPhrase, 'startingPage', 0).toString();
+        previousPageUrl = URLUtils.url(ACTION_ENDPOINT_GRID, 'query', queryPhrase, 'startingPage', pagingModel.start - ps).toString();
+    }
+    if (pagingModel.maxPage > pagingModel.currentPage) {
+        nextPageUrl = URLUtils.url(ACTION_ENDPOINT_GRID, 'query', queryPhrase, 'startingPage', pagingModel.end + 1).toString();
+        lastPageUrl = URLUtils.url(ACTION_ENDPOINT_GRID, 'query', queryPhrase, 'startingPage', pagingModel.maxPage * ps).toString();
+    }
     this.queryPhrase = queryPhrase;
     this.contents = contents;
     this.contentCount = count;
-    this.moreContentUrl = moreContentUrl;
+    this.firstPageUrl = firstPageUrl;
+    this.previousPageUrl = previousPageUrl;
+    this.nextPageUrl = nextPageUrl;
+    this.lastPageUrl = lastPageUrl;
     this.hasMessage = startingPage === 0;
 }
 

@@ -3,7 +3,6 @@
 var processInclude = require('base/util');
 var intlTelInput = require('intl-tel-input');
 var utils = require('utils.js');
-
 /**
  * Reusable function to validate a field based on its ID
  * @param {object} selector selector on which validation function runs
@@ -114,6 +113,11 @@ $(document).ready(function () {
             );
         }
     );
+    var errorMessage =
+        '<div class="invalid-feedback text-left" id="phone-error">' +
+        $('#registration-form-phone').data('missing-error') +
+        '</div>';
+    $('#registration-form-phone').after(errorMessage);
 
     // Define an array of validation fields with selector and validation function
     var validationFields = [
@@ -162,10 +166,6 @@ $(document).ready(function () {
             validationFunction: validateRequiredField
         },
         {
-            selector: '#add-to-email-list',
-            validationFunction: validateRequiredField
-        },
-        {
             selector: '#registration-form-dob',
             validationFunction: validateRequiredField
         },
@@ -211,5 +211,10 @@ $(document).ready(function () {
                 );
             }
         }, 100);
+    });
+    $(function () {
+        $('#registration-form-dob').prop('max', function () {
+            return new Date().toJSON().split('T')[0];
+        });
     });
 });

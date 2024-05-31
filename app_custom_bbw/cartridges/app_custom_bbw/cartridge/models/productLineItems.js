@@ -22,6 +22,7 @@ function getEgiftCardDetails(item) {
     var eGiftScheduledMonths = item.custom.eGiftCardScheduleMonth;
     var eGiftScheduledYear = item.custom.eGiftScheduledYear;
     var eGiftScheduledDay = item.custom.eGiftCardScheduleDay;
+    var eGiftVideoLink = item.custom.eGiftVideoLink;
     var eGiftScheduledDate;
     var month = qwikcilverHelpers.getIndexOfMonths(eGiftScheduledMonths);
     if (eGiftScheduledMonths && eGiftScheduledYear && eGiftScheduledDay) {
@@ -57,7 +58,8 @@ function getEgiftCardDetails(item) {
         eGiftScheduledDay: eGiftScheduledDay || '',
         eGiftScheduledMonths: eGiftScheduledMonths || '',
         giftBarCode: giftCardBarCode,
-        giftBarCodeNumber: giftBarCodeNumber
+        giftBarCodeNumber: giftBarCodeNumber,
+        eGiftVideoLink: eGiftVideoLink || ''
     };
     return cardInfo;
 }
@@ -79,8 +81,10 @@ function createProductLineItemsObject(allLineItems, view) {
     collections.forEach(allLineItems, function (item) {
         var product = Object.create(null);
         var apiProduct = ProductMgr.getProduct(item.productID);
-        var productType = productHelper.getProductType(apiProduct);
-        product = productDetailForAddToCart(product, apiProduct, productType);
+        if (!empty(apiProduct)) {
+            var productType = productHelper.getProductType(apiProduct);
+            product = productDetailForAddToCart(product, apiProduct, productType);
+        }
 
         // when item's category is unassigned, return a lineItem with limited attributes
         if (!item.product) {
@@ -88,7 +92,9 @@ function createProductLineItemsObject(allLineItems, view) {
                 id: item.productID,
                 quantity: item.quantity.value,
                 productName: item.productName,
-                titlePartB: 'titlePartB' in item.product.custom ? item.product.custom.titlePartB : '',
+                priceTotal: 'adjustedPrice' in item ? item.adjustedPrice : '',
+                basePrice: 'basePrice' in item ? item.basePrice : '',
+                titlePartB: item.product && 'titlePartB' in item.product.custom ? item.product.custom.titlePartB : '',
                 UUID: item.UUID,
                 noProduct: true,
                 images: {
@@ -164,9 +170,14 @@ function createProductLineItemsObject(allLineItems, view) {
         if ('titlePartB' in item.product.custom && item.product.custom.titlePartB) {
             newLineItem.titlePartB = item.product.custom.titlePartB;
         }
+        if ('volume' in item.product.custom && item.product.custom.volume) {
+            newLineItem.volume = item.product.custom.volume;
+        }
+
         if ('greetingCardMessage' in item.custom && item.custom.greetingCardMessage) {
             newLineItem.greetingCardMessage = item.custom.greetingCardMessage;
         }
+
         newLineItem.bonusProducts = bonusProducts;
         if (enableQCeGift && 'custom' in item && 'isEgiftCard' in item.custom && item.custom.isEgiftCard) {
             newLineItem.giftCardDetails = getEgiftCardDetails(item);
@@ -209,7 +220,7 @@ function createProductLineItemsObject(allLineItems, view) {
         if (!('fragranceName' in newLineItem)){
             newLineItem.fragranceName = 'fragranceName' in product && product.fragranceName !== '' ? product.fragranceName : false;
         }
-        if ('custom' in apiProduct && 'isEgiftCard' in apiProduct.custom && apiProduct.custom.isEgiftCard && !('isEgiftCard' in newLineItem)) {
+        if (!empty(apiProduct) && 'custom' in apiProduct && 'isEgiftCard' in apiProduct.custom && apiProduct.custom.isEgiftCard && !('isEgiftCard' in newLineItem)) {
             newLineItem.isEgiftCard = apiProduct.custom.isEgiftCard;
         } else {
             newLineItem.isEgiftCard = false;

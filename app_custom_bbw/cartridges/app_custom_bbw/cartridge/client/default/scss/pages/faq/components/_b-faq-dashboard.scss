@@ -6,9 +6,13 @@
     }
 
     .header-search {
-        width: 50%;
+        width: 90%;
 
         @include media-up(sm) {
+            width: 50%;
+        }
+
+        @include media-up(md) {
             width: 30%;
         }
 
@@ -27,7 +31,7 @@
             color: colour(gray);
             height: 30px;
             padding-left: 8px;
-            padding-right: 20px;
+            padding-right: 35px;
             width: 100%;
             border-style: hidden hidden groove;
             border-radius: 0%;
@@ -39,6 +43,10 @@
                 outline: 0;
                 color: colour(gray, 26);
                 border-bottom: 1px solid colour(blue, 10);
+            }
+
+            &::placeholder {
+                background: colour(white);
             }
         }
     }

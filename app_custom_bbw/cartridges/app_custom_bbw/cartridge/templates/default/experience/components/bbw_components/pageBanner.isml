@@ -8,9 +8,12 @@
             ${pdict.bannerheight == 'Banner Small' ? 'banner-small' : ''}
             ${pdict.bannerheight === 'Default' ? 'default-banner' : ''}
             ${pdict.bannerheight == 'Banner Tall' ? 'banner-tall' : ''}
-            ${pdict.contentPositionDesktop == 'left' ? 'banner-left-aligned-desktop' : ''}
-            ${pdict.contentPositionDesktop == 'right' ? 'banner-right-aligned-desktop' : ''}
-            ${pdict.contentPositionDesktop == 'center' ? 'banner-center-aligned-desktop' : ''}
+            ${pdict.contentPositionDesktop == 'top' ? 'banner-top-aligned-desktop' : ''}
+            ${pdict.contentPositionDesktop == 'bottom' ? 'banner-bottom-aligned-desktop' : ''}
+            ${pdict.contentPositionDesktop == 'middle' ? 'banner-middle-aligned-desktop' : ''}
+            ${pdict.contentAlignmentDesktop == 'left' ? 'banner-left-aligned-desktop' : ''}
+            ${pdict.contentAlignmentDesktop == 'right' ? 'banner-right-aligned-desktop' : ''}
+            ${pdict.contentAlignmentDesktop == 'center' ? 'banner-center-aligned-desktop' : ''}
             ${pdict.contentAlignmentTablet == 'left' ? 'banner-left-aligned-tablet' : ''}
             ${pdict.contentAlignmentTablet == 'right' ? 'banner-right-aligned-tablet' : ''}
             ${pdict.contentAlignmentTablet == 'center' ? 'banner-center-aligned-tablet' : ''}
@@ -22,7 +25,8 @@
             ${pdict.contentAlignmentMobile == 'center' ? 'banner-center-aligned-mobile' : ''}
             ${pdict.contentPositionMobile == 'bottom' ? 'banner-bottom-aligned-mobile' : ''}
             ${pdict.contentPositionMobile == 'middle' ? 'banner-middle-aligned-mobile' : ''}
-            ${pdict.contentPositionMobile == 'top' ? 'banner-top-aligned-mobile' : ''}">
+            ${pdict.contentPositionMobile == 'top' ? 'banner-top-aligned-mobile' : ''}
+            ${pdict.customClass}">
 
         <iscomment> Image - Banner - Image </iscomment>
         <div class="js-banner-image image-holder dm-responsive-image js-dm-image none dm-responsive-image-initialized ${pdict.trackerClass} ${pdict.desktopBannerOverlay ? pdict.desktopBannerOverlay : ''} ${pdict.tabletBannerOverlay ? pdict.tabletBannerOverlay : ''} ${pdict.mobileBannerOverlay ? pdict.mobileBannerOverlay : ''}"

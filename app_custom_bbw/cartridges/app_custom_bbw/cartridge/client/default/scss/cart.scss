@@ -104,9 +104,9 @@
             }
 
             .headerItem {
-                width: 400px;
-                max-width: 400px;
+                max-width: 345px;
                 padding: 10px 0 10px 15px;
+                width: 345px;
             }
 
             .headerPrice {
@@ -119,8 +119,13 @@
                 padding: 10px 0;
             }
 
+            .headerSavings {
+                padding: 10px 0;
+                width: 85px;
+            }
+
             .headerTotal {
-                width: 160px;
+                width: 135px;
                 padding: 10px 0;
                 text-align: right;
             }
@@ -131,7 +136,7 @@
             border-bottom: 1px solid $clr-gray;
             border-radius: unset;
 
-            &.product-info {
+            .product-info {
                 display: flex;
                 flex-direction: row;
                 margin: 0;
@@ -143,8 +148,8 @@
                 }
 
                 .line-item {
-                    width: 400px;
-                    max-width: 400px;
+                    width: 345px;
+                    max-width: 345px;
                     display: flex;
 
                     @include media-down(sm) {
@@ -334,8 +339,22 @@
                     }
                 }
 
+                .line-item-savings {
+                    width: 85px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 20px;
+                    padding-top: 10px;
+                    color: colour(black, 1);
+
+                    @include media-down(sm) {
+                        width: 25%;
+                        text-align: left;
+                    }
+                }
+
                 .line-item-total-price {
-                    width: 160px;
+                    width: 135px;
                     font-size: 16px;
                     line-height: 20px;
                     font-weight: 600;
@@ -369,6 +388,13 @@
                         right: 0;
                     }
                 }
+            }
+
+            .choose-bonus-button {
+                background: transparent;
+                border: none;
+                text-decoration: underline;
+                margin-bottom: 20px;
             }
         }
 

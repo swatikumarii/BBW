@@ -1,4 +1,5 @@
 <script defer type="text/javascript" src="${URLUtils.staticURL('/js/login.js')}"></script>
+<isinclude template="/components/modules" sf-toolkit="off" />
 <div class="modal fade hide login-modal-fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-bottom login-modal-view text-left" role="document">
@@ -13,15 +14,16 @@
 
             </div>
             <div class="modal-body login-modal-body">
-                <div class="col-12 pb-3">
+                <div class="col-12 pb-0">
                     <h4 class="h-font-size--18 h-clr--black-1 h-fw--bold">${Resource.msg('login.label', 'login', null)}
                     </h4>
                     <p class="h-font-size--16 login-para h-clr--gray ">
                         ${Resource.msg('login.para', 'login', null)}
                     </p>
+                    <iscontentasset aid="loginModalPopup" />
                     <isinclude template="account/components/loginModalForm" />
                   <div class="privacy-block w-100 text-center h-clr--black-3 h-font-size--14">
-                    <a href="${'#'}" class="text-center">
+                    <a href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="text-center">
                         ${Resource.msg('link.privacypolicy.registration', 'login', null)}
                     </a>
                     </div>
@@ -35,7 +37,7 @@
                         <h3 class="h-clr--pink h-font-size--18 h-fw--bold">
                             ${Resource.msg('join.title', 'login', null)}
                         </h3>
-                        <p class="h-font-size--16 mb-3">
+                        <p class="h-font-size--16 mb-0">
                             ${Resource.msg('join.para', 'login', null)}
                             <a id="log-in-page-url" href="${URLUtils.https('Login-Show')}" role="button" class="h-clr--black-3 h-font-size--16"
                                 aria-label="${Resource.msg('label.header.signup', 'common', null)}">${Resource.msg('label.header.signup', 'common', null)}</a>

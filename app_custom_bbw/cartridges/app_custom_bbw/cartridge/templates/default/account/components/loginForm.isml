@@ -24,7 +24,7 @@
         aria-describedby="form-password-error" name="loginPassword">
     <div class="invalid-feedback text-left" id="login-password-error">${Resource.msg('error.message.password.required', 'forms', null)}</div>
     <button type="button"
-        class="login-modal-hide hide-show border-0 d-flex justify-content-center align-items-center text-captialize h-50 position-absolute p-0 h-clr--black-3"
+        class="login-modal-hide hide-show border-0 d-flex justify-content-center align-items-center text-captialize position-absolute p-0 h-clr--black-3"
         aria-label="Show Password">
         <span class="show h-font-size--16">${Resource.msg('password.show.label', 'login', null)}</span>
     </button>
@@ -49,7 +49,7 @@
     </div>
 
     <div class="privacy-block privacy-policy w-100 text-center h-clr--black-3 h-font-size--12">
-        <a href="${'#'}" class="text-center">
+        <a href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="text-center">
             ${Resource.msg('link.privacypolicy.registration', 'login', null)}
         </a>
     </div>

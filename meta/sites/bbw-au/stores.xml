@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<stores xmlns="http://www.demandware.com/xml/impex/store/2007-04-30">
+    <store store-id="bbw_chadstone">
+        <name>BBW CHADSTONE</name>
+        <address1>Shop 314, 1341 Dandenong Rd</address1>
+        <city>Malvern East</city>
+        <postal-code>3145</postal-code>
+        <state-code>VIC</state-code>
+        <country-code>AU</country-code>
+        <phone>(03) 9568 5699</phone>
+        <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;01:00 PM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</store-hours>
+        <latitude>-37.887696</latitude>
+        <longitude>145.080598</longitude>
+        <store-locator-enabled-flag>true</store-locator-enabled-flag>
+        <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
+        <pos-enabled-flag>false</pos-enabled-flag>
+        <custom-attributes>
+            <custom-attribute attribute-id="countryCodeValue">AU</custom-attribute>
+            <custom-attribute attribute-id="image2">BBW_LOGO_MagSq.png</custom-attribute>
+            <custom-attribute attribute-id="image3">2024-04-21_01-18.png</custom-attribute>
+            <custom-attribute attribute-id="image4">top-badge-lrg-2.svg</custom-attribute>
+            <custom-attribute attribute-id="image5">Exotic.jpg</custom-attribute>
+            <custom-attribute attribute-id="storeType" xml:lang="x-default">
+                <value>bbw</value>
+            </custom-attribute>
+        </custom-attributes>
+    </store>
+
+    <store store-id="bbw_dfo_homebush">
+        <name>BBW DFO HOMEBUSH</name>
+        <address1>DFO Homebush, Unit 3-077, 3-5 Underwood Road</address1>
+        <city>Homebush</city>
+        <postal-code>2140</postal-code>
+        <state-code>NSW</state-code>
+        <country-code>AU</country-code>
+        <phone>(02) 9764 6778</phone>
+        <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;01:00 PM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</store-hours>
+        <latitude>-33.855776</latitude>
+        <longitude>151.076618</longitude>
+        <store-locator-enabled-flag>true</store-locator-enabled-flag>
+        <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
+        <pos-enabled-flag>false</pos-enabled-flag>
+        <custom-attributes>
+            <custom-attribute attribute-id="countryCodeValue">AU</custom-attribute>
+            <custom-attribute attribute-id="image2">BBW_LOGO_MagSq.png</custom-attribute>
+            <custom-attribute attribute-id="image3">2024-04-21_01-18.png</custom-attribute>
+            <custom-attribute attribute-id="image4">top-badge-lrg-2.svg</custom-attribute>
+            <custom-attribute attribute-id="image5">Exotic.jpg</custom-attribute>
+            <custom-attribute attribute-id="storeType" xml:lang="x-default">
+                <value>bbw</value>
+            </custom-attribute>
+        </custom-attributes>
+    </store>
+
+    <store store-id="bbw_dfo_south_wharf">
+        <name>BBW DFO SOUTH WHARF</name>
+        <address1>Shop B-019, 20 Convention Centre Place</address1>
+        <city>South Wharf</city>
+        <postal-code>3006</postal-code>
+        <state-code>VIC</state-code>
+        <country-code>AU</country-code>
+        <phone>(03) 8710 4913</phone>
+        <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;01:00 PM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</store-hours>
+        <latitude>-33.855786</latitude>
+        <longitude>151.07661</longitude>
+        <store-locator-enabled-flag>true</store-locator-enabled-flag>
+        <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
+        <pos-enabled-flag>false</pos-enabled-flag>
+        <custom-attributes>
+            <custom-attribute attribute-id="countryCodeValue">AU</custom-attribute>
+            <custom-attribute attribute-id="image2">BBW_LOGO_MagSq.png</custom-attribute>
+            <custom-attribute attribute-id="image3">2024-04-21_01-18.png</custom-attribute>
+            <custom-attribute attribute-id="image4">top-badge-lrg-2.svg</custom-attribute>
+            <custom-attribute attribute-id="image5">Exotic.jpg</custom-attribute>
+            <custom-attribute attribute-id="storeType" xml:lang="x-default">
+                <value>bbw</value>
+            </custom-attribute>
+        </custom-attributes>
+    </store>
+
+    <store store-id="bbw_emporium">
+        <name>BBW EMPORIUM</name>
+        <address1>G001/G001A, 287 Lonsdale Street</address1>
+        <city>Melbourne</city>
+        <postal-code>3000</postal-code>
+        <state-code>VIC</state-code>
+        <country-code>AU</country-code>
+        <phone>(03) 8560 5655</phone>
+        <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;01:00 PM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</store-hours>
+        <latitude>-37.812086</latitude>
+        <longitude>144.963695</longitude>
+        <store-locator-enabled-flag>true</store-locator-enabled-flag>
+        <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
+        <pos-enabled-flag>false</pos-enabled-flag>
+        <custom-attributes>
+            <custom-attribute attribute-id="countryCodeValue">AU</custom-attribute>
+            <custom-attribute attribute-id="image2">BBW_LOGO_MagSq.png</custom-attribute>
+            <custom-attribute attribute-id="image3">2024-04-21_01-18.png</custom-attribute>
+            <custom-attribute attribute-id="image4">top-badge-lrg-2.svg</custom-attribute>
+            <custom-attribute attribute-id="image5">Exotic.jpg</custom-attribute>
+            <custom-attribute attribute-id="storeType" xml:lang="x-default">
+                <value>bbw</value>
+            </custom-attribute>
+        </custom-attributes>
+    </store>
+
+    <store store-id="bbw_harbour_town">
+        <name>BBW HARBOUR TOWN</name>
+        <address1>Shop C-231, 147-189 Brisbane Road</address1>
+        <city>Biggera Waters</city>
+        <postal-code>4216</postal-code>
+        <state-code>QLD</state-code>
+        <country-code>AU</country-code>
+        <phone>(07) 5630 1133</phone>
+        <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;01:00 PM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</store-hours>
+        <latitude>-27.931414</latitude>
+        <longitude>153.387777</longitude>
+        <store-locator-enabled-flag>true</store-locator-enabled-flag>
+        <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
+        <pos-enabled-flag>false</pos-enabled-flag>
+        <custom-attributes>
+            <custom-attribute attribute-id="countryCodeValue">AU</custom-attribute>
+            <custom-attribute attribute-id="image2">BBW_LOGO_MagSq.png</custom-attribute>
+            <custom-attribute attribute-id="image3">2024-04-21_01-18.png</custom-attribute>
+            <custom-attribute attribute-id="image4">top-badge-lrg-2.svg</custom-attribute>
+            <custom-attribute attribute-id="image5">Exotic.jpg</custom-attribute>
+            <custom-attribute attribute-id="storeType" xml:lang="x-default">
+                <value>bbw</value>
+            </custom-attribute>
+        </custom-attributes>
+    </store>
+
+    <store store-id="bbw_melbourne_central">
+        <name>BBW MELBOURNE CENTRAL</name>
+        <address1>GD 065, 211 La Trobe Street</address1>
+        <city>Melbourn</city>
+        <postal-code>000,</postal-code>
+        <state-code>VIC,</state-code>
+        <country-code>uU</country-code>
+        <phone>(03) 9017 3537</phone>
+        <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;01:00 PM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</store-hours>
+        <latitude>-37.764353</latitude>
+        <longitude>145.097206</longitude>
+        <store-locator-enabled-flag>true</store-locator-enabled-flag>
+        <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
+        <pos-enabled-flag>false</pos-enabled-flag>
+        <custom-attributes>
+            <custom-attribute attribute-id="countryCodeValue">AU</custom-attribute>
+            <custom-attribute attribute-id="image2">BBW_LOGO_MagSq.png</custom-attribute>
+            <custom-attribute attribute-id="image3">2024-04-21_01-18.png</custom-attribute>
+            <custom-attribute attribute-id="image4">top-badge-lrg-2.svg</custom-attribute>
+            <custom-attribute attribute-id="image5">Exotic.jpg</custom-attribute>
+            <custom-attribute attribute-id="storeType" xml:lang="x-default">
+                <value>bbw</value>
+            </custom-attribute>
+        </custom-attributes>
+    </store>
+
+    <store store-id="bbw_qvb">
+        <name>BBW QVB</name>
+        <address1>Shop 60, Lower Ground 1, 455 George St</address1>
+        <city>Sydney</city>
+        <postal-code>2000</postal-code>
+        <state-code>NSW</state-code>
+        <country-code>AU</country-code>
+        <phone>(02) 9267 2231</phone>
+        <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;01:00 PM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</store-hours>
+        <latitude>-33.871752</latitude>
+        <longitude>151.206687</longitude>
+        <store-locator-enabled-flag>true</store-locator-enabled-flag>
+        <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
+        <pos-enabled-flag>false</pos-enabled-flag>
+        <custom-attributes>
+            <custom-attribute attribute-id="countryCodeValue">AU</custom-attribute>
+            <custom-attribute attribute-id="image2">BBW_LOGO_MagSq.png</custom-attribute>
+            <custom-attribute attribute-id="image3">2024-04-21_01-18.png</custom-attribute>
+            <custom-attribute attribute-id="image4">top-badge-lrg-2.svg</custom-attribute>
+            <custom-attribute attribute-id="image5">Exotic.jpg</custom-attribute>
+            <custom-attribute attribute-id="storeType" xml:lang="x-default">
+                <value>bbw</value>
+            </custom-attribute>
+        </custom-attributes>
+    </store>
+
+    <store store-id="bbw_westfield_chermside">
+        <name>BBW WESTFIELD CHERMSIDE</name>
+        <address1>Shop 1/2642, Gympie Rd</address1>
+        <city>Chermside</city>
+        <postal-code>4032</postal-code>
+        <state-code>QLD</state-code>
+        <country-code>AU</country-code>
+        <phone>(07) 3359 9584</phone>
+        <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;01:00 PM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</store-hours>
+        <latitude>-27.384872</latitude>
+        <longitude>153.030459</longitude>
+        <store-locator-enabled-flag>true</store-locator-enabled-flag>
+        <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
+        <pos-enabled-flag>false</pos-enabled-flag>
+        <custom-attributes>
+            <custom-attribute attribute-id="countryCodeValue">AU</custom-attribute>
+            <custom-attribute attribute-id="image2">BBW_LOGO_MagSq.png</custom-attribute>
+            <custom-attribute attribute-id="image3">2024-04-21_01-18.png</custom-attribute>
+            <custom-attribute attribute-id="image4">top-badge-lrg-2.svg</custom-attribute>
+            <custom-attribute attribute-id="image5">Exotic.jpg</custom-attribute>
+            <custom-attribute attribute-id="storeType" xml:lang="x-default">
+                <value>bbw</value>
+            </custom-attribute>
+        </custom-attributes>
+    </store>
+
+    <store store-id="bbw_westfield_kotara">
+        <name>BBW WESTFIELD KOTARA</name>
+        <address1>Shop 2097/98, 89 Park Avenue</address1>
+        <city>Kotara</city>
+        <postal-code>2289</postal-code>
+        <state-code>NSW</state-code>
+        <country-code>AU</country-code>
+        <phone>(02) 4032 8292</phone>
+        <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;01:00 PM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</store-hours>
+        <latitude>-32.936564</latitude>
+        <longitude>151.711826</longitude>
+        <store-locator-enabled-flag>true</store-locator-enabled-flag>
+        <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
+        <pos-enabled-flag>false</pos-enabled-flag>
+        <custom-attributes>
+            <custom-attribute attribute-id="countryCodeValue">AU</custom-attribute>
+            <custom-attribute attribute-id="image2">BBW_LOGO_MagSq.png</custom-attribute>
+            <custom-attribute attribute-id="image3">2024-04-21_01-18.png</custom-attribute>
+            <custom-attribute attribute-id="image4">top-badge-lrg-2.svg</custom-attribute>
+            <custom-attribute attribute-id="image5">Exotic.jpg</custom-attribute>
+            <custom-attribute attribute-id="storeType" xml:lang="x-default">
+                <value>bbw</value>
+            </custom-attribute>
+        </custom-attributes>
+    </store>
+
+    <store store-id="bbw_westfield_mt_gravatt">
+        <name>BBW WESTFIELD MT GRAVATT</name>
+        <address1>Shop 1303/2049 Logan Rd</address1>
+        <city>Upper Mount Gravatt</city>
+        <postal-code>4122</postal-code>
+        <state-code>QLD</state-code>
+        <country-code>AU</country-code>
+        <phone>(07) 3236 4010</phone>
+        <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;01:00 PM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</store-hours>
+        <latitude>-27.55991</latitude>
+        <longitude>153.08105</longitude>
+        <store-locator-enabled-flag>true</store-locator-enabled-flag>
+        <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
+        <pos-enabled-flag>false</pos-enabled-flag>
+        <custom-attributes>
+            <custom-attribute attribute-id="countryCodeValue">AU</custom-attribute>
+            <custom-attribute attribute-id="image2">BBW_LOGO_MagSq.png</custom-attribute>
+            <custom-attribute attribute-id="image3">2024-04-21_01-18.png</custom-attribute>
+            <custom-attribute attribute-id="image4">top-badge-lrg-2.svg</custom-attribute>
+            <custom-attribute attribute-id="image5">Exotic.jpg</custom-attribute>
+            <custom-attribute attribute-id="storeType" xml:lang="x-default">
+                <value>bbw</value>
+            </custom-attribute>
+        </custom-attributes>
+    </store>
+
+    <store store-id="bbw_westfield_parramatta">
+        <name>BBW WESTFIELD PARRAMATTA</name>
+        <address1>Shop 1-5015, 175 Church St</address1>
+        <city>Parramatta</city>
+        <postal-code>2150</postal-code>
+        <state-code>NSW</state-code>
+        <country-code>AU</country-code>
+        <phone>(02) 9891 5842</phone>
+        <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;01:00 PM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</store-hours>
+        <latitude>-33.817534</latitude>
+        <longitude>151.003528</longitude>
+        <store-locator-enabled-flag>true</store-locator-enabled-flag>
+        <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
+        <pos-enabled-flag>false</pos-enabled-flag>
+        <custom-attributes>
+            <custom-attribute attribute-id="countryCodeValue">AU</custom-attribute>
+            <custom-attribute attribute-id="image2">BBW_LOGO_MagSq.png</custom-attribute>
+            <custom-attribute attribute-id="image3">2024-04-21_01-18.png</custom-attribute>
+            <custom-attribute attribute-id="image4">top-badge-lrg-2.svg</custom-attribute>
+            <custom-attribute attribute-id="image5">Exotic.jpg</custom-attribute>
+            <custom-attribute attribute-id="storeType" xml:lang="x-default">
+                <value>bbw</value>
+            </custom-attribute>
+        </custom-attributes>
+    </store>
+
+    <store store-id="bbw_westfield_penrith">
+        <name>BBW WESTFIELD PENRITH</name>
+        <address1>Shop 36, Level 1, 585 High Street</address1>
+        <city>Penrith</city>
+        <postal-code>2750</postal-code>
+        <state-code>NSW</state-code>
+        <country-code>AU</country-code>
+        <phone>(02) 4744 2099</phone>
+        <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;01:00 PM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 10:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;</store-hours>
+        <latitude>-33.754788</latitude>
+        <longitude>150.699689</longitude>
+        <store-locator-enabled-flag>true</store-locator-enabled-flag>
+        <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
+        <pos-enabled-flag>false</pos-enabled-flag>
+        <custom-attributes>
+            <custom-attribute attribute-id="countryCodeValue">AU</custom-attribute>
+            <custom-attribute attribute-id="image2">BBW_LOGO_MagSq.png</custom-attribute>
+            <custom-attribute attribute-id="image3">2024-04-21_01-18.png</custom-attribute>
+            <custom-attribute attribute-id="image4">top-badge-lrg-2.svg</custom-attribute>
+            <custom-attribute attribute-id="image5">Exotic.jpg</custom-attribute>
+            <custom-attribute attribute-id="storeType" xml:lang="x-default">
+                <value>bbw</value>
+            </custom-attribute>
+        </custom-attributes>
+    </store>
+
+</stores>

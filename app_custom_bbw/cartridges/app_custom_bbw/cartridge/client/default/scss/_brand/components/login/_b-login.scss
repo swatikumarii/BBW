@@ -368,6 +368,7 @@
 
     .iti__selected-country {
         background: colour(white);
+        height: 45px;
     }
 
     // -----Login page
@@ -712,7 +713,7 @@
 }
 
 .login-modal-fade {
-    background: rgb(77 77 77 / 25%);
+    background: rgba(77, 77, 77, 25%);
     position: fixed;
     top: 0;
     left: 0;
@@ -760,11 +761,9 @@
 // -----hide show---
 .password-box {
     .login-modal-password-hide {
-        top: 29px;
-        min-height: 46px;
-        max-height: 15px;
-        right: 1px;
-        letter-spacing: normal;
+        min-height: 44px;
+        right: 8px;
+        top: 30px;
 
         .show {
             border-left: 1px solid colour(gray, 22);
@@ -775,14 +774,13 @@
 
     .register-hide {
         top: 33px;
-        min-height: 43px;
-        max-height: 15px;
-        background: colour(white);
+        min-height: 44px;
         right: 15px;
         letter-spacing: normal;
 
         @include media-up(sm) {
-            right: 7px;
+            right: 10px;
+            background-color: colour(white);
         }
 
         @include media-breakpoint-only(md) {
@@ -809,12 +807,9 @@
         letter-spacing: normal;
 
         @include media-up(sm) {
-            min-height: 46px;
-            max-height: 15px;
-            background: colour(white);
             right: 1px;
             top: 23px;
-            letter-spacing: normal;
+            min-height: 45px;
         }
 
         @include media-btw(sm, lg) {
@@ -958,4 +953,68 @@
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 10%);
     margin-top: 34px;
+}
+
+.select-box {
+    .select-wrap {
+        height: 48px;
+        width: 100%;
+        border: 1px solid colour(gray, 5);
+        position: relative;
+        box-sizing: border-box;
+
+        @include media-up(sm) {
+            height: 48px;
+            width: 356.25px;
+            border: 1px solid colour(gray, 5);
+            position: relative;
+            box-sizing: border-box;
+        }
+
+
+        &::after {
+            border-left: 1px solid colour(white);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 35px;
+            border-left: 1px solid colour(gray, 5);
+            background: url("../../images/UI-Carat.svg") no-repeat 50%;
+            background-size: 15px;
+            pointer-events: inherit;
+        }
+
+        select {
+            border: 0;
+            background: transparent;
+            padding: 0 2.25rem 0 0.625rem;
+            height: 48px;
+            width: 100%;
+            cursor: pointer;
+            appearance: none;
+            z-index: 1;
+            position: absolute;
+
+            @include media-up(sm) {
+                border: 0;
+                background: transparent;
+                padding: 0 2.25rem 0 0.625rem;
+                height: 48px;
+                width: 356.25px;
+                cursor: pointer;
+                appearance: none;
+                z-index: 1;
+                position: absolute;
+            }
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
 }

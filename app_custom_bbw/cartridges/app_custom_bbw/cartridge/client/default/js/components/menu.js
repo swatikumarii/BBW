@@ -1,6 +1,8 @@
 'use strict';
 
+var keyboardAccessibility = require('base/components/keyboardAccessibility');
 var layout = require('../utils/layout');
+var timeoutId;
 
 /* Responsive menu slide panel */
 
@@ -36,10 +38,14 @@ if (layout.isMobile()) {
     $('.level-2-li').on('click', function (e) {
         if ($(this).hasClass('active') && e.target.role !== 'menuitem') {
             $(this).children('.level-3-ul').removeClass('active');
+            $('.category-top-items').removeClass('in');
             $(this).removeClass('active');
+            $('.category-top-items .level-3-ul').removeClass('active');
         } else {
             $(this).addClass('active');
             $(this).children('.level-3-ul').addClass('active');
+            $('.category-top-items').addClass('in');
+            $('.category-top-items .level-3-ul').addClass('active');
         }
         e.stopImmediatePropagation();
     });
@@ -68,94 +74,163 @@ $('body').on('click', function () {
         accountDropdownMenu.removeClass('show');
     }
 });
+//     $(element)
+//         .closest('.dropdown')
+//         .children('.dropdown-menu')
+//         .children('.top-category')
+//         .detach();
+//     $(element)
+//         .closest('.dropdown.show')
+//         .children('.nav-link')
+//         .attr('aria-expanded', 'false');
+//     $(element)
+//         .closest('.dropdown.show')
+//         .children('.dropdown-menu')
+//         .attr('aria-hidden', 'true');
+//     $(element).closest('.dropdown.show').removeClass('show');
+//     $('div.menu-group > ul.nav.navbar-nav > li.nav-item > a').attr(
+//         'aria-hidden',
+//         'false'
+//     );
+//     $(element).closest('li').detach();
+// };
 
-/** BBW Brand Header Start */
-if (layout.isDesktop() || layout.isTablet()) {
-    // Show class on hover
-    var $level2li = $('.level-2-li');
-    var $level1li = $('.level-1-link');
+module.exports = function () {
+    var isDesktop = function (element) {
+        return (
+            $(element).parents('.menu-toggleable-left').css('position') !==
+            'fixed'
+        );
+    };
 
-    $level1li.hover(
-        function () {
-            var $level1Parent = $(this).parent();
-            $(this)
-                .parent()
-                .find('.menu-wrap-level-1')
-                .hover(
-                    function () {
-                        $level1Parent.addClass('show');
-                        $level1Parent
-                            .find('.level-2-li')
-                            .first()
-                            .addClass('show');
-                    },
-                    function () {
-                        $('.level-2-li').removeClass('show');
-                        $level1Parent.removeClass('show');
-                        $('body')
-                            .find('.menu-wrap-level-3')
-                            .removeClass('show');
+    $('.dropdown:not(.disabled) [data-toggle="dropdown"]')
+        .on('mouseenter', function (e) {
+            e.preventDefault();
+            if (isDesktop(this)) {
+                clearTimeout(timeoutId);
+                var eventElement = this;
+                $('.navbar-nav > li').each(function () {
+                    if (!$.contains(this, eventElement)) {
+                        if ($(this).hasClass('show')) {
+                            $(this).removeClass('show');
+                            $(this)
+                                .children('ul.dropdown-menu')
+                                .removeClass('show');
+                            $(this)
+                                .children('.nav-link')
+                                .attr('aria-expanded', 'false');
+                        }
                     }
-                );
-            $('body').find('.menu-wrap-level-3').removeClass('show');
-            $level2li.removeClass('show');
-            $(this).parent().find('.level-2-li').first().addClass('show');
-            $(this)
-                .parent()
-                .find('.level-2-li')
-                .first()
-                .find('.menu-wrap-level-3')
-                .addClass('show');
-            var $level2liWidth = $(this)
-                .parent()
-                .find('.level-2-li')
-                .first()
-                .width();
-            var $menuWrapLevel3Width = $(this)
-                .parent()
-                .find('.level-3-ul')
-                .width();
-            $(this)
-                .parent()
-                .find('.menu-right')
-                .css('left', $level2liWidth + $menuWrapLevel3Width);
-            window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
-        },
-        function () {
-            $('body').find('.menu-wrap-level-3').removeClass('show');
-            $(this).parent().find('.level-2-li').first().removeClass('show');
-        }
-    );
+                });
+                // need to close all the dropdowns that are not direct parent of current dropdown
+                $(this).parent().addClass('show');
+                $(this).siblings('.dropdown-menu').addClass('show');
+                $(this).attr('aria-expanded', 'true');
+            }
+        })
+        .parent()
+        .on('mouseleave', function (e) {
+            e.preventDefault();
+            var self = $(this);
+            if (isDesktop(this)) {
+                $(self).removeClass('show');
+                $(self).children('.dropdown-menu').removeClass('show');
+                $(self).children('.nav-link').attr('aria-expanded', 'false');
+            }
+        });
 
-    $level2li.hover(function (e) {
+    $('.navbar>.close-menu>.close-button').on('click', function (e) {
         e.preventDefault();
-        $('body').find('.menu-wrap-level-3').removeClass('show');
-        $level2li.removeClass('show');
-        $(this).addClass('show');
-        $(this).find('.menu-wrap-level-3').addClass('show');
+        $('.menu-toggleable-left').removeClass('in');
+        $('.modal-background').hide();
+
+        $('.navbar-toggler').focus();
+
+        $('.main-menu').attr('aria-hidden', 'true');
+        $('.main-menu').siblings().attr('aria-hidden', 'false');
+        $('header').siblings().attr('aria-hidden', 'false');
     });
 
-    $('.explore-li').hover(
-        function () {
-            var $level2liWidth = $(this).width();
-            $('body').find('.menu-wrap-level-3').removeClass('show');
-            $level2li.removeClass('show');
-            // $(this).addClass('show');
-            $(this)
-                .closest('div.level-2-ul-wrap')
-                .find('.menu-right')
-                .css('left', $level2liWidth);
+    $('.navbar-nav').on('click', '.back', function (e) {
+        e.preventDefault();
+        // clearSelection(this);
+    });
+
+    $('.navbar-nav').on('click', '.close-button', function (e) {
+        e.preventDefault();
+        $('.navbar-nav').find('.top-category').detach();
+        $('.navbar-nav').find('.nav-menu').detach();
+        $('.navbar-nav').find('.show').removeClass('show');
+        $('.menu-toggleable-left').removeClass('in');
+
+        $('.main-menu').siblings().attr('aria-hidden', 'false');
+        $('header').siblings().attr('aria-hidden', 'false');
+
+        $('.modal-background').hide();
+    });
+
+    $('.navbar-toggler').click(function (e) {
+        e.preventDefault();
+        $('.main-menu').toggleClass('in');
+        $('.modal-background').show();
+
+        $('.main-menu').removeClass('d-none');
+        $('.main-menu').attr('aria-hidden', 'false');
+        $('.main-menu').siblings().attr('aria-hidden', 'true');
+        $('header').siblings().attr('aria-hidden', 'true');
+
+        $('.main-menu .nav.navbar-nav .nav-link').first().focus();
+    });
+
+    keyboardAccessibility(
+        '.navbar-header .user',
+        {
+            40: function ($popover) {
+                // down
+                if ($popover.children('a').first().is(':focus')) {
+                    $popover.next().children().first().focus();
+                } else {
+                    $popover.children('a').first().focus();
+                }
+            },
+            38: function ($popover) {
+                // up
+                if ($popover.children('a').first().is(':focus')) {
+                    $(this).focus();
+                    $popover.removeClass('show');
+                } else {
+                    $popover.children('a').first().focus();
+                }
+            },
+            27: function () {
+                // escape
+                $('.navbar-header .user .popover').removeClass('show');
+                $('.user').attr('aria-expanded', 'false');
+            },
+            9: function () {
+                // tab
+                $('.navbar-header .user .popover').removeClass('show');
+                $('.user').attr('aria-expanded', 'false');
+            }
         },
         function () {
-            $(this)
-                .closest('div.level-2-ul-wrap')
-                .find('.menu-right')
-                .css('left', window.menuRightWidth);
+            var $popover = $('.user .popover li.nav-item');
+            return $popover;
         }
     );
 
-    // Calculate level 2 ul width
-    var level2ul = $('.bbw-brand-menu .level-2-ul').width();
-    $('.level-2-li').css('width', level2ul);
-}
-/** BBW Brand Header End */
+    $('.navbar-header .user').on('mouseenter focusin', function () {
+        if ($('.navbar-header .user .popover').length > 0) {
+            $('.navbar-header .user .popover').addClass('show');
+            $('.user').attr('aria-expanded', 'true');
+        }
+    });
+
+    $('.navbar-header .user').on('mouseleave', function () {
+        $('.navbar-header .user .popover').removeClass('show');
+        $('.user').attr('aria-expanded', 'false');
+    });
+    $('body').on('click', '#myaccount', function (event) {
+        event.preventDefault();
+    });
+};

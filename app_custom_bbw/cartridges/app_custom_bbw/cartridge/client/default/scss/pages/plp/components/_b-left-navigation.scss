@@ -55,6 +55,9 @@
                         }
 
                         a {
+                            line-height: 20px;
+                            letter-spacing: 0.16px;
+
                             &:hover {
                                 color: colour(black, 1);
                             }

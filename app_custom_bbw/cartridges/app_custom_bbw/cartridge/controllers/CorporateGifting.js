@@ -8,6 +8,7 @@ var server = require('server');
 var cache = require('*/cartridge/scripts/middleware/cache');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 
 /**
@@ -30,7 +31,7 @@ server.get('Landing', server.middleware.https, cache.applyDefaultCache, consentT
         businessTypes: businessTypes,
     });
     return next();
-});
+},seo.addCurrentPageMetaData);
 
 /**
  * CorporateGifting-Submit : This endpoint is used submit Corporate Gifting form

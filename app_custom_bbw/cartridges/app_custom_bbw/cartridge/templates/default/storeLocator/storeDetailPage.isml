@@ -15,10 +15,20 @@
                 <div class="store-name h-font-size--18 h-fw--bold h-clr--black-1 mb-4">
                     ${pdict.storeDetail.name}</div>
                 <address class="h-clr--black-1">
-                    <div class="store-hours mt-2">
-                        <isif condition="${pdict.storeDetail.storeHours}">
-                            <isprint value="${pdict.storeDetail.storeHours}" encoding="off" />
-                        </isif>
+                    <div class="store-dropdown store-hours-details position-relative">
+                        <button class="border-0 h-bg--white dropdown-toggle p-0" type="button" id="store-hours-details" data-timezone="${pdict.timezone}"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span id="first-element"></span>
+                            <img src="${URLUtils.staticURL('/images/store-locator/UI-Carat.svg')}"
+                                alt="${Resource.msg('global.storename', 'common', null)}" />
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="store-hours-details">
+                            <div class="store-hours mt-2">
+                                <isif condition="${pdict.storeDetail.storeHours}">
+                                    <isprint value="${pdict.storeDetail.storeHours}" encoding="off" />
+                                </isif>
+                            </div>
+                        </div>
                     </div>
                     <a class="store-map h-clr--gray-4" target='_blank'
                         href="https://maps.google.com/?daddr=${pdict.storeDetail.latitude},${pdict.storeDetail.longitude}">
@@ -35,18 +45,24 @@
                         ${pdict.storeDetail.postalCode}
                     </a>
                 </address>
-                <p class="open-now d-flex align-items-center h-clr--black-1">${pdict.storeDetail.storeHours}</p>
+                <div class="opened d-none">
+                    <p id="open-now" class="open-now d-flex align-items-center h-clr--black-1"><span class="h-bg--green"></span>${Resource.msg('msg.open.now', 'storeLocator', null)}</p>
+                </div>
+
+                <div class="closed d-none">
+                    <p id="closed-now" class="open-now d-flex align-items-center h-clr--black-1"><span class="h-bg--red"></span>${Resource.msg('msg.closed.now', 'storeLocator', null)}</p>
+                </div>
                 <div class="phone-email d-flex">
                     <isif condition="${pdict.storeDetail.phone}">
-                        <p data-phone="${pdict.storeDetail.phone}" class="phone h-clr--black-1">
+                        <a href="phoneto:${pdict.storeDetail.phone}" class="phone h-clr--black-1">
                             <img width="18px" height="18px" class="mr-2"
                                 src="${URLUtils.staticURL('/images/store-locator/phone-call.svg')}"
                                 alt="${Resource.msg('global.storename', 'common', null)}" />
                             ${pdict.storeDetail.phone}
-                        </p>
+                        </a>
                     </isif>
                     <isif condition="${pdict.storeDetail.email}">
-                        <a href="#" class="email h-clr--black-1">
+                        <a href="mailto:${pdict.storeDetail.email}" class="email h-clr--black-1">
                             <img width="18px" height="18px" class="mr-2"
                                 src="${URLUtils.staticURL('/images/store-locator/email.svg')}"
                                 alt="${Resource.msg('global.storename', 'common', null)}" />
@@ -55,29 +71,31 @@
                     </isif>
                 </div>
                 <a class="text-uppercase get-direcetion" target="_blank"
-                    href="https://maps.google.com/?daddr=${pdict.storeDetail.latitude},${pdict.storeDetail.longitude}">${Resource.msg('label.get.direction', 'storeLocator', null)}</a>
+                    href="${pdict.storeMapLink}">${Resource.msg('label.get.direction', 'storeLocator', null)}</a>
             </div>
         </div>
         <div class="col-lg-5 my-4">
-            <div class="store-carousel">
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <isloop iterator="${pdict.storeDetail.imageUrl}" alias="imageUrl" status="loopState">
-                            <div class="carousel-item ${loopState.count == 1 ? " active" : ""}">
-                                <div class="item-img">
-                                    <img width="100%" alt="image" src="${imageUrl}" />
+            <isif condition="${nearbyStore.imageUrl[0]}">
+                <div class="store-carousel">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <isloop iterator="${pdict.storeDetail.imageUrl}" alias="imageUrl" status="loopState">
+                                <div class="carousel-item ${loopState.count == 1 ? " active" : ""}">
+                                    <div class="item-img">
+                                        <img width="100%" alt="image" src="${imageUrl}" />
+                                    </div>
                                 </div>
-                            </div>
-                        </isloop>
+                            </isloop>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </a>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    </a>
                 </div>
-            </div>
+            </isif>
         </div>
     </div>
     <div class="row">
@@ -105,10 +123,10 @@
             <isloop iterator="${pdict.nearbyStores}" alias="nearbyStore" status="loopState" begin="0" end="2">
                 <div class="near-stores">
                     <div class="img-wrap">
-                    <img alt="image" src="${nearbyStore.imageUrl[0]}" />
+                        <img alt="image" src="${nearbyStore.imageUrl[0]}" />
                     </div>
                     <p class="h-clr--black-1 h-fw--semibold">${nearbyStore.name}</p>
-                    <a href="https://maps.google.com/?daddr=${nearbyStore.latitude},${nearbyStore.longitude}"
+                    <a href="${pdict.storeMapLink}"
                         target="_blank"
                         class="text-uppercase get-direcetion w-100 mt-0">${Resource.msg('label.get.direction', 'storeLocator', null)}</a>
                 </div>

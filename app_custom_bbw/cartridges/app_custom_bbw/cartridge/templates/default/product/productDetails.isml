@@ -116,22 +116,26 @@
                             <!-- Applicable Promotions -->
                             <div class="promotions-wrap">
                                 <isloop items="${product.promotions}" var="promotion" status="loopstatus">
-                                    <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
-                                        <span class="callout-message">
-                                            <isprint value="${promotion.calloutMsg}" encoding="off">
-                                        </span>
-                                        <button type="button"
-                                            class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
-                                            data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
-                                            title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a>
-                                            <div class='popover-content pdp-pop-content ds-tooltip-content'>
-                                                <isprint value=" ${promotion.details}" />
-                                    </div>
-                                    <div class='arrow-fill'></div>"
-                                    data-html="true" data-original-title="" aria-describedby="popover14574">
-                                    </button>
-                            </div>
-                            </isloop>
+                                    <isif condition="${!empty(promotion.calloutMsg)}">
+                                        <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
+                                            <span class="callout-message">
+                                                <isprint value="${promotion.calloutMsg}" encoding="off"/>
+                                            </span>
+                                            <isif condition="${!empty(promotion.details)}">
+                                                    <button type="button"
+                                                        class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
+                                                        data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
+                                                        title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a>
+                                                        <div class='popover-content pdp-pop-content ds-tooltip-content'>
+                                                            <isprint value=" ${promotion.details}" />
+                                                </div>
+                                                <div class='arrow-fill'></div>"
+                                                data-html="true" data-original-title="" aria-describedby="popover14574">
+                                                </button>
+                                            </isif>
+                                        </div>
+                                    </isif>
+                                </isloop>
                             </div>
 
                         <iscomment> Hiding Bopis Options for now </iscomment>
@@ -259,21 +263,16 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div>
-            <isslot id="cts-recommendations-m" description="Complete the set products" context="global"
-                context-object="${pdict.product.raw}" />
+            <div class="recommendations">
+                <isslot id="recently-viewed-product" description="Recently viewed product slot" context="global" context-object="${pdict.product.raw}" />
+            </div>
+            <div class="recommendations">
+                <isslot id="more-youll-adore" description="More You’ll Adore" context="global" context-object="${pdict.product.raw}" />
+            </div>
         </div>
 
         <isset name="loopState" value="${{
                                        count: 1}}" scope="page" />
-
-
-        <div class="recommendations">
-            <isslot id="product-recommendations-m" description="Recommended products" context="global"
-                context-object="${pdict.product.raw}" />
-        </div>
         </div>
     </isobject>
     <isif condition="${product.maxOrderQty}">
@@ -281,6 +280,4 @@
     <iselse/>
         <input type="hidden" name="maxOrderQty" value="0" />
     </isif>
-    <isslot id="pdp-recommendation-slot-1" description="Main home page slot." context="global" />
-    <isslot id="pdp-recommendation-slot-2z" description="Main home page slot." context="global" />
 </isdecorate>
