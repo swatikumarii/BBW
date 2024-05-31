@@ -88,7 +88,15 @@
             <iscomment> Price </iscomment>
             <div class="line-item-total-price w-100 text-right">
                 <div class="item-total-${lineItem.UUID} price">
-                    <isinclude template="checkout/productCard/productCardProductTotalPrice" />
+                    <isif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
+                        <div
+                            class="pricing line-item-total-price-amount item-total-${lineItem.UUID} h-font-size--16 h-fw--semibold h-clr--black-1">
+                            ${Resource.msg('label.free.price', 'cart', null)}</div>
+                    <iselse/>
+                        <div
+                            class="pricing line-item-total-price-amount item-total-${lineItem.UUID} h-font-size--16 h-fw--semibold h-clr--black-1">
+                            ${lineItem.priceTotal.price}</div>
+                    </isif>
                 </div>
             </div>
         </div>
