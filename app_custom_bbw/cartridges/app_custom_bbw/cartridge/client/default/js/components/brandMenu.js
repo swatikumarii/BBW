@@ -38,9 +38,9 @@ if (layout.isMobile()) {
     $('.level-2-li').on('click', function (e) {
         if ($(this).hasClass('active') && e.target.role !== 'menuitem') {
             $(this).children('.level-3-ul').removeClass('active');
-            $('.category-top-items').removeClass('in');
+            // $('.category-top-items').removeClass('in');
             $(this).removeClass('active');
-            $('.category-top-items .level-3-ul').removeClass('active');
+            // $('.category-top-items .level-3-ul').removeClass('active');
         } else {
             $(this).addClass('active');
             $(this).children('.level-3-ul').addClass('active');
@@ -109,29 +109,6 @@ if (layout.isDesktop() || layout.isTablet()) {
             $ul.addClass('two-column');
         }
 
-        $(this)
-            .parent()
-            .find('.menu-wrap-level-1')
-            .hover(
-                function () {
-                    $level1Parent.addClass('show');
-                    $level1Parent.find('.level-2-li').first().addClass('show');
-                    $level1Parent
-                        .find('.level-2-li .menu-wrap-level-3')
-                        .first()
-                        .addClass('show');
-                },
-                function () {
-                    clearTimeout(timeoutId);
-                    timeoutId = setTimeout(function () {
-                        $('.level-2-li').removeClass('show');
-                        $level1Parent.removeClass('show');
-                        $('body')
-                            .find('.menu-wrap-level-3')
-                            .removeClass('show');
-                    }, 1000);
-                }
-            );
         $('body').find('.menu-wrap-level-3').removeClass('show');
         $level2li.removeClass('show');
         $(this).parent().find('.level-2-li').first().addClass('show');
@@ -153,23 +130,6 @@ if (layout.isDesktop() || layout.isTablet()) {
             .css('left', $level2liWidth + $menuWrapLevel3Width);
         window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
     });
-    // .on('mouseleave', function () {
-    //     clearTimeout(timeoutId);
-    //     timeoutId = setTimeout(() => {
-    //         $('body').find('.menu-wrap-level-3').removeClass('show');
-    //         $('body').find('.menu-wrap-level-3').removeClass('show');
-    //         $(this)
-    //             .parent()
-    //             .find('.level-2-li')
-    //             .first()
-    //             .removeClass('show');
-    //         $(this)
-    //             .parent()
-    //             .find('.level-2-li')
-    //             .first()
-    //             .removeClass('show');
-    //     }, 1000);
-    // });
 
     $level2li.hover(function (e) {
         e.preventDefault();
@@ -177,30 +137,6 @@ if (layout.isDesktop() || layout.isTablet()) {
         $level2li.removeClass('show');
         $(this).addClass('show');
         $(this).find('.menu-wrap-level-3').addClass('show');
-    });
-
-    $('.explore-li').hover(
-        function () {
-            var $level2liWidth = $(this).width();
-            $('body').find('.menu-wrap-level-3').removeClass('show');
-            $level2li.removeClass('show');
-            $(this)
-                .closest('div.level-2-ul-wrap')
-                .find('.menu-right')
-                .css('left', $level2liWidth);
-        },
-        function () {
-            $(this)
-                .closest('div.level-2-ul-wrap')
-                .find('.menu-right')
-                .css('left', window.menuRightWidth);
-        }
-    );
-
-    /** 2 Column layout */
-    // Select the main container div
-
-    $level2li.hover(function () {
         var this1 = $(this);
         var $level2liWidth = $(this).width();
         var $menuWrapLevel3Width = $(this).find('.level-3-ul').width();
@@ -239,7 +175,26 @@ if (layout.isDesktop() || layout.isTablet()) {
             }
         });
     });
+
+    $('.explore-li').hover(
+        function () {
+            var $level2liWidth = $(this).width();
+            $('body').find('.menu-wrap-level-3').removeClass('show');
+            $level2li.removeClass('show');
+            $(this)
+                .closest('div.level-2-ul-wrap')
+                .find('.menu-right')
+                .css('left', $level2liWidth);
+        },
+        function () {
+            $(this)
+                .closest('div.level-2-ul-wrap')
+                .find('.menu-right')
+                .css('left', window.menuRightWidth);
+        }
+    );
 }
+
 $('.menu-wrap-level-1, .menu-right').hover(function () {
     clearTimeout(timeoutId);
 });
@@ -445,7 +400,9 @@ module.exports = function () {
                     $(self)
                         .children('.nav-link')
                         .attr('aria-expanded', 'false');
-                }, 1000);
+                    $('.level-2-li').removeClass('show');
+                    $('.menu-wrap-level-3').removeClass('show');
+                }, 800);
             }
         });
 
@@ -463,7 +420,6 @@ module.exports = function () {
 
     $('.navbar-nav').on('click', '.back', function (e) {
         e.preventDefault();
-        // clearSelection(this);
     });
 
     $('.navbar-nav').on('click', '.close-button', function (e) {
