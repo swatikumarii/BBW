@@ -518,6 +518,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="addressType">
+                <display-name xml:lang="x-default">Address Type</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="MigrationAttribute">
@@ -525,6 +532,7 @@
                 <attribute attribute-id="email"/>
                 <attribute attribute-id="lastModified"/>
                 <attribute attribute-id="dialCode"/>
+                <attribute attribute-id="addressType"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
