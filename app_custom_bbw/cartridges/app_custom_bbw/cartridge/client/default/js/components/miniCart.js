@@ -116,19 +116,26 @@ module.exports = function () {
     });
     $('body').on('product:afterAddToCart', function () {
         updateMiniCart = true;
+        var isPopupMinicart = $('.minicart').hasClass('popup');
         if (layout.isDesktop() || layout.isTablet()) {
             $('.minicart .popover').addClass('show');
-            $('.minicart-overlay').addClass('show');
-            $('body').addClass('overflow-hidden');
+            if (!isPopupMinicart) {
+                $('.minicart-overlay').addClass('show');
+                $('body').addClass('overflow-hidden');
+            }
             var minicartURL =
                 $('.minicart').data('action-url');
-            $('.minicart .popover').spinner().start();
             $.get(minicartURL, function (minicartData) {
                 $('.minicart .popover').empty();
                 $('.minicart .popover').append(
                     minicartData
                 );
             });
+            if (isPopupMinicart) {
+                setTimeout(() => {
+                    $('.minicart .popover').removeClass('show');
+                }, 3000);
+            }
         }
     });
     $('body').on('cart:update', function () {

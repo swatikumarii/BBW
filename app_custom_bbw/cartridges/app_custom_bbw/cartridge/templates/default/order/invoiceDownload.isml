@@ -264,8 +264,11 @@
                             <isprint value="${lineItem.quantity}" formatter="##" />
                         </td>
                         <td align="center">
-                            <isif
-                                condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
+                            <isif condition="${lineItem.noProduct}">
+                                <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}">
+                                ${lineItem.basePrice.currencyCode} ${lineItem.basePrice.value}</div>
+                            <iselseif
+                                condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}"/>
                                 <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}">
                                 </div>
                             <iselse/>
@@ -274,8 +277,11 @@
                             </isif>
                         </td>
                         <td align="right" style="border-top: 1px solid #eee; padding: 5px; font-family:GaramondPro;">
-                            <isif
-                                condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
+                            <isif condition="${lineItem.noProduct}">
+                                <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}">
+                                ${lineItem.priceTotal.currencyCode} ${lineItem.priceTotal.value}</div>
+                            <iselseif
+                                condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}"/>
                                 <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}">
                                     ${Resource.msg('label.free.price', 'cart', null)}</div>
                             <iselse/>
