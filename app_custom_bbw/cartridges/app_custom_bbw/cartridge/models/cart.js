@@ -169,7 +169,10 @@ function CartModel(basket) {
     this.apEligible = apUtilities.brandUtilities.isAfterpayApplicable();
     this.classname = 'cart-afterpay-message';
     this.continueShoppingLink = URLUtils.url('Home-Show').toString();
-    var discountPlan = PromotionMgr.getDiscounts(basket);
+    var discountPlan = null;
+    if (basket) {
+        discountPlan = PromotionMgr.getDiscounts(basket);
+    }
     if (discountPlan) {
         var approachingDiscounts = getApproachingDiscounts(
             basket,
