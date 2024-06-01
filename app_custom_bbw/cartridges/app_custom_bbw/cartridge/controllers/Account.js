@@ -951,21 +951,6 @@ server.replace('SaveNewPassword', server.middleware.https, function (req, res, n
     next();
 });
 
-// /**
-//  * Account-SetNewPassword : The Account-SetNewPassword GET endpoint if user already loggedin then redirect to home page
-//  */
-// server.prepend('SetNewPassword', server.middleware.https, consentTracking.consent, accHelpers.handleLoggedInSession);
-
-// /**
-//  * Account-DoSetNewPassword : The Account-DoSetNewPassword endpoint if user already loggedin then redirect to home page
-//  */
-// server.prepend('DoSetNewPassword', server.middleware.https, consentTracking.consent, accHelpers.handleLoggedInSession);
-
-// /**
-//  * Account-SaveNewPassword : The Account-SaveNewPassword endpoint if user already loggedin then redirect to home page
-//  */
-// server.post('SaveNewPassword', server.middleware.https, accHelpers.handleLoggedInSession);
-
 /**
  * Account-PasswordReset : The Account-PasswordReset endpoint if user already loggedin then redirect to home page
  */
