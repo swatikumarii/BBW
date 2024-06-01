@@ -274,7 +274,7 @@ server.post('AddProductFromOrder', function (req, res, next) {
             var childProducts = [];
             for (var i = 0; i < productLineItems.getLength(); i++) {
                 var pli = productLineItems[i];
-                if (!pli.bonusProductLineItem && (!pli.product.primaryCategory || !pli.product.primaryCategory.ID || pli.product.primaryCategory.ID !== 'giftWrapProducts')) {
+                if (!pli.bonusProductLineItem && pli.product && (!pli.product.primaryCategory || !pli.product.primaryCategory.ID || pli.product.primaryCategory.ID !== 'giftWrapProducts')) {
                     var pidOptions = {};
                     var PIDObjResult = cartHelper.addProductToCart(
                         currentBasket,

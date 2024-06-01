@@ -28,33 +28,68 @@ module.exports = function () {
     });
 
     $('.minicart .minicart-total').on('click', function () {
-        if (
-            $('.search:visible').length === 0 ||
-            $(this).find('.popover').hasClass('show')
-        ) {
-            return;
-        }
-        var url = $('.minicart').data('action-url');
-        if (!updateMiniCart) {
-            $('.popover').scrollTop(0);
-            $('.mini-cart-content').scrollTop(0);
+        if (($(this).parents('.minicart').hasClass('popup'))) {
+            window.location.href = $(this).parents('.minicart').data('redirect-url');
+        } else {
+            if (
+                $('.search:visible').length === 0 ||
+                $(this).find('.popover').hasClass('show')
+            ) {
+                return;
+            }
+            var url = $('.minicart').data('action-url');
+            if (!updateMiniCart) {
+                $('.popover').scrollTop(0);
+                $('.mini-cart-content').scrollTop(0);
+                $('body').addClass('overflow-hidden');
+                $('.minicart .popover').addClass('show');
+                $('.minicart-overlay').addClass('show');
+                return;
+            }
+
             $('body').addClass('overflow-hidden');
+            $('.minicart .popover').spinner().start();
+            $.get(url, function (data) {
+                $('.minicart .popover').empty();
+                $('.minicart .popover').append(data);
+                updateMiniCart = false;
+                $.spinner().stop();
+            });
             $('.minicart .popover').addClass('show');
             $('.minicart-overlay').addClass('show');
-            return;
         }
-
-        $('body').addClass('overflow-hidden');
-        $('.minicart .popover').spinner().start();
-        $.get(url, function (data) {
-            $('.minicart .popover').empty();
-            $('.minicart .popover').append(data);
-            updateMiniCart = false;
-            $.spinner().stop();
-        });
-        $('.minicart .popover').addClass('show');
-        $('.minicart-overlay').addClass('show');
     });
+
+    $('.minicart.popup .minicart-total,.minicart.popup .popover').on('mouseenter', function () {
+        var count = parseInt($('.minicart .minicart-quantity').text(), 10);
+        if (count > 0) {
+
+            if (
+                $('.search:visible').length === 0 ||
+                $(this).find('.popover').hasClass('show')
+            ) {
+                return;
+            }
+            var url = $('.minicart').data('action-url');
+            if (!updateMiniCart) {
+                $('.popover').scrollTop(0);
+                $('.mini-cart-content').scrollTop(0);
+                $('.minicart .popover').addClass('show');
+                return;
+            }
+            $('.minicart .popover').spinner().start();
+            $.get(url, function (data) {
+                $('.minicart .popover').empty();
+                $('.minicart .popover').append(data);
+                updateMiniCart = false;
+                $.spinner().stop();
+            });
+            $('.minicart .popover').addClass('show');
+        }
+    }).on('mouseleave', function () {
+        $('.minicart .popover').removeClass('show');
+    });
+
     $('body, .minicart-overlay').on('touchstart click', function (e) {
         if ($('.minicart').has(e.target).length <= 0) {
             $('.minicart .popover').removeClass('show');
@@ -81,19 +116,26 @@ module.exports = function () {
     });
     $('body').on('product:afterAddToCart', function () {
         updateMiniCart = true;
+        var isPopupMinicart = $('.minicart').hasClass('popup');
         if (layout.isDesktop() || layout.isTablet()) {
             $('.minicart .popover').addClass('show');
-            $('.minicart-overlay').addClass('show');
-            $('body').addClass('overflow-hidden');
+            if (!isPopupMinicart) {
+                $('.minicart-overlay').addClass('show');
+                $('body').addClass('overflow-hidden');
+            }
             var minicartURL =
                 $('.minicart').data('action-url');
-            $('.minicart .popover').spinner().start();
             $.get(minicartURL, function (minicartData) {
                 $('.minicart .popover').empty();
                 $('.minicart .popover').append(
                     minicartData
                 );
             });
+            if (isPopupMinicart) {
+                setTimeout(() => {
+                    $('.minicart .popover').removeClass('show');
+                }, 3000);
+            }
         }
     });
     $('body').on('cart:update', function () {

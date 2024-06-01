@@ -1,13 +1,13 @@
 <form action="${pdict.createAccountUrl}" class="registration " method="POST" name="${pdict.profileForm.htmlName}">
-    <div class="form-group register-form text-center <isif condition="
-        ${!!pdict.profileForm.customer.salutation.mandatory === true}">required</isif>">
+    <div class="form-group select-box register-form   <isif condition=" ${!!pdict.profileForm.customer.salutation.mandatory === true}">
+        required</isif>">
         <label class="form-control-label h-font-size--14 text-justify" for="registration-form-salutation">
             <span class="required-indicator">*</span>
             <isprint value="${pdict.profileForm.customer.salutation.label}" encoding="htmlcontent" />
         </label>
-        <div class="register-select">
+        <div class="select-wrap ">
             <select
-                class="form-control salutation selectric-dropdown salutation-hide select-dropdown-value h-clr--black-1"
+                class="form-control salutation selectric-dropdown salutation-hide h-clr--black-1"
                 id="registration-form-salutation"
                 data-missing-error="${Resource.msg('error.salutation.message', 'forms', null)}"
                 data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}" <isprint
@@ -23,7 +23,7 @@
                 ${Resource.msg('label.select.miss.salutation.profile', 'forms', null)}
             </option>
             </select>
-            <div class="invalid-feedback text-left" id="salutation-error">${Resource.msg('error.salutation.message', 'forms', null)}
+            <div class="invalid-feedback text-left mt-5" id="salutation-error">${Resource.msg('error.salutation.message', 'forms', null)}
             </div>
         </div>
     </div>
@@ -67,12 +67,11 @@
         </label>
         <input type="tel" class="form-control select-dropdown-value h-clr--black-1" required
             id="registration-form-phone" initOptions.allowDropdown="true"
-            data-missing-error="${Resource.msg('error.message.required', 'forms', null)}"
+            data-missing-error="${Resource.msg('error.message.phone.required', 'forms', null)}"
             data-pattern-mismatch="${Resource.msg('error.message.parse.phone.profile.form', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}"
             aria-describedby="form-phone-error" <isprint value=${pdict.profileForm.customer.phone.attributes}
             encoding="off" /> />
-        <div class="invalid-feedback text-left" id="phone-error">${Resource.msg('error.message.required', 'forms', null)}</div>
     </div>
 
     <div class="form-group register-form text-center <isif condition="
@@ -180,19 +179,19 @@
         <div class="invalid-feedback text-left" id="confirm-password-error">
             ${Resource.msg('error.message.password.required', 'forms', null)}</div>
         <button type="button" id="toggle-password"
-            class="register-form-confirm-password register-hide border-0 d-flex justify-content-center align-items-center text-captialize h-50 position-absolute p-0 h-clr--black-3"
+            class="register-form-confirm-password register-hide border-0 d-flex justify-content-center align-items-center text-captialize position-absolute p-0 h-clr--black-3"
             aria-label="Show Password">
             <span class="show h-font-size--16">${Resource.msg('password.show.label', 'login', null)}</span>
         </button>
     </div>
-    <div class="form-group register-form text-center  <isif condition="
+    <div class="form-group select-box register-form <isif condition="
         ${!!pdict.profileForm.customer.gender.mandatory === true}">required</isif>">
         <label class="form-control-label h-font-size--14 text-justify" for="registration-form-gender">
             <span class="required-indicator">*</span>
             <isprint value="${pdict.profileForm.customer.gender.label}" encoding="htmlcontent" />
         </label>
-        <div class="gender-select">
-            <select class="form-control gender selectric-dropdown gender-hide select-dropdown-value h-clr--black-1"
+        <div class="select-wrap ">
+            <select class="form-control gender selectric-dropdown gender-hide h-clr--black-1"
                 id="registration-form-gender"
                 data-missing-error="${Resource.msg('error.gender.message', 'forms', null)}"
                 data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}" <isprint
@@ -208,7 +207,7 @@
                 ${Resource.msg('label.select.notToSay.gender.profile', 'forms', null)}
             </option>
             </select>
-            <div class="invalid-feedback text-left" id="gender-error">${Resource.msg('error.gender.message', 'forms', null)}</div>
+            <div class="invalid-feedback text-left mt-5" id="gender-error">${Resource.msg('error.gender.message', 'forms', null)}</div>
         </div>
     </div>
     <div class="form-group register-form text-center">
@@ -222,14 +221,14 @@
             encoding="off" /> />
         <div class="invalid-feedback text-left" id="registration-form-zip-error"></div>
     </div>
-    <div class="form-group register-form text-center  <isif condition="
+    <div class="form-group select-box register-form <isif condition="
         ${!!pdict.profileForm.customer.nationality.mandatory === true}">required</isif>">
         <label class="form-control-label h-font-size--14 text-justify" for="registration-form-nationality">
             <span class="required-indicator">*</span>
             <isprint value="${pdict.profileForm.customer.nationality.label}" encoding="htmlcontent" />
         </label>
-        <div class="nationality-select">
-            <select class="form-control gender selectric-dropdown gender-hide select-dropdown-value h-clr--black-1"
+        <div class="select-wrap">
+            <select class="form-control gender selectric-dropdown gender-hide h-clr--black-1"
                 id="registration-form-nationality"
                 data-missing-error="${Resource.msg('error.message.nationality', 'forms', null)}" <isprint
                 value="${pdict.profileForm.customer.nationality.attributes}" encoding="off" />>
@@ -240,7 +239,7 @@
                     </isif>>${nationality}</option>
             </isloop>
             </select>
-            <div class="invalid-feedback text-left" id="nationality-error">${Resource.msg('error.message.nationality', 'forms', null)}</div>
+            <div class="invalid-feedback text-left mt-5" id="nationality-error">${Resource.msg('error.message.nationality', 'forms', null)}</div>
         </div>
     </div>
     <iscontentasset aid="register-form" />
@@ -266,7 +265,8 @@
         />
         <label class="custom-control-label h-clr--black-1 h-font-size--16" for="add-to-email-list">
             <isprint value="${pdict.profileForm.customer.addtoemaillist.label}" encoding="htmlcontent" />
-            <a href="${URLUtils.url('terms-Show')}" class="h-clr--black-1 h-font-size--16" >${Resource.msg('label.terms.contitions', 'forms', null)}</a>
+            <a href="${URLUtils.url('terms-Show')}"
+                class="h-clr--black-1 h-font-size--16">${Resource.msg('label.terms.contitions', 'forms', null)}</a>
         </label>
     </div>
 

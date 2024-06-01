@@ -6,11 +6,15 @@ window.MEDIA_BREAKPOINTS = require('./config/config.json').breakpoints;
 var processInclude = require('base/util');
 
 $(document).ready(function () {
-    processInclude(require('base/components/menu'));
+    // processInclude(require('base/components/menu'));
     processInclude(require('base/components/cookie'));
     processInclude(require('base/components/consentTracking'));
     processInclude(require('./components/header'));
-    processInclude(require('./components/menu'));
+    if ($('#navLikeDotCom').val() === 'true') {
+        processInclude(require('./components/brandMenu'));
+    } else {
+        processInclude(require('./components/menu'));
+    }
     processInclude(require('./components/footer'));
     processInclude(require('./components/miniCart'));
     processInclude(require('base/components/collapsibleItem'));
@@ -31,4 +35,3 @@ require('./thirdParty/bootstrap');
 require('./components/spinner');
 require('./thirdParty/jqueryTicker');
 require('./profileCompletionPopup');
-

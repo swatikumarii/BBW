@@ -35,9 +35,99 @@
         right: -100%;
         transition: right 0.8s ease-in-out;
 
+        &.minicart-popup {
+            border: none;
+            min-height: unset;
+            min-width: 290px;
+            max-width: 290px;
+            position: absolute;
+            right: 0;
+            top: calc(100% - 10px);
+            overflow-x: hidden;
+            max-height: 0;
+            transition: max-height 0.5s;
+            box-shadow: none;
+            border-radius: 0;
+
+            .cart {
+                border: 1px solid $clr-gray-3;
+
+                &.container {
+                    padding: 10px;
+                }
+            }
+
+            .minicart-heading {
+                padding: 9px 0 15px;
+                line-height: 20px;
+                border-bottom: 3px solid $clr-gray-1;
+            }
+
+            .sub-total-wrap {
+                line-height: 20px;
+                padding: 15px 5px 5px;
+                border-top: 3px solid $clr-gray-1;
+            }
+
+            .product-summary {
+                max-height: calc(100vh - 450px);
+                overflow: auto;
+                overflow-x: hidden;
+                margin-right: -10px;
+                padding-right: 10px;
+
+                .card-body {
+                    padding: 15px 5px;
+
+                    .product-line-item {
+                        padding: 0 15px;
+
+                        .line-item-header {
+                            margin-right: 20px;
+                        }
+
+                        .item-image {
+                            .product-image {
+                                max-width: 100%;
+                                width: 60px;
+                            }
+                        }
+
+                        .remove-line-item {
+                            top: 3px;
+                        }
+
+                        .cart-delete-confirmation-btn {
+                            img {
+                                width: 15px;
+                                height: 17px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .h-lh-42 {
+                line-height: 42px;
+            }
+
+            .view-cart-btn {
+                margin: 10px auto;
+            }
+
+            .checkout-black-1 {
+                color: $clr-black-1;
+            }
+        }
+
         &.show {
             right: 0;
             border-radius: 0 4px 4px 0;
+
+            &.minicart-popup {
+                border-radius: 0;
+                max-height: calc(100vh - 200px);
+            }
         }
 
         .remove-line-item {
@@ -271,6 +361,20 @@
 }
 
 .choice-of-bonus-product {
+    .product-detail {
+        .carousel {
+            width: 100%;
+
+            .carousel-indicators {
+                li {
+                    img {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
     img {
         max-height: 180px;
     }

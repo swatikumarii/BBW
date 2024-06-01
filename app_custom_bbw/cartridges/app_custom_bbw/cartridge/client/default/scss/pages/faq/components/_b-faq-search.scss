@@ -90,6 +90,12 @@
                     background-color: colour(blue, 10);
                 }
             }
+
+            .current {
+                background-color: colour(blue, 10);
+                color: colour(blue, 11);
+                text-decoration: none;
+            }
         }
 
         .see-all-filters {
