@@ -518,6 +518,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="addressType">
+                <display-name xml:lang="x-default">Address Type</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="MigrationAttribute">
@@ -525,6 +532,7 @@
                 <attribute attribute-id="email"/>
                 <attribute attribute-id="lastModified"/>
                 <attribute attribute-id="dialCode"/>
+                <attribute attribute-id="addressType"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -1630,6 +1638,13 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <field-length>0</field-length>
                 <default-value>no-reply@testorganization.com</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="showMinicartPopup">
+                <display-name xml:lang="x-default">Show Minicart popup</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="navSameAsDotCom">
                 <display-name xml:lang="x-default">Navigation Same As Dot Com</display-name>
                 <type>boolean</type>
@@ -1674,6 +1689,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-group group-id="Storefront Configs">
                 <display-name xml:lang="x-default">Storefront Configurations</display-name>
                 <attribute attribute-id="pageDesignerID"/>
+                <attribute attribute-id="navSameAsDotCom"/>
                 <attribute attribute-id="listPriceDefault"/>
                 <attribute attribute-id="GoogleVerificationTag"/>
                 <attribute attribute-id="countryCode"/>
@@ -1695,6 +1711,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="businessTypes"/>
                 <attribute attribute-id="enableCountrySelectorPopup"/>
                 <attribute attribute-id="showTopOffers"/>
+                <attribute attribute-id="showMinicartPopup"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
@@ -2696,6 +2713,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="storeMapLink">
+                <display-name xml:lang="x-default">Store Map Link</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Details">
@@ -2710,6 +2735,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="image4"/>
                 <attribute attribute-id="image5"/>
                 <attribute attribute-id="timezone"/>
+                <attribute attribute-id="storeMapLink"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

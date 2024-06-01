@@ -359,10 +359,14 @@ input[type="tel"],
 }
 
 .custom-select-wrap {
+    box-sizing: border-box;
+    height: 48px;
+    position: relative;
+
     &::after {
         content: "";
         position: absolute;
-        right: 20px;
+        right: 10px;
         top: 50%;
         transform: translateY(-46%);
         height: 45px;
@@ -370,6 +374,21 @@ input[type="tel"],
         border-left: 1px solid $clr-gray-5;
         background: $clr-white url("../../images/UI-Carat.svg") no-repeat 50%;
         background-size: 15px;
+    }
+
+    select {
+        border-radius: 0;
+        background: transparent;
+        padding: 0 2.25rem 0 0.625rem;
+        height: 48px;
+        cursor: pointer;
+        appearance: none;
+        z-index: 1;
+        position: absolute;
+
+        &:focus {
+            box-shadow: none;
+        }
     }
 }
 

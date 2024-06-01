@@ -29,8 +29,9 @@
         scrollbar-width: auto;
         column-gap: var(--col-gap-sm);
         padding: 0 16px;
-        scrollbar-color: colour(gray, 5) hsla(0deg, 0%, 51%, 25%);
         cursor: grab;
+
+        // scrollbar-color: colour(gray, 5) hsla(0deg, 0%, 51%, 25%);
 
         @include media-down(md) {
             scrollbar-color: unset;

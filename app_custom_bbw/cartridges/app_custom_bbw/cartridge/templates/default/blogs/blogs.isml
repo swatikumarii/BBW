@@ -33,7 +33,7 @@
         <div class="m-grid-contain">
             <isloop items="${pdict.blog.onlineSubFolders}" var="folder" status="loopstatus" begin=0>
                 <div class="blog_list">
-                    <div id="${folder.displayName.replace(' ', '')}" class="head-img d-flex align-items-center">
+                    <div id="${folder.displayName.replace(' ', '')}" class="head-img d-flex align-items-center scroll-margin">
                         <isif condition="${folder.custom.isShow === true}">
                             <div class="folder-conten-img">
                                 <img class="folder_content" src="${folder.custom.image.absURL}"
