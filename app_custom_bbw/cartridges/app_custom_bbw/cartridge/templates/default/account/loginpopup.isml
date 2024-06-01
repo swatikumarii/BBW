@@ -60,6 +60,10 @@
                 </button>
             </div>
             <div class="modal-footer border-0 merge-cart-body pb-3">
+                <input type="hidden" class="home-show-url" value="${URLUtils.url('Home-Show')}" />
+                <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-PasswordReset')}" />
+                <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-PasswordReset')}" />
+                <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-DoSetNewPassword')}" />
                 <input type="hidden" class="cart-merge-url" value="${URLUtils.url('Cart-Merge')}">
                 <input type="hidden" class="redirect-url" value="${pdict.loginRedirectUrl}">
                 <button type="button" class="merge text-uppercase btn" data-dismiss="modal" aria-label="Close">
