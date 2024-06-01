@@ -99,7 +99,21 @@ $(document).ready(function () {
     });
 });
 $(document).on('click', '#paymentMethodsList .paymentMethod, .payment-method-options .afterpay-tab', function (event) {
-    var paymentMethod = $(this).closest('.payment-method-options');
+    var paymentMethod = $(this)
+        .closest('.payment-method-options')
+        .data('payment-method-id');
+    $('.credit-card-selection-new .tab-pane').removeClass('active');
+    $(
+        '.credit-card-selection-new [data-payment-method-id="' +
+            paymentMethod +
+            '"] .tab-pane'
+    ).addClass('active');
+    $('.payment-options .nav-item .nav-link').removeClass('active');
+    $(
+        '.payment-options .nav-item.nav-item[data-method-id="' +
+            paymentMethod +
+            '"] .nav-link'
+    ).addClass('active');
     if (paymentMethod !== 'AdyenComponent') {
         $('button[value="submit-payment"]').attr('disabled', false);
     } else if (paymentMethod === 'AdyenComponent') {
