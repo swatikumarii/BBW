@@ -388,6 +388,8 @@ input[type="tel"],
 
         &:focus {
             box-shadow: none;
+            border-color: colour(black, 1);
+            background: none;
         }
     }
 }
