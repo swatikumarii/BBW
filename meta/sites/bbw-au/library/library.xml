@@ -2349,16 +2349,21 @@
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="socials mb-5"&gt;&#13;
-&lt;h6 class="social-header text-capitalize mb-4 font-weight-bold text-start h-clr--black-1 h-font-size--16"&gt;Get connected&lt;/h6&gt;&#13;
-&#13;
-&lt;ul class="social-links d-flex m-0"&gt;&#13;
-	&lt;li&gt;&lt;a class="facebook" href="https://www.facebook.com/bathandbodyworks" target="_blank" title="Go to facebook"&gt;&lt;img alt="" src="images/footer/social-icon/Social-fb-black.svg?$staticlink$" title="facebook" /&gt;&lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li&gt;&lt;a class="twitter" href="https://twitter.com/bathbodyworks" target="_blank" title="Go to twitter"&gt;&lt;img alt="" src="images/footer/social-icon/social-x-24.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li&gt;&lt;a class="instagram" href="https://www.instagram.com/bathandbodyworks/" target="_blank" title="Go to instagram"&gt;&lt;img alt="" src="images/footer/social-icon/Social-ig-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li&gt;&lt;a class="tiktok" href="https://www.tiktok.com/@bathandbodyworks" target="_blank" title="Go to tiktok"&gt;&lt;img alt="" src="images/footer/social-icon/Social-tiktok-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li&gt;&lt;a class="youtube" href="https://www.youtube.com/user/bathandbodyworks/" target="_blank" title="Go to youtube"&gt;&lt;img alt="" src="images/footer/social-icon/Social-youtube-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&lt;/li&gt;&#13;
-	&lt;li&gt;&lt;a class="pinterest" href="https://www.pinterest.com/bathbodyworks/" target="_blank" title="Go to pinterest"&gt;&lt;img alt="" src="images/footer/social-icon/Social-pinterest-black.svg?$staticlink$" title="" /&gt;&lt;/a&gt;&lt;/li&gt;&#13;
-&lt;/ul&gt;&#13;
+	&lt;h6 class="social-header text-capitalize mb-4 font-weight-bold text-start h-clr--black-1 h-font-size--16"&gt;Get connected&lt;/h6&gt;&#13;
+	&lt;ul class="social-links d-flex m-0"&gt;&#13;
+		&lt;li&gt;&lt;a class="facebook" href="https://www.facebook.com/bbwaustralia/" target="_blank" title="Go to facebook"&gt;&lt;img alt="" src="images/footer/social-icon/Social-fb-black.svg?$staticlink$" title="facebook" /&gt;&lt;/a&gt;&#13;
+		&lt;/li&gt;&#13;
+		&lt;li&gt;&lt;a class="twitter" href="https://twitter.com/bathbodyworks" target="_blank" title="Go to twitter"&gt;&lt;img alt="" src="images/footer/social-icon/social-x-24.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;/li&gt;&#13;
+		&lt;li&gt;&lt;a class="instagram" href="https://www.instagram.com/bathandbodyworks.au/" target="_blank" title="Go to instagram"&gt;&lt;img alt="" src="images/footer/social-icon/Social-ig-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;/li&gt;&#13;
+		&lt;li&gt;&lt;a class="tiktok" href="https://www.tiktok.com/@bathandbodyworks" target="_blank" title="Go to tiktok"&gt;&lt;img alt="" src="images/footer/social-icon/Social-tiktok-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;/li&gt;&#13;
+		&lt;li&gt;&lt;a class="youtube" href="https://www.youtube.com/channel/UCi4-fFB4Odqjttdwomvg3rQ" target="_blank" title="Go to youtube"&gt;&lt;img alt="" src="images/footer/social-icon/Social-youtube-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;/li&gt;&#13;
+		&lt;li&gt;&lt;a class="pinterest" href="https://www.pinterest.com/bathbodyworks/" target="_blank" title="Go to pinterest"&gt;&lt;img alt="" src="images/footer/social-icon/Social-pinterest-black.svg?$staticlink$" title="" /&gt;&lt;/a&gt;&#13;
+		&lt;/li&gt;&#13;
+	&lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
@@ -2496,14 +2501,14 @@
 						&lt;img class="w-100 h-auto" src="blogs/details/CNY_2024_WellnessCollection_D_02.jpg?$staticlink$"&gt;&#13;
 					&lt;/div&gt;&#13;
 					&lt;div class="txt"&gt;&#13;
-						&lt;h1 class="txt-h h-fw--semibold text-uppercase pink-text m-font-trendsansone--normal"&gt;VETIVER VANILLA&lt;/h1&gt;&#13;
+						&lt;h1 class="txt-h h-fw--semibold text-uppercase m-font-trendsansone--normal"&gt;VETIVER VANILLA&lt;/h1&gt;&#13;
 						&lt;p class="txt-p h-fw--normal h-font-size--16 small"&gt;A soothing blend of vetiver and vanilla that offers the feeling of calmness with its earthy scent.&lt;a class="h-fw--semibold h-clr--black-3" href="/fragrance/vetiver-vanilla  "&gt; SHOP&lt;/a&gt;&#13;
 						&lt;/p&gt;&#13;
 					&lt;/div&gt;&#13;
 				&lt;/div&gt;&#13;
 				&lt;div class="stepcontent-sec flexrev"&gt;&#13;
 					&lt;div class="txt"&gt;&#13;
-						&lt;h1 class="txt-h h-fw--semibold text-uppercase pink-text m-font-trendsansone--normal"&gt;MIMOSA SPEARMINT&lt;/h1&gt;&#13;
+						&lt;h1 class="txt-h h-fw--semibold text-uppercase m-font-trendsansone--normal"&gt;MIMOSA SPEARMINT&lt;/h1&gt;&#13;
 						&lt;p class="txt-p h-fw--normal h-font-size--16 small"&gt;A refreshing mix of mimosa absolute and spearmint essential oil to remind you of the invigorating, salty sea air.&lt;a class="h-fw--semibold h-clr--black-3" href="/fragrance/mimosa-spearmint"&gt; SHOP&lt;/a&gt;&#13;
 						&lt;/p&gt;&#13;
 					&lt;/div&gt;&#13;
@@ -2516,7 +2521,7 @@
 						&lt;img class="w-100 h-auto"  src="blogs/details/CNY_2024_WellnessCollection_D_04.jpg?$staticlink$"&gt;&#13;
 					&lt;/div&gt;&#13;
 					&lt;div class="txt"&gt;&#13;
-						&lt;h1 class="txt-h h-fw--semibold text-uppercase pink-text m-font-trendsansone--normal"&gt;ORANGE GINGER&lt;/h1&gt;&#13;
+						&lt;h1 class="txt-h h-fw--semibold text-uppercase m-font-trendsansone--normal"&gt;ORANGE GINGER&lt;/h1&gt;&#13;
 						&lt;p class="txt-p h-fw--normal h-font-size--16 small"&gt;A spicy combination of orange and ginger essential oils for a clean and refreshing sensation. &lt;a class="h-fw--semibold h-clr--black-3"  href="/fragrance/orange-ginger"&gt;SHOP&lt;/a&gt;&#13;
 						&lt;/p&gt;&#13;
 					&lt;/div&gt;&#13;
@@ -13347,6 +13352,39 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 	            margin-left: 21px;&#13;
 	            margin-top: 26px;&#13;
 	        }&#13;
+&lt;/style&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="loginModalPopup">
+        <display-name xml:lang="x-default">Login Modal</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="login-modal-section"&gt;&#13;
+    &lt;h4 class="h-clr--pink h-font-size--16 h-fw--bold"&gt;Welcome to an updated, exciting shopping experience!&#13;
+    &lt;/h4&gt;&#13;
+    &lt;p class="h-font-size--16 login-para h-clr--gray "&gt;&#13;
+     If you previously had an account with us, you will ned to reset your password to continue using our new website. &#13;
+     If you have updated your password, please continue to login.&#13;
+    &lt;/p&gt;&#13;
+    &lt;button type="submit" name="save" class=" btn-save text-uppercase btn-hover btn-primary reset-password-btn w-100"&gt;&#13;
+       Reset Password&#13;
+    &lt;/button&gt;&#13;
+&lt;/div&gt;&#13;
+&#13;
+&lt;style&gt;&#13;
+    .login-modal-section {&#13;
+        background-color: rgb(239, 239, 239);&#13;
+        padding: 17px;&#13;
+margin-bottom: 16px;&#13;
+    }&#13;
+    .reset-password-btn {&#13;
+              padding: 6px 3em;&#13;
+    font-size: 14px;&#13;
+    letter-spacing: 1.2px;&#13;
+    }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>

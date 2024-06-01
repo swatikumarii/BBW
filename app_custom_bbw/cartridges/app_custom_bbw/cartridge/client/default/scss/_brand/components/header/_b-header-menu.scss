@@ -88,6 +88,10 @@
                                     color: colour(black);
                                 }
 
+                                li {
+                                    list-style-type: none;
+                                }
+
                                 .level-2-li {
                                     min-width: 10.875rem;
 
@@ -162,53 +166,51 @@
         }
 
         .category-top-offers {
-            height: 100%;
             border-left: 1px solid colour(gray, 6);
-            transition: all 0.3s ease-out;
-            text-transform: capitalize;
-            max-height: none;
-            margin-bottom: 22px;
-            overflow: visible;
+            height: 100%;
+
+            .column-count-2 {
+                column-count: 2;
+            }
+
+            .column-count-3 {
+                column-count: 3;
+            }
+
+            .column-count-4 {
+                column-count: 4;
+            }
 
             .heading {
                 padding: 6px 0 8px 30px;
                 pointer-events: none;
                 font-weight: 600;
-                font-size: 14px;
-                font-size: 0.875rem;
-                line-height: 16px;
-                line-height: 1rem;
-                letter-spacing: 0.015em;
-                height: auto;
-                color: colour(black, 1);
-                cursor: pointer;
-                display: block;
-                text-transform: uppercase;
             }
 
-            .toggle {
-                display: none;
-            }
-
-            ul {
-                padding: 0;
-                margin: 0;
-                list-style: none;
-
-                li {
-                    height: auto;
+            .category-top-items {
+                ul {
+                    padding: 0;
+                    margin: 0;
                     display: block;
                     position: relative;
-                    padding: 8px 15px 8px 31px;
+                    border: 0;
 
-                    a {
-                        width: 180px;
-                        font-weight: 400;
-                        font-size: 14px;
-                        line-height: 16px;
-                        letter-spacing: 0.015em;
-                        white-space: normal;
+                    li {
+                        min-height: 41px;
+                        height: auto;
                         display: block;
+                        position: relative;
+                        list-style: none;
+
+                        a {
+                            padding: 8px 15px 8px 30px;
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 16px;
+                            letter-spacing: 0.015em;
+                            width: 225px;
+                            text-wrap: wrap;
+                        }
                     }
                 }
             }
@@ -287,6 +289,7 @@
                             visibility: visible;
                             max-height: max-content;
                             border-top: 0.1875rem solid colour(gray, 1);
+                            z-index: 1;
                         }
 
                         .menu-wrap-level-1 .level-2-ul-wrap .menu-right {
@@ -339,6 +342,30 @@
                                         content: none;
                                         background: none;
                                     }
+                                }
+
+                                .no-sub-category {
+                                    padding: 0 0 22px;
+
+                                    a {
+                                        color: colour(gray, 4);
+                                        cursor: pointer;
+                                        display: block;
+                                        font-size: 14px;
+                                        font-weight: 600;
+                                        height: 36px;
+                                        letter-spacing: 0.015em;
+                                        line-height: 21px;
+                                        padding: 6px 60px 0 20px;
+
+                                        &:hover {
+                                            color: colour(blue);
+                                        }
+                                    }
+                                }
+
+                                .explore-li a:hover {
+                                    color: colour(blue);
                                 }
 
                                 .level-2-li,
@@ -407,7 +434,8 @@
                                             transition: right 0.3s ease-out;
                                         }
 
-                                        .level-2-link {
+                                        .level-2-link,
+                                        a {
                                             color: colour(blue);
                                         }
 

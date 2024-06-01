@@ -1,4 +1,4 @@
-<div class="row tile-body-footer no-gutters flex-column">
+<div class="row tile-body-footer no-gutters flex-column mt-3">
     <isif condition="${!product.available}">
         <div class="notify-me main-quantity-${product.id}">
             <span class="notify-me-available-msg"></span>

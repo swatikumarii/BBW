@@ -1,4 +1,4 @@
-<div class="minicart-total hide-link-med position-relative d-none d-md-block" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
+<div class="minicart-total pb-3 hide-link-med position-relative d-none d-md-block" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
     <span class="minicart-link"
         title="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}"
         aria-label="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}" aria-haspopup="true">
@@ -10,9 +10,11 @@
 </div>
 
 <iscomment> MiniCart- Recommendation Slider </iscomment>
-<isslot id="minicart-recommendation-slider" context="global" description="This is for minicart sidebar recommendations" context-object="${dw.order.BasketMgr.getCurrentBasket()}" />
+<isif condition="${!(dw.system.Site.getCurrent().getCustomPreferenceValue('showMinicartPopup'))}">
+    <isslot id="minicart-recommendation-slider" context="global" description="This is for minicart sidebar recommendations" context-object="${dw.order.BasketMgr.getCurrentBasket()}" />
+</isif>
 
-<div class="popover popover-bottom"></div>
+<div class="popover popover-bottom ${dw.system.Site.getCurrent().getCustomPreferenceValue('showMinicartPopup') ? 'minicart-popup': ''}"></div>
 <div class="minicart-total hide-link-med position-relative d-block d-md-none" data-action-url="${URLUtils.url('Cart-MiniCartShow')}">
     <a href="${URLUtils.url('Cart-Show')}" class="minicart-link" title="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}"
         aria-label="${Resource.msgf('minicart.count', 'common', null, pdict.quantityTotal)}" aria-haspopup="true">
