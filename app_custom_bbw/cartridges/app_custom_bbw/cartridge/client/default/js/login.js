@@ -93,6 +93,7 @@ $(document).ready(function () {
     intlTelInput(phone, {
         utilsScript: utils,
         showFlags: true,
+        strictMode: true,
         showSelectedDialCode: true,
         initialCountry: 'au',
         countryOrder: ['au']
