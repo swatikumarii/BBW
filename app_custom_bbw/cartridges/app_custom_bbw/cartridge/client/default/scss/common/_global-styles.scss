@@ -56,12 +56,20 @@ a {
     }
 
     &:focus {
-        outline: 1px dotted colour(black); // Adding outline on focus.
-        outline-offset: 2px;
+        outline: none;
+
+        // outline: 1px dotted colour(black); // Adding outline on focus.
+        // outline-offset: 2px;
     }
 
     @include hover {
         text-decoration: none; // Removing underline on hover (using mixin).
+    }
+
+    &.no-hover {
+        &:hover {
+            color: initial;
+        }
     }
 }
 

@@ -103,7 +103,7 @@
         <p class="h-font-size--18 h-clr--black-1 h-fw--semibold">${Resource.msg('label.estimatedtotal', 'cart', null)}
         </p>
     </div>
-    <div class="col-4">
+    <div class="col-4 pr-0">
         <p class="text-right h-font-size--18 h-clr--black-1 h-fw--semibold grand-total">${pdict.order.totals.grandTotal}</p>
     </div>
 </div>

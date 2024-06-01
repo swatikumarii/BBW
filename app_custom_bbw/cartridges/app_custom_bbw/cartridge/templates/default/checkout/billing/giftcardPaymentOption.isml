@@ -68,7 +68,7 @@
                                     </button>
                                 </div>
                                 <button class="giftcard-check-balance btn btn-primary" id="egift-card-check-balance" type="button">
-                                    ${Resource.msg('label.egift.check-balance', 'eGiftCard', null)}
+                                    ${Resource.msg('label.egift.check-balance', 'checkout', null)}
                                 </button>
                             </div>
                         </div>
