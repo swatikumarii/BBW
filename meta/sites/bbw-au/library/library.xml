@@ -13635,5 +13635,27 @@ margin-bottom: 16px;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
+    <content content-id="promo-modal">
+        <display-name xml:lang="x-default">Promo Modal</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div aria-hidden="true" aria-labelledby="promotionModalTitle" class="modal fade hide" id="promotionModal" role="dialog" tabindex="-1"&gt;
+&lt;div class="modal-dialog promotion-dialog" role="document"&gt;
+&lt;div class="modal-content promotion-content border-0"&gt;
+&lt;div class="modal-header border-0 pb-0 pt-0"&gt;
+&lt;h1 class="h-font-size--18 h-fw--bold promotion-header h-clr--black-3"&gt;Promotion Details&lt;/h1&gt;
+&lt;button aria-label="Close" class="close close-icon-btn" data-dismiss="modal" type="button"&gt;&lt;span aria-hidden="true"&gt; &lt;img alt="cross icon" src="images/icons/cross.svg?$staticlink$" title="" width="17" /&gt; &lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
 
+&lt;div class="modal-body promotion-body h-clr--black-1"&gt;
+&lt;p class="h-font-size--16 h-clr--gray"&gt;&lt;strong class="h-fw--bold"&gt;Free Shipping on orders of $50 or more on May 26, 2024 at 6:00 AM ET to May 28, 2024 at 5:59 AM ET. ​&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p class="h-font-size--16 h-clr--gray"&gt;Valid on http://www.bathandbodyworks.com.au Place an order of at least $50 and receive FREE standard shipping &amp;amp; handling anywhere in the contiguous U.S. This offer excludes orders shipping to Canada, Alaska, Hawaii and U.S. Territories. To redeem, enter promotion code &lt;strong class="h-fw--bold"&gt;CLEAN &lt;/strong&gt;at checkout and shipping &amp;amp; handling charges will be adjusted on qualifying orders. Offer cannot be combined with any other scannable coupons or code-based offers except My Bath &amp;amp; Body Works Rewards and Birthday Reward. This offer is not redeemable for cash or gift cards. Offer is not valid toward previous purchases or on product purchased through third parties (including, but not limited to, Instacart). $50 qualifying purchase amount is based on merchandise subtotal after all discounts are applied. Auto-Refresh purchases, sales tax, shipping &amp;amp; handling, gift cards, previous purchases, and store pick up items do not qualify toward $50 qualifying purchase amount. Offer subject to adjustment due to returns, cancellations and exchanges. Refer to the return policy for more information. No rain checks issued. Void if altered, copied, transferred, auctioned or sold. Other restrictions may apply. Offer subject to change without notice.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
 </library>
