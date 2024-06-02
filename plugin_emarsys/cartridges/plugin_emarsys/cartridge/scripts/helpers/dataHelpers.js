@@ -21,11 +21,10 @@ function prepareEmrasysData(userEmail,pagecat, ecom) {
         for (var i = 0; i < productLineItems.length; i++) {
             var item = productLineItems[i];
             var productArray = {
-                id: item.productID,
-                item: item.productName,
+                item: item.productID,
                 price:
                     item.price && item.price.value
-                        ? item.price.value * item.quantityValue
+                        ? item.price.value * item.quantityValue * 3.13
                         : 0,
                 quantity: item.quantityValue
             };

@@ -6,89 +6,178 @@ var URLUtils = require('dw/web/URLUtils');
 var FileWriter = require('dw/io/FileWriter');
 var StringUtils = require('dw/util/StringUtils');
 var ProductMgr = require('dw/catalog/ProductMgr');
+var XMLStreamWriter = require('dw/io/XMLStreamWriter');
 var CSVStreamWriter = require('dw/io/CSVStreamWriter');
 
 /**
  * @description This function creates google feed csv file and save it to library.
  */
 function getGoogleFeeds() {
+    var Resource = require('dw/web/Resource');
     var currentSite = require('dw/system/Site').getCurrent();
+    var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
     var productsIterator = ProductMgr.queryAllSiteProducts();
     var fileName = 'google-feed';
     var outputFile = new File(
-        File.LIBRARIES + '/' + currentSite.ID + '/default/feeds/' + fileName + '.csv'
+        File.LIBRARIES + '/' + currentSite.ID + '/default/feeds/' + fileName + '.xml'
     );
-    var csvFileWriter = new FileWriter(outputFile);
-    var csvStreamWriter = new CSVStreamWriter(csvFileWriter, ',');
+    var fileWriter = new FileWriter(outputFile);
+    var xmlStreamWriter = new XMLStreamWriter(fileWriter);
+    xmlStreamWriter.writeStartDocument();
+    xmlStreamWriter.writeStartElement('rss');
+    xmlStreamWriter.writeAttribute('xmlns:g', 'http://base.google.com/ns/1.0');
+    xmlStreamWriter.writeAttribute('version', '2.0');
+    xmlStreamWriter.writeStartElement('channel');
     var product;
-    var objects = [];
+    var breadcrumbs;
+    var category = '';
+    var categories = '';
     try {
         while (productsIterator.hasNext()) {
+            xmlStreamWriter.writeStartElement('item');
             product = productsIterator.next();
-            var badgeString = '';
-            badgeString += 'badge1' in product.custom ? product.custom.badge1 : '';
-            if ('badge2' in product.custom) {
-                if (badgeString === '') {
-                    badgeString += product.custom.badge2;
-                } else {
-                    badgeString += '|' + product.custom.badge2;
+            breadcrumbs = '';
+            categories = '';
+            if (product.categories.length) {
+                category = product.categories[0].displayName;
+                breadcrumbs = productHelper.getAllBreadcrumbs(
+                    product.categories[0].ID,
+                    null,
+                    []
+                );
+                breadcrumbs.push({
+                    htmlValue: Resource.msg('global.home', 'common', null),
+                    url: URLUtils.home().toString()
+                });
+                breadcrumbs = breadcrumbs.reverse();
+                for (let index = 0; index < breadcrumbs.length; index++) {
+                    if (index > 1 && breadcrumbs[index].htmlValue === 'Home') {
+                        break;
+                    }
+                    if (index !== 0) {
+                        categories += ' > ';
+                    }
+                    categories += breadcrumbs[index].htmlValue;
                 }
+
             }
-            if ('badge3' in product.custom) {
-                if (badgeString === '') {
-                    badgeString += product.custom.badge3;
-                } else {
-                    badgeString += '|' + product.custom.badge3;
-                }
-            }
-            var data = {
-                'Product ID': product.ID,
-                SKU: product.ID,
-                Name: StringUtils.decodeString(product.name, 0).replace(
-                    ',',
-                    ' '
-                ),
-                'Product URL': URLUtils.abs('Product-Show', 'pid', product.ID),
-                Price: product.priceModel.price.value,
-                'Retail Price': product.priceModel.price.value,
-                'Thumbnail URL':
-                    product.getImages('mediumLarge').length > 0
-                        ? product.getImages('mediumLarge')[0].absURL.toString()
-                        : '',
-                Description: product.longDescription
-                    ? StringUtils.decodeString(
-                        product.longDescription.toString(),
+            xmlStreamWriter.writeStartElement('item_group_id');
+            xmlStreamWriter.writeCData('');
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:title');
+            xmlStreamWriter.writeCData(
+                ' ' +
+                    StringUtils.decodeString(
+                        product.name ? product.name : '',
                         0
-                    ).replace(',', ' ')
-                    : '',
-                Brand: product.brand,
-                Badges: badgeString,
-                'Inventory Count':
-                    product.availabilityModel.inventoryRecord &&
-                    product.availabilityModel.inventoryRecord.ATS
-                        ? product.availabilityModel.inventoryRecord.ATS
-                        : 1000
-            };
-            objects.push(data);
+                    ) +
+                    ' '
+            );
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:description');
+            xmlStreamWriter.writeCData(
+                product.longDescription
+                    ? ' ' +
+                          StringUtils.decodeString(
+                              product.longDescription.toString(),
+                              0
+                          ) +
+                          ' '
+                    : ''
+            );
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:link');
+            xmlStreamWriter.writeCData(
+                ' ' +
+                    URLUtils.abs('Product-Show', 'pid', product.ID).toString() +
+                    ' '
+            );
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:condition');
+            xmlStreamWriter.writeCharacters(' New ');
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:size_type');
+            xmlStreamWriter.writeCData('');
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:brand');
+            xmlStreamWriter.writeCData(
+                product.brand ? ' ' + product.brand + ' ' : ' '
+            );
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:image_link');
+            xmlStreamWriter.writeCData(
+                product.getImages('mediumLarge').length > 0
+                    ? ' ' +
+                          product.getImages('mediumLarge')[0].absURL.toString() +
+                          ' '
+                    : ' '
+            );
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:product_type');
+            xmlStreamWriter.writeCData(' ' + categories + ' ');
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:gtin');
+            xmlStreamWriter.writeCharacters(product.UPC ? product.UPC : '');
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:shipping_weight');
+            xmlStreamWriter.writeCharacters('0');
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:availability');
+            xmlStreamWriter.writeCData(' in stock ');
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:id');
+            xmlStreamWriter.writeCData(' ' +product.ID+' ');
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:price');
+            xmlStreamWriter.writeCharacters(
+                product.priceModel.price.value.toString()
+            );
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:sale_price');
+            xmlStreamWriter.writeCharacters(
+                product.priceModel.price.value.toString()
+            );
+            xmlStreamWriter.writeEndElement();
+
+            xmlStreamWriter.writeStartElement('g:google_product_category');
+            xmlStreamWriter.writeCData(
+                ' Health & Beauty > Personal Care > Cosmetics > Bath & Body > ' +
+                    category +
+                    ' '
+            );
+            xmlStreamWriter.writeEndElement();
+            // item end
+            xmlStreamWriter.writeEndElement();
         }
-        var csvHeader = Object.keys(objects[0]);
-        csvStreamWriter.writeNext(csvHeader);
-        objects.forEach(function (element) {
-            var csvData = [];
-            csvHeader.forEach(function (prop) {
-                csvData.push(element[prop] ? element[prop] : '');
-            });
-            csvStreamWriter.writeNext(csvData);
-        });
-        csvStreamWriter.close();
-        csvFileWriter.close();
+        // channel end
+        xmlStreamWriter.writeEndElement();
+        // rss end
+        xmlStreamWriter.writeEndElement();
+        xmlStreamWriter.writeEndDocument();
+
+        xmlStreamWriter.close();
+        fileWriter.close();
     } catch (err) {
         Logger.getLogger('SocialFeeds', 'SocialFeeds').error(
             'Error when creating Google Feeds' + err
         );
         productsIterator.close();
-        csvStreamWriter.close();
-        csvFileWriter.close();
+        xmlStreamWriter.close();
+        fileWriter.close();
     }
 }
 
@@ -111,18 +200,21 @@ function getFacebookFeeds() {
             product = productsIterator.next();
             var data = {
                 id: product.ID,
-                title: product.name,
+                title: StringUtils.decodeString(product.name, 0).replace(
+                    ',',
+                    ' '
+                ),
                 description: product.longDescription
                     ? StringUtils.decodeString(
                         product.longDescription.toString(),
                         0
-                    )
+                    ).replace(',', ' ')
                     : '',
                 link: URLUtils.abs('Product-Show', 'pid', product.ID),
                 price: product.priceModel.price.value,
                 // eslint-disable-next-line camelcase
                 image_link:
-                    product.getImages('mediumLarge').length > 1
+                    product.getImages('mediumLarge').length > 0
                         ? product.getImages('mediumLarge')[0].absURL.toString()
                         : '',
                 brand: product.brand,
@@ -131,7 +223,7 @@ function getFacebookFeeds() {
                     product.availabilityModel.inventoryRecord.ATS
                         ? product.availabilityModel.inventoryRecord.ATS
                         : 1000,
-                condition:'new'
+                condition: 'new'
             };
             objects.push(data);
         }

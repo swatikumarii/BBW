@@ -12,6 +12,7 @@ var URLUtils = require('dw/web/URLUtils');
 var Resource = require('dw/web/Resource');
 var ContentMgr = require('dw/content/ContentMgr');
 var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
+var accHelpers = require('*/cartridge/scripts/account/accountHelpers');
 var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
 var CustomObjectMgr = require('dw/object/CustomObjectMgr');
 
@@ -41,8 +42,7 @@ server.append('Show', function (req, res, next) {
  */
 
 server.append('EditProfile', function (req, res, next) {
-    var accountHelpers = require('*/cartridge/scripts/account/accountHelpers');
-    var accountModel = accountHelpers.getAccountModel(req);
+    var accountModel = accHelpers.getAccountModel(req);
 
     var viewData = res.getViewData();
     var birthday = '-';
@@ -976,5 +976,15 @@ server.replace('SaveNewPassword', server.middleware.https, function (req, res, n
     }
     next();
 });
+
+/**
+ * Account-PasswordReset : The Account-PasswordReset endpoint if user already loggedin then redirect to home page
+ */
+server.prepend('PasswordReset', server.middleware.https, accHelpers.handleLoggedInSession);
+
+/**
+ * Account-SetNewPassword : The Account-SetNewPassword endpoint if user already loggedin then redirect to home page
+ */
+server.prepend('SetNewPassword', server.middleware.https, accHelpers.handleLoggedInSession);
 
 module.exports = server.exports();
