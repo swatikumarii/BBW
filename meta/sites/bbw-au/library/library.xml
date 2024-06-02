@@ -12728,7 +12728,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </custom-attributes>
     </content>
 
-    <content content-id="giftcards">
+     <content content-id="giftcards">
         <display-name xml:lang="x-default">Gift Cards</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -12738,10 +12738,12 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
     &lt;div class="primary-content"&gt;&#13;
         &lt;div class="gift-card-top-banner"&gt;&#13;
             &lt;picture&gt;&#13;
-                &lt;source media="(min-width: 768px)" srcset="images/gift-cards/giftcards.svg?$staticlink$" /&gt;&#13;
-                &lt;img alt="Gift Cards. The best way to know they'll love what you got them."&#13;
+                &lt;source media="(min-width: 768px)" srcset="images/gift-cards/giftcards.svg?$staticlink$" /&gt; &lt;img&#13;
+                    alt="Gift Cards. The best way to know they'll love what you got them." class="desktop-image"&#13;
                     src="images/gift-cards/giftcards.svg?$staticlink$" title="" /&gt;&#13;
             &lt;/picture&gt;&#13;
+            &lt;img alt="" height="124" class="d-md-none d-xl-none w-100"&#13;
+                src="images/gift-cards/gift-card-landing-banner-slot_m.svg?$staticlink$" title="" /&gt;&#13;
         &lt;/div&gt;&#13;
 &#13;
         &lt;div class="gift-card-landing-subtitle text-center"&gt;&#13;
@@ -12750,27 +12752,28 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
             &lt;p class="h-font-size--14"&gt;Redeemable In Stores &amp;amp; Online.&lt;/p&gt;&#13;
         &lt;/div&gt;&#13;
 &#13;
-     &lt;div class="row"&gt;&#13;
-        &lt;div class="col-md-6" style="margin: 0 auto;"&gt;&#13;
-            &lt;div class="gift-card-options clearfix"&gt;&#13;
-                &lt;div class="giftcard-col1"&gt;&#13;
-                    &lt;div class="gift-card-box e-gift"&gt;&#13;
-                        &lt;h3 class="card-name"&gt;E-Gift Cards&lt;/h3&gt;&#13;
-            &#13;
-                        &lt;div class="card-img"&gt;&lt;img alt="E-Gift Cards" src="images/gift-cards/e-gift-card.webp?$staticlink$"&#13;
-                                title="" /&gt;&lt;/div&gt;&#13;
-            &#13;
-                        &lt;div class="card-desc"&gt;Fast, easy &amp;amp; fun! We'll email it directly to your recipient, complete&#13;
-                            with your own message and the fun design you chose.&lt;/div&gt;&#13;
-                        &lt;a class="button btn text-white" href="$url('Search-Show', 'cgid', 'giftcards')$"&gt;Get&#13;
-                            Started&lt;/a&gt;&#13;
-            &#13;
-                        &lt;p class="center"&gt;&lt;a href="#" target="_blank" title="about e-gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
+        &lt;div class="row"&gt;&#13;
+            &lt;div class="col-md-6" style="margin: 0 auto;"&gt;&#13;
+                &lt;div class="gift-card-options clearfix"&gt;&#13;
+                    &lt;div class="giftcard-col1"&gt;&#13;
+                        &lt;div class="gift-card-box e-gift"&gt;&#13;
+                            &lt;h3 class="card-name"&gt;E-Gift Cards&lt;/h3&gt;&#13;
+&#13;
+                            &lt;div class="card-img"&gt;&lt;img alt="E-Gift Cards"&#13;
+                                    src="images/gift-cards/e-gift-card.webp?$staticlink$" title="" /&gt;&lt;/div&gt;&#13;
+&#13;
+                            &lt;div class="card-desc"&gt;Fast, easy &amp;amp; fun! We'll email it directly to your recipient,&#13;
+                                complete&#13;
+                                with your own message and the fun design you chose.&lt;/div&gt;&#13;
+                            &lt;a class="button btn text-white" href="$url('Search-Show', 'cgid', 'giftcards')$"&gt;Get&#13;
+                                Started&lt;/a&gt;&#13;
+&#13;
+                            &lt;p class="center"&gt;&lt;a href="#" target="_blank" title="about e-gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
+                        &lt;/div&gt;&#13;
                     &lt;/div&gt;&#13;
                 &lt;/div&gt;&#13;
             &lt;/div&gt;&#13;
         &lt;/div&gt;&#13;
-     &lt;/div&gt;&#13;
     &lt;/div&gt;&#13;
 &#13;
     &lt;div class="gift-card-balance ui-accordion ui-widget ui-helper-reset"&gt;&#13;
@@ -12825,21 +12828,22 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 &#13;
 &lt;/div&gt;&#13;
 &lt;style type="text/css"&gt;&#13;
-    .gift-card-top-banner img {&#13;
+    .gift-card-top-banner .desktop-image {&#13;
         width: 930px;&#13;
         height: 90px;&#13;
     }&#13;
 &#13;
     @media only screen and (max-width: 600px) {&#13;
-        .gift-card-top-banner img {&#13;
+        .gift-card-top-banner .desktop-image {&#13;
             width: 100%;&#13;
             max-width: 100%;&#13;
             vertical-align: top;&#13;
+            display: none;&#13;
         }&#13;
     }&#13;
 &#13;
     @media only screen and (max-width: 768px) {&#13;
-        .gift-card-top-banner img {&#13;
+        .gift-card-top-banner .desktop-image {&#13;
             width: 100%;&#13;
         }&#13;
     }&#13;
@@ -12950,16 +12954,6 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         text-transform: uppercase;&#13;
     }&#13;
 &#13;
-    /* .ui-icon {&#13;
-        background: url("images/gift-cards/up.svg?$staticlink$") no-repeat 50%;&#13;
-        top: 31px;&#13;
-        width: 15px;&#13;
-        height: 15px;&#13;
-        right: auto;&#13;
-        left: calc(50% + 157px);&#13;
-        position: absolute;&#13;
-    } */&#13;
-&#13;
     .ui-icon {&#13;
         background: url("images/gift-cards/up.svg?$staticlink$") no-repeat 50%;&#13;
         top: 31px;&#13;
@@ -12969,7 +12963,6 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         left: calc(50% + 157px);&#13;
         position: absolute;&#13;
         transition: transform 0.3s ease;&#13;
-        /* Smooth transition for rotation */&#13;
     }&#13;
 &#13;
     /* Rotate the icon when the aria-expanded attribute is true */&#13;
@@ -12984,6 +12977,18 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         max-width: 955px;&#13;
         float: none;&#13;
         margin: 0 auto;&#13;
+    }&#13;
+&#13;
+    @media only screen and (max-width: 600px) {&#13;
+        .primary-content {&#13;
+            padding: 0;&#13;
+        }&#13;
+    }&#13;
+&#13;
+    @media only screen and (max-width: 768px) {&#13;
+        .primary-content {&#13;
+            padding: 0;&#13;
+        }&#13;
     }&#13;
 &#13;
     .gift-card-landing-subtitle {&#13;
@@ -13013,26 +13018,6 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         text-align: center;&#13;
         padding: 21px 0 28px;&#13;
     }&#13;
-&#13;
-    /* .gift-card-options .divider {&#13;
-        position: absolute;&#13;
-        width: 1px;&#13;
-        height: 300px;&#13;
-        left: 50%;&#13;
-        margin-left: -1px;&#13;
-        top: 37px;&#13;
-        background: #e5e5e5;&#13;
-    } */&#13;
-&#13;
-    /* @media only screen and (max-width: 600px) {&#13;
-        .gift-card-options .divider {&#13;
-            width: 100%;&#13;
-            height: 1px;&#13;
-            background: #e5e5e5;&#13;
-            left: 0;&#13;
-            top: 50%;&#13;
-        }&#13;
-    } */&#13;
 &#13;
     .gift-card-options .gift-card-box .card-name {&#13;
         text-transform: none;&#13;
@@ -13078,7 +13063,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         text-decoration: none;&#13;
     }&#13;
 &#13;
-    .gift-card-options .giftcard-col1{&#13;
+    .gift-card-options .giftcard-col1 {&#13;
         margin-bottom: 0;&#13;
     }&#13;
 &#13;
