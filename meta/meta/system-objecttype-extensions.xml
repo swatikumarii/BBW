@@ -321,6 +321,17 @@
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="giftsetContents">
+                <display-name xml:lang="x-default">Giftset Contents</display-name>
+                <type>set-of-string</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -361,6 +372,7 @@
                 <attribute attribute-id="ingredients"/>
                 <attribute attribute-id="showReturnSection"/>
                 <attribute attribute-id="canBeReturned"/>
+                <attribute attribute-id="giftsetContents"/>
             </attribute-group>
             <attribute-group group-id="badges">
                 <display-name xml:lang="x-default">Badges</display-name>

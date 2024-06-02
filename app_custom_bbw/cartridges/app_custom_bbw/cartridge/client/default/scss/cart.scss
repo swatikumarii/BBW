@@ -212,6 +212,10 @@
                             line-height: 16px;
                         }
 
+                        .promo-details-wrap {
+                            width: fit-content;
+                        }
+
                         .promo-details-tooltip {
                             border: 1px solid;
                             width: 260px;
@@ -219,13 +223,14 @@
                             min-width: 260px;
                             max-height: 400px;
                             position: absolute;
-                            left: 100%;
+                            left: calc(100% + 15px);
                             background: $clr-white;
                             padding: 24px 0;
                             z-index: 9;
 
                             .promo-details-content {
                                 padding: 0 24px 0 16px;
+                                max-height: 350px;
                                 overflow-y: scroll;
                             }
 
