@@ -113,9 +113,9 @@ function getGoogleFeeds() {
 
             xmlStreamWriter.writeStartElement('g:image_link');
             xmlStreamWriter.writeCData(
-                product.getImages('large').length > 0
+                product.getImages('mediumLarge').length > 0
                     ? ' ' +
-                          product.getImages('large')[0].absURL.toString() +
+                          product.getImages('mediumLarge')[0].absURL.toString() +
                           ' '
                     : ' '
             );
@@ -214,8 +214,8 @@ function getFacebookFeeds() {
                 price: product.priceModel.price.value,
                 // eslint-disable-next-line camelcase
                 image_link:
-                    product.getImages('large').length > 0
-                        ? product.getImages('large')[0].absURL.toString()
+                    product.getImages('mediumLarge').length > 0
+                        ? product.getImages('mediumLarge')[0].absURL.toString()
                         : '',
                 brand: product.brand,
                 availability:

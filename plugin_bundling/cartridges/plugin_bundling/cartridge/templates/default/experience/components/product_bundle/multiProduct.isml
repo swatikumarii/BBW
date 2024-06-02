@@ -74,9 +74,9 @@
                                                 <div class="col-5 col-sm-2 col-md-12 bundle-product-image">
                                                     <div class='thumbnail-container d-flex align-items-center justify-content-center bundle-product product-img-wrapper'
                                                         data-pid="${product.id}" data-url="${pdict.url}">
-                                                        <img data-src="${product.images.large[0].url}"
+                                                        <img data-src="${product.images.mediumLarge[0].url}"
                                                             class="d-block img-fluid product-img lazy"
-                                                            alt="${product.images.large[0].alt}" itemprop="image"
+                                                            alt="${product.images.mediumLarge[0].alt}" itemprop="image"
                                                             width="202px" height="300px" />
                                                     </div>
                                                 </div>
@@ -123,9 +123,9 @@
                                                     <div class="col-12 bundle-product-image p-3">
                                                         <div class='thumbnail-container d-flex align-items-center bundle-product product-img-wrapper justify-content-center'
                                                             data-pid="${product.id}" data-url="${pdict.url}">
-                                                            <img data-src="${product.images.large[0].url}"
+                                                            <img data-src="${product.images.mediumLarge[0].url}"
                                                                 class="d-block img-fluid product-img lazy"
-                                                                alt="${product.images.large[0].alt}" itemprop="image" width="202px" height="300px" />
+                                                                alt="${product.images.mediumLarge[0].alt}" itemprop="image" width="202px" height="300px" />
                                                         </div>
                                                     </div>
                                                     <div class="bundle-product-details mx-auto">
