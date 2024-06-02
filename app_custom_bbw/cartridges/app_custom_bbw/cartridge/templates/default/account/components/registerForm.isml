@@ -299,4 +299,6 @@
             </a>
         </div>
     </iscomment>
+        <div class="register-success d-none" id="register-success-message">
+            ${Resource.msg('toast.success.register', 'account', null)}</div>
 </form>

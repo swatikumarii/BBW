@@ -49,6 +49,8 @@
         <pipeline-alias pipeline="Order-Status">track-order</pipeline-alias>
         <pipeline-alias pipeline="Cart-Show">cart</pipeline-alias>
         <pipeline-alias pipeline="Blogs-Show">get-inspired</pipeline-alias>
+        <pipeline-alias pipeline="CorporateGifting-Landing">corporate-gifting</pipeline-alias>
+        <pipeline-alias pipeline="Account-Show">dashboard</pipeline-alias>
     </pipeline-aliases>
     <pipeline-trailing-slash>false</pipeline-trailing-slash>
     <pipeline-perform-redirect>false</pipeline-perform-redirect>
