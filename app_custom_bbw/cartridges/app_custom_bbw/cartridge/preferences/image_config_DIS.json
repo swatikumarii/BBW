@@ -1,16 +1,28 @@
 {
 	"viewTypeMapping": {
 		"medium": "large",
-		"small": "large"
+		"small": "large",
+		"mediumLarge": "large",
+		"extraLarge": "large"
+	},
+	"extraLarge": {
+		"scaleWidth": 1000,
+		"scaleHeight": 1000,
+		"scaleMode": "fit"
 	},
 	"large": {
 		"scaleWidth": 800,
 		"scaleHeight": 800,
 		"scaleMode": "fit"
 	},
+	"mediumLarge": {
+		"scaleWidth": 350,
+		"scaleHeight": 600,
+		"scaleMode": "fit"
+	},
 	"medium": {
-		"scaleWidth": 400,
-		"scaleHeight": 400,
+		"scaleWidth": 250,
+		"scaleHeight": 350,
 		"scaleMode": "fit"
 	},
 	"small": {
@@ -21,6 +33,8 @@
 	"missingImages": {
 		"large": "large_missing.jpg",
 		"medium": "medium_missing.jpg",
-		"small": "small_missing.jpg"
+		"small": "small_missing.jpg",
+		"mediumLarge": "small_missing.jpg",
+		"extraLarge": "small_missing.jpg"
 	}
 }

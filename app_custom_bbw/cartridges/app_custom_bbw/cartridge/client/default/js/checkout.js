@@ -65,8 +65,10 @@ $(document).ready(function () {
     intlTelInput(phone, {
         utilsScript: utils,
         showFlags: true,
+        strictMode: true,
         showSelectedDialCode: true,
-        initialCountry: 'au'
+        initialCountry: 'au',
+        countryOrder: ['au']
     });
 
     $('.accordion-title').click(function () {
