@@ -114,6 +114,7 @@ server.prepend('Login', function (req, res, next) {
     }
     if (accountHelpers.handleMigratedCustomers(req.form.loginEmail)) {
         res.json({
+            isMigratedNotUpdated: true,
             error: [
                 Resource.msg(
                     'reset.password.message.migrated.user',

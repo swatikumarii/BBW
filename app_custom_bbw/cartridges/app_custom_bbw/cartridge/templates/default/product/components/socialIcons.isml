@@ -1,5 +1,5 @@
 <isset name="escapedProductName" value="${encodeURIComponent(product.productName)}" scope="page" />
-<isset name="productImageLarge" value="${encodeURIComponent(product.images['large'][0].absURL)}" scope="page" />
+<isset name="productImageLarge" value="${encodeURIComponent(product.images['mediumLarge'][0].absURL)}" scope="page" />
 <isset name="productUrlencode" value="${encodeURIComponent(URLUtils.https('Product-Show', 'pid', product.id))}"
     scope="page" />
 <div class="col-12 social-container hidden-sm-down">
