@@ -52,8 +52,8 @@ function getGoogleFeeds() {
                 Price: product.priceModel.price.value,
                 'Retail Price': product.priceModel.price.value,
                 'Thumbnail URL':
-                    product.getImages('large').length > 0
-                        ? product.getImages('large')[0].absURL.toString()
+                    product.getImages('mediumLarge').length > 0
+                        ? product.getImages('mediumLarge')[0].absURL.toString()
                         : '',
                 Description: product.longDescription
                     ? StringUtils.decodeString(
@@ -122,8 +122,8 @@ function getFacebookFeeds() {
                 price: product.priceModel.price.value,
                 // eslint-disable-next-line camelcase
                 image_link:
-                    product.getImages('large').length > 1
-                        ? product.getImages('large')[0].absURL.toString()
+                    product.getImages('mediumLarge').length > 1
+                        ? product.getImages('mediumLarge')[0].absURL.toString()
                         : '',
                 brand: product.brand,
                 availability:
