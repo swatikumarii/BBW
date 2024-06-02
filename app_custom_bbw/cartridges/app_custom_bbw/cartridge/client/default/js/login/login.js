@@ -105,8 +105,13 @@ function login() {
             success: function (data) {
                 form.spinner().stop();
                 if (!data.success) {
-                    formValidation(form, data);
-                    form.trigger('login:error', data);
+                    if (data.isMigratedNotUpdated) {
+                        $('.migration-login-message').removeClass('d-none');
+                        $('.before-login').addClass('d-none');
+                    } else {
+                        formValidation(form, data);
+                        form.trigger('login:error', data);
+                    }
                 } else {
                     form.trigger('login:success', data);
                     if (data.isIncomplete) {
