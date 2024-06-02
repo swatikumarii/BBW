@@ -954,3 +954,67 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 10%);
     margin-top: 34px;
 }
+
+.select-box {
+    .select-wrap {
+        height: 48px;
+        width: 100%;
+        border: 1px solid colour(gray, 5);
+        position: relative;
+        box-sizing: border-box;
+
+        @include media-up(sm) {
+            height: 48px;
+            width: 356.25px;
+            border: 1px solid colour(gray, 5);
+            position: relative;
+            box-sizing: border-box;
+        }
+
+
+        &::after {
+            border-left: 1px solid colour(white);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 35px;
+            border-left: 1px solid colour(gray, 5);
+            background: url("../../images/UI-Carat.svg") no-repeat 50%;
+            background-size: 15px;
+            pointer-events: inherit;
+        }
+
+        select {
+            border: 0;
+            background: transparent;
+            padding: 0 2.25rem 0 0.625rem;
+            height: 48px;
+            width: 100%;
+            cursor: pointer;
+            appearance: none;
+            z-index: 1;
+            position: absolute;
+
+            @include media-up(sm) {
+                border: 0;
+                background: transparent;
+                padding: 0 2.25rem 0 0.625rem;
+                height: 48px;
+                width: 356.25px;
+                cursor: pointer;
+                appearance: none;
+                z-index: 1;
+                position: absolute;
+            }
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+}

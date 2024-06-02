@@ -530,6 +530,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="addressType">
+                <display-name xml:lang="x-default">Address Type</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="MigrationAttribute">
@@ -537,6 +544,7 @@
                 <attribute attribute-id="email"/>
                 <attribute attribute-id="lastModified"/>
                 <attribute attribute-id="dialCode"/>
+                <attribute attribute-id="addressType"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -1693,6 +1701,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-group group-id="Storefront Configs">
                 <display-name xml:lang="x-default">Storefront Configurations</display-name>
                 <attribute attribute-id="pageDesignerID"/>
+                <attribute attribute-id="navSameAsDotCom"/>
                 <attribute attribute-id="listPriceDefault"/>
                 <attribute attribute-id="GoogleVerificationTag"/>
                 <attribute attribute-id="countryCode"/>

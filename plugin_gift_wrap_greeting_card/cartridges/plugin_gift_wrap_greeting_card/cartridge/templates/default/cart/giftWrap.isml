@@ -63,7 +63,7 @@
                     <div class="giftWrapProductOptions gift-wrap-product-options">
                         <isloop items="${pdict.giftWrapProducts}" var="giftWrapProduct" status="loopstate">
                             <div class="imgGiftWrap img-gift-wrap">
-                                <img src="${giftWrapProduct.images.large[0].url}"
+                                <img src="${giftWrapProduct.images.mediumLarge[0].url}"
                                     alt="${giftWrapProduct.productName}" />
                                 <input class="giftWrapProductOptionsRadio gift-wrap-product-options-radio"
                                     name="gift-wrap-product" id="giftWrapProductOptionsRadio-${loopstate.count}"

@@ -47,6 +47,7 @@
             max-height: 0;
             transition: max-height 0.5s;
             box-shadow: none;
+            border-radius: 0;
 
             .cart {
                 border: 1px solid $clr-gray-3;
@@ -73,6 +74,7 @@
                 overflow: auto;
                 overflow-x: hidden;
                 margin-right: -10px;
+                padding-right: 10px;
 
                 .card-body {
                     padding: 15px 5px;
@@ -360,6 +362,20 @@
 }
 
 .choice-of-bonus-product {
+    .product-detail {
+        .carousel {
+            width: 100%;
+
+            .carousel-indicators {
+                li {
+                    img {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
     img {
         max-height: 180px;
     }

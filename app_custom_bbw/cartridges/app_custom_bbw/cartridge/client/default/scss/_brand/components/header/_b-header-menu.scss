@@ -289,6 +289,7 @@
                             visibility: visible;
                             max-height: max-content;
                             border-top: 0.1875rem solid colour(gray, 1);
+                            z-index: 1;
                         }
 
                         .menu-wrap-level-1 .level-2-ul-wrap .menu-right {
@@ -341,6 +342,30 @@
                                         content: none;
                                         background: none;
                                     }
+                                }
+
+                                .no-sub-category {
+                                    padding: 0 0 22px;
+
+                                    a {
+                                        color: colour(gray, 4);
+                                        cursor: pointer;
+                                        display: block;
+                                        font-size: 14px;
+                                        font-weight: 600;
+                                        height: 36px;
+                                        letter-spacing: 0.015em;
+                                        line-height: 21px;
+                                        padding: 6px 60px 0 20px;
+
+                                        &:hover {
+                                            color: colour(blue);
+                                        }
+                                    }
+                                }
+
+                                .explore-li a:hover {
+                                    color: colour(blue);
                                 }
 
                                 .level-2-li,
@@ -409,7 +434,8 @@
                                             transition: right 0.3s ease-out;
                                         }
 
-                                        .level-2-link {
+                                        .level-2-link,
+                                        a {
                                             color: colour(blue);
                                         }
 

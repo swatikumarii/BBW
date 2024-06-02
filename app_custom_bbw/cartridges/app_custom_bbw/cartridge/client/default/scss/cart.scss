@@ -104,9 +104,9 @@
             }
 
             .headerItem {
-                max-width: 345px;
+                max-width: 385px;
                 padding: 10px 0 10px 15px;
-                width: 345px;
+                width: 385px;
             }
 
             .headerPrice {
@@ -115,7 +115,7 @@
             }
 
             .headerQty {
-                width: 240px;
+                width: 200px;
                 padding: 10px 0;
             }
 
@@ -148,13 +148,15 @@
                 }
 
                 .line-item {
-                    width: 345px;
-                    max-width: 345px;
+                    width: 385px;
+                    max-width: 385px;
                     display: flex;
+                    padding-right: 20px;
 
                     @include media-down(sm) {
                         width: 100%;
                         max-width: 100%;
+                        padding-right: 0;
                     }
 
                     .item-attributes {
@@ -279,7 +281,7 @@
                 }
 
                 .line-item-quantity {
-                    width: 240px;
+                    width: 200px;
                     padding-top: 10px;
 
                     @include media-down(sm) {
@@ -351,6 +353,11 @@
                     line-height: 20px;
                     padding-top: 10px;
                     color: colour(black, 1);
+
+                    .value-dash {
+                        display: block;
+                        text-align: center;
+                    }
 
                     @include media-down(sm) {
                         width: 25%;
@@ -471,6 +478,42 @@
                     p {
                         line-height: 20px;
                         letter-spacing: 0.2px;
+
+                        &.accordion-item.collapsed {
+                            &::before {
+                                background: url("../images/UI-Carat.svg")
+                                    no-repeat 50%;
+                                background-size: 1.25rem;
+                                content: "";
+                                height: 12px;
+                                position: absolute;
+                                left: 84px;
+                                transform: rotate(0deg);
+                                transition: all 0.5s ease-out;
+                                width: 12px;
+                                top: 4px;
+                            }
+                        }
+
+                        &.accordion-item {
+                            &::before {
+                                background: url("../images/UI-Carat.svg")
+                                    no-repeat 50%;
+                                background-size: 1.25rem;
+                                content: "";
+                                height: 12px;
+                                position: absolute;
+                                left: 84px;
+                                transition: all 0.5s ease-out;
+                                width: 12px;
+                                top: 4px;
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+
+                    .accordion-collapse {
+                        padding-left: 30px;
                     }
 
                     .tax-estimated {

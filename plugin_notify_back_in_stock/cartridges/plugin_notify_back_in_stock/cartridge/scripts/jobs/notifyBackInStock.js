@@ -64,7 +64,7 @@ function sendEmail() {
                 productDetails[count] = {
                     id: productInfo.id,
                     name: productInfo.productName,
-                    imageUrl: productInfo.images && 'large' in productInfo.images && productInfo.images.large.length ? productInfo.images.large[0].url : productInfo.images.small[0].url
+                    imageUrl: productInfo.images && 'mediumLarge' in productInfo.images && productInfo.images.mediumLarge.length ? productInfo.images.mediumLarge[0].url : productInfo.images.small[0].url
                 };
                 count++;
             }

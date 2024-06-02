@@ -65,8 +65,10 @@ $(document).ready(function () {
     intlTelInput(phone, {
         utilsScript: utils,
         showFlags: true,
+        strictMode: true,
         showSelectedDialCode: true,
-        initialCountry: 'au'
+        initialCountry: 'au',
+        countryOrder: ['au']
     });
 
     $('.accordion-title').click(function () {
@@ -98,11 +100,36 @@ $(document).ready(function () {
         $('button.place-order').click();
     });
 });
-$('.payment-options .nav-link').click(function setAttr() {
-    $('#selectedPaymentOption').val($(this).parent().attr('data-method-id'));
-    if ($(this).parent().attr('data-method-id') === 'AdyenComponent') {
-        adyenCheckout.renderGenericComponent();
-    } else {
+$(document).on('click', '#paymentMethodsList .paymentMethod, .payment-method-options .afterpay-tab', function (event) {
+    var paymentMethod = $(this)
+        .closest('.payment-method-options')
+        .data('payment-method-id');
+    $('.credit-card-selection-new .tab-pane').removeClass('active');
+    $(
+        '.credit-card-selection-new [data-payment-method-id="' +
+            paymentMethod +
+            '"] .tab-pane'
+    ).addClass('active');
+    $('.payment-options .nav-item .nav-link').removeClass('active');
+    $(
+        '.payment-options .nav-item.nav-item[data-method-id="' +
+            paymentMethod +
+            '"] .nav-link'
+    ).addClass('active');
+    if (paymentMethod !== 'AdyenComponent') {
         $('button[value="submit-payment"]').attr('disabled', false);
+    } else if (paymentMethod === 'AdyenComponent') {
+        // adyenCheckout.renderGenericComponent();
     }
+    $('#selectedPaymentOption').val(paymentMethod);
+    $('.payment-method-options').find('[type="radio"]').prop('checked', false);
+    $('.additionalFields').css('display', 'none');
+    $(event.target)
+        .closest('.paymentMethod, .afterpay-tab')
+        .find('[type="radio"]')
+        .prop('checked', true).trigger('change');
+    $(event.target)
+        .closest('.paymentMethod, .afterpay-tab')
+        .find('.additionalFields')
+        .css('display', 'block');
 });
