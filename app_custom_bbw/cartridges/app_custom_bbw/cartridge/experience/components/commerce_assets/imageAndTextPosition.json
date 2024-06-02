@@ -20,6 +20,12 @@
           "required": false
         },
         {
+          "id": "enableLoader",
+          "name": "Enable Loader",
+          "type": "boolean",
+          "required": false
+        },
+        {
           "id": "useImgURL",
           "name": "Use Image URL",
           "type": "boolean",
