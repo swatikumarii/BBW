@@ -133,7 +133,6 @@ server.replace('ShowOthers', function (req, res, next) {
     var id = req.querystring.id;
     var productListMgr = require('dw/customer/ProductListMgr');
     var apiList = productListMgr.getProductList(id);
-    var firstName = apiList.owner.profile.firstName;
     var breadcrumbs = [{
         htmlValue: Resource.msg('global.home', 'common', null),
         url: URLUtils.home().toString()
@@ -146,6 +145,7 @@ server.replace('ShowOthers', function (req, res, next) {
         });
     }
     if (apiList) {
+        var firstName = apiList.owner.profile.firstName;
         if (apiList.owner.ID === req.currentCustomer.raw.ID) {
             res.redirect(URLUtils.url('Wishlist-Show'));
         }
