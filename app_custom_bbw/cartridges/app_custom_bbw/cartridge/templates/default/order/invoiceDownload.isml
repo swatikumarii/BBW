@@ -1,7 +1,7 @@
 <div id="content">
     <table style="table-layout: fixed; width: 100%; ">
         <tbody>
-            <tr style="vertical-align: baseline;">
+            <tr style="vertical-align: baseline; font-family: SourceSansPro, Arial, sans-serif;">
                 <td class="" style="vertical-align: bottom;">
                     <div style="margin-left: 30px;">
                         <isset name="headerImage"
@@ -64,7 +64,7 @@
     <div style="padding-top:8px; padding-bottom:8px;">
         <table style="table-layout: fixed; width: 100%;">
             <tbody>
-                <tr style="vertical-align: baseline;">
+                <tr style="vertical-align: baseline; font-family: SourceSansPro, Arial, sans-serif;">
                     <td style="width:56%;">
                         <div>
                             <div style="    background-color: #c7c7c7;  margin-left: -4px;     padding: 12px 9px;">
@@ -104,7 +104,7 @@
     <div style="padding-top:8px; padding-bottom:8px;">
         <table style="table-layout: fixed; width: 100%;">
             <tbody>
-                <tr style="vertical-align: baseline;">
+                <tr style="vertical-align: baseline; font-family: SourceSansPro, Arial, sans-serif;">
                     <td style="width:56%;">
                         <div>
                             <div style=" background-color: #c7c7c7;  margin-left: -4px;     padding: 12px 9px;">
@@ -131,7 +131,7 @@
                     <td style="vertical-align:baseline; width:44%;">
                         <div style="    background-color: #c7c7c7; margin-left: -4px; padding: 12px 9px;">
                             <strong
-                                style="text-transform: uppercase;font-family:GaramondPro;font-size:16px;letter-sapcing:1px;line-height:normal;">
+                                style="text-transform: uppercase;font-family: SourceSansPro, Arial, sans-serif;font-size:16px;letter-sapcing:1px;line-height:normal;">
                                 ${Resource.msg('label.order.shipping.method', 'confirmation', null)}
                             </strong>
                         </div>
@@ -158,7 +158,7 @@
     </div>
     <div>
         <table style="width: 100%;">
-            <thead style="width: 100%; vertical-align:baseline;">
+            <thead style="width: 100%; vertical-align:baseline; font-family: SourceSansPro, Arial, sans-serif;">
                 <tr>
                     <th 
                         style="text-align:left; width: 27%; background-color:#c7c7c7; padding: 12px 9px;">
@@ -182,7 +182,7 @@
 
             <tbody>
                 <isloop items="${pdict.order.items.items}" var="lineItem">
-                    <tr>
+                    <tr style="font-family: SourceSansPro, Arial, sans-serif;">
                         <td style="border-top: 1px solid #eee; padding: 5px; vertical-align: middle; height: 120px;"
                             valign="center">
                             <div class="product-card-wrapper" style="width: 100%;height: auto;display: flex;">
@@ -297,7 +297,7 @@
         </table>
     </div>
     <div style="border-top: 1px solid #eee; border-bottom: 1px solid; text-align:end;">
-        <table style="table-layout: fixed; width: 100%; border-collapse: collapse; max-width:800px; margin:15px auto;">
+        <table style="table-layout: fixed; width: 100%; border-collapse: collapse; max-width:800px; margin:15px auto; font-family: SourceSansPro, Arial, sans-serif;">
             <tbody>
                 <isset name="totalExclusiveTax"
                     value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showTotalsExcludingTaxes')}"
@@ -398,7 +398,7 @@
 
 
                 <iscomment> Shipping Tax </iscomment>
-                <div class="row" style="display:flex; justify-content: flex-end;">
+                <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                     <div class="col-md-10">
                         <isif condition="${shippingExclusiveTax}">
                             <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
@@ -419,7 +419,7 @@
 
                 <iscomment> Shipping Discount </iscomment>
                 <isif condition="${pdict.order.totals.shippingLevelDiscountTotal.value === 0}">
-                    <div class="row shipping-discount" style="display:none;">
+                    <div class="row shipping-discount" style="display:none; font-family: SourceSansPro, Arial, sans-serif;">
                         <div class="col-md-10">
                             <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
                                 <strong>${Resource.msg('label.shipping.discount', 'common', null)}:</strong>
@@ -432,7 +432,7 @@
                         </div>
                     </div>
                 <iselse/>
-                    <div class="row shipping-discount" style="display:flex; justify-content: flex-end;">
+                    <div class="row shipping-discount" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                         <div class="col-md-10">
                             <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
                                 <strong>${Resource.msg('label.shipping.discount', 'common', null)}:</strong>
@@ -448,7 +448,7 @@
 
 
                 <iscomment> Sales Tax </iscomment>
-                <div class="row" style="display:flex; justify-content: flex-end;">
+                <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                     <div class="col-md-10">
                         <isif condition="${totalExclusiveTax}">
                             <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
@@ -476,7 +476,7 @@
                     </div>
                 </iscomment>
 
-                <div class="row" style="display:flex; justify-content: flex-end;">
+                <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                     <div class="col-md-10">
                         <p class="h-font-size--18 h-clr--black-1 h-fw--semibold" style=" margin-bottom: 0px;">
                             <strong>${Resource.msg('label.estimatedtotal', 'cart', null)}:</strong>
@@ -493,9 +493,9 @@
         </table>
     </div>
     <div>
-        <table style="table-layout: fixed; width: 100%;">
+        <table style="table-layout: fixed; width: 100%; font-family: SourceSansPro, Arial, sans-serif;">
             <tbody>
-                <tr style="vertical-align: baseline;">
+                <tr style="vertical-align: baseline; font-family: SourceSansPro, Arial, sans-serif;">
                     <td style="vertical-align:baseline;">
                         <p style="font-size:16px; margin-bottom: 20px;">
                             ${Resource.msg('label.invoice.purchase', 'order', null)}
@@ -506,7 +506,7 @@
         </table>
     </div>
     <div>
-        <table style="table-layout: fixed; width: 100%;">
+        <table style="table-layout: fixed; width: 100%; font-family: SourceSansPro, Arial, sans-serif;">
             <tbody>
                 <tr style="vertical-align: baseline;">
                     <td style="vertical-align:baseline;">
@@ -519,7 +519,7 @@
         </table>
     </div>
     <div>
-        <table style="table-layout: fixed; width: 880px; margin-top: 20px; margin-bottom: 21px; ">
+        <table style="table-layout: fixed; width: 880px; margin-top: 20px; margin-bottom: 21px; font-family: SourceSansPro, Arial, sans-serif; ">
             <tbody>
                 <tr style="vertical-align: baseline; display:flex;  margin-left: 40px;">
                     <td style="vertical-align:baseline; display:flex; align-items:center;">
@@ -542,7 +542,7 @@
                         <img class="img-fluid w-100"
                             src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/InvoiceReports-revis-logo-03.png')}"
                             alt="${Resource.msg('global.storename', 'common', null)}" style="width: 50px" />
-                        <p style="font-size:16px; margin-bottom: 20px; width: 174px; margin-left: 20px;">
+                        <p style="font-size:16px; margin-bottom: 20px; width: 200px; margin-left: 20px;">
                             ${Resource.msg('label.packaging', 'order', null)}
                         </p>
                     </td>
@@ -551,7 +551,7 @@
         </table>
     </div>
     <div>
-        <table style="table-layout: fixed; width: 100%;">
+        <table style="table-layout: fixed; width: 100%; font-family: SourceSansPro, Arial, sans-serif;">
             <tbody>
                 <tr style="vertical-align: baseline;">
                     <td style="vertical-align:baseline;">
