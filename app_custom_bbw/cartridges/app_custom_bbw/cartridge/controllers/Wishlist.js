@@ -4,6 +4,8 @@ var server = require('server');
 var Resource = require('dw/web/Resource');
 var URLUtils = require('dw/web/URLUtils');
 var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
+var seo = require('*/cartridge/scripts/middleware/seo');
+
 var PAGE_SIZE_ITEMS = 1000;
 
 server.extend(module.superModule);
@@ -127,7 +129,7 @@ server.replace('Show', function (req, res, next) {
         createAccountUrl: createAccountUrl
     });
     next();
-});
+}, seo.addCurrentPageMetaData);
 
 server.replace('ShowOthers', function (req, res, next) {
     var id = req.querystring.id;
@@ -184,6 +186,6 @@ server.replace('ShowOthers', function (req, res, next) {
         });
     }
     next();
-});
+}, seo.addCurrentPageMetaData);
 
 module.exports = server.exports();
