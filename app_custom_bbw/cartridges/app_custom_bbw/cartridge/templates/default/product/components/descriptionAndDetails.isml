@@ -19,7 +19,7 @@
     </isif>
 
     <iscomment> Description Card </iscomment>
-    <isif condition="${product.shortDescription}">
+    <isif condition="${product.shortDescription && product.shortDescription.trim() != ''}">
         <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
             <div class="description card-head" id="description">
                 <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
@@ -32,7 +32,7 @@
     </isif>
 
     <iscomment> Overview Card </iscomment>
-    <isif condition="${product.longDescription}">
+    <isif condition="${product.longDescription && product.longDescription.trim() != ''}">
         <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
             <div class="details card-head" id="details">
                 <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"

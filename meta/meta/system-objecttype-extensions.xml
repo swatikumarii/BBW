@@ -1356,6 +1356,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="currentCurrencyToMyrConversionRate">
+                <display-name xml:lang="x-default">MYR conversion Rate</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>3.13</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="zeroOrderEmail">
                 <display-name xml:lang="x-default">Zero Order Email Address</display-name>
                 <description xml:lang="x-default">Comma-separated Zero Order email addresses</description>
@@ -1669,6 +1676,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="metaPixelScript"/>
                 <attribute attribute-id="emarsysEnabled"/>
                 <attribute attribute-id="emarsysMerchantID"/>
+                <attribute attribute-id="currentCurrencyToMyrConversionRate"/>
             </attribute-group>
             <attribute-group group-id="qwikcilver">
                 <display-name xml:lang="x-default">Qwikcilver</display-name>
