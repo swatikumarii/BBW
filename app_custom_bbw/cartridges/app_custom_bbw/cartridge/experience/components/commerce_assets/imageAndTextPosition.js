@@ -76,6 +76,7 @@ module.exports.render = function (context, modelIn) {
     );
     model.useImgURL = !!content.useImgURL;
     model.disableLazyLoad = !!content.disableLazyLoad;
+    model.enableLoader = !!content.enableLoader;
     model.desktopImgUrl = content.desktopImgUrl ? content.desktopImgUrl : null;
     model.mobileImgUrl = content.mobileImgUrl ? content.mobileImgUrl : null;
     model.alt = content.alt ? content.alt : '';

@@ -49,7 +49,7 @@
                         <iscomment> View Order Status Image and Button </iscomment>
                         <div style="border:3px solid #f2f2f2;padding:36px 0;text-align:center">
                             <p style="margin:0 0 44px">
-                                <img src="${URLUtils.absStatic('/images/email/orders/icon-processed.png')}"
+                                <img src="${URLUtils.absStatic('/images/email/orders/status/icon-processed.png')}"
                                     alt="Progress" style="border:0;vertical-align:top;width:90%;" />
                             </p>
                             <div>
