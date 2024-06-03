@@ -30,7 +30,7 @@
                             <div class="row">
                                 <div class="col">
                                     <span
-                                        class="titlePartB-name small-title h-font-size--16 h-fw--normal h-clr--gray-4 d-block">${product.titlePartB}</span>
+                                        class="titlePartB-name small-title h-font-size--12 h-fw--normal h-clr--gray-4 d-block">${product.titlePartB}</span>
                                 </div>
                             </div>
                         </isif>
@@ -38,19 +38,21 @@
                 </div>
             </div>
 
-            <iscomment>Product Description</iscomment>
-            <isif condition="${product.shortDescription}">
-                <p class="short-descrition h-font-size--14 h-clr--gray">
-                    <isprint value="${product.shortDescription}" encoding="off" />
-                </p>
-                <iselse>
-                    <isif condition="${product.longDescription}">
-                        <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
-                            <isprint value="${product.longDescription}" encoding="off" />
-                        </p>
-                    </isif>
-                </iselse>
-            </isif>
+            <div class="content">
+                <iscomment>Product Description</iscomment>
+                <isif condition="${product.shortDescription && product.shortDescription.trim() != ''}">
+                    <p class="short-descrition h-font-size--14 h-clr--gray">
+                        <isprint value="${product.shortDescription}" encoding="off" />
+                    </p>
+                    <iselse>
+                        <isif condition="${product.longDescription && product.longDescription.trim() != ''}">
+                            <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
+                                <isprint value="${product.longDescription}" encoding="off" />
+                            </p>
+                        </isif>
+                    </iselse>
+                </isif>
+            </div>
 
             <div class="prices-add-to-cart-actions">
                 <div class="row">
@@ -95,21 +97,21 @@
                     <isif condition="${!empty(promotion.calloutMsg)}">
                         <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
                             <span class="callout-message">
-                                <isprint value="${promotion.calloutMsg}" encoding="off"/>
+                                <isprint value="${promotion.calloutMsg}" encoding="off" />
                             </span>
                             <isif condition="${!empty(promotion.details)}">
-                                    <button type="button" data-placement="top"
-                                        class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
-                                        data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
-                                        title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a><div class='popover-content pdp-pop-content ds-tooltip-content'>
+                                <button type="button" data-placement="top"
+                                    class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
+                                    data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
+                                    title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a><div class='popover-content pdp-pop-content ds-tooltip-content'>
                                                                         <isprint value=" ${promotion.details}" />
-                                </div>
-                                <div class='arrow-fill'></div>"
-                                data-html="true" data-original-title="" aria-describedby="popover14574">
-                                </button>
-                            </isif>
                         </div>
+                        <div class='arrow-fill'></div>"
+                        data-html="true" data-original-title="" aria-describedby="popover14574">
+                        </button>
                     </isif>
+            </div>
+            </isif>
             </isloop>
 
 

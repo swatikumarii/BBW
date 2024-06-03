@@ -105,8 +105,13 @@ function login() {
             success: function (data) {
                 form.spinner().stop();
                 if (!data.success) {
-                    formValidation(form, data);
-                    form.trigger('login:error', data);
+                    if (data.isMigratedNotUpdated) {
+                        $('.migration-login-message').removeClass('d-none');
+                        $('.before-login').addClass('d-none');
+                    } else {
+                        formValidation(form, data);
+                        form.trigger('login:error', data);
+                    }
                 } else {
                     form.trigger('login:success', data);
                     if (data.isIncomplete) {
@@ -123,9 +128,20 @@ function login() {
                         if ($('.loginPopup input[name="wishlist-pid"]').val()) {
                             localStorage.setItem('addToWishList', true);
                         }
-                        // window.location.href = data.redirectUrl;
-                        // window.location.reload();
-                        if (data.redirectUrl.indexOf('Page-Show') !== -1) {
+                        var isForgotUrl = false;
+                        $('.forgot-password-url').each(function () {
+                            if(
+                                window.location.href.substring(
+                                    window.location.href.length -
+                                        $(this).val().length
+                                ) === $(this).val()
+                            ) {
+                                isForgotUrl = true;
+                            }
+                        });
+                        if (isForgotUrl) {
+                            window.location.href = $('.home-show-url').val();
+                        } else if (data.redirectUrl.indexOf('Page-Show') !== -1) {
                             window.location.reload();
                         } else {
                             window.location.href = data.redirectUrl;

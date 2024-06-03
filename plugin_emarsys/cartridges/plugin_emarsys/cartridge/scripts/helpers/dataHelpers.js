@@ -9,6 +9,7 @@
  * @returns {object} Emarsys Data
  */
 function prepareEmrasysData(userEmail,pagecat, ecom) {
+    var Site = require('dw/system/Site');
     var BasketMgr = require('dw/order/BasketMgr');
 
     var currentBasket = BasketMgr.getCurrentBasket();
@@ -21,11 +22,10 @@ function prepareEmrasysData(userEmail,pagecat, ecom) {
         for (var i = 0; i < productLineItems.length; i++) {
             var item = productLineItems[i];
             var productArray = {
-                id: item.productID,
-                item: item.productName,
+                item: item.productID,
                 price:
                     item.price && item.price.value
-                        ? item.price.value * item.quantityValue
+                        ? item.price.value * item.quantityValue * Site.getCurrent().getCustomPreferenceValue('currentCurrencyToMyrConversionRate')
                         : 0,
                 quantity: item.quantityValue
             };

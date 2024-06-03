@@ -1,5 +1,5 @@
 <button type="submit" title="${Resource.msg('wishlist.add.list', 'wishlist', null)}" id="add-to-wish-list"
-    class="border-0 h-bg--white add-to-wish-list ${pdict.itemExist ? 'd-none' : ''} ${session.isCustomerAuthenticated() ? 'authenticated-user' : ''}"
+    class="border-0 add-to-wish-list ${pdict.itemExist ? 'd-none' : ''} ${session.isCustomerAuthenticated() ? 'authenticated-user' : ''}"
     data-href="${URLUtils.url('Wishlist-AddProduct')}">
 </button>
 

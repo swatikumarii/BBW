@@ -23,7 +23,12 @@
 
 <!--- Savings --->
 <div class="line-item-savings">
-        <span class="value">${lineItem.totalSavings ? lineItem.totalSavings : '-'}</span>
+    <isif condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
+        
+        <span class="value">${lineItem.totalSavings}</span>
+    <iselse/>
+        <span class="value value-dash">${'-'}</span>
+    </isif>
 </div>
 
 <!--- line item total price --->

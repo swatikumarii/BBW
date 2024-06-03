@@ -33,7 +33,7 @@
                         </td>
                         <td class="item-details">
                             <div class="line-item-name">
-                                <isif condition="${pdict.isEgiftCard}">
+                                <isif condition="${pdict.isEgiftCard || lineItem.noProduct}">
                                     <span>${lineItem.fragranceName ? lineItem.fragranceName : lineItem.productName}</span>
                                 <iselse/>
                                     <a class="product-name" title="${lineItem.productName}"
@@ -60,7 +60,9 @@
                         </td>
                         <td class="pricing item-total">
                             <span>
-                                <isif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
+                                <isif condition="${lineItem.noProduct}">
+                                    ${lineItem.priceTotal.currencyCode} ${lineItem.priceTotal.value}
+                                <iselseif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}"/>
                                     ${Resource.msg('label.free.price', 'cart', null)}
                                 <iselse/>
                                     ${lineItem.priceTotal.price}

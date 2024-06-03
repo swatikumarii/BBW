@@ -456,7 +456,7 @@ function handleVariantResponse(response, $productContainer) {
     }
 
     // Update primary images
-    var primaryImageUrls = response.product.images.large;
+    var primaryImageUrls = response.product.images.extraLarge;
     createCarousel(primaryImageUrls, $productContainer);
 
     // Update pricing

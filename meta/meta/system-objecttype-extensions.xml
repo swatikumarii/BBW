@@ -518,6 +518,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="addressType">
+                <display-name xml:lang="x-default">Address Type</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="MigrationAttribute">
@@ -525,6 +532,7 @@
                 <attribute attribute-id="email"/>
                 <attribute attribute-id="lastModified"/>
                 <attribute attribute-id="dialCode"/>
+                <attribute attribute-id="addressType"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -1348,6 +1356,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="currentCurrencyToMyrConversionRate">
+                <display-name xml:lang="x-default">MYR conversion Rate</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>3.13</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="zeroOrderEmail">
                 <display-name xml:lang="x-default">Zero Order Email Address</display-name>
                 <description xml:lang="x-default">Comma-separated Zero Order email addresses</description>
@@ -1630,6 +1645,13 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <field-length>0</field-length>
                 <default-value>no-reply@testorganization.com</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="showMinicartPopup">
+                <display-name xml:lang="x-default">Show Minicart popup</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="navSameAsDotCom">
                 <display-name xml:lang="x-default">Navigation Same As Dot Com</display-name>
                 <type>boolean</type>
@@ -1654,6 +1676,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="metaPixelScript"/>
                 <attribute attribute-id="emarsysEnabled"/>
                 <attribute attribute-id="emarsysMerchantID"/>
+                <attribute attribute-id="currentCurrencyToMyrConversionRate"/>
             </attribute-group>
             <attribute-group group-id="qwikcilver">
                 <display-name xml:lang="x-default">Qwikcilver</display-name>
@@ -1674,6 +1697,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-group group-id="Storefront Configs">
                 <display-name xml:lang="x-default">Storefront Configurations</display-name>
                 <attribute attribute-id="pageDesignerID"/>
+                <attribute attribute-id="navSameAsDotCom"/>
                 <attribute attribute-id="listPriceDefault"/>
                 <attribute attribute-id="GoogleVerificationTag"/>
                 <attribute attribute-id="countryCode"/>
@@ -1695,6 +1719,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="businessTypes"/>
                 <attribute attribute-id="enableCountrySelectorPopup"/>
                 <attribute attribute-id="showTopOffers"/>
+                <attribute attribute-id="showMinicartPopup"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
