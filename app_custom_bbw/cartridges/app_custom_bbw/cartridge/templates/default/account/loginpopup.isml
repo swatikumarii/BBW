@@ -1,5 +1,4 @@
 <script defer type="text/javascript" src="${URLUtils.staticURL('/js/login.js')}"></script>
-<isinclude template="/components/modules" sf-toolkit="off" />
 <div class="modal fade hide login-modal-fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-bottom login-modal-view text-left" role="document">
@@ -20,12 +19,6 @@
                     <p class="h-font-size--16 login-para h-clr--gray ">
                         ${Resource.msg('login.para', 'login', null)}
                     </p>
-                    <div class="before-login">
-                        <iscontentasset aid="loginModalPopup" />
-                    </div>
-                    <div class="migration-login-message d-none">
-                        <iscontentasset aid="migration-message-login-modal" />
-                    </div>
                     <isinclude template="account/components/loginModalForm" />
                   <div class="privacy-block w-100 text-center h-clr--black-3 h-font-size--14">
                     <a href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="text-center">
