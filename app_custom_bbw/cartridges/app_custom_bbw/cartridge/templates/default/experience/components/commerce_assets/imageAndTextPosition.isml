@@ -28,7 +28,9 @@
                             data-srcset="${pdict.mobileImageSrcset}" alt="${pdict.alt}" width="450" height="450"/>
                     </picture>
                     <!-- Skeleton Loader -->
-                    <iscomment> <div class="skeleton-loader"></div> </iscomment>
+                    <isif condition="${pdict.enableLoader}">
+                        <div class="skeleton-loader"></div>
+                    </isif>
                 </isif>
             </a>
             <isif condition="${pdict.description !== null || pdict.linkText}">
