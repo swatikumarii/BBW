@@ -1,5 +1,12 @@
+<isinclude template="/components/modules" sf-toolkit="off" />
 <form action="${pdict.actionUrl}" class="modal-login" method="POST" name="login-form" data-error-image="${URLUtils.staticURL('/images/alert-error-triangle.svg')}">
     <div class="form-group required">
+        <div class="before-login">
+            <iscontentasset aid="loginModalPopup" />
+        </div>
+        <div class="migration-login-message d-none">
+            <iscontentasset aid="migration-message-login-modal" />
+        </div>
         <label class="form-control-label h-font-size--16  h-fw--semibold mb-2 form-label" for="loginModal-form-email">
             <span class="required-indicator">*</span>
             ${Resource.msg('label.input.loginPopup.email', 'login', null)}

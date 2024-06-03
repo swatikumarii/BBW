@@ -161,8 +161,10 @@
                                 </div>
                             </isif>
                         </isloop>
+                        <a href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="h-font-size--16 h-clr--black-3 privacy-policy"><u>${Resource.msg('label.privacy.policy', 'giftcards', null)}</u></a>
                     </form>
                     <isinclude template="product/components/addToCartProduct" />
+                    <a href="${URLUtils.url('Page-Show', 'cid', 'gift-card-terms-and-conditions')}" class="h-font-size--16 h-clr--black-3"><u>${Resource.msg('label.gc.terms.and.conditions', 'giftcards', null)}</u></a>
                     <isslot id="e-gify-video-upload-consent" context="global" description="giftcard upload tncs"  />
 
                     </div>
