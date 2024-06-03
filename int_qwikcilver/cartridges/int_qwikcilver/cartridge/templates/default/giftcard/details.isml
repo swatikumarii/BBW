@@ -115,9 +115,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <span class="same-day-delivery-wrap col-12 d-flex align-items-center"><input type="checkbox" class="same-day-delivery"
-                                        name="same-day-delivery" id="delivery-check" /><label class="schedule-date-checkbox mb-0 pl-2"
-                                        for="delivery-check"><span>${Resource.msg('gift.card.same.day.delivery.msg', 'forms', null)}</span></label></span>
+                                <span class="same-day-delivery-wrap custom-checkbox col-12 d-flex align-items-center">
+                                    <input type="checkbox" class="same-day-delivery custom-control-input" name="same-day-delivery" id="delivery-check" />
+                                    <label class="schedule-date-checkbox mb-0 pl-2 custom-control-label" for="delivery-check">
+                                        <span>${Resource.msg('gift.card.same.day.delivery.msg', 'forms', null)}</span>
+                                    </label>
+                                </span>
                             </div>
                         </div>
                         <div class="row gift-cert-message">
@@ -165,6 +168,7 @@
                             class="h-font-size--16 h-clr--black-3 privacy-policy"><u>${Resource.msg('label.privacy.policy', 'giftcards', null)}</u></a>
                         <isinclude template="product/components/addToCartProduct" />
                     </form>
+                    <div id="add-to-cart-snackbar">${Resource.msg('cart.updated.giftcard', 'giftcards', null)}</div>
                     <a href="${URLUtils.url('Page-Show', 'cid', 'gift-card-terms-and-conditions')}" class="h-font-size--16 h-clr--black-3"><u>${Resource.msg('label.gc.terms.and.conditions', 'giftcards', null)}</u></a>
                     <isslot id="e-gify-video-upload-consent" context="global" description="giftcard upload tncs"  />
 

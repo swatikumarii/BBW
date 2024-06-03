@@ -1,19 +1,46 @@
 @import "../../_brand/_api/api";
 
 .corporate-gifting-landing-page {
-    .b-select-wrap {
-        border: unset;
-        height: unset;
-        position: relative;
 
-        &::after {
-            border: 0.0625rem solid colour(gray, 5);
+    input[type=text] {
+        height: 3rem;
+    }
+
+    .b-select-wrap {
+        border: 1px solid colour(gray, 5);
+        position: relative;
+        box-sizing: border-box;
+
+        &:hover {
+            background: none;
         }
 
-        .b-select {
-            border: 0.0625rem solid colour(gray, 5);
-            height: 3.125rem;
-            border-radius: 0;
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 35px;
+            border-left: 1px solid colour(gray, 5);
+            background-size: 15px;
+            pointer-events: inherit;
+        }
+
+        &:hover:after {
+            background: none;
+        }
+
+        select {
+            border: 0;
+            background: transparent;
+            padding: 0 2.25rem 0 0.625rem;
+            height: 48px;
+            width: 100%;
+            cursor: pointer;
+            appearance: none;
+            z-index: 1;
+            position: absolute;
         }
     }
 }

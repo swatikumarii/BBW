@@ -4,6 +4,8 @@ var server = require('server');
 var Resource = require('dw/web/Resource');
 var URLUtils = require('dw/web/URLUtils');
 var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
+var seo = require('*/cartridge/scripts/middleware/seo');
+
 var PAGE_SIZE_ITEMS = 1000;
 
 server.extend(module.superModule);
@@ -127,13 +129,12 @@ server.replace('Show', function (req, res, next) {
         createAccountUrl: createAccountUrl
     });
     next();
-});
+}, seo.addCurrentPageMetaData);
 
 server.replace('ShowOthers', function (req, res, next) {
     var id = req.querystring.id;
     var productListMgr = require('dw/customer/ProductListMgr');
     var apiList = productListMgr.getProductList(id);
-    var firstName = apiList.owner.profile.firstName;
     var breadcrumbs = [{
         htmlValue: Resource.msg('global.home', 'common', null),
         url: URLUtils.home().toString()
@@ -146,6 +147,7 @@ server.replace('ShowOthers', function (req, res, next) {
         });
     }
     if (apiList) {
+        var firstName = apiList.owner.profile.firstName;
         if (apiList.owner.ID === req.currentCustomer.raw.ID) {
             res.redirect(URLUtils.url('Wishlist-Show'));
         }
@@ -184,6 +186,6 @@ server.replace('ShowOthers', function (req, res, next) {
         });
     }
     next();
-});
+}, seo.addCurrentPageMetaData);
 
 module.exports = server.exports();
