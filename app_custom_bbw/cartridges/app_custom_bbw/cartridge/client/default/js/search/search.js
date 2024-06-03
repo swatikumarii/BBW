@@ -586,6 +586,8 @@ module.exports = {
             if (seoUrl) {
                 window.history.pushState({}, null, seoUrl);
             }
+            var liText = $(this).text();
+            $('#ingredient-search').val(liText.trim());
 
             $.ajax({
                 url: searchUrl,
@@ -606,48 +608,70 @@ module.exports = {
             });
         });
 
+        $('#ingredient-search').on('keyup', function () {
+            if ($(this).val().length > 0) {
+                $('#search-ingredient-div').removeClass('d-md-none');
+            } else {
+                $('#search-ingredient-div').addClass('d-md-none');
+            }
+        });
+
         $('#ingredient-search').on('keydown', function (event) {
             var inputValue = $(this).val();
+            var inputField = $('#ingredient-search');
+
             if (
                 event.key === 'Enter' ||
                 event.which === 13 ||
                 $(event.target).hasClass('search-icon')
             ) {
-                // var inputValue = $(this).val();
-                $.spinner().start();
-                var seoHref = $(this).data('seo-href');
-                var href = $(this).data('href');
-                var updatedSEOHref = seoHref + '&prefv1=' + inputValue;
-                var updatedHref = href + ('prefv1', inputValue);
-                var searchUrl = $('#shopByIngredientUrl').data('href');
-                var seoUrl = $('#shopByIngredientUrl').data('seo-href');
+                var firstVisibleLi = $('#search-ingredient ul li')
+                    .filter((_, li) => $(li).css('display') !== 'none')
+                    .first();
 
-                if (inputValue.length !== 0) {
-                    searchUrl = updatedHref;
-                    seoUrl = updatedSEOHref || searchUrl;
-                }
-
-                if (seoUrl) {
-                    window.history.pushState({}, null, seoUrl);
-                }
-
-                $.ajax({
-                    url: searchUrl,
-                    data: {
-                        page: $('.grid-footer').data('page-number'),
-                        selectedUrl: searchUrl
-                    },
-                    method: 'GET',
-                    success: function (response) {
-                        parseResults(response);
-                        searchAlphabetSort();
-                        $.spinner().stop();
-                        lazyload.lazyLoad();
-                    },
-                    error: function () {
-                        $.spinner().stop();
+                if (firstVisibleLi.length) {
+                    if (inputValue.length !== 0) {
+                        var ingredientName = firstVisibleLi.find('a').text();
+                        inputValue = ingredientName;
+                        inputField.val(ingredientName);
                     }
-                });
+
+                    // var inputValue = $(this).val();
+                    $.spinner().start();
+                    var seoHref = $(this).data('seo-href');
+                    var href = $(this).data('href');
+                    var updatedSEOHref = seoHref + '&prefv1=' + inputValue;
+                    var updatedHref = href + ('prefv1', inputValue);
+                    var searchUrl = $('#shopByIngredientUrl').data('href');
+                    var seoUrl = $('#shopByIngredientUrl').data('seo-href');
+
+                    if (inputValue.length !== 0) {
+                        searchUrl = updatedHref;
+                        seoUrl = updatedSEOHref || searchUrl;
+                    }
+
+                    if (seoUrl) {
+                        window.history.pushState({}, null, seoUrl);
+                    }
+
+                    $.ajax({
+                        url: searchUrl,
+                        data: {
+                            page: $('.grid-footer').data('page-number'),
+                            selectedUrl: searchUrl
+                        },
+                        method: 'GET',
+                        success: function (response) {
+                            parseResults(response);
+                            searchAlphabetSort();
+                            $.spinner().stop();
+                            lazyload.lazyLoad();
+                        },
+                        error: function () {
+                            $.spinner().stop();
+                        }
+                    });
+                }
             }
         });
     }

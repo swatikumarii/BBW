@@ -19,40 +19,22 @@
                         autocomplete="off" />
 
                 </fieldset>
-                <isloop iterator="${pdict.ingredientsNames}" alias="ingredientsName" status="loopstate">
-                    <div id="search-ingredient" class="alphabet-group">
-                        <ul>
-                            <li class="level-2 text-justify mt-3 mb-3">
-                                <a class="h-clr--black-3" href='#'
-                                    data-href="${URLUtils.https('Search-ShowAjax', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', ingredientsName)}"
-                                    data-seo-href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', ingredientsName)}"
-                                    data-ingredientname="${ingredientsName}">
-                                    ${ingredientsName}</a>
-                            </li>
-                        </ul>
-                    </div>
-                </isloop>
-            </div>
-        </div>
-        <iscomment>
-            <div class="row">
-                <div class="col-12 ">
-                    <isloop iterator="${pdict.ingredientsNames}" alias="ingredientGroup" status="loopstate">
-                        <div id="${ingredientGroup.key}" class="alphabet-group">
+                <div id="search-ingredient-div" class="alphabet-group d-md-none">
+                    <isloop iterator="${pdict.ingredientsNames}" alias="ingredientsName" status="loopstate">
+                        <div id="search-ingredient" class="alphabet-group">
                             <ul>
                                 <li class="level-2 text-justify mt-3 mb-3">
-                                    <button class="h-clr--black-3"
-                                        data-href="${URLUtils.https('Search-ShowAjax', 'cgid', 'shop-by-fragrance', 'prefn1', 'ingredients', 'prefv1', ingredientGroup)}"
-                                        data-seo-href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-fragrance', 'prefn1', 'ingredients', 'prefv1', ingredientGroup)}"
-                                        data-ingredientname="${ingredientGroup}">
-                                        ${ingredientGroup}</button>
+                                    <a class="h-clr--black-3" href='#'
+                                        data-href="${URLUtils.https('Search-ShowAjax', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', ingredientsName)}"
+                                        data-seo-href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', ingredientsName)}"
+                                        data-ingredientname="${ingredientsName}">${ingredientsName}</a>
                                 </li>
                             </ul>
                         </div>
                     </isloop>
                 </div>
             </div>
-        </iscomment>
+        </div>
     </isif>
 
     <div class="row no-gutters">
