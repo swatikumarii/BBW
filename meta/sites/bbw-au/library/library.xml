@@ -2424,6 +2424,32 @@
         </folder-links>
     </content>
 
+    <content content-id="order.pending.seo">
+        <display-name xml:lang="x-default">Order Pending Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Order Pending</page-title>
+            <page-description xml:lang="x-default">Order Pending</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="order.failed.seo">
+        <display-name xml:lang="x-default">Order Failed Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Order Failed</page-title>
+            <page-description xml:lang="x-default">Order Failed</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
 	<content content-id="order.history.seo">
         <display-name xml:lang="x-default">Order History Seo</display-name>
         <online-flag>true</online-flag>
@@ -2521,7 +2547,7 @@
         </folder-links>
     </content>
 
-    <content content-id="wishlist-showothers.seo">
+    <content content-id="wishlist.showothers.seo">
         <display-name xml:lang="x-default">Love-It List</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7871,12 +7897,12 @@ margin-bottom: 16px;&#13;
         </custom-attributes>
     </content>
     <content content-id="promo-modal">
-        <display-name xml:lang="x-default">Promo Modal</display-name>
-        <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
-        <page-attributes/>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div aria-hidden="true" aria-labelledby="promotionModalTitle" class="modal fade hide" id="promotionModal" role="dialog" tabindex="-1"&gt;
+    <display-name xml:lang="x-default">Promo Modal</display-name>
+    <online-flag>true</online-flag>
+    <searchable-flag>false</searchable-flag>
+    <page-attributes/>
+    <custom-attributes>
+        <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div aria-hidden="true" aria-labelledby="promotionModalTitle" class="modal fade hide" id="promotionModal" role="dialog" tabindex="-1"&gt;
 &lt;div class="modal-dialog promotion-dialog" role="document"&gt;
 &lt;div class="modal-content promotion-content border-0"&gt;
 &lt;div class="modal-header border-0 pb-0 pt-0"&gt;
@@ -7891,6 +7917,6 @@ margin-bottom: 16px;&#13;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</custom-attribute>
-        </custom-attributes>
-    </content>
+    </custom-attributes>
+</content>
 </library>
