@@ -161,8 +161,8 @@
                                 </div>
                             </isif>
                         </isloop>
+                        <isinclude template="product/components/addToCartProduct" />
                     </form>
-                    <isinclude template="product/components/addToCartProduct" />
                     <isslot id="e-gify-video-upload-consent" context="global" description="giftcard upload tncs"  />
 
                     </div>
