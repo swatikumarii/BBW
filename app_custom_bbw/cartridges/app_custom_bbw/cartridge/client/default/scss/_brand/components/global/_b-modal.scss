@@ -63,3 +63,18 @@
         }
     }
 }
+
+// Giftcard remove popup
+
+#delete-line-item-modal {
+    .delete-confirmation-body {
+        &.modal-header {
+            height: 20px;
+        }
+
+        .close {
+            height: 40px;
+            width: 45px;
+        }
+    }
+}
