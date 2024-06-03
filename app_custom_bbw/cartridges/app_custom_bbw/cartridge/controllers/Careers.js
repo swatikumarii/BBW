@@ -3,38 +3,47 @@
 var server = require('server');
 var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var Resource = require('dw/web/Resource');
-var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 /**
  * Careers-Show : The Careers-Show endpoint shows the magazine page's data.
  * @name Careers-Show
  * @function
  */
-server.get('Show', function (req, res, next) {
-    var CustomObjectMgr = require('dw/object/CustomObjectMgr');
-    var careersHelpers = require('*/cartridge/scripts/helpers/careersHelpers');
-    var careers = CustomObjectMgr.getAllCustomObjects('careers');
-    careers = careersHelpers.getCareers(careers);
-    res.render('careers/careers', {
-        careers: careers
-    });
-    next();
-}, pageMetaData.computedPageMetaData);
+server.get(
+    'Show',
+    function (req, res, next) {
+        var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+        var careersHelpers = require('*/cartridge/scripts/helpers/careersHelpers');
+        var careers = CustomObjectMgr.getAllCustomObjects('careers');
+        careers = careersHelpers.getCareers(careers);
+        res.render('careers/careers', {
+            careers: careers
+        });
+        next();
+    },
+    seo.addCurrentPageMetaData
+);
 
 /**
  * Careers-ApplyForJob : The Careers-ApplyForJob endpoint shows the job vacancy form.
  * @name Careers-ApplyForJob
  * @function
  */
-server.get('ApplyForJob', csrfProtection.generateToken,
+server.get(
+    'ApplyForJob',
+    csrfProtection.generateToken,
     function (req, res, next) {
         var careersHelpers = require('*/cartridge/scripts/helpers/careersHelpers');
         var Site = require('dw/system/Site');
         var jobName = req.querystring.jobName;
         var jobApplicationForm = server.forms.getForm('job');
         jobApplicationForm.clear();
-        var jobDescription = careersHelpers.getJobDescription(req.querystring.jobId);
-        var careersEmail = Site.current.getCustomPreferenceValue('careersEmail');
+        var jobDescription = careersHelpers.getJobDescription(
+            req.querystring.jobId
+        );
+        var careersEmail =
+            Site.current.getCustomPreferenceValue('careersEmail');
 
         res.render('careers/applyForJob', {
             jobApplicationForm: jobApplicationForm,
@@ -44,14 +53,18 @@ server.get('ApplyForJob', csrfProtection.generateToken,
             careersEmail: careersEmail
         });
         next();
-    }, pageMetaData.computedPageMetaData);
+    },
+    seo.addCurrentPageMetaData
+);
 
 /**
  * Careers-SubmitJobApplication : The Careers-SubmitJobApplication endpoint submits the candidate's data.
  * @name Careers-SubmitJobApplication
  * @function
  */
-server.post('SubmitJobApplication', server.middleware.https,
+server.post(
+    'SubmitJobApplication',
+    server.middleware.https,
     csrfProtection.validateAjaxRequest,
     function (req, res, next) {
         var jobId = req.querystring.jobId;
@@ -84,12 +97,14 @@ server.post('SubmitJobApplication', server.middleware.https,
 
         try {
             Transaction.wrap(function () {
-                newCandidate = CustomObjectMgr.createCustomObject('jobCandidate', form.email);
+                newCandidate = CustomObjectMgr.createCustomObject(
+                    'jobCandidate',
+                    form.email
+                );
                 newCandidate.custom.candidateName = form.name;
                 newCandidate.custom.candidateNumber = form.phone;
                 newCandidate.custom.candidateResume = resume[0].fullPath;
                 newCandidate.custom.aboutCandidate = form.yourself;
-
             });
         } catch (e) {
             // empty
@@ -109,10 +124,24 @@ server.post('SubmitJobApplication', server.middleware.https,
         // Render the template with the data in the Hash
         try {
             var content = template.render(mailAttributes);
-            mail.addTo(jobDetails.custom.emailId || Site.current.getCustomPreferenceValue('careersEmail'));
+            mail.addTo(
+                jobDetails.custom.emailId ||
+                    Site.current.getCustomPreferenceValue('careersEmail')
+            );
             mail.addCc(jobDetails.custom.ccEmail || '');
-            mail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail'));
-            mail.setSubject(Resource.msgf('job.candidate', 'careers', null, jobDetails.custom.city, jobDetails.custom.job, user.name));
+            mail.setFrom(
+                Site.current.getCustomPreferenceValue('customerServiceEmail')
+            );
+            mail.setSubject(
+                Resource.msgf(
+                    'job.candidate',
+                    'careers',
+                    null,
+                    jobDetails.custom.city,
+                    jobDetails.custom.job,
+                    user.name
+                )
+            );
             mail.setContent(content);
             mail.send();
         } catch (e) {
@@ -124,6 +153,7 @@ server.post('SubmitJobApplication', server.middleware.https,
             jobApplicationForm: form
         });
         next();
-    });
+    }
+);
 
 module.exports = server.exports();

@@ -199,7 +199,8 @@ server.get(
             });
         }
         return next();
-    }
+    },
+    seo.addCurrentPageMetaData
 );
 
 /**
@@ -279,7 +280,8 @@ server.get(
             });
         }
         return next();
-    }
+    },
+    seo.addCurrentPageMetaData
 );
 
 /**
@@ -304,7 +306,8 @@ server.get(
         viewData.breadcrumbs = breadcrumbs;
         res.render('account/orderTracking');
         return next();
-    }
+    },
+    seo.addCurrentPageMetaData
 );
 
 /**

@@ -106,6 +106,9 @@ function login() {
                 form.spinner().stop();
                 if (!data.success) {
                     if (data.isMigratedNotUpdated) {
+                        if (form.hasClass('login')) {
+                            $('#loginModal').modal('show');
+                        }
                         $('.migration-login-message').removeClass('d-none');
                         $('.before-login').addClass('d-none');
                     } else {
