@@ -274,6 +274,11 @@ module.exports = $.extend({}, detail, {
                         data: form,
                         success: function () {
                             handlePostCartAdd(data);
+                            var addToCartSnackbar = $('#add-to-cart-snackbar');
+                            addToCartSnackbar.addClass('show');
+                            setTimeout(function () {
+                                addToCartSnackbar.removeClass('show');
+                            }, 3000);
                             $('body').trigger('product:afterAddToCart', data);
                             $.spinner().stop();
                             base.miniCartReportingUrl(data.reportingURL);

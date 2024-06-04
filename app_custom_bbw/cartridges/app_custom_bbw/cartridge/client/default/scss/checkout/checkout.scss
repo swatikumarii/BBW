@@ -713,6 +713,10 @@ input[type="tel"],
     }
 }
 
+.promo-details-wrap {
+    width: fit-content;
+}
+
 .promo-details-tooltip {
     border: 1px solid;
     width: 260px;
@@ -727,6 +731,7 @@ input[type="tel"],
 
     .promo-details-content {
         padding: 0 24px 0 16px;
+        max-height: 350px;
         overflow-y: scroll;
     }
 

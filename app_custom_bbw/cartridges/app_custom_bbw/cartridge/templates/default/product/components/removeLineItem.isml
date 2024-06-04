@@ -1,25 +1,32 @@
 <div class="modal fade" id="delete-line-item-modal" tabindex="-1" role="dialog" aria-labelledby="delete-line-item-modal">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header delete-confirmation-body">
-                <h5 class="modal-title">${Resource.msg('normal.delete.product.confirmation.modal.msg1','giftcards',null)}</h5>
+            <div class="modal-header delete-confirmation-body border-0">
                 <button type="button" class="close pull-right" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">
+                        <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
+                    </span>
                     <span class="sr-only"> </span>
                 </button>
                 <p class="product-to-remove"></p>
             </div>
             <div class="modal-body delete-confirmation-body">
-                <span class="modal-content-data">${Resource.msg('normal.delete.product.confirmation.modal.msg2','giftcards',null)}</span>
-                <p class="product-to-remove"></p>
+                <div class="col-12 pb-0">
+                    <h5 class="modal-title h-font-size--18 h-clr--black-1 h-fw--bold">${Resource.msg('normal.delete.product.confirmation.modal.msg1','giftcards',null)}</h5>
+                    <span class="modal-content-data h-font-size--16 login-para h-clr--gray ">${Resource.msg('normal.delete.product.confirmation.modal.msg2','giftcards',null)}</span>
+                    <p class="product-to-remove"></p>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn delete-lineitem-confirmation-btn"
+            <div class="modal-footer border-0">
+                <button type="button" class="btn delete-lineitem-confirmation-btn btn-primary text-uppercase"
                     data-dismiss="modal"
                     data-pid="${product.id}"
                     data-addtocarturl="${pdict.addToCartUrl}"
                     data-action="${pdict.removeLineItemURL}"
-                >${Resource.msg('button.confirm','address',null)}</button>
+                >${Resource.msg('button.confirm.remove','giftcards',null)}</button>
+                <button type="button" class="btn btn-primary text-uppercase close-btn" data-dismiss="modal" data-oid="${pdict.order.orderNumber}"
+                    data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
+                    data-action="${URLUtils.url('Giftcard-RemoveLineItems')}">${Resource.msg('button.deny.remove', 'giftcards', null)}</button>
             </div>
         </div>
     </div>
