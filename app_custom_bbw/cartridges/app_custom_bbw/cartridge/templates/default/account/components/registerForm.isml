@@ -99,6 +99,7 @@
             id="registration-form-email-confirm"
             data-missing-error="${Resource.msg('error.message.email.required', 'forms', null)}"
             data-pattern-mismatch="${Resource.msg('error.message.parse.email', 'forms', null)}"
+            data-email-mismatch="${Resource.msg('error.message.mismatch.email', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.email.50orless', 'forms', null)}"
             aria-describedby="form-email-confirm-error" required <isprint
             value=${pdict.profileForm.customer.emailconfirm.attributes} encoding="off" />/>
