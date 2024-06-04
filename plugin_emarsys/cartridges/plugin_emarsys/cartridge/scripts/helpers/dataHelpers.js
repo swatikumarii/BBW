@@ -1,5 +1,6 @@
 'use strict';
 
+var Site = require('dw/system/Site');
 /**
  * prepareEmrasysData function is responsible to prepare the Emrasys  transactional request
  * @param  {object} orderData order data
@@ -9,7 +10,6 @@
  * @returns {object} Emarsys Data
  */
 function prepareEmrasysData(userEmail,pagecat, ecom) {
-    var Site = require('dw/system/Site');
     var BasketMgr = require('dw/order/BasketMgr');
 
     var currentBasket = BasketMgr.getCurrentBasket();
@@ -55,9 +55,15 @@ function prepareEmrasysOrderData(orderData) {
         for (var i = 0; i < orderData.items.items.length; i++) {
             var item = orderData.items.items[i];
             var productArray = {
-                id: item.id,
-                item: item.productName,
-                price: item.price && item.price.value ? ( item.price.value * item.quantity ) : 0,
+                item: item.id,
+                price:
+                    item.priceTotal && item.priceTotal.priceValue
+                        ? item.priceTotal.priceValue *
+                          item.quantity *
+                          Site.getCurrent().getCustomPreferenceValue(
+                              'currentCurrencyToMyrConversionRate'
+                          )
+                        : 0,
                 quantity: item.quantity
             };
             products.push(productArray);
@@ -70,7 +76,7 @@ function prepareEmrasysOrderData(orderData) {
     emarsysPurchaseCommand.items = products;
 
     return {
-        pagecat: 'orderConfirm',
+        pagecat: null,
         emarsys_purchase_command: emarsysPurchaseCommand,
         email: orderData.orderEmail,
         cartcontent: cartcontent,
