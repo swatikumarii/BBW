@@ -4899,7 +4899,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                             &lt;p class="mb-0"&gt;&lt;strong class="h-fw--semibold h-clr--black-3"&gt;Signing up for our mailing&#13;
                                     list is easy!&lt;/strong&gt;&lt;br /&gt;&#13;
                                 Create an account with us to start shopping &amp;amp; get the latest news from Bath &amp;amp;&#13;
-                                Body Works. Sign up to create an account&lt;a href="#"&#13;
+                                Body Works. Sign up to create an account&lt;a href="$url('Login-CreateAccount')$"&#13;
                                     style="text-decoration: none;"&gt; here &lt;/a&gt;&amp;amp; access the best of your favorite&#13;
                                 store! To be updated on all offers, simply input your email address at the bottom of the&#13;
                                 page and click subscribe.&lt;/p&gt;&#13;
