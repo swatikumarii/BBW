@@ -467,6 +467,7 @@ server.append(
         this.on('route:BeforeComplete', function () {
             // send email when order total 0
             var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
+            var dynamicBadgeHelpers = require('*/cartridge/scripts/helpers/dynamicBadgeHelpers');
             var viewData = res.getViewData();
             var OrderMgr = require('dw/order/OrderMgr');
             var order = OrderMgr.getOrder(viewData.order.orderNumber);
@@ -481,6 +482,15 @@ server.append(
             }
             if (order.status.value === Order.ORDER_STATUS_CREATED) {
                 res.redirect(URLUtils.url('Order-Pending'));
+            }
+            if (
+                req.currentCustomer &&
+                req.currentCustomer.raw &&
+                req.currentCustomer.raw.profile
+            ) {
+                dynamicBadgeHelpers.updateCartDetailInProfile(
+                    req.currentCustomer.raw.profile
+                );
             }
         });
         return next();

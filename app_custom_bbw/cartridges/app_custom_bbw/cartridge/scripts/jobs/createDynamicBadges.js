@@ -94,7 +94,7 @@ function setInPurchase(products) {
             for (var i = 0; i < products.length; i++) {
                 var product = products[i];
                 if (product.activeData.unitsYear > 0) {
-                    product.custom.dynamicBadge =Resource.msgf('label.dynamic.badge.purchases', 'common', null, product.activeData.unitsYear);
+                    product.custom.dynamicBadge = Resource.msgf('label.dynamic.badge.purchases', 'common', null, product.activeData.unitsYear);
                 }
             }
         });
@@ -152,18 +152,14 @@ function setInCart(products) {
                 if (cartProducts && cartProducts.length > 0) {
                     for (var i = 0; i < cartProducts.length; i++) {
                         var cartProduct = cartProducts[i];
-                        var obj = cartProduct.split('#');
-                        if (obj && obj.length === 2) {
-                            var productCartIndex = getIndexOfProductCarts(productCarts, obj[0]);
-                            if (productCartIndex >= 0) {
-                                productCarts[productCartIndex].count +=
-                                    Number(obj[1], 10);
-                            } else {
-                                productCarts.push({
-                                    productId: obj[0],
-                                    count: Number(obj[1], 10)
-                                });
-                            }
+                        var productCartIndex = getIndexOfProductCarts(productCarts, cartProduct);
+                        if (productCartIndex >= 0) {
+                            productCarts[productCartIndex].count++;
+                        } else {
+                            productCarts.push({
+                                productId: cartProduct,
+                                count: 1
+                            });
                         }
                     }
                 }
@@ -195,12 +191,16 @@ function setInCart(products) {
  */
 function execute() {
     var allProducts = ProductMgr.queryAllSiteProducts().asList().toArray();
-    allProducts = allProducts.filter(function (product) {
-        return (
-            product.custom &&
-            'isDynamicBadgeEnabled' in product.custom &&
-            product.custom.isDynamicBadgeEnabled
-        );
+    Transaction.wrap(function () {
+        allProducts = allProducts.filter(function (product) {
+            // eslint-disable-next-line
+            product.custom.dynamicBadge = '';
+            return (
+                product.custom &&
+                'isDynamicBadgeEnabled' in product.custom &&
+                product.custom.isDynamicBadgeEnabled
+            );
+        });
     });
     setInPurchase(allProducts);
     setInCart(allProducts);
