@@ -34,7 +34,7 @@ function getGoogleFeeds() {
     var category = '';
     var categories = '';
     var config = {
-        types: ['mediumLarge', 'extraLarge', 'small'],
+        types: ['mediumLarge'],
         quantity: 'all'
     };
     try {
