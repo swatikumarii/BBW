@@ -89,12 +89,22 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
     if (!canBeAdded) {
         result.error = true;
         if (errorType === 'maxOrderQty') {
-            result.message = Resource.msgf(
-                'error.alert.selected.quantity.cannot.be.added.for.max',
-                'product',
-                null,
-                maxOrderQty,
-                product.name);
+            if (maxOrderQty < 0) {
+                result.message = Resource.msgf(
+                    'error.alert.selected.quantity.cannot.be.added.negative',
+                    'product',
+                    null,
+                    maxOrderQty,
+                    product.name
+                );
+            } else {
+                result.message = Resource.msgf(
+                    'error.alert.selected.quantity.cannot.be.added.for.max',
+                    'product',
+                    null,
+                    maxOrderQty,
+                    product.name);
+            }
         } else {
             result.message = Resource.msgf(
                 'error.alert.selected.quantity.cannot.be.added.for',

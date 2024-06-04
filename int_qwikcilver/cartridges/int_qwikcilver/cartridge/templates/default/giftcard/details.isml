@@ -14,8 +14,8 @@
         <div class="row gc-container product-detail m-auto">
             <div class="col-12 col-md-6">
                 <div class="main-image">
-                    <img class="product-image" src="${product.images.large[0].url}"
-                        alt="${product.images.large[0].alt}" title="${product.images.large[0].title}" width="360" />
+                    <img class="product-image" src="${product.images.mediumLarge[0].url}"
+                        alt="${product.images.mediumLarge[0].alt}" title="${product.images.mediumLarge[0].title}" width="360" />
                 </div>
                 <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
                     <isif condition="${attr.id === 'style'}">
@@ -115,9 +115,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <span class="same-day-delivery-wrap col-12 d-flex align-items-center"><input type="checkbox" class="same-day-delivery"
-                                        name="same-day-delivery" id="delivery-check" /><label class="schedule-date-checkbox mb-0 pl-2"
-                                        for="delivery-check"><span>${Resource.msg('gift.card.same.day.delivery.msg', 'forms', null)}</span></label></span>
+                                <span class="same-day-delivery-wrap custom-checkbox col-12 d-flex align-items-center">
+                                    <input type="checkbox" class="same-day-delivery custom-control-input" name="same-day-delivery" id="delivery-check" />
+                                    <label class="schedule-date-checkbox mb-0 pl-2 custom-control-label" for="delivery-check">
+                                        <span>${Resource.msg('gift.card.same.day.delivery.msg', 'forms', null)}</span>
+                                    </label>
+                                </span>
                             </div>
                         </div>
                         <div class="row gift-cert-message">
@@ -161,8 +164,12 @@
                                 </div>
                             </isif>
                         </isloop>
+                        <a href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}"
+                            class="h-font-size--16 h-clr--black-3 privacy-policy"><u>${Resource.msg('label.privacy.policy', 'giftcards', null)}</u></a>
+                        <div id="add-to-cart-snackbar">${Resource.msg('cart.updated.giftcard', 'giftcards', null)}</div>
+                        <isinclude template="product/components/addToCartProduct" />
                     </form>
-                    <isinclude template="product/components/addToCartProduct" />
+                    <a href="${URLUtils.url('Page-Show', 'cid', 'gift-card-terms-and-conditions')}" class="h-font-size--16 h-clr--black-3"><u>${Resource.msg('label.gc.terms.and.conditions', 'giftcards', null)}</u></a>
                     <isslot id="e-gify-video-upload-consent" context="global" description="giftcard upload tncs"  />
 
                     </div>

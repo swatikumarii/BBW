@@ -49,6 +49,17 @@
         <pipeline-alias pipeline="Order-Status">track-order</pipeline-alias>
         <pipeline-alias pipeline="Cart-Show">cart</pipeline-alias>
         <pipeline-alias pipeline="Blogs-Show">get-inspired</pipeline-alias>
+        <pipeline-alias pipeline="CorporateGifting-Landing">corporate-gifting</pipeline-alias>
+        <pipeline-alias pipeline="Account-Show">dashboard</pipeline-alias>
+        <pipeline-alias pipeline="Order-Confirm">order-confirm</pipeline-alias>
+        <pipeline-alias pipeline="Order-Pending">order-pending</pipeline-alias>
+        <pipeline-alias pipeline="Order-Failed">order-failed</pipeline-alias>
+        <pipeline-alias pipeline="Giftcard-Show">e-giftcard</pipeline-alias>
+        <pipeline-alias pipeline="Order-Details">order-details</pipeline-alias>
+        <pipeline-alias pipeline="PaymentInstruments-List">payment-methods-list</pipeline-alias>
+        <pipeline-alias pipeline="PaymentInstruments-AddPayment">add-payment-method</pipeline-alias>
+        <pipeline-alias pipeline="Wishlist-ShowOthers">wishlist-others</pipeline-alias>
+        <pipeline-alias pipeline="Login-Logout">logout</pipeline-alias>
     </pipeline-aliases>
     <pipeline-trailing-slash>false</pipeline-trailing-slash>
     <pipeline-perform-redirect>false</pipeline-perform-redirect>

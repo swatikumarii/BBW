@@ -104,3 +104,7 @@ selectWindow.on('scroll', function () {
         previousScroll = currentScroll; // Update previous scroll position
     }
 });
+
+$(document).on('click', '.close-btn', function () {
+    $(this).parents('.modal').find('button.close').trigger('click');
+});

@@ -456,8 +456,11 @@ function handleVariantResponse(response, $productContainer) {
     }
 
     // Update primary images
-    var primaryImageUrls = response.product.images.large;
+    var primaryImageUrls = response.product.images.extraLarge;
     createCarousel(primaryImageUrls, $productContainer);
+    if (primaryImageUrls && primaryImageUrls.length > 0) {
+        $('.gc-container .product-image').attr('src', primaryImageUrls[0].absURL);
+    }
 
     // Update pricing
     if (!isChoiceOfBonusProducts) {
@@ -579,6 +582,25 @@ base.selectAttribute = function () {
             attributeSelect(e.currentTarget.value, $productContainer);
         }
     );
+};
+
+base.colorAttribute = function () {
+    $(document).on('click', '[data-attr="style"] button', function (e) {
+        e.preventDefault();
+
+        if ($(this).attr('disabled') || $(this).hasClass('selected')) {
+            return;
+        }
+
+        var $productContainer = $(this).closest('.set-item');
+        if (!$productContainer.length) {
+            $productContainer = $(this).closest('.product-detail');
+        }
+
+        attributeSelect($(this).attr('data-url'), $productContainer);
+        $(this).parents('.style').find('button.selected').removeClass('selected');
+        $(this).addClass('selected');
+    });
 };
 
 /**
@@ -879,6 +901,11 @@ module.exports = $.extend({}, base, {
                         data: form,
                         success: function () {
                             handlePostCartAdd(data);
+                            var addToCartSnackbar = $('#add-to-cart-snackbar');
+                            addToCartSnackbar.addClass('show');
+                            setTimeout(function () {
+                                addToCartSnackbar.removeClass('show');
+                            }, 3000);
                             $('body').trigger('product:afterAddToCart', data);
                             $.spinner().stop();
                             base.miniCartReportingUrl(data.reportingURL);

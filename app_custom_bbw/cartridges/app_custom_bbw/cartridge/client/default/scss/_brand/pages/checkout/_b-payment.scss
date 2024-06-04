@@ -16,12 +16,12 @@
 
             .customer {
                 &.registered {
-                    display: none;
-                    /* stylelint-disable selector-no-redundant-nesting-selector */
-                    & + .shipping { // stylelint-disable
+                    display: none;/* stylelint-disable selector-no-redundant-nesting-selector */
+                    & + .shipping {
+                        // stylelint-disable
                         display: none;
 
-                        & + .billing {
+                        &   + .billing {
                             border-top: unset;
                             padding-top: 0;
                         }
@@ -119,4 +119,142 @@
             }
         }
     }
+}
+// Added CSS for Payment Method
+.payment-methods-container {
+    padding: 0 !important;
+    border: none !important;
+}
+
+.paymentMethod {
+    background-color: colour(gray, 29);
+    border-radius: 2px;
+    cursor: pointer;
+    border: 1px solid colour(gray, 32) !important;
+    margin: 16px 0px !important;
+    padding: 3px 6px !important;
+
+    &.active {
+        background-color: colour(gray, 31) !important;
+        border-radius: 0 !important;
+    }
+
+    input[type=radio] {
+        margin-top: 13px;
+        width: 19px;
+        height: 18px;
+        margin-right: 10px;
+        float: right;
+    }
+
+    label {
+        font-size: 18px;
+        margin-left: 7px;
+        margin-top: 11px;
+        margin-bottom: 10px;
+    }
+}
+
+#rb_scheme {
+    margin-top: 13px;
+    width: 19px;
+    height: 18px;
+    margin-right: 10px;
+    float: right;
+}
+
+.adyen-checkout__input {
+    border-radius: 0px !important;
+    display: block !important;
+    font-size: 1rem !important;
+    height: 3rem !important;
+    padding: 5px 8px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    border: 1px solid colour(gray, 30) !important;
+}
+
+.additionalFields {
+    padding-left: 1.3125rem;
+    padding-right: 1.3125rem;
+    border: 3px solid colour(gray, 31);
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    margin-top: 11px;
+    padding-top: 17px;
+    padding-bottom: 22px;
+    background-color: colour(white);
+}
+
+.adyen-checkout__label__text {
+    font-size: 16px !important;
+
+}
+
+.adyen-checkout__label {
+    margin-bottom: 0.5rem;
+}
+
+.paymentMethod_img {
+    margin: 0px 0.3125em 0 0.3125em;
+}
+
+#lb_scheme {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.payment-options {
+    display: block;
+}
+
+#rb_googlepay {
+    float: right;
+    height: 18px;
+    margin-right: 10px;
+    margin-top: 13px;
+    width: 19px;
+}
+
+#lb_googlepay {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.adyen-tab {
+    background-color: colour(gray, 29) !important;
+    height: 3.125rem;
+    padding: 0.625rem 0.75rem 0.625rem 1rem;
+    border-bottom: 1px solid colour(gray, 32) !important;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.afterpay-tab {
+    background-color: colour(gray, 29);
+    padding: 12px 15px;
+    border: 1px solid colour(gray, 32);
+    border-radius: 2px;
+    cursor: pointer;
+
+    input {
+        float: right;
+        width: 30px;
+        height: 18px;
+        margin-right: -6px;
+    }
+
+    .square-placement {
+        --logo-badge-width: 76px !important;
+    }
+
+    .afterpay-logo {
+        width: var(--logo-badge-width, 106px) !important;
+    }
+}
+
+.adyen-checkout__label {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
 }

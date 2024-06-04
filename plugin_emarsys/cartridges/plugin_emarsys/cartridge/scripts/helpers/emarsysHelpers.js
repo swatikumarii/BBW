@@ -23,9 +23,22 @@ function getScarabQueueData(res) {
                     'CurrentUser' in res && 'profile' in res.CurrentUser
                         ? res.CurrentUser.profile.email
                         : '';
+                var categories = '';
+                for (var index = 0; index < res.breadcrumbs.length; index++) {
+                    if (
+                        index > 1 &&
+                            res.breadcrumbs[index].htmlValue === 'Home'
+                    ) {
+                        break;
+                    }
+                    if (index !== 0) {
+                        categories += '>';
+                    }
+                    categories += res.breadcrumbs[index].htmlValue;
+                }
                 return dataHelpers.prepareEmrasysData(
                     userEmail,
-                    res.category,
+                    categories,
                     null
                 );
             case 'Cart-Show':
@@ -33,7 +46,7 @@ function getScarabQueueData(res) {
                     'CurrentUser' in res && 'profile' in res.CurrentUser && res.CurrentUser.profile
                         ? res.CurrentUser.profile.email
                         : '';
-                return dataHelpers.prepareEmrasysData(userEmail, 'cart', null);
+                return dataHelpers.prepareEmrasysData(userEmail, null, null);
             case 'Checkout-Begin':
                 userEmail =
                     'CurrentUser' in res && 'profile' in res.CurrentUser
@@ -91,8 +104,8 @@ function getScarabQueueData(res) {
                         : '';
                 return dataHelpers.prepareEmrasysData(
                     userEmail,
-                    'productDetail',
-                    null
+                    null,
+                    {detail:res.product.id}
                 );
             case 'Order-Confirm':
                 return dataHelpers.prepareEmrasysOrderData(res.order);
