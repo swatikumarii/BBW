@@ -15,6 +15,7 @@ var CSVStreamWriter = require('dw/io/CSVStreamWriter');
 function getGoogleFeeds() {
     var Resource = require('dw/web/Resource');
     var currentSite = require('dw/system/Site').getCurrent();
+    var ImageModel = require('*/cartridge/models/product/productImages');
     var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
     var productsIterator = ProductMgr.queryAllSiteProducts();
     var fileName = 'google-feed';
@@ -32,10 +33,16 @@ function getGoogleFeeds() {
     var breadcrumbs;
     var category = '';
     var categories = '';
+    var config = {
+        types: ['mediumLarge', 'extraLarge', 'small'],
+        quantity: 'all'
+    };
     try {
         while (productsIterator.hasNext()) {
             xmlStreamWriter.writeStartElement('item');
             product = productsIterator.next();
+            var apiProduct = ProductMgr.getProduct(product.ID);
+            var images = new ImageModel(apiProduct, config);
             breadcrumbs = '';
             categories = '';
             if (product.categories.length) {
@@ -113,10 +120,8 @@ function getGoogleFeeds() {
 
             xmlStreamWriter.writeStartElement('g:image_link');
             xmlStreamWriter.writeCData(
-                product.getImages('mediumLarge').length > 0
-                    ? ' ' +
-                          product.getImages('mediumLarge')[0].absURL.toString() +
-                          ' '
+                images.mediumLarge.length > 0
+                    ? ' ' + images.mediumLarge[0].absURL.toString() + ' '
                     : ' '
             );
             xmlStreamWriter.writeEndElement();
