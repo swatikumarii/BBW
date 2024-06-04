@@ -58,9 +58,12 @@ function setLogoutTimer(autoLogout) {
         $('#autologout').find('#logout-refresh').hide();
         $('#autologout').modal();
         setTimeout(function () {
+            $('#autologout').find('.confirmation').hide();
+            $('#autologout').find('#login-refresh').hide();
+            $('#autologout').find('.logout').show();
+            $('#autologout').find('#logout-refresh').show();
+            $('#autologout').modal();
             localStorage.removeItem('auto-logout');
-            localStorage.setItem('auto-logout:message', new Date().getTime());
-            window.location.reload();
         }, popupDuration * 60000);
     }, remainingTime * 60000);
 }
@@ -101,15 +104,6 @@ module.exports = function () {
     $(function () {
         // remove localStorage value if user is not logged in
         if ($('[data-is-authenticated]').data('is-authenticated') === false) {
-            if (localStorage.getItem('auto-logout:message')) {
-                $('#autologout').find('.confirmation').hide();
-                $('#autologout').find('#login-refresh').hide();
-                $('#autologout').find('.logout').show();
-                $('#autologout').find('#logout-refresh').show();
-                helpers.disableScroll();
-                $('#autologout').modal();
-            }
-            localStorage.removeItem('auto-logout:message');
             localStorage.removeItem('auto-logout');
         }
         // Call hard auto logout callback function on document load
