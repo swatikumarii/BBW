@@ -110,12 +110,12 @@
             }
 
             .headerPrice {
-                width: 104px;
+                width: 133px;
                 padding: 10px 0;
             }
 
             .headerQty {
-                width: 200px;
+                width: 160px;
                 padding: 10px 0;
             }
 
@@ -262,7 +262,7 @@
                 }
 
                 .line-item-price {
-                    width: 104px;
+                    width: 133px;
                     font-size: 16px;
                     line-height: 20px;
                     font-weight: 600;
@@ -278,10 +278,14 @@
                     .strike-through {
                         text-decoration: line-through;
                     }
+
+                    .sales.reduced {
+                        display: block;
+                    }
                 }
 
                 .line-item-quantity {
-                    width: 200px;
+                    width: 160px;
                     padding-top: 10px;
 
                     @include media-down(sm) {
