@@ -92,8 +92,7 @@
                 <isif condition="${pdict.customerName === null}">
                     <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true" aria-label="${category.id}">
                         <li class="level-2-li p-0" role="presentation">
-                            <a href="${URLUtils.url('Login-Show')}" class="level-2-link h-clr--gray h-font-size--16"
-                                role="button">${Resource.msg('mobile.menu.signIn', 'common', null)}</a>
+                            <button class="border-0 bg-white loginPopupBtn level-2-link h-clr--gray h-font-size--16">${Resource.msg('mobile.menu.signIn', 'common', null)}</button>
                         </li>
                         <li class="level-2-li p-0" role="presentation">
                             <a href="${URLUtils.url('Order-Status')}" class="level-2-link h-clr--gray h-font-size--16"

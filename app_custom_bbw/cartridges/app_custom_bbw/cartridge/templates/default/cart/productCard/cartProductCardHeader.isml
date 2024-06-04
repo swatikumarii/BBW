@@ -6,7 +6,7 @@
         <div class="line-item-name">
             ${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}
         </div>
-        <div class="line-item-name-partB">
+        <div class="line-item-name-partB text-capitalize">
             ${lineItem.titlePartB ? lineItem.titlePartB : ''}
         </div>
 </div>
@@ -16,7 +16,7 @@
             <div class="line-item-name">
                 ${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}
             </div>
-            <div class="line-item-name-partB">
+            <div class="line-item-name-partB text-capitalize">
                 ${lineItem.titlePartB ? lineItem.titlePartB : ''}
             </div>
         </div>

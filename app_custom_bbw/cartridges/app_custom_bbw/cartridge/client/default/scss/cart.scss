@@ -11,6 +11,14 @@
     font-size: 14px;
     line-height: 16px;
     letter-spacing: 0.2px;
+
+    img {
+        width: 18px;
+        height: 14px;
+        margin-right: 8px;
+        max-width: 100%;
+        max-height: 100%;
+    }
 }
 
 .cartContainer {
@@ -168,6 +176,7 @@
                             font-size: 16px;
                             line-height: 20px;
                             color: $clr-black-1;
+                            margin-bottom: 5px;
                         }
 
                         .line-item-name-partB {
@@ -206,12 +215,15 @@
                     }
 
                     .line-item-promo {
-                        margin-top: 10px;
                         line-height: 20px;
                         letter-spacing: 0.2px;
 
                         .promotion {
+                            margin-top: 10px;
                             line-height: 16px;
+                            color: colour(red);
+                            letter-spacing: 0.015em;
+                            text-transform: capitalize;
                         }
 
                         .promo-details-wrap {
