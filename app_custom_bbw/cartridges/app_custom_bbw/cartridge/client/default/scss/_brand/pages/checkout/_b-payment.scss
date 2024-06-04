@@ -147,10 +147,11 @@
         float: right;
     }
 
-    #lb_storedCardSVT6QRMGNS43D675 {
-        font-size: 17px;
-        margin-top: 9px;
+    label {
+        font-size: 18px;
         margin-left: 7px;
+        margin-top: 11px;
+        margin-bottom: 10px;
     }
 }
 
@@ -250,4 +251,10 @@
     .afterpay-logo {
         width: var(--logo-badge-width, 106px) !important;
     }
+}
+
+.adyen-checkout__label {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
 }
