@@ -221,6 +221,28 @@ $(document).ready(function () {
         });
     });
 
+
+    $('body').on('click', '.gift-card-form .add-to-cart', function (e) {
+        e.preventDefault(); // prevent default form submission
+        var $form = $(this).closest('form');
+        var $invalidFields = $form.find('input, select, textarea').filter(function() {
+            return this.checkValidity() === false;
+        });
+
+        if ($invalidFields.length > 0) {
+            var $firstInvalidField = $invalidFields.first();
+            $('html, body').animate(
+                {
+                    scrollTop: $firstInvalidField.offset().top - 300
+                },
+                'slow'
+            );
+        } else {
+            $(this).submit();
+        }
+    });
+
+
     $('.gift-card-form :input').blur(function () {
         var $this = $(this);
         var $errorMessage = $this.next('.invalid-feedback');

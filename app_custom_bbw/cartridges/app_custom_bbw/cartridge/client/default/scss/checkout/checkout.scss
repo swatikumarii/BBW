@@ -581,18 +581,50 @@ input[type="tel"],
 }
 
 .info-icon-text {
-    min-width: 260px;
     max-width: 260px;
-    min-height: 300px;
+    width: auto;
     position: absolute;
     right: -290px;
     top: 50%;
     transform: translateY(-50%);
     border: 1px solid;
-    overflow-y: scroll;
-    padding: 20px;
+    padding: 24px 8px 24px 0;
     display: none;
-    z-index: 9;
+    z-index: 1;
+    background: colour(white);
+
+    .bbwd-tooltip-content-container {
+        font-weight: 400;
+        font-size: 14px;
+        font-size: 0.875rem;
+        line-height: 20px;
+        line-height: 1.25rem;
+        letter-spacing: 0.015em;
+        color: colour(black, 1);
+        background-color: colour(white);
+        height: auto;
+        max-height: 290px;
+        overflow-y: auto;
+        padding-left: 24px;
+        padding-right: 16px;
+
+        h4 {
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.01em;
+            line-height: 1.25rem;
+            color: colour(black, 1);
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.015em;
+            color: colour(black, 1);
+            margin: 14px 0;
+        }
+    }
 
     &:hover {
         display: block;
@@ -620,13 +652,14 @@ input[type="tel"],
 
 .info-icon-border-arrow-outline {
     border-top: 10px solid transparent;
-    border-right: 9px solid $clr-black-1;
+    border-right: 9px solid colour(gray);
     border-bottom: 10px solid transparent;
     position: absolute;
     right: -39px;
     top: 48px;
     transform: translate(-100%, -50%);
     display: none;
+    z-index: 1;
 }
 
 .info-icon {
@@ -713,6 +746,10 @@ input[type="tel"],
     }
 }
 
+.promo-details-wrap {
+    width: fit-content;
+}
+
 .promo-details-tooltip {
     border: 1px solid;
     width: 260px;
@@ -727,6 +764,7 @@ input[type="tel"],
 
     .promo-details-content {
         padding: 0 24px 0 16px;
+        max-height: 350px;
         overflow-y: scroll;
     }
 

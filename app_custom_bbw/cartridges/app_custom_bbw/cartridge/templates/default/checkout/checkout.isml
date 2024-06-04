@@ -125,10 +125,10 @@
 
                     <div class="row">
                         <div class="col-12">
-                            <p class="verify-msg text-center h-font-size--14 h-clr--red">${Resource.msg('msg.fill.all.required', 'checkout', null)}</p>
+                            <p class="verify-msg text-center h-font-size--14 h-clr--red" style="display:none">${Resource.msg('msg.fill.all.required', 'checkout', null)}</p>
                         </div>
                         <div class="col-12 next-step-button h-pos--relative">
-                            <div class="mb-sm-3">
+                            <div class="mb-sm-3 mt-3">
                                 <iscomment>Start of Afterpay</iscomment>
                                 <div class="ap-checkout-ship ap-checkout-pay-tab-noecf ap-checkout-pay-notab-ecf ap-checkout-pay-notab-noecf ap-checkout-po-noecf">
                                     <iscomment>End of Afterpay</iscomment>
