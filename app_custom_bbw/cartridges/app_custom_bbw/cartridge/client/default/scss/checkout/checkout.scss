@@ -790,3 +790,44 @@ input[type="tel"],
         }
     }
 }
+
+.order-discount {
+    p {
+        line-height: 20px;
+        letter-spacing: 0.2px;
+
+        &.accordion-item.collapsed {
+            &::before {
+                background: url("../../images/UI-Carat.svg") no-repeat 50%;
+                background-size: 1.25rem;
+                content: "";
+                height: 12px;
+                position: absolute;
+                left: 74px;
+                transform: rotate(0deg);
+                transition: all 0.5s ease-out;
+                width: 12px;
+                top: 4px;
+            }
+        }
+
+        &.accordion-item {
+            &::before {
+                background: url("../../images/UI-Carat.svg") no-repeat 50%;
+                background-size: 1.25rem;
+                content: "";
+                height: 12px;
+                position: absolute;
+                left: 74px;
+                transition: all 0.5s ease-out;
+                width: 12px;
+                top: 4px;
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .accordion-collapse {
+        padding-left: 30px;
+    }
+}
