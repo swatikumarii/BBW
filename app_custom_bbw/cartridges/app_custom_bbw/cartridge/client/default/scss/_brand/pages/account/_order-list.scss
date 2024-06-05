@@ -409,13 +409,13 @@
         color: colour(red);
 
         &::before {
-                background-image: url("../../images/Alert-Error.svg");
-                height: 28px;
-                left: 13px;
-                position: absolute;
-                width: 28px;
-                background-repeat: no-repeat;
-                content: "";
+            background-image: url("../../images/Alert-Error.svg");
+            height: 28px;
+            left: 13px;
+            position: absolute;
+            width: 28px;
+            background-repeat: no-repeat;
+            content: "";
         }
     }
 

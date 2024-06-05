@@ -7844,7 +7844,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </custom-attributes>
     </content>
 
-    <content content-id="loginModalPopup">
+     <content content-id="loginModalPopup">
         <display-name xml:lang="x-default">Login Modal</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7857,7 +7857,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
      If you previously had an account with us, you will ned to reset your password to continue using our new website. &#13;
      If you have updated your password, please continue to login.&#13;
     &lt;/p&gt;&#13;
-    &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn w-100" href="$url('Account-PasswordReset')$"&gt;&#13;
+    &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
        Reset Password&#13;
     &lt;/a&gt;&#13;
 &lt;/div&gt;&#13;
@@ -7869,16 +7869,23 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 margin-bottom: 16px;&#13;
     }&#13;
     .reset-password-btn {&#13;
-              padding: 6px 3em;&#13;
-    font-size: 14px;&#13;
-    letter-spacing: 1.2px;&#13;
-    border: 1px solid;&#13;
+                 padding: 6px 3em;&#13;
+    border: 1px solid black;&#13;
+   display: block;&#13;
+    text-align: center;&#13;
+min-height: 35px;&#13;
+    max-height: 35px;&#13;
+    }&#13;
+    .reset-password-btn:active {&#13;
+            background-color: #fff;&#13;
+    border-color: #f2f2f2;&#13;
+    color: #333;&#13;
     }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
 
-    <content content-id="migration-message-login-modal">
+     <content content-id="migration-message-login-modal">
         <display-name xml:lang="x-default">Migration Message Login Modal</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7886,7 +7893,7 @@ margin-bottom: 16px;&#13;
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="login-modal-section"&gt;&#13;
 	&lt;h4 class="h-clr--pink h-font-size--16 h-fw--bold"&gt;Reset your password&lt;/h4&gt;&#13;
-	&lt;p class="h-font-size--16 login-para h-clr--gray "&gt;If you previously had an account with us, you will ned to reset your password to continue using our new website. If you have updated your password, please continue to login.&lt;/p&gt; &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn w-100" href="$url('Account-PasswordReset')$"&gt;&#13;
+	&lt;p class="h-font-size--16 login-para h-clr--gray "&gt;If you previously had an account with us, you will ned to reset your password to continue using our new website. If you have updated your password, please continue to login.&lt;/p&gt; &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
        Reset Password&#13;
     &lt;/a&gt;&#13;
 &#13;
@@ -7901,7 +7908,11 @@ margin-bottom: 16px;&#13;
 	              padding: 6px 3em;&#13;
 	    font-size: 14px;&#13;
 	    letter-spacing: 1.2px;&#13;
-	    border: 1px solid;&#13;
+          text-align: center;&#13;
+	    border: 1px solid black;&#13;
+ display: block;&#13;
+ min-height: 35px;&#13;
+max-height: 35px:&#13;
 	    }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
