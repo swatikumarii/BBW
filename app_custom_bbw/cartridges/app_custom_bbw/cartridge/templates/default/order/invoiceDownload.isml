@@ -469,24 +469,6 @@
 
 
                 <iscomment> Sales Tax </iscomment>
-<<<<<<< HEAD
-                <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
-                    <div class="col-md-10">
-                        <isif condition="${totalExclusiveTax}">
-                            <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
-                                <strong>${Resource.msg('label.sales.tax', 'cart', null)}:</strong>
-                            </p>
-                        <iselse/>
-                            <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
-                                <strong>${Resource.msg('label.sales.tax.inclusive', 'cart', null)}:</strong>
-                            </p>
-                        </isif>
-                    </div>
-                    <div class="col-md-2" style=" margin-left: 33px;">
-                        <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sales-tax"
-                            style=" margin-bottom: 0px;">
-                            ${pdict.order.totals.totalTax}</p>
-=======
                 <isif condition="${showSalesTaxes}">
                     <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                         <div class="col-md-10">
@@ -505,7 +487,6 @@
                                 style=" margin-bottom: 0px;">
                                 ${pdict.order.totals.totalTax}</p>
                         </div>
->>>>>>> 981c46728136c27afb4d24bdeec2dfd2accab1ae
                     </div>
                 </isif>
 
