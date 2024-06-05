@@ -358,6 +358,11 @@ module.exports = function () {
             uuid: uuid
         };
         var isMiniCart = $(this).parents('.mini-cart-content').length > 0;
+        var isPopupMinicart = $('body').find('.minicart').hasClass('popup');
+        var minicartQty = $('.minicart-quantity');
+        if (isPopupMinicart && $(minicartQty[0]).text() === '1') {
+            $('.minicart .popover').removeClass('show');
+        }
 
         url = appendToUrl(url, urlParams);
 
@@ -375,14 +380,18 @@ module.exports = function () {
                 if (data.basket.items.length === 0) {
                     if (isMiniCart) {
                         var minicartURL = $('.minicart').data('action-url');
-                        $.get(
-                            minicartURL,
-                            function (dataMinicart) {
-                                $('.minicart .popover')
-                                    .empty()
-                                    .append(dataMinicart);
-                            }
-                        );
+                        if (isPopupMinicart) {
+                            $('.minicart .popover').removeClass('show');
+                        } else {
+                            $.get(
+                                minicartURL,
+                                function (dataMinicart) {
+                                    $('.minicart .popover')
+                                        .empty()
+                                        .append(dataMinicart);
+                                }
+                            );
+                        }
                     } else {
                         var emptyCartHtml =
                             '<div class="container text-center">' +
