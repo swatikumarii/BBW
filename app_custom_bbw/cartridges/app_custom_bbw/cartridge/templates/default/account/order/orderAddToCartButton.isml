@@ -16,7 +16,7 @@
         <isif condition="${lineItem.enableNotifyMe}">
             <button type="button" class="btn btn-block notifyBackInStockButton notify-me-btn"
                 data-url="${URLUtils.url('BackInStock-CheckLogin')}" data-pid="${lineItem.id}"
-                data-img="${lineItem.imageObj.large ? lineItem.imageObj.large[0].url : lineItem.imageObj.small[0].url}"
+                data-img="${lineItem.imageObj.mediumLarge ? lineItem.imageObj.mediumLarge[0].url : lineItem.imageObj.small[0].url}"
                 ${lineItem.productPresentInNotifyList ? 'disabled='
             disabled '': ''} data-pname="${lineItem.name}">
                 ${lineItem.productPresentInNotifyList ? Resource.msg('button.notifyInList', 'notifyMe', null) : Resource.msg(

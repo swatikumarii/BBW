@@ -11,6 +11,7 @@ var Resource = require('dw/web/Resource');
 var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 /**
  * Append Address-List controller: Update breadcrumbs
@@ -38,7 +39,7 @@ server.append('List', function (req, res, next) {
     viewData.addressForm = addressForm;
     res.setViewData(viewData);
     next();
-});
+}, seo.addCurrentPageMetaData);
 
 /**
  * Replace Address-EditAddress controller: changed the rendring template

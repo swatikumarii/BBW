@@ -103,11 +103,13 @@ var history = window.history;
                     //
                     var customerFormSelector = customerHelpers.methods.isGuestFormActive() ? customerHelpers.vars.GUEST_FORM : customerHelpers.vars.REGISTERED_FORM;
                     var customerForm = $(customerFormSelector);
+                    $.spinner().start();
                     $.ajax({
                         url: customerForm.attr('action'),
                         type: 'post',
                         data: customerForm.serialize(),
                         success: function (data) {
+                            $.spinner().stop();
                             if (data.error) {
                                 $('#form-error').html(data.customerErrorMessage);
                                 $('.form-error-div').removeClass('d-none');
@@ -125,6 +127,7 @@ var history = window.history;
                             }
                             // Server error submitting form
                             defer.reject(err.responseJSON);
+                            $.spinner().stop();
                         }
                     });
                     return defer;
@@ -147,10 +150,12 @@ var history = window.history;
                         $('body').trigger('checkout:disableButton', '.next-step-button button');
                         // in case the multi ship form is already submitted
                         var url = $('#checkout-main').attr('data-checkout-get-url');
+                        $.spinner().start();
                         $.ajax({
                             url: url,
                             method: 'GET',
                             success: function (data) {
+                                $.spinner().stop();
                                 // enable the next:Payment button here
                                 $('body').trigger('checkout:enableButton', '.next-step-button button');
                                 if (!data.error) {
@@ -178,6 +183,7 @@ var history = window.history;
                                 $('body').trigger('checkout:enableButton', '.next-step-button button');
                                 // Server error submitting form
                                 defer.reject();
+                                $.spinner().stop();
                             }
                         });
                     } else {
@@ -192,11 +198,13 @@ var history = window.history;
                         });
                         // disable the next:Payment button here
                         $('body').trigger('checkout:disableButton', '.next-step-button button');
+                        $.spinner().start();
                         $.ajax({
                             url: form.attr('action'),
                             type: 'post',
                             data: shippingFormData,
                             success: function (data) {
+                                $.spinner().stop();
                                 // enable the next:Payment button here
                                 $('body').trigger('checkout:enableButton', '.next-step-button button');
                                 shippingHelpers.methods.shippingFormResponse(defer, data);
@@ -212,6 +220,7 @@ var history = window.history;
                                 }
                                 // Server error submitting form
                                 defer.reject(err.responseJSON);
+                                $.spinner().stop();
                             }
                         });
                     }
@@ -294,12 +303,13 @@ var history = window.history;
                     }
                     // disable the next:Place Order button here
                     $('body').trigger('checkout:disableButton', '.next-step-button button');
-
+                    $.spinner().start();
                     $.ajax({
                         url: $('#dwfrm_billing').attr('action'),
                         method: 'POST',
                         data: paymentForm,
                         success: function (data) {
+                            $.spinner().stop();
                             // enable the next:Place Order button here
                             $('body').trigger('checkout:enableButton', '.next-step-button button');
                             // look for field validation errors
@@ -356,6 +366,7 @@ var history = window.history;
                             if (err.responseJSON && err.responseJSON.redirectUrl) {
                                 window.location.href = err.responseJSON.redirectUrl;
                             }
+                            $.spinner().stop();
                         }
                     });
 
@@ -363,10 +374,12 @@ var history = window.history;
                 } if (stage === 'placeOrder') {
                     // disable the placeOrder button here
                     $('body').trigger('checkout:disableButton', '.next-step-button button');
+                    $.spinner().start();
                     $.ajax({
                         url: $('.place-order').data('action'),
                         method: 'POST',
                         success: function (data) {
+                            $.spinner().stop();
                             // enable the placeOrder button here
                             $('body').trigger('checkout:enableButton', '.next-step-button button');
                             if (data.error) {
@@ -411,6 +424,7 @@ var history = window.history;
                         error: function () {
                             // enable the placeOrder button here
                             $('body').trigger('checkout:enableButton', $('.next-step-button button'));
+                            $.spinner().stop();
                         }
                     });
 

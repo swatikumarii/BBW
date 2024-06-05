@@ -10,6 +10,7 @@ input[type="password"],
 input[type="email"],
 input[type="tel"],
 input[type="date"],
+input[type="checkbox"],
 textarea,
 .b-input-text {
     @include text(forminput);
@@ -58,7 +59,42 @@ textarea,
 }
 
 // Remove input spinner
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    appearance: none;
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.custom-checkbox .custom-control-label::before {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("../images/check-box-unchecked.svg");
+    background-size: cover;
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    background-repeat: no-repeat;
+    border-color: unset !important;
+    box-shadow: none !important;
+    top: 0;
+}
+
+.custom-checkbox .custom-control-input:checked ~.custom-control-label::after {
+    background-image: url("../images/check-box-checked.svg");
+    background-size: cover;
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    top: 0;
+}
+
+input[type="checkbox"] {
+    width: auto;
 }

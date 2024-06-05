@@ -359,10 +359,14 @@ input[type="tel"],
 }
 
 .custom-select-wrap {
+    box-sizing: border-box;
+    height: 48px;
+    position: relative;
+
     &::after {
         content: "";
         position: absolute;
-        right: 20px;
+        right: 10px;
         top: 50%;
         transform: translateY(-46%);
         height: 45px;
@@ -370,6 +374,23 @@ input[type="tel"],
         border-left: 1px solid $clr-gray-5;
         background: $clr-white url("../../images/UI-Carat.svg") no-repeat 50%;
         background-size: 15px;
+    }
+
+    select {
+        border-radius: 0;
+        background: transparent;
+        padding: 0 2.25rem 0 0.625rem;
+        height: 48px;
+        cursor: pointer;
+        appearance: none;
+        z-index: 1;
+        position: absolute;
+
+        &:focus {
+            box-shadow: none;
+            border-color: colour(black, 1);
+            background: none;
+        }
     }
 }
 
@@ -559,19 +580,110 @@ input[type="tel"],
     }
 }
 
+.gift-card-apply {
+    .add-giftcard-header-wrap {
+        border-top: 3px solid $clr-gray-1;
+        width: 85%;
+        margin: 0 15px;
+
+        .add-giftcard-header {
+            padding: 20px 0;
+        }
+    }
+
+    .add-giftcard-text {
+        display: block;
+        padding-bottom: 20px;
+        border-bottom: 3px solid $clr-gray-1;
+        margin: 0 15px;
+        width: 85%;
+    }
+
+    .giftcard-total-wrap {
+        width: 90%;
+        padding: 20px 15px;
+        height: 58px;
+    }
+
+    .gift-redeem-card-error {
+        margin: 0 15px;
+        max-width: 85%;
+        padding: 10px 15px;
+        color: $clr-red;
+        background-color: $clr-red-10;
+    }
+}
+
+.add-giftcard-button {
+    text-decoration: underline;
+}
+
+.add-giftcard-section {
+    display: none;
+    width: 90%;
+
+    &.show {
+        display: flex;
+    }
+
+    .giftcard-buttons {
+        padding: 0 15px;
+    }
+
+    .giftcard-balance-section {
+        border-bottom: 1px solid $clr-black-1;
+
+        #egift-card-check-balance {
+            text-decoration: underline;
+        }
+    }
+}
+
 .info-icon-text {
-    min-width: 260px;
     max-width: 260px;
-    min-height: 300px;
+    width: auto;
     position: absolute;
     right: -290px;
     top: 50%;
     transform: translateY(-50%);
     border: 1px solid;
-    overflow-y: scroll;
-    padding: 20px;
+    padding: 24px 8px 24px 0;
     display: none;
-    z-index: 9;
+    z-index: 1;
+    background: colour(white);
+
+    .bbwd-tooltip-content-container {
+        font-weight: 400;
+        font-size: 14px;
+        font-size: 0.875rem;
+        line-height: 20px;
+        line-height: 1.25rem;
+        letter-spacing: 0.015em;
+        color: colour(black, 1);
+        background-color: colour(white);
+        height: auto;
+        max-height: 290px;
+        overflow-y: auto;
+        padding-left: 24px;
+        padding-right: 16px;
+
+        h4 {
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.01em;
+            line-height: 1.25rem;
+            color: colour(black, 1);
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.015em;
+            color: colour(black, 1);
+            margin: 14px 0;
+        }
+    }
 
     &:hover {
         display: block;
@@ -599,13 +711,14 @@ input[type="tel"],
 
 .info-icon-border-arrow-outline {
     border-top: 10px solid transparent;
-    border-right: 9px solid $clr-black-1;
+    border-right: 9px solid colour(gray);
     border-bottom: 10px solid transparent;
     position: absolute;
     right: -39px;
-    top: 48px;
+    top: 50%;
     transform: translate(-100%, -50%);
     display: none;
+    z-index: 1;
 }
 
 .info-icon {
@@ -692,6 +805,10 @@ input[type="tel"],
     }
 }
 
+.promo-details-wrap {
+    width: fit-content;
+}
+
 .promo-details-tooltip {
     border: 1px solid;
     width: 260px;
@@ -706,6 +823,7 @@ input[type="tel"],
 
     .promo-details-content {
         padding: 0 24px 0 16px;
+        max-height: 350px;
         overflow-y: scroll;
     }
 
@@ -729,5 +847,46 @@ input[type="tel"],
             border-bottom: 10px solid transparent;
             border-right: 10px solid white;
         }
+    }
+}
+
+.order-discount {
+    p {
+        line-height: 20px;
+        letter-spacing: 0.2px;
+
+        &.accordion-item.collapsed {
+            &::before {
+                background: url("../../images/UI-Carat.svg") no-repeat 50%;
+                background-size: 1.25rem;
+                content: "";
+                height: 12px;
+                position: absolute;
+                left: 74px;
+                transform: rotate(0deg);
+                transition: all 0.5s ease-out;
+                width: 12px;
+                top: 4px;
+            }
+        }
+
+        &.accordion-item {
+            &::before {
+                background: url("../../images/UI-Carat.svg") no-repeat 50%;
+                background-size: 1.25rem;
+                content: "";
+                height: 12px;
+                position: absolute;
+                left: 74px;
+                transition: all 0.5s ease-out;
+                width: 12px;
+                top: 4px;
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .accordion-collapse {
+        padding-left: 30px;
     }
 }

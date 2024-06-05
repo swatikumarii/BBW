@@ -13,7 +13,7 @@
 
             </div>
             <div class="modal-body login-modal-body">
-                <div class="col-12 pb-3">
+                <div class="col-12 pb-0">
                     <h4 class="h-font-size--18 h-clr--black-1 h-fw--bold">${Resource.msg('login.label', 'login', null)}
                     </h4>
                     <p class="h-font-size--16 login-para h-clr--gray ">
@@ -32,13 +32,16 @@
                         </div>
                     </iscomment>
                     <div class="register">
-                        <h3 class="h-clr--pink h-font-size--18 h-fw--bold">
+                        <iscomment> <h3 class="h-clr--pink h-font-size--18 h-fw--bold">
                             ${Resource.msg('join.title', 'login', null)}
-                        </h3>
-                        <p class="h-font-size--16 mb-3">
-                            ${Resource.msg('join.para', 'login', null)}
+                        </h3> </iscomment>
+                    
+                        <p class="h-font-size--16 mb-0">
+                            <iscomment> ${Resource.msg('join.para', 'login', null)} </iscomment>
+                            ${Resource.msg('create.para', 'login', null)}
                             <a id="log-in-page-url" href="${URLUtils.https('Login-Show')}" role="button" class="h-clr--black-3 h-font-size--16"
                                 aria-label="${Resource.msg('label.header.signup', 'common', null)}">${Resource.msg('label.header.signup', 'common', null)}</a>
+                            ${Resource.msg('here', 'login', null)}
                         </p>
                     </div>
                 </div>
@@ -60,6 +63,10 @@
                 </button>
             </div>
             <div class="modal-footer border-0 merge-cart-body pb-3">
+                <input type="hidden" class="home-show-url" value="${URLUtils.url('Home-Show')}" />
+                <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-PasswordReset')}" />
+                <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-SetNewPassword')}" />
+                <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-DoSetNewPassword')}" />
                 <input type="hidden" class="cart-merge-url" value="${URLUtils.url('Cart-Merge')}">
                 <input type="hidden" class="redirect-url" value="${pdict.loginRedirectUrl}">
                 <button type="button" class="merge text-uppercase btn" data-dismiss="modal" aria-label="Close">

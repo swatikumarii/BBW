@@ -81,8 +81,10 @@ function createProductLineItemsObject(allLineItems, view) {
     collections.forEach(allLineItems, function (item) {
         var product = Object.create(null);
         var apiProduct = ProductMgr.getProduct(item.productID);
-        var productType = productHelper.getProductType(apiProduct);
-        product = productDetailForAddToCart(product, apiProduct, productType);
+        if (!empty(apiProduct)) {
+            var productType = productHelper.getProductType(apiProduct);
+            product = productDetailForAddToCart(product, apiProduct, productType);
+        }
 
         // when item's category is unassigned, return a lineItem with limited attributes
         if (!item.product) {
@@ -90,7 +92,9 @@ function createProductLineItemsObject(allLineItems, view) {
                 id: item.productID,
                 quantity: item.quantity.value,
                 productName: item.productName,
-                titlePartB: 'titlePartB' in item.product.custom ? item.product.custom.titlePartB : '',
+                priceTotal: 'adjustedPrice' in item ? item.adjustedPrice : '',
+                basePrice: 'basePrice' in item ? item.basePrice : '',
+                titlePartB: item.product && 'titlePartB' in item.product.custom ? item.product.custom.titlePartB : '',
                 UUID: item.UUID,
                 noProduct: true,
                 images: {
@@ -216,10 +220,12 @@ function createProductLineItemsObject(allLineItems, view) {
         if (!('fragranceName' in newLineItem)){
             newLineItem.fragranceName = 'fragranceName' in product && product.fragranceName !== '' ? product.fragranceName : false;
         }
-        if ('custom' in apiProduct && 'isEgiftCard' in apiProduct.custom && apiProduct.custom.isEgiftCard && !('isEgiftCard' in newLineItem)) {
-            newLineItem.isEgiftCard = apiProduct.custom.isEgiftCard;
-        } else {
-            newLineItem.isEgiftCard = false;
+        if(!('isEgiftCard' in newLineItem)){
+            if (!empty(apiProduct) && 'custom' in apiProduct && 'isEgiftCard' in apiProduct.custom && apiProduct.custom.isEgiftCard) {
+                newLineItem.isEgiftCard = apiProduct.custom.isEgiftCard;
+            } else {
+                newLineItem.isEgiftCard = false;
+            }
         }
         newLineItem.enableNotifyMe = product.enableNotifyMe;
     });

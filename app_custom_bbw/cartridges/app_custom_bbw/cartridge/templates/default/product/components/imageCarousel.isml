@@ -11,10 +11,10 @@
             </isif>
         </div>
     </div>
-    <div id="pdpCarousel-${product.id}" class="carousel slide" data-ride="carousel"  data-touch="true" data-interval="false" data-prev="${Resource.msg('button.previous', 'common', null)}" data-next="${Resource.msg('button.next', 'common', null)}">
+    <div id="pdpCarousel-${product.id}" class="carousel slide pdp-carousel" data-ride="carousel"  data-touch="true" data-interval="false" data-prev="${Resource.msg('button.previous', 'common', null)}" data-next="${Resource.msg('button.next', 'common', null)}">
 
         <div class="carousel-inner">
-            <isloop items="${product.images['large']}" var="image" status="loopStatus">
+            <isloop items="${product.images['mediumLarge']}" var="image" status="loopStatus">
                 <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
                     <img src="${image.url}" class="d-block img-fluid" alt="${image.alt} ${product.titlePartB}"
                         itemprop="image" />
@@ -23,7 +23,7 @@
             <div class="zoomImage-link position-absolute d-none d-md-block"></div>
         </div>
 
-        <isif condition="${product.images['large'].length > 1}">
+        <isif condition="${product.images['mediumLarge'].length > 1}">
             <a class="carousel-control-prev" href="${" #"}pdpCarousel-${product.id}" role="button" data-slide="prev">
                 <span class="fa icon-prev" aria-hidden="true"></span>
                 <span class="sr-only">${Resource.msg('button.previous', 'common', null)}</span>
@@ -33,10 +33,10 @@
                 <span class="sr-only">${Resource.msg('button.next', 'common', null)}</span>
             </a>
         </isif>
-      
-        <isif condition="${product.images['large'].length > 0}">
-            <ol class="carousel-indicators m-0 ${product.images['large'].length < 2 ? 'd-none d-md-block' : ''}" aria-hidden="true">
-                <isloop items="${product.images['large']}" var="image" status="loopStatus">
+
+        <isif condition="${product.images['small'].length > 0}">
+            <ol class="carousel-indicators m-0 ${product.images['small'].length < 2 ? 'd-none d-md-block' : ''}" aria-hidden="true">
+                <isloop items="${product.images['small']}" var="image" status="loopStatus">
                     <li data-target="${"#"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
                         class='<isif condition="${loopStatus.index == 0}">active</isif>'>
                         <img src="${image.url}" class="img-fluid" alt="${image.alt} image number ${image.index}"
@@ -53,7 +53,7 @@
                     data-prev="${Resource.msg('button.previous', 'common', null)}"
                     data-next="${Resource.msg('button.next', 'common', null)}">
                     <div class="carousel-inner d-flex " role="listbox">
-                        <isloop items="${product.images['large']}" var="image" status="loopStatus">
+                        <isloop items="${product.images['extraLarge']}" var="image" status="loopStatus">
                             <div
                                 class='carousel-item d-flex justify-content-center mr-auto <isif condition="${loopStatus.index == 0}">active</isif>'>
                                 <img src="${image.url}" class="d-block img-fluid"

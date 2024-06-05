@@ -1,3 +1,4 @@
+<isinclude template="/components/modules" sf-toolkit="off" />
 <div class="suggestions__products-wrapper h-width-perc-sm--70 h-width-perc-md--70 h-hidden-sm-down">
     <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
     <isif condition="${pdict.suggestions.product}">
@@ -156,21 +157,25 @@
                     </isloop>
                 </div>
             </div>
-        <iselseif condition="${pdict.suggestions.popular && pdict.suggestions.popular.available}" />
-            <iscomment> Popular Search </iscomment>
-            <div class="popular-suggestions suggestions__list">
-                <h2 class="suggestions-header h-fw--bold text-uppercase">${Resource.msg('label.suggest.popular', 'search', null)}</h2>
-                <div class="search-popular-list sub-list" role="list">
-                    <isloop items="${pdict.suggestions.popular.phrases}" var="phrase" status="listindex">
-                        <div
-                            class="search-popular-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5">
-                            <span class="search-trending-list__icon sub-list__item__icon d-inline-block"></span>
-                            <a href="${phrase.url}"
-                                class="search-popular-list__link sub-list__item__link">${phrase.value}</a>
-                        </div>
-                    </isloop>
+        <iselse/>
+            <isif condition="${pdict.suggestions.popular && pdict.suggestions.popular.available}">
+                <iscomment> Popular Search </iscomment>
+                <div class="popular-suggestions suggestions__list">
+                    <h2 class="suggestions-header h-fw--bold text-uppercase">${Resource.msg('label.suggest.popular', 'search', null)}</h2>
+                    <div class="search-popular-list sub-list" role="list">
+                        <isloop items="${pdict.suggestions.popular.phrases}" var="phrase" status="listindex">
+                            <div
+                                class="search-popular-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5">
+                                <span class="search-trending-list__icon sub-list__item__icon d-inline-block"></span>
+                                <a href="${phrase.url}"
+                                    class="search-popular-list__link sub-list__item__link">${phrase.value}</a>
+                            </div>
+                        </isloop>
+                    </div>
                 </div>
-            </div>
+            <iselse/>
+                <iscontentasset aid="popular-suggestions" />
+            </isif>
         </isif>
 
         <iscomment> Category Search </iscomment>

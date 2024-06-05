@@ -153,9 +153,11 @@ $(document).ready(function () {
     var $scrollToTopButton = $('.js-scrolltotop');
 
     // Function to calculate the scroll threshold
+    /**
+    * @returns {object} a promise
+    */
     function calculateScrollThreshold() {
         var documentHeight = $(document).height();
-        var windowHeight = $window.height();
         // Show the button when the user has scrolled past 70% of the document height
         // Ensure it is within the scrollable content
         return Math.min(0.7 * documentHeight, documentHeight - 630);

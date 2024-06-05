@@ -247,7 +247,9 @@ server.post('AddProductFromOrder', function (req, res, next) {
     var order = OrderMgr.getOrder(req.form.orderNumber);
     var productLineItems = order.getProductLineItems();
     var redirectUrl = URLUtils.url('Cart-Show');
-    var result;
+    var result = {
+        error: false
+    };
 
     var existingLineItems = currentBasket ? currentBasket.getAllProductLineItems() : [];
     if (existingLineItems && existingLineItems.length > 0) {
@@ -274,7 +276,7 @@ server.post('AddProductFromOrder', function (req, res, next) {
             var childProducts = [];
             for (var i = 0; i < productLineItems.getLength(); i++) {
                 var pli = productLineItems[i];
-                if (!pli.bonusProductLineItem && (!pli.product.primaryCategory || !pli.product.primaryCategory.ID || pli.product.primaryCategory.ID !== 'giftWrapProducts')) {
+                if (!pli.bonusProductLineItem && pli.product && (!pli.product.primaryCategory || !pli.product.primaryCategory.ID || pli.product.primaryCategory.ID !== 'giftWrapProducts')) {
                     var pidOptions = {};
                     var PIDObjResult = cartHelper.addProductToCart(
                         currentBasket,
@@ -292,12 +294,18 @@ server.post('AddProductFromOrder', function (req, res, next) {
             }
         });
     }
-
-    res.json({
-        redirectUrl: redirectUrl.toString(),
-        error: result.error,
-        message: result.message
-    });
+    if (result.error) {
+        res.json({
+            error: result.error,
+            message: result.message
+        });
+    } else {
+        res.json({
+            redirectUrl: redirectUrl.toString(),
+            error: result.error,
+            message: result.message
+        });
+    }
 
     next();
 });

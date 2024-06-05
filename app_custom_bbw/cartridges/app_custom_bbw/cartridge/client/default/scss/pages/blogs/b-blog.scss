@@ -575,7 +575,7 @@
 
 // ---------tbc day-------
 .shop-by-data {
-    width: 85%;
+    width: 1105px;
     margin: 0 auto;
     padding: 0;
     margin-bottom: 10px;
@@ -875,8 +875,13 @@
     margin: 20px auto 0;
     padding: 40px 10px;
     display: inline-block;
-
+    
     p {
         line-height: 20px;
     }
+}
+
+// scrolll height 
+.scroll-margin {
+    scroll-margin-top: 237px;
 }
