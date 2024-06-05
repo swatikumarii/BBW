@@ -70,11 +70,6 @@ $(document).ready(function () {
         initialCountry: 'au',
         countryOrder: ['au']
     });
-    var errorMessage =
-        '<div class="invalid-feedback text-left" id="phone-error">' +
-        $('#shippingPhoneNumberdefault').data('missing-error') +
-        '</div>';
-    $('#shippingPhoneNumberdefault').after(errorMessage);
 
     $('.accordion-title').click(function () {
         $(this).next('.accordion-content').slideToggle();

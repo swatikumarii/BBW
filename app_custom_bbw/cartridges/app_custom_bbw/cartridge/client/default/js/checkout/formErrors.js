@@ -12,6 +12,19 @@ function loadFormErrors(parentSelector, fieldErrors) { // eslint-disable-line
             .addClass('is-invalid')
             .siblings('.invalid-feedback')
             .html(fieldErrors[attr]);
+        var errorText;
+        var $input = $('*[name=' + attr + ']', parentSelector);
+        var $errorMessage = $input
+            .parents('.iti')
+            .siblings('.invalid-feedback');
+        if ($input.val().length === 0) {
+            errorText = $input.data('missing-error');
+        } else {
+            errorText = $input.data('pattern-mismatch');
+        }
+        if ($input.parents('.iti').length)
+            $input.parents('.iti').addClass('is-invalid border-danger');
+        $errorMessage.text(errorText).show();
     });
     var form = $(parentSelector).closest('form');
     setTimeout(function () {
