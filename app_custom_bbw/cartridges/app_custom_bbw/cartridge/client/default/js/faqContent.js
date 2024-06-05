@@ -10,3 +10,7 @@ $(document).ready(function () {
         $sidebar.attr('aria-expanded', !expanded);
     });
 });
+
+document.body.addEventListener('click', function () {
+    document.getElementById('faq-search-result').classList.add('d-none');
+});
