@@ -28,15 +28,15 @@
 
                 <isif condition="${pdict.order.shippingStatus.value == dw.order.Order.SHIPPING_STATUS_SHIPPED}">
                     <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
-                        src="${URLUtils.staticURL('/images/account/icon-shipped.png')}" />
+                        src="${URLUtils.staticURL('/images/account/Shipped.png')}" />
 
                 <iselseif condition="${pdict.order.exportStatus.value == dw.order.Order.EXPORT_STATUS_EXPORTED}" />
                     <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
-                        src="${URLUtils.staticURL('/images/account/icon-processed.png')}" />
+                        src="${URLUtils.staticURL('/images/account/Processing.png')}" />
 
                 <iselseif condition="${pdict.order.exportStatus.value != dw.order.Order.EXPORT_STATUS_EXPORTED}" />
                     <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
-                        src="${URLUtils.staticURL('/images/account/icon-placed.png')}" />
+                        src="${URLUtils.staticURL('/images/account/Place-Order.png')}" />
                 </isif>
             </div>
         </div>

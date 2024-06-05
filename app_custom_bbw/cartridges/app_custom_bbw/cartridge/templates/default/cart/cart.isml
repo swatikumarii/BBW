@@ -13,6 +13,8 @@
     </isif>
     <a class="continue-shopping-link" href="${URLUtils.url('Home-Show')}"
         title="${Resource.msg('link.continue.shopping', 'cart', null)}">
+        <img src="${URLUtils.staticURL('/images/cart/arrow-left-dark-grey.svg')}"
+            alt="${Resource.msg('global.storename', 'common', null)}" />
         ${Resource.msg('link.continue.shopping', 'cart', null)}
     </a>
     <div class="cartContainer">
