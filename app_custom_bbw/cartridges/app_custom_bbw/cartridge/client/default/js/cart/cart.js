@@ -57,8 +57,19 @@ function validateBasket(data) {
  * @param {object} data - AJAX response from the server
  */
 function updateCartTotals(data) {
+    if (data.hasFreeShipping) {
+        $('.shipping-cost').empty().append('FREE');
+        $('shipping-tax').addClass('d-none');
+        $('.shipping-discount').addClass('d-none');
+        $('.shipping-tax').closest('div.row').addClass('d-none');
+    } else {
+        $('shipping-tax').removeClass('d-none');
+        $('.shipping-discount').removeClass('d-none');
+        $('.shipping-cost').empty().append(data.totals.totalShippingCost);
+        $('.shipping-tax').closest('div.row').removeClass('d-none');
+
+    }
     $('.number-of-items').empty().append(data.resources.numberOfItems);
-    $('.shipping-cost').empty().append(data.totals.totalShippingCost);
     $('.tax-total').empty().append(data.totals.totalTax);
     $('.grand-total').empty().append(data.totals.grandTotal);
     $('.sub-total').empty().append(data.totals.subTotal);
