@@ -201,6 +201,19 @@
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="titleBadge">
+                <display-name xml:lang="x-default">Title Badge</display-name>
+                <description xml:lang="x-default">Title Badge</description>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="badge1">
                 <display-name xml:lang="x-default">Badge 1</display-name>
                 <type>html</type>
@@ -379,6 +392,7 @@
                 <attribute attribute-id="badge3"/>
                 <attribute attribute-id="badge1"/>
                 <attribute attribute-id="badge2"/>
+                <attribute attribute-id="titleBadge"/>
             </attribute-group>
             <attribute-group group-id="fragrance">
                 <display-name xml:lang="x-default">Fragrance</display-name>
