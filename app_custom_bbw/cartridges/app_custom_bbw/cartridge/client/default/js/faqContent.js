@@ -11,6 +11,6 @@ $(document).ready(function () {
     });
 });
 
-document.body.addEventListener('click', function () {
-    document.getElementById('faq-search-result').classList.add('d-none');
+$('body').on('click', function () {
+    $('#faq-search-result').addClass('d-none');
 });
