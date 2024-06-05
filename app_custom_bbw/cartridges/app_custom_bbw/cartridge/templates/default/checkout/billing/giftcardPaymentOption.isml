@@ -18,8 +18,8 @@
                                 <div class="d-flex flex-column justify-content-between added-cards">
                                 </div>
                                 <div class="d-flex justify-content-between add-giftcard-header">
-                                    <span>I have a gift card</span>
-                                    <span class="add-giftcard-button">Add a gift card</span>
+                                    <span>${Resource.msg('giftcard.text.i.have.gc', 'giftcards', null)}</span>
+                                    <span class="add-giftcard-button">${Resource.msg('giftcard.add.text', 'giftcards', null)}</span>
                                 </div>
                             </div>
                             <div class="m-0 pb-3 row add-giftcard-section">
@@ -64,8 +64,7 @@
                                 </div>
                             </div>
                             <div class="gift-redeem-card-error mb-2" style="display: none"></div>
-                            <span class="add-giftcard-text">You can add up to 5 gift cards per order. Please pay the balance with another
-                            payment method if your gift card does not reach your total order.</span>
+                            <span class="add-giftcard-text">${Resource.msg('giftcard.add.text.description', 'giftcards', null)}</span>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between giftcard-total-wrap">
