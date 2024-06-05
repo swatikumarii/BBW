@@ -6410,7 +6410,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
             &lt;div class="category-items position-relative "&gt;&#13;
                 &lt;div class="row no-gutters"&gt;&#13;
                     &lt;div class="col px-0"&gt;&#13;
-                        &lt;div class="top "&gt;&lt;a&#13;
+                        &lt;div class="top  pt-3 "&gt;&lt;a&#13;
                                 class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
                               href="$url('Search-Show', 'cgid', 'body-care')$" hreflang="default"&gt;&#13;
                                 &lt;picture class="w-100 d-block content-image-block d-block"&gt;&#13;
@@ -6436,7 +6436,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
             &lt;div class="category-items position-relative "&gt;&#13;
                 &lt;div class="row no-gutters"&gt;&#13;
                     &lt;div class="col px-0"&gt;&#13;
-                        &lt;div class="top "&gt;&lt;a&#13;
+                        &lt;div class="top  pt-3 "&gt;&lt;a&#13;
                                 class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
                                 href="$url('Search-Show', 'cgid', 'candles')$" hreflang="default"&gt;&#13;
                                 &lt;picture class="w-100 d-block content-image-block d-block"&gt;&#13;
@@ -6462,7 +6462,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
             &lt;div class="category-items position-relative "&gt;&#13;
                 &lt;div class="row no-gutters"&gt;&#13;
                     &lt;div class="col px-0"&gt;&#13;
-                        &lt;div class="top "&gt;&lt;a&#13;
+                        &lt;div class="top  pt-3 "&gt;&lt;a&#13;
                                 class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
                                 href="$url('Search-Show', 'cgid', 'wallflowers')$" hreflang="default"&gt;&#13;
                                 &lt;picture class="w-100 d-block content-image-block d-block"&gt;&#13;
@@ -6488,7 +6488,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
             &lt;div class="category-items position-relative "&gt;&#13;
                 &lt;div class="row no-gutters"&gt;&#13;
                     &lt;div class="col px-0"&gt;&#13;
-                        &lt;div class="top "&gt;&lt;a&#13;
+                        &lt;div class="top  pt-3 "&gt;&lt;a&#13;
                                 class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
                                href="$url('Search-Show','cgid', 'hand-soaps')$" hreflang="default"&gt;&#13;
                                 &lt;picture class="w-100 d-block content-image-block d-block"&gt;&#13;
@@ -6514,7 +6514,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
             &lt;div class="category-items position-relative "&gt;&#13;
                 &lt;div class="row no-gutters"&gt;&#13;
                     &lt;div class="col px-0"&gt;&#13;
-                        &lt;div class="top "&gt;&lt;a&#13;
+                        &lt;div class="top  pt-3 "&gt;&lt;a&#13;
                                 class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
                                 href="$url('Search-Show','cgid', 'travel-size')$" hreflang="default"&gt;&#13;
                                 &lt;picture class="w-100 d-block content-image-block d-block"&gt;&#13;
@@ -6540,7 +6540,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
             &lt;div class="category-items position-relative "&gt;&#13;
                 &lt;div class="row no-gutters"&gt;&#13;
                     &lt;div class="col px-0"&gt;&#13;
-                        &lt;div class="top "&gt;&lt;a&#13;
+                        &lt;div class="top  pt-3 "&gt;&lt;a&#13;
                                 class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"&#13;
                                href="$url('Page-Show', 'cid', 'giftcards')$" hreflang="default"&gt;&#13;
                                 &lt;picture class="w-100 d-block content-image-block d-block"&gt;&#13;
@@ -6635,6 +6635,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         font-weight: 600;&#13;
         margin-left: 21px;&#13;
         margin-top: 26px;&#13;
+            width: 143px; &#13;
     }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
