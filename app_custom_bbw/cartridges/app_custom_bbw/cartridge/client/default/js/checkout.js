@@ -161,6 +161,7 @@ $(document).ready(function () {
     $('.place-order-trigger').on('click', function () {
         $('button.place-order').click();
     });
+
 });
 $(document).on('click', '#paymentMethodsList .paymentMethod, .payment-method-options .afterpay-tab', function (event) {
     var paymentMethod = $(this)

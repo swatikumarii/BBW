@@ -4612,18 +4612,17 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </custom-attributes>
     </content>
 
-
-    <content content-id="register-form">
+     <content content-id="register-form">
         <display-name xml:lang="x-default">create account form</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="register-form banner-img text-center"&gt;&lt;img alt="Join the VIPs. My Bath &amp;amp; Body Works Rewards. Available nationwide! Now everyone can earn FREE products (up to $16.95) for doing what they love!" src="images/Login-Signup/register.jpg?$staticlink$" title="" /&gt;&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="register-form banner-img text-center"&gt;&#13;
+	&lt;img alt="Join the VIPs. My Bath &amp;amp; Body Works Rewards. Available nationwide! Now everyone can earn FREE products (up to $16.95) for doing what they love!" src="images/Login-Signup/nonloyalty_5thmkt_signuptile_D.png?$staticlink$" title="" /&gt;&#13;
+&lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-
-
 
 		<content content-id="menu-item-slot-1-detail-section">
         <display-name xml:lang="x-default">Menu Item Slot-1 Detail Section</display-name>
@@ -7956,4 +7955,40 @@ max-height: 35px:&#13;
 &lt;/div&gt;</custom-attribute>
     </custom-attributes>
 </content>
+
+    <content content-id="popular-suggestions">
+        <display-name xml:lang="x-default">Popular Suggestions</display-name>
+        <description xml:lang="x-default">Popular Suggestions</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="popular-suggestions suggestions__list"&gt;&#13;
+	&lt;h2 class="suggestions-header h-fw--bold text-uppercase"&gt;Popular Search&lt;/h2&gt;&#13;
+	&lt;div class="search-popular-list sub-list" role="list"&gt;&#13;
+		&lt;div class="search-popular-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5"&gt;&#13;
+			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="${URLUtils.url('Search-Show', 'q', 'Dahlia')}" class="search-popular-list__link sub-list__item__link"&gt;Dahlia&lt;/a&gt;&#13;
+&#13;
+		&lt;/div&gt;&#13;
+		&lt;div class="search-popular-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5"&gt;&#13;
+			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="${URLUtils.url('Search-Show', 'q', 'Gingham')}" class="search-popular-list__link sub-list__item__link"&gt;Gingham&lt;/a&gt;&#13;
+&#13;
+		&lt;/div&gt;&#13;
+		&lt;div class="search-popular-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5"&gt;&#13;
+			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="${URLUtils.url('Search-Show', 'q', 'Skies')}" class="search-popular-list__link sub-list__item__link"&gt;Skies&lt;/a&gt;&#13;
+&#13;
+		&lt;/div&gt;&#13;
+		&lt;div class="search-popular-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5"&gt;&#13;
+			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="${URLUtils.url('Search-Show', 'q', 'Summer Body Mist')}" class="search-popular-list__link sub-list__item__link"&gt;Summer Body Mist&lt;/a&gt;&#13;
+&#13;
+		&lt;/div&gt;&#13;
+		&lt;div class="search-popular-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5"&gt;&#13;
+			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="${URLUtils.url('Search-Show', 'q', 'Sweet Pea')}" class="search-popular-list__link sub-list__item__link"&gt;Sweet Pea&lt;/a&gt;&#13;
+&#13;
+		&lt;/div&gt;&#13;
+	&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
 </library>

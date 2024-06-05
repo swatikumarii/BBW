@@ -15,8 +15,7 @@
                     </li>
                 <iselse/>
                     <li class="dropdown-item no-sub-category" role="presentation">
-                        <a class="h-font-size--14 h-fw--semibold" href="${category.url}" id="${category.id}" role="menuitem" class="dropdown-link"
-                            tabindex="0">${category.name}</a>
+                        <a class="h-font-size--14 h-fw--semibold" href="${category.url}" id="${category.id}" role="menuitem" tabindex="0">${category.name}</a>
                     </li>
                 </isif>
             </isloop>

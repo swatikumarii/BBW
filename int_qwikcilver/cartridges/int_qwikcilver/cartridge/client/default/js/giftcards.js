@@ -19,10 +19,7 @@ function updateGiftPendingTotals(totals) {
         $('.order-gift-total').hide();
         $('.grand-total-sum').empty().append(totals.grandTotal);
     }
-    $('#giftcardAmount').show();
-    $('#giftcardAmount .gifcard-amount')
-        .empty()
-        .text(totals.pendingTotal.giftTotal);
+    $('.giftcard-total').empty().text(totals.pendingTotal.giftTotal);
     // update order total
     if (totals.orderTotal) {
         $('.order-total-sum').empty().append(totals.orderTotal);
@@ -74,7 +71,7 @@ $(document).ready(function () {
                         window.location.href = data.redirectUrl;
                         return;
                     }
-                    $('.gift-redeem-card-error')
+                    $('.gift-redeem-card-error').show()
                         .empty()
                         .append(
                             '<span class="giftcard-redeem-error">' +
@@ -82,6 +79,7 @@ $(document).ready(function () {
                                 '</span>'
                         );
                     setTimeout(function () {
+                        $('.gift-redeem-card-error').hide();
                         $('.giftcard-redeem-error').remove();
                     }, 5000);
 
@@ -89,16 +87,15 @@ $(document).ready(function () {
                     $('.giftcard-balance-status-wrap').empty();
                 } else if (data.addedCards && data.addedCards.length > 0) {
                     var cardArray = [];
+                    var addedCardsHTML = '';
                     for (var i = 0; i < data.addedCards.length; i++) {
                         var card = data.addedCards[i];
-                        cardArray.push(card);
-                        $('.giftcard-redeemed-cardnumber-' + i)
-                            .empty()
-                            .append(card);
-                        $('.redeemed-card-' + i).show();
-                        $('.giftcard-redeemed-cardnumber-' + i).show();
-                        $('.remove-card-' + i).attr('data-cardno', card);
+                        addedCardsHTML += '<span class="added-card d-flex justify-content-between py-2 border-bottom w-100"><span>' + card.cardNo + '</span><span class="h-clr--green-2">' + card.amount + '</span><span class="remove-giftcard-btn" data-cardno="' + card.cardNo + '"> Remove This Card</span></span>';
                     }
+                    $('.added-cards').empty().append(addedCardsHTML);
+                    $('#egift-number').val('');
+                    $('#egift-pin').val('');
+                    $('.giftcard-balance-text').empty();
                     if (data.noPendingAmount) {
                         $('.gift-redeem-card-status')
                             .empty()
@@ -166,6 +163,51 @@ $(document).ready(function () {
         });
     });
 
+    $(document).on('click', '.remove-giftcard-btn', function () {
+        var url = $('input[name="remove-giftcard-url"]').val();
+        var cardNumber = $(this).data('cardno');
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: { cardNumber: cardNumber },
+            success: function (data) {
+                if (data.error) {
+                    if (data.redirectUrl) {
+                        window.location.href = data.redirectUrl;
+                        return;
+                    }
+                    $('.giftcard-balance-wrap').empty();
+                    $('.giftcard-balance-status-wrap').empty();
+                } else if (data.remainingCards && data.remainingCards.length > 0) {
+                    if (data.basketModel && data.basketModel.totals) {
+                        updateGiftPendingTotals(data.basketModel.totals);
+                    }
+                    if (data.remainingCards) {
+                        var addedCardsHTML = '';
+                        for (var i = 0; i < data.remainingCards.length; i++) {
+                            var card = data.remainingCards[i];
+                            addedCardsHTML += '<span class="added-card d-flex justify-content-between py-2 border-bottom w-100"><span>' + card.cardNo + '</span><span class="h-clr--green-2">' + card.amount + '</span><span class="remove-giftcard-btn" data-cardno="' + card.cardNo + '"> Remove This Card</span></span>';
+                        }
+                        $('.added-cards').empty().append(addedCardsHTML);
+                    }
+                    if (data.hideCreditCardForm) {
+                        $('#selectedPaymentOption').val('');
+                        $('.form-nav.billing-nav.payment-information').hide();
+                        $('#paymentMethodsList').hide();
+                    }
+                } else {
+                    $('.added-cards').empty();
+                }
+                if (data.basketModel && data.basketModel.totals) {
+                    updateGiftPendingTotals(data.basketModel.totals);
+                }
+            },
+            error: function () {
+                return false;
+            }
+        });
+    });
+
     $('#egift-card-check-balance').click(function (e) {
         e.preventDefault();
         var cardNumber = $('.gift-card-apply')
@@ -202,7 +244,7 @@ $(document).ready(function () {
                     $('.giftcard-balance-wrap')
                         .empty()
                         .append(
-                            '<span class="giftcard-balance-text giftcard-balance-error">Balance: ' +
+                            '<span class="giftcard-balance-text giftcard-balance-error">' +
                                 data.cardBalance +
                                 '</span>'
                         );
@@ -258,6 +300,14 @@ $(document).ready(function () {
             }
             $errorMessage.text(errorText).show();
         }
+    });
+
+    $('.add-giftcard-button').on('click', function () {
+        $('.add-giftcard-section').addClass('show');
+    });
+
+    $('.giftcard-cancel-btn').on('click', function () {
+        $('.add-giftcard-section').removeClass('show');
     });
 
     $(document).on('change', '#giftCard-video', function (evt) {

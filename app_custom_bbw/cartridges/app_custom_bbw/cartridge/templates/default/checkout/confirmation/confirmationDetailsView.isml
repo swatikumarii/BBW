@@ -11,7 +11,7 @@
   class="container data-checkout-stage">
 
     <div class="row">
-        <div class="col-sm-12 col-md-8 col-xl-8">
+        <div class="col-sm-12 col-md-8 col-xl-8 pl-0">
             <div class="confirmation-shipping-summary border d-block">
                 <isinclude template="checkout/shipping/shippingSummary" />
             </div>
@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div class="col-sm-12 col-md-4 col-xl-4">
+        <div class="col-sm-12 col-md-4 col-xl-4 confirmation-payment-section">
             <div class="card confirmation-order-summary">
                 <div class="confirmation-total-summary-wrap">
                     <h2

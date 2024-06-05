@@ -11,7 +11,7 @@
             </isif>
         </div>
     </div>
-    <div id="pdpCarousel-${product.id}" class="carousel slide" data-ride="carousel"  data-touch="true" data-interval="false" data-prev="${Resource.msg('button.previous', 'common', null)}" data-next="${Resource.msg('button.next', 'common', null)}">
+    <div id="pdpCarousel-${product.id}" class="carousel slide pdp-carousel" data-ride="carousel"  data-touch="true" data-interval="false" data-prev="${Resource.msg('button.previous', 'common', null)}" data-next="${Resource.msg('button.next', 'common', null)}">
 
         <div class="carousel-inner">
             <isloop items="${product.images['mediumLarge']}" var="image" status="loopStatus">

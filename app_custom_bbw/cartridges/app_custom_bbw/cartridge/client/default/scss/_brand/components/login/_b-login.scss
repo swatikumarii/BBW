@@ -219,26 +219,26 @@
             position: relative;
             right: 0;
 
-            @include media-up(sm) {
-                position: relative;
-                right: 64%;
-            }
+            // @include media-up(sm) {
+            //     position: relative;
+            //     right: 64%;
+            // }
 
-            @include media-btw(sm, lg) {
-                right: 59%;
-            }
+            // @include media-btw(sm, lg) {
+            //     right: 59%;
+            // }
         }
 
         img {
             width: 100%;
 
-            @include media-up(sm) {
-                width: auto;
-            }
+            // @include media-up(sm) {
+            //     width: auto;
+            // }
 
-            @include media-btw(sm, lg) {
-                width: 40rem;
-            }
+            // @include media-btw(sm, lg) {
+            //     width: 40rem;
+            // }
         }
 
         .register-select {
@@ -1133,11 +1133,6 @@
             border: 1px solid colour(gray, 5);
             position: relative;
             box-sizing: border-box;
-        }
-
-
-        &::after {
-            border-left: 1px solid colour(white);
         }
 
         &::after {

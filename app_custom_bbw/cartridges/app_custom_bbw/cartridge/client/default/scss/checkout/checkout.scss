@@ -580,6 +580,65 @@ input[type="tel"],
     }
 }
 
+.gift-card-apply {
+    .add-giftcard-header-wrap {
+        border-top: 3px solid $clr-gray-1;
+        width: 85%;
+        margin: 0 15px;
+
+        .add-giftcard-header {
+            padding: 20px 0;
+        }
+    }
+
+    .add-giftcard-text {
+        display: block;
+        padding-bottom: 20px;
+        border-bottom: 3px solid $clr-gray-1;
+        margin: 0 15px;
+        width: 85%;
+    }
+
+    .giftcard-total-wrap {
+        width: 90%;
+        padding: 20px 15px;
+        height: 58px;
+    }
+
+    .gift-redeem-card-error {
+        margin: 0 15px;
+        max-width: 85%;
+        padding: 10px 15px;
+        color: $clr-red;
+        background-color: $clr-red-10;
+    }
+}
+
+.add-giftcard-button {
+    text-decoration: underline;
+}
+
+.add-giftcard-section {
+    display: none;
+    width: 90%;
+
+    &.show {
+        display: flex;
+    }
+
+    .giftcard-buttons {
+        padding: 0 15px;
+    }
+
+    .giftcard-balance-section {
+        border-bottom: 1px solid $clr-black-1;
+
+        #egift-card-check-balance {
+            text-decoration: underline;
+        }
+    }
+}
+
 .info-icon-text {
     max-width: 260px;
     width: auto;
@@ -656,7 +715,7 @@ input[type="tel"],
     border-bottom: 10px solid transparent;
     position: absolute;
     right: -39px;
-    top: 48px;
+    top: 50%;
     transform: translate(-100%, -50%);
     display: none;
     z-index: 1;
@@ -788,5 +847,46 @@ input[type="tel"],
             border-bottom: 10px solid transparent;
             border-right: 10px solid white;
         }
+    }
+}
+
+.order-discount {
+    p {
+        line-height: 20px;
+        letter-spacing: 0.2px;
+
+        &.accordion-item.collapsed {
+            &::before {
+                background: url("../../images/UI-Carat.svg") no-repeat 50%;
+                background-size: 1.25rem;
+                content: "";
+                height: 12px;
+                position: absolute;
+                left: 74px;
+                transform: rotate(0deg);
+                transition: all 0.5s ease-out;
+                width: 12px;
+                top: 4px;
+            }
+        }
+
+        &.accordion-item {
+            &::before {
+                background: url("../../images/UI-Carat.svg") no-repeat 50%;
+                background-size: 1.25rem;
+                content: "";
+                height: 12px;
+                position: absolute;
+                left: 74px;
+                transition: all 0.5s ease-out;
+                width: 12px;
+                top: 4px;
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .accordion-collapse {
+        padding-left: 30px;
     }
 }

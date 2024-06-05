@@ -310,6 +310,10 @@
                 <isset name="shippingExclusiveTax"
                     value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingExcludingTaxes')}"
                     scope="page" />
+                <isset name="showSalesTaxes" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showSalesTaxes')}"
+                    scope="page" />
+                <isset name="showShippingHandlingTaxes"
+                    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingHandlingTaxes')}" scope="page" />
 
                 <iscomment> Subtotal </iscomment>
                 <isif condition="${totalExclusiveTax}">
@@ -383,7 +387,12 @@
                         <div class="col-md-2" style=" margin-left: 38px;">
                             <p style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;"
                                 class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive">
-                                ${pdict.order.totals.shippingTotalExclTax}</p>
+                                <isif condition="${pdict.order.totals.shippingTotalExclTax === 0}">
+                                    ${Resource.msg('label.free.price', 'cart', null)}
+                                <iselse/>
+                                    ${pdict.order.totals.shippingTotalExclTax}
+                                </isif>
+                            </p>
                         </div>
                     </div>
                 <iselse/>
@@ -396,31 +405,38 @@
                         <div class="col-md-2" style=" margin-left: 35px;">
                             <p style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;"
                                 class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive">
-                                ${pdict.order.totals.totalShippingCost}</p>
+                                <isif condition="${pdict.order.totals.totalShippingCost === 0}">
+                                    ${Resource.msg('label.free.price', 'cart', null)}
+                                <iselse/>
+                                    ${pdict.order.totals.totalShippingCost}
+                                </isif>
+                            </p>
                         </div>
                     </div>
                 </isif>
 
 
                 <iscomment> Shipping Tax </iscomment>
-                <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
-                    <div class="col-md-10">
-                        <isif condition="${shippingExclusiveTax}">
-                            <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
-                                <strong>${Resource.msg('label.shipping.and.handling.tax', 'cart', null)}:</strong>
-                            </p>
-                        <iselse/>
-                            <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
-                                <strong> ${Resource.msg('label.shipping.and.handling.tax.inclusive', 'cart', null)}:</strong>
-                            </p>
-                        </isif>
+                <isif condition="${showShippingHandlingTaxes}">
+                    <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                        <div class="col-md-10">
+                            <isif condition="${shippingExclusiveTax}">
+                                <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
+                                    <strong>${Resource.msg('label.shipping.and.handling.tax', 'cart', null)}:</strong>
+                                </p>
+                            <iselse/>
+                                <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
+                                    <strong> ${Resource.msg('label.shipping.and.handling.tax.inclusive', 'cart', null)}:</strong>
+                                </p>
+                            </isif>
+                        </div>
+                        <div class="col-md-2" style=" margin-left: 34px;">
+                            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-tax"
+                                style=" margin-bottom: 0px;">
+                                ${pdict.order.totals.shippingTotalTax}</p>
+                        </div>
                     </div>
-                    <div class="col-md-2" style=" margin-left: 34px; font-family: SourceSansPro, Arial, sans-serif;">
-                        <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-tax"
-                            style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
-                            ${pdict.order.totals.shippingTotalTax}</p>
-                    </div>
-                </div>
+                </isif>
 
                 <iscomment> Shipping Discount </iscomment>
                 <isif condition="${pdict.order.totals.shippingLevelDiscountTotal.value === 0}">
@@ -453,6 +469,7 @@
 
 
                 <iscomment> Sales Tax </iscomment>
+<<<<<<< HEAD
                 <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                     <div class="col-md-10">
                         <isif condition="${totalExclusiveTax}">
@@ -469,8 +486,28 @@
                         <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sales-tax"
                             style=" margin-bottom: 0px;">
                             ${pdict.order.totals.totalTax}</p>
+=======
+                <isif condition="${showSalesTaxes}">
+                    <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                        <div class="col-md-10">
+                            <isif condition="${totalExclusiveTax}">
+                                <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
+                                    <strong>${Resource.msg('label.sales.tax', 'cart', null)}:</strong>
+                                </p>
+                            <iselse/>
+                                <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
+                                    <strong>${Resource.msg('label.sales.tax.inclusive', 'cart', null)}:</strong>
+                                </p>
+                            </isif>
+                        </div>
+                        <div class="col-md-2" style=" margin-left: 33px;">
+                            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sales-tax"
+                                style=" margin-bottom: 0px;">
+                                ${pdict.order.totals.totalTax}</p>
+                        </div>
+>>>>>>> 981c46728136c27afb4d24bdeec2dfd2accab1ae
                     </div>
-                </div>
+                </isif>
 
                 <iscomment>
                     <div class="row">
