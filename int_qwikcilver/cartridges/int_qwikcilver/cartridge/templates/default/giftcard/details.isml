@@ -147,7 +147,7 @@
                         </div>
                     </div>
 
-                    <div class="row gift-card-video">
+                    <div class="row gift-card-video d-none">
                         <input type="hidden" name="s3Url"
                             value="${dw.system.Site.getCurrent().getCustomPreferenceValue('s3UploadLink')}">
                         <div class="col-sm-12">

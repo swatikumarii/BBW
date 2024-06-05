@@ -180,6 +180,7 @@ $(document).ready(function () {
             $('#schedule-days-list').val(date.getDate()).trigger('change');
             $('#schedule-months-list').val(month).trigger('change');
         }
+    });
 
     $(document).on('click', '.remove-giftcard-btn', function () {
         var url = $('input[name="remove-giftcard-url"]').val();
