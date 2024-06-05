@@ -1339,6 +1339,7 @@
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
             </attribute-definition>
             <attribute-definition attribute-id="showShippingExcludingTaxes">
                 <display-name xml:lang="x-default">Show shipping Excluding Taxes</display-name>
@@ -1347,10 +1348,11 @@
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
             <attribute-definition attribute-id="showShippingHandlingTaxes">
-                <display-name xml:lang="x-default">Show Shipping and Handling Taxes</display-name>
+                <display-name xml:lang="x-default">Show Shipping & Handling Taxes</display-name>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
             </attribute-definition>
             <attribute-definition attribute-id="showTotalsExcludingTaxes">
                 <display-name xml:lang="x-default">Show totals excluding taxes</display-name>
