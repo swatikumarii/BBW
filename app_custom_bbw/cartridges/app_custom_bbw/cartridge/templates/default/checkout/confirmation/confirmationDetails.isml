@@ -7,7 +7,7 @@
         <p  class="mb-0">
             <span class="summary-section-label  order-date-label">${Resource.msg('label.order.date', 'confirmation', null)}</span>
             <span class="summary-details order-date h-clr--black h-fw--semibold">
-                <isprint value="${pdict.order.creationDate}" formatter="dd/MM/yy" /></span>
+                <isprint value="${pdict.order.creationDate}" formatter="dd/MM/yy hh:mm a" /></span>
         </p>
         <p  class="mb-0">
             <span class="summary-section-label  order-date-label">${Resource.msg('label.total', 'confirmation', null)}</span>

@@ -1334,8 +1334,20 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="showSalesTaxes">
+                <display-name xml:lang="x-default">Show Sales Taxes</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="showShippingExcludingTaxes">
                 <display-name xml:lang="x-default">Show shipping Excluding Taxes</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="showShippingHandlingTaxes">
+                <display-name xml:lang="x-default">Show Shipping and Handling Taxes</display-name>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -1838,6 +1850,8 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <display-name xml:lang="x-default">Taxation</display-name>
                 <attribute attribute-id="showTotalsExcludingTaxes"/>
                 <attribute attribute-id="showShippingExcludingTaxes"/>
+                <attribute attribute-id="showSalesTaxes"/>
+                <attribute attribute-id="showShippingHandlingTaxes"/>
             </attribute-group>
             <attribute-group group-id="Nationality">
                 <display-name xml:lang="x-default">Nationality</display-name>
