@@ -118,6 +118,14 @@ function updateCartTotals(data) {
         }
         $('.item-total-' + item.UUID).empty().append(item.priceTotal.renderedPrice);
     });
+
+    // update free item toast message
+    if (data.freeItemCount > 0) {
+        $('.free-item-toast-message').removeClass('hide-free-item-toast-message');
+        $('.free-item-toast-message').empty().append(data.freeItemToastMessage);
+    } else {
+        $('.free-item-toast-message').addClass('hide-free-item-toast-message');
+    }
 }
 
 /**
