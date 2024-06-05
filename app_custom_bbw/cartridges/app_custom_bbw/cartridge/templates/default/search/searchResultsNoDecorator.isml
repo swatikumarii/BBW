@@ -54,3 +54,8 @@
 <div class="recommendations">
     <isslot id="plp-recently-viewed-product" description="Recently viewed product slot for PLP" context="global" />
 </div>
+<isif condition="${!pdict.productSearch.count}">
+    <div class="recommendations">
+        <isslot id="plp-no-results-recommendation" description="Recently viewed product slot for PLP" context="global" />
+    </div>
+</isif>

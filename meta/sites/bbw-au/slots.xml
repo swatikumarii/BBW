@@ -139,15 +139,37 @@
         <description>Slot search popular pick for 0 search results</description>
         <template>slots/product/searchPopulatPicks.isml</template>
         <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">You'll Also Love</callout-msg>
         <content>
             <products>
-                <product product-id="22486926"/>
-                <product product-id="24329446"/>
-                <product product-id="24401763"/>
-                <product product-id="24448962"/>
-                <product product-id="24554865"/>
+                <product product-id="26774809"/>
+                <product product-id="26717330"/>
+                <product product-id="26767372"/>
+                <product product-id="28001614"/>
+                <product product-id="26776801"/>
             </products>
         </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="plp-no-results-recommendation" context="global" configuration-id="plp-no-results-recommendation-config" assigned-to-site="true">
+        <description>Recommendation on PLP no results page</description>
+        <template>slots/product/plpRecentlyViewedProduct.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <products>
+                <product product-id="26774809"/>
+                <product product-id="26717330"/>
+                <product product-id="26767372"/>
+                <product product-id="28001614"/>
+                <product product-id="26776801"/>
+            </products>
+        </content>
+        <custom-attributes>
+            <custom-attribute attribute-id="showOutOfStockProducts">false</custom-attribute>
+        </custom-attributes>
+        <customer-groups>
+            <customer-group group-id="Everyone"/>
+        </customer-groups>
     </slot-configuration>
 
 </slot-configurations>
