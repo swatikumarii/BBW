@@ -57,8 +57,17 @@ function validateBasket(data) {
  * @param {object} data - AJAX response from the server
  */
 function updateCartTotals(data) {
+    if (data.hasFreeShipping) {
+        $('.shipping-cost').empty().append('FREE');
+        $('.shipping-discount').addClass('d-none');
+        $('.shipping-tax').closest('div.row').addClass('d-none');
+    } else {
+        $('.shipping-discount').removeClass('d-none');
+        $('.shipping-cost').empty().append(data.totals.totalShippingCost);
+        $('.shipping-tax').closest('div.row').removeClass('d-none');
+
+    }
     $('.number-of-items').empty().append(data.resources.numberOfItems);
-    $('.shipping-cost').empty().append(data.totals.totalShippingCost);
     $('.tax-total').empty().append(data.totals.totalTax);
     $('.grand-total').empty().append(data.totals.grandTotal);
     $('.sub-total').empty().append(data.totals.subTotal);
@@ -358,6 +367,11 @@ module.exports = function () {
             uuid: uuid
         };
         var isMiniCart = $(this).parents('.mini-cart-content').length > 0;
+        var isPopupMinicart = $('body').find('.minicart').hasClass('popup');
+        var minicartQty = $('.minicart-quantity');
+        if (isPopupMinicart && $(minicartQty[0]).text() === '1') {
+            $('.minicart .popover').removeClass('show');
+        }
 
         url = appendToUrl(url, urlParams);
 
@@ -375,14 +389,18 @@ module.exports = function () {
                 if (data.basket.items.length === 0) {
                     if (isMiniCart) {
                         var minicartURL = $('.minicart').data('action-url');
-                        $.get(
-                            minicartURL,
-                            function (dataMinicart) {
-                                $('.minicart .popover')
-                                    .empty()
-                                    .append(dataMinicart);
-                            }
-                        );
+                        if (isPopupMinicart) {
+                            $('.minicart .popover').removeClass('show');
+                        } else {
+                            $.get(
+                                minicartURL,
+                                function (dataMinicart) {
+                                    $('.minicart .popover')
+                                        .empty()
+                                        .append(dataMinicart);
+                                }
+                            );
+                        }
                     } else {
                         var emptyCartHtml =
                             '<div class="container text-center">' +
@@ -624,7 +642,7 @@ module.exports = function () {
         $('.coupon-error-message').empty();
         $('body').trigger('promotion:beforeUpdate');
 
-        $.ajax({
+        $.ajax({    
             url: $form.attr('action'),
             type: 'GET',
             dataType: 'json',
@@ -639,6 +657,9 @@ module.exports = function () {
                     $('.coupon-error-message').addClass('d-block');
                     $('body').trigger('promotion:error', data);
                 } else {
+                    $('.coupon-error-message').removeClass('px-3');
+                    $('.coupon-error-message').removeClass('py-2');
+                    $('.coupon-error-message').removeClass('d-block');
                     $('.coupons-and-promos').empty().append(data.totals.discountsHtml);
                     updateCartTotals(data);
                     updateApproachingDiscounts(data.orderApproachingDiscounts, data.shippingApproachingDiscounts);

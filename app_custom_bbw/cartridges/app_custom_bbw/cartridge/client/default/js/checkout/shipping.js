@@ -1,7 +1,7 @@
 'use strict';
 
 var addressHelpers = require('./address');
-var formHelpers = require('base/checkout/formErrors');
+var formHelpers = require('./formErrors');
 var scrollAnimate = require('base/components/scrollAnimate');
 
 /**
