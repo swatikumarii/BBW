@@ -38,7 +38,7 @@
                         <p class="h-clr--gray text-center">${Resource.msg('msg.signup.overview', 'login', null)}</p>
                         </div>
                         <div class="signup-img d-flex justify-content-center">
-                            <img src="${URLUtils.staticURL('/images/login/login-img.jpg')}"
+                            <img src="${URLUtils.staticURL('/images/login/BBW_LOGO_MagSq.png')}"
                                 alt="${Resource.msg('login.image.message', 'login', null)} "
                                 class="w-100" />
                         </div>

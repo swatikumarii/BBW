@@ -8,6 +8,8 @@
         assets.addCss('/css/product/detail.css');
         assets.addCss('/css/afterpaystyle.css');
         assets.addCss('/css/notifyMe.css');
+        assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
+        assets.addJs('/js/pickedJustForYou.js');
     </isscript>
 
     <isset name="product" value="${pdict.product}" scope="page" />
@@ -273,10 +275,10 @@
                     </div>
                 </div>
             </div>
-            <div class="recommendations">
+            <div class="recommendations w-100">
                 <isslot id="recently-viewed-product" description="Recently viewed product slot" context="global" context-object="${pdict.product.raw}" />
             </div>
-            <div class="recommendations">
+           <div class="recommendations">
                 <isslot id="more-youll-adore" description="More You’ll Adore" context="global" context-object="${pdict.product.raw}" />
             </div>
         </div>

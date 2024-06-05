@@ -151,17 +151,19 @@
         </content>
     </slot-configuration>
 
-    <slot-configuration slot-id="plp-no-results-recommendation" context="global" configuration-id="plp-no-results-recommendation-config" assigned-to-site="true">
+    <slot-configuration slot-id="plp-no-results-recommendation" context="global" configuration-id="plp-no-results-recommendation-config" default="true" assigned-to-site="true">
         <description>Recommendation on PLP no results page</description>
         <template>slots/product/plpRecentlyViewedProduct.isml</template>
         <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">Recommended For You</callout-msg>
         <content>
             <products>
-                <product product-id="26774809"/>
-                <product product-id="26717330"/>
-                <product product-id="26767372"/>
-                <product product-id="28001614"/>
-                <product product-id="26776801"/>
+                <product product-id="26261070"/>
+                <product product-id="26270018"/>
+                <product product-id="24401763"/>
+                <product product-id="24601022"/>
+                <product product-id="24631264"/>
+                <product product-id="24601028"/>
             </products>
         </content>
         <custom-attributes>
@@ -170,6 +172,44 @@
         <customer-groups>
             <customer-group group-id="Everyone"/>
         </customer-groups>
+    </slot-configuration>
+
+    <slot-configuration slot-id="more-youll-adore" context="global" configuration-id="more-you-adore" default="true" assigned-to-site="true">
+        <template>slots/product/moreYoullAdore.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">More You'll Adore</callout-msg>
+        <content>
+            <products>
+                <product product-id="26261070"/>
+                <product product-id="26270018"/>
+                <product product-id="24401763"/>
+                <product product-id="24601022"/>
+                <product product-id="24631264"/>
+                <product product-id="24601028"/>
+            </products>
+        </content>
+        <custom-attributes>
+            <custom-attribute attribute-id="showOutOfStockProducts">false</custom-attribute>
+        </custom-attributes>
+    </slot-configuration>
+
+    <slot-configuration slot-id="recently-viewed-product" context="global" configuration-id="recently-viewed-product" default="true" assigned-to-site="true">
+        <template>slots/product/recentlyViewedProduct.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">Customers Also Viewed</callout-msg>
+        <content>
+            <products>
+                <product product-id="26261070"/>
+                <product product-id="26270018"/>
+                <product product-id="24401763"/>
+                <product product-id="24601022"/>
+                <product product-id="24631264"/>
+                <product product-id="24601028"/>
+            </products>
+        </content>
+        <custom-attributes>
+            <custom-attribute attribute-id="showOutOfStockProducts">false</custom-attribute>
+        </custom-attributes>
     </slot-configuration>
 
 </slot-configurations>

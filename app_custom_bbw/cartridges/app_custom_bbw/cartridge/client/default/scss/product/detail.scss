@@ -7,7 +7,7 @@
         padding: 0 20px;
     }
 
-    .carousel {
+    .pdp-carousel {
         cursor: pointer;
 
         @include media-up(sm) {
@@ -511,6 +511,59 @@
             &:hover {
                 background: url("../../images/pdp/PDP-Wishlist-5.svg") no-repeat
                     50%;
+            }
+        }
+    }
+
+    .recommendations {
+        border: 0 none;
+        width: 100%;
+        max-width: 955px;
+        float: none;
+        margin: 0 auto;
+        padding: 0 0 20px 25px;
+
+        .picked-just-header-wrapper {
+            .picked-just-header-wrapper__title {
+                padding: 12px 0 0;
+                margin-top: 2em;
+                border-top: 1px solid colour(black, 3);
+            }
+        }
+
+        .picked-just-recomm.ds-smooth-scroll {
+            &::-webkit-scrollbar {
+                margin-top: 20px;
+                height: 8px;
+                display: inline;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 8px;
+                background-color: colour(gray, 5);
+            }
+
+            &::-webkit-scrollbar-track {
+                border-radius: 8px;
+                margin-right: 16px;
+            }
+
+            &::-webkit-scrollbar-track-piece {
+                border-radius: 8px;
+            }
+
+            .b-product-tile .price {
+                margin: 0;
+            }
+        }
+
+        @include media-down(sm) {
+            max-width: none;
+            padding: 0 16px 48px;
+            clear: left;
+
+            .picked-just-recomm.ds-smooth-scroll::-webkit-scrollbar {
+                display: none;
             }
         }
     }
