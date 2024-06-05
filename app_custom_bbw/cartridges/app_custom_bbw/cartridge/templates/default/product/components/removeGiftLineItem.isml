@@ -12,25 +12,25 @@
                 <p class="product-to-remove"></p>
             </div>
             <div class="modal-body delete-confirmation-body">
-                <span class="modal-content-data h-clr--black-1 h-font-size--18">${Resource.msg('egift.delete.product.confirmation.modal.msg2','giftcards',null)}</span>
+                <span class="modal-content-data h-clr--black-1 h-font-size--16">${Resource.msg('egift.delete.product.confirmation.modal.msg2','giftcards',null)}</span>
                 <p class="product-to-remove"></p>       
             </div>
             <div class="modal-footer border-0 pt-0">
                 <isif condition="${isBundlePage}">
-                    <button type="button" class="btn delete-egiftitem-confirmation-btn h-clr--gray h-font-size--16"
+                    <button type="button" class="btn delete-egiftitem-confirmation-btn  h-font-size--16"
                         data-dismiss="modal"
                         data-addtocarturl="${addToCartUrl}"
                         data-action="${removeLineItemURL}"
                     >${Resource.msg('button.confirm','address',null)}</button>
                 <iselseif condition="${pdict.isOrderBaseRemoveGiftCard}" />
-                    <button type="button" class="btn order-base-delete-egiftitem-confirmation-btn h-clr--gray h-font-size--16"
+                    <button type="button" class="btn order-base-delete-egiftitem-confirmation-btn  h-font-size--16"
                         data-dismiss="modal"
                         data-oid="${pdict.order.orderNumber}"
                         data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
                         data-action="${URLUtils.url('Giftcard-RemoveLineItems')}"
                     >${Resource.msg('button.confirm','address',null)}</button>
                 <iselse/>
-                    <button type="button" class="btn delete-egiftitem-confirmation-btn h-clr--gray h-font-size--16"
+                    <button type="button" class="btn delete-egiftitem-confirmation-btn  h-font-size--16"
                         data-dismiss="modal"
                         data-addtocarturl="${URLUtils.url('Cart-AddProduct')}"
                         data-action="${URLUtils.url('Giftcard-RemoveLineItems')}"

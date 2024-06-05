@@ -19,6 +19,7 @@
                 <th class="order-description border-top-0 text-uppercase" colspan="2">
                     ${Resource.msg('label.item.description', 'order', null)}</th>
                 <th class="order-qty border-top-0 text-center text-uppercase">${Resource.msg('label.qty', 'order', null)}</th>
+                <th class="order-price border-top-0 text-right text-uppercase">${Resource.msg('label.item.header.savings', 'cart', null)}</th>
                 <th class="order-price border-top-0 text-right text-uppercase">${Resource.msg('label.price', 'order', null)}</th>
             </tr>
         </thead>
@@ -57,6 +58,13 @@
                             </span>
                             <span class="pricing qty-card-quantity-count ">
                                 <isprint value="${lineItem.quantity}" formatter="##" /></span>
+                        </td>
+                        <td class="pricing item-total">
+                                <isif condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
+                                    <span class="value">${lineItem.totalSavings}</span>
+                                <iselse/>
+                                    <span class="value value-dash">${'-'}</span>
+                                </isif>
                         </td>
                         <td class="pricing item-total">
                             <span>

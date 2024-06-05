@@ -14,18 +14,18 @@
             </div>
             <div class="modal-body delete-confirmation-body">
                 <div class="col-12 p-0">
-                    <span class="modal-content-data login-para  h-clr--black-1 h-font-size--18 ">${Resource.msg('normal.delete.product.confirmation.modal.msg2','giftcards',null)}</span>
+                    <span class="modal-content-data login-para  h-clr--black-1 h-font-size--16 ">${Resource.msg('normal.delete.product.confirmation.modal.msg2','giftcards',null)}</span>
                     <p class="product-to-remove"></p>
                 </div>
             </div>
             <div class="modal-footer border-0 pt-0">
-                <button type="button" class="btn delete-lineitem-confirmation-btn btn-primary text-uppercase  h-font-size--16"
+                <button type="button" class="btn delete-lineitem-confirmation-btn btn-primary  h-font-size--16"
                     data-dismiss="modal"
                     data-pid="${product.id}"
                     data-addtocarturl="${pdict.addToCartUrl}"
                     data-action="${pdict.removeLineItemURL}"
                 >${Resource.msg('button.confirm.remove','giftcards',null)}</button>
-                <button type="button" class="btn btn-primary text-uppercase close-btn btn-secondary h-clr--gray h-font-size--16" data-dismiss="modal" data-oid="${pdict.order.orderNumber}"
+                <button type="button" class="btn btn-primary close-btn btn-secondary h-clr--gray h-font-size--16" data-dismiss="modal" data-oid="${pdict.order.orderNumber}"
                     data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
                     data-action="${URLUtils.url('Giftcard-RemoveLineItems')}">${Resource.msg('button.deny.remove', 'giftcards', null)}</button>
             </div>

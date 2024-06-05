@@ -139,6 +139,13 @@
                                                     style="text-transform: uppercase;">${Resource.msg('label.header.quantity', 'confirmation', null)} </span>
                                                 <isprint value="${lineItem.quantity}" formatter="##" />
                                             </td>
+                                            <td style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:right">
+                                                <isif condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
+                                                    ${lineItem.totalSavings}
+                                                <iselse/>
+                                                    ${'-'}
+                                                </isif>
+                                            </td>
                                             <td
                                                 style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:right">
                                                 <isif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">

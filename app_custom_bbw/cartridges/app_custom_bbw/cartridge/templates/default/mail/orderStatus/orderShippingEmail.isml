@@ -165,6 +165,14 @@
                                             </td>
                                             <td
                                                 style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:right">
+                                                <isif condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
+                                                    ${lineItem.totalSavings}
+                                                <iselse/>
+                                                    ${'-'}
+                                                </isif>
+                                            </td>
+                                            <td
+                                                style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:right">
                                                 <isif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
                                                     ${Resource.msg('label.free.price', 'cart', null)}
                                                 <iselse/>
