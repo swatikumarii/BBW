@@ -2712,7 +2712,7 @@
         </custom-attributes>
     </content>
 
-      <content content-id="footer-social-list">
+     <content content-id="footer-social-list">
         <display-name xml:lang="x-default">Social List</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -2722,16 +2722,16 @@
 	&lt;h6 class="social-header text-capitalize mb-4 font-weight-bold text-start h-clr--black-1 h-font-size--16"&gt;Get connected&lt;/h6&gt;&#13;
 	&lt;ul class="social-links d-flex m-0"&gt;&#13;
 		&lt;li&gt;&lt;a class="facebook" href="https://www.facebook.com/bbwaustralia/" target="_blank" title="Go to facebook"&gt;&lt;img alt="" src="images/footer/social-icon/Social-fb-black.svg?$staticlink$" title="facebook" /&gt;&lt;/a&gt;&#13;
-		&lt;/li&gt;&#13;
-		&lt;li&gt;&lt;a class="twitter" href="https://twitter.com/bathbodyworks" target="_blank" title="Go to twitter"&gt;&lt;img alt="" src="images/footer/social-icon/social-x-24.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+&#13;
 		&lt;/li&gt;&#13;
 		&lt;li&gt;&lt;a class="instagram" href="https://www.instagram.com/bathandbodyworks.au/" target="_blank" title="Go to instagram"&gt;&lt;img alt="" src="images/footer/social-icon/Social-ig-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+&#13;
 		&lt;/li&gt;&#13;
-		&lt;li&gt;&lt;a class="tiktok" href="https://www.tiktok.com/@bathandbodyworks" target="_blank" title="Go to tiktok"&gt;&lt;img alt="" src="images/footer/social-icon/Social-tiktok-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;li&gt;&lt;a class="tiktok" href="https://www.tiktok.com/@bathandbodyworks.au" target="_blank" title="Go to tiktok"&gt;&lt;img alt="" src="images/footer/social-icon/Social-tiktok-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+&#13;
 		&lt;/li&gt;&#13;
 		&lt;li&gt;&lt;a class="youtube" href="https://www.youtube.com/channel/UCi4-fFB4Odqjttdwomvg3rQ" target="_blank" title="Go to youtube"&gt;&lt;img alt="" src="images/footer/social-icon/Social-youtube-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
-		&lt;/li&gt;&#13;
-		&lt;li&gt;&lt;a class="pinterest" href="https://www.pinterest.com/bathbodyworks/" target="_blank" title="Go to pinterest"&gt;&lt;img alt="" src="images/footer/social-icon/Social-pinterest-black.svg?$staticlink$" title="" /&gt;&lt;/a&gt;&#13;
+&#13;
 		&lt;/li&gt;&#13;
 	&lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
@@ -4434,8 +4434,8 @@
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="store-details-bottom-wrapper text-center my-5"&gt;&#13;
-&lt;p class="h-font-size--16"&gt;Bath &amp; Body Works International store contact information&lt;br/&gt;&#13;
-To contact the Customer Service Department in the Malaysia, please call &lt;a href="phone:1800 81 7751" class="h-clr--blue-12"&gt;1800 81 7751&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.my"&gt;cs@bathandbodyworks.com.my.&lt;/a&gt;&lt;/p&gt;&#13;
+&lt;p class="h-font-size--16"&gt;
+To contact the Customer please call &lt;a href="phone:1800 81 7751" class="h-clr--blue-12"&gt;1800 81 7751&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au.&lt;/a&gt;&lt;/p&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
@@ -4851,7 +4851,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </custom-attributes>
     </content>
 
- <content content-id="contact-us">
+  <content content-id="contact-us">
         <display-name xml:lang="x-default">Contact Us</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -4862,147 +4862,140 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </page-attributes>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
-    &lt;div class="contact-us row"&gt;&#13;
-        &lt;div class="col s12 m3 contactOpts col-sm-6 col-md-8 col-xl-8"&gt;&#13;
-            &lt;div class="bg-img"&gt;&lt;/div&gt;&#13;
+	&lt;div class="contact-us row"&gt;&#13;
+		&lt;div class="col s12 m3 contactOpts col-sm-6 col-md-8 col-xl-8"&gt;&#13;
+			&lt;div class="bg-img"&gt;&lt;/div&gt;&#13;
+			&lt;div class="optsContainer"&gt;&#13;
+				&lt;div class="mobile-img"&gt;&#13;
+					&lt;img alt="" height="75px" src="images/contact-us/customer-care-mobile.svg?$staticlink$" title="" width="75px" /&gt;&#13;
+				&lt;/div&gt;&#13;
+				&lt;div class="content-img text-left w-100"&gt;&#13;
+					&lt;h2 class="h-font-size--24 h-fw--bold text-uppercase mb-0"&gt;ONLINE CUSTOMER CARE&lt;/h2&gt;&#13;
+					&lt;div class="rn_HelpResources"&gt;&#13;
+						&lt;div class="rn_Contact"&gt;&#13;
+							&lt;p class="mb-0"&gt;Need More Help? We want to hear from you!&lt;/p&gt;&#13;
+							&lt;div class="rn_ConditionalChatLink" id="rn_ConditionalChatLink_6"&gt;&#13;
+								&lt;p class="mb-0"&gt;&#13;
+									&lt;strong class="h-fw--semibold h-clr--black-3"&gt;CALL US:&lt;/strong&gt;&#13;
+								&lt;/p&gt;&#13;
+							&lt;/div&gt;&#13;
+							&lt;p class="mb-0"&gt;Call us at &lt;a href="tel:1-800-57-6972"&gt;1-800-57-6972&lt;/a&gt; &lt;/p&gt;&#13;
+							&lt;p class="mb-0"&gt;&#13;
+								&lt;strong class="h-fw--semibold h-clr--black-3"&gt;EMAIL US&lt;/strong&gt;&#13;
+							&lt;/p&gt;&#13;
+							&lt;p class="mb-0"&gt;&lt;a href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au&lt;/a&gt;&#13;
 &#13;
-            &lt;div class="optsContainer"&gt;&#13;
-                &lt;div class="mobile-img"&gt;&lt;img alt="" height="75px"&#13;
-                        src="images/contact-us/customer-care-mobile.svg?$staticlink$" title="" width="75px" /&gt;&lt;/div&gt;&#13;
-&#13;
-                &lt;div class="content-img text-left w-100"&gt;&#13;
-                    &lt;h2 class="h-font-size--24 h-fw--bold text-uppercase mb-0"&gt;ONLINE CUSTOMER CARE&lt;/h2&gt;&#13;
-&#13;
-                    &lt;div class="rn_HelpResources"&gt;&#13;
-                        &lt;div class="rn_Contact"&gt;&#13;
-                            &lt;p class="mb-0"&gt;Need More Help? We want to hear from you!&lt;/p&gt;&#13;
-&#13;
-                            &lt;div class="rn_ConditionalChatLink" id="rn_ConditionalChatLink_6"&gt;&#13;
-                                &lt;p class="mb-0"&gt;&lt;strong class="h-fw--semibold h-clr--black-3"&gt;CALL US:&lt;/strong&gt;&lt;/p&gt;&#13;
-                            &lt;/div&gt;&#13;
-&#13;
-                            &lt;p class="mb-0"&gt;Call us at &lt;a href="tel:1-800-57-6972"&gt;1-800-57-6972&lt;/a&gt;&lt;br /&gt;&#13;
-                                Monday-Friday&lt;/p&gt;&#13;
-                            &lt;p class="mb-0 mb-0 d-flex align-items-center"&gt; 9:00am-9:00pm AEST $include('ContactUs-Availability')$&lt;/p&gt;&#13;
-&#13;
-                            &lt;p class="mb-0"&gt;&lt;strong class="h-fw--semibold h-clr--black-3"&gt;EMAIL US&lt;/strong&gt;&lt;/p&gt;&#13;
-&#13;
-                            &lt;p class="mb-0"&gt;&lt;a href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au&lt;/a&gt;&#13;
-                            &lt;/p&gt;&#13;
-&#13;
-                            &lt;p class="mb-0"&gt;&lt;strong class="h-fw--semibold h-clr--black-3"&gt;MAILING ADDRESS&lt;/strong&gt;&lt;/p&gt;&#13;
-&#13;
-                            &lt;p class="mb-0"&gt;Level 4, 112 Castlereagh St,&lt;br /&gt;&#13;
-                                Sydney NSW 2000 Australia&lt;/p&gt;&#13;
-&#13;
-                            &lt;p class="mb-0"&gt;&lt;strong class="h-fw--semibold h-clr--black-3"&gt;Signing up for our mailing&#13;
-                                    list is easy!&lt;/strong&gt;&lt;br /&gt;&#13;
-                                Create an account with us to start shopping &amp;amp; get the latest news from Bath &amp;amp;&#13;
-                                Body Works. Sign up to create an account&lt;a href="$url('Login-CreateAccount')$"&#13;
-                                    style="text-decoration: none;"&gt; here &lt;/a&gt;&amp;amp; access the best of your favorite&#13;
-                                store! To be updated on all offers, simply input your email address at the bottom of the&#13;
-                                page and click subscribe.&lt;/p&gt;&#13;
-                        &lt;/div&gt;&#13;
-                    &lt;/div&gt;&#13;
-                &lt;/div&gt;&#13;
-            &lt;/div&gt;&#13;
-&#13;
-            &lt;div class="bg-img"&gt;&#13;
-            &lt;/div&gt;&#13;
-        &lt;/div&gt;&#13;
-    &lt;/div&gt;&#13;
+							&lt;/p&gt;&#13;
+								&lt;p class="mb-0"&gt;Monday-Friday&lt;/p&gt;&#13;
+							&lt;p class="mb-0 mb-0 d-flex align-items-center"&gt;9:00am-9:00pm AEST $include('ContactUs-Availability')$&lt;/p&gt;&#13;
+							&#13;
+							&lt;p class="mb-0"&gt;&#13;
+								&lt;strong class="h-fw--semibold h-clr--black-3"&gt;MAILING ADDRESS&lt;/strong&gt;&#13;
+							&lt;/p&gt;&#13;
+							&lt;p class="mb-0"&gt;Level 4, 112 Castlereagh St,&#13;
+								&lt;br /&gt;Sydney NSW 2000 Australia&lt;/p&gt;&#13;
+							&lt;p class="mb-0"&gt;&#13;
+								&lt;strong class="h-fw--semibold h-clr--black-3"&gt;Signing up for our mailing list is easy!&lt;/strong&gt;&#13;
+								&lt;br /&gt;Create an account with us to start shopping &amp;amp; get the latest news from Bath &amp;amp; Body Works. Sign up to create an account&lt;a href="$url('Login-CreateAccount')$" style="text-decoration: none;"&gt; here &lt;/a&gt;&amp;amp; access the best of your favorite store! To be updated on all offers, simply input your email address at the bottom of the page and click subscribe.&lt;/p&gt;&#13;
+						&lt;/div&gt;&#13;
+					&lt;/div&gt;&#13;
+				&lt;/div&gt;&#13;
+			&lt;/div&gt;&#13;
+			&lt;div class="bg-img"&gt;&lt;/div&gt;&#13;
+		&lt;/div&gt;&#13;
+	&lt;/div&gt;&#13;
 &lt;/div&gt;&#13;
 &lt;style type="text/css"&gt;&#13;
-    .bg-img {&#13;
-        background-image: url("images/contact-us/customer_bg_img.png?$staticlink$");&#13;
-        height: 100px;&#13;
-    }&#13;
-    .contactOpts {&#13;
-        margin: 0 auto;&#13;
-    }&#13;
-&#13;
-    .contact-us .col.m3 {&#13;
-        border: 3px solid #f2f2f2;&#13;
-        padding: 0;&#13;
-        margin: 70px auto;&#13;
-        max-width: 845px;&#13;
-    }&#13;
-&#13;
-&#13;
-    @media only screen and (max-width: 600px) {&#13;
-    .contact-us .col.m3 {&#13;
-        border: 3px solid #f2f2f2;&#13;
-        padding: 0;&#13;
-        margin: 70px auto;&#13;
-        max-width: 365px;&#13;
-    }&#13;
-}&#13;
- .bg-img {&#13;
-        background-image: url("images/contact-us/customer_bg_img.png?$staticlink$");&#13;
-        height: 100px;&#13;
-    }&#13;
-&#13;
-    .contact-us img.responsive-img,&#13;
-    video.responsive-video {&#13;
-        max-width: 100%;&#13;
-        height: auto;&#13;
-        width: 100%;&#13;
-    }&#13;
-&#13;
-    .contact-us .optsContainer {&#13;
-        padding: 20px;&#13;
-    }&#13;
-&#13;
-    .contact-us h2 {&#13;
-        padding-bottom: .5em;&#13;
-        margin-top: 19px;&#13;
-        line-height: 20px;&#13;
-    }&#13;
-&#13;
-    .contact-us p {&#13;
-        line-height: 1.6rem;&#13;
-    }&#13;
-&#13;
-    .optsContainer a,&#13;
-    .optsContainer a:visited {&#13;
-        color: #005699;&#13;
-        text-decoration: underline;&#13;
-        line-height: 28px;&#13;
-    }&#13;
-&#13;
-    .mobile-img,&#13;
-    .content-img {&#13;
-        display: inline-block;&#13;
-        padding: 15px 0px;&#13;
-    }&#13;
-&#13;
-    .mobile-img img {&#13;
-        display: inline-block;&#13;
-    }&#13;
-&#13;
-    #rn_ConditionalChatLink_6 .rn_Chat {&#13;
-        line-height: 2;&#13;
-    }&#13;
-&#13;
-.green-background {&#13;
-        height: 10px;&#13;
-            width: 10px;&#13;
-            background-color: #649B26;&#13;
-            display: inline-block;&#13;
-            border-radius: 50%;&#13;
-            margin-right: 8px;&#13;
-    margin-left: 8px;&#13;
-  }&#13;
-&#13;
-.red-background {&#13;
-                        background-color: #dc3545;&#13;
-        height: 10px;&#13;
-            width: 10px;&#13;
-            display: inline-block;&#13;
-            border-radius: 50%;&#13;
-            margin-right: 8px;&#13;
-    margin-left: 8px;&#13;
-    }&#13;
+	.bg-img {&#13;
+	        background-image: url("images/contact-us/customer_bg_img.png?$staticlink$");&#13;
+	        height: 100px;&#13;
+	    }&#13;
+	    .contactOpts {&#13;
+	        margin: 0 auto;&#13;
+	    }&#13;
+	&#13;
+	    .contact-us .col.m3 {&#13;
+	        border: 3px solid #f2f2f2;&#13;
+	        padding: 0;&#13;
+	        margin: 70px auto;&#13;
+	        max-width: 845px;&#13;
+	    }&#13;
+	&#13;
+	&#13;
+	    @media only screen and (max-width: 600px) {&#13;
+	    .contact-us .col.m3 {&#13;
+	        border: 3px solid #f2f2f2;&#13;
+	        padding: 0;&#13;
+	        margin: 70px auto;&#13;
+	        max-width: 365px;&#13;
+	    }&#13;
+	}&#13;
+	 .bg-img {&#13;
+	        background-image: url("images/contact-us/customer_bg_img.png?$staticlink$");&#13;
+	        height: 100px;&#13;
+	    }&#13;
+	&#13;
+	    .contact-us img.responsive-img,&#13;
+	    video.responsive-video {&#13;
+	        max-width: 100%;&#13;
+	        height: auto;&#13;
+	        width: 100%;&#13;
+	    }&#13;
+	&#13;
+	    .contact-us .optsContainer {&#13;
+	        padding: 20px;&#13;
+	    }&#13;
+	&#13;
+	    .contact-us h2 {&#13;
+	        padding-bottom: .5em;&#13;
+	        margin-top: 19px;&#13;
+	        line-height: 20px;&#13;
+	    }&#13;
+	&#13;
+	    .contact-us p {&#13;
+	        line-height: 1.6rem;&#13;
+	    }&#13;
+	&#13;
+	    .optsContainer a,&#13;
+	    .optsContainer a:visited {&#13;
+	        color: #005699;&#13;
+	        text-decoration: underline;&#13;
+	        line-height: 28px;&#13;
+	    }&#13;
+	&#13;
+	    .mobile-img,&#13;
+	    .content-img {&#13;
+	        display: inline-block;&#13;
+	        padding: 15px 0px;&#13;
+	    }&#13;
+	&#13;
+	    .mobile-img img {&#13;
+	        display: inline-block;&#13;
+	    }&#13;
+	&#13;
+	    #rn_ConditionalChatLink_6 .rn_Chat {&#13;
+	        line-height: 2;&#13;
+	    }&#13;
+	&#13;
+	.green-background {&#13;
+	        height: 10px;&#13;
+	            width: 10px;&#13;
+	            background-color: #649B26;&#13;
+	            display: inline-block;&#13;
+	            border-radius: 50%;&#13;
+	            margin-right: 8px;&#13;
+	    margin-left: 8px;&#13;
+	  }&#13;
+	&#13;
+	.red-background {&#13;
+	                        background-color: #dc3545;&#13;
+	        height: 10px;&#13;
+	            width: 10px;&#13;
+	            display: inline-block;&#13;
+	            border-radius: 50%;&#13;
+	            margin-right: 8px;&#13;
+	    margin-left: 8px;&#13;
+	    }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
@@ -7844,7 +7837,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </custom-attributes>
     </content>
 
-    <content content-id="loginModalPopup">
+     <content content-id="loginModalPopup">
         <display-name xml:lang="x-default">Login Modal</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7857,7 +7850,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
      If you previously had an account with us, you will ned to reset your password to continue using our new website. &#13;
      If you have updated your password, please continue to login.&#13;
     &lt;/p&gt;&#13;
-    &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn w-100" href="$url('Account-PasswordReset')$"&gt;&#13;
+    &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
        Reset Password&#13;
     &lt;/a&gt;&#13;
 &lt;/div&gt;&#13;
@@ -7869,16 +7862,23 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 margin-bottom: 16px;&#13;
     }&#13;
     .reset-password-btn {&#13;
-              padding: 6px 3em;&#13;
-    font-size: 14px;&#13;
-    letter-spacing: 1.2px;&#13;
-    border: 1px solid;&#13;
+                 padding: 6px 3em;&#13;
+    border: 1px solid black;&#13;
+   display: block;&#13;
+    text-align: center;&#13;
+min-height: 35px;&#13;
+    max-height: 35px;&#13;
+    }&#13;
+    .reset-password-btn:active {&#13;
+            background-color: #fff;&#13;
+    border-color: #f2f2f2;&#13;
+    color: #333;&#13;
     }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
 
-    <content content-id="migration-message-login-modal">
+     <content content-id="migration-message-login-modal">
         <display-name xml:lang="x-default">Migration Message Login Modal</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -7886,7 +7886,7 @@ margin-bottom: 16px;&#13;
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="login-modal-section"&gt;&#13;
 	&lt;h4 class="h-clr--pink h-font-size--16 h-fw--bold"&gt;Reset your password&lt;/h4&gt;&#13;
-	&lt;p class="h-font-size--16 login-para h-clr--gray "&gt;If you previously had an account with us, you will ned to reset your password to continue using our new website. If you have updated your password, please continue to login.&lt;/p&gt; &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn w-100" href="$url('Account-PasswordReset')$"&gt;&#13;
+	&lt;p class="h-font-size--16 login-para h-clr--gray "&gt;If you previously had an account with us, you will ned to reset your password to continue using our new website. If you have updated your password, please continue to login.&lt;/p&gt; &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
        Reset Password&#13;
     &lt;/a&gt;&#13;
 &#13;
@@ -7901,7 +7901,11 @@ margin-bottom: 16px;&#13;
 	              padding: 6px 3em;&#13;
 	    font-size: 14px;&#13;
 	    letter-spacing: 1.2px;&#13;
-	    border: 1px solid;&#13;
+          text-align: center;&#13;
+	    border: 1px solid black;&#13;
+ display: block;&#13;
+ min-height: 35px;&#13;
+max-height: 35px:&#13;
 	    }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
@@ -7956,23 +7960,23 @@ margin-bottom: 16px;&#13;
 	&lt;h2 class="suggestions-header h-fw--bold text-uppercase"&gt;Popular Search&lt;/h2&gt;&#13;
 	&lt;div class="search-popular-list sub-list" role="list"&gt;&#13;
 		&lt;div class="search-popular-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5"&gt;&#13;
-			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="${URLUtils.url('Search-Show', 'q', 'Dahlia')}" class="search-popular-list__link sub-list__item__link"&gt;Dahlia&lt;/a&gt;&#13;
+			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="$url('Search-Show', 'q', 'Dahlia')$" class="search-popular-list__link sub-list__item__link"&gt;Dahlia&lt;/a&gt;&#13;
 &#13;
 		&lt;/div&gt;&#13;
 		&lt;div class="search-popular-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5"&gt;&#13;
-			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="${URLUtils.url('Search-Show', 'q', 'Gingham')}" class="search-popular-list__link sub-list__item__link"&gt;Gingham&lt;/a&gt;&#13;
+			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="$url('Search-Show', 'q', 'Gingham')$" class="search-popular-list__link sub-list__item__link"&gt;Gingham&lt;/a&gt;&#13;
 &#13;
 		&lt;/div&gt;&#13;
 		&lt;div class="search-popular-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5"&gt;&#13;
-			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="${URLUtils.url('Search-Show', 'q', 'Skies')}" class="search-popular-list__link sub-list__item__link"&gt;Skies&lt;/a&gt;&#13;
+			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="$url('Search-Show', 'q', 'Skies')$" class="search-popular-list__link sub-list__item__link"&gt;Skies&lt;/a&gt;&#13;
 &#13;
 		&lt;/div&gt;&#13;
 		&lt;div class="search-popular-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5"&gt;&#13;
-			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="${URLUtils.url('Search-Show', 'q', 'Summer Body Mist')}" class="search-popular-list__link sub-list__item__link"&gt;Summer Body Mist&lt;/a&gt;&#13;
+			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="$url('Search-Show', 'q', 'Summer Body Mist')$" class="search-popular-list__link sub-list__item__link"&gt;Summer Body Mist&lt;/a&gt;&#13;
 &#13;
 		&lt;/div&gt;&#13;
 		&lt;div class="search-popular-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5"&gt;&#13;
-			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="${URLUtils.url('Search-Show', 'q', 'Sweet Pea')}" class="search-popular-list__link sub-list__item__link"&gt;Sweet Pea&lt;/a&gt;&#13;
+			&lt;span class="search-popular-list__icon sub-list__item__icon d-inline-block"&gt;&lt;/span&gt; &lt;a href="$url('Search-Show', 'q', 'Sweet Pea')$" class="search-popular-list__link sub-list__item__link"&gt;Sweet Pea&lt;/a&gt;&#13;
 &#13;
 		&lt;/div&gt;&#13;
 	&lt;/div&gt;&#13;

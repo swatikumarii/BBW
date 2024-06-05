@@ -1,8 +1,7 @@
 @import "../../_brand/_api/api";
 
 .corporate-gifting-landing-page {
-
-    input[type=text] {
+    input[type="text"] {
         height: 3rem;
     }
 
@@ -27,7 +26,7 @@
             pointer-events: inherit;
         }
 
-        &:hover:after {
+        &:hover::after {
             background-color: transparent;
         }
 

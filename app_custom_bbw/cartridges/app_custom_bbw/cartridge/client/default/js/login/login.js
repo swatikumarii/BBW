@@ -320,6 +320,12 @@ $(document).ready(function () {
     $(document.body).on('click', '.login-modal-hide', function () {
         togglePasswordVisibility($('#login-form-password'), $(this));
     });
+    $(document.body).on('click', '.resetpassword-hide-show', function () {
+        togglePasswordVisibility($('#newPassword'), $(this));
+    });
+    $(document.body).on('click', '.password-hide-show', function () {
+        togglePasswordVisibility($('#newPasswordConfirm'), $(this));
+    });
 });
 var validationFields = [
     {

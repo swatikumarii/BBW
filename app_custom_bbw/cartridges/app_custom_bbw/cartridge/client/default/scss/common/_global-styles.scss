@@ -192,3 +192,68 @@ square-placement {
     --messaging-font-size: 16px;
     --logo-badge-width: 64px;
 }
+
+.add-to-cart-messages {
+    top: 9%;
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 9;
+
+    .add-to-basket-alert {
+        visibility: hidden;
+        z-index: 1;
+        position: fixed;
+        bottom: 32px;
+        left: 50%;
+        transform: translate(-50%);
+        box-shadow:
+            0 8px 10px 1px rgba(0, 0, 0, 14%),
+            0 3px 14px 2px rgba(0, 0, 0, 12%),
+            0 5px 5px -3px rgba(0, 0, 0, 2%);
+        width: 320px;
+        padding: 14px 16px 14px 46px;
+        gap: 8px;
+        background-color: colour(green, 6);
+        color: colour(green, 2);
+
+        &::before {
+            background-image: url("../../images/pdp/check-circle-fill.svg");
+            height: 24px;
+            left: 13px;
+            position: absolute;
+            width: 24px;
+            background-repeat: no-repeat;
+            content: "";
+        }
+
+        &.show {
+            visibility: visible;
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+    }
+}

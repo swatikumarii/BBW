@@ -161,6 +161,7 @@ $(document).ready(function () {
     $('.place-order-trigger').on('click', function () {
         $('button.place-order').click();
     });
+
 });
 $(document).on('click', '#paymentMethodsList .paymentMethod, .payment-method-options .afterpay-tab', function (event) {
     var paymentMethod = $(this)
@@ -194,4 +195,8 @@ $(document).on('click', '#paymentMethodsList .paymentMethod, .payment-method-opt
         .closest('.paymentMethod, .afterpay-tab')
         .find('.additionalFields')
         .css('display', 'block');
+});
+
+$('button.submit-payment').on('click', function () {
+    $('#paymentMethodsList .paymentMethod').first().trigger('click');
 });
