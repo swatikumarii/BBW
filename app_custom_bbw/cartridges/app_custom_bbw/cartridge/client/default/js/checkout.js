@@ -195,3 +195,7 @@ $(document).on('click', '#paymentMethodsList .paymentMethod, .payment-method-opt
         .find('.additionalFields')
         .css('display', 'block');
 });
+
+$('button.submit-payment').on('click', function () {
+    $('#paymentMethodsList .paymentMethod').first().trigger('click');
+});
