@@ -4059,8 +4059,8 @@
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="store-details-bottom-wrapper text-center my-5"&gt;&#13;
-&lt;p class="h-font-size--16"&gt;Bath &amp; Body Works International store contact information&lt;br/&gt;&#13;
-To contact the Customer Service Department in the Malaysia, please call &lt;a href="phone:1800 81 7751" class="h-clr--blue-12"&gt;1800 81 7751&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.my"&gt;cs@bathandbodyworks.com.my.&lt;/a&gt;&lt;/p&gt;&#13;
+&lt;p class="h-font-size--16"&gt;
+To contact the Customer please call &lt;a href="phone:1800 81 7751" class="h-clr--blue-12"&gt;1800 81 7751&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au.&lt;/a&gt;&lt;/p&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
