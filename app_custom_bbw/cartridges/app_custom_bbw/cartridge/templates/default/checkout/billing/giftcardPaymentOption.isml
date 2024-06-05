@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-between giftcard-total-wrap">
-                        <h2 class="h-font-size--18 h-fw--bold h-clr--black-1">Gift card Total</h2>
+                        <h2 class="h-font-size--18 h-fw--bold h-clr--black-1">${Resource.msg('label.giftcard.total', 'giftcards', null)}</h2>
                         <h2 class="h-font-size--18 h-fw--bold h-clr--black-1 giftcard-total">${pdict.order.totals.pendingTotal.giftTotal}</h2>
                     </div>
                 </div>
