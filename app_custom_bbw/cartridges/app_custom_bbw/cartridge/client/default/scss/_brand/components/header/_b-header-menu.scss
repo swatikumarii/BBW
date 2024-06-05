@@ -244,6 +244,14 @@
             position: inherit;
 
             .level-1-ul {
+                @include media-btw(sm, md) {
+                    flex-wrap: nowrap;
+
+                    .nav-link {
+                        text-wrap: balance;
+                    }
+                }
+
                 .nav-link {
                     padding: 0.8125rem 0.875rem 0.5rem;
                     line-height: 1.25rem;

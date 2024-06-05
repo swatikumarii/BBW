@@ -1,5 +1,8 @@
 'use strict';
 
+
+var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
 /**
  * updates the totals summary
  * @param {Array} totals - the totals data
@@ -162,6 +165,21 @@ $(document).ready(function () {
             }
         });
     });
+
+    if ($('.same-day-delivery').is(':checked')) {
+        $('.schedule-egift-months').addClass('d-none');
+        $('.schedule-egift-date').addClass('d-none');
+    }
+    $('.same-day-delivery').on('change', function () {
+        $('.schedule-egift-months').toggleClass('d-none');
+        $('.schedule-egift-date').toggleClass('d-none');
+
+        if ($(this).is(':checked')) {
+            var date = new Date();
+            var month = monthNames[date.getMonth()];
+            $('#schedule-days-list').val(date.getDate()).trigger('change');
+            $('#schedule-months-list').val(month).trigger('change');
+        }
 
     $(document).on('click', '.remove-giftcard-btn', function () {
         var url = $('input[name="remove-giftcard-url"]').val();
