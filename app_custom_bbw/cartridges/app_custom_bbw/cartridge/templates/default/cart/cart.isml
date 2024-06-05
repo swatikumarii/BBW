@@ -39,6 +39,9 @@
                         <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('dangerousGoodsMessage')}" encoding="off" />
                     </isif>
                 </div>
+                <div class="free-item-toast-message ${pdict.freeItemCount === 0 ? 'hide-free-item-toast-message' : ''}">
+                    <p>${pdict.freeItemToastMessage}</p>
+                </div>
                 <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
                     <div class="cart-error-messaging cart-error h-font-size--14 h-bg--red-10 h-clr--red-9 px-3 py-2 mb-2">
                         <img src="${URLUtils.staticURL('images/Alert-Error.svg')}" alt="error alert" width="28px" height="28px">

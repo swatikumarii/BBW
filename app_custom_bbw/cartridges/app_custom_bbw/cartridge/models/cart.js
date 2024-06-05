@@ -170,8 +170,20 @@ function getFreeShippingStatus(basket) {
         }
     }
     return status;
-}   
+}
 
+/**
+ * Returns free line item counts
+ * @param {Array} items - Current users's basket line items
+ * @returns {number}  - free item count
+ */
+function getFreeItemCount(items) {
+    var freeItemCount = 0;
+    for (var i = 0; i < items.length; i++) {
+        freeItemCount = ('priceValue' in items[i].priceTotal && items[i].priceTotal.priceValue <= 0) ? freeItemCount + items[i].quantity : freeItemCount;
+    }
+    return freeItemCount;
+}
 /**
  * @class
  * @classdesc CartModel class that represents the current basket
@@ -185,6 +197,9 @@ function CartModel(basket) {
     this.apEligible = apUtilities.brandUtilities.isAfterpayApplicable();
     this.classname = 'cart-afterpay-message';
     this.continueShoppingLink = URLUtils.url('Home-Show').toString();
+    // get free item count
+    this.freeItemCount = getFreeItemCount(this.items);
+    this.freeItemToastMessage = this.freeItemCount > 0 ? Resource.msgf('cart.free.item.message', 'cart', null, this.freeItemCount) : '';
     if (basket) {
         var discountPlan = PromotionMgr.getDiscounts(basket);
         if (discountPlan) {

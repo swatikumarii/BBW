@@ -52,6 +52,10 @@
             }
         }
 
+        .hide-free-item-toast-message {
+            display: none;
+        }
+
         .html-slot-container {
             width: 100%;
             max-width: 955px;
@@ -497,8 +501,7 @@
 
                         &.accordion-item.collapsed {
                             &::before {
-                                background: url("../images/UI-Carat.svg")
-                                    no-repeat 50%;
+                                background: url("../images/UI-Carat.svg") no-repeat 50%;
                                 background-size: 1.25rem;
                                 content: "";
                                 height: 12px;
@@ -513,8 +516,7 @@
 
                         &.accordion-item {
                             &::before {
-                                background: url("../images/UI-Carat.svg")
-                                    no-repeat 50%;
+                                background: url("../images/UI-Carat.svg") no-repeat 50%;
                                 background-size: 1.25rem;
                                 content: "";
                                 height: 12px;

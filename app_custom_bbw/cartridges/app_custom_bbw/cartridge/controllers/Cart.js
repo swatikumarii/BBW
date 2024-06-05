@@ -152,6 +152,10 @@ server.append('RemoveProductLineItem', function (req, res, next) {
             req.currentCustomer.raw.profile
         );
     }
+    // free item count
+    viewData.basket.freeItemCount = basketModel.freeItemCount;
+    viewData.basket.freeItemToastMessage = basketModel.freeItemToastMessage;
+    res.setViewData(viewData);
 
     next();
 });
