@@ -6,7 +6,9 @@
         assets.addJs('/js/pickedJustForYou.js');
     </isscript>
     <div class="container text-center">
-        <h1 class="m-font-justlovely--normal h-clr--pink h-font-size--80 mb-5 pt-5 text-center error-message px-5 ">${pdict.message}</h1>
+        <h1 class="m-font-justlovely--normal h-clr--pink h-font-size--80 mb-5 pt-5 text-center error-message px-5 ">
+        ${Resource.msg('heading.error.general', 'error', null)}</h1>
+        <h2 class="h-clr--black-3 h-font-size--26 mb-4 h2-message ">${pdict.message}</h2>
         <p class="h-clr--black-3 h-font-size--20 mb-4 mt-4">
         <isif condition="${pdict.showError}">
                     <isprint value=${pdict.error.errorText} encoding="htmlcontent" />
@@ -183,6 +185,10 @@
         h1 {
             line-height: 88px;
         }
+
+        .h2-message {
+            line-height: 38px;
+        }
     
         .edit {
             border: 1px solid #365fa1;
@@ -193,6 +199,7 @@
             font-weight: 600;
             margin-left: 21px;
             margin-top: 26px;
+            width: 143px;
         }
         .footer-details {
             display: none !important;

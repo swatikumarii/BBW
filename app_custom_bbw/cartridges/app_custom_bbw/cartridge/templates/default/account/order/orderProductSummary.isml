@@ -59,11 +59,11 @@
                             <span class="pricing qty-card-quantity-count ">
                                 <isprint value="${lineItem.quantity}" formatter="##" /></span>
                         </td>
-                        <td class="pricing item-total">
+                        <td class="saving">
                                 <isif condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
                                     <span class="value">${lineItem.totalSavings}</span>
                                 <iselse/>
-                                    <span class="value value-dash">${'-'}</span>
+                                    <span class="value-dash">${'-'}</span>
                                 </isif>
                         </td>
                         <td class="pricing item-total">

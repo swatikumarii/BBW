@@ -124,13 +124,11 @@
         <callout-msg xml:lang="x-default">You'll Also Love</callout-msg>
         <content>
             <products>
-                <product product-id="26774768"/>
-                <product product-id="26774769"/>
-                <product product-id="28001361"/>
-                <product product-id="26779317"/>
-                <product product-id="26742420"/>
-                <product product-id="26717330"/>
-                <product product-id="28002113"/>
+                <product product-id="24523917"/>
+                <product product-id="24554892"/>
+                <product product-id="25155705"/>
+                <product product-id="26286000"/>
+                <product product-id="26286003"/>
             </products>
         </content>
     </slot-configuration>
@@ -142,11 +140,11 @@
         <callout-msg xml:lang="x-default">You'll Also Love</callout-msg>
         <content>
             <products>
-                <product product-id="26774809"/>
-                <product product-id="26717330"/>
-                <product product-id="26767372"/>
-                <product product-id="28001614"/>
-                <product product-id="26776801"/>
+                <product product-id="26291244"/>
+                <product product-id="26291245"/>
+                <product product-id="26291246"/>
+                <product product-id="26291247"/>
+                <product product-id="26291248"/>
             </products>
         </content>
     </slot-configuration>
@@ -158,12 +156,11 @@
         <callout-msg xml:lang="x-default">Recommended For You</callout-msg>
         <content>
             <products>
-                <product product-id="26261070"/>
-                <product product-id="26270018"/>
-                <product product-id="24401763"/>
-                <product product-id="24601022"/>
-                <product product-id="24631264"/>
-                <product product-id="24601028"/>
+                <product product-id="26291244"/>
+                <product product-id="26291245"/>
+                <product product-id="26291246"/>
+                <product product-id="26291247"/>
+                <product product-id="26291248"/>
             </products>
         </content>
         <custom-attributes>
@@ -180,12 +177,11 @@
         <callout-msg xml:lang="x-default">More You'll Adore</callout-msg>
         <content>
             <products>
-                <product product-id="26261070"/>
-                <product product-id="26270018"/>
-                <product product-id="24401763"/>
-                <product product-id="24601022"/>
-                <product product-id="24631264"/>
-                <product product-id="24601028"/>
+                <product product-id="26291244"/>
+                <product product-id="26291245"/>
+                <product product-id="26291246"/>
+                <product product-id="26291247"/>
+                <product product-id="26291248"/>
             </products>
         </content>
         <custom-attributes>
@@ -199,12 +195,11 @@
         <callout-msg xml:lang="x-default">Customers Also Viewed</callout-msg>
         <content>
             <products>
-                <product product-id="26261070"/>
-                <product product-id="26270018"/>
-                <product product-id="24401763"/>
-                <product product-id="24601022"/>
-                <product product-id="24631264"/>
-                <product product-id="24601028"/>
+                <product product-id="24523917"/>
+                <product product-id="24554892"/>
+                <product product-id="25155705"/>
+                <product product-id="26286000"/>
+                <product product-id="26286003"/>
             </products>
         </content>
         <custom-attributes>

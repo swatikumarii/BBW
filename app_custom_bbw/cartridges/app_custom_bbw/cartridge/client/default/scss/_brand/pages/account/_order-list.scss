@@ -284,6 +284,24 @@
             }
         }
 
+        .saving {
+            text-align: center;
+
+            .value {
+                text-align: right;
+                color: colour(black, 1);
+                font-size: 14px;
+                font-weight: 700;
+            }
+        }
+
+        .saving .value-dash {
+            text-align: center;
+            color: colour(black, 1);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
         @include media-down(sm) {
             td {
                 float: left;
@@ -299,13 +317,13 @@
     }
 
     .order-description {
-        width: 60%;
+        width: 40%;
     }
 
-    .order-qty,
-    .order-price {
-        width: 20%;
-    }
+    // .order-qty,
+    // .order-price {
+    //     width: 15%;
+    // }
 }
 
 .order-btn {
@@ -409,13 +427,13 @@
         color: colour(red);
 
         &::before {
-                background-image: url("../../images/Alert-Error.svg");
-                height: 28px;
-                left: 13px;
-                position: absolute;
-                width: 28px;
-                background-repeat: no-repeat;
-                content: "";
+            background-image: url("../../images/Alert-Error.svg");
+            height: 28px;
+            left: 13px;
+            position: absolute;
+            width: 28px;
+            background-repeat: no-repeat;
+            content: "";
         }
     }
 

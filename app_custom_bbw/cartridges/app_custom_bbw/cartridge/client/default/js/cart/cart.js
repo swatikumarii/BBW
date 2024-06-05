@@ -376,8 +376,7 @@ module.exports = function () {
         };
         var isMiniCart = $(this).parents('.mini-cart-content').length > 0;
         var isPopupMinicart = $('body').find('.minicart').hasClass('popup');
-        var minicartQty = $('.minicart-quantity');
-        if (isPopupMinicart && $(minicartQty[0]).text() === '1') {
+        if (isPopupMinicart && $('.product-summary').children().length === 1) {
             $('.minicart .popover').removeClass('show');
         }
 
@@ -650,7 +649,7 @@ module.exports = function () {
         $('.coupon-error-message').empty();
         $('body').trigger('promotion:beforeUpdate');
 
-        $.ajax({    
+        $.ajax({
             url: $form.attr('action'),
             type: 'GET',
             dataType: 'json',
