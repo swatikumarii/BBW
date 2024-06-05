@@ -11,6 +11,6 @@ $(document).ready(function () {
     });
 });
 
-$(document.body).on('click', function () {
+$('body').on('click', function () {
     $('#faq-search-result').addClass('d-none');
 });
