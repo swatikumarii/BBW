@@ -580,6 +580,65 @@ input[type="tel"],
     }
 }
 
+.gift-card-apply {
+    .add-giftcard-header-wrap {
+        border-top: 3px solid $clr-gray-1;
+        width: 85%;
+        margin: 0 15px;
+
+        .add-giftcard-header {
+            padding: 20px 0;
+        }
+    }
+
+    .add-giftcard-text {
+        display: block;
+        padding-bottom: 20px;
+        border-bottom: 3px solid $clr-gray-1;
+        margin: 0 15px;
+        width: 85%;
+    }
+
+    .giftcard-total-wrap {
+        width: 90%;
+        padding: 20px 15px;
+        height: 58px;
+    }
+
+    .gift-redeem-card-error {
+        margin: 0 15px;
+        max-width: 85%;
+        padding: 10px 15px;
+        color: $clr-red;
+        background-color: $clr-red-10;
+    }
+}
+
+.add-giftcard-button {
+    text-decoration: underline;
+}
+
+.add-giftcard-section {
+    display: none;
+    width: 90%;
+
+    &.show {
+        display: flex;
+    }
+
+    .giftcard-buttons {
+        padding: 0 15px;
+    }
+
+    .giftcard-balance-section {
+        border-bottom: 1px solid $clr-black-1;
+
+        #egift-card-check-balance {
+            text-decoration: underline;
+        }
+    }
+}
+
 .info-icon-text {
     min-width: 260px;
     max-width: 260px;
