@@ -11,6 +11,14 @@
     font-size: 14px;
     line-height: 16px;
     letter-spacing: 0.2px;
+
+    img {
+        width: 18px;
+        height: 14px;
+        margin-right: 8px;
+        max-width: 100%;
+        max-height: 100%;
+    }
 }
 
 .cartContainer {
@@ -110,12 +118,12 @@
             }
 
             .headerPrice {
-                width: 104px;
+                width: 133px;
                 padding: 10px 0;
             }
 
             .headerQty {
-                width: 200px;
+                width: 160px;
                 padding: 10px 0;
             }
 
@@ -168,6 +176,7 @@
                             font-size: 16px;
                             line-height: 20px;
                             color: $clr-black-1;
+                            margin-bottom: 5px;
                         }
 
                         .line-item-name-partB {
@@ -206,12 +215,15 @@
                     }
 
                     .line-item-promo {
-                        margin-top: 10px;
                         line-height: 20px;
                         letter-spacing: 0.2px;
 
                         .promotion {
+                            margin-top: 10px;
                             line-height: 16px;
+                            color: colour(red);
+                            letter-spacing: 0.015em;
+                            text-transform: capitalize;
                         }
 
                         .promo-details-wrap {
@@ -262,7 +274,7 @@
                 }
 
                 .line-item-price {
-                    width: 104px;
+                    width: 133px;
                     font-size: 16px;
                     line-height: 20px;
                     font-weight: 600;
@@ -278,10 +290,14 @@
                     .strike-through {
                         text-decoration: line-through;
                     }
+
+                    .sales.reduced {
+                        display: block;
+                    }
                 }
 
                 .line-item-quantity {
-                    width: 200px;
+                    width: 160px;
                     padding-top: 10px;
 
                     @include media-down(sm) {
@@ -487,7 +503,7 @@
                                 content: "";
                                 height: 12px;
                                 position: absolute;
-                                left: 84px;
+                                left: 74px;
                                 transform: rotate(0deg);
                                 transition: all 0.5s ease-out;
                                 width: 12px;
@@ -503,7 +519,7 @@
                                 content: "";
                                 height: 12px;
                                 position: absolute;
-                                left: 84px;
+                                left: 74px;
                                 transition: all 0.5s ease-out;
                                 width: 12px;
                                 top: 4px;

@@ -1,6 +1,6 @@
 <div class="col-8">
     <p class="h-font-size--16 h-clr--black-1 accordion-item collapsed" data-toggle="collapse" data-target="#allDiscounts"
-        aria-expanded="false" aria-controls="allDiscounts" role="button">${Resource.msg('label.order.discount', 'common', null)}</p>
+        aria-expanded="false" aria-controls="allDiscounts" role="button">${Resource.msg('label.order.savings', 'common', null)}</p>
 </div>
 <div class="col-4">
     <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold order-discount-total">

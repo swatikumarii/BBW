@@ -29,6 +29,7 @@ $(document).ready(function () {
     processInclude(require('notify/components/notify'));
     processInclude(require('./components/video'));
     processInclude(require('./utils/lazyLoad'));
+    processInclude(require('./components/common'));
 });
 
 require('./thirdParty/bootstrap');

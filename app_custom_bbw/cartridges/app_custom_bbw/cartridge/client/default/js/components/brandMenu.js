@@ -402,7 +402,7 @@ module.exports = function () {
                         .attr('aria-expanded', 'false');
                     $('.level-2-li').removeClass('show');
                     $('.menu-wrap-level-3').removeClass('show');
-                }, 800);
+                }, 700);
             }
         });
 

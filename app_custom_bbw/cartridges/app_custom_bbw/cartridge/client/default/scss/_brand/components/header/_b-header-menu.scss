@@ -841,7 +841,7 @@
             }
 
             &.active {
-                max-height: 2450px;
+                max-height: 2500px;
 
                 &::before {
                     width: 0.25rem;
@@ -875,15 +875,15 @@
             transition-duration: 0.5s;
             transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
             display: initial;
+            border: 0;
+            margin: 0;
+            float: none;
 
             &.active {
                 top: 0;
                 opacity: 1;
                 pointer-events: auto;
                 visibility: visible;
-                border: 0;
-                margin: 0;
-                float: none;
             }
 
             .level-2-li {

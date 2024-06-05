@@ -149,7 +149,7 @@ function handlePostCartAdd(response) {
         Object.keys(response.newBonusDiscountLineItem).length !== 0
     ) {
         chooseBonusProducts(response.newBonusDiscountLineItem);
-    } else if (layout.isMobile()) {
+    } else {
         if ($('.add-to-cart-messages').length === 0) {
             $('body').append('<div class="add-to-cart-messages"></div>');
         }

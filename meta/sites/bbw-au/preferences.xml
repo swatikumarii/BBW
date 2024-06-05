@@ -60,7 +60,7 @@
             <preference preference-id="enableAfterpay">true</preference>
             <preference preference-id="enableCashAppPay">true</preference>
             <preference preference-id="hardTimeout">360</preference>
-            <preference preference-id="softTimeout">45</preference>
+            <preference preference-id="softTimeout">120</preference>
             <preference preference-id="popupDuration">2</preference>
             <preference preference-id="zeroOrderEmail"></preference>
             <preference preference-id="careersEmail"></preference>
@@ -159,7 +159,7 @@
             <preference preference-id="enableAfterpay">true</preference>
             <preference preference-id="enableCashAppPay">false</preference>
             <preference preference-id="hardTimeout">360</preference>
-            <preference preference-id="softTimeout">45</preference>
+            <preference preference-id="softTimeout">120</preference>
             <preference preference-id="popupDuration">2</preference>
             <preference preference-id="zeroOrderEmail"></preference>
             <preference preference-id="chatScript"></preference>
