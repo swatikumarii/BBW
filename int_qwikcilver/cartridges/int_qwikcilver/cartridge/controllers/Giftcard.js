@@ -104,7 +104,7 @@ server.post('ValidateGiftCard', function (req, res, next) {
         if (isGiftProductAvailable) {
             res.json({
                 error: true,
-                errorMessage: Resource.msg('error.payment.for.gift.product', 'giftCards', null)
+                errorMessage: Resource.msg('error.payment.for.gift.product', 'giftcards', null)
             });
             return next();
         }
@@ -168,7 +168,7 @@ server.post('ValidateGiftCard', function (req, res, next) {
                     res.json({
                         error: true,
                         cardNumber: cardNumber,
-                        errorMessage: Resource.msg('qwikcilver.invalid.gift.card', 'giftCards', null)
+                        errorMessage: Resource.msg('qwikcilver.invalid.gift.card', 'giftcards', null)
                     });
                 } else {
                     res.json({
@@ -214,7 +214,7 @@ server.post('ValidateGiftCard', function (req, res, next) {
                 }
                 res.json({
                     error: false,
-                    success: Resource.msg('qwikcilver.card.added', 'giftCards', null) + Resource.msgf('qwikcilver.card.pending', 'giftcards', null, currency, remainingAmount.toFixed(2)),
+                    success: Resource.msg('qwikcilver.card.added', 'giftcards', null) + Resource.msgf('qwikcilver.card.pending', 'giftcards', null, currency, remainingAmount.toFixed(2)),
                     cardNumber: cardNumber,
                     hideCreditCardForm: false,
                     addedCards: addedCards,
@@ -227,7 +227,7 @@ server.post('ValidateGiftCard', function (req, res, next) {
             if ('status' in giftCardAPIResult && giftCardAPIResult.getStatus().equals('SERVICE_UNAVAILABLE')) {
                 res.json({
                     error: true,
-                    errorMessage: Resource.msg('qwikcilver.service.unavailable', 'giftCards', null)
+                    errorMessage: Resource.msg('qwikcilver.service.unavailable', 'giftcards', null)
                 });
             } else if (giftCardAPIResult.msg === 'Connection reset') {
                 res.json({
@@ -245,20 +245,20 @@ server.post('ValidateGiftCard', function (req, res, next) {
         } else {
             res.json({
                 error: true,
-                errorMessage: Resource.msg('qwikcilver.service.unavailable', 'giftCards', null)
+                errorMessage: Resource.msg('qwikcilver.service.unavailable', 'giftcards', null)
             });
             return next();
         }
     } else {
         res.json({
             error: true,
-            errorMessage: Resource.msg('enter.giftcard.and.pin', 'giftCards', null)
+            errorMessage: Resource.msg('enter.giftcard.and.pin', 'giftcards', null)
         });
         return next();
     }
     res.json({
         error: false,
-        noPendingAmount: Resource.msg('payment.no.pending.gift.amount', 'giftCards', null),
+        noPendingAmount: Resource.msg('payment.no.pending.gift.amount', 'giftcards', null),
         cardNumber: cardNumber,
         hideCreditCardForm: hideCreditCardForm,
         addedCards: addedCards,
@@ -342,12 +342,12 @@ server.post('CheckBalance', function (req, res, next) {
                 if (giftCardAPIResultObj.Cards[0].ResponseCode === 10638) {
                     res.json({
                         error: true,
-                        errorMessage: Resource.msg('qwikcilver.invalid.gift.card', 'giftCards', null)
+                        errorMessage: Resource.msg('qwikcilver.invalid.gift.card', 'giftcards', null)
                     });
                 } else if (giftCardAPIResultObj.Cards[0].ResponseCode === 10251) {
                     res.json({
                         error: true,
-                        errorMessage: Resource.msg('card.already.redeemed', 'giftCards', null)
+                        errorMessage: Resource.msg('card.already.redeemed', 'giftcards', null)
                     });
                 } else {
                     res.json({
@@ -369,7 +369,7 @@ server.post('CheckBalance', function (req, res, next) {
             if ('status' in giftCardAPIResult && giftCardAPIResult.getStatus().equals('SERVICE_UNAVAILABLE')) {
                 res.json({
                     error: true,
-                    errorMessage: Resource.msg('qwikcilver.service.unavailable', 'giftCards', null)
+                    errorMessage: Resource.msg('qwikcilver.service.unavailable', 'giftcards', null)
                 });
             } else if (giftCardAPIResult.msg === 'Connection reset') {
                 res.json({
@@ -387,13 +387,13 @@ server.post('CheckBalance', function (req, res, next) {
         } else {
             res.json({
                 error: true,
-                errorMessage: Resource.msg('qwikcilver.service.unavailable', 'giftCards', null)
+                errorMessage: Resource.msg('qwikcilver.service.unavailable', 'giftcards', null)
             });
         }
     } else {
         res.json({
             error: true,
-            errorMessage: Resource.msg('enter.giftcard.and.pin', 'giftCards', null)
+            errorMessage: Resource.msg('enter.giftcard.and.pin', 'giftcards', null)
         });
         return next();
     }
