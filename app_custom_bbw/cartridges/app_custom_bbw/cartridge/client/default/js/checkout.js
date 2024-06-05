@@ -70,6 +70,11 @@ $(document).ready(function () {
         initialCountry: 'au',
         countryOrder: ['au']
     });
+    var errorMessage =
+        '<div class="invalid-feedback text-left" id="phone-error">' +
+        $('#shippingPhoneNumberdefault').data('missing-error') +
+        '</div>';
+    $('#shippingPhoneNumberdefault').after(errorMessage);
 
     $('.accordion-title').click(function () {
         $(this).next('.accordion-content').slideToggle();
@@ -99,6 +104,7 @@ $(document).ready(function () {
     $('.place-order-trigger').on('click', function () {
         $('button.place-order').click();
     });
+
 });
 $('.payment-options .nav-link').click(function setAttr() {
     $('#selectedPaymentOption').val($(this).parent().attr('data-method-id'));
