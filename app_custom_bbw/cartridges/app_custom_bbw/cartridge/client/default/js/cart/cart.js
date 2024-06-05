@@ -633,7 +633,7 @@ module.exports = function () {
         $('.coupon-error-message').empty();
         $('body').trigger('promotion:beforeUpdate');
 
-        $.ajax({
+        $.ajax({    
             url: $form.attr('action'),
             type: 'GET',
             dataType: 'json',
@@ -648,6 +648,9 @@ module.exports = function () {
                     $('.coupon-error-message').addClass('d-block');
                     $('body').trigger('promotion:error', data);
                 } else {
+                    $('.coupon-error-message').removeClass('px-3');
+                    $('.coupon-error-message').removeClass('py-2');
+                    $('.coupon-error-message').removeClass('d-block');
                     $('.coupons-and-promos').empty().append(data.totals.discountsHtml);
                     updateCartTotals(data);
                     updateApproachingDiscounts(data.orderApproachingDiscounts, data.shippingApproachingDiscounts);

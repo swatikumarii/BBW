@@ -121,16 +121,34 @@
 }
 
 // Giftcard remove popup
-
 #delete-line-item-modal {
+    .modal-content {
+        border-radius: 0;
+        padding: 11px;
+    }   
     .delete-confirmation-body {
         &.modal-header {
             height: 20px;
         }
-
         .close {
-            height: 40px;
-            width: 45px;
+          height: 48px;
+            opacity: 1;
+            width: 48px;
+            margin: -31px -28px 0 auto;
         }
+
+        .modal-content-data {
+            letter-spacing: .005em;
+            line-height: 1.75rem;
+        }
+    }
+
+    .delete-lineitem-confirmation-btn {
+        min-height: 35px;
+        max-height: 35px;
+    }
+    .close-btn {
+        min-height: 35px;
+        max-height: 35px;
     }
 }
