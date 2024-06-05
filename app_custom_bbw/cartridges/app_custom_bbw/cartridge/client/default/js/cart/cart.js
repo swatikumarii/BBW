@@ -59,11 +59,9 @@ function validateBasket(data) {
 function updateCartTotals(data) {
     if (data.hasFreeShipping) {
         $('.shipping-cost').empty().append('FREE');
-        $('shipping-tax').addClass('d-none');
         $('.shipping-discount').addClass('d-none');
         $('.shipping-tax').closest('div.row').addClass('d-none');
     } else {
-        $('shipping-tax').removeClass('d-none');
         $('.shipping-discount').removeClass('d-none');
         $('.shipping-cost').empty().append(data.totals.totalShippingCost);
         $('.shipping-tax').closest('div.row').removeClass('d-none');
