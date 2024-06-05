@@ -81,11 +81,9 @@
             <unit>days</unit>
         </full-reindexing-schedule>
         <indexed-locales>
-            <locale>de-DE</locale>
             <locale>en-AU</locale>
             <locale>x-default</locale>
         </indexed-locales>
-        <stemming xml:lang="de-DE">German2</stemming>
         <stemming xml:lang="en-AU">English</stemming>
         <stemming xml:lang="x-default">English</stemming>
     </index-settings>
