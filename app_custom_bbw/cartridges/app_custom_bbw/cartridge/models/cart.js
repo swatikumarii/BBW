@@ -158,6 +158,21 @@ function getApproachingDiscounts(basket, discountPlan) {
 }
 
 /**
+ * Returns Free shippung status
+ * @param {dw.order.Basket} basket - Current users's basket
+ * @returns {boolean}  - free shupping status
+ */
+function getFreeShippingStatus(basket) {
+    var status=false;
+    if (basket && basket.allShippingPriceAdjustments && basket.allShippingPriceAdjustments.length) {
+        if (basket.allShippingPriceAdjustments[0].appliedDiscount && basket.allShippingPriceAdjustments[0].appliedDiscount.type === 'FREE'){
+            status = true;
+        }
+    }
+    return status;
+}   
+
+/**
  * @class
  * @classdesc CartModel class that represents the current basket
  * @param {object} basket - dw.order.Basket Current users's basket
@@ -166,6 +181,7 @@ function CartModel(basket) {
     base.call(this, basket);
     var totalsModel = new TotalsModel(basket);
     this.totalPrice =  totalsModel.subTotal;
+    this.hasFreeShipping = getFreeShippingStatus(basket);
     this.apEligible = apUtilities.brandUtilities.isAfterpayApplicable();
     this.classname = 'cart-afterpay-message';
     this.continueShoppingLink = URLUtils.url('Home-Show').toString();
