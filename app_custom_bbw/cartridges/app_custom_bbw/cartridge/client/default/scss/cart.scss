@@ -501,7 +501,8 @@
 
                         &.accordion-item.collapsed {
                             &::before {
-                                background: url("../images/UI-Carat.svg") no-repeat 50%;
+                                background: url("../images/UI-Carat.svg") 50%;
+                                background-repeat: no-repeat;
                                 background-size: 1.25rem;
                                 content: "";
                                 height: 12px;
@@ -516,7 +517,8 @@
 
                         &.accordion-item {
                             &::before {
-                                background: url("../images/UI-Carat.svg") no-repeat 50%;
+                                background: url("../images/UI-Carat.svg") 50%;
+                                background-repeat: no-repeat;
                                 background-size: 1.25rem;
                                 content: "";
                                 height: 12px;
