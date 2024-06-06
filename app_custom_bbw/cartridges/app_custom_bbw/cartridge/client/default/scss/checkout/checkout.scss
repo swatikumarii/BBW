@@ -896,6 +896,7 @@ input[type="tel"],
     .order-discount-total {
         letter-spacing: normal;
     }
+
     p {
         line-height: 20px;
         letter-spacing: 0.2px;
@@ -933,5 +934,22 @@ input[type="tel"],
 
     .accordion-collapse {
         padding-left: 30px;
+    }
+}
+
+// ---gift card
+.giftcard-buttons {
+    .giftcard-redeem {
+        width: 171px;
+        height: 42px;
+    }
+
+    .giftcard-cancel-btn {
+        width: 127px;
+        height: 42px;
+
+        &:hover {
+            border: 2px solid colour(black, 1);
+        }
     }
 }
