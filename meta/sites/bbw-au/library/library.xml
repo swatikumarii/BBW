@@ -5804,13 +5804,14 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </custom-attributes>
     </content>
 
-	 <content content-id="email-info-icon-content">
+	<content content-id="email-info-icon-content">
         <display-name xml:lang="x-default">Email Info Icon Content</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="bbwd-tooltip-content-container"&gt;&#13;
+	&lt;span class="close cursor-pointer"&gt;&lt;/span&gt;&#13;
 	&lt;h4&gt;Billing Address Phone Number&lt;/h4&gt;&#13;
 	&lt;p&gt;Your billing address phone number must match the telephone number on your credit card account.&lt;/p&gt;&#13;
 	&lt;h4 style="text-transform: none; margin-bottom: 0; margin-top: 10px;"&gt;Shipping Address Phone Number&lt;/h4&gt;&#13;
@@ -7916,6 +7917,7 @@ max-height: 35px:&#13;
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="bbwd-tooltip-content-container"&gt;&#13;
+        &lt;span class="close cursor-pointer"&gt;&lt;/span&gt;&#13;
 	&lt;h4 style="text-transform: none; margin-bottom: 0;"&gt;Billing Address Phone Number&lt;/h4&gt;&#13;
 	&lt;p&gt;Your billing address phone number must match the telephone number on your credit card account.&lt;/p&gt;&#13;
 	&lt;h4 style="text-transform: none; margin-bottom: 0; margin-top: 10px;"&gt;Shipping Address Phone Number&lt;/h4&gt;&#13;
@@ -7923,6 +7925,7 @@ max-height: 35px:&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
+
     <content content-id="promo-modal">
     <display-name xml:lang="x-default">Promo Modal</display-name>
     <online-flag>true</online-flag>
