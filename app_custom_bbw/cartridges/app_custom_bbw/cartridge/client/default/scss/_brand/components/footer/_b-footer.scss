@@ -257,6 +257,8 @@ footer {
         height: 2.5rem;
         opacity: inherit;
         width: 2.5rem;
+        top: -15px;
+        position: relative;
         background-image: url("../images/footer/cross.svg");
 
         &:not(:disabled) {
