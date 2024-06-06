@@ -164,8 +164,10 @@ span.ship-to-city-st-zip {
 }
 
 .data-checkout-stage {
+
     // Initial states ------------------------
     &[data-checkout-stage] {
+
         .card.payment-summary,
         .shipping-summary {
             display: none;
@@ -208,6 +210,7 @@ span.ship-to-city-st-zip {
     }
 
     &[data-checkout-stage="submitted"] {
+
         .shipping-form,
         .card.payment-form,
         button.submit-customer,
@@ -233,7 +236,7 @@ span.ship-to-city-st-zip {
         display: none;
     }
 
-    h5 > span {
+    h5>span {
         font-size: 0.8em;
     }
 }
@@ -688,10 +691,10 @@ input[type="tel"],
     &:hover {
         display: block;
 
-        + .info-icon-border-arrow-outline {
+        +.info-icon-border-arrow-outline {
             display: block;
 
-            + .info-icon-border-arrow {
+            +.info-icon-border-arrow {
                 display: block;
             }
         }
@@ -755,13 +758,13 @@ input[type="tel"],
             display: none;
         }
 
-        + .info-icon-text {
+        +.info-icon-text {
             display: block;
 
-            + .info-icon-border-arrow-outline {
+            +.info-icon-border-arrow-outline {
                 display: block;
 
-                + .info-icon-border-arrow {
+                +.info-icon-border-arrow {
                     display: block;
                 }
             }
@@ -888,5 +891,23 @@ input[type="tel"],
 
     .accordion-collapse {
         padding-left: 30px;
+    }
+}
+
+
+// ---gift card
+.giftcard-buttons {
+    .giftcard-redeem {
+        width: 171px;
+        height: 42px;
+    }
+
+    .giftcard-cancel-btn {
+        width: 127px;
+        height: 42px;
+
+        &:hover {
+            border: 2px solid colour(black, 1);
+        }
     }
 }
