@@ -1,66 +1,68 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
 <form action="${pdict.actionUrl}" class="modal-login" method="POST" name="login-form" data-error-image="${URLUtils.staticURL('/images/alert-error-triangle.svg')}">
-    <div class="form-group required">
-        <div class="before-login">
-            <iscontentasset aid="loginModalPopup" />
-        </div>
-        <div class="migration-login-message d-none">
-            <iscontentasset aid="migration-message-login-modal" />
-        </div>
-        <label class="form-control-label h-font-size--16  h-fw--semibold mb-2 form-label" for="loginModal-form-email">
-            <span class="required-indicator">*</span>
-            ${Resource.msg('label.input.loginPopup.email', 'login', null)}
-        </label>
-        <input type="email" id="loginModal-form-email" required aria-required="true"
-            data-missing-error="${Resource.msg('error.message.parse.email', 'forms', null)}"
-            data-pattern-mismatch="${Resource.msg('valid.email.address', 'forms', null)}"
-            class="form-control required login-form-input h-font-size--16" aria-describedby="form-email-error" name="loginEmail"
-            value="${pdict.userName}" />
-        <div class="invalid-feedback" id="form-email-error">${Resource.msg('error.message.email.required', 'forms', null)}
-        </div>
+    <div class="form-group migration-login-message d-none">
+        <iscontentasset aid="migration-message-login-modal" />
     </div>
-
-    <div class="modal-password required password-box login-modal-password position-relative">
-        <label class="form-control-label h-font-size--16  h-fw--semibold mb-2 form-label"
-            for="login-modal-form-password">
-            <span class="required-indicator">*</span>
-            ${Resource.msg('label.input.login.password', 'login', null)}
-        </label>
-        <input type="password" id="login-modal-form-password" required aria-required="true"
-            class="form-control required login-form-input bg-white h-font-size--16"
-            data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
-            aria-describedby="form-password-error" name="loginPassword">
-        <div class="invalid-feedback" id="form-password-error">${Resource.msg('error.message.password', 'forms', null)}
+    <div class="login-form-div">
+        <div class="form-group required">
+            <div class="before-login">
+                <iscontentasset aid="loginModalPopup" />
+            </div>
+            <label class="form-control-label h-font-size--16  h-fw--semibold mb-2 form-label" for="loginModal-form-email">
+                <span class="required-indicator">*</span>
+                ${Resource.msg('label.input.loginPopup.email', 'login', null)}
+            </label>
+            <input type="email" id="loginModal-form-email" required aria-required="true"
+                data-missing-error="${Resource.msg('error.message.parse.email', 'forms', null)}"
+                data-pattern-mismatch="${Resource.msg('valid.email.address', 'forms', null)}"
+                class="form-control required login-form-input h-font-size--16" aria-describedby="form-email-error" name="loginEmail"
+                value="${pdict.userName}" />
+            <div class="invalid-feedback" id="form-email-error">${Resource.msg('error.message.email.required', 'forms', null)}
+            </div>
         </div>
-        <button type="button" id="toggle-password"
-            class="login-modal-password-hide bg-white border-0 d-flex justify-content-center align-items-center text-captialize position-absolute p-0 h-clr--black-3"
-            aria-label="Show Password">
-            <span class="show h-font-size--16">${Resource.msg('password.show.label', 'login', null)}</span>
-        </button>
+
+        <div class="modal-password required password-box login-modal-password position-relative">
+            <label class="form-control-label h-font-size--16  h-fw--semibold mb-2 form-label"
+                for="login-modal-form-password">
+                <span class="required-indicator">*</span>
+                ${Resource.msg('label.input.login.password', 'login', null)}
+            </label>
+            <input type="password" id="login-modal-form-password" required aria-required="true"
+                class="form-control required login-form-input bg-white h-font-size--16"
+                data-missing-error="${Resource.msg('error.message.password.required', 'forms', null)}"
+                aria-describedby="form-password-error" name="loginPassword">
+            <div class="invalid-feedback" id="form-password-error">${Resource.msg('error.message.password', 'forms', null)}
+            </div>
+            <button type="button" id="toggle-password"
+                class="login-modal-password-hide bg-white border-0 d-flex justify-content-center align-items-center text-captialize position-absolute p-0 h-clr--black-3"
+                aria-label="Show Password">
+                <span class="show h-font-size--16">${Resource.msg('password.show.label', 'login', null)}</span>
+            </button>
+        </div>
+
+        <div class="clearfix">
+            <div class=" forgot-password text-left h-clr--gray h-font-size--12 ">
+                <a class="d-sm" href="${URLUtils.url('Account-PasswordReset')}"
+                    title="${Resource.msg('label.forgotpassword', 'login', null)}">
+                    ${Resource.msg('label.forgotpassword', 'login', null)}
+                </a>
+            </div>
+        </div>
+
+        <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+        <input type="hidden" name="loginRedirectUrl" value="${pdict.loginRedirectUrl}" />
+        <input type="hidden" name="loginRedirectQueryString" value="${pdict.loginRedirectQueryString}" />
+        <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
+            <div class="login-btn register-btn">
+                <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
+                    data-callback="submitLoginModal" data-action="submit"
+                    class="btn btn-block btn-primary g-recaptcha signin-btn modal-login-btn text-uppercase">${Resource.msg('button.text.loginform', 'login', null)}</button>
+            </div>
+        <iselse/>
+            <div class="login-btn register-btn">
+                <button type="submit"
+                    class="btn btn-block btn-primary signin-btn modal-login-btn text-uppercase">${Resource.msg('button.text.loginform', 'login', null)}</button>
+            </div>
+        </isif>
     </div>
-
-    <div class="clearfix">
-        <div class=" forgot-password text-left h-clr--gray h-font-size--12 ">
-            <a class="d-sm" href="${URLUtils.url('Account-PasswordReset')}"
-                title="${Resource.msg('label.forgotpassword', 'login', null)}">
-                ${Resource.msg('label.forgotpassword', 'login', null)}
-            </a>
-        </div>
-    </div>
-
-    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
-    <input type="hidden" name="loginRedirectUrl" value="${pdict.loginRedirectUrl}" />
-    <input type="hidden" name="loginRedirectQueryString" value="${pdict.loginRedirectQueryString}" />
-    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
-        <div class="login-btn register-btn">
-            <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
-                data-callback="submitLoginModal" data-action="submit"
-                class="btn btn-block btn-primary g-recaptcha signin-btn modal-login-btn text-uppercase">${Resource.msg('button.text.loginform', 'login', null)}</button>
-        </div>
-    <iselse/>
-        <div class="login-btn register-btn">
-            <button type="submit"
-                class="btn btn-block btn-primary signin-btn modal-login-btn text-uppercase">${Resource.msg('button.text.loginform', 'login', null)}</button>
-        </div>
-    </isif>
 </form>

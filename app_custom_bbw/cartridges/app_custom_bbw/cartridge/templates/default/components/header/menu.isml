@@ -46,10 +46,10 @@
     </div>
     <div class="menu-group w-100 h-bg--white" role="navigation">
         <div class="mobile-slide-menu-search position-relative">
-            <form role="search">
+            <form id="menu-search" role="search" action="${URLUtils.url('Search-Show')}" method="get" name="simpleSearch">
                 <fieldset>
                     <input class="h-font-size--18 p-0" type="search" id="mobile-slide-search" value=""
-                        placeholder="Search" />
+                        placeholder="Search" name="q" />
                     <button type="submit" id="menusearch"
                         class="position-absolute h-100 border-0 p-0 h-bg--white "></button>
                     <span role="button" class="mobile-slide-cancel h-font-size--14 h-clr--black-3 position-absolute"
