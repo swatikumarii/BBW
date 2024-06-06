@@ -811,6 +811,44 @@ input[type="tel"],
     }
 }
 
+.info-billing {
+    .info-icon {
+        top: 50%;
+
+        @include media-down(sm) {
+            top: 109%;
+            right: 90%;
+        }
+    }
+
+    .info-icon-text {
+        top: 50%;
+
+        @include media-down(sm) {
+            top: 108%;
+            left: 15%;
+        }
+    }
+
+    .info-icon-border-arrow-outline {
+        top: 50%;
+
+        @include media-down(sm) {
+            top: 109%;
+            left: 15%;
+        }
+    }
+
+    .info-icon-border-arrow {
+        top: 50%;
+
+        @include media-down(sm) {
+            top: 109%;
+            left: 55px;
+        }
+    }
+}
+
 .verify-msg {
     margin: 20px 0;
     line-height: 16px;

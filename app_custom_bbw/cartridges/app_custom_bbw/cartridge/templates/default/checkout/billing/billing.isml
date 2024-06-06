@@ -55,7 +55,7 @@
                 </div>
             </div><div class="row ">
                 <div class="col-sm-12">
-                    <div class="form-group
+                    <div class="form-group info-billing
                                         <isif condition=${pdict.forms.billingForm.contactInfoFields.email.mandatory === true}>required</isif>
                                         ${pdict.forms.billingForm.contactInfoFields.email.htmlName}">
                         <div class="d-flex justify-content-between">
@@ -68,13 +68,13 @@
                             data-missing-error="${Resource.msg('error.email.address', 'forms', null)}"
                             data-pattern-mismatch="${Resource.msg('valid.email.address', 'forms', null)}"
                         aria-describedby="emailInvalidMessage" >
-                        <span class="info-icon">
+                        <span class="info-icon info-icon">
                             <img src="${URLUtils.staticURL('/images/i-icon-gray.svg')}" alt="info icon" class="info-icon-img-gray"
                                 width="10px" />
                             <img src="${URLUtils.staticURL('/images/i-icon-white.svg')}" alt="info icon" class="info-icon-img-white"
                                 width="10px" />
                         </span>
-                        <div class="info-icon-text">
+                        <div class="info-icon-text info-icon-text">
                             <iscontentasset aid="email-info-icon-content" />
                         </div>
                         <div class="info-icon-border-arrow-outline"></div>
