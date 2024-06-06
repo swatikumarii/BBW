@@ -5068,7 +5068,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                                         &lt;/a&gt;&#13;
 &#13;
                                     &lt;/td&gt;&#13;
-                                    &lt;td align="center"&gt; &lt;a href="https://www.valiramstores.com/contact-us.html" title="Customer Care"&#13;
+                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$" title="Customer Care"&#13;
                                             style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase"&#13;
                                             target="_blank"&gt;&#13;
                                             Customer Care&#13;
@@ -5425,7 +5425,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
                                         &lt;/a&gt;&#13;
 &#13;
 									&lt;/td&gt;&#13;
-									&lt;td align="center"&gt; &lt;a href="https://www.valiramstores.com/contact-us.html" title="Customer Care" style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase" target="_blank"&gt;&#13;
+									&lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$" title="Customer Care" style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase" target="_blank"&gt;&#13;
                                             Customer Care&#13;
                                         &lt;/a&gt;&#13;
 &#13;
