@@ -32,9 +32,9 @@
                         </div>
                     </iscomment>
                     <div class="register">
-                        <iscomment> <h3 class="h-clr--pink h-font-size--18 h-fw--bold">
+                        <h3 class="h-clr--pink h-font-size--18 h-fw--bold">
                             ${Resource.msg('join.title', 'login', null)}
-                        </h3> </iscomment>
+                        </h3>
                     
                         <p class="h-font-size--16 mb-0">
                             <iscomment> ${Resource.msg('join.para', 'login', null)} </iscomment>
