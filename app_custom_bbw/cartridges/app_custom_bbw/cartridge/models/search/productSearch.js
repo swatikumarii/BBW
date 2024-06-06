@@ -287,17 +287,21 @@ function ProductSearch(
         ? searchHelper.getBannerImageUrl(productSearch.category)
         : null;
     var productIds = collections.map(paging.pageElements, function (item) {
-        if (
-            item.product.availabilityModel.inventoryRecord.ATS.value -
-                item.product.custom.reserveQty <=
-            0
-        ) {
+        try {
+            if (
+                item.product.availabilityModel.inventoryRecord.ATS.value -
+                    item.product.custom.reserveQty <=
+                0
+            ) {
+                return false;
+            } else {
+                return {
+                    productID: item.productID,
+                    productSearchHit: item
+                };
+            }
+        } catch (error) {
             return false;
-        } else {
-            return {
-                productID: item.productID,
-                productSearchHit: item
-            };
         }
     });
     this.productIds = productIds.filter(function (item) {
