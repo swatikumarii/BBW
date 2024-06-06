@@ -288,7 +288,7 @@ function ProductSearch(
         : null;
     var productIds = collections.map(paging.pageElements, function (item) {
         try {
-            if (
+            if (!item.product.availabilityModel.inventoryRecord.perpetual &&
                 item.product.availabilityModel.inventoryRecord.ATS.value -
                     item.product.custom.reserveQty <=
                 0
