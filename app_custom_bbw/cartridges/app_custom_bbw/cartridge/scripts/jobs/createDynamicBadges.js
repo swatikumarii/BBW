@@ -214,7 +214,7 @@ function setInCart(products) {
                         logger.info(
                             'In Cart > cartProducts > cartProduct > ' +
                                 cartProduct +
-                                ' productCartIndex ' +
+                                ' > productCartIndex ' +
                                 productCartIndex
                         );
                         if (productCartIndex >= 0) {
