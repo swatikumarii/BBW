@@ -618,6 +618,7 @@ module.exports = $.extend({}, base, {
             'click',
             'button.add-to-cart, button.add-to-cart-global',
             async function () {
+                $(this).prop('disabled', true);
                 var addToCartUrl;
                 var pid;
                 var pidsObj;
@@ -811,6 +812,7 @@ module.exports = $.extend({}, base, {
                                 $('.egift-video-label').removeClass('d-none');
                                 $('#progress').empty();
                             }
+                            $(this).prop('disabled', false);
                             $.spinner().stop();
                             base.miniCartReportingUrl(data.reportingURL);
                             if ($('#quickViewModal')) {
