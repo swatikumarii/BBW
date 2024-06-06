@@ -237,7 +237,7 @@
                         .promo-details-tooltip {
                             border: 1px solid;
                             width: 260px;
-                            display: block;
+                            display: none;
                             min-width: 260px;
                             max-height: 400px;
                             position: absolute;
@@ -249,6 +249,18 @@
                             @include media-down(sm) {
                                 left: -66px;
                                 top: -70px;
+                            }
+
+                            &:hover {
+                                display: block;
+
+                                + .tooltip-arrow {
+                                    display: block;
+
+                                    + .tooltip-arrow::before {
+                                        display: block;
+                                    }
+                                }
                             }
 
                             .promo-details-content {
@@ -292,6 +304,20 @@
                                         border-top: 10px solid transparent;
                                     }
                                 }
+                            }
+
+                            .close {
+                                background-image: url("../../images/footer/cross.svg");
+                                background-position: 50%;
+                                background-repeat: no-repeat;
+                                background-size: 0.8125rem;
+                                cursor: pointer;
+                                height: 13px;
+                                opacity: 1;
+                                position: absolute;
+                                right: 8px;
+                                top: 8px;
+                                width: 13px;
                             }
                         }
                     }
