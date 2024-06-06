@@ -893,6 +893,9 @@ input[type="tel"],
 }
 
 .order-discount {
+    .order-discount-total {
+        letter-spacing: normal;
+    }
     p {
         line-height: 20px;
         letter-spacing: 0.2px;

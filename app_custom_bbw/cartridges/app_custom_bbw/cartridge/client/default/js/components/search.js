@@ -371,7 +371,7 @@ function handlePostCartAdd(response) {
         Object.keys(response.newBonusDiscountLineItem).length !== 0
     ) {
         chooseBonusProducts(response.newBonusDiscountLineItem);
-    } else if (layout.isMobile()) {
+    } else if (response.message) {
         if ($('.add-to-cart-messages').length === 0) {
             $('body').append('<div class="add-to-cart-messages"></div>');
         }
@@ -593,11 +593,6 @@ module.exports = function () {
 
                         handlePostCartAdd(data);
                         $('body').trigger('product:afterAddToCart', data);
-                        var addToCartSnackbar = $('#add-to-cart-snackbar');
-                        addToCartSnackbar.addClass('show');
-                        setTimeout(function () {
-                            addToCartSnackbar.removeClass('show');
-                        }, 3000);
                         $.spinner().stop();
                         miniCartReportingUrlSearch(data.reportingURL);
                         return true;

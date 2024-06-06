@@ -185,7 +185,6 @@
                     </isloop>
                     <iscomment> <a href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}"
                         class="h-font-size--16 h-clr--black-3 privacy-policy"><u>${Resource.msg('label.privacy.policy', 'giftcards', null)}</u></a> </iscomment>
-                    <div id="add-to-cart-snackbar">${Resource.msg('cart.updated.giftcard', 'giftcards', null)}</div>
                     <isinclude template="product/components/addToCartProduct" />
                 </form>
                 <a href="${URLUtils.url('Page-Show', 'cid', 'gift-card-terms-and-conditions')}"
