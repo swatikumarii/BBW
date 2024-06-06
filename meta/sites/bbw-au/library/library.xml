@@ -2684,12 +2684,6 @@
 &lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
-		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a class="footer-item-link h-clr--black-1 h-font-size--16" href="$url('Page-Show', 'cid', 'diversity-equity-inclusion')$"&gt;Diversity, Equity &amp; Inclusion&lt;/a&gt;&#13;
-&#13;
-		&lt;/li&gt;&#13;
-		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a class="footer-item-link h-clr--black-1 h-font-size--16" href="$url('Page-Show', 'cid', 'committed-future')$"&gt;Committed to the Future&lt;/a&gt;&#13;
-&#13;
-		&lt;/li&gt;&#13;
 	&lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
@@ -6643,7 +6637,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 
    <content content-id="committed-future">
         <display-name xml:lang="x-default">Committed to the Future</display-name>
-        <online-flag>true</online-flag>
+        <online-flag>false</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
@@ -6836,7 +6830,7 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
 
 <content content-id="diversity-equity-inclusion">
         <display-name xml:lang="x-default">Everyone Belongs at Bath &amp; Body Works</display-name>
-        <online-flag>true</online-flag>
+        <online-flag>false</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>

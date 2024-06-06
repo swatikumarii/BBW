@@ -30,7 +30,7 @@ server.append('Show', function (req, res, next) {
         viewData.product.fragranceDescription ||
         viewData.product.shortDescription ||
         viewData.product.longDescription
-    ).markup;
+    );
     currentPageMeta.pageMetaTags = currentPageMeta.pageMetaTags || [];
     if (currentPageMeta.description) {
         currentPageMeta.pageMetaTags.push({
