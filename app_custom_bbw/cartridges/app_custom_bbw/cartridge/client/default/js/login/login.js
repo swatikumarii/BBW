@@ -110,7 +110,10 @@ function login() {
                             $('#loginModal').modal('show');
                         }
                         $('.migration-login-message').removeClass('d-none');
-                        $('.before-login').addClass('d-none');
+                        $('.login-form-div').addClass('d-none');
+                        $('.login-modal-body .privacy-block').addClass(
+                            'd-none'
+                        );
                     } else {
                         formValidation(form, data);
                         form.trigger('login:error', data);
@@ -162,6 +165,13 @@ function login() {
             }
         });
     });
+
+    $('#loginModal').on('hidden.bs.modal', function () {
+        $('.migration-login-message').addClass('d-none');
+        $('.login-form-div').removeClass('d-none');
+        $('.login-modal-body .privacy-block').removeClass('d-none');
+    });
+
 };
 
 /**
@@ -375,6 +385,16 @@ $('body').click(function (event) {
     // Check if the clicked element is not inside the #registration-form-password element
     if (!$(event.target).closest('#registration-form-password').length) {
         $('.required-pass').addClass('d-none');
+    }
+});
+
+$('.mobile-slide-cancel').click(function () {
+    $('#mobile-slide-search').val('');
+});
+
+$(document).on('submit', 'form#menu-search', function (e) {
+    if (!$('#mobile-slide-search').val() || $('#mobile-slide-search').val().length < 3) {
+        e.preventDefault();
     }
 });
 

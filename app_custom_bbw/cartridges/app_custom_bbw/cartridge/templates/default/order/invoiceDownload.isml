@@ -141,10 +141,10 @@
                         </div>
                         <div style="padding: 0 10px;">
                             <isloop var="shippingModel" items="${pdict.order.shipping}" status="shippingLoop">
-                             <p  style="text-align:left; margin-left: -3px;">${Resource.msg('label.shipping', 'order', null)}:</p>
+                             <iscomment> <p  style="text-align:left; margin-left: -3px;">${Resource.msg('label.shipping', 'order', null)}:</p> </iscomment>
                                 <p class="shipping-method"  style="text-align:left; margin-left: -3px;">
                                     <span
-                                        class="shipping-method-title h-font-size--16">${shippingModel.selectedShippingMethod.ID}(${Resource.msg('label.shipping', 'order', null)})
+                                        class="shipping-method-title h-font-size--16">${Resource.msg('label.shipping', 'order', null)} : ${shippingModel.selectedShippingMethod.ID} ${Resource.msg('label.shipping', 'order', null)}
                                         <isif condition="${pdict.order.trackingNumber}">
                                             <a href="${pdict.order.trackingUrl + pdict.order.trackingNumber}" hreflang="${request.getLocale()}"
                                                 target="_blank">
@@ -512,6 +512,12 @@
                         </p>
                     </div>
                 </div>
+                <isif condition="${pdict.taxRate !== 0}">
+                    <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                        <p class="h-font-size--18 h-clr--black-1 h-fw--semibold" style=" margin-bottom: 0px;">
+                            ${Resource.msgf('label.tax.rate', 'order', null, pdict.taxRate)}</p>
+                    </div>
+                </isif>
             </tbody>
         </table>
     </div>

@@ -102,10 +102,15 @@ server.append(
 server.get('InvoiceDownload', function (req, res, next) {
     var OrderMgr = require('dw/order/OrderMgr');
     var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
+    var TaxMgr = require('dw/order/TaxMgr');
     var orderID = encryptionHelper.decryptPin(
         decodeURIComponent(req.querystring.token)
     );
     var order = OrderMgr.getOrder(orderID);
+    var taxClassId = TaxMgr.getDefaultTaxClassID();
+    var taxJurisdictionId = TaxMgr.getDefaultTaxJurisdictionID();
+    var getTaxRate = TaxMgr.getTaxRate(taxClassId, taxJurisdictionId);
+    var taxRate = getTaxRate * 100;
 
     if (order) {
         var orderModel = orderHelpers.getOrderDetailsByID(
@@ -113,7 +118,8 @@ server.get('InvoiceDownload', function (req, res, next) {
             req.locale.id
         );
         res.render('order/invoiceDownload', {
-            order: orderModel
+            order: orderModel,
+            taxRate: taxRate
         });
     } else {
         res.redirect(URLUtils.url('Order-History'));
