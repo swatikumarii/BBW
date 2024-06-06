@@ -8,6 +8,7 @@
 <div class="container-fluid ${!pdict.productSearch.isCategorySearch ? 'search-results' : ''}">
     <div class="storepage" id="${pdict.page.ID}">
     <h1>${pdict.page.name}</h1>
+    <isinclude template="search/components/searchBreadcrumb" />
         <div class="container-fluid">
             <div class="row">
                 <isif condition="${pdict.content.category}">

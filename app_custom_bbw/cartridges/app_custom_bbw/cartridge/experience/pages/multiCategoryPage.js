@@ -14,6 +14,8 @@ var PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelpe
  * @returns {string} The markup to be displayed
  */
 module.exports.render = function (context, modelIn) {
+    var URLUtils = require('dw/web/URLUtils');
+    var Resource = require('dw/web/Resource');
     var model = modelIn || new HashMap();
     // Metadata similar to that used by regular SFRA pages
     // Similar to /cartridges/modules/server/route.js getPageMetadata
@@ -32,6 +34,20 @@ module.exports.render = function (context, modelIn) {
     }
 
     model.CurrentPageMetaData = PageRenderHelper.getPageMetaData(page);
+
+    if (context.content.category) {
+        var breadcrumbs = [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            },
+            {
+                htmlValue: context.content.category.displayName,
+                url: URLUtils.url('Search-Show', 'cgid', context.content.category.ID)
+            }
+        ];
+        model.breadcrumbs = breadcrumbs;
+    }
 
     // no pagecache setting here, this is dynamically determined by the components used within the page
 
