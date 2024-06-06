@@ -846,12 +846,12 @@ module.exports = $.extend({}, base, {
             $.ajax({
                 type: 'GET',
                 url: removeGiftPliUrl,
-                success: function (data) {
+                success: function () {
                     $.ajax({
                         type: 'POST',
                         url: addToCartUrl,
                         data: form,
-                        success: function () {
+                        success: function (data) {
                             handlePostCartAdd(data);
                             $('body').trigger('product:afterAddToCart', data);
                             $.spinner().stop();
