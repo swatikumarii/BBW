@@ -198,5 +198,24 @@ $(document).on('click', '#paymentMethodsList .paymentMethod, .payment-method-opt
 });
 
 $('button.submit-payment').on('click', function () {
-    $('#paymentMethodsList .paymentMethod').first().trigger('click');
+    if ($('#selectedPaymentOption').val() === 'AdyenComponent') {
+        if (
+            [
+                'paypal',
+                'paywithgoogle',
+                'googlepay',
+                'amazonpay',
+                'applepay',
+                'cashapp'
+            ].indexOf(
+                $(
+                    '#paymentMethodsList .paymentMethod [type="radio"]:checked'
+                ).val()
+            ) === -1
+        ) {
+            $('#paymentMethodsList .paymentMethod [type="radio"]:checked')
+                .closest('.paymentMethod')
+                .trigger('click');
+        }
+    }
 });

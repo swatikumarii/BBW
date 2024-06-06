@@ -76,9 +76,9 @@
                             <isinclude template="components/header/mobileMenuItem" />
                         </li>
                     <iselse/>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item level-1-li position-relative" role="presentation">
                             <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
-                                id="${category.id}" class="nav-link h-font-size--18 h-fw--semibold" role="link"
+                                id="${category.id}" class="level-1-link nav-link h-font-size--18 h-fw--semibold" role="link"
                                 tabindex="0">${category.name}</a>
                         </li>
                     </isif>
