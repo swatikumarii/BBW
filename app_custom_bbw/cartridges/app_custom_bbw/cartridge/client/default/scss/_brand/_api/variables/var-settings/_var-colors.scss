@@ -86,6 +86,7 @@ $clr-green-3: #00570b;
 $clr-green-4: #1d6b49;
 $clr-green-5: #e9ffe9;
 $clr-green-6: #e6f7eb;
+$clr-green-7: #e9fff2;
 $clr-red: #cb0100;
 $clr-red-1: #fe5000;
 $clr-red-2: #ff0015;
@@ -192,7 +193,8 @@ $map-colors: (
         3: $clr-green-3,
         4: $clr-green-4,
         5: $clr-green-5,
-        6: $clr-green-6
+        6: $clr-green-6,
+        7: $clr-green-7
     ),
     red: (
         base: $clr-red,

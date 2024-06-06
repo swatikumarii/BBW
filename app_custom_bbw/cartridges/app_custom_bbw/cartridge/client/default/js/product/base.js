@@ -148,7 +148,7 @@ function handlePostCartAdd(response) {
         Object.keys(response.newBonusDiscountLineItem).length !== 0
     ) {
         chooseBonusProducts(response.newBonusDiscountLineItem);
-    } else {
+    } else if (response.message) {
         if ($('.add-to-cart-messages').length === 0) {
             $('body').append('<div class="add-to-cart-messages"></div>');
         }
@@ -156,10 +156,10 @@ function handlePostCartAdd(response) {
         $('.add-to-basket-alert').remove();
         $('.add-to-cart-messages').append(
             '<div class="alert ' +
-            messageType +
-            ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
-            response.message +
-            '</div>'
+                messageType +
+                ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                response.message +
+                '</div>'
         );
         setTimeout(function () {
             $('.add-to-basket-alert').remove();
@@ -792,11 +792,6 @@ module.exports = $.extend({}, base, {
                             }
                             handlePostCartAdd(data);
                             $('body').trigger('product:afterAddToCart', data);
-                            var addToCartSnackbar = $('#add-to-cart-snackbar');
-                            addToCartSnackbar.addClass('show');
-                            setTimeout(function () {
-                                addToCartSnackbar.removeClass('show');
-                            }, 3000);
 
 
                             if (data.pdpPromotions) {
@@ -900,11 +895,6 @@ module.exports = $.extend({}, base, {
                         data: form,
                         success: function () {
                             handlePostCartAdd(data);
-                            var addToCartSnackbar = $('#add-to-cart-snackbar');
-                            addToCartSnackbar.addClass('show');
-                            setTimeout(function () {
-                                addToCartSnackbar.removeClass('show');
-                            }, 3000);
                             $('body').trigger('product:afterAddToCart', data);
                             $.spinner().stop();
                             base.miniCartReportingUrl(data.reportingURL);
