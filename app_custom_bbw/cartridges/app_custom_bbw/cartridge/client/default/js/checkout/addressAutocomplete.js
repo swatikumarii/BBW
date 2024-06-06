@@ -23,8 +23,11 @@ module.exports = {
             for (var index = 0; index < components.length; index++) {
                 var element = components[index];
                 switch (element.types[0]) {
+                    case 'street_number':
+                        addressObject.address1 = element.long_name + ' ';
+                        break;
                     case 'route':
-                        addressObject.address1 = element.long_name;
+                        addressObject.address1 += element.long_name;
                         break;
                     case 'sublocality_level_1':
                         if ('address1' in addressObject) {
@@ -45,10 +48,6 @@ module.exports = {
                     default:
                         break;
                 }
-            }
-            if (place.name !== addressObject.address1) {
-                addressObject.address1 =
-                    place.name + ', ' + addressObject.address1;
             }
             var form = $('.shipping-form');
             form.find('#shippingAddressOnedefault')
@@ -90,8 +89,11 @@ module.exports = {
             for (var index = 0; index < components.length; index++) {
                 var element = components[index];
                 switch (element.types[0]) {
+                    case 'street_number':
+                        addressObject.address1 = element.long_name + ' ';
+                        break;
                     case 'route':
-                        addressObject.address1 = element.long_name;
+                        addressObject.address1 += element.long_name;
                         break;
                     case 'sublocality_level_1':
                         if ('address1' in addressObject) {
@@ -112,10 +114,6 @@ module.exports = {
                     default:
                         break;
                 }
-            }
-            if (place.name !== addressObject.address1) {
-                addressObject.address1 =
-                    place.name + ', ' + addressObject.address1;
             }
             var form = $('.billing-form');
             form.find('#billingAddressOne')
