@@ -60,7 +60,7 @@
             <preference preference-id="enableAfterpay">true</preference>
             <preference preference-id="enableCashAppPay">true</preference>
             <preference preference-id="hardTimeout">360</preference>
-            <preference preference-id="softTimeout">45</preference>
+            <preference preference-id="softTimeout">120</preference>
             <preference preference-id="popupDuration">2</preference>
             <preference preference-id="zeroOrderEmail"></preference>
             <preference preference-id="careersEmail"></preference>
@@ -96,6 +96,17 @@
             </preference>
             <preference preference-id="showTopOffers">false</preference>
             <preference preference-id="navSameAsDotCom">true</preference>
+            <preference preference-id="enableQwikcilver">true</preference>
+            <preference preference-id="qwikcilverMinRedemptionAmount">1</preference>
+            <preference preference-id="qwikcilverCPGName">BBW-EGV-AU</preference>
+            <preference preference-id="qwikcilverForwardingEntityId">bbw.au.testuser</preference>
+            <preference preference-id="qwikcilverForwardingEntityPassword">welcome</preference>
+            <preference preference-id="qwikcilverUserName">bbw.au.intuser</preference>
+            <preference preference-id="qwikcilverAPIPassword">Welcome@123</preference>
+            <preference preference-id="qwikcilverTerminalID">BBW_AU_POS_01</preference>
+            <preference preference-id="qwikcilverEGiftBarCodeUrl">https://vs-thailand-sfcc.herokuapp.com/generateBarCode/</preference>
+            <preference preference-id="qwikcilverMaxRedemptionAmount">1000</preference>
+            <preference preference-id="s3UploadLink">https://vs-thailand-sfcc.herokuapp.com</preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
@@ -148,7 +159,7 @@
             <preference preference-id="enableAfterpay">true</preference>
             <preference preference-id="enableCashAppPay">false</preference>
             <preference preference-id="hardTimeout">360</preference>
-            <preference preference-id="softTimeout">45</preference>
+            <preference preference-id="softTimeout">120</preference>
             <preference preference-id="popupDuration">2</preference>
             <preference preference-id="zeroOrderEmail"></preference>
             <preference preference-id="chatScript"></preference>
@@ -175,6 +186,17 @@
             </preference>
             <preference preference-id="showTopOffers">false</preference>
             <preference preference-id="navSameAsDotCom">true</preference>
+            <preference preference-id="enableQwikcilver">true</preference>
+            <preference preference-id="qwikcilverMinRedemptionAmount">1</preference>
+            <preference preference-id="qwikcilverCPGName">BBW-EGV-AU</preference>
+            <preference preference-id="qwikcilverForwardingEntityId">bbw.au.testuser</preference>
+            <preference preference-id="qwikcilverForwardingEntityPassword">welcome</preference>
+            <preference preference-id="qwikcilverUserName">bbw.au.intuser</preference>
+            <preference preference-id="qwikcilverAPIPassword">Welcome@123</preference>
+            <preference preference-id="qwikcilverTerminalID">BBW_AU_POS_01</preference>
+            <preference preference-id="qwikcilverEGiftBarCodeUrl">https://vs-thailand-sfcc.herokuapp.com/generateBarCode/</preference>
+            <preference preference-id="qwikcilverMaxRedemptionAmount">1000</preference>
+            <preference preference-id="s3UploadLink">https://vs-thailand-sfcc.herokuapp.com</preference>
         </staging>
         <production/>
     </custom-preferences>

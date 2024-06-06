@@ -158,6 +158,33 @@ function getApproachingDiscounts(basket, discountPlan) {
 }
 
 /**
+ * Returns Free shippung status
+ * @param {dw.order.Basket} basket - Current users's basket
+ * @returns {boolean}  - free shupping status
+ */
+function getFreeShippingStatus(basket) {
+    var status=false;
+    if (basket && basket.allShippingPriceAdjustments && basket.allShippingPriceAdjustments.length) {
+        if (basket.allShippingPriceAdjustments[0].appliedDiscount && basket.allShippingPriceAdjustments[0].appliedDiscount.type === 'FREE'){
+            status = true;
+        }
+    }
+    return status;
+}
+
+/**
+ * Returns free line item counts
+ * @param {Array} items - Current users's basket line items
+ * @returns {number}  - free item count
+ */
+function getFreeItemCount(items) {
+    var freeItemCount = 0;
+    for (var i = 0; i < items.length; i++) {
+        freeItemCount = ('priceValue' in items[i].priceTotal && items[i].priceTotal.priceValue <= 0) ? freeItemCount + items[i].quantity : freeItemCount;
+    }
+    return freeItemCount;
+}
+/**
  * @class
  * @classdesc CartModel class that represents the current basket
  * @param {object} basket - dw.order.Basket Current users's basket
@@ -166,17 +193,23 @@ function CartModel(basket) {
     base.call(this, basket);
     var totalsModel = new TotalsModel(basket);
     this.totalPrice =  totalsModel.subTotal;
+    this.hasFreeShipping = getFreeShippingStatus(basket);
     this.apEligible = apUtilities.brandUtilities.isAfterpayApplicable();
     this.classname = 'cart-afterpay-message';
     this.continueShoppingLink = URLUtils.url('Home-Show').toString();
-    var discountPlan = PromotionMgr.getDiscounts(basket);
-    if (discountPlan) {
-        var approachingDiscounts = getApproachingDiscounts(
-            basket,
-            discountPlan
-        );
-        this.orderApproachingDiscounts = approachingDiscounts.orderDiscountObject;
-        this.shippingApproachingDiscounts = approachingDiscounts.shippingDiscountObject;
+    // get free item count
+    this.freeItemCount = getFreeItemCount(this.items);
+    this.freeItemToastMessage = this.freeItemCount > 0 ? Resource.msgf('cart.free.item.message', 'cart', null, this.freeItemCount) : '';
+    if (basket) {
+        var discountPlan = PromotionMgr.getDiscounts(basket);
+        if (discountPlan) {
+            var approachingDiscounts = getApproachingDiscounts(
+                basket,
+                discountPlan
+            );
+            this.orderApproachingDiscounts = approachingDiscounts.orderDiscountObject;
+            this.shippingApproachingDiscounts = approachingDiscounts.shippingDiscountObject;
+        }
     }
 
 

@@ -27,7 +27,7 @@
             <div class="store-options">
                 <isloop items="${pdict.stores.storeTypeValues}" var="type" status="loopState">
                     <div class="form-row">
-                        <input class="sl-storetype" type="checkbox" id="${type.value}" name="storeType" value="${type.value}" ${loopState.count == 1 ? "checked" : ""} />
+                        <input class="sl-storetype" type="checkbox" id="${type.value}" name="storeType" value="${type.value}" checked/>
                         <label class="h-clr--gray-4 mb-0 cursor-pointer"
                             for="${type.value}">${type.displayValue}</label>
                     </div>

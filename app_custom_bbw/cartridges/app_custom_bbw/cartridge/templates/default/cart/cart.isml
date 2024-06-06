@@ -13,6 +13,8 @@
     </isif>
     <a class="continue-shopping-link" href="${URLUtils.url('Home-Show')}"
         title="${Resource.msg('link.continue.shopping', 'cart', null)}">
+        <img src="${URLUtils.staticURL('/images/cart/arrow-left-dark-grey.svg')}"
+            alt="${Resource.msg('global.storename', 'common', null)}" />
         ${Resource.msg('link.continue.shopping', 'cart', null)}
     </a>
     <div class="cartContainer">
@@ -36,6 +38,9 @@
                     <isif condition="${pdict.dangerousGoodsExists}">
                         <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('dangerousGoodsMessage')}" encoding="off" />
                     </isif>
+                </div>
+                <div class="free-item-toast-message ${pdict.freeItemCount === 0 ? 'hide-free-item-toast-message' : ''}">
+                    <p>${pdict.freeItemToastMessage}</p>
                 </div>
                 <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
                     <div class="cart-error-messaging cart-error h-font-size--14 h-bg--red-10 h-clr--red-9 px-3 py-2 mb-2">

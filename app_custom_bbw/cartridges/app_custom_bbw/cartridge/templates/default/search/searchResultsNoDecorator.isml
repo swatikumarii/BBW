@@ -1,9 +1,16 @@
+<isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addJs('/js/pickedJustForYou.js');
+        assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
+</isscript>
+
 <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
     <isinclude template="reporting/reportingUrls" />
 </isif>
 
 <!--- Search Results Banner --->
-<div class="container-fluid ${!pdict.productSearch.isCategorySearch ? 'search-results' : ''}">
+<div
+    class="container-fluid ${!pdict.productSearch.isCategorySearch || pdict.productSearch.category.id === 's-fragrance' ? 'search-results' : ''}">
     <iscomment> Bread Crumb </iscomment>
     <isinclude template="search/components/searchBreadcrumb" />
 
@@ -14,7 +21,8 @@
                 <isif condition="${pdict.productSearch.productIds.length > 0}">
                     <!--- Refinement bar --->
                     <div class="row no-gutters h-grid-gap--40 h-grid-gap-lg--50 h-pl-lg-25 flex-nowrap">
-                        <isif condition="${pdict.productSearch.isCategorySearch}">
+                        <isif
+                            condition="${pdict.productSearch.isCategorySearch && pdict.productSearch.category.id !== 's-fragrance'}">
                             <div class="left-navigation-bar col-md-3 col-lg-2 px-md-0 h-hidden-sm-down">
                                 <isinclude template="search/components/leftNavigation" />
                             </div>
@@ -24,7 +32,8 @@
                             <isinclude url="${pdict.refineurl}" />
                         </div>
 
-                        <div class="${pdict.productSearch.isCategorySearch ? 'col-12 col-lg-10 col-md-9' : 'col-12 search-results'}">
+                        <div
+                            class="${pdict.productSearch.isCategorySearch ? 'col-12 col-lg-10 col-md-9' : 'col-12 search-results'}">
                             <isinclude template="search/components/categoryBannerTop" />
                             <isinclude template="search/components/categorySlider" />
 
@@ -32,11 +41,12 @@
                             <isinclude template="search/productGrid" />
                         </div>
                     </div>
-                 <iselse/>
+                <iselse/>
                     <isif condition="${!pdict.productSearch.productIds.length}">
                         <div class="product-grid-wrapper">
                             <div class="no-results">
-                                <h3 class="no-items-available">${Resource.msg('label.no.results.found', 'search', null)}</h3>
+                                <h3 class="no-items-available">${Resource.msg('label.no.results.found', 'search', null)}
+                                </h3>
                                 <p class="no-results-para">${Resource.msg('label.no.results.found.desc', 'search', null)}</p>
                             </div>
                         </div>
@@ -51,3 +61,12 @@
         </div>
     </div>
 </div>
+<div class="recommendations">
+    <isslot id="plp-recently-viewed-product" description="Recently viewed product slot for PLP" context="global" />
+</div>
+<isif condition="${!pdict.productSearch.count}">
+    <div class="recommendations">
+        <isslot id="plp-no-results-recommendation" description="Recently viewed product slot for PLP"
+            context="global" />
+    </div>
+</isif>

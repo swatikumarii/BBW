@@ -76,9 +76,9 @@
                             <isinclude template="components/header/mobileMenuItem" />
                         </li>
                     <iselse/>
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item level-1-li position-relative" role="presentation">
                             <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
-                                id="${category.id}" class="nav-link h-font-size--18 h-fw--semibold" role="link"
+                                id="${category.id}" class="level-1-link nav-link h-font-size--18 h-fw--semibold" role="link"
                                 tabindex="0">${category.name}</a>
                         </li>
                     </isif>
@@ -92,8 +92,7 @@
                 <isif condition="${pdict.customerName === null}">
                     <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true" aria-label="${category.id}">
                         <li class="level-2-li p-0" role="presentation">
-                            <a href="${URLUtils.url('Login-Show')}" class="level-2-link h-clr--gray h-font-size--16"
-                                role="button">${Resource.msg('mobile.menu.signIn', 'common', null)}</a>
+                            <button class="border-0 bg-white loginPopupBtn level-2-link h-clr--gray h-font-size--16">${Resource.msg('mobile.menu.signIn', 'common', null)}</button>
                         </li>
                         <li class="level-2-li p-0" role="presentation">
                             <a href="${URLUtils.url('Order-Status')}" class="level-2-link h-clr--gray h-font-size--16"

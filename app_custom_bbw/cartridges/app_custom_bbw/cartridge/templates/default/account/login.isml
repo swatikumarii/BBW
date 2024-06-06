@@ -6,8 +6,7 @@
 
     <div class="hero slant-down login-banner bg-white">
 
-        <div class="container login-page">
-            <!---Breadcrumbs--->
+        <div class="container login-page ">
             <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
             <div class="row justify-content-center equal-height">
                 <div class="col-sm-12 col-md-12 col-xl-12 register-form-head">
@@ -39,7 +38,7 @@
                         <p class="h-clr--gray text-center">${Resource.msg('msg.signup.overview', 'login', null)}</p>
                         </div>
                         <div class="signup-img d-flex justify-content-center">
-                            <img src="${URLUtils.staticURL('/images/login/login-img.jpg')}"
+                            <img src="${URLUtils.staticURL('/images/login/BBW_LOGO_MagSq.png')}"
                                 alt="${Resource.msg('login.image.message', 'login', null)} "
                                 class="w-100" />
                         </div>

@@ -19,6 +19,7 @@
                 <th class="order-description border-top-0 text-uppercase" colspan="2">
                     ${Resource.msg('label.item.description', 'order', null)}</th>
                 <th class="order-qty border-top-0 text-center text-uppercase">${Resource.msg('label.qty', 'order', null)}</th>
+                <th class="order-price border-top-0 text-right text-uppercase">${Resource.msg('label.item.header.savings', 'cart', null)}</th>
                 <th class="order-price border-top-0 text-right text-uppercase">${Resource.msg('label.price', 'order', null)}</th>
             </tr>
         </thead>
@@ -33,7 +34,7 @@
                         </td>
                         <td class="item-details">
                             <div class="line-item-name">
-                                <isif condition="${pdict.isEgiftCard}">
+                                <isif condition="${pdict.isEgiftCard || lineItem.noProduct}">
                                     <span>${lineItem.fragranceName ? lineItem.fragranceName : lineItem.productName}</span>
                                 <iselse/>
                                     <a class="product-name" title="${lineItem.productName}"
@@ -58,9 +59,18 @@
                             <span class="pricing qty-card-quantity-count ">
                                 <isprint value="${lineItem.quantity}" formatter="##" /></span>
                         </td>
+                        <td class="saving">
+                                <isif condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
+                                    <span class="value">${lineItem.totalSavings}</span>
+                                <iselse/>
+                                    <span class="value-dash">${'-'}</span>
+                                </isif>
+                        </td>
                         <td class="pricing item-total">
                             <span>
-                                <isif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
+                                <isif condition="${lineItem.noProduct}">
+                                    ${lineItem.priceTotal.currencyCode} ${lineItem.priceTotal.value}
+                                <iselseif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}"/>
                                     ${Resource.msg('label.free.price', 'cart', null)}
                                 <iselse/>
                                     ${lineItem.priceTotal.price}

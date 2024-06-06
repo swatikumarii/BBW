@@ -114,6 +114,7 @@ server.prepend('Login', function (req, res, next) {
     }
     if (accountHelpers.handleMigratedCustomers(req.form.loginEmail)) {
         res.json({
+            isMigratedNotUpdated: true,
             error: [
                 Resource.msg(
                     'reset.password.message.migrated.user',
@@ -127,6 +128,32 @@ server.prepend('Login', function (req, res, next) {
         next();
     }
 });
+
+/**
+ * Account-Login : The Account-Login endpoint will render the shopper's account page. Once a shopper logs in they will see is a dashboard that displays profile, address, payment and order information.
+ */
+server.append('Login', function (req, res, next) {
+    var accountHelper = require('*/cartridge/scripts/helpers/accountHelpers');
+    var email = req.form.loginEmail;
+    var viewData = res.getViewData();
+    var remainingLoginAttempts = accountHelper.remainingLoginAttempts(email);
+    if(remainingLoginAttempts !== -1){
+        viewData.error =
+            [
+                Resource.msgf('error.message.login.form.attempts', 'login', null, remainingLoginAttempts)
+            ];
+    
+        if(!remainingLoginAttempts || remainingLoginAttempts === 0){
+            viewData.error = [
+                Resource.msg('error.message.account.locked', 'login', null)
+            ];
+        }
+        viewData.remainingLoginAttempts = remainingLoginAttempts;
+        res.setViewData(viewData);
+    }
+    next();
+});
+
 
 server.replace(
     'SaveProfile',

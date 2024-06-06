@@ -11,6 +11,7 @@ var Transaction = require('dw/system/Transaction');
 var Resource = require('dw/web/Resource');
 var collection = require('*/cartridge/scripts/util/collections');
 var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
+var formatMoney = require('dw/util/StringUtils').formatMoney;
 
 server.get('Show', function (req, res, next) {
     var giftCardId = req.querystring.pid;
@@ -95,7 +96,7 @@ server.post('ValidateGiftCard', function (req, res, next) {
         if (giftPaymentInstruments.length === noOfGiftCardRedemption) {
             res.json({
                 error: true,
-                errorMessage: Resource.msgf('error.payment.for.gift.limit', 'eGiftCard', null, noOfGiftCardRedemption)
+                errorMessage: Resource.msgf('error.payment.for.gift.limit', 'giftcards', null, noOfGiftCardRedemption)
             });
             return next();
         }
@@ -103,7 +104,7 @@ server.post('ValidateGiftCard', function (req, res, next) {
         if (isGiftProductAvailable) {
             res.json({
                 error: true,
-                errorMessage: Resource.msg('error.payment.for.gift.product', 'eGiftCard', null)
+                errorMessage: Resource.msg('error.payment.for.gift.product', 'giftcards', null)
             });
             return next();
         }
@@ -116,7 +117,7 @@ server.post('ValidateGiftCard', function (req, res, next) {
         if (currentBasket.custom.eGiftTotalAmount === currentBasket.totalGrossPrice.value) {
             res.json({
                 error: false,
-                noPendingAmount: Resource.msg('payment.no.pending.gift.amount', 'eGiftCard', null),
+                noPendingAmount: Resource.msg('payment.no.pending.gift.amount', 'giftcards', null),
                 cardNumber: cardNumber,
                 hideCreditCardForm: hideCreditCardForm
             });
@@ -131,7 +132,7 @@ server.post('ValidateGiftCard', function (req, res, next) {
                 if (cardNumber === giftPaymentInstruments[j].custom.eGiftCardNumber) {
                     res.json({
                         error: true,
-                        errorMessage: Resource.msg('payment.card.already.exist', 'eGiftCard', null),
+                        errorMessage: Resource.msg('payment.card.already.exist', 'giftcards', null),
                         cardNumber: cardNumber,
                         addedCards: addedCards
                     });
@@ -167,7 +168,7 @@ server.post('ValidateGiftCard', function (req, res, next) {
                     res.json({
                         error: true,
                         cardNumber: cardNumber,
-                        errorMessage: Resource.msg('qwikcilver.invalid.gift.card', 'eGiftCard', null)
+                        errorMessage: Resource.msg('qwikcilver.invalid.gift.card', 'giftcards', null)
                     });
                 } else {
                     res.json({
@@ -192,8 +193,9 @@ server.post('ValidateGiftCard', function (req, res, next) {
                 var updatedPaymentInstruments = currentBasket.getPaymentInstruments();
                 for (var k = 0; k < updatedPaymentInstruments.length; k++) {
                     var cardNo = updatedPaymentInstruments[k].custom.eGiftCardNumber;
+                    var cardValue = updatedPaymentInstruments[k].paymentTransaction.amount;
                     if (cardNo !== null) {
-                        addedCards.push(cardNo);
+                        addedCards.push({ cardNo: cardNo , amount: formatMoney(cardValue)});
                     }
                 }
                 var noPendingAmount = currentBasket.custom.eGiftTotalAmount === currentBasket.totalGrossPrice.value;
@@ -212,7 +214,7 @@ server.post('ValidateGiftCard', function (req, res, next) {
                 }
                 res.json({
                     error: false,
-                    success: Resource.msg('qwikcilver.card.added', 'eGiftCard', null) + Resource.msgf('qwikcilver.card.pending', 'eGiftCard', null, currency, remainingAmount.toFixed(2)),
+                    success: Resource.msg('qwikcilver.card.added', 'giftcards', null) + Resource.msgf('qwikcilver.card.pending', 'giftcards', null, currency, remainingAmount.toFixed(2)),
                     cardNumber: cardNumber,
                     hideCreditCardForm: false,
                     addedCards: addedCards,
@@ -225,7 +227,7 @@ server.post('ValidateGiftCard', function (req, res, next) {
             if ('status' in giftCardAPIResult && giftCardAPIResult.getStatus().equals('SERVICE_UNAVAILABLE')) {
                 res.json({
                     error: true,
-                    errorMessage: Resource.msg('qwikcilver.service.unavailable', 'eGiftCard', null)
+                    errorMessage: Resource.msg('qwikcilver.service.unavailable', 'giftcards', null)
                 });
             } else if (giftCardAPIResult.msg === 'Connection reset') {
                 res.json({
@@ -243,24 +245,82 @@ server.post('ValidateGiftCard', function (req, res, next) {
         } else {
             res.json({
                 error: true,
-                errorMessage: Resource.msg('qwikcilver.service.unavailable', 'eGiftCard', null)
+                errorMessage: Resource.msg('qwikcilver.service.unavailable', 'giftcards', null)
             });
             return next();
         }
     } else {
         res.json({
             error: true,
-            errorMessage: Resource.msg('enter.giftcard.and.pin', 'eGiftCard', null)
+            errorMessage: Resource.msg('enter.giftcard.and.pin', 'giftcards', null)
         });
         return next();
     }
     res.json({
         error: false,
-        noPendingAmount: Resource.msg('payment.no.pending.gift.amount', 'eGiftCard', null),
+        noPendingAmount: Resource.msg('payment.no.pending.gift.amount', 'giftcards', null),
         cardNumber: cardNumber,
         hideCreditCardForm: hideCreditCardForm,
         addedCards: addedCards,
         basketModel: basketModel
+    });
+    return next();
+});
+
+
+/**
+ * Remove Gift Payment for specific card no from checkout
+ */
+server.post('RemoveGiftCard', function (req, res, next) {
+    var currentBasket = BasketMgr.getCurrentBasket();
+    if (!currentBasket) {
+        res.json({
+            error: true,
+            redirectUrl: URLUtils.url('Cart-Show').toString()
+        });
+        return next();
+    }
+    var paymentInstruments = currentBasket.getPaymentInstruments();
+    var iterator = paymentInstruments.iterator();
+    var cardNumber = req.form.cardNumber;
+    Transaction.wrap(function () {
+        while (iterator.hasNext()) {
+            var paymentInstrument = iterator.next();
+            if (paymentInstrument !== null && paymentInstrument.custom.eGiftCardNumber === cardNumber) {
+                var transactionAmount = paymentInstrument.paymentTransaction.amount.value;
+                currentBasket.custom.eGiftTotalAmount -= transactionAmount;
+
+                currentBasket.removePaymentInstrument(paymentInstrument);
+            }
+        }
+    });
+    // Get Remaining GiftCard Payment
+    var remainingCards = [];
+    var updatedPaymentInstruments = currentBasket.getPaymentInstruments();
+    if (updatedPaymentInstruments.length > 0) {
+        for (var k = 0; k < updatedPaymentInstruments.length; k++) {
+            var cardNo = updatedPaymentInstruments[k].custom.eGiftCardNumber;
+            var cardValue = updatedPaymentInstruments[k].paymentTransaction.amount;
+            if (cardNo !== null) {
+                remainingCards.push({ cardNo: cardNo, amount:formatMoney(cardValue) });
+            }
+        }
+    }
+    var hideCreditCardForm = true;
+    if (updatedPaymentInstruments.length === 0) {
+        hideCreditCardForm = false;
+    }
+    var remainingAmount = currentBasket.totalGrossPrice.value - currentBasket.custom.eGiftTotalAmount;
+    if (remainingAmount > 0 && currentBasket.custom.eGiftTotalAmount < currentBasket.totalGrossPrice.value) {
+        hideCreditCardForm = false;
+    }
+    var CartModel = require('*/cartridge/models/cart');
+    var basketModel = new CartModel(currentBasket);
+    res.json({
+        error: false,
+        basketModel: basketModel,
+        remainingCards: remainingCards,
+        hideCreditCardForm: hideCreditCardForm
     });
     return next();
 });
@@ -282,12 +342,12 @@ server.post('CheckBalance', function (req, res, next) {
                 if (giftCardAPIResultObj.Cards[0].ResponseCode === 10638) {
                     res.json({
                         error: true,
-                        errorMessage: Resource.msg('qwikcilver.invalid.gift.card', 'eGiftCard', null)
+                        errorMessage: Resource.msg('qwikcilver.invalid.gift.card', 'giftcards', null)
                     });
                 } else if (giftCardAPIResultObj.Cards[0].ResponseCode === 10251) {
                     res.json({
                         error: true,
-                        errorMessage: Resource.msg('card.already.redeemed', 'eGiftCard', null)
+                        errorMessage: Resource.msg('card.already.redeemed', 'giftcards', null)
                     });
                 } else {
                     res.json({
@@ -309,7 +369,7 @@ server.post('CheckBalance', function (req, res, next) {
             if ('status' in giftCardAPIResult && giftCardAPIResult.getStatus().equals('SERVICE_UNAVAILABLE')) {
                 res.json({
                     error: true,
-                    errorMessage: Resource.msg('qwikcilver.service.unavailable', 'eGiftCard', null)
+                    errorMessage: Resource.msg('qwikcilver.service.unavailable', 'giftcards', null)
                 });
             } else if (giftCardAPIResult.msg === 'Connection reset') {
                 res.json({
@@ -327,13 +387,13 @@ server.post('CheckBalance', function (req, res, next) {
         } else {
             res.json({
                 error: true,
-                errorMessage: Resource.msg('qwikcilver.service.unavailable', 'eGiftCard', null)
+                errorMessage: Resource.msg('qwikcilver.service.unavailable', 'giftcards', null)
             });
         }
     } else {
         res.json({
             error: true,
-            errorMessage: Resource.msg('enter.giftcard.and.pin', 'eGiftCard', null)
+            errorMessage: Resource.msg('enter.giftcard.and.pin', 'giftcards', null)
         });
         return next();
     }
