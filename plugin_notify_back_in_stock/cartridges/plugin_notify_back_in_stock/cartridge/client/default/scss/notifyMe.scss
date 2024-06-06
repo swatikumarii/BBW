@@ -50,9 +50,9 @@
         border: none;
         position: relative;
 
-        @include media-breakpoint-down(sm) {
-            height: 700px;
-        }
+        // @include media-breakpoint-down(sm) {
+        //     height: 700px;
+        // }
 
         .modal-header {
             background-color: #fff;
@@ -75,6 +75,10 @@
             overflow-y: auto;
             padding: 33px 40px 70px;
 
+            @include media-breakpoint-down(sm) {
+                padding: 10px 40px 33px;
+            }
+
             h2 {
                 font-size: 32px;
                 line-height: 40px;
@@ -95,8 +99,16 @@
                 margin-top: 55px;
                 text-align: center;
 
+                @include media-breakpoint-down(sm) {
+                    margin-top: 15px;
+                }
+
                 img {
                     height: auto;
+
+                    @include media-breakpoint-down(sm) {
+                        width: 80%;
+                    }
                 }
             }
         }
@@ -121,6 +133,10 @@
                 @include media-breakpoint-down(md) {
                     min-width: auto;
                     width: 100%;
+                }
+
+                @include media-breakpoint-down(sm) {
+                    margin: 0 auto;
                 }
             }
 

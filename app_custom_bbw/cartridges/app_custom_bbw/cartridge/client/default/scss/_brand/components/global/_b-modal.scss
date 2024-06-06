@@ -125,20 +125,22 @@
     .modal-content {
         border-radius: 0;
         padding: 11px;
-    }   
+    }
+
     .delete-confirmation-body {
         &.modal-header {
             height: 20px;
         }
+
         &.close {
-          height: 48px;
+            height: 48px;
             opacity: 1;
             width: 48px;
             margin: -31px -28px 0 auto;
         }
 
         .modal-content-data {
-            letter-spacing: .005em;
+            letter-spacing: 0.005em;
             line-height: 1.75rem;
         }
     }
@@ -148,6 +150,7 @@
         max-height: 35px;
         text-transform: capitalize;
     }
+
     .close-btn {
         min-height: 35px;
         max-height: 35px;
@@ -159,31 +162,31 @@
 
 #delete-gift-certificate-line-item-modal {
     .modal-content {
-            border-radius: 0;
-            padding: 11px;
+        border-radius: 0;
+        padding: 11px;
+    }
+
+    .delete-confirmation-body {
+        &.modal-header {
+            height: 20px;
         }
-    
-        .delete-confirmation-body {
-            &.modal-header {
-                height: 20px;
-            }
-    
-            &.close {
-                height: 48px;
-                opacity: 1;
-                width: 48px;
-                margin: -31px -28px 0 auto;
-            }
-    
-            .modal-content-data {
-                letter-spacing: .005em;
-                line-height: 1.75rem;
-            }
+
+        &.close {
+            height: 48px;
+            opacity: 1;
+            width: 48px;
+            margin: -31px -28px 0 auto;
         }
-    
-        .delete-egiftitem-confirmation-btn{
-            min-height: 35px;
-            max-height: 35px;
-            text-transform: capitalize;
+
+        .modal-content-data {
+            letter-spacing: 0.005em;
+            line-height: 1.75rem;
         }
+    }
+
+    .delete-egiftitem-confirmation-btn {
+        min-height: 35px;
+        max-height: 35px;
+        text-transform: capitalize;
+    }
 }
