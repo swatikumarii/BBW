@@ -233,11 +233,20 @@ function setInCart(products) {
         Transaction.wrap(function () {
             for (var ci = 0; ci < products.length; ci++) {
                 var product = products[ci];
+                logger.info(
+                    'In Cart > product > ID > ' + product.ID
+                );
                 var productInCart = getFromProductCarts(
                     productCarts,
                     product.ID
                 );
                 if (productInCart) {
+                    logger.info(
+                        'Set In Cart > product > ID > ' +
+                            product.ID +
+                            ' count ' +
+                            productInCart.count
+                    );
                     product.custom.dynamicBadge = Resource.msgf(
                         'label.dynamic.badge.carts',
                         'common',
