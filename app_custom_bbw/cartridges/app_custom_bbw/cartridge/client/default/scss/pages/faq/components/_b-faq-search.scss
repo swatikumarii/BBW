@@ -393,3 +393,15 @@ input:-internal-autofill-selected {
         display: block;
     }
 }
+
+.hidden-search-loader {
+    left: -18px;
+    position: absolute;
+    top: 4px;
+
+    .loader .spinner {
+        width: 25px;
+        height: 25px;
+        background-size: 25px;
+    }
+}
