@@ -21,20 +21,29 @@
                         data-dismiss="modal"
                         data-addtocarturl="${addToCartUrl}"
                         data-action="${removeLineItemURL}"
-                    >${Resource.msg('button.confirm','address',null)}</button>
+                    >${Resource.msg('button.confirm.remove','giftcards',null)}</button>
+                    <button type="button" class="btn btn-primary close-btn btn-secondary h-clr--gray h-font-size--16" data-dismiss="modal"
+                        data-oid="${pdict.order.orderNumber}" data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
+                        data-action="${URLUtils.url('Giftcard-RemoveLineItems')}">${Resource.msg('button.deny.remove', 'giftcards', null)}</button>
                 <iselseif condition="${pdict.isOrderBaseRemoveGiftCard}" />
                     <button type="button" class="btn order-base-delete-egiftitem-confirmation-btn  h-font-size--16"
                         data-dismiss="modal"
                         data-oid="${pdict.order.orderNumber}"
                         data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
                         data-action="${URLUtils.url('Giftcard-RemoveLineItems')}"
-                    >${Resource.msg('button.confirm','address',null)}</button>
+                    >${Resource.msg('button.confirm.remove','giftcards',null)}</button>
+                    <button type="button" class="btn btn-primary close-btn btn-secondary h-clr--gray h-font-size--16" data-dismiss="modal"
+                        data-oid="${pdict.order.orderNumber}" data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
+                        data-action="${URLUtils.url('Giftcard-RemoveLineItems')}">${Resource.msg('button.deny.remove', 'giftcards', null)}</button>
                 <iselse/>
                     <button type="button" class="btn delete-egiftitem-confirmation-btn  h-font-size--16"
                         data-dismiss="modal"
                         data-addtocarturl="${URLUtils.url('Cart-AddProduct')}"
                         data-action="${URLUtils.url('Giftcard-RemoveLineItems')}"
-                    >${Resource.msg('button.confirm','address',null)}</button>
+                    >${Resource.msg('button.confirm.remove','giftcards',null)}</button>
+                    <button type="button" class="btn btn-primary close-btn btn-secondary h-clr--gray h-font-size--16" data-dismiss="modal"
+                        data-oid="${pdict.order.orderNumber}" data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
+                        data-action="${URLUtils.url('Giftcard-RemoveLineItems')}">${Resource.msg('button.deny.remove', 'giftcards', null)}</button>
                 </isif>
             </div>
         </div>
