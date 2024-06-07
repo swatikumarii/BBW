@@ -133,21 +133,21 @@
                                             <isset name="promotionDetails" value="${promotionDetails + ',<br>' + promotion.details}" scope="page" />
                                         </isif>
                                     </isif>
-                                    <isif condition="${loopstatus.last}">
-                                        <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
-                                            <button type="button"
-                                                class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
-                                                data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
-                                                title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a>
-                                                                                            <div class='popover-content pdp-pop-content ds-tooltip-content'>
-                                                                                                <isprint value=" ${promotionDetails}" />
-                                            </div>
-                                            <div class='arrow-fill'></div>"
-                                            data-html="true" data-original-title="" aria-describedby="popover14574">
-                                            </button>
-                                        </div>
-                                    </isif>
                                 </isloop>
+                                <isif condition="${!empty(promotionDetails)}">
+                                    <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
+                                        <button type="button"
+                                            class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
+                                            data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
+                                            title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a>
+                                                                                        <div class='popover-content pdp-pop-content ds-tooltip-content'>
+                                                                                            <isprint value=" ${promotionDetails}" />
+                                        </div>
+                                        <div class='arrow-fill'></div>"
+                                        data-html="true" data-original-title="" aria-describedby="popover14574">
+                                        </button>
+                                    </div>
+                                </isif>
                             </div>
 
                         <iscomment> Hiding Bopis Options for now </iscomment>
