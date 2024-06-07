@@ -52,6 +52,16 @@
             }
         }
 
+        .free-item-toast-message {
+            background: colour(green, 7);
+            padding: 11px 20px;
+
+            p {
+                line-height: 1.25rem;
+                letter-spacing: 0.01em;
+            }
+        }
+
         .hide-free-item-toast-message {
             display: none;
         }
