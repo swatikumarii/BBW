@@ -159,7 +159,9 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
             optionModel,
             defaultShipment
         );
-
+        if ('SID' in product.custom && product.custom.SID) {
+            productLineItem.custom.SID = product.custom.SID;
+        }
         result.uuid = productLineItem.UUID;
     }
 
