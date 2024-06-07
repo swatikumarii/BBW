@@ -162,33 +162,20 @@ function updateApproachingDiscounts(orderApproachingDiscounts, shippingApproachi
 
     if(shippingApproachingDiscounts && shippingApproachingDiscounts.length) {
         shippinghtml = '<div class="row align-items-center">\n'+
-                            '<div class="col-2 icon">\n'+
-        // <img src="${URLUtils.staticURL('images/icons/bopis-shipping.svg')}" alt="shipping icon" width="50" />
-        '</div>\n'+
-        '<div class="d-flex flex-column col-10 pl-0">\n';
-        if (shippingApproachingDiscounts[0].distanceFromConditionThreshold > 0) {
-            shippinghtml += '<p class="h-font-size--13 h-clr--blue h-fw--bold m-0"></p>';
-        } else {
-            shippinghtml += '<p class="h-font-size--13 h-clr--blue h-fw--bold m-0"></p>';
-        }
-        shippinghtml += '<div class="single-approaching-discount">\n'+
-                shippingApproachingDiscounts[0].discountMsg +
+            '<div class="d-flex flex-column col-12 py-0">\n'+
+            '<p class="h-font-size--13 h-clr--pink h-fw--bold m-0">' + shippingApproachingDiscounts[0].discountMsg + '</p>\n'+
+                '<div class="d-flex w-100 justify-content-around align-items-center progress-wrap">\n'+
+                    '<span class="pr-2 text-nowrap d-block"> AUD 0.00 </span>\n' +
+                '<span class="d-block w-100 h-pos--relative">\n'+
+                        '<progress class="w-100" value="' + (shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold) + '" max="' + shippingApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
+                        '<span class="free-shipping-progress" style="left: calc(' + (((shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold)/shippingApproachingDiscounts[0].conditionThreshold)*100).toFixed(2) + '% - 15px );"></span>\n'+
+                    '</span>\n'+
+                    '<span class="pl-2 text-nowrap d-block">\n'+
+                        shippingApproachingDiscounts[0].formattedConditionThreshold +
+                    '</span>\n'+
+                '</div>\n'+
             '</div>\n'+
-            '<div class="d-flex w-100 justify-content-around align-items-center">\n'+
-                '<span class="pr-1 text-nowrap d-block">\n'+
-                    0 +
-                '</span>\n'+
-                '<progress class="w-100';
-        if (shippingApproachingDiscounts[0].distanceFromConditionThreshold === 0) {
-            shippinghtml += ' full ';
-        }
-        shippinghtml +='" value="' + (shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold) + '"max="' + shippingApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
-                '<span class="pl-1 text-nowrap d-block">\n'+
-                    shippingApproachingDiscounts[0].formattedConditionThreshold+
-                '</span>\n'+
-            '</div>\n'+
-        '</div>\n'+
-    '</div>';
+        '</div>';
     }
     $('.shipping-approaching-discounts').empty().append(shippinghtml);
     $('.order-approaching-discounts').empty().append(orderhtml);
