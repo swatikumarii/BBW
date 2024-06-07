@@ -399,6 +399,10 @@ input:-internal-autofill-selected {
     position: absolute;
     top: 4px;
 
+    @include media-down(md) {
+        top: 65%;
+    }
+
     .loader .spinner {
         width: 25px;
         height: 25px;
