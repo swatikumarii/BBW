@@ -9,7 +9,7 @@
                         <p class="h-font-size--13 h-clr--pink h-fw--bold m-0"> ${Resource.msg('congrats.free.shipping', 'cart', null)}</p>
                     </isif>
                     <div class="d-flex w-100 justify-content-around align-items-center progress-wrap">
-                        <span class="pr-2 text-nowrap d-block">
+                        <span class="pr-3 text-nowrap d-block">
                             ${dw.util.StringUtils.formatMoney(new dw.value.Money(0, session.currency.getCurrencyCode()))}
                         </span>
                         <span class="d-block w-100 h-pos--relative">
@@ -17,9 +17,9 @@
                                 value="${approachingDiscount.conditionThreshold - approachingDiscount.distanceFromConditionThreshold}"
                                 max="${approachingDiscount.conditionThreshold}">
                                 </progress>
-                            <span class="free-shipping-progress" style="left: calc(${(((approachingDiscount.conditionThreshold - approachingDiscount.distanceFromConditionThreshold)/approachingDiscount.conditionThreshold)*100).toFixed(2)}% - 15px );"></span>
+                            <span class="free-shipping-progress" style="left: calc(${(((approachingDiscount.conditionThreshold - approachingDiscount.distanceFromConditionThreshold)/approachingDiscount.conditionThreshold)*100).toFixed(2)}% - 25px );"></span>
                         </span>
-                        <span class="pl-2 text-nowrap d-block">
+                        <span class="pl-3 text-nowrap d-block">
                             ${approachingDiscount.formattedConditionThreshold}
                         </span>
                     </div>
