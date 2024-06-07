@@ -85,7 +85,7 @@ input[type="number"] {
     top: 0;
 }
 
-.custom-checkbox .custom-control-input:checked ~.custom-control-label::after {
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
     background-image: url("../images/check-box-checked.svg");
     content: "";
     background-size: cover;
