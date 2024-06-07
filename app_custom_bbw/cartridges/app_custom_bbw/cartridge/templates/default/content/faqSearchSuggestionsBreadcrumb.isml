@@ -1,11 +1,11 @@
 <ol class="breadcrumbs">
-        <li title="${Resource.msg('faq.breadcrumb.link', 'faq', null)}">
+        <li class="h-clr--black-3" title="${Resource.msg('faq.breadcrumb.link', 'faq', null)}">
                 ${Resource.msg('faq.breadcrumb.link', 'faq', null)}
         </li>
-        <li class="text-uppercase" title="${content.breadcrumb.level1Name}">
+        <li class="text-uppercase h-clr--black-3" title="${content.breadcrumb.level1Name}">
                 ${content.breadcrumb.level1Name}
         </li>
-        <li title="${content.breadcrumb.level2Name}">
+        <li class="h-clr--black-3" title="${content.breadcrumb.level2Name}">
                 ${content.breadcrumb.level2Name}
         </li>
 </ol>
