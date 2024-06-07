@@ -175,12 +175,17 @@
                 for="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}">
                 <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.city', 'address', null)}
             </label>
-            <input type="text" class="form-control shippingAddressCity"
-                id="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}"
-                aria-describedby="${lineItem ? lineItem.UUID : 'default'}City" value="${shippingAddress.city || ''}"
-                data-missing-error="${Resource.msg('error.city', 'forms', null)}"
-                <isprint value="${addressFields.city.attributes}" encoding="off" />
-            autocomplete="shipping address-level2">
+            <div class="custom-select-wrap">
+                <select class="form-control shippingAddressCity custom-select"
+                    id="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}"
+                    aria-describedby="${lineItem ? lineItem.UUID : 'default'}City"
+                    data-missing-error="${Resource.msg('error.city', 'forms', null)}"
+                    <isprint value="${addressFields.city.attributes}" encoding="off" />
+                    autocomplete="shipping address-level2"
+                    >
+                </select>
+            </div>
+
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}City">
                 <isprint value="${addressFields.city.error}">
             </div>
@@ -194,14 +199,16 @@
                 for="shippingZipCode${lineItem ? lineItem.UUID : 'default'}">
                 <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.shipping.address.zip.code', 'address', null)}
             </label>
-            <input type="text" class="form-control shippingZipCode"
-                id="shippingZipCode${lineItem ? lineItem.UUID : 'default'}"
-                aria-describedby="${lineItem ? lineItem.UUID : 'default'}ZipCode"
-                data-missing-error="${Resource.msg('error.zip.code', 'forms', null)}"
-                data-pattern-mismatch="${Resource.msg('valid.zip.code', 'forms', null)}"
-                value="${shippingAddress.postalCode || ''}" <isprint value="${addressFields.postalCode.attributes}"
-                encoding="off" />
-            autocomplete="shipping postal-code">
+            <div class="custom-select-wrap">
+                <select class="form-control shippingZipCode custom-select"
+                    id="shippingZipCode${lineItem ? lineItem.UUID : 'default'}"
+                    aria-describedby="${lineItem ? lineItem.UUID : 'default'}ZipCode"
+                    data-missing-error="${Resource.msg('error.zip.code', 'forms', null)}"
+                    data-pattern-mismatch="${Resource.msg('valid.zip.code', 'forms', null)}" <isprint value="${addressFields.postalCode.attributes}"
+                    encoding="off" />
+                    autocomplete="shipping postal-code">
+                </select>
+            </div>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}ZipCode">
                 <isprint value="${addressFields.postalCode.error}">
             </div>
