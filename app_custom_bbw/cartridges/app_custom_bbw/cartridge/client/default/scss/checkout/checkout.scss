@@ -617,6 +617,7 @@ input[type="tel"],
 
 .add-giftcard-button {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .add-giftcard-section {
@@ -636,6 +637,7 @@ input[type="tel"],
 
         #egift-card-check-balance {
             text-decoration: underline;
+            cursor: pointer;
         }
     }
 }
