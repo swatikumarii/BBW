@@ -126,9 +126,9 @@
             }
 
             .headerItem {
-                max-width: 385px;
+                max-width: 425px;
                 padding: 10px 0 10px 15px;
-                width: 385px;
+                width: 425px;
             }
 
             .headerPrice {
@@ -137,7 +137,7 @@
             }
 
             .headerQty {
-                width: 160px;
+                width: 120px;
                 padding: 10px 0;
             }
 
@@ -170,8 +170,8 @@
                 }
 
                 .line-item {
-                    width: 385px;
-                    max-width: 385px;
+                    width: 425px;
+                    max-width: 425px;
                     display: flex;
                     padding-right: 20px;
 
@@ -357,7 +357,7 @@
                 }
 
                 .line-item-quantity {
-                    width: 160px;
+                    width: 120px;
                     padding-top: 10px;
 
                     @include media-down(sm) {
@@ -696,5 +696,21 @@
 footer {
     @include media-down(sm) {
         max-width: 100%;
+    }
+}
+
+.giftcard-details {
+    span {
+        line-height: 16px;
+
+        &.giftcard-message {
+            height: 32px;
+            -webkit-line-clamp: 2;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+        }
     }
 }
