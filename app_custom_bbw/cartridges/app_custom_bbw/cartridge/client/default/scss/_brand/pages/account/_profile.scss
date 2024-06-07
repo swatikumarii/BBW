@@ -784,5 +784,15 @@
             max-height: 40px;
             text-transform: capitalize;
         }
+
+        .close-btn {
+            min-height: 40px;
+            max-height: 40px;
+            text-transform: capitalize;
+
+            &:hover {
+                border: 2px solid colour(black, 1);
+            }
+        }
     }
 }
