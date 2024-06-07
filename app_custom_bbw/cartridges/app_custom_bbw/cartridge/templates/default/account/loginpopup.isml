@@ -16,7 +16,7 @@
                 <div class="col-12 pb-0">
                     <h4 class="h-font-size--18 h-clr--black-1 h-fw--bold">${Resource.msg('login.label', 'login', null)}
                     </h4>
-                    <p class="h-font-size--16 login-para h-clr--gray ">
+                    <p class="h-font-size--16 login-para h-clr--gray d-none">
                         ${Resource.msg('login.para', 'login', null)}
                     </p>
                     <isinclude template="account/components/loginModalForm" />
@@ -32,9 +32,9 @@
                         </div>
                     </iscomment>
                     <div class="register">
-                        <iscomment> <h3 class="h-clr--pink h-font-size--18 h-fw--bold">
+                        <h3 class="h-clr--pink h-font-size--18 h-fw--bold">
                             ${Resource.msg('join.title', 'login', null)}
-                        </h3> </iscomment>
+                        </h3>
                     
                         <p class="h-font-size--16 mb-0">
                             <iscomment> ${Resource.msg('join.para', 'login', null)} </iscomment>

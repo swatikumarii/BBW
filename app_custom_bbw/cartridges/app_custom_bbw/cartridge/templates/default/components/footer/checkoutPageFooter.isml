@@ -1,5 +1,6 @@
 <div class="checkout-footer"></div>
 <footer id="footercontent" class="checkout-footer-copyright">
+<isinclude template="/account/autoLogout" />
     <div class="row no-gutters">
         <!--  copyright content-->
         <div class="col-sm-12 copyright-notice pr-0">

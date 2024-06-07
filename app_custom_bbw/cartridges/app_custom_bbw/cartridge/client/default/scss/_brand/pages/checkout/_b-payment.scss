@@ -16,12 +16,14 @@
 
             .customer {
                 &.registered {
-                    display: none;/* stylelint-disable selector-no-redundant-nesting-selector */
+                    display: none;
+
+                    /* stylelint-disable selector-no-redundant-nesting-selector */
                     & + .shipping {
                         // stylelint-disable
                         display: none;
 
-                        &   + .billing {
+                        &+.billing {
                             border-top: unset;
                             padding-top: 0;
                         }
@@ -39,6 +41,7 @@
             }
 
             .address-selector-block {
+
                 .btn-show-details,
                 .btn-add-new {
                     border: none;
@@ -64,6 +67,7 @@
             }
 
             [data-address-mode="new"] {
+
                 .btn-show-details,
                 .btn-add-new {
                     display: none;
@@ -71,6 +75,7 @@
             }
 
             [data-address-mode="details"] {
+
                 .btn-show-details,
                 .btn-add-new {
                     display: none;
@@ -120,6 +125,7 @@
         }
     }
 }
+
 // Added CSS for Payment Method
 .payment-methods-container {
     padding: 0 !important;

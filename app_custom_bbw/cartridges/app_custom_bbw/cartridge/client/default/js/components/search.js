@@ -237,7 +237,8 @@ function resizeSuggestionWrapper() {
 
             $suggestionWrapper.css({
                 width: newWidth,
-                left: leftPosition + 'px'
+                left: leftPosition + 'px',
+                top: Math.floor($('.search-field').offset().top - $('.bbw-nav-wrap').offset().top) + 1 + 'px'
             });
 
             var styles = '.site-search .search-suggestions { width : ' + newWidth + ' !important; left : '+ leftPosition + 'px !important; }';

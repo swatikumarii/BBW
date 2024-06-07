@@ -16,7 +16,6 @@ var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
  */
 function validateFields($input) {
     try {
-
         var $errorMessage = $input.next('.invalid-feedback');
         if ($input[0].checkValidity()) {
             $errorMessage.hide();
@@ -46,8 +45,8 @@ function validateFields($input) {
 function checkFields(form) {
     var requiredFields = form.find('[required]');
     var allFilled = true;
-    requiredFields.each(function() {
-        var isGftcardField= $(this).parents('.gift-card-apply').length > 0;
+    requiredFields.each(function () {
+        var isGftcardField = $(this).parents('.gift-card-apply').length > 0;
         var isPaymentField = $(this).parents('#paymentMethodsList').length > 0;
         if (!$(this).val().trim() && !isGftcardField && !isPaymentField) {
             allFilled = false;
@@ -128,20 +127,31 @@ $(document).ready(function () {
         form = $('form.billing-form');
     }
     checkFields(form);
-    $('form.shipping-form input, form.shipping-form select').on('input change', function () {
-        if ($('#checkout-main').attr('data-checkout-stage') === 'shipping') {
-            checkFields($('form.shipping-form'));
+    $('form.shipping-form input, form.shipping-form select').on(
+        'input change',
+        function () {
+            if (
+                $('#checkout-main').attr('data-checkout-stage') === 'shipping'
+            ) {
+                checkFields($('form.shipping-form'));
+            }
         }
-    });
-    $('form.billing-form input, form.billing-form select').on('input change', function () {
-        if ($('#checkout-main').attr('data-checkout-stage') === 'payment') {
-            checkFields($('form.billing-form'));
+    );
+    $('form.billing-form input, form.billing-form select').on(
+        'input change',
+        function () {
+            if ($('#checkout-main').attr('data-checkout-stage') === 'payment') {
+                checkFields($('form.billing-form'));
+            }
         }
-    });
+    );
 
-    var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'data-checkout-stage') {
+    var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            if (
+                mutation.type === 'attributes' &&
+                mutation.attributeName === 'data-checkout-stage'
+            ) {
                 var newValue = $(mutation.target).attr('data-checkout-stage');
                 if (newValue === 'payment') {
                     checkFields($('form.billing-form'));
@@ -162,40 +172,65 @@ $(document).ready(function () {
         $('button.place-order').click();
     });
 
+    $('body')
+        .on('mouseleave', '.info-icon', function () {
+            setTimeout(function () {
+                $('.info-icon-text').removeClass('d-block');
+            }, 50);
+        })
+        .on('mouseenter', '.info-icon', function () {
+            $('.info-icon-text').addClass('d-block');
+        });
 });
-$(document).on('click', '#paymentMethodsList .paymentMethod, .payment-method-options .afterpay-tab', function (event) {
-    var paymentMethod = $(this)
-        .closest('.payment-method-options')
-        .data('payment-method-id');
-    $('.credit-card-selection-new .tab-pane').removeClass('active');
-    $(
-        '.credit-card-selection-new [data-payment-method-id="' +
-            paymentMethod +
-            '"] .tab-pane'
-    ).addClass('active');
-    $('.payment-options .nav-item .nav-link').removeClass('active');
-    $(
-        '.payment-options .nav-item.nav-item[data-method-id="' +
-            paymentMethod +
-            '"] .nav-link'
-    ).addClass('active');
-    if (paymentMethod !== 'AdyenComponent') {
-        $('button[value="submit-payment"]').attr('disabled', false);
-    } else if (paymentMethod === 'AdyenComponent') {
-        // adyenCheckout.renderGenericComponent();
+
+$('.info-icon-text .close').on('click', function () {
+    $('.info-icon-text').addClass('d-none');
+
+    setTimeout(function () {
+        $('.info-icon-text').removeClass('d-none');
+    }, 300);
+});
+
+$(document).on(
+    'click',
+    '#paymentMethodsList .paymentMethod, .payment-method-options .afterpay-tab',
+    function (event) {
+        var paymentMethod = $(this)
+            .closest('.payment-method-options')
+            .data('payment-method-id');
+        $('.credit-card-selection-new .tab-pane').removeClass('active');
+        $(
+            '.credit-card-selection-new [data-payment-method-id="' +
+                paymentMethod +
+                '"] .tab-pane'
+        ).addClass('active');
+        $('.payment-options .nav-item .nav-link').removeClass('active');
+        $(
+            '.payment-options .nav-item.nav-item[data-method-id="' +
+                paymentMethod +
+                '"] .nav-link'
+        ).addClass('active');
+        if (paymentMethod !== 'AdyenComponent') {
+            $('button[value="submit-payment"]').attr('disabled', false);
+        } else if (paymentMethod === 'AdyenComponent') {
+            // adyenCheckout.renderGenericComponent();
+        }
+        $('#selectedPaymentOption').val(paymentMethod);
+        $('.payment-method-options')
+            .find('[type="radio"]')
+            .prop('checked', false);
+        $('.additionalFields').css('display', 'none');
+        $(event.target)
+            .closest('.paymentMethod, .afterpay-tab')
+            .find('[type="radio"]')
+            .prop('checked', true)
+            .trigger('change');
+        $(event.target)
+            .closest('.paymentMethod, .afterpay-tab')
+            .find('.additionalFields')
+            .css('display', 'block');
     }
-    $('#selectedPaymentOption').val(paymentMethod);
-    $('.payment-method-options').find('[type="radio"]').prop('checked', false);
-    $('.additionalFields').css('display', 'none');
-    $(event.target)
-        .closest('.paymentMethod, .afterpay-tab')
-        .find('[type="radio"]')
-        .prop('checked', true).trigger('change');
-    $(event.target)
-        .closest('.paymentMethod, .afterpay-tab')
-        .find('.additionalFields')
-        .css('display', 'block');
-});
+);
 
 $('button.submit-payment').on('click', function () {
     if ($('#selectedPaymentOption').val() === 'AdyenComponent') {

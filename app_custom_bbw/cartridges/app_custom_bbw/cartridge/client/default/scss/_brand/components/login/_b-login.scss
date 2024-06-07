@@ -829,8 +829,14 @@
 // -----login modal-----
 .login-modal-body {
     overflow-y: auto;
-    max-height: calc(100vh - 64px);
+    max-height: calc(88vh - 64px);
     padding: 4px 17px 17px;
+
+    @include media-up(sm) {
+        overflow-y: auto;
+        max-height: calc(100vh - 64px);
+        padding: 4px 17px 17px;
+    }
 }
 
 .login-modal-fade {
