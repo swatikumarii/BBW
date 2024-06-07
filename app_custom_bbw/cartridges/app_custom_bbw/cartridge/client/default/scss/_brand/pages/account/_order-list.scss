@@ -421,6 +421,13 @@
         animation:
             fade-in-order 0.5s,
             fade-out-order 0.5s 2.5s;
+    }
+
+    &.error {
+        visibility: visible;
+        animation:
+            fade-in-order 0.5s,
+            fade-out-order 0.5s 2.5s;
         background-color: colour(red, 11);
         padding: 8px 20px 8px 44px;
         margin: 5px 0;

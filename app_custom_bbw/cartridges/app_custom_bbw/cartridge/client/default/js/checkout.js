@@ -191,6 +191,28 @@ $('.info-icon-text .close').on('click', function () {
     }, 300);
 });
 
+$(document)
+    .on('mouseleave', '.promo-details', function () {
+        setTimeout(function () {
+            $('.promo-details-tooltip').removeClass('d-block');
+        }, 50);
+    })
+    .on('mouseenter', '.promo-details', function () {
+        var tooltip = $(this)
+            .closest('.promo-details-wrap')
+            .find('.promo-details-tooltip');
+        tooltip.addClass('d-block');
+    });
+
+$('.promo-details-tooltip .close').on('click', function () {
+    $('.promo-details-tooltip').addClass('d-none');
+
+    setTimeout(function () {
+        $('.promo-details-tooltip').removeClass('d-none');
+    }, 300);
+});
+
+
 $(document).on(
     'click',
     '#paymentMethodsList .paymentMethod, .payment-method-options .afterpay-tab',
