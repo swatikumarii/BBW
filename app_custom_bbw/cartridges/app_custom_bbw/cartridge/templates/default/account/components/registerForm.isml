@@ -266,7 +266,7 @@
         />
         <label class="custom-control-label h-clr--black-1 h-font-size--16" for="add-to-email-list">
             <isprint value="${pdict.profileForm.customer.addtoemaillist.label}" encoding="htmlcontent" />
-            <a href="${URLUtils.url('terms-Show')}"
+            <a href="${URLUtils.url('Page-Show', 'cid', 'terms-of-use')}"
                 class="h-clr--black-1 h-font-size--16">${Resource.msg('label.terms.contitions', 'forms', null)}</a>
         </label>
     </div>

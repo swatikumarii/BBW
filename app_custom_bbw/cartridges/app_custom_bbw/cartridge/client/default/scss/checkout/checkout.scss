@@ -513,6 +513,7 @@ input[type="tel"],
 .billing-address {
     .form-group {
         margin: 10px 0 30px;
+        position: relative;
     }
 
     .iti {
@@ -643,14 +644,22 @@ input[type="tel"],
     max-width: 260px;
     width: auto;
     position: absolute;
-    right: -290px;
-    top: 50%;
+    right: -307px;
+    top: 65%;
     transform: translateY(-50%);
     border: 1px solid;
     padding: 24px 8px 24px 0;
     display: none;
     z-index: 1;
     background: colour(white);
+    box-shadow: 0 0 13px 0 rgba(0, 0, 0, 15%);
+
+    @include media-down(sm) {
+        top: 120%;
+        right: auto;
+        left: 11%;
+        z-index: 2;
+    }
 
     .bbwd-tooltip-content-container {
         font-weight: 400;
@@ -666,6 +675,20 @@ input[type="tel"],
         overflow-y: auto;
         padding-left: 24px;
         padding-right: 16px;
+
+        .close {
+            background-image: url("../../images/footer/cross.svg");
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: 0.8125rem;
+            height: 13px;
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            width: 13px;
+            opacity: 1;
+            cursor: pointer;
+        }
 
         h4 {
             font-weight: 600;
@@ -703,10 +726,18 @@ input[type="tel"],
     border-right: 8px solid $clr-white;
     border-bottom: 9px solid transparent;
     position: absolute;
-    right: -39px;
-    top: 48px;
+    right: -56px;
+    top: 65%;
+    z-index: 1;
     transform: translate(-100%, -50%);
     display: none;
+
+    @include media-down(sm) {
+        top: 125%;
+        right: 100%;
+        left: 40px;
+        z-index: 2;
+    }
 }
 
 .info-icon-border-arrow-outline {
@@ -714,17 +745,23 @@ input[type="tel"],
     border-right: 9px solid colour(gray);
     border-bottom: 10px solid transparent;
     position: absolute;
-    right: -39px;
-    top: 50%;
+    right: -57px;
+    top: 65%;
     transform: translate(-100%, -50%);
     display: none;
     z-index: 1;
+
+    @include media-down(sm) {
+        top: 125%;
+        right: 100%;
+        left: 39px;
+    }
 }
 
 .info-icon {
     position: absolute;
-    right: -20px;
-    top: 50%;
+    right: -34px;
+    top: 66%;
     transform: translateY(-50%);
     width: 25px;
     height: 25px;
@@ -734,6 +771,11 @@ input[type="tel"],
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @include media-down(sm) {
+        top: 126%;
+        right: 93%;
+    }
 
     .info-icon-img-white {
         display: none;
@@ -765,6 +807,44 @@ input[type="tel"],
                     display: block;
                 }
             }
+        }
+    }
+}
+
+.info-billing {
+    .info-icon {
+        top: 50%;
+
+        @include media-down(sm) {
+            top: 109%;
+            right: 90%;
+        }
+    }
+
+    .info-icon-text {
+        top: 50%;
+
+        @include media-down(sm) {
+            top: 108%;
+            left: 15%;
+        }
+    }
+
+    .info-icon-border-arrow-outline {
+        top: 50%;
+
+        @include media-down(sm) {
+            top: 109%;
+            left: 15%;
+        }
+    }
+
+    .info-icon-border-arrow {
+        top: 50%;
+
+        @include media-down(sm) {
+            top: 109%;
+            left: 55px;
         }
     }
 }
@@ -851,6 +931,10 @@ input[type="tel"],
 }
 
 .order-discount {
+    .order-discount-total {
+        letter-spacing: normal;
+    }
+
     p {
         line-height: 20px;
         letter-spacing: 0.2px;
@@ -888,5 +972,22 @@ input[type="tel"],
 
     .accordion-collapse {
         padding-left: 30px;
+    }
+}
+
+// ---gift card
+.giftcard-buttons {
+    .giftcard-redeem {
+        width: 171px;
+        height: 42px;
+    }
+
+    .giftcard-cancel-btn {
+        width: 127px;
+        height: 42px;
+
+        &:hover {
+            border: 2px solid colour(black, 1);
+        }
     }
 }

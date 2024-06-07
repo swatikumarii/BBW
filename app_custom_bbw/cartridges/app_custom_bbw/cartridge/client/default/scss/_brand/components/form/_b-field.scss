@@ -71,9 +71,10 @@ input[type="number"] {
 
 .custom-checkbox .custom-control-label::before {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 21px;
+    height: 21px;
     background-image: url("../images/check-box-unchecked.svg");
+    content: "";
     background-size: cover;
     cursor: pointer;
     border: none;
@@ -84,12 +85,13 @@ input[type="number"] {
     top: 0;
 }
 
-.custom-checkbox .custom-control-input:checked ~.custom-control-label::after {
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
     background-image: url("../images/check-box-checked.svg");
+    content: "";
     background-size: cover;
     border: none;
-    width: 20px;
-    height: 20px;
+    width: 21px;
+    height: 21px;
     cursor: pointer;
     background-repeat: no-repeat;
     top: 0;
