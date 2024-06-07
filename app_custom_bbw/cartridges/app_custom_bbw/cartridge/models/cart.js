@@ -111,7 +111,7 @@ function getApproachingDiscounts(basket, discountPlan) {
             function (approachingShippingDiscount) {
                 return {
                     discountMsg: Resource.msgf(
-                        'msg.approachingpromo.shipping',
+                        'add.more.for.free.shipping',
                         'cart',
                         null,
                         formatMoney(
@@ -137,7 +137,7 @@ function getApproachingDiscounts(basket, discountPlan) {
                             appliedShippingDiscount.promotion.custom.Buy && appliedShippingDiscount.promotion.custom.Buy.length > 0 ? appliedShippingDiscount.promotion.custom.Buy[appliedShippingDiscount.promotion.custom.Buy.length - 1] : 0;
                     return {
                         discountMsg: Resource.msg(
-                            'msg.appliedpromo.shipping',
+                            'congrats.free.shipping',
                             'cart',
                             null,
                         ),
