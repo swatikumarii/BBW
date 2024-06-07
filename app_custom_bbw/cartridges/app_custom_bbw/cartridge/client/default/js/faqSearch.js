@@ -5,7 +5,7 @@ $(document).ready(function () {
     $('#query').on('keyup', function () {
         var searchPhrases = $(this).val();
         if (searchPhrases.length >= 3) {
-            $.spinner().start();
+            $('.faq-search .hidden-search-loader').spinner().start();
             $.ajax({
                 url: $('.faq-search-url').data('url') + encodeURIComponent(searchPhrases),
                 method: 'GET',

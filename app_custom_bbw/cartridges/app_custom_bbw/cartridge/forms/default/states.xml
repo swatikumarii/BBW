@@ -5,7 +5,7 @@
 			<option optionid="" 	label="resource.select" 		value=""/>
 
 			<!-- regular AU states -->
-			<option label="Australian Captial Territory" 		value="Australian Captial Territory"/>
+			<option label="Australian Capital Territory" 		value="Australian Capital Territory"/>
 			<option label="New South Wales" 		value="New South Wales"/>
 			<option label="Northern Territory" 		value="Northern Territory"/>
 			<option label="Queensland" 		value="Queensland"/>

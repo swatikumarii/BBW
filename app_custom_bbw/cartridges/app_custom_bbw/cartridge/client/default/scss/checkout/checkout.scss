@@ -164,8 +164,10 @@ span.ship-to-city-st-zip {
 }
 
 .data-checkout-stage {
+
     // Initial states ------------------------
     &[data-checkout-stage] {
+
         .card.payment-summary,
         .shipping-summary {
             display: none;
@@ -208,6 +210,7 @@ span.ship-to-city-st-zip {
     }
 
     &[data-checkout-stage="submitted"] {
+
         .shipping-form,
         .card.payment-form,
         button.submit-customer,
@@ -233,7 +236,7 @@ span.ship-to-city-st-zip {
         display: none;
     }
 
-    h5 > span {
+    h5>span {
         font-size: 0.8em;
     }
 }
@@ -713,10 +716,10 @@ input[type="tel"],
     &:hover {
         display: block;
 
-        + .info-icon-border-arrow-outline {
+        +.info-icon-border-arrow-outline {
             display: block;
 
-            + .info-icon-border-arrow {
+            +.info-icon-border-arrow {
                 display: block;
             }
         }
@@ -799,13 +802,13 @@ input[type="tel"],
             display: none;
         }
 
-        + .info-icon-text {
+        +.info-icon-text {
             display: block;
 
-            + .info-icon-border-arrow-outline {
+            +.info-icon-border-arrow-outline {
                 display: block;
 
-                + .info-icon-border-arrow {
+                +.info-icon-border-arrow {
                     display: block;
                 }
             }
@@ -911,10 +914,10 @@ input[type="tel"],
     &:hover {
         display: block;
 
-        + .tooltip-arrow {
+        +.tooltip-arrow {
             display: block;
 
-            + .tooltip-arrow::before {
+            +.tooltip-arrow::before {
                 display: block;
             }
         }
@@ -1038,4 +1041,28 @@ input[type="tel"],
             border: 2px solid colour(black, 1);
         }
     }
+}
+
+.payment-error {
+    background-color: colour(red, 11);
+    padding: 9px 20px 9px 43px;
+    margin: 5px 0;
+
+    &::before {
+        background-image: url("../../images/Alert-Error.svg");
+        height: 25px;
+        left: 26px;
+        position: absolute;
+        width: 25px;
+        background-repeat: no-repeat;
+        content: "";
+    }
+}
+
+.retry-payment-btn {
+    max-height: 38px;
+    min-height: 38px;
+    width: 194px;
+    margin-top: 24px;
+    text-transform: capitalize;
 }

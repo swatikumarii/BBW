@@ -20,6 +20,15 @@ function addToNotifyList(data, pId) {
         dataType: 'json',
         data: data,
         success: function (response) {
+            if (sessionStorage.getItem('notifyMeRegisteredProducts')) {
+                var notifyMeRegisteredProducts = sessionStorage.getItem(
+                    'notifyMeRegisteredProducts'
+                );
+                notifyMeRegisteredProducts.push(pId);
+            } else {
+                sessionStorage.setItem('key', [pId]);
+            }
+
             $('#submitNotifyMeButton').spinner().stop();
             $(mainClass)
                 .find('.notifyBackInStockButton')
