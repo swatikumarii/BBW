@@ -7,6 +7,7 @@
     </h1>
     <div class="header-search mx-auto position-relative">
         <input type="hidden" class="faq-search-url" data-url="${URLUtils.url('Faq-Content', 'query')}"/>
+        <span type="hidden" class="hidden-search-loader"></span>
         <form class="position-relative" role="search" data-search="" action="${URLUtils.url('Faq-Search')}" method="get">
             <svg aria-hidden="true" class="search-icon position-absolute h-clr--gray-24" focusable="false" height="18"
                 viewbox="0 0 12 12" width="18" xmlns="http://www.w3.org/2000/svg">

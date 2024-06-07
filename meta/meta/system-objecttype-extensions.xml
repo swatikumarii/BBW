@@ -345,6 +345,18 @@
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="SID">
+                <display-name xml:lang="x-default">SID</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -409,6 +421,10 @@
                 <display-name xml:lang="x-default">Dynamic Badge Attributes</display-name>
                 <attribute attribute-id="isDynamicBadgeEnabled"/>
                 <attribute attribute-id="dynamicBadge"/>
+            </attribute-group>
+            <attribute-group group-id="customAttributes">
+                <display-name xml:lang="x-default">Custom Attributes</display-name>
+                <attribute attribute-id="SID"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -3611,6 +3627,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="SID">
+                <display-name xml:lang="x-default">SID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -3647,6 +3671,10 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="rtoQuantity"/>
                 <attribute attribute-id="receivedQuantity"/>
                 <attribute attribute-id="cancelQuantity"/>
+            </attribute-group>
+            <attribute-group group-id="customAttributes">
+                <display-name xml:lang="x-default">Custom Attributes</display-name>
+                <attribute attribute-id="SID"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
