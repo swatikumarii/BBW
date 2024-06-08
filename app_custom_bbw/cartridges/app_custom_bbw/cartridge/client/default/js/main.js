@@ -30,6 +30,7 @@ $(document).ready(function () {
     processInclude(require('./components/video'));
     processInclude(require('./utils/lazyLoad'));
     processInclude(require('./components/common'));
+    $('.page-loader').remove();
 });
 
 require('./thirdParty/bootstrap');
