@@ -33,8 +33,8 @@
         <p class="mb-0">${Resource.msg('message.order.failed', 'order', null)} <p>
     </div>
 <iselse>
-    <div class="purhase-message">
-        <p class="h-clr--black-3 mb-0">${Resource.msg('purchase.label.message', 'confirmation', null)} <p>
+    <div class="notification-toast confirmation-msg">
+        ${Resource.msg('purchase.label.message', 'confirmation', null)}
     </div>
 </isif>
 <h2 class="h-font-size--30 h-fw--normal h-clr--black-3 card-header-confirmation text-left text-uppercase">
