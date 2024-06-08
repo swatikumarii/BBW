@@ -9,6 +9,7 @@ var addressAutocomplete = require('./checkout/addressAutocomplete');
 var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
     window.location.search
 );
+var addressData = require('./addressData');
 
 /**
  * validateFields
@@ -16,7 +17,6 @@ var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
  */
 function validateFields($input) {
     try {
-
         var $errorMessage = $input.next('.invalid-feedback');
         if ($input[0].checkValidity()) {
             $errorMessage.hide();
@@ -46,10 +46,10 @@ function validateFields($input) {
 function checkFields(form) {
     var requiredFields = form.find('[required]');
     var allFilled = true;
-    requiredFields.each(function() {
-        var isGftcardField= $(this).parents('.gift-card-apply').length > 0;
+    requiredFields.each(function () {
+        var isGftcardField = $(this).parents('.gift-card-apply').length > 0;
         var isPaymentField = $(this).parents('#paymentMethodsList').length > 0;
-        if (!$(this).val().trim() && !isGftcardField && !isPaymentField) {
+        if (!($(this).val() && $(this).val().trim()) && !isGftcardField && !isPaymentField) {
             allFilled = false;
         }
     });
@@ -128,20 +128,31 @@ $(document).ready(function () {
         form = $('form.billing-form');
     }
     checkFields(form);
-    $('form.shipping-form input, form.shipping-form select').on('input change', function () {
-        if ($('#checkout-main').attr('data-checkout-stage') === 'shipping') {
-            checkFields($('form.shipping-form'));
+    $('form.shipping-form input, form.shipping-form select').on(
+        'input change',
+        function () {
+            if (
+                $('#checkout-main').attr('data-checkout-stage') === 'shipping'
+            ) {
+                checkFields($('form.shipping-form'));
+            }
         }
-    });
-    $('form.billing-form input, form.billing-form select').on('input change', function () {
-        if ($('#checkout-main').attr('data-checkout-stage') === 'payment') {
-            checkFields($('form.billing-form'));
+    );
+    $('form.billing-form input, form.billing-form select').on(
+        'input change',
+        function () {
+            if ($('#checkout-main').attr('data-checkout-stage') === 'payment') {
+                checkFields($('form.billing-form'));
+            }
         }
-    });
+    );
 
-    var observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'data-checkout-stage') {
+    var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            if (
+                mutation.type === 'attributes' &&
+                mutation.attributeName === 'data-checkout-stage'
+            ) {
                 var newValue = $(mutation.target).attr('data-checkout-stage');
                 if (newValue === 'payment') {
                     checkFields($('form.billing-form'));
@@ -162,40 +173,95 @@ $(document).ready(function () {
         $('button.place-order').click();
     });
 
+    $('body')
+        .on('mouseleave', '.info-icon', function () {
+            setTimeout(function () {
+                $('.info-icon-text').removeClass('d-block');
+            }, 50);
+        })
+        .on('mouseenter', '.info-icon', function () {
+            $('.info-icon-text').addClass('d-block');
+        });
+        
+    if ($('.shippingState').val()) {
+        $('.shippingState').trigger('change');
+    } 
+    if ($('.shippingAddressCity').val()) {
+        $('.shippingAddressCity').trigger('change');
+    } 
+
 });
-$(document).on('click', '#paymentMethodsList .paymentMethod, .payment-method-options .afterpay-tab', function (event) {
-    var paymentMethod = $(this)
-        .closest('.payment-method-options')
-        .data('payment-method-id');
-    $('.credit-card-selection-new .tab-pane').removeClass('active');
-    $(
-        '.credit-card-selection-new [data-payment-method-id="' +
-            paymentMethod +
-            '"] .tab-pane'
-    ).addClass('active');
-    $('.payment-options .nav-item .nav-link').removeClass('active');
-    $(
-        '.payment-options .nav-item.nav-item[data-method-id="' +
-            paymentMethod +
-            '"] .nav-link'
-    ).addClass('active');
-    if (paymentMethod !== 'AdyenComponent') {
-        $('button[value="submit-payment"]').attr('disabled', false);
-    } else if (paymentMethod === 'AdyenComponent') {
-        // adyenCheckout.renderGenericComponent();
+
+$('.info-icon-text .close').on('click', function () {
+    $('.info-icon-text').addClass('d-none');
+
+    setTimeout(function () {
+        $('.info-icon-text').removeClass('d-none');
+    }, 300);
+});
+
+$(document)
+    .on('mouseleave', '.promo-details', function () {
+        setTimeout(function () {
+            $('.promo-details-tooltip').removeClass('d-block');
+        }, 50);
+    })
+    .on('mouseenter', '.promo-details', function () {
+        var tooltip = $(this)
+            .closest('.promo-details-wrap')
+            .find('.promo-details-tooltip');
+        tooltip.addClass('d-block');
+    });
+
+$('.promo-details-tooltip .close').on('click', function () {
+    $('.promo-details-tooltip').addClass('d-none');
+
+    setTimeout(function () {
+        $('.promo-details-tooltip').removeClass('d-none');
+    }, 300);
+});
+
+
+$(document).on(
+    'click',
+    '#paymentMethodsList .paymentMethod, .payment-method-options .afterpay-tab',
+    function (event) {
+        var paymentMethod = $(this)
+            .closest('.payment-method-options')
+            .data('payment-method-id');
+        $('.credit-card-selection-new .tab-pane').removeClass('active');
+        $(
+            '.credit-card-selection-new [data-payment-method-id="' +
+                paymentMethod +
+                '"] .tab-pane'
+        ).addClass('active');
+        $('.payment-options .nav-item .nav-link').removeClass('active');
+        $(
+            '.payment-options .nav-item.nav-item[data-method-id="' +
+                paymentMethod +
+                '"] .nav-link'
+        ).addClass('active');
+        if (paymentMethod !== 'AdyenComponent') {
+            $('button[value="submit-payment"]').attr('disabled', false);
+        } else if (paymentMethod === 'AdyenComponent') {
+            // adyenCheckout.renderGenericComponent();
+        }
+        $('#selectedPaymentOption').val(paymentMethod);
+        $('.payment-method-options')
+            .find('[type="radio"]')
+            .prop('checked', false);
+        $('.additionalFields').css('display', 'none');
+        $(event.target)
+            .closest('.paymentMethod, .afterpay-tab')
+            .find('[type="radio"]')
+            .prop('checked', true)
+            .trigger('change');
+        $(event.target)
+            .closest('.paymentMethod, .afterpay-tab')
+            .find('.additionalFields')
+            .css('display', 'block');
     }
-    $('#selectedPaymentOption').val(paymentMethod);
-    $('.payment-method-options').find('[type="radio"]').prop('checked', false);
-    $('.additionalFields').css('display', 'none');
-    $(event.target)
-        .closest('.paymentMethod, .afterpay-tab')
-        .find('[type="radio"]')
-        .prop('checked', true).trigger('change');
-    $(event.target)
-        .closest('.paymentMethod, .afterpay-tab')
-        .find('.additionalFields')
-        .css('display', 'block');
-});
+);
 
 $('button.submit-payment').on('click', function () {
     if ($('#selectedPaymentOption').val() === 'AdyenComponent') {
@@ -217,5 +283,86 @@ $('button.submit-payment').on('click', function () {
                 .closest('.paymentMethod')
                 .trigger('click');
         }
+    }
+});
+
+
+$('.shippingState').change(function () {
+    const selectedState = $(this).val();
+    const suburbDropdown = $('.shippingAddressCity');
+    suburbDropdown.empty(); // clear existing options
+
+    if (addressData[selectedState]) {
+        $.each(addressData[selectedState], function (suburb) {
+            suburbDropdown.append(
+                $('<option>', {
+                    value: suburb,
+                    text: suburb
+                })
+            );
+        });
+        suburbDropdown.trigger('change');
+    }
+});
+
+$('.shippingAddressCity').change(function () {
+    const selectedState = $('.shippingState').val();
+    const selectedSuburb = $(this).val();
+    const zipDropdown = $('.shippingZipCode');
+    zipDropdown.empty(); // clear existing options
+
+    if (
+        addressData[selectedState] &&
+        addressData[selectedState][selectedSuburb]
+    ) {
+        const zipCodes = addressData[selectedState][selectedSuburb];
+        zipCodes.forEach((zip) => {
+            zipDropdown.append(
+                $('<option>', {
+                    value: zip,
+                    text: zip
+                })
+            );
+        });
+    }
+});
+
+$('.billingState').change(function () {
+    const selectedState = $(this).val();
+    const suburbDropdown = $('.billingAddressCity');
+    suburbDropdown.empty(); // clear existing options
+
+    if (addressData[selectedState]) {
+        $.each(addressData[selectedState], function (suburb) {
+            suburbDropdown.append(
+                $('<option>', {
+                    value: suburb,
+                    text: suburb
+                })
+            );
+        });
+        suburbDropdown.trigger('change');
+    }
+});
+
+$('.billingAddressCity').change(function () {
+    const selectedState = $('.billingState').val();
+    const selectedSuburb = $(this).val();
+    const zipDropdown = $('.billingZipCode');
+    zipDropdown.empty(); // clear existing options
+
+    if (
+        addressData[selectedState] &&
+        addressData[selectedState][selectedSuburb]
+    ) {
+        const zipCodes = addressData[selectedState][selectedSuburb];
+        zipCodes.forEach((zip) => {
+            zipDropdown.append(
+                $('<option>', {
+                    value: zip,
+                    text: zip
+                })
+            );
+        });
     }
 });

@@ -133,13 +133,16 @@
                 ${billingFields.city.htmlName}">
             <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
                 for="billingAddressCity"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.city', 'address', null)}</label>
-            <input type="text" class="form-control billingAddressCity" id="billingAddressCity"
-                value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.city ? pdict.order.billing
-                    .billingAddress.address.city : ' '}" <isprint value=${billingFields.city.attributes}
-                encoding="off" />
-                data-missing-error="${Resource.msg('error.city', 'forms', null)}"
-                autocomplete="billing address-level2">
-            <div class="invalid-feedback"></div>
+            
+            <div class="custom-select-wrap">
+                <select class="form-control billingAddressCity custom-select" id="billingAddressCity"
+                    data-missing-error="${Resource.msg('error.city', 'forms', null)}"
+                autocomplete="billing address-level2"
+                <isprint value=${billingFields.city.attributes} encoding="off" />>
+                </select>
+            </div>
+
+
         </div>
     </div>
     <div class="col-sm-12">
@@ -148,13 +151,19 @@
                 ${billingFields.postalCode.htmlName}">
             <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
                 for="billingZipCode"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.zip.code', 'address', null)}</label>
-            <input type="text" class="form-control billingZipCode" id="billingZipCode"
-                value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.postalCode ? pdict.order
+            
+            <div class="custom-select-wrap">
+                <select class="form-control billingZipCode custom-select"
+                    id="billingZipCode"
+                    value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.postalCode ? pdict.order
                     .billing.billingAddress.address.postalCode : ''}" <isprint
                 value=${billingFields.postalCode.attributes} encoding="off" />
                 data-missing-error="${Resource.msg('error.zip.code', 'forms', null)}"
                 data-pattern-mismatch="${Resource.msg('valid.zip.code', 'forms', null)}"
                 autocomplete="billing postal-code">
+                </select>
+            </div>
+            
             <div class="invalid-feedback"></div>
         </div>
     </div>

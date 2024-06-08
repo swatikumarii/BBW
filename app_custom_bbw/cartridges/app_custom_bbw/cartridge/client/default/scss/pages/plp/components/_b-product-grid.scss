@@ -10,6 +10,10 @@
     }
 
     .marketing {
+        .marketing-tile {
+            height: 100%;
+        }
+
         &.mobile {
             grid-column: span 2;
         }

@@ -177,7 +177,7 @@
 }
 
 .confirmation-product-summary {
-    padding: 20px 0px;
+    padding: 20px 0;
 
     @include media-up(sm) {
         padding: 20px 30px 30px;
@@ -185,7 +185,7 @@
 
     .confirmation-product-details {
         border-bottom: 1px solid colour(gray, 27);
-        padding-left: 0px !important;
+        padding-left: 0 !important;
 
         @include media-up(sm) {
             border-bottom: 1px solid colour(gray, 27);
@@ -264,7 +264,7 @@
     padding: 0 15px 30px;
     margin: 0 -15px;
     margin-bottom: 1em;
-    border-radius: 0px;
+    border-radius: 0;
 
     @include media-up(sm) {
         background-color: colour(gray, 1);

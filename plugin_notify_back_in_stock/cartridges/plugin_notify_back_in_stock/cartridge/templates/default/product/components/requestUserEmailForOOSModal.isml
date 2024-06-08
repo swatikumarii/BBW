@@ -31,12 +31,12 @@
                                 <isprint value="${Resource.msg('label.input.email', 'notifyMe', null)}"
                                     encoding="htmlcontent" />
                             </label>
-                            <div class="invalid-feedback"></div>
                             <input id="notify-me-email" type="email" class="form-control"
                                 placeholder="${Resource.msg('label.input.email', 'notifyMe', null)}"
                                 name="notifyMeEmail" aria-describedby="emailHelp"
                                 data-pattern-mismatch="${Resource.msg('error.message.emailinvalid', 'notifyMe', null)}"
                                 required />
+                            <div class="invalid-feedback"></div>
                             <p class="pt-2 text-left">${Resource.msg('label.backinstock.msg', 'notifyMe', null)}</p>
                         </div>
                     </div>

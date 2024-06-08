@@ -148,7 +148,7 @@ function handlePostCartAdd(response) {
         Object.keys(response.newBonusDiscountLineItem).length !== 0
     ) {
         chooseBonusProducts(response.newBonusDiscountLineItem);
-    } else {
+    } else if (response.message) {
         if ($('.add-to-cart-messages').length === 0) {
             $('body').append('<div class="add-to-cart-messages"></div>');
         }
@@ -156,10 +156,10 @@ function handlePostCartAdd(response) {
         $('.add-to-basket-alert').remove();
         $('.add-to-cart-messages').append(
             '<div class="alert ' +
-            messageType +
-            ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
-            response.message +
-            '</div>'
+                messageType +
+                ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                response.message +
+                '</div>'
         );
         setTimeout(function () {
             $('.add-to-basket-alert').remove();
@@ -618,6 +618,8 @@ module.exports = $.extend({}, base, {
             'click',
             'button.add-to-cart, button.add-to-cart-global',
             async function () {
+                $(this).prop('disabled', true);
+                var $button = $(this);
                 var addToCartUrl;
                 var pid;
                 var pidsObj;
@@ -792,11 +794,6 @@ module.exports = $.extend({}, base, {
                             }
                             handlePostCartAdd(data);
                             $('body').trigger('product:afterAddToCart', data);
-                            var addToCartSnackbar = $('#add-to-cart-snackbar');
-                            addToCartSnackbar.addClass('show');
-                            setTimeout(function () {
-                                addToCartSnackbar.removeClass('show');
-                            }, 3000);
 
 
                             if (data.pdpPromotions) {
@@ -811,6 +808,7 @@ module.exports = $.extend({}, base, {
                                 $('.egift-video-label').removeClass('d-none');
                                 $('#progress').empty();
                             }
+                            $button.prop('disabled', false );
                             $.spinner().stop();
                             base.miniCartReportingUrl(data.reportingURL);
                             if ($('#quickViewModal')) {
@@ -851,12 +849,12 @@ module.exports = $.extend({}, base, {
             $.ajax({
                 type: 'GET',
                 url: removeGiftPliUrl,
-                success: function (data) {
+                success: function () {
                     $.ajax({
                         type: 'POST',
                         url: addToCartUrl,
                         data: form,
-                        success: function () {
+                        success: function (data) {
                             handlePostCartAdd(data);
                             $('body').trigger('product:afterAddToCart', data);
                             $.spinner().stop();
@@ -900,11 +898,6 @@ module.exports = $.extend({}, base, {
                         data: form,
                         success: function () {
                             handlePostCartAdd(data);
-                            var addToCartSnackbar = $('#add-to-cart-snackbar');
-                            addToCartSnackbar.addClass('show');
-                            setTimeout(function () {
-                                addToCartSnackbar.removeClass('show');
-                            }, 3000);
                             $('body').trigger('product:afterAddToCart', data);
                             $.spinner().stop();
                             base.miniCartReportingUrl(data.reportingURL);

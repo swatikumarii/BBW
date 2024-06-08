@@ -6,9 +6,31 @@
         <enabled-flag>true</enabled-flag>
         <content>
             <html>
-                <body xml:lang="x-default">&lt;div class="top-promo-header-banner d-flex h-width-perc--100" style="background-image: url(header/gingham-pattern.svg?$staticlink$;"&gt;
+                <body xml:lang="x-default">&lt;style&gt;
+.top-promo-header-banner {
+min-height:2.5rem;
+}
+@media (min-width: 769px) {
+
+.top-promo-text {
+font-size:22px;
+font-family: SourceSansPro, Arial, sans-serif !important;
+line-height:normal !important;
+}
+}
+@media (max-width: 767px) {
+.top-promo-text {
+font-size:15px;
+line-height: normal !important;
+font-family: SourceSansPro, Arial, sans-serif !important;
+padding: 15px 0;
+}
+}
+&lt;/style&gt;
+&lt;div class="top-promo-header-banner d-flex h-width-perc--100 h-auto" style="background-image: url(header/gingham-pattern.svg?$staticlink$;"&gt;
 &lt;div class="promo-text-wrap h-bg--white mx-auto h-maxwidth-perc--90"&gt;
-&lt;p class="h-fw--semibold text-center h-clr--blue h-font-size--12 h-font-size-lg--20"&gt;FREE SHIPPING ABOVE AU$120&lt;/p&gt;
+&lt;p class="top-promo-text text-center h-clr--blue my-0 h-fw--semibold text-center h-clr--blue h-font-size--12 h-font-size-lg--20 h-flex-center h-100 flex-column"&gt;&lt;span&gt;FREE SHIPPING ABOVE AU$60&lt;/span&gt;
+&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;</body>
             </html>
@@ -46,16 +68,11 @@
         <content>
             <html>
                 <body xml:lang="x-default">&lt;div class="store-header-banner  h-bg--gray-1 h-width-perc--100"&gt;
-	&lt;div class="store-header-wrap h-maxwidth-lg--1400 d-flex justify-content-between align-items-center mx-auto h-px-lg--25 h-px-sm--20 h-px--15 px-lg-0"&gt;
-		&lt;div class="store-header d-flex justify-content-between"&gt;
-			&lt;span class="store-text b-text-body-14 h-clr--blue text-capitalize"&gt;New site. Better experience&lt;/span&gt;
-		&lt;/div&gt;
-		&lt;div class="rewards-header d-none d-lg-block d-md-block"&gt;
-			&lt;span class="b-text-body-14 text-uppercase h-clr--pink"&gt;&lt;/span&gt; 
-&lt;a class="h-font-size--14 h-clr--black-1  text-capitalize" href="$url('Stores-Find')$"&gt;Find your nearest store&lt;/a&gt;
+&lt;div class="store-header-wrap h-maxwidth-lg--1400 d-flex justify-content-between align-items-center mx-auto h-px-lg--25 h-px-sm--20 h-px--15 px-lg-0"&gt;
+&lt;div class="store-header d-flex justify-content-between"&gt;&lt;span class="store-text b-text-body-14 h-clr--blue text-capitalize"&gt;New site. Better experience&lt;/span&gt;&lt;/div&gt;
 
-		&lt;/div&gt;
-	&lt;/div&gt;
+&lt;div class="rewards-header d-none d-lg-block d-md-block"&gt;&lt;span class="b-text-body-14 text-uppercase h-clr--pink"&gt;&lt;/span&gt;&lt;img alt="Store" width="19px" height="15px" src="header/pink-marker.svg?$staticlink$" title="" /&gt;&lt;a class="h-font-size--14 h-clr--black-1  text-capitalize" href="$url('Stores-Find')$"&gt;Find your nearest store&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;</body>
             </html>
         </content>

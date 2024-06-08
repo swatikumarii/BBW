@@ -23,5 +23,7 @@ module.exports = function productLineItem(product, apiProduct, options) {
     productLineItemDecorators.promoPrice(product, options.lineItem);
     productLineItemDecorators.totalSavings(product, options.lineItem);
     productDecorators.maxOrderQty(product, apiProduct);
+    productDecorators.dynamicBadge(product, apiProduct);
+    productDecorators.badge(product, apiProduct);
     return product;
 };

@@ -1,3 +1,26 @@
+// Mixin for custom scrollbar
+
+@mixin custom-scrollbar {
+    ::-webkit-scrollbar {
+        width: 0.625rem;
+        height: 0.625rem;
+    }
+
+    ::-webkit-scrollbar-corner {
+        background-color: colour(gray, 1);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 0.625rem;
+        background-color: colour(gray, 2);
+    }
+
+    ::-webkit-scrollbar-track,
+    ::-webkit-scrollbar-track-piece {
+        background-color: colour(gray, 1);
+    }
+}
+
 // ==================================
 // Importing Fonts and Creating Fonts
 // ==================================
@@ -20,12 +43,21 @@ $const-disable-scroll: ".m-disable-scroll";
 // Setting base font size for HTML.
 html {
     font-size: $base-html-font-size;
+
+    &.firefox {
+        scrollbar-width: thin;
+        scrollbar-color: colour(gray, 2) colour(gray, 1);
+    }
 }
 
 // Setting body styles.
 body {
     overflow: hidden scroll; // Disabling horizontal overflow and enabling vertical scroll.
     position: relative; // Setting position to relative.
+    $size: 120dpi;
+    @media (min-resolution: $size) {
+        -webkit-font-smoothing: antialiased;
+    }
 }
 
 // Applying scroll disable to HTML and Body when the appropriate class is applied.
@@ -119,24 +151,7 @@ ul li {
 // Scrollbar Styles
 // =========================
 
-::-webkit-scrollbar {
-    width: 0.625rem;
-    height: 0.625rem;
-}
-
-::-webkit-scrollbar-corner {
-    background-color: colour(gray, 1);
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 0.625rem;
-    background-color: colour(gray, 2);
-}
-
-::-webkit-scrollbar-track,
-::-webkit-scrollbar-track-piece {
-    background-color: colour(gray, 1);
-}
+@include custom-scrollbar;
 
 // ===================================
 // Creating Components from Typography
