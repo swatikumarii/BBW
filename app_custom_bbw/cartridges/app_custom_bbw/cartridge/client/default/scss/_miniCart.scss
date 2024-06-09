@@ -430,6 +430,22 @@
             }
         }
     }
+
+    .progress-wrap {
+        height: 40px;
+    }
+
+    .free-shipping-progress {
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        background: url("../images/icons/shipped-icon.png");
+        background-size: contain;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        z-index: 2;
+    }
 }
 
 .order-approaching-discounts {

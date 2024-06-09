@@ -122,7 +122,7 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
         'isEgiftCard' in product.custom &&
         product.custom.isEgiftCard &&
         product.custom.isEgiftCard === true;
-
+    result.message = isGiftCard ? Resource.msg('cart.updated.giftcard', 'giftcards', null) : result.message;
     if (productInCart && !isGiftCard) {
         productQuantityInCart = productInCart.quantity.value;
         quantityToSet = quantity
@@ -159,7 +159,9 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
             optionModel,
             defaultShipment
         );
-
+        if ('SID' in product.custom && product.custom.SID) {
+            productLineItem.custom.SID = product.custom.SID;
+        }
         result.uuid = productLineItem.UUID;
     }
 

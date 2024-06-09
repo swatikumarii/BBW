@@ -39,8 +39,8 @@
                         <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('dangerousGoodsMessage')}" encoding="off" />
                     </isif>
                 </div>
-                <div class="free-item-toast-message ${pdict.freeItemCount === 0 ? 'hide-free-item-toast-message' : ''}">
-                    <p>${pdict.freeItemToastMessage}</p>
+                <div class="free-item-toast-message success-toast ${pdict.freeItemCount === 0 ? 'hide-free-item-toast-message' : ''}">
+                    <p class="h-font-size--16 h-fw--semibold h-clr--green-2 mb-0">${pdict.freeItemToastMessage}</p>
                 </div>
                 <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
                     <div class="cart-error-messaging cart-error h-font-size--14 h-bg--red-10 h-clr--red-9 px-3 py-2 mb-2">
@@ -55,18 +55,21 @@
                     description="This slot displays on cart page top section above product cards" />
                 <div class="cartDetailsHeader">
                     <div class="cartDetailsHeading text-center">${Resource.msg('label.your.cart', 'cart', null)}</div>
-                    <div class="cartDetailsContent">
-                        <div class="content number-of-items">
+                    <div class="cartDetailsContent w-100">
+                        <div class="content number-of-items text-right w-100 pr-5 py-0">
                             <isif condition="${pdict.numItems === 1}">
                                 ${Resource.msg('one.item.in.cart', 'cart', null)}
                             <iselse/>
                                 ${Resource.msgf('label.number.items.in.cart', 'cart', null, pdict.numItems)}
                             </isif>
                         </div>
-                        <div class="slot">
+                        <div class="slot w-100 border-left">
+                            <div class="d-none">
                             <isslot id="cart-page-details-column" context="global"
                                 description="This slot displays as grid column besides item count on cart page" />
-
+                            </div>
+                            <isinclude template="cart/cartShippingApproachingDiscount" sf-toolkit="on" />
+                            <iscomment> <isinclude template="cart/cartOrderApproachingDiscount" sf-toolkit="on" /> </iscomment>
                         </div>
                     </div>
                 </div>

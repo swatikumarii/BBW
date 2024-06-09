@@ -16,12 +16,12 @@
 
             .customer {
                 &.registered {
-                    display: none;/* stylelint-disable selector-no-redundant-nesting-selector */
-                    & + .shipping {
-                        // stylelint-disable
+                    display: none;
+
+                    + .shipping {
                         display: none;
 
-                        &   + .billing {
+                        + .billing {
                             border-top: unset;
                             padding-top: 0;
                         }
@@ -120,6 +120,7 @@
         }
     }
 }
+
 // Added CSS for Payment Method
 .payment-methods-container {
     padding: 0 !important;
@@ -131,7 +132,7 @@
     border-radius: 2px;
     cursor: pointer;
     border: 1px solid colour(gray, 32) !important;
-    margin: 16px 0px !important;
+    margin: 16px 0 !important;
     padding: 3px 6px !important;
 
     &.active {
@@ -139,7 +140,7 @@
         border-radius: 0 !important;
     }
 
-    input[type=radio] {
+    input[type="radio"] {
         margin-top: 13px;
         width: 19px;
         height: 18px;
@@ -155,7 +156,7 @@
     }
 }
 
-#rb_scheme {
+#rb_scheme { /* stylelint-disable-line */
     margin-top: 13px;
     width: 19px;
     height: 18px;
@@ -164,7 +165,7 @@
 }
 
 .adyen-checkout__input {
-    border-radius: 0px !important;
+    border-radius: 0 !important;
     display: block !important;
     font-size: 1rem !important;
     height: 3rem !important;
@@ -175,31 +176,29 @@
 }
 
 .additionalFields {
-    padding-left: 1.3125rem;
-    padding-right: 1.3125rem;
+    padding: 17px 1.3125rem 22px;
     border: 3px solid colour(gray, 31);
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
     margin-top: 11px;
-    padding-top: 17px;
-    padding-bottom: 22px;
     background-color: colour(white);
 }
 
 .adyen-checkout__label__text {
     font-size: 16px !important;
-
 }
 
 .adyen-checkout__label {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-left: 0 !important;
 }
 
 .paymentMethod_img {
-    margin: 0px 0.3125em 0 0.3125em;
+    margin: 0 0.3125em;
 }
 
-#lb_scheme {
+#lb_scheme { /* stylelint-disable-line */
     font-size: 18px;
     margin-top: 10px;
 }
@@ -208,7 +207,7 @@
     display: block;
 }
 
-#rb_googlepay {
+#rb_googlepay { /* stylelint-disable-line */
     float: right;
     height: 18px;
     margin-right: 10px;
@@ -216,7 +215,7 @@
     width: 19px;
 }
 
-#lb_googlepay {
+#lb_googlepay { /* stylelint-disable-line */
     font-size: 18px;
     margin-top: 10px;
 }
@@ -251,10 +250,4 @@
     .afterpay-logo {
         width: var(--logo-badge-width, 106px) !important;
     }
-}
-
-.adyen-checkout__label {
-    margin-bottom: 0 !important;
-    margin-top: 0 !important;
-    margin-left: 0 !important;
 }

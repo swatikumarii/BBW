@@ -19,6 +19,29 @@
                 </isif>
             </div>
             <div class="item-attributes d-flex flex-column">
+                <div class="social-badge-wrapper d-flex h-grid-gap--5 flex-wrap h-maxwidth--100">
+                    <isif condition="${lineItem.badge1}">
+                        <div class="b-product-tile__social-badge">
+                            <div
+                                class="b-product-tile__social-badge-text h-bg--blue h-clr--white d-inline-flex h-fw--bold justify-content-center b-text-a text-decoration-none">
+                                ${lineItem.badge1}</div>
+                        </div>
+                    </isif>
+                    <isif condition="${lineItem.badge2}">
+                        <div class="b-product-tile__social-badge">
+                            <div
+                                class="b-product-tile__social-badge-text h-bg--blue h-clr--white d-inline-flex h-fw--bold justify-content-center b-text-a text-decoration-none">
+                                ${lineItem.badge2}</div>
+                        </div>
+                    </isif>
+                    <isif condition="${lineItem.badge3}">
+                        <div class="b-product-tile__social-badge">
+                            <div
+                                class="b-product-tile__social-badge-text h-bg--blue h-clr--white d-inline-flex h-fw--bold justify-content-center b-text-a text-decoration-none">
+                                ${lineItem.badge3}</div>
+                        </div>
+                    </isif>
+                </div>
                 <isinclude template="cart/productCard/cartProductCardHeader" />
                 <isloop items="${lineItem.variationAttributes}" var="attribute" status="loopstate">
                     <p class="line-item-attributes  ${lineItem.variationAttributes.length > 0 && loopstate.index !== lineItem.variationAttributes.length - 1 ? 'mb-0' : ''} ${attribute.displayName}-${lineItem.UUID}">${attribute.displayName}:

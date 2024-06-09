@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                             <div class="m-0 pb-3 row add-giftcard-section">
-                                <div class="col-12 form-group">
+                                <div class="col-12 form-group mb-4">
                                     <label class="form-control-label h-fw--semibold h-font-size--16">
                                         ${Resource.msg('label.input.egift.number', 'forms', null)}
                                     </label>
@@ -33,7 +33,7 @@
                                     <div class="invalid-feedback" id="form-giftcard-number-error"></div>
                                 </div>
 
-                                <div class="col-4 form-group">
+                                <div class="col-4 form-group mb-4">
                                     <label class="form-control-label h-fw--semibold h-font-size--16">
                                         ${Resource.msg('label.input.egift.cardpin', 'forms', null)}
                                     </label>
@@ -42,23 +42,23 @@
                                         value="${pdict.giftCardForm.cardPin.attributes}" encoding="off" /> />
                                     <div class="invalid-feedback" id="form-giftcard-cardPin-error"></div>
                                 </div>
-                                <div class="col-8">
+                                <div class="col-8 mb-4">
                                     <label class="form-control-label h-fw--semibold h-font-size--16">
                                         ${Resource.msg('label.input.egift.balance', 'forms', null)}
                                     </label>
-                                    <div class="row giftcard-balance-section h-minheight--50 align-items-center">
+                                    <div class="row giftcard-balance-section h-minheight--50 align-items-center mr-0">
                                         <span class="col-7 giftcard-balance-wrap"></span>
                                         <span id="egift-card-check-balance" class="col-5 h-font-size--14">${Resource.msg('label.egift.check-balance', 'checkout', null)}</span>
                                     </div>
                                 </div>
 
                                 <div class="d-flex giftcard-buttons">
-                                    <div class="gift-apply-btn mr-2">
-                                        <button name="giftcard-redeem" id="giftcard-redeem" class="giftcard-redeem btn btn-primary"
+                                    <div class="gift-apply-btn mr-4">
+                                        <button name="giftcard-redeem" id="giftcard-redeem" class="giftcard-redeem btn btn-primary h-font-size--14"
                                             type="button">${Resource.msg('label.egift.use.this.card', 'checkout', null)}
                                         </button>
                                     </div>
-                                    <button class="giftcard-cancel-btn btn btn-secondary text-uppercase" type="button">
+                                    <button class="giftcard-cancel-btn btn btn-secondary text-uppercase h-font-size--14" type="button">
                                         ${Resource.msg('label.egift.cancel', 'checkout', null)}
                                     </button>
                                 </div>
