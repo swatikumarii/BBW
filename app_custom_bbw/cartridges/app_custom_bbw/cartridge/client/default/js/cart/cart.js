@@ -423,14 +423,14 @@ module.exports = function () {
                 } else {
                     if (data.toBeDeletedUUIDs && data.toBeDeletedUUIDs.length > 0) {
                         for (var i = 0; i < data.toBeDeletedUUIDs.length; i++) {
-                            $('.uuid-' + data.toBeDeletedUUIDs[i]).remove();
+                            $('.uuid-' + data.toBeDeletedUUIDs[i]).parent('.card').remove();
                         }
                     }
-                    $('.uuid-' + uuid).remove();
+                    $('.uuid-' + uuid).parent('.card').remove();
                     if (data.removeProducts && data.removeProducts.length > 0) {
                         for (var j = 0; j < data.removeProducts.length; j++) {
                             if ($('.uuid-' + data.removeProducts[j])) {
-                                $('.uuid-' + data.removeProducts[j]).remove();
+                                $('.uuid-' + data.removeProducts[j]).parent('.card').remove();
                             }
                         }
                     }

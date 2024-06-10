@@ -50,9 +50,7 @@ function getAllAttrValues(
         };
 
         if (processedAttr.selectable) {
-            valueUrl = (isSelected && endPoint !== 'Show')
-                ? variationModel.urlUnselectVariationValue(actionEndpoint, attr)
-                : variationModel.urlSelectVariationValue(actionEndpoint, attr, value);
+            valueUrl = variationModel.urlSelectVariationValue(actionEndpoint, attr, value);
             processedAttr.url = urlHelper.appendQueryParams(valueUrl, [selectedOptionsQueryParams,
                 'quantity=' + quantity]);
         }

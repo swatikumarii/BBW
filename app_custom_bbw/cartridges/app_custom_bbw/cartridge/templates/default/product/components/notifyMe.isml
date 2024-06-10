@@ -10,6 +10,7 @@
             <button type="button" class="btn notifyBackInStockButton"
                 data-url="${URLUtils.url('BackInStock-CheckLogin')}" data-pid="${product.id}"
                 data-img="${product.images.mediumLarge ? product.images.mediumLarge[0].url : product.images.medium[0].url}"
+                data-img2x="${product.images.mediumLarge_2x ? product.images.mediumLarge_2x[0].url : product.images.small_2x[0].url}"
                 ${pdict.productPresentInNotifyList ? 'disabled='disabled'': ''}
                 data-pname="${product.productName}"> ${pdict.productPresentInNotifyList ? Resource.msg('button.notifyInList', 'notifyMe', null) : Resource.msg('button.notifyMe', 'notifyMe', null)} </button>
         <iselse/>

@@ -173,7 +173,7 @@
                         </isloop>
                     </div>
                 </div>
-            <iselse/>
+            <iselseif condition="${pdict.suggestions.searchTerms == null || pdict.suggestions.searchTerms.length <= 2}" />
                 <iscontentasset aid="popular-suggestions" />
             </isif>
         </isif>

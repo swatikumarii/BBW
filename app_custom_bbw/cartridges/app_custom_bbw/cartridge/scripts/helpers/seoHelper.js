@@ -184,7 +184,48 @@ function renderOpenGraphMetaTags(pdict) {
     }
 }
 
+
+/**
+ * Set the page meta data to the current request
+ * @param {object} req The request object
+ * @param {object} metaDataObj The object that contains all the metadata
+ */
+function setPageMetaData(req, metaDataObj) {
+    // Extension point that allows other catridges to change the values
+    var HookMgr = require('dw/system/HookMgr');
+    if (HookMgr.hasHook('app.seo.setpagemetadata')) {
+        var result = HookMgr.callHook('app.seo.setpagemetadata', metaDataObj.key.replace('.', '_'), metaDataObj);
+        if (!empty(result)) {
+            metaDataObj.title = result.title || metaDataObj.title;// eslint-disable-line
+            metaDataObj.description = result.description || metaDataObj.description;// eslint-disable-line
+            metaDataObj.keywords = result.keywords || metaDataObj.keywords;// eslint-disable-line
+            metaDataObj.pageMetaTags = result.pageMetaTags || metaDataObj.pageMetaTags;// eslint-disable-line
+        }
+    }
+
+    if (metaDataObj.title) {
+        req.pageMetaData.setTitle(
+            metaDataObj.title.indexOf(Site.getCurrent().getName()) === -1
+                ? metaDataObj.title + ' | ' + Site.getCurrent().getName()
+                : metaDataObj.title
+        );
+    }
+
+    if (metaDataObj.description) {
+        req.pageMetaData.setDescription(metaDataObj.description);
+    }
+
+    if (metaDataObj.keywords) {
+        req.pageMetaData.setKeywords(metaDataObj.keywords);
+    }
+
+    if (metaDataObj.pageMetaTags) {
+        req.pageMetaData.addPageMetaTags(metaDataObj.pageMetaTags);
+    }
+}
+
 base.renderHreflang = renderHreflang;
 base.renderOpenGraphMetaTags = renderOpenGraphMetaTags;
+base.setPageMetaData = setPageMetaData;
 
 module.exports = base;
