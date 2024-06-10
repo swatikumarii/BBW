@@ -57,8 +57,17 @@ function validateBasket(data) {
  * @param {object} data - AJAX response from the server
  */
 function updateCartTotals(data) {
+    if (data.hasFreeShipping) {
+        $('.shipping-cost').empty().append('FREE');
+        $('.shipping-discount').addClass('d-none');
+        $('.shipping-tax').closest('div.row').addClass('d-none');
+    } else {
+        $('.shipping-discount').removeClass('d-none');
+        $('.shipping-cost').empty().append(data.totals.totalShippingCost);
+        $('.shipping-tax').closest('div.row').removeClass('d-none');
+
+    }
     $('.number-of-items').empty().append(data.resources.numberOfItems);
-    $('.shipping-cost').empty().append(data.totals.totalShippingCost);
     $('.tax-total').empty().append(data.totals.totalTax);
     $('.grand-total').empty().append(data.totals.grandTotal);
     $('.sub-total').empty().append(data.totals.subTotal);
@@ -109,6 +118,14 @@ function updateCartTotals(data) {
         }
         $('.item-total-' + item.UUID).empty().append(item.priceTotal.renderedPrice);
     });
+
+    // update free item toast message
+    if (data.freeItemCount > 0) {
+        $('.free-item-toast-message').removeClass('hide-free-item-toast-message');
+        $('.free-item-toast-message').empty().append(data.freeItemToastMessage);
+    } else {
+        $('.free-item-toast-message').addClass('hide-free-item-toast-message');
+    }
 }
 
 /**
@@ -145,33 +162,20 @@ function updateApproachingDiscounts(orderApproachingDiscounts, shippingApproachi
 
     if(shippingApproachingDiscounts && shippingApproachingDiscounts.length) {
         shippinghtml = '<div class="row align-items-center">\n'+
-                            '<div class="col-2 icon">\n'+
-        // <img src="${URLUtils.staticURL('images/icons/bopis-shipping.svg')}" alt="shipping icon" width="50" />
-        '</div>\n'+
-        '<div class="d-flex flex-column col-10 pl-0">\n';
-        if (shippingApproachingDiscounts[0].distanceFromConditionThreshold > 0) {
-            shippinghtml += '<p class="h-font-size--13 h-clr--blue h-fw--bold m-0"></p>';
-        } else {
-            shippinghtml += '<p class="h-font-size--13 h-clr--blue h-fw--bold m-0"></p>';
-        }
-        shippinghtml += '<div class="single-approaching-discount">\n'+
-                shippingApproachingDiscounts[0].discountMsg +
+            '<div class="d-flex flex-column col-12 py-0">\n'+
+            '<p class="h-font-size--13 h-clr--pink h-fw--bold m-0">' + shippingApproachingDiscounts[0].discountMsg + '</p>\n'+
+                '<div class="d-flex w-100 justify-content-around align-items-center progress-wrap">\n'+
+                    '<span class="pr-3 text-nowrap d-block"> AUD 0.00 </span>\n' +
+                '<span class="d-block w-100 h-pos--relative">\n'+
+                        '<progress class="w-100" value="' + (shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold) + '" max="' + shippingApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
+                        '<span class="free-shipping-progress" style="left: calc(' + (((shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold)/shippingApproachingDiscounts[0].conditionThreshold)*100).toFixed(2) + '% - 25px );"></span>\n'+
+                    '</span>\n'+
+                    '<span class="pl-3 text-nowrap d-block">\n'+
+                        shippingApproachingDiscounts[0].formattedConditionThreshold +
+                    '</span>\n'+
+                '</div>\n'+
             '</div>\n'+
-            '<div class="d-flex w-100 justify-content-around align-items-center">\n'+
-                '<span class="pr-1 text-nowrap d-block">\n'+
-                    0 +
-                '</span>\n'+
-                '<progress class="w-100';
-        if (shippingApproachingDiscounts[0].distanceFromConditionThreshold === 0) {
-            shippinghtml += ' full ';
-        }
-        shippinghtml +='" value="' + (shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold) + '"max="' + shippingApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
-                '<span class="pl-1 text-nowrap d-block">\n'+
-                    shippingApproachingDiscounts[0].formattedConditionThreshold+
-                '</span>\n'+
-            '</div>\n'+
-        '</div>\n'+
-    '</div>';
+        '</div>';
     }
     $('.shipping-approaching-discounts').empty().append(shippinghtml);
     $('.order-approaching-discounts').empty().append(orderhtml);
@@ -358,6 +362,10 @@ module.exports = function () {
             uuid: uuid
         };
         var isMiniCart = $(this).parents('.mini-cart-content').length > 0;
+        var isPopupMinicart = $('body').find('.minicart').hasClass('popup');
+        if (isPopupMinicart && $('.product-summary').children().length === 1) {
+            $('.minicart .popover').removeClass('show');
+        }
 
         url = appendToUrl(url, urlParams);
 
@@ -375,14 +383,18 @@ module.exports = function () {
                 if (data.basket.items.length === 0) {
                     if (isMiniCart) {
                         var minicartURL = $('.minicart').data('action-url');
-                        $.get(
-                            minicartURL,
-                            function (dataMinicart) {
-                                $('.minicart .popover')
-                                    .empty()
-                                    .append(dataMinicart);
-                            }
-                        );
+                        if (isPopupMinicart) {
+                            $('.minicart .popover').removeClass('show');
+                        } else {
+                            $.get(
+                                minicartURL,
+                                function (dataMinicart) {
+                                    $('.minicart .popover')
+                                        .empty()
+                                        .append(dataMinicart);
+                                }
+                            );
+                        }
                     } else {
                         var emptyCartHtml =
                             '<div class="container text-center">' +
@@ -639,6 +651,9 @@ module.exports = function () {
                     $('.coupon-error-message').addClass('d-block');
                     $('body').trigger('promotion:error', data);
                 } else {
+                    $('.coupon-error-message').removeClass('px-3');
+                    $('.coupon-error-message').removeClass('py-2');
+                    $('.coupon-error-message').removeClass('d-block');
                     $('.coupons-and-promos').empty().append(data.totals.discountsHtml);
                     updateCartTotals(data);
                     updateApproachingDiscounts(data.orderApproachingDiscounts, data.shippingApproachingDiscounts);

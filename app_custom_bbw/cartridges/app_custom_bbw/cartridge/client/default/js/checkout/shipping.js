@@ -1,7 +1,7 @@
 'use strict';
 
 var addressHelpers = require('./address');
-var formHelpers = require('base/checkout/formErrors');
+var formHelpers = require('./formErrors');
 var scrollAnimate = require('base/components/scrollAnimate');
 
 /**
@@ -191,7 +191,13 @@ function updateShippingMethods(shipping) {
                             .show();
                     }
                     // set shipping cost
-                    $('.shipping-cost', tmpl).text(shippingMethod.shippingCost);
+                    if (shippingMethod.shippingCost === 0) {
+                        $('.shipping-cost', tmpl).text(
+                            'FREE'
+                        );
+                    } else {
+                        $('.shipping-cost', tmpl).text(shippingMethod.shippingCost);
+                    }
                     $shippingMethodList.append(tmpl.html());
                 });
             }

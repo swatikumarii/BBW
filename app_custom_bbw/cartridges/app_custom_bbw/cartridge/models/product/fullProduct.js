@@ -17,5 +17,16 @@ module.exports = function fullProduct(product, apiProduct, options) {
     decorators.ingredients(product, apiProduct);
     decorators.moreInfo(product, apiProduct);
     decorators.isEgiftCard(product, apiProduct);
+    if (options.variationModel) {
+        decorators.images(product, options.variationModel, {
+            types: ['mediumLarge', 'extraLarge', 'small'],
+            quantity: 'all'
+        });
+    } else {
+        decorators.images(product, apiProduct, {
+            types: ['mediumLarge', 'extraLarge', 'small'],
+            quantity: 'all'
+        });
+    }
     return product;
 };

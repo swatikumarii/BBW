@@ -17,15 +17,19 @@
     }
 }
 
+.confirmation-msg {
+    margin: 0 0 20px;
+}
+
 .purhase-message {
     height: fit-content;
-    background-color: colour(blue, 2);
+    background-color: colour(blue, 16);
     padding: 7px 20px;
     line-height: 0;
     margin-bottom: 24px;
 
     @include media-up(sm) {
-        background-color: colour(blue, 2);
+        background-color: colour(blue, 16);
         padding: 7px 20px;
         line-height: 0;
         height: 39px;
@@ -177,10 +181,20 @@
 }
 
 .confirmation-product-summary {
-    padding: 20px 30px 30px;
+    padding: 20px 0;
+
+    @include media-up(sm) {
+        padding: 20px 30px 30px;
+    }
 
     .confirmation-product-details {
         border-bottom: 1px solid colour(gray, 27);
+        padding-left: 0 !important;
+
+        @include media-up(sm) {
+            border-bottom: 1px solid colour(gray, 27);
+            padding-left: 15px !important;
+        }
 
         .cart-lineitems {
             .cart-lineitem {
@@ -225,6 +239,12 @@
     .headerPrice {
         text-transform: uppercase;
         line-height: 12px;
+
+        .line-item-total-price-amount {
+            font-weight: 500 !important;
+            color: colour(gray) !important;
+            font-size: 15px !important;
+        }
     }
 }
 
@@ -232,15 +252,37 @@
     min-height: 37px;
     max-height: 37px;
     letter-spacing: 2px;
+    width: 100%;
+
+    @include media-up(sm) {
+        width: 171px;
+        min-height: 37px;
+        max-height: 37px;
+        letter-spacing: 2px;
+    }
 }
 
 .confirmation-order-summary {
     background-color: colour(gray, 1);
     border-color: colour(gray, 1);
     padding: 0 15px 30px;
+    margin: 0 -15px;
+    margin-bottom: 1em;
+    border-radius: 0;
+
+    @include media-up(sm) {
+        background-color: colour(gray, 1);
+        border-color: colour(gray, 1);
+        padding: 0 15px 30px;
+        margin: 0;
+    }
 
     .confirmation-total-summary-wrap {
         padding: 15px 15px 0;
+
+        @include media-btw(sm, lg) {
+            padding: 0;
+        }
 
         .payment-title {
             border-bottom: 3px solid colour(gray, 6);
@@ -268,5 +310,17 @@
         &.value {
             margin: 0 10px 0 0;
         }
+    }
+}
+
+.confirmation-payment-section {
+    padding: 0;
+
+    @include media-up(sm) {
+        padding-left: 15px;
+    }
+
+    @include media-btw(sm, lg) {
+        padding-left: 0;
     }
 }

@@ -201,6 +201,19 @@
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="titleBadge">
+                <display-name xml:lang="x-default">Title Badge</display-name>
+                <description xml:lang="x-default">Title Badge</description>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="badge1">
                 <display-name xml:lang="x-default">Badge 1</display-name>
                 <type>html</type>
@@ -321,6 +334,29 @@
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="giftsetContents">
+                <display-name xml:lang="x-default">Giftset Contents</display-name>
+                <type>set-of-string</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="SID">
+                <display-name xml:lang="x-default">SID</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -361,12 +397,14 @@
                 <attribute attribute-id="ingredients"/>
                 <attribute attribute-id="showReturnSection"/>
                 <attribute attribute-id="canBeReturned"/>
+                <attribute attribute-id="giftsetContents"/>
             </attribute-group>
             <attribute-group group-id="badges">
                 <display-name xml:lang="x-default">Badges</display-name>
                 <attribute attribute-id="badge3"/>
                 <attribute attribute-id="badge1"/>
                 <attribute attribute-id="badge2"/>
+                <attribute attribute-id="titleBadge"/>
             </attribute-group>
             <attribute-group group-id="fragrance">
                 <display-name xml:lang="x-default">Fragrance</display-name>
@@ -383,6 +421,10 @@
                 <display-name xml:lang="x-default">Dynamic Badge Attributes</display-name>
                 <attribute attribute-id="isDynamicBadgeEnabled"/>
                 <attribute attribute-id="dynamicBadge"/>
+            </attribute-group>
+            <attribute-group group-id="customAttributes">
+                <display-name xml:lang="x-default">Custom Attributes</display-name>
+                <attribute attribute-id="SID"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -569,6 +611,13 @@
             <attribute-definition attribute-id="chatScript">
                 <display-name xml:lang="x-default">Live Chat Script</display-name>
                 <description xml:lang="x-default">Copy the third party live chat script here</description>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="homePageSchema">
+                <display-name xml:lang="x-default">Home Page Schema</display-name>
+                <description xml:lang="x-default">Copy the home page schema here</description>
                 <type>html</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -1308,11 +1357,25 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="showSalesTaxes">
+                <display-name xml:lang="x-default">Show Sales Taxes</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="showShippingExcludingTaxes">
                 <display-name xml:lang="x-default">Show shipping Excluding Taxes</display-name>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="showShippingHandlingTaxes">
+                <display-name xml:lang="x-default">Show Shipping and Handling Taxes</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
             </attribute-definition>
             <attribute-definition attribute-id="showTotalsExcludingTaxes">
                 <display-name xml:lang="x-default">Show totals excluding taxes</display-name>
@@ -1355,6 +1418,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="currentCurrencyToMyrConversionRate">
+                <display-name xml:lang="x-default">MYR conversion Rate</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>3.13</default-value>
             </attribute-definition>
             <attribute-definition attribute-id="zeroOrderEmail">
                 <display-name xml:lang="x-default">Zero Order Email Address</display-name>
@@ -1669,6 +1739,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="metaPixelScript"/>
                 <attribute attribute-id="emarsysEnabled"/>
                 <attribute attribute-id="emarsysMerchantID"/>
+                <attribute attribute-id="currentCurrencyToMyrConversionRate"/>
             </attribute-group>
             <attribute-group group-id="qwikcilver">
                 <display-name xml:lang="x-default">Qwikcilver</display-name>
@@ -1712,6 +1783,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="enableCountrySelectorPopup"/>
                 <attribute attribute-id="showTopOffers"/>
                 <attribute attribute-id="showMinicartPopup"/>
+                <attribute attribute-id="homePageSchema"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
@@ -1804,6 +1876,8 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <display-name xml:lang="x-default">Taxation</display-name>
                 <attribute attribute-id="showTotalsExcludingTaxes"/>
                 <attribute attribute-id="showShippingExcludingTaxes"/>
+                <attribute attribute-id="showSalesTaxes"/>
+                <attribute attribute-id="showShippingHandlingTaxes"/>
             </attribute-group>
             <attribute-group group-id="Nationality">
                 <display-name xml:lang="x-default">Nationality</display-name>
@@ -3561,6 +3635,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="SID">
+                <display-name xml:lang="x-default">SID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -3597,6 +3679,10 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="rtoQuantity"/>
                 <attribute attribute-id="receivedQuantity"/>
                 <attribute attribute-id="cancelQuantity"/>
+            </attribute-group>
+            <attribute-group group-id="customAttributes">
+                <display-name xml:lang="x-default">Custom Attributes</display-name>
+                <attribute attribute-id="SID"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

@@ -11,6 +11,7 @@ var windowWidth = $(window).outerWidth();
 var lazyload = require('../utils/lazyLoad');
 var layout = require('../utils/layout');
 var helpers = require('../utils/helpers');
+var request = null;
 
 /**
  * Retrieves Suggestions element relative to scope
@@ -169,7 +170,10 @@ function processResponse(response) {
  */
 function getSuggestions(scope) {
     $('.js-search-suggestions .suggestions__results').spinner().start();
-    $.ajax({
+    if (request) {
+        request.abort();
+    }
+    request = $.ajax({
         context: scope,
         url: endpoint + encodeURIComponent($(scope).val()),
         method: 'GET',
@@ -233,7 +237,8 @@ function resizeSuggestionWrapper() {
 
             $suggestionWrapper.css({
                 width: newWidth,
-                left: leftPosition + 'px'
+                left: leftPosition + 'px',
+                top: Math.floor($('.search-field').offset().top - $('.bbw-nav-wrap').offset().top) + 1 + 'px'
             });
 
             var styles = '.site-search .search-suggestions { width : ' + newWidth + ' !important; left : '+ leftPosition + 'px !important; }';
@@ -367,7 +372,7 @@ function handlePostCartAdd(response) {
         Object.keys(response.newBonusDiscountLineItem).length !== 0
     ) {
         chooseBonusProducts(response.newBonusDiscountLineItem);
-    } else if (layout.isMobile()) {
+    } else if (response.message) {
         if ($('.add-to-cart-messages').length === 0) {
             $('body').append('<div class="add-to-cart-messages"></div>');
         }
@@ -589,11 +594,6 @@ module.exports = function () {
 
                         handlePostCartAdd(data);
                         $('body').trigger('product:afterAddToCart', data);
-                        var addToCartSnackbar = $('#add-to-cart-snackbar');
-                        addToCartSnackbar.addClass('show');
-                        setTimeout(function () {
-                            addToCartSnackbar.removeClass('show');
-                        }, 3000);
                         $.spinner().stop();
                         miniCartReportingUrlSearch(data.reportingURL);
                         return true;

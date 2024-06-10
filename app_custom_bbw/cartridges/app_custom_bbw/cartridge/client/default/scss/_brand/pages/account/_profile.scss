@@ -734,3 +734,65 @@
         }
     }
 }
+
+// ---delete gift popup
+
+#delete-gift-certificate-line-item-modal {
+    .delete-gift-modal-dialog {
+        width: 464px;
+
+        .delete-gift-content {
+            border-radius: 0;
+            height: 100%;
+            padding: 32px;
+
+            .delete-confirmation-header {
+                .delete-header {
+                    letter-spacing: 0.005em;
+                    line-height: 1.25rem;
+                }
+
+                .close-icon-btn {
+                    background-color: transparent;
+                    background-position: 50%;
+                    border: none;
+                    font-size: 11px;
+                    font-weight: 400;
+                    height: 48px;
+                    margin: 0;
+                    max-height: none;
+                    opacity: 1;
+                    padding: 0 1.25em;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    transition: none;
+                    width: 48px;
+                }
+            }
+        }
+
+        .delete-confirmation-body {
+            .modal-content-data {
+                letter-spacing: 0.005em;
+                line-height: 1.75rem;
+            }
+        }
+
+        .delete-egiftitem-confirmation-btn {
+            min-height: 40px;
+            max-height: 40px;
+            text-transform: capitalize;
+        }
+
+        .close-btn {
+            min-height: 40px;
+            max-height: 40px;
+            text-transform: capitalize;
+
+            &:hover {
+                border: 2px solid colour(black, 1);
+            }
+        }
+    }
+}

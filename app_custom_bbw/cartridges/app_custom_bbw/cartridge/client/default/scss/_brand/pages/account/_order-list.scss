@@ -284,6 +284,24 @@
             }
         }
 
+        .saving {
+            text-align: center;
+
+            .value {
+                text-align: right;
+                color: colour(black, 1);
+                font-size: 14px;
+                font-weight: 700;
+            }
+        }
+
+        .saving .value-dash {
+            text-align: center;
+            color: colour(black, 1);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
         @include media-down(sm) {
             td {
                 float: left;
@@ -299,13 +317,13 @@
     }
 
     .order-description {
-        width: 60%;
+        width: 40%;
     }
 
-    .order-qty,
-    .order-price {
-        width: 20%;
-    }
+    // .order-qty,
+    // .order-price {
+    //     width: 15%;
+    // }
 }
 
 .order-btn {
@@ -403,6 +421,27 @@
         animation:
             fade-in-order 0.5s,
             fade-out-order 0.5s 2.5s;
+    }
+
+    &.error {
+        visibility: visible;
+        animation:
+            fade-in-order 0.5s,
+            fade-out-order 0.5s 2.5s;
+        background-color: colour(red, 11);
+        padding: 8px 20px 8px 44px;
+        margin: 5px 0;
+        color: colour(red);
+
+        &::before {
+            background-image: url("../../images/Alert-Error.svg");
+            height: 28px;
+            left: 13px;
+            position: absolute;
+            width: 28px;
+            background-repeat: no-repeat;
+            content: "";
+        }
     }
 
     @keyframes fade-in-order {

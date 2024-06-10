@@ -9,28 +9,54 @@ var addressAutocomplete = require('./checkout/addressAutocomplete');
 var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
     window.location.search
 );
+var addressData = require('./addressData');
 
 /**
  * validateFields
  * @param {object} $input input field
  */
 function validateFields($input) {
-    var $errorMessage = $input.next('.invalid-feedback');
-    if ($input[0].checkValidity()) {
-        $errorMessage.hide();
-        $input.removeClass('is-invalid');
-        if ($input.parents('.iti').length)
-            $input.parents('.iti').removeClass('is-invalid border-danger');
-    } else {
-        var errorText;
-        if ($input.val().length === 0) {
-            errorText = $input.data('missing-error');
+    try {
+        var $errorMessage = $input.next('.invalid-feedback');
+        if ($input[0].checkValidity()) {
+            $errorMessage.hide();
+            $input.removeClass('is-invalid');
+            if ($input.parents('.iti').length)
+                $input.parents('.iti').removeClass('is-invalid border-danger');
         } else {
-            errorText = $input.data('pattern-mismatch');
+            var errorText;
+            if ($input.val().length === 0) {
+                errorText = $input.data('missing-error');
+            } else {
+                errorText = $input.data('pattern-mismatch');
+            }
+            if ($input.parents('.iti').length)
+                $input.parents('.iti').addClass('is-invalid border-danger');
+            $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
         }
-        if ($input.parents('.iti').length)
-            $input.parents('.iti').addClass('is-invalid border-danger');
-        $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+/**
+ * checks if any required field is empty
+ * @param {object} form - current form
+ */
+function checkFields(form) {
+    var requiredFields = form.find('[required]');
+    var allFilled = true;
+    requiredFields.each(function () {
+        var isGftcardField = $(this).parents('.gift-card-apply').length > 0;
+        var isPaymentField = $(this).parents('#paymentMethodsList').length > 0;
+        if (!($(this).val() && $(this).val().trim()) && !isGftcardField && !isPaymentField) {
+            allFilled = false;
+        }
+    });
+    if (allFilled) {
+        $('.verify-msg').hide();
+    } else {
+        $('.verify-msg').show();
     }
 }
 
@@ -65,8 +91,10 @@ $(document).ready(function () {
     intlTelInput(phone, {
         utilsScript: utils,
         showFlags: true,
+        strictMode: true,
         showSelectedDialCode: true,
-        initialCountry: 'au'
+        initialCountry: 'au',
+        countryOrder: ['au']
     });
 
     $('.accordion-title').click(function () {
@@ -94,15 +122,247 @@ $(document).ready(function () {
         }
     });
 
+    var checkoutStage = $('#checkout-main').attr('data-checkout-stage');
+    var form = $('form.shipping-form');
+    if (checkoutStage === 'payment') {
+        form = $('form.billing-form');
+    }
+    checkFields(form);
+    $('form.shipping-form input, form.shipping-form select').on(
+        'input change',
+        function () {
+            if (
+                $('#checkout-main').attr('data-checkout-stage') === 'shipping'
+            ) {
+                checkFields($('form.shipping-form'));
+            }
+        }
+    );
+    $('form.billing-form input, form.billing-form select').on(
+        'input change',
+        function () {
+            if ($('#checkout-main').attr('data-checkout-stage') === 'payment') {
+                checkFields($('form.billing-form'));
+            }
+        }
+    );
+
+    var observer = new MutationObserver(function (mutations) {
+        mutations.forEach(function (mutation) {
+            if (
+                mutation.type === 'attributes' &&
+                mutation.attributeName === 'data-checkout-stage'
+            ) {
+                var newValue = $(mutation.target).attr('data-checkout-stage');
+                if (newValue === 'payment') {
+                    checkFields($('form.billing-form'));
+                }
+            }
+        });
+    });
+
+    var config = { attributes: true, attributeFilter: ['data-checkout-stage'] };
+
+    // Target element to observe
+    var target = document.getElementById('checkout-main');
+
+    // Start observing the target element
+    observer.observe(target, config);
+
     $('.place-order-trigger').on('click', function () {
         $('button.place-order').click();
     });
+
+    $('body')
+        .on('mouseleave', '.info-icon', function () {
+            setTimeout(function () {
+                $('.info-icon-text').removeClass('d-block');
+            }, 50);
+        })
+        .on('mouseenter', '.info-icon', function () {
+            $('.info-icon-text').addClass('d-block');
+        });
+        
+    if ($('.shippingState').val()) {
+        $('.shippingState').trigger('change');
+    } 
+    if ($('.shippingAddressCity').val()) {
+        $('.shippingAddressCity').trigger('change');
+    } 
+
 });
-$('.payment-options .nav-link').click(function setAttr() {
-    $('#selectedPaymentOption').val($(this).parent().attr('data-method-id'));
-    if ($(this).parent().attr('data-method-id') === 'AdyenComponent') {
-        adyenCheckout.renderGenericComponent();
-    } else {
-        $('button[value="submit-payment"]').attr('disabled', false);
+
+$('.info-icon-text .close').on('click', function () {
+    $('.info-icon-text').addClass('d-none');
+
+    setTimeout(function () {
+        $('.info-icon-text').removeClass('d-none');
+    }, 300);
+});
+
+$(document)
+    .on('mouseleave', '.promo-details', function () {
+        setTimeout(function () {
+            $('.promo-details-tooltip').removeClass('d-block');
+        }, 50);
+    })
+    .on('mouseenter', '.promo-details', function () {
+        var tooltip = $(this)
+            .closest('.promo-details-wrap')
+            .find('.promo-details-tooltip');
+        tooltip.addClass('d-block');
+    });
+
+$('.promo-details-tooltip .close').on('click', function () {
+    $('.promo-details-tooltip').addClass('d-none');
+
+    setTimeout(function () {
+        $('.promo-details-tooltip').removeClass('d-none');
+    }, 300);
+});
+
+
+$(document).on(
+    'click',
+    '#paymentMethodsList .paymentMethod, .payment-method-options .afterpay-tab',
+    function (event) {
+        var paymentMethod = $(this)
+            .closest('.payment-method-options')
+            .data('payment-method-id');
+        $('.credit-card-selection-new .tab-pane').removeClass('active');
+        $(
+            '.credit-card-selection-new [data-payment-method-id="' +
+                paymentMethod +
+                '"] .tab-pane'
+        ).addClass('active');
+        $('.payment-options .nav-item .nav-link').removeClass('active');
+        $(
+            '.payment-options .nav-item.nav-item[data-method-id="' +
+                paymentMethod +
+                '"] .nav-link'
+        ).addClass('active');
+        if (paymentMethod !== 'AdyenComponent') {
+            $('button[value="submit-payment"]').attr('disabled', false);
+        } else if (paymentMethod === 'AdyenComponent') {
+            // adyenCheckout.renderGenericComponent();
+        }
+        $('#selectedPaymentOption').val(paymentMethod);
+        $('.payment-method-options')
+            .find('[type="radio"]')
+            .prop('checked', false);
+        $('.additionalFields').css('display', 'none');
+        $(event.target)
+            .closest('.paymentMethod, .afterpay-tab')
+            .find('[type="radio"]')
+            .prop('checked', true)
+            .trigger('change');
+        $(event.target)
+            .closest('.paymentMethod, .afterpay-tab')
+            .find('.additionalFields')
+            .css('display', 'block');
+    }
+);
+
+$('button.submit-payment').on('click', function () {
+    if ($('#selectedPaymentOption').val() === 'AdyenComponent') {
+        if (
+            [
+                'paypal',
+                'paywithgoogle',
+                'googlepay',
+                'amazonpay',
+                'applepay',
+                'cashapp'
+            ].indexOf(
+                $(
+                    '#paymentMethodsList .paymentMethod [type="radio"]:checked'
+                ).val()
+            ) === -1
+        ) {
+            $('#paymentMethodsList .paymentMethod [type="radio"]:checked')
+                .closest('.paymentMethod')
+                .trigger('click');
+        }
+    }
+});
+
+
+$('.shippingState').change(function () {
+    const selectedState = $(this).val();
+    const suburbDropdown = $('.shippingAddressCity');
+    suburbDropdown.empty(); // clear existing options
+
+    if (addressData[selectedState]) {
+        $.each(addressData[selectedState], function (suburb) {
+            suburbDropdown.append(
+                $('<option>', {
+                    value: suburb,
+                    text: suburb
+                })
+            );
+        });
+        suburbDropdown.trigger('change');
+    }
+});
+
+$('.shippingAddressCity').change(function () {
+    const selectedState = $('.shippingState').val();
+    const selectedSuburb = $(this).val();
+    const zipDropdown = $('.shippingZipCode');
+    zipDropdown.empty(); // clear existing options
+
+    if (
+        addressData[selectedState] &&
+        addressData[selectedState][selectedSuburb]
+    ) {
+        const zipCodes = addressData[selectedState][selectedSuburb];
+        zipCodes.forEach((zip) => {
+            zipDropdown.append(
+                $('<option>', {
+                    value: zip,
+                    text: zip
+                })
+            );
+        });
+    }
+});
+
+$('.billingState').change(function () {
+    const selectedState = $(this).val();
+    const suburbDropdown = $('.billingAddressCity');
+    suburbDropdown.empty(); // clear existing options
+
+    if (addressData[selectedState]) {
+        $.each(addressData[selectedState], function (suburb) {
+            suburbDropdown.append(
+                $('<option>', {
+                    value: suburb,
+                    text: suburb
+                })
+            );
+        });
+        suburbDropdown.trigger('change');
+    }
+});
+
+$('.billingAddressCity').change(function () {
+    const selectedState = $('.billingState').val();
+    const selectedSuburb = $(this).val();
+    const zipDropdown = $('.billingZipCode');
+    zipDropdown.empty(); // clear existing options
+
+    if (
+        addressData[selectedState] &&
+        addressData[selectedState][selectedSuburb]
+    ) {
+        const zipCodes = addressData[selectedState][selectedSuburb];
+        zipCodes.forEach((zip) => {
+            zipDropdown.append(
+                $('<option>', {
+                    value: zip,
+                    text: zip
+                })
+            );
+        });
     }
 });

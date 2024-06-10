@@ -1,5 +1,11 @@
 @import "../../../_brand/_api/api";
 
+.firefox {
+    .top-offer__wrapper {
+        scrollbar-width: thin;
+    }
+}
+
 .top-offer {
     background: colour(gray, 1);
     padding-bottom: 24px;
@@ -26,11 +32,11 @@
     &__wrapper {
         flex-flow: row nowrap;
         overflow: auto hidden;
-        scrollbar-width: auto;
         column-gap: var(--col-gap-sm);
         padding: 0 16px;
-        scrollbar-color: colour(gray, 5) hsla(0deg, 0%, 51%, 25%);
         cursor: grab;
+
+        // scrollbar-color: colour(gray, 5) hsla(0deg, 0%, 51%, 25%);
 
         @include media-down(md) {
             scrollbar-color: unset;

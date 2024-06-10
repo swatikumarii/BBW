@@ -22,8 +22,8 @@ Template Notes:
         <!-- Circular Swatch Image Attribute Values -->
         <div class="style d-flex">
             <isloop items="${attr.values}" var="attrValue">
-                <isif condition="${!(isBundle && product.productType === 'variant' && !attrValue.selected) }">
-                    <button class="style-attribute"
+                <isif condition="${!(isBundle && product.productType === 'variant')}">
+                    <button class="style-attribute ${attrValue.selected ? 'selected' : ''}"
                             aria-label="${Resource.msg('label.select', 'common', null)} ${attr.displayName} ${attrValue.displayValue}"
                             aria-describedby="${attrValue.id}"
                             data-url="${attrValue.url}" ${ product.productType === "variant" && isBundle ? "disabled" : "" }

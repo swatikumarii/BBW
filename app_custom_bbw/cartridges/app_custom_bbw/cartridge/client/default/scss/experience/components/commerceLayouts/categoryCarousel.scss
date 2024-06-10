@@ -39,6 +39,7 @@
         overflow: auto hidden;
         cursor: grab;
         column-gap: 16px;
+        scrollbar-width: none;
 
         &::-webkit-scrollbar {
             display: none;

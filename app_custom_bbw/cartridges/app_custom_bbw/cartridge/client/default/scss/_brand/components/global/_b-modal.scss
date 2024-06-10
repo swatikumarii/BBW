@@ -1,3 +1,22 @@
+// Animations
+
+@keyframes bottom-to-top {
+    0% {
+        transform: translate(-50%, 100%);
+    }
+
+    100% {
+        transform: translate(-50%);
+    }
+}
+
+// Stop Scrolling - on Modal Open
+
+.promo-modal-open {
+    padding-right: 0 !important;
+    overflow-y: hidden !important;
+}
+
 // Pop-up Modal
 .profile_complete {
     background: rgba(77, 77, 77, 25%);
@@ -22,43 +41,203 @@
     }
 }
 
-// -------promotion details-----
-.promotion-dialog {
-    display: block;
-    animation: d 0.2s;
-    animation-timing-function: cubic-bezier(0.2, 0.05, 0.55, 0.2);
-    transform: translate(-50%, -50%) !important;
-    background: colour(white);
-    bottom: 0;
-    left: 48%;
-    width: 464px;
-    max-width: 464px;
-    position: fixed;
-    height: 408px;
-    top: 46%;
+// -------Promotion Modal -----
+.promotionModal {
+    &.show {
+        animation: none;
+    }
 
-    .promotion-content {
-        border-radius: 0;
-        padding: 15px;
-        height: 100%;
+    .promotion-dialog {
+        display: block;
+        animation: bottom-to-top 0.2s;
+        animation-timing-function: cubic-bezier(0.2, 0.05, 0.55, 0.2);
+        transform: translate(-50%) !important;
+        background: colour(white);
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        top: 40vh;
+        width: calc(100% - 40px);
+        max-width: 568px;
+        height: 408px;
+        margin: 0;
 
-        .promotion-header {
-            line-height: 1.25rem;
-            letter-spacing: 0.005em;
+        @include media-up(sm) {
+            width: 464px;
         }
 
-        .promotion-body {
-            text-align: left;
-            max-height: 75%;
-            padding: 12px 8px;
-            flex-grow: 1;
-            overflow: auto scroll !important;
-            overscroll-behavior: contain;
-            border: 1px solid colour(gray, 5);
+        .close-icon-btn {
+            background: url("../../images/icons/modal-close.svg") no-repeat;
+            background-position: 50%;
+            background-color: transparent;
+            border: none;
+            height: 48px;
+            max-height: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 48px;
+            transition: none;
+            font-weight: 400;
+            font-size: 11px;
+            padding: 0 1.25em;
+            margin: 0;
+            opacity: 1;
 
-            p {
-                line-height: 1.5rem;
-                letter-spacing: 0.01em;
+            &:hover {
+                background-color: colour(gray, 1);
+                box-shadow: inset 0 0 0 8px colour(white);
+                opacity: 1 !important;
+            }
+        }
+
+        .promotion-content {
+            border-radius: 0;
+            padding: 32px;
+            height: 100%;
+
+            .promotion-header {
+                line-height: 1.25rem;
+                letter-spacing: 0.005em;
+            }
+
+            .promotion-body {
+                text-align: left;
+                height: 100%;
+                padding: 12px 8px;
+                flex: 1 1 auto;
+                overflow: auto !important;
+                overscroll-behavior: contain;
+                border: 1px solid colour(gray, 5);
+                margin-top: 24px;
+
+                p {
+                    line-height: 1.5rem;
+                    letter-spacing: 0.01em;
+                }
+            }
+        }
+    }
+}
+
+// Giftcard remove popup
+#delete-line-item-modal {
+    .remove-lintItem-dialog {
+        width: 464px;
+    }
+
+    .remove-content {
+        border-radius: 0;
+        height: 100%;
+        padding: 32px;
+
+        .remove-confirmation-header {
+            .remove-header {
+                letter-spacing: 0.005em;
+                line-height: 1.25rem;
+            }
+
+            .close-icon-btn {
+                background-color: transparent;
+                background-position: 50%;
+                border: none;
+                font-size: 11px;
+                font-weight: 400;
+                height: 48px;
+                margin: 0;
+                max-height: none;
+                opacity: 1;
+                padding: 0 1.25em;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transition: none;
+                width: 48px;
+            }
+        }
+    }
+
+    .delete-confirmation-body {
+        .modal-content-data {
+            letter-spacing: 0.005em;
+            line-height: 1.75rem;
+        }
+    }
+
+    .delete-lineitem-confirmation-btn {
+        min-height: 40px;
+        max-height: 40px;
+        text-transform: capitalize;
+    }
+
+    .close-btn {
+        min-height: 40px;
+        max-height: 40px;
+        text-transform: capitalize;
+
+        &:hover {
+            border: 2px solid colour(black, 1);
+        }
+    }
+}
+
+// ---delete gift popup
+
+#delete-gift-certificate-line-item-modal {
+    .delete-gift-modal-dialog {
+        width: 464px;
+
+        .delete-gift-content {
+            border-radius: 0;
+            height: 100%;
+            padding: 32px;
+
+            .delete-confirmation-header {
+                .delete-header {
+                    letter-spacing: 0.005em;
+                    line-height: 1.25rem;
+                }
+
+                .close-icon-btn {
+                    background-color: transparent;
+                    background-position: 50%;
+                    border: none;
+                    font-size: 11px;
+                    font-weight: 400;
+                    height: 48px;
+                    margin: 0;
+                    max-height: none;
+                    opacity: 1;
+                    padding: 0 1.25em;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    transition: none;
+                    width: 48px;
+                }
+            }
+        }
+
+        .delete-confirmation-body {
+            .modal-content-data {
+                letter-spacing: 0.005em;
+                line-height: 1.75rem;
+            }
+        }
+
+        .delete-egiftitem-confirmation-btn {
+            min-height: 40px;
+            max-height: 40px;
+            text-transform: capitalize;
+        }
+
+        .close-btn {
+            min-height: 40px;
+            max-height: 40px;
+            text-transform: capitalize;
+
+            &:hover {
+                border: 2px solid colour(black, 1);
             }
         }
     }

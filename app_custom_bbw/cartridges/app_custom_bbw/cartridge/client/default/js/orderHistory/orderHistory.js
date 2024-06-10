@@ -46,6 +46,7 @@ module.exports = function () {
                 method: 'POST',
                 data: form,
                 success: function (data) {
+                    var addToCartSnackbar = $('#add-order-to-cart-snackbar');
                     if (data.isGiftCardLineItemExist) {
                         $('#delete-gift-certificate-line-item-modal').modal(
                             'show'
@@ -53,12 +54,22 @@ module.exports = function () {
                         $(thisData).spinner().stop();
                         return true;
                     }
-                    window.location.href = data.redirectUrl;
-
-                    var addToCartSnackbar = $('#add-order-to-cart-snackbar');
+                    if (!data.error) {
+                        window.location.href = data.redirectUrl;
+                        addToCartSnackbar.addClass('show');
+                        setTimeout(function () {
+                            addToCartSnackbar.removeClass('show');
+                        }, 3000);
+    
+                        $(thisData).spinner().stop();
+                        return true;
+                    } 
+                    addToCartSnackbar.text(data.message);
+                    addToCartSnackbar.addClass('error');
                     addToCartSnackbar.addClass('show');
                     setTimeout(function () {
                         addToCartSnackbar.removeClass('show');
+                        addToCartSnackbar.removeClass('error');
                     }, 3000);
 
                     $(thisData).spinner().stop();

@@ -12,7 +12,7 @@ var base = module.superModule;
  * @param {object} context - Object with context to be passed as pdict into ISML template.
  */
 function send(emailObj, template, context) {
-    require('dw/system/Logger').getLogger('EmailSending', 'email').info('Email sending: Start');
+    require('dw/system/Logger').getLogger('EmailSending', 'email').info('Email sending for {0} to {1}', emailObj.subject, emailObj.to);
     var Mail = require('dw/net/Mail');
     var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
 
@@ -25,7 +25,7 @@ function send(emailObj, template, context) {
     }
     email.setContent(renderTemplateHelper.getRenderedHtml(context, template), 'text/html', 'UTF-8');
     email.send();
-    require('dw/system/Logger').getLogger('EmailSending', 'email').info('Email sending: End');
+    require('dw/system/Logger').getLogger('EmailSending', 'email').info('Email sending End');
 }
 
 /**

@@ -388,6 +388,8 @@ input[type="tel"],
 
         &:focus {
             box-shadow: none;
+            border-color: colour(black, 1);
+            background: none;
         }
     }
 }
@@ -511,6 +513,7 @@ input[type="tel"],
 .billing-address {
     .form-group {
         margin: 10px 0 30px;
+        position: relative;
     }
 
     .iti {
@@ -578,19 +581,134 @@ input[type="tel"],
     }
 }
 
+.gift-card-apply {
+    .add-giftcard-header-wrap {
+        border-top: 3px solid $clr-gray-1;
+        width: 85%;
+        margin: 0 15px;
+
+        .add-giftcard-header {
+            padding: 20px 0;
+        }
+    }
+
+    .add-giftcard-text {
+        display: block;
+        padding-bottom: 20px;
+        border-bottom: 3px solid $clr-gray-1;
+        margin: 0 15px;
+        width: 85%;
+    }
+
+    .giftcard-total-wrap {
+        width: 90%;
+        padding: 20px 15px;
+        height: 58px;
+    }
+
+    .gift-redeem-card-error {
+        margin: 0 15px;
+        max-width: 85%;
+        padding: 10px 15px;
+        color: $clr-red;
+        background-color: $clr-red-10;
+    }
+}
+
+.add-giftcard-button {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.add-giftcard-section {
+    display: none;
+    width: 90%;
+
+    &.show {
+        display: flex;
+    }
+
+    .giftcard-buttons {
+        padding: 0 15px;
+    }
+
+    .giftcard-balance-section {
+        border-bottom: 1px solid $clr-black-1;
+
+        #egift-card-check-balance {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}
+
 .info-icon-text {
-    min-width: 260px;
     max-width: 260px;
-    min-height: 300px;
+    width: auto;
     position: absolute;
-    right: -290px;
-    top: 50%;
+    right: -307px;
+    top: 65%;
     transform: translateY(-50%);
     border: 1px solid;
-    overflow-y: scroll;
-    padding: 20px;
+    padding: 24px 8px 24px 0;
     display: none;
-    z-index: 9;
+    z-index: 1;
+    background: colour(white);
+    box-shadow: 0 0 13px 0 rgba(0, 0, 0, 15%);
+
+    @include media-down(sm) {
+        top: 120%;
+        right: auto;
+        left: 11%;
+        z-index: 2;
+    }
+
+    .bbwd-tooltip-content-container {
+        font-weight: 400;
+        font-size: 14px;
+        font-size: 0.875rem;
+        line-height: 20px;
+        line-height: 1.25rem;
+        letter-spacing: 0.015em;
+        color: colour(black, 1);
+        background-color: colour(white);
+        height: auto;
+        max-height: 290px;
+        overflow-y: auto;
+        padding-left: 24px;
+        padding-right: 16px;
+
+        .close {
+            background-image: url("../../images/footer/cross.svg");
+            background-position: 50%;
+            background-repeat: no-repeat;
+            background-size: 0.8125rem;
+            height: 13px;
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            width: 13px;
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        h4 {
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 0.01em;
+            line-height: 1.25rem;
+            color: colour(black, 1);
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.015em;
+            color: colour(black, 1);
+            margin: 14px 0;
+        }
+    }
 
     &:hover {
         display: block;
@@ -610,27 +728,42 @@ input[type="tel"],
     border-right: 8px solid $clr-white;
     border-bottom: 9px solid transparent;
     position: absolute;
-    right: -39px;
-    top: 48px;
+    right: -56px;
+    top: 65%;
+    z-index: 1;
     transform: translate(-100%, -50%);
     display: none;
+
+    @include media-down(sm) {
+        top: 125%;
+        right: 100%;
+        left: 40px;
+        z-index: 2;
+    }
 }
 
 .info-icon-border-arrow-outline {
     border-top: 10px solid transparent;
-    border-right: 9px solid $clr-black-1;
+    border-right: 9px solid colour(gray);
     border-bottom: 10px solid transparent;
     position: absolute;
-    right: -39px;
-    top: 48px;
+    right: -57px;
+    top: 65%;
     transform: translate(-100%, -50%);
     display: none;
+    z-index: 1;
+
+    @include media-down(sm) {
+        top: 125%;
+        right: 100%;
+        left: 39px;
+    }
 }
 
 .info-icon {
     position: absolute;
-    right: -20px;
-    top: 50%;
+    right: -34px;
+    top: 66%;
     transform: translateY(-50%);
     width: 25px;
     height: 25px;
@@ -640,6 +773,11 @@ input[type="tel"],
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @include media-down(sm) {
+        top: 126%;
+        right: 93%;
+    }
 
     .info-icon-img-white {
         display: none;
@@ -671,6 +809,44 @@ input[type="tel"],
                     display: block;
                 }
             }
+        }
+    }
+}
+
+.info-billing {
+    .info-icon {
+        top: 50%;
+
+        @include media-down(sm) {
+            top: 109%;
+            right: 90%;
+        }
+    }
+
+    .info-icon-text {
+        top: 50%;
+
+        @include media-down(sm) {
+            top: 108%;
+            left: 15%;
+        }
+    }
+
+    .info-icon-border-arrow-outline {
+        top: 50%;
+
+        @include media-down(sm) {
+            top: 109%;
+            left: 15%;
+        }
+    }
+
+    .info-icon-border-arrow {
+        top: 50%;
+
+        @include media-down(sm) {
+            top: 109%;
+            left: 55px;
         }
     }
 }
@@ -711,21 +887,43 @@ input[type="tel"],
     }
 }
 
+.promo-details-wrap {
+    width: fit-content;
+}
+
 .promo-details-tooltip {
     border: 1px solid;
     width: 260px;
-    display: block;
+    display: none;
     min-width: 260px;
     max-height: 400px;
     position: absolute;
-    left: 50%;
+    left: calc(100% + 15px);
     background: $clr-white;
     padding: 24px 0;
-    z-index: 9;
+    z-index: 1;
+
+    @include media-down(sm) {
+        left: -66px;
+        top: -70px;
+    }
+
+    &:hover {
+        display: block;
+
+        + .tooltip-arrow {
+            display: block;
+
+            + .tooltip-arrow::before {
+                display: block;
+            }
+        }
+    }
 
     .promo-details-content {
         padding: 0 24px 0 16px;
-        overflow-y: scroll;
+        max-height: 350px;
+        overflow-y: auto;
     }
 
     .tooltip-arrow {
@@ -739,6 +937,13 @@ input[type="tel"],
         border-bottom: 10px solid transparent;
         border-right: 10px solid #000;
 
+        @include media-down(sm) {
+            // left: -66px;
+            right: 50%;
+            top: 73px;
+            transform: rotate(270deg);
+        }
+
         &::before {
             content: "";
             position: absolute;
@@ -747,6 +952,114 @@ input[type="tel"],
             border-top: 10px solid transparent;
             border-bottom: 10px solid transparent;
             border-right: 10px solid white;
+
+            @include media-down(sm) {
+                right: 50%;
+                left: 0;
+                border-bottom: 10px solid transparent;
+                border-right: 11px solid #fff;
+                border-top: 10px solid transparent;
+            }
         }
     }
+
+    .close {
+        background-image: url("../../images/footer/cross.svg");
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: 0.8125rem;
+        cursor: pointer;
+        height: 13px;
+        opacity: 1;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        width: 13px;
+    }
+}
+
+.order-discount {
+    .order-discount-total {
+        letter-spacing: normal;
+    }
+
+    p {
+        line-height: 20px;
+        letter-spacing: 0.2px;
+
+        &.accordion-item.collapsed {
+            &::before {
+                background: url("../../images/UI-Carat.svg") no-repeat 50%;
+                background-size: 1.25rem;
+                content: "";
+                height: 12px;
+                position: absolute;
+                left: 74px;
+                transform: rotate(0deg);
+                transition: all 0.5s ease-out;
+                width: 12px;
+                top: 4px;
+            }
+        }
+
+        &.accordion-item {
+            &::before {
+                background: url("../../images/UI-Carat.svg") no-repeat 50%;
+                background-size: 1.25rem;
+                content: "";
+                height: 12px;
+                position: absolute;
+                left: 74px;
+                transition: all 0.5s ease-out;
+                width: 12px;
+                top: 4px;
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    .accordion-collapse {
+        padding-left: 30px;
+    }
+}
+
+// ---gift card
+.giftcard-buttons {
+    .giftcard-redeem {
+        width: 171px;
+        height: 42px;
+    }
+
+    .giftcard-cancel-btn {
+        width: 127px;
+        height: 42px;
+
+        &:hover {
+            border: 2px solid colour(black, 1);
+        }
+    }
+}
+
+.payment-error {
+    background-color: colour(red, 11);
+    padding: 9px 20px 9px 43px;
+    margin: 5px 0;
+
+    &::before {
+        background-image: url("../../images/Alert-Error.svg");
+        height: 25px;
+        left: 26px;
+        position: absolute;
+        width: 25px;
+        background-repeat: no-repeat;
+        content: "";
+    }
+}
+
+.retry-payment-btn {
+    max-height: 38px;
+    min-height: 38px;
+    width: 194px;
+    margin-top: 24px;
+    text-transform: capitalize;
 }

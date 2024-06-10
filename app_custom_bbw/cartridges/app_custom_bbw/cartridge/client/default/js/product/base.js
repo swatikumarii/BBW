@@ -1,7 +1,6 @@
 'use strict';
 
 var base = require('base/product/base');
-var layout = require('../utils/layout');
 
 /**
  * Retrieves the relevant pid value
@@ -149,7 +148,7 @@ function handlePostCartAdd(response) {
         Object.keys(response.newBonusDiscountLineItem).length !== 0
     ) {
         chooseBonusProducts(response.newBonusDiscountLineItem);
-    } else if (layout.isMobile()) {
+    } else if (response.message) {
         if ($('.add-to-cart-messages').length === 0) {
             $('body').append('<div class="add-to-cart-messages"></div>');
         }
@@ -157,10 +156,10 @@ function handlePostCartAdd(response) {
         $('.add-to-basket-alert').remove();
         $('.add-to-cart-messages').append(
             '<div class="alert ' +
-            messageType +
-            ' add-to-basket-alert text-center" role="alert">' +
-            response.message +
-            '</div>'
+                messageType +
+                ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                response.message +
+                '</div>'
         );
         setTimeout(function () {
             $('.add-to-basket-alert').remove();
@@ -456,8 +455,11 @@ function handleVariantResponse(response, $productContainer) {
     }
 
     // Update primary images
-    var primaryImageUrls = response.product.images.large;
+    var primaryImageUrls = response.product.images.extraLarge;
     createCarousel(primaryImageUrls, $productContainer);
+    if (primaryImageUrls && primaryImageUrls.length > 0) {
+        $('.gc-container .product-image').attr('src', primaryImageUrls[0].absURL);
+    }
 
     // Update pricing
     if (!isChoiceOfBonusProducts) {
@@ -581,6 +583,25 @@ base.selectAttribute = function () {
     );
 };
 
+base.colorAttribute = function () {
+    $(document).on('click', '[data-attr="style"] button', function (e) {
+        e.preventDefault();
+
+        if ($(this).attr('disabled') || $(this).hasClass('selected')) {
+            return;
+        }
+
+        var $productContainer = $(this).closest('.set-item');
+        if (!$productContainer.length) {
+            $productContainer = $(this).closest('.product-detail');
+        }
+
+        attributeSelect($(this).attr('data-url'), $productContainer);
+        $(this).parents('.style').find('button.selected').removeClass('selected');
+        $(this).addClass('selected');
+    });
+};
+
 /**
  * Checks if the email value entered is correct format
  * @param {string} email - email string to check if valid
@@ -597,6 +618,8 @@ module.exports = $.extend({}, base, {
             'click',
             'button.add-to-cart, button.add-to-cart-global',
             async function () {
+                $(this).prop('disabled', true);
+                var $button = $(this);
                 var addToCartUrl;
                 var pid;
                 var pidsObj;
@@ -771,11 +794,6 @@ module.exports = $.extend({}, base, {
                             }
                             handlePostCartAdd(data);
                             $('body').trigger('product:afterAddToCart', data);
-                            var addToCartSnackbar = $('#add-to-cart-snackbar');
-                            addToCartSnackbar.addClass('show');
-                            setTimeout(function () {
-                                addToCartSnackbar.removeClass('show');
-                            }, 3000);
 
 
                             if (data.pdpPromotions) {
@@ -790,6 +808,7 @@ module.exports = $.extend({}, base, {
                                 $('.egift-video-label').removeClass('d-none');
                                 $('#progress').empty();
                             }
+                            $button.prop('disabled', false );
                             $.spinner().stop();
                             base.miniCartReportingUrl(data.reportingURL);
                             if ($('#quickViewModal')) {
@@ -830,12 +849,12 @@ module.exports = $.extend({}, base, {
             $.ajax({
                 type: 'GET',
                 url: removeGiftPliUrl,
-                success: function (data) {
+                success: function () {
                     $.ajax({
                         type: 'POST',
                         url: addToCartUrl,
                         data: form,
-                        success: function () {
+                        success: function (data) {
                             handlePostCartAdd(data);
                             $('body').trigger('product:afterAddToCart', data);
                             $.spinner().stop();

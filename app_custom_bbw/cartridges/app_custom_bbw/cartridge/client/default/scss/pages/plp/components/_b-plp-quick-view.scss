@@ -171,7 +171,7 @@
                     font-size: 0.875rem;
                     line-height: 1rem;
                     color: colour(gray, 4);
-                    margin-top: 0.3125rem;
+                    display: table;
                     text-decoration: underline;
                     content: "Details";
                 }
@@ -563,17 +563,34 @@
     color: colour(black, 1);
     padding: 1.5rem 0.5rem 1.5rem 0;
     overflow-y: initial;
-    left: 5% !important;
     border-radius: 0;
+    left: 5.5% !important;
+    width: 260px;
+    max-height: 197px;
 
     @include media-btw(sm, md) {
         left: 12% !important;
     }
 
     .popover-body {
-        overflow-y: scroll;
-        max-height: 6.25rem;
-        padding: 0 1rem;
+        max-height: 147px;
+        overflow-y: auto;
+        padding: 0 16px 0 24px;
+
+        &:focus {
+            outline: 1px dotted colour(black);
+            outline-offset: 2px;
+        }
+
+        .popover-content {
+            color: colour(black, 1);
+            font-size: 14px;
+            height: auto;
+            letter-spacing: 0.015em;
+            line-height: 20px;
+            max-height: 300px;
+            font-family: $ff-base;
+        }
     }
 
     .popover-header {
@@ -596,4 +613,57 @@
 
 .open-notify {
     overflow: hidden;
+}
+
+.recommendations {
+    border: 0 none;
+    width: 100%;
+    max-width: 1200px;
+    float: none;
+    margin: 0 auto;
+    padding: 0 0 20px 25px;
+
+    .picked-just-header-wrapper {
+        .picked-just-header-wrapper__title {
+            padding: 12px 0 0;
+            margin-top: 2em;
+            border-top: 1px solid colour(black, 3);
+        }
+    }
+
+    .picked-just-recomm.ds-smooth-scroll {
+        &::-webkit-scrollbar {
+            margin-top: 20px;
+            height: 8px;
+            display: inline;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 8px;
+            background-color: colour(gray, 5);
+        }
+
+        &::-webkit-scrollbar-track {
+            border-radius: 8px;
+            margin-right: 16px;
+        }
+
+        &::-webkit-scrollbar-track-piece {
+            border-radius: 8px;
+        }
+
+        .b-product-tile .price {
+            margin: 0;
+        }
+    }
+
+    @include media-down(sm) {
+        max-width: none;
+        padding: 0 16px 48px;
+        clear: left;
+
+        .picked-just-recomm.ds-smooth-scroll::-webkit-scrollbar {
+            display: none;
+        }
+    }
 }

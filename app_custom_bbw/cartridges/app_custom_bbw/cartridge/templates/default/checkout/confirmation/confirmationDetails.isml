@@ -7,7 +7,7 @@
         <p  class="mb-0">
             <span class="summary-section-label  order-date-label">${Resource.msg('label.order.date', 'confirmation', null)}</span>
             <span class="summary-details order-date h-clr--black h-fw--semibold">
-                <isprint value="${pdict.order.creationDate}" style="DATE_SHORT" /></span>
+                <isprint value="${pdict.order.creationDate}" formatter="dd/MM/yy hh:mm a" /></span>
         </p>
         <p  class="mb-0">
             <span class="summary-section-label  order-date-label">${Resource.msg('label.total', 'confirmation', null)}</span>
@@ -33,8 +33,8 @@
         <p class="mb-0">${Resource.msg('message.order.failed', 'order', null)} <p>
     </div>
 <iselse>
-    <div class="purhase-message">
-        <p class="h-clr--black-3 mb-0">${Resource.msg('purchase.label.message', 'confirmation', null)} <p>
+    <div class="notification-toast confirmation-msg">
+        ${Resource.msg('purchase.label.message', 'confirmation', null)}
     </div>
 </isif>
 <h2 class="h-font-size--30 h-fw--normal h-clr--black-3 card-header-confirmation text-left text-uppercase">

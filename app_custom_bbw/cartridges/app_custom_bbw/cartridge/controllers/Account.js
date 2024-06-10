@@ -114,6 +114,7 @@ server.prepend('Login', function (req, res, next) {
     }
     if (accountHelpers.handleMigratedCustomers(req.form.loginEmail)) {
         res.json({
+            isMigratedNotUpdated: true,
             error: [
                 Resource.msg(
                     'reset.password.message.migrated.user',
@@ -423,7 +424,7 @@ server.replace(
 
                     var emailObj = {
                         to: email,
-                        subject: Resource.msg('subject.profile.resetpassword.email', 'login', null),
+                        subject: Resource.msg('subject.password.changed.email', 'login', null),
                         from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
                         type: emailHelpers.emailTypes.passwordReset
                     };
@@ -956,7 +957,7 @@ server.replace('SaveNewPassword', server.middleware.https, function (req, res, n
 
                 var emailObj = {
                     to: email,
-                    subject: Resource.msg('subject.profile.resetpassword.email', 'login', null),
+                    subject: Resource.msg('subject.password.changed.email', 'login', null),
                     from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
                     type: emailHelpers.emailTypes.passwordReset
                 };

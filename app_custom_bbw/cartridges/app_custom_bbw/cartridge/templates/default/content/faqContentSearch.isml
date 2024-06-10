@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="${URLUtils.staticURL('/css/pages/faq/pageFAQ.css')}" />
+<script src="${URLUtils.staticURL('/js/faqContent.js')}"></script>
 
 <isif condition="${pdict.contentSearch.contents.length > 0}">
-    <div class="faq-search-card card">
+    <div class="faq-search-card card" id="faq-search-result">
         <div class="card-header clearfix">
             ${Resource.msg('faq.search.suggestion.title', 'faq', null)}
         </div>

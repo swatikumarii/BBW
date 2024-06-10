@@ -220,10 +220,12 @@ function createProductLineItemsObject(allLineItems, view) {
         if (!('fragranceName' in newLineItem)){
             newLineItem.fragranceName = 'fragranceName' in product && product.fragranceName !== '' ? product.fragranceName : false;
         }
-        if (!empty(apiProduct) && 'custom' in apiProduct && 'isEgiftCard' in apiProduct.custom && apiProduct.custom.isEgiftCard && !('isEgiftCard' in newLineItem)) {
-            newLineItem.isEgiftCard = apiProduct.custom.isEgiftCard;
-        } else {
-            newLineItem.isEgiftCard = false;
+        if(!('isEgiftCard' in newLineItem)){
+            if (!empty(apiProduct) && 'custom' in apiProduct && 'isEgiftCard' in apiProduct.custom && apiProduct.custom.isEgiftCard) {
+                newLineItem.isEgiftCard = apiProduct.custom.isEgiftCard;
+            } else {
+                newLineItem.isEgiftCard = false;
+            }
         }
         newLineItem.enableNotifyMe = product.enableNotifyMe;
     });

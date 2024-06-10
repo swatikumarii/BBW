@@ -105,8 +105,19 @@ function login() {
             success: function (data) {
                 form.spinner().stop();
                 if (!data.success) {
-                    formValidation(form, data);
-                    form.trigger('login:error', data);
+                    if (data.isMigratedNotUpdated) {
+                        if (form.hasClass('login')) {
+                            $('#loginModal').modal('show');
+                        }
+                        $('.migration-login-message').removeClass('d-none');
+                        $('.login-form-div').addClass('d-none');
+                        $('.login-modal-body .privacy-block').addClass(
+                            'd-none'
+                        );
+                    } else {
+                        formValidation(form, data);
+                        form.trigger('login:error', data);
+                    }
                 } else {
                     form.trigger('login:success', data);
                     if (data.isIncomplete) {
@@ -123,9 +134,20 @@ function login() {
                         if ($('.loginPopup input[name="wishlist-pid"]').val()) {
                             localStorage.setItem('addToWishList', true);
                         }
-                        // window.location.href = data.redirectUrl;
-                        // window.location.reload();
-                        if (data.redirectUrl.indexOf('Page-Show') !== -1) {
+                        var isForgotUrl = false;
+                        $('.forgot-password-url').each(function () {
+                            if(
+                                window.location.href.substring(
+                                    window.location.href.length -
+                                        $(this).val().length
+                                ) === $(this).val()
+                            ) {
+                                isForgotUrl = true;
+                            }
+                        });
+                        if (isForgotUrl) {
+                            window.location.href = $('.home-show-url').val();
+                        } else if (data.redirectUrl.indexOf('Page-Show') !== -1) {
                             window.location.reload();
                         } else {
                             window.location.href = data.redirectUrl;
@@ -143,6 +165,13 @@ function login() {
             }
         });
     });
+
+    $('#loginModal').on('hidden.bs.modal', function () {
+        $('.migration-login-message').addClass('d-none');
+        $('.login-form-div').removeClass('d-none');
+        $('.login-modal-body .privacy-block').removeClass('d-none');
+    });
+
 };
 
 /**
@@ -235,27 +264,40 @@ function validateEmailField(emailInput) {
  * @returns {boolean} valid or not
  */
 function validatePasswordFieldWithValidation(passwordInput) {
-    if (!validateRequiredField(passwordInput)) return false;
-
-    // Remove existing success messages and ticks
-    passwordInput.closest('.form-group').find('.text-success').remove();
-    passwordInput.closest('.form-group').find('.far').remove();
-
-    // Check for each requirement and display a green tick with success message
     var rules = [
         { name: 'rule8to50char', pattern: /^.{8,50}$/ },
         { name: 'rule1lowercase', pattern: /[a-z]/ },
         { name: 'rule1uppercase', pattern: /[A-Z]/ },
         { name: 'rule1number', pattern: /\d/ },
-        { name: 'ruleNoSpaces', pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,50}$/ },
+        { name: 'ruleNoSpaces', pattern: /^\S*$/ },
         { name: 'ruleSpecialChar', pattern: /[@$!%*?&]/ }
     ];
 
+    validateRequiredField(passwordInput);
+
+    if (passwordInput.val().length === 0) {
+        rules.forEach(function (rule) {
+            if (rule.name !== 'ruleNoSpaces') {
+                $('#' + rule.name)
+                    .removeClass('success')
+                    .addClass('error');
+            }
+        });
+        return false;
+    }
+    // Remove existing success messages and ticks
+    passwordInput.closest('.form-group').find('.text-success').remove();
+    passwordInput.closest('.form-group').find('.far').remove();
+
     rules.forEach(function (rule) {
         if (rule.pattern.test(passwordInput.val())) {
-            $('#' + rule.name).removeClass('error').addClass('success');
+            $('#' + rule.name)
+                .removeClass('error')
+                .addClass('success');
         } else {
-            $('#' + rule.name).removeClass('success').addClass('error');
+            $('#' + rule.name)
+                .removeClass('success')
+                .addClass('error');
         }
     });
 
@@ -287,6 +329,12 @@ $(document).ready(function () {
     });
     $(document.body).on('click', '.login-modal-hide', function () {
         togglePasswordVisibility($('#login-form-password'), $(this));
+    });
+    $(document.body).on('click', '.resetpassword-hide-show', function () {
+        togglePasswordVisibility($('#newPassword'), $(this));
+    });
+    $(document.body).on('click', '.password-hide-show', function () {
+        togglePasswordVisibility($('#newPasswordConfirm'), $(this));
     });
 });
 var validationFields = [
@@ -337,6 +385,16 @@ $('body').click(function (event) {
     // Check if the clicked element is not inside the #registration-form-password element
     if (!$(event.target).closest('#registration-form-password').length) {
         $('.required-pass').addClass('d-none');
+    }
+});
+
+$('.mobile-slide-cancel').click(function () {
+    $('#mobile-slide-search').val('');
+});
+
+$(document).on('submit', 'form#menu-search', function (e) {
+    if (!$('#mobile-slide-search').val() || $('#mobile-slide-search').val().length < 3) {
+        e.preventDefault();
     }
 });
 

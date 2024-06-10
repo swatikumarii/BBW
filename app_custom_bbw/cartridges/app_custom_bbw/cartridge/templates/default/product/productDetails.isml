@@ -8,11 +8,14 @@
         assets.addCss('/css/product/detail.css');
         assets.addCss('/css/afterpaystyle.css');
         assets.addCss('/css/notifyMe.css');
+        assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
+        assets.addJs('/js/pickedJustForYou.js');
     </isscript>
 
     <isset name="product" value="${pdict.product}" scope="page" />
     <isset name="isQuickView" value="${false}" scope="page" />
     <isset name="isProductSet" value="${pdict.product.productType === 'set'}" scope="page" />
+    <isset name="promotionDetails" value="" scope="page" />
     <isobject object="${product.raw}" view="detail">
         <div class="h-maxwidth--1400 product-detail product-wrapper pb-5 mx-auto" data-pid="${product.id}">
             <div class="row">
@@ -121,21 +124,30 @@
                                             <span class="callout-message">
                                                 <isprint value="${promotion.calloutMsg}" encoding="off"/>
                                             </span>
-                                            <isif condition="${!empty(promotion.details)}">
-                                                    <button type="button"
-                                                        class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
-                                                        data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
-                                                        title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a>
-                                                        <div class='popover-content pdp-pop-content ds-tooltip-content'>
-                                                            <isprint value=" ${promotion.details}" />
-                                                </div>
-                                                <div class='arrow-fill'></div>"
-                                                data-html="true" data-original-title="" aria-describedby="popover14574">
-                                                </button>
-                                            </isif>
                                         </div>
                                     </isif>
+                                    <isif condition="${!empty(promotion.details)}">
+                                        <isif condition="${loopstatus.first}">
+                                            <isset name="promotionDetails" value="${promotion.details}" scope="page" />
+                                        <iselse/>
+                                            <isset name="promotionDetails" value="${promotionDetails + ',<br>' + promotion.details}" scope="page" />
+                                        </isif>
+                                    </isif>
                                 </isloop>
+                                <isif condition="${!empty(promotionDetails)}">
+                                    <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
+                                        <button type="button"
+                                            class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
+                                            data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
+                                            title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a>
+                                                                                        <div class='popover-content pdp-pop-content ds-tooltip-content'>
+                                                                                            <isprint value=" ${promotionDetails}" />
+                                        </div>
+                                        <div class='arrow-fill'></div>"
+                                        data-html="true" data-original-title="" aria-describedby="popover14574">
+                                        </button>
+                                    </div>
+                                </isif>
                             </div>
 
                         <iscomment> Hiding Bopis Options for now </iscomment>
@@ -263,10 +275,10 @@
                     </div>
                 </div>
             </div>
-            <div class="recommendations">
+            <div class="recommendations w-100">
                 <isslot id="recently-viewed-product" description="Recently viewed product slot" context="global" context-object="${pdict.product.raw}" />
             </div>
-            <div class="recommendations">
+           <div class="recommendations">
                 <isslot id="more-youll-adore" description="More You’ll Adore" context="global" context-object="${pdict.product.raw}" />
             </div>
         </div>
