@@ -21,6 +21,7 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
     var ContentSuggestions = require('*/cartridge/models/search/suggestions/content');
     var ProductSuggestions = require('*/cartridge/models/search/suggestions/product');
     var SearchPhraseSuggestions = require('*/cartridge/models/search/suggestions/searchPhrase');
+    var StringUtils = require('dw/util/StringUtils');
     var categorySuggestions;
     var contentSuggestions;
     var productSuggestions;
@@ -28,6 +29,7 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
     var popularSuggestions;
     var brandSuggestions;
     var searchTerms = req.querystring.q;
+    searchTerms = StringUtils.encodeString(searchTerms,0);
     var suggestions;
     // TODO: Move minChars and maxSuggestions to Site Preferences when ready for refactoring
     var minChars = 3;
