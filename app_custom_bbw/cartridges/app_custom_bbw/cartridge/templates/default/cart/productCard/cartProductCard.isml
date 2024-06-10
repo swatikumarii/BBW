@@ -77,6 +77,10 @@
                     <isset name="cartPage" value="${true}" scope="page" />
                     <isinclude template="checkout/productCard/productCardProductPromotions" />
                 </div>
+                <iscomment> motivators </iscomment><div class="line-item-promo-motivator item-${lineItem.UUID} ${lineItem.isFreeItem ? 'd-none' : ''}">
+                    <isset name="cartPage" value="${true}" scope="page" />
+                    <isinclude template="checkout/productCard/productCardProductMotivators" />
+                </div>
                 <iscomment> wishlist </iscomment>
                 <isinclude template="wishlist/components/addToWishListButtonCart" sf-toolkit="on" />
             </div>

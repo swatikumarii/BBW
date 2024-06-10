@@ -4,9 +4,9 @@
             <div class="row align-items-center">
                 <div class="d-flex flex-column col-12 py-0">
                     <isif condition="${approachingDiscount.distanceFromConditionThreshold > 0}">
-                        <p class="h-font-size--13 h-clr--pink h-fw--bold m-0"> ${Resource.msgf('add.more.for.free.shipping', 'cart', null, dw.util.StringUtils.formatMoney(new dw.value.Money(approachingDiscount.distanceFromConditionThreshold, session.currency.getCurrencyCode())))}</p>
+                        <p class="h-font-size--16 h-clr--pink h-fw--semibold m-0 text-center"><isprint value="${Resource.msgf('add.more.for.free.shipping', 'cart', null, dw.util.StringUtils.formatMoney(new dw.value.Money(approachingDiscount.distanceFromConditionThreshold, session.currency.getCurrencyCode())))}" encoding="off" /></p>
                     <iselse/>
-                        <p class="h-font-size--13 h-clr--pink h-fw--bold m-0"> ${Resource.msg('congrats.free.shipping', 'cart', null)}</p>
+                        <p class="h-font-size--16 h-clr--pink h-fw--semibold m-0 text-center"> ${Resource.msg('congrats.free.shipping', 'cart', null)}</p>
                     </isif>
                     <div class="d-flex w-100 justify-content-around align-items-center progress-wrap">
                         <span class="pr-3 text-nowrap d-block">
