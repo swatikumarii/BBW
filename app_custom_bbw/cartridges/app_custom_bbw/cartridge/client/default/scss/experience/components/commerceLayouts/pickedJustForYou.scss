@@ -51,6 +51,14 @@
         }
     }
 
+    @include media-down(md) {
+        scrollbar-color: unset;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
     &__item {
         .product {
             .b-product-tile {
@@ -111,6 +119,10 @@
                     .slider-control {
                         display: none;
                     }
+                }
+
+                &__product-type {
+                    color: colour(gray, 4);
                 }
 
                 square-placement {

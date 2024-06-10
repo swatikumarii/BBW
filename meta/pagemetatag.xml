@@ -24,7 +24,7 @@
                 <rule xml:lang="x-default">Buy ${IF Product.custom.fragranceName THEN Product.custom.fragranceName ELSE Product.name} ${Product.custom.titlePartB} Online | ${Site.displayName}</rule>
             </page-meta-tag-rule>
             <page-meta-tag-rule rule-id="Page Keywords" meta-tag-id="keywords">
-                <rule xml:lang="x-default">${Product.name}, ${Category.displayName}</rule>
+                <rule xml:lang="x-default">${IF Product.custom.fragranceName THEN Product.custom.fragranceName ELSE Product.name} ${Product.custom.titlePartB}, ${Category.displayName}</rule>
             </page-meta-tag-rule>
             <page-meta-tag-rule rule-id="OG Url" meta-tag-id="og:url">
                 <rule xml:lang="x-default">${OriginalRequestURL}</rule>

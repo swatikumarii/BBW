@@ -345,6 +345,18 @@
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="SID">
+                <display-name xml:lang="x-default">SID</display-name>
+                <type>string</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -409,6 +421,10 @@
                 <display-name xml:lang="x-default">Dynamic Badge Attributes</display-name>
                 <attribute attribute-id="isDynamicBadgeEnabled"/>
                 <attribute attribute-id="dynamicBadge"/>
+            </attribute-group>
+            <attribute-group group-id="customAttributes">
+                <display-name xml:lang="x-default">Custom Attributes</display-name>
+                <attribute attribute-id="SID"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -595,6 +611,13 @@
             <attribute-definition attribute-id="chatScript">
                 <display-name xml:lang="x-default">Live Chat Script</display-name>
                 <description xml:lang="x-default">Copy the third party live chat script here</description>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="homePageSchema">
+                <display-name xml:lang="x-default">Home Page Schema</display-name>
+                <description xml:lang="x-default">Copy the home page schema here</description>
                 <type>html</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -1699,6 +1722,26 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <default-value>true</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="isSendgridEnable">
+                <display-name xml:lang="x-default">Is Sendgrid Enabled?</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="sendgridApiKey">
+                <display-name xml:lang="x-default">sendgrid Api Key</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
+            <attribute-definition attribute-id="sendgridFromEmail">
+                <display-name xml:lang="x-default">From Email For Sendgrid</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Dynamic Imaging Service">
@@ -1760,6 +1803,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="enableCountrySelectorPopup"/>
                 <attribute attribute-id="showTopOffers"/>
                 <attribute attribute-id="showMinicartPopup"/>
+                <attribute attribute-id="homePageSchema"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>
@@ -1854,6 +1898,12 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="showShippingExcludingTaxes"/>
                 <attribute attribute-id="showSalesTaxes"/>
                 <attribute attribute-id="showShippingHandlingTaxes"/>
+            </attribute-group>
+            <attribute-group group-id="sendgrid">
+                <display-name xml:lang="x-default">Sendgrid</display-name>
+                <attribute attribute-id="isSendgridEnable"/>
+                <attribute attribute-id="sendgridApiKey"/>
+                <attribute attribute-id="sendgridFromEmail"/>
             </attribute-group>
             <attribute-group group-id="Nationality">
                 <display-name xml:lang="x-default">Nationality</display-name>
@@ -3611,6 +3661,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="SID">
+                <display-name xml:lang="x-default">SID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="giftWrapAttributes">
@@ -3647,6 +3705,10 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="rtoQuantity"/>
                 <attribute attribute-id="receivedQuantity"/>
                 <attribute attribute-id="cancelQuantity"/>
+            </attribute-group>
+            <attribute-group group-id="customAttributes">
+                <display-name xml:lang="x-default">Custom Attributes</display-name>
+                <attribute attribute-id="SID"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

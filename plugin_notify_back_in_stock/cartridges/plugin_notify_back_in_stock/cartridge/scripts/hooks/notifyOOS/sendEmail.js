@@ -16,7 +16,7 @@ exports.sendMail = function (data) {
     var email = new Mail();
     var template = new Template('mail/backInStock');
     var contentHashMap = new HashMap();
-    var subject = Resource.msg('email.subject', 'backInStock', null);
+    var subject = Resource.msg('email.subject.backinstock', 'notifyMe', null);
     contentHashMap.put('product', product);
     contentHashMap.put('numberOfProducts', numberOfProducts);
     var content = template.render(contentHashMap).text;

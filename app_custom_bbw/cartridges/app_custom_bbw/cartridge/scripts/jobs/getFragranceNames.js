@@ -3,7 +3,6 @@
 var Site = require('dw/system/Site');
 var Logger = require('dw/system/Logger');
 var ProductMgr = require('dw/catalog/ProductMgr');
-var StringUtils = require('dw/util/StringUtils');
 
 /**
  * @param {Array} ingredientNamesArray ingredient name array
@@ -67,7 +66,6 @@ function getFragranceNames() {
         var allProducts = ProductMgr.queryAllSiteProductsSorted();
         var fragranceNamesArray = [];
         var ingredientNamesArray = [];
-        var allIngredients;
         var productIngredients;
         var allFragrances;
 
@@ -98,11 +96,10 @@ function getFragranceNames() {
 
                 // get ingredients from all products
                 if (product.custom.ingredients) {
-                    productIngredients = StringUtils.trim(product.custom.ingredients);
-                    allIngredients = productIngredients.split(',');
-                    for (var index = 0; index < allIngredients.length; index++) {
-                        if (!ingredientNamesArray.includes(allIngredients[index])) {
-                            ingredientNamesArray.push(allIngredients[index]);
+                    productIngredients = product.custom.ingredients;
+                    for (var index = 0; index < productIngredients.length; index++) {
+                        if (!ingredientNamesArray.includes( productIngredients[index])) {
+                            ingredientNamesArray.push(productIngredients[index]);
                         }
                     }
                 }

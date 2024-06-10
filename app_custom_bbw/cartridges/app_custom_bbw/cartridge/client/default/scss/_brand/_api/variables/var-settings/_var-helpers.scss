@@ -64,6 +64,20 @@ $cssHelpers: (
         step: 2,
         unit: $site-unit
     ),
+    ".h-line-height": (
+        props: (
+            "line-height"
+        ),
+        values: (
+            auto
+        ),
+        range: (
+            0,
+            30
+        ),
+        step: 1,
+        unit: $site-unit
+    ),
     ".h-disable-events": (
         props: (
             "pointer-events"

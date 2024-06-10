@@ -13,6 +13,7 @@ server.prepend('SubmitPayment', function (req, res, next) {
     var Transaction = require('dw/system/Transaction');
     var BasketMgr = require('dw/order/BasketMgr');
     var COHelpers = require('*/cartridge/scripts/checkout/checkoutHelpers');
+    var addressHelpers = require('*/cartridge/scripts/helpers/addressHelpers');
     var currentBasket = BasketMgr.getCurrentBasket();
     if (currentBasket) {
         var paymentForm = server.forms.getForm('billing');
@@ -27,6 +28,15 @@ server.prepend('SubmitPayment', function (req, res, next) {
                 currentBasket.setCustomerEmail(
                     paymentForm.contactInfoFields.email.value
                 );
+            });
+        }
+        if (req.currentCustomer.addressBook && paymentForm.saveAddress.value) {
+            // save all used shipping addresses to address book of the logged in customer
+            var allAddresses = addressHelpers.gatherShippingAddresses(currentBasket);
+            allAddresses.forEach(function (address) {
+                if (!addressHelpers.checkIfAddressStored(address, req.currentCustomer.addressBook.addresses)) {
+                    addressHelpers.saveAddress(address, req.currentCustomer, addressHelpers.generateAddressName(address), true);
+                }
             });
         }
     }

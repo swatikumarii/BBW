@@ -7,6 +7,7 @@ var Transaction = require('dw/system/Transaction');
 var d = new Date();
 var Logger = require('dw/system/Logger');
 var logger = Logger.getLogger('QwikcilverService');
+var sendgridPref = require('*/cartridge/scripts/service/sendgridPreference');
 
 /**
  * Get current Month
@@ -144,35 +145,38 @@ function saveGiftCardDetails(order, giftCard, status, GCNumber) {
  * @param  {object} context email data
  * @returns {object} email Object
  */
-// function prepareGiftCardEmailData(to, emailSubject, context) {
-//     var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
+function prepareGiftCardEmailData(to, emailSubject, context) {
+    var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
 
-//     return {
-//         personalizations: [
-//             {
-//                 to: [
-//                     {
-//                         email: to
-//                     }
-//                 ]
-//             }
-//         ],
-//         subject: emailSubject,
-//         content: [
-//             {
-//                 type: 'text/html',
-//                 value: renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToRecipient')
-//             }
-//         ],
-//         // eslint-disable-next-line camelcase
-//         tracking_settings: {
-//             'click_tracking': {
-//                 'enable': true,
-//                 'enable_text': false
-//             }
-//         }
-//     };
-// }
+    return {
+        personalizations: [
+            {
+                to: [
+                    {
+                        email: to
+                    }
+                ]
+            }
+        ],
+        from: {
+            email: sendgridPref.sendgridFromEmail
+        },
+        subject: emailSubject,
+        content: [
+            {
+                type: 'text/html',
+                value: renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToRecipient')
+            }
+        ],
+        // eslint-disable-next-line camelcase
+        tracking_settings: {
+            'click_tracking': {
+                'enable': true,
+                'enable_text': false
+            }
+        }
+    };
+}
 
 /**
  * Sends a confirmation to the current user
@@ -190,8 +194,7 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
     var Site = require('dw/system/Site');
     var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
     var ContentMgr = require('dw/content/ContentMgr');
-    // var sendgridApi = require('*/cartridge/scripts/service/sendgridApi');
-    // var sendgridPref = require('*/cartridge/scripts/service/sendgridPreference');
+    var sendgridApi = require('*/cartridge/scripts/service/sendgridApi');
     var currentLocale = Locale.getLocale(locale);
     var emailMarkup = '';
     var barcodeEmailMarkup = '';
@@ -239,23 +242,24 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
 
                 if (sendEmailNow && sentEmailRecipients.indexOf(giftLineItem.custom.eGiftReceiverEmail) < 0) {
                     // If sendgrid is enable then trigger the GC email from sendgrid else SF SMTP
-                    // if (sendgridPref.isSendgridEnable) {
-                    //     var emailRequest = prepareGiftCardEmailData(giftLineItem.custom.eGiftReceiverEmail, Resource.msg('subject.order.confirmation.email', 'giftcards', null), context);
-                    //     var receipientMail = sendgridApi.sendEmail(emailRequest);
-                    //     logger.info('recipientGiftEmail: GC email status of order id {0} is {1}',  orderModel.orderNumber, JSON.stringify(receipientMail));
-                    // } else {
-                    var recipientGiftEmail = new Mail();
-                    recipientGiftEmail.addTo(giftLineItem.custom.eGiftReceiverEmail);
-                    recipientGiftEmail.setSubject(Resource.msg('subject.order.confirmation.email', 'giftcards', null));
-                    recipientGiftEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
-                    recipientGiftEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToRecipient'), 'text/html', 'UTF-8');
-                    var receipientMail = recipientGiftEmail.send();
-                    logger.info('recipientGiftEmail: GC email status, message and code of order id {0} is {1} {2} {3}',  orderModel.orderNumber, receipientMail.status, receipientMail.message, receipientMail.code);
-                    // }
+                    var receipientMail;
+                    if (sendgridPref.isSendgridEnable) {
+                        var emailRequest = prepareGiftCardEmailData(giftLineItem.custom.eGiftReceiverEmail, Resource.msg('subject.order.egift.detail.email', 'giftcards', null), context);
+                        receipientMail = sendgridApi.sendEmail(emailRequest);
+                        logger.info('recipientGiftEmail: GC email status of order id {0} is {1}',  orderModel.orderNumber, JSON.stringify(receipientMail));
+                    } else {
+                        var recipientGiftEmail = new Mail();
+                        recipientGiftEmail.addTo(giftLineItem.custom.eGiftReceiverEmail);
+                        recipientGiftEmail.setSubject(Resource.msg('subject.order.egift.detail.email', 'giftcards', null));
+                        recipientGiftEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
+                        recipientGiftEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToRecipient'), 'text/html', 'UTF-8');
+                        receipientMail = recipientGiftEmail.send();
+                        logger.info('recipientGiftEmail: GC email status, message and code of order id {0} is {1} {2} {3}',  orderModel.orderNumber, receipientMail.status, receipientMail.message, receipientMail.code);
+                    }
                     if(Site.current.getCustomPreferenceValue('merchantEmailforGiftCard')){
                         var merchantGiftEmail = new Mail();
                         merchantGiftEmail.addTo(Site.current.getCustomPreferenceValue('merchantEmailforGiftCard'));
-                        merchantGiftEmail.setSubject(Resource.msg('subject.order.confirmation.email', 'giftcards', null));
+                        merchantGiftEmail.setSubject(Resource.msgf('subject.order.egift.detail.email', 'giftcards', null,orderModel.orderNumber));
                         merchantGiftEmail.setFrom(Site.current.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
                         merchantGiftEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToRecipient'), 'text/html', 'UTF-8');
                         logger.info('merchantGiftEmail: GC email status, message and code of order id {0} is {1} {2} {3}',  orderModel.orderNumber, merchantGiftEmail.status, merchantGiftEmail.message, merchantGiftEmail.code);
@@ -295,7 +299,7 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
     if (!sendPendingEmail && GCNumber === 0) {
         var confirmationEmail = new Mail();
         confirmationEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
-        confirmationEmail.setSubject(Resource.msg('subject.order.confirmation.email', 'order', null));
+        confirmationEmail.setSubject(Resource.msgf('subject.order.confirmation.email', 'giftcards', null,orderModel.orderNumber));
         confirmationEmail.addTo(order.customerEmail);
         confirmationEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToSender'), 'text/html', 'UTF-8');
         var confirmationEmailSend = confirmationEmail.send();

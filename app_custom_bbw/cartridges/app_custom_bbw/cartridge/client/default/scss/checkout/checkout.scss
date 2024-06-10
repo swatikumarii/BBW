@@ -70,12 +70,16 @@ footer {
     display: none;
 }
 
+.shipping-method-list {
+    padding-left: 15px;
+}
+
 .next-step-button {
     position: fixed;
     bottom: 0;
     z-index: 3;
     padding-right: 0;
-    padding-left: 0;
+    padding-left: 30px;
 
     button {
         min-width: 175px;
@@ -1038,4 +1042,28 @@ input[type="tel"],
             border: 2px solid colour(black, 1);
         }
     }
+}
+
+.payment-error {
+    background-color: colour(red, 11);
+    padding: 9px 20px 9px 38px;
+    margin: 5px 0;
+
+    &::before {
+        background-image: url("../../images/Alert-Error.svg");
+        height: 25px;
+        left: 26px;
+        position: absolute;
+        width: 25px;
+        background-repeat: no-repeat;
+        content: "";
+    }
+}
+
+.retry-payment-btn {
+    max-height: 38px;
+    min-height: 38px;
+    width: 194px;
+    margin-top: 24px;
+    text-transform: capitalize;
 }

@@ -13,6 +13,36 @@
     class="container-fluid ${!pdict.productSearch.isCategorySearch || pdict.productSearch.category.id === 's-fragrance' ? 'search-results' : ''}">
     <iscomment> Bread Crumb </iscomment>
     <isinclude template="search/components/searchBreadcrumb" />
+    <isif condition="${pdict.isIngredientSearch}">
+        <div class="fragrance-header-search">
+            <div class="fragrance-search search-wrapper">
+                <input type="hidden" class="form-control" name="shopByIngredientUrl" id="shopByIngredientUrl"
+                    data-href="${URLUtils.https('Search-ShowAjax', 'cgid', 'shop-by-ingredient')}"
+                    data-seo-href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-ingredient')}" />
+                <fieldset>
+                    <input type="text" id="ingredient-search" name="ingredient-search"
+                        data-href="${URLUtils.https('Search-ShowAjax', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', '')}"
+                        data-seo-href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', '')}"
+                        autocomplete="off" />
+
+                </fieldset>
+                <div id="search-ingredient-div" class="alphabet-group d-md-none">
+                    <isloop iterator="${pdict.ingredientsNames}" alias="ingredientsName" status="loopstate">
+                        <div id="search-ingredient" class="alphabet-group">
+                            <ul>
+                                <li class="level-2 text-justify mt-3 mb-3">
+                                    <a class="h-clr--black-3" href='#'
+                                        data-href="${URLUtils.https('Search-ShowAjax', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', ingredientsName)}"
+                                        data-seo-href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', ingredientsName)}"
+                                        data-ingredientname="${ingredientsName}">${ingredientsName}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </isloop>
+                </div>
+            </div>
+        </div>
+    </isif>
 
     <div class="row no-gutters">
         <div class="tab-content col-12">

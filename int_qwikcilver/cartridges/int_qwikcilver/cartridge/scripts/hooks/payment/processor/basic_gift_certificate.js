@@ -43,7 +43,7 @@ function Handle(paymentMethodName, basket, paymentInformation) {
 
                 if (paymentInformation.isCreditCard) {
                     // If the card wasn't a stored card we need to convert sfccCardType
-                    var sfccCardType = !paymentInformation.creditCardToken ? AdyenHelper.getSFCCCardType(paymentInformation.cardType) : paymentInformation.cardType;
+                    var sfccCardType = !paymentInformation.creditCardToken ? AdyenHelper.getSfccCardType(paymentInformation.cardType) : paymentInformation.cardType;
                     paymentInstrument.setCreditCardNumber(paymentInformation.cardNumber);
                     paymentInstrument.setCreditCardType(sfccCardType);
                     paymentInstrument.custom.adyenPaymentMethod = sfccCardType;

@@ -9,6 +9,7 @@ var addressAutocomplete = require('./checkout/addressAutocomplete');
 var paymentStage = new RegExp('[?&]stage=payment([^&]*)').exec(
     window.location.search
 );
+var addressData = require('./addressData');
 
 /**
  * validateFields
@@ -48,7 +49,7 @@ function checkFields(form) {
     requiredFields.each(function () {
         var isGftcardField = $(this).parents('.gift-card-apply').length > 0;
         var isPaymentField = $(this).parents('#paymentMethodsList').length > 0;
-        if (!$(this).val().trim() && !isGftcardField && !isPaymentField) {
+        if (!($(this).val() && $(this).val().trim()) && !isGftcardField && !isPaymentField) {
             allFilled = false;
         }
     });
@@ -181,6 +182,15 @@ $(document).ready(function () {
         .on('mouseenter', '.info-icon', function () {
             $('.info-icon-text').addClass('d-block');
         });
+    $.spinner().stop();
+
+    if ($('.shippingState').val()) {
+        $('.shippingState').trigger('change');
+    }
+    if ($('.shippingAddressCity').val()) {
+        $('.shippingAddressCity').trigger('change');
+    }
+
 });
 
 $('.info-icon-text .close').on('click', function () {
@@ -274,5 +284,86 @@ $('button.submit-payment').on('click', function () {
                 .closest('.paymentMethod')
                 .trigger('click');
         }
+    }
+});
+
+
+$('.shippingState').change(function () {
+    const selectedState = $(this).val();
+    const suburbDropdown = $('.shippingAddressCity');
+    suburbDropdown.empty(); // clear existing options
+
+    if (addressData[selectedState]) {
+        $.each(addressData[selectedState], function (suburb) {
+            suburbDropdown.append(
+                $('<option>', {
+                    value: suburb,
+                    text: suburb
+                })
+            );
+        });
+        suburbDropdown.trigger('change');
+    }
+});
+
+$('.shippingAddressCity').change(function () {
+    const selectedState = $('.shippingState').val();
+    const selectedSuburb = $(this).val();
+    const zipDropdown = $('.shippingZipCode');
+    zipDropdown.empty(); // clear existing options
+
+    if (
+        addressData[selectedState] &&
+        addressData[selectedState][selectedSuburb]
+    ) {
+        const zipCodes = addressData[selectedState][selectedSuburb];
+        zipCodes.forEach((zip) => {
+            zipDropdown.append(
+                $('<option>', {
+                    value: zip,
+                    text: zip
+                })
+            );
+        });
+    }
+});
+
+$('.billingState').change(function () {
+    const selectedState = $(this).val();
+    const suburbDropdown = $('.billingAddressCity');
+    suburbDropdown.empty(); // clear existing options
+
+    if (addressData[selectedState]) {
+        $.each(addressData[selectedState], function (suburb) {
+            suburbDropdown.append(
+                $('<option>', {
+                    value: suburb,
+                    text: suburb
+                })
+            );
+        });
+        suburbDropdown.trigger('change');
+    }
+});
+
+$('.billingAddressCity').change(function () {
+    const selectedState = $('.billingState').val();
+    const selectedSuburb = $(this).val();
+    const zipDropdown = $('.billingZipCode');
+    zipDropdown.empty(); // clear existing options
+
+    if (
+        addressData[selectedState] &&
+        addressData[selectedState][selectedSuburb]
+    ) {
+        const zipCodes = addressData[selectedState][selectedSuburb];
+        zipCodes.forEach((zip) => {
+            zipDropdown.append(
+                $('<option>', {
+                    value: zip,
+                    text: zip
+                })
+            );
+        });
     }
 });

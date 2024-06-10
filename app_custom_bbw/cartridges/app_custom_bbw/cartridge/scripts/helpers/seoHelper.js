@@ -109,6 +109,82 @@ function renderHreflang(pdict) {
     }
 }
 
+/**
+ * Returns custom Open Graph Meta Tags (such as image)
+ * @param {dw.system.PipelineDictionary} pdict - Pipeline Dictionary
+ * @returns {object} Open Graph Meta Tags
+ */
+function getOpenGraphMetaTags(pdict) {
+    var URLUtils = require('dw/web/URLUtils');
+    var pageMetaTags = pdict.CurrentPageMetaData.pageMetaTags || [];
+    var ogMetaTags = [
+        { ID: 'og:type', content: 'website' },
+        { ID: 'og:title', content: pdict.CurrentPageMetaData.title },
+        { ID: 'og:locale', content: request.getLocale() },
+        { ID: 'twitter:card', content: 'summary_large_image' }
+    ];
+    if (!empty(pdict.CurrentPageMetaData.description)) {
+        ogMetaTags.push({
+            ID: 'og:description',
+            content: pdict.CurrentPageMetaData.description
+        });
+    }
+    if (
+        pdict.product &&
+        pdict.product.images &&
+        pdict.product.images.mediumLarge &&
+        pdict.product.images.mediumLarge[0]
+    ) {
+        ogMetaTags.push({
+            ID: 'image',
+            content: pdict.product.images.mediumLarge[0].absURL
+        });
+        ogMetaTags.push({
+            ID: 'og:image',
+            content: pdict.product.images.mediumLarge[0].absURL
+        });
+    } else if (
+        pdict.apiProductSearch &&
+        pdict.apiProductSearch.category &&
+        pdict.apiProductSearch.category.thumbnail &&
+        pdict.apiProductSearch.category.thumbnail.absURL
+    ) {
+        ogMetaTags.push({
+            ID: 'og:image',
+            content: pdict.apiProductSearch.category.thumbnail.absURL
+        });
+    } else {
+        ogMetaTags.push({
+            ID: 'og:image',
+            content: URLUtils.staticURL('/images/bbw-logo.png')
+        });
+    }
+    if (pdict.canonicalUrl) {
+        ogMetaTags.push({ ID: 'og:url', content: pdict.canonicalUrl });
+    }
+    return ogMetaTags.filter(function (ogMeta) {
+        return !base.metaExists(ogMeta.ID, pageMetaTags);
+    });
+}
+
+/**
+ * Renders Open Graph Meta Tags
+ * @param {dw.system.PipelineDictionary} pdict - Pipeline Dictionary
+ * @returns {string} open graph content
+ */
+function renderOpenGraphMetaTags(pdict) {
+    var ogTags = getOpenGraphMetaTags(pdict);
+    var model = new HashMap();
+    model.put('ogTags', ogTags);
+    try {
+        return new Template('/seo/openGraphMetaTags').render(model).text;
+    } catch (e) {
+        Logger.error('Error while rendering template seo/openGraphMetaTags : ' + e.message);
+        return '';
+    }
+}
+
 base.renderHreflang = renderHreflang;
+base.renderOpenGraphMetaTags = renderOpenGraphMetaTags;
 
 module.exports = base;

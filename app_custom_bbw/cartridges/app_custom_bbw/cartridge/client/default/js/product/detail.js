@@ -285,6 +285,24 @@ module.exports = $.extend({}, detail, {
                 }
             });
         });
+    },
+    notifyMeCheck: function () {
+        $(document).ready(function () {
+            var pId = $('.product-detail').data('pid');
+            if (
+                sessionStorage.getItem('notifyMeRegisteredProducts') &&
+                    sessionStorage
+                        .getItem('notifyMeRegisteredProducts')
+                        .includes(pId)
+            ) {
+                $('body')
+                    .find('.notifyBackInStockButton')
+                    .text($('body').find('#notify-list-msg').val());
+                $('body')
+                    .find('.notifyBackInStockButton')
+                    .attr('disabled', 'disabled');
+            }
+        });
     }
 });
 

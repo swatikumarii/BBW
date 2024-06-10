@@ -145,6 +145,12 @@
         <password masked="true">********</password>
     </service-credential>
 
+    <service-credential service-credential-id="sendgrid_http_credential">
+        <url>https://api.sendgrid.com/v3</url>
+        <user-id/>
+        <password masked="true">********</password>
+    </service-credential>
+
     <service-profile service-profile-id="Adyen">
         <timeout-millis>30000</timeout-millis>
         <cb-enabled>false</cb-enabled>
@@ -172,6 +178,16 @@
         <cb-enabled>true</cb-enabled>
         <cb-calls>10</cb-calls>
         <cb-millis>15000</cb-millis>
+    </service-profile>
+
+    <service-profile service-profile-id="sendgrid_http_profile">
+        <timeout-millis>1000</timeout-millis>
+        <rate-limit-enabled>true</rate-limit-enabled>
+        <rate-limit-calls>1000</rate-limit-calls>
+        <rate-limit-millis>10000</rate-limit-millis>
+        <cb-enabled>true</cb-enabled>
+        <cb-calls>10</cb-calls>
+        <cb-millis>10000</cb-millis>
     </service-profile>
 
     <service service-id="qwikcilver_http_service">
@@ -346,5 +362,16 @@
         <mock-mode-enabled>false</mock-mode-enabled>
         <profile-id>afterpay.profile</profile-id>
         <credential-id>clearpay.credentials.GB.v2</credential-id>
+    </service>
+
+    <service service-id="sendgrid_http_service">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix>sendgrid</log-prefix>
+        <comm-log-enabled>true</comm-log-enabled>
+        <force-prd-enabled>true</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>sendgrid_http_profile</profile-id>
+        <credential-id>sendgrid_http_credential</credential-id>
     </service>
 </services>

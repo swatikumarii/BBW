@@ -20,6 +20,26 @@ function addToNotifyList(data, pId) {
         dataType: 'json',
         data: data,
         success: function (response) {
+            var notifySnackbar = $('#notify-snackbar');
+            notifySnackbar.addClass('show');
+            setTimeout(function () {
+                notifySnackbar.removeClass('show');
+            }, 3000);
+
+            if (sessionStorage.getItem('notifyMeRegisteredProducts')) {
+                var notifyMeRegisteredProducts = sessionStorage.getItem(
+                    'notifyMeRegisteredProducts'
+                );
+                notifyMeRegisteredProducts =
+                    notifyMeRegisteredProducts + ',' + pId;
+                sessionStorage.setItem(
+                    'notifyMeRegisteredProducts',
+                    notifyMeRegisteredProducts
+                );
+            } else {
+                sessionStorage.setItem('notifyMeRegisteredProducts', pId);
+            }
+
             $('#submitNotifyMeButton').spinner().stop();
             $(mainClass)
                 .find('.notifyBackInStockButton')
