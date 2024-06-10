@@ -182,13 +182,14 @@ $(document).ready(function () {
         .on('mouseenter', '.info-icon', function () {
             $('.info-icon-text').addClass('d-block');
         });
-        
+    $.spinner().stop();
+
     if ($('.shippingState').val()) {
         $('.shippingState').trigger('change');
-    } 
+    }
     if ($('.shippingAddressCity').val()) {
         $('.shippingAddressCity').trigger('change');
-    } 
+    }
 
 });
 

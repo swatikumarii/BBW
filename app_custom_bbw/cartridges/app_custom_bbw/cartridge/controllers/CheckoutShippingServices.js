@@ -29,6 +29,7 @@ server.replace(
         var COHelpers = require('*/cartridge/scripts/checkout/checkoutHelpers');
         var ShippingMgr = require('dw/order/ShippingMgr');
         var validationHelpers = require('*/cartridge/scripts/helpers/basketValidationHelpers');
+        var addressHelpers = require('*/cartridge/scripts/helpers/addressHelpers');
 
         var currentBasket = BasketMgr.getCurrentBasket();
         if (!currentBasket) {
@@ -101,6 +102,7 @@ server.replace(
             }
 
             result.shippingBillingSame = form.shippingAddress.shippingAddressUseAsBillingAddress.value;
+            result.saveAddress = form.shippingAddress.saveAddress.value;
 
             result.shippingMethod = form.shippingAddress.shippingMethodID.value
                 ? form.shippingAddress.shippingMethodID.value.toString()
@@ -119,6 +121,16 @@ server.replace(
                     shippingData,
                     currentBasket.defaultShipment
                 );
+
+                if (req.currentCustomer.addressBook && shippingData.saveAddress) {
+                    // save all used shipping addresses to address book of the logged in customer
+                    var allAddresses = addressHelpers.gatherShippingAddresses(currentBasket);
+                    allAddresses.forEach(function (address) {
+                        if (!addressHelpers.checkIfAddressStored(address, req.currentCustomer.addressBook.addresses)) {
+                            addressHelpers.saveAddress(address, req.currentCustomer, addressHelpers.generateAddressName(address), true);
+                        }
+                    });
+                }
 
                 if (
                     req.currentCustomer.addressBook &&

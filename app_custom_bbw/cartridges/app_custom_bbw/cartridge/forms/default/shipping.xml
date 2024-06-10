@@ -16,7 +16,7 @@
 
         <!-- optional flags -->
         <field formid="shippingAddressUseAsBillingAddress" label="checkout.shippingAddressUseAsBillingAddress" type="boolean" mandatory="false" />
-
+        <field formid="saveAddress" label="checkout.saveAddress" type="boolean" mandatory="false" />
         <field formid="isGift" label="check.gift" type="boolean" checked="false" default-value="false" binding="isGift" mandatory="false" />
         <field formid="giftMessage" label="label.input.giftmessage" type="string" binding="giftMessage" max-length="250" mandatory="false" />
 

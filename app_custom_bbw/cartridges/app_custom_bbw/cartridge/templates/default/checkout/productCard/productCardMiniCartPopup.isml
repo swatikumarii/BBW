@@ -69,9 +69,11 @@
                 <iscomment> Variation Attributes </iscomment>
                 <div class="item-attributes">
                     <isloop items="${lineItem.variationAttributes}" var="attribute" status="loopstate">
-                        <p
-                            class="line-item-attributes ${lineItem.variationAttributes.length > 0 && loopstate.index !== lineItem.variationAttributes.length - 1 ? 'mb-0' : ''}">
-                            ${attribute.displayName}: ${attribute.displayValue}</p>
+                        <isif condition="${attribute.displayName !== 'amount'}">
+                            <p
+                                class="line-item-attributes ${lineItem.variationAttributes.length > 0 && loopstate.index !== lineItem.variationAttributes.length - 1 ? 'mb-0' : ''}">
+                                ${attribute.displayName}: ${attribute.displayValue}</p>
+                        </isif>
                     </isloop>
                     <iscomment> Options </iscomment>
                     <div class="item-options">
@@ -82,12 +84,15 @@
                 </div>
                 <isif condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
                     <div class="giftcard-details">
-                        <span class="d-block giftcard-receipient-name">${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails
-                                                                       .recipientName : ''}</span>
-                        <span class="d-block giftcard-receipient-email">${lineItem.giftCardDetails.recipientEmail && lineItem.giftCardDetails.recipientEmail !== null ? lineItem.giftCardDetails
-                                                                        .recipientEmail : ''}</span>
-                        <span class="d-block giftcard-message">${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails
-                                                               .eGiftMessage : ''}</span>
+                        <span class="d-block h-font-size--12 h-clr--green-1 pb-1">${Resource.msg('gift.card.delivered.by.email.text', 'cart', null)}</span>
+                        <span class="d-block h-font-size--12 giftcard-receipient-name pb-1">${Resource.msg('label.input.recipientsname', 'forms', null)}${': '} ${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails
+                                                                                                                                                                .recipientName : ''}${','} ${lineItem.giftCardDetails.recipientEmail && lineItem.giftCardDetails.recipientEmail !== null ? lineItem.giftCardDetails
+                                                                                                                                                                                           .recipientEmail : ''}</span>
+                        <span class="d-block h-font-size--12 giftcard-receipient-email pb-1">${Resource.msg('label.input.sendername', 'forms', null)}${': '} ${lineItem.giftCardDetails.senderName && lineItem.giftCardDetails.senderName !== null ? lineItem.giftCardDetails
+                                                                                                                                                             .senderName : ''}</span>
+                        <span class="h-font-size--12 giftcard-message mb-2">${Resource.msg('label.egift.message', 'forms', null)}${': '}
+                            ${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails
+                            .eGiftMessage : ''}</span>
                     </div>
                 </isif>
                 <iscomment> Quantity </iscomment>
