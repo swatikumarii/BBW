@@ -181,6 +181,7 @@ $(document).ready(function () {
         .on('mouseenter', '.info-icon', function () {
             $('.info-icon-text').addClass('d-block');
         });
+    $.spinner().stop();
 });
 
 $('.info-icon-text .close').on('click', function () {

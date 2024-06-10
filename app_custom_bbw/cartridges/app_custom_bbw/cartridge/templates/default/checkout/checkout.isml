@@ -13,12 +13,17 @@
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
         <isinclude template="reporting/reportingUrls" />
     </isif>
-
+    <div class="loader">
+        <div class="h-visually-hidden" role="alert">Just a second, items loading</div>
+        <div class="spinner" style="position:fixed"></div>
+    </div>
     <div id="checkout-main"
         class="container data-checkout-stage ${pdict.order.usingMultiShipping && pdict.order.shipping.length > 1 ? 'multi-ship' : ''}"
         data-customer-type="${pdict.customer.registeredUser ? 'registered' : 'guest'}"
         data-checkout-stage="${pdict.currentStage}" data-checkout-get-url="${URLUtils.https('CheckoutServices-Get')}">
         <div class="container">
+            <input type="hidden" name="billing-url" value="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
+            <input type="hidden" name="review-url" value="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
             <div class="checkout-steps d-flex justify-content-between">
                 <div class="step-1 d-flex align-items-center flex-column h-width-perc--100 step-connect shipping-step">
                     <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}">

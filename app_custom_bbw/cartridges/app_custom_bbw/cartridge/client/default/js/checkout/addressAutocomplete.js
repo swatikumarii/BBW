@@ -27,7 +27,11 @@ module.exports = {
                         addressObject.address1 = element.long_name + ' ';
                         break;
                     case 'route':
-                        addressObject.address1 += element.long_name;
+                        if(addressObject.address1) {
+                            addressObject.address1 += element.long_name;
+                        } else {
+                            addressObject.address1 = element.long_name;
+                        }
                         break;
                     case 'sublocality_level_1':
                         if ('address1' in addressObject) {
@@ -93,7 +97,11 @@ module.exports = {
                         addressObject.address1 = element.long_name + ' ';
                         break;
                     case 'route':
-                        addressObject.address1 += element.long_name;
+                        if(addressObject.address1) {
+                            addressObject.address1 += element.long_name;
+                        } else {
+                            addressObject.address1 = element.long_name;
+                        }
                         break;
                     case 'sublocality_level_1':
                         if ('address1' in addressObject) {
