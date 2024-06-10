@@ -11,7 +11,6 @@ var windowWidth = $(window).outerWidth();
 var lazyload = require('../utils/lazyLoad');
 var layout = require('../utils/layout');
 var helpers = require('../utils/helpers');
-var request = null;
 
 /**
  * Retrieves Suggestions element relative to scope
@@ -169,11 +168,7 @@ function processResponse(response) {
  * @param {object} scope - Search field DOM element
  */
 function getSuggestions(scope) {
-    $('.js-search-suggestions .suggestions__results').spinner().start();
-    if (request) {
-        request.abort();
-    }
-    request = $.ajax({
+    $.ajax({
         context: scope,
         url: endpoint + encodeURIComponent($(scope).val()),
         method: 'GET',
@@ -380,10 +375,10 @@ function handlePostCartAdd(response) {
         $('.add-to-basket-alert').remove();
         $('.add-to-cart-messages').append(
             '<div class="alert ' +
-            messageType +
-            ' add-to-basket-alert text-center" role="alert">' +
-            response.message +
-            '</div>'
+                messageType +
+                ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                response.message +
+                '</div>'
         );
         setTimeout(function () {
             $('.add-to-basket-alert').remove();

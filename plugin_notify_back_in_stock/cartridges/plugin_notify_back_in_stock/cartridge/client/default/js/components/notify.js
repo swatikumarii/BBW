@@ -20,13 +20,24 @@ function addToNotifyList(data, pId) {
         dataType: 'json',
         data: data,
         success: function (response) {
+            var notifySnackbar = $('#notify-snackbar');
+            notifySnackbar.addClass('show');
+            setTimeout(function () {
+                notifySnackbar.removeClass('show');
+            }, 3000);
+
             if (sessionStorage.getItem('notifyMeRegisteredProducts')) {
                 var notifyMeRegisteredProducts = sessionStorage.getItem(
                     'notifyMeRegisteredProducts'
                 );
-                notifyMeRegisteredProducts.push(pId);
+                notifyMeRegisteredProducts =
+                    notifyMeRegisteredProducts + ',' + pId;
+                sessionStorage.setItem(
+                    'notifyMeRegisteredProducts',
+                    notifyMeRegisteredProducts
+                );
             } else {
-                sessionStorage.setItem('key', [pId]);
+                sessionStorage.setItem('notifyMeRegisteredProducts', pId);
             }
 
             $('#submitNotifyMeButton').spinner().stop();
@@ -81,11 +92,11 @@ $(document).on('click', '.notifyBackInStockButton', function (e) {
             } else {
                 $('#requestUserEmailForOOSModal img.image').attr(
                     'src',
-                    $(mainClass).find('.notifyBackInStockButton').data('img')
+                    $(mainClass).find('.notifyBackInStockButton').data(window.devicePixelRatio >= 2 ? 'img2x' : 'img')
                 );
                 $('#requestUserEmailForOOSModal img.image').attr(
                     'data-src',
-                    $(mainClass).find('.notifyBackInStockButton').data('img')
+                    $(mainClass).find('.notifyBackInStockButton').data(window.devicePixelRatio >= 2 ? 'img2x' : 'img')
                 );
                 $('#requestUserEmailForOOSModal span.product-name').text(
                     $(mainClass).find('.notifyBackInStockButton').data('pname')

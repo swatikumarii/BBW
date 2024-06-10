@@ -60,6 +60,7 @@
         <pipeline-alias pipeline="PaymentInstruments-AddPayment">add-payment-method</pipeline-alias>
         <pipeline-alias pipeline="Wishlist-ShowOthers">wishlist-others</pipeline-alias>
         <pipeline-alias pipeline="Login-Logout">logout</pipeline-alias>
+        <pipeline-alias pipeline="Account-PasswordReset">reset-password</pipeline-alias>
     </pipeline-aliases>
     <pipeline-trailing-slash>false</pipeline-trailing-slash>
     <pipeline-perform-redirect>false</pipeline-perform-redirect>

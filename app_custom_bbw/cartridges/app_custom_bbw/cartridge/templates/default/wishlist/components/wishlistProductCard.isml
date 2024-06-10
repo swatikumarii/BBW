@@ -7,7 +7,7 @@
             <td class="item-image">
                 <a href="${URLUtils.url('Product-Show', 'pid', item.pid)}">
                     <div class="item-image">
-                        <img width="70px" height="70px" class="product-image" src="${item.imageObj.small[0].url}"
+                        <img width="70px" height="70px" class="product-image" src="${item.imageObj.small[0].url}" srcset="${item.imageObj.small[0].url} 1x, ${item.imageObj.small_2x[0].url} 2x"
                             alt="${item.imageObj.small[0].alt}" title="${item.imageObj.small[0].title}" />
                     </div>
                 </a>
