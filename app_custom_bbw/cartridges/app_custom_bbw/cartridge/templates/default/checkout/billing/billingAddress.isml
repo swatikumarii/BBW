@@ -168,3 +168,20 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <div class="custom-control custom-checkbox">
+                <input class="custom-control-input gift" type="checkbox"
+                    id="billingSaveAddress" checked
+                    <isprint value="${pdict.forms.billingForm.saveAddress.attributes}"
+                    encoding="off" />
+                >
+                <label for="billingSaveAddress"
+                    class="custom-control-label checkout-checkbox h-font-size--16 h-clr--black-1">
+                    ${Resource.msg('check.save.address', 'checkout', null)}
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

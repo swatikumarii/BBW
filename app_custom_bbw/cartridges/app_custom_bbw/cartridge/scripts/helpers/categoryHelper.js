@@ -39,15 +39,33 @@ function appendLevelOneCategory(req, res, next) {
 function appendCategoryBreadcrum(req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
     var Resource = require('dw/web/Resource');
+    var CatalogMgr = require('dw/catalog/CatalogMgr');
     var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
     var viewData = res.getViewData();
-    var breadcrumbs = productHelper.getAllBreadcrumbs(
-        req.querystring.cgid,
-        null,
-        []
-    );
-
-    if (viewData.productSearch && !viewData.productSearch.isCategorySearch && viewData.productSearch.searchKeywords) {
+    var breadcrumbs = [];
+    if (req.querystring.cgid === 's-fragrance') {
+        var category = CatalogMgr.getCategory(req.querystring.cgid);
+        if (category){
+            breadcrumbs = [
+                {
+                    htmlValue: req.querystring.preferences.fragranceName
+                        ? req.querystring.preferences.fragranceName
+                        : ''
+                },
+                {
+                    htmlValue: category.displayName,
+                    url: URLUtils.url('Search-Show', 'cgid', category.ID)
+                }
+            ];
+        }
+    }else{
+        breadcrumbs = productHelper.getAllBreadcrumbs(
+            req.querystring.cgid,
+            null,
+            []
+        );
+    }
+    if (!viewData.productSearch.isCategorySearch && viewData.productSearch.searchKeywords) {
         breadcrumbs.push({
             htmlValue: Resource.msgf('search.result.breadcrumb', 'search', null, viewData.productSearch.searchKeywords)
         });
