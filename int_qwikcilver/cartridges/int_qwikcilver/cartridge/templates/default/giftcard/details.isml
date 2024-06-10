@@ -95,28 +95,32 @@
                                 <label class="schedule-date-checkbox mb-0 pl-2 custom-control-label"
                                     for="delivery-check">
                                     <span>${Resource.msg('gift.card.same.day.delivery.msg', 'forms', null)}</span>
+                                    <small>${Resource.msg('gift.card.same.day.email.msg', 'forms', null)}</small>
                                 </label>
                             </span>
                             <div class="schedule-egift-date col-6">
-                                <div class="form-group">
+                                <div class="form-group mb-0">
                                     <label
                                         class="form-control-label h-font-size--16 h-clr--black-1 h-lh-20 h-fw--semibold h-ls-02">${Resource.msg('label.input.egift.day', 'forms', null)}</label>
                                     <div class="custom-select-wrap">
                                         <select class="form-control" id="schedule-days-list" <isprint
-                                            value="${pdict.recipientsForm.recipients.egiftday.attributes}" encoding="off" />>
+                                            value="${pdict.recipientsForm.recipients.egiftday.attributes}"
+                                            encoding="off" />>
                                         <isloop items=${pdict.days} var="day">
                                             <isif condition="${day >= new Date().getDate()}">
-                                                <option id="${day.toFixed(0)}" value="${day.toFixed(0)}" ${new Date().getDate() === day ? 'selected' : ''}>
+                                                <option id="${day.toFixed(0)}" value="${day.toFixed(0)}" ${new
+                                                                                                     Date().getDate() === day ? 'selected' : ''}>
                                                     ${day.toFixed(0)}
                                                 </option>
                                             </isif>
                                         </isloop>
                                         </select>
                                     </div>
+                                    <small class="h-clr--black-1 h-lh-20 h-fw--semibold h-ls-02 mt-2 d-block">${Resource.msg('gift.card.same.day.delivered.msg', 'forms', null)}</small>
                                 </div>
                             </div>
                             <div class="schedule-egift-months col-6">
-                                <div class="form-group">
+                                <div class="form-group mb-0">
                                     <label
                                         class="form-control-label h-font-size--16 h-clr--black-1 h-lh-20 h-fw--semibold h-ls-02">${Resource.msg('label.input.egift.month', 'forms', null)}</label>
                                     <div class="custom-select-wrap">
@@ -184,7 +188,7 @@
                         </isif>
                     </isloop>
                     <iscomment> <a href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}"
-                        class="h-font-size--16 h-clr--black-3 privacy-policy"><u>${Resource.msg('label.privacy.policy', 'giftcards', null)}</u></a> </iscomment>
+                            class="h-font-size--16 h-clr--black-3 privacy-policy"><u>${Resource.msg('label.privacy.policy', 'giftcards', null)}</u></a> </iscomment>
                     <isinclude template="product/components/addToCartProduct" />
                 </form>
                 <a href="${URLUtils.url('Page-Show', 'cid', 'gift-card-terms-and-conditions')}"
