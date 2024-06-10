@@ -68,7 +68,7 @@
                 <div class="review-product-summary">
                     <isinclude template="checkout/review/productSummary" />
                 </div>
-                <div class="h-maxwidth-perc-md--100">
+                <div class="h-maxwidth-perc-md--75">
 
 
                     <iscomment> Checkout Forms: Shipping, Payment, Coupons, Billing, etc </iscomment>
