@@ -615,6 +615,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="homePageSchema">
+                <display-name xml:lang="x-default">Home Page Schema</display-name>
+                <description xml:lang="x-default">Copy the home page schema here</description>
+                <type>html</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="reserveQty">
                 <display-name xml:lang="x-default">Product Reserve Quantity</display-name>
                 <description xml:lang="x-default">Site level Reserve Quantity for Products</description>
@@ -1776,6 +1783,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="enableCountrySelectorPopup"/>
                 <attribute attribute-id="showTopOffers"/>
                 <attribute attribute-id="showMinicartPopup"/>
+                <attribute attribute-id="homePageSchema"/>
             </attribute-group>
             <attribute-group group-id="Google Recaptcha">
                 <display-name xml:lang="x-default">Google Recaptcha</display-name>

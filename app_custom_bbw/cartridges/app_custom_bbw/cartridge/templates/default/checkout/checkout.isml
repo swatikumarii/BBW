@@ -68,7 +68,7 @@
                 <div class="review-product-summary">
                     <isinclude template="checkout/review/productSummary" />
                 </div>
-                <div class="h-maxwidth-perc-md--100">
+                <div class="h-maxwidth-perc-md--75">
 
 
                     <iscomment> Checkout Forms: Shipping, Payment, Coupons, Billing, etc </iscomment>
@@ -80,7 +80,7 @@
                         </div>
 
                         <div class="col-md-12 text-center">
-                            <a class="h-clr--white btn h-font-size--16 h-fw--semibold retry-payment-btn"
+                            <a class="h-clr--white btn h-font-size--14 h-fw--semibold retry-payment-btn"
                                 href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
                                 <span class="step-text h-font-size--16 d-block">
                                     ${Resource.msg('label.go.back.btn', 'checkout', null)}
