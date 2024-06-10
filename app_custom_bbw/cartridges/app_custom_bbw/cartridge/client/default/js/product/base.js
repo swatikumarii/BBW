@@ -455,7 +455,7 @@ function handleVariantResponse(response, $productContainer) {
     }
 
     // Update primary images
-    var primaryImageUrls = response.product.images.extraLarge;
+    var primaryImageUrls = window.devicePixelRatio >= 2 ? response.product.images.extraLarge_2x : response.product.images.extraLarge;
     createCarousel(primaryImageUrls, $productContainer);
     if (primaryImageUrls && primaryImageUrls.length > 0) {
         $('.gc-container .product-image').attr('src', primaryImageUrls[0].absURL);
