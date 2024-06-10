@@ -621,6 +621,7 @@ input[type="tel"],
 
 .add-giftcard-button {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .add-giftcard-section {
@@ -640,6 +641,7 @@ input[type="tel"],
 
         #egift-card-check-balance {
             text-decoration: underline;
+            cursor: pointer;
         }
     }
 }
@@ -896,19 +898,36 @@ input[type="tel"],
 .promo-details-tooltip {
     border: 1px solid;
     width: 260px;
-    display: block;
+    display: none;
     min-width: 260px;
     max-height: 400px;
     position: absolute;
-    left: 50%;
+    left: calc(100% + 15px);
     background: $clr-white;
     padding: 24px 0;
-    z-index: 9;
+    z-index: 1;
+
+    @include media-down(sm) {
+        left: -66px;
+        top: -70px;
+    }
+
+    &:hover {
+        display: block;
+
+        + .tooltip-arrow {
+            display: block;
+
+            + .tooltip-arrow::before {
+                display: block;
+            }
+        }
+    }
 
     .promo-details-content {
         padding: 0 24px 0 16px;
         max-height: 350px;
-        overflow-y: scroll;
+        overflow-y: auto;
     }
 
     .tooltip-arrow {
@@ -922,6 +941,13 @@ input[type="tel"],
         border-bottom: 10px solid transparent;
         border-right: 10px solid #000;
 
+        @include media-down(sm) {
+            // left: -66px;
+            right: 50%;
+            top: 73px;
+            transform: rotate(270deg);
+        }
+
         &::before {
             content: "";
             position: absolute;
@@ -930,7 +956,29 @@ input[type="tel"],
             border-top: 10px solid transparent;
             border-bottom: 10px solid transparent;
             border-right: 10px solid white;
+
+            @include media-down(sm) {
+                right: 50%;
+                left: 0;
+                border-bottom: 10px solid transparent;
+                border-right: 11px solid #fff;
+                border-top: 10px solid transparent;
+            }
         }
+    }
+
+    .close {
+        background-image: url("../../images/footer/cross.svg");
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: 0.8125rem;
+        cursor: pointer;
+        height: 13px;
+        opacity: 1;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        width: 13px;
     }
 }
 
@@ -994,4 +1042,28 @@ input[type="tel"],
             border: 2px solid colour(black, 1);
         }
     }
+}
+
+.payment-error {
+    background-color: colour(red, 11);
+    padding: 9px 20px 9px 38px;
+    margin: 5px 0;
+
+    &::before {
+        background-image: url("../../images/Alert-Error.svg");
+        height: 25px;
+        left: 26px;
+        position: absolute;
+        width: 25px;
+        background-repeat: no-repeat;
+        content: "";
+    }
+}
+
+.retry-payment-btn {
+    max-height: 38px;
+    min-height: 38px;
+    width: 194px;
+    margin-top: 24px;
+    text-transform: capitalize;
 }

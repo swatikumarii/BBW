@@ -244,13 +244,13 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
                     // If sendgrid is enable then trigger the GC email from sendgrid else SF SMTP
                     var receipientMail;
                     if (sendgridPref.isSendgridEnable) {
-                        var emailRequest = prepareGiftCardEmailData(giftLineItem.custom.eGiftReceiverEmail, Resource.msg('subject.order.confirmation.email', 'giftcards', null), context);
+                        var emailRequest = prepareGiftCardEmailData(giftLineItem.custom.eGiftReceiverEmail, Resource.msg('subject.order.egift.detail.email', 'giftcards', null), context);
                         receipientMail = sendgridApi.sendEmail(emailRequest);
                         logger.info('recipientGiftEmail: GC email status of order id {0} is {1}',  orderModel.orderNumber, JSON.stringify(receipientMail));
                     } else {
                         var recipientGiftEmail = new Mail();
                         recipientGiftEmail.addTo(giftLineItem.custom.eGiftReceiverEmail);
-                        recipientGiftEmail.setSubject(Resource.msg('subject.order.confirmation.email', 'giftcards', null));
+                        recipientGiftEmail.setSubject(Resource.msg('subject.order.egift.detail.email', 'giftcards', null));
                         recipientGiftEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
                         recipientGiftEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToRecipient'), 'text/html', 'UTF-8');
                         receipientMail = recipientGiftEmail.send();
@@ -259,7 +259,7 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
                     if(Site.current.getCustomPreferenceValue('merchantEmailforGiftCard')){
                         var merchantGiftEmail = new Mail();
                         merchantGiftEmail.addTo(Site.current.getCustomPreferenceValue('merchantEmailforGiftCard'));
-                        merchantGiftEmail.setSubject(Resource.msg('subject.order.confirmation.email', 'giftcards', null));
+                        merchantGiftEmail.setSubject(Resource.msgf('subject.order.egift.detail.email', 'giftcards', null,orderModel.orderNumber));
                         merchantGiftEmail.setFrom(Site.current.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
                         merchantGiftEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToRecipient'), 'text/html', 'UTF-8');
                         logger.info('merchantGiftEmail: GC email status, message and code of order id {0} is {1} {2} {3}',  orderModel.orderNumber, merchantGiftEmail.status, merchantGiftEmail.message, merchantGiftEmail.code);
@@ -299,7 +299,7 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
     if (!sendPendingEmail && GCNumber === 0) {
         var confirmationEmail = new Mail();
         confirmationEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
-        confirmationEmail.setSubject(Resource.msg('subject.order.confirmation.email', 'order', null));
+        confirmationEmail.setSubject(Resource.msgf('subject.order.confirmation.email', 'giftcards', null,orderModel.orderNumber));
         confirmationEmail.addTo(order.customerEmail);
         confirmationEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToSender'), 'text/html', 'UTF-8');
         var confirmationEmailSend = confirmationEmail.send();

@@ -413,6 +413,15 @@ module.exports = {
         $('.edit-billing-address').on('click', function () {
             $(this).parents('form').attr('data-address-mode', 'details');
             $(this).parents('.summary-details.billing').hide();
+            var billingAddrSummary = $(this).siblings('.address-summary');
+            var stateCode = billingAddrSummary.find('.stateCode').text();
+            var city = billingAddrSummary.find('.city').text();
+            var postalCode = billingAddrSummary.find('.postalCode').text();
+            $('.billingState').val(stateCode);
+            $('.billingState').trigger('change');
+            $('.billingAddressCity').val(city);
+            $('.billingAddressCity').trigger('change');
+            $('.billingZipCode').val(postalCode);
         });
     }
 };
