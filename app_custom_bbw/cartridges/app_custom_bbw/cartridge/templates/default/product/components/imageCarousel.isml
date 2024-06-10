@@ -16,7 +16,7 @@
         <div class="carousel-inner">
             <isloop items="${product.images['mediumLarge']}" var="image" status="loopStatus">
                 <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
-                    <img src="${image.url}" class="d-block img-fluid" alt="${image.alt} ${product.titlePartB}"
+                    <img src="${image.url}" srcset="${image.url} 1x, ${product.images['mediumLarge_2x'][loopStatus.index].url} 2x" class="d-block img-fluid" alt="${image.alt} ${product.titlePartB}"
                         itemprop="image" />
                 </div>
             </isloop>
@@ -39,7 +39,7 @@
                 <isloop items="${product.images['small']}" var="image" status="loopStatus">
                     <li data-target="${"#"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
                         class='<isif condition="${loopStatus.index == 0}">active</isif>'>
-                        <img src="${image.url}" class="img-fluid" alt="${image.alt} image number ${image.index}"
+                        <img src="${image.url} 1x, ${product.images['small_2x'][loopStatus.index].url} 2x" class="img-fluid" alt="${image.alt} image number ${image.index}"
                             itemprop="image" />
                     </li>
                 </isloop>
@@ -56,7 +56,7 @@
                         <isloop items="${product.images['extraLarge']}" var="image" status="loopStatus">
                             <div
                                 class='carousel-item d-flex justify-content-center mr-auto <isif condition="${loopStatus.index == 0}">active</isif>'>
-                                <img src="${image.url}" class="d-block img-fluid"
+                                <img src="${image.url} 1x, ${product.images['extraLarge_2x'][loopStatus.index].url} 2x" class="d-block img-fluid"
                                     alt="${image.alt} ${product.titlePartB}" itemprop="image" />
                             </div>
                         </isloop>

@@ -19,12 +19,12 @@ module.exports = function fullProduct(product, apiProduct, options) {
     decorators.isEgiftCard(product, apiProduct);
     if (options.variationModel) {
         decorators.images(product, options.variationModel, {
-            types: ['mediumLarge', 'extraLarge', 'small'],
+            types: ['mediumLarge', 'extraLarge', 'small', 'mediumLarge_2x', 'extraLarge_2x', 'small_2x'],
             quantity: 'all'
         });
     } else {
         decorators.images(product, apiProduct, {
-            types: ['mediumLarge', 'extraLarge', 'small'],
+            types: ['mediumLarge', 'extraLarge', 'small', 'mediumLarge_2x', 'extraLarge_2x', 'small_2x'],
             quantity: 'all'
         });
     }
