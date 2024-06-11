@@ -976,6 +976,40 @@ module.exports = function () {
         });
     });
 
+    // Event for apply promo code
+    $('body').on('click', '.dynamic-popup-apply-promo', function (e) {
+        e.preventDefault();
+        var action = $('.add-coupon-url').val();
+        var couponCode = $(this).data('coupon');
+        var csrfTokenFieldName = $('.popup-csrf-token').attr('name');
+        var csrfTokenValue = $('.popup-csrf-token').val();
+        var formData = 'couponCode='+couponCode+'&'+csrfTokenFieldName+'='+csrfTokenValue;
+        $.ajax({
+            url: action,
+            type: 'GET',
+            contentType: false,
+            data: formData,
+            processData: false,
+            success: function (data) {
+                if (data.error) {
+                    $('.dynamic-popup-promo-success').hide();
+                    $('.dynamic-popup-promo-error').text(data.errorMessage);
+                    $('.dynamic-popup-promo-error').show();
+                } else {
+                    updateCartTotals(data);
+                    $('.dynamic-popup-promo-error').hide();
+                    $('.dynamic-popup-promo-success').text(data.resources.couponApplied);
+                    $('.dynamic-popup-promo-success').show();
+                }
+            },
+            error: function () {
+                $('.dynamic-popup-promo-success').hide();
+                $('.dynamic-popup-promo-error').text($('.something-went-wrong').text());
+                $('.dynamic-popup-promo-error').show();
+            }
+        });
+    });
+
     base.selectAttribute();
     base.colorAttribute();
     base.removeBonusProduct();
