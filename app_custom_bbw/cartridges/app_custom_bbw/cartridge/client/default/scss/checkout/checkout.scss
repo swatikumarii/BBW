@@ -74,6 +74,18 @@ footer {
     padding-left: 15px;
 }
 
+.gift-redeem-card-success {
+    padding: 5px 15px 10px;
+    margin-left: 15px;
+    width: 85%;
+    box-shadow:
+        0 8px 10px 1px rgba(0, 0, 0, 14%),
+        0 3px 14px 2px rgba(0, 0, 0, 12%),
+        0 5px 5px -3px rgba(0, 0, 0, 2%);
+    background-color: colour(green, 6);
+    color: colour(green, 2);
+}
+
 .next-step-button {
     position: fixed;
     bottom: 0;
