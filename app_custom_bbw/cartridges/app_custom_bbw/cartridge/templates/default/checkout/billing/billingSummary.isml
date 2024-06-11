@@ -8,7 +8,7 @@
     <span class="summary-section-label billing-addr-label d-block mb-2 h-clr--black-1 h-fw--bold">${Resource.msg('label.order.billing.address', 'order', null)}</span>
      <isinclude template="checkout/addressSummary" />
     <isif condition="${pdict.order.billing.billingAddress.address !== null}">
-        <span class="order-summary-phone">${pdict.order.billing.billingAddress.address.phone}</span>
+        <span class="order-summary-phone h-font-size--16 h-clr--black-1">${pdict.order.billing.billingAddress.address.phone}</span>
         <iselse>
         <span class="order-summary-phone"></span>
     </isif>
