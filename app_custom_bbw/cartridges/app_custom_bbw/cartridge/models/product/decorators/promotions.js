@@ -123,7 +123,8 @@ module.exports = function (object, promotions) {
             var motivator = currentBasket ? checkMotivator(promotion) : false;
             var calloutMsg = promotion.calloutMsg ? promotion.calloutMsg.markup : '';
             return {
-                calloutMsg: motivator || calloutMsg,
+                calloutMsg: calloutMsg,
+                motivator: motivator,
                 details: promotion.details ? promotion.details.markup : '',
                 enabled: promotion.enabled,
                 id: promotion.ID,

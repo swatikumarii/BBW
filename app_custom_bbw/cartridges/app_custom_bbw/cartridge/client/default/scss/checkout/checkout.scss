@@ -70,12 +70,16 @@ footer {
     display: none;
 }
 
+.shipping-method-list {
+    padding-left: 15px;
+}
+
 .next-step-button {
     position: fixed;
     bottom: 0;
     z-index: 3;
     padding-right: 0;
-    padding-left: 0;
+    padding-left: 30px;
 
     button {
         min-width: 175px;
@@ -164,10 +168,8 @@ span.ship-to-city-st-zip {
 }
 
 .data-checkout-stage {
-
     // Initial states ------------------------
     &[data-checkout-stage] {
-
         .card.payment-summary,
         .shipping-summary {
             display: none;
@@ -210,7 +212,6 @@ span.ship-to-city-st-zip {
     }
 
     &[data-checkout-stage="submitted"] {
-
         .shipping-form,
         .card.payment-form,
         button.submit-customer,
@@ -236,7 +237,7 @@ span.ship-to-city-st-zip {
         display: none;
     }
 
-    h5>span {
+    h5 > span {
         font-size: 0.8em;
     }
 }
@@ -359,6 +360,7 @@ input[type="tel"],
     height: 48px;
     border-color: $clr-black-1;
     border-radius: 0;
+    background: none !important;
 }
 
 .custom-select-wrap {
@@ -716,10 +718,10 @@ input[type="tel"],
     &:hover {
         display: block;
 
-        +.info-icon-border-arrow-outline {
+        + .info-icon-border-arrow-outline {
             display: block;
 
-            +.info-icon-border-arrow {
+            + .info-icon-border-arrow {
                 display: block;
             }
         }
@@ -802,13 +804,13 @@ input[type="tel"],
             display: none;
         }
 
-        +.info-icon-text {
+        + .info-icon-text {
             display: block;
 
-            +.info-icon-border-arrow-outline {
+            + .info-icon-border-arrow-outline {
                 display: block;
 
-                +.info-icon-border-arrow {
+                + .info-icon-border-arrow {
                     display: block;
                 }
             }
@@ -914,10 +916,10 @@ input[type="tel"],
     &:hover {
         display: block;
 
-        +.tooltip-arrow {
+        + .tooltip-arrow {
             display: block;
 
-            +.tooltip-arrow::before {
+            + .tooltip-arrow::before {
                 display: block;
             }
         }
@@ -1045,7 +1047,7 @@ input[type="tel"],
 
 .payment-error {
     background-color: colour(red, 11);
-    padding: 9px 20px 9px 43px;
+    padding: 9px 20px 9px 38px;
     margin: 5px 0;
 
     &::before {

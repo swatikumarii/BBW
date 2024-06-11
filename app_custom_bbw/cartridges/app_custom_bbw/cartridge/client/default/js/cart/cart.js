@@ -116,6 +116,15 @@ function updateCartTotals(data) {
                 .empty()
                 .append(item.renderedPrice);
         }
+        var motivatorHTML = '';
+        item.promotions.forEach(function (promotion) {
+            if (promotion.motivator && promotion.motivator !== 'false') {
+                motivatorHTML += '<div class="h-font-size--14 h-fw--semibold">\n'+
+                promotion.motivator +'\n' +
+                '</div>\n';
+            }
+        });
+        $('.line-item-promo-motivator.item-' + item.UUID).empty().append(motivatorHTML);
         $('.item-total-' + item.UUID).empty().append(item.priceTotal.renderedPrice);
     });
 
@@ -423,14 +432,14 @@ module.exports = function () {
                 } else {
                     if (data.toBeDeletedUUIDs && data.toBeDeletedUUIDs.length > 0) {
                         for (var i = 0; i < data.toBeDeletedUUIDs.length; i++) {
-                            $('.uuid-' + data.toBeDeletedUUIDs[i]).remove();
+                            $('.uuid-' + data.toBeDeletedUUIDs[i]).parent('.card').remove();
                         }
                     }
-                    $('.uuid-' + uuid).remove();
+                    $('.uuid-' + uuid).parent('.card').remove();
                     if (data.removeProducts && data.removeProducts.length > 0) {
                         for (var j = 0; j < data.removeProducts.length; j++) {
                             if ($('.uuid-' + data.removeProducts[j])) {
-                                $('.uuid-' + data.removeProducts[j]).remove();
+                                $('.uuid-' + data.removeProducts[j]).parent('.card').remove();
                             }
                         }
                     }

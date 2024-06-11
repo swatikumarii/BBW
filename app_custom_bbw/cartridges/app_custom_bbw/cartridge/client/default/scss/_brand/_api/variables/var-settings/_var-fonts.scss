@@ -64,7 +64,7 @@ $fonts: (
                     "fontName": $ff-base,
                     "fontFolder": "SourceSansPro",
                     "fontFileName": "SourceSansPro-Regular",
-                    "ext": "woff2"
+                    "ext": "ttf"
                 ),
                 "weightValue": map-get($font-weight, normal),
                 "styleValue": normal
@@ -75,7 +75,7 @@ $fonts: (
                     "fontFolder": "SourceSansPro",
                     "fontFileName": "SourceSansPro-Bold",
                     "system": true,
-                    "ext": "woff2"
+                    "ext": "ttf"
                 ),
                 "weightValue": map-get($font-weight, bold),
                 "styleValue": normal
@@ -86,7 +86,7 @@ $fonts: (
                     "fontFolder": "SourceSansPro",
                     "fontFileName": "SourceSansPro-Semibold",
                     "system": true,
-                    "ext": "woff2"
+                    "ext": "ttf"
                 ),
                 "weightValue": map-get($font-weight, semibold),
                 "styleValue": normal
@@ -97,7 +97,7 @@ $fonts: (
                     "fontFolder": "SourceSansPro",
                     "fontFileName": "SourceSansPro-Light",
                     "system": true,
-                    "ext": "woff2"
+                    "ext": "ttf"
                 ),
                 "weightValue": map-get($font-weight, light),
                 "styleValue": normal

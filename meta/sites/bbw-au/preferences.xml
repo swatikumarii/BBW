@@ -107,6 +107,54 @@
             <preference preference-id="qwikcilverEGiftBarCodeUrl">https://vs-thailand-sfcc.herokuapp.com/generateBarCode/</preference>
             <preference preference-id="qwikcilverMaxRedemptionAmount">1000</preference>
             <preference preference-id="s3UploadLink">https://vs-thailand-sfcc.herokuapp.com</preference>
+            <preference preference-id="homePageSchema">&lt;script type="application/ld+json"&gt;
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "name": "Bath and Body Works Australia",
+                    "url": "https://www.bathandbodyworks.com.au/",
+                    "logo": "og-image.png?$staticlink$",
+                    "contactPoint": [
+                        {
+                            "@type": "ContactPoint",
+                            "telephone": "800-852-8058",
+                            "contactType": "customer service"
+                        }
+                    ],
+                    "sameAs": [
+                        "https://www.facebook.com/bbwasiaaustralia/",
+                        "https://www.instagram.com/bathandbodyworks.au/",
+                        "https://www.youtube.com/channel/UCi4-fFB4Odqjttdwomvg3rQ"
+                    ]
+                }
+            &lt;/script&gt;
+            &lt;script type="application/ld+json"&gt;
+                {
+                    "@context": "https://schema.org/",
+                    "@type": "WebSite",
+                    "name": "Bath and Body Works Australia",
+                    "url": "https://www.bathandbodyworks.com.au/",
+                    "potentialAction": {
+                        "@type": "SearchAction",
+                        "target": "https://www.bathandbodyworks.com.au/search?q={search_term_string}",
+                        "query-input": "required name=search_term_string"
+                    }
+                }
+            &lt;/script&gt;
+            &lt;script type="application/ld+json"&gt;
+            {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "url":"https://www.bathandbodyworks.com.au/",
+                "significantLink": [
+                "https://www.bathandbodyworks.com.au/top-offers",
+                "https://www.bathandbodyworks.com.au/body-care/body-spray-and-mists",
+                "https://www.bathandbodyworks.com.au/body-care-mist-hpp",
+                "https://www.bathandbodyworks.com.au/home-fragrance/3-wick-candles",
+                "https://www.bathandbodyworks.com.au/body-care/body-wash-and-shower-gel"
+                ]
+            }
+            &lt;/script&gt;</preference>
         </development>
         <staging>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
@@ -197,6 +245,54 @@
             <preference preference-id="qwikcilverEGiftBarCodeUrl">https://vs-thailand-sfcc.herokuapp.com/generateBarCode/</preference>
             <preference preference-id="qwikcilverMaxRedemptionAmount">1000</preference>
             <preference preference-id="s3UploadLink">https://vs-thailand-sfcc.herokuapp.com</preference>
+            <preference preference-id="homePageSchema">&lt;script type="application/ld+json"&gt;
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "name": "Bath and Body Works Australia",
+                    "url": "https://www.bathandbodyworks.com.au/",
+                    "logo": "og-image.png?$staticlink$",
+                    "contactPoint": [
+                        {
+                            "@type": "ContactPoint",
+                            "telephone": "800-852-8058",
+                            "contactType": "customer service"
+                        }
+                    ],
+                    "sameAs": [
+                        "https://www.facebook.com/bbwasiaaustralia/",
+                        "https://www.instagram.com/bathandbodyworks.au/",
+                        "https://www.youtube.com/channel/UCi4-fFB4Odqjttdwomvg3rQ"
+                    ]
+                }
+            &lt;/script&gt;
+            &lt;script type="application/ld+json"&gt;
+                {
+                    "@context": "https://schema.org/",
+                    "@type": "WebSite",
+                    "name": "Bath and Body Works Australia",
+                    "url": "https://www.bathandbodyworks.com.au/",
+                    "potentialAction": {
+                        "@type": "SearchAction",
+                        "target": "https://www.bathandbodyworks.com.au/search?q={search_term_string}",
+                        "query-input": "required name=search_term_string"
+                    }
+                }
+            &lt;/script&gt;
+            &lt;script type="application/ld+json"&gt;
+            {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "url":"https://www.bathandbodyworks.com.au/",
+                "significantLink": [
+                "https://www.bathandbodyworks.com.au/top-offers",
+                "https://www.bathandbodyworks.com.au/body-care/body-spray-and-mists",
+                "https://www.bathandbodyworks.com.au/body-care-mist-hpp",
+                "https://www.bathandbodyworks.com.au/home-fragrance/3-wick-candles",
+                "https://www.bathandbodyworks.com.au/body-care/body-wash-and-shower-gel"
+                ]
+            }
+            &lt;/script&gt;</preference>
         </staging>
         <production/>
     </custom-preferences>
