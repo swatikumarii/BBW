@@ -128,82 +128,85 @@
             <div class="invalid-feedback"></div>
         </div>
     </div>
+    <!-- City and ZIP -->
+        <!-- State  -->
+        <div class="col-12">
+            <div class="form-group select-box">
+                <div class="form-label-require d-flex align-items-center justify-content-between">
+                    <label class="form-control-label mb-0" for="state">
+                        <span class="required-indicator"></span>
+                        <isprint value="${pdict.addressForm.states.stateCode.label}" encoding="htmlcontent" />
+                    </label>
+                    <iscomment> <span
+                            class="${pdict.addressForm.states.stateCode.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                        </span> </iscomment>
+                </div>
+                <div class="select-wrap">
+                    <select class="form-control address-state-input" id="state" <isprint
+                        value="${pdict.addressForm.states.stateCode.attributes}" encoding="off" />
+                    autocomplete="address-level1">
+                    <isloop items=${pdict.addressForm.states.stateCode.options} var="state">
+                        <option id="${state.id}" value="${state.htmlValue}" <isif condition="${state.selected}">selected
+                            </isif>
+                            >${state.label || ' '}</option>
+                    </isloop>
+                    </select>
+                </div>
+                <div class="invalid-feedback"></div>
+            </div>
+        </div>
 
-    <div class="col-12">
         <!-- City  -->
-        <div class="form-group">
-            <div class="form-label-require d-flex align-items-center justify-content-between">
-                <label class="form-control-label mb-0" for="city">
-                <span class="required-indicator"></span>
-                    <isprint value="${pdict.addressForm.city.label}" encoding="htmlcontent" />
-                </label>
-                <iscomment> <span
-                    class="${pdict.addressForm.city.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
-                </span> </iscomment>
+        <div class="col-12">
+            <div class="form-group select-box">
+                <div class="form-label-require d-flex align-items-center justify-content-between">
+                    <label class="form-control-label mb-0" for="city">
+                        <span class="required-indicator"></span>
+                        <isprint value="${pdict.addressForm.city.label}" encoding="htmlcontent" />
+                    </label>
+                    <iscomment> <span
+                            class="${pdict.addressForm.city.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                        </span> </iscomment>
+                </div>
+                <div class="select-wrap">
+                    <select type="text" class="form-control address-city-input" id="city"
+                        data-missing-error="${Resource.msg('address.city.missing', 'forms', null)}" <isprint
+                        value="${pdict.addressForm.city.attributes}" encoding="off" />
+                    autocomplete="address-level2">
+                    </select>
+                </div>
+                <div class="invalid-feedback"></div>
             </div>
-            <input type="text" class="form-control" id="city"
-            data-missing-error="${Resource.msg('address.city.missing', 'forms', null)}" <isprint value="${pdict.addressForm.city.attributes}"
-                encoding="off" />
-            autocomplete="address-level2">
-            <div class="invalid-feedback"></div>
         </div>
-    </div>
-</div>
-
-<!-- City and ZIP -->
-<div class="row">
-    <!-- State  -->
-    <div class="col-12">
-        <div class="form-group select-box">
-            <div class="form-label-require d-flex align-items-center justify-content-between">
-                <label class="form-control-label mb-0" for="state">
-                <span class="required-indicator"></span>
-                    <isprint value="${pdict.addressForm.states.stateCode.label}" encoding="htmlcontent" />
-                </label>
-                <iscomment> <span
-                    class="${pdict.addressForm.states.stateCode.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
-                </span> </iscomment>
+    
+        <!-- ZIP Code -->
+        <div class="col-12">
+            <div class="form-group select-box">
+                <div class="form-label-require d-flex align-items-center justify-content-between">
+                    <label class="form-control-label mb-0" for="zipCode">
+                        <span class="required-indicator"></span>
+                        <isprint value="${pdict.addressForm.postalCode.label}" encoding="htmlcontent" />
+                    </label>
+                    <iscomment> <span
+                            class="${pdict.addressForm.postalCode.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
+                        </span> </iscomment>
+                </div>
+                <div class="select-wrap">
+                    <select type="text" class="form-control address-zipcode-input" id="zipCode"
+                        data-missing-error="${Resource.msg('error.message.zip.required', 'forms', null)}"
+                        data-range-error="${Resource.msg('error.message.zip.upto4', 'forms', null)}"
+                        data-pattern-mismatch="${Resource.msg('error.message.parse.zip', 'forms', null)}" <isprint
+                        value="${pdict.addressForm.postalCode.attributes}" encoding="off" />
+                    autocomplete="postal-code">
+                        </select>
+                </div>
+                <div class="invalid-feedback"></div>
             </div>
-            <div class="select-wrap">
-                <select class="form-control" id="state" <isprint value="${pdict.addressForm.states.stateCode.attributes}"
-                    encoding="off" />
-                autocomplete="address-level1">
-                <isloop items=${pdict.addressForm.states.stateCode.options} var="state">
-                    <option id="${state.id}" value="${state.htmlValue}" <isif condition="${state.selected}">selected
-                        </isif>
-                        >${state.label || ' '}</option>
-                </isloop>
-                </select>
-            </div>
-            <div class="invalid-feedback"></div>
         </div>
-    </div>
-
-    <!-- ZIP Code -->
-    <div class="col-12">
-        <div class="form-group">
-            <div class="form-label-require d-flex align-items-center justify-content-between">
-                <label class="form-control-label mb-0" for="zipCode">
-                <span class="required-indicator"></span>
-                    <isprint value="${pdict.addressForm.postalCode.label}" encoding="htmlcontent" />
-                </label>
-                <iscomment> <span
-                    class="${pdict.addressForm.postalCode.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
-                </span> </iscomment>
-            </div>
-            <input type="text" class="form-control" id="zipCode"
-                data-missing-error="${Resource.msg('error.message.zip.required', 'forms', null)}"
-                data-range-error="${Resource.msg('error.message.zip.upto4', 'forms', null)}"
-                data-pattern-mismatch="${Resource.msg('error.message.parse.zip', 'forms', null)}"
-                <isprint value="${pdict.addressForm.postalCode.attributes}" encoding="off" />
-            autocomplete="postal-code">
-            <div class="invalid-feedback"></div>
-        </div>
-    </div>
 </div>
 
 <!-- Phone Number -->
-<div class="form-group">
+<div class="form-group add-phone-number">
     <div class="form-label-require d-flex align-items-center justify-content-between">
         <label class="form-control-label mb-0" for="phone">
         <span class="required-indicator"></span>
@@ -212,7 +215,7 @@
         <iscomment> <span class="${pdict.addressForm.phone.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
         </span> </iscomment>
     </div>
-    <input type="text" class="form-control" id="phone"
+    <input type="tel" class="form-control addressPhoneNumber" id="phone"
         data-pattern-mismatch="${Resource.msg('error.message.pattern.phone', 'forms', null)}"
         data-missing-error="${Resource.msg('error.phone.number', 'forms', null)}"
         data-range-error="${Resource.msg('error.message.parse.phonevalid.form', 'forms', null)}" <isprint

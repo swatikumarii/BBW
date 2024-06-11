@@ -44,9 +44,8 @@
         </div>
         <div class="col-5">
             <isif condition="${!pdict.order.hasFreeShipping}">
-            ${pdict.order.hasFreeShipping}
                 <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive">
-                    ${pdict.order.totals.shippingTotalExclTax}aaaa</p>
+                    ${pdict.order.totals.shippingTotalExclTax}</p>
             <iselse/>
                 <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive">
                     ${Resource.msg('label.free.price', 'cart', null)}</p>

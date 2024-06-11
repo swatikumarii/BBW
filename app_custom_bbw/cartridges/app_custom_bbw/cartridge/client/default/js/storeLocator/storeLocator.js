@@ -44,7 +44,7 @@ function maps() {
         url: imageUrlBlack,
         labelOrigin: {
             x: 15,
-            y: 15
+            y: 14
         }
     };
 
@@ -53,7 +53,7 @@ function maps() {
         url: imageUrlPink,
         labelOrigin: {
             x: 15,
-            y: 15
+            y: 14
         }
     };
     var markers=[];
@@ -71,7 +71,7 @@ function maps() {
             map: map,
             title: item.name,
             icon: imageUrlBlack,
-            label: { text: lable.toString(), color: 'black', fontSize: '16px' }
+            label: { text: lable.toString(), color: 'black', fontSize: '14px' }
         });
         contents.push(item);
         markers.push(marker);
