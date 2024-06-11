@@ -175,6 +175,12 @@
                 top: 0;
                 transition: none;
                 width: 48px;
+
+                &:hover {
+                    background-color: colour(gray, 1);
+                    box-shadow: inset 0 0 0 8px colour(white);
+                    opacity: 1 !important;
+                }
             }
         }
     }
@@ -253,6 +259,12 @@
                     top: 0;
                     transition: none;
                     width: 48px;
+
+                    &:hover {
+                        background-color: colour(gray, 1);
+                        box-shadow: inset 0 0 0 8px colour(white);
+                        opacity: 1 !important;
+                    }
                 }
             }
         }
@@ -304,10 +316,10 @@
             height: fit-content;
         }
 
-        .free-item-content{
+        .free-item-content {
             border-radius: 0;
             height: 100%;
-            padding: 0;
+            padding: 32px;
 
             .free-item-header {
                 .free-header {
@@ -331,12 +343,18 @@
                     top: 0;
                     transition: none;
                     width: 48px;
+
+                    &:hover {
+                        background-color: colour(gray, 1);
+                        box-shadow: inset 0 0 0 8px colour(white);
+                        opacity: 1 !important;
+                    }
                 }
             }
         }
 
         .free-item-body {
-            .free-item-content {
+            .free-item-para {
                 letter-spacing: 0.005em;
                 line-height: 1.75rem;
             }
@@ -346,16 +364,17 @@
             min-height: 40px;
             max-height: 40px;
             text-transform: capitalize;
+
+            &:hover {
+                border: 2px solid colour(black, 1);
+            }
         }
 
         .free-item-btn {
             min-height: 40px;
             max-height: 40px;
             text-transform: capitalize;
-
-            &:hover {
-                border: 2px solid colour(black, 1);
-            }
+            width: 151px;
         }
     }
 }
