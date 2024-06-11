@@ -2706,7 +2706,7 @@
         </custom-attributes>
     </content>
 
-     <content content-id="footer-social-list">
+      <content content-id="footer-social-list">
         <display-name xml:lang="x-default">Social List</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -2715,22 +2715,23 @@
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="socials mb-5"&gt;&#13;
 	&lt;h6 class="social-header text-capitalize mb-4 font-weight-bold text-start h-clr--black-1 h-font-size--16"&gt;Get connected&lt;/h6&gt;&#13;
 	&lt;ul class="social-links d-flex m-0"&gt;&#13;
-		&lt;li&gt;&lt;a class="facebook" href="https://www.facebook.com/bbwaustralia/" target="_blank" title="Go to facebook"&gt;&lt;img alt="" src="images/footer/social-icon/Social-fb-black.svg?$staticlink$" title="facebook" /&gt;&lt;/a&gt;&#13;
+		&lt;li&gt;&lt;a class="facebook" href="https://www.facebook.com/bbwaustralia/" target="_blank" title="Go to facebook"&gt;&lt;img alt="facebook" src="images/footer/social-icon/Social-fb-black.svg?$staticlink$" title="facebook" /&gt;&lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
-		&lt;li&gt;&lt;a class="instagram" href="https://www.instagram.com/bathandbodyworks.au/" target="_blank" title="Go to instagram"&gt;&lt;img alt="" src="images/footer/social-icon/Social-ig-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;li&gt;&lt;a class="instagram" href="https://www.instagram.com/bathandbodyworks.au/" target="_blank" title="Go to instagram"&gt;&lt;img alt="instagram" src="images/footer/social-icon/Social-ig-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
-		&lt;li&gt;&lt;a class="tiktok" href="https://www.tiktok.com/@bathandbodyworks.au" target="_blank" title="Go to tiktok"&gt;&lt;img alt="" src="images/footer/social-icon/Social-tiktok-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;li&gt;&lt;a class="tiktok" href="https://www.tiktok.com/@bathandbodyworks.au" target="_blank" title="Go to tiktok"&gt;&lt;img alt="tiktok" src="images/footer/social-icon/Social-tiktok-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
-		&lt;li&gt;&lt;a class="youtube" href="https://www.youtube.com/channel/UCi4-fFB4Odqjttdwomvg3rQ" target="_blank" title="Go to youtube"&gt;&lt;img alt="" src="images/footer/social-icon/Social-youtube-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;li&gt;&lt;a class="youtube" href="https://www.youtube.com/channel/UCi4-fFB4Odqjttdwomvg3rQ" target="_blank" title="Go to youtube"&gt;&lt;img alt="youtube" src="images/footer/social-icon/Social-youtube-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
 	&lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
+
 
  <content content-id="footer-tooltip-details">
         <display-name xml:lang="x-default">Tooltip Details</display-name>
@@ -3018,12 +3019,12 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="account-nav-help text-center"&gt;&#13;
-    &lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$" class="h-clr--gray h-font-size--14 m-0"&gt;Questions?&lt;/a&gt;&#13;
+    &lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$" class="h-clr--gray h-font-size--14 m-0 question-tag"&gt;Questions?&lt;/a&gt;&#13;
     &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-57-6972.&lt;/p&gt;&#13;
 &lt;/div&gt;&#13;
 &#13;
 &lt;style&gt;&#13;
-    a {&#13;
+    .question-tag {&#13;
         text-decoration: underline;&#13;
     }&#13;
 &lt;/style&gt;</custom-attribute>
