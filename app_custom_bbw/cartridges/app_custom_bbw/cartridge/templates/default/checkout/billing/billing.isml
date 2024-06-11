@@ -62,7 +62,7 @@
                             <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label" for="email"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.email', 'checkout', null)}</label>
                             <span class="h-font-size--14"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('label.required', 'account', null)}</span>
                         </div>
-                        <input type="text" class="form-control email" id="email"
+                        <input type="text" class="form-control email" id="contactEmail"
                             value="${pdict.order.billing.billingAddress.address ? pdict.order.billing.billingAddress.address.email ? pdict.order.billing.billingAddress.address.email : pdict.customer && 'profile' in pdict.customer && pdict.customer.profile && 'email' in pdict.customer.profile ? pdict.customer.profile.email || '' : '' : ''}"
                             <isprint value=${pdict.forms.billingForm.contactInfoFields.email.attributes} encoding="off" />
                             data-missing-error="${Resource.msg('error.email.address', 'forms', null)}"

@@ -150,7 +150,7 @@
             <div class="custom-select-wrap">
                 <select class="form-control shippingState custom-select"
                     id="shippingState${lineItem ? lineItem.UUID : 'default'}"
-                    data-missing-error="${Resource.msg('error.state', 'forms', null)}"
+                    data-missing-error="${Resource.msg('error.state', 'forms', null)}" data-selected=${shippingAddress.stateCode}
                     <isprint value=${addressFields.states.stateCode.attributes} encoding="off" />
                 autocomplete="shipping address-level1"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}State">
@@ -180,14 +180,18 @@
                     id="shippingAddressCity${lineItem ? lineItem.UUID : 'default'}"
                     aria-describedby="${lineItem ? lineItem.UUID : 'default'}City"
                     data-missing-error="${Resource.msg('error.city', 'forms', null)}"
-                    <isprint value="${addressFields.city.attributes}" encoding="off" />
+                    data-selected="${shippingAddress.city}"
                     autocomplete="shipping address-level2"
+                    <isprint value="${addressFields.city.attributes}" encoding="off" />
                     >
+                    <isif condition="${shippingAddress && shippingAddress.city}">
+                        <option id="${shippingAddress.city}" value="${shippingAddress.city}" selected> ${shippingAddress.city} </option>
+                    </isif>
                 </select>
             </div>
 
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}City">
-                <isprint value="${addressFields.city.error}">
+                <isprint value="${addressFields.city.error}"/>
             </div>
         </div>
     </div>
@@ -204,9 +208,14 @@
                     id="shippingZipCode${lineItem ? lineItem.UUID : 'default'}"
                     aria-describedby="${lineItem ? lineItem.UUID : 'default'}ZipCode"
                     data-missing-error="${Resource.msg('error.zip.code', 'forms', null)}"
-                    data-pattern-mismatch="${Resource.msg('valid.zip.code', 'forms', null)}" <isprint value="${addressFields.postalCode.attributes}"
+                    data-pattern-mismatch="${Resource.msg('valid.zip.code', 'forms', null)}"
+                    data-selected="${shippingAddress.postalCode}"
+                    <isprint value="${addressFields.postalCode.attributes}"
                     encoding="off" />
                     autocomplete="shipping postal-code">
+                    <isif condition="${shippingAddress && shippingAddress.city}">
+                        <option id="${shippingAddress.postalCode}" value="${shippingAddress.postalCode}" selected> ${shippingAddress.postalCode} </option>
+                    </isif>
                 </select>
             </div>
             <div class="invalid-feedback" id="${lineItem ? lineItem.UUID : 'default'}ZipCode">

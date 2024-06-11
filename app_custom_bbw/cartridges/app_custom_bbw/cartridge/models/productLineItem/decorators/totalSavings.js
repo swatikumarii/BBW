@@ -1,6 +1,7 @@
 'use strict';
 
 var Money = require('dw/value/Money');
+var formatMoney = require('dw/util/StringUtils').formatMoney;
 var Site = require('dw/system/Site');
 
 /**
@@ -22,8 +23,10 @@ function getTotalSavings(lineItem) {
                 );
             }
         }
-    }
-    return totalSavings;
+        return formatMoney(totalSavings);
+    } 
+    return '-';
+    
 }
 
 module.exports = function (object, lineItem) {

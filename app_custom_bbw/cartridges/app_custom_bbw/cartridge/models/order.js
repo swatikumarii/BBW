@@ -42,6 +42,9 @@ function OrderModel(lineItemContainer, options) {
         var currencyCode = currentSite.getDefaultCurrency();
         this.currencyCode = currencyCode;
         this.hasFreeShipping = getFreeShippingStatus(lineItemContainer);
+        if (this.totals) {
+            this.totals.hasFreeShipping = getFreeShippingStatus(lineItemContainer);
+        }
         if (lineItemContainer.shipments && lineItemContainer.shipments.length > 0) {
             this.shippingStatus = 'shippingStatus' in lineItemContainer.shipments[0] ? lineItemContainer.shipments[0].shippingStatus : '';
             this.trackingNumber = 'trackingNumber' in lineItemContainer.shipments[0] ? lineItemContainer.shipments[0].trackingNumber : '';
