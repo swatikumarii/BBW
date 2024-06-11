@@ -4,6 +4,8 @@
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
     assets.addJs('/js/pickedJustForYou.js');
+    assets.addJs('/js/productDetail.js');
+    assets.addCss('/css/notifyMe.css');
 </isscript>
     <div class="container">
         <div class="row">

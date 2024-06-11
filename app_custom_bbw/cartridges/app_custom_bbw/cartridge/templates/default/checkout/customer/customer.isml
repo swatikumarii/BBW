@@ -42,7 +42,7 @@
                 <div class="row login-button-section h-xs-mb--30">
                     <div class="col-12">
                         <div class="mb-3">
-                            <button class="btn btn-primary submit-customer-login ml-2 h-font-size--11" type="submit"
+                            <button class="btn btn-primary submit-customer-login ml-2 h-font-size--12" type="submit"
                                 name="submit" value="submit-login">
                                 ${Resource.msg('button.customer.login', 'checkout', null)}
                             </button>
@@ -53,7 +53,7 @@
             <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
         </form>
         <div class="checkout-login-signup-info ml-2">
-            <p class="h-font-size--16 h-fw--semibold h-clr--black-1">${Resource.msg('msg.do.not.have.account', 'checkout', null)}</p>
+            <p class="h-font-size--16 h-fw--semibold h-clr--black-1 account-tag">${Resource.msg('msg.do.not.have.account', 'checkout', null)}</p>
             <p class="h-font-size--16 h-clr--black-1">${Resource.msg('msg.create.account.after.checkout', 'checkout', null)}
             </p>
         </div>

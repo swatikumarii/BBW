@@ -1,5 +1,7 @@
 <isinclude template="popups/dynamicModel" />
 <isinclude template="popups/dynamicAllSiteModel" />
 <isinclude template="popups/dynamicExitIntentModal" />
+<input type="hidden" class="popup-csrf-token" name="${dw.web.CSRFProtection.getTokenName()}" value="${dw.web.CSRFProtection.generateToken()}" />
+<input type="hidden" class="add-coupon-url" name="addCouponUrl" value="${URLUtils.url('Cart-AddCoupon')}" />
 <link rel="stylesheet" href="${URLUtils.staticURL('/css/popups.css').toString()}" />
 <script defer="defer" src="${URLUtils.staticURL('/js/popups.js').toString()}"></script>
