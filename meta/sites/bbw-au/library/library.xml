@@ -5257,7 +5257,6 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
         cardNo: cardNumber,&#13;
         cardPin: cardPin&#13;
     };&#13;
-    console.log('Form data:', form); // Log form data to console for debugging&#13;
     $.ajax({&#13;
         url: checkBalanceUrl,&#13;
         method: 'POST',&#13;
