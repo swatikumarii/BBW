@@ -3018,12 +3018,12 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="account-nav-help text-center"&gt;&#13;
-    &lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$" class="h-clr--gray h-font-size--14 m-0"&gt;Questions?&lt;/a&gt;&#13;
+    &lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$" class="h-clr--gray h-font-size--14 m-0 question-tag"&gt;Questions?&lt;/a&gt;&#13;
     &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-57-6972.&lt;/p&gt;&#13;
 &lt;/div&gt;&#13;
 &#13;
 &lt;style&gt;&#13;
-    a {&#13;
+    .question-tag {&#13;
         text-decoration: underline;&#13;
     }&#13;
 &lt;/style&gt;</custom-attribute>
