@@ -1,8 +1,5 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
-<div class="page-loader loader vh-100 position-fixed">
-    <div class="h-visually-hidden" role="alert">Just a second, items loading</div>
-    <div class="spinner"></div>
-</div>
+
 <header class="header h-bg--white h-auto no-menu-header">
     <div class="header-banner slide-up d-none">
         <div class="container-fluid px-0">

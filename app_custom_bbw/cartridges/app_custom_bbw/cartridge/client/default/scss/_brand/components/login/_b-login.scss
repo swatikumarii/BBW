@@ -673,6 +673,10 @@
                     @include media-btw(sm, lg) {
                         width: calc(50% - 65px);
                     }
+
+                    .login-form-input{
+                        height: 37px;
+                    }
                 }
             }
         }

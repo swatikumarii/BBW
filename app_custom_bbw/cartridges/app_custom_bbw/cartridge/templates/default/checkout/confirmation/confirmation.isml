@@ -16,8 +16,10 @@
     <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
         <div class="row">
         <div class="col-md-12 col-sm-12 d-flex justify-content-center slot-banner">
-            <img class="md-banner-img w-100"
+            <img class="md-banner-img w-100 d-none d-sm-block"
                 src="${URLUtils.staticURL('/images/orderConfirm/order-confirmed.png')}"
+                alt="${Resource.msg('order.confirm.image', 'common', null)}" />
+            <img class="d-sm-none md-banner-img w-100" src="${URLUtils.staticURL('/images/orderConfirm/thankyou-mobile-banner.svg')}"
                 alt="${Resource.msg('order.confirm.image', 'common', null)}" />
         </div>
         </div>

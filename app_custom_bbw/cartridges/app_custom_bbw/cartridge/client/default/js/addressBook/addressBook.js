@@ -2,6 +2,9 @@
 
 var base = require('base/addressBook/addressBook');
 var formValidation = require('../components/formValidation');
+var addressData = require('../addressData.js');
+var intlTelInput = require('intl-tel-input');
+var utils = require('utils.js');
 var action;
 var isDefault;
 var deleteUrl;
@@ -165,6 +168,15 @@ $(document).on('click', '#editAddress', function () {
         data: data,
         success: function (response) {
             $('#modalContent').html(response);
+            var phone = $('#modalContent').find('.addressPhoneNumber')[0];
+            intlTelInput(phone, {
+                utilsScript: utils,
+                showFlags: true,
+                strictMode: true,
+                showSelectedDialCode: true,
+                initialCountry: 'au',
+                countryOrder: ['au']
+            });
             $('#address-form').modal('show');
             $('body').trigger('form:invalid');
             var addressForm = $($(response)[0]).find('input');
@@ -173,5 +185,60 @@ $(document).on('click', '#editAddress', function () {
     });
 });
 
-module.exports = base;
+module.exports = $.extend({}, base, {
+    stateDropdown: function () {
+        $('body').on('change', '.address-state-input',function () {
+            const selectedState = $(this).val();
+            const suburbDropdown = $(this).closest('form').find('.address-city-input');
+            suburbDropdown.empty(); // clear existing options
+
+            if (addressData[selectedState]) {
+                $.each(addressData[selectedState], function (suburb) {
+                    suburbDropdown.append(
+                        $('<option>', {
+                            value: suburb,
+                            text: suburb
+                        })
+                    );
+                });
+                suburbDropdown.trigger('change');
+            }
+        });
+    },
+    cityDropdown: function () {
+        $('body').on('change', '.address-city-input',function () {
+            const selectedState = $(this).closest('form').find('.address-state-input').val();
+            const selectedSuburb = $(this).val();
+            const zipDropdown = $(this).closest('form').find('.address-zipcode-input');
+            zipDropdown.empty(); // clear existing options
+
+            if (
+                addressData[selectedState] &&
+                addressData[selectedState][selectedSuburb]
+            ) {
+                const zipCodes = addressData[selectedState][selectedSuburb];
+                zipCodes.forEach((zip) => {
+                    zipDropdown.append(
+                        $('<option>', {
+                            value: zip,
+                            text: zip
+                        })
+                    );
+                });
+            }
+        });
+    },
+    intlPhoneInit: function () {
+        var phone = document.querySelector('.addressPhoneNumber');
+        intlTelInput(phone, {
+            utilsScript: utils,
+            showFlags: true,
+            strictMode: true,
+            showSelectedDialCode: true,
+            initialCountry: 'au',
+            countryOrder: ['au']
+        });
+    }
+});
+
 
