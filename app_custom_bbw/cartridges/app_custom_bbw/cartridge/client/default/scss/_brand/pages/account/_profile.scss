@@ -529,7 +529,7 @@
     }
 }
 
-.pw-requirements .pw-requirement > span {
+.pw-requirements .pw-requirement>span {
     line-height: 1.375rem;
     padding-left: 30px;
 }
@@ -739,7 +739,24 @@
 
 #delete-gift-certificate-line-item-modal {
     .delete-gift-modal-dialog {
-        width: 464px;
+        display: block;
+        animation: bottom-to-top 0.2s;
+        animation-timing-function: cubic-bezier(0.2, 0.05, 0.55, 0.2);
+        transform: translate(-50%) !important;
+        background: colour(white);
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        top: 5vh;
+        width: calc(100% - 40px);
+        max-width: 568px;
+        margin: 0;
+        height: fit-content;
+
+        @include media-up(sm) {
+            width: 464px;
+            height: fit-content;
+        }
 
         .delete-gift-content {
             border-radius: 0;
