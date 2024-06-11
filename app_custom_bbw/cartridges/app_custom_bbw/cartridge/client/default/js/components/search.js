@@ -31,16 +31,6 @@ function isMobileSearch(scope) {
 }
 
 /**
- * Remove modal classes needed for mobile suggestions
- *
- */
-function clearModals() {
-    $('body').removeClass('modal-open');
-    $('header').siblings().attr('aria-hidden', 'false');
-    $('.suggestions').removeClass('active modal');
-}
-
-/**
  * Apply modal classes needed for mobile suggestions
  * @param {object} scope - Search input field DOM element
  */
@@ -50,17 +40,6 @@ function applyModals(scope) {
         $('header').siblings().attr('aria-hidden', 'true');
         getSuggestionsWrapper(scope).find('.suggestions').addClass('modal');
     }
-}
-
-/**
- * Tear down Suggestions panel
- */
-function tearDownSuggestions() {
-    $('input.search-field').val('');
-    clearModals();
-    $('.search-mobile .suggestions').unbind('scroll');
-    $('.suggestions').empty().removeAttr('style');
-    $('.site-search').hide();
 }
 
 /**
@@ -499,15 +478,6 @@ module.exports = function () {
     $(document.body).on('click', '.js-search-suggestions .add-to-cart', function () {
         $('#header-search').removeClass('expand-towards-right');
         $('.utility-user, .minicart').removeClass('d-lg-none d-md-none');
-    });
-
-    $('.js-cancel-search-button').on('click touchend', function (e) {
-        if (layout.isMobile()) {
-            e.preventDefault();
-            toggleSuggestionsIcon('search');
-            tearDownSuggestions();
-            $('.search-fly-out-opacity').addClass('d-none');
-        }
     });
 
     $('.js-reset-button').on('click', function () {
