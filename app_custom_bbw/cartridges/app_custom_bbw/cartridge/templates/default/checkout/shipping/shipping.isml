@@ -1,4 +1,4 @@
-<div class="shipping-section single-shipping ml-2">
+<div class="shipping-section single-shipping ml-md-2">
     <isset name="shippingModel" value="${pdict.order.shipping[0]}" scope="page" />
     <isset name="shipmentLoopState" value="${null}" scope="page" />
     <isset name="lineItem" value="${null}" scope="page" />
