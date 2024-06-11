@@ -360,6 +360,12 @@ server.append(
         var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
         var dangerousGoodsExists = req.querystring.error === 'dangerous-goods';
         var viewData = res.getViewData();
+        var currentBasket = BasketMgr.getCurrentBasket();
+        var changes = cartHelper.createFreeLineItem(currentBasket, 0);
+        var basketModel = new CartModel(currentBasket);
+        if (changes) {
+            viewData.items = basketModel.items;
+        }
         viewData.dangerousGoodsExists = dangerousGoodsExists;
         var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
             type: 10
