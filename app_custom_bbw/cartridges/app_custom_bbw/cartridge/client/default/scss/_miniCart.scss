@@ -389,6 +389,22 @@
     }
 }
 
+.giftcard-details {
+    span {
+        line-height: 14px;
+
+        &.giftcard-message {
+            height: 28px;
+            -webkit-line-clamp: 2;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            word-wrap: break-word;
+        }
+    }
+}
+
 .shipping-approaching-discounts {
     .icon {
         display: flex;

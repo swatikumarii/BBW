@@ -70,12 +70,16 @@ footer {
     display: none;
 }
 
+.shipping-method-list {
+    padding-left: 15px;
+}
+
 .next-step-button {
     position: fixed;
     bottom: 0;
     z-index: 3;
     padding-right: 0;
-    padding-left: 0;
+    padding-left: 30px;
 
     button {
         min-width: 175px;
@@ -356,6 +360,7 @@ input[type="tel"],
     height: 48px;
     border-color: $clr-black-1;
     border-radius: 0;
+    background: none !important;
 }
 
 .custom-select-wrap {

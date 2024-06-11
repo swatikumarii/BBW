@@ -203,14 +203,10 @@ var history = window.history;
                             url: form.attr('action'),
                             type: 'post',
                             data: shippingFormData,
-                            success: function (data) {
-                                $.spinner().stop();
+                            success: function () {
                                 // enable the next:Payment button here
-                                $('body').trigger('checkout:enableButton', '.next-step-button button');
-                                shippingHelpers.methods.shippingFormResponse(defer, data);
-                                if ($('.billing .address-summary .firstName').text().trim() !== '') {
-                                    $('.summary-details.billing').removeClass('d-none');
-                                }
+                                var billingURL = $('input[name="billing-url"]').val();
+                                window.location.href = billingURL;
                             },
                             error: function (err) {
                                 // enable the next:Payment button here
