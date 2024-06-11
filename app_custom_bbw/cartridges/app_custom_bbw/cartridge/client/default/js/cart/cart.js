@@ -974,7 +974,7 @@ module.exports = function () {
             url: checkFreeURL,
             success: function (data) {
                 if (data.loosingFree) {
-                    alert('Add Free Product');
+                   $('#addFreeModalButton').trigger('click');
                 } else {
                     window.location.href = url;
                 }

@@ -135,4 +135,6 @@
             <isslot id="cart-recommendations-m" description="Recommended products" context="global" />
         </div>
     </div>
+    <isinclude template="product/components/addFreeItem" sf-toolkit="off" />
+    
 </isdecorate>
