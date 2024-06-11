@@ -20,7 +20,7 @@ var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 server.get('Landing', server.middleware.https, cache.applyDefaultCache, consentTracking.consent, function (req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
     res.render('securityBugReport/securityBugReport', {
-        actionUrl: URLUtils.url('securityBugReport-Submit').toString()
+        actionUrl: URLUtils.url('SecurityBugReport-Submit').toString()
     });
     return next();
 });
@@ -47,14 +47,11 @@ server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentT
                 'securityBugReport',
                 UUIDUtils.createUUID()
             );
-            securityBugReportDetails.custom.firstName = form.securityBugReportFirstName ? form.securityBugReportFirstName : '';
-            securityBugReportDetails.custom.lastName = form.securityBugReportLastName ? form.securityBugReportLastName : '';
-            securityBugReportDetails.custom.email = form.securityBugReportEmail ? form.securityBugReportEmail : '';
-            securityBugReportDetails.custom.phone = form.securityBugReportPhone ? form.securityBugReportPhone : '';
-            securityBugReportDetails.custom.company = form.securityBugReportCompanyName ? form.securityBugReportCompanyName : '';
-            securityBugReportDetails.custom.vat = form.securityBugReportVat ? form.securityBugReportVat : '';
-            securityBugReportDetails.custom.topic = form.securityBugReportTopic ? form.securityBugReportTopic : '';
-            securityBugReportDetails.custom.question = form.securityBugReportQuestion ? form.securityBugReportQuestion : '';
+            securityBugReportDetails.custom.name = form.bugReportName ? form.bugReportName : '';
+            securityBugReportDetails.custom.email = form.bugReportEmail ? form.bugReportEmail : '';
+            securityBugReportDetails.custom.phone = form.bugReportPhone ? form.bugReportPhone : '';
+            securityBugReportDetails.custom.pageUrl = form.bugReportPageUrl ? form.bugReportPageUrl : '';
+            securityBugReportDetails.custom.image = form.location ? form.location : '';
         });
     }
     catch(e){

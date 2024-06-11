@@ -13,9 +13,10 @@
                 <div class="card">
                     <div class="row d-none" id="sbr-thanks-element" >
                         <div class="col-sm-6 offset-sm-4">
-                            <iscontentasset aid="security-bug-report" />
+                            <iscontentasset aid="security-bug-report-thankyou" />
                         </div>
                     </div>
+                    <input type="hidden" name="s3Url" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('s3UploadLink')}">
                     <div class="card-body" id="bug-report-form-card">
                         <form id="bug-report-form" action="${pdict.actionUrl}" class="bug-report" method="POST" name="bug-report">
                             <!--- SBR us name, --->
@@ -25,7 +26,7 @@
                                         <label class="form-control-label" for="bug-report-name">
                                             ${Resource.msg('label.input.bug-report-name', 'securityBugReport', null)}
                                         </label>
-                                        <input type="text" required class="form-control required"
+                                        <input pattern="^[ A-Za-z]+$" type="text" required class="form-control required"
                                             aria-describedby="form-bug-report-name-error" id="bug-report-name"
                                             name="bugReportName">
                                         <div class="invalid-feedback" id="form-bug-report-name-error"></div>
@@ -39,7 +40,7 @@
                                         <label class="form-control-label" for="bug-report-email">
                                             ${Resource.msg('label.input.bug-report-email', 'securityBugReport', null)}
                                         </label>
-                                        <input type="email" required class="form-control required"
+                                        <input pattern="^[\w.%+-]+@[\w.-]+\.\w{2,}$" type="email" required class="form-control required"
                                             aria-describedby="form-bug-report-email-error" id="bug-report-email"
                                             name="bugReportEmail">
                                         <div class="invalid-feedback" id="form-bug-report-email-error"></div>
@@ -85,6 +86,10 @@
                                             aria-describedby="form-bug-report-image-upload-error" id="bug-report-image-upload"
                                             name="bugReportImage" accept="image/*">
                                         <div class="invalid-feedback" id="form-bug-report-image-upload-error"></div>
+                                        <div class="progress-wrapper p-2 w-100">
+                                            <div id="progress" class="progress-status-value text-center"></div>
+                                            <progress id="video-progress" class="progress-bar my-2 w-100" value="0" max="100" style="display:none"></progress>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
