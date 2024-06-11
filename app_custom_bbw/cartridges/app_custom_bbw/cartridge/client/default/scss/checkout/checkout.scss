@@ -312,6 +312,13 @@ span.ship-to-city-st-zip {
 
 .checkout-blocks {
     border-top: 1px solid $clr-gray-6;
+
+    .checkout-login-signup-info {
+        .account-tag {
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+        }
+    }
 }
 
 .customer-heading {
@@ -421,9 +428,19 @@ input[type="tel"],
     color: $clr-black-1;
 }
 
+.cart-black-1 {
+    color: $clr-black-1;
+}
+
 .submit-customer-login {
     min-height: unset;
-    width: 135px;
+    width: 186.61px;
+    letter-spacing: 0.12em;
+    line-height: 2.0625rem;
+
+    @include media-up(sm) {
+        width: 135px;
+    }
 }
 
 .shipping-section {
@@ -442,6 +459,8 @@ input[type="tel"],
     h2 {
         padding: 20px 0;
         border-bottom: 3px solid $clr-gray-6;
+        line-height: 1.25rem;
+        letter-spacing: 0.005em;
     }
 
     .order-product-summary {
@@ -461,6 +480,22 @@ input[type="tel"],
             margin: 20px 0;
             padding-top: 25px;
             padding-right: 20px;
+
+            .line-item-name {
+                .product-title {
+                    letter-spacing: 0.16px;
+                }
+
+                .prod-desc {
+                    line-height: 1rem;
+                    letter-spacing: 0.015em;
+                }
+            }
+
+            .line-item-quantity-info {
+                line-height: 1rem;
+                letter-spacing: 0.015em;
+            }
 
             .promotion {
                 max-width: 88%;
@@ -518,6 +553,24 @@ input[type="tel"],
     .form-group {
         margin: 10px 0 30px;
         position: relative;
+
+        .form-control-label {
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+
+            .require-indicator {
+                margin-right: 0.125em;
+            }
+        }
+
+        .required-indicator-text {
+            font-style: italic;
+
+            .required-star {
+                right: 5px;
+                position: relative;
+            }
+        }
     }
 
     .iti {
