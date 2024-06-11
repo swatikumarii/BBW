@@ -5,43 +5,8 @@ var Logger = require('dw/system/Logger');
 var ProductMgr = require('dw/catalog/ProductMgr');
 
 /**
- * @param {Array} ingredientNamesArray ingredient name array
- * @description This function save the sorted Ingredients Names in custom preference.
- */
-function saveProductIngredients(ingredientNamesArray) {
-    try {
-        // sort the Ingredients Names array in ascending order
-        var sortedIngredients = ingredientNamesArray
-            .map(function (str) {
-                return str.replace(/[^a-zA-Z]/g, '').toLowerCase();
-            })
-            .sort()
-            .map(function (cleanStr) {
-                // Find the original string with the same cleaned string
-
-                var originalStr = ingredientNamesArray.find(function (s) {
-                    return (
-                        s.replace(/[^a-zA-Z]/g, '').toLowerCase() === cleanStr
-                    );
-                });
-
-                return originalStr;
-            });
-
-        // push all unique strings in the first index of the array in comma-separated format
-        var allIngredientsNames = sortedIngredients.join(', ');
-        Site.current.setCustomPreferenceValue(
-            'productIngredients',
-            allIngredientsNames
-        );
-    } catch (err) {
-        Logger.error(err.toString());
-    }
-}
-
-/**
  * @param {Array}  fragranceNamesArray fragrance name array
- * @description This function save the sorted Ingredients Names in custom preference.
+ * @description This function save the sorted Fragrance Names in custom preference.
  */
 function saveFragranceNames(fragranceNamesArray) {
     try {
@@ -65,8 +30,6 @@ function getFragranceNames() {
     try {
         var allProducts = ProductMgr.queryAllSiteProductsSorted();
         var fragranceNamesArray = [];
-        var ingredientNamesArray = [];
-        var productIngredients;
         var allFragrances;
 
         while (allProducts.hasNext()) {
@@ -93,16 +56,6 @@ function getFragranceNames() {
                         }
                     }
                 }
-
-                // get ingredients from all products
-                if (product.custom.ingredients) {
-                    productIngredients = product.custom.ingredients;
-                    for (var index = 0; index < productIngredients.length; index++) {
-                        if (!ingredientNamesArray.includes( productIngredients[index])) {
-                            ingredientNamesArray.push(productIngredients[index]);
-                        }
-                    }
-                }
             }
         }
 
@@ -112,18 +65,12 @@ function getFragranceNames() {
             Site.current.setCustomPreferenceValue('fragranceNames', '');
         }
 
-        if (ingredientNamesArray.length > 0) {
-            saveProductIngredients(ingredientNamesArray);
-        } else {
-            Site.current.setCustomPreferenceValue('productIngredients', '');
-        }
     } catch (err) {
         Logger.error(err.toString());
     }
 }
 
 module.exports = {
-    saveProductIngredients: saveProductIngredients,
     saveFragranceNames: saveFragranceNames,
     getFragranceNames: getFragranceNames
 };
