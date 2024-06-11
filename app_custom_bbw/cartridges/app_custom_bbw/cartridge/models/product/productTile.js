@@ -16,7 +16,7 @@ module.exports = function productTile(product, apiProduct, productType) {
     decorators.base(product, apiProduct, productType);
     decorators.dynamicBadge(product, apiProduct);
     decorators.searchPrice(product, productSearchHit, promotionCache.promotions, productHelper.getProductSearchHit);
-    decorators.images(product, apiProduct, { types: ['medium'], quantity: 'all' });
+    decorators.images(product, apiProduct, { types: ['medium', 'medium_2x'], quantity: 'all' });
     decorators.ratings(product);
     if (productType === 'set') {
         decorators.setProductsCollection(product, apiProduct);

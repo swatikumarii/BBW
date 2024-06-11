@@ -113,7 +113,7 @@
                     "@type": "Organization",
                     "name": "Bath and Body Works Australia",
                     "url": "https://www.bathandbodyworks.com.au/",
-                    "logo": "${URLUtils.staticURL('/images/og-image.png')}",
+                    "logo": "og-image.png?$staticlink$",
                     "contactPoint": [
                         {
                             "@type": "ContactPoint",
@@ -251,7 +251,7 @@
                     "@type": "Organization",
                     "name": "Bath and Body Works Australia",
                     "url": "https://www.bathandbodyworks.com.au/",
-                    "logo": "${URLUtils.staticURL('/images/og-image.png')}",
+                    "logo": "og-image.png?$staticlink$",
                     "contactPoint": [
                         {
                             "@type": "ContactPoint",

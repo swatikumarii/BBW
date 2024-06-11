@@ -1,32 +1,32 @@
 <h2 class="h-font-size--24 h-clr--black-1 h-mt--30 h-mb--10 pb-3 h-fw--bold border-bottom border-dark">${Resource.msg('label.order.your.items', 'order', null)}</h2>
 <div class="h-px--15 confirmation-product-details">
     <div class="itemsHeader row border-bottom d-none d-md-flex">
-        <div class="headerItem h-font-size--18 h-fw--bold h-clr--black-1 col-8 p-3">${Resource.msg('label.item.header.item', 'cart', null)}</div>
-        <div class="col-4">
+        <div class="headerItem h-font-size--18 h-fw--bold h-clr--black-1 col-6 p-3">${Resource.msg('label.item.header.item', 'cart', null)}</div>
+        <div class="col-6">
             <div class="row">
-                <div class="headerQty h-font-size--18 h-fw--bold h-clr--black-1 text-center col-6 p-3">${Resource.msg('label.item.header.quantity', 'cart', null)}</div>
-                <div class="headerSavings h-font-size--18 h-fw--bold h-clr--black-1 text-center col-6 p-3">${Resource.msg('label.item.header.savings', 'cart', null)}</div>
-                <div class="headerPrice h-font-size--18 h-fw--bold h-clr--black-1 text-center col-6 p-3">${Resource.msg('label.item.header.price', 'cart', null)}</div>
+                <div class="headerQty h-font-size--18 h-fw--bold h-clr--black-1 text-center col-4 p-3">${Resource.msg('label.item.header.quantity', 'cart', null)}</div>
+                <div class="headerSavings h-font-size--18 h-fw--bold h-clr--black-1 text-center col-4 p-3 headerQty">${Resource.msg('label.item.header.savings', 'cart', null)}</div>
+                <div class="headerPrice h-font-size--18 h-fw--bold h-clr--black-1 text-center col-4 p-3">${Resource.msg('label.item.header.price', 'cart', null)}</div>
             </div>
         </div>
     </div>
     <div class="cart-lineitems">
         <isloop items="${pdict.order.items.items}" var="lineItem">
             <div class="row cart-lineitem">
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-md-6">
                     <div class="row">
                         <div class="col-4">
                             <iscomment> Image </iscomment>
                             <div class="product-line-item-details d-flex flex-row">
                                 <isif condition="${lineItem.isEgiftCard}">
                                     <div class="item-image">
-                                        <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
+                                        <img class="product-image" src="${lineItem.images.small[0].url}" srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x" alt="${lineItem.images.small[0].alt}"
                                             title="${lineItem.images.small[0].title}" width="100" />
                                     </div>
                                 <iselse/>
                                     <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
                                         <div class="item-image">
-                                            <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
+                                            <img class="product-image" src="${lineItem.images.small[0].url}" srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x" alt="${lineItem.images.small[0].alt}"
                                                 title="${lineItem.images.small[0].title}" width="100" />
                                         </div>
                                     </a>
@@ -60,19 +60,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-6">
                     <div class="row justify-content-end">
-                        <div class="headerQty d-flex col-8 col-md-6 justify-content-md-center justify-content-start">
+                        <div class="headerQty d-flex col-8 col-md-4 justify-content-md-center justify-content-start">
                             <isprint value="${lineItem.quantity}" formatter="##" />
                         </div>
-                        <div class="line-item-savings">
+                        <div class="line-item-savings col-8 col-md-4 d-flex justify-content-md-center justify-content-start">
                             <isif condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
                                 <span class="value">${lineItem.totalSavings}</span>
                             <iselse/>
                                 <span class="value value-dash">${'-'}</span>
                             </isif>
                         </div>
-                        <div class="headerPrice d-flex col-8 col-md-6 justify-content-md-center justify-content-start">
+                        <div class="headerPrice d-flex col-8 col-md-4 justify-content-md-center justify-content-start">
                             <isinclude template="checkout/productCard/productCardProductTotalPrice" />
                         </div>
                     </div>

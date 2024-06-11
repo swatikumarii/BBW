@@ -116,6 +116,15 @@ function updateCartTotals(data) {
                 .empty()
                 .append(item.renderedPrice);
         }
+        var motivatorHTML = '';
+        item.promotions.forEach(function (promotion) {
+            if (promotion.motivator && promotion.motivator !== 'false') {
+                motivatorHTML += '<div class="h-font-size--14 h-fw--semibold">\n'+
+                promotion.motivator +'\n' +
+                '</div>\n';
+            }
+        });
+        $('.line-item-promo-motivator.item-' + item.UUID).empty().append(motivatorHTML);
         $('.item-total-' + item.UUID).empty().append(item.priceTotal.renderedPrice);
     });
 

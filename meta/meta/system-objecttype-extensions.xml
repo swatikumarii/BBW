@@ -509,6 +509,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="lastForgotPasswordRequest">
+                <display-name xml:lang="x-default">Last Forgot Password Request</display-name>
+                <description xml:lang="x-default">Last Forgot Password Request</description>
+                <type>datetime</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Standard">
@@ -534,6 +541,10 @@
             <attribute-group group-id="dynamicBadgesAttribute">
                 <display-name xml:lang="x-default">Dynamic Badges Attribute</display-name>
                 <attribute attribute-id="cartProducts"/>
+            </attribute-group>
+            <attribute-group group-id="forgotPasswordRequestAttribute">
+                <display-name xml:lang="x-default">Forgot Password Request Attribute</display-name>
+                <attribute attribute-id="lastForgotPasswordRequest"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

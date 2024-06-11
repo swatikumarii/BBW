@@ -92,11 +92,11 @@ $(document).on('click', '.notifyBackInStockButton', function (e) {
             } else {
                 $('#requestUserEmailForOOSModal img.image').attr(
                     'src',
-                    $(mainClass).find('.notifyBackInStockButton').data('img')
+                    $(mainClass).find('.notifyBackInStockButton').data(window.devicePixelRatio >= 2 ? 'img2x' : 'img')
                 );
                 $('#requestUserEmailForOOSModal img.image').attr(
                     'data-src',
-                    $(mainClass).find('.notifyBackInStockButton').data('img')
+                    $(mainClass).find('.notifyBackInStockButton').data(window.devicePixelRatio >= 2 ? 'img2x' : 'img')
                 );
                 $('#requestUserEmailForOOSModal span.product-name').text(
                     $(mainClass).find('.notifyBackInStockButton').data('pname')

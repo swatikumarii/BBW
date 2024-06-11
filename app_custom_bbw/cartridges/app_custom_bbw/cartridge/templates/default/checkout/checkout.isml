@@ -81,7 +81,7 @@
 
                     <div class="alert alert-danger error-message bg-white" role="alert">
                         <div class="payment-error">
-                            <p class="error-message-text mb-0 h-font-size--16 h-fw--semibold h-clr--red"></p>
+                            <p class="error-message-text mb-0 h-font-size--14 h-fw--semibold h-clr--red"></p>
                         </div>
 
                         <div class="col-md-12 text-center">

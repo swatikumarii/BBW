@@ -978,4 +978,83 @@ server.replace('SaveNewPassword', server.middleware.https, function (req, res, n
     next();
 });
 
+/**
+ * Account-PasswordResetDialogForm : The Account-PasswordResetDialogForm endpoint is the endpoint that gets hit once the shopper has clicked forgot password and has submitted their email address to request to reset their password
+ */
+server.replace('PasswordResetDialogForm', server.middleware.https, function (req, res, next) {
+    var CustomerMgr = require('dw/customer/CustomerMgr');
+    var Transaction = require('dw/system/Transaction');
+    var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
+
+    var email = req.form.loginEmail;
+    var errorMsg;
+    var isValidEmail;
+    var resettingCustomer;
+    var mobile = req.querystring.mobile;
+    var receivedMsgHeading = Resource.msg('label.resetpasswordreceived', 'login', null);
+    var receivedMsgBody = Resource.msg('msg.requestedpasswordreset', 'login', null);
+    var buttonText = Resource.msg('button.text.loginform', 'login', null);
+    var returnUrl = URLUtils.url('Login-Show').toString();
+    if (email) {
+        isValidEmail = emailHelpers.validateEmail(email);
+        if (isValidEmail) {
+            resettingCustomer = CustomerMgr.getCustomerByLogin(email);
+            if (resettingCustomer) {
+                if (
+                    resettingCustomer.profile.custom &&
+                    'lastForgotPasswordRequest' in
+                        resettingCustomer.profile.custom &&
+                    resettingCustomer.profile.custom.lastForgotPasswordRequest &&
+                    (new Date() - resettingCustomer.profile.custom.lastForgotPasswordRequest) < 60000
+                ) {
+                    errorMsg = Resource.msg('error.message.passwordreset.within.one.min', 'login', null);
+                    res.json({
+                        fields: {
+                            loginEmail: errorMsg
+                        }
+                    });
+                } else {
+                    accountHelpers.sendPasswordResetEmail(email, resettingCustomer);
+                    Transaction.wrap(function () {
+                        resettingCustomer.profile.custom.lastForgotPasswordRequest =
+                                new Date();
+                    });
+                    res.json({
+                        success: true,
+                        receivedMsgHeading: receivedMsgHeading,
+                        receivedMsgBody: receivedMsgBody,
+                        buttonText: buttonText,
+                        mobile: mobile === 'true',
+                        returnUrl: returnUrl
+                    });
+                }
+            } else {
+                res.json({
+                    success: true,
+                    receivedMsgHeading: receivedMsgHeading,
+                    receivedMsgBody: receivedMsgBody,
+                    buttonText: buttonText,
+                    mobile: mobile === 'true',
+                    returnUrl: returnUrl
+                });
+            }
+        } else {
+            errorMsg = Resource.msg('error.message.passwordreset', 'login', null);
+            res.json({
+                fields: {
+                    loginEmail: errorMsg
+                }
+            });
+        }
+    } else {
+        errorMsg = Resource.msg('error.message.required', 'login', null);
+        res.json({
+            fields: {
+                loginEmail: errorMsg
+            }
+        });
+    }
+    next();
+});
+
 module.exports = server.exports();

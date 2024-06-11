@@ -10,7 +10,7 @@
             <div class="summary-details shipping h-font-size--16 h-clr--black-1">
                 <h2 class="h-clr--black-1 review-shipping-summary-content h-fw--bold">${Resource.msg('label.order.shipping.address', 'order', null)}</h2>
                 <isinclude template="checkout/addressSummary" />
-                <div class="shipping-phone">
+                <div class="shipping-phone h-font-size--16 h-clr--black-1">
                     ${shippingModel.shippingAddress && shippingModel.shippingAddress.phone ? shippingModel.shippingAddress.phone : ''}
                 </div>
             </div>
