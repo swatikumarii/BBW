@@ -2694,7 +2694,7 @@
         </custom-attributes>
     </content>
 
-     <content content-id="footer-social-list">
+      <content content-id="footer-social-list">
         <display-name xml:lang="x-default">Social List</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -2703,22 +2703,23 @@
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="socials mb-5"&gt;&#13;
 	&lt;h6 class="social-header text-capitalize mb-4 font-weight-bold text-start h-clr--black-1 h-font-size--16"&gt;Get connected&lt;/h6&gt;&#13;
 	&lt;ul class="social-links d-flex m-0"&gt;&#13;
-		&lt;li&gt;&lt;a class="facebook" href="https://www.facebook.com/bbwaustralia/" target="_blank" title="Go to facebook"&gt;&lt;img alt="" src="images/footer/social-icon/Social-fb-black.svg?$staticlink$" title="facebook" /&gt;&lt;/a&gt;&#13;
+		&lt;li&gt;&lt;a class="facebook" href="https://www.facebook.com/bbwaustralia/" target="_blank" title="Go to facebook"&gt;&lt;img alt="facebook" src="images/footer/social-icon/Social-fb-black.svg?$staticlink$" title="facebook" /&gt;&lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
-		&lt;li&gt;&lt;a class="instagram" href="https://www.instagram.com/bathandbodyworks.au/" target="_blank" title="Go to instagram"&gt;&lt;img alt="" src="images/footer/social-icon/Social-ig-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;li&gt;&lt;a class="instagram" href="https://www.instagram.com/bathandbodyworks.au/" target="_blank" title="Go to instagram"&gt;&lt;img alt="instagram" src="images/footer/social-icon/Social-ig-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
-		&lt;li&gt;&lt;a class="tiktok" href="https://www.tiktok.com/@bathandbodyworks.au" target="_blank" title="Go to tiktok"&gt;&lt;img alt="" src="images/footer/social-icon/Social-tiktok-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;li&gt;&lt;a class="tiktok" href="https://www.tiktok.com/@bathandbodyworks.au" target="_blank" title="Go to tiktok"&gt;&lt;img alt="tiktok" src="images/footer/social-icon/Social-tiktok-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
-		&lt;li&gt;&lt;a class="youtube" href="https://www.youtube.com/channel/UCi4-fFB4Odqjttdwomvg3rQ" target="_blank" title="Go to youtube"&gt;&lt;img alt="" src="images/footer/social-icon/Social-youtube-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
+		&lt;li&gt;&lt;a class="youtube" href="https://www.youtube.com/channel/UCi4-fFB4Odqjttdwomvg3rQ" target="_blank" title="Go to youtube"&gt;&lt;img alt="youtube" src="images/footer/social-icon/Social-youtube-black.svg?$staticlink$" title="" /&gt; &lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
 	&lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
+
 
  <content content-id="footer-tooltip-details">
         <display-name xml:lang="x-default">Tooltip Details</display-name>
@@ -3006,12 +3007,12 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="account-nav-help text-center"&gt;&#13;
-    &lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$" class="h-clr--gray h-font-size--14 m-0"&gt;Questions?&lt;/a&gt;&#13;
+    &lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$" class="h-clr--gray h-font-size--14 m-0 question-tag"&gt;Questions?&lt;/a&gt;&#13;
     &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-57-6972.&lt;/p&gt;&#13;
 &lt;/div&gt;&#13;
 &#13;
 &lt;style&gt;&#13;
-    a {&#13;
+    .question-tag {&#13;
         text-decoration: underline;&#13;
     }&#13;
 &lt;/style&gt;</custom-attribute>
@@ -5229,14 +5230,50 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
         </custom-attributes>
     </content>
 
-     <content content-id="giftcards">
+   <content content-id="giftcards">
         <display-name xml:lang="x-default">Gift Cards</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script&gt;&#13;
+    function checkbalance () {&#13;
+    var cardNumber = $('#dwfrm_giftcard_giftCardID').val();&#13;
+    var cardPin = $('#dwfrm_giftcard_giftCardPin').val();&#13;
+    var checkBalanceUrl = $('input[name="checkBalanceUrl"]').val();&#13;
+    cardNumber = cardNumber.replace(/\s/g, '');&#13;
+    var form = {&#13;
+        cardNo: cardNumber,&#13;
+        cardPin: cardPin&#13;
+    };&#13;
+    $.ajax({&#13;
+        url: checkBalanceUrl,&#13;
+        method: 'POST',&#13;
+        data: $.param(form),&#13;
+        success: function(data) {&#13;
+            if (data.error) {&#13;
+                var errorElement = $('.gift-card-balance-error');&#13;
+                errorElement.empty();&#13;
+                errorElement.append('&lt;span class="giftcard-balance-error"&gt;' + data.errorMessage + '&lt;/span&gt;');&#13;
+                setTimeout(function() {&#13;
+                    $('.giftcard-balance-error').remove();&#13;
+                }, 5000);&#13;
+            } else {&#13;
+                var balanceWrap = $('.giftcard-balance-wrap');&#13;
+                balanceWrap.empty();&#13;
+                balanceWrap.append('&lt;span class="giftcard-balance-text giftcard-balance-error"&gt;' + data.cardBalance + '&lt;/span&gt;');&#13;
+            }&#13;
+        },&#13;
+        error: function(xhr, status, error) {&#13;
+            console.error('Request failed with status:', status, 'and error:', error); // Log error details&#13;
+            return false;&#13;
+        }&#13;
+    });&#13;
+};&#13;
+&lt;/script&gt;&#13;
+&lt;div class="container"&gt;&#13;
     &lt;div class="primary-content"&gt;&#13;
+        &lt;input type="hidden" name="checkBalanceUrl" value="$url('Giftcard-CheckBalance')$"&gt;&#13;
         &lt;div class="gift-card-top-banner"&gt;&#13;
             &lt;picture&gt;&#13;
                 &lt;source media="(min-width: 768px)" srcset="images/gift-cards/giftcards.svg?$staticlink$" /&gt; &lt;img&#13;
@@ -5246,29 +5283,23 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
             &lt;img alt="" height="124" class="d-md-none d-xl-none w-100"&#13;
                 src="images/gift-cards/gift-card-landing-banner-slot_m.svg?$staticlink$" title="" /&gt;&#13;
         &lt;/div&gt;&#13;
-&#13;
         &lt;div class="gift-card-landing-subtitle text-center"&gt;&#13;
             &lt;h2 class="h-font-size--24 "&gt;Two easy ways to spoil someone special.&lt;/h2&gt;&#13;
-&#13;
             &lt;p class="h-font-size--14"&gt;Redeemable In Stores &amp;amp; Online.&lt;/p&gt;&#13;
         &lt;/div&gt;&#13;
-&#13;
         &lt;div class="row"&gt;&#13;
             &lt;div class="col-md-6" style="margin: 0 auto;"&gt;&#13;
                 &lt;div class="gift-card-options clearfix"&gt;&#13;
                     &lt;div class="giftcard-col1"&gt;&#13;
                         &lt;div class="gift-card-box e-gift"&gt;&#13;
                             &lt;h3 class="card-name"&gt;E-Gift Cards&lt;/h3&gt;&#13;
-&#13;
                             &lt;div class="card-img"&gt;&lt;img alt="E-Gift Cards"&#13;
                                     src="images/gift-cards/e-gift-card.webp?$staticlink$" title="" /&gt;&lt;/div&gt;&#13;
-&#13;
                             &lt;div class="card-desc"&gt;Fast, easy &amp;amp; fun! We'll email it directly to your recipient,&#13;
                                 complete&#13;
                                 with your own message and the fun design you chose.&lt;/div&gt;&#13;
                             &lt;a class="button btn text-white" href="$url('Search-Show', 'cgid', 'giftcards')$"&gt;Get&#13;
                                 Started&lt;/a&gt;&#13;
-&#13;
                             &lt;p class="center"&gt;&lt;a href="#" target="_blank" title="about e-gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
                         &lt;/div&gt;&#13;
                     &lt;/div&gt;&#13;
@@ -5276,12 +5307,10 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
             &lt;/div&gt;&#13;
         &lt;/div&gt;&#13;
     &lt;/div&gt;&#13;
-&#13;
     &lt;div class="gift-card-balance ui-accordion ui-widget ui-helper-reset"&gt;&#13;
         &lt;h2 aria-controls="collapseExample" aria-expanded="false"&#13;
             class="ui-accordion-header text-center h-font-size--16" data-toggle="collapse" href="#collapseExample"&#13;
             role="button"&gt;&#13;
-&#13;
             &lt;p class="desk-title h-font-size--24 text-transform h-clr--black-3"&gt;Have a gift card?&lt;/p&gt;&#13;
             &lt;span class="ui-accordion-header-icon ui-icon iconClosed"&gt;&lt;/span&gt;&lt;br /&gt;&#13;
             &lt;span&gt;Check Card Balance&lt;/span&gt;&#13;
@@ -5289,45 +5318,41 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
     &lt;/div&gt;&#13;
     &lt;div class="collapse" id="collapseExample"&gt;&#13;
         &lt;div class="balance-box"&gt;&#13;
-            &lt;form class="clearfix" id="giftcard-landing-form" method="post" novalidate="novalidate"&gt;&#13;
-                &lt;div class="form-row number-max-length d-block" data-required-text=""&gt;&lt;label&#13;
-                        for="dwfrm_giftcard_giftCardID"&gt;Gift Card Number&lt;span&#13;
-                            class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
-&#13;
-                    &lt;div class="field-wrapper "&gt;&lt;input aria-required="true" autocomplete="" class="input-text  required"&#13;
-                            data-maxlength="22" id="dwfrm_giftcard_giftCardID" maxlength="2147483647"&#13;
-                            name="dwfrm_giftcard_giftCardID" pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
-                    &lt;/div&gt;&#13;
-&#13;
-                    &lt;div class="form-caption " id="caption-dwfrm_giftcard_giftCardID"&gt;&amp;nbsp;&lt;/div&gt;&#13;
+            &lt;div class="form-row number-max-length d-block" data-required-text=""&gt;&lt;label&#13;
+                    for="dwfrm_giftcard_giftCardID"&gt;Gift Card Number&lt;span&#13;
+                        class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
+                &lt;div class="field-wrapper "&gt;&lt;input aria-required="true" autocomplete="" class="input-text  required"&#13;
+                        data-maxlength="22" id="dwfrm_giftcard_giftCardID" maxlength="2147483647"&#13;
+                        name="dwfrm_giftcard_giftCardID" pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
                 &lt;/div&gt;&#13;
-&#13;
-                &lt;div class="form-row pin number-max-length help" data-required-text=""&gt;&lt;label&#13;
-                        for="dwfrm_giftcard_giftCardPin"&gt;&lt;span&gt;PIN&lt;/span&gt;&lt;span&#13;
-                            class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
-&#13;
-                    &lt;div class="field-wrapper d-flex"&gt;&#13;
-                        &lt;input aria-required="true" autocomplete="" class="input-text help  required" data-maxlength="6"&#13;
-                            id="dwfrm_giftcard_giftCardPin" maxlength="2147483647" name="dwfrm_giftcard_giftCardPin"&#13;
-                            pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
-                        &lt;div class="tooltip-field"&gt;&#13;
-                            &lt;button type="button"&#13;
-                                class="btn btn-with-image btn-with-tooltip ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
-                                data-toggle="popover" data-placement="right"&#13;
-                                id="tooltip-footer_iroll_popover_emailcapture486"&#13;
-                                title="&amp;lt;a href='#' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
-                                data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt;&amp;lt;img src='images/gift-cards/gift-card-pin.svg?$staticlink$' alt='Gift Card' /&amp;gt;&amp;lt;/div&amp;gt;"&#13;
-                                data-html="true"&gt;&#13;
-                            &lt;/button&gt;&#13;
-                        &lt;/div&gt;&#13;
+                &lt;div class="form-caption " id="caption-dwfrm_giftcard_giftCardID"&gt;&amp;nbsp;&lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+            &lt;div class="form-row pin number-max-length help mb-2" data-required-text=""&gt;&lt;label&#13;
+                    for="dwfrm_giftcard_giftCardPin"&gt;&lt;span&gt;PIN&lt;/span&gt;&lt;span&#13;
+                        class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
+                &lt;div class="field-wrapper d-flex"&gt;&#13;
+                    &lt;input aria-required="true" autocomplete="" class="input-text help  required" data-maxlength="6"&#13;
+                        id="dwfrm_giftcard_giftCardPin" maxlength="2147483647" name="dwfrm_giftcard_giftCardPin"&#13;
+                        pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
+                    &lt;div class="tooltip-field"&gt;&#13;
+                        &lt;button type="button"&#13;
+                            class="btn btn-with-image btn-with-tooltip ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
+                            data-toggle="popover" data-placement="right"&#13;
+                            id="tooltip-footer_iroll_popover_emailcapture486"&#13;
+                            title="&amp;lt;a href='#' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
+                            data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt;&amp;lt;img src='images/gift-cards/gift-card-pin.svg?$staticlink$' alt='Gift Card' /&amp;gt;&amp;lt;/div&amp;gt;"&#13;
+                            data-html="true"&gt;&#13;
+                        &lt;/button&gt;&#13;
                     &lt;/div&gt;&#13;
                 &lt;/div&gt;&#13;
-                &lt;button id="check-giftcert" class="btn"&gt;Check Gift Card Balance&lt;/button&gt;&#13;
-            &lt;/form&gt;&#13;
+            &lt;/div&gt;&#13;
+            &lt;span class="giftcard-balance-wrap w-100 d-block text-left h-fw--semibold h-font-size--16  h-clr--black-1 mt-0"&gt;&lt;/span&gt;&#13;
+            &lt;button id="check-giftcert" class="btn" onclick="checkbalance()"&gt;Check Gift Card Balance&lt;/button&gt; &lt;br /&gt;&#13;
+           &lt;span class="gift-card-balance-error h-font-size--16 h-fw--semibold h-clr--red "&gt;&lt;/span&gt;&#13;
         &lt;/div&gt;&#13;
     &lt;/div&gt;&#13;
-&#13;
 &lt;/div&gt;&#13;
+&#13;
 &lt;style type="text/css"&gt;&#13;
     .gift-card-top-banner .desktop-image {&#13;
         width: 930px;&#13;
@@ -5389,8 +5414,9 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
         margin-top: 17px;&#13;
     }&#13;
 &#13;
-    .balance-box form {&#13;
+    .balance-box {&#13;
         width: 290px;&#13;
+        text-align: center;&#13;
         margin: 0 auto;&#13;
     }&#13;
 &#13;
@@ -5576,7 +5602,6 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
     }&#13;
 &#13;
     #check-giftcert {&#13;
-        float: right;&#13;
         width: auto;&#13;
         font-size: 11px;&#13;
         margin-top: 1.6875rem;&#13;
@@ -5585,6 +5610,7 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
         min-height: 35px;&#13;
         max-height: 35px;&#13;
         letter-spacing: .12em;&#13;
+        margin-bottom: 1rem;&#13;
     }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
