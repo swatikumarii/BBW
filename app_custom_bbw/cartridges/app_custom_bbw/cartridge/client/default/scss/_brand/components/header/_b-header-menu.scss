@@ -296,7 +296,6 @@
                             pointer-events: auto;
                             visibility: visible;
                             max-height: max-content;
-                            border-top: 0.1875rem solid colour(gray, 1);
                             z-index: 1;
                         }
 
@@ -311,7 +310,7 @@
                         padding: 0;
                         max-height: 0;
                         display: block;
-                        border: 0;
+                        border-top: 0.1875rem solid colour(gray, 1);
                         left: 0;
                         top: auto;
                         background-color: colour(white);
@@ -596,6 +595,18 @@
                                     }
                                 }
                             }
+                        }
+                    }
+
+                    &.muted {
+                        transition: none;
+                        transition-property: none;
+
+                        .level-2-ul,
+                        .menu-wrap-level-1 {
+                            -webkit-transition: none;
+                            transition: none;
+                            transition-property: none;
                         }
                     }
                 }

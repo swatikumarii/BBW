@@ -723,3 +723,84 @@ footer {
         }
     }
 }
+
+.promotion-callout {
+    line-height: 1.25rem;
+    letter-spacing: 0.005em;
+    width: 100%;
+    margin-bottom: 0.75rem;
+
+    .callout-detail {
+        &::after {
+            font-size: 0.875rem;
+            line-height: 1rem;
+            color: colour(gray, 4);
+            margin-top: 0.3125rem;
+            text-decoration: underline;
+            content: "Promotional Details";
+        }
+
+        .popover-header {
+            display: none;
+        }
+    }
+}
+
+.pdp-popover {
+    border: 1px solid colour(gray);
+    box-shadow: 0 0 13px 0 rgba(0, 0, 0, 15%);
+    color: colour(black, 1);
+    padding: 1.5rem 0.5rem 1.5rem 0;
+    overflow-y: initial;
+    border-radius: 0;
+    left: 13px !important;
+    width: 260px;
+    max-height: 197px;
+
+    @include media-down(sm) {
+        left: 19.5% !important;
+        top: -3.4% !important;
+        
+        .arrow {
+            top: auto !important;
+            bottom: -17px;
+            right: 50%;
+            transform: rotate(90deg);
+        }
+    }
+
+    .popover-body {
+        max-height: 147px;
+        overflow-y: auto;
+        padding: 0 16px 0 24px;
+        scrollbar-width: thin;
+
+        &:focus {
+            outline: 1px dotted colour(black);
+            outline-offset: 2px;
+        }
+
+        .popover-content {
+            color: colour(black, 1);
+            font-size: 14px;
+            height: auto;
+            letter-spacing: 0.015em;
+            line-height: 20px;
+            max-height: 300px;
+            font-family: $ff-base;
+        }
+    }
+
+    .popover-header {
+        display: none;
+    }
+
+    .close {
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background-size: 0.8125rem;
+    }
+}

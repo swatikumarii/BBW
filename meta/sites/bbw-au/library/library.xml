@@ -2740,7 +2740,7 @@
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;button type="button"&#13;
     class="btn btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
-    data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"&#13;
+    data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486" data-placement="top"&#13;
     title="&amp;lt;div class='popover-title header-content h-font-size--18 h-fw--bold d-flex align-items-center justify-space-between'&amp;gt;BATH &amp;amp; BODY WORKS AUSTRALIA LUXTRALIA PTY LTD&amp;lt;/div&amp;gt; &amp;lt;a href='#' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
     data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt; &amp;lt;p class='h-clr--black-3 h-font-size--16 mb-0'&amp;gt; Level 4, 112 Castlereagh Street,&amp;lt;br /&amp;gt; Sydney, NSW, 2000&amp;lt;br /&amp;gt; (02) 8666 0666&amp;lt;/p&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;p class='h-clr--black-3 mb-0 h-font-size--16'&amp;gt;You may withdraw your &amp;lt;br /&amp;gt; consent at anytime. View&amp;lt;/p&amp;gt;&amp;lt;a class=' cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'privacy-policy')$'&amp;gt;Privacy Policy&amp;lt;/a&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;a class='cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'contact-us')$'&amp;gt;Contact Us&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;"&#13;
     data-html="true"&gt;&#13;

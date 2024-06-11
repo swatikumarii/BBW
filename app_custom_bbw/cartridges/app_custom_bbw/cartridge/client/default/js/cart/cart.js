@@ -985,6 +985,12 @@ module.exports = function () {
         });
     });
 
+    // Show popover on mouseenter
+    $('[data-toggle="popover"]').on('mouseenter', function () {
+        $(this).popover('show');
+        $('.pdp-title').parents('.bs-popover-right').addClass('pdp-popover');
+    });
+
     base.selectAttribute();
     base.colorAttribute();
     base.removeBonusProduct();
