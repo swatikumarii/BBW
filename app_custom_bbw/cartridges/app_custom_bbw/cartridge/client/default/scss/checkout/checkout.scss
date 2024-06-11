@@ -397,6 +397,9 @@ input[type="tel"],
         appearance: none;
         z-index: 1;
         position: absolute;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         &:focus {
             box-shadow: none;
