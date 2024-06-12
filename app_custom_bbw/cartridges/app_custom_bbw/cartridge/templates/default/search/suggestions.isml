@@ -1,6 +1,7 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
 <div class="suggestions__products-wrapper h-width-perc-sm--70 h-width-perc-md--70 h-hidden-sm-down">
     <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
+    <input type="hidden" class="searchTerms" value="${pdict.suggestions.searchTerms}" />
     <isif condition="${pdict.suggestions.product}">
         <div class="suggestions__search-product-header d-flex justify-content-between mb-2">
             <isif condition="${pdict.suggestions.product.phrases.length > 0}">
