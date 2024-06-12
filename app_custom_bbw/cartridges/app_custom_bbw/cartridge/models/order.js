@@ -5,6 +5,7 @@ var base = module.superModule;
 var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 var URLUtils = require('dw/web/URLUtils');
 var Site = require('dw/system/Site');
+var Money = require('dw/value/Money');
 
 /**
  * Returns Free shippung status
@@ -39,8 +40,10 @@ function OrderModel(lineItemContainer, options) {
         this.invoiceDownloadUrl = URLUtils.https('Order-InvoiceDownload', 'token', encrptedOrderNumber).toString();
         this.trackingUrl = trackingUrl;
         var currentSite = Site.getCurrent();
-        var currencyCode = currentSite.getDefaultCurrency();
-        this.currencyCode = currencyCode;
+        var currency = new Money(0, currentSite.getDefaultCurrency());
+        var currencyCode = currency.toFormattedString();
+        this.currencyCode = (currencyCode || '').trim().split(' ')[0] || '';
+
         this.hasFreeShipping = getFreeShippingStatus(lineItemContainer);
         if (this.totals) {
             this.totals.hasFreeShipping = getFreeShippingStatus(lineItemContainer);
