@@ -103,50 +103,51 @@ function positionSuggestions(scope) {
  * suggestions template contents
  */
 function processResponse(response) {
-    if (
-        typeof response !== 'object' &&
-        !$('.searchTerms').val() &&
-        $('.searchTerms').val() !== $('input.search-field').val()
-    ) {
-        var $suggestionsWrapper = getSuggestionsWrapper('.search-suggestions');
-        $('.search-suggestions').find('.suggestions').empty().append(response);
-        if (layout.isDesktop() || layout.isTablet()) {
-            $suggestionsWrapper.parent().stop().slideDown();
+    if (typeof response !== 'object') {
+        if (
+            !$('.searchTerms').val() ||
+            $('.searchTerms').val() !== $('input.search-field').val()
+        ) {
+            var $suggestionsWrapper = getSuggestionsWrapper('.search-suggestions');
+            $('.search-suggestions').find('.suggestions').empty().append(response);
+            if (layout.isDesktop() || layout.isTablet()) {
+                $suggestionsWrapper.parent().stop().slideDown();
 
-            //  Apply Max Height to Product Part
-            var productPart;
-            productPart = $('.suggestions__results .pdp-link');
-            var productPartMaxHeight = helpers.getMaxElementHeight(productPart);
-            productPart.css('height', productPartMaxHeight);
-        } else {
-            $suggestionsWrapper.show();
-            if (!$suggestionsWrapper.find('.suggestions').hasClass('active')) {
-                $suggestionsWrapper
-                    .find('.suggestions')
-                    .offset({ top: $('#header-search').outerHeight() })
-                    .addClass('active modal')
-                    .slideDown();
+                //  Apply Max Height to Product Part
+                var productPart;
+                productPart = $('.suggestions__results .pdp-link');
+                var productPartMaxHeight = helpers.getMaxElementHeight(productPart);
+                productPart.css('height', productPartMaxHeight);
+            } else {
+                $suggestionsWrapper.show();
+                if (!$suggestionsWrapper.find('.suggestions').hasClass('active')) {
+                    $suggestionsWrapper
+                        .find('.suggestions')
+                        .offset({ top: $('#header-search').outerHeight() })
+                        .addClass('active modal')
+                        .slideDown();
+                }
             }
-        }
 
-        positionSuggestions(this);
+            positionSuggestions(this);
 
-        if (isMobileSearch(this)) {
-            toggleSuggestionsIcon('close');
-            applyModals(this);
-        }
+            if (isMobileSearch(this)) {
+                toggleSuggestionsIcon('close');
+                applyModals(this);
+            }
 
-        // Trigger screen reader by setting aria-describedby with the new suggestion message.
-        var suggestionsList = $('.suggestions .item');
-        if ($(suggestionsList).length) {
-            $('input.search-field').attr(
-                'aria-describedby',
-                'search-result-count'
-            );
-        } else {
-            $('input.search-field').removeAttr('aria-describedby');
+            // Trigger screen reader by setting aria-describedby with the new suggestion message.
+            var suggestionsList = $('.suggestions .item');
+            if ($(suggestionsList).length) {
+                $('input.search-field').attr(
+                    'aria-describedby',
+                    'search-result-count'
+                );
+            } else {
+                $('input.search-field').removeAttr('aria-describedby');
+            }
+            lazyload.lazyLoad();
         }
-        lazyload.lazyLoad();
     } else {
         $('.search-suggestions').find('.suggestions').empty().hide();
     }
