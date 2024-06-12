@@ -15,11 +15,17 @@
             .bbw-nav-wrap {
                 .primary-logo {
                     margin: 24px auto 22px;
+                    padding-top: 0;
+                    left: 0;
                 }
 
                 .icon-items {
                     .minicart {
-                        margin-right: 41px;
+                        margin-right: 29px;
+
+                        @include media-up(md) {
+                            margin-right: 41px;
+                        }
                     }
                 }
             }
@@ -86,12 +92,16 @@ footer {
     color: colour(green, 2);
 }
 
+.checkout-btn-row {
+    @include media-up(md) {
+        padding: 0 2%;
+    }
+}
+
 .next-step-button {
     position: fixed;
     bottom: 0;
     z-index: 3;
-    padding-right: 0;
-    padding-left: 30px;
 
     button {
         min-width: 175px;
@@ -101,8 +111,8 @@ footer {
         padding-right: 15px;
         padding-left: 15px;
 
-        .mb-sm-3 {
-            margin: 15px 20px;
+        .next-step-button-inner-wrapper {
+            margin: 10px 0 15px;
         }
 
         button {
@@ -120,7 +130,7 @@ footer {
 }
 
 .shipping-method-pricing {
-    font-weight: bolder;
+    font-weight: 600;
 }
 
 .multi-ship .multi-shipping {
@@ -146,7 +156,7 @@ span.ship-to-city-st-zip {
     cursor: pointer;
 
     &:hover {
-        text-decoration: underline;
+        text-decoration: none;
     }
 }
 
@@ -174,6 +184,14 @@ span.ship-to-city-st-zip {
         &.billing {
             padding: 0;
             margin: 0;
+
+            .edit-billing-address {
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
         }
     }
 }
@@ -274,19 +292,47 @@ span.ship-to-city-st-zip {
 }
 
 .checkout-steps {
-    margin: 25px auto 58px;
+    margin: 24px auto 34px;
     text-align: center;
     line-height: 16px;
     letter-spacing: 0.2px;
-    width: 730px;
+    width: 290px;
+
+    @include media-up(md) {
+        margin: 25px auto 58px;
+        width: 730px;
+    }
 
     a {
         display: block;
         width: fit-content;
     }
 
+    .step-1 {
+        @include media-down(sm) {
+            width: 56px;
+        }
+    }
+
+    .step-2 {
+        @include media-down(sm) {
+            width: 152px;
+        }
+    }
+
+    .step-3 {
+        @include media-down(sm) {
+            width: 82px;
+        }
+    }
+
     .step-text {
+        height: 32px;
         margin-bottom: 15px;
+
+        @include media-up(md) {
+            height: auto;
+        }
     }
 
     .step-connect {
@@ -295,12 +341,16 @@ span.ship-to-city-st-zip {
         &::after {
             content: "";
             display: block;
-            width: calc(100% - 30px);
+            width: 100px;
             height: 3px;
             position: absolute;
             background: colour(gray, 1);
             bottom: 14px;
             left: calc(50% + 15px);
+
+            @include media-up(md) {
+                width: calc(100% - 30px);
+            }
         }
     }
 
@@ -315,18 +365,15 @@ span.ship-to-city-st-zip {
         line-height: 25px;
         background-color: colour(gray, 1);
     }
-
-    @include media-down(sm) {
-        width: 100%;
-
-        .step-text {
-            height: 30px;
-        }
-    }
 }
 
 .checkout-blocks {
     border-top: 1px solid colour(gray, 6);
+    padding: 0 14px;
+
+    @include media-up(md) {
+        padding: 0 2%;
+    }
 
     .checkout-login-signup-info {
         .account-tag {
@@ -337,11 +384,11 @@ span.ship-to-city-st-zip {
 }
 
 .customer-heading {
-    padding: 20px 10px;
+    padding: 20px 0;
 }
 
 .customer-message {
-    padding: 0 10px;
+    padding: 0;
 
     a {
         text-decoration: underline;
@@ -428,7 +475,8 @@ input[type="tel"],
     .custom-select-wrap {
         &::after {
             transform: translateY(-50%);
-            right: 5px;
+            right: 0;
+            top: 50%;
         }
     }
 }
@@ -472,6 +520,11 @@ input[type="tel"],
 
 .order-summary {
     padding: 0 15px;
+    margin-bottom: 37px;
+
+    @include media-up(md) {
+        margin-bottom: 0;
+    }
 }
 
 .order-product-summary-wrap {
@@ -555,15 +608,28 @@ input[type="tel"],
 }
 
 .shipping-methods-block {
-    margin: 10px 0 30px;
+    margin: 0 0 16px;
+
+    @include media-up(md) {
+        margin: 10px 0 30px;
+    }
 }
 
 .payment-form {
-    padding: 0 15px;
+    padding: 0;
+
+    @include media-up(md) {
+        padding: 0 15px;
+    }
 
     .billing-address-heading {
-        padding-top: 40px;
+        padding-top: 0;
         padding-bottom: 15px;
+        margin-bottom: 13px;
+
+        @include media-up(md) {
+            margin-bottom: 6px;
+        }
     }
 }
 
