@@ -197,13 +197,17 @@ $(document).ready(function () {
         }
         var selectedCity = $('body').find('.shippingAddressCity').attr('data-selected');
         if (selectedCity !== 'null') {
+            $('.shippingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
+            $('.shippingZipCode').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
             $('.shippingAddressCity option').each(function () {
                 if ($(this).val() === selectedCity) {
                     $('.shippingAddressCity option').removeAttr('selected');
+                    $('.shippingAddressCity option')[0].remove();
                     $(this).attr('selected', 'selected');
                     $('body').find('.shippingAddressCity').trigger('change');
                     return false;
                 }
+                $('.shippingZipCode option').slice(1).remove();
             });
         }
         var selectedPostalCode = $('body').find('.shippingZipCode').attr('data-selected');
@@ -238,13 +242,17 @@ $(document).ready(function () {
             .find('.billingAddressCity')
             .attr('data-selected');
         if (selectedBillingCity !== 'null') {
+            $('.billingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
+            $('.billingZipCode').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
             $('.billingAddressCity option').each(function () {
                 if ($(this).val() === selectedBillingCity) {
                     $('.billingAddressCity option').removeAttr('selected');
+                    $('.billingAddressCity option')[0].remove();
                     $(this).attr('selected', 'selected');
                     $('body').find('.billingAddressCity').trigger('change');
                     return false;
                 }
+                $('.billingZipCode option').slice(1).remove();
             });
         }
         var selectedBillingPostalCode = $('body')
