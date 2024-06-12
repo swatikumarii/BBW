@@ -203,10 +203,18 @@ var history = window.history;
                             url: form.attr('action'),
                             type: 'post',
                             data: shippingFormData,
-                            success: function () {
-                                // enable the next:Payment button here
-                                var billingURL = $('input[name="billing-url"]').val();
-                                window.location.href = billingURL;
+                            success: function (data) {
+                                if (data.error) {
+                                    shippingHelpers.methods.shippingFormResponse(
+                                        defer,
+                                        data
+                                    );
+                                    $.spinner().stop();
+                                } else {
+                                    // enable the next:Payment button here
+                                    var billingURL = $('input[name="billing-url"]').val();
+                                    window.location.href = billingURL;
+                                }
                             },
                             error: function (err) {
                                 // enable the next:Payment button here
