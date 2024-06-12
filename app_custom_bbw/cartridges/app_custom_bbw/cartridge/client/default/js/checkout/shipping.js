@@ -191,13 +191,7 @@ function updateShippingMethods(shipping) {
                             .show();
                     }
                     // set shipping cost
-                    if (shippingMethod.shippingCost === 0) {
-                        $('.shipping-cost', tmpl).text(
-                            'FREE'
-                        );
-                    } else {
-                        $('.shipping-cost', tmpl).text(shippingMethod.shippingCost);
-                    }
+                    $('.shipping-cost', tmpl).text(shippingMethod.shippingCost);
                     $shippingMethodList.append(tmpl.html());
                 });
             }
@@ -833,6 +827,42 @@ module.exports = {
             var shipmentUUID = selectedOption[0].value;
             var originalUUID = $('input[name=shipmentUUID]', form).val();
             var element;
+            var stateCode = attrs.stateCode.trim();
+            var city = attrs.city.trim();
+            var postalCode = attrs.postalCode.toString();
+            if (stateCode) {
+                $('.shippingState option').each(function () {
+                    if ($(this).val() === stateCode) {
+                        $('.shippingState option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.shippingState').trigger('change');
+                        return false;
+                    }
+                });
+            };
+            delete attrs.stateCode;
+            if (city) {
+                $('.shippingAddressCity option').each(function () {
+                    if ($(this).val() === city) {
+                        $('.shippingAddressCity option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.shippingAddressCity').trigger('change');
+                        return false;
+                    }
+                });
+            }
+            delete attrs.city;
+            if (postalCode) {
+                $('.shippingZipCode option').each(function () {
+                    if ($(this).val() === postalCode) {
+                        $('.shippingZipCode option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.shippingZipCode').trigger('change');
+                        return false;
+                    }
+                });
+            }
+            delete attrs.postalCode;
             Object.keys(attrs).forEach(function (attr) {
                 element = attr === 'countryCode' ? 'country' : attr;
                 $('[name$=' + element + ']', form).val(attrs[attr]);
@@ -844,7 +874,7 @@ module.exports = {
                     $input.removeClass('is-invalid');
                 } else {
                     var errorText;
-                    if ($input.val().length === 0) {
+                    if ($input.val() && $input.val().length === 0) {
                         errorText = $input.data('missing-error');
                     } else {
                         errorText = $input.data('pattern-mismatch');
@@ -852,7 +882,6 @@ module.exports = {
                     $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
                 }
             });
-            $('[name$=stateCode]', form).trigger('change');
             if (shipmentUUID === 'new') {
                 $(form).attr('data-address-mode', 'new');
                 $(form).find('.shipping-address-block').removeClass('d-none');
