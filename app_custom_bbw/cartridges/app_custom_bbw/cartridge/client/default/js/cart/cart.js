@@ -517,7 +517,7 @@ module.exports = function () {
             setTimeout(function () {
                 errorElem.hide();
             }, 3000);
-            $(this).val(preSelectQty);
+            $(this).val(Math.floor(maxOrderQty));
         } else {
             var productID = $(this).data('pid');
             var url = $(this).data('action');
@@ -974,7 +974,7 @@ module.exports = function () {
             url: checkFreeURL,
             success: function (data) {
                 if (data.loosingFree) {
-                   $('#addFreeModalButton').trigger('click');
+                    $('#addFreeModalButton').trigger('click');
                 } else {
                     window.location.href = url;
                 }
