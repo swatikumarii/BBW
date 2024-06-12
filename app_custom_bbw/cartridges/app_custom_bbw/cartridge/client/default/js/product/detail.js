@@ -252,13 +252,13 @@ module.exports = $.extend({}, detail, {
             var egiftCardDetailsObj;
             var egiftCardDetails = {
                 senderName: $('.gift-card-form')
-                    .find("input:text[name='sender-name']")
+                    .find('input:text[name="sender-name"]')
                     .val(),
                 recipientEmail: $('.gift-card-form')
                     .find('input#recipient-email')
                     .val(),
                 recipientName: $('.gift-card-form')
-                    .find("input:text[name='recipient-name']")
+                    .find('input:text[name="recipient-name"]')
                     .val(),
                 eGiftMessage: $('.gift-card-form').find('#egift-message').val(),
                 eGiftScheduleDate: $('.gift-card-form')

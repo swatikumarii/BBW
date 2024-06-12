@@ -1,9 +1,9 @@
-<div class="shipping-section single-shipping ml-md-2">
+<div class="shipping-section single-shipping">
     <isset name="shippingModel" value="${pdict.order.shipping[0]}" scope="page" />
     <isset name="shipmentLoopState" value="${null}" scope="page" />
     <isset name="lineItem" value="${null}" scope="page" />
     <div data-shipment-uuid="${shippingModel.UUID}">
-        <h2 class="h-font-size--20 h-fw--bold h-clr--black-1 card-header-custom">${Resource.msg('heading.checkout.shipping', 'checkout', null)}</h2>
+        <h2 class="h-font-size--20 h-fw--bold h-clr--black-1 card-header-custom mb-0">${Resource.msg('heading.checkout.shipping', 'checkout', null)}</h2>
         <div class="shipping-error"></div>
         <isinclude template="checkout/shipping/shipmentCard" />
     </div>
