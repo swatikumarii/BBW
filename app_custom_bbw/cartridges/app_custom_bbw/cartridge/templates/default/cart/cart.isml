@@ -54,23 +54,22 @@
                 <isslot id="cart-page-top-1" context="global"
                     description="This slot displays on cart page top section above product cards" />
                 <div class="cartDetailsHeader">
-                    <div class="cartDetailsHeading text-center">${Resource.msg('label.your.cart', 'cart', null)}</div>
-                    <div class="cartDetailsContent w-100">
-                        <div class="content number-of-items text-right w-100 pr-5 py-0">
-                            <isif condition="${pdict.numItems === 1}">
-                                ${Resource.msg('one.item.in.cart', 'cart', null)}
-                            <iselse/>
-                                ${Resource.msgf('label.number.items.in.cart', 'cart', null, pdict.numItems)}
-                            </isif>
-                        </div>
-                        <div class="slot w-100 border-left">
-                            <div class="d-none">
-                            <isslot id="cart-page-details-column" context="global"
-                                description="This slot displays as grid column besides item count on cart page" />
-                            </div>
+                    <div class="cartDetailsHeading text-center">
+                        <isif condition="${pdict.numItems === 1}">
+                            ${Resource.msg('one.item.in.cart', 'cart', null)}
+                        <iselse/>
+                            ${Resource.msgf('label.number.items.in.cart', 'cart', null, pdict.numItems)}
+                        </isif>
+                    </div>
+                    <div class="cartDetailsContent row">
+                        <div class="col-12 col-md-6">
                             <isinclude template="cart/cartShippingApproachingDiscount" sf-toolkit="on" />
-                            <iscomment> <isinclude template="cart/cartOrderApproachingDiscount" sf-toolkit="on" /> </iscomment>
                         </div>
+                        <div class="${pdict.orderApproachingDiscounts.length > 0 ? 'col-12 col-md-6' : 'd-none'}">
+                            <isinclude template="cart/cartOrderApproachingDiscount" sf-toolkit="on" />
+                        </div>
+                        <isslot id="cart-page-details-column" context="global"
+                            description="This slot displays as grid column besides item count on cart page" />
                     </div>
                 </div>
 
@@ -136,5 +135,5 @@
         </div>
     </div>
     <isinclude template="product/components/addFreeItem" sf-toolkit="off" />
-    
+
 </isdecorate>
