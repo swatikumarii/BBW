@@ -13,7 +13,11 @@ function getTotalSavings(lineItem) {
     if (lineItem.priceAdjustments.length) {
         for (var index = 0; index < lineItem.priceAdjustments.length; index++) {
             var priceAdjustment = lineItem.priceAdjustments[index];
-            if (priceAdjustment.appliedDiscount.type === 'FREE' || priceAdjustment.promotion.promotionClass === 'PRODUCT') {
+            if (
+                (priceAdjustment.appliedDiscount && priceAdjustment.appliedDiscount
+                    .type === 'FREE') ||
+                (priceAdjustment.promotion && priceAdjustment.promotion.promotionClass === 'PRODUCT')
+            ) {
                 totalSavings = totalSavings.add(
                     new Money(
                         priceAdjustment.basePrice * -1,
