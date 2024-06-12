@@ -53,7 +53,7 @@
                 </div>
                 <iscomment>Offers</iscomment>
                 <div class="offers d-md-none fa-pull-right m-0">
-                    <a href="#" title="offers">
+                    <a href="${URLUtils.url('Page-Show', 'cid', 'top-offers')}" title="offers">
                         <img class="" src="${URLUtils.staticURL('/images/header/UI-Tag-v2.svg')}"
                             alt="${Resource.msg('global.offers', 'common', null)}" />
                     </a>
