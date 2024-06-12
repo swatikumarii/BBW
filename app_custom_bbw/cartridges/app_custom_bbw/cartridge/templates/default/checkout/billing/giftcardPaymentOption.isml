@@ -12,9 +12,9 @@
                 <div class="required">
                     <input type="hidden" name="remove-giftcard-url" value="${URLUtils.url('Giftcard-RemoveGiftCard')}">
                     <div class="row">
-                        <h2 class="gift-cardtitle h-font-size--18 h-fw--bold h-clr--black-1 customer-heading accordion-title d-block col-12 m-0 h-px--25 rotate-down">${Resource.msg('label.add.egift.title', 'giftcards', null)}</h2>
+                        <h2 class="gift-cardtitle h-font-size--18 h-fw--bold h-clr--black-1 customer-heading accordion-title d-block col-12 m-0 rotate-down">${Resource.msg('label.add.egift.title', 'giftcards', null)}</h2>
                         <div class="accordion-content h-px--10 col-12" style="display:none">
-                            <div class="add-giftcard-header-wrap">
+                            <div class="add-giftcard-header-wrap border-top">
                                 <div class="d-flex flex-column justify-content-between added-cards">
                                 </div>
                                 <div class="d-flex justify-content-between add-giftcard-header">
@@ -65,7 +65,7 @@
                             </div>
                             <div class="gift-redeem-card-error mb-2" style="display: none"></div>
                             <div class="gift-redeem-card-success mb-3" style="display: none">${Resource.msg('giftcard.added.redemption.text', 'giftcards', null)}</div>
-                            <span class="add-giftcard-text">${Resource.msg('giftcard.add.text.description', 'giftcards', null)}</span>
+                            <span class="add-giftcard-text border-bottom">${Resource.msg('giftcard.add.text.description', 'giftcards', null)}</span>
                             <div class="d-flex justify-content-between giftcard-total-wrap">
                                 <h2 class="h-font-size--18 h-fw--bold h-clr--black-1">${Resource.msg('label.giftcard.total', 'giftcards', null)}</h2>
                                 <h2 class="h-font-size--18 h-fw--bold h-clr--black-1 giftcard-total">${pdict.order.totals.pendingTotal.giftTotal}</h2>
