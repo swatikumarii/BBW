@@ -2,11 +2,6 @@
 <search xmlns="http://www.demandware.com/xml/impex/search2/2010-02-19">
     <searchable-attributes>
         <searchable-attribute>
-            <attribute-path>category.displayName</attribute-path>
-            <boost>1.01</boost>
-            <auto-correction>true</auto-correction>
-        </searchable-attribute>
-        <searchable-attribute>
             <attribute-path>content.ID</attribute-path>
             <boost>1.0</boost>
             <auto-correction>false</auto-correction>
@@ -32,33 +27,33 @@
             <auto-correction>true</auto-correction>
         </searchable-attribute>
         <searchable-attribute>
-            <attribute-path>product.brand</attribute-path>
-            <boost>3.0</boost>
-            <auto-correction>true</auto-correction>
+            <attribute-path>product.custom.collectionName</attribute-path>
+            <boost>5.0</boost>
+            <auto-correction>false</auto-correction>
         </searchable-attribute>
         <searchable-attribute>
             <attribute-path>product.custom.fragranceCategory</attribute-path>
-            <boost>1.04</boost>
+            <boost>5.0</boost>
             <auto-correction>true</auto-correction>
         </searchable-attribute>
         <searchable-attribute>
             <attribute-path>product.custom.fragranceDescription</attribute-path>
-            <boost>1.05</boost>
+            <boost>3.0</boost>
             <auto-correction>false</auto-correction>
         </searchable-attribute>
         <searchable-attribute>
             <attribute-path>product.custom.fragranceName</attribute-path>
-            <boost>1.03</boost>
+            <boost>1.0</boost>
             <auto-correction>true</auto-correction>
         </searchable-attribute>
         <searchable-attribute>
             <attribute-path>product.custom.ingredients</attribute-path>
-            <boost>2.05</boost>
+            <boost>5.0</boost>
             <auto-correction>false</auto-correction>
         </searchable-attribute>
         <searchable-attribute>
             <attribute-path>product.longDescription</attribute-path>
-            <boost>2.0</boost>
+            <boost>4.0</boost>
             <auto-correction>false</auto-correction>
         </searchable-attribute>
         <searchable-attribute>
@@ -68,7 +63,7 @@
         </searchable-attribute>
         <searchable-attribute>
             <attribute-path>product.custom.titlePartB</attribute-path>
-            <boost>1.02</boost>
+            <boost>2.0</boost>
             <auto-correction>true</auto-correction>
         </searchable-attribute>
     </searchable-attributes>
@@ -88,4 +83,4 @@
         <stemming xml:lang="x-default">English</stemming>
     </index-settings>
 
-</search>
+    </search>
