@@ -74,6 +74,18 @@ footer {
     padding-left: 15px;
 }
 
+.gift-redeem-card-success {
+    padding: 5px 15px 10px;
+    margin-left: 15px;
+    width: 85%;
+    box-shadow:
+        0 8px 10px 1px rgba(0, 0, 0, 14%),
+        0 3px 14px 2px rgba(0, 0, 0, 12%),
+        0 5px 5px -3px rgba(0, 0, 0, 2%);
+    background-color: colour(green, 6);
+    color: colour(green, 2);
+}
+
 .next-step-button {
     position: fixed;
     bottom: 0;
@@ -86,8 +98,11 @@ footer {
     }
 
     @include media-down(sm) {
+        padding-right: 15px;
+        padding-left: 15px;
+
         .mb-sm-3 {
-            margin: 15px;
+            margin: 15px 20px;
         }
 
         button {
@@ -378,10 +393,10 @@ input[type="tel"],
     &::after {
         content: "";
         position: absolute;
-        right: 10px;
-        top: 50%;
+        right: 0;
+        top: 46%;
         transform: translateY(-46%);
-        height: 45px;
+        height: 47px;
         width: 35px;
         border-left: 1px solid colour(gray, 5);
         background: colour(white) url("../../images/UI-Carat.svg") no-repeat 50%;
@@ -397,6 +412,9 @@ input[type="tel"],
         appearance: none;
         z-index: 1;
         position: absolute;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         &:focus {
             box-shadow: none;
@@ -614,7 +632,7 @@ input[type="tel"],
         content: url("../../images/UI-Carat.svg");
         width: 15px;
         position: absolute;
-        right: -30px;
+        right: 0;
         top: 50%;
         transform: translateY(-50%) rotate(180deg);
         transition: transform 0.3s ease;

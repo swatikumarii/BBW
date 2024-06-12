@@ -438,6 +438,10 @@
                     .value-dash {
                         display: block;
                         text-align: center;
+
+                        @include media-down(sm) {
+                            text-align: left;
+                        }
                     }
 
                     @include media-down(sm) {

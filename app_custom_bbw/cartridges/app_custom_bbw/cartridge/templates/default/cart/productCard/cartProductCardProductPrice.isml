@@ -29,8 +29,7 @@
 
 <!--- Savings --->
 <div class="line-item-savings">
-    <isif condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
-        
+    <isif condition="${lineItem.totalSavings && lineItem.totalSavings != '-'}">
         <span class="value">${lineItem.totalSavings}</span>
     <iselse/>
         <span class="value value-dash">${'-'}</span>

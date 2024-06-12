@@ -74,7 +74,13 @@ function updateCartTotals(data) {
         $('.shipping-tax').closest('div.row').addClass('d-none');
     } else {
         $('.shipping-discount').removeClass('d-none');
-        $('.shipping-cost').empty().append(data.totals.totalShippingCost);
+        if ($('.shipping-cost').hasClass('tax-exclusive')) {
+            $('.shipping-cost')
+                .empty()
+                .append(data.totals.shippingTotalExclTax);
+        } else {
+            $('.shipping-cost').empty().append(data.totals.totalShippingCost);
+        }
         $('.shipping-tax').closest('div.row').removeClass('d-none');
     }
     $('.number-of-items').empty().append(data.resources.numberOfItems);
@@ -201,39 +207,22 @@ function updateApproachingDiscounts(
             '</div>';
     }
 
-    if (shippingApproachingDiscounts && shippingApproachingDiscounts.length) {
-        shippinghtml =
-            '<div class="row align-items-center">\n' +
-            '<div class="d-flex flex-column col-12 py-0">\n' +
-            '<p class="h-font-size--13 h-clr--pink h-fw--bold m-0">' +
-            shippingApproachingDiscounts[0].discountMsg +
-            '</p>\n' +
-            '<div class="d-flex w-100 justify-content-around align-items-center progress-wrap">\n' +
-            '<span class="pr-3 text-nowrap d-block"> AUD 0.00 </span>\n' +
-            '<span class="d-block w-100 h-pos--relative">\n' +
-            '<progress class="w-100" value="' +
-            (shippingApproachingDiscounts[0].conditionThreshold -
-                shippingApproachingDiscounts[0]
-                    .distanceFromConditionThreshold) +
-            '" max="' +
-            shippingApproachingDiscounts[0].conditionThreshold +
-            '"></progress>\n' +
-            '<span class="free-shipping-progress" style="left: calc(' +
-            (
-                ((shippingApproachingDiscounts[0].conditionThreshold -
-                    shippingApproachingDiscounts[0]
-                        .distanceFromConditionThreshold) /
-                    shippingApproachingDiscounts[0].conditionThreshold) *
-                100
-            ).toFixed(2) +
-            '% - 25px );"></span>\n' +
-            '</span>\n' +
-            '<span class="pl-3 text-nowrap d-block">\n' +
-            shippingApproachingDiscounts[0].formattedConditionThreshold +
-            '</span>\n' +
-            '</div>\n' +
-            '</div>\n' +
-            '</div>';
+    if(shippingApproachingDiscounts && shippingApproachingDiscounts.length) {
+        shippinghtml = '<div class="row align-items-center">\n'+
+            '<div class="d-flex flex-column col-12 py-0">\n'+
+            '<p class="h-font-size--13 h-clr--pink h-fw--bold m-0">' + shippingApproachingDiscounts[0].discountMsg + '</p>\n'+
+                '<div class="d-flex w-100 justify-content-around align-items-center progress-wrap">\n'+
+                    '<span class="pr-3 text-nowrap d-block"> AU$ 0.00 </span>\n' +
+                '<span class="d-block w-100 h-pos--relative">\n'+
+                        '<progress class="w-100" value="' + (shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold) + '" max="' + shippingApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
+                        '<span class="free-shipping-progress" style="left: calc(' + (((shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold)/shippingApproachingDiscounts[0].conditionThreshold)*100).toFixed(2) + '% - 25px );"></span>\n'+
+                    '</span>\n'+
+                    '<span class="pl-3 text-nowrap d-block">\n'+
+                        shippingApproachingDiscounts[0].formattedConditionThreshold +
+                    '</span>\n'+
+                '</div>\n'+
+            '</div>\n'+
+        '</div>';
     }
     $('.shipping-approaching-discounts').empty().append(shippinghtml);
     $('.order-approaching-discounts').empty().append(orderhtml);
@@ -648,6 +637,20 @@ module.exports = function () {
                         $('.mini-cart-content .product-summary')
                             .empty()
                             .append(data.refreshItemsTemplateMinicart);
+                    }
+                    if (data.totalSavings) {
+                        $(this)
+                            .closest('.product-info')
+                            .find('.line-item-savings span')
+                            .removeClass('value-dash')
+                            .text(data.totalSavings);
+                        if (data.totalSavings === '-') {
+                            $(this)
+                                .closest('.product-info')
+                                .find('.line-item-savings span')
+                                .addClass('value-dash')
+                                .text(data.totalSavings);
+                        }
                     }
                     $.spinner().stop();
                     if (
