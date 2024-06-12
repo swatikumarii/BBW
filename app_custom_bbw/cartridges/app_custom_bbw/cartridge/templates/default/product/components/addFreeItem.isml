@@ -12,7 +12,7 @@
             </div>
             <div class="modal-body free-item-body p-0 mt-2">
                 <div class="col-12 p-0">
-                    <span class="free-item-content h-clr--black-1 h-font-size--16 ">
+                    <span class="free-item-para h-clr--black-1 h-font-size--16 ">
                         ${Resource.msg('free.item.para', 'checkout', null)}</span>
                 </div>
             </div>
