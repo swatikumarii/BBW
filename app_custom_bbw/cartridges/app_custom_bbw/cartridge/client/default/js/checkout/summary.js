@@ -5,7 +5,9 @@
  * @param {Array} totals - the totals data
  */
 function updateTotals(totals) {
-    if ($('.order-summary .shipping-cost').hasClass('tax-exclusive')) {
+    if (totals.hasFreeShipping) {
+        $('.order-summary .shipping-cost').text('FREE');
+    } else if ($('.order-summary .shipping-cost').hasClass('tax-exclusive')) {
         $('.order-summary .shipping-cost').text(totals.shippingTotalExclTax);
     } else {
         $('.order-summary .shipping-cost').text(totals.totalShippingCost);

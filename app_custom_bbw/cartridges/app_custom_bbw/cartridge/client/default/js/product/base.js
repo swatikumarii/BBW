@@ -790,6 +790,7 @@ module.exports = $.extend({}, base, {
                                 ).modal('show');
                                 $('.delete-egiftitem-confirmation-btn').attr('data-pid', data.pid);
                                 $.spinner().stop();
+                                $button.prop('disabled', false);
                                 return true;
                             }
                             handlePostCartAdd(data);

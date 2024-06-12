@@ -118,12 +118,14 @@ function updateBillingAddress(order) {
     $('input[name$=_address2]', form).val(
         billing.billingAddress.address.address2
     );
-    $('input[name$=_city]', form).val(billing.billingAddress.address.city);
-    $('input[name$=_postalCode]', form).val(
-        billing.billingAddress.address.postalCode
-    );
     $('select[name$=_stateCode],input[name$=_stateCode]', form).val(
         billing.billingAddress.address.stateCode
+    );
+    $('select[name$=_city],input[name$=_city]', form).val(
+        billing.billingAddress.address.city
+    );
+    $('select[name$=_postalCode],input[name$=_postalCode]', form).val(
+        billing.billingAddress.address.postalCode
     );
     $('select[name$=_country]', form).val(
         billing.billingAddress.address.countryCode.value
@@ -414,14 +416,39 @@ module.exports = {
             $(this).parents('form').attr('data-address-mode', 'details');
             $(this).parents('.summary-details.billing').slideUp();
             var billingAddrSummary = $(this).siblings('.address-summary');
-            var stateCode = billingAddrSummary.find('.stateCode').text();
-            var city = billingAddrSummary.find('.city').text();
-            var postalCode = billingAddrSummary.find('.postalCode').text();
-            $('.billingState').val(stateCode);
-            $('.billingState').trigger('change');
-            $('.billingAddressCity').val(city);
-            $('.billingAddressCity').trigger('change');
-            $('.billingZipCode').val(postalCode);
+            var stateCode = billingAddrSummary.find('.stateCode').text().trim();
+            var city = billingAddrSummary.find('.city').text().trim().replace(',','');
+            var postalCode = billingAddrSummary.find('.postalCode').text().trim();
+            if (stateCode !== 'null') {
+                $('.billingState option').each(function () {
+                    if ($(this).val() === stateCode) {
+                        $('.billingState option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.billingState').trigger('change');
+                        return false;
+                    }
+                });
+            }
+            if (city !== 'null') {
+                $('.billingAddressCity option').each(function () {
+                    if ($(this).val() === city) {
+                        $('.billingAddressCity option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.billingAddressCity').trigger('change');
+                        return false;
+                    }
+                });
+            }
+            if (postalCode !== 'null') {
+                $('.billingZipCode option').each(function () {
+                    if ($(this).val() === postalCode) {
+                        $('.billingZipCode option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.billingZipCode').trigger('change');
+                        return false;
+                    }
+                });
+            }
         });
     }
 };

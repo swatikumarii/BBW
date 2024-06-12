@@ -85,6 +85,7 @@ if (layout.isDesktop() || layout.isTablet()) {
         clearTimeout(timeoutId);
 
         var $level1Parent = $(this).parent();
+        $('.level-1-li').not($level1Parent).addClass('muted');
         var maxWidth;
         $(this)
             .find('.level-2-li')
@@ -373,6 +374,7 @@ module.exports = function () {
                 $('.navbar-nav > li').each(function () {
                     if (!$.contains(this, eventElement)) {
                         if ($(this).hasClass('show')) {
+                            // $('.level-1-li.muted').removeClass('muted');
                             $(this).removeClass('show');
                             $(this)
                                 .children('ul.dropdown-menu')
@@ -402,6 +404,7 @@ module.exports = function () {
                         .attr('aria-expanded', 'false');
                     $('.level-2-li').removeClass('show');
                     $('.menu-wrap-level-3').removeClass('show');
+                    $('.level-1-li.muted').removeClass('muted');
                 }, 700);
             }
         });

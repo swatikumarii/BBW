@@ -66,7 +66,7 @@
                             <isprint value="${lineItem.quantity}" formatter="##" />
                         </div>
                         <div class="line-item-savings col-8 col-md-4 d-flex justify-content-md-center justify-content-start">
-                            <isif condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
+                            <isif condition="${lineItem.totalSavings && lineItem.totalSavings != '-'}">
                                 <span class="value">${lineItem.totalSavings}</span>
                             <iselse/>
                                 <span class="value value-dash">${'-'}</span>

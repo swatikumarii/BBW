@@ -27,7 +27,7 @@
                             </isif>
                         </span>
                         <span class="h-fw--semibold h-clr--black-1">
-                            <isif condition="${'isEgiftCard' in pdict.order.items.items[0] && pdict.order.items.items[0].isEgiftCard === true}">
+                            <isif condition="${('isEgiftCard' in pdict.order.items.items[0] && pdict.order.items.items[0].isEgiftCard === true) || pdict.order.hasFreeShipping}">
                                 ${Resource.msg('text.shpping.free', 'order', null)}
                             <iselse/>
                                 ${shippingModel.selectedShippingMethod.shippingCost}
