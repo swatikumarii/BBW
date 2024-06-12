@@ -1,5 +1,5 @@
 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('emarsysEnabled')}">
-    <iscomment> <input type="hidden" id="emarsysData" data-value="${JSON.stringify(pdict.emarsysData)}"/> </iscomment>
+  <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('emarsysTestModeEnabled')}">
     <script>
     var emrasy = <isprint value="${JSON.stringify(pdict.emarsysData)}" encoding="off" />;
     if (emrasy) {
@@ -38,4 +38,44 @@
     }
     </script>
     <script defer="defer" src="${URLUtils.staticURL('/js/emarsys.js')}"></script>
+  <iselse/>
+  <script>
+      var emrasy = <isprint value="${JSON.stringify(pdict.emarsysData)}" encoding="off" />;
+      if (emrasy) {
+        var userEmail = emrasy.email;
+        var ecom = emrasy.ecom;
+        var pagecat = emrasy.pagecat;
+        var cartcontent = emrasy.cartcontent;
+        var emarsys_purchase_command = emrasy.emarsys_purchase_command;
+        var ScarabQueue = ScarabQueue || [];
+  
+        (function(subdomain, id) {
+          if (document.getElementById(id)) return;
+          var js = document.createElement('script'); js.id = id;
+          js.src = subdomain + '.scarabresearch.com/js/${dw.system.Site.getCurrent().getCustomPreferenceValue("emarsysMerchantID")}/scarab-v2.js';
+          var fs = document.getElementsByTagName('script')[0];
+          fs.parentNode.insertBefore(js, fs);
+        })('https:' == document.location.protocol ? 'https://recommender' : 'http://cdn', 'scarab-js-api');
+        if ( userEmail ){
+        ScarabQueue.push( ['setEmail', userEmail ] );
+        }
+        if ( ecom && ecom.detail ) {
+        ScarabQueue.push( ['view', ecom.detail ] );
+        }
+        if ( pagecat && ( "undefined" != typeof pagecat ) && ( "" != pagecat ) ) {
+        ScarabQueue.push( ['category', pagecat ] );
+        }
+        if ( "object" == typeof cartcontent ) {
+        ScarabQueue.push( ['cart', cartcontent ] );
+        }
+  
+        if ( emarsys_purchase_command ) {
+        ScarabQueue.push( ['purchase', emarsys_purchase_command ] );
+        }
+        ScarabQueue.push( ['go'] );
+      }
+      </script>
+  <script defer="defer" src="${URLUtils.staticURL('/js/emarsys.js')}"></script>
+  </isif>
 </isif>
+ 

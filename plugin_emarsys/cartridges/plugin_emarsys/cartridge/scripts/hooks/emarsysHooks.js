@@ -7,6 +7,10 @@ var emarsysHelpers = require('*/cartridge/scripts/helpers/emarsysHelpers');
  * @param {object} route - pdict data from the controller
  */
 function registerRoute(route) {
+    var Site = require('dw/system/Site');
+    var emarsysTestModeEnabled = Site.getCurrent().getCustomPreferenceValue(
+        'emarsysTestModeEnabled'
+    );
     var onCompleteListeners = route.listeners('route:Complete');
     // deregister existing Complete listeners
     route.off('route:Complete');
@@ -30,9 +34,11 @@ function registerRoute(route) {
             res.viewData.emarsysEvents = [];
             var emarsysData = emarsysHelpers.getScarabQueueData(res.viewData);
             if (emarsysData) {
+                res.viewData.emarsysTestModeEnabled = emarsysTestModeEnabled;
                 res.viewData.emarsysEvents.push(emarsysData);
             }
         } else {
+            res.viewData.emarsysTestModeEnabled = emarsysTestModeEnabled;
             res.viewData.emarsysData = emarsysHelpers.getScarabQueueData(
                 res.viewData
             );
