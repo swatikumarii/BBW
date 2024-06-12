@@ -170,6 +170,7 @@
                 </div>
                 <div class="select-wrap">
                     <select type="text" class="form-control address-city-input" id="city"
+                    data-selected="${pdict.addressForm.city.htmlValue}"
                         data-missing-error="${Resource.msg('address.city.missing', 'forms', null)}" <isprint
                         value="${pdict.addressForm.city.attributes}" encoding="off" />
                     autocomplete="address-level2">
@@ -193,6 +194,7 @@
                 </div>
                 <div class="select-wrap">
                     <select type="text" class="form-control address-zipcode-input" id="zipCode"
+                    data-selected="${pdict.addressForm.postalCode.htmlValue}"
                         data-missing-error="${Resource.msg('error.message.zip.required', 'forms', null)}"
                         data-range-error="${Resource.msg('error.message.zip.upto4', 'forms', null)}"
                         data-pattern-mismatch="${Resource.msg('error.message.parse.zip', 'forms', null)}" <isprint

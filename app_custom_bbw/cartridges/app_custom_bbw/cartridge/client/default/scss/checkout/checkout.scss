@@ -639,6 +639,10 @@ input[type="tel"],
         margin: 10px 0 30px;
         position: relative;
 
+        @include media-down(sm) {
+            margin: 10px 0 40px;
+        }
+
         .form-control-label {
             line-height: 1.25rem;
             letter-spacing: 0.01em;
@@ -789,7 +793,7 @@ input[type="tel"],
     width: auto;
     position: absolute;
     right: -307px;
-    top: 65%;
+    top: 50px;
     transform: translateY(-50%);
     border: 1px solid;
     padding: 24px 8px 24px 0;
@@ -871,7 +875,7 @@ input[type="tel"],
     border-bottom: 9px solid transparent;
     position: absolute;
     right: -56px;
-    top: 65%;
+    top: 50px;
     z-index: 1;
     transform: translate(-100%, -50%);
     display: none;
@@ -890,7 +894,7 @@ input[type="tel"],
     border-bottom: 10px solid transparent;
     position: absolute;
     right: -57px;
-    top: 65%;
+    top: 50px;
     transform: translate(-100%, -50%);
     display: none;
     z-index: 1;
@@ -905,7 +909,7 @@ input[type="tel"],
 .info-icon {
     position: absolute;
     right: -34px;
-    top: 66%;
+    top: 50px;
     transform: translateY(-50%);
     width: 25px;
     height: 25px;
