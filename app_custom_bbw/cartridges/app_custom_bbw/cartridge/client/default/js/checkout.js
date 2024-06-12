@@ -398,6 +398,7 @@ $('.shippingAddressCity').change(function () {
                 })
             );
         });
+        zipDropdown.trigger('change');
     }
 });
 
@@ -438,5 +439,6 @@ $('.billingAddressCity').change(function () {
                 })
             );
         });
+        zipDropdown.trigger('change');
     }
 });
