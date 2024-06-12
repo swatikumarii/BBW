@@ -840,7 +840,6 @@ module.exports = {
                     }
                 });
             };
-            delete attrs.stateCode;
             if (city) {
                 $('.shippingAddressCity option').each(function () {
                     if ($(this).val() === city) {
@@ -851,7 +850,6 @@ module.exports = {
                     }
                 });
             }
-            delete attrs.city;
             if (postalCode) {
                 $('.shippingZipCode option').each(function () {
                     if ($(this).val() === postalCode) {
@@ -862,24 +860,25 @@ module.exports = {
                     }
                 });
             }
-            delete attrs.postalCode;
             Object.keys(attrs).forEach(function (attr) {
-                element = attr === 'countryCode' ? 'country' : attr;
-                $('[name$=' + element + ']', form).val(attrs[attr]);
-                // validate an hide/show errors
-                var $input = $('[name$=' + element + ']', form);
-                var $errorMessage = $input.next('.invalid-feedback');
-                if ($input[0].checkValidity()) {
-                    $errorMessage.hide();
-                    $input.removeClass('is-invalid');
-                } else {
-                    var errorText;
-                    if ($input.val() && $input.val().length === 0) {
-                        errorText = $input.data('missing-error');
+                if (!['stateCode', 'city', 'postalCode'].includes(attr)) {
+                    element = attr === 'countryCode' ? 'country' : attr;
+                    $('[name$=' + element + ']', form).val(attrs[attr]);
+                    // validate an hide/show errors
+                    var $input = $('[name$=' + element + ']', form);
+                    var $errorMessage = $input.next('.invalid-feedback');
+                    if ($input[0].checkValidity()) {
+                        $errorMessage.hide();
+                        $input.removeClass('is-invalid');
                     } else {
-                        errorText = $input.data('pattern-mismatch');
+                        var errorText;
+                        if ($input.val() && $input.val().length === 0) {
+                            errorText = $input.data('missing-error');
+                        } else {
+                            errorText = $input.data('pattern-mismatch');
+                        }
+                        $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
                     }
-                    $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
                 }
             });
             if (shipmentUUID === 'new') {
