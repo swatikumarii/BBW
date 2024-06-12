@@ -29,7 +29,7 @@
 </isif>
 
 <iscomment> Order Discount </iscomment>
-<div class="row order-discount ${pdict.totals.totalDiscount.value === 0 ? " hide-order-discount" : ""}">
+<div class="row order-discount accordion-item collapsed ${pdict.totals.totalDiscount.value === 0 ? " hide-order-discount" : ""}" data-toggle="collapse" data-target="#allDiscounts" aria-expanded="false" aria-controls="allDiscounts" role="button">
     <isinclude template="cart/cartDiscountsHtml" sf-toolkit="on" />
 </div>
 

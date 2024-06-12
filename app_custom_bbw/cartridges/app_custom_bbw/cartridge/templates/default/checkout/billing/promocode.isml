@@ -18,7 +18,7 @@
                         <div class="couponForm d-flex h-mt--10 h-mb--30">
                             <input type="text" class="form-control coupon-code-field" id="coupon-code" name="couponCode" />
                             <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
-                            <button type="button" class="btn btn-light promo-code-btn">
+                            <button type="button" class="btn btn-light promo-code-btn h-fw--semibold h-font-size--16">
                                 ${Resource.msg('button.submit.promo.code', 'cart', null)}
                             </button>
                         </div>
