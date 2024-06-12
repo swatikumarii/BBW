@@ -30,9 +30,10 @@
 <!--- Savings --->
 <div class="line-item-savings">
     <isif condition="${lineItem.totalSavings && lineItem.totalSavings != '-'}">
+        <span class="d-inline d-md-none">${Resource.msg('cart.label.saved', 'cart', null)}</span>
         <span class="value">${lineItem.totalSavings}</span>
     <iselse/>
-        <span class="value value-dash">${'-'}</span>
+        <span class="value value-dash d-none d-md-block">${'-'}</span>
     </isif>
 </div>
 
