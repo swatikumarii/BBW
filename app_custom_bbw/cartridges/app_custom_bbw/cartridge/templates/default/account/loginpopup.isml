@@ -39,7 +39,7 @@
                         <p class="h-font-size--16 mb-0">
                             <iscomment> ${Resource.msg('join.para', 'login', null)} </iscomment>
                             ${Resource.msg('create.para', 'login', null)}
-                            <a id="log-in-page-url" href="${URLUtils.https('Login-Show')}" role="button" class="h-clr--black-3 h-font-size--16"
+                            <a id="log-in-page-url" href="${URLUtils.https('Login-CreateAccount')}" role="button" class="h-clr--black-3 h-font-size--16"
                                 aria-label="${Resource.msg('label.header.signup', 'common', null)}">${Resource.msg('label.header.signup', 'common', null)}</a>
                             ${Resource.msg('here', 'login', null)}
                         </p>
