@@ -56,44 +56,44 @@
         </custom-attributes>
     </folder>
 
-    <content content-id="bottom-seo-3-wick-candles">
-        <display-name xml:lang="x-default">Bottom Seo 3 Wick Candles</display-name>
-        <description xml:lang="x-default">3 Wick Candles content</description>
-        <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
-        <page-attributes/>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
-	&lt;div class="controlcontent_r"&gt;&#13;
-		&lt;div class="htmlbucket"&gt;&#13;
-			&lt;div class="body-care-content"&gt;&#13;
-				&lt;div class="bodycare-text-section"&gt;&#13;
-					&lt;div class="bc-description"&gt;&#13;
-						&lt;h2&gt;About 3-Wick Candles from Bath &amp;amp; Body Works&lt;/h2&gt;&#13;
-						&lt;p&gt;What’s the easiest way to turn your house into a home? Our 3-Wick Candles. We could list tons of reasons why, but here are our top three:&lt;/p&gt;&#13;
-						&lt;ul class="description-list"&gt;&#13;
-							&lt;li&gt;Made with essential oils&amp;ZeroWidthSpace;&lt;/li&gt;&#13;
-							&lt;li&gt;Beautiful room-filling fragrances&lt;/li&gt;&#13;
-							&lt;li&gt;Amazing quality from beginning to end&lt;/li&gt;&#13;
-						&lt;/ul&gt;&#13;
-						&lt;p&gt;It’s no wonder we’ve developed a bit of a cult following. Candles are the perfect partner for cozying up on chilly days, hanging out warm summer nights and entertaining company during every dinner party of the year. And with so many super-cute packaging options to choose from, our candles always make your home look amazing.&lt;/p&gt;&#13;
-						&lt;p&gt;Where are the best places to put candles, you ask? Coffee tables, dining rooms, kitchens, patio tables, counters and islands – basically anywhere you need a fragrance boost or pop of style. Speaking of style…&lt;a href="$url('Search-Show','cgid','candle-holders-and-accessories')$"&gt;candle holder or accessory&lt;/a&gt; are a total must to complete the look. From glitzy holders to modern pedestals, there’s a match for each room.&lt;/p&gt;&#13;
-						&lt;p&gt;P.S. The World’s Best 3-Wick Candles also make the ultimate &lt;a href="$url('Search-Show','cgid','gifts')$"&gt;gifts&lt;/a&gt;… for every person, every occasion and every reason. You can’t go wrong.&lt;/p&gt;&#13;
-					&lt;/div&gt;&#13;
-				&lt;/div&gt;&#13;
-			&lt;/div&gt;&#13;
-			&lt;p&gt;&lt;/p&gt;&#13;
-		&lt;/div&gt;&#13;
-	&lt;/div&gt;&#13;
-	&lt;div class="r_bottom"&gt;&#13;
-		&lt;div class="l_bottom"&gt;&lt;/div&gt;&#13;
-	&lt;/div&gt;&#13;
+    <content content-id="bottom-seo-3-wick-candle">
+    <display-name xml:lang="x-default">Bottom Seo 3 Wick Candle</display-name>
+    <description xml:lang="x-default">3 Wick Candle content</description>
+    <online-flag>true</online-flag>
+    <searchable-flag>false</searchable-flag>
+    <page-attributes/>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="category-seo-text-section"&gt;&#xD;
+    &lt;div class="category-seo-text-section__inner-wrapper"&gt;&#xD;
+        &lt;h2 class="category-seo-text-section__title"&gt;About 3-Wick Candles from Bath &amp;amp; Body Works&lt;/h2&gt;&#xD;
+        &lt;p class="category-seo-text-section__description"&gt;What’s the easiest way to turn your house into a home? Our&#xD;
+            3-Wick Candles. We could list tons&#xD;
+            of reasons why, but here are our top three:&lt;/p&gt;&#xD;
+        &lt;ul class="category-seo-text-section__list"&gt;&#xD;
+            &lt;li&gt;Made with essential oils&amp;ZeroWidthSpace;&lt;/li&gt;&#xD;
+            &lt;li&gt;Beautiful room-filling fragrances&lt;/li&gt;&#xD;
+            &lt;li&gt;Amazing quality from beginning to end&lt;/li&gt;&#xD;
+        &lt;/ul&gt;&#xD;
+        &lt;p&gt;It’s no wonder we’ve developed a bit of a cult following. Candles are the perfect partner for&#xD;
+            cozying up on chilly days, hanging out warm summer nights and entertaining company during&#xD;
+            every dinner party of the year. And with so many super-cute packaging options to choose&#xD;
+            from, our candles always make your home look amazing.&lt;/p&gt;&#xD;
+        &lt;p&gt;Where are the best places to put candles, you ask? Coffee tables, dining rooms, kitchens,&#xD;
+            patio tables, counters and islands – basically anywhere you need a fragrance boost or pop of&#xD;
+            style. Speaking of style…&lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','candle-holders-and-accessories')$"&gt;candle&#xD;
+                holder or&#xD;
+                accessory&lt;/a&gt; are a total must to complete the look. From glitzy holders to modern&#xD;
+            pedestals, there’s a match for each room.&lt;/p&gt;&#xD;
+        &lt;p&gt;P.S. The World’s Best 3-Wick Candles also make the ultimate &lt;a class="category-seo-text-section__link"&#xD;
+                href="$url('Search-Show','cgid','gifts')$"&gt;gifts&lt;/a&gt;… for every person, every occasion&#xD;
+            and every reason. You can’t go wrong.&lt;/p&gt;&#xD;
+    &lt;/div&gt;&#xD;
 &lt;/div&gt;</custom-attribute>
-        </custom-attributes>
-        <folder-links>
-            <classification-link folder-id="category-seo-content"/>
-        </folder-links>
-    </content>
+    </custom-attributes>
+    <folder-links>
+      <classification-link folder-id="category-seo-content"/>
+    </folder-links>
+  </content>
 
 	<content content-id="privacy-policy">
         <display-name xml:lang="x-default">Privacy Policy</display-name>
@@ -493,125 +493,124 @@
         </custom-attributes>
     </content>
 
-		<content content-id="terms-of-use">
-        <display-name xml:lang="x-default">Terms of Use</display-name>
-        <description xml:lang="x-default">Terms of Use</description>
-        <online-flag>true</online-flag>
-        <searchable-flag>true</searchable-flag>
-        <page-attributes>
-            <page-title xml:lang="x-default">Terms of Use</page-title>
-            <page-description xml:lang="x-default">Terms of Use</page-description>
-            <page-keywords xml:lang="x-default">Terms of Use</page-keywords>
-        </page-attributes>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container h-maxwidth--1400 mx-auto"&gt;&#13;
-	&#13;
-		&lt;style type="text/css"&gt;&#13;
-			.tnc_content{position: relative; margin: 3% auto;}&#13;
-				.tnc_content h2.tnc-header {text-align: left;&#13;
-			text-transform: uppercase;&#13;
-			color: #333;&#13;
-			font-size: 25px;&#13;
-			font-weight: 400;&#13;
-			letter-spacing: .025em;&#13;
-			padding-top: 0;&#13;
-			font-family: Arial,sans-serif;&#13;
-			border-bottom: 1px solid #555;&#13;
-			padding-bottom: 20px;}&#13;
-				.tnc-text_area p {font-size: 16px;letter-spacing: .01em;color: #555;line-height: 25px; margin: 10px 0!important;padding-bottom: 10px; font-family: TradeGothicLTStd-Light,Arial,sans-serif}&#13;
-				.tnc-text_area p strong { font-size: 16px; position: relative;padding: 20px 0px 5px 0px;font-family: TradeGothicLTStd-Bd2;font-weight: 800;letter-spacing: .025em; line-height: 1.25;color: #222222;text-transform: uppercase;}&#13;
-			.tnc-text_area{padding: 15px 0 20px;}&#13;
-&#13;
-				&#13;
-				@media only screen and (max-width: 768px){&#13;
-				&#13;
-					.tnc_content .tnc-header_area {margin-bottom: 0;padding: 0%;}&#13;
-					.tnc_content h2.tnc-header {font-size: 18px;padding-bottom: 10px;}&#13;
-				.tnc_content .tnc-text_area	p {font-size: 15px; letter-spacing: 0; line-height: 23px;margin: 10px 0 !important;padding-bottom: 5px;}&#13;
-				.tnc-text_area {padding: 10px 0;}&#13;
-				}&#13;
-		&lt;/style&gt;&#13;
-	&#13;
-	&lt;div class="tnc_content"&gt;&#13;
-		&lt;div class="tnc-header_area"&gt;&#13;
-			&lt;h2 class="tnc-header"&gt;SECURE SHOPPING GUARANTEE&lt;/h2&gt;&#13;
-		&lt;/div&gt;&#13;
-		&lt;div class="tnc-text_area"&gt;&#13;
-			&lt;p&gt;Bathandbodyworks.com.au uses the industry standard encryption protocol known as Secure Socket Layer (SSL) to keep your order information secure.&lt;/p&gt;&#13;
-			&lt;p&gt;Secure Shopping Guarantee has been established for every transaction made with Bathandbodyworks.com.au. If any unauthorized charges were to appear on your credit card as a result of shopping with Bathandbodyworks.com.au, you must notify your credit card provider in accordance with its reporting rules and procedures.&lt;/p&gt;&#13;
-			&lt;h2 class="tnc-header"&gt;Terms and Conditions&lt;/h2&gt;&#13;
-			&lt;p&gt;Thank you for visiting this website. This website is owned and operated by Valiram.&lt;/p&gt;&#13;
-			&lt;p&gt;In using this website, you are deemed to have read and agreed to the following terms and conditions:&lt;/p&gt;&#13;
-			&lt;p&gt;The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and any or all Agreements: “Customer”, “You” and “Your” refers to you, the person accessing this website and accepting the Company’s terms and conditions. “The Company”, “Ourselves”, “We” and “Us”, refers to LUXTRALIA PTY LTD (a subsidiary of Valiram). “Party”, “Parties”, or “Us”, refers to both the Customer and ourselves, or either the Customer or ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Customer in the most appropriate manner, whether by formal meetings of a fixed duration, or any other means, for the express purpose of meeting the Customer’s needs in respect of provision of the Company’s stated services/products, in accordance with and subject to, prevailing Australian Law. Any use of the above terminology or other words in the singular, plural, capitalisation and/or he/she or they, are taken as interchangeable and therefore as referring to same.&lt;/p&gt;&#13;
-			&lt;p&gt;&#13;
-				&lt;strong&gt;PRIVACY STATEMENT&lt;/strong&gt;&#13;
-			&lt;/p&gt;&#13;
-			&lt;p&gt;We are committed to protecting your privacy. Authorized employees within the company on a need to know basis only use any information collected from individual customers. We constantly review our systems and data to ensure the best possible service to our customers. For more detailed information on how we collect and process your personal data, please refer to our Privacy Policy.&lt;/p&gt;&#13;
-			&lt;p&gt;&#13;
-				&lt;strong&gt;CONFIDENTIALITY&lt;/strong&gt;&#13;
-			&lt;/p&gt;&#13;
-			&lt;p&gt;We are registered under the Personal Data Protection Act 2010 and as such, any information concerning the Customer and their respective Customer Records may be passed to third parties. However, Customer records are regarded as confidential and therefore will not be divulged to any third party, other than brand principals if legally required to do so to the appropriate authorities. Customer have the right to request sight of, and copies of any and all Customer Records we keep, on the proviso that we are given reasonable notice of such a request. Customer are requested to retain copies of any literature issued in relation to the provision of our services. Where appropriate, we shall issue Customer’s with appropriate written information, handouts or copies of records as part of an agreed contract, for the benefit of both parties.&lt;/p&gt;&#13;
-			&lt;p&gt;We will not sell, share, or rent your personal information to any third party or use your e-mail address for unsolicited mail. Any emails sent by this Company will only be in connection with the provision of agreed services and products.&lt;/p&gt;&#13;
-			&lt;p&gt;&#13;
-				&lt;strong&gt;DISCLAIMER&lt;/strong&gt;&#13;
-			&lt;/p&gt;&#13;
-			&lt;p&gt;Exclusions and Limitations&lt;/p&gt;&#13;
-			&lt;p&gt;The information on this web site is provided on an “as is” basis. To the fullest extent permitted by law, this Company:&lt;/p&gt;&#13;
-			&lt;p&gt;• excludes all representations and warranties relating to this website and its contents or which is or may be provided by any affiliates or any other third party, including in relation to any inaccuracies or omissions in this website and/or the Company’s literature; and&lt;/p&gt;&#13;
-			&lt;p&gt;• excludes all liability for damages arising out of or in connection with your use of this website. This includes, without limitation, direct loss, loss of business or profits (whether or not the loss of such profits was foreseeable, arose in the normal course of things or you have advised this Company of the possibility of such potential loss), damage caused to your computer, computer software, systems and programs and the data thereon or any other direct or indirect, consequential and incidental damages.&lt;/p&gt;&#13;
-			&lt;p&gt;This Company does not however exclude liability for death or personal injury caused by its negligence. The above exclusions and limitations apply only to the extent permitted by law. None of your statutory rights as a consumer are affected.&lt;/p&gt;&#13;
-			&lt;p&gt;&#13;
-				&lt;strong&gt;PRICING&lt;/strong&gt;&#13;
-			&lt;/p&gt;&#13;
-			&lt;p&gt;Prices are quoted in Australian Dollar. Bath &amp;amp; Body Works reserves the right to make price changes prior to an order placed by you. All items follow Bath &amp;amp; Body Works' pricing unless otherwise stated in promotion or Gifts With Purchase. Bath &amp;amp; Body Works reserves the right to cancel or not move to process your order if the product(s) ordered is discontinued or out of stock; order does not meet the order criteria set above on pricing; order was made during web maintenance and caused by a system glitch.&lt;/p&gt;&#13;
-			&lt;p&gt;&#13;
-				&lt;strong&gt;TERMINATION OF AGREEMENTS AND REFUNDS POLICY&lt;/strong&gt;&#13;
-			&lt;/p&gt;&#13;
-			&lt;p&gt;Both the Customer and ourselves have the right to terminate any Services Agreement for any reason, including the ending of services that are already underway. No refunds shall be offered, where a Service is deemed to have begun and is, for all intents and purposes, underway. Any monies that have been paid to us which constitute payment in respect of the provision of unused Services, shall be refunded.&lt;/p&gt;&#13;
-			&lt;p&gt;&#13;
-				&lt;strong&gt;AVAILABILITY&lt;/strong&gt;&#13;
-			&lt;/p&gt;&#13;
-			&lt;p&gt;Unless otherwise stated, the services featured on this website are only available within a select country. All advertising is intended solely for the select countries. You are solely responsible for evaluating the fitness for a particular purpose of any downloads, programs and text available through this site. Redistribution or republication of any part of this site or its content is prohibited, including such by framing or other similar or any other means, without the express written consent of the Company. The Company does not warrant that the service from this site will be uninterrupted, timely or error free, although it is provided to the best ability. By using this service, you thereby indemnify this Company, its employees, agents and affiliates against any loss or damage, in whatever manner, howsoever caused.&lt;/p&gt;&#13;
-			&lt;p&gt;&#13;
-				&lt;strong&gt;LOG FILES&lt;/strong&gt;&#13;
-			&lt;/p&gt;&#13;
-			&lt;p&gt;We use IP addresses to analyse trends, administer the site, track user’s movement, and gather broad demographic information for aggregate use. IP addresses are not linked to personally identifiable information. Additionally, for systems administration, detecting usage patterns and troubleshooting purposes, our web servers automatically log standard access information including browser type, access times/open mail, URL requested, and referral URL. This information is not shared with third parties and is used only within this Company on a need-to-know basis. Any individually identifiable information related to this data will never be used in any way different to that stated above without your explicit permission.&lt;/p&gt;&#13;
-			&lt;p&gt;&#13;
-				&lt;strong&gt;COOKIES&lt;/strong&gt;&#13;
-			&lt;/p&gt;&#13;
-			&lt;p&gt;Like most interactive web sites this Company’s website [or ISP] uses cookies to enable us to retrieve user details for each visit. Cookies are used in some areas of our site to enable the functionality of this area and ease of use for those people visiting. Some of our affiliate partners may also use cookies. The types of cookies used on our website is explained in detail in our Privacy Policy.&lt;/p&gt;&#13;
-			&lt;p&gt;&#13;
-				&lt;strong&gt;LINKS TO THIS WEBSITE&lt;/strong&gt;&#13;
-			&lt;/p&gt;&#13;
-			&lt;p&gt;You may not create a link to any page of this website without our prior written consent. Use of any automated screen capture or screen scraping technologies to obtain information from this site without the prior written approval of Valiram is an infringement of the Company’s intellectual property rights. If you do create a link or create any other form of reference to a page of this website, you do so at your own risk and the exclusions and limitations set out above will apply to your use of this website by linking to it.&lt;/p&gt;&#13;
-			&lt;p&gt;&#13;
-				&lt;strong&gt;LINKS FROM THIS WEBSITE&lt;/strong&gt;&#13;
-			&lt;/p&gt;&#13;
-			&lt;p&gt;We do not monitor or review the content of other party’s websites which are linked to from this website. Opinions expressed or material appearing on such websites are not necessarily shared or endorsed by us and should not be regarded as the publisher of such opinions or material. Please be aware that we are not responsible for the privacy practices, or content, of these sites. We encourage our users to be aware when they leave our site &amp;amp; to read the privacy statements of these sites. You should evaluate the security and trustworthiness of any other site connected to this site or accessed through this site yourself, before disclosing any personal information to them. This Company will not accept any responsibility for any loss or damage in whatever manner, howsoever caused, resulting from your disclosure to third parties of personal information.&lt;/p&gt;&#13;
-			&lt;p&gt;&#13;
-				&lt;strong&gt;COPYRIGHT NOTICE&lt;/strong&gt;&#13;
-			&lt;/p&gt;&#13;
-			&lt;p&gt;Copyright and other relevant intellectual property rights exist on all text relating to the Company’s services and the full content of this website.&lt;/p&gt;&#13;
-			&lt;p&gt;This Company’s logo is a registered trademark of this Company in&amp;nbsp; Malaysia and other countries. The brand names and specific services of this Company featured on this web site are trademarked.&lt;/p&gt;&#13;
-			&lt;p&gt;&#13;
-				&lt;strong&gt;COMMUNICATION&lt;/strong&gt;&#13;
-			&lt;/p&gt;&#13;
-			&lt;p&gt;We have several different e-mail addresses for different queries. These, &amp;amp; other contact information, can be found on our Contact Us link on our website or via Company literature or via the Company’s stated telephone, facsimile or mobile telephone numbers.&lt;/p&gt;&#13;
-			&lt;p&gt;&#13;
-				&lt;strong&gt;General&lt;/strong&gt;&#13;
-			&lt;/p&gt;&#13;
-			&lt;p&gt;By accessing this website and using our services/buying our products you consent to these terms and conditions. If any of these terms are deemed invalid or unenforceable for any reason (including, but not limited to the exclusions and limitations set out above), then the invalid or unenforceable provision will be severed from these terms and the remaining terms will continue to apply. Failure of the Company to enforce any of the provisions set out in these Terms and Conditions and any Agreement, or failure to exercise any option to terminate, shall not be construed as waiver of such provisions and shall not affect the validity of these Terms and Conditions or of any Agreement or any part thereof, or the right thereafter to enforce each and every provision. These Terms and Conditions shall not be amended, modified, varied or supplemented except in writing and signed by duly authorised representatives of the Company.&lt;/p&gt;&#13;
-			&lt;p&gt;&#13;
-				&lt;strong&gt;Notification of Changes&lt;/strong&gt;&#13;
-			&lt;/p&gt;&#13;
-			&lt;p&gt;The Company reserves the right to change these conditions from time to time as it sees fit and your continued use of the site will signify your acceptance of any adjustment to these terms. If there are any changes to our privacy policy, we will announce that these changes have been made on our home page and on other key pages on our site. If there are any changes in how we use our site customers’ Personally Identifiable Information, notification by e-mail or postal mail will be made to those affected by this change. Any changes to our privacy policy will be posted on our web site 30 days prior to these changes taking place. You are therefore advised to re-read this statement on a regular basis.&lt;/p&gt;&#13;
-			&lt;p&gt;These terms and conditions form part of the Agreement between the Customer and ourselves. Your accessing of this website and/or undertaking of a booking or Agreement indicates your understanding, agreement to and acceptance, of the Disclaimer Notice and the full Terms and Conditions contained herein. Your statutory Consumer Rights are unaffected.&lt;/p&gt;&#13;
-		&lt;/div&gt;&#13;
-	&lt;/div&gt;&#13;
-	&lt;p&gt;&lt;/p&gt;&#13;
+	<content content-id="terms-of-use">
+    <display-name xml:lang="x-default">Terms of Use</display-name>
+    <description xml:lang="x-default">Terms of Use</description>
+    <online-flag>true</online-flag>
+    <searchable-flag>true</searchable-flag>
+    <page-attributes>
+      <page-title xml:lang="x-default">Terms of Use</page-title>
+      <page-description xml:lang="x-default">Terms of Use</page-description>
+      <page-keywords xml:lang="x-default">Terms of Use</page-keywords>
+    </page-attributes>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container h-maxwidth--1400 mx-auto"&gt;&#xD;
+	&#xD;
+    &lt;style type="text/css"&gt;&#xD;
+        .tnc_content{position: relative; margin: 3% auto;}&#xD;
+            .tnc_content h2.tnc-header {text-align: left;&#xD;
+        color: #333;&#xD;
+        font-size: 25px;&#xD;
+        font-weight: 400;&#xD;
+        letter-spacing: .025em;&#xD;
+        padding-top: 0;&#xD;
+        font-family: SourceSansPro,Arial,sans-serif;&#xD;
+        border-bottom: 1px solid #555;&#xD;
+        padding-bottom: 20px;}&#xD;
+            .tnc-text_area p {font-size: 16px;letter-spacing: .01em;color: #555;line-height: 25px; margin: 10px 0!important;padding-bottom: 10px; font-family: SourceSansPro,Arial,sans-serif}&#xD;
+            .tnc-text_area p strong { font-size: 16px; position: relative;padding: 20px 0px 5px 0px;font-family: SourceSansPro,Arial,sans-serif;font-weight: 800;letter-spacing: .025em; line-height: 1.25;color: #222222;}&#xD;
+        .tnc-text_area{padding: 15px 0 20px;}&#xD;
+&#xD;
+            &#xD;
+            @media only screen and (max-width: 768px){&#xD;
+            &#xD;
+                .tnc_content .tnc-header_area {margin-bottom: 0;padding: 0%;}&#xD;
+                .tnc_content h2.tnc-header {font-size: 18px;padding-bottom: 10px;}&#xD;
+            .tnc_content .tnc-text_area	p {font-size: 15px; letter-spacing: 0; line-height: 23px;margin: 10px 0 !important;padding-bottom: 5px;}&#xD;
+            .tnc-text_area {padding: 10px 0;}&#xD;
+            }&#xD;
+    &lt;/style&gt;&#xD;
+&#xD;
+&lt;div class="tnc_content"&gt;&#xD;
+    &lt;div class="tnc-header_area"&gt;&#xD;
+        &lt;h2 class="tnc-header"&gt;Secure Shopping Guarantee&lt;/h2&gt;&#xD;
+    &lt;/div&gt;&#xD;
+    &lt;div class="tnc-text_area"&gt;&#xD;
+        &lt;p&gt;Bathandbodyworks.com.au uses the industry standard encryption protocol known as Secure Socket Layer (SSL) to keep your order information secure.&lt;/p&gt;&#xD;
+        &lt;p&gt;Secure Shopping Guarantee has been established for every transaction made with Bathandbodyworks.com.au. If any unauthorized charges were to appear on your credit card as a result of shopping with Bathandbodyworks.com.au, you must notify your credit card provider in accordance with its reporting rules and procedures.&lt;/p&gt;&#xD;
+        &lt;h2 class="tnc-header"&gt;Terms and Conditions&lt;/h2&gt;&#xD;
+        &lt;p&gt;Thank you for visiting this website. This website is owned and operated by Valiram.&lt;/p&gt;&#xD;
+        &lt;p&gt;In using this website, you are deemed to have read and agreed to the following terms and conditions:&lt;/p&gt;&#xD;
+        &lt;p&gt;The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and any or all Agreements: “Customer”, “You” and “Your” refers to you, the person accessing this website and accepting the Company’s terms and conditions. “The Company”, “Ourselves”, “We” and “Us”, refers to LUXTRALIA PTY LTD (a subsidiary of Valiram). “Party”, “Parties”, or “Us”, refers to both the Customer and ourselves, or either the Customer or ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Customer in the most appropriate manner, whether by formal meetings of a fixed duration, or any other means, for the express purpose of meeting the Customer’s needs in respect of provision of the Company’s stated services/products, in accordance with and subject to, prevailing Australian Law. Any use of the above terminology or other words in the singular, plural, capitalisation and/or he/she or they, are taken as interchangeable and therefore as referring to same.&lt;/p&gt;&#xD;
+        &lt;p&gt;&#xD;
+            &lt;strong&gt;Privacy Statement&lt;/strong&gt;&#xD;
+        &lt;/p&gt;&#xD;
+        &lt;p&gt;We are committed to protecting your privacy. Authorized employees within the company on a need to know basis only use any information collected from individual customers. We constantly review our systems and data to ensure the best possible service to our customers. For more detailed information on how we collect and process your personal data, please refer to our Privacy Policy.&lt;/p&gt;&#xD;
+        &lt;p&gt;&#xD;
+            &lt;strong&gt;Confidentiality&lt;/strong&gt;&#xD;
+        &lt;/p&gt;&#xD;
+        &lt;p&gt;We are registered under the Personal Data Protection Act 2010 and as such, any information concerning the Customer and their respective Customer Records may be passed to third parties. However, Customer records are regarded as confidential and therefore will not be divulged to any third party, other than brand principals if legally required to do so to the appropriate authorities. Customer have the right to request sight of, and copies of any and all Customer Records we keep, on the proviso that we are given reasonable notice of such a request. Customer are requested to retain copies of any literature issued in relation to the provision of our services. Where appropriate, we shall issue Customer’s with appropriate written information, handouts or copies of records as part of an agreed contract, for the benefit of both parties.&lt;/p&gt;&#xD;
+        &lt;p&gt;We will not sell, share, or rent your personal information to any third party or use your e-mail address for unsolicited mail. Any emails sent by this Company will only be in connection with the provision of agreed services and products.&lt;/p&gt;&#xD;
+        &lt;p&gt;&#xD;
+            &lt;strong&gt;Disclaimer&lt;/strong&gt;&#xD;
+        &lt;/p&gt;&#xD;
+        &lt;p&gt;Exclusions and Limitations&lt;/p&gt;&#xD;
+        &lt;p&gt;The information on this web site is provided on an “as is” basis. To the fullest extent permitted by law, this Company:&lt;/p&gt;&#xD;
+        &lt;p&gt;• excludes all representations and warranties relating to this website and its contents or which is or may be provided by any affiliates or any other third party, including in relation to any inaccuracies or omissions in this website and/or the Company’s literature; and&lt;/p&gt;&#xD;
+        &lt;p&gt;• excludes all liability for damages arising out of or in connection with your use of this website. This includes, without limitation, direct loss, loss of business or profits (whether or not the loss of such profits was foreseeable, arose in the normal course of things or you have advised this Company of the possibility of such potential loss), damage caused to your computer, computer software, systems and programs and the data thereon or any other direct or indirect, consequential and incidental damages.&lt;/p&gt;&#xD;
+        &lt;p&gt;This Company does not however exclude liability for death or personal injury caused by its negligence. The above exclusions and limitations apply only to the extent permitted by law. None of your statutory rights as a consumer are affected.&lt;/p&gt;&#xD;
+        &lt;p&gt;&#xD;
+            &lt;strong&gt;Pricing&lt;/strong&gt;&#xD;
+        &lt;/p&gt;&#xD;
+        &lt;p&gt;Prices are quoted in Australian Dollar. Bath &amp;amp; Body Works reserves the right to make price changes prior to an order placed by you. All items follow Bath &amp;amp; Body Works' pricing unless otherwise stated in promotion or Gifts With Purchase. Bath &amp;amp; Body Works reserves the right to cancel or not move to process your order if the product(s) ordered is discontinued or out of stock; order does not meet the order criteria set above on pricing; order was made during web maintenance and caused by a system glitch.&lt;/p&gt;&#xD;
+        &lt;p&gt;&#xD;
+            &lt;strong&gt;Termination Of Agreements And Refunds Policy&lt;/strong&gt;&#xD;
+        &lt;/p&gt;&#xD;
+        &lt;p&gt;Both the Customer and ourselves have the right to terminate any Services Agreement for any reason, including the ending of services that are already underway. No refunds shall be offered, where a Service is deemed to have begun and is, for all intents and purposes, underway. Any monies that have been paid to us which constitute payment in respect of the provision of unused Services, shall be refunded.&lt;/p&gt;&#xD;
+        &lt;p&gt;&#xD;
+            &lt;strong&gt;Availability&lt;/strong&gt;&#xD;
+        &lt;/p&gt;&#xD;
+        &lt;p&gt;Unless otherwise stated, the services featured on this website are only available within a select country. All advertising is intended solely for the select countries. You are solely responsible for evaluating the fitness for a particular purpose of any downloads, programs and text available through this site. Redistribution or republication of any part of this site or its content is prohibited, including such by framing or other similar or any other means, without the express written consent of the Company. The Company does not warrant that the service from this site will be uninterrupted, timely or error free, although it is provided to the best ability. By using this service, you thereby indemnify this Company, its employees, agents and affiliates against any loss or damage, in whatever manner, howsoever caused.&lt;/p&gt;&#xD;
+        &lt;p&gt;&#xD;
+            &lt;strong&gt;Log Files&lt;/strong&gt;&#xD;
+        &lt;/p&gt;&#xD;
+        &lt;p&gt;We use IP addresses to analyse trends, administer the site, track user’s movement, and gather broad demographic information for aggregate use. IP addresses are not linked to personally identifiable information. Additionally, for systems administration, detecting usage patterns and troubleshooting purposes, our web servers automatically log standard access information including browser type, access times/open mail, URL requested, and referral URL. This information is not shared with third parties and is used only within this Company on a need-to-know basis. Any individually identifiable information related to this data will never be used in any way different to that stated above without your explicit permission.&lt;/p&gt;&#xD;
+        &lt;p&gt;&#xD;
+            &lt;strong&gt;Cookies&lt;/strong&gt;&#xD;
+        &lt;/p&gt;&#xD;
+        &lt;p&gt;Like most interactive web sites this Company’s website [or ISP] uses cookies to enable us to retrieve user details for each visit. Cookies are used in some areas of our site to enable the functionality of this area and ease of use for those people visiting. Some of our affiliate partners may also use cookies. The types of cookies used on our website is explained in detail in our Privacy Policy.&lt;/p&gt;&#xD;
+        &lt;p&gt;&#xD;
+            &lt;strong&gt;Links To This Website&lt;/strong&gt;&#xD;
+        &lt;/p&gt;&#xD;
+        &lt;p&gt;You may not create a link to any page of this website without our prior written consent. Use of any automated screen capture or screen scraping technologies to obtain information from this site without the prior written approval of Valiram is an infringement of the Company’s intellectual property rights. If you do create a link or create any other form of reference to a page of this website, you do so at your own risk and the exclusions and limitations set out above will apply to your use of this website by linking to it.&lt;/p&gt;&#xD;
+        &lt;p&gt;&#xD;
+            &lt;strong&gt;Links From This Website&lt;/strong&gt;&#xD;
+        &lt;/p&gt;&#xD;
+        &lt;p&gt;We do not monitor or review the content of other party’s websites which are linked to from this website. Opinions expressed or material appearing on such websites are not necessarily shared or endorsed by us and should not be regarded as the publisher of such opinions or material. Please be aware that we are not responsible for the privacy practices, or content, of these sites. We encourage our users to be aware when they leave our site &amp;amp; to read the privacy statements of these sites. You should evaluate the security and trustworthiness of any other site connected to this site or accessed through this site yourself, before disclosing any personal information to them. This Company will not accept any responsibility for any loss or damage in whatever manner, howsoever caused, resulting from your disclosure to third parties of personal information.&lt;/p&gt;&#xD;
+        &lt;p&gt;&#xD;
+            &lt;strong&gt;Copyright Notice&lt;/strong&gt;&#xD;
+        &lt;/p&gt;&#xD;
+        &lt;p&gt;Copyright and other relevant intellectual property rights exist on all text relating to the Company’s services and the full content of this website.&lt;/p&gt;&#xD;
+        &lt;p&gt;This Company’s logo is a registered trademark of this Company in&amp;nbsp; Malaysia and other countries. The brand names and specific services of this Company featured on this web site are trademarked.&lt;/p&gt;&#xD;
+        &lt;p&gt;&#xD;
+            &lt;strong&gt;Communication&lt;/strong&gt;&#xD;
+        &lt;/p&gt;&#xD;
+        &lt;p&gt;We have several different e-mail addresses for different queries. These, &amp;amp; other contact information, can be found on our Contact Us link on our website or via Company literature or via the Company’s stated telephone, facsimile or mobile telephone numbers.&lt;/p&gt;&#xD;
+        &lt;p&gt;&#xD;
+            &lt;strong&gt;General&lt;/strong&gt;&#xD;
+        &lt;/p&gt;&#xD;
+        &lt;p&gt;By accessing this website and using our services/buying our products you consent to these terms and conditions. If any of these terms are deemed invalid or unenforceable for any reason (including, but not limited to the exclusions and limitations set out above), then the invalid or unenforceable provision will be severed from these terms and the remaining terms will continue to apply. Failure of the Company to enforce any of the provisions set out in these Terms and Conditions and any Agreement, or failure to exercise any option to terminate, shall not be construed as waiver of such provisions and shall not affect the validity of these Terms and Conditions or of any Agreement or any part thereof, or the right thereafter to enforce each and every provision. These Terms and Conditions shall not be amended, modified, varied or supplemented except in writing and signed by duly authorised representatives of the Company.&lt;/p&gt;&#xD;
+        &lt;p&gt;&#xD;
+            &lt;strong&gt;Notification of Changes&lt;/strong&gt;&#xD;
+        &lt;/p&gt;&#xD;
+        &lt;p&gt;The Company reserves the right to change these conditions from time to time as it sees fit and your continued use of the site will signify your acceptance of any adjustment to these terms. If there are any changes to our privacy policy, we will announce that these changes have been made on our home page and on other key pages on our site. If there are any changes in how we use our site customers’ Personally Identifiable Information, notification by e-mail or postal mail will be made to those affected by this change. Any changes to our privacy policy will be posted on our web site 30 days prior to these changes taking place. You are therefore advised to re-read this statement on a regular basis.&lt;/p&gt;&#xD;
+        &lt;p&gt;These terms and conditions form part of the Agreement between the Customer and ourselves. Your accessing of this website and/or undertaking of a booking or Agreement indicates your understanding, agreement to and acceptance, of the Disclaimer Notice and the full Terms and Conditions contained herein. Your statutory Consumer Rights are unaffected.&lt;/p&gt;&#xD;
+    &lt;/div&gt;&#xD;
+&lt;/div&gt;&#xD;
+&lt;p&gt;&lt;/p&gt;&#xD;
 &lt;/div&gt;</custom-attribute>
-        </custom-attributes>
-    </content>
+    </custom-attributes>
+  </content>
 
     <content content-id="bottom-seo-a-thousand-wishes">
         <display-name xml:lang="x-default">Bottom Seo A Thousand Wishes</display-name>
@@ -828,41 +827,30 @@
         </folder-links>
     </content>
 
-    <content content-id="bottom-seo-body-care">
-        <display-name xml:lang="x-default">Bottom Seo Body Care</display-name>
-        <description xml:lang="x-default">Body Care Content</description>
-        <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
-        <page-attributes/>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container1"&gt;&#13;
-	&lt;div class="controlcontent_r"&gt;&#13;
-		&lt;div class="htmlbucket"&gt;&#13;
-			&lt;div class="bodycare-text-section"&gt;&#13;
-				&lt;div class="bc-description"&gt;&#13;
-					&lt;h2&gt;About Body Care from Bath &amp;amp; Body Works&amp;ZeroWidthSpace;&lt;/h2&gt;&#13;
-					&lt;p&gt;Lotions, scrubs, creams, mists, oils…we get it, body care can be overwhelming. That’s why we created a step-by-step skincare guide (and some fabulous products) to get you started:&lt;/p&gt;&#13;
-					&lt;p&gt;It all starts with exfoliation. Our &lt;a href="$url('Search-Show','cgid','body-scrub')$"&gt;body scrubs&lt;/a&gt; buff away dead skins (and bad moods), leaving you soft, smooth and primed for the rest of your body care routine.&lt;/p&gt;&#13;
-					&lt;p&gt;Next, get into the cleansing mood with a dreamily scented &lt;a href="$url('Search-Show','cgid','body-wash-and-shower-gel')$"&gt;body wash or shower gel&lt;/a&gt;. From floral to fresh, citrusy to warm, you’ll find the perfect wake-up call…even if the alarm did go off a little too early.&lt;/p&gt;&#13;
-					&lt;p&gt;Now, add some moisture to your skin with either body cream or body lotion. What’s the difference? Our &lt;a href="$url('Search-Show','cgid','body-lotion')$"&gt;body lotions&lt;/a&gt; are packed with super-fluffy shea butter and hydrating vitamin E to keep you incredibly soft, smooth and nourished. Our &lt;a href="$url('Search-Show','cgid','body-cream-and-butter')$"&gt; body cream &lt;/a&gt; is also super-hydrating, but with a lush mix of glow-giving coconut oil, moisturizing shea butter and super-rich cocoa butter. Bonus: they leave you feeling smooth and refreshed, &lt;i&gt;without&lt;/i&gt; feeling oily or heavy.&lt;/p&gt;&#13;
-					&lt;p&gt;And the best for last: it’s time to indulge! Finish off the process with a spritz of your favorite &lt;a href="$url('Search-Show','cgid','body-spray-and-mists')$"&gt;fine fragrance mist &lt;/a&gt; to complement your mood.&lt;/p&gt;&#13;
-					&lt;p&gt;What if you want to spend a Saturday afternoon relaxing in the tub? Perfect! Light your favorite Bath &amp;amp; Body Works &lt;a href="$url('Search-Show','cgid','3-wick-candles')$"&gt;3-wick candle&lt;/a&gt;, grab a matching (or completely different!) &lt;a href="$url('Search-Show','cgid','bath-fizzies-and-bubble-bath')$"&gt;bubble bath or bath fizzie &lt;/a&gt; (think: bath bomb) and soak up some suds and good vibes.&lt;/p&gt;&#13;
-					&lt;p&gt;Explore more body care and &lt;a href="$url('Search-Show','cgid','skincare-routine')$"&gt;skincare routine&lt;/a&gt; products made for specifics: like Aromatherapy, foot care or hand care. Don’t forget that your hair and face need TLC, too!&lt;/p&gt;&#13;
-				&lt;/div&gt;&#13;
-			&lt;/div&gt;&#13;
-			&lt;p&gt;&lt;/p&gt;&#13;
-		&lt;/div&gt;&#13;
-	&lt;/div&gt;&#13;
-	&lt;div class="r_bottom"&gt;&#13;
-		&lt;div class="l_bottom"&gt;&lt;/div&gt;&#13;
-	&lt;/div&gt;&#13;
-&lt;/div&gt;&#13;
+      <content content-id="bottom-seo-body-care">
+    <display-name xml:lang="x-default">Bottom Seo Body Care</display-name>
+    <description xml:lang="x-default">Body Care Content</description>
+    <online-flag>true</online-flag>
+    <searchable-flag>false</searchable-flag>
+    <page-attributes/>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="category-seo-text-section"&gt;&#xD;
+    &lt;div class="category-seo-text-section__inner-wrapper"&gt;&#xD;
+        &lt;h2 class="category-seo-text-section__title"&gt;About Body Care from Bath &amp;amp; Body Works&amp;ZeroWidthSpace;&lt;/h2&gt;&#xD;
+        &lt;p class="category-seo-text-section__description"&gt;Lotions, scrubs, creams, mists, oils…we get it, body care can be overwhelming. That’s why we created a step-by-step skincare guide (and some fabulous products) to get you started:&lt;/p&gt;&#xD;
+        &lt;p class="category-seo-text-section__description"&gt;It all starts with exfoliation. Our &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-scrub')$"&gt;body scrubs&lt;/a&gt; buff away dead skins (and bad moods), leaving you soft, smooth and primed for the rest of your body care routine.&lt;/p&gt;&#xD;
+        &lt;p class="category-seo-text-section__description"&gt;Next, get into the cleansing mood with a dreamily scented &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-wash-and-shower-gel')$"&gt;body wash or shower gel&lt;/a&gt;. From floral to fresh, citrusy to warm, you’ll find the perfect wake-up call…even if the alarm did go off a little too early.&lt;/p&gt;&#xD;
+        &lt;p class="category-seo-text-section__description"&gt;Now, add some moisture to your skin with either body cream or body lotion. What’s the difference? Our &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-lotion')$"&gt;body lotions&lt;/a&gt; are packed with super-fluffy shea butter and hydrating vitamin E to keep you incredibly soft, smooth and nourished. Our &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-cream-and-butter')$"&gt; body cream &lt;/a&gt; is also super-hydrating, but with a lush mix of glow-giving coconut oil, moisturizing shea butter and super-rich cocoa butter. Bonus: they leave you feeling smooth and refreshed, &lt;i&gt;without&lt;/i&gt; feeling oily or heavy.&lt;/p&gt;&#xD;
+        &lt;p class="category-seo-text-section__description"&gt;And the best for last: it’s time to indulge! Finish off the process with a spritz of your favorite &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-spray-and-mists')$"&gt;fine fragrance mist &lt;/a&gt; to complement your mood.&lt;/p&gt;&#xD;
+        &lt;p class="category-seo-text-section__description"&gt;What if you want to spend a Saturday afternoon relaxing in the tub? Perfect! Light your favorite Bath &amp;amp; Body Works &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','3-wick-candles')$"&gt;3-wick candle&lt;/a&gt;, grab a matching (or completely different!) &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','bath-fizzies-and-bubble-bath')$"&gt;bubble bath or bath fizzie &lt;/a&gt; (think: bath bomb) and soak up some suds and good vibes.&lt;/p&gt;&#xD;
+        &lt;p class="category-seo-text-section__description"&gt;Explore more body care and &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','skincare-routine')$"&gt;skincare routine&lt;/a&gt; products made for specifics: like Aromatherapy, foot care or hand care. Don’t forget that your hair and face need TLC, too!&lt;/p&gt;&#xD;
+    &lt;/div&gt;&#xD;
 &lt;/div&gt;</custom-attribute>
-        </custom-attributes>
-        <folder-links>
-            <classification-link folder-id="category-seo-content"/>
-        </folder-links>
-    </content>
+    </custom-attributes>
+    <folder-links>
+      <classification-link folder-id="category-seo-content"/>
+    </folder-links>
+  </content>
 
     <content content-id="bottom-seo-body-cream-and-butter">
         <display-name xml:lang="x-default">Bottom Seo Body Cream and Butter</display-name>
@@ -2741,7 +2729,7 @@
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;button type="button"&#13;
     class="btn btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
-    data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"&#13;
+    data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486" data-placement="top"&#13;
     title="&amp;lt;div class='popover-title header-content h-font-size--18 h-fw--bold d-flex align-items-center justify-space-between'&amp;gt;BATH &amp;amp; BODY WORKS AUSTRALIA LUXTRALIA PTY LTD&amp;lt;/div&amp;gt; &amp;lt;a href='#' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
     data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt; &amp;lt;p class='h-clr--black-3 h-font-size--16 mb-0'&amp;gt; Level 4, 112 Castlereagh Street,&amp;lt;br /&amp;gt; Sydney, NSW, 2000&amp;lt;br /&amp;gt; (02) 8666 0666&amp;lt;/p&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;p class='h-clr--black-3 mb-0 h-font-size--16'&amp;gt;You may withdraw your &amp;lt;br /&amp;gt; consent at anytime. View&amp;lt;/p&amp;gt;&amp;lt;a class=' cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'privacy-policy')$'&amp;gt;Privacy Policy&amp;lt;/a&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;a class='cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'contact-us')$'&amp;gt;Contact Us&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;"&#13;
     data-html="true"&gt;&#13;
@@ -5242,14 +5230,50 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
         </custom-attributes>
     </content>
 
-     <content content-id="giftcards">
+  <content content-id="giftcards">
         <display-name xml:lang="x-default">Gift Cards</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script&gt;&#13;
+    function checkbalance() {&#13;
+        var cardNumber = $('#dwfrm_giftcard_giftCardID').val();&#13;
+        var cardPin = $('#dwfrm_giftcard_giftCardPin').val();&#13;
+        var checkBalanceUrl = $('input[name="checkBalanceUrl"]').val();&#13;
+        cardNumber = cardNumber.replace(/\s/g, '');&#13;
+        var form = {&#13;
+            cardNo: cardNumber,&#13;
+            cardPin: cardPin&#13;
+        };&#13;
+        $.ajax({&#13;
+            url: checkBalanceUrl,&#13;
+            method: 'POST',&#13;
+            data: $.param(form),&#13;
+            success: function (data) {&#13;
+                if (data.error) {&#13;
+                    var errorElement = $('.gift-card-balance-error');&#13;
+                    errorElement.empty();&#13;
+                    errorElement.append('&lt;span class="giftcard-balance-error"&gt;' + data.errorMessage + '&lt;/span&gt;');&#13;
+                    setTimeout(function () {&#13;
+                        $('.giftcard-balance-error').remove();&#13;
+                    }, 5000);&#13;
+                } else {&#13;
+                    var balanceWrap = $('.giftcard-balance-wrap');&#13;
+                    balanceWrap.empty();&#13;
+                    balanceWrap.append('&lt;span class="giftcard-balance-text giftcard-balance-error"&gt;' + data.cardBalance + '&lt;/span&gt;');&#13;
+                }&#13;
+            },&#13;
+            error: function (xhr, status, error) {&#13;
+                console.error('Request failed with status:', status, 'and error:', error); // Log error details&#13;
+                return false;&#13;
+            }&#13;
+        });&#13;
+    };&#13;
+&lt;/script&gt;&#13;
+&lt;div class="container"&gt;&#13;
     &lt;div class="primary-content"&gt;&#13;
+        &lt;input type="hidden" name="checkBalanceUrl" value="$url('Giftcard-CheckBalance')$"&gt;&#13;
         &lt;div class="gift-card-top-banner"&gt;&#13;
             &lt;picture&gt;&#13;
                 &lt;source media="(min-width: 768px)" srcset="images/gift-cards/giftcards.svg?$staticlink$" /&gt; &lt;img&#13;
@@ -5259,29 +5283,23 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
             &lt;img alt="" height="124" class="d-md-none d-xl-none w-100"&#13;
                 src="images/gift-cards/gift-card-landing-banner-slot_m.svg?$staticlink$" title="" /&gt;&#13;
         &lt;/div&gt;&#13;
-&#13;
         &lt;div class="gift-card-landing-subtitle text-center"&gt;&#13;
             &lt;h2 class="h-font-size--24 "&gt;Two easy ways to spoil someone special.&lt;/h2&gt;&#13;
-&#13;
             &lt;p class="h-font-size--14"&gt;Redeemable In Stores &amp;amp; Online.&lt;/p&gt;&#13;
         &lt;/div&gt;&#13;
-&#13;
         &lt;div class="row"&gt;&#13;
             &lt;div class="col-md-6" style="margin: 0 auto;"&gt;&#13;
                 &lt;div class="gift-card-options clearfix"&gt;&#13;
                     &lt;div class="giftcard-col1"&gt;&#13;
                         &lt;div class="gift-card-box e-gift"&gt;&#13;
                             &lt;h3 class="card-name"&gt;E-Gift Cards&lt;/h3&gt;&#13;
-&#13;
                             &lt;div class="card-img"&gt;&lt;img alt="E-Gift Cards"&#13;
                                     src="images/gift-cards/e-gift-card.webp?$staticlink$" title="" /&gt;&lt;/div&gt;&#13;
-&#13;
                             &lt;div class="card-desc"&gt;Fast, easy &amp;amp; fun! We'll email it directly to your recipient,&#13;
                                 complete&#13;
                                 with your own message and the fun design you chose.&lt;/div&gt;&#13;
                             &lt;a class="button btn text-white" href="$url('Search-Show', 'cgid', 'giftcards')$"&gt;Get&#13;
                                 Started&lt;/a&gt;&#13;
-&#13;
                             &lt;p class="center"&gt;&lt;a href="#" target="_blank" title="about e-gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
                         &lt;/div&gt;&#13;
                     &lt;/div&gt;&#13;
@@ -5289,12 +5307,10 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
             &lt;/div&gt;&#13;
         &lt;/div&gt;&#13;
     &lt;/div&gt;&#13;
-&#13;
     &lt;div class="gift-card-balance ui-accordion ui-widget ui-helper-reset"&gt;&#13;
         &lt;h2 aria-controls="collapseExample" aria-expanded="false"&#13;
             class="ui-accordion-header text-center h-font-size--16" data-toggle="collapse" href="#collapseExample"&#13;
             role="button"&gt;&#13;
-&#13;
             &lt;p class="desk-title h-font-size--24 text-transform h-clr--black-3"&gt;Have a gift card?&lt;/p&gt;&#13;
             &lt;span class="ui-accordion-header-icon ui-icon iconClosed"&gt;&lt;/span&gt;&lt;br /&gt;&#13;
             &lt;span&gt;Check Card Balance&lt;/span&gt;&#13;
@@ -5302,46 +5318,44 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
     &lt;/div&gt;&#13;
     &lt;div class="collapse" id="collapseExample"&gt;&#13;
         &lt;div class="balance-box"&gt;&#13;
-            &lt;form class="clearfix" id="giftcard-landing-form" method="post" novalidate="novalidate"&gt;&#13;
-                &lt;div class="form-row number-max-length d-block" data-required-text=""&gt;&lt;label&#13;
-                        for="dwfrm_giftcard_giftCardID"&gt;Gift Card Number&lt;span&#13;
-                            class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
-&#13;
-                    &lt;div class="field-wrapper "&gt;&lt;input aria-required="true" autocomplete="" class="input-text  required"&#13;
-                            data-maxlength="22" id="dwfrm_giftcard_giftCardID" maxlength="2147483647"&#13;
-                            name="dwfrm_giftcard_giftCardID" pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
-                    &lt;/div&gt;&#13;
-&#13;
-                    &lt;div class="form-caption " id="caption-dwfrm_giftcard_giftCardID"&gt;&amp;nbsp;&lt;/div&gt;&#13;
+            &lt;div class="form-row number-max-length d-block" data-required-text=""&gt;&lt;label&#13;
+                    for="dwfrm_giftcard_giftCardID"&gt;Gift Card Number&lt;span class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
+                &lt;div class="field-wrapper "&gt;&lt;input aria-required="true" autocomplete="" class="input-text  required"&#13;
+                        data-maxlength="22" id="dwfrm_giftcard_giftCardID" maxlength="2147483647"&#13;
+                        name="dwfrm_giftcard_giftCardID" pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
                 &lt;/div&gt;&#13;
-&#13;
-                &lt;div class="form-row pin number-max-length help" data-required-text=""&gt;&lt;label&#13;
-                        for="dwfrm_giftcard_giftCardPin"&gt;&lt;span&gt;PIN&lt;/span&gt;&lt;span&#13;
-                            class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
-&#13;
-                    &lt;div class="field-wrapper d-flex"&gt;&#13;
-                        &lt;input aria-required="true" autocomplete="" class="input-text help  required" data-maxlength="6"&#13;
-                            id="dwfrm_giftcard_giftCardPin" maxlength="2147483647" name="dwfrm_giftcard_giftCardPin"&#13;
-                            pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
-                        &lt;div class="tooltip-field"&gt;&#13;
-                            &lt;button type="button"&#13;
-                                class="btn btn-with-image btn-with-tooltip ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
-                                data-toggle="popover" data-placement="right"&#13;
-                                id="tooltip-footer_iroll_popover_emailcapture486"&#13;
-                                title="&amp;lt;a href='#' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
-                                data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt;&amp;lt;img src='images/gift-cards/gift-card-pin.svg?$staticlink$' alt='Gift Card' /&amp;gt;&amp;lt;/div&amp;gt;"&#13;
-                                data-html="true"&gt;&#13;
-                            &lt;/button&gt;&#13;
-                        &lt;/div&gt;&#13;
+                &lt;div class="form-caption " id="caption-dwfrm_giftcard_giftCardID"&gt;&amp;nbsp;&lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+            &lt;div class="form-row pin number-max-length help mb-2" data-required-text=""&gt;&lt;label&#13;
+                    for="dwfrm_giftcard_giftCardPin"&gt;&lt;span&gt;PIN&lt;/span&gt;&lt;span class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
+                &lt;div class="field-wrapper d-flex"&gt;&#13;
+                    &lt;input aria-required="true" autocomplete="" class="input-text help  required" data-maxlength="6"&#13;
+                        id="dwfrm_giftcard_giftCardPin" maxlength="2147483647" name="dwfrm_giftcard_giftCardPin"&#13;
+                        pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
+                    &lt;div class="tooltip-field"&gt;&#13;
+                        &lt;button type="button"&#13;
+                            class="btn btn-with-image btn-with-tooltip ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
+                            data-toggle="popover" data-placement="right"&#13;
+                            id="tooltip-footer_iroll_popover_emailcapture486"&#13;
+                            title="&amp;lt;a href='#' class='close giftcard-close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
+                            data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt;&amp;lt;img src='images/gift-cards/gift-card-pin.svg?$staticlink$' alt='Gift Card' /&amp;gt;&amp;lt;/div&amp;gt;"&#13;
+                            data-html="true"&gt;&#13;
+                        &lt;/button&gt;&#13;
                     &lt;/div&gt;&#13;
                 &lt;/div&gt;&#13;
-                &lt;button id="check-giftcert" class="btn"&gt;Check Gift Card Balance&lt;/button&gt;&#13;
-            &lt;/form&gt;&#13;
+            &lt;/div&gt;&#13;
+            &lt;span&#13;
+                class="giftcard-balance-wrap w-100 d-block text-left h-fw--semibold h-font-size--16  h-clr--black-1 mt-0"&gt;&lt;/span&gt;&#13;
+            &lt;button id="check-giftcert" class="btn" onclick="checkbalance()"&gt;Check Gift Card Balance&lt;/button&gt; &lt;br /&gt;&#13;
+            &lt;span class="gift-card-balance-error h-font-size--16 h-fw--semibold h-clr--red "&gt;&lt;/span&gt;&#13;
         &lt;/div&gt;&#13;
     &lt;/div&gt;&#13;
-&#13;
 &lt;/div&gt;&#13;
+&#13;
 &lt;style type="text/css"&gt;&#13;
+    .giftcard-close {&#13;
+        top: 0px !important;&#13;
+    }&#13;
     .gift-card-top-banner .desktop-image {&#13;
         width: 930px;&#13;
         height: 90px;&#13;
@@ -5402,8 +5416,9 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
         margin-top: 17px;&#13;
     }&#13;
 &#13;
-    .balance-box form {&#13;
+    .balance-box {&#13;
         width: 290px;&#13;
+        text-align: center;&#13;
         margin: 0 auto;&#13;
     }&#13;
 &#13;
@@ -5589,7 +5604,6 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
     }&#13;
 &#13;
     #check-giftcert {&#13;
-        float: right;&#13;
         width: auto;&#13;
         font-size: 11px;&#13;
         margin-top: 1.6875rem;&#13;
@@ -5598,6 +5612,7 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
         min-height: 35px;&#13;
         max-height: 35px;&#13;
         letter-spacing: .12em;&#13;
+        margin-bottom: 1rem;&#13;
     }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>

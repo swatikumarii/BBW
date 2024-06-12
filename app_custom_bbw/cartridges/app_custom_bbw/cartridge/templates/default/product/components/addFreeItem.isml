@@ -1,0 +1,29 @@
+<div class="modal fade" id="addFreeItem" tabindex="-1" role="dialog" aria-labelledby="add-free-item">
+    <div class="modal-dialog add-free-dialog" role="document">
+        <div class="modal-content free-item-content border-0">
+            <div class="modal-header free-item-header border-0 p-0">
+                <h5 class="modal-title h-font-size--18 h-clr--black-3 m-0 h-fw--semibold free-header">
+                    ${Resource.msg('free-item-header', 'checkout', null)}</h5>
+                <button type="button" class="close close-icon-btn pull-right" data-dismiss="modal">
+                    <span aria-hidden="true">
+                        <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body free-item-body p-0 mt-2">
+                <div class="col-12 p-0">
+                    <span class="free-item-para h-clr--black-1 h-font-size--16 ">
+                        ${Resource.msg('free.item.para', 'checkout', null)}</span>
+                </div>
+            </div>
+            <div class="modal-footer border-0 p-0 mt-3">
+                <a href="${URLUtils.https('Checkout-Begin')}">
+                    <button type="button" class="btn free-item-btn btn-primary  h-font-size--16 mr-3">${Resource.msg('button.confirm.free', 'checkout', null)}</button>
+                </a>
+                <button type="button" class="btn btn-primary free-close-btn btn-secondary h-clr--gray h-font-size--16"
+                    data-dismiss="modal">${Resource.msg('button.go-back', 'checkout', null)}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-primary d-none" id="addFreeModalButton" data-toggle="modal" data-target="#addFreeItem"></button>

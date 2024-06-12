@@ -1,16 +1,16 @@
 <div class="order-approaching-discounts approaching-discounts mb-3">
     <isif condition="${pdict.orderApproachingDiscounts.length > 0}">
         <isset name="approachingDiscount" value="${pdict.orderApproachingDiscounts[0]}" scope="page" />
-        <div class="d-flex w-100 align-items-center h-bg--blue single-approaching-discount-wrap">
+        <div class="d-flex w-auto align-items-center single-approaching-discount-wrap">
+            <div class="single-approaching-discount d-flex flex-column w-100 pl-3">
+                <isprint value="${approachingDiscount.discountMsg}" encoding="off" />
+                <iscomment> <progress class="w-100" value="${approachingDiscount.conditionThreshold - approachingDiscount.distanceFromConditionThreshold}" max="${approachingDiscount.conditionThreshold}"></progress> </iscomment>
+            </div>
             <isif condition="${'image' in approachingDiscount}">
                 <div>
                     <img src="${approachingDiscount.image}" alt="product image" width="50" />
                 </div>
             </isif>
-            <div class="single-approaching-discount d-flex flex-column w-100 pl-3">
-                <isprint value="${approachingDiscount.discountMsg}" encoding="off" />
-                <progress class="w-100" value="${approachingDiscount.conditionThreshold - approachingDiscount.distanceFromConditionThreshold}" max="${approachingDiscount.conditionThreshold}"></progress>
-            </div>
         </div>
     </isif>
 </div>

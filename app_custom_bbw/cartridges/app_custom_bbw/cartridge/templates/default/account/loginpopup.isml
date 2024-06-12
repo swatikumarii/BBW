@@ -39,7 +39,7 @@
                         <p class="h-font-size--16 mb-0">
                             <iscomment> ${Resource.msg('join.para', 'login', null)} </iscomment>
                             ${Resource.msg('create.para', 'login', null)}
-                            <a id="log-in-page-url" href="${URLUtils.https('Login-Show')}" role="button" class="h-clr--black-3 h-font-size--16"
+                            <a id="log-in-page-url" href="${URLUtils.https('Login-CreateAccount')}" role="button" class="h-clr--black-3 h-font-size--16"
                                 aria-label="${Resource.msg('label.header.signup', 'common', null)}">${Resource.msg('label.header.signup', 'common', null)}</a>
                             ${Resource.msg('here', 'login', null)}
                         </p>
@@ -51,10 +51,10 @@
 </div>
 <div class="modal fade hide merge-cart-modal" id="isMergeCartModal" tabindex="-1" role="dialog" aria-labelledby="isMergeCartModalTitle"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog merge-cart-dialog" role="document">
         <div class="modal-content merge-cart-content">
-            <div class="modal-header merge-cart-header border-0">
-            <h2 class="h-font-size--18 h-clr--black-1 h-fw--bold mt-3"> ${Resource.msg('merge.cart.header', 'login', null)} </h2>
+            <div class="modal-header merge-cart-header border-0 p-0">
+               <h2 class="modal-title h-font-size--18 h-clr--black-3 m-0 h-fw--semibold "> ${Resource.msg('merge.cart.header', 'login', null)} </h2>
                 <button type="button" class="close close-icon-btn modal-close-icon" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">
                         <img src="/on/demandware.static/Sites-bbw-au-Site/-/default/dwf607c6e4/images/login/cross.svg" alt="cross icon"
@@ -62,17 +62,23 @@
                     </span>
                 </button>
             </div>
-            <div class="modal-footer border-0 merge-cart-body pb-3">
+            <div class="modal-body merge-item-body p-0 mt-2">
+                <div class="col-12 p-0">
+                    <span class="merge-item-para h-clr--black-1 h-font-size--16 ">
+                        ${Resource.msg('merge.cart.para', 'login', null)}</span>
+                </div>
+            </div>
+            <div class="modal-footer border-0 p-0 merge-cart-footer mt-3">
                 <input type="hidden" class="home-show-url" value="${URLUtils.url('Home-Show')}" />
                 <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-PasswordReset')}" />
                 <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-SetNewPassword')}" />
                 <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-DoSetNewPassword')}" />
                 <input type="hidden" class="cart-merge-url" value="${URLUtils.url('Cart-Merge')}">
                 <input type="hidden" class="redirect-url" value="${pdict.loginRedirectUrl}">
-                <button type="button" class="merge text-uppercase btn" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="merge btn h-font-size--16 mr-3" data-dismiss="modal" aria-label="Close">
                     ${Resource.msg('merge.cart.button1', 'login', null)}
                 </button>
-                <button type="button" class="dont-merge text-uppercase btn" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="dont-merge btn btn-secondary h-font-size--16 h-clr--gray" data-dismiss="modal" aria-label="Close">
                     ${Resource.msg('merge.cart.button2', 'login', null)}
                 </button>
             </div>

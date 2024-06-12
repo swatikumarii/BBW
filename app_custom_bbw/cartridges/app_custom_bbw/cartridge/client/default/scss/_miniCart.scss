@@ -464,7 +464,6 @@
         top: 50%;
         transform: translateY(-50%);
         font-size: 20px;
-        z-index: 2;
     }
 }
 
@@ -474,12 +473,6 @@
         padding: 10px 25px;
 
         .single-approaching-discount {
-            p,
-            span,
-            div {
-                color: colour(white) !important;
-            }
-
             progress {
                 margin-top: 10px;
                 height: 10px;

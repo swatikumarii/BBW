@@ -59,11 +59,15 @@
         </div>
 
         <ul class="nav navbar-nav justify-content-between level-1-ul" role="menu">
-            <li class="nav-top-offers nav-item level-1-li" role="presentation">
-                <a href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold"
-                >${Resource.msg('mobile.menu.topOffers', 'common', null)}</a>
-            </li>
             <isif condition="${pdict.categories}">
+                <isloop items="${pdict.categories}" var="category">
+                    <isif condition="${category.id == 'top-offers'}">
+                        <li class="nav-top-offers nav-item level-1-li" role="presentation">
+                            <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />" class="level-1-link nav-link h-font-size--18 h-fw--semibold">${Resource.msg('mobile.menu.topOffers', 'common', null)}</a>
+                        </li>
+                        <isbreak/>
+                    </isif>
+                </isloop>
                 <isloop items="${pdict.categories}" var="category">
                     <isif condition="${category.subCategories}">
                         <li class="nav-item dropdown level-1-li" role="presentation">
@@ -76,11 +80,13 @@
                             <isinclude template="components/header/mobileMenuItem" />
                         </li>
                     <iselse/>
-                        <li class="nav-item level-1-li position-relative" role="presentation">
-                            <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
+                        <isif condition="${category.id != 'top-offers'}">
+                            <li class="nav-item level-1-li position-relative" role="presentation">
+                                <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
                                 id="${category.id}" class="level-1-link nav-link h-font-size--18 h-fw--semibold" role="link"
                                 tabindex="0">${category.name}</a>
-                        </li>
+                            </li>
+                        </isif>
                     </isif>
                 </isloop>
             </isif>

@@ -47,7 +47,7 @@
                                         ${Resource.msg('label.input.egift.balance', 'forms', null)}
                                     </label>
                                     <div class="row giftcard-balance-section h-minheight--50 align-items-center mr-0">
-                                        <span class="col-7 giftcard-balance-wrap"></span>
+                                        <span class="col-7 giftcard-balance-wrap gift-card-balance-error"></span>
                                         <span id="egift-card-check-balance" class="col-5 h-font-size--14">${Resource.msg('label.egift.check-balance', 'checkout', null)}</span>
                                     </div>
                                 </div>
@@ -64,6 +64,7 @@
                                 </div>
                             </div>
                             <div class="gift-redeem-card-error mb-2" style="display: none"></div>
+                            <div class="gift-redeem-card-success mb-3" style="display: none">${Resource.msg('giftcard.added.redemption.text', 'giftcards', null)}</div>
                             <span class="add-giftcard-text">${Resource.msg('giftcard.add.text.description', 'giftcards', null)}</span>
                             <div class="d-flex justify-content-between giftcard-total-wrap">
                                 <h2 class="h-font-size--18 h-fw--bold h-clr--black-1">${Resource.msg('label.giftcard.total', 'giftcards', null)}</h2>
@@ -75,4 +76,6 @@
             </div>
         </fieldset>
     </div>
+    <span class="giftcard-full-redemption h-font-size--16 h-fw--semibold mt-4 d-block h-clr--black"></span>
+    <span class="giftcard-partial-redemption h-font-size--16 h-fw--semibold mt-4 d-block h-clr--black"></span>
 </isif>

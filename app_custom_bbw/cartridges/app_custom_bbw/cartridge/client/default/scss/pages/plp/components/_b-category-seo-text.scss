@@ -1,0 +1,44 @@
+.seo-wrapper {
+    max-width: 820px;
+}
+
+.category-seo-text-section {
+    &__title,
+    h2 {
+        font-size: 1.5rem;
+        line-height: 1.125;
+        color: colour(black, 3);
+        text-transform: none;
+    }
+
+    &__description,
+    p {
+        margin-top: 16px;
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    &__link,
+    a {
+        font-size: 1rem;
+        color: colour(black, 3);
+        text-decoration: underline;
+
+        &:hover {
+            color: colour(black, 3);
+            text-decoration: none;
+        }
+    }
+
+    &__list,
+    ul {
+        li {
+            margin-left: 70px;
+            font-size: 1rem;
+        }
+    }
+}
+
+#footercontent {
+    margin-top: 0;
+}
