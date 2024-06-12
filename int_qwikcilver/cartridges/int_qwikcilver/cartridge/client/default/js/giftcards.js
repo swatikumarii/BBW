@@ -64,6 +64,7 @@ $(document).ready(function () {
             cardNo: cardNumber,
             cardPin: cardPin
         };
+        $.spinner().start();
         $.ajax({
             url: redeemGifCardUrl,
             method: 'POST',
@@ -89,6 +90,10 @@ $(document).ready(function () {
                     $('.giftcard-balance-wrap').empty();
                     $('.giftcard-balance-status-wrap').empty();
                 } else if (data.addedCards && data.addedCards.length > 0) {
+                    $('.gift-redeem-card-success').show();
+                    setTimeout(function () {
+                        $('.gift-redeem-card-success').hide();
+                    }, 5000);
                     var cardArray = [];
                     var addedCardsHTML = '';
                     for (var i = 0; i < data.addedCards.length; i++) {
@@ -100,21 +105,17 @@ $(document).ready(function () {
                     $('#egift-pin').val('');
                     $('.giftcard-balance-text').empty();
                     if (data.noPendingAmount) {
-                        $('.gift-redeem-card-status')
+                        $('.giftcard-full-redemption')
                             .empty()
                             .append(data.noPendingAmount);
+                        $('.add-giftcard-section').removeClass('show');
+                        $('.add-giftcard-header').hide();
+                        $('.payment-options-heading').hide();
                     }
                     if (data.success) {
-                        $('.gift-redeem-card-status')
+                        $('.giftcard-partial-redemption')
                             .empty()
-                            .append(
-                                '<span class="giftcard-redeem-success">' +
-                                    data.success +
-                                    '</span>'
-                            );
-                        setTimeout(function () {
-                            $('.giftcard-redeem-success').remove();
-                        }, 8000);
+                            .append(data.success);
                     }
 
                     if (data.basketModel && data.basketModel.totals) {
@@ -156,11 +157,13 @@ $(document).ready(function () {
                     if (data.hideCreditCardForm) {
                         $('#selectedPaymentOption').val('');
                         $('.form-nav.billing-nav.payment-information').hide();
-                        $('#paymentMethodsList').hide();
+                        $('.payment-method-options').hide();
                     }
                 }
+                $.spinner().stop();
             },
             error: function () {
+                $.spinner().stop ();
                 return false;
             }
         });
@@ -217,6 +220,7 @@ $(document).ready(function () {
                 } else {
                     $('.added-cards').empty();
                 }
+                $('.add-giftcard-header').show();
                 if (data.basketModel && data.basketModel.totals) {
                     updateGiftPendingTotals(data.basketModel.totals);
                 }
@@ -243,6 +247,7 @@ $(document).ready(function () {
             cardNo: cardNumber,
             cardPin: cardPin
         };
+        $.spinner().start();
         $.ajax({
             url: checkBalanceUrl,
             method: 'POST',
@@ -252,7 +257,7 @@ $(document).ready(function () {
                     $('.gift-card-balance-error')
                         .empty()
                         .append(
-                            '<span class="giftcard-balance-error">' +
+                            '<span class="giftcard-balance-error h-clr--red">' +
                                 data.errorMessage +
                                 '</span>'
                         );
@@ -275,8 +280,10 @@ $(document).ready(function () {
                                 '</span>'
                         );
                 }
+                $.spinner().stop();
             },
             error: function () {
+                $.spinner().stop();
                 return false;
             }
         });
