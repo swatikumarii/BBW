@@ -256,6 +256,7 @@ $(document).ready(function () {
                     $('.billingZipCode option').removeAttr('selected');
                     $(this).attr('selected', 'selected');
                     $('body').find('.billingZipCode').trigger('change');
+                    return false;
                 }
             });
         }
