@@ -1430,6 +1430,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="emarsysTestModeEnabled">
+                <display-name xml:lang="x-default">Enable Test Mode For Emarsys</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="currentCurrencyToMyrConversionRate">
                 <display-name xml:lang="x-default">MYR conversion Rate</display-name>
                 <type>double</type>
@@ -1778,6 +1785,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="metaPixelEnabled"/>
                 <attribute attribute-id="metaPixelScript"/>
                 <attribute attribute-id="emarsysEnabled"/>
+                <attribute attribute-id="emarsysTestModeEnabled"/>
                 <attribute attribute-id="emarsysMerchantID"/>
                 <attribute attribute-id="currentCurrencyToMyrConversionRate"/>
             </attribute-group>
