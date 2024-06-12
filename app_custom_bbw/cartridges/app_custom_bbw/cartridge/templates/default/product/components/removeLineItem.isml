@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="modal-footer border-0 p-0">
-                <button type="button" class="btn delete-lineitem-confirmation-btn btn-primary  h-font-size--16 mr-3"
+                <button type="button" class="btn delete-lineitem-confirmation-btn btn-primary  h-font-size--16"
                     data-dismiss="modal"
                     data-pid="${product.id}"
                     data-addtocarturl="${pdict.addToCartUrl}"

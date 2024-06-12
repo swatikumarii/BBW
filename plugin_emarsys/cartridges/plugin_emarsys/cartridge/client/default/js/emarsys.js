@@ -13,7 +13,9 @@ $(document).on(
                         var cartcontent = emarsysEvent.cartcontent;
                         var emarsys_purchase_command =
                             emarsysEvent.emarsys_purchase_command;
-                        ScarabQueue.push(['testMode']);
+                        if (data.emarsysTestModeEnabled) {
+                            ScarabQueue.push(['testMode']);
+                        }
                         if (userEmail) {
                             ScarabQueue.push(['setEmail', userEmail]);
                         }

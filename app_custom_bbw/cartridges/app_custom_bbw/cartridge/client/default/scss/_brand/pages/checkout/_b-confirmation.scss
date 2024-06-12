@@ -183,6 +183,10 @@
         padding: 20px 30px 30px;
     }
 
+    @include media-btw(sm, lg) {
+        padding: 20px 0;
+    }
+
     .confirmation-product-details {
         border-bottom: 1px solid colour(gray, 27);
         padding-left: 0 !important;

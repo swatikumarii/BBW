@@ -579,7 +579,7 @@ module.exports = function () {
             setTimeout(function () {
                 errorElem.hide();
             }, 3000);
-            $(this).val(preSelectQty);
+            $(this).val(Math.floor(maxOrderQty));
         } else {
             var productID = $(this).data('pid');
             var url = $(this).data('action');
