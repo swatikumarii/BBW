@@ -185,7 +185,11 @@ function updateApproachingDiscounts(
     var orderhtml = '';
     var shippinghtml = '';
     if (orderApproachingDiscounts && orderApproachingDiscounts.length) {
-        orderhtml = '<div class="d-flex w-100 align-items-center">\n';
+        orderhtml = '<div class="d-flex w-auto align-items-center single-approaching-discount-wrap">\n';
+        orderhtml += '<div class="single-approaching-discount d-flex flex-column w-100 pl-3">\n'+
+            orderApproachingDiscounts[0].discountMsg +
+        // '<progress class="w-100" value="' + (orderApproachingDiscounts[0].conditionThreshold - orderApproachingDiscounts[0].distanceFromConditionThreshold) + '" max="' + orderApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
+            '</div>\n';
         if ('image' in orderApproachingDiscounts[0]) {
             orderhtml +=
                 '<div>\n' +
@@ -194,23 +198,13 @@ function updateApproachingDiscounts(
                 '" alt="product image" width="50" />\n' +
                 '</div>';
         }
-        orderhtml +=
-            '<div class="single-approaching-discount d-flex flex-column w-100 pl-3">\n' +
-            orderApproachingDiscounts[0].discountMsg +
-            '<progress class="w-100" value="' +
-            (orderApproachingDiscounts[0].conditionThreshold -
-                orderApproachingDiscounts[0].distanceFromConditionThreshold) +
-            '" max="' +
-            orderApproachingDiscounts[0].conditionThreshold +
-            '"></progress>\n' +
-            '</div>\n' +
-            '</div>';
+        orderhtml +='</div>';
     }
 
     if(shippingApproachingDiscounts && shippingApproachingDiscounts.length) {
         shippinghtml = '<div class="row align-items-center">\n'+
             '<div class="d-flex flex-column col-12 py-0">\n'+
-            '<p class="h-font-size--13 h-clr--pink h-fw--bold m-0">' + shippingApproachingDiscounts[0].discountMsg + '</p>\n'+
+            '<p class="h-font-size--16 h-clr--pink h-fw--semibold m-0 text-center">' + shippingApproachingDiscounts[0].discountMsg + '</p>\n'+
                 '<div class="d-flex w-100 justify-content-around align-items-center progress-wrap">\n'+
                     '<span class="pr-3 text-nowrap d-block"> AU$ 0.00 </span>\n' +
                 '<span class="d-block w-100 h-pos--relative">\n'+
