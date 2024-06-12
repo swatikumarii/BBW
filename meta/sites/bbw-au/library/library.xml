@@ -2741,7 +2741,7 @@
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;button type="button"&#13;
     class="btn btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
-    data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"&#13;
+    data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486" data-placement="top"&#13;
     title="&amp;lt;div class='popover-title header-content h-font-size--18 h-fw--bold d-flex align-items-center justify-space-between'&amp;gt;BATH &amp;amp; BODY WORKS AUSTRALIA LUXTRALIA PTY LTD&amp;lt;/div&amp;gt; &amp;lt;a href='#' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
     data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt; &amp;lt;p class='h-clr--black-3 h-font-size--16 mb-0'&amp;gt; Level 4, 112 Castlereagh Street,&amp;lt;br /&amp;gt; Sydney, NSW, 2000&amp;lt;br /&amp;gt; (02) 8666 0666&amp;lt;/p&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;p class='h-clr--black-3 mb-0 h-font-size--16'&amp;gt;You may withdraw your &amp;lt;br /&amp;gt; consent at anytime. View&amp;lt;/p&amp;gt;&amp;lt;a class=' cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'privacy-policy')$'&amp;gt;Privacy Policy&amp;lt;/a&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;a class='cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'contact-us')$'&amp;gt;Contact Us&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;"&#13;
     data-html="true"&gt;&#13;
@@ -5242,46 +5242,46 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
         </custom-attributes>
     </content>
 
-   <content content-id="giftcards">
+  <content content-id="giftcards">
         <display-name xml:lang="x-default">Gift Cards</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script&gt;&#13;
-    function checkbalance () {&#13;
-    var cardNumber = $('#dwfrm_giftcard_giftCardID').val();&#13;
-    var cardPin = $('#dwfrm_giftcard_giftCardPin').val();&#13;
-    var checkBalanceUrl = $('input[name="checkBalanceUrl"]').val();&#13;
-    cardNumber = cardNumber.replace(/\s/g, '');&#13;
-    var form = {&#13;
-        cardNo: cardNumber,&#13;
-        cardPin: cardPin&#13;
-    };&#13;
-    $.ajax({&#13;
-        url: checkBalanceUrl,&#13;
-        method: 'POST',&#13;
-        data: $.param(form),&#13;
-        success: function(data) {&#13;
-            if (data.error) {&#13;
-                var errorElement = $('.gift-card-balance-error');&#13;
-                errorElement.empty();&#13;
-                errorElement.append('&lt;span class="giftcard-balance-error"&gt;' + data.errorMessage + '&lt;/span&gt;');&#13;
-                setTimeout(function() {&#13;
-                    $('.giftcard-balance-error').remove();&#13;
-                }, 5000);&#13;
-            } else {&#13;
-                var balanceWrap = $('.giftcard-balance-wrap');&#13;
-                balanceWrap.empty();&#13;
-                balanceWrap.append('&lt;span class="giftcard-balance-text giftcard-balance-error"&gt;' + data.cardBalance + '&lt;/span&gt;');&#13;
+    function checkbalance() {&#13;
+        var cardNumber = $('#dwfrm_giftcard_giftCardID').val();&#13;
+        var cardPin = $('#dwfrm_giftcard_giftCardPin').val();&#13;
+        var checkBalanceUrl = $('input[name="checkBalanceUrl"]').val();&#13;
+        cardNumber = cardNumber.replace(/\s/g, '');&#13;
+        var form = {&#13;
+            cardNo: cardNumber,&#13;
+            cardPin: cardPin&#13;
+        };&#13;
+        $.ajax({&#13;
+            url: checkBalanceUrl,&#13;
+            method: 'POST',&#13;
+            data: $.param(form),&#13;
+            success: function (data) {&#13;
+                if (data.error) {&#13;
+                    var errorElement = $('.gift-card-balance-error');&#13;
+                    errorElement.empty();&#13;
+                    errorElement.append('&lt;span class="giftcard-balance-error"&gt;' + data.errorMessage + '&lt;/span&gt;');&#13;
+                    setTimeout(function () {&#13;
+                        $('.giftcard-balance-error').remove();&#13;
+                    }, 5000);&#13;
+                } else {&#13;
+                    var balanceWrap = $('.giftcard-balance-wrap');&#13;
+                    balanceWrap.empty();&#13;
+                    balanceWrap.append('&lt;span class="giftcard-balance-text giftcard-balance-error"&gt;' + data.cardBalance + '&lt;/span&gt;');&#13;
+                }&#13;
+            },&#13;
+            error: function (xhr, status, error) {&#13;
+                console.error('Request failed with status:', status, 'and error:', error); // Log error details&#13;
+                return false;&#13;
             }&#13;
-        },&#13;
-        error: function(xhr, status, error) {&#13;
-            console.error('Request failed with status:', status, 'and error:', error); // Log error details&#13;
-            return false;&#13;
-        }&#13;
-    });&#13;
-};&#13;
+        });&#13;
+    };&#13;
 &lt;/script&gt;&#13;
 &lt;div class="container"&gt;&#13;
     &lt;div class="primary-content"&gt;&#13;
@@ -5331,8 +5331,7 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
     &lt;div class="collapse" id="collapseExample"&gt;&#13;
         &lt;div class="balance-box"&gt;&#13;
             &lt;div class="form-row number-max-length d-block" data-required-text=""&gt;&lt;label&#13;
-                    for="dwfrm_giftcard_giftCardID"&gt;Gift Card Number&lt;span&#13;
-                        class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
+                    for="dwfrm_giftcard_giftCardID"&gt;Gift Card Number&lt;span class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
                 &lt;div class="field-wrapper "&gt;&lt;input aria-required="true" autocomplete="" class="input-text  required"&#13;
                         data-maxlength="22" id="dwfrm_giftcard_giftCardID" maxlength="2147483647"&#13;
                         name="dwfrm_giftcard_giftCardID" pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
@@ -5340,8 +5339,7 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
                 &lt;div class="form-caption " id="caption-dwfrm_giftcard_giftCardID"&gt;&amp;nbsp;&lt;/div&gt;&#13;
             &lt;/div&gt;&#13;
             &lt;div class="form-row pin number-max-length help mb-2" data-required-text=""&gt;&lt;label&#13;
-                    for="dwfrm_giftcard_giftCardPin"&gt;&lt;span&gt;PIN&lt;/span&gt;&lt;span&#13;
-                        class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
+                    for="dwfrm_giftcard_giftCardPin"&gt;&lt;span&gt;PIN&lt;/span&gt;&lt;span class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
                 &lt;div class="field-wrapper d-flex"&gt;&#13;
                     &lt;input aria-required="true" autocomplete="" class="input-text help  required" data-maxlength="6"&#13;
                         id="dwfrm_giftcard_giftCardPin" maxlength="2147483647" name="dwfrm_giftcard_giftCardPin"&#13;
@@ -5351,21 +5349,25 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
                             class="btn btn-with-image btn-with-tooltip ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
                             data-toggle="popover" data-placement="right"&#13;
                             id="tooltip-footer_iroll_popover_emailcapture486"&#13;
-                            title="&amp;lt;a href='#' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
+                            title="&amp;lt;a href='#' class='close giftcard-close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
                             data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt;&amp;lt;img src='images/gift-cards/gift-card-pin.svg?$staticlink$' alt='Gift Card' /&amp;gt;&amp;lt;/div&amp;gt;"&#13;
                             data-html="true"&gt;&#13;
                         &lt;/button&gt;&#13;
                     &lt;/div&gt;&#13;
                 &lt;/div&gt;&#13;
             &lt;/div&gt;&#13;
-            &lt;span class="giftcard-balance-wrap w-100 d-block text-left h-fw--semibold h-font-size--16  h-clr--black-1 mt-0"&gt;&lt;/span&gt;&#13;
+            &lt;span&#13;
+                class="giftcard-balance-wrap w-100 d-block text-left h-fw--semibold h-font-size--16  h-clr--black-1 mt-0"&gt;&lt;/span&gt;&#13;
             &lt;button id="check-giftcert" class="btn" onclick="checkbalance()"&gt;Check Gift Card Balance&lt;/button&gt; &lt;br /&gt;&#13;
-           &lt;span class="gift-card-balance-error h-font-size--16 h-fw--semibold h-clr--red "&gt;&lt;/span&gt;&#13;
+            &lt;span class="gift-card-balance-error h-font-size--16 h-fw--semibold h-clr--red "&gt;&lt;/span&gt;&#13;
         &lt;/div&gt;&#13;
     &lt;/div&gt;&#13;
 &lt;/div&gt;&#13;
 &#13;
 &lt;style type="text/css"&gt;&#13;
+    .giftcard-close {&#13;
+        top: 0px !important;&#13;
+    }&#13;
     .gift-card-top-banner .desktop-image {&#13;
         width: 930px;&#13;
         height: 90px;&#13;
