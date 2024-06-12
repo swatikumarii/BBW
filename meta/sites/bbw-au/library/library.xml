@@ -2147,7 +2147,7 @@
         </folder-links>
     </content>
 
-    <content content-id="footer-copyright">
+     <content content-id="footer-copyright">
         <display-name xml:lang="x-default">Copyright</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -2170,13 +2170,6 @@
                     Privacy Policy &lt;/a&gt;&#13;
             &lt;/li&gt;&#13;
 &#13;
-            &lt;li class="content pr-2 mb-2 mr-2 " role="menu "&gt;&#13;
-                &lt;a class="ds-link " role="menuitem " href="https://bugcrowd.com/bbw-vdp-pro "&#13;
-                    data-analytics-trigger="link-list " data-module-name="link-group " data-slot-id="footer-legal-links "&#13;
-                    data-content-asset-id="footer_module_legallinks1-2 " data-analytics-promo-code="null " tabindex="0 "&gt;&#13;
-                    Security Bug Report &lt;/a&gt;&#13;
-            &lt;/li&gt;&#13;
-&#13;
         &lt;/ul&gt;&#13;
     &lt;/nav&gt;&#13;
 &#13;
@@ -2194,7 +2187,7 @@
   var year = date.getFullYear();&#13;
   document.getElementById("copyrightYear").innerHTML = year;&#13;
 &lt;/script&gt;</custom-attribute>
-</custom-attributes>
+        </custom-attributes>
     </content>
 
 	    <content content-id="account.editpassword.seo">
