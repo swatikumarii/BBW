@@ -179,6 +179,19 @@
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="collectionName">
+                <display-name xml:lang="x-default">Collection Name</display-name>
+                <description xml:lang="x-default">Collection Name</description>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="usageInstruction">
                 <display-name xml:lang="x-default">Usage Instruction</display-name>
                 <type>html</type>
@@ -425,6 +438,10 @@
             <attribute-group group-id="customAttributes">
                 <display-name xml:lang="x-default">Custom Attributes</display-name>
                 <attribute attribute-id="SID"/>
+            </attribute-group>
+            <attribute-group group-id="productDescription">
+                <display-name xml:lang="x-default">Product Description</display-name>
+                <attribute attribute-id="collectionName"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
