@@ -55,11 +55,10 @@
                     description="This slot displays on cart page top section above product cards" />
                 <div class="cartDetailsHeader">
                     <div class="cartDetailsHeading text-center">
-                        <isif condition="${pdict.numItems === 1}">
-                            ${Resource.msg('one.item.in.cart', 'cart', null)}
-                        <iselse/>
-                            ${Resource.msgf('label.number.items.in.cart', 'cart', null, pdict.numItems)}
-                        </isif>
+                        <span class="cart-num-items">
+                            ${pdict.numItems.toString()}
+                        </span>
+                            ${Resource.msg('label.number.items.in.cart.new', 'cart', null)}
                     </div>
                     <div class="cartDetailsContent row">
                         <div class="col-12 col-md-6">

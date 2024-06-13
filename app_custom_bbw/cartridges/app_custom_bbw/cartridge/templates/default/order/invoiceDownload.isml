@@ -2,7 +2,7 @@
     <table style="table-layout: fixed; width: 100%; ">
         <tbody>
             <tr style="vertical-align: baseline; font-family: SourceSansPro, Arial, sans-serif;">
-                <td class="" style="vertical-align: bottom;">
+                <td class="" style="vertical-align: bottom; width:56%;">
                     <div style="margin-left: 30px;">
                         <isset name="headerImage"
                             value="${require('dw/system/Site').getCurrent().getCustomPreferenceValue('header_image')}"
@@ -12,7 +12,7 @@
                             alt="${Resource.msg('global.storename', 'common', null)}" style="width: 220px" />
                     </div>
                 </td>
-                <td style="vertical-align: middle;">
+                <td style="vertical-align: baseline;">
                  <h1>${Resource.msg('label.invoice', 'order', null)}</h1>
                     <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyAddress')}">
                         <div
@@ -68,12 +68,12 @@
     </div>
 
     <div style="padding-top:8px; padding-bottom:8px;">
-        <table style="table-layout: fixed; width: 100%;">
+        <table style="table-layout: fixed; width: 100%;    margin-left: 3px;">
             <tbody>
                 <tr style="vertical-align: baseline; font-family: SourceSansPro, Arial, sans-serif;">
                     <td style="width:56%;">
                         <div>
-                            <div style="    background-color:#B0C8EA;  margin-left: -4px;     padding: 12px 9px;">
+                            <div style="    background-color:#B0C8EA;  margin-left: -5px;     padding: 12px 9px;">
                                 <strong
                                     style="text-transform: uppercase;font-family: SourceSansPro, Arial,
                                     sans-serif;font-size:19px;letter-sapcing:1px;line-height:normal;display: block;width: 100%;">
@@ -193,7 +193,7 @@
             <tbody>
                 <isloop items="${pdict.order.items.items}" var="lineItem">
                     <tr style="font-family: SourceSansPro, Arial, sans-serif;">
-                        <td style="border-top: 1px solid #eee; padding: 5px; vertical-align: middle; height: 120px;"
+                        <td style=" padding: 5px; vertical-align: middle; height: 120px;"
                             valign="center">
                             <div class="product-card-wrapper" style="width: 100%;height: auto;display: flex;">
                                 <div class="product-image">
@@ -207,7 +207,7 @@
                                             title="${lineItem.images.small[0].title}" height="90" width="90">
                                     </isif>
                                 </div>
-                                <div class="product-details" style="">
+                                <div class="product-details" style="margin-top:12px;">
                                     <isif condition="${lineItem.ispersonalizedGiftcard}">
                                         <p style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919;">
                                             ${Resource.msg('personalized.giftcard.name', 'common', null)}</p>
@@ -288,7 +288,7 @@
                                     ${lineItem.price.sales.formatted}</div>
                             </isif>
                         </td>
-                        <td align="right" style="border-top: 1px solid #eee; padding: 5px; font-family: SourceSansPro, Arial,
+                        <td align="right" style=" padding: 5px; font-family: SourceSansPro, Arial,
                                     sans-serif;">
                             <isif condition="${lineItem.noProduct}">
                                 <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}">
@@ -307,7 +307,7 @@
             </tbody>
         </table>
     </div>
-    <div style="border-top: 1px solid #eee; border-bottom: 1px solid; text-align:end;">
+    <div style=text-align:end;">
         <table style="table-layout: fixed; width: 100%; border-collapse: collapse; max-width:800px; margin:15px auto; font-family: SourceSansPro, Arial, sans-serif;">
             <tbody>
                 <isset name="totalExclusiveTax"

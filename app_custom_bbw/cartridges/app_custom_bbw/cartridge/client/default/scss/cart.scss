@@ -75,7 +75,8 @@
 
         .cartDetailsHeader {
             .cartDetailsHeading {
-                display: grid;
+                display: flex;
+                justify-content: center;
                 align-items: center;
                 margin: 10px 0 0;
                 min-height: 35px;
@@ -86,6 +87,10 @@
                 line-height: 20px;
                 letter-spacing: 0.1px;
                 font-weight: 700;
+
+                .cart-num-items {
+                    padding-right: 3px;
+                }
             }
 
             .cartDetailsContent {
