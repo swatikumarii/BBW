@@ -144,6 +144,7 @@
 
         @include media-up(sm) {
             width: 464px;
+            height: fit-content;
         }
     }
 
@@ -228,6 +229,7 @@
 
         @include media-up(sm) {
             width: 464px;
+            height: fit-content;
         }
 
         .delete-gift-content {
@@ -311,6 +313,7 @@
 
         @include media-up(sm) {
             width: 464px;
+            height: fit-content;
         }
 
         .free-item-content {

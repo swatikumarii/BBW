@@ -63,7 +63,10 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-12">
+                <h2 class="h-font-size--24 h-clr--black-3 h-mt--0 h-mb--25 h-line-height--28 pb-3 h-fw--bold border-bottom border-dark">${Resource.msg('label.order.your.items', 'order', null)}</h2>
+            </div>
+            <div class="col-lg-8 col-md-6">
                 <div class="review-shipping-summary border">
                     <isinclude template="checkout/shipping/shippingSummary" />
                 </div>
@@ -191,7 +194,7 @@
 
             <iscomment> Order Totals, Details and Summary </iscomment>
 
-            <div class="col-sm-4">
+            <div class="col-lg-4 col-md-6">
                 <div class="card order-summary">
                     <div class="order-product-summary-wrap">
                         <h2 class="h-font-size--18 h-fw--bold h-clr--black-1 text-center order-product-summary-heading">
@@ -223,7 +226,7 @@
                         <div
                             class="ap-checkout-ship ap-checkout-pay-tab-noecf ap-checkout-pay-notab-ecf ap-checkout-pay-notab-noecf ap-checkout-po-noecf">
                             <iscomment>End of Afterpay</iscomment>
-                            <button class="btn btn-primary h-clr--white h-fw--semibold h-font-size--16 submit-shipping"
+                            <button class="btn btn-primary btn-hover h-clr--white h-fw--semibold h-font-size--16 submit-shipping"
                                 type="submit" name="submit" value="submit-shipping" ${pdict.order.usingMultiShipping && !pdict.order.shippable ? 'disabled' : ''}>
                                 ${Resource.msg('button.next.payment', 'checkout', null)}
                             </button>

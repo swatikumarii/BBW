@@ -58,7 +58,8 @@
                                                 <w:anchorlock/>
                                                 <center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;">${Resource.msg('email.btn.view.order.status', 'confirmation', null)}</center>
                                             </v:rect>
-                                        <![endif]--><a href="${URLUtils.abs('Order-Details', 'orderID', pdict.order.orderNumber, 'orderFilter', pdict.orderFilter)}"
+                                        <![endif]--><a
+                                    href="${URLUtils.abs('Order-Details', 'orderID', pdict.order.orderNumber, 'orderFilter', pdict.orderFilter)}"
                                     style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;">${Resource.msg('email.btn.view.order.status', 'confirmation', null)}</a>
                             </div>
                         </div>
@@ -97,11 +98,13 @@
                                                             style="text-decoration:none;text-transform:uppercase;font-size:16px;color:#333;line-height:23px;margin-bottom:15px;font-family:'HelveticaNeue-Light',Arial,sans-serif"
                                                             target="_blank">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</a>
                                                     </div>
-                                                    <isif condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
+                                                    <isif
+                                                        condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
                                                         <div style="color:#666;font-size:14px;line-height:18px">
                                                             ${lineItem.giftCardDetails.recipientName}
                                                         </div>
-                                                        <isif condition="${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null}">
+                                                        <isif
+                                                            condition="${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null}">
                                                             <div style="color:#666;font-size:14px;line-height:18px">
                                                                 ${lineItem.giftCardDetails.eGiftMessage}
                                                             </div>
@@ -109,12 +112,14 @@
                                                         <div style="color:#666;font-size:14px;line-height:18px">
                                                             ${lineItem.giftCardDetails.senderName}
                                                         </div>
-                                                    <iselseif condition="${'greetingCardMessage' in lineItem && lineItem.greetingCardMessage}" />
+                                                        <iselseif
+                                                            condition="${'greetingCardMessage' in lineItem && lineItem.greetingCardMessage}" />
                                                         <div style="color:#666;font-size:14px;line-height:18px">
                                                             ${lineItem.greetingCardMessage}
                                                         </div>
                                                     <iselse/>
-                                                        <isif condition="${'titlePartB' in lineItem && lineItem.titlePartB}">
+                                                        <isif
+                                                            condition="${'titlePartB' in lineItem && lineItem.titlePartB}">
                                                             <div style="color:#666;font-size:14px;line-height:18px">
                                                                 ${lineItem.titlePartB}
                                                             </div>
@@ -122,7 +127,8 @@
                                                         <div style="color:#666;font-size:14px;line-height:18px">
                                                             ${lineItem.volume ? lineItem.volume : ''}
                                                         </div>
-                                                        <isif condition="${'customBundle' in lineItem && lineItem.customBundle}">
+                                                        <isif
+                                                            condition="${'customBundle' in lineItem && lineItem.customBundle}">
                                                             <div style="color:#666;font-size:14px;line-height:18px">
                                                                 ${dw.experience.PageMgr.getPage(lineItem.customBundle).name}
                                                             </div>
@@ -139,8 +145,10 @@
                                                     style="text-transform: uppercase;">${Resource.msg('label.header.quantity', 'confirmation', null)} </span>
                                                 <isprint value="${lineItem.quantity}" formatter="##" />
                                             </td>
-                                            <td style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:center">
-                                                <isif condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
+                                            <td
+                                                style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:center">
+                                                <isif
+                                                    condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
                                                     ${lineItem.totalSavings}
                                                 <iselse/>
                                                     ${'-'}
@@ -148,7 +156,8 @@
                                             </td>
                                             <td
                                                 style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:right">
-                                                <isif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
+                                                <isif
+                                                    condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
                                                     ${Resource.msg('label.free.price', 'cart', null)}
                                                 <iselse/>
                                                     ${lineItem.priceTotal.price}
@@ -283,17 +292,28 @@
                                                     </isif>
                                                 </tr>
 
+                                                <iscomment> Discounts </iscomment>
+                                                <tr>
+                                                    <td
+                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                        ${Resource.msg('label.order.savings', 'common', null)}
+                                                    </td>
+                                                    <td
+                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                        ${pdict.order.totals.totalDiscountFormatted}</td>
+                                                </tr>
+
                                                 <iscomment> Order Discount </iscomment>
                                                 <isif condition="${pdict.order.totals.allDiscounts.length > 0}">
                                                     <isloop items="${pdict.order.totals.allDiscounts}" var="discount"
                                                         status="loopstatus">
                                                         <tr>
                                                             <td
-                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                                style="font-size:14px;text-transform:uppercase;vertical-align:top;padding:5px 13px;">
                                                                 ${discount.promotion}
                                                             </td>
                                                             <td
-                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                style="font-size:14px;text-transform:uppercase;vertical-align:top;padding:5px 0;text-align:right">
                                                                 ${discount.discount}</td>
                                                         </tr>
                                                     </isloop>
@@ -308,7 +328,8 @@
                                                                 style="text-transform:none">${Resource.msg('email.order.payment.shipping.ground.label2', 'confirmation', null)}</span>
                                                         </td>
                                                         <isif condition="${pdict.order.hasFreeShipping}">
-                                                            <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                            <td
+                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
                                                                 ${Resource.msg('label.free.price', 'cart', null)}</td>
                                                         <iselse/>
                                                             <td
@@ -323,7 +344,8 @@
                                                                 style="text-transform:none">${Resource.msg('email.order.payment.shipping.ground.label2', 'confirmation', null)}</span>
                                                         </td>
                                                         <isif condition="${pdict.order.hasFreeShipping}">
-                                                            <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                            <td
+                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
                                                                 ${Resource.msg('label.free.price', 'cart', null)}</td>
                                                         <iselse/>
                                                             <td
@@ -359,16 +381,6 @@
                                                     </isif>
                                                 </tr>
 
-                                                <iscomment> Discounts </iscomment>
-                                                <tr>
-                                                    <td
-                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                        ${Resource.msg('label.order.discount', 'common', null)}
-                                                    </td>
-                                                    <td
-                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                        ${pdict.order.totals.totalDiscountFormatted}</td>
-                                                </tr>
                                                 <isif condition="${showSalesTaxes}">
                                                     <tr>
                                                         <td
