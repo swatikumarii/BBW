@@ -32,7 +32,7 @@
                     <div class="my-account-description">
                         <isinclude template="account/order/orderDetails" />
                         <div class="d-md-flex">
-                            <div class="order-btn mr-2 mb-2 mb-md-0">
+                            <div class="order-btn mr-2 mb-2 mb-md-0 text">
                                 <a class="btn btn-hover btn-block" href="${pdict.exitLinkUrl}"
                                     title="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
                                     aria-label="${Resource.msg('link.orderdetails.myaccount', 'account', null)}">
