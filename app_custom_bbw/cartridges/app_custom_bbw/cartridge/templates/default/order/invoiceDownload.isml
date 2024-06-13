@@ -494,7 +494,7 @@
                         <div class="col-md-2" style=" margin-left: 33px;">
                             <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sales-tax"
                                 style=" margin-bottom: 0px;">
-                                ${pdict.order.totals.totalTax}</p>
+                                ${pdict.order.totals.salesTax}</p>
                         </div>
                     </div>
                 </isif>

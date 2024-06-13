@@ -1,8 +1,6 @@
 <div id="autologout" class="modal autologout-modal" tabindex="-1" role="dialog"
     data-soft-timeout="${dw.system.Site.getCurrent().getCustomPreferenceValue('softTimeout')}"
-    data-hard-timeout="${dw.system.Site.getCurrent().getCustomPreferenceValue('hardTimeout')}"
-    data-popup-duration="${dw.system.Site.getCurrent().getCustomPreferenceValue('popupDuration')}"
-    data-is-authenticated="${session.isCustomerAuthenticated()}">
+    data-popup-duration="${dw.system.Site.getCurrent().getCustomPreferenceValue('popupDuration')}">
     <div class="modal-dialog modal-dialog-centered generic-modal-container modal-large" role="document">
         <div class="modal-content">
             <div class="modal-body p-0">

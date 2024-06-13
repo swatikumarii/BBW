@@ -106,21 +106,30 @@ function processResponse(response) {
     if (typeof response !== 'object') {
         if (
             !$('.searchTerms').val() ||
-            $('.searchTerms').val() !== $('input.search-field').val()
+            $('.searchTerms').val() !== $('input.search-field').val() ||
+            !$('.js-search-suggestions').is(':visible')
         ) {
-            var $suggestionsWrapper = getSuggestionsWrapper('.search-suggestions');
-            $('.search-suggestions').find('.suggestions').empty().append(response);
+            var $suggestionsWrapper = getSuggestionsWrapper(
+                '.search-suggestions'
+            );
+            $('.search-suggestions')
+                .find('.suggestions')
+                .empty()
+                .append(response);
             if (layout.isDesktop() || layout.isTablet()) {
                 $suggestionsWrapper.parent().stop().slideDown();
 
                 //  Apply Max Height to Product Part
                 var productPart;
                 productPart = $('.suggestions__results .pdp-link');
-                var productPartMaxHeight = helpers.getMaxElementHeight(productPart);
+                var productPartMaxHeight =
+                    helpers.getMaxElementHeight(productPart);
                 productPart.css('height', productPartMaxHeight);
             } else {
                 $suggestionsWrapper.show();
-                if (!$suggestionsWrapper.find('.suggestions').hasClass('active')) {
+                if (
+                    !$suggestionsWrapper.find('.suggestions').hasClass('active')
+                ) {
                     $suggestionsWrapper
                         .find('.suggestions')
                         .offset({ top: $('#header-search').outerHeight() })
@@ -481,6 +490,7 @@ module.exports = function () {
         if (!$(e.target).closest('.js-search-suggestions').length || !$(e.target).closest('.search-field') || !$(e.target).closest('.js-reset-button')) {
             if (layout.isDesktop() || layout.isTablet()) {
                 $('.js-search-suggestions').stop().slideUp();
+                // $('input.search-field').val('');
             }
             $('.js-reset-button').hide();
         }
