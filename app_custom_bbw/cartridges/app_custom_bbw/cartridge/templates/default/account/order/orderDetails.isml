@@ -1,3 +1,11 @@
+<isset name="totalExclusiveTax"
+    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showTotalsExcludingTaxes')}" scope="page" />
+<isset name="shippingExclusiveTax"
+    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingExcludingTaxes')}" scope="page" />
+<isset name="showSalesTaxes" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showSalesTaxes')}"
+    scope="page" />
+<isset name="showShippingHandlingTaxes"
+    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingHandlingTaxes')}" scope="page" />
 <div class="account-profile">
     <div class="profile-heading">
         <h1>${Resource.msg('order.title.receipt', 'order', null)}</h1>
@@ -170,7 +178,7 @@
                             ${pdict.order.totals.orderLevelDiscountTotal.value === 0}">hide-order-discount
                     </isif>">
                     <div class="col-6 start-lines">
-                        <p class="order-receipt-label"><span>${Resource.msg('label.order.discount', 'common', null)}</span></p>
+                        <p class="order-receipt-label"><span>${Resource.msg('label.order.savings', 'common', null)}</span></p>
                     </div>
                     <div class="col-6 end-lines">
                         <p class="text-right"><span class="order-discount-total">-
@@ -187,36 +195,44 @@
                             </p>
                         </div>
                         <div class="col-6 end-lines">
-                            <p class="text-right"><span
-                                    class="shipping-total-cost">${pdict.order.totals.totalShippingCost}</span>
+                            <p class="text-right">
+                            <isif condition="${pdict.order.hasFreeShipping}">
+                                <span class="shipping-total-cost">${Resource.msg('label.free.price', 'cart', null)}</span>
+                            <iselse/>
+                                <span class="shipping-total-cost">${pdict.order.totals.totalShippingCost}</span>
+                            </isif>
                             </p>
                         </div>
                     </div>
                 </isif>
                 <!--- Sales Tax --->
-                <div class="row leading-lines shipping-item">
-                    <div class="col-6 start-lines">
-                        <p class="order-receipt-label"><span>${Resource.msg('label.order.sales.tax', 'confirmation', null)}</span>
-                        </p>
+                <isif condition="${showSalesTaxes}">
+                    <div class="row leading-lines shipping-item">
+                        <div class="col-6 start-lines">
+                            <p class="order-receipt-label"><span>${Resource.msg('label.order.sales.tax', 'confirmation', null)}</span>
+                            </p>
+                        </div>
+                        <div class="col-6 end-lines">
+                            <p class="text-right"><span class="shipping-total-cost">${pdict.order.totals.totalTax}</span>
+                            </p>
+                        </div>
                     </div>
-                    <div class="col-6 end-lines">
-                        <p class="text-right"><span class="shipping-total-cost">${pdict.order.totals.totalTax}</span>
-                        </p>
-                    </div>
-                </div>
+                </isif>
 
                 <!--- Shipping Discount --->
                 <isif condition="${pdict.order.totals.shippingLevelDiscountTotal.value != 0}">
                     <div class="row leading-lines shipping-discount <isif condition="
                         ${pdict.order.totals.shippingLevelDiscountTotal.value === 0}">hide-shipping-discount
                 </isif>">
-                <div class="col-6 start-lines">
-                    <p class="order-receipt-label"><span>${Resource.msg('label.shipping.discount', 'common', null)}</span></p>
-                </div>
-                <div class="col-6 end-lines">
-                    <p class="text-right"><span class="shipping-discount-total">-
-                            ${pdict.order.totals.shippingLevelDiscountTotal.formatted}</span></p>
-                </div>
+                <isif condition="${!pdict.order.hasFreeShipping}">
+                    <div class="col-6 start-lines">
+                        <p class="order-receipt-label"><span>${Resource.msg('label.shipping.discount', 'common', null)}</span></p>
+                    </div>
+                    <div class="col-6 end-lines">
+                        <p class="text-right"><span class="shipping-discount-total">-
+                                ${pdict.order.totals.shippingLevelDiscountTotal.formatted}</span></p>
+                    </div>
+                </isif>
             </div>
         </div>
     </div>

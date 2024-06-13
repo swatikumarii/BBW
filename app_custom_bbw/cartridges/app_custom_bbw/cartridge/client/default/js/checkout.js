@@ -182,14 +182,95 @@ $(document).ready(function () {
         .on('mouseenter', '.info-icon', function () {
             $('.info-icon-text').addClass('d-block');
         });
-    $.spinner().stop();
+    
+    if (checkoutStage === 'shipping') {
+        var selectedState = $('body').find('.shippingState').attr('data-selected');
+        if (selectedState !== 'null') {
+            $('.shippingState option').each(function () {
+                if ($(this).val() === selectedState) {
+                    $('.shippingState option').removeAttr('selected');
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.shippingState').trigger('change');
+                    return false;
+                }
+            });
+        }
+        var selectedCity = $('body').find('.shippingAddressCity').attr('data-selected');
+        if (selectedCity !== 'null') {
+            $('.shippingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
+            $('.shippingZipCode').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
+            $('.shippingAddressCity option').each(function () {
+                if ($(this).val() === selectedCity) {
+                    $('.shippingAddressCity option').removeAttr('selected');
+                    $('.shippingAddressCity option')[0].remove();
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.shippingAddressCity').trigger('change');
+                    return false;
+                }
+                $('.shippingZipCode option').slice(1).remove();
+            });
+        }
+        var selectedPostalCode = $('body').find('.shippingZipCode').attr('data-selected');
+        if (selectedPostalCode !== 'null') {
+            $('.shippingZipCode option').each(function () {
+                if ($(this).val() === selectedPostalCode) {
+                    $('.shippingZipCode option').removeAttr('selected');
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.shippingZipCode').trigger('change');
+                    return false;
+                }
+            });
+        }
 
-    if ($('.shippingState').val()) {
-        $('.shippingState').trigger('change');
     }
-    if ($('.shippingAddressCity').val()) {
-        $('.shippingAddressCity').trigger('change');
+
+    if (checkoutStage === 'billing') {
+        var selectedBillingState = $('body')
+            .find('.billingState')
+            .attr('data-selected');
+        if (selectedBillingState !== 'null') {
+            $('.billingState option').each(function () {
+                if ($(this).val() === selectedBillingState) {
+                    $('.billingState option').removeAttr('selected');
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.billingState').trigger('change');
+                    return false;
+                }
+            });
+        }
+        var selectedBillingCity = $('body')
+            .find('.billingAddressCity')
+            .attr('data-selected');
+        if (selectedBillingCity !== 'null') {
+            $('.billingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
+            $('.billingZipCode').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
+            $('.billingAddressCity option').each(function () {
+                if ($(this).val() === selectedBillingCity) {
+                    $('.billingAddressCity option').removeAttr('selected');
+                    $('.billingAddressCity option')[0].remove();
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.billingAddressCity').trigger('change');
+                    return false;
+                }
+                $('.billingZipCode option').slice(1).remove();
+            });
+        }
+        var selectedBillingPostalCode = $('body')
+            .find('.billingZipCode')
+            .attr('data-selected');
+        if (selectedBillingPostalCode !== 'null') {
+            $('.billingZipCode option').each(function () {
+                if ($(this).val() === selectedBillingPostalCode) {
+                    $('.billingZipCode option').removeAttr('selected');
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.billingZipCode').trigger('change');
+                    return false;
+                }
+            });
+        }
     }
+    
+    $.spinner().stop();
 
 });
 
@@ -325,6 +406,7 @@ $('.shippingAddressCity').change(function () {
                 })
             );
         });
+        zipDropdown.trigger('change');
     }
 });
 
@@ -365,5 +447,6 @@ $('.billingAddressCity').change(function () {
                 })
             );
         });
+        zipDropdown.trigger('change');
     }
 });

@@ -1,8 +1,5 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
-<div class="page-loader loader vh-100 position-fixed">
-    <div class="h-visually-hidden" role="alert">Just a second, items loading</div>
-    <div class="spinner"></div>
-</div>
+
 <header class="header h-bg--white h-auto" id="header">
     <div class="header-banner slide-up">
         <div class="container-fluid px-0">
@@ -56,7 +53,7 @@
                 </div>
                 <iscomment>Offers</iscomment>
                 <div class="offers d-md-none fa-pull-right m-0">
-                    <a href="#" title="offers">
+                    <a href="${URLUtils.url('Page-Show', 'cid', 'top-offers')}" title="offers">
                         <img class="" src="${URLUtils.staticURL('/images/header/UI-Tag-v2.svg')}"
                             alt="${Resource.msg('global.offers', 'common', null)}" />
                     </a>

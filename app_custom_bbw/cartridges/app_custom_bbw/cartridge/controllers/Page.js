@@ -44,6 +44,13 @@ server.append('Show', function (req, res, next) {
         if (apiContent) {
             var content = new ContentModel(apiContent, 'content/contentAsset');
             var breadcrumbs = commonHelper.getBreadcrumbForContentAsset(apiContent);
+            if (
+                !empty(apiContent) &&
+                'image' in apiContent.custom &&
+                'absURL' in apiContent.custom.image
+            ) {
+                viewData.image = apiContent.custom.image.absURL;
+            }
             if (content.template && breadcrumbs) {
                 viewData.breadcrumbs = breadcrumbs;
                 res.setViewData(viewData);

@@ -1,5 +1,6 @@
 'use strict';
 
+var Site = require('dw/system/Site');
 var URLUtils = require('dw/web/URLUtils');
 var preferences = require('*/cartridge/config/preferences');
 var ACTION_ENDPOINT = preferences.suggestionsActionEnpoint ? preferences.suggestionsActionEnpoint : 'Product-Show';
@@ -30,16 +31,63 @@ function getProducts(suggestedProducts, maxItems) {
     var product = null;
     var products = [];
 
-    for (var i = 0; i < maxItems; i++) {
-        if (suggestedProducts.hasNext()) {
-            product = suggestedProducts.next().productSearchHit.product;
-            products.push({
-                id: product.ID,
-                name: product.name,
-                imageUrl: getImageUrl(product),
-                url: URLUtils.url(ACTION_ENDPOINT, 'pid', product.ID)
+    var collectionSort =
+        Site.getCurrent().getCustomPreferenceValue('collectionSort');
+    var sortedSuggestedProducts = suggestedProducts.asList();
+    if (collectionSort) {
+        var collectionSorts = [];
+        collectionSort.split(',').forEach(function (item) {
+            collectionSorts.push(item.trim().toUpperCase());
+        });
+        if (collectionSorts.length > 0) {
+            sortedSuggestedProducts.sort(function (item1, item2) {
+                var collectionName1 = '';
+                var index1 = -1;
+                var index2 = -1;
+                if (
+                    item1.productSearchHit.product.custom &&
+                    item1.productSearchHit.product.custom.collectionName
+                ) {
+                    collectionName1 =
+                        item1.productSearchHit.product.custom.collectionName.toUpperCase();
+                    index1 = collectionSorts.indexOf(collectionName1);
+                }
+                var collectionName2 = '';
+                if (
+                    item2.productSearchHit.product.custom &&
+                    item2.productSearchHit.product.custom.collectionName
+                ) {
+                    collectionName2 =
+                        item2.productSearchHit.product.custom.collectionName.toUpperCase();
+                    index2 = collectionSorts.indexOf(collectionName2);
+                }
+                if (
+                    collectionName1.equals(collectionName2) ||
+                    (index1 === -1 && index2 === -1)
+                ) {
+                    return 0;
+                }
+                if (index1 === -1) {
+                    return 1;
+                }
+                if (index2 === -1) {
+                    return -1;
+                }
+                if (index1 > index2) {
+                    return 1;
+                }
+                return -1;
             });
         }
+    }
+    for (var i = 0; i < maxItems && i < sortedSuggestedProducts.length; i++) {
+        product = sortedSuggestedProducts.get(i).productSearchHit.product;
+        products.push({
+            id: product.ID,
+            name: product.name,
+            imageUrl: getImageUrl(product),
+            url: URLUtils.url(ACTION_ENDPOINT, 'pid', product.ID)
+        });
     }
 
     return products;

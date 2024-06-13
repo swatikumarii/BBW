@@ -18,7 +18,7 @@ function handlePostCartAdd(response) {
     $('.add-to-cart-messages').append(
         '<div class="alert ' +
             messageType +
-            ' add-to-basket-alert text-center" role="alert">' +
+            ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
             response.message +
             '</div>'
     );

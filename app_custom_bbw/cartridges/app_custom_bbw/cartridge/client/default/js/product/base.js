@@ -790,6 +790,7 @@ module.exports = $.extend({}, base, {
                                 ).modal('show');
                                 $('.delete-egiftitem-confirmation-btn').attr('data-pid', data.pid);
                                 $.spinner().stop();
+                                $button.prop('disabled', false);
                                 return true;
                             }
                             handlePostCartAdd(data);
@@ -891,12 +892,12 @@ module.exports = $.extend({}, base, {
             $.ajax({
                 type: 'GET',
                 url: removeGiftPliUrl,
-                success: function (data) {
+                success: function () {
                     $.ajax({
                         type: 'POST',
                         url: addToCartUrl,
                         data: form,
-                        success: function () {
+                        success: function (data) {
                             handlePostCartAdd(data);
                             $('body').trigger('product:afterAddToCart', data);
                             $.spinner().stop();

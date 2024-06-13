@@ -143,7 +143,9 @@
             </div>
         </isif>
     <iselse/>
-        <div class="minicart-heading h-font-size--18 h-fw--bold h-ls-01 text-center h-clr--black-1">${Resource.msg('minicart.popup.header', 'cart', null)}</div>
+        <div class="minicart-heading h-font-size--18 h-fw--bold h-ls-01 text-center h-clr--black-1">
+        ${Resource.msg('minicart.popup.header', 'cart', null)}
+        </div>
         <div class="product-summary">
             <isloop items="${pdict.items}" var="lineItem" status="loopstatus">
                 <div class="row">
