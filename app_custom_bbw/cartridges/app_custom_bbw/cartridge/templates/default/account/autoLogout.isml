@@ -8,6 +8,9 @@
                     <isif condition="${session.isCustomerAuthenticated() && session.customer.profile.firstName}">
                         <p class="mb-0">${Resource.msgf('autologout.customer.name', 'account', null, session.customer.profile.firstName)}
                         </p>
+                    <iselse>
+                        <p class="mb-0">${Resource.msg('autologout.guest.customer.name', 'account', null)}
+                        </p>
                     </isif>
                     <p>${Resource.msg('autologout.description', 'account', null)}</p>
                     <div timer id='timer' class=timer></div>
