@@ -229,9 +229,7 @@
         line-height: 12px;
         margin-bottom: 18px;
 
-        @include media-up(sm) {
-            text-transform: uppercase;
-            line-height: 12px;
+        @include media-down(sm) {
             margin-bottom: 0;
         }
     }
@@ -239,6 +237,10 @@
     .headerPrice {
         text-transform: uppercase;
         line-height: 12px;
+
+        @include media-down(sm) {
+            padding-top: 10px;
+        }
 
         // .line-item-total-price-amount {
         //     font-weight: 500 !important;
