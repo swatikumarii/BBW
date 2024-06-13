@@ -88,6 +88,7 @@ function updateCartTotals(data) {
     $('.grand-total').empty().append(data.totals.grandTotal);
     $('.sub-total').empty().append(data.totals.subTotal);
     $('.minicart-quantity').empty().append(data.numItems);
+    $('.cart-num-items').empty().append(data.numItems);
     $('.minicart-link').attr({
         'aria-label': data.resources.minicartCountOfItems,
         title: data.resources.minicartCountOfItems
@@ -267,15 +268,15 @@ function updateAvailability(data, uuid) {
  * @param {Function} match - function that takes an element and returns a boolean indicating if the match is made
  * @returns {object} - returns an element of the array that matched the query.
  */
-function findItem(array, match) {
-    // eslint-disable-line no-unused-vars
-    for (var i = 0, l = array.length; i < l; i++) {
-        if (match.call(this, array[i])) {
-            return array[i];
-        }
-    }
-    return null;
-}
+// function findItem(array, match) {
+//     // eslint-disable-line no-unused-vars
+//     for (var i = 0, l = array.length; i < l; i++) {
+//         if (match.call(this, array[i])) {
+//             return array[i];
+//         }
+//     }
+//     return null;
+// }
 
 /**
  * Updates details of a product line item
