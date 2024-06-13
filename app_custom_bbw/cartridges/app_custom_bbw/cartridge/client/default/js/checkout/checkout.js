@@ -204,6 +204,8 @@ var history = window.history;
                             type: 'post',
                             data: shippingFormData,
                             success: function (data) {
+                                // enable the next:Payment button here
+                                $('body').trigger('checkout:enableButton','.next-step-button button');
                                 if (data.error) {
                                     shippingHelpers.methods.shippingFormResponse(
                                         defer,

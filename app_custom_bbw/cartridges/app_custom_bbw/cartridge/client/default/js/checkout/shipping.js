@@ -841,13 +841,17 @@ module.exports = {
                 });
             };
             if (city) {
+                $('.shippingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
+                $('.shippingZipCode').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
                 $('.shippingAddressCity option').each(function () {
                     if ($(this).val() === city) {
                         $('.shippingAddressCity option').removeAttr('selected');
+                        $('.shippingAddressCity option')[0].remove();
                         $(this).attr('selected', 'selected');
                         $('body').find('.shippingAddressCity').trigger('change');
                         return false;
                     }
+                    $('.shippingZipCode option').slice(1).remove();
                 });
             }
             if (postalCode) {
