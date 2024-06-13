@@ -4,6 +4,10 @@
     column-gap: 16px;
     max-width: 1195px;
 
+    @include media-down(sm) {
+        padding: 0 16px;
+    }
+
     @include media-btw(sm, lg) {
         scrollbar-color: unset;
 

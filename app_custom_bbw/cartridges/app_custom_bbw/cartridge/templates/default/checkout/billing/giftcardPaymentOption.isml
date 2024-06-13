@@ -11,9 +11,9 @@
             <div class="gift-card-apply">
                 <div class="required">
                     <input type="hidden" name="remove-giftcard-url" value="${URLUtils.url('Giftcard-RemoveGiftCard')}">
-                    <div class="row">
-                        <h2 class="gift-cardtitle h-font-size--18 h-fw--bold h-clr--black-1 customer-heading accordion-title d-block col-12 m-0 h-px--25 rotate-down">${Resource.msg('label.add.egift.title', 'giftcards', null)}</h2>
-                        <div class="accordion-content h-px--10 col-12" style="display:none">
+                    <div class="row no-gutters">
+                        <h2 class="gift-cardtitle h-font-size--18 h-fw--bold h-clr--black-1 customer-heading accordion-title d-block col-12 m-0 rotate-down">${Resource.msg('label.add.egift.title', 'giftcards', null)}</h2>
+                        <div class="accordion-content col-12 h-maxwidth-perc-md--90" style="display:none">
                             <div class="add-giftcard-header-wrap">
                                 <div class="d-flex flex-column justify-content-between added-cards">
                                 </div>
@@ -22,8 +22,8 @@
                                     <span class="add-giftcard-button">${Resource.msg('giftcard.add.text', 'giftcards', null)}</span>
                                 </div>
                             </div>
-                            <div class="m-0 pb-3 row add-giftcard-section">
-                                <div class="col-12 form-group mb-4">
+                            <div class="m-0 pb-3 row no-gutters add-giftcard-section">
+                                <div class="col-12 form-group mb-3">
                                     <label class="form-control-label h-fw--semibold h-font-size--16">
                                         ${Resource.msg('label.input.egift.number', 'forms', null)}
                                     </label>
@@ -33,7 +33,7 @@
                                     <div class="invalid-feedback" id="form-giftcard-number-error"></div>
                                 </div>
 
-                                <div class="col-4 form-group mb-4">
+                                <div class="col-12 col-md-5 form-group mb-3">
                                     <label class="form-control-label h-fw--semibold h-font-size--16">
                                         ${Resource.msg('label.input.egift.cardpin', 'forms', null)}
                                     </label>
@@ -42,30 +42,32 @@
                                         value="${pdict.giftCardForm.cardPin.attributes}" encoding="off" /> />
                                     <div class="invalid-feedback" id="form-giftcard-cardPin-error"></div>
                                 </div>
-                                <div class="col-8 mb-4">
+                                <div class="col-12 mb-4">
                                     <label class="form-control-label h-fw--semibold h-font-size--16">
                                         ${Resource.msg('label.input.egift.balance', 'forms', null)}
                                     </label>
-                                    <div class="row giftcard-balance-section h-minheight--50 align-items-center mr-0">
-                                        <span class="col-7 giftcard-balance-wrap gift-card-balance-error"></span>
-                                        <span id="egift-card-check-balance" class="col-5 h-font-size--14">${Resource.msg('label.egift.check-balance', 'checkout', null)}</span>
+                                    <div class="row giftcard-balance-section align-items-center no-gutters">
+                                        <span class="col-8 col-md-9 giftcard-balance-wrap gift-card-balance-error"></span>
+                                        <span id="egift-card-check-balance" class="col-4 col-md-3 h-font-size--14 text-right">${Resource.msg('label.egift.check-balance', 'checkout', null)}</span>
                                     </div>
                                 </div>
 
-                                <div class="d-flex giftcard-buttons">
-                                    <div class="gift-apply-btn mr-4">
-                                        <button name="giftcard-redeem" id="giftcard-redeem" class="giftcard-redeem btn btn-primary h-font-size--14"
+                                <div class="row giftcard-buttons w-100 no-gutters">
+                                    <div class="col-6 gift-apply-btn">
+                                        <button name="giftcard-redeem" id="giftcard-redeem" class="giftcard-redeem btn btn-hover btn-primary h-font-size--14"
                                             type="button">${Resource.msg('label.egift.use.this.card', 'checkout', null)}
                                         </button>
                                     </div>
-                                    <button class="giftcard-cancel-btn btn btn-secondary text-uppercase h-font-size--14" type="button">
-                                        ${Resource.msg('label.egift.cancel', 'checkout', null)}
-                                    </button>
+                                    <div class="col-6">
+                                        <button class="giftcard-cancel-btn btn btn-secondary text-uppercase h-font-size--14" type="button">
+                                            ${Resource.msg('label.egift.cancel', 'checkout', null)}
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="gift-redeem-card-error mb-2" style="display: none"></div>
-                            <div class="gift-redeem-card-success mb-3" style="display: none">${Resource.msg('giftcard.added.redemption.text', 'giftcards', null)}</div>
-                            <span class="add-giftcard-text">${Resource.msg('giftcard.add.text.description', 'giftcards', null)}</span>
+                            <div class="success-toast js-gift-redeem-card-success my-3" style="display: none">${Resource.msg('giftcard.added.redemption.text', 'giftcards', null)}</div>
+                            <span class="add-giftcard-text border-bottom">${Resource.msg('giftcard.add.text.description', 'giftcards', null)}</span>
                             <div class="d-flex justify-content-between giftcard-total-wrap">
                                 <h2 class="h-font-size--18 h-fw--bold h-clr--black-1">${Resource.msg('label.giftcard.total', 'giftcards', null)}</h2>
                                 <h2 class="h-font-size--18 h-fw--bold h-clr--black-1 giftcard-total">${pdict.order.totals.pendingTotal.giftTotal}</h2>

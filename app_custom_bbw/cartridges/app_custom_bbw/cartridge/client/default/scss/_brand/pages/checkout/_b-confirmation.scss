@@ -183,6 +183,10 @@
         padding: 20px 30px 30px;
     }
 
+    @include media-btw(sm, lg) {
+        padding: 20px 0;
+    }
+
     .confirmation-product-details {
         border-bottom: 1px solid colour(gray, 27);
         padding-left: 0 !important;
@@ -236,25 +240,24 @@
         text-transform: uppercase;
         line-height: 12px;
 
-        .line-item-total-price-amount {
-            font-weight: 500 !important;
-            color: colour(gray) !important;
-            font-size: 15px !important;
-        }
+        // .line-item-total-price-amount {
+        //     font-weight: 500 !important;
+        //     color: colour(gray) !important;
+        //     font-size: 15px !important;
+        // }
     }
 }
 
 .order-confirmation-continue-shopping {
-    min-height: 37px;
-    max-height: 37px;
-    letter-spacing: 2px;
     width: 100%;
+    line-height: 42px;
+
+    &:hover {
+        color: colour(white);
+    }
 
     @include media-up(sm) {
-        width: 171px;
-        min-height: 37px;
-        max-height: 37px;
-        letter-spacing: 2px;
+        width: 200px;
     }
 }
 

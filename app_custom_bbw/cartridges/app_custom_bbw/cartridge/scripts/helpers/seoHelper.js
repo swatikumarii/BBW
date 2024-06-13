@@ -153,6 +153,13 @@ function getOpenGraphMetaTags(pdict) {
             ID: 'og:image',
             content: pdict.apiProductSearch.category.thumbnail.absURL
         });
+    } else if (
+        pdict.image
+    ) {
+        ogMetaTags.push({
+            ID: 'og:image',
+            content: pdict.image
+        });
     } else {
         ogMetaTags.push({
             ID: 'og:image',

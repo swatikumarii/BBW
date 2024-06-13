@@ -579,7 +579,7 @@ module.exports = function () {
             setTimeout(function () {
                 errorElem.hide();
             }, 3000);
-            $(this).val(preSelectQty);
+            $(this).val(Math.floor(maxOrderQty));
         } else {
             var productID = $(this).data('pid');
             var url = $(this).data('action');
@@ -717,6 +717,7 @@ module.exports = function () {
         $.spinner().start();
         $('.coupon-missing-error').hide();
         $('.coupon-error-message').empty();
+        $('.coupon-error-message').removeClass('d-block');
         if (!$('.coupon-code-field').val()) {
             $('.promo-code-form .form-control').addClass('is-invalid');
             $('.promo-code-form .form-control').attr(
@@ -747,13 +748,9 @@ module.exports = function () {
                     $('.coupon-error-message')
                         .empty()
                         .append(data.errorMessage);
-                    $('.coupon-error-message').addClass('px-3');
-                    $('.coupon-error-message').addClass('py-2');
                     $('.coupon-error-message').addClass('d-block');
                     $('body').trigger('promotion:error', data);
                 } else {
-                    $('.coupon-error-message').removeClass('px-3');
-                    $('.coupon-error-message').removeClass('py-2');
                     $('.coupon-error-message').removeClass('d-block');
                     $('.coupons-and-promos')
                         .empty()
@@ -1144,6 +1141,11 @@ module.exports = function () {
     $('[data-toggle="popover"]').on('mouseenter', function () {
         $(this).popover('show');
         $('.pdp-title').parents('.bs-popover-right').addClass('pdp-popover');
+    });
+
+    $('[data-toggle="popover"]').on('click', function () {
+        $('[data-toggle="popover"]').popover('hide');
+        $(this).popover('show');
     });
 
     // Event for apply promo code

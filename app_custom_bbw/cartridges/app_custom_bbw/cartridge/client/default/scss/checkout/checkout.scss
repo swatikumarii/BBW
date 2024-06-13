@@ -70,6 +70,11 @@ footer {
     border: none;
     padding: 0;
     background: none;
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 .error-message {
@@ -80,31 +85,22 @@ footer {
     padding-left: 15px;
 }
 
-.gift-redeem-card-success {
-    padding: 5px 15px 10px;
-    margin-left: 15px;
-    width: 85%;
-    box-shadow:
-        0 8px 10px 1px rgba(0, 0, 0, 14%),
-        0 3px 14px 2px rgba(0, 0, 0, 12%),
-        0 5px 5px -3px rgba(0, 0, 0, 2%);
-    background-color: colour(green, 6);
-    color: colour(green, 2);
-}
-
 .checkout-btn-row {
+    margin: 2.5rem 0;
+
     @include media-up(md) {
         padding: 0 2%;
+        margin-top: 2.5rem;
     }
 }
 
 .next-step-button {
     position: fixed;
     bottom: 0;
-    z-index: 3;
 
     button {
         min-width: 175px;
+        margin-top: 10px;
     }
 
     @include media-down(sm) {
@@ -190,6 +186,7 @@ span.ship-to-city-st-zip {
 
                 &:hover {
                     text-decoration: none;
+                    cursor: pointer;
                 }
             }
         }
@@ -303,6 +300,10 @@ span.ship-to-city-st-zip {
         width: 730px;
     }
 
+    @include media-down(sm) {
+        width: 315px;
+    }
+
     a {
         display: block;
         width: fit-content;
@@ -322,7 +323,7 @@ span.ship-to-city-st-zip {
 
     .step-3 {
         @include media-down(sm) {
-            width: 82px;
+            width: 90px;
         }
     }
 
@@ -576,13 +577,21 @@ input[type="tel"],
             .line-item-total-price-amount {
                 text-align: right;
                 padding-right: 20px;
+
+                @include media-down(sm) {
+                    padding-right: 0;
+                }
             }
         }
     }
 }
 
 .order-total-summary-wrap {
-    padding: 15px 15px 0;
+    padding: 15px 0 0;
+
+    @include media-up(md) {
+        padding: 15px 15px 0;
+    }
 
     .grand-total-wrap {
         padding-top: 15px;
@@ -626,11 +635,16 @@ input[type="tel"],
         padding-top: 0;
         padding-bottom: 15px;
         margin-bottom: 13px;
+        margin-top: 40px;
 
         @include media-up(md) {
             margin-bottom: 6px;
         }
     }
+}
+
+.checkout-login-signup-info {
+    margin-bottom: 40px;
 }
 
 .shipping-address,
@@ -640,7 +654,7 @@ input[type="tel"],
         position: relative;
 
         @include media-down(sm) {
-            margin: 10px 0 40px;
+            margin: 0 0 30px;
         }
 
         .form-control-label {
@@ -676,6 +690,10 @@ input[type="tel"],
     }
 }
 
+.same-as-shipping-address {
+    margin-top: 30px;
+}
+
 .multi-shipping {
     display: none;
 }
@@ -691,6 +709,15 @@ input[type="tel"],
     &.billing {
         margin: 0 0 42px;
         padding: 30px 15px;
+
+        .edit-billing-address {
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
     }
 }
 
@@ -714,27 +741,52 @@ input[type="tel"],
         }
     }
 
+    &.promocode-title,
     &.gift-cardtitle {
+        padding-left: 14px;
+
+        @include media-up(md) {
+            padding-left: 10px;
+        }
+
         &::after {
-            right: 40px;
+            right: 14px;
+
+            @include media-up(md) {
+                right: 25px;
+            }
         }
     }
+}
 
-    &.promocode-title {
-        &::after {
-            right: 25px;
+.checkoutPromo {
+    .accordion-content {
+        padding: 0 14px;
+
+        @include media-up(md) {
+            padding-left: 10px;
+            padding-right: 0;
         }
     }
 }
 
 .gift-card-apply {
     .add-giftcard-header-wrap {
-        border-top: 3px solid colour(gray, 1);
-        width: 85%;
-        margin: 0 15px;
-
         .add-giftcard-header {
             padding: 20px 0;
+        }
+    }
+
+    .accordion-content {
+        padding: 0 14px;
+
+        @include media-up(md) {
+            padding-left: 10px;
+            padding-right: 0;
+        }
+
+        .remove-giftcard-btn {
+            cursor: pointer;
         }
     }
 
@@ -742,13 +794,11 @@ input[type="tel"],
         display: block;
         padding-bottom: 20px;
         border-bottom: 3px solid colour(gray, 1);
-        margin: 0 15px;
-        width: 85%;
     }
 
     .giftcard-total-wrap {
-        width: 90%;
-        padding: 20px 15px;
+        padding: 20px 0;
+        width: 100%;
         height: 58px;
     }
 
@@ -761,6 +811,16 @@ input[type="tel"],
     }
 }
 
+.giftcard-partial-redemption,
+.giftcard-full-redemption {
+    padding: 0 14px;
+
+    @include media-up(md) {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+
 .add-giftcard-button {
     text-decoration: underline;
     cursor: pointer;
@@ -768,18 +828,20 @@ input[type="tel"],
 
 .add-giftcard-section {
     display: none;
-    width: 90%;
 
     &.show {
         display: flex;
     }
 
     .giftcard-buttons {
-        padding: 0 15px;
+        padding: 0;
+        gap: 10px;
+        flex-wrap: nowrap;
     }
 
     .giftcard-balance-section {
         border-bottom: 1px solid colour(black, 1);
+        min-height: 48px;
 
         #egift-card-check-balance {
             text-decoration: underline;
@@ -998,7 +1060,7 @@ input[type="tel"],
 }
 
 .verify-msg {
-    margin: 20px 0;
+    margin: 30px 0 20px;
     line-height: 16px;
     letter-spacing: 0.2px;
 }
@@ -1124,18 +1186,22 @@ input[type="tel"],
     }
 }
 
+@include media-down(sm) {
+    .line-item-savings {
+        padding-top: 10px;
+    }
+}
+
 .order-discount {
     .order-discount-total {
         letter-spacing: normal;
     }
 
-    p {
-        line-height: 20px;
-        letter-spacing: 0.2px;
-
-        &.accordion-item.collapsed {
+    &.accordion-item.collapsed {
+        .cart-saving {
             &::before {
-                background: url("../../images/UI-Carat.svg") no-repeat 50%;
+                background: url("../../images/UI-Carat.svg") 50%;
+                background-repeat: no-repeat;
                 background-size: 1.25rem;
                 content: "";
                 height: 12px;
@@ -1147,10 +1213,13 @@ input[type="tel"],
                 top: 4px;
             }
         }
+    }
 
-        &.accordion-item {
+    &.accordion-item {
+        .cart-saving {
             &::before {
-                background: url("../../images/UI-Carat.svg") no-repeat 50%;
+                background: url("../../images/UI-Carat.svg") 50%;
+                background-repeat: no-repeat;
                 background-size: 1.25rem;
                 content: "";
                 height: 12px;
@@ -1164,6 +1233,11 @@ input[type="tel"],
         }
     }
 
+    p {
+        line-height: 20px;
+        letter-spacing: 0.2px;
+    }
+
     .accordion-collapse {
         padding-left: 30px;
     }
@@ -1172,12 +1246,12 @@ input[type="tel"],
 // ---gift card
 .giftcard-buttons {
     .giftcard-redeem {
-        width: 171px;
+        width: 95%;
         height: 42px;
     }
 
     .giftcard-cancel-btn {
-        width: 127px;
+        width: 95%;
         height: 42px;
 
         &:hover {
@@ -1208,4 +1282,90 @@ input[type="tel"],
     width: 194px;
     margin-top: 24px;
     text-transform: capitalize;
+}
+
+.promotion-callout {
+    line-height: 1.25rem;
+    letter-spacing: 0.005em;
+    width: 100%;
+    margin-bottom: 0.75rem;
+
+    .callout-detail {
+        &::after {
+            font-size: 0.875rem;
+            line-height: 1rem;
+            color: colour(gray, 4);
+            margin-top: 0.3125rem;
+            text-decoration: underline;
+            content: "Promotional Details";
+        }
+
+        .popover-header {
+            display: none;
+        }
+    }
+}
+
+.pdp-popover {
+    border: 1px solid colour(gray);
+    box-shadow: 0 0 13px 0 rgba(0, 0, 0, 15%);
+    color: colour(black, 1);
+    padding: 1.5rem 0.5rem 1.5rem 0;
+    overflow-y: initial;
+    border-radius: 0;
+    left: 13px !important;
+    width: 260px;
+    max-height: 197px;
+
+    @include media-down(sm) {
+        left: 19.5% !important;
+        top: -118px !important;
+
+        .arrow {
+            top: auto !important;
+            bottom: -17px;
+            right: 50%;
+            transform: rotate(90deg);
+        }
+    }
+
+    .popover-body {
+        max-height: 147px;
+        overflow-y: auto;
+        padding: 0 16px 0 24px;
+        scrollbar-width: thin;
+
+        &:focus {
+            outline: 1px dotted colour(black);
+            outline-offset: 2px;
+        }
+
+        .popover-content {
+            color: colour(black, 1);
+            font-size: 14px;
+            height: auto;
+            letter-spacing: 0.015em;
+            line-height: 20px;
+            max-height: 300px;
+            font-family: $ff-base;
+        }
+    }
+
+    .popover-header {
+        display: none;
+    }
+
+    .close {
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background-size: 0.8125rem;
+    }
+}
+
+.shipping-select-error {
+    position: absolute;
+    top: 47px;
 }
