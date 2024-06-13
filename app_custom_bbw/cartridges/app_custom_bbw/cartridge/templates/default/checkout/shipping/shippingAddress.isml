@@ -150,7 +150,7 @@
             <div class="custom-select-wrap">
                 <select class="form-control shippingState custom-select"
                     id="shippingState${lineItem ? lineItem.UUID : 'default'}"
-                    data-missing-error="${Resource.msg('error.state', 'forms', null)}" data-selected=${shippingAddress.stateCode}
+                    data-missing-error="${Resource.msg('error.state', 'forms', null)}" data-selected="${shippingAddress.stateCode}"
                     <isprint value=${addressFields.states.stateCode.attributes} encoding="off" />
                 autocomplete="shipping address-level1"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}State">
