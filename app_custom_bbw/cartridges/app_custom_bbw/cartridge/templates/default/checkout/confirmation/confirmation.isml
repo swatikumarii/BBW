@@ -8,10 +8,6 @@
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
         <isinclude template="reporting/reportingUrls" />
     </isif>
-
-    <div class="hero slant-down hero-confirmation mmjv jm">
- 
-    </div>
     <div class="container receipt <isif condition="${pdict.order.shipping.length > 1}">multi-ship</isif>">
     <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
         <div class="row">
