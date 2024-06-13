@@ -947,7 +947,7 @@ input[type="tel"],
     @include media-down(sm) {
         top: 125%;
         right: 100%;
-        left: 40px;
+        left: 39px;
         z-index: 2;
     }
 }
@@ -960,8 +960,8 @@ input[type="tel"],
     right: -57px;
     top: 50px;
     transform: translate(-100%, -50%);
-    display: none;
     z-index: 1;
+    display: none;
 
     @include media-down(sm) {
         top: 125%;
