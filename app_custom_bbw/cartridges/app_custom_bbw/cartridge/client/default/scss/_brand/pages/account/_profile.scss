@@ -687,6 +687,20 @@
         box-shadow: none;
     }
 
+    .adyen-checkout__card__brands {
+        height: 22px;
+
+        img {
+            height: 19px;
+            width: 28px;
+        }
+    }
+
+    .adyen-checkout__card__brands__brand-wrapper {
+        height: 20px;
+        width: 30px;
+    }
+
     .adyen-checkout__card__brands,
     .adyen-checkout__input-wrapper {
         margin: 0 0 30px;
