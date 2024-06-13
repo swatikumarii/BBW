@@ -33,7 +33,7 @@
                         <isinclude template="account/order/orderDetails" />
                         <div class="d-md-flex">
                             <div class="order-btn mr-2 mb-2 mb-md-0">
-                                <a class="btn btn-hover btn-block" href="${pdict.exitLinkUrl}"
+                                <a class="btn btn-hover btn-block" href="${URLUtils.url('Order-History')}"
                                     title="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
                                     aria-label="${Resource.msg('link.orderdetails.myaccount', 'account', null)}">
                                     ${pdict.exitLinkText}

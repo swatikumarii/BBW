@@ -290,6 +290,10 @@
         line-height: 1.25rem;
         letter-spacing: 0.005em;
 
+        @include media-down(sm) {
+            padding-top: 10px;
+        }
+
         // .line-item-total-price-amount {
         //     font-weight: 500 !important;
         //     color: colour(gray) !important;
