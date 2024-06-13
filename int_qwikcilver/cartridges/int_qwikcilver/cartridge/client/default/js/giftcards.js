@@ -96,9 +96,10 @@ $(document).ready(function () {
                     }, 5000);
                     var cardArray = [];
                     var addedCardsHTML = '';
+                    var removeBtnLabel=$('.added-cards').data('btn-label');
                     for (var i = 0; i < data.addedCards.length; i++) {
                         var card = data.addedCards[i];
-                        addedCardsHTML += '<span class="added-card d-flex justify-content-between py-2 border-bottom w-100"><span>' + card.cardNo + '</span><span class="h-clr--green-2 h-fw--semibold">' + card.amount + '</span><span class="remove-giftcard-btn b-link--underlined" data-cardno="' + card.cardNo + '"> Remove Card</span></span>';
+                        addedCardsHTML += '<span class="added-card d-flex justify-content-between py-2 border-bottom w-100"><span>' + card.cardNo + '</span><span class="h-clr--green-2 h-fw--semibold">' + card.amount + '</span><span class="remove-giftcard-btn b-link--underlined" data-cardno="' + card.cardNo + '">' + removeBtnLabel + '</span></span>';
                     }
                     $('.added-cards').empty().append(addedCardsHTML);
                     $('#egift-number').val('');
@@ -206,9 +207,10 @@ $(document).ready(function () {
                     }
                     if (data.remainingCards) {
                         var addedCardsHTML = '';
+                        var removeBtnLabel=$('.added-cards').data('btn-label');
                         for (var i = 0; i < data.remainingCards.length; i++) {
                             var card = data.remainingCards[i];
-                            addedCardsHTML += '<span class="added-card d-flex justify-content-between py-2 border-bottom w-100"><span>' + card.cardNo + '</span><span class="h-clr--green-2 h-fw--semibold">' + card.amount + '</span><span class="remove-giftcard-btn b-link--underlined" data-cardno="' + card.cardNo + '"> Remove Card</span></span>';
+                            addedCardsHTML += '<span class="added-card d-flex justify-content-between py-2 border-bottom w-100"><span>' + card.cardNo + '</span><span class="h-clr--green-2 h-fw--semibold">' + card.amount + '</span><span class="remove-giftcard-btn b-link--underlined" data-cardno="' + card.cardNo + '">' + removeBtnLabel + '</span></span>';
                         }
                         $('.added-cards').empty().append(addedCardsHTML);
                     }
