@@ -8,7 +8,7 @@
         <div class="js-greetingcard-block">
             <div class="d-flex jusitfy-content-between">
                 <div class="greeting-block-toggle d-flex">
-                    <input type="checkbox" id="greetingcard" class="js-greetingcard-checkbox" />
+                    <input type="checkbox" id="greetingcard" class="js-greetingcard-checkbox mr-3" />
                     <label for="greetingcard" class="mb-0">${Resource.msg('add.greeting.card', 'greetingCard', null)}</label>
                 </div>
                 <div class="greetingCard-edit-product addGreetingCardProduct">

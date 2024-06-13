@@ -85,37 +85,22 @@ footer {
     padding-left: 15px;
 }
 
-.gift-redeem-card-success {
-    padding: 5px 15px 10px;
-    margin-left: 15px;
-    width: 85%;
-    box-shadow:
-        0 8px 10px 1px rgba(0, 0, 0, 14%),
-        0 3px 14px 2px rgba(0, 0, 0, 12%),
-        0 5px 5px -3px rgba(0, 0, 0, 2%);
-    background-color: colour(green, 6);
-    color: colour(green, 2);
-}
-
 .checkout-btn-row {
+    margin: 2.5rem 0;
+
     @include media-up(md) {
         padding: 0 2%;
+        margin-top: 2.5rem;
     }
 }
 
 .next-step-button {
     position: fixed;
     bottom: 0;
-    // z-index: 3;
 
     button {
         min-width: 175px;
-        margin-left: 15px;
         margin-top: 10px;
-
-        @include media-down(sm) {
-            margin-left: 0;
-        }
     }
 
     @include media-down(sm) {
@@ -201,6 +186,7 @@ span.ship-to-city-st-zip {
 
                 &:hover {
                     text-decoration: none;
+                    cursor: pointer;
                 }
             }
         }
@@ -601,7 +587,11 @@ input[type="tel"],
 }
 
 .order-total-summary-wrap {
-    padding: 15px 15px 0;
+    padding: 15px 0 0;
+
+    @include media-up(md) {
+        padding: 15px 15px 0;
+    }
 
     .grand-total-wrap {
         padding-top: 15px;
@@ -664,7 +654,7 @@ input[type="tel"],
         position: relative;
 
         @include media-down(sm) {
-            margin: 10px 0 40px;
+            margin: 0 0 30px;
         }
 
         .form-control-label {
@@ -700,6 +690,10 @@ input[type="tel"],
     }
 }
 
+.same-as-shipping-address {
+    margin-top: 30px;
+}
+
 .multi-shipping {
     display: none;
 }
@@ -715,6 +709,15 @@ input[type="tel"],
     &.billing {
         margin: 0 0 42px;
         padding: 30px 15px;
+
+        .edit-billing-address {
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
     }
 }
 
@@ -738,43 +741,64 @@ input[type="tel"],
         }
     }
 
+    &.promocode-title,
     &.gift-cardtitle {
-        padding-left: 15px;
+        padding-left: 14px;
+
+        @include media-up(md) {
+            padding-left: 10px;
+        }
 
         &::after {
-            right: 40px;
+            right: 14px;
+
+            @include media-up(md) {
+                right: 25px;
+            }
         }
     }
+}
 
-    &.promocode-title {
-        &::after {
-            right: 25px;
+.checkoutPromo {
+    .accordion-content {
+        padding: 0 14px;
+
+        @include media-up(md) {
+            padding-left: 10px;
+            padding-right: 0;
         }
     }
 }
 
 .gift-card-apply {
     .add-giftcard-header-wrap {
-        // border-top: 3px solid colour(gray, 1);
-        width: 85%;
-        margin: 0 15px 0 5px;
-
         .add-giftcard-header {
             padding: 20px 0;
+        }
+    }
+
+    .accordion-content {
+        padding: 0 14px;
+
+        @include media-up(md) {
+            padding-left: 10px;
+            padding-right: 0;
+        }
+
+        .remove-giftcard-btn {
+            cursor: pointer;
         }
     }
 
     .add-giftcard-text {
         display: block;
         padding-bottom: 20px;
-        // border-bottom: 3px solid colour(gray, 1);
-        margin: 0 15px 0 5px;
-        width: 85%;
+        border-bottom: 3px solid colour(gray, 1);
     }
 
     .giftcard-total-wrap {
-        width: 90%;
-        padding: 20px 15px 20px 5px;
+        padding: 20px 0;
+        width: 100%;
         height: 58px;
     }
 
@@ -787,6 +811,16 @@ input[type="tel"],
     }
 }
 
+.giftcard-partial-redemption,
+.giftcard-full-redemption {
+    padding: 0 14px;
+
+    @include media-up(md) {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}
+
 .add-giftcard-button {
     text-decoration: underline;
     cursor: pointer;
@@ -794,18 +828,20 @@ input[type="tel"],
 
 .add-giftcard-section {
     display: none;
-    width: 90%;
 
     &.show {
         display: flex;
     }
 
     .giftcard-buttons {
-        padding: 0 15px;
+        padding: 0;
+        gap: 10px;
+        flex-wrap: nowrap;
     }
 
     .giftcard-balance-section {
         border-bottom: 1px solid colour(black, 1);
+        min-height: 48px;
 
         #egift-card-check-balance {
             text-decoration: underline;
@@ -1024,7 +1060,7 @@ input[type="tel"],
 }
 
 .verify-msg {
-    margin: 30px 0 20px 0;
+    margin: 30px 0 20px;
     line-height: 16px;
     letter-spacing: 0.2px;
 }
@@ -1150,7 +1186,7 @@ input[type="tel"],
     }
 }
 
-@include media-down (sm) {
+@include media-down(sm) {
     .line-item-savings {
         padding-top: 10px;
     }
@@ -1210,12 +1246,12 @@ input[type="tel"],
 // ---gift card
 .giftcard-buttons {
     .giftcard-redeem {
-        width: 171px;
+        width: 95%;
         height: 42px;
     }
 
     .giftcard-cancel-btn {
-        width: 127px;
+        width: 95%;
         height: 42px;
 
         &:hover {
@@ -1328,6 +1364,7 @@ input[type="tel"],
         background-size: 0.8125rem;
     }
 }
+
 .shipping-select-error {
     position: absolute;
     top: 47px;
