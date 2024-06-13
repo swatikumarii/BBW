@@ -86,11 +86,11 @@ footer {
 }
 
 .checkout-btn-row {
-    margin: 2.5rem 0;
+    margin: 1rem 0;
 
     @include media-up(md) {
         padding: 0 2%;
-        margin-top: 2.5rem;
+        margin-top: 0;
     }
 }
 
@@ -691,7 +691,9 @@ input[type="tel"],
 }
 
 .same-as-shipping-address {
-    margin-top: 30px;
+    @include media-down(md) {
+        margin-top: 30px;
+    }
 }
 
 .multi-shipping {
@@ -841,7 +843,7 @@ input[type="tel"],
 
     .giftcard-balance-section {
         border-bottom: 1px solid colour(black, 1);
-        min-height: 48px;
+        min-height: 35px;
 
         #egift-card-check-balance {
             text-decoration: underline;
@@ -1060,7 +1062,7 @@ input[type="tel"],
 }
 
 .verify-msg {
-    margin: 30px 0 20px;
+    margin: 16px 0;
     line-height: 16px;
     letter-spacing: 0.2px;
 }
