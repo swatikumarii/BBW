@@ -1,0 +1,49 @@
+{
+    "name": "CMP: Category Section",
+    "description": "This is a component to add Category Section",
+    "group": "commerce_layouts",
+    "attribute_definition_groups": [
+        {
+            "id": "categoryId",
+            "name": "Category Section",
+            "description": "Category id whose products needs to be shown",
+            "attribute_definitions": [
+                {
+                    "id": "category",
+                    "name": "Category",
+                    "description": "The category of the section",
+                    "type": "category",
+                    "required": true
+                },
+                {
+                    "id": "tileLimit",
+                    "name": "Tile Limit",
+                    "description": "The product tile count to show in the section, if inserted negative or 0 it will show 8 product tiles of the category",
+                    "type": "integer",
+                    "required": false
+                },
+                {
+                    "id": "viewAllButtonText",
+                    "name": "View All Button Text",
+                    "description": "View All Button Text",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "showOutOfStockProducts",
+                    "name": "Show Out Of Stock Products",
+                    "type": "boolean",
+                    "required": false
+                },
+                {
+                    "id": "sectionCustomClass",
+                    "name": "Section Custom Class",
+                    "type": "string",
+                    "required": false
+                }
+            ]
+        }
+    ],
+    "region_definitions": [
+    ]
+}
