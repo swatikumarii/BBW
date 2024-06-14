@@ -871,6 +871,21 @@
         </folder-links>
     </content>
 
+    <content content-id="order.details.seo">
+        <display-name xml:lang="x-default">Order Details Seo</display-name>
+        <description xml:lang="x-default">Order Details Seo</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Order Details</page-title>
+            <page-description xml:lang="x-default">Order Details</page-description>
+            <page-keywords xml:lang="x-default">Order Details</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
 	<content content-id="order.track.seo">
         <display-name xml:lang="x-default">Order Track Seo</display-name>
         <online-flag>true</online-flag>
