@@ -1,7 +1,7 @@
 <div class="site-search">
     <form id="header-search" role="search" action="${URLUtils.url('Search-Show')}" method="get" name="simpleSearch">
         <fieldset class="position-relative d-flex h-100">
-            <button class="btn-no-style cancel-search-button js-cancel-search-button d-md-none" aria-label="${Resource.msg('label.header.search.clear', 'common', null)}"></button>
+            <div class="btn-no-style cancel-search-button js-cancel-search-button d-md-none" aria-label="${Resource.msg('label.header.search.clear', 'common', null)}"></div>
             <input class="form-control search-field h-text-fz--body-2 h-bg--white h-100 js-search-field" type="text" name="q" value=""
                 placeholder="${Resource.msg('label.header.searchwatermark', 'common', null)}" role="combobox"
                 aria-describedby="search-assistive-text" aria-haspopup="listbox" aria-owns="search-results"
