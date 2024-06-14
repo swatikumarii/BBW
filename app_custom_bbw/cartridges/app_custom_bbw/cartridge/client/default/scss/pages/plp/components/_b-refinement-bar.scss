@@ -52,6 +52,10 @@
     }
 
     .refinements-wrapper {
+        @include media-down(md) {
+            padding-bottom: 88px;
+        }
+
         .refinements {
             ul {
                 li {
