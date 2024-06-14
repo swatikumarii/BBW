@@ -60,7 +60,7 @@
                             <div class="row justify-content-end d-flex d-md-none flex-column">
                                 <div
                                     class="headerQty d-flex col-8 col-md-4 justify-content-md-center justify-content-start h-clr--black-1 h-fw--semibold">
-                                    <span class="d-inline d-md-none text-uppercase pr-1">${Resource.msg('label.qty', 'order', null)}</span>
+                                    <span class="d-inline d-md-none text-uppercase pr-1 h-font-size--14">${Resource.msg('label.qty', 'order', null)}</span>
                                     <isprint value="${lineItem.quantity}" formatter="##" />
                                 </div>
                                 <div
