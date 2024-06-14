@@ -112,5 +112,6 @@ module.exports.render = function (context, modelIn) {
         found = processCategories(category.onlineSubCategories, showOutOfStockProducts);
     }
     model.selectedProducts = products;
+    model.sectionCustomClass = content.sectionCustomClass;
     return new Template('experience/components/commerce_layouts/categorySection').render(model).text;
 };

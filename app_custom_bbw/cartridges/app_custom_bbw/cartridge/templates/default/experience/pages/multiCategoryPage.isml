@@ -1,47 +1,60 @@
 <iscontent type="text/html" charset="UTF-8" compact="true" />
 
 <isdecorate template="common/layout/page">
-<isscript>
-    var assets = require('*/cartridge/scripts/assets');
-    assets.addCss('/css/notifyMe.css');
-</isscript>
-<div class="container-fluid ${!pdict.productSearch.isCategorySearch ? 'search-results' : ''}">
-    <div class="storepage" id="${pdict.page.ID}">
-    <h1>${pdict.page.name}</h1>
-    <isinclude template="search/components/searchBreadcrumb" />
-        <div class="container-fluid">
-            <div class="row">
-                <isif condition="${pdict.content.category}">
-                    <div class="left-navigation-wrapper h-hidden-sm-down">
-                        <div class="left-navigation">
-                            <isloop items="${pdict.content.category.onlineSubCategories}" var="levelTwoCategory">
-                                <div
-                                    class="collapsible-sm left-navigation-item refinement-${levelTwoCategory.displayName.toLowerCase().replace(/ /g, '-')} border-0 no-gutters mb-0">
-                                    <div class="col-sm-12">
-                                        <h2 aria-label="${levelTwoCategory.displayName}"
-                                            class="left-navigation-item__title d-none d-md-block h-clr--black-1 b-text-body-14 text-uppercase">
-                                            <span>${levelTwoCategory.displayName}</span>
-                                        </h2>
-                                    </div>
-                                    <div class="card-body content value p-md-0"
-                                        id="refinement-${levelTwoCategory.displayName.toLowerCase().replace(/ /g, '-')}">
-                                        <ul class="category-level-2 h-mb-md--45 list-unstyled">
-                                            <isloop items="${levelTwoCategory.onlineSubCategories}" var="levelThreeCategory">
-                                                <li>
-                                                    <a class="${pdict.content.category.id === levelThreeCategory.ID ? 'active' : ''} h-font-size--16 d-block"
-                                                        href="${URLUtils.url('Search-Show', 'cgid', levelThreeCategory.ID)}">${levelThreeCategory.displayName}</a>
-                                                </li>
-                                            </isloop>
-                                        </ul>
-                                    </div>
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets');
+        assets.addCss('/css/experience/components/commerceLayouts/multiCategoryPage.css');
+        assets.addCss('/css/notifyMe.css');
+        assets.addCss('/css/search.css');
+        assets.addJs('/js/search.js');
+    </isscript>
+    <div class="container-fluid ${!pdict.productSearch.isCategorySearch ? 'search-results' : ''}">
+        <div class="storepage multi-category-page" id="${pdict.page.ID}">
+            <isinclude template="search/components/searchBreadcrumb" />
+            <div class="container active h-maxwidth--1400 px-0" id="product-search-results">
+                <div class="row no-gutters h-grid-gap--40 h-grid-gap-lg--50 h-pl-lg-25 flex-nowrap  ">
+                    <isif condition="${pdict.content.category}">
+                        <div class="left-navigation-bar col-md-3 col-lg-2 px-md-0 h-hidden-sm-down">
+                            <div class="left-navigation-wrapper h-hidden-sm-down">
+                                <div class="left-navigation">
+                                    <isloop items="${pdict.content.category.onlineSubCategories}"
+                                        var="levelTwoCategory">
+                                        <div
+                                            class="collapsible-sm left-navigation-item refinement-${levelTwoCategory.displayName.toLowerCase().replace(/ /g, '-')} border-0 no-gutters mb-0">
+                                            <div class="col-sm-12">
+                                                <h2 aria-label="${levelTwoCategory.displayName}"
+                                                    class="left-navigation-item__title d-none d-md-block h-clr--black-1 b-text-body-14 text-uppercase">
+                                                    <span>${levelTwoCategory.displayName}</span>
+                                                </h2>
+                                            </div>
+                                            <div class="card-body content value p-md-0"
+                                                id="refinement-${levelTwoCategory.displayName.toLowerCase().replace(/ /g, '-')}">
+                                                <ul class="category-level-2 h-mb-md--45 list-unstyled">
+                                                    <isloop items="${levelTwoCategory.onlineSubCategories}"
+                                                        var="levelThreeCategory">
+                                                        <li>
+                                                            <a class="${pdict.content.category.id === levelThreeCategory.ID ? 'active' : ''} h-font-size--16 d-block"
+                                                                href="${URLUtils.url('Search-Show', 'cgid', levelThreeCategory.ID)}">${levelThreeCategory.displayName}</a>
+                                                        </li>
+                                                    </isloop>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </isloop>
                                 </div>
-                            </isloop>
+                            </div>
                         </div>
+                    </isif>
+                    <div class="col-12 col-lg-10 col-md-9 h-pl-md--25">
+                        <div class="row no-gutters search-results__top-header justify-content-beetween mt-0">
+                            <div class="col">
+                                <h1 class="search-results__top-header__category-name h-font-size--24 h-line-height--28 mt-0 h-clr--black-1 h-fw--bold h-mb--0 h-mb-sm-down--0">${pdict.page.name}</h1>
+                            </div>
+                        </div>
+                        <isprint value="${pdict.regions.main.setClassName("product-grid-main-wrapper").render()}" encoding="off" />
                     </div>
-                </isif>
-                <isprint value="${pdict.regions.main.setClassName("col-12 px-0").render()}" encoding="off" />
+                </div>
             </div>
         </div>
     </div>
-</div>
 </isdecorate>

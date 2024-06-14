@@ -2,22 +2,21 @@
     var assets = require('*/cartridge/scripts/assets.js');
     assets.addJs('/js/productDetail.js');
 </isscript>
-<div class="h-dsp-md--grid">
-    <div class="shop-the-module-wrapper">
-        <div class="shop-the-module ds-smooth-scroll d-flex js-shop-the-module-scroll">
-            <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
-            <isloop items="${pdict.selectedProducts}" var="onlineProduct" status="loopstate">
-                <div class="shop-the-module__slide js-shop-the-module-slide">
-                    <div class="ds-shop-the-image-product-tile ${pdict.productDetailAlignment}">
-                        <isinclude url="${URLUtils.url('Tile-Show', 'pid', onlineProduct.id)}" />
-                    </div>
-                </div>
-            </isloop>
-        </div>
-        <isif condition="${pdict.viewAllButtonLink !== ''}">
-            <a class="text-center" href="${pdict.viewAllButtonLink}">
+<div class="product-grid-wrapper ${pdict.sectionCustomClass ? pdict.sectionCustomClass : ''}">
+    <div class="product-grid h-dsp--grid h-grid-gap--15 h-grid-gap-lg--55 no-gutters h-mt-md--0 h-mb-md--50 h-mb--45">
+        <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
+        <isloop items="${pdict.selectedProducts}" var="onlineProduct" status="loopstate">
+            <div class="col product-grid-item h-mb-md--50">
+                <isinclude url="${URLUtils.url('Tile-Show', 'pid', onlineProduct.id)}" />
+            </div>
+        </isloop>
+    </div>
+    <isif condition="${pdict.viewAllButtonLink !== ''}">
+        <div class="h-flex-center w-100">
+            <a class="show-all-link text-center btn shop b-text-letter-space-0 h-fw--normal w-auto"
+                href="${pdict.viewAllButtonLink}">
                 <isprint value="${pdict.viewAllButtonText}" encoding="off" />
             </a>
-        </isif>
-    </div>
+        </div>
+    </isif>
 </div>
