@@ -136,7 +136,7 @@
         position: fixed;
         bottom: 0;
         left: 50%;
-        height: 317px;
+        height: 266px;
         top: 5vh;
         width: calc(100% - 40px);
         max-width: 568px;
@@ -225,7 +225,7 @@
         width: calc(100% - 40px);
         max-width: 568px;
         margin: 0;
-        height: 317px;
+        height: 306px;
 
         @include media-up(sm) {
             width: 464px;
