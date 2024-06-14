@@ -1581,6 +1581,14 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="collectionSort">
+                <display-name xml:lang="x-default">Search Collections for Sorting</display-name>
+                <description xml:lang="x-default">Search Collections for Sorting</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
              <attribute-definition attribute-id="popupDuration">
                 <display-name xml:lang="x-default">Popup Duration</display-name>
                 <description xml:lang="x-default">Popup Duration(In Minutes)</description>
@@ -1981,6 +1989,10 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="isTrendingDynamicBadgeEnabled"/>
                 <attribute attribute-id="isInCartDynamicBadgeEnabled"/>
                 <attribute attribute-id="isInPurchaseDynamicBadgeEnabled"/>
+            </attribute-group>
+            <attribute-group group-id="search">
+                <display-name xml:lang="x-default">Search</display-name>
+                <attribute attribute-id="collectionSort"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
