@@ -4,7 +4,7 @@
         <custom-attribute-definitions>
             <attribute-definition attribute-id="reserveQty">
                 <display-name xml:lang="x-default">Reserve Inventory Quantity</display-name>
-                <type>double</type>
+                <type>int</type>
                 <localizable-flag>false</localizable-flag>
                 <site-specific-flag>true</site-specific-flag>
                 <mandatory-flag>false</mandatory-flag>
