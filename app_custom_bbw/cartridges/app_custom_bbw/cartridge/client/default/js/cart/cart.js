@@ -88,6 +88,7 @@ function updateCartTotals(data) {
     $('.grand-total').empty().append(data.totals.grandTotal);
     $('.sub-total').empty().append(data.totals.subTotal);
     $('.minicart-quantity').empty().append(data.numItems);
+    $('.cart-num-items').empty().append(data.numItems);
     $('.minicart-link').attr({
         'aria-label': data.resources.minicartCountOfItems,
         title: data.resources.minicartCountOfItems
@@ -267,15 +268,15 @@ function updateAvailability(data, uuid) {
  * @param {Function} match - function that takes an element and returns a boolean indicating if the match is made
  * @returns {object} - returns an element of the array that matched the query.
  */
-function findItem(array, match) {
-    // eslint-disable-line no-unused-vars
-    for (var i = 0, l = array.length; i < l; i++) {
-        if (match.call(this, array[i])) {
-            return array[i];
-        }
-    }
-    return null;
-}
+// function findItem(array, match) {
+//     // eslint-disable-line no-unused-vars
+//     for (var i = 0, l = array.length; i < l; i++) {
+//         if (match.call(this, array[i])) {
+//             return array[i];
+//         }
+//     }
+//     return null;
+// }
 
 /**
  * Updates details of a product line item
@@ -580,93 +581,93 @@ module.exports = function () {
                 errorElem.hide();
             }, 3000);
             $(this).val(Math.floor(maxOrderQty));
-        } else {
-            var productID = $(this).data('pid');
-            var url = $(this).data('action');
-            var uuid = $(this).data('uuid');
+            quantity = Number(maxOrderQty);
+        }
+        var productID = $(this).data('pid');
+        var url = $(this).data('action');
+        var uuid = $(this).data('uuid');
 
-            var urlParams = {
-                pid: productID,
-                quantity: quantity,
-                uuid: uuid,
-                isMiniCartTrigger: isMiniCartTrigger,
-                isCartPageTrigger: isCartPageTrigger
-            };
-            url = appendToUrl(url, urlParams);
+        var urlParams = {
+            pid: productID,
+            quantity: quantity,
+            uuid: uuid,
+            isMiniCartTrigger: isMiniCartTrigger,
+            isCartPageTrigger: isCartPageTrigger
+        };
+        url = appendToUrl(url, urlParams);
 
-            $(this).parents('.card').spinner().start();
+        $(this).parents('.card').spinner().start();
 
-            $('body').trigger('cart:beforeUpdate');
+        $('body').trigger('cart:beforeUpdate');
 
-            $.ajax({
-                url: url,
-                type: 'get',
-                context: this,
-                dataType: 'json',
-                success: function (data) {
-                    if (data.error) {
-                        if (data.errorCode === 'ZERO-PRICE-PRODUCT') {
-                            createErrorNotification(data.errorMessage);
-                            $.spinner().stop();
-                        }
-                        return;
+        $.ajax({
+            url: url,
+            type: 'get',
+            context: this,
+            dataType: 'json',
+            success: function (data) {
+                if (data.error) {
+                    if (data.errorCode === 'ZERO-PRICE-PRODUCT') {
+                        createErrorNotification(data.errorMessage);
+                        $.spinner().stop();
                     }
-                    $('.quantity[data-uuid="' + uuid + '"]').val(quantity);
-                    $('.coupons-and-promos')
+                    return;
+                }
+                $('.quantity[data-uuid="' + uuid + '"]').val(quantity);
+                $('.coupons-and-promos')
+                    .empty()
+                    .append(data.totals.discountsHtml);
+                updateCartTotals(data);
+                updateApproachingDiscounts(
+                    data.orderApproachingDiscounts,
+                    data.shippingApproachingDiscounts
+                );
+                updateAvailability(data, uuid);
+                validateBasket(data);
+                $(this).data('pre-select-qty', quantity);
+                $('body').trigger('cart:update', data);
+                if ('refreshItems' in data && data.refreshItems) {
+                    $('.cart-lineitems')
                         .empty()
-                        .append(data.totals.discountsHtml);
-                    updateCartTotals(data);
-                    updateApproachingDiscounts(
-                        data.orderApproachingDiscounts,
-                        data.shippingApproachingDiscounts
-                    );
-                    updateAvailability(data, uuid);
-                    validateBasket(data);
-                    $(this).data('pre-select-qty', quantity);
-                    $('body').trigger('cart:update', data);
-                    if ('refreshItems' in data && data.refreshItems) {
-                        $('.cart-lineitems')
-                            .empty()
-                            .append(data.refreshItemsTemplate);
-                        $('.mini-cart-content .product-summary')
-                            .empty()
-                            .append(data.refreshItemsTemplateMinicart);
-                    }
-                    if (data.totalSavings) {
+                        .append(data.refreshItemsTemplate);
+                    $('.mini-cart-content .product-summary')
+                        .empty()
+                        .append(data.refreshItemsTemplateMinicart);
+                }
+                if (data.totalSavings) {
+                    $(this)
+                        .closest('.product-info')
+                        .find('.line-item-savings span')
+                        .removeClass('value-dash')
+                        .text(data.totalSavings);
+                    if (data.totalSavings === '-') {
                         $(this)
                             .closest('.product-info')
                             .find('.line-item-savings span')
-                            .removeClass('value-dash')
+                            .addClass('value-dash')
                             .text(data.totalSavings);
-                        if (data.totalSavings === '-') {
-                            $(this)
-                                .closest('.product-info')
-                                .find('.line-item-savings span')
-                                .addClass('value-dash')
-                                .text(data.totalSavings);
-                        }
-                    }
-                    $.spinner().stop();
-                    if (
-                        $(this)
-                            .parents('.product-info')
-                            .hasClass('bonus-product-line-item') &&
-                        $('.cart-page').length
-                    ) {
-                        location.reload();
-                    }
-                },
-                error: function (err) {
-                    if (err.responseJSON.redirectUrl) {
-                        window.location.href = err.responseJSON.redirectUrl;
-                    } else {
-                        createErrorNotification(err.responseJSON.errorMessage);
-                        $(this).val(parseInt(preSelectQty, 10));
-                        $.spinner().stop();
                     }
                 }
-            });
-        }
+                $.spinner().stop();
+                if (
+                    $(this)
+                        .parents('.product-info')
+                        .hasClass('bonus-product-line-item') &&
+                    $('.cart-page').length
+                ) {
+                    location.reload();
+                }
+            },
+            error: function (err) {
+                if (err.responseJSON.redirectUrl) {
+                    window.location.href = err.responseJSON.redirectUrl;
+                } else {
+                    createErrorNotification(err.responseJSON.errorMessage);
+                    $(this).val(parseInt(preSelectQty, 10));
+                    $.spinner().stop();
+                }
+            }
+        });
     });
 
     $('.shippingMethods').change(function () {

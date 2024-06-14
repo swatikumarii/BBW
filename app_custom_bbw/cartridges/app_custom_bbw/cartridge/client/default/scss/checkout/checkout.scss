@@ -86,11 +86,11 @@ footer {
 }
 
 .checkout-btn-row {
-    margin: 2.5rem 0;
+    margin: 1rem 0;
 
     @include media-up(md) {
         padding: 0 2%;
-        margin-top: 2.5rem;
+        margin-top: 0;
     }
 }
 
@@ -691,7 +691,9 @@ input[type="tel"],
 }
 
 .same-as-shipping-address {
-    margin-top: 30px;
+    @include media-down(md) {
+        margin-top: 30px;
+    }
 }
 
 .multi-shipping {
@@ -841,7 +843,7 @@ input[type="tel"],
 
     .giftcard-balance-section {
         border-bottom: 1px solid colour(black, 1);
-        min-height: 48px;
+        min-height: 35px;
 
         #egift-card-check-balance {
             text-decoration: underline;
@@ -945,7 +947,7 @@ input[type="tel"],
     @include media-down(sm) {
         top: 125%;
         right: 100%;
-        left: 40px;
+        left: 39px;
         z-index: 2;
     }
 }
@@ -958,8 +960,8 @@ input[type="tel"],
     right: -57px;
     top: 50px;
     transform: translate(-100%, -50%);
-    display: none;
     z-index: 1;
+    display: none;
 
     @include media-down(sm) {
         top: 125%;
@@ -1060,7 +1062,7 @@ input[type="tel"],
 }
 
 .verify-msg {
-    margin: 30px 0 20px;
+    margin: 16px 0;
     line-height: 16px;
     letter-spacing: 0.2px;
 }
@@ -1261,7 +1263,7 @@ input[type="tel"],
 }
 
 .payment-error {
-    background-color: colour(red, 11);
+    background-color: colour(red, 10);
     padding: 9px 20px 9px 38px;
     margin: 5px 0;
 

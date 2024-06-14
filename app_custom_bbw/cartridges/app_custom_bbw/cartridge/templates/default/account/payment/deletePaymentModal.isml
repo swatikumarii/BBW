@@ -1,0 +1,32 @@
+<div class="modal fade" id="deletePaymentModal" tabindex="-1" role="dialog" aria-labelledby="deletePaymentModalTitle">
+    <div class="modal-dialog delete-payment-dialog" role="document">
+        <div class="modal-content delete-payment-content border-0">
+            <div class="modal-header delete-payment-header border-0 p-0">
+                <h2 class="modal-title delete-header h-font-size--18 h-clr--black-3 m-0 h-fw--semibold" id="deletePaymentModalTitle"
+                    aria-label="${Resource.msg('aria.delete.payment.modal.title', 'account', null)}">
+                    ${Resource.msg('heading.delete.payment.confirmation.modal', 'account', null)}
+                </h2>
+                <button type="button" class="close close-icon-btn pull-right" data-dismiss="modal">
+                    <span aria-hidden="true">
+                        <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body delete-payment-body  p-0 mt-2">
+            <div class="col-12 p-0">
+            <span class=" h-clr--black-1 h-font-size--16 ">
+                ${Resource.msg('msg.delete.payment.confirmation.modal', 'account', null)}
+            </span>
+                <p class="payment-to-remove"></p>
+            </div>
+            </div>
+            <div class="modal-footer border-0 p-0">
+                <button type="button" class="btn btn-outline-primary delete-payment-btn h-font-size--16 mr-3"
+                    data-dismiss="modal">${Resource.msg('button.cancel', 'account', null)}</button>
+                <button type="button" class="btn btn-secondary delete-close-btn h-clr--gray h-font-size--16" data-dismiss="modal">
+                    ${Resource.msg('button.confirm', 'account', null)}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -458,6 +458,7 @@ var history = window.history;
                     e.preventDefault();
                     members.currentStage = checkoutStages.indexOf('customer');
                     members.nextStage();
+                    members.currentStage = checkoutStages.indexOf('shipping');
                 });
                 $('body').on('click', '.submit-customer', function (e) {
                     e.preventDefault();
