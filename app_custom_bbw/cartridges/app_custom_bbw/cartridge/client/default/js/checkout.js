@@ -49,7 +49,11 @@ function checkFields(form) {
     requiredFields.each(function () {
         var isGftcardField = $(this).parents('.gift-card-apply').length > 0;
         var isPaymentField = $(this).parents('#paymentMethodsList').length > 0;
-        if (!($(this).val() && $(this).val().trim()) && !isGftcardField && !isPaymentField) {
+        if (
+            !($(this).val() && $(this).val().trim()) &&
+            !isGftcardField &&
+            !isPaymentField
+        ) {
             allFilled = false;
         }
     });
@@ -177,28 +181,145 @@ $(document).ready(function () {
         .on('mouseleave', '.info-icon', function () {
             setTimeout(function () {
                 $('.info-icon-text').removeClass('d-block');
+                $('.info-icon-border-arrow-outline').removeClass('d-block');
+                $('.info-icon-border-arrow').removeClass('d-block');
             }, 50);
         })
         .on('mouseenter', '.info-icon', function () {
             $('.info-icon-text').addClass('d-block');
+            if ($('.info-icon-text').hasClass('d-none')) {
+                $('.info-icon-text').removeClass('d-none');
+                $('.info-icon-border-arrow-outline').removeClass('d-none');
+                $('.info-icon-border-arrow').removeClass('d-none');
+            }
+        })
+        .on('click', '.info-icon', function () {
+            $('.info-icon-text').addClass('d-block');
+            $('.info-icon-border-arrow-outline').addClass('d-block');
+            $('.info-icon-border-arrow').addClass('d-block');
+        })
+
+        .on('click', '.bbwd-tooltip-content-container .close', function () {
+            $('.info-icon-text').removeClass('d-block');
+            $('.info-icon-border-arrow-outline').removeClass('d-block');
+            $('.info-icon-border-arrow').removeClass('d-block');
         });
+
+    if (checkoutStage === 'shipping') {
+        var selectedState = $('body')
+            .find('.shippingState')
+            .attr('data-selected');
+        if (selectedState !== 'null') {
+            $('.shippingState option').each(function () {
+                if ($(this).val() === selectedState) {
+                    $('.shippingState option').removeAttr('selected');
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.shippingState').trigger('change');
+                    return false;
+                }
+            });
+        }
+        var selectedCity = $('body')
+            .find('.shippingAddressCity')
+            .attr('data-selected');
+        if (selectedCity !== 'null') {
+            $('.shippingAddressCity').prepend(
+                $('<option></option>')
+                    .attr('value', '')
+                    .attr('selected', 'selected')
+            );
+            $('.shippingZipCode').prepend(
+                $('<option></option>')
+                    .attr('value', '')
+                    .attr('selected', 'selected')
+            );
+            $('.shippingAddressCity option').each(function () {
+                if ($(this).val() === selectedCity) {
+                    $('.shippingAddressCity option').removeAttr('selected');
+                    $('.shippingAddressCity option')[0].remove();
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.shippingAddressCity').trigger('change');
+                    return false;
+                }
+                $('.shippingZipCode option').slice(1).remove();
+            });
+        }
+        var selectedPostalCode = $('body')
+            .find('.shippingZipCode')
+            .attr('data-selected');
+        if (selectedPostalCode !== 'null') {
+            $('.shippingZipCode option').each(function () {
+                if ($(this).val() === selectedPostalCode) {
+                    $('.shippingZipCode option').removeAttr('selected');
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.shippingZipCode').trigger('change');
+                    return false;
+                }
+            });
+        }
+    }
+
+    if (checkoutStage === 'billing') {
+        var selectedBillingState = $('body')
+            .find('.billingState')
+            .attr('data-selected');
+        if (selectedBillingState !== 'null') {
+            $('.billingState option').each(function () {
+                if ($(this).val() === selectedBillingState) {
+                    $('.billingState option').removeAttr('selected');
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.billingState').trigger('change');
+                    return false;
+                }
+            });
+        }
+        var selectedBillingCity = $('body')
+            .find('.billingAddressCity')
+            .attr('data-selected');
+        if (selectedBillingCity !== 'null') {
+            $('.billingAddressCity').prepend(
+                $('<option></option>')
+                    .attr('value', '')
+                    .attr('selected', 'selected')
+            );
+            $('.billingZipCode').prepend(
+                $('<option></option>')
+                    .attr('value', '')
+                    .attr('selected', 'selected')
+            );
+            $('.billingAddressCity option').each(function () {
+                if ($(this).val() === selectedBillingCity) {
+                    $('.billingAddressCity option').removeAttr('selected');
+                    $('.billingAddressCity option')[0].remove();
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.billingAddressCity').trigger('change');
+                    return false;
+                }
+                $('.billingZipCode option').slice(1).remove();
+            });
+        }
+        var selectedBillingPostalCode = $('body')
+            .find('.billingZipCode')
+            .attr('data-selected');
+        if (selectedBillingPostalCode !== 'null') {
+            $('.billingZipCode option').each(function () {
+                if ($(this).val() === selectedBillingPostalCode) {
+                    $('.billingZipCode option').removeAttr('selected');
+                    $(this).attr('selected', 'selected');
+                    $('body').find('.billingZipCode').trigger('change');
+                    return false;
+                }
+            });
+        }
+    }
+
     $.spinner().stop();
-
-    if ($('.shippingState').val()) {
-        $('.shippingState').trigger('change');
-    }
-    if ($('.shippingAddressCity').val()) {
-        $('.shippingAddressCity').trigger('change');
-    }
-
 });
 
 $('.info-icon-text .close').on('click', function () {
     $('.info-icon-text').addClass('d-none');
-
-    setTimeout(function () {
-        $('.info-icon-text').removeClass('d-none');
-    }, 300);
+    $('.info-icon-border-arrow-outline').addClass('d-none');
+    $('.info-icon-border-arrow').addClass('d-none');
 });
 
 $(document)
@@ -221,7 +342,6 @@ $('.promo-details-tooltip .close').on('click', function () {
         $('.promo-details-tooltip').removeClass('d-none');
     }, 300);
 });
-
 
 $(document).on(
     'click',
@@ -287,7 +407,6 @@ $('button.submit-payment').on('click', function () {
     }
 });
 
-
 $('.shippingState').change(function () {
     const selectedState = $(this).val();
     const suburbDropdown = $('.shippingAddressCity');
@@ -325,6 +444,7 @@ $('.shippingAddressCity').change(function () {
                 })
             );
         });
+        zipDropdown.trigger('change');
     }
 });
 
@@ -365,5 +485,6 @@ $('.billingAddressCity').change(function () {
                 })
             );
         });
+        zipDropdown.trigger('change');
     }
 });

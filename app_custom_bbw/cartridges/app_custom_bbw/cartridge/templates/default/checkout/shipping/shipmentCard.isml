@@ -19,7 +19,7 @@
                 <isinclude template="checkout/shipping/shippingAddress" />
             </fieldset>
 
-            <fieldset class="shipping-address-block">
+            <fieldset class="shipping-address-block same-as-shipping-address">
                 <isinclude template="checkout/shipping/shippingAddressUseAsBillingAddress" />
             </fieldset>
 

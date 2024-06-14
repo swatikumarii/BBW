@@ -10,7 +10,7 @@
             <div class="summary-details shipping h-font-size--16 h-clr--black-1">
                 <h2 class="h-clr--black-1 review-shipping-summary-content h-fw--bold">${Resource.msg('label.order.shipping.address', 'order', null)}</h2>
                 <isinclude template="checkout/addressSummary" />
-                <div class="shipping-phone h-font-size--16 h-clr--black-1">
+                <div class="shipping-phone h-font-size--16 text-left">
                     ${shippingModel.shippingAddress && shippingModel.shippingAddress.phone ? shippingModel.shippingAddress.phone : ''}
                 </div>
             </div>
@@ -20,14 +20,14 @@
                 <div class="col-12 start-lines">
                     <h2 class="h-clr--black-1 review-shipping-summary-content h-fw--bold">${Resource.msg('heading.shipping.method', 'checkout', null)}</h2>
                     <p class="shipping-method h-font-size--16 h-clr--black-1">
-                        <span class="shipping-method-title h-clr--black-1">${Resource.msgf('text.shipping.method', 'checkout',null, shippingModel.selectedShippingMethod.displayName)}</span>
+                        <span class="shipping-method-title">${Resource.msgf('text.shipping.method', 'checkout',null, shippingModel.selectedShippingMethod.displayName)}</span>
                         <span class="shipping-method-arrival-time h-clr--black-1">
                             <isif condition="${shippingModel.selectedShippingMethod.estimatedArrivalTime}">
                                 ( ${shippingModel.selectedShippingMethod.estimatedArrivalTime} )
                             </isif>
                         </span>
-                        <span class="h-fw--semibold h-clr--black-1">
-                            <isif condition="${'isEgiftCard' in pdict.order.items.items[0] && pdict.order.items.items[0].isEgiftCard === true}">
+                        <span class="h-fw--semibold h-clr--black-1 d-block">
+                            <isif condition="${('isEgiftCard' in pdict.order.items.items[0] && pdict.order.items.items[0].isEgiftCard === true) || pdict.order.hasFreeShipping}">
                                 ${Resource.msg('text.shpping.free', 'order', null)}
                             <iselse/>
                                 ${shippingModel.selectedShippingMethod.shippingCost}
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <isinclude template="checkout/shipping/giftMessageSummary" />
-            <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}" class="edit-button pull-right text-muted review-shipping-summary-content"
+            <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}" class="edit-button pull-right h-clr--black-1  review-shipping-summary-content"
                 aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</a>
         </div>
     </isif>

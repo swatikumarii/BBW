@@ -1,6 +1,7 @@
 'use strict';
 
 var Money = require('dw/value/Money');
+var formatMoney = require('dw/util/StringUtils').formatMoney;
 var Site = require('dw/system/Site');
 
 /**
@@ -13,7 +14,11 @@ function getTotalSavings(lineItem) {
     if (lineItem.priceAdjustments.length) {
         for (var index = 0; index < lineItem.priceAdjustments.length; index++) {
             var priceAdjustment = lineItem.priceAdjustments[index];
-            if (priceAdjustment.appliedDiscount.type === 'FREE' || priceAdjustment.promotion.promotionClass === 'PRODUCT') {
+            if (
+                (priceAdjustment.appliedDiscount && priceAdjustment.appliedDiscount
+                    .type === 'FREE') ||
+                (priceAdjustment.promotion && priceAdjustment.promotion.promotionClass === 'PRODUCT')
+            ) {
                 totalSavings = totalSavings.add(
                     new Money(
                         priceAdjustment.basePrice * -1,
@@ -22,8 +27,10 @@ function getTotalSavings(lineItem) {
                 );
             }
         }
-    }
-    return totalSavings;
+        return formatMoney(totalSavings);
+    } 
+    return '-';
+    
 }
 
 module.exports = function (object, lineItem) {

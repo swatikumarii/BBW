@@ -13,6 +13,18 @@
 
         .print-text {
             text-decoration: underline;
+            margin-top: 22px;
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        p {
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
         }
     }
 }
@@ -104,9 +116,11 @@
 }
 
 .card-header-confirmation {
-    border-bottom: 1px solid colour(gray, 3);
-    padding-bottom: 18px;
-    margin-bottom: 27px;
+    border-bottom: 1px solid colour(black, 3);
+    padding-bottom: 14px;
+    padding-top: 12px;
+    margin-bottom: 25px;
+    line-height: 1.75rem;
 }
 
 .confirmation-shipping-summary {
@@ -126,11 +140,21 @@
         }
 
         .address-summary {
-            color: colour(gray);
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+            color: colour(gray, 4);
         }
 
         .shipping-phone {
-            color: colour(gray);
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+            color: colour(gray, 4);
+        }
+
+        .shipping-method-title {
+            color: colour(gray, 4);
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
         }
 
         .summary-details {
@@ -169,6 +193,32 @@
         @include media-up(sm) {
             margin-top: 0;
         }
+
+        .address-summary {
+            color: colour(gray, 4);
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+        }
+
+        .shipping-phone {
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+            color: colour(gray, 4);
+        }
+
+        .payment-details {
+            .credit-card-number {
+                color: colour(gray, 4);
+                line-height: 1.25rem;
+                letter-spacing: 0.01em;
+            }
+
+            .credit-card-expiration-date {
+                color: colour(gray, 4);
+                line-height: 1.25rem;
+                letter-spacing: 0.01em;
+            }
+        }
     }
 
     .edit-button {
@@ -181,6 +231,10 @@
 
     @include media-up(sm) {
         padding: 20px 30px 30px;
+    }
+
+    @include media-btw(sm, lg) {
+        padding: 20px 0;
     }
 
     .confirmation-product-details {
@@ -216,45 +270,48 @@
     }
 
     .headerItem {
-        text-transform: uppercase;
-        line-height: 12px;
+        line-height: 1.25rem;
+        letter-spacing: 0.005em;
     }
 
     .headerQty {
-        text-transform: uppercase;
-        line-height: 12px;
+        line-height: 1.25rem;
+        letter-spacing: 0.005em;
         margin-bottom: 18px;
 
         @include media-up(sm) {
-            text-transform: uppercase;
-            line-height: 12px;
+            line-height: 1.25rem;
+            letter-spacing: 0.005em;
             margin-bottom: 0;
         }
     }
 
     .headerPrice {
-        text-transform: uppercase;
-        line-height: 12px;
+        line-height: 1.25rem;
+        letter-spacing: 0.005em;
 
-        .line-item-total-price-amount {
-            font-weight: 500 !important;
-            color: colour(gray) !important;
-            font-size: 15px !important;
+        @include media-down(sm) {
+            padding-top: 10px;
         }
+
+        // .line-item-total-price-amount {
+        //     font-weight: 500 !important;
+        //     color: colour(gray) !important;
+        //     font-size: 15px !important;
+        // }
     }
 }
 
 .order-confirmation-continue-shopping {
-    min-height: 37px;
-    max-height: 37px;
-    letter-spacing: 2px;
     width: 100%;
+    line-height: 42px;
+
+    &:hover {
+        color: colour(white);
+    }
 
     @include media-up(sm) {
-        width: 171px;
-        min-height: 37px;
-        max-height: 37px;
-        letter-spacing: 2px;
+        width: 200px;
     }
 }
 
@@ -319,4 +376,9 @@
     @include media-btw(sm, lg) {
         padding-left: 0;
     }
+}
+
+.confirmation-shipping {
+    line-height: 1.25rem;
+    letter-spacing: 0.01em;
 }

@@ -94,11 +94,7 @@ window.submitNewsLetter = function (token) {
     });
 };
 
-// Initialize popover
-$('[data-toggle="popover"]').popover({
-    placement: 'top',
-    html: true
-});
+$('[data-toggle="popover"]').popover();
 
 // Show popover on mouseenter
 $('[data-toggle="popover"]').on('mouseenter', function () {

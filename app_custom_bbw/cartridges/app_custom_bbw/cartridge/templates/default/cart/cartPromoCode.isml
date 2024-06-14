@@ -1,8 +1,8 @@
-<div class="row">
+<iscomment> <div class="row">
     <div class="col-12 d-sm-none">
         <p class="optional-promo">${Resource.msg('action.enter.promo.code','cart',null)}</p>
     </div>
-</div>
+</div> </iscomment>
 <div class="row">
     <div class="col-12">
         <form action="${pdict.actionUrls.submitCouponCodeUrl}" class="promo-code-form" method="GET" name="promo-code-form">

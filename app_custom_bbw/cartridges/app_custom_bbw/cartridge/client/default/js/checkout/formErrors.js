@@ -12,6 +12,10 @@ function loadFormErrors(parentSelector, fieldErrors) { // eslint-disable-line
             .addClass('is-invalid')
             .siblings('.invalid-feedback')
             .html(fieldErrors[attr]);
+        $('*[name=' + attr + ']', parentSelector)
+            .addClass('is-invalid')
+            .siblings('.invalid-feedback')
+            .removeAttr('style');
         var errorText;
         var $input = $('*[name=' + attr + ']', parentSelector);
         var $errorMessage = $input

@@ -154,15 +154,6 @@ server.post('ValidateGiftCard', function (req, res, next) {
         var giftCardAPIResult = qwikcilverApis.validateGiftCard(cardNumber, cardPin);
         if (giftCardAPIResult && giftCardAPIResult.status === 'OK') {
             var validateGiftCard = JSON.parse(giftCardAPIResult.object);
-            if (validateGiftCard.Cards[0].Balance < minRedemptionAmount) {
-                res.json({
-                    error: true,
-                    cardNumber: cardNumber,
-                    hideCreditCardForm: false,
-                    errorMessage: 'Cannot Add gift card amount less than ' + currency + minRedemptionAmount
-                });
-                return next();
-            }
             if (validateGiftCard.ResponseCode !== 0 && validateGiftCard.Cards && validateGiftCard.Cards[0].ResponseCode !== 0) {
                 if (validateGiftCard.Cards[0].ResponseCode === 10638) {
                     res.json({
@@ -177,6 +168,15 @@ server.post('ValidateGiftCard', function (req, res, next) {
                         errorMessage: validateGiftCard.Cards[0].ResponseMessage
                     });
                 }
+                return next();
+            }
+            if (validateGiftCard.Cards[0].Balance < minRedemptionAmount) {
+                res.json({
+                    error: true,
+                    cardNumber: cardNumber,
+                    hideCreditCardForm: false,
+                    errorMessage: 'Cannot Add gift card amount less than ' + currency + minRedemptionAmount
+                });
                 return next();
             }
             if (validateGiftCard.ResponseCode !== 0 && validateGiftCard.Cards && validateGiftCard.Cards[0].ResponseCode === 0) {
@@ -214,7 +214,7 @@ server.post('ValidateGiftCard', function (req, res, next) {
                 }
                 res.json({
                     error: false,
-                    success: Resource.msg('qwikcilver.card.added', 'giftcards', null) + Resource.msgf('qwikcilver.card.pending', 'giftcards', null, currency, remainingAmount.toFixed(2)),
+                    success: Resource.msgf('qwikcilver.card.pending', 'giftcards', null, currency, remainingAmount.toFixed(2)),
                     cardNumber: cardNumber,
                     hideCreditCardForm: false,
                     addedCards: addedCards,
