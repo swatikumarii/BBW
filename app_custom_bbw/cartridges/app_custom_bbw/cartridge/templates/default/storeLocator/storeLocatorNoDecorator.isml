@@ -14,7 +14,7 @@
                     href="javascript:void(0)">${Resource.msg('label.map', 'storeLocator', null)}</a>
             </div>
             <isif condition="${pdict.showMap === 'true'}">
-                <div class="jumbotron map-canvas h-100 d-none d-md-block"
+                <div class="jumbotron map-canvas d-none d-md-block"
                     data-has-google-api="${pdict.stores.googleMapsApi ? true : false}"
                     data-locations="${pdict.stores.locations}">
                     <div class="container">
