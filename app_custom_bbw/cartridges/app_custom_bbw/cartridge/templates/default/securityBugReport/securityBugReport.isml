@@ -1,29 +1,36 @@
 <isdecorate template="common/layout/page">
-<isinclude template="/components/modules"/>
+    <isinclude template="/components/modules" />
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/securityBugReport.js');
+        assets.addCss('/css/pages/securityBugReport/b-securitybugreport.css');
     </isscript>
-    <div class="hero">
-        <h1 class="page-title">${Resource.msg('title.hero.text','securityBugReport',null)}</h1>
-    </div>
     <div class="container bug-report-landing-page">
+        <!---Breadcrumbs--->
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
+        <div class="bug-report-header">
+            <h1 class="page-title h-fw--bold h-clr--black-1">${Resource.msg('title.hero.text', 'securityBugReport', null)}</h1>
+        </div>
+        <iscontentasset aid="security-bug-report-top-content" />
         <div class="row justify-content-center">
             <div class="col-sm-8 col-md-6">
                 <div class="card">
-                    <div class="row d-none" id="sbr-thanks-element" >
-                        <div class="col-sm-6 offset-sm-4">
+                    <div class="row d-none" id="sbr-thanks-element">
+                        <div class="col mx-3">
                             <iscontentasset aid="security-bug-report-thankyou" />
                         </div>
                     </div>
-                    <input type="hidden" name="s3Url" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('s3UploadLink')}">
+                    <input type="hidden" name="s3Url"
+                        value="${dw.system.Site.getCurrent().getCustomPreferenceValue('s3UploadLink')}">
                     <div class="card-body" id="bug-report-form-card">
-                        <form id="bug-report-form" action="${pdict.actionUrl}" class="bug-report" method="POST" name="bug-report">
+                        <form id="bug-report-form" action="${pdict.actionUrl}" class="bug-report" method="POST"
+                            name="bug-report">
                             <!--- SBR us name, --->
                             <div class="row bug-report-name">
-                                <div class="col-sm-6">
+                                <div class="col">
                                     <div class="form-group required">
                                         <label class="form-control-label" for="bug-report-name">
+                                            <span class="required-indicator">*</span>
                                             ${Resource.msg('label.input.bug-report-name', 'securityBugReport', null)}
                                         </label>
                                         <input pattern="^[ A-Za-z]+$" type="text" required class="form-control required"
@@ -38,11 +45,12 @@
                                 <div class="col">
                                     <div class="form-group required">
                                         <label class="form-control-label" for="bug-report-email">
+                                            <span class="required-indicator">*</span>
                                             ${Resource.msg('label.input.bug-report-email', 'securityBugReport', null)}
                                         </label>
-                                        <input pattern="^[\w.%+-]+@[\w.-]+\.\w{2,}$" type="email" required class="form-control required"
-                                            aria-describedby="form-bug-report-email-error" id="bug-report-email"
-                                            name="bugReportEmail">
+                                        <input pattern="^[\w.%+-]+@[\w.-]+\.\w{2,}$" type="email" required
+                                            class="form-control required" aria-describedby="form-bug-report-email-error"
+                                            id="bug-report-email" name="bugReportEmail">
                                         <div class="invalid-feedback" id="form-bug-report-email-error"></div>
                                     </div>
                                 </div>
@@ -52,9 +60,10 @@
                                 <div class="col">
                                     <div class="form-group required">
                                         <label class="form-control-label" for="bug-report-phone">
+                                            <span class="required-indicator">*</span>
                                             ${Resource.msg('label.input.bug-report-phone', 'securityBugReport', null)}
                                         </label>
-                                        <input type="phone" required class="form-control required"
+                                        <input type="tel" required class="form-control required"
                                             aria-describedby="form-bug-report-phone-error" id="bug-report-phone"
                                             name="bugReportPhone">
                                         <div class="invalid-feedback" id="form-bug-report-phone-error"></div>
@@ -66,9 +75,10 @@
                                 <div class="col">
                                     <div class="form-group required">
                                         <label class="form-control-label" for="bug-report-page-url">
+                                            <span class="required-indicator">*</span>
                                             ${Resource.msg('label.input.bug-report-page-url', 'securityBugReport', null)}
                                         </label>
-                                        <input type="page-url" required class="form-control required"
+                                        <input type="url" required class="form-control required"
                                             aria-describedby="form-bug-report-page-url-error" id="bug-report-page-url"
                                             name="bugReportPageUrl">
                                         <div class="invalid-feedback" id="form-bug-report-page-url-error"></div>
@@ -80,27 +90,28 @@
                                 <div class="col">
                                     <div class="form-group required">
                                         <label class="form-control-label" for="bug-report-image-upload">
+                                            <span class="required-indicator">*</span>
                                             ${Resource.msg('label.input.bug-report-image-upload', 'securityBugReport', null)}
                                         </label>
                                         <input type="file" required class="form-control required"
-                                            aria-describedby="form-bug-report-image-upload-error" id="bug-report-image-upload"
-                                            name="bugReportImage" accept="image/*">
+                                            aria-describedby="form-bug-report-image-upload-error"
+                                            id="bug-report-image-upload" name="bugReportImage" accept="image/*">
                                         <div class="invalid-feedback" id="form-bug-report-image-upload-error"></div>
                                         <div class="progress-wrapper p-2 w-100">
                                             <div id="progress" class="progress-status-value text-center"></div>
-                                            <progress id="video-progress" class="progress-bar my-2 w-100" value="0" max="100" style="display:none"></progress>
+                                            <progress id="video-progress" class="progress-bar my-2 w-100" value="0"
+                                                max="100" style="display:none"></progress>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <!--- SBR us submit --->
                             <div class="row security-bug-report-submit">
-                                <div class="col-sm-6">
-                                </div>
                                 <div class="col">
-                                    <div class="form-group">
-                                        <button class="btn btn-block btn-primary subscribe-security-bug-report" type="submit"
-                                            name="submit" value="submit">
+                                    <div class="form-group h-flex-center">
+                                        <button
+                                            class="btn btn-hover subscribe-security-bug-report w-100 h-maxwidth--250 mx-auto btn-submit"
+                                            type="submit" name="submit" value="submit">
                                             ${Resource.msg('label.input.bug-report-submit', 'securityBugReport', null)}
                                         </button>
                                     </div>

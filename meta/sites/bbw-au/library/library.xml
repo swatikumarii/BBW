@@ -6199,6 +6199,34 @@ max-height: 35px:&#13;
         <folder-links>
             <classification-link folder-id="category-seo-content"/>
         </folder-links>
+    </content>
+	
+    <content content-id="security-bug-report-top-content">
+        <display-name xml:lang="x-default">Security Bug Report Page Top Content</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="bug-report-banner-image-wrapper h-100 h-mb--50"&gt;&lt;a class="w-100 h-100 d-block" href="#" tabindex="0"&gt;&lt;picture class="w-100 h-100 d-block d-block"&gt; &lt;source height="550" media="(min-width: 769px)" srcset="images/homepage/promo-banner-desktop.jpg?$staticlink$" width="1400" /&gt; &lt;img alt="Body Care" class="w-100 h-100 d-block bug-report-banner-img" height="450" src="images/homepage/promo-banner-desktop.jpg?$staticlink$" title="" width="1400" /&gt; &lt;/picture&gt; &lt;/a&gt;&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="security-bug-report-thankyou">
+        <display-name xml:lang="x-default">Security Bug Report Thankyou text</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p class="h-font-size--40" style="line-height:normal;"&gt;Thank you for expressing
+	&lt;br/&gt;interest in working with Bath and Body Works&lt;/p&gt;
+&lt;div class="b2b-contact-response"&gt;
+	&lt;p&gt;We value your inquiry and are excited about the potential of collaborating with you.&lt;/p&gt;
+	&lt;p&gt;Your request for a business proposal is being given the highest priority. We understand the significance of timeand are committed to delivering exceptional service. Expect to receive a comprehensive response as soon as possible.&lt;/p&gt;
+	&lt;p class="confirmation-note"&gt;If you have any additional informaton, questions or specific
+		&lt;br/&gt;preferences, please feel free to share them with us at &lt;a href="gift@bathandbodyworks.com" class="h-clr--blue"&gt;gift@bathandbodyworks.com&lt;/a&gt;
+	&lt;/p&gt;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
     </content>	
 
 </library>
