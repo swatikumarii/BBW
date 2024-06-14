@@ -2,7 +2,7 @@
     <div class="modal-dialog remove-lintItem-dialog" role="document">
         <div class="modal-content remove-content border-0">
             <div class="modal-header remove-confirmation-header border-0 p-0">
-            <h5 class="modal-title h-font-size--18 h-clr--black-3 m-0 h-fw--semibold remove-header">
+            <h5 class="modal-title h-font-size-md--18 h-font-size-sm--18 h-font-size--16 h-clr--black-3 m-0 h-fw--semibold remove-header">
                 ${Resource.msg('normal.delete.product.confirmation.modal.msg1', 'giftcards', null)}</h5>
                 <button type="button" class="close close-icon-btn pull-right" data-dismiss="modal">
                     <span aria-hidden="true">
@@ -12,20 +12,20 @@
                 </button>
                 <p class="product-to-remove"></p>
             </div>
-            <div class="modal-body delete-confirmation-body p-0 mt-2">
+            <div class="modal-body delete-confirmation-body p-0 mt-3">
                 <div class="col-12 p-0">
-                    <span class="modal-content-data login-para  h-clr--black-1 h-font-size--16 ">${Resource.msg('normal.delete.product.confirmation.modal.msg2','giftcards',null)}</span>
+                    <span class="modal-content-data login-para  h-clr--black-1 h-font-size-md--16 h-font-size-sm--16 h-font-size--14">${Resource.msg('normal.delete.product.confirmation.modal.msg2','giftcards',null)}</span>
                     <p class="product-to-remove"></p>
                 </div>
             </div>
-            <div class="modal-footer border-0 p-0">
-                <button type="button" class="btn delete-lineitem-confirmation-btn btn-primary  h-font-size--16"
+            <div class="modal-footer border-0 p-0 m-0 justify-content-md-end justify-content-center">
+                <button type="button" class="h-font-size-sm--16 btn delete-lineitem-confirmation-btn btn-primary h-font-size-md--16 h-font-size--14 m-0 mr-1"
                     data-dismiss="modal"
                     data-pid="${product.id}"
                     data-addtocarturl="${pdict.addToCartUrl}"
                     data-action="${pdict.removeLineItemURL}"
                 >${Resource.msg('button.confirm.remove','giftcards',null)}</button>
-                <button type="button" class="btn btn-primary close-btn btn-secondary h-clr--gray h-font-size--16" data-dismiss="modal" data-oid="${pdict.order.orderNumber}"
+                <button type="button" class="h-font-size-sm--16 btn btn-primary close-btn btn-secondary h-clr--gray h-font-size-md--16 h-font-size--14 m-0" data-dismiss="modal" data-oid="${pdict.order.orderNumber}"
                     data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
                     data-action="${URLUtils.url('Giftcard-RemoveLineItems')}">${Resource.msg('button.deny.remove', 'giftcards', null)}</button>
             </div>
