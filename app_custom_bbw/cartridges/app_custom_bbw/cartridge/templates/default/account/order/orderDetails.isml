@@ -186,9 +186,7 @@
 
                     <!--- Order Discount --->
                     <isif condition="${pdict.order.totals.totalDiscount.value != 0}">
-                        <div class="row order-discount ${pdict.order.totals.totalDiscount.value === 0 ? "
-                                                   hide - order - discount " : "
-                                                   "}">
+                        <div class="row order-discount ${pdict.order.totals.totalDiscount.value === 0 ? "hide-order-discount" : ""}">
                             <div class="col-6 start-lines">
                                 <p class="order-receipt-label"><span>${Resource.msg('label.order.savings', 'common', null)}</span></p>
                             </div>
