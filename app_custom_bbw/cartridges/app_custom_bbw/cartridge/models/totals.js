@@ -228,6 +228,9 @@ function totals(lineItemContainer) {
         this.discounts = getDiscounts(lineItemContainer);
         this.pendingTotal = getPendingTotal(lineItemContainer);
         this.discountsHtml = getDiscountsHtml(this.discounts);
+        this.salesTax = getTotals(
+            lineItemContainer.adjustedMerchandizeTotalTax
+        );
     } else {
         this.pendingTotal = '-';
     }

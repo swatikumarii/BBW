@@ -111,7 +111,7 @@
             </isif>
         </div>
         <div class="col-5">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sales-tax">${pdict.order.totals.totalTax}</p>
+            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sales-tax">${pdict.order.totals.salesTax}</p>
         </div>
     </div>
 </isif>
