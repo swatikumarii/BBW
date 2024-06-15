@@ -409,11 +409,11 @@
                         </div>
                         <div class="col-md-2" style=" margin-left: 35px;">
                             <p style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;"
-                                class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive">
-                                <isif condition="${pdict.order.totals.totalShippingCost === 0}">
-                                    ${Resource.msg('label.free.price', 'cart', null)}
+                                class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive 1">
+                                <isif condition="${!pdict.order.hasFreeShipping}">
+                                        ${pdict.order.totals.totalShippingCost}</p>
                                 <iselse/>
-                                    ${pdict.order.totals.totalShippingCost}
+                                        ${Resource.msg('label.free.price', 'cart', null)}</p>
                                 </isif>
                             </p>
                         </div>

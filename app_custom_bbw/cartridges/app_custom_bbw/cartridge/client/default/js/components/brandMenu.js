@@ -84,7 +84,6 @@ if (layout.isDesktop() || layout.isTablet()) {
     var $level1li = $('.level-1-link');
 
     $level1li.on('mouseenter', function () {
-        console.log('level1limouseenter');
         clearTimeout(timeoutId);
         var lvl1liElement = this;
         menuTimeOut2 =setTimeout(function () {
@@ -378,7 +377,6 @@ module.exports = function () {
         .on('mouseenter', function (e) {
             e.preventDefault();
             clearTimeout(timeoutId);
-            console.log('dropdownmouseenter');
             if (isDesktop(this)) {
                 clearTimeout(timeoutId);
                 var eventElement = this;
@@ -409,7 +407,6 @@ module.exports = function () {
             e.preventDefault();
             clearTimeout(menuTimeOut);
             clearTimeout(menuTimeOut2);
-            console.log('dropdownmouseleave');
             var self = $(this);
             if (isDesktop(this) && self.hasClass('level-1-li')) {
                 timeoutId = setTimeout(function () {

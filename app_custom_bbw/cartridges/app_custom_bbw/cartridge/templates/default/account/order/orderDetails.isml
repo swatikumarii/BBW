@@ -205,6 +205,27 @@
                         </div>
                     </div>
                 </isif>
+                <!--- Shipping Tax --->
+                <isif condition="${pdict.order.totals.totalShippingCost}">
+                    <isif condition="${!pdict.order.hasFreeShipping}">
+                        <div class="row leading-lines shipping-item">
+                            <div class="col-6 start-lines">
+                                <isif condition="${shippingExclusiveTax}">
+                                    <p class="order-receipt-label">${Resource.msg('label.shipping.and.handling.tax', 'cart', null)}</p>
+                                <iselse/>
+                                    <p class="order-receipt-label">
+                                        ${Resource.msg('label.shipping.and.handling.tax.inclusive', 'cart', null)}</p>
+                                </isif>
+                            </div>
+                            <div class="col-6 end-lines">
+                                <p class="text-right">
+                                    <span class="shipping-total-tax">
+                                        ${pdict.order.totals.shippingTotalTax}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </isif>
+                </isif>
                 <!--- Sales Tax --->
                 <isif condition="${showSalesTaxes}">
                     <div class="row leading-lines shipping-item">
