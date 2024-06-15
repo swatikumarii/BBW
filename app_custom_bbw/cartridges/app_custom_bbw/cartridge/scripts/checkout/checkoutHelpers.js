@@ -4,6 +4,8 @@ var base = module.superModule;
 
 var PaymentInstrument = require('dw/order/PaymentInstrument');
 var PaymentMgr = require('dw/order/PaymentMgr');
+var BasketMgr = require('dw/order/BasketMgr');
+var Transaction = require('dw/system/Transaction');
 var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
 var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
 var ContentMgr = require('dw/content/ContentMgr');
@@ -104,7 +106,34 @@ function sendConfirmationEmail(order, locale) {
     emailHelpers.sendEmail(emailObj, 'checkout/confirmation/confirmationEmail', orderObject);
 }
 
+/**
+ * Copies a CustomerAddress to a Basket as its Billing Address
+ * @param {dw.customer.CustomerAddress} address - The customer address
+ */
+function copyBillingAddressToBasket(address) {
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var billingAddress = currentBasket && currentBasket.billingAddress;
+
+    Transaction.wrap(function () {
+        if (!billingAddress) {
+            billingAddress = currentBasket.createBillingAddress();
+        }
+
+        billingAddress.setFirstName(address.firstName);
+        billingAddress.setLastName(address.lastName);
+        billingAddress.setAddress1(address.address1);
+        billingAddress.setAddress2(address.address2);
+        billingAddress.setCity(address.city);
+        billingAddress.setPostalCode(address.postalCode);
+        billingAddress.setStateCode(address.stateCode);
+        var countryCode = address.countryCode;
+        billingAddress.setCountryCode(countryCode.value);
+        billingAddress.setPhone(address.phone);
+    });
+}
+
 base.validatePayment = validatePayment;
 base.sendConfirmationEmail = sendConfirmationEmail;
+base.copyBillingAddressToBasket = copyBillingAddressToBasket;
 
 module.exports = base;
