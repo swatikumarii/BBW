@@ -307,7 +307,7 @@
             </tbody>
         </table>
     </div>
-    <div style=text-align:end;">
+    <div style="text-align:end;">
         <table style="table-layout: fixed; width: 100%; border-collapse: collapse; max-width:800px; margin:15px auto; font-family: SourceSansPro, Arial, sans-serif;">
             <tbody>
                 <isset name="totalExclusiveTax"
@@ -352,33 +352,35 @@
                     </div>
                 </isif>
                 <iscomment> Order Discount </iscomment>
-                <isif condition="${pdict.order.totals.shippingLevelDiscountTotal.value === 0}">
-                    <div class="row order-discount" style="display:none;">
-                        <div class="col-md-10">
-                            <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
-                                <strong>${Resource.msg('label.order.savings', 'common', null)}:</strong>
-                            </p>
-                        </div>
-                        <div class="col-md-2" style=" margin-left: 35px;">
-                            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold order-discount-total"
-                                style=" margin-bottom: 0px;">
-                                ${pdict.order.totals.totalDiscountFormatted}</p>
-                        </div>
-                    </div>
-
-                <iselse/>
-                    <div class="row order-discount" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                <isif condition="${pdict.order.totals.totalDiscount.value != 0}">
+                    <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                         <div class="col-md-10">
                             <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
                                 <strong>${Resource.msg('label.order.savings', 'common', null)}:</strong>
                             </p>
                         </div>
-                        <div class="col-md-2" style=" margin-left: 35px;">
-                            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold order-discount-total"
+                        <div class="col-md-2" style=" margin-left: 31px;">
+                            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sub-total"
                                 style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
                                 ${pdict.order.totals.totalDiscountFormatted}</p>
                         </div>
                     </div>
+                    <isif condition="${pdict.order.totals.allDiscounts.length > 0}">
+                        <isloop items="${pdict.order.totals.allDiscounts}" var="discount" status="loopstatus">
+                            <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                                <div class="col-md-10">
+                                    <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                        <strong>${discount.promotion}:</strong>
+                                    </p>
+                                </div>
+                                <div class="col-md-2" style=" margin-left: 31px;">
+                                    <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sub-total"
+                                        style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                        ${discount.discount}</p>
+                                </div>
+                            </div>
+                        </isloop>
+                    </isif>
                 </isif>
 
                 <iscomment> Shipping Charge </iscomment>
@@ -409,7 +411,7 @@
                         </div>
                         <div class="col-md-2" style=" margin-left: 35px;">
                             <p style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;"
-                                class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive 1">
+                                class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive">
                                 <isif condition="${!pdict.order.hasFreeShipping}">
                                         ${pdict.order.totals.totalShippingCost}</p>
                                 <iselse/>
@@ -419,7 +421,6 @@
                         </div>
                     </div>
                 </isif>
-
 
                 <iscomment> Shipping Tax </iscomment>
                 <isif condition="${showShippingHandlingTaxes}">

@@ -54,7 +54,7 @@
     <div class="modal-dialog merge-cart-dialog" role="document">
         <div class="modal-content merge-cart-content">
             <div class="modal-header merge-cart-header border-0 p-0">
-               <h2 class="modal-title h-font-size--18 h-clr--black-3 m-0 h-fw--semibold "> ${Resource.msg('merge.cart.header', 'login', null)} </h2>
+               <h2 class="modal-title h-font-size-md--18 h-font-size-sm--18 h-font-size--16 h-clr--black-3 m-0 h-fw--semibold "> ${Resource.msg('merge.cart.header', 'login', null)} </h2>
                 <button type="button" class="close close-icon-btn modal-close-icon" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">
                         <img src="/on/demandware.static/Sites-bbw-au-Site/-/default/dwf607c6e4/images/login/cross.svg" alt="cross icon"
@@ -64,7 +64,7 @@
             </div>
             <div class="modal-body merge-item-body p-0 mt-2">
                 <div class="col-12 p-0">
-                    <span class="merge-item-para h-clr--black-1 h-font-size--16 ">
+                    <span class="merge-item-para h-clr--black-1 h-font-size-md--16 h-font-size-sm--16 h-font-size--14 m-0 ">
                         ${Resource.msg('merge.cart.para', 'login', null)}</span>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                 <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-DoSetNewPassword')}" />
                 <input type="hidden" class="cart-merge-url" value="${URLUtils.url('Cart-Merge')}">
                 <input type="hidden" class="redirect-url" value="${pdict.loginRedirectUrl}">
-                <button type="button" class="merge btn h-font-size--16 mr-3" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="merge btn h-font-size-md--16 h-font-size-sm--16 h-font-size--14 m-0 mr-3" data-dismiss="modal" aria-label="Close">
                     ${Resource.msg('merge.cart.button1', 'login', null)}
                 </button>
                 <button type="button" class="dont-merge btn btn-secondary h-font-size--16 h-clr--gray" data-dismiss="modal" aria-label="Close">
