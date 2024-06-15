@@ -2,8 +2,10 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addCss('/css/login.css');
+        assets.addCss('/css/pages/shopbyingredient/b-shopbyfragrance.css');
         assets.addJs('/js/fragranceName.js');
     </isscript>
+   <div class="container">
     <div class="row">
         <div class="col-md-8 offset-md-2 mt-5">
             <h2 class="subtitle ml-2">${Resource.msg('ingredient.name.title', 'fragrance', null)}</h2>
@@ -38,9 +40,10 @@
                     </div>
                 </div>
                 <div class="noresult" id="noresult">${Resource.msg('ingredient.name.noresult', 'fragrance', null)}</div>
-            <iselse>
-                <div class="nofragrance">${Resource.msg('ingredient.name.empty', 'fragrance', null)}</div>
+                <iselse>
+                    <div class="nofragrance">${Resource.msg('ingredient.name.empty', 'fragrance', null)}</div>
             </isif>
         </div>
     </div>
+   </div>
 </isdecorate>
