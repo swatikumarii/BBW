@@ -84,6 +84,7 @@ if (layout.isDesktop() || layout.isTablet()) {
     var $level1li = $('.level-1-link');
 
     $level1li.on('mouseenter', function () {
+        console.log('level1limouseenter');
         clearTimeout(timeoutId);
         var lvl1liElement = this;
         menuTimeOut2 =setTimeout(function () {
@@ -104,7 +105,7 @@ if (layout.isDesktop() || layout.isTablet()) {
     
             // Calculate the total height of all li elements in the current ul
             $ul.find('li').each(function () {
-                totalLiHeight += $(lvl1liElement).height();
+                totalLiHeight += $(this).height();
             });
     
             var containerHeight = $(lvl1liElement).parent().find('.level-2-ul').height();
@@ -133,7 +134,7 @@ if (layout.isDesktop() || layout.isTablet()) {
                 .find('.menu-right')
                 .css('left', $level2liWidth + $menuWrapLevel3Width);
             window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
-        }, 500);
+        }, 350);
     });
 
     $level2li.hover(function (e) {
@@ -333,6 +334,12 @@ module.exports = function () {
             return $(this).parent();
         }
     );
+    // $('.dropdown:not(.disabled) [data-toggle="dropdown"]')
+    //     .on('mouseenter', function (e) {
+    //         if (isDesktop(this)) {
+
+    //         }
+    //     });
 
     $('.dropdown:not(.disabled) [data-toggle="dropdown"]')
         .on('click', function (e) {
@@ -371,7 +378,7 @@ module.exports = function () {
         .on('mouseenter', function (e) {
             e.preventDefault();
             clearTimeout(timeoutId);
-
+            console.log('dropdownmouseenter');
             if (isDesktop(this)) {
                 clearTimeout(timeoutId);
                 var eventElement = this;
@@ -394,7 +401,7 @@ module.exports = function () {
                     $(eventElement).parent().addClass('show');
                     $(eventElement).siblings('.dropdown-menu').addClass('show');
                     $(eventElement).attr('aria-expanded', 'true');
-                }, 500);
+                }, 350);
             }
         })
         .parent()
@@ -402,18 +409,25 @@ module.exports = function () {
             e.preventDefault();
             clearTimeout(menuTimeOut);
             clearTimeout(menuTimeOut2);
+            console.log('dropdownmouseleave');
             var self = $(this);
             if (isDesktop(this) && self.hasClass('level-1-li')) {
                 timeoutId = setTimeout(function () {
-                    $(self).removeClass('show');
-                    $(self).children('.dropdown-menu').removeClass('show');
-                    $(self)
-                        .children('.nav-link')
-                        .attr('aria-expanded', 'false');
                     $('.level-2-li').removeClass('show');
                     $('.menu-wrap-level-3').removeClass('show');
                     $('.level-1-li.muted').removeClass('muted');
-                }, 700);
+                    $('.navbar-nav > li.show').each(function () {
+                        if($(this).hasClass('show')){
+                            $(this).removeClass('show');
+                            $(this)
+                                .children('.dropdown-menu')
+                                .removeClass('show');
+                            $(this)
+                                .children('.nav-link')
+                                .attr('aria-expanded', 'false');
+                        }
+                    });
+                }, 600);
             }
         });
 
