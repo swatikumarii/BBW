@@ -219,6 +219,7 @@ footer {
                     .ds-link {
                         letter-spacing: 0.015em;
                         color: colour(gray, 4);
+                        line-height: 1.25rem;
 
                         &:hover {
                             text-decoration: underline;
@@ -236,6 +237,7 @@ footer {
                     letter-spacing: 0.015em;
                     color: colour(gray, 4);
                     text-align: center;
+                    line-height: 1.285714286;
                 }
             }
         }
