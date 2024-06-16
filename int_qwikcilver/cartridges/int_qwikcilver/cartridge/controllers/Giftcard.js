@@ -332,6 +332,7 @@ server.post('RemoveGiftCard', function (req, res, next) {
  */
 server.post('CheckBalance', function (req, res, next) {
     var qwikcilverApis = require('*/cartridge/scripts/service/qwikcilver/apis');
+    var Site = require('dw/system/Site');
     var cardNumber = req.form.cardNo;
     var cardPin = req.form.cardPin;
     if (cardNumber && cardPin) {
@@ -360,7 +361,7 @@ server.post('CheckBalance', function (req, res, next) {
             if (giftCardAPIResultObj.Cards && giftCardAPIResultObj.Cards.length > 0) {
                 res.json({
                     error: false,
-                    cardBalance: giftCardAPIResultObj.Cards[0].Balance,
+                    cardBalance: Site.getCurrent().getCurrencyCode() + ' ' + giftCardAPIResultObj.Cards[0].Balance,
                     cardStatus: giftCardAPIResultObj.Cards[0].CardStatus
                 });
                 return next();
