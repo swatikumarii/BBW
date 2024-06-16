@@ -587,10 +587,12 @@ var history = window.history;
              * Previous State
              */
             handlePrevStage: function () {
-                if (members.currentStage > 0) {
+                if (members.currentStage > 1) {
                     // move state back
                     members.currentStage--;
                     updateUrl(members.currentStage);
+                } else {
+                    history.back();
                 }
 
                 $(plugin).attr('data-checkout-stage', checkoutStages[members.currentStage]);
