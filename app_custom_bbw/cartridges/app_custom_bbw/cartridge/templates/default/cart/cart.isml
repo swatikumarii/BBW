@@ -118,6 +118,10 @@
                     </div>
                     <div class="cartTotalsWrap">
                         <div class="cart-totals-bg">
+                            <div class="loader">
+                                <div class="h-visually-hidden" role="alert">Just a second, items loading</div>
+                                <div class="spinner"></div>
+                            </div>
                             <isinclude template="cart/cartTotals" />
                             <isinclude template="cart/checkoutButtons" />
                         </div>
