@@ -117,7 +117,7 @@
                             description="This slot will be rendered on the bottom part of cart page below promocode section" />
                     </div>
                     <div class="cartTotalsWrap">
-                        <div class="cart-totals-bg">
+                        <div class="cart-totals-bg position-relative">
                             <div class="loader">
                                 <div class="h-visually-hidden" role="alert">Just a second, items loading</div>
                                 <div class="spinner"></div>
