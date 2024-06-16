@@ -33,7 +33,7 @@
         <p class="mb-0">${Resource.msg('message.order.failed', 'order', null)} <p>
     </div>
 <iselse>
-    <div class="notification-toast confirmation-msg">
+    <div class="success-toast confirmation-msg">
         ${Resource.msg('purchase.label.message', 'confirmation', null)}
     </div>
 </isif>

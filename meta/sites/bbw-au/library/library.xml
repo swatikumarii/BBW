@@ -735,6 +735,51 @@
         </folder-links>
     </content>
 
+     <content content-id="checkout.customer.seo">
+        <display-name xml:lang="x-default">Checkout Customer Seo</display-name>
+        <description xml:lang="x-default">Checkout Customer Seo</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Checkout</page-title>
+            <page-description xml:lang="x-default">Checkout</page-description>
+            <page-keywords xml:lang="x-default">Checkout</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="checkout.payment.seo">
+        <display-name xml:lang="x-default">Checkout Payment Seo</display-name>
+        <description xml:lang="x-default">Checkout Payment Seo</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Checkout</page-title>
+            <page-description xml:lang="x-default">Checkout</page-description>
+            <page-keywords xml:lang="x-default">Checkout</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="checkout.placeorder.seo">
+        <display-name xml:lang="x-default">Checkout Placeorder Seo</display-name>
+        <description xml:lang="x-default">Checkout Placeorder Seo</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Checkout</page-title>
+            <page-description xml:lang="x-default">Checkout</page-description>
+            <page-keywords xml:lang="x-default">Checkout</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
 	<content content-id="checkout.shipping.seo">
         <display-name xml:lang="x-default">Checkout Shipping Seo</display-name>
         <online-flag>true</online-flag>
@@ -742,6 +787,21 @@
         <page-attributes>
             <page-title xml:lang="x-default">Checkout</page-title>
             <page-description xml:lang="x-default">Checkout</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="checkout.submitted.seo">
+        <display-name xml:lang="x-default">Checkout Submitted Seo</display-name>
+        <description xml:lang="x-default">Checkout Submitted Seo</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Checkout</page-title>
+            <page-description xml:lang="x-default">Checkout</page-description>
+            <page-keywords xml:lang="x-default">Checkout</page-keywords>
         </page-attributes>
         <folder-links>
             <classification-link folder-id="seo-title"/>
@@ -1073,9 +1133,6 @@
 &#13;
 		&lt;/li&gt;&#13;
 		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Order-Status')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Order Tracking&lt;/a&gt;&#13;
-&#13;
-		&lt;/li&gt;&#13;
-		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('CorporateGifting-Landing')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Corporate Sales &amp; Gifts&lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
 		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Contact Us&lt;/a&gt;&#13;
@@ -1442,7 +1499,7 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="account-nav-help text-center"&gt;&#13;
     &lt;a href="$url('Page-Show', 'cid', 'help-faq-dashboard')$" class="h-clr--gray h-font-size--14 m-0 question-tag"&gt;Questions?&lt;/a&gt;&#13;
-    &lt;p class="m-0"&gt;We’re here for you! Call us at 1-800-57-6972.&lt;/p&gt;&#13;
+    &lt;p class="m-0"&gt;We're here for you! Call us at 1800-576-972.&lt;/p&gt;&#13;
 &lt;/div&gt;&#13;
 &#13;
 &lt;style&gt;&#13;
@@ -1495,12 +1552,16 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;hr/&gt;&#13;
 &lt;div&gt;&#13;
-	&lt;p&gt;Bath &amp; Body Works takes pride in its entrepreneurial heritage of more than 80 years. Having grown and evolved from a humble trading store, the Bath &amp; Body hallmark is now all about creating world-class retail environments that offer compelling and luxurious shopping experiences.&lt;/p&gt;&#13;
-	&lt;p&gt;We are the ultimate brand for brands in Asia, bringing to the region some of the world’s most desired and beloved brands and introducing cutting-edge retail concepts.&lt;/p&gt;&#13;
-	&lt;p&gt;Among our business priorities are sustainable growth and the desire to create value out of our people and the brands we represent.&lt;/p&gt;&#13;
-	&lt;blockquote&gt;&#13;
-		&lt;p&gt;Fashion a career with us: The key to our success is in being a fully integrated specialist with in-house expertise in all aspects of the retail industry, enabling us to provide end-to-end solutions to our brand partners and stakeholders. There’s always something exciting taking place or in the works and you get to take part in it.&lt;/p&gt;&#13;
-	&lt;/blockquote&gt;&#13;
+	&lt;p&gt;Join our Bath &amp; Body Works team! We make the world a happier, brighter place through the power of fragrance.&lt;/p&gt;&#13;
+	&lt;p&gt;This belief is the cornerstone of our brand and the essence of everything we do. Wondering why we stand out?&lt;/p&gt;&#13;
+	&lt;p class="mb-0"&gt;&lt;strong class="h-fw--semibold"&gt;Customer-Centric:&lt;/strong&gt; We care deeply about our customers and strive to bring joy into their everyday lives through delightful fragrances.&lt;/p&gt;&#13;
+	&lt;p class="mb-0"&gt;&lt;strong class="h-fw--semibold"&gt;Inclusive Culture:&lt;/strong&gt;  Our commitment to diversity, equity, and inclusion shapes our vibrant and welcoming culture.&lt;/p&gt;&#13;
+	&lt;p&gt;&lt;strong class="h-fw--semibold"&gt;Exceptional Experiences: &lt;/strong&gt;  We’re dedicated to creating exceptional experiences and products that uplift and inspire, making every shopping experience memorable!&lt;/p&gt;&#13;
+	&lt;p&gt;We’re passionate about making a positive impact on our communities and the planet by championing sustainability and&#13;
+	happiness, we aim to ensure a brighter future for everyone. Are you ready to make a difference? Become a part of our&#13;
+	dynamic, happy team and help us spread joy through fragrance.&lt;/p&gt;&#13;
+	&lt;p&gt;&#13;
+	Let’s make the world a happier place, one fragrance at a time! &lt;/p&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
@@ -3284,7 +3345,7 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
     &lt;h1 class="m-font-justlovely--normal h-clr--pink h-font-size--80 mt-5 mb-3 pt-5"&gt;Whoops! We couldn't find&#13;
         the page!&lt;/h1&gt;&#13;
     &lt;p class="h-clr--black-3 h-font-size--20 mb-4"&gt;This page does not exist or has been removed &lt;br /&gt;&#13;
-        Looking for something in particular? Explore our other pages &lt;/p&gt;&#13;
+        Looking for something in particular? Explore our other pages! &lt;/p&gt;&#13;
     &lt;div&gt;&#13;
         &lt;a  href="$url('Search-Show', 'cgid', 'body-care')$" &gt;&#13;
             &lt;button type="button" class="edit text-uppercase"&gt;&#13;
@@ -4601,7 +4662,7 @@ min-height: 35px;&#13;
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="login-modal-section"&gt;&#13;
 	&lt;h4 class="h-clr--pink h-font-size--16 h-fw--bold"&gt;Reset your password&lt;/h4&gt;&#13;
-	&lt;p class="h-font-size--16 login-para h-clr--gray "&gt;If you previously had an account with us, you will ned to reset your password to continue using our new website. If you have updated your password, please continue to login.&lt;/p&gt; &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
+	&lt;p class="h-font-size--16 login-para h-clr--gray "&gt;If you previously had an account with us, you will need to reset your password to continue using our new website. If you have updated your password, please continue to login.&lt;/p&gt; &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
        Reset Password&#13;
     &lt;/a&gt;&#13;
 &#13;

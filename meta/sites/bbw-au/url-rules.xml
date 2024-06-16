@@ -3,7 +3,7 @@
     <general-settings>
         <lower-case-urls>true</lower-case-urls>
         <blank-substitute>-</blank-substitute>
-        <character-replacements-enabled>false</character-replacements-enabled>
+        <character-replacements-enabled>true</character-replacements-enabled>
         <character-replacements-for-page-url-enabled>true</character-replacements-for-page-url-enabled>
     </general-settings>
     <category-rule>[ category-path, [ attribute, ID ], / ]</category-rule>
@@ -38,12 +38,12 @@
         <pipeline-alias pipeline="Fragrance-Show">shop-by-fragrance</pipeline-alias>
         <pipeline-alias pipeline="Careers-Show">careers</pipeline-alias>
         <pipeline-alias pipeline="Checkout-Begin">checkout-begin</pipeline-alias>
-        <pipeline-alias pipeline="Login-CreateAccount">registration/user-registration</pipeline-alias>
+        <pipeline-alias pipeline="Login-CreateAccount">sign-up</pipeline-alias>
         <pipeline-alias pipeline="Address-List">saved-address</pipeline-alias>
         <pipeline-alias pipeline="Fragrance-Ingredient">ingredient</pipeline-alias>
         <pipeline-alias pipeline="Wishlist-Show">wishlist</pipeline-alias>
         <pipeline-alias pipeline="Order-History">orders-list</pipeline-alias>
-        <pipeline-alias pipeline="Login-Show">registration/login</pipeline-alias>
+        <pipeline-alias pipeline="Login-Show">sign-in</pipeline-alias>
         <pipeline-alias pipeline="Search-Show">search</pipeline-alias>
         <pipeline-alias pipeline="Stores-Find">store-locator</pipeline-alias>
         <pipeline-alias pipeline="Order-Status">track-order</pipeline-alias>
@@ -64,6 +64,16 @@
     </pipeline-aliases>
     <pipeline-trailing-slash>false</pipeline-trailing-slash>
     <pipeline-perform-redirect>false</pipeline-perform-redirect>
+    <character-replacements xml:lang="x-default">
+        <character-replacement>
+            <character>&amp;</character>
+            <replacement>and</replacement>
+        </character-replacement>
+        <character-replacement>
+            <character>'</character>
+            <replacement/>
+        </character-replacement>
+    </character-replacements>
     <search-refinement-url-settings>
         <position>after</position>
         <segment-delimiter>slash</segment-delimiter>
