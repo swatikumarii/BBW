@@ -146,3 +146,6 @@
 <isinclude template="popups/popupsGlobal" />
 <isinclude template="components/footer/footerScripts" />
 <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=${dw.system.Site.getCurrent().getCustomPreferenceValue('mapAPI')}&libraries=places">
+        </script>
