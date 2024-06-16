@@ -1135,9 +1135,6 @@
 		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Order-Status')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Order Tracking&lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
-		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('CorporateGifting-Landing')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Corporate Sales &amp; Gifts&lt;/a&gt;&#13;
-&#13;
-		&lt;/li&gt;&#13;
 		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Contact Us&lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
