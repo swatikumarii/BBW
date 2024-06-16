@@ -335,6 +335,31 @@ server.post('CheckBalance', function (req, res, next) {
     var Site = require('dw/system/Site');
     var cardNumber = req.form.cardNo;
     var cardPin = req.form.cardPin;
+    var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
+    var isReCaptchaEnable = Site.getCurrent().getCustomPreferenceValue(
+        'enableGoogleRecaptcha'
+    );
+    // TODO: Remove check once captcha done on checkout balance check
+    var landingPage = req.httpParameterMap.get('landingPage').booleanValue;
+    if (isReCaptchaEnable && landingPage) {
+        var recaptchaResponse = req.httpParameterMap
+            .get('g-recaptcha-response')
+            .getStringValue();
+
+        var pageScore = verifyCaptchaHelper.pageScore('checkBalance');
+        var verifyCaptcha = verifyCaptchaHelper.verifyGoogleCaptcha(
+            recaptchaResponse,
+            pageScore
+        );
+        if (!verifyCaptcha) {
+            res.json({
+                error: true,
+                msg: Resource.msg('error.message.recaptcha', 'common', null)
+            });
+            this.emit('route:Complete', req, res);
+            return;
+        }
+    }
     if (cardNumber && cardPin) {
         var giftCardAPIResult = qwikcilverApis.validateGiftCard(cardNumber, cardPin);
         if (giftCardAPIResult && giftCardAPIResult.status === 'OK') {
