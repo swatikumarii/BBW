@@ -108,7 +108,7 @@ $(document).ready(function () {
                     if (data.noPendingAmount) {
                         $('.giftcard-full-redemption')
                             .empty()
-                            .append(data.noPendingAmount);
+                            .append(data.noPendingAmount).addClass('mt-4 p-2');
                         $('.add-giftcard-section').removeClass('show');
                         $('.add-giftcard-header').hide();
                         $('.payment-options-heading').hide();
@@ -116,7 +116,7 @@ $(document).ready(function () {
                     if (data.success) {
                         $('.giftcard-partial-redemption')
                             .empty()
-                            .append(data.success);
+                            .append(data.success).addClass('mt-4 p-2');
                     }
 
                     if (data.basketModel && data.basketModel.totals) {
