@@ -75,7 +75,8 @@
 
         .cartDetailsHeader {
             .cartDetailsHeading {
-                display: grid;
+                display: flex;
+                justify-content: center;
                 align-items: center;
                 margin: 10px 0 0;
                 min-height: 35px;
@@ -86,6 +87,10 @@
                 line-height: 20px;
                 letter-spacing: 0.1px;
                 font-weight: 700;
+
+                .cart-num-items {
+                    padding-right: 3px;
+                }
             }
 
             .cartDetailsContent {
@@ -434,6 +439,7 @@
                     line-height: 20px;
                     padding-top: 10px;
                     color: colour(black, 1);
+                    text-align: center;
 
                     .value-dash {
                         display: block;
@@ -445,8 +451,9 @@
                     }
 
                     @include media-down(sm) {
-                        width: 25%;
                         text-align: left;
+                        width: 35%;
+                        margin-left: 38px;
                     }
                 }
 
@@ -461,8 +468,9 @@
                     color: $clr-black-1;
 
                     @include media-down(sm) {
-                        width: 25%;
                         text-align: left;
+                        width: 35%;
+                        margin-left: 38px;
                     }
 
                     .line-item-total-price-amount {
@@ -564,41 +572,49 @@
                         margin: 0 -15px;
                     }
 
-                    p {
-                        line-height: 20px;
-                        letter-spacing: 0.2px;
-
+                    .order-discount {
                         &.accordion-item.collapsed {
-                            &::before {
-                                background: url("../images/UI-Carat.svg") 50%;
-                                background-repeat: no-repeat;
-                                background-size: 1.25rem;
-                                content: "";
-                                height: 12px;
-                                position: absolute;
-                                left: 74px;
-                                transform: rotate(0deg);
-                                transition: all 0.5s ease-out;
-                                width: 12px;
-                                top: 4px;
+                            .cart-saving {
+                                &::before {
+                                    background: url("../images/UI-Carat.svg")
+                                        50%;
+                                    background-repeat: no-repeat;
+                                    background-size: 1.25rem;
+                                    content: "";
+                                    height: 12px;
+                                    position: absolute;
+                                    left: 74px;
+                                    transform: rotate(0deg);
+                                    transition: all 0.5s ease-out;
+                                    width: 12px;
+                                    top: 4px;
+                                }
                             }
                         }
 
                         &.accordion-item {
-                            &::before {
-                                background: url("../images/UI-Carat.svg") 50%;
-                                background-repeat: no-repeat;
-                                background-size: 1.25rem;
-                                content: "";
-                                height: 12px;
-                                position: absolute;
-                                left: 74px;
-                                transition: all 0.5s ease-out;
-                                width: 12px;
-                                top: 4px;
-                                transform: rotate(180deg);
+                            .cart-saving {
+                                &::before {
+                                    background: url("../images/UI-Carat.svg")
+                                        50%;
+                                    background-repeat: no-repeat;
+                                    background-size: 1.25rem;
+                                    content: "";
+                                    height: 12px;
+                                    position: absolute;
+                                    left: 74px;
+                                    transition: all 0.5s ease-out;
+                                    width: 12px;
+                                    top: 4px;
+                                    transform: rotate(180deg);
+                                }
                             }
                         }
+                    }
+
+                    p {
+                        line-height: 20px;
+                        letter-spacing: 0.2px;
                     }
 
                     .accordion-collapse {
@@ -763,7 +779,7 @@ footer {
 
     @include media-down(sm) {
         left: 19.5% !important;
-        top: -3.4% !important;
+        top: -118px !important;
 
         .arrow {
             top: auto !important;
@@ -807,4 +823,8 @@ footer {
         right: 8px;
         background-size: 0.8125rem;
     }
+}
+
+.coupon-error-message.d-block {
+    padding: 0.5rem 1rem;
 }

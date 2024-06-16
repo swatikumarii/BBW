@@ -127,7 +127,7 @@ function handlePostCartAdd(response) {
         $('.add-to-cart-messages').append(
             '<div class="alert ' +
                 messageType +
-                ' add-to-basket-alert text-center" role="alert">' +
+                ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
                 response.message +
                 '</div>'
         );
@@ -278,12 +278,12 @@ module.exports = $.extend({}, detail, {
             $.ajax({
                 type: 'GET',
                 url: removeGiftPliUrl,
-                success: function (data) {
+                success: function () {
                     $.ajax({
                         type: 'POST',
                         url: addToCartUrl,
                         data: form,
-                        success: function () {
+                        success: function (data) {
                             handlePostCartAdd(data);
                             if ($('.gift-card-form').length > 0) {
                                 $('.gift-card-form')[0].reset();

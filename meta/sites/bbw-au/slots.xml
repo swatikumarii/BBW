@@ -49,7 +49,7 @@ padding: 15px 0;
 	&lt;div class="content-text-wrap mx-auto h-maxwidth-perc--90 position-relative"&gt;
 		&lt;ul class="text-center"&gt;
 			&lt;li class="content-heading mr-2 h-clr--white"&gt;
-				&lt;span class="content-title h-fw--semibold h-text-fz--body text-capitalize"&gt;Exciting news: Our website upgrade is finally here. Enjoy an enhanced shopping experience. Read more &lt;a href="$url('Page-Show', 'cid', 'offers')$"&gt;&lt;span class="content-title text-underline h-text-fz--body "&gt;here&lt;/span&gt;&lt;/a&gt;
+				&lt;span class="content-title h-fw--semibold h-text-fz--body text-capitalize"&gt;Exciting news: Our website upgrade is finally here. Enjoy an enhanced shopping experience.
 				&lt;/span&gt;
 			&lt;/li&gt;
 		&lt;/ul&gt;
@@ -62,14 +62,14 @@ padding: 15px 0;
         </custom-attributes>
     </slot-configuration>
 
-   <slot-configuration slot-id="store-header-banner" context="global" configuration-id="Store-banner" default="true" assigned-to-site="true">
+    <slot-configuration slot-id="store-header-banner" context="global" configuration-id="Store-banner" default="true" assigned-to-site="true">
         <template>slots/html/htmlSlotContainer.isml</template>
         <enabled-flag>true</enabled-flag>
         <content>
             <html>
                 <body xml:lang="x-default">&lt;div class="store-header-banner  h-bg--gray-1 h-width-perc--100"&gt;
 &lt;div class="store-header-wrap h-maxwidth-lg--1400 d-flex justify-content-between align-items-center mx-auto h-px-lg--25 h-px-sm--20 h-px--15 px-lg-0"&gt;
-&lt;div class="store-header d-flex justify-content-between"&gt;&lt;span class="store-text b-text-body-14 h-clr--blue text-capitalize"&gt;New site. Better experience&lt;/span&gt;&lt;/div&gt;
+&lt;div class="store-header d-flex justify-content-between"&gt;&lt;span class="store-text b-text-body-14 h-clr--blue text-capitalize"&gt;New site. Better experience.&lt;/span&gt;&lt;/div&gt;
 
 &lt;div class="rewards-header d-none d-lg-block d-md-block"&gt;&lt;span class="b-text-body-14 text-uppercase h-clr--pink"&gt;&lt;/span&gt;&lt;img alt="Store" width="19px" height="15px" src="header/pink-marker.svg?$staticlink$" title="" /&gt;&lt;a class="h-font-size--14 h-clr--black-1  text-capitalize" href="$url('Stores-Find')$"&gt;Find your nearest store&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;

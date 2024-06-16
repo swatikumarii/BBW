@@ -43,6 +43,10 @@
                     text-decoration: underline;
                 }
             }
+
+            &.search-breadcrumb {
+                color: colour(black, 9);
+            }
         }
 
         li + li::before {

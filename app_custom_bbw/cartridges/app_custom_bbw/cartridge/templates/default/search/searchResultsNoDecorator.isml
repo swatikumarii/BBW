@@ -63,7 +63,7 @@
                         </div>
 
                         <div
-                            class="${pdict.productSearch.isCategorySearch ? 'col-12 col-lg-10 col-md-9' : 'col-12 search-results'}">
+                            class="${!pdict.productSearch.isCategorySearch ? 'col-12 search-results' : (pdict.productSearch.category.id === 's-fragrance' ? 'col-12 fragrance-search-results' : 'col-12 col-lg-10 col-md-9')}">
                             <isinclude template="search/components/categoryBannerTop" />
                             <isinclude template="search/components/categorySlider" />
 

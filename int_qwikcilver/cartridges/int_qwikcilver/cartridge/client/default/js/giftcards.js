@@ -76,15 +76,16 @@ $(document).ready(function () {
                     $('.giftcard-balance-wrap').empty();
                     $('.giftcard-balance-status-wrap').empty();
                 } else if (data.addedCards && data.addedCards.length > 0) {
-                    $('.gift-redeem-card-success').show();
+                    $('.js-gift-redeem-card-success').show();
                     setTimeout(function () {
-                        $('.gift-redeem-card-success').hide();
+                        $('.js-gift-redeem-card-success').hide();
                     }, 5000);
                     var cardArray = [];
                     var addedCardsHTML = '';
+                    var removeBtnLabel=$('.added-cards').data('btn-label');
                     for (var i = 0; i < data.addedCards.length; i++) {
                         var card = data.addedCards[i];
-                        addedCardsHTML += '<span class="added-card d-flex justify-content-between py-2 border-bottom w-100"><span>' + card.cardNo + '</span><span class="h-clr--green-2">' + card.amount + '</span><span class="remove-giftcard-btn" data-cardno="' + card.cardNo + '"> Remove This Card</span></span>';
+                        addedCardsHTML += '<span class="added-card d-flex justify-content-between py-2 border-bottom w-100"><span>' + card.cardNo + '</span><span class="h-clr--green-2 h-fw--semibold">' + card.amount + '</span><span class="remove-giftcard-btn b-link--underlined" data-cardno="' + card.cardNo + '">' + removeBtnLabel + '</span></span>';
                     }
                     $('.added-cards').empty().append(addedCardsHTML);
                     $('#egift-number').val('');
@@ -93,7 +94,7 @@ $(document).ready(function () {
                     if (data.noPendingAmount) {
                         $('.giftcard-full-redemption')
                             .empty()
-                            .append(data.noPendingAmount);
+                            .append(data.noPendingAmount).addClass('mt-4 p-2');
                         $('.add-giftcard-section').removeClass('show');
                         $('.add-giftcard-header').hide();
                         $('.payment-options-heading').hide();
@@ -101,7 +102,7 @@ $(document).ready(function () {
                     if (data.success) {
                         $('.giftcard-partial-redemption')
                             .empty()
-                            .append(data.success);
+                            .append(data.success).addClass('mt-4 p-2');
                     }
 
                     if (data.basketModel && data.basketModel.totals) {
@@ -192,9 +193,10 @@ $(document).ready(function () {
                     }
                     if (data.remainingCards) {
                         var addedCardsHTML = '';
+                        var removeBtnLabel=$('.added-cards').data('btn-label');
                         for (var i = 0; i < data.remainingCards.length; i++) {
                             var card = data.remainingCards[i];
-                            addedCardsHTML += '<span class="added-card d-flex justify-content-between py-2 border-bottom w-100"><span>' + card.cardNo + '</span><span class="h-clr--green-2">' + card.amount + '</span><span class="remove-giftcard-btn" data-cardno="' + card.cardNo + '"> Remove This Card</span></span>';
+                            addedCardsHTML += '<span class="added-card d-flex justify-content-between py-2 border-bottom w-100"><span>' + card.cardNo + '</span><span class="h-clr--green-2 h-fw--semibold">' + card.amount + '</span><span class="remove-giftcard-btn b-link--underlined" data-cardno="' + card.cardNo + '">' + removeBtnLabel + '</span></span>';
                         }
                         $('.added-cards').empty().append(addedCardsHTML);
                     }

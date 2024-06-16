@@ -1,4 +1,4 @@
-<div class="payment-details h-font-size--16 h-clr--black-1">
+<div class="payment-details h-font-size--16">
     <isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}" var="payment">
         <isif condition="${payment.paymentMethod == 'AdyenPOS' || payment.paymentMethod == 'AdyenComponent' || payment.paymentMethod ===
                          'CREDIT_CARD'}">
@@ -22,7 +22,7 @@
             </div>
         </isif>
         <isif condition="${payment.amount && payment.paymentMethod !== 'GIFT_CERTIFICATE'}">
-            <div class="payment-amount h-fw--bold">
+            <div class="payment-amount h-fw--bold mt-2">
                 <span class="label h-clr--black-1">
                     <isif condition="${pdict.order.currencyCode}">
                         ${pdict.order.currencyCode} <isprint value="${payment.amount}" />

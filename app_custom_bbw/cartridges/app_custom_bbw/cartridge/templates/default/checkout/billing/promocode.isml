@@ -2,7 +2,7 @@
 <div class="checkoutPromo accordion border-top h-mt--50">
     <span
         class="h-font-size--18 h-fw--bold h-clr--black-1 customer-heading promocode-title accordion-title d-block rotate-down">${Resource.msg('label.promo.code', 'cart', null)}</span>
-    <div class="accordion-content h-px--10" style="display:none">
+    <div class="accordion-content" style="display:none">
         <div class="row">
             <div class="col-12 d-sm-none">
                 <p class="optional-promo">${Resource.msg('action.enter.promo.code', 'cart', null)}</p>
@@ -13,12 +13,12 @@
                 <div action="${pdict.actionUrls.submitCouponCodeUrl}" class="promo-code-form" method="GET"
                     name="promo-code-form">
                     <div class="form-group">
-                        <label class="promoCodeLabel h-clr--black-1"
+                        <label class="promoCodeLabel h-clr--black-1 h-fw--semibold"
                             for="couponCode">${Resource.msg('label.promo.code', 'cart', null)}</label>
-                        <div class="couponForm d-flex h-mt--10 h-mb--30">
+                        <div class="couponForm d-flex h-mt--10 h-mb--30 h-maxwidth-perc-md--90">
                             <input type="text" class="form-control coupon-code-field" id="coupon-code" name="couponCode" />
                             <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
-                            <button type="button" class="btn btn-light promo-code-btn">
+                            <button type="button" class="btn btn-hover btn-light promo-code-btn h-fw--semibold h-font-size--16 text-uppercase">
                                 ${Resource.msg('button.submit.promo.code', 'cart', null)}
                             </button>
                         </div>

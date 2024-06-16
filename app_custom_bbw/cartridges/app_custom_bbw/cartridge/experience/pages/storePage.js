@@ -37,7 +37,18 @@ module.exports.render = function (context, modelIn) {
     }
 
     model.CurrentPageMetaData = PageRenderHelper.getPageMetaData(page);
-
+    if (model && model.page && model.page.ID) {
+        var ContentMgr = require('dw/content/ContentMgr');
+        var contentAsset = ContentMgr.getContent(model.page.ID + '.seo');
+        // As the content asset is mainly used for SEO purpose, no need to put it online
+        if (
+            !empty(contentAsset) &&
+            'image' in contentAsset.custom &&
+            'absURL' in contentAsset.custom.image
+        ) {
+            model.image = contentAsset.custom.image.absURL;
+        }
+    }
     // no pagecache setting here, this is dynamically determined by the components used within the page
 
     // render the page
