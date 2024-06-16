@@ -549,6 +549,19 @@
             <tbody>
                 <tr style="vertical-align: baseline;">
                     <td style="vertical-align:baseline;">
+                        <p style="font-size:16px; margin-bottom: 20px;">
+                            ${Resource.msg('label.contact.return', 'order', null)}
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table style="table-layout: fixed; width: 100%; font-family: SourceSansPro, Arial, sans-serif;">
+            <tbody>
+                <tr style="vertical-align: baseline;">
+                    <td style="vertical-align:baseline;">
                         <p style="font-size:16px;">
                             ${Resource.msg('label.contat.service', 'order', null)}
                         </p>
