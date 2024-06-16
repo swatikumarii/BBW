@@ -78,6 +78,6 @@
             </div>
         </fieldset>
     </div>
-    <span class="giftcard-full-redemption h-font-size--16 h-fw--semibold mt-4 d-block h-clr--black"></span>
-    <span class="giftcard-partial-redemption h-font-size--16 h-fw--semibold mt-4 d-block h-clr--black"></span>
+    <span class="giftcard-full-redemption d-block notification-toast h-fw--normal"></span>
+    <span class="giftcard-partial-redemption d-block notification-toast h-fw--normal"></span>
 </isif>
