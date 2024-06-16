@@ -32,20 +32,6 @@ function updateGiftPendingTotals(totals) {
     }
 }
 
-/**
- * Price Update AfterPay Widget
- */
-function updateAfterPayWidget() {
-    if ($('#afterpay-widget-amount').val() > 0) {
-        // eslint-disable-next-line no-undef
-        // afterpayWidget.update({
-        //     amount: {
-        //         amount: $('#afterpay-widget-amount').val(),
-        //         currency: $('#afterpay-widget-currency').val()
-        //     }
-        // });
-    }
-}
 
 $(document).ready(function () {
     $('#giftcard-redeem').on('click', function (e) {
@@ -150,8 +136,8 @@ $(document).ready(function () {
                                 data.basketModel.totals.pendingTotal
                                     .pendingAmountValue
                             );
+                            $('.afterpay-checkout-widget').find('square-placement').attr('data-amount', data.basketModel.totals.pendingTotal.pendingAmountValue);
                         }
-                        updateAfterPayWidget();
                     }
 
                     if (data.hideCreditCardForm) {
@@ -216,6 +202,9 @@ $(document).ready(function () {
                         $('#selectedPaymentOption').val('');
                         $('.form-nav.billing-nav.payment-information').hide();
                         $('#paymentMethodsList').hide();
+                    } else {
+                        $('.form-nav.billing-nav.payment-information').show();
+                        $('#paymentMethodsList').show();
                     }
                 } else {
                     $('.added-cards').empty();

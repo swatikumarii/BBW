@@ -860,6 +860,7 @@ module.exports = $.extend({}, base, {
                             $('body').trigger('product:afterAddToCart', data);
                             $.spinner().stop();
                             base.miniCartReportingUrl(data.reportingURL);
+                            $('button.add-to-cart').prop('disabled', false);
                         },
                         error: function () {
                             $.spinner().stop();
@@ -899,6 +900,15 @@ module.exports = $.extend({}, base, {
                         data: form,
                         success: function () {
                             handlePostCartAdd(data);
+                            if ($('.gift-card-form').length > 0) {
+                                $('.gift-card-form')[0].reset();
+                                $('#video-preview').attr('src', '');
+                                $('.gift-card-video video').addClass('d-none');
+                                $('.gift-card-video .remove-video').addClass('d-none');
+                                $('.egift-video-label').removeClass('d-none');
+                                $('#progress').empty();
+                            }
+                            $('button.add-to-cart').prop('disabled', false);
                             $('body').trigger('product:afterAddToCart', data);
                             $.spinner().stop();
                             base.miniCartReportingUrl(data.reportingURL);

@@ -73,7 +73,7 @@ $(document).ready(function () {
         adyenCheckout.renderGenericComponent();
     }
     processInclude(require('./checkout/checkout'));
-    processInclude(require('adyen/checkout/billing'));
+    // processInclude(require('adyen/checkout/billing'));
     $('#selectedPaymentOption').val(
         $('.payment-options .nav-item .active').parent().attr('data-method-id')
     );
@@ -182,7 +182,7 @@ $(document).ready(function () {
         .on('mouseenter', '.info-icon', function () {
             $('.info-icon-text').addClass('d-block');
         });
-    
+
     if (checkoutStage === 'shipping') {
         var selectedState = $('body').find('.shippingState').attr('data-selected');
         if (selectedState !== 'null') {
@@ -260,7 +260,7 @@ $(document).ready(function () {
             });
         }
     }
-    
+
     $.spinner().stop();
 
 });
