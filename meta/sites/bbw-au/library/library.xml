@@ -735,6 +735,51 @@
         </folder-links>
     </content>
 
+     <content content-id="checkout.customer.seo">
+        <display-name xml:lang="x-default">Checkout Customer Seo</display-name>
+        <description xml:lang="x-default">Checkout Customer Seo</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Checkout</page-title>
+            <page-description xml:lang="x-default">Checkout</page-description>
+            <page-keywords xml:lang="x-default">Checkout</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="checkout.payment.seo">
+        <display-name xml:lang="x-default">Checkout Payment Seo</display-name>
+        <description xml:lang="x-default">Checkout Payment Seo</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Checkout</page-title>
+            <page-description xml:lang="x-default">Checkout</page-description>
+            <page-keywords xml:lang="x-default">Checkout</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="checkout.placeorder.seo">
+        <display-name xml:lang="x-default">Checkout Placeorder Seo</display-name>
+        <description xml:lang="x-default">Checkout Placeorder Seo</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Checkout</page-title>
+            <page-description xml:lang="x-default">Checkout</page-description>
+            <page-keywords xml:lang="x-default">Checkout</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
 	<content content-id="checkout.shipping.seo">
         <display-name xml:lang="x-default">Checkout Shipping Seo</display-name>
         <online-flag>true</online-flag>
@@ -742,6 +787,21 @@
         <page-attributes>
             <page-title xml:lang="x-default">Checkout</page-title>
             <page-description xml:lang="x-default">Checkout</page-description>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="checkout.submitted.seo">
+        <display-name xml:lang="x-default">Checkout Submitted Seo</display-name>
+        <description xml:lang="x-default">Checkout Submitted Seo</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Checkout</page-title>
+            <page-description xml:lang="x-default">Checkout</page-description>
+            <page-keywords xml:lang="x-default">Checkout</page-keywords>
         </page-attributes>
         <folder-links>
             <classification-link folder-id="seo-title"/>
