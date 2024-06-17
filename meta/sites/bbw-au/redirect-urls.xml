@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<redirect-urls xmlns="http://www.demandware.com/xml/impex/redirecturl/2011-09-01">
+    <redirect-url uri="/fragrance/lavender-vanilla">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/lavender-vanilla</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/a-thousand-wishes">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/a-thousand-wishes</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/japanese-cherry-blossom">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/japanese-cherry-blossom</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/mahogany-teakwood">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/mahogany-teakwood</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/perfect-peony">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/perfect-peony</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/into-the-night">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/into-the-night</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/champagnetoast">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/champagnetoast</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/tropical-traditions">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/tropical-traditions</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/select-tropical-promo">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/select-tropical-promo</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/pure-wonder">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/pure-wonder</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/in-the-stars">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/in-the-stars</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/eucalyptus-spearmint">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/eucalyptus-spearmint</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/rose">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/rose</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/cultural-collection">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/cultural-collection</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/starlit-night">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/starlit-night</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/butterfly">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/butterfly</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/lavender-mint-tea">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/lavender-mint-tea</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/rainbow-waves">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/rainbow-waves</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/summer-melody">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/summer-melody</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/hello-beautiful">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/hello-beautiful</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/eucalyptus-tea">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/eucalyptus-tea</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/eucalyptus-mint">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/eucalyptus-mint</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/midnight-swim">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/midnight-swim</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/poppy">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/poppy</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/dream-bright">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/dream-bright</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/forever-red">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/forever-red</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/after-dark">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/after-dark</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/vanilla-patchouli">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/vanilla-patchouli</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/cinnamon-sandalwood">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/cinnamon-sandalwood</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/bourbon">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/bourbon</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/dark-velvet-oud">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/dark-velvet-oud</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/among-the-clouds">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/among-the-clouds</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/radiant-sky">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/radiant-sky</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/fiji-sunshine">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/fiji-sunshine</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/pastel-skies">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/pastel-skies</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/coco-paradise">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/coco-paradise</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/waikiki-beach-coconut">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/waikiki-beach-coconut</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/pink-pineapple-sunrise">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/pink-pineapple-sunrise</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/passionfruit-and-banana-flower">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/passionfruit-and-banana-flower</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/gingham-gorgeous">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/gingham-gorgeous</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/gingham-legend">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/gingham-legend</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/gingham-fresh">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/gingham-fresh</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/gingham-vibrant">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/gingham-vibrant</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/freshwater">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/freshwater</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/amethyst-waves">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/amethyst-waves</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/at-the-beach">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/at-the-beach</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/hero">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/hero</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/ocean">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/ocean</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/love-always-wins">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/love-always-wins</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/noir">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/noir</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/warm-vanilla-sugar">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/warm-vanilla-sugar</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/wild-sand-endless-sea">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/wild-sand-endless-sea</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/wild-sand">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/wild-sand</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/endless-sea">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/endless-sea</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/champagne-apple-and-honey">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/champagne-apple-and-honey</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/pumpkin-pecan-waffles">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/pumpkin-pecan-waffles</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/vampire-blood">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/vampire-blood</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/graphite">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/graphite</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/leather-and-brandy">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/leather-and-brandy</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/midnight-blue-citrus">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/midnight-blue-citrus</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/twisted-peppermint">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/twisted-peppermint</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/vanilla-bean-noel">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/vanilla-bean-noel</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/winter-candy-apple">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/winter-candy-apple</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/fresh-balsam">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/fresh-balsam</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/strawberry-snowflake">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/strawberry-snowflake</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/luminous">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/luminous</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/vetiver-vanilla">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/vetiver-vanilla</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/mimosa-spearmint">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/mimosa-spearmint</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/orange-ginger">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/orange-ginger</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/dark-kiss">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/dark-kiss</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/chasing-fireflies">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/chasing-fireflies</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+    <redirect-url uri="/fragrance/calypso-clementine">
+        <status-code>301</status-code>
+        <enabled-flag>true</enabled-flag>
+        <destination-url>/s-fragrance/calypso-clementine</destination-url>
+        <copy-source-params>default</copy-source-params>
+    </redirect-url>
+
+</redirect-urls>

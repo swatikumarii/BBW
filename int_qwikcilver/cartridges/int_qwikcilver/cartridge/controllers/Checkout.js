@@ -51,6 +51,7 @@ server.append('Begin', function (req, res, next) {
         var giftCardForm = server.forms.getForm('giftCard');
         giftCardForm.clear();
         viewData.giftCardForm = giftCardForm;
+        viewData.eGiftTotalAmount = basket && 'custom' in basket && basket.custom.eGiftTotalAmount ? basket.custom.eGiftTotalAmount : 0;
         res.setViewData(viewData);
     }
     return next();

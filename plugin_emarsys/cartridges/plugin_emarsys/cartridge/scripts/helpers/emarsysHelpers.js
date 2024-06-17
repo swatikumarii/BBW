@@ -18,6 +18,17 @@ function getScarabQueueData(res) {
     var userEmail='';
     try {
         switch (res.action) {
+            case 'Account-Login':
+                userEmail =
+                    'authenticatedCustomer' in res &&
+                    'profile' in res.authenticatedCustomer
+                        ? res.authenticatedCustomer.profile.email
+                        : '';
+                return dataHelpers.prepareEmrasysData(
+                    userEmail,
+                    null    ,
+                    null
+                );
             case 'Search-Show':
                 userEmail =
                     'CurrentUser' in res && 'profile' in res.CurrentUser
