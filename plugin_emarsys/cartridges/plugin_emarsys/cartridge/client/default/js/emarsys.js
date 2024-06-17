@@ -4,7 +4,7 @@ $(document).on(
     'ajaxSuccess',
     function (event, request, settings, data) {
         if (settings.dataTypes.indexOf('json') > -1) {
-            if (data && 'emarsysEvents' in data && Array.isArray(data.emarsysEvents)) {
+            if (data && 'emarsysEvents' in data && Array.isArray(data.emarsysEvents) && data.emarsysEvents.length) {
                 data.emarsysEvents.forEach(function pushEvent(emarsysEvent) {
                     if (emarsysEvent) {
                         var userEmail = emarsysEvent.email;

@@ -150,9 +150,7 @@ function login() {
                         } else if (data.redirectUrl.indexOf('Page-Show') !== -1) {
                             window.location.reload();
                         } else {
-                            setTimeout(function() {
-                                window.location.href = data.redirectUrl;
-                            }, 1000);
+                            window.location.href = data.redirectUrl;
                         }
                     }
                 }

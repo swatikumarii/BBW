@@ -7,7 +7,6 @@ var billingHelpers = require('./billing');
 var summaryHelpers = require('./summary');
 var formHelpers = require('base/checkout/formErrors');
 var scrollAnimate = require('base/components/scrollAnimate');
-var adyenBilling = require('adyen/checkout/billing');
 // ### Custom Adyen cartridge start ###
 var adyenCheckout = require('adyen/adyenCheckout');
 // ### Custom Adyen cartridge end ###
@@ -587,10 +586,12 @@ var history = window.history;
              * Previous State
              */
             handlePrevStage: function () {
-                if (members.currentStage > 0) {
+                if (members.currentStage > 1) {
                     // move state back
                     members.currentStage--;
                     updateUrl(members.currentStage);
+                } else {
+                    history.back();
                 }
 
                 $(plugin).attr('data-checkout-stage', checkoutStages[members.currentStage]);
@@ -646,7 +647,7 @@ var exports = {
                 data.customer,
                 data.options
             );
-            adyenBilling.methods.updatePaymentInformation(data.order, data.options);
+            billingHelpers.methods.updatePaymentInformation(data.order, data.options);
             summaryHelpers.updateOrderProductSummaryInformation(data.order, data.options);
         });
     },

@@ -21,6 +21,12 @@
 
             .review-billing-summary {
                 display: flex;
+
+                .credit-card-number {
+                    + br {
+                        display: none;
+                    }
+                }
             }
 
             .shipping-step,
