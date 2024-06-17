@@ -1,4 +1,5 @@
 <isif condition="${slotcontent}">
+<isset name="commonHelper" value="${require('*/cartridge/scripts/helpers/commonHelpers')}" scope="page" />
 <isset name="showOutOfStockProducts" value="${slotcontent.custom.showOutOfStockProducts === true ? true : false}" scope="page" />
     <isif condition="${!empty(slotcontent.content)}">
         <div class="picked-just-header-wrapper mb-3">
@@ -9,11 +10,13 @@
     </isif>
     <div class="row no-gutters picked-just-recomm ds-smooth-scroll js-picked-just-recomm">
         <isloop items="${slotcontent.content}" var="product" status="loopState">
-            <div class="picked-just-recomm__item col js-picked-just-recomm-item">
-                <isobject object="${product}" view="recommendation">
-                    <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView', false, 'wishlist', false, 'showOutOfStockProducts', showOutOfStockProducts)}" />
-                </isobject>
-            </div>
+            <isif condition="${commonHelper.checkProductAvailability(product.ID) === true || showOutOfStockProducts}">
+                <div class="picked-just-recomm__item col js-picked-just-recomm-item">
+                    <isobject object="${product}" view="recommendation">
+                        <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView', false, 'wishlist', false)}" />
+                    </isobject>
+                </div>
+            </isif>
         </isloop>
         <isinclude template="product/components/removeGiftLineItem" />
     </div>
