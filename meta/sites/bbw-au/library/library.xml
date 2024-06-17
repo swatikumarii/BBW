@@ -1279,7 +1279,7 @@
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="store-details-bottom-wrapper text-center my-5"&gt;&#13;
 &lt;p class="h-font-size--16"&gt;
-To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr--blue-12"&gt;1-800-57-6972&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au.&lt;/a&gt;&lt;/p&gt;&#13;
+To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" class="h-clr--blue-12"&gt;1-800-57-6972&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au.&lt;/a&gt;&lt;/p&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
@@ -6278,5 +6278,77 @@ max-height: 35px:&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-
+	
+	<content content-id="category-no-search-result-content">
+    <display-name xml:lang="x-default">Category No Search Result Page Content</display-name>
+    <online-flag>true</online-flag>
+    <searchable-flag>false</searchable-flag>
+    <page-attributes/>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;style&gt;&#xD;
+    h1 {&#xD;
+        line-height: 88px;&#xD;
+    }&#xD;
+.recommendations .picked-just-header-wrapper .picked-just-header-wrapper__title {&#xD;
+padding-top:20px;&#xD;
+}&#xD;
+    .cat-link {&#xD;
+        border: 1px solid #365fa1;&#xD;
+        background-color: white;&#xD;
+        color: #365fa1;&#xD;
+        font-size: 16px;&#xD;
+        font-weight: 600;&#xD;
+        height: 35px;&#xD;
+        max-width: 165px;&#xD;
+    }&#xD;
+&#xD;
+    @media (min-width: 768px) {&#xD;
+        .cat-link {&#xD;
+            width: 165px;&#xD;
+        }&#xD;
+    }&#xD;
+&#xD;
+    @media (max-width: 767.98px) {&#xD;
+        .cat-link {&#xD;
+            width: 100%;&#xD;
+        }&#xD;
+&#xD;
+        .cta-row {&#xD;
+            row-gap: 16px;&#xD;
+            column-gap: 16px;&#xD;
+            justify-content: center;&#xD;
+        }&#xD;
+    }&#xD;
+&#xD;
+&lt;/style&gt;&#xD;
+&#xD;
+&lt;div class="container text-center"&gt;&#xD;
+    &lt;h1 class="m-font-justlovely--normal h-clr--pink h-font-size--60 h-font-size-md--80 mb-3 mb-md-5 mt-0"&gt;No Results Found&lt;/h1&gt;&#xD;
+    &lt;p class="h-clr--black-3 h-font-size--16 h-font-size-md--20 mb-4 mb-md-5 h-maxwidth-perc-md--75 mx-auto"&gt;We're unable to locate any merchandise that meets your refinement selections at this time.Please expand your refinement selections or try your refinement for a different category.&lt;/p&gt;&#xD;
+    &lt;div class="row h-maxwidth-perc-md--65 mx-auto cta-row"&gt;&#xD;
+        &lt;div class="col-5 col-md-3 px-0"&gt;&#xD;
+            &lt;a class="text-uppercase cat-link h-flex-center" href="$url('Search-Show', 'cgid', 'body-care')$" &gt;&#xD;
+                &lt;span&gt;Body Care&lt;/span&gt;&#xD;
+            &lt;/a&gt;&#xD;
+        &lt;/div&gt;&#xD;
+        &lt;div class="col-5 col-md-3 px-0"&gt;&#xD;
+            &lt;a class="text-uppercase cat-link h-flex-center" href="$url('Search-Show', 'cgid', 'candles')$"&gt;&#xD;
+                &lt;span&gt;Candles&lt;/span&gt;&#xD;
+            &lt;/a&gt;&#xD;
+        &lt;/div&gt;&#xD;
+        &lt;div class="col-5 col-md-3 px-0"&gt;&#xD;
+            &lt;a class="text-uppercase cat-link h-flex-center" href="$url('Search-Show','cgid', 'hand-soaps')$"&gt;&#xD;
+                &lt;span&gt;Hand Soaps&lt;/span&gt;&#xD;
+            &lt;/a&gt;&#xD;
+        &lt;/div&gt;&#xD;
+        &lt;div class="col-5 col-md-3 px-0"&gt;&#xD;
+            &lt;a class="text-uppercase cat-link h-flex-center" href="$url('Fragrance-Show')$"&gt;&#xD;
+                &lt;span&gt;Fragrances&lt;/span&gt;&#xD;
+            &lt;/a&gt;&#xD;
+        &lt;/div&gt;&#xD;
+    &lt;/div&gt;&#xD;
+&lt;/div&gt;</custom-attribute>
+    </custom-attributes>
+  </content>
+  
 </library>

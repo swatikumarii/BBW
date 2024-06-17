@@ -39,6 +39,7 @@
 
             button.submit-shipping {
                 display: block;
+                line-height: 20px;
             }
 
             .shipment-selector-block {
@@ -167,7 +168,7 @@
                             letter-spacing: 0.015em;
                             line-height: 20px;
                             max-height: 300px;
-                            font-family: $ff-base;
+                            font-family: get-ff(base, true);
                         }
                     }
 
