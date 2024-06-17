@@ -55,6 +55,14 @@ function showTimeoutPopup() {
         $('#autologout').find('.logout').show();
         $('#autologout').find('#logout-refresh').show();
         $('#autologout').modal();
+        // force logout customer
+        var logoutAction = $('.customLogoutUrl').val();
+        $.ajax({
+            url: logoutAction,
+            type: 'GET',
+            success: function () {
+            }
+        });
     }, warningDuration * 60000);
 }
 /**
