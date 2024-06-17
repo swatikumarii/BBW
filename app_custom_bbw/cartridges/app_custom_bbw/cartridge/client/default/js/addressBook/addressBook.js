@@ -3,6 +3,7 @@
 var base = require('base/addressBook/addressBook');
 var formValidation = require('../components/formValidation');
 var addressData = require('../addressData.js');
+var addressAutocomplete = require('../checkout/addressAutocomplete');
 var intlTelInput = require('intl-tel-input');
 var utils = require('utils.js');
 var action;
@@ -212,6 +213,14 @@ $(document).on('click', '#editAddress', function () {
     });
 });
 
+$(document).ready(function () {
+    google.maps.event.addDomListener(
+        window,
+        'load',
+        addressAutocomplete.initializeAccount
+    );
+});
+
 module.exports = $.extend({}, base, {
     stateDropdown: function () {
         $('body').on('change', '.address-state-input',function () {
@@ -252,6 +261,7 @@ module.exports = $.extend({}, base, {
                         })
                     );
                 });
+                zipDropdown.trigger('change');
             }
         });
     },

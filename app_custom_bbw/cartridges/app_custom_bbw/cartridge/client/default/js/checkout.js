@@ -259,7 +259,7 @@ $(document).ready(function () {
         }
     }
 
-    if (checkoutStage === 'billing') {
+    if (checkoutStage === 'payment') {
         var selectedBillingState = $('body')
             .find('.billingState')
             .attr('data-selected');
@@ -310,6 +310,13 @@ $(document).ready(function () {
                     return false;
                 }
             });
+        }
+        var billingForm = $('#dwfrm_billing .contact-info-block');
+        if (!$('input[name$=_phone]', billingForm).val()) {
+            var isMultiShip = $('#checkout-main').hasClass('multi-ship');
+            var formSelector = isMultiShip ? '.multi-shipping .active form' : '.single-shipping .shipping-form';
+            var shippingForm = $(formSelector);
+            $('input[name$=_phone]', billingForm).val($('input[name$=_phone]', shippingForm).val());
         }
     }
     $.spinner().stop();
