@@ -7,7 +7,6 @@ var billingHelpers = require('./billing');
 var summaryHelpers = require('./summary');
 var formHelpers = require('base/checkout/formErrors');
 var scrollAnimate = require('base/components/scrollAnimate');
-var adyenBilling = require('adyen/checkout/billing');
 // ### Custom Adyen cartridge start ###
 var adyenCheckout = require('adyen/adyenCheckout');
 // ### Custom Adyen cartridge end ###
@@ -648,7 +647,7 @@ var exports = {
                 data.customer,
                 data.options
             );
-            adyenBilling.methods.updatePaymentInformation(data.order, data.options);
+            billingHelpers.methods.updatePaymentInformation(data.order, data.options);
             summaryHelpers.updateOrderProductSummaryInformation(data.order, data.options);
         });
     },

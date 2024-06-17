@@ -11,6 +11,9 @@ var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpe
 var ContentMgr = require('dw/content/ContentMgr');
 var Resource = require('dw/web/Resource');
 var Site = require('dw/system/Site');
+var Transaction = require('dw/system/Transaction');
+var OrderMgr = require('dw/order/OrderMgr');
+var HookMgr = require('dw/system/HookMgr');
 
 /**
  * Validates payment
@@ -107,6 +110,168 @@ function sendConfirmationEmail(order, locale) {
 }
 
 /**
+ * handles the payment authorization for each payment instrument
+ * @param {dw.order.Order} order - the order object
+ * @param {string} orderNumber - The order number for the order
+ * @returns {object} an error object
+ */
+function handlePayments(order, orderNumber) {
+    var result = {};
+
+    if (order.totalNetPrice !== 0.00) {
+        var paymentInstruments = order.paymentInstruments;
+
+        if (paymentInstruments.length === 0) {
+            Transaction.wrap(function () { OrderMgr.failOrder(order, true); });
+            result.error = true;
+        }
+
+        if (!result.error) {
+            for (var i = 0; i < paymentInstruments.length; i++) {
+                var paymentInstrument = paymentInstruments[i];
+                var paymentProcessor = PaymentMgr
+                    .getPaymentMethod(paymentInstrument.paymentMethod)
+                    .paymentProcessor;
+                var authorizationResult;
+                if (paymentProcessor === null) {
+                    Transaction.begin();
+                    paymentInstrument.paymentTransaction.setTransactionID(orderNumber);
+                    Transaction.commit();
+                } else {
+                    if (HookMgr.hasHook('app.payment.processor.'
+                            + paymentProcessor.ID.toLowerCase())) {
+                        authorizationResult = HookMgr.callHook(
+                            'app.payment.processor.' + paymentProcessor.ID.toLowerCase(),
+                            'Authorize',
+                            order,
+                            paymentInstrument,
+                            paymentProcessor
+                        );
+                    } else {
+                        authorizationResult = HookMgr.callHook(
+                            'app.payment.processor.default',
+                            'Authorize'
+                        );
+                    }
+
+                    if (authorizationResult.error) {
+                        Transaction.wrap(function () { OrderMgr.failOrder(order, true); });
+                        result.error = true;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    return result;
+}
+
+
+/**
+ * Sets the payment transaction amount
+ * @param {dw.order.Basket} currentBasket - The current basket
+ * @returns {object} an error object
+ */
+function calculatePaymentTransaction(currentBasket) {
+    var result = { error: false };
+
+    try {
+        // If Gift Certificate and Adyen payment with Remaining amount is already added
+        // Return error false
+        if (currentBasket.getPaymentInstruments('GIFT_CERTIFICATE').length > 0 && currentBasket.getPaymentInstruments('AdyenComponent').length > 0) {
+            result.error = false;
+        }
+        // If Gift Certificate and Pace with Remaining amount is already added
+        // Return error false
+        else if (currentBasket.getPaymentInstruments('GIFT_CERTIFICATE').length > 0 && currentBasket.getPaymentInstruments('AFTERPAY').length > 0) {
+            result.error = false;
+        } else {
+            Transaction.wrap(function () {
+                var paymentInstruments = currentBasket.paymentInstruments;
+
+                if (!paymentInstruments.length) {
+                    return;
+                }
+
+                // Assuming that there is only one payment instrument used for the total order amount.
+                // TODO: Will have to rewrite this logic once we start supporting multiple payment instruments for same order
+                var orderTotal = currentBasket.totalGrossPrice;
+                var paymentInstrument = paymentInstruments[0];
+                paymentInstrument.paymentTransaction.setAmount(orderTotal);
+            });
+        }
+    } catch (e) {
+        result.error = true;
+    }
+
+    return result;
+}
+
+/**
+ * Attempts to place the order
+ * @param {dw.order.Order} order - The order object to be placed
+ * @param {object} fraudDetectionStatus - an Object returned by the fraud detection hook
+ * @returns {object} an error object
+ */
+function placeOrder(order, fraudDetectionStatus) {
+    var Order = require('dw/order/Order');
+    var Status = require('dw/system/Status');
+    var result = { error: false };
+    var adyenGiftcardFailed = false;
+    if (order.getPaymentInstruments('GIFT_CERTIFICATE').length > 0 && order.getPaymentInstruments('AdyenComponent').length > 0) {
+        var giftCardAPIRedeemResultAdyen;
+        var qwikcilverApis = require('*/cartridge/scripts/service/qwikcilver/apis');
+        var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
+        // Handles Gift payment authorization
+        handlePayments(order, order.orderNo);
+        // Redeem Qwikcilver Gift Card
+        if (order.getPaymentInstruments('GIFT_CERTIFICATE').length > 0) {
+            giftCardAPIRedeemResultAdyen = qwikcilverApis.redeemGiftCards(order);
+            if (giftCardAPIRedeemResultAdyen) {
+                var redeemedGiftCardAdyen = JSON.parse(giftCardAPIRedeemResultAdyen.object);
+                if (redeemedGiftCardAdyen.ResponseCode === 0) {
+                    qwikcilverHelpers.saveGiftCardDetails(order, redeemedGiftCardAdyen, 'Redeemed');
+                } else {
+                    adyenGiftcardFailed = true;
+                }
+            } else {
+                adyenGiftcardFailed = true;
+            }
+            if (adyenGiftcardFailed) {
+                Transaction.wrap(function () {
+                    OrderMgr.failOrder(order, true);
+                    order.custom.giftcardFailed = true; // eslint-disable-line no-param-reassign
+                });
+                result.error = true;
+            }
+        }
+    }
+    if (!adyenGiftcardFailed) {
+        try {
+            Transaction.begin();
+            var placeOrderStatus = OrderMgr.placeOrder(order);
+            if (placeOrderStatus === Status.ERROR) {
+                throw new Error();
+            }
+
+            if (fraudDetectionStatus.status === 'flag') {
+                order.setConfirmationStatus(Order.CONFIRMATION_STATUS_NOTCONFIRMED);
+            } else {
+                order.setConfirmationStatus(Order.CONFIRMATION_STATUS_CONFIRMED);
+            }
+
+            order.setExportStatus(Order.EXPORT_STATUS_READY);
+            Transaction.commit();
+        } catch (e) {
+            Transaction.wrap(function () { OrderMgr.failOrder(order, true); });
+            result.error = true;
+        }
+    }
+    return result;
+}
+
+/**
  * Copies a CustomerAddress to a Basket as its Billing Address
  * @param {dw.customer.CustomerAddress} address - The customer address
  */
@@ -132,8 +297,11 @@ function copyBillingAddressToBasket(address) {
     });
 }
 
+
+base.placeOrder = placeOrder;
 base.validatePayment = validatePayment;
 base.sendConfirmationEmail = sendConfirmationEmail;
+base.calculatePaymentTransaction = calculatePaymentTransaction;
 base.copyBillingAddressToBasket = copyBillingAddressToBasket;
 
 module.exports = base;
