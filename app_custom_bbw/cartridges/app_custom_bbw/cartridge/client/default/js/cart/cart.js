@@ -780,6 +780,52 @@ module.exports = function () {
         return false;
     });
 
+    $(document).on('click', '.promo-code-form button', function () {
+        $.ajax({
+            url: $('.promo-code-form').attr('action'),
+            type: 'GET',
+            dataType: 'json',
+            data: $('.promo-code-form :input').serialize(),
+            success: function (data) {
+                if (data.error) {
+                    $('.promo-code-form .form-control').addClass('is-invalid');
+                    $('.promo-code-form .form-control').attr(
+                        'aria-describedby',
+                        'invalidCouponCode'
+                    );
+                    $('.coupon-error-message')
+                        .empty()
+                        .append(data.errorMessage);
+                    $('.coupon-error-message').addClass('d-block');
+                    $('body').trigger('promotion:error', data);
+                } else {
+                    $('.coupon-error-message').removeClass('d-block');
+                    $('.coupons-and-promos')
+                        .empty()
+                        .append(data.totals.discountsHtml);
+                    updateCartTotals(data);
+                    updateApproachingDiscounts(
+                        data.orderApproachingDiscounts,
+                        data.shippingApproachingDiscounts
+                    );
+                    validateBasket(data);
+                    $('body').trigger('promotion:success', data);
+                }
+                $('.coupon-code-field').val('');
+                $.spinner().stop();
+            },
+            error: function (err) {
+                $('body').trigger('promotion:error', err);
+                if (err.responseJSON.redirectUrl) {
+                    window.location.href = err.responseJSON.redirectUrl;
+                } else {
+                    createErrorNotification(err.errorMessage);
+                    $.spinner().stop();
+                }
+            }
+        });
+    });
+
     $('body').on('click', '.remove-coupon', function (e) {
         e.preventDefault();
 
