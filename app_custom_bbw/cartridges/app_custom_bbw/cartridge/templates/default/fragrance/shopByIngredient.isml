@@ -2,7 +2,7 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addCss('/css/login.css');
-        assets.addCss('/css/pages/shopbyingredient/b-shopbyfragrance.css');
+        assets.addCss('/css/pages/shopbyingredient/b-shopbyingredient.css');
         assets.addJs('/js/fragranceName.js');
     </isscript>
    <div class="container">
@@ -13,7 +13,7 @@
                 <div class="fragrance-header-search">
                     <div class="fragrance-search search-wrapper">
                         <fieldset>
-                            <input type="text" id="ingredient-search" name="ingredient-search" autocomplete="off" />
+                            <input type="text" id="ingredient-search" name="ingredient-search" autocomplete="off" class="test"  placeholder="test jke"/>
                         </fieldset>
                     </div>
                 </div>
