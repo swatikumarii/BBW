@@ -53,7 +53,7 @@ server.append(
         viewData.isOrderBaseRemoveGiftCard = true;
         res.setViewData(viewData);
         next();
-    });
+    },seo.addCurrentPageMetaData);
 
 
 

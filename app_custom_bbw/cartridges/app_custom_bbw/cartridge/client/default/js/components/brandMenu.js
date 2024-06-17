@@ -3,6 +3,8 @@
 var keyboardAccessibility = require('base/components/keyboardAccessibility');
 var layout = require('../utils/layout');
 var timeoutId;
+var menuTimeOut;
+var menuTimeOut2;
 
 /* Responsive menu slide panel */
 
@@ -83,53 +85,55 @@ if (layout.isDesktop() || layout.isTablet()) {
 
     $level1li.on('mouseenter', function () {
         clearTimeout(timeoutId);
-
-        var $level1Parent = $(this).parent();
-        $('.level-1-li').not($level1Parent).addClass('muted');
-        var maxWidth;
-        $(this)
-            .find('.level-2-li')
-            .each(function () {
-                if ($(this).width() > maxWidth) {
-                    maxWidth = $(this).width();
-                }
+        var lvl1liElement = this;
+        menuTimeOut2 =setTimeout(function () {
+            var $level1Parent = $(lvl1liElement).parent();
+            $('.level-1-li').not($level1Parent).addClass('muted');
+            var maxWidth;
+            $(lvl1liElement)
+                .find('.level-2-li')
+                .each(function () {
+                    if ($(lvl1liElement).width() > maxWidth) {
+                        maxWidth = $(lvl1liElement).width();
+                    }
+                });
+            $(lvl1liElement).find('.level-2-li').width(maxWidth);
+    
+            var $ul = $level1Parent.find('.level-2-li').first().find('.level-3-ul');
+            var totalLiHeight = 0;
+    
+            // Calculate the total height of all li elements in the current ul
+            $ul.find('li').each(function () {
+                totalLiHeight += $(this).height();
             });
-        $(this).find('.level-2-li').width(maxWidth);
-
-        var $ul = $level1Parent.find('.level-2-li').first().find('.level-3-ul');
-        var totalLiHeight = 0;
-
-        // Calculate the total height of all li elements in the current ul
-        $ul.find('li').each(function () {
-            totalLiHeight += $(this).height();
-        });
-
-        var containerHeight = $(this).parent().find('.level-2-ul').height();
-        // Compare total height of li elements with main container height
-        if (totalLiHeight > containerHeight) {
-            $ul.addClass('two-column');
-        }
-
-        $('body').find('.menu-wrap-level-3').removeClass('show');
-        $level2li.removeClass('show');
-        $(this).parent().find('.level-2-li').first().addClass('show');
-        $(this)
-            .parent()
-            .find('.level-2-li')
-            .first()
-            .find('.menu-wrap-level-3')
-            .addClass('show');
-        var $level2liWidth = $(this)
-            .parent()
-            .find('.level-2-li')
-            .first()
-            .width();
-        var $menuWrapLevel3Width = $(this).parent().find('.level-3-ul').width();
-        $(this)
-            .parent()
-            .find('.menu-right')
-            .css('left', $level2liWidth + $menuWrapLevel3Width);
-        window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
+    
+            var containerHeight = $(lvl1liElement).parent().find('.level-2-ul').height();
+            // Compare total height of li elements with main container height
+            if (totalLiHeight > containerHeight) {
+                $ul.addClass('two-column');
+            }
+    
+            $('body').find('.menu-wrap-level-3').removeClass('show');
+            $level2li.removeClass('show');
+            $(lvl1liElement).parent().find('.level-2-li').first().addClass('show');
+            $(lvl1liElement)
+                .parent()
+                .find('.level-2-li')
+                .first()
+                .find('.menu-wrap-level-3')
+                .addClass('show');
+            var $level2liWidth = $(lvl1liElement)
+                .parent()
+                .find('.level-2-li')
+                .first()
+                .width();
+            var $menuWrapLevel3Width = $(lvl1liElement).parent().find('.level-3-ul').width();
+            $(lvl1liElement)
+                .parent()
+                .find('.menu-right')
+                .css('left', $level2liWidth + $menuWrapLevel3Width);
+            window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
+        }, 350);
     });
 
     $level2li.hover(function (e) {
@@ -329,6 +333,12 @@ module.exports = function () {
             return $(this).parent();
         }
     );
+    // $('.dropdown:not(.disabled) [data-toggle="dropdown"]')
+    //     .on('mouseenter', function (e) {
+    //         if (isDesktop(this)) {
+
+    //         }
+    //     });
 
     $('.dropdown:not(.disabled) [data-toggle="dropdown"]')
         .on('click', function (e) {
@@ -367,45 +377,54 @@ module.exports = function () {
         .on('mouseenter', function (e) {
             e.preventDefault();
             clearTimeout(timeoutId);
-
             if (isDesktop(this)) {
                 clearTimeout(timeoutId);
                 var eventElement = this;
-                $('.navbar-nav > li').each(function () {
-                    if (!$.contains(this, eventElement)) {
-                        if ($(this).hasClass('show')) {
-                            // $('.level-1-li.muted').removeClass('muted');
-                            $(this).removeClass('show');
-                            $(this)
-                                .children('ul.dropdown-menu')
-                                .removeClass('show');
-                            $(this)
-                                .children('.nav-link')
-                                .attr('aria-expanded', 'false');
+                menuTimeOut = setTimeout(function() {
+                    $('.navbar-nav > li').each(function () {
+                        if (!$.contains(this, eventElement)) {
+                            if ($(this).hasClass('show')) {
+                                // $('.level-1-li.muted').removeClass('muted');
+                                $(this).removeClass('show');
+                                $(this)
+                                    .children('ul.dropdown-menu')
+                                    .removeClass('show');
+                                $(this)
+                                    .children('.nav-link')
+                                    .attr('aria-expanded', 'false');
+                            }
                         }
-                    }
-                });
-                // need to close all the dropdowns that are not direct parent of current dropdown
-                $(this).parent().addClass('show');
-                $(this).siblings('.dropdown-menu').addClass('show');
-                $(this).attr('aria-expanded', 'true');
+                    });
+                    // need to close all the dropdowns that are not direct parent of current dropdown
+                    $(eventElement).parent().addClass('show');
+                    $(eventElement).siblings('.dropdown-menu').addClass('show');
+                    $(eventElement).attr('aria-expanded', 'true');
+                }, 350);
             }
         })
         .parent()
         .on('mouseleave', function (e) {
             e.preventDefault();
+            clearTimeout(menuTimeOut);
+            clearTimeout(menuTimeOut2);
             var self = $(this);
             if (isDesktop(this) && self.hasClass('level-1-li')) {
                 timeoutId = setTimeout(function () {
-                    $(self).removeClass('show');
-                    $(self).children('.dropdown-menu').removeClass('show');
-                    $(self)
-                        .children('.nav-link')
-                        .attr('aria-expanded', 'false');
                     $('.level-2-li').removeClass('show');
                     $('.menu-wrap-level-3').removeClass('show');
                     $('.level-1-li.muted').removeClass('muted');
-                }, 700);
+                    $('.navbar-nav > li.show').each(function () {
+                        if($(this).hasClass('show')){
+                            $(this).removeClass('show');
+                            $(this)
+                                .children('.dropdown-menu')
+                                .removeClass('show');
+                            $(this)
+                                .children('.nav-link')
+                                .attr('aria-expanded', 'false');
+                        }
+                    });
+                }, 600);
             }
         });
 

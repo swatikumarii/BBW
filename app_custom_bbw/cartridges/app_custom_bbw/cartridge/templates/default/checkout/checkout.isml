@@ -129,7 +129,7 @@
                     </div>
 
                     <iscomment> Step 3: Payment and Billing </iscomment>
-                    <div class="checkout-blocks billing">
+                    <div class="checkout-blocks billing mb-0 mb-md-4">
                         <div class="h-maxwidth-perc-md--90 mx-auto mx-md-0">
                             <isinclude template="checkout/billing/billing" />
                         </div>
@@ -150,7 +150,7 @@
                             <p class="verify-msg text-center h-font-size--14 h-clr--red" style="display:none">
                                 ${Resource.msg('msg.fill.all.required', 'checkout', null)}</p>
                         </div>
-                        <div class="col-12 next-step-button h-pos--relative">
+                        <div class="col-12 next-step-button h-pos--relative px-md-3">
                             <div class="mb-sm-3 next-step-button-inner-wrapper">
                                 <iscomment>Start of Afterpay</iscomment>
                                 <div

@@ -387,6 +387,12 @@
 }
 
 .map-canvas {
+    height: 100%;
+
+    @include media-down(sm) {
+        height: 255px;
+    }
+
     .gm-style .gm-style-iw-a {
         max-width: 265px;
     }

@@ -1,13 +1,13 @@
 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('emarsysEnabled')}">
   <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('emarsysTestModeEnabled')}">
     <script>
-    var emrasy = <isprint value="${JSON.stringify(pdict.emarsysData)}" encoding="off" />;
-    if (emrasy) {
-      var userEmail = emrasy.email;
-      var ecom = emrasy.ecom;
-      var pagecat = emrasy.pagecat;
-      var cartcontent = emrasy.cartcontent;
-      var emarsys_purchase_command = emrasy.emarsys_purchase_command;
+    var emrasys = <isprint value="${JSON.stringify(pdict.emarsysData)}" encoding="off" />;
+    if (emrasys) {
+      var userEmail = emrasys.email;
+      var ecom = emrasys.ecom;
+      var pagecat = emrasys.pagecat;
+      var cartcontent = emrasys.cartcontent;
+      var emarsys_purchase_command = emrasys.emarsys_purchase_command;
       var ScarabQueue = ScarabQueue || [];
 
       (function(subdomain, id) {
@@ -40,13 +40,13 @@
     <script defer="defer" src="${URLUtils.staticURL('/js/emarsys.js')}"></script>
   <iselse/>
   <script>
-      var emrasy = <isprint value="${JSON.stringify(pdict.emarsysData)}" encoding="off" />;
-      if (emrasy) {
-        var userEmail = emrasy.email;
-        var ecom = emrasy.ecom;
-        var pagecat = emrasy.pagecat;
-        var cartcontent = emrasy.cartcontent;
-        var emarsys_purchase_command = emrasy.emarsys_purchase_command;
+      var emrasys = <isprint value="${JSON.stringify(pdict.emarsysData)}" encoding="off" />;
+      if (emrasys) {
+        var userEmail = emrasys.email;
+        var ecom = emrasys.ecom;
+        var pagecat = emrasys.pagecat;
+        var cartcontent = emrasys.cartcontent;
+        var emarsys_purchase_command = emrasys.emarsys_purchase_command;
         var ScarabQueue = ScarabQueue || [];
   
         (function(subdomain, id) {
