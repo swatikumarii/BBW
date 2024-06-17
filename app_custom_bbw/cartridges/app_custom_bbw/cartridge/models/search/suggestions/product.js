@@ -145,11 +145,20 @@ function ProductSuggestions(req, res, suggestions, maxItems) {
     var searchPhrasesSuggestions = productSuggestions.searchPhraseSuggestions;
 
     this.available = productSuggestions.hasSuggestions();
-    this.phrases = getPhrases(
+    var phrases = getPhrases(
         searchPhrasesSuggestions.suggestedPhrases,
         maxItems
     );
-    var result = searchHelper.search(req, res);
+    this.phrases = phrases;
+    var modifiedReq = {
+        querystring: req.querystring,
+        pageMetaData: req.pageMetaData,
+        httpParameterMap: req.httpParameterMap
+    };
+    if (phrases.length > 0) {
+        modifiedReq.querystring.q = phrases[0].value;
+    }
+    var result = searchHelper.search(modifiedReq, res);
     this.products = getProducts(result.productSearch.productIds, maxItems);
     this.searchProductCount =
         result && result.productSearch ? result.productSearch.count : 0;

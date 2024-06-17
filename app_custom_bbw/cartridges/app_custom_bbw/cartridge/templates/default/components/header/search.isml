@@ -9,13 +9,12 @@
                 aria-label="${Resource.msg('simplesearch.searchtext', 'common', null)}" autocomplete="off" />
             <button type="reset" name="reset-button" class="btn-no-style reset-button js-reset-button"
                 aria-label="${Resource.msg('label.header.search.clear', 'common', null)}"></button>
-            <button type="submit" name="search-button"
+            <button type="submit"
                 class="search-icon h-minheight--20 w-auto position-relative border-0"
                 aria-label="${Resource.msg('label.header.search.go', 'common', null)}">
                 <img src="${URLUtils.staticURL('/images/header/UI-Search-v2.svg')}"
                     alt="${Resource.msg('global.storename', 'common', null)}" />
             </button>
-            <input type="hidden" value="${pdict.locale}" name="lang" />
         </fieldset>
     </form>
     <iscomment> Search Suggestion Wrapper </iscomment>
