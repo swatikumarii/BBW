@@ -155,7 +155,9 @@ function ProductSuggestions(req, res, suggestions, maxItems) {
         pageMetaData: req.pageMetaData,
         httpParameterMap: req.httpParameterMap
     };
-    modifiedReq.querystring.q = phrases[0].value;
+    if (phrases.length > 0) {
+        modifiedReq.querystring.q = phrases[0].value;
+    }
     var result = searchHelper.search(modifiedReq, res);
     this.products = getProducts(result.productSearch.productIds, maxItems);
     this.searchProductCount =
