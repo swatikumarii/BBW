@@ -77,7 +77,7 @@ $(document).ready(function () {
         adyenCheckout.renderGenericComponent();
     }
     processInclude(require('./checkout/checkout'));
-    processInclude(require('adyen/checkout/billing'));
+    // processInclude(require('adyen/checkout/billing'));
     $('#selectedPaymentOption').val(
         $('.payment-options .nav-item .active').parent().attr('data-method-id')
     );
@@ -312,7 +312,6 @@ $(document).ready(function () {
             });
         }
     }
-
     $.spinner().stop();
 });
 

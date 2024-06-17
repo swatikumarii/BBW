@@ -332,8 +332,34 @@ server.post('RemoveGiftCard', function (req, res, next) {
  */
 server.post('CheckBalance', function (req, res, next) {
     var qwikcilverApis = require('*/cartridge/scripts/service/qwikcilver/apis');
+    var Site = require('dw/system/Site');
     var cardNumber = req.form.cardNo;
     var cardPin = req.form.cardPin;
+    var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
+    var isReCaptchaEnable = Site.getCurrent().getCustomPreferenceValue(
+        'enableGoogleRecaptcha'
+    );
+    // TODO: Remove check once captcha done on checkout balance check
+    var landingPage = req.httpParameterMap.get('landingPage').booleanValue;
+    if (isReCaptchaEnable && landingPage) {
+        var recaptchaResponse = req.httpParameterMap
+            .get('g-recaptcha-response')
+            .getStringValue();
+
+        var pageScore = verifyCaptchaHelper.pageScore('checkBalance');
+        var verifyCaptcha = verifyCaptchaHelper.verifyGoogleCaptcha(
+            recaptchaResponse,
+            pageScore
+        );
+        if (!verifyCaptcha) {
+            res.json({
+                error: true,
+                msg: Resource.msg('error.message.recaptcha', 'common', null)
+            });
+            this.emit('route:Complete', req, res);
+            return;
+        }
+    }
     if (cardNumber && cardPin) {
         var giftCardAPIResult = qwikcilverApis.validateGiftCard(cardNumber, cardPin);
         if (giftCardAPIResult && giftCardAPIResult.status === 'OK') {
@@ -360,7 +386,7 @@ server.post('CheckBalance', function (req, res, next) {
             if (giftCardAPIResultObj.Cards && giftCardAPIResultObj.Cards.length > 0) {
                 res.json({
                     error: false,
-                    cardBalance: giftCardAPIResultObj.Cards[0].Balance,
+                    cardBalance: Site.getCurrent().getCurrencyCode() + ' ' + giftCardAPIResultObj.Cards[0].Balance,
                     cardStatus: giftCardAPIResultObj.Cards[0].CardStatus
                 });
                 return next();
