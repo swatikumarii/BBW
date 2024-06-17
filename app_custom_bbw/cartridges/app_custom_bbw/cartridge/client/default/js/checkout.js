@@ -77,7 +77,7 @@ $(document).ready(function () {
         adyenCheckout.renderGenericComponent();
     }
     processInclude(require('./checkout/checkout'));
-    processInclude(require('adyen/checkout/billing'));
+    // processInclude(require('adyen/checkout/billing'));
     $('#selectedPaymentOption').val(
         $('.payment-options .nav-item .active').parent().attr('data-method-id')
     );
@@ -259,7 +259,7 @@ $(document).ready(function () {
         }
     }
 
-    if (checkoutStage === 'billing') {
+    if (checkoutStage === 'payment') {
         var selectedBillingState = $('body')
             .find('.billingState')
             .attr('data-selected');
@@ -311,8 +311,14 @@ $(document).ready(function () {
                 }
             });
         }
+        var billingForm = $('#dwfrm_billing .contact-info-block');
+        if (!$('input[name$=_phone]', billingForm).val()) {
+            var isMultiShip = $('#checkout-main').hasClass('multi-ship');
+            var formSelector = isMultiShip ? '.multi-shipping .active form' : '.single-shipping .shipping-form';
+            var shippingForm = $(formSelector);
+            $('input[name$=_phone]', billingForm).val($('input[name$=_phone]', shippingForm).val());
+        }
     }
-
     $.spinner().stop();
 });
 
