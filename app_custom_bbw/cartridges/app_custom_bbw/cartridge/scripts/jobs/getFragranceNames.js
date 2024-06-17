@@ -35,26 +35,36 @@ function getFragranceNames() {
         while (allProducts.hasNext()) {
             var product = allProducts.next();
             if (product.availabilityModel.availabilityStatus === 'IN_STOCK' && product.online) {
-
-                // get fragrance names from all products
-                if (product.custom.fragranceName) {
-                    allFragrances = product.custom.fragranceName.split(',');
-                    for (var position = 0; position < allFragrances.length; position++) {
-                        if (!fragranceNamesArray.includes(allFragrances[position].trim())) {
-                            fragranceNamesArray.push(allFragrances[position].trim());
+                var productLevelReserveQty =
+                'custom' in product &&
+                'reserveQty' in product.custom &&
+                product.custom.reserveQty
+                    ? product.custom.reserveQty
+                    : 0;
+                var globalLevelReserveQty = dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
+                var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
+                var maxOrderQtyByReserveStock = product.availabilityModel.inventoryRecord.ATS.value - reserveOosQty;
+                if (maxOrderQtyByReserveStock > 0) {
+                    // get fragrance names from all products
+                    if (product.custom.fragranceName) {
+                        allFragrances = product.custom.fragranceName.split(',');
+                        for (var position = 0; position < allFragrances.length; position++) {
+                            if (!fragranceNamesArray.includes(allFragrances[position].trim())) {
+                                fragranceNamesArray.push(allFragrances[position].trim());
+                            }
                         }
                     }
                 }
+            }
+        }
 
-                // Fragrance names that should be visible always
-                var essentialFragrances = Site.current.getCustomPreferenceValue('essentialFragrances');
-                if (essentialFragrances) {
-                    var essentialFragrance =  essentialFragrances.split(', ');
-                    for (var i = 0; i < essentialFragrance.length; i++) {
-                        if (!fragranceNamesArray.includes(essentialFragrance[i].trim())) {
-                            fragranceNamesArray.push(essentialFragrance[i].trim());
-                        }
-                    }
+        // Fragrance names that should be visible always
+        var essentialFragrances = Site.current.getCustomPreferenceValue('essentialFragrances');
+        if (essentialFragrances) {
+            var essentialFragrance =  essentialFragrances.split(', ');
+            for (var i = 0; i < essentialFragrance.length; i++) {
+                if (!fragranceNamesArray.includes(essentialFragrance[i].trim())) {
+                    fragranceNamesArray.push(essentialFragrance[i].trim());
                 }
             }
         }
