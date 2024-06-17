@@ -1163,6 +1163,11 @@
 &lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
+				&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('shop-by-ingredient')$"&#13;
+						class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Shop by Ingredient&#13;
+					&lt;/a&gt;&#13;
+				&#13;
+				&lt;/li&gt;&#13;
 	&lt;/ul&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
@@ -6261,5 +6266,17 @@ max-height: 35px:&#13;
             <classification-link folder-id="category-seo-content"/>
         </folder-links>
     </content>	
+
+    <content content-id="shopbyingredient-banner">
+        <display-name xml:lang="x-default">shop by ingredient</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="row"&gt;&#13;
+&lt;div class="col-md-12"&gt;&lt;img alt="" src="images/shopbyingredient/shop-by-ingredient.png?$staticlink$" title="" class="w-100" /&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
 
 </library>
