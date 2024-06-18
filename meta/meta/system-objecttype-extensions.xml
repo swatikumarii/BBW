@@ -2,6 +2,17 @@
 <metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
     <type-extension type-id="Product">
         <custom-attribute-definitions>
+            <attribute-definition attribute-id="searchableIfOOS">
+                <display-name xml:lang="x-default">Searchable if unavailable or OOS</display-name>
+                <description xml:lang="x-default">Searchable if unavailable or OOS</description>
+                <type>boolean</type>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="reserveQty">
                 <display-name xml:lang="x-default">Reserve Inventory Quantity</display-name>
                 <type>int</type>
@@ -438,6 +449,10 @@
             <attribute-group group-id="customAttributes">
                 <display-name xml:lang="x-default">Custom Attributes</display-name>
                 <attribute attribute-id="SID"/>
+            </attribute-group>
+            <attribute-group group-id="oosAttributes">
+                <display-name xml:lang="x-default">Out Of Stock Attributes</display-name>
+                <attribute attribute-id="searchableIfOOS"/>
             </attribute-group>
             <attribute-group group-id="productDescription">
                 <display-name xml:lang="x-default">Product Description</display-name>
