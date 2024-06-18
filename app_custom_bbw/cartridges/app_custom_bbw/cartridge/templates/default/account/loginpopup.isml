@@ -68,7 +68,7 @@
                         ${Resource.msg('merge.cart.para', 'login', null)}</span>
                 </div>
             </div>
-            <div class="modal-footer border-0 p-0 merge-cart-footer mt-3">
+            <div class="modal-footer border-0 p-0 merge-cart-footer mt-3 justify-content-md-end justify-content-center">
                 <input type="hidden" class="home-show-url" value="${URLUtils.url('Home-Show')}" />
                 <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-PasswordReset')}" />
                 <input type="hidden" class="forgot-password-url" value="${URLUtils.url('Account-SetNewPassword')}" />

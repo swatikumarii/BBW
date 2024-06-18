@@ -136,7 +136,8 @@
         position: fixed;
         bottom: 0;
         left: 50%;
-        height: 266px;
+        height: auto;
+        max-height: 297px;
         top: 5vh;
         width: calc(100% - 40px);
         max-width: 568px;
@@ -208,19 +209,39 @@
         }
     }
 
-    .delete-lineitem-confirmation-btn {
-        min-height: 40px;
-        max-height: 40px;
-        text-transform: capitalize;
-    }
+    .modal-footer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
 
-    .close-btn {
-        min-height: 40px;
-        max-height: 40px;
-        text-transform: capitalize;
+        .delete-lineitem-confirmation-btn {
+            min-height: 40px;
+            max-height: 40px;
+            text-transform: capitalize;
+            width: 142px;
+            padding: 3px;
 
-        &:hover {
-            border: 2px solid colour(black, 1);
+            @include media-up(sm) {
+                padding: 0 1.0625em;
+                width: fit-content;
+            }
+        }
+
+        .close-btn {
+            min-height: 40px;
+            max-height: 40px;
+            text-transform: capitalize;
+            width: 121px;
+            padding: 1px;
+
+            @include media-up(sm) {
+                padding: 0 1.0625em;
+                width: fit-content;
+            }
+
+            &:hover {
+                border: 2px solid colour(black, 1);
+            }
         }
     }
 }
@@ -241,7 +262,8 @@
         width: calc(100% - 40px);
         max-width: 568px;
         margin: 0;
-        height: 306px;
+        height: auto;
+        max-height: 297px;
 
         @include media-up(sm) {
             width: 464px;
@@ -308,26 +330,46 @@
             }
         }
 
-        .delete-egiftitem-confirmation-btn {
-            min-height: 40px;
-            max-height: 40px;
-            text-transform: capitalize;
-        }
+        .modal-footer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
 
-        .close-btn {
-            min-height: 40px;
-            max-height: 40px;
-            text-transform: capitalize;
+            .delete-egiftitem-confirmation-btn {
+                min-height: 40px;
+                max-height: 40px;
+                text-transform: capitalize;
+                width: 138px;
+                padding: 3px;
 
-            &:hover {
-                border: 2px solid colour(black, 1);
+                @include media-up(sm) {
+                    padding: 0 1.0625em;
+                    width: fit-content;
+                }
+            }
+
+            .close-btn {
+                min-height: 40px;
+                max-height: 40px;
+                text-transform: capitalize;
+                width: 121px;
+                padding: 1px;
+
+                @include media-up(sm) {
+                    padding: 0 1.0625em;
+                    width: fit-content;
+                }
+
+                &:hover {
+                    border: 2px solid colour(black, 1);
+                }
             }
         }
     }
 }
 
 // -------add free item
-#addFreeItem {
+#add-free-item {
     .add-free-dialog {
         display: block;
         animation: bottom-to-top 0.2s;
@@ -341,7 +383,9 @@
         width: calc(100% - 40px);
         max-width: 568px;
         margin: 0;
-        height: 219px;
+        max-height: 221px;
+        height: auto;
+        min-height: 224px;
 
         @include media-up(sm) {
             width: 464px;
@@ -392,27 +436,46 @@
             }
         }
 
-        .free-close-btn {
-            min-height: 40px;
-            max-height: 40px;
-            text-transform: capitalize;
+        .modal-footer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
 
-            &:hover {
-                border: 2px solid colour(black, 1);
+            .free-close-btn {
+                min-height: 40px;
+                max-height: 40px;
+                text-transform: capitalize;
+                width: 83px;
+                padding: 1px;
+
+                @include media-up(sm) {
+                    padding: 0 1.0625em;
+                    width: fit-content;
+                }
+
+                &:hover {
+                    border: 2px solid colour(black, 1);
+                }
             }
-        }
 
-        .free-item-btn {
-            min-height: 40px;
-            max-height: 40px;
-            text-transform: capitalize;
-            width: 151px;
+            .free-item-btn {
+                min-height: 40px;
+                max-height: 40px;
+                text-transform: capitalize;
+                width: 128px;
+                padding: 1px;
+
+                @include media-up(sm) {
+                    padding: 0 1.0625em;
+                    width: fit-content;
+                }
+            }
         }
     }
 }
 
 // ------delete payment modal-----
-#deletePaymentModal {
+#delete-payment-modal {
     .delete-payment-dialog {
         display: block;
         animation: bottom-to-top 0.2s;
