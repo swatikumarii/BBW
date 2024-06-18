@@ -481,20 +481,23 @@ module.exports = function () {
                         data.toBeDeletedUUIDs.length > 0
                     ) {
                         for (var i = 0; i < data.toBeDeletedUUIDs.length; i++) {
-                            $('.uuid-' + data.toBeDeletedUUIDs[i])
-                                .parent('.card')
-                                .remove();
+                            if ($('.uuid-' + data.toBeDeletedUUIDs[i]).parent('.card').length >= 1) {
+                                $('.uuid-' + data.toBeDeletedUUIDs[i]).parent('.card').remove();
+                            } else {
+                                $('.uuid-' + data.toBeDeletedUUIDs[i] + '.card').remove();
+                            }
                         }
                     }
-                    $('.uuid-' + uuid)
-                        .parent('.card')
-                        .remove();
+                    $('.uuid-' + uuid).parent('.card').remove();
+                    $('.uuid-' + uuid + '.card').remove();
                     if (data.removeProducts && data.removeProducts.length > 0) {
                         for (var j = 0; j < data.removeProducts.length; j++) {
                             if ($('.uuid-' + data.removeProducts[j])) {
-                                $('.uuid-' + data.removeProducts[j])
-                                    .parent('.card')
-                                    .remove();
+                                if ($('.uuid-' + data.removeProducts[j]).parent('.card').length >= 1) {
+                                    $('.uuid-' + data.removeProducts[j]).parent('.card').remove();
+                                } else {
+                                    $('.uuid-' + data.removeProducts[j] + '.card').remove();
+                                }
                             }
                         }
                     }
