@@ -1,4 +1,4 @@
-<div class="modal fade teset" id="delete-payment-modal" tabindex="-1" role="dialog" aria-labelledby="deletePaymentModalTitle">
+<div class="modal fade" id="delete-payment-modal" tabindex="-1" role="dialog" aria-labelledby="deletePaymentModalTitle">
     <div class="modal-dialog delete-payment-dialog" role="document">
         <div class="modal-content delete-payment-content border-0">
             <div class="modal-header delete-payment-header border-0 p-0">
