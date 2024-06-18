@@ -43,7 +43,10 @@ function getFragranceNames() {
                     : 0;
                 var globalLevelReserveQty = dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
                 var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
-                var maxOrderQtyByReserveStock = product.availabilityModel.inventoryRecord.ATS.value - reserveOosQty;
+                var maxOrderQtyByReserveStock = 0;
+                if (product.availabilityModel && product.availabilityModel.inventoryRecord) {
+                    maxOrderQtyByReserveStock = (product.availabilityModel.inventoryRecord.ATS.value ? product.availabilityModel.inventoryRecord.ATS.value : 0) - reserveOosQty;
+                }
                 if (maxOrderQtyByReserveStock > 0) {
                     // get fragrance names from all products
                     if (product.custom.fragranceName) {
