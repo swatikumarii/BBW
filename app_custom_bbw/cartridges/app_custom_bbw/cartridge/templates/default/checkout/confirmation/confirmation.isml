@@ -23,8 +23,8 @@
             <div class="${pdict.returningCustomer ? 'col-sm-12' : 'col-md-12' }">
                 <isinclude template="checkout/confirmation/confirmationDetails" />
                 <div class="my-5 d-flex justify-content-center">
-                    <a href="${URLUtils.url('Home-Show')}" class="btn btn-primary order-confirmation-continue-shopping h-font-size--16 h-fw--semibold" role="button" aria-pressed="true">
-                        ${Resource.msg('button.continue.shopping','confirmation',null)}
+                    <a href="${URLUtils.url('Home-Show')}" class="btn d-flex h-flex-center order-confirmation-continue-shopping h-font-size--16 h-fw--semibold" role="button" aria-pressed="true">
+                        <span>${Resource.msg('button.continue.shopping','confirmation',null)}</span>
                     </a>
                 </div>
             </div>

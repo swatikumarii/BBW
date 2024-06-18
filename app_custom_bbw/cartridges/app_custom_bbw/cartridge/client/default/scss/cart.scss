@@ -7,7 +7,7 @@
     margin: 10px 0 10px 25px;
     color: $clr-gray-4;
     text-decoration: underline;
-    font-family: $ff-base;
+    font-family: get-ff(base, true);
     font-size: 14px;
     line-height: 16px;
     letter-spacing: 0.2px;
@@ -82,7 +82,7 @@
                 min-height: 35px;
                 background-color: $clr-gray-1;
                 color: $clr-black-1;
-                font-family: $ff-base;
+                font-family: get-ff(base, true);
                 font-size: 18px;
                 line-height: 20px;
                 letter-spacing: 0.1px;
@@ -110,7 +110,7 @@
                     font-size: 16px;
                     line-height: 20px;
                     letter-spacing: 0.2px;
-                    font-family: $ff-base;
+                    font-family: get-ff(base, true);
                     font-weight: 700;
                     color: $clr-blue;
                 }
@@ -122,7 +122,7 @@
             background-color: $clr-gray-1;
             font-size: 18px;
             font-weight: 700;
-            font-family: $ff-base;
+            font-family: get-ff(base, true);
             color: $clr-black-1;
             line-height: 20px;
             letter-spacing: 0.1px;
@@ -195,7 +195,7 @@
                         padding-top: 10px;
 
                         .line-item-name {
-                            font-family: $ff-base;
+                            font-family: get-ff(base, true);
                             font-weight: 600;
                             font-size: 16px;
                             line-height: 20px;
@@ -204,7 +204,7 @@
                         }
 
                         .line-item-name-partB {
-                            font-family: $ff-base;
+                            font-family: get-ff(base, true);
                             font-weight: 400;
                             font-size: 14px;
                             line-height: 16px;
@@ -348,7 +348,7 @@
                     font-size: 16px;
                     line-height: 20px;
                     font-weight: 600;
-                    font-family: $ff-base;
+                    font-family: get-ff(base, true);
                     padding-top: 10px;
                     color: $clr-black-3;
 
@@ -424,7 +424,7 @@
                             margin: 0;
                             color: $clr-green-2;
                             font-size: 16px;
-                            font-family: $ff-base;
+                            font-family: get-ff(base, true);
                             font-weight: 400;
                             line-height: 20px;
                             letter-spacing: 0.2px;
@@ -462,7 +462,7 @@
                     font-size: 16px;
                     line-height: 20px;
                     font-weight: 600;
-                    font-family: $ff-base;
+                    font-family: get-ff(base, true);
                     text-align: right;
                     padding-top: 10px;
                     color: $clr-black-1;
@@ -532,7 +532,7 @@
                         line-height: 20px;
                         letter-spacing: 0.1px;
                         font-weight: 600;
-                        font-family: $ff-base;
+                        font-family: get-ff(base, true);
                     }
 
                     .couponForm {
@@ -550,7 +550,7 @@
                             font-size: 16px;
                             line-height: 20px;
                             font-weight: 600;
-                            font-family: $ff-base;
+                            font-family: get-ff(base, true);
                         }
                     }
                 }
@@ -758,6 +758,7 @@ footer {
             margin-top: 0.3125rem;
             text-decoration: underline;
             content: "Promotional Details";
+            letter-spacing: 0.21px;
         }
 
         .popover-header {
@@ -807,7 +808,7 @@ footer {
             letter-spacing: 0.015em;
             line-height: 20px;
             max-height: 300px;
-            font-family: $ff-base;
+            font-family: get-ff(base, true);
         }
     }
 

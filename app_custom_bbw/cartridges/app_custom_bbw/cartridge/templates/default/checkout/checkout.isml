@@ -64,7 +64,7 @@
 
         <div class="row">
             <div class="col-12">
-                <h2 class="h-font-size--24 h-clr--black-3 h-mt--0 h-mb--25 h-line-height--28 pb-3 h-fw--bold border-bottom border-dark">${Resource.msg('label.order.your.items', 'order', null)}</h2>
+                <h2 class="h-font-size--20 h-font-size-md--24 b-text-letter-space-005 h-clr--black-3 h-mt--0 h-mb--25 h-line-height-md--28 h-line-height--24 pb-3 h-fw--bold border-bottom border-dark">${Resource.msg('label.order.your.items', 'order', null)}</h2>
             </div>
             <div class="col-lg-8 col-md-6">
                 <div class="review-shipping-summary border">
@@ -150,7 +150,7 @@
                             <p class="verify-msg text-center h-font-size--14 h-clr--red" style="display:none">
                                 ${Resource.msg('msg.fill.all.required', 'checkout', null)}</p>
                         </div>
-                        <div class="col-12 next-step-button h-pos--relative px-md-3">
+                        <div class="col-12 next-step-button h-pos--relative ${pdict.currentStage === 'payment' ? 'px-md-3' : 'px-md-0'}">
                             <div class="mb-sm-3 next-step-button-inner-wrapper">
                                 <iscomment>Start of Afterpay</iscomment>
                                 <div

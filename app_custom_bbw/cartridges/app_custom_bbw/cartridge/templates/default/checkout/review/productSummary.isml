@@ -1,4 +1,4 @@
-<h2 class="h-font-size--24 h-clr--black-1 h-mt--30 h-mb--10 h-line-height--28 pb-3 h-fw--bold border-bottom border-dark">${Resource.msg('label.order.review.your.items', 'order', null)}</h2>
+<h2 class="h-font-size--20 h-font-size-md--24 b-text-letter-space-005 h-clr--black-1 h-mt--30 h-mb--10 h-line-height-md--28 h-line-height--24 pb-3 h-fw--bold border-bottom border-dark">${Resource.msg('label.order.review.your.items', 'order', null)}</h2>
 <div class="h-px--15 confirmation-product-details">
     <div class="itemsHeader row border-bottom d-none d-md-flex align-items-center">
         <div class="headerItem h-font-size--18 h-fw--bold h-clr--black-1 col-6 p-3">${Resource.msg('label.item.header.item', 'cart', null)}</div>

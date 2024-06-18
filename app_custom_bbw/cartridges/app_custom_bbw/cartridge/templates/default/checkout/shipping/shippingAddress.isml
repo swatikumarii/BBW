@@ -18,7 +18,7 @@
                 </label>
                 <span class="h-font-size--14 required-indicator-text h-clr--black-1"><span class="h-clr--red-9 required-star">${'*'}</span>${Resource.msg('label.required', 'account', null)}</span>
             </div>
-            <input autofocus type="text" class="form-control shippingFirstName"
+            <input type="text" class="form-control shippingFirstName"
                 id="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}FirstName"
                 value="${shippingAddress.firstName || ''}"

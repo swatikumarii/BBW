@@ -1,8 +1,8 @@
 <isscript>
-        var assets = require('*/cartridge/scripts/assets');
-        assets.addJs('/js/pickedJustForYou.js');
-        assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
-         assets.addCss('/css/pages/shopbyingredient/b-shopbyingredient.css');
+    var assets = require('*/cartridge/scripts/assets');
+    assets.addJs('/js/pickedJustForYou.js');
+    assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
+    assets.addCss('/css/pages/shopbyingredient/b-shopbyingredient.css');
 </isscript>
 <isinclude template="/components/modules" sf-toolkit="off" />
 <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
@@ -91,10 +91,8 @@
                 <iselse/>
                     <isif condition="${!pdict.productSearch.productIds.length}">
                         <div class="product-grid-wrapper">
-                            <div class="no-results">
-                                <h3 class="no-items-available">${Resource.msg('label.no.results.found', 'search', null)}
-                                </h3>
-                                <p class="no-results-para">${Resource.msg('label.no.results.found.desc', 'search', null)}</p>
+                            <div class="no-results mb-0">
+                                <iscontentasset aid="category-no-search-result-content" />
                             </div>
                         </div>
                     </isif>
