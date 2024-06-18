@@ -43,6 +43,7 @@ function OrderModel(lineItemContainer, options) {
         var currency = new Money(0, currentSite.getDefaultCurrency());
         var currencyCode = currency.toFormattedString();
         this.currencyCode = (currencyCode || '').trim().split(' ')[0] || '';
+        this.eGiftTotalAmount = 'eGiftTotalAmount' in lineItemContainer.custom && lineItemContainer.custom.eGiftTotalAmount ? lineItemContainer.custom.eGiftTotalAmount : 0;
 
         this.hasFreeShipping = getFreeShippingStatus(lineItemContainer);
         if (this.totals) {

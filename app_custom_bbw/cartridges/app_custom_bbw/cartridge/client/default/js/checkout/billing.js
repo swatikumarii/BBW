@@ -232,6 +232,8 @@ function updatePaymentInformation(order) {
     // update payment details
     var $paymentSummary = $('.payment-details');
     var htmlToAppend = '';
+    var giftcards = false;
+    var giftcardsAmount = 0;
 
     if (
         order.billing.payment &&
@@ -240,29 +242,40 @@ function updatePaymentInformation(order) {
     ) {
         order.billing.payment.selectedPaymentInstruments.forEach(function (selectedPaymentInstrument) {
             if (selectedPaymentInstrument.paymentMethod === 'CREDIT_CARD' || selectedPaymentInstrument.paymentMethod === 'AdyenComponent') {
-                htmlToAppend +=
-                    '<span>' +
-                    order.resources.cardType +
-                    ' ' +
-                    selectedPaymentInstrument.type +
-                    '</span><div>' +
-                    selectedPaymentInstrument
-                        .maskedCreditCardNumber +
-                    '</div>'+
-                    '<div class="payment-amount h-fw--bold">'+
+                if (selectedPaymentInstrument.type) {
+                    htmlToAppend +=
+                        '<span>'+
+                         order.resources.cardType +
+                        ' ' +
+                        selectedPaymentInstrument.type+
+                        '</span>'+
+                        '<div>' +
+                            selectedPaymentInstrument.maskedCreditCardNumber +
+                        '</div>';
+                } else if (selectedPaymentInstrument.selectedAdyenPM) {
+                    htmlToAppend +=
+                        '<span>'+
+                        selectedPaymentInstrument.selectedAdyenPM +
+                        '</span>';
+                }
+                htmlToAppend +='<div class="payment-amount h-fw--semibold">'+
                     '<span class="label h-clr--black-1">'+
-                    selectedPaymentInstrument.amount+
+                    (order.currencyCode ? order.currencyCode :'') + ' ' + selectedPaymentInstrument.amount+
                     '</span>'+
                     '</div>';
             } else if (selectedPaymentInstrument.paymentMethod === 'GIFT_CERTIFICATE') {
-                htmlToAppend += '<div class="mb-2">Gift Card</div>'+
-                    '<div class="payment-amount h-fw--bold mb-3">'+
-                    '<span class="label h-clr--black-1">'+
-                    selectedPaymentInstrument.amount+
-                    '</span>'+
-                    '</div>';
+                giftcards = true;
+                giftcardsAmount += selectedPaymentInstrument.amount;
             }
         });
+        if (giftcards) {
+            htmlToAppend += '<div class="mt-2">Gift Card</div>'+
+                '<div class="payment-amount h-fw--semibold mb-3">'+
+                '<span class="label h-clr--black-1">'+
+                (order.currencyCode ? order.currencyCode :'') + ' ' + giftcardsAmount+
+                '</span>'+
+                '</div>';
+        }
     }
     $paymentSummary.empty().append(htmlToAppend);
 }
