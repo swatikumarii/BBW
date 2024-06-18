@@ -69,7 +69,7 @@ function addToNotifyList(data, pId) {
 // Adding click event listener to notify me button to check whether user is registered or not and perform action accordingly
 $(document).on('click', '.notifyBackInStockButton', function (e) {
     var pId = $(this).attr('data-pid');
-    var self= this;
+    var self = this;
     var mainClass = '.main-quantity-' + pId;
     e.preventDefault();
     $.ajax({
@@ -97,21 +97,33 @@ $(document).on('click', '.notifyBackInStockButton', function (e) {
                         'notifyMeRegisteredProducts'
                     );
                     if (notifyMeRegisteredProducts.indexOf(pId) !== -1) {
-                        $(self).text($(mainClass).find('#notify-list-msg').val()).attr('disabled', 'disabled');
+                        $(self)
+                            .text($(mainClass).find('#notify-list-msg').val())
+                            .attr('disabled', 'disabled');
                         openFlyout = false;
                     }
                 }
                 if (openFlyout) {
                     $('#requestUserEmailForOOSModal img.image').attr(
                         'src',
-                        $(mainClass).find('.notifyBackInStockButton').data(window.devicePixelRatio >= 2 ? 'img2x' : 'img')
+                        $(mainClass)
+                            .find('.notifyBackInStockButton')
+                            .data(
+                                window.devicePixelRatio >= 2 ? 'img2x' : 'img'
+                            )
                     );
                     $('#requestUserEmailForOOSModal img.image').attr(
                         'data-src',
-                        $(mainClass).find('.notifyBackInStockButton').data(window.devicePixelRatio >= 2 ? 'img2x' : 'img')
+                        $(mainClass)
+                            .find('.notifyBackInStockButton')
+                            .data(
+                                window.devicePixelRatio >= 2 ? 'img2x' : 'img'
+                            )
                     );
                     $('#requestUserEmailForOOSModal span.product-name').text(
-                        $(mainClass).find('.notifyBackInStockButton').data('pname')
+                        $(mainClass)
+                            .find('.notifyBackInStockButton')
+                            .data('pname')
                     );
                     $('#requestUserEmailForOOSModal form.notify-me-form').attr(
                         'data-pid',
@@ -140,6 +152,7 @@ $('#requestUserEmailForOOSModal.modal').on('hidden.bs.modal', function () {
         .parents('.form-group')
         .find('.form-control-label')
         .show();
+    $('.notify-me-oos-success-msg').removeClass('h-clr--red');
 });
 
 /**
