@@ -19,8 +19,7 @@ function getPidValue($el) {
         pid = $($el).closest('.product-detail').find('.product-id').text();
     } else {
         pid =
-            $('.product-detail:not(".bundle-item")').data('pid') ||
-            ($el && $el.data('pid'));
+            ($el && $el.data('pid')) || $('.product-detail:not(".bundle-item")').data('pid');
     }
 
     return pid;

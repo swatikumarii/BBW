@@ -9,13 +9,13 @@
         <country-code>AU</country-code>
         <phone>(03) 9568 5699</phone>
         <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
         <latitude>-37.887696</latitude>
         <longitude>145.080598</longitude>
