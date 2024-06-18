@@ -35,19 +35,19 @@
             </a>
             <isif condition="${pdict.description !== null || pdict.linkText}">
                 <div class="w-100 d-block align-items-center text-center">
-                    <div class="col-12 px-0">
+                    <div class="col-12 px-0 w-100 h-100">
                         <isif condition="${pdict.description !== null}">
-                            <span class="description d-block">
+                            <div class="description w-100 h-100">
                                 <isprint value="${pdict.description ? pdict.description : ''}" encoding="off" />
-                            </span>
+                            </div>
                         </isif>
                         <isif condition="${pdict.linkText}">
                             <a class="text-center"
                                 href="${pdict.linkUmpParameter ? pdict.link + pdict.linkUmpParameter : pdict.link}"
                                 hreflang="${request.getLocale()}">
-                                <span>
+                                <div>
                                     <isprint value="${pdict.linkText ? pdict.linkText : ''}" encoding="off" />
-                                </span>
+                                </div>
                             </a>
                         </isif>
                     </div>

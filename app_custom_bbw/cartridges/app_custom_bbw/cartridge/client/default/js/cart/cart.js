@@ -12,9 +12,13 @@ var location = window.location;
  */
 function appendToUrl(url, params) {
     var newUrl = url;
-    newUrl += (newUrl.indexOf('?') !== -1 ? '&' : '?') + Object.keys(params).map(function (key) {
-        return key + '=' + encodeURIComponent(params[key]);
-    }).join('&');
+    newUrl +=
+        (newUrl.indexOf('?') !== -1 ? '&' : '?') +
+        Object.keys(params)
+            .map(function (key) {
+                return key + '=' + encodeURIComponent(params[key]);
+            })
+            .join('&');
 
     return newUrl;
 }
@@ -27,15 +31,22 @@ function appendToUrl(url, params) {
 function validateBasket(data) {
     if (data.valid.error) {
         if (data.valid.message) {
-            var errorHtml = '<span class="d-block">' + data.valid.message + '</span>';
+            var errorHtml =
+                '<span class="d-block">' + data.valid.message + '</span>';
 
             $('.cart-error').append(errorHtml);
         } else {
-            $('.cart').empty().append('<div class="row"> '
-                + '<div class="col-12 text-center"> '
-                + '<h1>' + data.resources.emptyCartMsg + '</h1> '
-                + '</div> '
-                + '</div>');
+            $('.cart')
+                .empty()
+                .append(
+                    '<div class="row"> ' +
+                        '<div class="col-12 text-center"> ' +
+                        '<h1>' +
+                        data.resources.emptyCartMsg +
+                        '</h1> ' +
+                        '</div> ' +
+                        '</div>'
+                );
             $('.number-of-items').empty().append(data.resources.numberOfItems);
             $('.minicart-quantity').empty().append(data.numItems);
             $('.minicart-link').attr({
@@ -63,15 +74,21 @@ function updateCartTotals(data) {
         $('.shipping-tax').closest('div.row').addClass('d-none');
     } else {
         $('.shipping-discount').removeClass('d-none');
-        $('.shipping-cost').empty().append(data.totals.totalShippingCost);
+        if ($('.shipping-cost').hasClass('tax-exclusive')) {
+            $('.shipping-cost')
+                .empty()
+                .append(data.totals.shippingTotalExclTax);
+        } else {
+            $('.shipping-cost').empty().append(data.totals.totalShippingCost);
+        }
         $('.shipping-tax').closest('div.row').removeClass('d-none');
-
     }
     $('.number-of-items').empty().append(data.resources.numberOfItems);
     $('.tax-total').empty().append(data.totals.totalTax);
     $('.grand-total').empty().append(data.totals.grandTotal);
     $('.sub-total').empty().append(data.totals.subTotal);
     $('.minicart-quantity').empty().append(data.numItems);
+    $('.cart-num-items').empty().append(data.numItems);
     $('.minicart-link').attr({
         'aria-label': data.resources.minicartCountOfItems,
         title: data.resources.minicartCountOfItems
@@ -85,8 +102,9 @@ function updateCartTotals(data) {
 
     if (data.totals.shippingLevelDiscountTotal.value > 0) {
         $('.shipping-discount').removeClass('hide-shipping-discount');
-        $('.shipping-discount-total').empty().append('- '
-            + data.totals.shippingLevelDiscountTotal.formatted);
+        $('.shipping-discount-total')
+            .empty()
+            .append('- ' + data.totals.shippingLevelDiscountTotal.formatted);
     } else {
         $('.shipping-discount').addClass('hide-shipping-discount');
     }
@@ -96,7 +114,9 @@ function updateCartTotals(data) {
             $('.coupons-and-promos').empty().append(data.totals.discountsHtml);
         }
         if (item.promotionsHTML) {
-            $('line-item-promo.item-' + item.UUID).empty().append(item.promotionsHTML);
+            $('line-item-promo.item-' + item.UUID)
+                .empty()
+                .append(item.promotionsHTML);
         } else {
             $('line-item-promo.item-' + item.UUID).empty();
         }
@@ -119,18 +139,26 @@ function updateCartTotals(data) {
         var motivatorHTML = '';
         item.promotions.forEach(function (promotion) {
             if (promotion.motivator && promotion.motivator !== 'false') {
-                motivatorHTML += '<div class="h-font-size--14 h-fw--semibold">\n'+
-                promotion.motivator +'\n' +
-                '</div>\n';
+                motivatorHTML +=
+                    '<div class="h-font-size--14 h-fw--semibold">\n' +
+                    promotion.motivator +
+                    '\n' +
+                    '</div>\n';
             }
         });
-        $('.line-item-promo-motivator.item-' + item.UUID).empty().append(motivatorHTML);
-        $('.item-total-' + item.UUID).empty().append(item.priceTotal.renderedPrice);
+        $('.line-item-promo-motivator.item-' + item.UUID)
+            .empty()
+            .append(motivatorHTML);
+        $('.item-total-' + item.UUID)
+            .empty()
+            .append(item.priceTotal.renderedPrice);
     });
 
     // update free item toast message
     if (data.freeItemCount > 0) {
-        $('.free-item-toast-message').removeClass('hide-free-item-toast-message');
+        $('.free-item-toast-message').removeClass(
+            'hide-free-item-toast-message'
+        );
         $('.free-item-toast-message').empty().append(data.freeItemToastMessage);
     } else {
         $('.free-item-toast-message').addClass('hide-free-item-toast-message');
@@ -146,40 +174,45 @@ function createErrorNotification(message) {
     $('.cart-error').append(errorHtml);
 }
 
-
 /**
  * re-renders the approaching discount messages
  * @param {object} orderApproachingDiscounts - updated approaching discounts for the cart
  * @param {object} shippingApproachingDiscounts - updated approaching discounts for the cart
  */
-function updateApproachingDiscounts(orderApproachingDiscounts, shippingApproachingDiscounts) {
+function updateApproachingDiscounts(
+    orderApproachingDiscounts,
+    shippingApproachingDiscounts
+) {
     var orderhtml = '';
     var shippinghtml = '';
     if (orderApproachingDiscounts && orderApproachingDiscounts.length) {
-        orderhtml = '<div class="d-flex w-100 align-items-center">\n';
-        if ('image' in orderApproachingDiscounts[0]) {
-            orderhtml += '<div>\n'+
-                '<img src="' + orderApproachingDiscounts[0].image + '" alt="product image" width="50" />\n'+
-            '</div>';
-        }
+        orderhtml = '<div class="d-flex w-auto align-items-center single-approaching-discount-wrap">\n';
         orderhtml += '<div class="single-approaching-discount d-flex flex-column w-100 pl-3">\n'+
             orderApproachingDiscounts[0].discountMsg +
-            '<progress class="w-100" value="' + (orderApproachingDiscounts[0].conditionThreshold - orderApproachingDiscounts[0].distanceFromConditionThreshold) + '" max="' + orderApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
-        '</div>\n'+
-    '</div>';
+        // '<progress class="w-100" value="' + (orderApproachingDiscounts[0].conditionThreshold - orderApproachingDiscounts[0].distanceFromConditionThreshold) + '" max="' + orderApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
+            '</div>\n';
+        if ('image' in orderApproachingDiscounts[0]) {
+            orderhtml +=
+                '<div>\n' +
+                '<img src="' +
+                orderApproachingDiscounts[0].image +
+                '" alt="product image" width="50" />\n' +
+                '</div>';
+        }
+        orderhtml +='</div>';
     }
 
     if(shippingApproachingDiscounts && shippingApproachingDiscounts.length) {
         shippinghtml = '<div class="row align-items-center">\n'+
             '<div class="d-flex flex-column col-12 py-0">\n'+
-            '<p class="h-font-size--13 h-clr--pink h-fw--bold m-0">' + shippingApproachingDiscounts[0].discountMsg + '</p>\n'+
+            '<p class="h-font-size--16 h-clr--pink h-fw--semibold m-0 text-center">' + shippingApproachingDiscounts[0].discountMsg + '</p>\n'+
                 '<div class="d-flex w-100 justify-content-around align-items-center progress-wrap">\n'+
-                    '<span class="pr-3 text-nowrap d-block"> AUD 0.00 </span>\n' +
+                    '<span class="pr-3 text-nowrap d-block h-font-size--14 h-fw--bold"> AU$ 0.00 </span>\n' +
                 '<span class="d-block w-100 h-pos--relative">\n'+
                         '<progress class="w-100" value="' + (shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold) + '" max="' + shippingApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
                         '<span class="free-shipping-progress" style="left: calc(' + (((shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold)/shippingApproachingDiscounts[0].conditionThreshold)*100).toFixed(2) + '% - 25px );"></span>\n'+
                     '</span>\n'+
-                    '<span class="pl-3 text-nowrap d-block">\n'+
+                    '<span class="pl-3 text-nowrap d-block h-font-size--14 h-fw--bold">\n'+
                         shippingApproachingDiscounts[0].formattedConditionThreshold +
                     '</span>\n'+
                 '</div>\n'+
@@ -212,14 +245,16 @@ function updateAvailability(data, uuid) {
         if (lineItem.availability) {
             if (lineItem.availability.messages) {
                 lineItem.availability.messages.forEach(function (message) {
-                    messages += '<p class="line-item-attributes">' + message + '</p>';
+                    messages +=
+                        '<p class="line-item-attributes">' + message + '</p>';
                 });
             }
 
             if (lineItem.availability.inStockDate) {
-                messages += '<p class="line-item-attributes line-item-instock-date">'
-                    + lineItem.availability.inStockDate
-                    + '</p>';
+                messages +=
+                    '<p class="line-item-attributes line-item-instock-date">' +
+                    lineItem.availability.inStockDate +
+                    '</p>';
             }
         }
 
@@ -233,14 +268,15 @@ function updateAvailability(data, uuid) {
  * @param {Function} match - function that takes an element and returns a boolean indicating if the match is made
  * @returns {object} - returns an element of the array that matched the query.
  */
-function findItem(array, match) { // eslint-disable-line no-unused-vars
-    for (var i = 0, l = array.length; i < l; i++) {
-        if (match.call(this, array[i])) {
-            return array[i];
-        }
-    }
-    return null;
-}
+// function findItem(array, match) {
+//     // eslint-disable-line no-unused-vars
+//     for (var i = 0, l = array.length; i < l; i++) {
+//         if (match.call(this, array[i])) {
+//             return array[i];
+//         }
+//     }
+//     return null;
+// }
 
 /**
  * Updates details of a product line item
@@ -259,23 +295,24 @@ function getModalHtmlElement() {
     if ($('#editProductModal').length !== 0) {
         $('#editProductModal').remove();
     }
-    var htmlString = '<!-- Modal -->'
-        + '<div class="modal fade" id="editProductModal" tabindex="-1" role="dialog">'
-        + '<span class="enter-message sr-only" ></span>'
-        + '<div class="modal-dialog quick-view-dialog">'
-        + '<!-- Modal content-->'
-        + '<div class="modal-content">'
-        + '<div class="modal-header">'
-        + '    <button type="button" class="close pull-right" data-dismiss="modal">'
-        + '        <span aria-hidden="true">&times;</span>'
-        + '        <span class="sr-only"> </span>'
-        + '    </button>'
-        + '</div>'
-        + '<div class="modal-body"></div>'
-        + '<div class="modal-footer"></div>'
-        + '</div>'
-        + '</div>'
-        + '</div>';
+    var htmlString =
+        '<!-- Modal -->' +
+        '<div class="modal fade" id="editProductModal" tabindex="-1" role="dialog">' +
+        '<span class="enter-message sr-only" ></span>' +
+        '<div class="modal-dialog quick-view-dialog">' +
+        '<!-- Modal content-->' +
+        '<div class="modal-content">' +
+        '<div class="modal-header">' +
+        '    <button type="button" class="close pull-right" data-dismiss="modal">' +
+        '        <span aria-hidden="true">&times;</span>' +
+        '        <span class="sr-only"> </span>' +
+        '    </button>' +
+        '</div>' +
+        '<div class="modal-body"></div>' +
+        '<div class="modal-footer"></div>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
     $('body').append(htmlString);
 }
 
@@ -309,7 +346,9 @@ function fillModalElement(editProductUrl) {
             $('#editProductModal .modal-body').empty();
             $('#editProductModal .modal-body').html(parsedHtml.body);
             $('#editProductModal .modal-footer').html(parsedHtml.footer);
-            $('#editProductModal .modal-header .close .sr-only').text(data.closeButtonText);
+            $('#editProductModal .modal-header .close .sr-only').text(
+                data.closeButtonText
+            );
             $('#editProductModal .enter-message').text(data.enterDialogMessage);
             $('#editProductModal').modal('show');
             $('body').trigger('editproductmodal:ready');
@@ -352,7 +391,12 @@ module.exports = function () {
 
     $('body').on('afterRemoveFromCart', function (e, data) {
         e.preventDefault();
-        confirmDelete(data.actionUrl, data.productID, data.productName, data.uuid);
+        confirmDelete(
+            data.actionUrl,
+            data.productID,
+            data.productName,
+            data.uuid
+        );
     });
 
     $('.optional-promo').click(function (e) {
@@ -395,14 +439,11 @@ module.exports = function () {
                         if (isPopupMinicart) {
                             $('.minicart .popover').removeClass('show');
                         } else {
-                            $.get(
-                                minicartURL,
-                                function (dataMinicart) {
-                                    $('.minicart .popover')
-                                        .empty()
-                                        .append(dataMinicart);
-                                }
-                            );
+                            $.get(minicartURL, function (dataMinicart) {
+                                $('.minicart .popover')
+                                    .empty()
+                                    .append(dataMinicart);
+                            });
                         }
                     } else {
                         var emptyCartHtml =
@@ -422,24 +463,41 @@ module.exports = function () {
                             '</div>';
                         $('.cart').empty().append(emptyCartHtml);
                     }
-                    $('.number-of-items').empty().append(data.basket.resources.numberOfItems);
-                    $('.minicart-quantity').empty().append(data.basket.numItems);
+                    $('.number-of-items')
+                        .empty()
+                        .append(data.basket.resources.numberOfItems);
+                    $('.minicart-quantity')
+                        .empty()
+                        .append(data.basket.numItems);
                     $('.minicart-link').attr({
-                        'aria-label': data.basket.resources.minicartCountOfItems,
+                        'aria-label':
+                            data.basket.resources.minicartCountOfItems,
                         title: data.basket.resources.minicartCountOfItems
                     });
                     $('html').removeClass('veiled');
                 } else {
-                    if (data.toBeDeletedUUIDs && data.toBeDeletedUUIDs.length > 0) {
+                    if (
+                        data.toBeDeletedUUIDs &&
+                        data.toBeDeletedUUIDs.length > 0
+                    ) {
                         for (var i = 0; i < data.toBeDeletedUUIDs.length; i++) {
-                            $('.uuid-' + data.toBeDeletedUUIDs[i]).parent('.card').remove();
+                            if ($('.uuid-' + data.toBeDeletedUUIDs[i]).parent('.card').length >= 1) {
+                                $('.uuid-' + data.toBeDeletedUUIDs[i]).parent('.card').remove();
+                            } else {
+                                $('.uuid-' + data.toBeDeletedUUIDs[i] + '.card').remove();
+                            }
                         }
                     }
                     $('.uuid-' + uuid).parent('.card').remove();
+                    $('.uuid-' + uuid + '.card').remove();
                     if (data.removeProducts && data.removeProducts.length > 0) {
                         for (var j = 0; j < data.removeProducts.length; j++) {
                             if ($('.uuid-' + data.removeProducts[j])) {
-                                $('.uuid-' + data.removeProducts[j]).parent('.card').remove();
+                                if ($('.uuid-' + data.removeProducts[j]).parent('.card').length >= 1) {
+                                    $('.uuid-' + data.removeProducts[j]).parent('.card').remove();
+                                } else {
+                                    $('.uuid-' + data.removeProducts[j] + '.card').remove();
+                                }
                             }
                         }
                     }
@@ -454,10 +512,18 @@ module.exports = function () {
                             .empty()
                             .append(data.refreshItemsTemplateMinicart);
                     }
-                    $('.coupons-and-promos').empty().append(data.basket.totals.discountsHtml);
+                    $('.coupons-and-promos')
+                        .empty()
+                        .append(data.basket.totals.discountsHtml);
                     updateCartTotals(data.basket);
-                    updateApproachingDiscounts(data.basket.orderApproachingDiscounts, data.basket.shippingApproachingDiscounts);
-                    $('body').trigger('setShippingMethodSelection', data.basket);
+                    updateApproachingDiscounts(
+                        data.basket.orderApproachingDiscounts,
+                        data.basket.shippingApproachingDiscounts
+                    );
+                    $('body').trigger(
+                        'setShippingMethodSelection',
+                        data.basket
+                    );
                     validateBasket(data.basket);
                     $('.item-removed-message').removeClass('d-none');
                 }
@@ -517,77 +583,94 @@ module.exports = function () {
             setTimeout(function () {
                 errorElem.hide();
             }, 3000);
-            $(this).val(preSelectQty);
-        } else {
-            var productID = $(this).data('pid');
-            var url = $(this).data('action');
-            var uuid = $(this).data('uuid');
+            $(this).val(Math.floor(maxOrderQty));
+            quantity = Number(maxOrderQty);
+        }
+        var productID = $(this).data('pid');
+        var url = $(this).data('action');
+        var uuid = $(this).data('uuid');
 
-            var urlParams = {
-                pid: productID,
-                quantity: quantity,
-                uuid: uuid,
-                isMiniCartTrigger:isMiniCartTrigger,
-                isCartPageTrigger:isCartPageTrigger
-            };
-            url = appendToUrl(url, urlParams);
+        var urlParams = {
+            pid: productID,
+            quantity: quantity,
+            uuid: uuid,
+            isMiniCartTrigger: isMiniCartTrigger,
+            isCartPageTrigger: isCartPageTrigger
+        };
+        url = appendToUrl(url, urlParams);
 
-            $(this).parents('.card').spinner().start();
+        $(this).parents('.card').spinner().start();
 
-            $('body').trigger('cart:beforeUpdate');
+        $('body').trigger('cart:beforeUpdate');
 
-            $.ajax({
-                url: url,
-                type: 'get',
-                context: this,
-                dataType: 'json',
-                success: function (data) {
-                    if (data.error) {
-                        if (data.errorCode === 'ZERO-PRICE-PRODUCT') {
-                            createErrorNotification(data.errorMessage);
-                            $.spinner().stop();
-                        }
-                        return;
-                    }
-                    $('.quantity[data-uuid="' + uuid + '"]').val(quantity);
-                    $('.coupons-and-promos')
-                        .empty()
-                        .append(data.totals.discountsHtml);
-                    updateCartTotals(data);
-                    updateApproachingDiscounts(data.orderApproachingDiscounts, data.shippingApproachingDiscounts);
-                    updateAvailability(data, uuid);
-                    validateBasket(data);
-                    $(this).data('pre-select-qty', quantity);
-                    $('body').trigger('cart:update', data);
-                    if ('refreshItems' in data && data.refreshItems) {
-                        $('.cart-lineitems')
-                            .empty()
-                            .append(data.refreshItemsTemplate);
-                        $('.mini-cart-content .product-summary')
-                            .empty()
-                            .append(data.refreshItemsTemplateMinicart);
-                    }
-                    $.spinner().stop();
-                    if (
-                        $(this)
-                            .parents('.product-info')
-                            .hasClass('bonus-product-line-item') &&
-                        $('.cart-page').length
-                    ) {
-                        location.reload();
-                    }
-                },
-                error: function (err) {
-                    if (err.responseJSON.redirectUrl) {
-                        window.location.href = err.responseJSON.redirectUrl;
-                    } else {
-                        createErrorNotification(err.responseJSON.errorMessage);
-                        $(this).val(parseInt(preSelectQty, 10));
+        $.ajax({
+            url: url,
+            type: 'get',
+            context: this,
+            dataType: 'json',
+            success: function (data) {
+                if (data.error) {
+                    if (data.errorCode === 'ZERO-PRICE-PRODUCT') {
+                        createErrorNotification(data.errorMessage);
                         $.spinner().stop();
                     }
+                    return;
                 }
-            });
-        }
+                $('.quantity[data-uuid="' + uuid + '"]').val(quantity);
+                $('.coupons-and-promos')
+                    .empty()
+                    .append(data.totals.discountsHtml);
+                updateCartTotals(data);
+                updateApproachingDiscounts(
+                    data.orderApproachingDiscounts,
+                    data.shippingApproachingDiscounts
+                );
+                updateAvailability(data, uuid);
+                validateBasket(data);
+                $(this).data('pre-select-qty', quantity);
+                $('body').trigger('cart:update', data);
+                if ('refreshItems' in data && data.refreshItems) {
+                    $('.cart-lineitems')
+                        .empty()
+                        .append(data.refreshItemsTemplate);
+                    $('.mini-cart-content .product-summary')
+                        .empty()
+                        .append(data.refreshItemsTemplateMinicart);
+                }
+                if (data.totalSavings) {
+                    $(this)
+                        .closest('.product-info')
+                        .find('.line-item-savings span')
+                        .removeClass('value-dash')
+                        .text(data.totalSavings);
+                    if (data.totalSavings === '-') {
+                        $(this)
+                            .closest('.product-info')
+                            .find('.line-item-savings span')
+                            .addClass('value-dash')
+                            .text(data.totalSavings);
+                    }
+                }
+                $.spinner().stop();
+                if (
+                    $(this)
+                        .parents('.product-info')
+                        .hasClass('bonus-product-line-item') &&
+                    $('.cart-page').length
+                ) {
+                    location.reload();
+                }
+            },
+            error: function (err) {
+                if (err.responseJSON.redirectUrl) {
+                    window.location.href = err.responseJSON.redirectUrl;
+                } else {
+                    createErrorNotification(err.responseJSON.errorMessage);
+                    $(this).val(parseInt(preSelectQty, 10));
+                    $.spinner().stop();
+                }
+            }
+        });
     });
 
     $('.shippingMethods').change(function () {
@@ -608,9 +691,14 @@ module.exports = function () {
                 if (data.error) {
                     window.location.href = data.redirectUrl;
                 } else {
-                    $('.coupons-and-promos').empty().append(data.totals.discountsHtml);
+                    $('.coupons-and-promos')
+                        .empty()
+                        .append(data.totals.discountsHtml);
                     updateCartTotals(data);
-                    updateApproachingDiscounts(data.orderApproachingDiscounts, data.shippingApproachingDiscounts);
+                    updateApproachingDiscounts(
+                        data.orderApproachingDiscounts,
+                        data.shippingApproachingDiscounts
+                    );
                     validateBasket(data);
                 }
 
@@ -633,9 +721,13 @@ module.exports = function () {
         $.spinner().start();
         $('.coupon-missing-error').hide();
         $('.coupon-error-message').empty();
+        $('.coupon-error-message').removeClass('d-block');
         if (!$('.coupon-code-field').val()) {
             $('.promo-code-form .form-control').addClass('is-invalid');
-            $('.promo-code-form .form-control').attr('aria-describedby', 'missingCouponCode');
+            $('.promo-code-form .form-control').attr(
+                'aria-describedby',
+                'missingCouponCode'
+            );
             $('.coupon-missing-error').show();
             $.spinner().stop();
             return false;
@@ -653,19 +745,25 @@ module.exports = function () {
             success: function (data) {
                 if (data.error) {
                     $('.promo-code-form .form-control').addClass('is-invalid');
-                    $('.promo-code-form .form-control').attr('aria-describedby', 'invalidCouponCode');
-                    $('.coupon-error-message').empty().append(data.errorMessage);
-                    $('.coupon-error-message').addClass('px-3');
-                    $('.coupon-error-message').addClass('py-2');
+                    $('.promo-code-form .form-control').attr(
+                        'aria-describedby',
+                        'invalidCouponCode'
+                    );
+                    $('.coupon-error-message')
+                        .empty()
+                        .append(data.errorMessage);
                     $('.coupon-error-message').addClass('d-block');
                     $('body').trigger('promotion:error', data);
                 } else {
-                    $('.coupon-error-message').removeClass('px-3');
-                    $('.coupon-error-message').removeClass('py-2');
                     $('.coupon-error-message').removeClass('d-block');
-                    $('.coupons-and-promos').empty().append(data.totals.discountsHtml);
+                    $('.coupons-and-promos')
+                        .empty()
+                        .append(data.totals.discountsHtml);
                     updateCartTotals(data);
-                    updateApproachingDiscounts(data.orderApproachingDiscounts, data.shippingApproachingDiscounts);
+                    updateApproachingDiscounts(
+                        data.orderApproachingDiscounts,
+                        data.shippingApproachingDiscounts
+                    );
                     validateBasket(data);
                     $('body').trigger('promotion:success', data);
                 }
@@ -683,6 +781,52 @@ module.exports = function () {
             }
         });
         return false;
+    });
+
+    $(document).on('click', '.promo-code-form button', function () {
+        $.ajax({
+            url: $('.promo-code-form').attr('action'),
+            type: 'GET',
+            dataType: 'json',
+            data: $('.promo-code-form :input').serialize(),
+            success: function (data) {
+                if (data.error) {
+                    $('.promo-code-form .form-control').addClass('is-invalid');
+                    $('.promo-code-form .form-control').attr(
+                        'aria-describedby',
+                        'invalidCouponCode'
+                    );
+                    $('.coupon-error-message')
+                        .empty()
+                        .append(data.errorMessage);
+                    $('.coupon-error-message').addClass('d-block');
+                    $('body').trigger('promotion:error', data);
+                } else {
+                    $('.coupon-error-message').removeClass('d-block');
+                    $('.coupons-and-promos')
+                        .empty()
+                        .append(data.totals.discountsHtml);
+                    updateCartTotals(data);
+                    updateApproachingDiscounts(
+                        data.orderApproachingDiscounts,
+                        data.shippingApproachingDiscounts
+                    );
+                    validateBasket(data);
+                    $('body').trigger('promotion:success', data);
+                }
+                $('.coupon-code-field').val('');
+                $.spinner().stop();
+            },
+            error: function (err) {
+                $('body').trigger('promotion:error', err);
+                if (err.responseJSON.redirectUrl) {
+                    window.location.href = err.responseJSON.redirectUrl;
+                } else {
+                    createErrorNotification(err.errorMessage);
+                    $.spinner().stop();
+                }
+            }
+        });
     });
 
     $('body').on('click', '.remove-coupon', function (e) {
@@ -723,7 +867,10 @@ module.exports = function () {
             success: function (data) {
                 $('.coupon-uuid-' + uuid).remove();
                 updateCartTotals(data);
-                updateApproachingDiscounts(data.orderApproachingDiscounts, data.shippingApproachingDiscounts);
+                updateApproachingDiscounts(
+                    data.orderApproachingDiscounts,
+                    data.shippingApproachingDiscounts
+                );
                 validateBasket(data);
                 $.spinner().stop();
                 $('body').trigger('promotion:success', data);
@@ -769,13 +916,17 @@ module.exports = function () {
         }
     });
 
-    $('body').on('click', '.cart-page .product-edit .edit, .cart-page .bundle-edit .edit', function (e) {
-        e.preventDefault();
+    $('body').on(
+        'click',
+        '.cart-page .product-edit .edit, .cart-page .bundle-edit .edit',
+        function (e) {
+            e.preventDefault();
 
-        var editProductUrl = $(this).attr('href');
-        getModalHtmlElement();
-        fillModalElement(editProductUrl);
-    });
+            var editProductUrl = $(this).attr('href');
+            getModalHtmlElement();
+            fillModalElement(editProductUrl);
+        }
+    );
 
     $('body').on('shown.bs.modal', '#editProductModal', function () {
         $('#editProductModal').siblings().attr('aria-hidden', 'true');
@@ -799,13 +950,14 @@ module.exports = function () {
 
     $('body').on('product:updateAddToCart', function (e, response) {
         // update global add to cart (single products, bundles)
-        var dialog = $(response.$productContainer)
-            .closest('.quick-view-dialog');
+        var dialog = $(response.$productContainer).closest(
+            '.quick-view-dialog'
+        );
 
         $('.update-cart-product-global', dialog).attr(
             'disabled',
-            !$('.global-availability', dialog).data('ready-to-order')
-            || !$('.global-availability', dialog).data('available')
+            !$('.global-availability', dialog).data('ready-to-order') ||
+                !$('.global-availability', dialog).data('available')
         );
     });
 
@@ -818,23 +970,35 @@ module.exports = function () {
             .empty()
             .html(response.message);
 
-        var dialog = $(response.$productContainer)
-            .closest('.quick-view-dialog');
+        var dialog = $(response.$productContainer).closest(
+            '.quick-view-dialog'
+        );
 
         if ($('.product-availability', dialog).length) {
             // bundle all products
-            var allAvailable = $('.product-availability', dialog).toArray()
-                .every(function (item) { return $(item).data('available'); });
+            var allAvailable = $('.product-availability', dialog)
+                .toArray()
+                .every(function (item) {
+                    return $(item).data('available');
+                });
 
-            var allReady = $('.product-availability', dialog).toArray()
-                .every(function (item) { return $(item).data('ready-to-order'); });
+            var allReady = $('.product-availability', dialog)
+                .toArray()
+                .every(function (item) {
+                    return $(item).data('ready-to-order');
+                });
 
             $('.global-availability', dialog)
                 .data('ready-to-order', allReady)
                 .data('available', allAvailable);
 
-            $('.global-availability .availability-msg', dialog).empty()
-                .html(allReady ? response.message : response.resources.info_selectforstock);
+            $('.global-availability .availability-msg', dialog)
+                .empty()
+                .html(
+                    allReady
+                        ? response.message
+                        : response.resources.info_selectforstock
+                );
         } else {
             // single product
             $('.global-availability', dialog)
@@ -848,30 +1012,58 @@ module.exports = function () {
 
     $('body').on('product:afterAttributeSelect', function (e, response) {
         if ($('.modal.show .product-quickview .bundle-items').length) {
-            $('.modal.show').find(response.container).data('pid', response.data.product.id);
-            $('.modal.show').find(response.container).find('.product-id').text(response.data.product.id);
+            $('.modal.show')
+                .find(response.container)
+                .data('pid', response.data.product.id);
+            $('.modal.show')
+                .find(response.container)
+                .find('.product-id')
+                .text(response.data.product.id);
         } else {
-            $('.modal.show .product-quickview').data('pid', response.data.product.id);
+            $('.modal.show .product-quickview').data(
+                'pid',
+                response.data.product.id
+            );
         }
     });
 
     $('body').on('change', '.quantity-select', function () {
         var selectedQuantity = $(this).val();
-        $('.modal.show .update-cart-url').data('selected-quantity', selectedQuantity);
+        $('.modal.show .update-cart-url').data(
+            'selected-quantity',
+            selectedQuantity
+        );
     });
 
     $('body').on('change', '.options-select', function () {
-        var selectedOptionValueId = $(this).children('option:selected').data('value-id');
-        $('.modal.show .update-cart-url').data('selected-option', selectedOptionValueId);
+        var selectedOptionValueId = $(this)
+            .children('option:selected')
+            .data('value-id');
+        $('.modal.show .update-cart-url').data(
+            'selected-option',
+            selectedOptionValueId
+        );
     });
 
     $('body').on('click', '.update-cart-product-global', function (e) {
         e.preventDefault();
 
-        var updateProductUrl = $(this).closest('.cart-and-ipay').find('.update-cart-url').val();
-        var selectedQuantity = $(this).closest('.cart-and-ipay').find('.update-cart-url').data('selected-quantity');
-        var selectedOptionValueId = $(this).closest('.cart-and-ipay').find('.update-cart-url').data('selected-option');
-        var uuid = $(this).closest('.cart-and-ipay').find('.update-cart-url').data('uuid');
+        var updateProductUrl = $(this)
+            .closest('.cart-and-ipay')
+            .find('.update-cart-url')
+            .val();
+        var selectedQuantity = $(this)
+            .closest('.cart-and-ipay')
+            .find('.update-cart-url')
+            .data('selected-quantity');
+        var selectedOptionValueId = $(this)
+            .closest('.cart-and-ipay')
+            .find('.update-cart-url')
+            .data('selected-option');
+        var uuid = $(this)
+            .closest('.cart-and-ipay')
+            .find('.update-cart-url')
+            .data('uuid');
 
         var form = {
             uuid: uuid,
@@ -894,9 +1086,14 @@ module.exports = function () {
                 success: function (data) {
                     $('#editProductModal').modal('hide');
 
-                    $('.coupons-and-promos').empty().append(data.cartModel.totals.discountsHtml);
+                    $('.coupons-and-promos')
+                        .empty()
+                        .append(data.cartModel.totals.discountsHtml);
                     updateCartTotals(data.cartModel);
-                    updateApproachingDiscounts(data.cartModel.orderApproachingDiscounts, data.cartModel.shippingApproachingDiscounts);
+                    updateApproachingDiscounts(
+                        data.cartModel.orderApproachingDiscounts,
+                        data.cartModel.shippingApproachingDiscounts
+                    );
                     updateAvailability(data.cartModel, uuid);
                     updateProductDetails(data, uuid);
 
@@ -928,7 +1125,13 @@ module.exports = function () {
         var couponCode = $(this).data('coupon');
         var csrfTokenFieldName = $('.topOfferCsrfToken').attr('name');
         var csrfTokenValue = $('.topOfferCsrfToken').val();
-        var formData = 'couponCode='+couponCode+'&'+csrfTokenFieldName+'='+csrfTokenValue;
+        var formData =
+            'couponCode=' +
+            couponCode +
+            '&' +
+            csrfTokenFieldName +
+            '=' +
+            csrfTokenValue;
         $.ajax({
             url: action,
             type: 'GET',
@@ -952,7 +1155,6 @@ module.exports = function () {
                         $('.topOfferSuccess').hide();
                     }, 5000);
                 }
-
             },
             error: function () {
                 $('.topOfferSuccess').hide();
@@ -974,13 +1176,68 @@ module.exports = function () {
             url: checkFreeURL,
             success: function (data) {
                 if (data.loosingFree) {
-                    alert('Add Free Product');
+                    $('#addFreeModalButton').trigger('click');
                 } else {
                     window.location.href = url;
                 }
             },
             error: function () {
                 window.location.href = url;
+            }
+        });
+    });
+
+    // Show popover on mouseenter
+    $('[data-toggle="popover"]').on('mouseenter', function () {
+        $(this).popover('show');
+        $('.pdp-title').parents('.bs-popover-right').addClass('pdp-popover');
+    });
+
+    $('[data-toggle="popover"]').on('click', function () {
+        $('[data-toggle="popover"]').popover('hide');
+        $(this).popover('show');
+    });
+
+    // Event for apply promo code
+    $('body').on('click', '.dynamic-popup-apply-promo', function (e) {
+        e.preventDefault();
+        var action = $('.add-coupon-url').val();
+        var couponCode = $(this).data('coupon');
+        var csrfTokenFieldName = $('.popup-csrf-token').attr('name');
+        var csrfTokenValue = $('.popup-csrf-token').val();
+        var formData =
+            'couponCode=' +
+            couponCode +
+            '&' +
+            csrfTokenFieldName +
+            '=' +
+            csrfTokenValue;
+        $.ajax({
+            url: action,
+            type: 'GET',
+            contentType: false,
+            data: formData,
+            processData: false,
+            success: function (data) {
+                if (data.error) {
+                    $('.dynamic-popup-promo-success').hide();
+                    $('.dynamic-popup-promo-error').text(data.errorMessage);
+                    $('.dynamic-popup-promo-error').show();
+                } else {
+                    updateCartTotals(data);
+                    $('.dynamic-popup-promo-error').hide();
+                    $('.dynamic-popup-promo-success').text(
+                        data.resources.couponApplied
+                    );
+                    $('.dynamic-popup-promo-success').show();
+                }
+            },
+            error: function () {
+                $('.dynamic-popup-promo-success').hide();
+                $('.dynamic-popup-promo-error').text(
+                    $('.something-went-wrong').text()
+                );
+                $('.dynamic-popup-promo-error').show();
             }
         });
     });

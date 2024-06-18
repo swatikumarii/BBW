@@ -15,11 +15,17 @@
             .bbw-nav-wrap {
                 .primary-logo {
                     margin: 24px auto 22px;
+                    padding-top: 0;
+                    left: 0;
                 }
 
                 .icon-items {
                     .minicart {
-                        margin-right: 41px;
+                        margin-right: 29px;
+
+                        @include media-up(md) {
+                            margin-right: 41px;
+                        }
                     }
                 }
             }
@@ -64,6 +70,11 @@ footer {
     border: none;
     padding: 0;
     background: none;
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 .error-message {
@@ -74,20 +85,30 @@ footer {
     padding-left: 15px;
 }
 
+.checkout-btn-row {
+    margin: 1rem 0;
+
+    @include media-up(md) {
+        padding: 0 2%;
+        margin-top: 0;
+    }
+}
+
 .next-step-button {
     position: fixed;
     bottom: 0;
-    z-index: 3;
-    padding-right: 0;
-    padding-left: 30px;
 
     button {
         min-width: 175px;
+        margin-top: 10px;
     }
 
     @include media-down(sm) {
-        .mb-sm-3 {
-            margin: 15px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        .next-step-button-inner-wrapper {
+            margin: 10px 0 15px;
         }
 
         button {
@@ -105,7 +126,7 @@ footer {
 }
 
 .shipping-method-pricing {
-    font-weight: bolder;
+    font-weight: 600;
 }
 
 .multi-ship .multi-shipping {
@@ -131,7 +152,7 @@ span.ship-to-city-st-zip {
     cursor: pointer;
 
     &:hover {
-        text-decoration: underline;
+        text-decoration: none;
     }
 }
 
@@ -159,6 +180,15 @@ span.ship-to-city-st-zip {
         &.billing {
             padding: 0;
             margin: 0;
+
+            .edit-billing-address {
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+            }
         }
     }
 }
@@ -259,19 +289,51 @@ span.ship-to-city-st-zip {
 }
 
 .checkout-steps {
-    margin: 25px auto 58px;
+    margin: 24px auto 34px;
     text-align: center;
     line-height: 16px;
     letter-spacing: 0.2px;
-    width: 730px;
+    width: 290px;
+
+    @include media-up(md) {
+        margin: 25px auto 58px;
+        width: 730px;
+    }
+
+    @include media-down(sm) {
+        width: 315px;
+    }
 
     a {
         display: block;
         width: fit-content;
     }
 
+    .step-1 {
+        @include media-down(sm) {
+            width: 56px;
+        }
+    }
+
+    .step-2 {
+        @include media-down(sm) {
+            width: 152px;
+        }
+    }
+
+    .step-3 {
+        @include media-down(sm) {
+            width: 90px;
+        }
+    }
+
     .step-text {
+        height: 32px;
         margin-bottom: 15px;
+
+        @include media-up(md) {
+            height: auto;
+        }
     }
 
     .step-connect {
@@ -280,46 +342,54 @@ span.ship-to-city-st-zip {
         &::after {
             content: "";
             display: block;
-            width: calc(100% - 30px);
+            width: 100px;
             height: 3px;
             position: absolute;
-            background: $clr-gray-1;
+            background: colour(gray, 1);
             bottom: 14px;
             left: calc(50% + 15px);
+
+            @include media-up(md) {
+                width: calc(100% - 30px);
+            }
         }
     }
 
     .step-count {
         margin: auto;
-        border: 2px solid $clr-gray-1;
+        border: 2px solid colour(gray, 1);
         border-radius: 100%;
         width: 30px;
         height: 30px;
         text-align: center;
         font-size: 14px;
         line-height: 25px;
-        background-color: $clr-gray-1;
-    }
-
-    @include media-down(sm) {
-        width: 100%;
-
-        .step-text {
-            height: 30px;
-        }
+        background-color: colour(gray, 1);
     }
 }
 
 .checkout-blocks {
-    border-top: 1px solid $clr-gray-6;
+    border-top: 1px solid colour(gray, 6);
+    padding: 0 14px;
+
+    @include media-up(md) {
+        padding: 0 2%;
+    }
+
+    .checkout-login-signup-info {
+        .account-tag {
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+        }
+    }
 }
 
 .customer-heading {
-    padding: 20px 10px;
+    padding: 20px 0;
 }
 
 .customer-message {
-    padding: 0 10px;
+    padding: 0;
 
     a {
         text-decoration: underline;
@@ -348,7 +418,7 @@ span.ship-to-city-st-zip {
 
         &:hover {
             text-decoration: none;
-            color: $clr-gray-4;
+            color: colour(gray, 4);
         }
     }
 }
@@ -358,7 +428,7 @@ input[type="password"],
 input[type="tel"],
 .custom-select {
     height: 48px;
-    border-color: $clr-black-1;
+    border-color: colour(black, 1);
     border-radius: 0;
     background: none !important;
 }
@@ -371,13 +441,13 @@ input[type="tel"],
     &::after {
         content: "";
         position: absolute;
-        right: 10px;
-        top: 50%;
+        right: 0;
+        top: 46%;
         transform: translateY(-46%);
-        height: 45px;
+        height: 47px;
         width: 35px;
-        border-left: 1px solid $clr-gray-5;
-        background: $clr-white url("../../images/UI-Carat.svg") no-repeat 50%;
+        border-left: 1px solid colour(gray, 5);
+        background: colour(white) url("../../images/UI-Carat.svg") no-repeat 50%;
         background-size: 15px;
     }
 
@@ -390,6 +460,9 @@ input[type="tel"],
         appearance: none;
         z-index: 1;
         position: absolute;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         &:focus {
             box-shadow: none;
@@ -403,28 +476,56 @@ input[type="tel"],
     .custom-select-wrap {
         &::after {
             transform: translateY(-50%);
-            right: 5px;
+            right: 0;
+            top: 50%;
         }
     }
 }
 
 .toggle-password {
     position: absolute;
-    right: 0;
-    top: 50px;
-    height: 36px;
-    border-left: 1px solid $clr-gray-5;
-    padding: 7px 15px;
+    right: 1px;
+    top: 42px;
+    height: 44px;
+    padding-right: 15px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &::before {
+        width: 0.8px;
+        height: 24px;
+        display: block;
+        content: "";
+        margin-right: 15px;
+        background-color: colour(gray, 22);
+    }
+
+    &:hover {
+        background-color: colour(gray, 1);
+    }
 }
 
 .checkout-black-1 {
-    color: $clr-black-1;
+    color: colour(black, 1);
+}
+
+.cart-black-1 {
+    color: colour(black, 1);
 }
 
 .submit-customer-login {
     min-height: unset;
-    width: 135px;
+    width: 100%;
+    max-width: 165px;
+    letter-spacing: 0.12em;
+    line-height: 2.0625rem;
+    font-size: 12px;
+
+    @include media-up(sm) {
+        font-size: 11px;
+        width: 135px;
+    }
 }
 
 .shipping-section {
@@ -437,16 +538,23 @@ input[type="tel"],
 
 .order-summary {
     padding: 0 15px;
+    margin-bottom: 37px;
+
+    @include media-up(md) {
+        margin-bottom: 0;
+    }
 }
 
 .order-product-summary-wrap {
     h2 {
         padding: 20px 0;
-        border-bottom: 3px solid $clr-gray-6;
+        border-bottom: 3px solid colour(gray, 6);
+        line-height: 1.25rem;
+        letter-spacing: 0.005em;
     }
 
     .order-product-summary {
-        border-bottom: 3px solid $clr-gray-6;
+        border-bottom: 3px solid colour(gray, 6);
 
         .product-summary-block {
             max-height: 400px;
@@ -463,6 +571,22 @@ input[type="tel"],
             padding-top: 25px;
             padding-right: 20px;
 
+            .line-item-name {
+                .product-title {
+                    letter-spacing: 0.16px;
+                }
+
+                .prod-desc {
+                    line-height: 1rem;
+                    letter-spacing: 0.015em;
+                }
+            }
+
+            .line-item-quantity-info {
+                line-height: 1rem;
+                letter-spacing: 0.015em;
+            }
+
             .promotion {
                 max-width: 88%;
             }
@@ -470,17 +594,25 @@ input[type="tel"],
             .line-item-total-price-amount {
                 text-align: right;
                 padding-right: 20px;
+
+                @include media-down(sm) {
+                    padding-right: 0;
+                }
             }
         }
     }
 }
 
 .order-total-summary-wrap {
-    padding: 15px 15px 0;
+    padding: 15px 0 0;
+
+    @include media-up(md) {
+        padding: 15px 15px 0;
+    }
 
     .grand-total-wrap {
         padding-top: 15px;
-        border-top: 3px solid $clr-gray-6;
+        border-top: 3px solid colour(gray, 6);
     }
 }
 
@@ -502,16 +634,34 @@ input[type="tel"],
 }
 
 .shipping-methods-block {
-    margin: 10px 0 30px;
+    margin: 0 0 16px;
+
+    @include media-up(md) {
+        margin: 10px 0 30px;
+    }
 }
 
 .payment-form {
-    padding: 0 15px;
+    padding: 0;
+
+    @include media-up(md) {
+        padding: 0 15px;
+    }
 
     .billing-address-heading {
-        padding-top: 40px;
+        padding-top: 0;
         padding-bottom: 15px;
+        margin-bottom: 13px;
+        margin-top: 0;
+
+        @include media-up(md) {
+            margin-bottom: 6px;
+        }
     }
+}
+
+.checkout-login-signup-info {
+    margin-bottom: 40px;
 }
 
 .shipping-address,
@@ -519,6 +669,29 @@ input[type="tel"],
     .form-group {
         margin: 10px 0 30px;
         position: relative;
+
+        @include media-down(sm) {
+            margin: 0 0 30px;
+        }
+
+        .form-control-label {
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+            color: colour(black, 1);
+
+            .require-indicator {
+                margin-right: 0.125em;
+            }
+        }
+
+        .required-indicator-text {
+            font-style: italic;
+
+            .required-star {
+                right: 5px;
+                position: relative;
+            }
+        }
     }
 
     .iti {
@@ -535,6 +708,12 @@ input[type="tel"],
     }
 }
 
+.same-as-shipping-address {
+    @include media-down(md) {
+        margin-top: 30px;
+    }
+}
+
 .multi-shipping {
     display: none;
 }
@@ -542,7 +721,7 @@ input[type="tel"],
 .checkout-footer {
     margin-top: 96px;
     min-height: 64px;
-    border-top: 3px solid $clr-gray-1;
+    border-top: 3px solid colour(gray, 1);
     padding: 32px 0 48px;
 }
 
@@ -550,6 +729,15 @@ input[type="tel"],
     &.billing {
         margin: 0 0 42px;
         padding: 30px 15px;
+
+        .edit-billing-address {
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: none;
+                cursor: pointer;
+            }
+        }
     }
 }
 
@@ -561,7 +749,7 @@ input[type="tel"],
         content: url("../../images/UI-Carat.svg");
         width: 15px;
         position: absolute;
-        right: -30px;
+        right: 0;
         top: 50%;
         transform: translateY(-50%) rotate(180deg);
         transition: transform 0.3s ease;
@@ -573,41 +761,64 @@ input[type="tel"],
         }
     }
 
+    &.promocode-title,
     &.gift-cardtitle {
+        padding-left: 14px;
+
+        @include media-up(md) {
+            padding-left: 10px;
+        }
+
         &::after {
-            right: 40px;
+            right: 14px;
+
+            @include media-up(md) {
+                right: 25px;
+            }
         }
     }
+}
 
-    &.promocode-title {
-        &::after {
-            right: 25px;
+.checkoutPromo {
+    .accordion-content {
+        padding: 0 14px;
+
+        @include media-up(md) {
+            padding-left: 10px;
+            padding-right: 0;
         }
     }
 }
 
 .gift-card-apply {
     .add-giftcard-header-wrap {
-        border-top: 3px solid $clr-gray-1;
-        width: 85%;
-        margin: 0 15px;
-
         .add-giftcard-header {
             padding: 20px 0;
+        }
+    }
+
+    .accordion-content {
+        padding: 0 14px;
+
+        @include media-up(md) {
+            padding-left: 10px;
+            padding-right: 0;
+        }
+
+        .remove-giftcard-btn {
+            cursor: pointer;
         }
     }
 
     .add-giftcard-text {
         display: block;
         padding-bottom: 20px;
-        border-bottom: 3px solid $clr-gray-1;
-        margin: 0 15px;
-        width: 85%;
+        border-bottom: 3px solid colour(gray, 1);
     }
 
     .giftcard-total-wrap {
-        width: 90%;
-        padding: 20px 15px;
+        padding: 20px 0;
+        width: 100%;
         height: 58px;
     }
 
@@ -615,8 +826,18 @@ input[type="tel"],
         margin: 0 15px;
         max-width: 85%;
         padding: 10px 15px;
-        color: $clr-red;
-        background-color: $clr-red-10;
+        color: colour(red);
+        background-color: colour(red, 10);
+    }
+}
+
+.giftcard-partial-redemption,
+.giftcard-full-redemption {
+    padding: 0 14px;
+
+    @include media-up(md) {
+        padding-right: 10px;
+        padding-left: 10px;
     }
 }
 
@@ -627,18 +848,20 @@ input[type="tel"],
 
 .add-giftcard-section {
     display: none;
-    width: 90%;
 
     &.show {
         display: flex;
     }
 
     .giftcard-buttons {
-        padding: 0 15px;
+        padding: 0;
+        gap: 10px;
+        flex-wrap: nowrap;
     }
 
     .giftcard-balance-section {
-        border-bottom: 1px solid $clr-black-1;
+        border-bottom: 1px solid colour(black, 1);
+        min-height: 35px;
 
         #egift-card-check-balance {
             text-decoration: underline;
@@ -652,7 +875,7 @@ input[type="tel"],
     width: auto;
     position: absolute;
     right: -307px;
-    top: 65%;
+    top: 50px;
     transform: translateY(-50%);
     border: 1px solid;
     padding: 24px 8px 24px 0;
@@ -730,11 +953,11 @@ input[type="tel"],
 
 .info-icon-border-arrow {
     border-top: 9px solid transparent;
-    border-right: 8px solid $clr-white;
+    border-right: 8px solid colour(white);
     border-bottom: 9px solid transparent;
     position: absolute;
     right: -56px;
-    top: 65%;
+    top: 50px;
     z-index: 1;
     transform: translate(-100%, -50%);
     display: none;
@@ -742,7 +965,7 @@ input[type="tel"],
     @include media-down(sm) {
         top: 125%;
         right: 100%;
-        left: 40px;
+        left: 39px;
         z-index: 2;
     }
 }
@@ -753,10 +976,10 @@ input[type="tel"],
     border-bottom: 10px solid transparent;
     position: absolute;
     right: -57px;
-    top: 65%;
+    top: 50px;
     transform: translate(-100%, -50%);
-    display: none;
     z-index: 1;
+    display: none;
 
     @include media-down(sm) {
         top: 125%;
@@ -768,13 +991,13 @@ input[type="tel"],
 .info-icon {
     position: absolute;
     right: -34px;
-    top: 66%;
+    top: 50px;
     transform: translateY(-50%);
     width: 25px;
     height: 25px;
-    border: 1px solid $clr-gray-1;
+    border: 1px solid colour(gray, 1);
     border-radius: 50%;
-    background: $clr-gray-1;
+    background: colour(gray, 1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -793,8 +1016,8 @@ input[type="tel"],
     }
 
     &:hover {
-        background: $clr-black-3;
-        border-color: $clr-black-3;
+        background: colour(black, 3);
+        border-color: colour(black, 3);
 
         .info-icon-img-white {
             display: block;
@@ -857,7 +1080,7 @@ input[type="tel"],
 }
 
 .verify-msg {
-    margin: 20px 0;
+    margin: 16px 0;
     line-height: 16px;
     letter-spacing: 0.2px;
 }
@@ -904,7 +1127,7 @@ input[type="tel"],
     max-height: 400px;
     position: absolute;
     left: calc(100% + 15px);
-    background: $clr-white;
+    background: colour(white);
     padding: 24px 0;
     z-index: 1;
 
@@ -940,7 +1163,7 @@ input[type="tel"],
         height: 0;
         border-top: 10px solid transparent;
         border-bottom: 10px solid transparent;
-        border-right: 10px solid #000;
+        border-right: 10px solid colour(black);
 
         @include media-down(sm) {
             // left: -66px;
@@ -956,13 +1179,13 @@ input[type="tel"],
             right: -11px;
             border-top: 10px solid transparent;
             border-bottom: 10px solid transparent;
-            border-right: 10px solid white;
+            border-right: 10px solid colour(white);
 
             @include media-down(sm) {
                 right: 50%;
                 left: 0;
                 border-bottom: 10px solid transparent;
-                border-right: 11px solid #fff;
+                border-right: 11px solid colour(white);
                 border-top: 10px solid transparent;
             }
         }
@@ -983,18 +1206,22 @@ input[type="tel"],
     }
 }
 
+@include media-down(sm) {
+    .line-item-savings {
+        padding-top: 10px;
+    }
+}
+
 .order-discount {
     .order-discount-total {
         letter-spacing: normal;
     }
 
-    p {
-        line-height: 20px;
-        letter-spacing: 0.2px;
-
-        &.accordion-item.collapsed {
+    &.accordion-item.collapsed {
+        .cart-saving {
             &::before {
-                background: url("../../images/UI-Carat.svg") no-repeat 50%;
+                background: url("../../images/UI-Carat.svg") 50%;
+                background-repeat: no-repeat;
                 background-size: 1.25rem;
                 content: "";
                 height: 12px;
@@ -1006,10 +1233,13 @@ input[type="tel"],
                 top: 4px;
             }
         }
+    }
 
-        &.accordion-item {
+    &.accordion-item {
+        .cart-saving {
             &::before {
-                background: url("../../images/UI-Carat.svg") no-repeat 50%;
+                background: url("../../images/UI-Carat.svg") 50%;
+                background-repeat: no-repeat;
                 background-size: 1.25rem;
                 content: "";
                 height: 12px;
@@ -1023,6 +1253,11 @@ input[type="tel"],
         }
     }
 
+    p {
+        line-height: 20px;
+        letter-spacing: 0.2px;
+    }
+
     .accordion-collapse {
         padding-left: 30px;
     }
@@ -1031,12 +1266,12 @@ input[type="tel"],
 // ---gift card
 .giftcard-buttons {
     .giftcard-redeem {
-        width: 171px;
+        width: 95%;
         height: 42px;
     }
 
     .giftcard-cancel-btn {
-        width: 127px;
+        width: 95%;
         height: 42px;
 
         &:hover {
@@ -1046,7 +1281,7 @@ input[type="tel"],
 }
 
 .payment-error {
-    background-color: colour(red, 11);
+    background-color: colour(red, 10);
     padding: 9px 20px 9px 38px;
     margin: 5px 0;
 
@@ -1067,4 +1302,91 @@ input[type="tel"],
     width: 194px;
     margin-top: 24px;
     text-transform: capitalize;
+}
+
+.promotion-callout {
+    line-height: 1.25rem;
+    letter-spacing: 0.005em;
+    width: 100%;
+    margin-bottom: 0.75rem;
+
+    .callout-detail {
+        &::after {
+            font-size: 0.875rem;
+            line-height: 1rem;
+            color: colour(gray, 4);
+            margin-top: 0.3125rem;
+            text-decoration: underline;
+            content: "Promotional Details";
+            letter-spacing: 0.21px;
+        }
+
+        .popover-header {
+            display: none;
+        }
+    }
+}
+
+.pdp-popover {
+    border: 1px solid colour(gray);
+    box-shadow: 0 0 13px 0 rgba(0, 0, 0, 15%);
+    color: colour(black, 1);
+    padding: 1.5rem 0.5rem 1.5rem 0;
+    overflow-y: initial;
+    border-radius: 0;
+    left: 13px !important;
+    width: 260px;
+    max-height: 197px;
+
+    @include media-down(sm) {
+        left: 19.5% !important;
+        top: -118px !important;
+
+        .arrow {
+            top: auto !important;
+            bottom: -17px;
+            right: 50%;
+            transform: rotate(90deg);
+        }
+    }
+
+    .popover-body {
+        max-height: 147px;
+        overflow-y: auto;
+        padding: 0 16px 0 24px;
+        scrollbar-width: thin;
+
+        &:focus {
+            outline: 1px dotted colour(black);
+            outline-offset: 2px;
+        }
+
+        .popover-content {
+            color: colour(black, 1);
+            font-size: 14px;
+            height: auto;
+            letter-spacing: 0.015em;
+            line-height: 20px;
+            max-height: 300px;
+            font-family: get-ff(base, true);
+        }
+    }
+
+    .popover-header {
+        display: none;
+    }
+
+    .close {
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background-size: 0.8125rem;
+    }
+}
+
+.shipping-select-error {
+    position: absolute;
+    top: 47px;
 }

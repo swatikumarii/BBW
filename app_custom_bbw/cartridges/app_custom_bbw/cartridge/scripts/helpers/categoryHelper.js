@@ -43,20 +43,22 @@ function appendCategoryBreadcrum(req, res, next) {
     var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
     var viewData = res.getViewData();
     var breadcrumbs = [];
-    if (req.querystring.cgid === 's-fragrance') {
-        var category = CatalogMgr.getCategory(req.querystring.cgid);
-        if (category){
-            breadcrumbs = [
-                {
-                    htmlValue: req.querystring.preferences.fragranceName
-                        ? req.querystring.preferences.fragranceName
-                        : ''
-                },
-                {
-                    htmlValue: category.displayName,
-                    url: URLUtils.url('Search-Show', 'cgid', category.ID)
-                }
-            ];
+    if (req.querystring.cgid === 's-fragrance' && 'preferences' in req.querystring) {
+        if ('fragranceName' in req.querystring.preferences) {
+            var category = CatalogMgr.getCategory(req.querystring.cgid);
+            if (category) {
+                breadcrumbs = [
+                    {
+                        htmlValue: req.querystring.preferences.fragranceName
+                            ? req.querystring.preferences.fragranceName
+                            : ''
+                    },
+                    {
+                        htmlValue: category.displayName,
+                        url: URLUtils.url('Search-Show', 'cgid', category.ID)
+                    }
+                ];
+            }
         }
     }else{
         breadcrumbs = productHelper.getAllBreadcrumbs(

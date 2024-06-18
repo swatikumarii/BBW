@@ -4,7 +4,12 @@ var collections = require('*/cartridge/scripts/util/collections');
 var formatMoney = require('dw/util/StringUtils').formatMoney;
 var Money = require('dw/value/Money');
 var BasketMgr = require('dw/order/BasketMgr');
-var currentBasket = BasketMgr.getCurrentBasket();
+var currentBasket;
+try {
+    currentBasket = BasketMgr.getCurrentBasket();
+} catch (error) {
+    currentBasket = false;
+}
 
 /**
  * toFixedIfNecessary

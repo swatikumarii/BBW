@@ -31,7 +31,7 @@
         min-width: 425px;
         max-width: 425px;
         position: fixed;
-        font-family: $ff-base;
+        font-family: get-ff(base, true);
         right: -100%;
         transition: right 0.8s ease-in-out;
 
@@ -50,7 +50,7 @@
             border-radius: 0;
 
             .cart {
-                border: 1px solid $clr-gray-3;
+                border: 1px solid colour(gray, 3);
 
                 &.container {
                     padding: 10px;
@@ -60,13 +60,13 @@
             .minicart-heading {
                 padding: 9px 0 15px;
                 line-height: 20px;
-                border-bottom: 3px solid $clr-gray-1;
+                border-bottom: 3px solid colour(gray, 1);
             }
 
             .sub-total-wrap {
                 line-height: 20px;
                 padding: 15px 5px 5px;
-                border-top: 3px solid $clr-gray-1;
+                border-top: 3px solid colour(gray, 1);
             }
 
             .product-summary {
@@ -116,7 +116,11 @@
             }
 
             .checkout-black-1 {
-                color: $clr-black-1;
+                color: colour(black, 1);
+            }
+
+            .cart-black-1 {
+                color: colour(black, 1);
             }
         }
 
@@ -198,7 +202,7 @@
 
                 a {
                     &:hover {
-                        color: $clr-white;
+                        color: colour(colour(white));
                         opacity: 0.9;
                     }
                 }
@@ -212,7 +216,7 @@
             max-width: 250px;
             overflow-x: hidden;
             height: 100%;
-            background: white;
+            background: colour(white);
         }
 
         .strike-through {
@@ -235,7 +239,7 @@
             top: calc(100% + 10px);
             left: 50%;
             transform: translateX(-50%);
-            background: $clr-white;
+            background: colour(colour(white));
             padding: 24px 0;
             z-index: 9;
 
@@ -254,7 +258,7 @@
                 height: 0;
                 border-left: 10px solid transparent;
                 border-right: 10px solid transparent;
-                border-bottom: 10px solid #000;
+                border-bottom: 10px solid colour(black);
 
                 &::before {
                     content: "";
@@ -264,13 +268,13 @@
                     transform: translateX(-50%);
                     border-left: 10px solid transparent;
                     border-right: 10px solid transparent;
-                    border-bottom: 10px solid white;
+                    border-bottom: 10px solid colour(white);
                 }
             }
         }
 
         .minicart-red {
-            color: $clr-red;
+            color: colour(red);
         }
     }
 }
@@ -290,11 +294,11 @@
         padding: 25px;
 
         .minicart-login-btn {
-            color: $clr-blue;
+            color: colour(blue);
 
             &:hover {
-                color: $clr-white;
-                background: $clr-blue;
+                color: colour(colour(white));
+                background: colour(blue);
             }
         }
     }
@@ -309,10 +313,10 @@
             height: 48px;
             width: 35px;
             padding: 5px;
-            background: $clr-gray-1;
-            border-color: $clr-gray-1;
-            border-left: 1px solid $clr-white;
-            border-right: 1px solid $clr-white;
+            background: colour(gray, 1);
+            border-color: colour(gray, 1);
+            border-left: 1px solid colour(colour(white));
+            border-right: 1px solid colour(colour(white));
             text-align: center;
 
             &::-webkit-outer-spin-button,
@@ -329,16 +333,16 @@
         .quantity-minus {
             width: 35px;
             height: 48px;
-            background: $clr-gray-1;
-            border-color: $clr-gray-1;
+            background: colour(gray, 1);
+            border-color: colour(gray, 1);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
 
             &:hover {
-                color: $clr-white;
-                background-color: $clr-black-3;
+                color: colour(white);
+                background-color: colour(black, 3);
             }
         }
     }
@@ -352,8 +356,8 @@
 
 .bonus-quantity {
     input {
-        border-left: 1px solid $clr-white;
-        border-right: 1px solid $clr-white;
+        border-left: 1px solid colour(white);
+        border-right: 1px solid colour(white);
     }
 
     .quantity-field {
@@ -413,7 +417,7 @@
 
     progress {
         height: 8px;
-        border: 1px solid $clr-blue;
+        border: 1px solid colour(blue);
         -webkit-appearance: none;
         appearance: none;
 
@@ -423,25 +427,25 @@
         }
 
         &::-webkit-progress-value {
-            background-color: $clr-blue;
+            background-color: colour(blue);
             border-radius: 0;
         }
 
         &::-moz-progress-bar {
-            background-color: $clr-blue;
+            background-color: colour(blue);
             border-radius: 0;
         }
 
         &.full {
-            border: 1px solid $clr-green;
+            border: 1px solid colour(green);
 
             &::-webkit-progress-value {
-                background-color: $clr-green;
+                background-color: colour(green);
                 border-radius: 0;
             }
 
             &::-moz-progress-bar {
-                background-color: $clr-green;
+                background-color: colour(green);
                 border-radius: 0;
             }
         }
@@ -460,7 +464,6 @@
         top: 50%;
         transform: translateY(-50%);
         font-size: 20px;
-        z-index: 2;
     }
 }
 
@@ -470,12 +473,6 @@
         padding: 10px 25px;
 
         .single-approaching-discount {
-            p,
-            span,
-            div {
-                color: $clr-white !important;
-            }
-
             progress {
                 margin-top: 10px;
                 height: 10px;
@@ -489,12 +486,12 @@
                 }
 
                 &::-webkit-progress-value {
-                    background-color: $clr-white;
+                    background-color: colour(white);
                     border-radius: 0;
                 }
 
                 &::-moz-progress-bar {
-                    background-color: $clr-white;
+                    background-color: colour(white);
                     border-radius: 0;
                 }
             }

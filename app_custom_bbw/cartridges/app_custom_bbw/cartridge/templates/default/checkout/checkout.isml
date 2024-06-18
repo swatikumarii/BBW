@@ -25,7 +25,7 @@
             <input type="hidden" name="billing-url" value="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
             <input type="hidden" name="review-url" value="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
             <div class="checkout-steps d-flex justify-content-between">
-                <div class="step-1 d-flex align-items-center flex-column h-width-perc--100 step-connect shipping-step">
+                <div class="step-1 d-flex align-items-center flex-column h-width-perc-md--100 step-connect shipping-step">
                     <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}">
                         <span class="step-text h-font-size--14 d-block">
                             ${Resource.msg('checkout.step.shipping', 'checkout', null)}
@@ -37,7 +37,7 @@
                         </span>
                     </a>
                 </div>
-                <div class="step-2 d-flex align-items-center flex-column h-width-perc--100 step-connect payment-step">
+                <div class="step-2 d-flex align-items-center flex-column h-width-perc-md--100 step-connect payment-step">
                     <a href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
                         <span class="step-text h-font-size--14 d-block">
                             ${Resource.msg('checkout.step.billing', 'checkout', null)}
@@ -49,7 +49,7 @@
                         </span>
                     </a>
                 </div>
-                <div class="step-3 d-flex align-items-center flex-column h-width-perc--100 place-order-step">
+                <div class="step-3 d-flex align-items-center flex-column h-width-perc-md--100 place-order-step">
                     <a href="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
                         <span class="step-text h-font-size--14 d-block">${Resource.msg('checkout.step.review', 'checkout', null)}</span>
                     </a>
@@ -63,7 +63,10 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-8">
+            <div class="col-12">
+                <h2 class="h-font-size--20 h-font-size-md--24 b-text-letter-space-005 h-clr--black-3 h-mt--0 h-mb--25 h-line-height-md--28 h-line-height--24 pb-3 h-fw--bold border-bottom border-dark">${Resource.msg('label.order.your.items', 'order', null)}</h2>
+            </div>
+            <div class="col-lg-8 col-md-6">
                 <div class="review-shipping-summary border">
                     <isinclude template="checkout/shipping/shippingSummary" />
                 </div>
@@ -106,14 +109,14 @@
                     <iscomment>End of Afterpay</iscomment>
                     <iscomment>We only allow edits for non-registered customers</iscomment>
                     <div class="checkout-blocks customer ${!pdict.customer.registeredUser ? 'guest' : 'registered'}">
-                        <div class="h-maxwidth-perc--90 mx-auto mx-md-0 accordion">
+                        <div class="h-maxwidth-perc-md--90 mx-auto mx-md-0 accordion">
                             <isinclude template="checkout/customer/customer" />
                         </div>
                     </div>
 
                     <iscomment> Step 2: Shipping </iscomment>
                     <div class="checkout-blocks shipping">
-                        <div class="h-maxwidth-perc--90 mx-auto mx-md-0">
+                        <div class="h-maxwidth-perc-md--90 mx-auto mx-md-0">
                             <isinclude template="checkout/shipping/shipping" />
                             <isif condition="${pdict.containsDangerousGoods}">
                                 <div class="dangerous-goods-message">
@@ -126,8 +129,8 @@
                     </div>
 
                     <iscomment> Step 3: Payment and Billing </iscomment>
-                    <div class="checkout-blocks billing">
-                        <div class="h-maxwidth-perc--90 mx-auto mx-md-0">
+                    <div class="checkout-blocks billing mb-0 mb-md-4">
+                        <div class="h-maxwidth-perc-md--90 mx-auto mx-md-0">
                             <isinclude template="checkout/billing/billing" />
                         </div>
                     </div>
@@ -142,32 +145,32 @@
 
                     <iscomment> Checkout Workflow Buttons </iscomment>
 
-                    <div class="row">
+                    <div class="row no-gutters checkout-btn-row">
                         <div class="col-12">
                             <p class="verify-msg text-center h-font-size--14 h-clr--red" style="display:none">
                                 ${Resource.msg('msg.fill.all.required', 'checkout', null)}</p>
                         </div>
-                        <div class="col-12 next-step-button h-pos--relative">
-                            <div class="mb-sm-3 mt-3">
+                        <div class="col-12 next-step-button h-pos--relative ${pdict.currentStage === 'payment' ? 'px-md-3' : 'px-md-0'}">
+                            <div class="mb-sm-3 next-step-button-inner-wrapper">
                                 <iscomment>Start of Afterpay</iscomment>
                                 <div
                                     class="ap-checkout-ship ap-checkout-pay-tab-noecf ap-checkout-pay-notab-ecf ap-checkout-pay-notab-noecf ap-checkout-po-noecf">
                                     <iscomment>End of Afterpay</iscomment>
                                     <button
-                                        class="btn btn-primary h-clr--white h-fw--semibold h-font-size--16 submit-shipping"
+                                        class="btn btn-primary btn-hover h-clr--white h-fw--semibold h-font-size--16 submit-shipping"
                                         type="submit" name="submit" value="submit-shipping"
                                         ${pdict.order.usingMultiShipping && !pdict.order.shippable ? 'disabled' : ''}>
                                         ${Resource.msg('button.next.payment', 'checkout', null)}
                                     </button>
 
                                     <button
-                                        class="btn btn-primary h-clr--white h-fw--semibold h-font-size--16 submit-payment"
+                                        class="btn btn-primary btn-hover h-clr--white h-fw--semibold h-font-size--16 submit-payment"
                                         type="submit" name="submit" value="submit-payment">
                                         ${Resource.msg('button.next.place.order', 'checkout', null)}
                                     </button>
 
                                     <button
-                                        class="btn btn-primary h-clr--white h-fw--semibold h-font-size--16 place-order"
+                                        class="btn btn-primary btn-hover h-clr--white h-fw--semibold h-font-size--16 place-order"
                                         data-action="${URLUtils.url('CheckoutServices-PlaceOrder')}" type="submit"
                                         name="submit" value="place-order">${Resource.msg('button.place.order', 'checkout', null)}
                                     </button>
@@ -191,7 +194,7 @@
 
             <iscomment> Order Totals, Details and Summary </iscomment>
 
-            <div class="col-sm-4">
+            <div class="col-lg-4 col-md-6">
                 <div class="card order-summary">
                     <div class="order-product-summary-wrap">
                         <h2 class="h-font-size--18 h-fw--bold h-clr--black-1 text-center order-product-summary-heading">
@@ -209,7 +212,7 @@
                     <div class="d-flex justify-content-between shipping-summary-header">
                         <h2 class="h-font-size--18 h-fw--bold h-clr--black-1 ">
                             ${Resource.msg('heading.checkout.shipping', 'checkout', null)}</h2>
-                        <button class="edit-button pull-right"
+                        <button class="edit-button pull-right b-link--underlined h-clr--black-1"
                             aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</button>
                     </div>
                     <isinclude template="checkout/shipping/shippingSummary" />
@@ -223,7 +226,7 @@
                         <div
                             class="ap-checkout-ship ap-checkout-pay-tab-noecf ap-checkout-pay-notab-ecf ap-checkout-pay-notab-noecf ap-checkout-po-noecf">
                             <iscomment>End of Afterpay</iscomment>
-                            <button class="btn btn-primary h-clr--white h-fw--semibold h-font-size--16 submit-shipping"
+                            <button class="btn btn-primary btn-hover h-clr--white h-fw--semibold h-font-size--16 submit-shipping"
                                 type="submit" name="submit" value="submit-shipping" ${pdict.order.usingMultiShipping && !pdict.order.shippable ? 'disabled' : ''}>
                                 ${Resource.msg('button.next.payment', 'checkout', null)}
                             </button>

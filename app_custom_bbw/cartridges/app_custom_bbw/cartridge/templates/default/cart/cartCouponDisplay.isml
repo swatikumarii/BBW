@@ -4,13 +4,13 @@
             <isif condition="${discount.applied}">
             <div class="coupon-code h-font-size--16 h-clr--green-2 h-fw--semibold  h-bg--green-5 py-2 px-4">
                     <isloop items="${discount.relationship}" var="relatedPromotion">
-                        ${Resource.msgf('msg.coupon.applied', 'cart', null, relatedPromotion.callOutMsg)}
+                        ${Resource.msgf('msg.coupon.applied', 'cart', null, discount.couponCode)}
                     </isloop>
                     <span class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + discount.couponCode}</span>
             </div>
             <span class="delete-coupon-confirmation-btn h-bg--green-5 py-2 px-4" data-code="${discount.couponCode}"
                 aria-label="${Resource.msgf('text.remove.coupon', 'cart', null, discount.couponCode)}"
-                data-action="${pdict.actionUrls.removeCouponLineItem}" data-uuid="${discount.UUID}">
+                data-action="${URLUtils.url('Cart-RemoveCouponLineItem')}" data-uuid="${discount.UUID}">
                 <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="15" />
             </span>
             <iselse/>
@@ -20,7 +20,7 @@
                 </div>
                 <span class="delete-coupon-confirmation-btn h-bg--red-10 py-2 px-4" data-code="${discount.couponCode}"
                     aria-label="${Resource.msgf('text.remove.coupon', 'cart', null, discount.couponCode)}"
-                    data-action="${pdict.actionUrls.removeCouponLineItem}" data-uuid="${discount.UUID}">
+                    data-action="${URLUtils.url('Cart-RemoveCouponLineItem')}" data-uuid="${discount.UUID}">
                     <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="15" />
                 </span>
             </isif>

@@ -4,7 +4,7 @@
         <custom-attribute-definitions>
             <attribute-definition attribute-id="reserveQty">
                 <display-name xml:lang="x-default">Reserve Inventory Quantity</display-name>
-                <type>double</type>
+                <type>int</type>
                 <localizable-flag>false</localizable-flag>
                 <site-specific-flag>true</site-specific-flag>
                 <mandatory-flag>false</mandatory-flag>
@@ -178,6 +178,19 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="collectionName">
+                <display-name xml:lang="x-default">Collection Name</display-name>
+                <description xml:lang="x-default">Collection Name</description>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
             </attribute-definition>
             <attribute-definition attribute-id="usageInstruction">
                 <display-name xml:lang="x-default">Usage Instruction</display-name>
@@ -425,6 +438,10 @@
             <attribute-group group-id="customAttributes">
                 <display-name xml:lang="x-default">Custom Attributes</display-name>
                 <attribute attribute-id="SID"/>
+            </attribute-group>
+            <attribute-group group-id="productDescription">
+                <display-name xml:lang="x-default">Product Description</display-name>
+                <attribute attribute-id="collectionName"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -1430,6 +1447,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="emarsysTestModeEnabled">
+                <display-name xml:lang="x-default">Enable Test Mode For Emarsys</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="currentCurrencyToMyrConversionRate">
                 <display-name xml:lang="x-default">MYR conversion Rate</display-name>
                 <type>double</type>
@@ -1557,9 +1581,9 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-            <attribute-definition attribute-id="hardTimeout">
-                <display-name xml:lang="x-default">Hard Timeout</display-name>
-                <description xml:lang="x-default">Hard Timeout(In Minutes)</description>
+            <attribute-definition attribute-id="collectionSort">
+                <display-name xml:lang="x-default">Search Collections for Sorting</display-name>
+                <description xml:lang="x-default">Search Collections for Sorting</description>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -1719,6 +1743,15 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <field-length>0</field-length>
                 <default-value>no-reply@testorganization.com</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="companyTaxNumber">
+                <display-name xml:lang="x-default">Company Tax Number on invoice</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+                <default-value>12345</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="showMinicartPopup">
                 <display-name xml:lang="x-default">Show Minicart popup</display-name>
                 <type>boolean</type>
@@ -1769,6 +1802,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="metaPixelEnabled"/>
                 <attribute attribute-id="metaPixelScript"/>
                 <attribute attribute-id="emarsysEnabled"/>
+                <attribute attribute-id="emarsysTestModeEnabled"/>
                 <attribute attribute-id="emarsysMerchantID"/>
                 <attribute attribute-id="currentCurrencyToMyrConversionRate"/>
             </attribute-group>
@@ -1803,7 +1837,6 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="header_image"/>
                 <attribute attribute-id="zeroOrderEmail"/>
                 <attribute attribute-id="careersEmail"/>
-                <attribute attribute-id="hardTimeout"/>
                 <attribute attribute-id="softTimeout"/>
                 <attribute attribute-id="popupDuration"/>
                 <attribute attribute-id="countrySiteMapping"/>
@@ -1936,6 +1969,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="customerServiceEmail"/>
                 <attribute attribute-id="customerServicePhone"/>
                 <attribute attribute-id="companyAddress"/>
+                <attribute attribute-id="companyTaxNumber"/>
             </attribute-group>
             <attribute-group group-id="Tracking">
                 <display-name xml:lang="x-default">Tracking</display-name>
@@ -1955,6 +1989,10 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="isTrendingDynamicBadgeEnabled"/>
                 <attribute attribute-id="isInCartDynamicBadgeEnabled"/>
                 <attribute attribute-id="isInPurchaseDynamicBadgeEnabled"/>
+            </attribute-group>
+            <attribute-group group-id="search">
+                <display-name xml:lang="x-default">Search</display-name>
+                <attribute attribute-id="collectionSort"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

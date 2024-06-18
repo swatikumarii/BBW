@@ -1,14 +1,28 @@
-<div class="payment-details h-font-size--16 h-clr--black-1">
+<div class="payment-details h-font-size--16">
     <isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}" var="payment">
         <isif condition="${payment.paymentMethod == 'AdyenPOS' || payment.paymentMethod == 'AdyenComponent' || payment.paymentMethod ===
                          'CREDIT_CARD'}">
             <isinclude template="checkout/billing/paymentOptions/adyenComponentSummary" />
-            <iselseif
+        <iselseif
                 condition="${payment.paymentMethod === 'CASHAPPPAY' || payment.paymentMethod === 'CLEARPAY' || payment.paymentMethod === 'AFTERPAY'}" />
             <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
+        <iselseif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE'}" />
+            <div class="mb-2">
+                ${Resource.msg('label.add.egift.title', 'giftcards', null)}
+            </div>
+            <div class="payment-amount h-fw--bold mb-3">
+                <span class="label h-clr--black-1">
+                    <isif condition="${pdict.order.currencyCode}">
+                        ${pdict.order.currencyCode}
+                        <isprint value="${pdict.eGiftTotalAmount}" />
+                    <iselse/>
+                        <isprint value="${pdict.eGiftTotalAmount}" />
+                    </isif>
+                </span>
+            </div>
         </isif>
-        <isif condition="${payment.amount}">
-            <div class="payment-amount h-fw--bold">
+        <isif condition="${payment.amount && payment.paymentMethod !== 'GIFT_CERTIFICATE'}">
+            <div class="payment-amount h-fw--bold mt-2">
                 <span class="label h-clr--black-1">
                     <isif condition="${pdict.order.currencyCode}">
                         ${pdict.order.currencyCode} <isprint value="${payment.amount}" />

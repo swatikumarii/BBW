@@ -1,6 +1,6 @@
-<h2 class="h-font-size--24 h-clr--black-1 h-mt--30 h-mb--10 pb-3 h-fw--bold border-bottom border-dark">${Resource.msg('label.order.your.items', 'order', null)}</h2>
+<h2 class="h-font-size--20 h-font-size-md--24 b-text-letter-space-005 h-clr--black-1 h-mt--30 h-mb--10 h-line-height-md--28 h-line-height--24 pb-3 h-fw--bold border-bottom border-dark">${Resource.msg('label.order.review.your.items', 'order', null)}</h2>
 <div class="h-px--15 confirmation-product-details">
-    <div class="itemsHeader row border-bottom d-none d-md-flex">
+    <div class="itemsHeader row border-bottom d-none d-md-flex align-items-center">
         <div class="headerItem h-font-size--18 h-fw--bold h-clr--black-1 col-6 p-3">${Resource.msg('label.item.header.item', 'cart', null)}</div>
         <div class="col-6">
             <div class="row">
@@ -57,16 +57,35 @@
                                 <isset name="cartPage" value="${false}" scope="page" />
 
                             </div>
+                            <div class="row justify-content-end d-flex d-md-none flex-column">
+                                <div
+                                    class="headerQty d-flex col-8 col-md-4 justify-content-md-center justify-content-start h-clr--black-1 h-fw--semibold">
+                                    <span class="d-inline d-md-none text-uppercase pr-1 h-font-size--14">${Resource.msg('label.qty', 'order', null)}</span>
+                                    <isprint value="${lineItem.quantity}" formatter="##" />
+                                </div>
+                                <div
+                                    class="line-item-savings col-8 col-md-4 d-flex justify-content-md-center justify-content-start h-clr--black-1 h-fw--semibold">
+                                    <isif condition="${lineItem.totalSavings && lineItem.totalSavings != '-'}">
+                                        <span class="value">${lineItem.totalSavings}</span>
+                                    <iselse/>
+                                        <span class="value value-dash">${'-'}</span>
+                                    </isif>
+                                </div>
+                                <div class="headerPrice d-flex col-8 col-md-4 justify-content-md-center justify-content-start">
+                                    <isinclude template="checkout/productCard/productCardProductTotalPrice" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <div class="row justify-content-end">
-                        <div class="headerQty d-flex col-8 col-md-4 justify-content-md-center justify-content-start">
+                    <div class="row justify-content-end d-none d-md-flex">
+                        <div class="headerQty d-flex col-8 col-md-4 justify-content-md-center justify-content-start h-clr--black-1 h-fw--semibold">
+                            <span class="d-inline d-md-none text-uppercase pr-1">${Resource.msg('label.qty', 'order', null)}</span>
                             <isprint value="${lineItem.quantity}" formatter="##" />
                         </div>
-                        <div class="line-item-savings col-8 col-md-4 d-flex justify-content-md-center justify-content-start">
-                            <isif condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
+                        <div class="line-item-savings col-8 col-md-4 d-flex justify-content-md-center justify-content-start h-clr--black-1 h-fw--semibold">
+                            <isif condition="${lineItem.totalSavings && lineItem.totalSavings != '-'}">
                                 <span class="value">${lineItem.totalSavings}</span>
                             <iselse/>
                                 <span class="value value-dash">${'-'}</span>

@@ -4,7 +4,7 @@ $(document).on(
     'ajaxSuccess',
     function (event, request, settings, data) {
         if (settings.dataTypes.indexOf('json') > -1) {
-            if (data && 'emarsysEvents' in data && Array.isArray(data.emarsysEvents)) {
+            if (data && 'emarsysEvents' in data && Array.isArray(data.emarsysEvents) && data.emarsysEvents.length) {
                 data.emarsysEvents.forEach(function pushEvent(emarsysEvent) {
                     if (emarsysEvent) {
                         var userEmail = emarsysEvent.email;
@@ -13,7 +13,9 @@ $(document).on(
                         var cartcontent = emarsysEvent.cartcontent;
                         var emarsys_purchase_command =
                             emarsysEvent.emarsys_purchase_command;
-                        ScarabQueue.push(['testMode']);
+                        if (data.emarsysTestModeEnabled) {
+                            ScarabQueue.push(['testMode']);
+                        }
                         if (userEmail) {
                             ScarabQueue.push(['setEmail', userEmail]);
                         }

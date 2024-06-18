@@ -49,7 +49,7 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
     if (searchTerms && searchTerms.length >= minChars) {
         categorySuggestions = new CategorySuggestions(suggestions, maxSuggestions);
         contentSuggestions = new ContentSuggestions(suggestions, maxSuggestions);
-        productSuggestions = new ProductSuggestions(suggestions, maxSuggestions);
+        productSuggestions = new ProductSuggestions(req, res, suggestions, maxSuggestions);
 
         if (productSuggestions.available || contentSuggestions.available
             || categorySuggestions.available
@@ -57,8 +57,6 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
             || popularSuggestions.available
             || brandSuggestions.available) {
 
-            var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
-            var result = searchHelper.search(req, res);
             total =
                 productSuggestions.products.length +
                 contentSuggestions.contents.length +
@@ -75,8 +73,7 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
                     popular: popularSuggestions,
                     brand: brandSuggestions,
                     searchTerms: searchTerms,
-                    searchProductCount:
-                        result && result.productSearch ? result.productSearch.count : 0,
+                    searchProductCount: productSuggestions.searchProductCount,
                     message: Resource.msgf(
                         'label.header.search.result.count.msg',
                         'common',
