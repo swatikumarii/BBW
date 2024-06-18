@@ -450,7 +450,7 @@ module.exports = function () {
                             '<div class="container text-center">' +
                             '<div class="row cart-empty">' +
                             '<div class="col-12 text-center cart-empty-msg-wrap">' +
-                            '<h1 class="h-font-size--24 h-fw--bold h-clr--black-1 cart-empty-msg">' +
+                            '<h1 class="h-fw--bold h-clr--black-1 cart-empty-msg">' +
                             data.basket.resources.emptyCartMsg +
                             '</h1>' +
                             ' </div>' +

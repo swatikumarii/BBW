@@ -33,6 +33,14 @@ function CategorySuggestions(suggestions, maxItems) {
                 url: URLUtils.url(endpoint, 'cgid', category.ID),
                 parentID: category.parent.ID,
                 parentName: category.parent.displayName,
+                isCollection:
+                    'custom' in category &&
+                    'isCollectionPage' in category.custom &&
+                    category.custom.isCollectionPage,
+                isSearchable:
+                    'custom' in category &&
+                    'isSearchable' in category.custom &&
+                    category.custom.isSearchable,
                 productCount: category.products.length
             });
         }
