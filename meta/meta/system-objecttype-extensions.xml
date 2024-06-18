@@ -1999,6 +1999,20 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
 
     <type-extension type-id="Category">
         <custom-attribute-definitions>
+            <attribute-definition attribute-id="isCollectionPage">
+                <display-name xml:lang="x-default">Is Collection Page</display-name>
+                <description xml:lang="x-default">Set this attribute true for Collection Pages</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="isSearchable">
+                <display-name xml:lang="x-default">Is Searchable</display-name>
+                <description xml:lang="x-default">This attribute set true is you want to show on search suggestions.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="promotionEndingTileIndex">
                 <display-name xml:lang="x-default">Promotion Ending Tile Index</display-name>
                 <type>int</type>
@@ -2702,6 +2716,11 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
+            <attribute-group group-id="categoryCollectionAttribute">
+                <display-name xml:lang="x-default">Category Collection Attribute</display-name>
+                <attribute attribute-id="isCollectionPage"/>
+                <attribute attribute-id="isSearchable"/>
+            </attribute-group>
             <attribute-group group-id="storefrontAttributes">
                 <display-name xml:lang="x-default">Storefront Attributes</display-name>
                 <attribute attribute-id="slotId"/>
