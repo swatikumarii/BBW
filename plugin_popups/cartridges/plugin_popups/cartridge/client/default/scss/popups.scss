@@ -408,3 +408,24 @@
         transform: rotate(45deg);
     }
 }
+
+
+// -------dynamic popup
+.dynamic-popup-content {
+    border-radius: 0;
+
+    .modal-body {
+        p {
+            font-size: 16px;
+            letter-spacing: .005em;
+            line-height: 1.75rem;
+        }
+
+        .dynamic-popup-apply-promo {
+            margin-bottom: 25px;
+            max-height: 40px;
+            min-height: 40px;
+            font-size: 16px;
+        }
+    }
+}
