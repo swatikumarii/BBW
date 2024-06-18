@@ -484,12 +484,26 @@ input[type="tel"],
 
 .toggle-password {
     position: absolute;
-    right: 0;
-    top: 50px;
-    height: 36px;
-    border-left: 1px solid colour(gray, 5);
-    padding: 7px 15px;
+    right: 1px;
+    top: 42px;
+    height: 44px;
+    padding-right: 15px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    &::before {
+        width: 0.8px;
+        height: 24px;
+        display: block;
+        content: "";
+        margin-right: 15px;
+        background-color: colour(gray, 22);
+    }
+
+    &:hover {
+        background-color: colour(gray, 1);
+    }
 }
 
 .checkout-black-1 {
@@ -502,11 +516,14 @@ input[type="tel"],
 
 .submit-customer-login {
     min-height: unset;
-    width: 186.61px;
+    width: 100%;
+    max-width: 165px;
     letter-spacing: 0.12em;
     line-height: 2.0625rem;
+    font-size: 12px;
 
     @include media-up(sm) {
+        font-size: 11px;
         width: 135px;
     }
 }
@@ -635,7 +652,7 @@ input[type="tel"],
         padding-top: 0;
         padding-bottom: 15px;
         margin-bottom: 13px;
-        margin-top: 40px;
+        margin-top: 0;
 
         @include media-up(md) {
             margin-bottom: 6px;
@@ -660,6 +677,7 @@ input[type="tel"],
         .form-control-label {
             line-height: 1.25rem;
             letter-spacing: 0.01em;
+            color: colour(black, 1);
 
             .require-indicator {
                 margin-right: 0.125em;
@@ -1300,6 +1318,7 @@ input[type="tel"],
             margin-top: 0.3125rem;
             text-decoration: underline;
             content: "Promotional Details";
+            letter-spacing: 0.21px;
         }
 
         .popover-header {
@@ -1349,7 +1368,7 @@ input[type="tel"],
             letter-spacing: 0.015em;
             line-height: 20px;
             max-height: 300px;
-            font-family: $ff-base;
+            font-family: get-ff(base, true);
         }
     }
 

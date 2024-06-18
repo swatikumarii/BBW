@@ -207,12 +207,12 @@ function updateApproachingDiscounts(
             '<div class="d-flex flex-column col-12 py-0">\n'+
             '<p class="h-font-size--16 h-clr--pink h-fw--semibold m-0 text-center">' + shippingApproachingDiscounts[0].discountMsg + '</p>\n'+
                 '<div class="d-flex w-100 justify-content-around align-items-center progress-wrap">\n'+
-                    '<span class="pr-3 text-nowrap d-block"> AU$ 0.00 </span>\n' +
+                    '<span class="pr-3 text-nowrap d-block h-font-size--14 h-fw--bold"> AU$ 0.00 </span>\n' +
                 '<span class="d-block w-100 h-pos--relative">\n'+
                         '<progress class="w-100" value="' + (shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold) + '" max="' + shippingApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
                         '<span class="free-shipping-progress" style="left: calc(' + (((shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold)/shippingApproachingDiscounts[0].conditionThreshold)*100).toFixed(2) + '% - 25px );"></span>\n'+
                     '</span>\n'+
-                    '<span class="pl-3 text-nowrap d-block">\n'+
+                    '<span class="pl-3 text-nowrap d-block h-font-size--14 h-fw--bold">\n'+
                         shippingApproachingDiscounts[0].formattedConditionThreshold +
                     '</span>\n'+
                 '</div>\n'+
@@ -481,20 +481,23 @@ module.exports = function () {
                         data.toBeDeletedUUIDs.length > 0
                     ) {
                         for (var i = 0; i < data.toBeDeletedUUIDs.length; i++) {
-                            $('.uuid-' + data.toBeDeletedUUIDs[i])
-                                .parent('.card')
-                                .remove();
+                            if ($('.uuid-' + data.toBeDeletedUUIDs[i]).parent('.card').length >= 1) {
+                                $('.uuid-' + data.toBeDeletedUUIDs[i]).parent('.card').remove();
+                            } else {
+                                $('.uuid-' + data.toBeDeletedUUIDs[i] + '.card').remove();
+                            }
                         }
                     }
-                    $('.uuid-' + uuid)
-                        .parent('.card')
-                        .remove();
+                    $('.uuid-' + uuid).parent('.card').remove();
+                    $('.uuid-' + uuid + '.card').remove();
                     if (data.removeProducts && data.removeProducts.length > 0) {
                         for (var j = 0; j < data.removeProducts.length; j++) {
                             if ($('.uuid-' + data.removeProducts[j])) {
-                                $('.uuid-' + data.removeProducts[j])
-                                    .parent('.card')
-                                    .remove();
+                                if ($('.uuid-' + data.removeProducts[j]).parent('.card').length >= 1) {
+                                    $('.uuid-' + data.removeProducts[j]).parent('.card').remove();
+                                } else {
+                                    $('.uuid-' + data.removeProducts[j] + '.card').remove();
+                                }
                             }
                         }
                     }
@@ -778,6 +781,52 @@ module.exports = function () {
             }
         });
         return false;
+    });
+
+    $(document).on('click', '.promo-code-form button', function () {
+        $.ajax({
+            url: $('.promo-code-form').attr('action'),
+            type: 'GET',
+            dataType: 'json',
+            data: $('.promo-code-form :input').serialize(),
+            success: function (data) {
+                if (data.error) {
+                    $('.promo-code-form .form-control').addClass('is-invalid');
+                    $('.promo-code-form .form-control').attr(
+                        'aria-describedby',
+                        'invalidCouponCode'
+                    );
+                    $('.coupon-error-message')
+                        .empty()
+                        .append(data.errorMessage);
+                    $('.coupon-error-message').addClass('d-block');
+                    $('body').trigger('promotion:error', data);
+                } else {
+                    $('.coupon-error-message').removeClass('d-block');
+                    $('.coupons-and-promos')
+                        .empty()
+                        .append(data.totals.discountsHtml);
+                    updateCartTotals(data);
+                    updateApproachingDiscounts(
+                        data.orderApproachingDiscounts,
+                        data.shippingApproachingDiscounts
+                    );
+                    validateBasket(data);
+                    $('body').trigger('promotion:success', data);
+                }
+                $('.coupon-code-field').val('');
+                $.spinner().stop();
+            },
+            error: function (err) {
+                $('body').trigger('promotion:error', err);
+                if (err.responseJSON.redirectUrl) {
+                    window.location.href = err.responseJSON.redirectUrl;
+                } else {
+                    createErrorNotification(err.errorMessage);
+                    $.spinner().stop();
+                }
+            }
+        });
     });
 
     $('body').on('click', '.remove-coupon', function (e) {

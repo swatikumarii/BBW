@@ -412,10 +412,10 @@
                         <div class="col-md-2" style=" margin-left: 35px;">
                             <p style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;"
                                 class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive">
-                                <isif condition="${!pdict.hasFreeShipping}">
-                                    ${pdict.order.totals.totalShippingCost}
+                                <isif condition="${!pdict.order.hasFreeShipping}">
+                                        ${pdict.order.totals.totalShippingCost}</p>
                                 <iselse/>
-                                    ${Resource.msg('label.free.price', 'cart', null)}
+                                        ${Resource.msg('label.free.price', 'cart', null)}</p>
                                 </isif>
                             </p>
                         </div>
@@ -538,6 +538,19 @@
                     <td style="vertical-align:baseline;">
                         <p style="font-size:16px; margin-bottom: 20px;">
                             ${Resource.msg('label.invoice.purchase', 'order', null)}
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table style="table-layout: fixed; width: 100%; font-family: SourceSansPro, Arial, sans-serif;">
+            <tbody>
+                <tr style="vertical-align: baseline;">
+                    <td style="vertical-align:baseline;">
+                        <p style="font-size:16px; margin-bottom: 20px;">
+                            ${Resource.msg('label.contact.return', 'order', null)}
                         </p>
                     </td>
                 </tr>

@@ -32,20 +32,6 @@ function updateGiftPendingTotals(totals) {
     }
 }
 
-/**
- * Price Update AfterPay Widget
- */
-function updateAfterPayWidget() {
-    if ($('#afterpay-widget-amount').val() > 0) {
-        // eslint-disable-next-line no-undef
-        // afterpayWidget.update({
-        //     amount: {
-        //         amount: $('#afterpay-widget-amount').val(),
-        //         currency: $('#afterpay-widget-currency').val()
-        //     }
-        // });
-    }
-}
 
 $(document).ready(function () {
     $('#giftcard-redeem').on('click', function (e) {
@@ -108,7 +94,7 @@ $(document).ready(function () {
                     if (data.noPendingAmount) {
                         $('.giftcard-full-redemption')
                             .empty()
-                            .append(data.noPendingAmount);
+                            .append(data.noPendingAmount).addClass('mt-4 p-2');
                         $('.add-giftcard-section').removeClass('show');
                         $('.add-giftcard-header').hide();
                         $('.payment-options-heading').hide();
@@ -116,7 +102,7 @@ $(document).ready(function () {
                     if (data.success) {
                         $('.giftcard-partial-redemption')
                             .empty()
-                            .append(data.success);
+                            .append(data.success).addClass('mt-4 p-2');
                     }
 
                     if (data.basketModel && data.basketModel.totals) {
@@ -151,8 +137,8 @@ $(document).ready(function () {
                                 data.basketModel.totals.pendingTotal
                                     .pendingAmountValue
                             );
+                            $('.afterpay-checkout-widget').find('square-placement').attr('data-amount', data.basketModel.totals.pendingTotal.pendingAmountValue);
                         }
-                        updateAfterPayWidget();
                     }
 
                     if (data.hideCreditCardForm) {
@@ -213,14 +199,59 @@ $(document).ready(function () {
                             addedCardsHTML += '<span class="added-card d-flex justify-content-between py-2 border-bottom w-100"><span>' + card.cardNo + '</span><span class="h-clr--green-2 h-fw--semibold">' + card.amount + '</span><span class="remove-giftcard-btn b-link--underlined" data-cardno="' + card.cardNo + '">' + removeBtnLabel + '</span></span>';
                         }
                         $('.added-cards').empty().append(addedCardsHTML);
-                    }
-                    if (data.hideCreditCardForm) {
-                        $('#selectedPaymentOption').val('');
-                        $('.form-nav.billing-nav.payment-information').hide();
-                        $('#paymentMethodsList').hide();
+                        if (!data.hideCreditCardForm) {
+                            $('.giftcard-full-redemption')
+                                .empty().removeClass('mt-4 p-2');
+                            $('.add-giftcard-section').addClass('show');
+                            $('.add-giftcard-header').show();
+                            $('.payment-options-heading').show();
+                            $('.form-nav.billing-nav.payment-information').show();
+                            $('.payment-method-options').show();
+                        }
+                        if (
+                            !data.hideAfterPay &&
+                            $('.nav-link').hasClass('afterpay-tab')
+                        ) {
+                            if (
+                                data.basketModel.totals.pendingTotal &&
+                                data.basketModel.totals.pendingTotal
+                                    .pendingAmountValue
+                            ) {
+                                $('#afterpay-widget-amount').val(
+                                    data.basketModel.totals.pendingTotal
+                                        .pendingAmountValue
+                                );
+                                $('.afterpay-checkout-widget').find('square-placement').attr('data-amount', data.basketModel.totals.pendingTotal.pendingAmountValue);
+                            }
+                        }
                     }
                 } else {
                     $('.added-cards').empty();
+                    if (!data.hideCreditCardForm) {
+                        $('.giftcard-full-redemption')
+                            .empty().removeClass('mt-4 p-2');
+                        $('.add-giftcard-section').addClass('show');
+                        $('.add-giftcard-header').show();
+                        $('.payment-options-heading').show();
+                        $('.form-nav.billing-nav.payment-information').show();
+                        $('.payment-method-options').show();
+                    }
+                    if (
+                        !data.hideAfterPay &&
+                        $('.nav-link').hasClass('afterpay-tab')
+                    ) {
+                        if (
+                            data.basketModel.totals.pendingTotal &&
+                            data.basketModel.totals.pendingTotal
+                                .pendingAmountValue
+                        ) {
+                            $('#afterpay-widget-amount').val(
+                                data.basketModel.totals.pendingTotal
+                                    .pendingAmountValue
+                            );
+                            $('.afterpay-checkout-widget').find('square-placement').attr('data-amount', data.basketModel.totals.pendingTotal.pendingAmountValue);
+                        }
+                    }
                 }
                 $('.add-giftcard-header').show();
                 if (data.basketModel && data.basketModel.totals) {

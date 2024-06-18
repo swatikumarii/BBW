@@ -10,7 +10,7 @@
                     <span class="text-muted arrival-time h-font-size--16">(${shippingMethod.estimatedArrivalTime})</span>
                 </isif>
             </label>
-            <div class="shipping-method-description">
+            <div class="shipping-method-description h-clr--gray-4">
                 <isif condition="${shippingMethod.htmlDescription !== ''}">
                     <isprint value="${shippingMethod.htmlDescription}" encoding="off" />
                 <iselse/>

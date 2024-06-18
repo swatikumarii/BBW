@@ -212,6 +212,7 @@ $(document).on('click', '#editAddress', function () {
     });
 });
 
+
 module.exports = $.extend({}, base, {
     stateDropdown: function () {
         $('body').on('change', '.address-state-input',function () {
@@ -252,6 +253,7 @@ module.exports = $.extend({}, base, {
                         })
                     );
                 });
+                zipDropdown.trigger('change');
             }
         });
     },

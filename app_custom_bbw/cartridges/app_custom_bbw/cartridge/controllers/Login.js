@@ -130,6 +130,16 @@ server.replace('Logout', function (req, res, next) {
     next();
 });
 
+/**
+ * Login-customSessionLogout : This endpoint is called to force logout of customer after custom session timeout
+ *
+ */
+server.get('customSessionLogout', function (req, res, next) {
+    var CustomerMgr = require('dw/customer/CustomerMgr');
+    CustomerMgr.logoutCustomer(false);
+    next();
+});
+
 
 
 module.exports = server.exports();

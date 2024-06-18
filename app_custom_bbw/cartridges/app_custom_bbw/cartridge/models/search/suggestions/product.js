@@ -5,6 +5,7 @@ var URLUtils = require('dw/web/URLUtils');
 var preferences = require('*/cartridge/config/preferences');
 var ACTION_ENDPOINT = preferences.suggestionsActionEnpoint ? preferences.suggestionsActionEnpoint : 'Product-Show';
 var IMAGE_SIZE = preferences.imageSize ? preferences.imageSize : 'medium';
+var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
 
 /**
  * Get Image URL
@@ -33,14 +34,13 @@ function getProducts(suggestedProducts, maxItems) {
 
     var collectionSort =
         Site.getCurrent().getCustomPreferenceValue('collectionSort');
-    var sortedSuggestedProducts = suggestedProducts.asList();
     if (collectionSort) {
         var collectionSorts = [];
         collectionSort.split(',').forEach(function (item) {
             collectionSorts.push(item.trim().toUpperCase());
         });
         if (collectionSorts.length > 0) {
-            sortedSuggestedProducts.sort(function (item1, item2) {
+            suggestedProducts.sort(function (item1, item2) {
                 var collectionName1 = '';
                 var index1 = -1;
                 var index2 = -1;
@@ -80,8 +80,8 @@ function getProducts(suggestedProducts, maxItems) {
             });
         }
     }
-    for (var i = 0; i < maxItems && i < sortedSuggestedProducts.length; i++) {
-        product = sortedSuggestedProducts.get(i).productSearchHit.product;
+    for (var i = 0; i < maxItems && i < suggestedProducts.length; i++) {
+        product = suggestedProducts[i].productSearchHit.product;
         products.push({
             id: product.ID,
             name: product.name,
@@ -127,10 +127,12 @@ function getPhrases(suggestedPhrases, maxItems) {
 /**
  * @class
  * @classdesc ProductSuggestions class
+ * @param {object} req - request object
+ * @param {object} res - response object
  * @param {dw.suggest.SuggestModel} suggestions - Suggest Model
  * @param {number} maxItems - Maximum number of items to retrieve
  */
-function ProductSuggestions(suggestions, maxItems) {
+function ProductSuggestions(req, res, suggestions, maxItems) {
     var productSuggestions = suggestions.productSuggestions;
 
     if (!productSuggestions) {
@@ -143,8 +145,23 @@ function ProductSuggestions(suggestions, maxItems) {
     var searchPhrasesSuggestions = productSuggestions.searchPhraseSuggestions;
 
     this.available = productSuggestions.hasSuggestions();
-    this.phrases = getPhrases(searchPhrasesSuggestions.suggestedPhrases, maxItems);
-    this.products = getProducts(productSuggestions.suggestedProducts, maxItems);
+    var phrases = getPhrases(
+        searchPhrasesSuggestions.suggestedPhrases,
+        maxItems
+    );
+    this.phrases = phrases;
+    var modifiedReq = {
+        querystring: req.querystring,
+        pageMetaData: req.pageMetaData,
+        httpParameterMap: req.httpParameterMap
+    };
+    if (phrases.length > 0) {
+        modifiedReq.querystring.q = phrases[0].value;
+    }
+    var result = searchHelper.search(modifiedReq, res);
+    this.products = getProducts(result.productSearch.productIds, maxItems);
+    this.searchProductCount =
+        result && result.productSearch ? result.productSearch.count : 0;
 }
 
 module.exports = ProductSuggestions;

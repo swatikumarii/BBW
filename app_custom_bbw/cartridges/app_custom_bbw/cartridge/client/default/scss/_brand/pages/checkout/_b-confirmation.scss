@@ -163,6 +163,16 @@
             @include media-up(sm) {
                 margin-top: 0;
             }
+
+            .review-shipping-summary-content {
+                line-height: 1.25rem;
+                letter-spacing: 0.1em;
+            }
+        }
+
+        .review-shipping-summary-content {
+            line-height: 1.25rem;
+            letter-spacing: 0.1em;
         }
     }
 }
@@ -219,6 +229,11 @@
                 letter-spacing: 0.01em;
             }
         }
+
+        .summary-section-label {
+            line-height: 1.25rem;
+            letter-spacing: 0.1em;
+        }
     }
 
     .edit-button {
@@ -256,6 +271,16 @@
 
                 .line-item-header {
                     margin-top: 11px;
+
+                    .product-title {
+                        line-height: 1.25rem;
+                        letter-spacing: 0.01em;
+                    }
+
+                    .prod-desc {
+                        line-height: 1rem;
+                        letter-spacing: 0.015em;
+                    }
                 }
             }
         }
@@ -303,7 +328,8 @@
 
 .order-confirmation-continue-shopping {
     width: 100%;
-    line-height: 42px;
+    line-height: 1.25rem;
+    letter-spacing: 0.015em;
 
     &:hover {
         color: colour(white);
@@ -345,10 +371,62 @@
         .grand-total-wrap {
             padding-top: 15px;
             border-top: 3px solid colour(gray, 6);
+
+            .total-label {
+                line-height: 1.25rem;
+                letter-spacing: 0.005em;
+            }
+
+            .grand-total {
+                line-height: 1.25rem;
+                letter-spacing: 0.005em;
+            }
         }
 
         .review-order-summary {
             display: none;
+            line-height: 1.5rem;
+            letter-spacing: 0.005em;
+        }
+
+        .merchandise-total {
+            line-height: 1.5rem;
+            letter-spacing: 0.005em;
+        }
+
+        .subtotal {
+            line-height: 1.5rem;
+            letter-spacing: 0.005em;
+        }
+
+        .cart-saving {
+            line-height: 1.5rem;
+            letter-spacing: 0.005em;
+        }
+
+        .order-discount-total {
+            line-height: 1.5rem;
+            letter-spacing: 0.005em;
+        }
+
+        .shipping-cost {
+            line-height: 1.5rem;
+            letter-spacing: 0.005em;
+        }
+
+        .shipping-tax {
+            line-height: 1.5rem;
+            letter-spacing: 0.005em;
+        }
+
+        .shipping-discount-total {
+            line-height: 1.5rem;
+            letter-spacing: 0.005em;
+        }
+
+        .sales-tax {
+            line-height: 1.5rem;
+            letter-spacing: 0.005em;
         }
     }
 }
