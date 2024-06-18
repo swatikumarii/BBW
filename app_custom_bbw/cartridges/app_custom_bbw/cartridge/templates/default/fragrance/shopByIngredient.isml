@@ -13,7 +13,7 @@
                 <div class="fragrance-header-search">
                     <div class="fragrance-search search-wrapper">
                         <fieldset>
-                            <input type="text" id="ingredient-search" name="ingredient-search" autocomplete="off" class="test"  placeholder="test jke"/>
+                            <input type="text" id="ingredient-search" name="ingredient-search" autocomplete="off"/>
                         </fieldset>
                     </div>
                 </div>

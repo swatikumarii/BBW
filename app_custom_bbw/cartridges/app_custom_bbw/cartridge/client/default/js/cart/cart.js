@@ -481,20 +481,23 @@ module.exports = function () {
                         data.toBeDeletedUUIDs.length > 0
                     ) {
                         for (var i = 0; i < data.toBeDeletedUUIDs.length; i++) {
-                            $('.uuid-' + data.toBeDeletedUUIDs[i])
-                                .parent('.card')
-                                .remove();
+                            if ($('.uuid-' + data.toBeDeletedUUIDs[i]).parent('.card').length >= 1) {
+                                $('.uuid-' + data.toBeDeletedUUIDs[i]).parent('.card').remove();
+                            } else {
+                                $('.uuid-' + data.toBeDeletedUUIDs[i] + '.card').remove();
+                            }
                         }
                     }
-                    $('.uuid-' + uuid)
-                        .parent('.card')
-                        .remove();
+                    $('.uuid-' + uuid).parent('.card').remove();
+                    $('.uuid-' + uuid + '.card').remove();
                     if (data.removeProducts && data.removeProducts.length > 0) {
                         for (var j = 0; j < data.removeProducts.length; j++) {
                             if ($('.uuid-' + data.removeProducts[j])) {
-                                $('.uuid-' + data.removeProducts[j])
-                                    .parent('.card')
-                                    .remove();
+                                if ($('.uuid-' + data.removeProducts[j]).parent('.card').length >= 1) {
+                                    $('.uuid-' + data.removeProducts[j]).parent('.card').remove();
+                                } else {
+                                    $('.uuid-' + data.removeProducts[j] + '.card').remove();
+                                }
                             }
                         }
                     }
@@ -778,6 +781,52 @@ module.exports = function () {
             }
         });
         return false;
+    });
+
+    $(document).on('click', '.promo-code-form button', function () {
+        $.ajax({
+            url: $('.promo-code-form').attr('action'),
+            type: 'GET',
+            dataType: 'json',
+            data: $('.promo-code-form :input').serialize(),
+            success: function (data) {
+                if (data.error) {
+                    $('.promo-code-form .form-control').addClass('is-invalid');
+                    $('.promo-code-form .form-control').attr(
+                        'aria-describedby',
+                        'invalidCouponCode'
+                    );
+                    $('.coupon-error-message')
+                        .empty()
+                        .append(data.errorMessage);
+                    $('.coupon-error-message').addClass('d-block');
+                    $('body').trigger('promotion:error', data);
+                } else {
+                    $('.coupon-error-message').removeClass('d-block');
+                    $('.coupons-and-promos')
+                        .empty()
+                        .append(data.totals.discountsHtml);
+                    updateCartTotals(data);
+                    updateApproachingDiscounts(
+                        data.orderApproachingDiscounts,
+                        data.shippingApproachingDiscounts
+                    );
+                    validateBasket(data);
+                    $('body').trigger('promotion:success', data);
+                }
+                $('.coupon-code-field').val('');
+                $.spinner().stop();
+            },
+            error: function (err) {
+                $('body').trigger('promotion:error', err);
+                if (err.responseJSON.redirectUrl) {
+                    window.location.href = err.responseJSON.redirectUrl;
+                } else {
+                    createErrorNotification(err.errorMessage);
+                    $.spinner().stop();
+                }
+            }
+        });
     });
 
     $('body').on('click', '.remove-coupon', function (e) {

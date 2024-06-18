@@ -4,6 +4,7 @@
     <div class="modal-dialog modal-dialog-centered generic-modal-container modal-large" role="document">
         <div class="modal-content">
             <div class="modal-body p-0">
+                <input type="hidden" class="customLogoutUrl" value="${URLUtils.url('Login-customSessionLogout')}">
                 <div class="confirmation">
                     <isif condition="${session.isCustomerAuthenticated() && session.customer.profile.firstName}">
                         <p class="mb-0">${Resource.msgf('autologout.customer.name', 'account', null, session.customer.profile.firstName)}
@@ -13,7 +14,7 @@
                         </p>
                     </isif>
                     <p>${Resource.msg('autologout.description', 'account', null)}</p>
-                    <div timer id='timer' class=timer></div>
+                    <div id="timer" class="timer"></div>
                 </div>
                 <p class="logout h-clr--red-9 mb-0">${Resource.msg('autologout.session.expired1', 'account', null)}</p>
                 <p class="logout h-clr--red-9">${Resource.msg('autologout.session.expired2', 'account', null)}</p>

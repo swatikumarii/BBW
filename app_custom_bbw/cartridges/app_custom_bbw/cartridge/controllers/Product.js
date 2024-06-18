@@ -66,6 +66,28 @@ server.append('Show', function (req, res, next) {
     next();
 });
 
+server.prepend('Show', function (req, res, next) {
+    var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
+    var URLUtils = require('dw/web/URLUtils');
+    var ProductFactory = require('*/cartridge/scripts/factories/product');
+    var recepientForm = server.forms.getForm('recipients');
+    var months = qwikcilverHelpers.getMonths();
+    var days = qwikcilverHelpers.getNoOfDaysOfMonth();
+    var addToCartUrl = URLUtils.url('Cart-AddProduct');
+    var removeLineItemURL = URLUtils.url('Giftcard-RemoveLineItems');
+    var giftCard = ProductFactory.get({pid: req.querystring.pid});
+
+    res.setViewData({
+        giftCard: giftCard,
+        recepientForm: recepientForm,
+        months: months,
+        days: days,
+        addToCartUrl: addToCartUrl,
+        removeLineItemURL: removeLineItemURL
+    });
+    next();
+});
+
 server.append('ShowQuickView', function (req, res, next) {
     var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
         type: 10

@@ -596,6 +596,13 @@
                     Privacy Policy &lt;/a&gt;&#13;
             &lt;/li&gt;&#13;
 &#13;
+            &lt;li class="content pr-2 mb-2 mr-2 " role="menu "&gt;&#13;
+                &lt;a class="ds-link " role="menuitem " href="$url('SecurityBugReport-Landing')$"&#13;
+                    data-analytics-trigger="link-list " data-module-name="link-group " data-slot-id="footer-legal-links "&#13;
+                    data-content-asset-id="footer_module_legallinks1-1 " data-analytics-promo-code="null " tabindex="0 "&gt;&#13;
+                    Security Bug Report &lt;/a&gt;&#13;
+            &lt;/li&gt;&#13;
+&#13;
         &lt;/ul&gt;&#13;
     &lt;/nav&gt;&#13;
 &#13;
@@ -2511,7 +2518,7 @@
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="store-details-bottom-wrapper text-center my-5"&gt;&#13;
 &lt;p class="h-font-size--16"&gt;
-To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr--blue-12"&gt;1-800-57-6972&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au.&lt;/a&gt;&lt;/p&gt;&#13;
+To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" class="h-clr--blue-12"&gt;1-800-57-6972&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au.&lt;/a&gt;&lt;/p&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
@@ -2832,7 +2839,7 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
         </custom-attributes>
     </content>
 
-  <content content-id="contact-us">
+    <content content-id="contact-us">
         <display-name xml:lang="x-default">Contact Us</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -2854,30 +2861,27 @@ To contact the Customer please call &lt;a href="phone:1800 57 6972" class="h-clr
 					&lt;h2 class="h-font-size--24 h-fw--bold text-uppercase mb-0"&gt;ONLINE CUSTOMER CARE&lt;/h2&gt;&#13;
 					&lt;div class="rn_HelpResources"&gt;&#13;
 						&lt;div class="rn_Contact"&gt;&#13;
-							&lt;p class="mb-0"&gt;Need More Help? We want to hear from you!&lt;/p&gt;&#13;
+							&lt;p&gt;Need help? We want to hear from you!&lt;/p&gt;&#13;
 							&lt;div class="rn_ConditionalChatLink" id="rn_ConditionalChatLink_6"&gt;&#13;
 								&lt;p class="mb-0"&gt;&#13;
-									&lt;strong class="h-fw--semibold h-clr--black-3"&gt;CALL US:&lt;/strong&gt;&#13;
+									&lt;strong class="h-fw--semibold h-clr--black-3"&gt;CALL US:&lt;/strong&gt;  &lt;a href="tel:1-800-57-6972"&gt;1-800-57-6972&lt;/a&gt;&#13;
 								&lt;/p&gt;&#13;
 							&lt;/div&gt;&#13;
-							&lt;p class="mb-0"&gt;Call us at &lt;a href="tel:1-800-57-6972"&gt;1-800-57-6972&lt;/a&gt; &lt;/p&gt;&#13;
-							&lt;p class="mb-0"&gt;&#13;
-								&lt;strong class="h-fw--semibold h-clr--black-3"&gt;EMAIL US&lt;/strong&gt;&#13;
-							&lt;/p&gt;&#13;
-							&lt;p class="mb-0"&gt;&lt;a href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au&lt;/a&gt;&#13;
-&#13;
+							&lt;p&gt;&#13;
+								&lt;strong class="h-fw--semibold h-clr--black-3"&gt;EMAIL US:&lt;/strong&gt;  &lt;a href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au&lt;/a&gt;&#13;
 							&lt;/p&gt;&#13;
 								&lt;p class="mb-0"&gt;Monday-Friday&lt;/p&gt;&#13;
-							&lt;p class="mb-0 mb-0 d-flex align-items-center"&gt;9:00am-9:00pm AEST $include('ContactUs-Availability')$&lt;/p&gt;&#13;
+							&lt;p class="d-flex align-items-center"&gt;9:00am-9:00pm AEST $include('ContactUs-Availability')$&lt;/p&gt;&#13;
 							&#13;
-							&lt;p class="mb-0"&gt;&#13;
-								&lt;strong class="h-fw--semibold h-clr--black-3"&gt;MAILING ADDRESS&lt;/strong&gt;&#13;
+							&lt;p&gt;&#13;
+								&lt;strong class="h-fw--semibold h-clr--black-3"&gt;MAILING ADDRESS:&lt;/strong&gt;  Level 4, 112 Castlereagh St,Sydney NSW 2000 Australia&#13;
 							&lt;/p&gt;&#13;
-							&lt;p class="mb-0"&gt;Level 4, 112 Castlereagh St,&#13;
-								&lt;br /&gt;Sydney NSW 2000 Australia&lt;/p&gt;&#13;
 							&lt;p class="mb-0"&gt;&#13;
 								&lt;strong class="h-fw--semibold h-clr--black-3"&gt;Signing up for our mailing list is easy!&lt;/strong&gt;&#13;
-								&lt;br /&gt;Create an account with us to start shopping &amp;amp; get the latest news from Bath &amp;amp; Body Works. Sign up to create an account&lt;a href="$url('Login-CreateAccount')$" style="text-decoration: none;"&gt; here &lt;/a&gt;&amp;amp; access the best of your favorite store! To be updated on all offers, simply input your email address at the bottom of the page and click subscribe.&lt;/p&gt;&#13;
+								&lt;br /&gt;Create an account with us to start shopping &amp;amp; get the latest news from Bath &amp;amp; Body Works Australia. &#13;
+								Sign up to create an account&lt;a href="$url('Login-CreateAccount')$" style="text-decoration: none;"&gt; here &lt;/a&gt;&amp;amp; &#13;
+								access the best of your favorite store! To be updated on all offers, simply input your email address at the bottom &#13;
+								of the page and click subscribe.&lt;/p&gt;&#13;
 						&lt;/div&gt;&#13;
 					&lt;/div&gt;&#13;
 				&lt;/div&gt;&#13;
@@ -7497,6 +7501,34 @@ max-height: 35px:&#13;
         <folder-links>
             <classification-link folder-id="category-seo-content"/>
         </folder-links>
+    </content>
+	
+    <content content-id="security-bug-report-top-content">
+        <display-name xml:lang="x-default">Security Bug Report Page Top Content</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="bug-report-banner-image-wrapper h-100 h-mb--50"&gt;&lt;a class="w-100 h-100 d-block" href="#" tabindex="0"&gt;&lt;picture class="w-100 h-100 d-block d-block"&gt; &lt;source height="550" media="(min-width: 769px)" srcset="images/homepage/promo-banner-desktop.jpg?$staticlink$" width="1400" /&gt; &lt;img alt="Body Care" class="w-100 h-100 d-block bug-report-banner-img" height="450" src="images/homepage/promo-banner-desktop.jpg?$staticlink$" title="" width="1400" /&gt; &lt;/picture&gt; &lt;/a&gt;&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="security-bug-report-thankyou">
+        <display-name xml:lang="x-default">Security Bug Report Thankyou text</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p class="h-font-size--40" style="line-height:normal;"&gt;Thank you for expressing
+	&lt;br/&gt;interest in working with Bath and Body Works&lt;/p&gt;
+&lt;div class="b2b-contact-response"&gt;
+	&lt;p&gt;We value your inquiry and are excited about the potential of collaborating with you.&lt;/p&gt;
+	&lt;p&gt;Your request for a business proposal is being given the highest priority. We understand the significance of timeand are committed to delivering exceptional service. Expect to receive a comprehensive response as soon as possible.&lt;/p&gt;
+	&lt;p class="confirmation-note"&gt;If you have any additional informaton, questions or specific
+		&lt;br/&gt;preferences, please feel free to share them with us at &lt;a href="gift@bathandbodyworks.com" class="h-clr--blue"&gt;gift@bathandbodyworks.com&lt;/a&gt;
+	&lt;/p&gt;
+&lt;/div&gt;</custom-attribute>
+        </custom-attributes>
     </content>	
 
     <content content-id="shopbyingredient-banner">
@@ -7510,5 +7542,77 @@ max-height: 35px:&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-
+	
+	<content content-id="category-no-search-result-content">
+    <display-name xml:lang="x-default">Category No Search Result Page Content</display-name>
+    <online-flag>true</online-flag>
+    <searchable-flag>false</searchable-flag>
+    <page-attributes/>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;style&gt;&#xD;
+    h1 {&#xD;
+        line-height: 88px;&#xD;
+    }&#xD;
+.recommendations .picked-just-header-wrapper .picked-just-header-wrapper__title {&#xD;
+padding-top:20px;&#xD;
+}&#xD;
+    .cat-link {&#xD;
+        border: 1px solid #365fa1;&#xD;
+        background-color: white;&#xD;
+        color: #365fa1;&#xD;
+        font-size: 16px;&#xD;
+        font-weight: 600;&#xD;
+        height: 35px;&#xD;
+        max-width: 165px;&#xD;
+    }&#xD;
+&#xD;
+    @media (min-width: 768px) {&#xD;
+        .cat-link {&#xD;
+            width: 165px;&#xD;
+        }&#xD;
+    }&#xD;
+&#xD;
+    @media (max-width: 767.98px) {&#xD;
+        .cat-link {&#xD;
+            width: 100%;&#xD;
+        }&#xD;
+&#xD;
+        .cta-row {&#xD;
+            row-gap: 16px;&#xD;
+            column-gap: 16px;&#xD;
+            justify-content: center;&#xD;
+        }&#xD;
+    }&#xD;
+&#xD;
+&lt;/style&gt;&#xD;
+&#xD;
+&lt;div class="container text-center"&gt;&#xD;
+    &lt;h1 class="m-font-justlovely--normal h-clr--pink h-font-size--60 h-font-size-md--80 mb-3 mb-md-5 mt-0"&gt;No Results Found&lt;/h1&gt;&#xD;
+    &lt;p class="h-clr--black-3 h-font-size--16 h-font-size-md--20 mb-4 mb-md-5 h-maxwidth-perc-md--75 mx-auto"&gt;We're unable to locate any merchandise that meets your refinement selections at this time.Please expand your refinement selections or try your refinement for a different category.&lt;/p&gt;&#xD;
+    &lt;div class="row h-maxwidth-perc-md--65 mx-auto cta-row"&gt;&#xD;
+        &lt;div class="col-5 col-md-3 px-0"&gt;&#xD;
+            &lt;a class="text-uppercase cat-link h-flex-center" href="$url('Search-Show', 'cgid', 'body-care')$" &gt;&#xD;
+                &lt;span&gt;Body Care&lt;/span&gt;&#xD;
+            &lt;/a&gt;&#xD;
+        &lt;/div&gt;&#xD;
+        &lt;div class="col-5 col-md-3 px-0"&gt;&#xD;
+            &lt;a class="text-uppercase cat-link h-flex-center" href="$url('Search-Show', 'cgid', 'candles')$"&gt;&#xD;
+                &lt;span&gt;Candles&lt;/span&gt;&#xD;
+            &lt;/a&gt;&#xD;
+        &lt;/div&gt;&#xD;
+        &lt;div class="col-5 col-md-3 px-0"&gt;&#xD;
+            &lt;a class="text-uppercase cat-link h-flex-center" href="$url('Search-Show','cgid', 'hand-soaps')$"&gt;&#xD;
+                &lt;span&gt;Hand Soaps&lt;/span&gt;&#xD;
+            &lt;/a&gt;&#xD;
+        &lt;/div&gt;&#xD;
+        &lt;div class="col-5 col-md-3 px-0"&gt;&#xD;
+            &lt;a class="text-uppercase cat-link h-flex-center" href="$url('Fragrance-Show')$"&gt;&#xD;
+                &lt;span&gt;Fragrances&lt;/span&gt;&#xD;
+            &lt;/a&gt;&#xD;
+        &lt;/div&gt;&#xD;
+    &lt;/div&gt;&#xD;
+&lt;/div&gt;</custom-attribute>
+    </custom-attributes>
+  </content>
+  
 </library>
