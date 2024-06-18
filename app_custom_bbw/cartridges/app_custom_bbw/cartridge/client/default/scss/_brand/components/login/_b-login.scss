@@ -1000,11 +1000,13 @@
         top: 10vh;
         width: calc(100% - 40px);
         max-width: 568px;
-        height: fit-content;
         margin: 0;
+        height: auto;
+        max-height: 235px;
 
         @include media-up(sm) {
             width: 464px;
+            height: fit-content;
         }
 
         .close-icon-btn {
@@ -1056,6 +1058,7 @@
                     min-height: 40px;
                     max-height: 40px;
                     text-transform: capitalize;
+                    width: 102px;
                 }
 
                 .dont-merge {

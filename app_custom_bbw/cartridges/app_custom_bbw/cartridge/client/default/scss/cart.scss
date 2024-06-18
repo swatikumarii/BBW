@@ -654,6 +654,7 @@
 
     .cart-empty-msg {
         line-height: 28px;
+        font-size: 24px;
     }
 }
 
@@ -668,11 +669,6 @@
         color: $clr-white;
         opacity: 0.9;
     }
-}
-
-.empty-cart-recommendations {
-    margin: 56px 85px 0;
-    padding: 24px 0;
 }
 
 .promo-details {
@@ -829,3 +825,31 @@ footer {
 .coupon-error-message.d-block {
     padding: 0.5rem 1rem;
 }
+
+.empty-recommendation-container {
+    border: 1px solid colour(gray, 6);
+    padding: 24px 0;
+    position: relative;
+    max-width: 783px;
+    margin: 56px auto 0;
+
+    @include media-down(sm) {
+        padding: 0 15px;
+        border: 0;
+    }
+
+    .picked-just-recomm__item .product .b-product-tile {
+        max-width: 160px;
+        min-width: 160px;
+
+        @include media-down(sm) {
+            min-width: 228px;
+            max-width: 256px;
+        }
+    }
+}
+
+// .empty-cart-recommendations {
+//     margin: 56px 85px 0;
+//     padding: 24px 0;
+// }
