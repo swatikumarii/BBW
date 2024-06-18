@@ -93,11 +93,21 @@ module.exports = function () {
             }
         });
 
+    $('.minicart.popup .minicart-total').on('mouseleave', function () {
+        $('.minicart .popover').addClass('js-total-leave');
+        timeoutId = setTimeout(() => {
+            $('.minicart .popover').removeClass('show js-total-to-minicart');
+        }, 200);
+    });
 
     $('.minicart.popup .popover').on('mouseleave', function () {
         setTimeout(() => {
             $('.minicart .popover').removeClass('show');
         }, 300);
+    }).on('mouseenter', function () {
+        if ($(this).hasClass('js-total-leave')) {
+            clearTimeout(timeoutId);
+        }
     });
 
     $('body, .minicart-overlay').on('touchstart click', function (e) {
