@@ -422,10 +422,22 @@
         }
 
         .dynamic-popup-apply-promo {
-            margin-bottom: 25px;
             max-height: 40px;
             min-height: 40px;
             font-size: 16px;
+            border-radius: 5px;
         }
+    }
+
+    .dynamic-popup-promo-error {
+        color: #cb0100;
+        font-weight: 600;
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .button-alignment {
+        display: flex;
+        justify-content: center;
     }
 }
