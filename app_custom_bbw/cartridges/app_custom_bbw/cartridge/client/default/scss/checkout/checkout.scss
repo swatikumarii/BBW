@@ -649,10 +649,17 @@ input[type="tel"],
     }
 
     .billing-address-heading {
-        padding-top: 0;
-        padding-bottom: 15px;
         margin-bottom: 13px;
         margin-top: 0;
+
+        &.guest {
+            padding: 35px 0 17px;
+        }
+
+        &.registered {
+            padding-top: 0;
+            padding-bottom: 15px;
+        }
 
         @include media-up(md) {
             margin-bottom: 6px;
