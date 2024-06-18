@@ -212,6 +212,13 @@
         min-height: 40px;
         max-height: 40px;
         text-transform: capitalize;
+        width: 142px;
+        padding: 3px;
+
+        @include media-up(sm) {
+            padding: 0 1.0625em;
+            width: fit-content;
+        }
     }
 
     .close-btn {
@@ -241,7 +248,7 @@
         width: calc(100% - 40px);
         max-width: 568px;
         margin: 0;
-        height: 306px;
+        height: 271px;
 
         @include media-up(sm) {
             width: 464px;
@@ -312,6 +319,13 @@
             min-height: 40px;
             max-height: 40px;
             text-transform: capitalize;
+            width: 142px;
+            padding: 3px;
+
+            @include media-up(sm) {
+                padding: 0 1.0625em;
+                width: fit-content;
+            }
         }
 
         .close-btn {
@@ -327,7 +341,7 @@
 }
 
 // -------add free item
-#addFreeItem {
+#add-free-item {
     .add-free-dialog {
         display: block;
         animation: bottom-to-top 0.2s;
@@ -412,7 +426,7 @@
 }
 
 // ------delete payment modal-----
-#deletePaymentModal {
+#delete-payment-Modal {
     .delete-payment-dialog {
         display: block;
         animation: bottom-to-top 0.2s;

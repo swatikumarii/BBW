@@ -1,4 +1,4 @@
-<div class="modal fade" id="addFreeItem" tabindex="-1" role="dialog" aria-labelledby="add-free-item">
+<div class="modal fade" id="add-free-item" tabindex="-1" role="dialog" aria-labelledby="add-free-item">
     <div class="modal-dialog add-free-dialog" role="document">
         <div class="modal-content free-item-content border-0">
             <div class="modal-header free-item-header border-0 p-0">
@@ -26,4 +26,4 @@
         </div>
     </div>
 </div>
-<button type="button" class="btn btn-primary d-none" id="addFreeModalButton" data-toggle="modal" data-target="#addFreeItem"></button>
+<button type="button" class="btn btn-primary d-none" id="addFreeModalButton" data-toggle="modal" data-target="#add-free-item"></button>
