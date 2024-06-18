@@ -3,6 +3,7 @@
     scrollbar-width: none;
     column-gap: 16px;
     max-width: 1195px;
+    cursor: grab;
 
     @include media-down(sm) {
         padding: 0 16px;

@@ -19,7 +19,7 @@
                 </isif>
             </div>
         </div>
-        <div class="col-8 pr-md-0">
+        <div class="col-8 pr-1 pr-md-0">
             <div class="line-item-header flex-column">
                 <iscomment> Display Name </iscomment>
                 <isif condition="${miniCart}">
@@ -43,11 +43,11 @@
                 </div>
                 <isif condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
                     <div class="giftcard-details">
-                        <span class="d-block giftcard-receipient-name">${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails
+                        <span class="d-block giftcard-receipient-name h-font-size--14 pb-2 h-line-height--16">${Resource.msg('label.input.recipientsname', 'forms', null)}${': '} ${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails
                                                                        .recipientName : ''}</span>
-                        <span class="d-block giftcard-receipient-email">${lineItem.giftCardDetails.recipientEmail && lineItem.giftCardDetails.recipientEmail !== null ? lineItem.giftCardDetails
+                        <span class="d-block giftcard-receipient-email h-font-size--14 pb-2 h-line-height--16">${Resource.msg('label.input.sendername', 'forms', null)}${': '} ${lineItem.giftCardDetails.recipientEmail && lineItem.giftCardDetails.recipientEmail !== null ? lineItem.giftCardDetails
                                                                         .recipientEmail : ''}</span>
-                        <span class="d-block giftcard-message">${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails
+                        <span class="d-block giftcard-message h-font-size--14 pb-2 h-line-height--16">${Resource.msg('label.egift.message', 'forms', null)}${': '} ${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails
                                                                .eGiftMessage : ''}</span>
                     </div>
                 </isif>

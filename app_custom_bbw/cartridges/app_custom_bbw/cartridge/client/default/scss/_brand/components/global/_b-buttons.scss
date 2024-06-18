@@ -53,8 +53,10 @@
         &:focus {
             background-color: colour(gray, 4);
             border-color: colour(gray, 4);
-            outline: 1px dotted colour(black);
-            outline-offset: 2px;
+
+            // outline: 1px dotted colour(black);
+
+            // outline-offset: 2px;
         }
     }
 
@@ -113,8 +115,10 @@
             background: colour(white);
             color: colour(gray, 4);
             border-color: colour(gray, 5);
-            outline: 1px dotted colour(gray, 5);
-            outline-offset: 2px;
+
+            // outline: 1px dotted colour(gray, 5);
+
+            // outline-offset: 2px;
         }
     }
 
