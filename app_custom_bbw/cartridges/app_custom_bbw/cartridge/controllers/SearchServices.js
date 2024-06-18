@@ -28,6 +28,8 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
     var recentSuggestions;
     var popularSuggestions;
     var brandSuggestions;
+    var searchableCategorySuggestions = [];
+    var collectionSuggestions = { available: false, categories: [] };
     var searchTerms = req.querystring.q;
     searchTerms = StringUtils.encodeString(searchTerms,0);
     var suggestions;
@@ -51,6 +53,29 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
         contentSuggestions = new ContentSuggestions(suggestions, maxSuggestions);
         productSuggestions = new ProductSuggestions(req, res, suggestions, maxSuggestions);
 
+        categorySuggestions.categories.forEach(function (category) {
+            if (category && category.isSearchable) {
+                if (category.isCollection) {
+                    collectionSuggestions.categories.push(category);
+                    collectionSuggestions.available = true;
+                } else {
+                    searchableCategorySuggestions.push(category);
+                }
+            }
+        });
+
+        if (
+            searchableCategorySuggestions &&
+            searchableCategorySuggestions.length
+        ) {
+            categorySuggestions.categories = searchableCategorySuggestions;
+        } else {
+            categorySuggestions = {
+                available: false,
+                categories: []
+            };
+        }
+
         if (productSuggestions.available || contentSuggestions.available
             || categorySuggestions.available
             || recentSuggestions.available
@@ -69,6 +94,7 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
                     product: productSuggestions,
                     category: categorySuggestions,
                     content: contentSuggestions,
+                    collections: collectionSuggestions,
                     recent: recentSuggestions,
                     popular: popularSuggestions,
                     brand: brandSuggestions,

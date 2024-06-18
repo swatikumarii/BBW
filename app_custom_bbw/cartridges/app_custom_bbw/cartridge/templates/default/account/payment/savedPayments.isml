@@ -15,7 +15,7 @@
                             type="button"
                             class="remove-btn remove-payment btn-light"
                             data-toggle="modal"
-                            data-target="#deletePaymentModal"
+                            data-target="#delete-payment-modal"
                             data-id="${paymentInstrument.UUID}"
                             data-card="${paymentInstrument.maskedCreditCardNumber}"
                             data-url="${pdict.actionUrl}"

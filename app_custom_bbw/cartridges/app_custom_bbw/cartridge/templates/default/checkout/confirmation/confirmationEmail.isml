@@ -254,6 +254,9 @@
                                                     <isinclude
                                                         template="checkout/confirmation/adyenConfirmationDetails" />
                                                     <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode} ${payment.amount}</p>
+                                                <iselseif
+                                                    condition="${payment.paymentMethod === 'CASHAPPPAY' || payment.paymentMethod === 'CLEARPAY' || payment.paymentMethod === 'AFTERPAY'}">
+                                                    <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
                                                 </isif>
                                             </isloop>
                                         </td>
