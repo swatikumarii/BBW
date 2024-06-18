@@ -6,6 +6,7 @@ var lazyload = require('../utils/lazyLoad');
 
 var updateMiniCart = true;
 var location = window.location;
+var timeoutId;
 
 module.exports = function () {
     cart();
@@ -85,6 +86,9 @@ module.exports = function () {
                     updateMiniCart = false;
                     $.spinner().stop();
                 });
+                if ($('.minicart .popover').hasClass('clear-time')) {
+                    clearTimeout(timeoutId);
+                }
                 $('.minicart .popover').addClass('show js-retain');
             }
         });
@@ -140,8 +144,9 @@ module.exports = function () {
             });
             if (isPopupMinicart) {
                 if (!$('.minicart .popover').hasClass('js-retain')) {
-                    setTimeout(() => {
-                        $('.minicart .popover').removeClass('show');
+                    $('.minicart .popover').addClass('clear-time');
+                    timeoutId = setTimeout(() => {
+                        $('.minicart .popover').removeClass('show clear-time');
                     }, 3000);
                 }
             }
