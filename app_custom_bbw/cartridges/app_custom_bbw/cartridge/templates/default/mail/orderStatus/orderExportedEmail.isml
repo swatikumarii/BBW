@@ -1,5 +1,6 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
 <isdecorate template="common/layout/email">
+    <isset name="miniCart" value="${false}" scope="page" />
     <isset name="urlHelpers" value="${require('*/cartridge/scripts/helpers/urlHelpers')}" scope="page" />
     <iscomment>
         <isemailheaderdynamic heading="${Resource.msg('label.sitename', 'email', null)}"
