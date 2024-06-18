@@ -31,7 +31,7 @@
         min-width: 425px;
         max-width: 425px;
         position: fixed;
-        font-family: $ff-base;
+        font-family: get-ff(base, true);
         right: -100%;
         transition: right 0.8s ease-in-out;
 

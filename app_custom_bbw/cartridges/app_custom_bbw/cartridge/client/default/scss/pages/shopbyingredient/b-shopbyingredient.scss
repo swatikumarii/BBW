@@ -1,0 +1,87 @@
+@import "../../_brand/_api/api";
+
+.ingredient-search-results {
+    .suggestions__btn-add-to-cart {
+        display: block !important;
+    }
+
+    .tile-body-footer {
+        margin-top: 0 !important;
+        display: none;
+    }
+
+    .tile-body {
+        margin: 0 !important;
+    }
+
+    .b-product-tile__img-wrapper {
+        &:hover {
+            .b-product-tile__quickview {
+                display: none;
+            }
+        }
+    }
+
+    .plp-category-swiper {
+        display: none !important;
+    }
+
+    .b-product-tile__name {
+        text-align: center;
+    }
+
+    .price {
+        text-align: center;
+    }
+
+    .b-product-tile__promo-wrapper {
+        text-align: center;
+    }
+}
+
+.ingredient-search-section {
+    display: flex;
+    justify-content: center;
+
+    input {
+        width: 100%;
+        height: 32px;
+        border: 2px solid colour(blue, 17);
+        border-radius: 16px;
+
+        @include media-up(sm) {
+            width: 800px;
+            margin-bottom: 15px;
+        }
+    }
+
+    .search-icon-details {
+        margin-left: -22px;
+        position: relative;
+        top: 4px;
+        right: 12px;
+    }
+}
+
+.search-data-list {
+    box-shadow:
+        0 0 4px 0 rgba(0, 0, 0, 20%),
+        0 4px 10px 0 rgba(0, 0, 0, 10%);
+    width: 100%;
+    margin: 0 auto;
+    overflow-y: auto;
+    height: 400px;
+
+    @include media-up(sm) {
+        width: 65%;
+    }
+
+    ul {
+        list-style: none;
+
+        .level-2 {
+            border-bottom: 1px solid colour(white, 3);
+            padding: 20px;
+        }
+    }
+}
