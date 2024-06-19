@@ -70,10 +70,8 @@
                 position: relative;
                 font-weight: 700;
                 margin-bottom: 20px;
-
-                // @include media-up(md) {
-                //     margin-bottom: 0;
-                // }
+                line-height: 22.5px;
+                color: colour(black, 8);
             }
 
             .sidenav-item {
@@ -84,6 +82,7 @@
                 margin-bottom: 10px;
                 padding: 10px;
                 font-size: 15px;
+                line-height: 22.5px;
 
                 &:hover {
                     color: colour(blue, 11);
