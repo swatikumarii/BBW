@@ -2594,78 +2594,78 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
     </content>
 
 	<content content-id="email-terms-and-conditions-block">
-        <display-name xml:lang="x-default">Email Terms and Conditions Block</display-name>
-        <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
-        <page-attributes/>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"
-    style="width:100%;margin-top:20px;"&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;td align="left"&gt;
-                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"
-                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;color:#333333"&gt;
-
-                    &lt;tbody&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" style="padding-bottom:14px;font-size:26px;line-height:28px"&gt;
-                                Terms &amp; Conditions:&lt;/td&gt;
-                        &lt;/tr&gt;
-                    &lt;/tbody&gt;
-                &lt;/table&gt;
-                &lt;table bgcolor="#333333" border="0" cellpadding="0" cellspacing="0" role="presentation"
-                    style="width:536px"&gt;
-
-                    &lt;tbody&gt;
-                        &lt;tr&gt;
-                            &lt;td style="line-height:1px;font-size:0"&gt;
-                                &amp;nbsp;&lt;/td&gt;
-                        &lt;/tr&gt;
-                    &lt;/tbody&gt;
-                &lt;/table&gt;
-                &lt;div style="font-size:1px;line-height:20px"&gt;
-                    &amp;nbsp;&lt;/div&gt;
-                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"
-                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:22px;font-weight:300;color:#333333"&gt;
-
-                    &lt;tbody&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left"&gt;
-                                This card is issued by Bath &amp; Body Works GC, LLC. Redeem this card for merchandise only, and for cash when the balance is under $10, at all Bath &amp; Body Works (BBW) or White Barn (WB) US &amp; Puerto Rico store locations and online at BathandBodyWorks.com.au; it may not otherwise be returned.
-                                &lt;div style="font-size:1px;line-height:15px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left"&gt;
-                                Check your card balance at a participating BBW or WB store or BathandBodyWorks.com/giftcard. If this card is lost, stolen or destroyed, BBW or WB will replace it with the value of the card at the time replacement is requested if you provide the card number. To check your card balance or report a lost, stolen or destroyed card, call 1-800-640-6052.&lt;div
-                                    style="font-size:1px;line-height:10px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left"&gt;
-                                THIS CARD DOES NOT EXPIRE. USE OF THIS CARD CONSTITUTES ACCEPTANCE OF THESE TERMS AND CONDITIONS. PLEASE RECORD YOUR GIFT CARD NUMBER(S) SHOULD YOU NEED TO REQUEST A GIFT CARD REPLACEMENT.&lt;div
-                                    style="font-size:1px;line-height:10px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left"&gt;
-                                For all other Gift Card inquiries, please &lt;a href="$url('Page-Show', 'cid', 'contact-us')$" style="text-decoration:underline;color:#005699;"&gt;contact us.&lt;/a&gt;&lt;div
-                                    style="font-size:1px;line-height:10px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                    &lt;/tbody&gt;
-                &lt;/table&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
+    <display-name xml:lang="x-default">Email Terms and Conditions Block</display-name>
+    <online-flag>true</online-flag>
+    <searchable-flag>false</searchable-flag>
+    <page-attributes/>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
+    style="width:100%;margin-top:20px;"&gt;&#xD;
+    &lt;tbody&gt;&#xD;
+        &lt;tr&gt;&#xD;
+            &lt;td align="left"&gt;&#xD;
+                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
+                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;color:#333333"&gt;&#xD;
+&#xD;
+                    &lt;tbody&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" style="padding-bottom:14px;font-size:26px;line-height:28px"&gt;&#xD;
+                                Terms &amp; Conditions:&lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                    &lt;/tbody&gt;&#xD;
+                &lt;/table&gt;&#xD;
+                &lt;table bgcolor="#333333" border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
+                    style="width:536px"&gt;&#xD;
+&#xD;
+                    &lt;tbody&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td style="line-height:1px;font-size:0"&gt;&#xD;
+                                &amp;nbsp;&lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                    &lt;/tbody&gt;&#xD;
+                &lt;/table&gt;&#xD;
+                &lt;div style="font-size:1px;line-height:20px"&gt;&#xD;
+                    &amp;nbsp;&lt;/div&gt;&#xD;
+                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
+                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:22px;font-weight:300;color:#333333"&gt;&#xD;
+&#xD;
+                    &lt;tbody&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                This E-Gift Card has been issued by Bath &amp; Body Works Australia. You can redeem this gift card for merchandise only at all Bath &amp; Body Works (BBW) stores located within Australia, including the online store at bathandbodyworks.com.au. The voucher code must be applied at checkout. Gift cards cannot be transferred, returned or redeemed for cash.&#xD;
+                                &lt;div style="font-size:1px;line-height:15px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                Check your card balance online &lt;a href="$url('Page-Show', 'cid', 'giftcards')$" style="text-decoration:underline;color:#005699;"&gt;here.&lt;/a&gt;&lt;div&#xD;
+                                    style="font-size:1px;line-height:10px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                This e-gift card does not expire, please keep a copy of your gift card number(s) should you need to request for a gift card replacement for any reason.&lt;div&#xD;
+                                    style="font-size:1px;line-height:10px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                For all other enquiries, please contact our &lt;a href="$url('Page-Show', 'cid', 'contact-us')$" style="text-decoration:underline;color:#005699;"&gt;Customer Service&lt;/a&gt; team.&lt;div&#xD;
+                                    style="font-size:1px;line-height:10px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                    &lt;/tbody&gt;&#xD;
+                &lt;/table&gt;&#xD;
+            &lt;/td&gt;&#xD;
+        &lt;/tr&gt;&#xD;
+    &lt;/tbody&gt;&#xD;
 &lt;/table&gt;</custom-attribute>
-        </custom-attributes>
-    </content>
+    </custom-attributes>
+  </content>
 
     <content content-id="email-order-confirmation">
         <display-name xml:lang="x-default">Email Order Confirmation Content</display-name>
@@ -3052,7 +3052,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 	&lt;tbody&gt;
 		&lt;tr style="text-align:center"&gt;
 			&lt;td style="color:#333;font-size:14px"&gt;
-				&lt;p style="margin-top:0;text-align:center;width: 65%; margin: 10px auto 0;"&gt;If you didn't make this change, or if you have any other questions, we're here for you! Call our Customer Care at &lt;a href="tel:1800518255" style="color:#005699;font-weight:600;text-decoration: none;"&gt;1-800-51-8255.&lt;/a&gt;&lt;/p&gt;
+				&lt;p style="margin-top:0;text-align:center;width: 65%; margin: 10px auto 0;"&gt;If you didn't make this change, or if you have any other questions, we're here for you! Call our Customer Care at &lt;a href="tel:1800576972" style="color:#005699;font-weight:600;text-decoration: none;"&gt;1800-576-972.&lt;/a&gt;&lt;/p&gt;
 			&lt;/td&gt;
 		&lt;/tr&gt;
 	&lt;/tbody&gt;
