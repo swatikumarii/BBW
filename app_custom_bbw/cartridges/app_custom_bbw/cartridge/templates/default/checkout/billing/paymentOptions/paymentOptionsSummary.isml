@@ -14,9 +14,9 @@
                 <span class="label h-clr--black-1">
                     <isif condition="${pdict.order.currencyCode}">
                         ${pdict.order.currencyCode}
-                        <isprint value="${pdict.eGiftTotalAmount}" />
+                        <isprint value="${pdict.order.eGiftTotalAmount}" />
                     <iselse/>
-                        <isprint value="${pdict.eGiftTotalAmount}" />
+                        <isprint value="${pdict.order.eGiftTotalAmount}" />
                     </isif>
                 </span>
             </div>
