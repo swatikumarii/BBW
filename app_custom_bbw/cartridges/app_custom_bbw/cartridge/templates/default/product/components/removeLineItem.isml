@@ -4,7 +4,7 @@
             <div class="modal-header remove-confirmation-header border-0 p-0">
             <h5 class="modal-title h-font-size-md--18 h-font-size-sm--18 h-font-size--16 h-clr--black-3 m-0 h-fw--semibold remove-header">
                 ${Resource.msg('normal.delete.product.confirmation.modal.msg1', 'giftcards', null)}</h5>
-                <button type="button" class="close close-icon-btn pull-right" data-dismiss="modal">
+                <button type="button" class="close close-icon-btn h-bg--gray-1 pull-right" data-dismiss="modal">
                     <span aria-hidden="true" class="d-none">
                         <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
                     </span>

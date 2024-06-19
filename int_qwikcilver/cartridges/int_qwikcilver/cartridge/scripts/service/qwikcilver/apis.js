@@ -211,6 +211,12 @@ function qwikcilverAPICall(endPoint, requestObj, method, retryCount, isretry, tr
                         callCount--;
                         return qwikcilverAPICall(endPoint, requestObj, method, callCount, isretry, transaction);
                     }
+                } else if (result.status === 'OK' && result.object && (JSON.parse(result.object).ResponseCode === '10401' || JSON.parse(result.object).ResponseMessage === 'Transaction is in progress.') && callCount > 0) {
+                    logger.info('Retry function for' + transaction + 'is call with request {0}', JSON.stringify(requestObj));
+                    callCount--;
+                    var timeout = new Date().getTime() + 17000;
+                    while (new Date().getTime() < timeout);
+                    return qwikcilverAPICall(endPoint, requestObj, method, callCount, isretry, transaction);
                 } else {
                     logger.info('QC Retry ' + transaction + ' Service response {0}', result.status);
                 }

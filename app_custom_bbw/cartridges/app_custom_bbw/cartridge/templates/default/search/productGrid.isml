@@ -3,7 +3,7 @@
     <isinclude template="search/components/topPagination" />
 
     <iscomment> Mobile Filters - Buttons Section </iscomment>
-    <isif condition="${pdict.productSearch.productIds.length > 0}">
+    <isif condition="${pdict.productSearch.productIds.length > 0 && !pdict.apiProductSearch.category.custom.hideFilter}">
         <div class="row filter-bar-mobile d-md-none no-gutters h-mb--25">
             <div class="col-6 col-sm-3 text-right d-md-none order-sm-3">
                 <button type="button"
@@ -36,7 +36,7 @@
             </div>
         </div>
     <iselse/>
-        <div class="row grid-header justify-content-center">
+        <div class="row grid-header justify-content-center d-md-none">
             <div class="result-count col">
                 <isinclude template="search/resultsCount" />
             </div>
@@ -44,7 +44,9 @@
     </isif>
     <isinclude template="search/components/categoryBannerBottom" />
     <iscomment> Desktop Filters </iscomment>
-    <isinclude template="search/components/searchFiltersDesktop" />
+    <isif condition="${!pdict.apiProductSearch.category.custom.hideFilter}">
+        <isinclude template="search/components/searchFiltersDesktop" />
+    </isif>
 
     <iscomment>
         <div class="refinement-bar-without-store p-3 h-bg--gray-1">

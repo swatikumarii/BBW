@@ -136,6 +136,22 @@ function updateCartTotals(data) {
                 .empty()
                 .append(item.renderedPrice);
         }
+        var totalSavingsHTML = '';
+        var lineItemSavingDiv = $('.uuid-' + item.UUID + ' .line-item-savings');
+        if (item.totalSavings && item.totalSavings !== '-') {
+            totalSavingsHTML = 
+                '<span class="d-inline d-md-none">'+
+                'Saved:' + 
+                '</span>' +
+                '<span class="value">' + item.totalSavings + '</span>';
+            lineItemSavingDiv.empty().append(totalSavingsHTML);
+        } else {
+            totalSavingsHTML =
+                '<span class="value value-dash d-none d-md-block">' +
+                '-' +
+                '</span>';
+            lineItemSavingDiv.empty().append(totalSavingsHTML);
+        }
         var motivatorHTML = '';
         item.promotions.forEach(function (promotion) {
             if (promotion.motivator && promotion.motivator !== 'false') {
@@ -636,20 +652,6 @@ module.exports = function () {
                     $('.mini-cart-content .product-summary')
                         .empty()
                         .append(data.refreshItemsTemplateMinicart);
-                }
-                if (data.totalSavings) {
-                    $(this)
-                        .closest('.product-info')
-                        .find('.line-item-savings span')
-                        .removeClass('value-dash')
-                        .text(data.totalSavings);
-                    if (data.totalSavings === '-') {
-                        $(this)
-                            .closest('.product-info')
-                            .find('.line-item-savings span')
-                            .addClass('value-dash')
-                            .text(data.totalSavings);
-                    }
                 }
                 $.spinner().stop();
                 if (
