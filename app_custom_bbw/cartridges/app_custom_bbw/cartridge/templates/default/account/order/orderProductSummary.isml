@@ -77,6 +77,11 @@
                                 </isif>
                             </span>
                         </td>
+                        <td>
+                            <isif condition="${!pdict.isEgiftCard}">
+                                <isinclude template="account/order/orderAddToCartButton" />
+                            </isif>
+                        </td>
                     </tr>
                 </isloop>
             </isloop>
