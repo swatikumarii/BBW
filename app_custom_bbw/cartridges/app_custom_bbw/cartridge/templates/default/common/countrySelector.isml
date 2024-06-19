@@ -14,14 +14,14 @@
             </div>
             <div class="modal-body popup-body mt-0">
                 <p class="h-clr--black-1 h-font-size--18 "> ${Resource.msg('msg.site.country.first', 'common', null)}
-                    ${pdict.siteCountryCode}
+                    <span id="site-country-code">${pdict.siteCountryCode}</span>
                     ${Resource.msg('msg.site.country.last', 'common', null)}
                 </p>
                 <label class="h-font-size--16 h-fw--semibold h-clr--black-1" for="site">${Resource.msg('label.select.location', 'common', null)}</label>
                 <div>
                     <select name="site" id="selected-site" class="h-clr--black-1 country-select h-font-size--18">
                         <isloop iterator="${pdict.countrySiteMapping}" alias="countrySite" status="loopState">
-                            <option value="${countrySite.site}">${countrySite.country}</option>
+                            <option id="country-${countrySite.country}" value="${countrySite.site}">${countrySite.country}</option>
                         </isloop>
                     </select>
 
