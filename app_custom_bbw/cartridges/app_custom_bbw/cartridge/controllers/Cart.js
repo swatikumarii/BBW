@@ -100,20 +100,8 @@ server.append('UpdateQuantity', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
     var viewData = res.getViewData();
     var changes = cartHelper.createFreeLineItem(currentBasket, 0);
-    var productId = req.querystring.pid;
-    var uuid = req.querystring.uuid;
-    var matchingLineItem;
     if (!viewData.errorMessage) {
         var basketModel = new CartModel(currentBasket);
-        for (var index = 0; index < basketModel.items.length; index++) {
-            var item = basketModel.items[index];
-            if (item.id === productId && item.UUID === uuid) {
-                matchingLineItem = item;
-            }
-        };
-        if (matchingLineItem) {
-            basketModel.totalSavings = matchingLineItem.totalSavings;
-        }
         if (viewData.items.length !== basketModel.items.length || changes) {
             basketModel.refreshItems = true;
             var context = new HashMap();

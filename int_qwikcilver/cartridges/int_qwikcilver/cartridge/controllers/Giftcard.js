@@ -51,7 +51,13 @@ server.get('RemoveLineItems', function (req, res, next) {
             }
         }
     });
-    res.json();
+    res.json({
+        removeMessage: Resource.msg(
+            'lineitems.removed.success.message',
+            'giftcards',
+            null
+        )
+    });
     return next();
 });
 
@@ -320,7 +326,12 @@ server.post('RemoveGiftCard', function (req, res, next) {
         error: false,
         basketModel: basketModel,
         remainingCards: remainingCards,
-        hideCreditCardForm: hideCreditCardForm
+        hideCreditCardForm: hideCreditCardForm,
+        removeMessage: Resource.msg(
+            'gift.cards.removed.success.message',
+            'giftcards',
+            null
+        )
     });
     return next();
 });
