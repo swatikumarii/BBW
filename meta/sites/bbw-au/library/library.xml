@@ -1120,6 +1120,20 @@
         </folder-links>
     </content>
 
+    <content content-id="securitybugreport.landing.seo">
+        <display-name xml:lang="x-default">Security Bug Report Landing Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Security Bug Report</page-title>
+            <page-description xml:lang="x-default">Security Bug Report</page-description>
+            <page-keywords xml:lang="x-default">Bath and Body Works</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
     <content content-id="footer-customer-care">
         <display-name xml:lang="x-default">Customer Care</display-name>
         <online-flag>true</online-flag>
