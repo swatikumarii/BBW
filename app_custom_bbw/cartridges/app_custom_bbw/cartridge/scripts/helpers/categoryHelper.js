@@ -55,7 +55,7 @@ function appendCategoryBreadcrum(req, res, next) {
                     },
                     {
                         htmlValue: category.displayName,
-                        url: URLUtils.url('Search-Show', 'cgid', category.ID)
+                        url: URLUtils.url('Fragrance-Show')
                     }
                 ];
             }
