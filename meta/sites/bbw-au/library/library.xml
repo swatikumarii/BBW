@@ -1276,7 +1276,7 @@
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-    
+
      <content content-id="store-detail">
         <display-name xml:lang="x-default">Store Detail</display-name>
         <description xml:lang="x-default">Store Detail asset to add shop now button</description>
@@ -1555,7 +1555,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p class="text-justify h-font-size--16 h-clr--gray-4 card-body"&gt;Product can be returned&lt;/p&gt;</custom-attribute>
         </custom-attributes>
     </content>
-    
+
     <content content-id="careers">
         <display-name xml:lang="x-default">Careers</display-name>
         <online-flag>true</online-flag>
@@ -1752,7 +1752,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-footer">
         <display-name xml:lang="x-default">Email Footer</display-name>
         <description xml:lang="x-default">Common Email Footer</description>
@@ -1929,7 +1929,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/tr&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="email-good-to-konw-shipped-block">
         <display-name xml:lang="x-default">Email Shipped Good to Know Block</display-name>
         <online-flag>true</online-flag>
@@ -1995,7 +1995,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="email-good-to-konw-block">
         <display-name xml:lang="x-default">Email Good to Know Block</display-name>
         <online-flag>true</online-flag>
@@ -2071,7 +2071,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-footer-only-topoffer">
         <display-name xml:lang="x-default">Email Footer Only Top Offers</display-name>
         <description xml:lang="x-default">Email Footer Only Top Offers Section</description>
@@ -2266,7 +2266,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/tr&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-footer-with-suggestions">
         <display-name xml:lang="x-default">Email Footer with Suggestions</display-name>
         <description xml:lang="x-default">Email Footer with picked just for you and top offers sections</description>
@@ -2321,7 +2321,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 						&lt;/td&gt;
 						&lt;/tr&gt;
 				&lt;!--Pick Just for you - end --&gt;
-				
+
                 &lt;!--Top Offers - Start --&gt;
                 &lt;tr&gt;
                     &lt;td align="center"
@@ -2541,7 +2541,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/tr&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-header">
         <display-name xml:lang="x-default">Email Header</display-name>
         <online-flag>true</online-flag>
@@ -2551,7 +2551,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p style="margin:0;padding-top:40px;"&gt;&lt;a href="$url('Home-Show')$" alt=""&gt;&lt;img style="width:100%;" alt="" src="images/email/email-header/email-header-nobg.png?$staticlink$" title="" /&gt;&lt;/a&gt;&lt;/p&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-header-newsletter">
         <display-name xml:lang="x-default">Email Header Newsletter</display-name>
         <description xml:lang="x-default">Newsletter Email Header</description>
@@ -2592,7 +2592,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;p style="margin-bottom:15px;text-align:center;width:100%;"&gt; &lt;a href="$url('Home-Show')$" style="display:block;text-align:center;"&gt;&lt;img style="margin:0 auto;display:block;" width="270px" alt="Shop Online Now" style="border:0;display:block" border="0" src="images/email/newsletter-email/shop-online-now.jpg?$staticlink$"&gt;&lt;/a&gt;&lt;/p&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="email-terms-and-conditions-block">
     <display-name xml:lang="x-default">Email Terms and Conditions Block</display-name>
     <online-flag>true</online-flag>
@@ -2666,7 +2666,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/table&gt;</custom-attribute>
     </custom-attributes>
   </content>
-	
+
     <content content-id="email-order-confirmation">
         <display-name xml:lang="x-default">Email Order Confirmation Content</display-name>
         <description xml:lang="x-default">Order Confirmation Email  Content</description>
@@ -2677,7 +2677,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p style="margin:15px 0;text-align:center;"&gt;&lt;img style="display:block;width:100%;"alt="Bath and Body Works" src="images/email/email-orders/order-confirmation-banner.jpg?$staticlink$" title="" /&gt;&lt;/p&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-you-got-it-block">
         <display-name xml:lang="x-default">YOU'VE GOT IT, NOW USE IT!</display-name>
         <description xml:lang="x-default">YOU'VE GOT IT, NOW USE IT!</description>
@@ -2847,7 +2847,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="email-welcome">
         <display-name xml:lang="x-default">Welcome Email Content</display-name>
         <description xml:lang="x-default">Welcome Email Content</description>
@@ -2858,7 +2858,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;img width="100%" alt="Thanks for signing Up" style="border:0;display:block" border="0" src="images/email/welcome-email/BBW-Ecomm-welcome-email-EDM_02.jpg?$staticlink$"/&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="password-reset-confrimation-mail">
         <display-name xml:lang="x-default">Reset Password Confirmation Email</display-name>
         <description xml:lang="x-default">In this body we can use {{customerName}} and {{myAccountLink}} construction which will be replaced to appropriate data</description>
@@ -2890,7 +2890,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="password-reset-notification-mail">
         <display-name xml:lang="x-default">Reset Password Notification Email</display-name>
         <description xml:lang="x-default">In this body we can use {{customerName}} and {{resetPasswordLink}} construction which will be replaced to appropriate data</description>
@@ -2943,7 +2943,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/tr&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-delete-address">
         <display-name xml:lang="x-default">Email Delete Address</display-name>
         <description xml:lang="x-default">Email Delete Address: : In this body we can use {{customerName}} and  {{myAccountLink}} construction which will be replaced to appropriate data</description>
@@ -2975,7 +2975,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-add-address">
         <display-name xml:lang="x-default">Email Add Address Content</display-name>
         <description xml:lang="x-default">Add Address Email Content : In this body we can use {{customerName}} construction which will be replaced to appropriate data</description>
@@ -3007,7 +3007,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="email-edit-address">
         <display-name xml:lang="x-default">Email Edit Address</display-name>
         <description xml:lang="x-default">Edit Address Email Content : In this body we can use {{customerName}} and  {{myAccountLink}} construction which will be replaced to appropriate data</description>
@@ -3073,7 +3073,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="corporate-gifting-top">
         <display-name xml:lang="x-default">Corporate Gift Page Top Section</display-name>
         <description xml:lang="x-default">Corporate Gift Page Top Section</description>
@@ -3122,7 +3122,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="corporate-gifting-bottom">
         <display-name xml:lang="x-default">Corporate Gift Page Bottom Section</display-name>
         <description xml:lang="x-default">Corporate Gift Page Bottom Section</description>
@@ -3134,7 +3134,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
         data-src="images/corporate-gift/gifting-banner_sp3_hp-main.jpg?$staticlink$" title="" /&gt;&lt;/a&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="corporate-gifting-thankyou">
         <display-name xml:lang="x-default">Corporate Gift Thank you text</display-name>
         <online-flag>true</online-flag>
@@ -3342,7 +3342,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
-  
+
 
    <content content-id="notFound-error">
         <display-name xml:lang="x-default">Page Error</display-name>
@@ -3740,15 +3740,31 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script&gt;&#13;
-    function checkbalance() {&#13;
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script src="https://www.google.com/recaptcha/api.js" defer&gt;&#13;
+&lt;/script&gt;&#13;
+&lt;script&gt;&#13;
+    window.checkbalance = function (token) {&#13;
+        return new Promise(function (resolve, reject) {&#13;
+            if (!token) {&#13;
+                reject();&#13;
+            }&#13;
+            if (token !== '') {&#13;
+                checkCardBalance(token);&#13;
+                resolve();&#13;
+            }&#13;
+            grecaptcha.reset();&#13;
+        });&#13;
+    };&#13;
+    function checkCardBalance(token) {&#13;
         var cardNumber = $('#dwfrm_giftcard_giftCardID').val();&#13;
         var cardPin = $('#dwfrm_giftcard_giftCardPin').val();&#13;
         var checkBalanceUrl = $('input[name="checkBalanceUrl"]').val();&#13;
         cardNumber = cardNumber.replace(/\s/g, '');&#13;
         var form = {&#13;
             cardNo: cardNumber,&#13;
-            cardPin: cardPin&#13;
+            cardPin: cardPin,&#13;
+            'g-recaptcha-response': token,&#13;
+            landingPage: true&#13;
         };&#13;
         $.ajax({&#13;
             url: checkBalanceUrl,&#13;
@@ -3850,7 +3866,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
             &lt;/div&gt;&#13;
             &lt;span&#13;
                 class="giftcard-balance-wrap w-100 d-block text-left h-fw--semibold h-font-size--16  h-clr--black-1 mt-0"&gt;&lt;/span&gt;&#13;
-            &lt;button id="check-giftcert" class="btn" onclick="checkbalance()"&gt;Check Gift Card Balance&lt;/button&gt; &lt;br /&gt;&#13;
+            &lt;button id="check-giftcert" data-sitekey="6LebEaYpAAAAAEj5f-_e3Wjpt8QMpFRrevXvZgVh" class="btn g-recaptcha" data-callback="checkbalance"&gt;Check Gift Card Balance&lt;/button&gt; &lt;br /&gt;&#13;
             &lt;span class="gift-card-balance-error h-font-size--16 h-fw--semibold h-clr--red "&gt;&lt;/span&gt;&#13;
         &lt;/div&gt;&#13;
     &lt;/div&gt;&#13;
@@ -6270,7 +6286,7 @@ max-height: 35px:&#13;
             <classification-link folder-id="category-seo-content"/>
         </folder-links>
     </content>
-	
+
     <content content-id="security-bug-report-top-content">
         <display-name xml:lang="x-default">Security Bug Report Page Top Content</display-name>
         <online-flag>true</online-flag>
@@ -6297,7 +6313,7 @@ max-height: 35px:&#13;
 	&lt;/p&gt;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
-    </content>	
+    </content>
 
     <content content-id="shopbyingredient-banner">
         <display-name xml:lang="x-default">shop by ingredient</display-name>
@@ -6310,7 +6326,7 @@ max-height: 35px:&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="category-no-search-result-content">
     <display-name xml:lang="x-default">Category No Search Result Page Content</display-name>
     <online-flag>true</online-flag>
@@ -6382,5 +6398,5 @@ padding-top:20px;&#xD;
 &lt;/div&gt;</custom-attribute>
     </custom-attributes>
   </content>
-  
+
 </library>

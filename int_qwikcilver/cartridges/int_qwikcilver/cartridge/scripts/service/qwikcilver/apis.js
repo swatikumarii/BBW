@@ -3,6 +3,8 @@
 var Site = require('dw/system/Site');
 var Logger = require('dw/system/Logger');
 var logger = Logger.getLogger('QwikcilverService');
+var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+var Transaction = require('dw/system/Transaction');
 
 /**
  * getRetryCount function is responsible to get the retry count
@@ -75,11 +77,23 @@ function handleAuthTokenAndTxnID(tokenExpired) {
         authToken: null,
         transactionId: 0
     };
-    authToken = Site.getCurrent().getCustomPreferenceValue('qwikclverAuthToken');
-    transactionId = Site.getCurrent().getCustomPreferenceValue('qwikcilverTransactionID');
+    var qwikcilverAPISiteID = Site.current.getCustomPreferenceValue('qwikcilverAPISiteID');
+    var getCustomObject = CustomObjectMgr.getCustomObject('QwikcilverTokenAndTXNHandlers', qwikcilverAPISiteID);
+    if (!getCustomObject) {
+        Transaction.wrap(function () {
+            CustomObjectMgr.createCustomObject('QwikcilverTokenAndTXNHandlers', qwikcilverAPISiteID);
+        });
+        getCustomObject = CustomObjectMgr.getCustomObject('QwikcilverTokenAndTXNHandlers', qwikcilverAPISiteID);
+    }
+    logger.info('Custom Object Initial value {0}', getCustomObject);
+
+    authToken = 'authToken' in getCustomObject.custom && getCustomObject.custom.authToken ? getCustomObject.custom.authToken : null;
+    transactionId = 'transactionId' in getCustomObject.custom && getCustomObject.custom.transactionId ? getCustomObject.custom.transactionId : null;
     if (
         !tokenExpired &&
+        authToken &&
         authToken !== null &&
+        transactionId &&
         transactionId !== null
     ) {
         result = {
@@ -95,14 +109,13 @@ function handleAuthTokenAndTxnID(tokenExpired) {
         authToken = getAuthToken();
         logger.info('New Token is {0}', authToken);
         transactionId = 1;
-        // Site.current.setCustomPreferenceValue(
-        //     'qwikclverAuthToken',
-        //     authToken
-        // );
-        // Site.current.setCustomPreferenceValue(
-        //     'qwikcilverTransactionID',
-        //     transactionId
-        // );
+        Transaction.wrap(function () {
+            CustomObjectMgr.remove(getCustomObject);
+            var co = CustomObjectMgr.createCustomObject('QwikcilverTokenAndTXNHandlers', qwikcilverAPISiteID);
+            co.custom.authToken = authToken;
+            co.custom.transactionId = transactionId;
+            logger.info('New Custom Object Created, CO is {0}', co);
+        });
         result = {
             authToken: authToken,
             transactionId: transactionId
@@ -120,12 +133,18 @@ function handleAuthTokenAndTxnID(tokenExpired) {
  * Update Txn value
  * @param {object} authData authData
  */
-// function updateTxnData(authData) {
-// Transaction.wrap(function () {
-//     Site.getCurrent().setCustomPreferenceValue('qwikclverAuthToken', authData.authToken);
-//     Site.getCurrent().setCustomPreferenceValue('qwikcilverTransactionID', authData.transactionId + 1);
-// });
-// }
+function updateTxnData(authData) {
+    var qwikcilverAPISiteID = Site.current.getCustomPreferenceValue('qwikcilverAPISiteID');
+    var getCustomObject = CustomObjectMgr.getCustomObject('QwikcilverTokenAndTXNHandlers', qwikcilverAPISiteID);
+    Transaction.wrap(function () {
+        // Remove existing Data and Update
+        CustomObjectMgr.remove(getCustomObject);
+
+        var co = CustomObjectMgr.createCustomObject('QwikcilverTokenAndTXNHandlers', qwikcilverAPISiteID);
+        co.custom.authToken = authData.authToken;
+        co.custom.transactionId = authData.transactionId + 1;
+    });
+}
 
 
 /**
@@ -182,7 +201,7 @@ function qwikcilverAPICall(endPoint, requestObj, method, retryCount, isretry, tr
                 }
             }
 
-            // updateTxnData(authData);
+            updateTxnData(authData);
 
             // in case of service unavailable and connection reset call the API again
             if (isretry) {

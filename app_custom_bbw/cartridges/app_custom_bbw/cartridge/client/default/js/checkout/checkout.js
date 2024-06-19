@@ -330,7 +330,7 @@ var history = window.history;
                                 if (data.serverErrors.length) {
                                     data.serverErrors.forEach(function (error) {
                                         $('.error-message').show();
-                                        $('.error-message-text').text(error);
+                                        $('.error-message-text').append(error);
                                         scrollAnimate($('.error-message'));
                                     });
                                 }
@@ -555,7 +555,7 @@ var history = window.history;
 
                         if (data.errorMessage) {
                             $('.error-message').show();
-                            $('.error-message-text').text(data.errorMessage);
+                            $('.error-message-text').append(data.errorMessage);
                         }
                     }
                 });
