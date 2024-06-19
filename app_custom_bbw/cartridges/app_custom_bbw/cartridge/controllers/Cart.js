@@ -38,6 +38,7 @@ server.replace(
         var Resource = require('dw/web/Resource');
         var Transaction = require('dw/system/Transaction');
         var URLUtils = require('dw/web/URLUtils');
+        var CouponMgr = require('dw/campaign/CouponMgr');
         var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
 
         var currentBasket = BasketMgr.getCurrentBasket();
@@ -62,19 +63,25 @@ server.replace(
 
         var error = false;
         var errorMessage;
-
-        try {
-            Transaction.wrap(function () {
-                return currentBasket.createCouponLineItem(
-                    req.querystring.couponCode,
-                    true
-                );
-            });
-        } catch (e) {
+        var coupon = CouponMgr.getCouponByCode(req.querystring.couponCode);
+        var couponPromos = coupon.getPromotions();
+        if (couponPromos.length === 0) {
             error = true;
-            errorMessage = cartHelper.checkCouponCodeError(
-                req.querystring.couponCode, e.errorCode
-            );
+            errorMessage = Resource.msg('error.coupon.unknown', 'cart', null);
+        } else {
+            try {
+                Transaction.wrap(function () {
+                    return currentBasket.createCouponLineItem(
+                        req.querystring.couponCode,
+                        true
+                    );
+                });
+            } catch (e) {
+                error = true;
+                errorMessage = cartHelper.checkCouponCodeError(
+                    req.querystring.couponCode, e.errorCode
+                );
+            }
         }
 
         if (error) {
