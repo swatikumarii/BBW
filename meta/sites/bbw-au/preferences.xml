@@ -106,6 +106,7 @@
             <preference preference-id="qwikcilverEGiftBarCodeUrl">https://vs-thailand-sfcc.herokuapp.com/generateBarCode/</preference>
             <preference preference-id="qwikcilverMaxRedemptionAmount">1000</preference>
             <preference preference-id="s3UploadLink">https://vs-thailand-sfcc.herokuapp.com</preference>
+            <preference preference-id="trackingUrl">https://auspost.com.au/mypost/track/</preference>
             <preference preference-id="homePageSchema">&lt;script type="application/ld+json"&gt;
                 {
                     "@context": "https://schema.org",
@@ -243,6 +244,7 @@
             <preference preference-id="qwikcilverEGiftBarCodeUrl">https://vs-thailand-sfcc.herokuapp.com/generateBarCode/</preference>
             <preference preference-id="qwikcilverMaxRedemptionAmount">1000</preference>
             <preference preference-id="s3UploadLink">https://vs-thailand-sfcc.herokuapp.com</preference>
+            <preference preference-id="trackingUrl">https://auspost.com.au/mypost/track/</preference>
             <preference preference-id="homePageSchema">&lt;script type="application/ld+json"&gt;
                 {
                     "@context": "https://schema.org",
