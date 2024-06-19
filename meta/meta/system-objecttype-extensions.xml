@@ -2026,6 +2026,13 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="hideFilter">
+                <display-name xml:lang="x-default">Hide PLP Filters</display-name>
+                <description xml:lang="x-default">Will hide PLP level Filters</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="promotionEndingTileIndex">
                 <display-name xml:lang="x-default">Promotion Ending Tile Index</display-name>
                 <type>int</type>
@@ -2739,6 +2746,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="slotId"/>
                 <attribute attribute-id="pageDesignerID"/>
                 <attribute attribute-id="showInMenu"/>
+                <attribute attribute-id="hideFilter"/>
             </attribute-group>
             <attribute-group group-id="promotionTileCommon">
                 <display-name xml:lang="x-default">Promotion Tile Common Attributes</display-name>
