@@ -184,6 +184,53 @@ var helpers = {
                 }
             });
         }
+    },
+
+    /**
+     * Get the maximum height among a collection of elements.
+     * @param {jQuery} elements - A jQuery collection of elements.
+     * @returns {number} The maximum height of the elements.
+     */
+    getMaxElementHeight: function (elements) {
+        return Math.max.apply(null, elements.map(function () {
+            return $(this).height();
+        }).get());
+    },
+    /**
+     * Get Browser Type.
+     * @returns {string|undefined} Browser Type
+     */
+    getBrowserType: function () {
+        var test = regexp => {
+            return regexp.test(navigator.userAgent);
+        };
+
+        if (test(/opr\//i) || !!window.opr) {
+            return 'Opera';
+        }
+        if (test(/edg/i)) {
+            return 'Microsoft Edge';
+        }
+        if (test(/chrome|chromium|crios/i)) {
+            return 'Google Chrome';
+        }
+        if (test(/firefox|fxios/i)) {
+            return 'Mozilla Firefox';
+        }
+        if (test(/safari/i)) {
+            return 'Apple Safari';
+        }
+        if (test(/trident/i)) {
+            return 'Microsoft Internet Explorer';
+        }
+        if (test(/ucbrowser/i)) {
+            return 'UC Browser';
+        }
+        if (test(/samsungbrowser/i)) {
+            return 'Samsung Browser';
+        }
+
+        return 'Unknown browser';
     }
 };
 

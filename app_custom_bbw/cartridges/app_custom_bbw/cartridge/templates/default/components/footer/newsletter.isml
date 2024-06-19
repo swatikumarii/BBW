@@ -9,7 +9,8 @@
                         </label>
                         <div class="input-group">
                             <div class="w-100">
-                                <input type="text" class="form-control input-text rounded-0 w-100" id="newsletterInput" name="hpEmailSignUp"
+                                <input type="text" class="form-control input-text rounded-0 w-100" id="newsletter-input" name="hpEmailSignUp"
+                                    data-csrf-error="${Resource.msg('error.message.csrf', 'homePage', null)}"
                                     aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" required />
                                 <div class="newletter-msg js-newsletter-msg bg-transparent h-font-size--14 m-0"></div>
                             </div>
@@ -17,8 +18,8 @@
                             <span class="input-group-append ml-0">
                                 <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('enableGoogleRecaptcha')}">
                                     <button data-sitekey="${dw.system.Site.getCurrent().getCustomPreferenceValue('googleRecaptchaSiteKey')}"
-                                        class="btn btn-primary g-recaptcha" data-callback="submitNewsLetter"
-                                        data-action="submit">${Resource.msg('button.form.emailsignup', 'homePage', null)}</button>
+                                        class="btn btn-primary g-recaptcha btn-hover text-uppercase submit-btn h-fw--semibold mt-3 h-font-size--16" data-callback="submitNewsLetter"
+                                        data-action="submit">${Resource.msg('button.form', 'footer', null)}</button>
                                 <iselse/>
                                     <button type="submit"
                                         class="btn btn-primary subscribe-email btn-hover text-uppercase submit-btn h-fw--semibold mt-3 h-font-size--16"

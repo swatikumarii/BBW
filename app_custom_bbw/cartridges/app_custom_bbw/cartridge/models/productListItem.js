@@ -113,7 +113,7 @@ function createProductListItemObject(productListItemObject) {
     var result = {};
     var promotions;
 
-    if (productListItemObject) {
+    if (productListItemObject && productListItemObject !== null && productListItemObject.product && productListItemObject.product !== null) {
         promotions = PromotionMgr.activeCustomerPromotions.getProductPromotions(productListItemObject.product);
         var options = getOptions(productListItemObject);
         result = {
@@ -137,6 +137,7 @@ function createProductListItemObject(productListItemObject) {
             bundleItems: productListItemObject.product.bundle ? getBundledListItems(productListItemObject) : [],
             options: options,
             selectedOptions: getSelectedOptions(options),
+            enableNotifyMe: 'enableNotifyMe' in productListItemObject.product.custom ? productListItemObject.product.custom.enableNotifyMe : false,
             variantAttributes: getVariantAttributes(productListItemObject.product)
         };
         readyToOrder(result, productListItemObject.product.variationModel);

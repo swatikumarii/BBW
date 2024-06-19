@@ -1,0 +1,230 @@
+<isdecorate template="common/layout/page">
+    <isinclude template="/components/modules" sf-toolkit="off" />
+    <isscript>
+        var assets = require('*/cartridge/scripts/assets.js');
+        assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
+        assets.addJs('/js/pickedJustForYou.js');
+    </isscript>
+    <div class="container text-center">
+        <h1 class="m-font-justlovely--normal h-clr--pink h-font-size--80 mb-5 pt-5 text-center error-message px-5 ">
+        ${Resource.msg('heading.error.general', 'error', null)}</h1>
+        <h2 class="h-clr--black-3 h-font-size--26 mb-4 h2-message ">${pdict.message}</h2>
+        <p class="h-clr--black-3 h-font-size--20 mb-4 mt-4">
+        <isif condition="${pdict.showError}">
+                    <isprint value=${pdict.error.errorText} encoding="htmlcontent" />
+                    <isif condition="${pdict.error.controllerName}">
+                        in controller ${pdict.error.controllerName}
+                    </isif>
+        </isif></p>
+        <div>
+            <a href="${URLUtils.url('Search-Show', 'cgid', 'body-care')}">
+                <button type="button" class="edit text-uppercase">
+                    ${Resource.msg('body.care.button.label', 'error', null)}
+                </button>
+            </a>
+            <a href="${URLUtils.url('Search-Show', 'cgid', 'candles')}">
+                <button type="button" class="edit text-uppercase">
+                    ${Resource.msg('candles.button.label', 'error', null)}
+                </button>
+            </a>
+            <a href="${URLUtils.url('Search-Show','cgid', 'hand-soaps')}">
+                <button type="button" class="edit text-uppercase">
+                    ${Resource.msg('hand-soaps.button.label', 'error', null)}
+                </button>
+            </a>
+            <a href="${URLUtils.url('Fragrance-Show')}">
+                <button type="button" class="edit text-uppercase">
+                    ${Resource.msg('fragrances.button.label', 'error', null)}
+                </button>
+            </a>
+        </div>
+            <div class="py-5">
+                <h2 class="text-center h-fw--bold h-font-size--24 mb-5">${Resource.msg('category.label', 'error', null)}</h2>
+            
+                <div class="shop-category-details">
+                    <div class="grid-layout__items-row">
+                        <div class="category-items position-relative ">
+                            <div class="row no-gutters">
+                                <div class="col px-0">
+                                    <div class="top  pt-3"><a
+                                            class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"
+                                          href="${URLUtils.url('Search-Show', 'cgid', 'body-care')}" hreflang="default">
+                                            <img class="w-100 d-block content-image"
+                                                src="${URLUtils.staticURL('/images/error/category1.jpg')}" alt="category images" />
+                                        </a>
+            
+                                        <div class="w-100 d-block align-items-center text-center">
+                                            <div class="col-12 px-0"><a class="text-center"
+                                                  href="${URLUtils.url('Search-Show', 'cgid', 'body-care')}" hreflang="default"><span> <span
+                                                            class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold">
+                                                            ${Resource.msg('body.care.button.label', 'error', null)}</span> </span>
+                                                </a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="category-items position-relative ">
+                            <div class="row no-gutters">
+                                <div class="col px-0">
+                                    <div class="top  pt-3"><a
+                                            class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"
+                                          href="${URLUtils.url('Search-Show', 'cgid', 'candles')}" hreflang="default">
+                                            <img class="w-100 d-block content-image"
+                                                src="${URLUtils.staticURL('/images/error/category2.jpg')}" alt="category images" />
+                                        </a>
+            
+                                        <div class="w-100 d-block align-items-center text-center">
+                                            <div class="col-12 px-0"><a class="text-center"
+                                                  href="${URLUtils.url('Search-Show', 'cgid', 'candles')}" hreflang="default"><span> <span
+                                                            class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold">${Resource.msg('candles.button.label', 'error', null)}</span>
+                                                    </span> </a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="category-items position-relative ">
+                            <div class="row no-gutters">
+                                <div class="col px-0">
+                                    <div class="top  pt-3"><a
+                                            class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"
+                                           href="${URLUtils.url('Search-Show', 'cgid', 'wallflowers')}" hreflang="default">
+                                            <img class="w-100 d-block content-image"
+                                                src="${URLUtils.staticURL('/images/error/category3.jpg')}" alt="category images" />
+                                        </a>
+            
+                                        <div class="w-100 d-block align-items-center text-center">
+                                            <div class="col-12 px-0"><a class="text-center"
+                                                  href="${URLUtils.url('Search-Show', 'cgid', 'wallflowers')}" hreflang="default"><span>
+                                                        <span
+                                                            class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold">${Resource.msg('walflowers.button.label', 'error', null)}</span>
+                                                    </span> </a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="category-items position-relative ">
+                            <div class="row no-gutters">
+                                <div class="col px-0">
+                                    <div class="top  pt-3"><a
+                                            class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"
+                                          href="${URLUtils.url('Search-Show','cgid', 'hand-soaps')}" hreflang="default">
+                                            <img class="w-100 d-block content-image"
+                                                src="${URLUtils.staticURL('/images/error/category4.jpg')}" alt="category images" />
+                                        </a>
+            
+                                        <div class="w-100 d-block align-items-center text-center">
+                                            <div class="col-12 px-0"><a class="text-center"
+                                                  href="${URLUtils.url('Search-Show','cgid', 'hand-soaps')}" hreflang="default"><span> <span
+                                                            class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold">
+                                                            ${Resource.msg('hand-soaps.button.label', 'error', null)}</span> </span>
+                                                </a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="category-items position-relative ">
+                            <div class="row no-gutters">
+                                <div class="col px-0">
+                                    <div class="top  pt-3"><a
+                                            class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"
+                                            href="${URLUtils.url('Search-Show','cgid', 'travel-size')}"
+                                            hreflang="default">
+                                            <img class="w-100 d-block content-image"
+                                                src="${URLUtils.staticURL('/images/error/category5.jpg')}" alt="category images" />
+                                        </a>
+            
+                                        <div class="w-100 d-block align-items-center text-center">
+                                            <div class="col-12 px-0"><a class="text-center"  href="${URLUtils.url('Search-Show','cgid', 'travel-size')}"
+                                                    hreflang="default"><span>
+                                                        <span
+                                                            class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold">
+                                                            ${Resource.msg('travel.button.label', 'error', null)}
+                                                        </span>
+                                                    </span> </a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <div class="category-items position-relative ">
+                            <div class="row no-gutters">
+                                <div class="col px-0">
+                                    <div class="top  pt-3">
+                                        <a class="image-link clpShopNowBtn w-100 h-100 d-block position-relative overflow-hidden"
+                                             href="${URLUtils.url('Search-Show','cgid', 'giftcards')}"
+                                            hreflang="default">
+                                            <img class="w-100 d-block content-image"
+                                                src="${URLUtils.staticURL('/images/error/category7.jpg')}" alt="category images" />
+                                        </a>
+            
+                                        <div class="w-100 d-block align-items-center text-center">
+                                            <div class="col-12 px-0"><a class="text-center"   href="${URLUtils.url('Search-Show','cgid', 'giftcards')}"
+                                                     hreflang="default"><span> <span
+                                                            class="mt-3 d-block h-clr--black-3 b-link--underlined h-font-size--18 h-fw--semibold">
+                                                            ${Resource.msg('gift-sets.button.label', 'error', null)} </span> </span>
+                                                </a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <style>
+        h1 {
+            line-height: 88px;
+        }
+
+        .h2-message {
+            line-height: 38px;
+        }
+    
+        .edit {
+            border: 1px solid #365fa1;
+            background-color: white;
+            padding: 7px 25px;
+            font-size: 16px;
+            color: #365fa1;
+            font-weight: 600;
+            margin-left: 21px;
+            margin-top: 26px;
+            width: 143px;
+        }
+        .footer-details {
+            display: none !important;
+        }
+        footer {
+            display: none !important;
+        }
+        .site-search {
+            display: none;
+        }
+        .shop-category-details {
+        display: grid;
+        grid-template-columns: 2fr;
+        }
+        
+        .grid-layout__items-row {
+        display: flex;
+        justify-content: center;
+        gap: 27px;
+        }
+        
+        @media only screen and (max-width: 600px) {
+        .grid-layout__items-row {
+        display: block;
+        }
+        }
+    </style>
+</isdecorate>

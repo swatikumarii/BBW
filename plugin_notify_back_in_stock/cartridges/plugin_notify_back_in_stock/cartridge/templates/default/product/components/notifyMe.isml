@@ -7,10 +7,9 @@
         <input type="hidden" id="notify-list-msg" value="${Resource.msg('button.notifyInList', 'notifyMe', null)}" />
         <input type="hidden" id="notify-msg" value="${Resource.msg('button.notifyMe', 'notifyMe', null)}" />
         <isif condition="${product.enableNotifyMe}">
-            <button type="button" class="btn notifyBackInStockButton" data-url="${URLUtils.url('BackInStock-CheckLogin')}" data-pid="${product.id}" data-img="${product.images.large ? product.images.large[0].url : product.images.medium[0].url}" data-pname="${product.productName}"> ${Resource.msg('button.notifyMe', 'notifyMe', null)} </button>
+            <button type="button" class="btn notifyBackInStockButton" data-url="${URLUtils.url('BackInStock-CheckLogin')}" data-pid="${product.id}" data-img="${product.images.mediumLarge ? product.images.mediumLarge[0].url : product.images.medium[0].url}" data-pname="${product.productName}"> ${Resource.msg('button.notifyMe', 'notifyMe', null)} </button>
         <iselse/>
             <button type="button" class="btn out-of-stock"> ${Resource.msg('button.outOfStock', 'notifyMe', null)} </button>
         </isif>
     </div>
-    <isinclude template="product/components/requestUserEmailForOOSModal" />
 </isif>

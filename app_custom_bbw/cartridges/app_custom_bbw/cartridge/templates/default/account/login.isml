@@ -6,8 +6,7 @@
 
     <div class="hero slant-down login-banner bg-white">
 
-        <div class="container login-page">
-            <!---Breadcrumbs--->
+        <div class="container login-page ">
             <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
             <div class="row justify-content-center equal-height">
                 <div class="col-sm-12 col-md-12 col-xl-12 register-form-head">
@@ -35,9 +34,11 @@
                 <div class="login-section">
                     <div class="login-form-nav login-account">
                         <h2 class="h-clr--black-3 h-font-size--16 text-center">${Resource.msg('msg.signup', 'login', null)}</h2>
+                        <div class="signup-overview-msg d-flex justify-content-center">
                         <p class="h-clr--gray text-center">${Resource.msg('msg.signup.overview', 'login', null)}</p>
-                        <div class="signup-img">
-                            <img src="${URLUtils.staticURL('/images/login/login-img.jpg')}"
+                        </div>
+                        <div class="signup-img d-flex justify-content-center">
+                            <img src="${URLUtils.staticURL('/images/login/BBW_LOGO_MagSq.png')}"
                                 alt="${Resource.msg('login.image.message', 'login', null)} "
                                 class="w-100" />
                         </div>
@@ -52,7 +53,7 @@
                     </div>
                 </div>
             </div>
-            <div class="signin-question">
+            <div class="signin-question pt-4">
                 <iscontentasset aid="myAccount-help" />
             </div>
         </div>

@@ -1,79 +1,150 @@
 .order-list-container {
     .card {
-        background-color: colour(gray, 1);
         border: 0;
         border-radius: 0;
+        margin-bottom: 0;
 
-        .card-head {
-            padding: 40px 30px;
-
-            p {
-                font-size: 15px;
-                margin-bottom: 4px;
-            }
-
-            a.btn {
-                line-height: 2;
-                padding: 3px 25px;
-                min-height: auto;
-                text-transform: uppercase;
-
-                &:hover {
-                    color: colour(white);
-                }
-            }
-        }
-    }
-}
-
-.confirm-details {
-    .card {
-        border-radius: 0;
-
-        .card-head {
-            padding: 40px 30px;
+        &:first-of-type {
             background-color: colour(gray, 1);
+        }
 
-            p {
-                font-size: 15px;
-                margin-bottom: 4px;
-            }
+        .card-head {
+            padding: 20px 15px;
+            border-bottom: 1px solid colour(gray, 6);
 
-            .order-detail-with-image {
+            .order-date-wrap {
                 width: 100%;
 
                 @include media-up(sm) {
                     width: 50%;
                 }
 
-                .image-space-1 {
-                    border-top: 2px solid blue;
-                    width: 38px;
-                    display: block;
-                    margin-left: 15px;
+                .date-placed {
+                    font-size: 0.8125rem;
+                    margin-bottom: 3px;
+                    text-transform: uppercase;
+                    color: colour(black, 3);
+                    line-height: 1.6;
+                    font-weight: map-get($font-weight, bold);
+                    display: flex;
+
+                    .order-left-info {
+                        width: 35%;
+                    }
+
+                    .order-right-info {
+                        width: 65%;
+                    }
                 }
 
-                .image-space-2 {
-                    border-top: 2px solid blue;
-                    width: 38px;
-                    display: block;
-                    margin-left: 15px;
-                    margin-right: 15px;
+                .my-order-no,
+                .my-order-total {
+                    color: colour(gray);
+                    font-size: 0.6875rem;
+                    line-height: 1.3;
                 }
+            }
+
+            a.btn {
+                line-height: 41px;
+                min-height: 44px;
+                padding: 0 1.25em;
+                text-transform: uppercase;
+                width: 100%;
+                font-size: 15px;
+                margin-top: 25px;
+
+                &:hover {
+                    color: colour(white);
+                }
+
+                @include media-up(sm) {
+                    width: 110px;
+                    margin-top: 0;
+                }
+            }
+
+            .add-order-to-cart,
+            .invoice-download {
+                text-transform: uppercase;
+                font-size: 0.75rem;
+                line-height: 2;
+                min-height: auto;
+                padding: 3px 25px;
+            }
+        }
+    }
+}
+
+.confirm-details {
+    margin-bottom: 50px;
+
+    .card {
+        border-radius: 0;
+        margin-bottom: 25px;
+
+        .ship-bill-details {
+            .summary-section-label {
+                font-size: 17px;
+            }
+
+            .payment-details br {
+                display: none;
+            }
+        }
+
+        .card-head {
+            padding: 25px 15px;
+            background-color: colour(gray, 1);
+
+            p {
+                font-size: 16px;
+                margin-bottom: 15px;
+                font-weight: map-get($font-weight, semibold);
             }
         }
 
         .summary-details {
+            font-weight: 600;
+
             .address-summary {
                 text-transform: capitalize;
                 line-height: 1.5;
+            }
+        }
+    }
 
-                .address1,
-                .address2,
-                .city,
-                .stateCode {
-                    text-transform: uppercase;
-                }
+    .card-detail-img {
+        display: flex;
+        flex-direction: row;
+
+        @include media-down(sm) {
+            flex-direction: column;
+        }
+
+        .card-head {
+            width: 55%;
+            margin-right: 20px;
+
+            @include media-down(sm) {
+                width: 100%;
+            }
+        }
+
+        .card-btn {
+            width: 50%;
+            border: 1px solid rgba(0, 0, 0, 12.5%);
+
+            @include media-down(sm) {
+                width: 100%;
+                margin-top: 25px;
+                padding: 40px;
+            }
+
+            .btn {
+                font-size: 15px;
+                color: colour(gray, 4);
+                padding: 0 20px;
             }
         }
     }
@@ -83,27 +154,39 @@
             padding: 15px;
 
             .payment-summary {
-                text-align: center;
                 color: colour(black, 1);
-                font-size: 18px;
-                text-transform: uppercase;
+                font-size: 20px;
+                font-weight: map-get($font-weight, bold);
                 border-bottom: 1px solid colour(gray, 2);
                 padding-bottom: 20px;
                 padding-top: 10px;
                 margin-bottom: 20px;
             }
 
+            .leading-lines {
+                .start-lines {
+                    p {
+                        font-size: 17px;
+                        margin-bottom: 15px;
+                    }
+                }
+
+                .end-lines {
+                    p {
+                        color: colour(black, 1);
+                        font-weight: map-get($font-weight, bold);
+                    }
+                }
+            }
+
             .grand-total {
                 border-top: 1px solid colour(gray, 2);
-                color: colour(black, 1);
+                border-bottom: 1px solid colour(gray, 2);
                 padding-bottom: 10px;
                 padding-top: 10px;
-                text-transform: uppercase;
-                font-weight: 700;
-                margin-top: 15px;
+                margin: 15px 0;
 
                 p {
-                    color: colour(black, 1);
                     margin-bottom: 7px;
                 }
             }
@@ -112,32 +195,276 @@
 }
 
 .order-product-summary {
-    table {
-        border-bottom: 1px solid colour(gray, 1);
+    border-bottom: 1px solid colour(black, 3);
 
-        th {
-            border-bottom: 1px solid colour(gray, 1);
+    table {
+        thead {
+            @include media-down(sm) {
+                display: none;
+            }
+
+            th {
+                border-bottom: 1px solid colour(gray, 1);
+            }
+        }
+
+        .item-image {
+            width: 120px;
+            height: 134px;
+
+            img {
+                max-width: 80px;
+                max-height: 160px;
+                margin: 0 auto;
+                display: block;
+            }
+
+            @include media-down(sm) {
+                width: 30%;
+                padding-top: 15px;
+            }
+        }
+
+        .item-qty {
+            text-align: center;
+            font-size: 14px;
+            font-weight: map-get($font-weight, bold);
+            color: colour(black, 1);
+
+            @include media-down(sm) {
+                width: 70%;
+                text-align: left;
+                padding: 0 0.75rem;
+                float: right;
+                display: block;
+            }
+        }
+
+        .item-total {
+            text-align: right;
+
+            @include media-down(sm) {
+                width: 70%;
+                text-align: left;
+                padding: 0 0.75rem;
+                float: right;
+                display: block;
+            }
+        }
+
+        .line-item-name {
+            width: 315px;
+
+            a {
+                font-size: 15px;
+                font-weight: map-get($font-weight, bold);
+
+                &:hover {
+                    color: colour(black, 1);
+                }
+            }
+
+            .product-number {
+                font-size: 14px;
+                color: colour(gray, 4);
+            }
+
+            @include media-down(sm) {
+                width: 70%;
+            }
+        }
+
+        .pricing span {
+            font-size: 14px;
+            font-weight: map-get($font-weight, bold);
+            color: colour(black, 1);
+
+            @include media-down(sm) {
+                width: 70%;
+            }
+        }
+
+        .saving {
+            text-align: center;
+
+            .value {
+                text-align: right;
+                color: colour(black, 1);
+                font-size: 14px;
+                font-weight: 700;
+            }
+        }
+
+        .saving .value-dash {
+            text-align: center;
+            color: colour(black, 1);
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        @include media-down(sm) {
+            td {
+                float: left;
+                display: block;
+                border-top: 0;
+            }
+
+            .item-details {
+                width: 70%;
+                padding-top: 20px;
+            }
         }
     }
 
     .order-description {
-        width: 60%;
+        width: 40%;
     }
 
-    .order-qty,
-    .order-price {
-        width: 20%;
+    // .order-qty,
+    // .order-price {
+    //     width: 15%;
+    // }
+}
+
+.order-btn {
+    width: 100%;
+
+    .btn {
+        line-height: 2.8;
+        min-height: 50px;
+        padding: 3px 25px;
+        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: map-get($font-weight, semibold);
+
+        &:hover {
+            color: colour(white);
+        }
+    }
+
+    .continue-shopping-link {
+        text-align: center;
+        border: 2px solid colour(black, 1);
+        line-height: 3;
+        padding: 0 25px;
+        text-transform: uppercase;
+        font-size: 15px;
+        font-weight: map-get($font-weight, semibold);
+        color: colour(black, 1);
+        display: block;
+
+        &:hover {
+            color: colour(black, 1);
+        }
     }
 }
 
-.order-btn .btn {
-    line-height: 2;
-    padding: 3px 25px;
-    min-height: auto;
-    text-transform: uppercase;
-    width: 170px;
+.headinfo-year {
+    transition: all 0.5s ease-out;
+    font-size: 18px;
+    margin: 0 0 20px;
+    color: colour(black, 3);
+    padding: 0 0 10px;
+    border-bottom: 1px solid colour(gray, 13);
+    cursor: pointer;
+    position: relative;
+    font-weight: map-get($font-weight, bold);
 
-    &:hover {
-        color: colour(white);
+    &::after {
+        background: url("../../images/UI-Carat.svg") no-repeat 50%;
+        background-size: 1.25rem;
+        content: "";
+        height: 1.375rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform: rotate(180deg);
+        transition: all 0.5s ease-out;
+        width: 1.5rem;
+    }
+
+    &.collapsed::after {
+        transform: rotate(0deg);
+        transition: all 0.5s ease-out;
+    }
+}
+
+#add-order-to-cart-snackbar {
+    visibility: hidden;
+    z-index: 1;
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translate(-50%);
+    box-shadow:
+        0 8px 10px 1px rgba(0, 0, 0, 14%),
+        0 3px 14px 2px rgba(0, 0, 0, 12%),
+        0 5px 5px -3px rgba(0, 0, 0, 2%);
+    width: 320px;
+    padding: 14px 16px 14px 46px;
+    gap: 8px;
+    background-color: colour(green, 6);
+    color: colour(green, 2);
+
+    &::before {
+        background-image: url("../../images/pdp/check-circle-fill.svg");
+        height: 24px;
+        left: 13px;
+        position: absolute;
+        width: 24px;
+        background-repeat: no-repeat;
+        content: "";
+    }
+
+    &.show {
+        visibility: visible;
+        animation:
+            fade-in-order 0.5s,
+            fade-out-order 0.5s 2.5s;
+    }
+
+    &.error {
+        visibility: visible;
+        animation:
+            fade-in-order 0.5s,
+            fade-out-order 0.5s 2.5s;
+        background-color: colour(red, 11);
+        padding: 8px 20px 8px 44px;
+        margin: 5px 0;
+        color: colour(red);
+
+        &::before {
+            background-image: url("../../images/Alert-Error.svg");
+            height: 28px;
+            left: 13px;
+            position: absolute;
+            width: 28px;
+            background-repeat: no-repeat;
+            content: "";
+        }
+    }
+
+    @keyframes fade-in-order {
+        from {
+            bottom: 0;
+            opacity: 0;
+        }
+
+        to {
+            bottom: 30px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes fade-out-order {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
     }
 }

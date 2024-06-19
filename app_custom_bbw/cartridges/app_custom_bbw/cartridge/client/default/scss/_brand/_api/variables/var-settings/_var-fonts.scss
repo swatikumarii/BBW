@@ -17,12 +17,18 @@ $site-unit: "px";
 $ff-base: "SourceSansPro";
 $ff-adcaslon: "AdCaslon";
 $ff-turbinado: "Turbinado";
+$ff-justlovely: "JustLovely";
+$ff-trendsansone: "TrendSansOne";
+$ff-quickpen: "QuickPen";
 
 // Font families
 $font-family: (
     base: unquote("SourceSansPro, Arial, sans-serif"),
     adcaslon: unquote("AdCaslon, sans-serif"),
     turbinado: unquote("Turbinado, sans-serif"),
+    justlovely: unquote("JustLovely, sans-serif"),
+    trendsansone: unquote("TrendSansOne, sans-serif"),
+    quickpen: unquote("QuickPen, sans-serif"),
     system: unquote("SourceSansPro, Arial, sans-serif")
 );
 
@@ -35,6 +41,7 @@ $letter-spacing: (
 
 // Font weight
 $font-weight: (
+    light: 300,
     normal: 400,
     medium: 500,
     semibold: 600,
@@ -57,7 +64,7 @@ $fonts: (
                     "fontName": $ff-base,
                     "fontFolder": "SourceSansPro",
                     "fontFileName": "SourceSansPro-Regular",
-                    "ext": "woff2"
+                    "ext": "ttf"
                 ),
                 "weightValue": map-get($font-weight, normal),
                 "styleValue": normal
@@ -68,7 +75,7 @@ $fonts: (
                     "fontFolder": "SourceSansPro",
                     "fontFileName": "SourceSansPro-Bold",
                     "system": true,
-                    "ext": "woff2"
+                    "ext": "ttf"
                 ),
                 "weightValue": map-get($font-weight, bold),
                 "styleValue": normal
@@ -79,9 +86,20 @@ $fonts: (
                     "fontFolder": "SourceSansPro",
                     "fontFileName": "SourceSansPro-Semibold",
                     "system": true,
-                    "ext": "woff2"
+                    "ext": "ttf"
                 ),
                 "weightValue": map-get($font-weight, semibold),
+                "styleValue": normal
+            ),
+            "light": (
+                "fontFaceParams": (
+                    "fontName": $ff-base,
+                    "fontFolder": "SourceSansPro",
+                    "fontFileName": "SourceSansPro-Light",
+                    "system": true,
+                    "ext": "ttf"
+                ),
+                "weightValue": map-get($font-weight, light),
                 "styleValue": normal
             )
         )
@@ -122,6 +140,59 @@ $fonts: (
                     "ext": "woff2"
                 ),
                 "weightValue": map-get($font-weight, normal),
+                "styleValue": normal
+            )
+        )
+    ),
+    "justlovely": (
+        "fontFamily": get-ff(justlovely, true),
+        "fontWeights": (
+            "normal": (
+                "fontFaceParams": (
+                    "fontName": $ff-justlovely,
+                    "fontFolder": "JustLovely",
+                    "fontFileName": "JustLovely",
+                    "ext": "woff2"
+                ),
+                "weightValue": map-get($font-weight, normal),
+                "styleValue": normal
+            ),
+            "bold": (
+                "fontFaceParams": (
+                    "fontName": $ff-justlovely,
+                    "fontFolder": "JustLovely",
+                    "fontFileName": "JustLovely",
+                    "ext": "woff2"
+                ),
+                "weightValue": map-get($font-weight, bold),
+                "styleValue": normal
+            )
+        )
+    ),
+    "trendsansone": (
+        "fontFamily": get-ff(trendsansone, true),
+        "fontWeights": (
+            "normal": (
+                "fontFaceParams": (
+                    "fontName": $ff-trendsansone,
+                    "fontFolder": "TrendSansOne",
+                    "fontFileName": "TrendSansOne",
+                    "ext": "woff"
+                ),
+                "styleValue": normal
+            )
+        )
+    ),
+    "quickpen": (
+        "fontFamily": get-ff(quickpen, true),
+        "fontWeights": (
+            "normal": (
+                "fontFaceParams": (
+                    "fontName": $ff-quickpen,
+                    "fontFolder": "QuickPen",
+                    "fontFileName": "Quickpen",
+                    "ext": "woff2"
+                ),
                 "styleValue": normal
             )
         )

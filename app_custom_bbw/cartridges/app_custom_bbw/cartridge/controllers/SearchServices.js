@@ -21,19 +21,23 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
     var ContentSuggestions = require('*/cartridge/models/search/suggestions/content');
     var ProductSuggestions = require('*/cartridge/models/search/suggestions/product');
     var SearchPhraseSuggestions = require('*/cartridge/models/search/suggestions/searchPhrase');
+    var StringUtils = require('dw/util/StringUtils');
     var categorySuggestions;
     var contentSuggestions;
     var productSuggestions;
     var recentSuggestions;
     var popularSuggestions;
     var brandSuggestions;
+    var searchableCategorySuggestions = [];
+    var collectionSuggestions = { available: false, categories: [] };
     var searchTerms = req.querystring.q;
+    searchTerms = StringUtils.encodeString(searchTerms,0);
     var suggestions;
     // TODO: Move minChars and maxSuggestions to Site Preferences when ready for refactoring
     var minChars = 3;
     // Unfortunately, by default, max suggestions is set to 10 and is not configurable in Business
     // Manager.
-    var maxSuggestions = 10;
+    var maxSuggestions = 5;
     suggestions = new SuggestModel();
     suggestions.setFilteredByFolder(false);
     suggestions.setSearchPhrase(searchTerms);
@@ -47,13 +51,37 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
     if (searchTerms && searchTerms.length >= minChars) {
         categorySuggestions = new CategorySuggestions(suggestions, maxSuggestions);
         contentSuggestions = new ContentSuggestions(suggestions, maxSuggestions);
-        productSuggestions = new ProductSuggestions(suggestions, maxSuggestions);
+        productSuggestions = new ProductSuggestions(req, res, suggestions, maxSuggestions);
+
+        categorySuggestions.categories.forEach(function (category) {
+            if (category && category.isSearchable) {
+                if (category.isCollection) {
+                    collectionSuggestions.categories.push(category);
+                    collectionSuggestions.available = true;
+                } else {
+                    searchableCategorySuggestions.push(category);
+                }
+            }
+        });
+
+        if (
+            searchableCategorySuggestions &&
+            searchableCategorySuggestions.length
+        ) {
+            categorySuggestions.categories = searchableCategorySuggestions;
+        } else {
+            categorySuggestions = {
+                available: false,
+                categories: []
+            };
+        }
 
         if (productSuggestions.available || contentSuggestions.available
             || categorySuggestions.available
             || recentSuggestions.available
             || popularSuggestions.available
             || brandSuggestions.available) {
+
             total =
                 productSuggestions.products.length +
                 contentSuggestions.contents.length +
@@ -66,15 +94,24 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
                     product: productSuggestions,
                     category: categorySuggestions,
                     content: contentSuggestions,
+                    collections: collectionSuggestions,
                     recent: recentSuggestions,
                     popular: popularSuggestions,
                     brand: brandSuggestions,
-                    message: Resource.msgf('label.header.search.result.count.msg', 'common', null, ['' + total])
+                    searchTerms: searchTerms,
+                    searchProductCount: productSuggestions.searchProductCount,
+                    message: Resource.msgf(
+                        'label.header.search.result.count.msg',
+                        'common',
+                        null,
+                        ['' + total]
+                    )
                 }
             });
         } else {
             res.render('search/suggestions', {
                 suggestions: {
+                    searchTerms: searchTerms,
                     message: Resource.msgf(
                         'label.header.search.result.count.msg',
                         'common',
@@ -97,6 +134,7 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
                 recent: recentSuggestions,
                 popular: popularSuggestions,
                 brand: brandSuggestions,
+                searchTerms: searchTerms,
                 message: Resource.msgf(
                     'label.header.search.result.count.msg',
                     'common',

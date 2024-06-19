@@ -20,6 +20,26 @@ function addToNotifyList(data, pId) {
         dataType: 'json',
         data: data,
         success: function (response) {
+            var notifySnackbar = $('#notify-snackbar');
+            notifySnackbar.addClass('show');
+            setTimeout(function () {
+                notifySnackbar.removeClass('show');
+            }, 3000);
+
+            if (sessionStorage.getItem('notifyMeRegisteredProducts')) {
+                var notifyMeRegisteredProducts = sessionStorage.getItem(
+                    'notifyMeRegisteredProducts'
+                );
+                notifyMeRegisteredProducts =
+                    notifyMeRegisteredProducts + ',' + pId;
+                sessionStorage.setItem(
+                    'notifyMeRegisteredProducts',
+                    notifyMeRegisteredProducts
+                );
+            } else {
+                sessionStorage.setItem('notifyMeRegisteredProducts', pId);
+            }
+
             $('#submitNotifyMeButton').spinner().stop();
             $(mainClass)
                 .find('.notifyBackInStockButton')
@@ -36,6 +56,8 @@ function addToNotifyList(data, pId) {
                     $('#requestUserEmailForOOSModal').modal('hide');
                     $('.notify-me-oos-success-msg').fadeOut();
                 }, 5000);
+            } else {
+                $('.notify-me-oos-success-msg').addClass('h-clr--red');
             }
         },
         error: function () {
@@ -47,6 +69,7 @@ function addToNotifyList(data, pId) {
 // Adding click event listener to notify me button to check whether user is registered or not and perform action accordingly
 $(document).on('click', '.notifyBackInStockButton', function (e) {
     var pId = $(this).attr('data-pid');
+    var self = this;
     var mainClass = '.main-quantity-' + pId;
     e.preventDefault();
     $.ajax({
@@ -55,6 +78,7 @@ $(document).on('click', '.notifyBackInStockButton', function (e) {
         dataType: 'json',
         data: { pid: pId },
         success: function (data) {
+            var openFlyout = true;
             if (data.available) {
                 $(mainClass).find('.notify-me-available-msg').show();
                 $(mainClass)
@@ -68,23 +92,47 @@ $(document).on('click', '.notifyBackInStockButton', function (e) {
             if (data.registered) {
                 addToNotifyList('pid=' + pId, pId);
             } else {
-                $('#requestUserEmailForOOSModal img.image').attr(
-                    'src',
-                    $(mainClass).find('.notifyBackInStockButton').data('img')
-                );
-                $('#requestUserEmailForOOSModal img.image').attr(
-                    'data-src',
-                    $(mainClass).find('.notifyBackInStockButton').data('img')
-                );
-                $('#requestUserEmailForOOSModal span.product-name').text(
-                    $(mainClass).find('.notifyBackInStockButton').data('pname')
-                );
-                $('#requestUserEmailForOOSModal form.notify-me-form').attr(
-                    'data-pid',
-                    pId
-                );
-                $('#requestUserEmailForOOSModal .notifyProductID').val(pId);
-                $('#requestUserEmailForOOSModal').modal('show');
+                if (sessionStorage.getItem('notifyMeRegisteredProducts')) {
+                    var notifyMeRegisteredProducts = sessionStorage.getItem(
+                        'notifyMeRegisteredProducts'
+                    );
+                    if (notifyMeRegisteredProducts.indexOf(pId) !== -1) {
+                        $(self)
+                            .text($(mainClass).find('#notify-list-msg').val())
+                            .attr('disabled', 'disabled');
+                        openFlyout = false;
+                    }
+                }
+                if (openFlyout) {
+                    $('#requestUserEmailForOOSModal img.image').attr(
+                        'src',
+                        $(mainClass)
+                            .find('.notifyBackInStockButton')
+                            .data(
+                                window.devicePixelRatio >= 2 ? 'img2x' : 'img'
+                            )
+                    );
+                    $('#requestUserEmailForOOSModal img.image').attr(
+                        'data-src',
+                        $(mainClass)
+                            .find('.notifyBackInStockButton')
+                            .data(
+                                window.devicePixelRatio >= 2 ? 'img2x' : 'img'
+                            )
+                    );
+                    $('#requestUserEmailForOOSModal span.product-name').text(
+                        $(mainClass)
+                            .find('.notifyBackInStockButton')
+                            .data('pname')
+                    );
+                    $('#requestUserEmailForOOSModal form.notify-me-form').attr(
+                        'data-pid',
+                        pId
+                    );
+                    $('#requestUserEmailForOOSModal .notifyProductID').val(pId);
+                    $('#requestUserEmailForOOSModal').modal('show');
+                    $('body').addClass('open-notify');
+                }
             }
         }
     });
@@ -92,6 +140,8 @@ $(document).on('click', '.notifyBackInStockButton', function (e) {
 
 // modal form clear after hide
 $('#requestUserEmailForOOSModal.modal').on('hidden.bs.modal', function () {
+    $('.notify-me-oos-success-msg').hide();
+    $('body').removeClass('open-notify');
     $('#notify-me-email').val('');
     $('.modal-dialog .form-control.is-invalid').removeClass('is-invalid');
     $('#notify-me-email')
@@ -102,6 +152,7 @@ $('#requestUserEmailForOOSModal.modal').on('hidden.bs.modal', function () {
         .parents('.form-group')
         .find('.form-control-label')
         .show();
+    $('.notify-me-oos-success-msg').removeClass('h-clr--red');
 });
 
 /**
@@ -153,14 +204,12 @@ $('form.notify-me-form').on('submit', function (e) {
     );
 });
 
-$('body').on('product:afterAttributeSelect',
-    function (e, param) {
-        e.preventDefault();
-        $('body')
-            .find('.js-add-to-cart-button')
-            .empty()
-            .append(param.data.product.addToCartHtml);
-    }
-);
+$('body').on('product:afterAttributeSelect', function (e, param) {
+    e.preventDefault();
+    $('body')
+        .find('.js-add-to-cart-button')
+        .empty()
+        .append(param.data.product.addToCartHtml);
+});
 
 module.exports = {};

@@ -7,10 +7,18 @@ body {
         width: 100%;
         margin: auto;
         position: relative;
-        margin-bottom: 6.25rem;
+        margin-bottom: 1.25rem;
 
         .fragrance-topbanner {
-            margin: 45px 0;
+            margin: 0 0 27px;
+
+            @include media-up(sm) {
+                margin: 45px 0;
+            }
+
+            @include media-btw(sm, lg) {
+                margin: 0 0 27px;
+            }
         }
 
         .fragrance-list {
@@ -19,12 +27,18 @@ body {
             border-right: none;
             border-left: none;
             border-top: 1px solid colour(gray, 6);
+            max-width: fit-content;
 
             @include media-up(sm) {
                 border: 1px solid colour(gray, 6);
                 padding: 20px 42px;
-                margin: 0;
+                margin: 0 auto;
                 position: relative;
+                max-width: 1045px;
+            }
+
+            @include media-btw(sm, lg) {
+                max-width: fit-content;
             }
 
             .subtitle {
@@ -86,13 +100,32 @@ body {
             .fragrance-header-search {
                 display: block;
                 padding: 0;
+                margin: 0;
 
                 @include media-up(sm) {
                     display: flex;
                     justify-content: end;
                 }
 
+                @include media-btw(sm, lg) {
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-left: 16px;
+                }
+
+                .seatch-text {
+                    @include media-btw(sm, lg) {
+                        width: 260px;
+                    }
+                }
+
                 .search-input-box {
+                    width: 350px;
+
+                    @include media-up(sm) {
+                        width: 100%;
+                    }
+
                     &:focus {
                         outline: 1px dotted colour(black);
                     }
@@ -100,9 +133,23 @@ body {
 
                 .search-icon-details {
                     position: absolute;
-                    right: 10px;
+                    right: -8px;
                     top: 68%;
                     transform: translateY(-50%);
+
+                    @include media-up(sm) {
+                        position: absolute;
+                        right: 10px;
+                        top: 68%;
+                        transform: translateY(-50%);
+                    }
+
+                    @include media-btw(sm, lg) {
+                        position: absolute;
+                        right: 10px;
+                        top: 68%;
+                        transform: translateY(-50%);
+                    }
                 }
             }
 
@@ -117,49 +164,106 @@ body {
                     gap: 40px;
                     margin: 0 auto;
                     max-width: 974px;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        bottom: 0;
+                        border: 1px solid colour(white);
+                    }
                 }
 
                 @include media-btw(sm, lg) {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
                     gap: 40px;
+                    width: 100%;
                 }
 
                 .alphabetically-data {
-                    position: relative;
-                    border-bottom: 2px solid colour(gray, 21);
-                    margin-right: -40px;
+                    border: none;
 
-                    &.last-border {
-                        border: none;
+                    @include media-up(sm) {
+                        position: relative;
+                        border-bottom: 2px solid colour(gray, 21);
+                        margin-right: -40px;
                     }
+
+                    @include media-btw(sm, lg) {
+                        margin-right: -40px;
+                    }
+
+                    // &.last-border {
+                    //     border: none;
+                    // }
 
                     .static-level {
                         .title {
                             font-size: 21px;
-                            width: 184px;
+                            width: 100%;
                             line-height: 24px;
+
+                            @include media-up(sm) {
+                                font-size: 21px;
+                                width: 184px;
+                                line-height: 24px;
+                            }
                         }
 
                         .alphabet-border {
                             border: 1px solid colour(pink, 4);
                             margin: -5px 20px 15px;
-                            width: 164px;
-                            height: 2px;
+                            width: 100%;
+                            height: auto;
+
+                            @include media-up(sm) {
+                                border: 1px solid colour(pink, 4);
+                                margin: -5px 20px 15px;
+                                width: 164px;
+                                height: auto;
+                            }
+
+                            @include media-btw(sm, lg) {
+                                width: 85%;
+                            }
                         }
                     }
 
                     .frg-listing {
                         padding-left: 20px;
-                        max-width: 153px;
-                        min-width: 153px;
+                        width: 100%;
+
+                        @include media-up(sm) {
+                            padding-left: 20px;
+                            max-width: 153px;
+                            min-width: 153px;
+                        }
+
+                        @include media-btw(sm, lg) {
+                            max-width: 100%;
+                        }
 
                         .level-2 {
-                            width: 153px;
+                            width: 100%;
                             text-align: start;
+
+                            @include media-up(sm) {
+                                width: 153px;
+                                text-align: start;
+                            }
+
+                            @include media-btw(sm, lg) {
+                                width: 100%;
+                            }
 
                             a {
                                 line-height: 1.125rem;
+                                text-transform: capitalize;
+                            }
+
+                            .fragrance-img {
+                                margin-left: 5px;
                             }
                         }
                     }
@@ -172,6 +276,12 @@ body {
     .search-promo {
         border-top: 1px solid colour(black, 3);
         padding: 20px;
+        margin-left: 17px;
+
+        @include media-up(sm) {
+            border-top: 1px solid colour(black, 3);
+            padding: 20px;
+        }
 
         .html-slot-container {
             max-width: 51.25rem;
@@ -189,9 +299,26 @@ body {
 
     .fragrance-top-banner {
         .fragrance-landing-header {
-            font-size: 45px;
-            line-height: 1;
+            font-size: 32px;
+            margin-bottom: 8px;
             letter-spacing: 0;
+            margin-top: 0;
+
+            @include media-up(sm) {
+                font-size: 45px;
+                line-height: 1;
+                letter-spacing: 0;
+                margin-bottom: 8px;
+                padding-bottom: 0;
+                margin-top: 1rem;
+            }
+
+            @include media-btw(sm, lg) {
+                font-size: 45px;
+                margin-bottom: 8px;
+                letter-spacing: 0;
+                margin-top: 0;
+            }
         }
 
         .fragrance-landing-subheader {
@@ -200,9 +327,18 @@ body {
     }
 
     .all-fragrance-header {
-        margin-top: 80px;
-        margin-bottom: 15px;
         border-top: 2px solid colour(gray, 21);
+        margin: 10px -39px 31px -25px;
+
+        @include media-up(sm) {
+            margin-top: 80px;
+            margin-bottom: 15px;
+            border-top: 2px solid colour(gray, 21);
+        }
+
+        @include media-btw(sm, lg) {
+            border: none;
+        }
 
         .top-fr-head-container {
             margin-top: 42px;

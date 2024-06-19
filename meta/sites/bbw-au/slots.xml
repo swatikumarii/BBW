@@ -1,28 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <slot-configurations xmlns="http://www.demandware.com/xml/impex/slot/2008-09-08">
 
-    <slot-configuration slot-id="header-banner-m" context="global" configuration-id="Gingham" assigned-to-site="true">
+   <slot-configuration slot-id="gingham-header-banner" context="global" configuration-id="gingham-header-banner" default="true" assigned-to-site="true">
         <template>slots/html/htmlSlotContainer.isml</template>
         <enabled-flag>true</enabled-flag>
         <content>
             <html>
-                <body xml:lang="x-default">&lt;div class="top-promo-header-banner d-flex h-width-perc--100" style="background-image: url(header/gingham-pattern.svg?$staticlink$;"&gt;
+                <body xml:lang="x-default">&lt;style&gt;
+.top-promo-header-banner {
+min-height:2.5rem;
+}
+@media (min-width: 769px) {
+
+.top-promo-text {
+font-size:22px;
+font-family: SourceSansPro, Arial, sans-serif !important;
+line-height:normal !important;
+}
+}
+@media (max-width: 767px) {
+.top-promo-text {
+font-size:15px;
+line-height: normal !important;
+font-family: SourceSansPro, Arial, sans-serif !important;
+padding: 15px 0;
+}
+}
+&lt;/style&gt;
+&lt;div class="top-promo-header-banner d-flex h-width-perc--100 h-auto" style="background-image: url(header/gingham-pattern.svg?$staticlink$;"&gt;
 &lt;div class="promo-text-wrap h-bg--white mx-auto h-maxwidth-perc--90"&gt;
-&lt;p class="h-fw--bold text-center h-clr--blue h-font-size--12 h-font-size-lg--20"&gt;FREE SHIPPING ABOVE ₹1499&lt;/p&gt;
+&lt;p class="top-promo-text text-center h-clr--blue my-0 h-fw--semibold text-center h-clr--blue h-font-size--12 h-font-size-lg--20 h-flex-center h-100 flex-column"&gt;&lt;span&gt;FREE SHIPPING ABOVE AU$60&lt;/span&gt;
+&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;</body>
             </html>
         </content>
+        <custom-attributes>
+            <custom-attribute attribute-id="showOutOfStockProducts">false</custom-attribute>
+        </custom-attributes>
     </slot-configuration>
 
-    <slot-configuration slot-id="header-banner-m" context="global" configuration-id="Normal" default="true" assigned-to-site="true">
+   <slot-configuration slot-id="promotional-header-banner" context="global" configuration-id="promotional-header-banner" default="true" assigned-to-site="true">
         <template>slots/html/htmlSlotContainer.isml</template>
         <enabled-flag>true</enabled-flag>
         <content>
             <html>
-                <body xml:lang="x-default">&lt;div class="top-content-header-banner h-width-perc--100 h-bg--blue"&gt;&lt;div class="content-text-wrap mx-auto h-maxwidth-perc--90 position-relative"&gt;&lt;ul class="text-center"&gt;&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;span class="content-title h-fw--semibold h-text-fz--body "&gt;$5.95 All Body Care&lt;/span&gt;&lt;/li&gt;&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;span class="content-title h-fw--semibold h-text-fz--body "&gt;Plus! Free Shipping with $50&lt;/span&gt;&lt;/li&gt;&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;span class="content-title h-fw--semibold h-text-fz--body "&gt;Code:CELEBRATE &lt;span class="h-fw--normal"&gt;Limited time only!&lt;/span&gt;&lt;/li&gt;&lt;li class="content-heading mr-2 h-clr--white"&gt;&lt;a href=""&gt;&lt;span class="content-title text-underline h-text-fz--body "&gt;*Promo Details&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;</body>
+                <body xml:lang="x-default">&lt;div class="top-content-header-banner h-width-perc--100 h-bg--blue"&gt;
+	&lt;div class="content-text-wrap mx-auto h-maxwidth-perc--90 position-relative"&gt;
+		&lt;ul class="text-center"&gt;
+			&lt;li class="content-heading mr-2 h-clr--white"&gt;
+				&lt;span class="content-title h-fw--semibold h-text-fz--body text-capitalize"&gt;Exciting news: Our website upgrade is finally here. Enjoy an enhanced shopping experience.
+				&lt;/span&gt;
+			&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</body>
             </html>
         </content>
+        <custom-attributes>
+            <custom-attribute attribute-id="showOutOfStockProducts">false</custom-attribute>
+        </custom-attributes>
     </slot-configuration>
 
     <slot-configuration slot-id="store-header-banner" context="global" configuration-id="Store-banner" default="true" assigned-to-site="true">
@@ -32,13 +69,16 @@
             <html>
                 <body xml:lang="x-default">&lt;div class="store-header-banner  h-bg--gray-1 h-width-perc--100"&gt;
 &lt;div class="store-header-wrap h-maxwidth-lg--1400 d-flex justify-content-between align-items-center mx-auto h-px-lg--25 h-px-sm--20 h-px--15 px-lg-0"&gt;
-&lt;div class="store-header d-flex justify-content-between"&gt;&lt;img alt="" src="header/store.svg?$staticlink$" title="" /&gt;&lt;span class="store-text b-text-body-14 text-uppercase h-clr--blue"&gt;Pick Up In Store&lt;/span&gt; &lt;a class="h-font-size--14 h-clr--black-1 ml-2" href="" id="set-header-store"&gt;Set Store&lt;/a&gt;&lt;/div&gt;
+&lt;div class="store-header d-flex justify-content-between"&gt;&lt;span class="store-text b-text-body-14 h-clr--blue text-capitalize"&gt;New site. Better experience.&lt;/span&gt;&lt;/div&gt;
 
-&lt;div class="rewards-header d-none d-lg-block d-md-block"&gt;&lt;span class="b-text-body-14 text-uppercase h-clr--pink"&gt;Points. Perks. Exclusives. &lt;/span&gt; &lt;a class="h-font-size--14 h-clr--black-1" href=""&gt;Join Rewards!&lt;/a&gt;&lt;/div&gt;
+&lt;div class="rewards-header d-none d-lg-block d-md-block"&gt;&lt;span class="b-text-body-14 text-uppercase h-clr--pink"&gt;&lt;/span&gt;&lt;img alt="Store" width="19px" height="15px" src="header/pink-marker.svg?$staticlink$" title="" /&gt;&lt;a class="h-font-size--14 h-clr--black-1  text-capitalize" href="$url('Stores-Find')$"&gt;Find your nearest store&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;</body>
             </html>
         </content>
+        <custom-attributes>
+            <custom-attribute attribute-id="showOutOfStockProducts">false</custom-attribute>
+        </custom-attributes>
     </slot-configuration>
 
     <slot-configuration slot-id="navigation-image-text" context="global" configuration-id="nav-image" default="true" assigned-to-site="false">
@@ -58,7 +98,7 @@
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-1-image-section"/>
+                <content-asset content-id="menu-item-slot-1-detail-section"/>
             </content-assets>
         </content>
     </slot-configuration>
@@ -69,7 +109,7 @@
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-2-image-section"/>
+                <content-asset content-id="menu-item-slot-1-detail-section"/>
             </content-assets>
         </content>
     </slot-configuration>
@@ -80,7 +120,7 @@
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-3-image-section"/>
+                <content-asset content-id="menu-item-slot-1-detail-section"/>
             </content-assets>
         </content>
     </slot-configuration>
@@ -91,9 +131,97 @@
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-4-image-section"/>
+                <content-asset content-id="menu-item-slot-1-detail-section"/>
             </content-assets>
         </content>
+    </slot-configuration>
+    <slot-configuration slot-id="minicart-recommendation-slider" context="global" configuration-id="minicart-recommendation-slider" default="true" assigned-to-site="true">
+        <template>slots/product/minicartSlider.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">You'll Also Love</callout-msg>
+        <content>
+            <products>
+                <product product-id="24523917"/>
+                <product product-id="24554892"/>
+                <product product-id="25155705"/>
+                <product product-id="26286000"/>
+                <product product-id="26286003"/>
+            </products>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="search-popular-picks" context="global" configuration-id="search-popular-picks-au" assigned-to-site="true">
+        <description>Slot search popular pick for 0 search results</description>
+        <template>slots/product/searchPopulatPicks.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">You'll Also Love</callout-msg>
+        <content>
+            <products>
+                <product product-id="26291244"/>
+                <product product-id="26291245"/>
+                <product product-id="26291246"/>
+                <product product-id="26291247"/>
+                <product product-id="26291248"/>
+            </products>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="plp-no-results-recommendation" context="global" configuration-id="plp-no-results-recommendation-config" default="true" assigned-to-site="true">
+        <description>Recommendation on PLP no results page</description>
+        <template>slots/product/plpRecentlyViewedProduct.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">Recommended For You</callout-msg>
+        <content>
+            <products>
+                <product product-id="26291244"/>
+                <product product-id="26291245"/>
+                <product product-id="26291246"/>
+                <product product-id="26291247"/>
+                <product product-id="26291248"/>
+            </products>
+        </content>
+        <custom-attributes>
+            <custom-attribute attribute-id="showOutOfStockProducts">false</custom-attribute>
+        </custom-attributes>
+        <customer-groups>
+            <customer-group group-id="Everyone"/>
+        </customer-groups>
+    </slot-configuration>
+
+    <slot-configuration slot-id="more-youll-adore" context="global" configuration-id="more-you-adore" default="true" assigned-to-site="true">
+        <template>slots/product/moreYoullAdore.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">More You'll Adore</callout-msg>
+        <content>
+            <products>
+                <product product-id="26291244"/>
+                <product product-id="26291245"/>
+                <product product-id="26291246"/>
+                <product product-id="26291247"/>
+                <product product-id="26291248"/>
+            </products>
+        </content>
+        <custom-attributes>
+            <custom-attribute attribute-id="showOutOfStockProducts">false</custom-attribute>
+        </custom-attributes>
+    </slot-configuration>
+
+    <slot-configuration slot-id="recently-viewed-product" context="global" configuration-id="recently-viewed-product" default="true" assigned-to-site="true">
+        <template>slots/product/recentlyViewedProduct.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">Customers Also Viewed</callout-msg>
+        <content>
+            <products>
+                <product product-id="24523917"/>
+                <product product-id="24554892"/>
+                <product product-id="25155705"/>
+                <product product-id="26286000"/>
+                <product product-id="26286003"/>
+            </products>
+        </content>
+        <custom-attributes>
+            <custom-attribute attribute-id="showOutOfStockProducts">false</custom-attribute>
+        </custom-attributes>
     </slot-configuration>
 
 </slot-configurations>

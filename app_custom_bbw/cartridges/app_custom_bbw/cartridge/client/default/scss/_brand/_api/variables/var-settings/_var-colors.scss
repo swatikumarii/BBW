@@ -15,9 +15,13 @@ $clr-black-4: #102818;
 $clr-black-5: #222;
 $clr-black-6: #1a1919;
 $clr-black-7: #453f3f;
+$clr-black-8: #030303;
+$clr-black-9: #363636;
+$clr-black-10: #2f3941;
 $clr-white: #fff;
 $clr-white-1: #fafafa;
 $clr-white-2: #bababa;
+$clr-white-3: #c2c8cc;
 $clr-blue: #005699;
 $clr-blue-1: #024a82;
 $clr-blue-2: #f0f8ff;
@@ -27,11 +31,21 @@ $clr-blue-5: #365fa1;
 $clr-blue-6: #27aade;
 $clr-blue-7: #34648c;
 $clr-blue-8: #00a1e0;
+$clr-blue-9: #00e;
+$clr-blue-10: #025394;
+$clr-blue-11: #b8d2ed;
+$clr-blue-12: #00599f;
+$clr-blue-13: #dce8f5;
+$clr-blue-14: #00e;
+$clr-blue-15: #1f73b7;
+$clr-blue-16: #007bff29;
+$clr-blue-17: #214293;
 $clr-pink: #e20887;
 $clr-pink-1: #dd0493;
 $clr-pink-2: #ec3fa8;
 $clr-pink-3: #cb1595;
 $clr-pink-4: #ed088c;
+$clr-pink-5: #eb008a;
 $clr-gray: #666;
 $clr-gray-1: #f2f2f2;
 $clr-gray-2: #c2c2c2;
@@ -57,6 +71,15 @@ $clr-gray-20: #e6e6e6;
 $clr-gray-21: #d3d3d3;
 $clr-gray-22: #bababa;
 $clr-gray-23: #d8d8d8;
+$clr-gray-24: #777;
+$clr-gray-25: #ddd;
+$clr-gray-26: #555;
+$clr-gray-27: #dee2e6;
+$clr-gray-28: #fcf0ef;
+$clr-gray-29: #f5f5f5;
+$clr-gray-30: #b9c4c9;
+$clr-gray-31: #dadada;
+$clr-gray-32: #e7e7e7;
 $clr-green: #36c981;
 $clr-green-1: #007d48;
 $clr-green-2: #007a14;
@@ -64,6 +87,7 @@ $clr-green-3: #00570b;
 $clr-green-4: #1d6b49;
 $clr-green-5: #e9ffe9;
 $clr-green-6: #e6f7eb;
+$clr-green-7: #e9fff2;
 $clr-red: #cb0100;
 $clr-red-1: #fe5000;
 $clr-red-2: #ff0015;
@@ -75,6 +99,7 @@ $clr-red-7: #b21e34;
 $clr-red-8: #ce2127;
 $clr-red-9: #c00;
 $clr-red-10: #ffe9e9;
+$clr-red-11: #faebd7;
 $clr-brown: #aa8275;
 $clr-brown-1: #ba861e;
 $orange: #f89021;
@@ -89,11 +114,16 @@ $map-colors: (
         4: $clr-black-4,
         5: $clr-black-5,
         6: $clr-black-6,
-        7: $clr-black-7
+        7: $clr-black-7,
+        8: $clr-black-8,
+        9: $clr-black-9,
+        10: $clr-black-10
     ),
     white: (
         base: $clr-white,
-        1: $clr-white-1
+        1: $clr-white-1,
+        2: $clr-white-2,
+        3: $clr-white-3
     ),
     blue: (
         base: $clr-blue,
@@ -103,14 +133,25 @@ $map-colors: (
         4: $clr-blue-4,
         5: $clr-blue-5,
         6: $clr-blue-6,
-        7: $clr-blue-7
+        7: $clr-blue-7,
+        8: $clr-blue-8,
+        9: $clr-blue-9,
+        10: $clr-blue-10,
+        11: $clr-blue-11,
+        12: $clr-blue-12,
+        13: $clr-blue-13,
+        14: $clr-blue-14,
+        15: $clr-blue-15,
+        16: $clr-blue-16,
+        17: $clr-blue-17
     ),
     pink: (
         base: $clr-pink,
         1: $clr-pink-1,
         2: $clr-pink-2,
         3: $clr-pink-3,
-        4: $clr-pink-4
+        4: $clr-pink-4,
+        5: $clr-pink-5
     ),
     gray: (
         base: $clr-gray,
@@ -136,7 +177,16 @@ $map-colors: (
         20: $clr-gray-20,
         21: $clr-gray-21,
         22: $clr-gray-22,
-        23: $clr-gray-23
+        23: $clr-gray-23,
+        24: $clr-gray-24,
+        25: $clr-gray-25,
+        26: $clr-gray-26,
+        27: $clr-gray-27,
+        28: $clr-gray-28,
+        29: $clr-gray-29,
+        30: $clr-gray-30,
+        31: $clr-gray-31,
+        32: $clr-gray-32
     ),
     green: (
         base: $clr-green,
@@ -145,7 +195,8 @@ $map-colors: (
         3: $clr-green-3,
         4: $clr-green-4,
         5: $clr-green-5,
-        6: $clr-green-6
+        6: $clr-green-6,
+        7: $clr-green-7
     ),
     red: (
         base: $clr-red,
@@ -158,7 +209,8 @@ $map-colors: (
         7: $clr-red-7,
         8: $clr-red-8,
         9: $clr-red-9,
-        10: $clr-red-10
+        10: $clr-red-10,
+        11: $clr-red-11
     ),
     brown: (
         base: $clr-brown,

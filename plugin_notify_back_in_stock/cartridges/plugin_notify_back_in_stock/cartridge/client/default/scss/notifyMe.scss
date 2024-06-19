@@ -1,59 +1,90 @@
+@charset "UTF-8";
+
+@import "variables";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins/breakpoints";
+
 .out-of-stock-modal {
     &.modal {
         position: fixed;
-        left: 0;
-        bottom: 0;
         width: 100%;
         height: 100%;
         overflow: auto;
         background-color: rgb(0, 0, 0);
         background-color: rgba(0, 0, 0, 40%);
-        animation-name: fade-in;
-        animation-duration: 0.4s;
     }
 
     /* Modal Content */
     .modal-dialog {
-        margin: 0;
+        max-width: 420px;
+        margin: 0 auto;
         position: fixed;
-        right: -500px;
-        background-color: #fff;
-        animation-name: slide-in;
-        animation-duration: 0.4s;
-        left: auto;
-        max-width: 720px;
-        width: 50%;
-        height: 100%;
-        bottom: auto;
-        transition:
-            opacity 0.3s linear,
-            right 0.3s ease-out !important;
-        transform: translate3d(0%, 0, 0) !important;
+        bottom: 0;
+        left: 0;
+        right: 0;
 
-        @media (max-width: 575.98px) {
-            max-width: 320px;
-            width: auto;
+        @include media-breakpoint-down(sm) {
+            max-width: 343px;
+        }
+    }
+
+    .modal-dialog-bottom {
+        margin-top: 3vh;
+        inset: 0;
+        position: fixed;
+        margin-bottom: 0;
+        animation: slide-in 0.3s cubic-bezier(0.2, 0.05, 0.55, 0.2);
+    }
+
+    @keyframes slide-in {
+        0% {
+            transform: translateY(100%);
+        }
+
+        100% {
+            transform: translateY(0);
         }
     }
 
     .modal-content {
-        padding: 73px 40px 40px;
-        height: 100%;
-        overflow-y: auto;
         border-radius: 0;
         border: none;
         position: relative;
 
+        // @include media-breakpoint-down(sm) {
+        //     height: 700px;
+        // }
+
         .modal-header {
             background-color: #fff;
             border: 0;
-            text-align: center;
-            display: block;
+
+            .close {
+                position: absolute;
+                top: 9px;
+                right: 12px;
+                opacity: 1;
+
+                img {
+                    width: 19px;
+                }
+            }
+        }
+
+        .notifyme-modal-body {
+            max-height: calc(114vh - 84px);
+            overflow-y: auto;
+            padding: 33px 40px 40px;
+
+            @include media-breakpoint-down(sm) {
+                padding: 10px 40px 33px;
+            }
 
             h2 {
-                font-size: 32px;
+                font-size: 27px;
                 line-height: 40px;
                 margin-bottom: 22px;
+                text-align: center;
             }
 
             span {
@@ -64,13 +95,30 @@
                 text-align: center;
                 letter-spacing: 0.5px;
             }
+
+            .image-container {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                text-align: center;
+
+                @include media-breakpoint-down(sm) {
+                    margin-top: 15px;
+                }
+
+                img {
+                    max-height: 195px;
+                    max-width: 195px;
+                    object-fit: contain;
+
+                    @include media-breakpoint-down(sm) {
+                        width: 80%;
+                    }
+                }
+            }
         }
 
-        .notifyme-modal-body {
-            .image-container {
-                margin-top: 55px;
-                text-align: center;
-            }
+        .invalid-feedback {
+            padding: 0 0 0.3125rem;
         }
 
         .send-email-btn {
@@ -78,59 +126,89 @@
             text-align: center;
 
             button {
-                min-width: 320px;
-                width: auto;
-                margin: 43px auto 0;
-                font-size: 14px;
-                line-height: 24px;
-                letter-spacing: 2px;
+                font-size: 16px;
+                letter-spacing: 0.24px;
+                line-height: 20px;
+                margin: 0 auto;
+                font-weight: 600;
+                min-height: 41px;
 
-                @media (max-width: 575.98px) {
+                @include media-breakpoint-down(md) {
                     min-width: auto;
                     width: 100%;
                 }
+
+                @include media-breakpoint-down(sm) {
+                    margin: 0 auto;
+                }
             }
-        }
-    }
 
-    /* The Close Button */
-    .close {
-        position: absolute;
-        top: 15px;
-        left: 0;
-
-        img {
-            width: 25px;
+            button[disabled="disabled"] {
+                pointer-events: none;
+            }
         }
     }
 
     .modal-body {
         padding: 2px 16px;
     }
-
-    @keyframes slide-in {
-        from {
-            right: -500px;
-            opacity: 0;
-        }
-
-        to {
-            right: 0;
-            opacity: 1;
-        }
-    }
-
-    @keyframes fade-in {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            opacity: 1;
-        }
-    }
 }
 
-.out-of-stock-modal.modal.modal-right.fade.show .modal-dialog {
-    right: 0;
+#notify-snackbar {
+    visibility: hidden;
+    z-index: 1;
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translate(-50%);
+    box-shadow:
+        0 8px 10px 1px rgba(0, 0, 0, 14%),
+        0 3px 14px 2px rgba(0, 0, 0, 12%),
+        0 5px 5px -3px rgba(0, 0, 0, 2%);
+    width: 345px;
+    padding: 14px 16px 14px 46px;
+    gap: 8px;
+    background-color: #e6f7eb;
+    color: #007a14;
+
+    &::before {
+        background-image: url("../../images/pdp/check-circle-fill.svg");
+        height: 24px;
+        left: 13px;
+        position: absolute;
+        width: 24px;
+        background-repeat: no-repeat;
+        content: "";
+    }
+
+    &.show {
+        visibility: visible;
+        animation:
+            fade-in-order 0.5s,
+            fade-out-order 0.5s 2.5s;
+    }
+
+    @keyframes fade-in-order {
+        from {
+            bottom: 0;
+            opacity: 0;
+        }
+
+        to {
+            bottom: 30px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes fade-out-order {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
+    }
 }

@@ -1,0 +1,195 @@
+// Shipping ------------------------------
+#checkout-main {
+    &.data-checkout-stage {
+        &[data-checkout-stage="shipping"] {
+            .customer-section {
+                display: none;
+            }
+
+            button.submit-customer {
+                display: none;
+            }
+
+            .review-order-summary {
+                display: none;
+            }
+
+            .ghost.customer {
+                display: none;
+            }
+
+            .ghost {
+                display: none;
+            }
+
+            &.multi-ship .order-product-summary {
+                display: none;
+            }
+
+            .payment-form,
+            .place-order-trigger {
+                display: none;
+            }
+
+            .checkout-blocks {
+                &.billing {
+                    display: none;
+                }
+            }
+
+            button.submit-shipping {
+                display: block;
+                line-height: 20px;
+            }
+
+            .shipment-selector-block {
+                .btn-show-details,
+                .btn-add-new {
+                    border: none;
+                }
+            }
+
+            [data-address-mode="customer"] {
+                .shipping-address-block {
+                    display: none;
+                }
+            }
+
+            [data-address-mode="shipment"] {
+                .shipping-address-form {
+                    display: none;
+                }
+            }
+
+            [data-address-mode="edit"] {
+                .shipping-address-block {
+                    display: none;
+                }
+            }
+
+            [data-address-mode="new"] {
+                .btn-show-details,
+                .btn-add-new {
+                    display: none;
+                }
+            }
+
+            .shipping-step {
+                a {
+                    &:hover {
+                        color: $clr-blue;
+                        text-decoration: none;
+                    }
+
+                    .step-text {
+                        color: $clr-blue;
+                        font-weight: 600;
+                    }
+                }
+
+                .step-count {
+                    color: $clr-blue;
+                    border-color: $clr-blue;
+                    background-color: $clr-white;
+                }
+            }
+
+            .payment-step,
+            .place-order-step {
+                a {
+                    pointer-events: none;
+                }
+            }
+
+            .promotion-callout {
+                line-height: 1.25rem;
+                letter-spacing: 0.005em;
+                position: absolute;
+                right: -34px;
+                top: 66%;
+                margin-bottom: 0.75rem;
+                background: colour(gray, 1);
+                border: 1px solid colour(gray, 1);
+                border-radius: 50%;
+                display: flex;
+                height: 25px;
+                transform: translateY(-50%);
+                width: 25px;
+                align-items: center;
+                justify-content: center;
+
+                .callout-detail {
+                    display: block;
+
+                    &::after {
+                        display: block;
+                        background-repeat: no-repeat;
+                        content: "";
+                        width: 10px;
+                        height: 15px;
+                        background-image: url("../../images/i-icon-gray.svg");
+                    }
+
+                    .popover-header {
+                        display: none;
+                    }
+                }
+
+                .pdp-popover {
+                    border: 1px solid colour(gray);
+                    box-shadow: 0 0 13px 0 rgba(0, 0, 0, 15%);
+                    color: colour(black, 1);
+                    padding: 1.5rem 0.5rem 1.5rem 0;
+                    overflow-y: initial;
+                    border-radius: 0;
+                    left: 5.5% !important;
+                    width: 260px;
+                    max-height: 197px;
+
+                    @include media-btw(sm, md) {
+                        left: 12% !important;
+                    }
+
+                    .popover-body {
+                        max-height: 147px;
+                        overflow-y: auto;
+                        padding: 0 16px 0 24px;
+                        scrollbar-width: thin;
+
+                        &:focus {
+                            outline: 1px dotted colour(black);
+                            outline-offset: 2px;
+                        }
+
+                        .popover-content {
+                            color: colour(black, 1);
+                            font-size: 14px;
+                            height: auto;
+                            letter-spacing: 0.015em;
+                            line-height: 20px;
+                            max-height: 300px;
+                            font-family: get-ff(base, true);
+                        }
+                    }
+
+                    .popover-header {
+                        display: none;
+                    }
+
+                    .arrow {
+                        left: 14px !important;
+                    }
+
+                    .close {
+                        width: 13px;
+                        height: 13px;
+                        position: absolute;
+                        top: 8px;
+                        right: 8px;
+                        background-size: 0.8125rem;
+                    }
+                }
+            }
+        }
+    }
+}

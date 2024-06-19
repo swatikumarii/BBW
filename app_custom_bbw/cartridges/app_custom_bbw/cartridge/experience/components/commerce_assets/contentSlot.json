@@ -1,0 +1,28 @@
+{
+  "name": "CMP:Content Slot",
+  "description": "This is a component combined image with text",
+  "group": "commerce_assets",
+  "attribute_definition_groups": [
+    {
+      "id": "contentSlotpd",
+      "attribute_definitions": [
+          {
+              "id": "contentSlotId",
+              "name": "Content Slot ID",
+              "description": "The ID of the content Slot to be displayed.",
+              "type": "enum",
+              "values": ["Einstein Recommendation", "Picked Just For You"],
+              "required": true
+          },
+          {
+            "id": "contentSlotPdCustomClass",
+            "name": "Content Slot Custom Class",
+            "description": "Add Content Slot Custom Class",
+            "type": "string",
+            "required": false
+          }
+      ]
+    }
+  ],
+  "region_definitions": []
+}

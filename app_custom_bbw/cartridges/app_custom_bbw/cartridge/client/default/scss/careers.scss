@@ -1,11 +1,10 @@
 @import "../scss/_brand/_api/api";
 
 .career-section {
-    padding-bottom: 90px;
-
     @include media-up(sm) {
         margin: 0 auto;
         padding: 30px;
+        padding-bottom: 0;
     }
 
     .entry-title {
@@ -51,7 +50,8 @@
                             &::before {
                                 transition: all 0.5s ease-out;
                                 transform: rotate(0deg);
-                                background: url("../images/UI-Carat.svg") no-repeat 50%;
+                                background: url("../images/UI-Carat.svg") 50%;
+                                background-repeat: no-repeat;
                                 content: "";
                                 position: absolute;
                                 width: 2.5rem;
@@ -64,6 +64,7 @@
                                 color: colour(black, 6);
                                 border-bottom: none;
                                 text-decoration: none;
+                                letter-spacing: 2.4px;
                                 cursor: pointer;
                             }
                         }
@@ -73,13 +74,16 @@
                         cursor: pointer;
                         font-size: 17px;
                         line-height: 28px;
-                        padding: 16px 23px;
+                        padding: 0.5em 1em;
+                        margin-bottom: 10px;
+                        letter-spacing: 2.4px;
                         position: relative;
 
                         &::before {
                             transition: all 0.5s ease-out;
                             transform: rotate(180deg);
-                            background: url("../images/UI-Carat.svg") no-repeat 50%;
+                            background: url("../images/UI-Carat.svg") 50%;
+                            background-repeat: no-repeat;
                             content: "";
                             position: absolute;
                             width: 2.5rem;
@@ -93,7 +97,7 @@
         }
 
         .menu_list {
-            padding: 22px;
+            padding: 18px 4px 18px 28px;
 
             ul {
                 li {
@@ -159,9 +163,13 @@
         }
     }
 
-    .job-description {
+    .job-content {
         line-height: 28px;
         letter-spacing: 1px;
+    }
+
+    .email-header {
+        margin: 20px 20px 20px 0;
     }
 
     .application {
@@ -232,7 +240,12 @@
 
                     &.is-invalid {
                         border-color: colour(red);
+                        background: none;
                     }
+                }
+
+                .self-textarea {
+                    border-radius: 0;
                 }
             }
 
@@ -241,8 +254,12 @@
                 border: none;
                 color: colour(white);
                 display: inline-block;
-                padding: 11px 24px 10px;
+                padding: 10px 24px;
                 text-decoration: none;
+
+                &:focus {
+                    border-radius: 5px;
+                }
             }
 
             .thankyou-msg {

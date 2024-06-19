@@ -12,6 +12,9 @@
 function displayMessage(data, button) {
     $.spinner().stop();
     var status;
+    var message = data.msg
+        ? data.msg
+        : $('#newsletter-input').attr('data-csrf-error');
     if (data.success) {
         status = 'alert-success';
     } else {
@@ -25,10 +28,10 @@ function displayMessage(data, button) {
     }
     $('.email-signup-message').append(
         '<div class="email-signup-alert text-justify ' +
-            status +
-            '">' +
-            data.msg +
-            '</div>'
+        status +
+        '">' +
+        message +
+        '</div>'
     );
     var newsLetterInput = $('#newsletterInput');
     if (status === 'alert-danger') {
@@ -52,12 +55,12 @@ function newsLetter(token) {
     var button = $('.subscribe-email');
     var emailId = $('input[name=hpEmailSignUp]').val();
     var csrfToken = $('input[name=csrf_token]').val();
-    var data = { emailId: emailId, 'csrf_token': csrfToken };
+    var data = { emailId: emailId, csrf_token: csrfToken };
     if (token) {
         data = {
             emailId: emailId,
             'g-recaptcha-response': token,
-            'csrf_token': csrfToken
+            csrf_token: csrfToken
         };
     }
 
@@ -91,17 +94,25 @@ window.submitNewsLetter = function (token) {
     });
 };
 
-// Initialize popover
-$('[data-toggle="popover"]').popover({
-    placement: 'top',
-    html: true
-});
+$('[data-toggle="popover"]').popover();
 
 // Show popover on mouseenter
 $('[data-toggle="popover"]').on('mouseenter', function () {
     $(this).popover('show');
     $('.pdp-title').parents('.bs-popover-top').addClass('pdp-popover');
 });
+
+if (
+    !localStorage.getItem('is-country-selector') &&
+    $('.countrySelectPopup').data('country-selector-enabled')
+) {
+    $('.countrySelectPopup').find('.modal').modal('show');
+    var reqCountryDiv = $('#request-country-name');
+    var countryCode = reqCountryDiv.data('country-code');
+    var regionName = new Intl.DisplayNames(['en'], { type: 'region' });
+    var countryDisplayName = regionName.of(countryCode);
+    reqCountryDiv.text(countryDisplayName);
+}
 
 var timer;
 $('body')
@@ -112,6 +123,14 @@ $('body')
     })
     .on('mouseenter', '[data-toggle="popover"], .popover', function () {
         clearTimeout(timer);
+    })
+    .on('click', '#switch-site', function () {
+        localStorage.setItem('is-country-selector', true);
+        var site = $('#selected-site').val();
+        window.location.assign(site);
+    })
+    .on('click', '.country-stay-site', function () {
+        localStorage.setItem('is-country-selector', true);
     });
 // Close popover on close button click
 $(document).on('click', '.popover .close', function (e) {
@@ -119,51 +138,54 @@ $(document).on('click', '.popover .close', function (e) {
     $(this).parents('.popover').popover('hide');
 });
 
-/**
- * Back To Top - Click
- */
-
-var scrolltotop = $('.js-scrolltotop');
-
 // Function to handle scroll event
 /**
  *
  */
 // Define a function to handle scroll event and show/hide back-to-top button
-function handleScroll() {
-    var scrollThreshold = 3.7 * $(window).height(); // 70% of window height
-
-    if ($(window).scrollTop() > scrollThreshold) {
-        $('.js-scrolltotop').fadeIn();
-    } else {
-        $('.js-scrolltotop').fadeOut();
-    }
-}
-
-// Function to scroll to top when the button is clicked
-/**
- *
- */
-function scrollToTop() {
-    $('html, body').animate(
-        {
-            scrollTop: 0 // Scroll to the top of the page
-        },
-        800
-    );
-}
-
-// Bind scroll event handler
-$(window).scroll(handleScroll);
-
-// Trigger scroll event initially
 $(document).ready(function () {
-    handleScroll();
+    // Cache the window and document objects for performance
+    var $window = $(window);
+    var $scrollToTopButton = $('.js-scrolltotop');
+
+    // Function to calculate the scroll threshold
+    /**
+    * @returns {object} a promise
+    */
+    function calculateScrollThreshold() {
+        var documentHeight = $(document).height();
+        // Show the button when the user has scrolled past 70% of the document height
+        // Ensure it is within the scrollable content
+        return Math.min(0.7 * documentHeight, documentHeight - 630);
+    }
+
+    // Show or hide the scroll to top button based on scroll position
+    $window.scroll(function () {
+        let scrollThreshold = calculateScrollThreshold();
+        var scrollTop = $window.scrollTop();
+        var windowHeight = $window.height();
+
+        // Adjust the threshold for smaller pages
+        var showButtonScrollTop = Math.max(scrollThreshold, windowHeight);
+
+        if (scrollTop > showButtonScrollTop - windowHeight) {
+            $scrollToTopButton.fadeIn();
+        } else {
+            $scrollToTopButton.fadeOut();
+        }
+    });
+
+    // Scroll to top when the button is clicked
+    $scrollToTopButton.click(function () {
+        $('html, body').animate({ scrollTop: 0 }, 800);
+        return false;
+    });
+
+    // Calculate height of store in global locations
+    var storeHeight = $('.store-location').height();
+    var storeNewHeight = storeHeight + 20;
+    $('.store-location').height(storeNewHeight);
 });
-
-// Bind click event to scroll to top when the button is clicked
-$('.js-scrolltotop').on('click', scrollToTop);
-
 
 module.exports = function () {
     $('.subscribe-email').on('click', function (e) {

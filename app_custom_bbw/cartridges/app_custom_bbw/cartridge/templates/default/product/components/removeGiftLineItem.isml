@@ -1,0 +1,51 @@
+<div class="modal fade" id="delete-gift-certificate-line-item-modal" tabindex="-1" role="dialog" aria-labelledby="delete-gift-certificate-line-item-modal">
+    <div class="modal-dialog delete-gift-modal-dialog" role="document">
+        <div class="modal-content delete-gift-content border-0">
+            <div class="modal-header delete-confirmation-header border-0 p-0">
+                <h5 class="modal-title h-font-size-md--18 h-font-size-sm--18 h-font-size--16 h-clr--black-3 m-0 h-fw--semibold delete-header">${Resource.msg('egift.delete.product.confirmation.modal.msg1','giftcards',null)}</h5>
+                <button type="button" class="close pull-right close-icon-btn" data-dismiss="modal">
+                    <span aria-hidden="true" class="d-none">
+                        <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
+                    </span>
+                    <span class="sr-only"> </span>
+                </button>
+                <p class="product-to-remove"></p>
+            </div>
+            <div class="modal-body delete-confirmation-body p-0 mt-3">
+                <span class="modal-content-data h-clr--gray h-font-size-md--16 h-font-size-sm--16 h-font-size--14">${Resource.msg('egift.delete.product.confirmation.modal.msg2','giftcards',null)}</span>
+                <p class="product-to-remove"></p>       
+            </div>
+            <div class="modal-footer border-0 p-0 justify-content-md-end justify-content-center m-0">
+                <isif condition="${isBundlePage}">
+                    <button type="button" class="btn delete-egiftitem-confirmation-btn h-font-size-md--16 h-font-size-sm--16 h-font-size--14 mr-1 m-0"
+                        data-dismiss="modal"
+                        data-addtocarturl="${addToCartUrl}"
+                        data-action="${removeLineItemURL}"
+                    >${Resource.msg('button.confirm.remove','giftcards',null)}</button>
+                    <button type="button" class="btn btn-primary close-btn btn-secondary h-clr--gray h-font-size-md--16 h-font-size-sm--16 h-font-size--14 mr-1 m-0" data-dismiss="modal"
+                        data-oid="${pdict.order.orderNumber}" data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
+                        data-action="${URLUtils.url('Giftcard-RemoveLineItems')}">${Resource.msg('button.deny.remove', 'giftcards', null)}</button>
+                <iselseif condition="${pdict.isOrderBaseRemoveGiftCard}" />
+                    <button type="button" class="btn order-base-delete-egiftitem-confirmation-btn  h-font-size-md--16 h-font-size-sm--16 h-font-size--14 m-0"
+                        data-dismiss="modal"
+                        data-oid="${pdict.order.orderNumber}"
+                        data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
+                        data-action="${URLUtils.url('Giftcard-RemoveLineItems')}"
+                    >${Resource.msg('button.confirm.remove','giftcards',null)}</button>
+                    <button type="button" class="btn btn-primary close-btn btn-secondary h-clr--gray h-font-size-md--16 h-font-size-sm--16 h-font-size--14 m-0" data-dismiss="modal"
+                        data-oid="${pdict.order.orderNumber}" data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
+                        data-action="${URLUtils.url('Giftcard-RemoveLineItems')}">${Resource.msg('button.deny.remove', 'giftcards', null)}</button>
+                <iselse/>
+                    <button type="button" class="btn delete-egiftitem-confirmation-btn  h-font-size-md--16 h-font-size-sm--16 h-font-size--14"
+                        data-dismiss="modal"
+                        data-addtocarturl="${URLUtils.url('Cart-AddProduct')}"
+                        data-action="${URLUtils.url('Giftcard-RemoveLineItems')}"
+                    >${Resource.msg('button.confirm.remove','giftcards',null)}</button>
+                    <button type="button" class="btn btn-primary close-btn btn-secondary h-clr--gray h-font-size-md--16 h-font-size-sm--16 h-font-size--14 m-0" data-dismiss="modal"
+                        data-oid="${pdict.order.orderNumber}" data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
+                        data-action="${URLUtils.url('Giftcard-RemoveLineItems')}">${Resource.msg('button.deny.remove', 'giftcards', null)}</button>
+                </isif>
+            </div>
+        </div>
+    </div>
+</div>

@@ -52,6 +52,10 @@
     }
 
     .refinements-wrapper {
+        @include media-down(md) {
+            padding-bottom: 88px;
+        }
+
         .refinements {
             ul {
                 li {
@@ -168,6 +172,7 @@
 
     &.active {
         bottom: 0;
+        z-index: 9;
 
         // Mobile Refinement - Done Button
         .refinements-close-wrapper {
@@ -225,6 +230,7 @@
             margin-right: 18px;
             letter-spacing: 0.16px;
             padding-top: 3px;
+            line-height: 20px;
         }
 
         .filters-refinements {
@@ -329,6 +335,14 @@
             &:focus {
                 outline: 1px dotted colour(black);
                 outline-offset: 2px;
+            }
+
+            option {
+                font-size: 1rem;
+                line-height: 1.125rem;
+                font-weight: 600;
+                color: colour(gray, 4);
+                letter-spacing: 0.01em;
             }
         }
     }

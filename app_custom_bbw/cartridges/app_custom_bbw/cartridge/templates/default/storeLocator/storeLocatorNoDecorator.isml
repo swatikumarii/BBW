@@ -1,12 +1,12 @@
-<div class="container store-locator-container">
-    <div class="row">
-        <div class="col-sm-5">
+<div class="store-locator-container">
+    <div class="row mx-auto d-block w-100">
+       
             <div class="store-form search-form">
                 <isinclude template="storeLocator/storeLocatorFields" />
             </div>
-        </div>
+       
 
-        <div class="col-sm-7">
+        <div class="store-map-detail-block">
             <div class="d-flex d-md-none mob-store-nav w-100 justify-content-end">
                 <a class="view list-view active h-font-size--16 h-fw--semibold text-uppercase clearfix"
                     href="javascript:void(0)">${Resource.msg('label.list', 'storeLocator', null)}</a>
@@ -14,7 +14,7 @@
                     href="javascript:void(0)">${Resource.msg('label.map', 'storeLocator', null)}</a>
             </div>
             <isif condition="${pdict.showMap === 'true'}">
-                <div class="jumbotron map-canvas h-100 d-none d-md-block"
+                <div class="jumbotron map-canvas d-none d-md-block"
                     data-has-google-api="${pdict.stores.googleMapsApi ? true : false}"
                     data-locations="${pdict.stores.locations}">
                     <div class="container">
@@ -28,8 +28,13 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-sm-12 results-card store-result-wrap">
+    <div class="row w-100 mx-auto">
+        <div class="results-card store-result-wrap">
+            <div class="number-of-stores-div d-none">
+                <span>${Resource.msg('msg.there.are', 'storeLocator', null)}</span>
+                <span id="number-of-stores"></span>
+                <span>${Resource.msg('msg.near.you', 'storeLocator', null)}</span>
+            </div>
             <p class="store-locator-no-results d-none">
                 <span
                     class="store-error-header d-block h-font-size--20 h-fw--bold h-clr--black-1 mb-0 text-capitalize">${Resource.msg('error.no.results.header', 'storeLocator', null)}</span>

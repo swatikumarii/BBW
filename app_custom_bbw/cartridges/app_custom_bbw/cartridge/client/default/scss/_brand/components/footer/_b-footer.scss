@@ -1,8 +1,18 @@
 @import "../collapsibleItem";
 
 footer {
-    margin-top: 96px;
+    margin-top: 60px;
     border-top: 0.1875rem solid colour(gray, 1);
+
+    @include media-up(sm) {
+        margin-top: 60px;
+        border-top: 0.1875rem solid colour(gray, 1);
+    }
+
+    @include media-breakpoint-only(md) {
+        margin-top: 60px;
+        border-top: 0.1875rem solid colour(gray, 1);
+    }
 
     .footer-container {
         @include media-up(sm) {
@@ -30,10 +40,11 @@ footer {
                 &::after {
                     background: colour(gray, 1);
                     content: "";
-                    margin-left: -10px;
                     display: block;
                     height: 1px;
-                    margin-right: -10px;
+                    position: absolute;
+                    width: 100%;
+                    left: 0;
                 }
 
                 @include media-up(sm) {
@@ -49,10 +60,11 @@ footer {
             &::after {
                 background: colour(gray, 1);
                 content: "";
-                margin-left: -10px;
                 display: block;
                 height: 1px;
-                margin-right: -10px;
+                position: absolute;
+                width: 100%;
+                left: 0;
 
                 @include media-up(sm) {
                     margin: 0;
@@ -71,11 +83,16 @@ footer {
             }
         }
 
+        .love-list-item {
+            cursor: pointer;
+        }
+
         .user-info-heading {
             margin-bottom: 2.5rem;
 
             .heading-text {
                 letter-spacing: 0.01em;
+                line-height: 1.25rem;
             }
 
             .tooltip-container {
@@ -110,6 +127,12 @@ footer {
                 }
             }
 
+            #newsletter-input {
+                &.is-invalid {
+                    border-color: colour(red);
+                }
+            }
+
             .submit-btn {
                 padding: 0 2rem;
                 width: 124px;
@@ -140,6 +163,7 @@ footer {
             .footer-list-item {
                 a {
                     letter-spacing: 0.01em;
+                    line-height: 20px;
                 }
             }
         }
@@ -149,7 +173,8 @@ footer {
             .alert-danger {
                 background-color: transparent;
                 border: none;
-                padding-bottom: 8px;
+                padding: 0;
+                margin: 0;
                 color: colour(red, 9);
             }
 
@@ -194,6 +219,7 @@ footer {
                     .ds-link {
                         letter-spacing: 0.015em;
                         color: colour(gray, 4);
+                        line-height: 1.25rem;
 
                         &:hover {
                             text-decoration: underline;
@@ -211,6 +237,7 @@ footer {
                     letter-spacing: 0.015em;
                     color: colour(gray, 4);
                     text-align: center;
+                    line-height: 1.2857;
                 }
             }
         }
@@ -234,6 +261,8 @@ footer {
         height: 2.5rem;
         opacity: inherit;
         width: 2.5rem;
+        top: -15px;
+        position: relative;
         background-image: url("../images/footer/cross.svg");
 
         &:not(:disabled) {
@@ -305,6 +334,10 @@ footer {
     }
 }
 
+.js-scrolltotop {
+    display: none;
+}
+
 // ---------unsubscribe email-----------
 .unsubscribe-email {
     h2 {
@@ -366,8 +399,32 @@ footer {
     height: 120vh;
 }
 
-#newsletterInput {
-    &.is-invalid {
-        border-color: colour(red);
+/* Session time out popup */
+.autologout-modal {
+    .modal-dialog {
+        max-width: 306px;
+        margin: 0 auto;
+
+        .modal-content {
+            border-radius: 0;
+            text-align: center;
+            padding: 32px 35px;
+
+            .btn {
+                min-height: 48px;
+                font-weight: 600;
+                font-size: 1rem;
+                padding: 0 15px;
+                line-height: 35px;
+                text-transform: uppercase;
+            }
+
+            .timer {
+                margin-bottom: 25px;
+                font-size: 34px;
+                color: colour(black, 3);
+                line-height: 1;
+            }
+        }
     }
 }

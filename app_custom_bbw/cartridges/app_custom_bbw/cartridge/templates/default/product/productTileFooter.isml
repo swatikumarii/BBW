@@ -1,4 +1,4 @@
-<div class="row tile-body-footer no-gutters flex-column">
+<div class="row tile-body-footer no-gutters flex-column mt-3">
     <isif condition="${!product.available}">
         <div class="notify-me main-quantity-${product.id}">
             <span class="notify-me-available-msg"></span>
@@ -7,7 +7,8 @@
             <isif condition="${product.enableNotifyMe}">
                 <button type="button" class="btn btn-block notifyBackInStockButton notify-me-btn" data-url="${URLUtils.url('BackInStock-CheckLogin')}"
                     data-pid="${product.id}"
-                    data-img="${product.images.large ? product.images.large[0].url : product.images.medium[0].url}"
+                    data-img="${product.images.mediumLarge ? product.images.mediumLarge[0].url : product.images.medium[0].url}"
+                    data-img2x="${product.images.mediumLarge_2x ? product.images.mediumLarge_2x[0].url : product.images.medium_2x[0].url}"
                     data-pname="${product.productName}"> ${Resource.msg('button.notifyMe', 'notifyMe', null)} </button>
             <iselse/>
                 <button type="button" class="btn out-of-stock"> ${Resource.msg('button.outOfStock', 'notifyMe', null)}
@@ -19,21 +20,22 @@
             ${!product.available ? "disabled" : ""}>
             ${Resource.msg('button.addToBag', 'common', null)}
         </button>
+        <isinclude template="product/components/removeLineItem" />
         <span class="add-to-cart-error text-danger"></span>
     </isif>
-    <div class="ratings b-product-tile__ratings col-xs-12 col-sm-6 b-text-a h-clr--blue text-decoration-none h-bdc--blue">
+    <iscomment> <div class="ratings b-product-tile__ratings col-12 b-text-a h-clr--blue text-decoration-none h-bdc--blue">
         <span class="sr-only">${Resource.msgf('label.product.ratings', 'common', null, product.rating)}</span>
         <isinclude template="product/components/ratings" />
-    </div>
-    <div class="b-product-tile__availability b-text-a text-decoration-none">
-        <div class="b-product-tile__shipping-availability">
+    </div> </iscomment>
+    <iscomment> <div class="b-product-tile__availability b-text-a text-decoration-none"> </iscomment>
+        <iscomment> <div class="b-product-tile__shipping-availability">
             <span class="b-product-tile__availability-message product-available h-clr--blue h-fw--bold">${Resource.msg('product-tile-shipping-availability-msg1', 'search', null)}</span>
             ${Resource.msg('product-tile-shipping-availability-msg2', 'search', null)}
-        </div>
+        </div> </iscomment>
         <iscomment> <div class="b-product-tile__in-store-availability">
             <span class="b-product-tile__set-store b-text-a text-decoration-none h-fw--bold h-clr--black-3">To See Availability</span>
             <a class="b-product-tile__choose-store b-text-a" href="javascript:void(0)"
                 role="button">Set Store</a>
         </div> </iscomment>
-    </div>
+    <iscomment> </div> </iscomment>
 </div>

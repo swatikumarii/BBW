@@ -4,14 +4,12 @@
         <isset name="address" value="{}" scope="page" />
 </isif>
 
-<div class="summary-details billing border h-clr--black-1">
+<div class="summary-details billing border h-clr--black-1 ${pdict.order.billing.billingAddress.address !== null ? '': 'd-none'}">
     <isinclude template="checkout/addressSummary" />
     <isif condition="${pdict.order.billing.billingAddress.address !== null}">
         <span class="order-summary-phone">${pdict.order.billing.billingAddress.address.phone}</span>
     <iselse>
             <span class="order-summary-phone"></span>
     </isif>
-    <span class="edit-billing-address d-block mt-4">Edit</span>
+    <span class="edit-billing-address d-block mt-4 b-link--underlined h-clr--black-1">${Resource.msg('label.edit.link', 'checkout', null)}</span>
 </div>
-
-

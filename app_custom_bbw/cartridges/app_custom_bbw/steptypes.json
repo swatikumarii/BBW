@@ -3,20 +3,212 @@
     {
       "script-module-step":
       [
-        {
-          "@type-id":"custom.GetFragranceNames",
-          "@supports-parallel-execution":"false",
-          "@supports-site-context":"true",
-          "@supports-organization-context":"false",
-          "description":"Get products list and extract fragrance name list",
-          "module": "app_custom_bbw/cartridge/scripts/jobs/getFragranceNames.js",
-          "function":"getFragranceNames",
-          "transactional":"true",
-          "timeout-in-seconds":"900",
-          "status-codes":
           {
-            "status":
-            [
+              "@type-id": "custom.GetFragranceNames",
+              "@supports-parallel-execution": "false",
+              "@supports-site-context": "true",
+              "@supports-organization-context": "false",
+              "description": "Get products list and extract fragrance name list",
+              "module": "app_custom_bbw/cartridge/scripts/jobs/getFragranceNames.js",
+              "function": "getFragranceNames",
+              "transactional": "true",
+              "timeout-in-seconds": "900",
+              "status-codes": {
+                  "status": [
+                      {
+                          "@code": "ERROR",
+                          "description": "Used when the step failed with an error."
+                      },
+                      {
+                          "@code": "FINISHED",
+                          "description": "Used when the step finished successfully."
+                      },
+                      {
+                          "@code": "FINISHED_WITH_WARNINGS",
+                          "description": "Used when the step finished with warnings."
+                      }
+                  ]
+              }
+          },
+          {
+              "@type-id": "custom.GetIngredientNames",
+              "@supports-parallel-execution": "false",
+              "@supports-site-context": "true",
+              "@supports-organization-context": "false",
+              "description": "Get products list and extract Ingredient name list",
+              "module": "app_custom_bbw/cartridge/scripts/jobs/getIngredientNames.js",
+              "function": "getIngredientNames",
+              "transactional": "true",
+              "timeout-in-seconds": "900",
+              "status-codes": {
+                  "status": [
+                      {
+                          "@code": "ERROR",
+                          "description": "Used when the step failed with an error."
+                      },
+                      {
+                          "@code": "FINISHED",
+                          "description": "Used when the step finished successfully."
+                      },
+                      {
+                          "@code": "FINISHED_WITH_WARNINGS",
+                          "description": "Used when the step finished with warnings."
+                      }
+                  ]
+              }
+          },
+          {
+              "@type-id": "custom.FailedPaymentNotification",
+              "@supports-parallel-execution": "false",
+              "@supports-site-context": "true",
+              "@supports-organization-context": "false",
+              "description": "Get products list and extract fragrance name list",
+              "module": "app_custom_bbw/cartridge/scripts/jobs/failedPaymentNotification.js",
+              "function": "execute",
+              "transactional": "true",
+              "timeout-in-seconds": "900",
+              "status-codes": {
+                  "status": [
+                      {
+                          "@code": "ERROR",
+                          "description": "Used when the step failed with an error."
+                      },
+                      {
+                          "@code": "FINISHED",
+                          "description": "Used when the step finished successfully."
+                      },
+                      {
+                          "@code": "FINISHED_WITH_WARNINGS",
+                          "description": "Used when the step finished with warnings."
+                      }
+                  ]
+              }
+          },
+          {
+              "@type-id": "custom.NoInventoryProducts",
+              "@supports-parallel-execution": "false",
+              "@supports-site-context": "true",
+              "@supports-organization-context": "false",
+              "description": "Get all variant products which don't have inventory bucket",
+              "module": "app_custom_bbw/cartridge/scripts/jobs/noInventoryProducts.js",
+              "function": "noInventoryProducts",
+              "transactional": "true",
+              "timeout-in-seconds": "900",
+              "parameters": {
+                  "parameter": []
+              },
+              "status-codes": {
+                  "status": [
+                      {
+                          "@code": "ERROR",
+                          "description": "Used when the step failed with an error."
+                      },
+                      {
+                          "@code": "FINISHED",
+                          "description": "Used when the step finished successfully."
+                      },
+                      {
+                          "@code": "FINISHED_WITH_WARNINGS",
+                          "description": "Used when the step finished with warnings."
+                      }
+                  ]
+              }
+          },
+          {
+              "@type-id": "custom.emailProfileCompletion",
+              "@supports-parallel-execution": "true",
+              "@supports-site-context": "true",
+              "@supports-organization-context": "false",
+              "description": "Send email notification if profile is not completed",
+              "module": "app_custom_bbw/cartridge/scripts/jobs/emailProfileCompletion.js",
+              "function": "completeProfile",
+              "transactional": "true",
+              "timeout-in-seconds": "900",
+              "parameters": {
+                  "parameter": []
+              },
+              "status-codes": {
+                  "status": [
+                      {
+                          "@code": "ERROR",
+                          "description": "The process cound not be completed successfully."
+                      },
+                      {
+                          "@code": "FINISHED",
+                          "description": "Successfully notified."
+                      }
+                  ]
+              }
+          },
+          {
+              "@type-id": "custom.createGoogleFeed",
+              "@supports-parallel-execution": "true",
+              "@supports-site-context": "true",
+              "@supports-organization-context": "false",
+              "description": "Create google feed of the product assigned to the site.",
+              "module": "app_custom_bbw/cartridge/scripts/jobs/getFeeds.js",
+              "function": "getGoogleFeeds",
+              "transactional": "false",
+              "timeout-in-seconds": "900",
+              "status-codes": {
+                  "status": [
+                      {
+                          "@code": "ERROR",
+                          "description": "Used when the step failed with an error."
+                      },
+                      {
+                          "@code": "FINISHED",
+                          "description": "Used when the step finished successfully."
+                      },
+                      {
+                          "@code": "FINISHED_WITH_WARNINGS",
+                          "description": "Used when the step finished with warnings."
+                      }
+                  ]
+              }
+          },
+          {
+            "@type-id": "custom.createFacebookFeed",
+            "@supports-parallel-execution": "true",
+            "@supports-site-context": "true",
+            "@supports-organization-context": "false",
+            "description": "Create Facebook feed of the product assigned to the site.",
+            "module": "app_custom_bbw/cartridge/scripts/jobs/getFeeds.js",
+            "function": "getFacebookFeeds",
+            "transactional": "false",
+            "timeout-in-seconds": "900",
+            "status-codes": {
+                "status": [
+                    {
+                        "@code": "ERROR",
+                        "description": "Used when the step failed with an error."
+                    },
+                    {
+                        "@code": "FINISHED",
+                        "description": "Used when the step finished successfully."
+                    },
+                    {
+                        "@code": "FINISHED_WITH_WARNINGS",
+                        "description": "Used when the step finished with warnings."
+                    }
+                ]
+            }
+          },
+          {
+            "@type-id": "custom.CreateDynamicBadges",
+            "@supports-parallel-execution": "false",
+            "@supports-site-context": "true",
+            "@supports-organization-context": "false",
+            "description": "Create dynamic badges for all products",
+            "module": "app_custom_bbw/cartridge/scripts/jobs/createDynamicBadges.js",
+            "function": "execute",
+            "transactional": "true",
+            "timeout-in-seconds": "900",
+            "parameters": {
+              "parameter": []
+            },
+            "status-codes": {
+              "status": [
                 {
                   "@code": "ERROR",
                   "description": "Used when the step failed with an error."
@@ -29,66 +221,9 @@
                   "@code": "FINISHED_WITH_WARNINGS",
                   "description": "Used when the step finished with warnings."
                 }
-            ]
+              ]
+            }
           }
-        },
-        {
-          "@type-id": "custom.FailedPaymentNotification",
-          "@supports-parallel-execution": "false",
-          "@supports-site-context": "true",
-          "@supports-organization-context": "false",
-          "description": "Get products list and extract fragrance name list",
-          "module": "app_custom_bbw/cartridge/scripts/jobs/failedPaymentNotification.js",
-          "function": "execute",
-          "transactional": "true",
-          "timeout-in-seconds": "900",
-          "status-codes": {
-            "status": [
-              {
-                "@code": "ERROR",
-                "description": "Used when the step failed with an error."
-              },
-              {
-                "@code": "FINISHED",
-                "description": "Used when the step finished successfully."
-              },
-              {
-                "@code": "FINISHED_WITH_WARNINGS",
-                "description": "Used when the step finished with warnings."
-              }
-            ]
-          }
-        },
-        {
-          "@type-id": "custom.NoInventoryProducts",
-          "@supports-parallel-execution": "false",
-          "@supports-site-context": "true",
-          "@supports-organization-context": "false",
-          "description": "Get all variant products which don't have inventory bucket",
-          "module": "app_custom_bbw/cartridge/scripts/jobs/noInventoryProducts.js",
-          "function": "noInventoryProducts",
-          "transactional": "true",
-          "timeout-in-seconds": "900",
-          "parameters": {
-            "parameter": []
-          },
-          "status-codes": {
-            "status": [
-              {
-                "@code": "ERROR",
-                "description": "Used when the step failed with an error."
-              },
-              {
-                "@code": "FINISHED",
-                "description": "Used when the step finished successfully."
-              },
-              {
-                "@code": "FINISHED_WITH_WARNINGS",
-                "description": "Used when the step finished with warnings."
-              }
-            ]
-          }
-        }
       ]
     }
   }

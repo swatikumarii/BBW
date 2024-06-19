@@ -343,8 +343,10 @@ $(document).ready(function () {
     $(document).on('click', '#giftwrap', function () {
         if ($('#giftwrap').is(':checked')) {
             $('.giftwrap-block-options').css('display', 'block');
+            $('.gift-wrap-choose-div').addClass('open-giftwrap');
         } else {
             $('.giftwrap-block-options').css('display', 'none');
+            $('.gift-wrap-choose-div').removeClass('open-giftwrap');
             if ($('.gift-wrap-product-card').data('pid')) {
                 removeGiftWrapProductFromCart(
                     $('#addGiftWrapProduct').data('removeurl'),
@@ -377,4 +379,10 @@ $(document).ready(function () {
             $('.gift-wrap-choose-div').empty();
         }
     });
+
+    $('.gift-wrap-model-close').on('click', function () {
+        $('.input-wrap-individual').prop('checked', false);
+        $('#checkall').prop('checked', false);
+    });
+
 });

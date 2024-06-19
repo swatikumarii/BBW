@@ -10,9 +10,12 @@ $('#corporate-gifting-form').submit(function (e) {
         url: actionUrl,
         data: form.serialize(), // serializes the form's elements.
         success: function (data) {
-            if(data.isSubmitted){
+            if (data.isSubmitted) {
                 $('#corporate-gifting-form').remove();
                 $('#corporate-thanks-element').removeClass('d-none');
+                $('html, body').animate({
+                    scrollTop: $('#corporate-thanks-element').offset().top -300
+                }, 'fast');
             }
         }
     });

@@ -3,46 +3,10 @@
 var Site = require('dw/system/Site');
 var Logger = require('dw/system/Logger');
 var ProductMgr = require('dw/catalog/ProductMgr');
-var StringUtils = require('dw/util/StringUtils');
-
-/**
- * @param {Array} ingredientNamesArray ingredient name array
- * @description This function save the sorted Ingredients Names in custom preference.
- */
-function saveProductIngredients(ingredientNamesArray) {
-    try {
-        // sort the Ingredients Names array in ascending order
-        var sortedIngredients = ingredientNamesArray
-            .map(function (str) {
-                return str.replace(/[^a-zA-Z]/g, '').toLowerCase();
-            })
-            .sort()
-            .map(function (cleanStr) {
-                // Find the original string with the same cleaned string
-
-                var originalStr = ingredientNamesArray.find(function (s) {
-                    return (
-                        s.replace(/[^a-zA-Z]/g, '').toLowerCase() === cleanStr
-                    );
-                });
-
-                return originalStr;
-            });
-
-        // push all unique strings in the first index of the array in comma-separated format
-        var allIngredientsNames = sortedIngredients.join(', ');
-        Site.current.setCustomPreferenceValue(
-            'productIngredients',
-            allIngredientsNames
-        );
-    } catch (err) {
-        Logger.error(err.toString());
-    }
-}
 
 /**
  * @param {Array}  fragranceNamesArray fragrance name array
- * @description This function save the sorted Ingredients Names in custom preference.
+ * @description This function save the sorted Fragrance Names in custom preference.
  */
 function saveFragranceNames(fragranceNamesArray) {
     try {
@@ -66,34 +30,44 @@ function getFragranceNames() {
     try {
         var allProducts = ProductMgr.queryAllSiteProductsSorted();
         var fragranceNamesArray = [];
-        var ingredientNamesArray = [];
-        var allIngredients;
-        var productIngredients;
         var allFragrances;
 
         while (allProducts.hasNext()) {
             var product = allProducts.next();
             if (product.availabilityModel.availabilityStatus === 'IN_STOCK' && product.online) {
-
-                // get fragrance names from all products
-                if (product.custom.fragranceName) {
-                    allFragrances = product.custom.fragranceName.split(',');
-                    for (var position = 0; position < allFragrances.length; position++) {
-                        if (!fragranceNamesArray.includes(allFragrances[position].trim())) {
-                            fragranceNamesArray.push(allFragrances[position].trim());
+                var productLevelReserveQty =
+                'custom' in product &&
+                'reserveQty' in product.custom &&
+                product.custom.reserveQty
+                    ? product.custom.reserveQty
+                    : 0;
+                var globalLevelReserveQty = dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
+                var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
+                var maxOrderQtyByReserveStock = 0;
+                if (product.availabilityModel && product.availabilityModel.inventoryRecord) {
+                    maxOrderQtyByReserveStock = (product.availabilityModel.inventoryRecord.ATS.value ? product.availabilityModel.inventoryRecord.ATS.value : 0) - reserveOosQty;
+                }
+                if (maxOrderQtyByReserveStock > 0) {
+                    // get fragrance names from all products
+                    if (product.custom.fragranceName) {
+                        allFragrances = product.custom.fragranceName.split(',');
+                        for (var position = 0; position < allFragrances.length; position++) {
+                            if (!fragranceNamesArray.includes(allFragrances[position].trim())) {
+                                fragranceNamesArray.push(allFragrances[position].trim());
+                            }
                         }
                     }
                 }
+            }
+        }
 
-                // get ingredients from all products
-                if (product.custom.ingredients) {
-                    productIngredients = StringUtils.trim(product.custom.ingredients);
-                    allIngredients = productIngredients.split(',');
-                    for (var index = 0; index < allIngredients.length; index++) {
-                        if (!ingredientNamesArray.includes(allIngredients[index])) {
-                            ingredientNamesArray.push(allIngredients[index]);
-                        }
-                    }
+        // Fragrance names that should be visible always
+        var essentialFragrances = Site.current.getCustomPreferenceValue('essentialFragrances');
+        if (essentialFragrances) {
+            var essentialFragrance =  essentialFragrances.split(', ');
+            for (var i = 0; i < essentialFragrance.length; i++) {
+                if (!fragranceNamesArray.includes(essentialFragrance[i].trim())) {
+                    fragranceNamesArray.push(essentialFragrance[i].trim());
                 }
             }
         }
@@ -104,18 +78,12 @@ function getFragranceNames() {
             Site.current.setCustomPreferenceValue('fragranceNames', '');
         }
 
-        if (ingredientNamesArray.length > 0) {
-            saveProductIngredients(ingredientNamesArray);
-        } else {
-            Site.current.setCustomPreferenceValue('productIngredients', '');
-        }
     } catch (err) {
         Logger.error(err.toString());
     }
 }
 
 module.exports = {
-    saveProductIngredients: saveProductIngredients,
     saveFragranceNames: saveFragranceNames,
     getFragranceNames: getFragranceNames
 };

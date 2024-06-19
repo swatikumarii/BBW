@@ -1,21 +1,27 @@
 <div class="site-search">
     <form id="header-search" role="search" action="${URLUtils.url('Search-Show')}" method="get" name="simpleSearch">
-        <fieldset class="position-relative d-flex">
-            <input class="form-control search-field h-text-fz--body-2" type="text" name="q" value=""
+        <fieldset class="position-relative d-flex h-100">
+            <div class="btn-no-style cancel-search-button js-cancel-search-button d-md-none" aria-label="${Resource.msg('label.header.search.clear', 'common', null)}"></div>
+            <input class="form-control search-field h-text-fz--body-2 h-bg--white h-100 js-search-field" type="text" name="q" value=""
                 placeholder="${Resource.msg('label.header.searchwatermark', 'common', null)}" role="combobox"
                 aria-describedby="search-assistive-text" aria-haspopup="listbox" aria-owns="search-results"
                 aria-expanded="false" aria-autocomplete="list" aria-activedescendant="" aria-controls="search-results"
                 aria-label="${Resource.msg('simplesearch.searchtext', 'common', null)}" autocomplete="off" />
-            <button type="submit" name="search-button"
+            <button type="reset" name="reset-button" class="btn-no-style reset-button js-reset-button"
+                aria-label="${Resource.msg('label.header.search.clear', 'common', null)}"></button>
+            <button type="submit"
                 class="search-icon h-minheight--20 w-auto position-relative border-0"
                 aria-label="${Resource.msg('label.header.search.go', 'common', null)}">
                 <img src="${URLUtils.staticURL('/images/header/UI-Search-v2.svg')}"
                     alt="${Resource.msg('global.storename', 'common', null)}" />
             </button>
-            <input type="hidden" value="${pdict.locale}" name="lang" />
         </fieldset>
     </form>
-    <div class="search-suggestions" id="search-suggestions">
-        <div class="suggestions-wrapper" data-url="${URLUtils.url('SearchServices-GetSuggestions', 'q')}"></div>
+    <iscomment> Search Suggestion Wrapper </iscomment>
+    <div class="search-suggestions h-bg--white w-100 js-search-suggestions" id="search-suggestions">
+        <div class="suggestions-wrapper h-bg--white" data-url="${URLUtils.url('SearchServices-GetSuggestions', 'q')}">
+            <div class="suggestions d-flex">
+            </div>
+        </div>
     </div>
 </div>

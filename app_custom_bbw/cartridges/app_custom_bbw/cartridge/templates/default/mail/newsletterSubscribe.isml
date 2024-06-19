@@ -1,10 +1,21 @@
 <isset name="ID" value="${pdict.id}" scope="page" />
-<p>${Resource.msg('subscribe.greetings.hi','newsletter',null)}</p>
-<p>${Resource.msg('subscribe.email.thankyou','newsletter',null)}</p>
-<p>${Resource.msg('subscribe.email.unsubscribe.section','newsletter',null)} ${Resource.msg('subscribe.email.unsubscribe','newsletter',null)}</a>
-</p>
-<iscomment> link for Unsubscribe page </iscomment>
-<iscomment> <p>${Resource.msg('subscribe.email.unsubscribe.section','newsletter',null)}
-    <a href='${URLUtils.https('EmailSubscribe-UnsubscribeShow', 'id', ID)}'> ${Resource.msg('subscribe.email.unsubscribe','newsletter',null)}</a>
-</p> </iscomment>
+<isinclude template="/components/modules" sf-toolkit="off" />
+<isdecorate template="common/layout/email">
+    <isset name="urlHelpers" value="${require('*/cartridge/scripts/helpers/urlHelpers')}" scope="page" />
+    <iscomment>
+        <isemailheaderdynamic heading="${Resource.msg('label.sitename', 'email', null)}"
+            title="${Resource.msg('headline.resetpassword.notification.email', 'email', null)}" />
+    </iscomment>
+    <tr style="padding: 0;">
+        <td style="vertical-align: middle; text-align: center; color: #333; font-size:14px;">
+            <table style="padding-top:15px;" cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                <tr style="padding: 0;">
+                    <td style="padding:0 0 15px;vertical-align:top;text-align:left;">
+                        <isprint value="${pdict.markup}" encoding="off" />
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</isdecorate>
 

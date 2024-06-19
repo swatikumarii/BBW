@@ -41,12 +41,29 @@ module.exports = function (formElement, payload) {
             }
         });
     }
+    var element = $(formElement).find(
+        '.form-control.is-invalid, .selectric-form-control.is-invalid'
+    );
+    if (element && element.length) {
+        $('body,html').animate(
+            {
+                scrollTop: element.offset().top - 250
+            },
+            500
+        );
+    }
     if (payload && payload.error) {
         var form = $(formElement).prop('tagName') === 'FORM'
             ? $(formElement)
             : $(formElement).parents('form');
 
-        form.prepend('<div class="alert alert-danger" role="alert">'
-            + payload.error.join('<br/>') + '</div>');
+        if ($(formElement).data('error-image')) {
+            form.prepend('<div class="alert alert-danger" role="alert"> <img alt="error alert" width="28px" height="28px" class="error-icon" src="'
+                + $(formElement).data('error-image') + '" />'
+                + payload.error.join('<br/>') + '</div>');
+        } else {
+            form.prepend('<div class="alert alert-danger" role="alert">'
+                + payload.error.join('<br/>') + '</div>');
+        }
     }
 };

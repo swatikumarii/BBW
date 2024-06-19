@@ -10,7 +10,7 @@
 
                 <div class="value content collapse" id="collapse-fragrance" aria-labelledby="fragrance"
                     data-parent="#pdp-accordion">
-                    <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
+                    <p class="h-font-size--16 h-clr--gray-4 card-body">
                         <isprint value="${product.fragranceDescription}" encoding="off" />
                     </p>
                 </div>
@@ -19,7 +19,7 @@
     </isif>
 
     <iscomment> Description Card </iscomment>
-    <isif condition="${product.shortDescription}">
+    <isif condition="${product.shortDescription && product.shortDescription.trim() != ''}">
         <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
             <div class="description card-head" id="description">
                 <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
@@ -32,11 +32,11 @@
     </isif>
 
     <iscomment> Overview Card </iscomment>
-    <isif condition="${product.longDescription}">
+    <isif condition="${product.longDescription && product.longDescription.trim() != ''}">
         <div class="card border-left-0 border-right-0 border-bottom-0 mb-0">
             <div class="details card-head" id="details">
                 <h2 class="title h-clr--black-1 font-weight-bold h-font-size--18 mb-0 collapsed" data-toggle="collapse"
-                    data-target="#collapse-details" aria-expanded="true" aria-controls="collapse-description">
+                    data-target="#collapse-details" aria-expanded="true" aria-controls="collapse-details">
                     ${Resource.msg('label.details', 'product', null)}
                 </h2>
                 <isinclude template="product/components/details" />
@@ -56,7 +56,7 @@
 
                 <div class="value content collapse" id="collapse-usage-instruction" aria-labelledby="usage-instruction"
                     data-parent="#pdp-accordion">
-                    <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
+                    <p class="h-font-size--16 h-clr--gray-4 card-body">
                         <isprint value="${product.usageInstruction}" encoding="off" />
                     </p>
                 </div>
@@ -74,7 +74,7 @@
                 </h2>
                 <div class="value content collapse" id="collapse-ingredients" aria-labelledby="ingredients"
                     data-parent="#pdp-accordion">
-                    <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
+                    <p class="h-font-size--16 h-clr--gray-4 card-body">
                         <isprint value="${product.ingredients}" encoding="off" />
                     </p>
                 </div>
@@ -114,7 +114,7 @@
                 </h2>
                 <div class="value content collapse" id="collapse-moreInfo" aria-labelledby="moreInfo"
                     data-parent="#pdp-accordion">
-                    <p class="text-justify h-font-size--16 h-clr--gray-4 card-body">
+                    <p class="h-font-size--16 h-clr--gray-4 card-body">
                         <isprint value="${product.moreInfo}" encoding="off" />
                     </p>
                 </div>

@@ -1,0 +1,12 @@
+<isif condition="${pdict.productSearch && pdict.productSearch.category && pdict.productSearch.category.id}">
+    <isinclude template="/components/modules" sf-toolkit="off" />
+    <div class="banner-wrapper">
+        <div class="inner-wrapper">
+            <isset name="categoryBannerTop" value="${dw.content.ContentMgr.getContent('category-banner-top-' + pdict.productSearch.category.id)}" scope="page" />
+            <isif condition="${categoryBannerTop}">
+                <isprint value="${categoryBannerTop.custom.body.toString()}" encoding="off" />
+            </isif>
+            <iscomment> <iscontentasset aid="category-banner-top-${pdict.productSearch.category.id}" /> </iscomment>
+        </div>
+    </div>
+</isif>

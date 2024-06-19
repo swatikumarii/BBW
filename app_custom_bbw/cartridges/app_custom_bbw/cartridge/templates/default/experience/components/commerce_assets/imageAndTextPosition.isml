@@ -3,30 +3,51 @@
     assets.addCss('/css/experience/components/commerceAssets/imageAndTextPosition.css');
 </isscript>
 
-<div class="row no-gutters">
+<div class="row no-gutters w-100">
     <div class="col px-0">
         <div class="d-flex ${pdict.imagePositionClass} ${pdict.customClass}">
-            <a href="${pdict.link}" class="image-link clpShopNowBtn" hreflang="${request.getLocale()}">
-                <picture class="w-100 d-block content-image-block d-block">
-                    <source srcset="${pdict.useImgURL ? pdict.desktopImgUrl : pdict.desktopImage.src.desktop}"
-                        media="(min-width: 769px)" />
-                    <img class="w-100 d-block lazy-grid content-image" src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}" alt="${pdict.alt}"/>
-                </picture>
+            <a href="${pdict.link}"
+                class="image-link clpShopNowBtn w-100 h-100 d-block position-relative lazy-skeleton overflow-hidden"
+                hreflang="${request.getLocale()}" data-lazy="${pdict.disableLazyLoad}">
+                <isif condition="${pdict.disableLazyLoad}">
+                    <picture class="w-100 h-auto d-block content-image-block d-block">
+                        <source srcset="${pdict.desktopImageSrcset}"
+                            media="(min-width: 769px)" width="1400" height="550"/>
+                        <img class="w-100 h-auto d-block content-image ${pdict.trackerClass}"
+                            src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}"
+                            srcset="${pdict.mobileImageSrcset}"
+                            alt="${pdict.alt}" width="450" height="450"/>
+                    </picture>
+                <iselse/>
+                    <picture class="w-100 h-auto d-block content-image-block d-block">
+                        <source data-srcset="${pdict.desktopImageSrcset}"
+                            media="(min-width: 769px)" width="1400" height="550" />
+                        <img class="w-100 h-auto d-block content-image lazy ${pdict.trackerClass}"
+                            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E"
+                            data-src="${pdict.useImgURL ? pdict.mobileImgUrl : pdict.mobileImage.src.mobile}"
+                            data-srcset="${pdict.mobileImageSrcset}" alt="${pdict.alt}" width="450" height="450"/>
+                    </picture>
+                    <!-- Skeleton Loader -->
+                    <isif condition="${pdict.enableLoader}">
+                        <div class="skeleton-loader"></div>
+                    </isif>
+                </isif>
             </a>
             <isif condition="${pdict.description !== null || pdict.linkText}">
                 <div class="w-100 d-block align-items-center text-center">
-                    <div class="col-12 px-0">
+                    <div class="col-12 px-0 w-100 h-100">
                         <isif condition="${pdict.description !== null}">
-                            <span class="description d-block">
+                            <div class="description w-100 h-100">
                                 <isprint value="${pdict.description ? pdict.description : ''}" encoding="off" />
-                            </span>
+                            </div>
                         </isif>
                         <isif condition="${pdict.linkText}">
                             <a class="text-center"
-                                href="${pdict.linkUmpParameter ? pdict.link + pdict.linkUmpParameter : pdict.link}" hreflang="${request.getLocale()}">
-                                <span>
+                                href="${pdict.linkUmpParameter ? pdict.link + pdict.linkUmpParameter : pdict.link}"
+                                hreflang="${request.getLocale()}">
+                                <div>
                                     <isprint value="${pdict.linkText ? pdict.linkText : ''}" encoding="off" />
-                                </span>
+                                </div>
                             </a>
                         </isif>
                     </div>
@@ -35,4 +56,3 @@
         </div>
     </div>
 </div>
-

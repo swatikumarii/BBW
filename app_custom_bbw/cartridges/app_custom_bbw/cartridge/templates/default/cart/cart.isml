@@ -4,6 +4,7 @@
         assets.addJs('/js/afterpay.js');
         assets.addCss('/css/cart.css');
         assets.addCss('/css/afterpaystyle.css');
+        assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
     </isscript>
     <isset name="miniCart" value="${false}" scope="page" />
 
@@ -13,6 +14,8 @@
     </isif>
     <a class="continue-shopping-link" href="${URLUtils.url('Home-Show')}"
         title="${Resource.msg('link.continue.shopping', 'cart', null)}">
+        <img src="${URLUtils.staticURL('/images/cart/arrow-left-dark-grey.svg')}"
+            alt="${Resource.msg('global.storename', 'common', null)}" />
         ${Resource.msg('link.continue.shopping', 'cart', null)}
     </a>
     <div class="cartContainer">
@@ -20,45 +23,62 @@
             <div class="container text-center">
                 <div class="row cart-empty">
                     <div class="col-12 text-center cart-empty-msg-wrap">
-                        <h1 class="h-font-size--24 h-fw--bold h-clr--black-1 cart-empty-msg">${Resource.msg('info.cart.empty.msg', 'cart', null)}</h1>
+                        <h1 class="h-fw--bold h-clr--black-1 cart-empty-msg">
+                            ${Resource.msg('info.cart.empty.msg', 'cart', null)}</h1>
                     </div>
                 </div>
-                <a href="${URLUtils.url('Home-Show')}" class="btn btn-primary empty-cart-continue h-font-size--16 h-fw--semibold">${Resource.msg('link.continue.shopping', 'cart', null)}</a>
+                <a href="${URLUtils.url('Home-Show')}"
+                    class="btn btn-primary empty-cart-continue h-font-size--16 h-fw--semibold">${Resource.msg('link.continue.shopping', 'cart', null)}</a>   
+            </div>
+            <div class="empty-recommendation-container">
                 <div class="empty-cart-recommendations">
                     <isslot id="cart-empty-recommendation" context="global" description="This is for empty basket recommmendations" />
                 </div>
             </div>
         <iselse/>
             <div class="container cart cart-page">
-                <h1 class="shoppingBagTitle h-clr--black1 h-fw--bold h-font-size--24">
+                <h1 class="shoppingBagTitle h-clr--black-1 h-fw--bold h-font-size--24">
                     ${Resource.msg('label.shopping.bag', 'cart', null)}</h1>
-                <div class="cartActionMessages"></div>
+                <div class="cartActionMessages">
+                    <isif condition="${pdict.dangerousGoodsExists}">
+                        <isprint
+                            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('dangerousGoodsMessage')}"
+                            encoding="off" />
+                    </isif>
+                </div>
+                <div
+                    class="free-item-toast-message success-toast ${pdict.freeItemCount === 0 ? 'hide-free-item-toast-message' : ''}">
+                    <p class="h-font-size--16 h-fw--semibold h-clr--green-2 mb-0">${pdict.freeItemToastMessage}</p>
+                </div>
                 <isif condition="${pdict.valid.error && pdict.items.length !== 0}">
-                    <div class="cart-error-messaging cart-error h-font-size--14 h-bg--red-10 h-clr--red-9 px-3 py-2 mb-2">
-                        <img src="${URLUtils.staticURL('images/Alert-Error.svg')}" alt="error alert" width="28px" height="28px">
+                    <div
+                        class="cart-error-messaging cart-error h-font-size--14 h-bg--red-10 h-clr--red-9 px-3 py-2 mb-2">
+                        <img src="${URLUtils.staticURL('images/Alert-Error.svg')}" alt="error alert" width="28px"
+                            height="28px">
                         <span>${pdict.valid.message}</span>
                     </div>
                 </isif>
-                <div class="item-removed-message h-font-size--16 h-bg--blue-3 h-clr--green-2 p-3 mb-2 d-none">
+                <div class="item-removed-message success-toast mt-2 d-none">
                     ${Resource.msg('cart.item.remove.msg', 'cart', null)}
                 </div>
                 <isslot id="cart-page-top-1" context="global"
                     description="This slot displays on cart page top section above product cards" />
                 <div class="cartDetailsHeader">
-                    <div class="cartDetailsHeading text-center">${Resource.msg('label.your.cart', 'cart', null)}</div>
-                    <div class="cartDetailsContent">
-                        <div class="content number-of-items">
-                            <isif condition="${pdict.numItems === 1}">
-                                ${Resource.msg('one.item.in.cart', 'cart', null)}
-                            <iselse/>
-                                ${Resource.msgf('label.number.items.in.cart', 'cart', null, pdict.numItems)}
-                            </isif>
+                    <div class="cartDetailsHeading text-center">
+                        <span class="cart-num-items">
+                            ${pdict.numItems.toString()}
+                        </span>
+                        ${Resource.msg('label.number.items.in.cart.new', 'cart', null)}
+                    </div>
+                    <div class="cartDetailsContent row">
+                        <div class="col-12 col-md-6">
+                            <isinclude template="cart/cartShippingApproachingDiscount" sf-toolkit="on" />
                         </div>
-                        <div class="slot">
-                            <isslot id="cart-page-details-column" context="global"
-                                description="This slot displays as grid column besides item count on cart page" />
-
+                        <div class="${pdict.orderApproachingDiscounts.length > 0 ? 'col-12 col-md-6' : 'd-none'}">
+                            <isinclude template="cart/cartOrderApproachingDiscount" sf-toolkit="on" />
                         </div>
+                        <isslot id="cart-page-details-column" context="global"
+                            description="This slot displays as grid column besides item count on cart page" />
                     </div>
                 </div>
 
@@ -67,6 +87,8 @@
                     <div class="headerItem">${Resource.msg('label.item.header.item', 'cart', null)}</div>
                     <div class="headerPrice">${Resource.msg('label.item.header.price', 'cart', null)}</div>
                     <div class="headerQty">${Resource.msg('label.item.header.quantity', 'cart', null)}</div>
+                    <div class="headerSavings text-center">${Resource.msg('label.item.header.savings', 'cart', null)}
+                    </div>
                     <div class="headerTotal">${Resource.msg('label.item.header.total', 'cart', null)}</div>
                 </div>
                 <div class="cart-lineitems">
@@ -86,11 +108,12 @@
                         <isinclude template="cart/productCard/cartGiftWrapProductCard" />
                     </div>
                 </div>
-                <isinclude template="cart/cartApproachingDiscount" />
-                <isinclude template="cart/greetingCard" />
-                <div class="gift-wrap-choose-div">
-                    <isinclude template="cart/giftWrap" />
-                </div>
+                <isif condition="${!(pdict.isGiftProductAvailable)}">
+                    <isinclude template="cart/greetingCard" />
+                    <div class="gift-wrap-choose-div">
+                        <isinclude template="cart/giftWrap" />
+                    </div>
+                </isif>
                 <!---totals, and checkout actions--->
                 <div class="cartFooter">
                     <div class="cartPromoCodeWrap">
@@ -104,10 +127,17 @@
                             description="This slot will be rendered on the bottom part of cart page below promocode section" />
                     </div>
                     <div class="cartTotalsWrap">
-                        <isinclude template="cart/cartTotals" />
-                        <isinclude template="cart/checkoutButtons" />
+                        <div class="cart-totals-bg position-relative">
+                            <div class="loader">
+                                <div class="h-visually-hidden" role="alert">Just a second, items loading</div>
+                                <div class="spinner"></div>
+                            </div>
+                            <isinclude template="cart/cartTotals" />
+                            <isinclude template="cart/checkoutButtons" />
+                        </div>
+                        <isslot id="cart-bottom-below-checkout-button" context="global"
+                            description="This slot will be rendered on the bottom part of cart page below checkout buttons" />
                     </div>
-                    <isslot id="cart-bottom-below-checkout-button" context="global" description="This slot will be rendered on the bottom part of cart page below checkout buttons" />
 
                 </div>
             </div>
@@ -119,4 +149,6 @@
             <isslot id="cart-recommendations-m" description="Recommended products" context="global" />
         </div>
     </div>
+    <isinclude template="product/components/addFreeItem" sf-toolkit="off" />
+
 </isdecorate>

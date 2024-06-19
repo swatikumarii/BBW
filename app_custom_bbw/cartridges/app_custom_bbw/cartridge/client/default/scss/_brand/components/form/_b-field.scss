@@ -1,3 +1,4 @@
+/* stylelint-disable property-no-vendor-prefix */
 // ====================
 // Input Fields Styling
 // ====================
@@ -9,7 +10,10 @@ input[type="number"],
 input[type="password"],
 input[type="email"],
 input[type="tel"],
+input[type="url"],
+input[type="file"],
 input[type="date"],
+input[type="checkbox"],
 textarea,
 .b-input-text {
     @include text(forminput);
@@ -22,8 +26,8 @@ textarea,
     border-radius: 0;
 
     &:focus {
-        outline: 1px dotted colour(black);
-        outline-offset: 2px;
+        // outline: 1px dotted colour(black);
+        // outline-offset: 2px;
         border-color: unset;
         box-shadow: unset;
         color: inherit;
@@ -42,6 +46,12 @@ textarea,
 
     color: colour(black, 3);
     display: block;
+
+    .required-indicator {
+        margin-right: 0.125em;
+        float: left;
+        color: colour(red, 9);
+    }
 }
 
 // Invalid Message
@@ -52,7 +62,61 @@ textarea,
 }
 
 // Remove input spinner
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    appearance: none;
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* clears the 'X' from Internet Explorer */
+input.hide-clear[type="search"]::-ms-clear,
+input.hide-clear[type="search"]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+}
+
+.custom-checkbox .custom-control-label::before {
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    background-image: url("../images/check-box-unchecked.svg");
+    content: "";
+    background-size: cover;
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    background-repeat: no-repeat;
+    border-color: unset !important;
+    box-shadow: none !important;
+    top: 0;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
+    background-image: url("../images/check-box-checked.svg");
+    content: "";
+    background-size: cover;
+    border: none;
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    top: 0;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    cursor: pointer;
 }

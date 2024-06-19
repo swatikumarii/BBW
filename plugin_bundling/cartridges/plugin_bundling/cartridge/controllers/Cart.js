@@ -9,6 +9,7 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
     var collections = require('*/cartridge/scripts/util/collections');
     var currentBasket = BasketMgr.getCurrentBasket();
     var cartHelper = require('*/cartridge/scripts/cart/cartHelpers');
+    var bundlingHelpers = require('*/cartridge/scripts/helpers/bundlingHelpers');
 
     var customProductBundle = false;
     if (
@@ -26,17 +27,17 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
             var item = productLineItems[i];
             if (
                 item.UUID === req.querystring.uuid &&
-                item.custom.isCustomBundleProduct &&
+                item.custom.customBundle &&
                 !item.bonusDiscountLineItem
             ) {
-                var itemBundle = item.custom.currentCustomBundle;
+                var itemBundle = item.custom.customBundle;
                 var customBundlesInCart = JSON.parse(
                     session.custom.customBundlesInCart
                 );
                 var positionInCart =
                     customBundlesInCart.name.indexOf(itemBundle);
-                indexToRemove = item.custom.currentCustomBundleIndex;
-                bundleToRemove = item.custom.currentCustomBundle;
+                indexToRemove = item.custom.customBundleIndex;
+                bundleToRemove = item.custom.customBundle;
                 customBundlesInCart.qty[positionInCart]--;
                 session.custom.customBundlesInCart =
                     JSON.stringify(customBundlesInCart);
@@ -55,27 +56,28 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
                 BasketMgr.getCurrentBasket().productLineItems,
                 function (currentProductLineItem) {
                     if (
-                        currentProductLineItem.custom.currentCustomBundle ===
+                        currentProductLineItem.custom.customBundle ===
                             bundleToRemove &&
                         currentProductLineItem.custom
-                            .currentCustomBundleIndex === indexToRemove
+                            .customBundleIndex === indexToRemove
                     ) {
                         if (
                             currentProductLineItem.UUID !== req.querystring.uuid
                         ) {
                             productInCart =
-                                cartHelper.getExistingNonBundleProductLineItemsInCart(
+                                bundlingHelpers.getExistingNonBundleProductLineItemsInCart(
                                     currentProductLineItem.productID,
                                     currentBasket.productLineItems
                                 );
                             // eslint-disable-next-line no-param-reassign
-                            currentProductLineItem.custom.currentCustomBundle =
+                            currentProductLineItem.custom.customBundle =
                                 '';
                             // eslint-disable-next-line no-param-reassign
-                            currentProductLineItem.custom.currentCustomBundleIndex =
+                            currentProductLineItem.custom.customBundleIndex =
                                 '';
                             // eslint-disable-next-line no-param-reassign
-                            currentProductLineItem.custom.isCustomBundleProduct = false;
+                            // currentProductLineItem.custom.isCustomBundleProduct = false;
+                            removeProductArray.push(currentProductLineItem.UUID);
                             if (productInCart) {
                                 nonBundleProduct = productInCart.product;
                                 maxProductQty =
@@ -110,9 +112,6 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
                                 currentBasket.removeProductLineItem(
                                     currentProductLineItem
                                 );
-                                removeProductArray.push(
-                                    currentProductLineItem.UUID
-                                );
                                 if (
                                     shipmentToRemove.productLineItems.empty &&
                                     !shipmentToRemove.default
@@ -129,13 +128,13 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
                             }
                         }
                     } else if (
-                        currentProductLineItem.custom.currentCustomBundle ===
+                        currentProductLineItem.custom.customBundle ===
                             bundleToRemove &&
-                        currentProductLineItem.custom.currentCustomBundleIndex >
+                        currentProductLineItem.custom.customBundleIndex >
                             indexToRemove
                     ) {
                         // eslint-disable-next-line no-param-reassign
-                        currentProductLineItem.custom.currentCustomBundleIndex -= 1;
+                        currentProductLineItem.custom.customBundleIndex -= 1;
                     }
                 }
             );

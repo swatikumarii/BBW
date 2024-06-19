@@ -1,0 +1,29 @@
+<div id="autologout" class="modal autologout-modal" tabindex="-1" role="dialog"
+    data-soft-timeout="${dw.system.Site.getCurrent().getCustomPreferenceValue('softTimeout')}"
+    data-popup-duration="${dw.system.Site.getCurrent().getCustomPreferenceValue('popupDuration')}">
+    <div class="modal-dialog modal-dialog-centered generic-modal-container modal-large" role="document">
+        <div class="modal-content">
+            <div class="modal-body p-0">
+                <input type="hidden" class="customLogoutUrl" value="${URLUtils.url('Login-customSessionLogout')}">
+                <div class="confirmation">
+                    <isif condition="${session.isCustomerAuthenticated() && session.customer.profile.firstName}">
+                        <p class="mb-0">${Resource.msgf('autologout.customer.name', 'account', null, session.customer.profile.firstName)}
+                        </p>
+                    <iselse>
+                        <p class="mb-0">${Resource.msg('autologout.guest.customer.name', 'account', null)}
+                        </p>
+                    </isif>
+                    <p>${Resource.msg('autologout.description', 'account', null)}</p>
+                    <div id="timer" class="timer"></div>
+                </div>
+                <p class="logout h-clr--red-9 mb-0">${Resource.msg('autologout.session.expired1', 'account', null)}</p>
+                <p class="logout h-clr--red-9">${Resource.msg('autologout.session.expired2', 'account', null)}</p>
+
+                <button type="button" id="login-refresh" class="btn refresh-autologout btn-hover"
+                    data-dismiss="modal">${Resource.msg('autologout.button.continue', 'account', null)}</button>
+                <button type="button" id="logout-refresh" class="btn refresh-autologout btn-hover"
+                    data-dismiss="modal">${Resource.msg('autologout.button.refresh', 'account', null)}</button>
+            </div>
+        </div>
+    </div>
+</div>

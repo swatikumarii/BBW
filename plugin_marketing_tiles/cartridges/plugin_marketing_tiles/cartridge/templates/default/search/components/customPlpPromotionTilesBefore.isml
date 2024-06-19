@@ -2,7 +2,7 @@
     <isloop items="${pdict.productSearch.customTile}" var="promotionTile">
         <isif condition="${promotionTile.content && promotionTile.desktopIndex <= pdict.productSearch.count && promotionTile.desktopIndex ==
                 loopState.count}">
-            <div class="col-6 col-sm-4 marketing desktop" data-desktopindex="${promotionTile.desktopIndex}"
+            <div class="col marketing desktop" data-desktopindex="${promotionTile.desktopIndex}"
                 data-mobileindex="${promotionTile.mobileIndex}" data-index="${loopState.count}">
                 <div class="marketing-tile">
                     <isprint value="${promotionTile.content}" encoding="off" />
@@ -12,7 +12,7 @@
 
         <isif condition="${promotionTile.content && promotionTile.mobileIndex <= pdict.productSearch.count && promotionTile.mobileIndex ==
                 loopState.count}">
-            <div class="col-12 col-sm-4 marketing mobile" data-desktopindex="${promotionTile.desktopIndex}"
+            <div class="col marketing mobile" data-desktopindex="${promotionTile.desktopIndex}"
                 data-mobileindex="${promotionTile.mobileIndex}" data-index="${loopState.count}">
                 <div class="marketing-tile">
                     <isprint value="${promotionTile.content}" encoding="off" />

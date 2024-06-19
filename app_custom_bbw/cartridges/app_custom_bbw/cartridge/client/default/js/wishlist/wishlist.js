@@ -1,6 +1,47 @@
 'use strict';
 
 var wishlist = require('wishlist/wishlist/wishlist');
+var base = require('base/product/base');
+
+/**
+ * Updates the Mini-Cart quantity value after the customer has pressed the "Add to Cart" button
+ * @param {string} response - ajax response from clicking the add to cart button
+ */
+function handlePostCartAdd(response) {
+    $('.minicart').trigger('count:update', response);
+    var messageType = response.error ? 'alert-danger' : 'alert-success';
+
+    if ($('.add-to-cart-messages').length === 0) {
+        $('body').append('<div class="add-to-cart-messages"></div>');
+    }
+
+    $('.add-to-cart-messages').append(
+        '<div class="alert ' +
+            messageType +
+            ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+            response.message +
+            '</div>'
+    );
+
+    setTimeout(function () {
+        $('.add-to-basket-alert').remove();
+    }, 5000);
+}
+
+$(document).ready(function () {
+    if (localStorage.getItem('addToWishListPid') && localStorage.getItem('addToWishListURL')){
+        $.ajax({
+            url: localStorage.getItem('addToWishListURL'),
+            type: 'post',
+            dataType: 'json',
+            data: {
+                pid: localStorage.getItem('addToWishListPid')
+            },
+        });
+        localStorage.removeItem('addToWishListPid');
+        localStorage.removeItem('addToWishListURL');
+    }
+});
 
 /**
  * @param {object} $elementAppendTo - The element to append error html to
@@ -87,7 +128,6 @@ module.exports = $.extend({}, wishlist, {
             if (!url || !pid) {
                 return;
             }
-            $.spinner().start();
             // $(this).attr('disabled', true);
             $.ajax({
                 url: url,
@@ -102,11 +142,18 @@ module.exports = $.extend({}, wishlist, {
                     if(data.loginShow === true){
                         $('#quickViewModal').modal('hide');
                         $('.loginPopup').find('#loginModal').modal('show');
+                        localStorage.setItem('addToWishListPid', pid);
+                        localStorage.setItem('addToWishListURL', url);
                     } else {
                         $('.loginPopup').find('#exampleModalLong').modal('hide');
-                        $('#add-to-wish-list').click(function () {
-                            $('.wishlist-toast.toast').toast('show');
-                        });
+                        $('.wishlist-toast.toast')
+                            .toast('show')
+                            .slideDown('slow');
+                        setTimeout(function () {
+                            $('.wishlist-toast.toast')
+                                .toast('hide')
+                                .slideUp('slow');
+                        }, 3000);
                     }
                     if (data.success) {
                         $('.remove-from-wishlist').removeClass('d-none');
@@ -115,10 +162,6 @@ module.exports = $.extend({}, wishlist, {
                         $('.remove-from-wishlist').addClass('d-none');
                         $('.add-to-wish-list').removeClass('d-none');
                     }
-                    $.spinner().stop();
-                },
-                error: function () {
-                    $.spinner().stop();
                 },
             });
         });
@@ -129,6 +172,7 @@ module.exports = $.extend({}, wishlist, {
             e.preventDefault();
             var url = $(this).data('url');
             var elMyAccount = $('.account-wishlist-item').length;
+            var isReloadRequired = $('.is-reload-required-while-remove').val();
 
             // If user is in my account page, call removeWishlistAccount() end point, re-render wishlist cards
             if (elMyAccount > 0) {
@@ -145,6 +189,7 @@ module.exports = $.extend({}, wishlist, {
                         $('.remove-from-wishlist').addClass('d-none');
                         $('.add-to-wish-list').removeClass('d-none');
                         $('.remove-from-wishlist').removeClass('d-block');
+                        $('.added-to-wish-list').removeClass('d-block');
                     },
                     error: function () {
                         var $elToAppend = $('.wishlist-account-card');
@@ -155,25 +200,86 @@ module.exports = $.extend({}, wishlist, {
                 });
                 // else user is in wishlist landing page, call removeProduct() end point, then remove this card
             } else {
-                $.spinner().start();
                 $.ajax({
                     url: url,
                     type: 'get',
                     dataType: 'json',
                     data: {},
                     success: function () {
-                        var pageNumber =
-                            $('.wishlistItemCardsData').data('page-number') - 1;
-                        renderNewPageOfItems(pageNumber, false);
-                        $('.remove-from-wishlist').addClass('d-none');
-                        $('.add-to-wish-list').removeClass('d-none');
-                        $('.remove-from-wishlist').removeClass('d-block');
+                        if (isReloadRequired) {
+                            window.location.reload();
+                        } else {
+                            var pageNumber =
+                                $('.wishlistItemCardsData').data('page-number') - 1;
+                            renderNewPageOfItems(pageNumber, false);
+                            $('.remove-from-wishlist').addClass('d-none');
+                            $('.add-to-wish-list').removeClass('d-none');
+                            $('.remove-from-wishlist').removeClass('d-block');
+                            $('.added-to-wish-list').removeClass('d-block');
+                        }
                     },
                     error: function () {
-                        $.spinner().stop();
                         var $elToAppendWL = $('.wishlistItemCards');
                         var msg = $elToAppendWL.data('error-msg');
                         displayErrorMessage($elToAppendWL, msg);
+                    }
+                });
+            }
+        });
+    },
+    addToCartFromWishlist: function () {
+        $('body').on('click', '.add-to-cart', function () {
+            var pid;
+            var addToCartUrl;
+            var pidsQty;
+
+            $('body').trigger('product:beforeAddToCart', this);
+
+            pid = $(this).data('pid');
+            addToCartUrl = $(this).data('url');
+            pidsQty = parseInt(
+                $(this).closest('.product-info').find('.quantity').val(),
+                10
+            );
+
+            var form = {
+                pid: pid,
+                quantity: pidsQty
+            };
+
+            if ($(this).data('option')) {
+                form.options = JSON.stringify($(this).data('option'));
+            }
+
+            $(this).trigger('updateAddToCartFormData', form);
+            if (addToCartUrl) {
+                $.ajax({
+                    url: addToCartUrl,
+                    method: 'POST',
+                    data: form,
+                    success: function (data) {
+                        if (data.isGiftCardLineItemExist) {
+                            $('#delete-gift-certificate-line-item-modal').modal(
+                                'show'
+                            );
+                            $('.delete-egiftitem-confirmation-btn').attr(
+                                'data-pid',
+                                data.pid
+                            );
+                            $.spinner().stop();
+                            return true;
+                        }
+                        handlePostCartAdd(data);
+                        $('body').trigger('product:afterAddToCart', data);
+                        $.spinner().stop();
+                        base.miniCartReportingUrl(
+                            data.reportingURL,
+                            data.error
+                        );
+                        return true;
+                    },
+                    error: function () {
+                        $.spinner().stop();
                     }
                 });
             }

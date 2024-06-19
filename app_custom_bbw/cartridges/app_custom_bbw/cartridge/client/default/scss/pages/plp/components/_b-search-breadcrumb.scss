@@ -6,19 +6,41 @@
     line-height: 1.25rem;
     letter-spacing: 0.16px;
 
+    @include media-down(md) {
+        flex-wrap: wrap;
+    }
+
+    &__category-name {
+        font-weight: 400;
+
+        @include media-up(md) {
+            font-weight: 600;
+        }
+    }
+
     &__home-link {
         a {
+            font-weight: 400;
+
             &:hover {
                 color: unset;
+            }
+
+            @include media-down(md) {
+                text-wrap: nowrap;
             }
         }
 
         &::after {
             content: "/";
-            padding: 0 13px;
+            padding: 0 8px;
             display: inline-block;
             text-decoration: none;
             pointer-events: none;
+
+            @include media-up(md) {
+                padding: 0 13px;
+            }
         }
     }
 }

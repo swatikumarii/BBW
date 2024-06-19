@@ -22,7 +22,8 @@ module.exports = function (
             : 0;
     var globalLevelReserveQty = dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
     var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
-    reserveOosQty = availabilityModel.inventoryRecord.perpetual
+    reserveOosQty = availabilityModel.inventoryRecord && availabilityModel
+        .inventoryRecord.perpetual
         ? 0
         : reserveOosQty;
     var productAtsValue =
@@ -72,7 +73,7 @@ module.exports = function (
                 }
             } else if(availabilityModelLevels.notAvailable.value === 0) {
                 availability.messages.push(
-                    Resource.msg('label.not.available.items', 'common', null)
+                    Resource.msg('label.not.available', 'common', null)
                 );
             }
 
@@ -124,11 +125,7 @@ module.exports = function (
                     );
                 } else {
                     availability.messages.push(
-                        Resource.msg(
-                            'label.not.available.items',
-                            'common',
-                            null
-                        )
+                        Resource.msg('label.not.available', 'common', null)
                     );
                 }
             }

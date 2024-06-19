@@ -4,11 +4,15 @@ var server = require('server');
 server.extend(module.superModule);
 
 var categoryHelper = require('*/cartridge/scripts/helpers/categoryHelper');
+var ingredientCategoryHelper = require('*/cartridge/scripts/helpers/ingredientCategoryHelper');
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 server.append(
     'Show',
     categoryHelper.appendLevelOneCategory,
-    categoryHelper.appendCategoryBreadcrum
+    categoryHelper.appendCategoryBreadcrum,
+    ingredientCategoryHelper.appendIngredientSearch,
+    seo.addCurrentPageMetaData
 );
 server.append(
     'ShowAjax',

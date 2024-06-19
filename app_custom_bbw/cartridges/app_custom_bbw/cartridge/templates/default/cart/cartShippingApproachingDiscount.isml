@@ -1,0 +1,30 @@
+<div class="shipping-approaching-discounts approaching-discounts h-font-size--12 h-clr--black-1 my-3 px-5 w-100">
+    <isif condition="${pdict.shippingApproachingDiscounts.length > 0}">
+        <isloop items="${pdict.shippingApproachingDiscounts}" var="approachingDiscount">
+            <div class="row align-items-center">
+                <div class="d-flex flex-column col-12 py-0">
+                    <isif condition="${approachingDiscount.distanceFromConditionThreshold > 0}">
+                        <p class="h-font-size--16 h-clr--pink h-fw--semibold m-0 text-center"><isprint value="${Resource.msgf('add.more.for.free.shipping', 'cart', null, dw.util.StringUtils.formatMoney(new dw.value.Money(approachingDiscount.distanceFromConditionThreshold, session.currency.getCurrencyCode())))}" encoding="off" /></p>
+                    <iselse/>
+                        <p class="h-font-size--16 h-clr--pink h-fw--semibold m-0 text-center"> ${Resource.msg('congrats.free.shipping', 'cart', null)}</p>
+                    </isif>
+                    <div class="d-flex w-100 justify-content-around align-items-center progress-wrap">
+                        <span class="pr-3 text-nowrap d-block h-font-size--14 h-fw--bold">
+                            ${dw.util.StringUtils.formatMoney(new dw.value.Money(0, session.currency.getCurrencyCode()))}
+                        </span>
+                        <span class="d-block w-100 h-pos--relative">
+                            <progress class="w-100"
+                                value="${approachingDiscount.conditionThreshold - approachingDiscount.distanceFromConditionThreshold}"
+                                max="${approachingDiscount.conditionThreshold}">
+                                </progress>
+                            <span class="free-shipping-progress" style="left: calc(${(((approachingDiscount.conditionThreshold - approachingDiscount.distanceFromConditionThreshold)/approachingDiscount.conditionThreshold)*100).toFixed(2)}% - 25px );"></span>
+                        </span>
+                        <span class="pl-3 text-nowrap d-block h-font-size--14 h-fw--bold">
+                            ${approachingDiscount.formattedConditionThreshold}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </isloop>
+    </isif>
+</div>

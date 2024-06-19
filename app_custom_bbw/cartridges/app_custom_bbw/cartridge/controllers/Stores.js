@@ -139,11 +139,29 @@ server.get('Detail', server.middleware.https, cache.applyDefaultCache, consentTr
     var StoreModel = require('*/cartridge/models/store');
     var storeModel = new StoreModel(storeMgrResult);  
     var apiKey = Site.getCurrent().getCustomPreferenceValue('mapAPI');
+    var timezone = storeMgrResult.custom.timezone ? storeMgrResult.custom.timezone : Site.getCurrent().getTimezone();
+    var storeMapLink = storeMgrResult.custom.storeMapLink;
+    var nearbyStores = storeHelpers.getStores(
+        30,
+        null,
+        null,
+        null,
+        req.geolocation,
+        req.geolocation.countryCode,
+        '',
+        false
+    );
+
     var viewData = {
         storeDetail: storeModel,
         showMap: true,
-        googleMapsApi: 'https://maps.googleapis.com/maps/api/js?key=' + apiKey
+        googleMapsApi: 'https://maps.googleapis.com/maps/api/js?key=' + apiKey,
+        nearbyStores: nearbyStores.stores,
+        timezone: timezone,
+        storeMapLink: storeMapLink
     };
+    viewData.storeDetail.phone = storeMgrResult.phone;
+    viewData.storeDetail.email = storeMgrResult.email;
     res.render('storeLocator/storeDetailPage', viewData);
     next();
 });

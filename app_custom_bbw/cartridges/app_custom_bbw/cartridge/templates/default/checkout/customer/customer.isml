@@ -1,61 +1,77 @@
 <isif condition="${!pdict.customer.registeredUser}">
     <span
-        class="h-font-size--18 h-fw--bold h-clr--black-1 customer-heading d-block">${Resource.msg('siginin.label.checkout', 'checkout', null)}</span>
-    <form autocomplete="on" id="registered-customer" method="POST" class="registered-form"
-        action="${URLUtils.url('CheckoutServices-LoginCustomer')}" <isprint
-        value=${pdict.forms.registeredCustomerForm.attributes} encoding="off" /> novalidate>
-        <fieldset class="customer-information-block">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="form-group">
-                        <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block">
-                            ${Resource.msg('field.customer.email', 'checkout', null)}
-                        </label>
-                        <input type="text" class="form-control email" id="email"
-                            value="${(pdict.customer.registeredUser && pdict.customer.profile && pdict.customer.profile.email) ? pdict.customer.profile
-                                .email: ''}"
-                            <isprint value=${pdict.forms.registeredCustomerForm.email.attributes} encoding="off" />
-                            aria-describedby="emailInvalidMessage" >
-                        <div class="invalid-feedback" id="emailInvalidMessage"></div>
+        class="h-font-size--18 h-fw--bold h-clr--black-1 b-text-letter-space-005 customer-heading accordion-title d-block">${Resource.msg('siginin.label.checkout', 'checkout', null)}</span>
+    <div class="accordion-content">
+
+        <form autocomplete="on" id="registered-customer" method="POST" class="registered-form"
+            action="${URLUtils.url('CheckoutServices-LoginCustomer')}" <isprint
+            value=${pdict.forms.registeredCustomerForm.attributes} encoding="off" /> novalidate>
+            <fieldset class="customer-information-block">
+                <div class="row">
+                    <div class="col-sm-12 form-error-div d-none">
+                        <img alt="error alert" width="28px" height="28px" class="error-icon"
+                            src="${URLUtils.staticURL('/images/Alert-Error.svg')}" />
+                        <span class="text-danger error-class error-form h-font-size--14 " id="form-error"></span>
                     </div>
-                    <div class="form-group password-form">
-                        <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block">
-                            ${Resource.msg('field.customer.password', 'checkout', null)}
-                        </label>
-                        <input type="password" class="form-control password" id="password" <isprint
-                            value=${pdict.forms.registeredCustomerForm.password.attributes} encoding="off" />
-                            aria-describedby="passwordInvalidMessage" >
-                        <div class="invalid-feedback" id="passwordInvalidMessage"></div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block b-text-letter-space-01 h-line-height--20 mb-0">
+                                <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.email', 'checkout', null)}
+                            </label>
+                            <input type="text" class="form-control email" id="email"
+                                value="${(pdict.customer.registeredUser && pdict.customer.profile && pdict.customer.profile.email) ? pdict.customer.profile
+                                    .email: ''}"
+                                <isprint value=${pdict.forms.registeredCustomerForm.email.attributes} encoding="off" />
+                                aria-describedby="emailInvalidMessage" >
+                            <div class="invalid-feedback" id="emailInvalidMessage"></div>
+                        </div>
+                        <div class="form-group password-form h-pos--relative">
+                            <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block b-text-letter-space-01 h-line-height--20 mb-0">
+                                <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.password', 'checkout', null)}
+                            </label>
+                            <input type="password" class="form-control password" id="password" <isprint
+                                value=${pdict.forms.registeredCustomerForm.password.attributes} encoding="off" />
+                                aria-describedby="passwordInvalidMessage" >
+                            <span class="toggle-password h-clr--black-3 h-line-height--24 b-text-letter-space-0">${Resource.msg('form.show', 'forms', null)}</span>
+                            <div class="invalid-feedback" id="passwordInvalidMessage"></div>
+                        </div>
+                        <a href="${URLUtils.url('Account-PasswordReset')}"
+                            class="ml-2 forgot-password-link-checkout h-clr--gray-4 text-capitalize">${Resource.msg('link.login.forgotpassword', 'login', null)}</a>
                     </div>
-                    <a href="${URLUtils.url('Account-PasswordReset')}"
-                        class="ml-2">${Resource.msg('link.login.forgotpassword', 'login', null)}</a>
                 </div>
-            </div>
-            <div class="row login-button-section">
-                <div class="col-12">
-                    <div class="mb-sm-3">
-                        <button class="btn btn-primary submit-customer-login ml-2 h-font-size--11" type="submit"
-                            name="submit" value="submit-login">
-                            ${Resource.msg('button.customer.login', 'checkout', null)}
-                        </button>
+                <div class="row login-button-section h-xs-mb--30">
+                    <div class="col-12">
+                        <div class="mb-3">
+                            <button class="btn btn-primary submit-customer-login ml-2" type="submit"
+                                name="submit" value="submit-login">
+                                ${Resource.msg('button.customer.login', 'checkout', null)}
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </fieldset>
-        <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
-    </form>
-    <div class="checkout-login-signup-info ml-2">
-        <p class="h-font-size--16 h-fw--semibold h-clr--black-1">${Resource.msg('msg.do.not.have.account', 'checkout', null)}</p>
-        <p class="h-font-size--16 h-clr--black-1">${Resource.msg('msg.create.account.after.checkout', 'checkout', null)}
-        </p>
+            </fieldset>
+            <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
+        </form>
+        <div class="checkout-login-signup-info ml-2">
+            <p class="h-font-size--16 h-fw--semibold h-clr--black-1 account-tag">${Resource.msg('msg.do.not.have.account', 'checkout', null)}</p>
+            <p class="h-font-size--16 h-clr--black-1">${Resource.msg('msg.create.account.after.checkout', 'checkout', null)}
+            </p>
+        </div>
     </div>
 <iselse/>
-    <span class="h-font-size--18 h-fw--bold h-clr--black-1 customer-heading d-block">
+    <span class="h-font-size--18 h-fw--bold h-clr--black-1 customer-heading accordion-title d-block">
         ${Resource.msg('label.welcome.back', 'checkout', null)}
-        <span>${'('} <a href="${URLUtils.url('Login-Logout')}">${Resource.msg('label.sign.out', 'checkout', null)}</a>
+        <span class="h-font-size--14 h-fw--normal">${'('} <a href="${URLUtils.url('Login-Logout')}">${Resource.msg('label.sign.out', 'checkout', null)}</a>
             ${')'}</span>
     </span>
-    <p>${Resource.msgf('msg.hello.customer', 'checkout', null, session.customer.profile.firstName)}</p>
-    <p>${Resource.msg('text.loggedin.customer.section', 'checkout', null)}</p>
-
+    <div class="accordion-content customer-message">
+        <p class="h-clr--blue-1 h-font-size--18 h-fw--bold">${Resource.msgf('msg.hello.customer', 'checkout', null, session.customer.profile.firstName)}</p>
+        <isif condition="${pdict.customer.addresses && pdict.customer.addresses.length > 0}">
+            <p class="h-clr--black-1 h-font-size--16">${Resource.msg('text.loggedin.customer.with.address.section', 'checkout', null)}
+                <a href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">${Resource.msg('text.skip.to.payment', 'checkout', null)}</a>
+            </p>
+        <iselse/>
+            <p class="h-clr--black-1 h-font-size--16">${Resource.msg('text.loggedin.customer.section', 'checkout', null)}</p>
+        </isif>
+    </div>
 </isif>

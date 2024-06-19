@@ -23,6 +23,17 @@
                     "required": true
                 },
                 {
+                    "id": "productDetailAlignment",
+                    "name": "Product Detail Alignment",
+                    "type": "enum",
+                    "values": [
+                        "left",
+                        "right",
+                        "center"
+                    ],
+                    "required": true
+                },
+                {
                     "id": "tileLimit",
                     "name": "Tile Limit",
                     "description": "The product tile count to show in the carousel, if inserted negative or 0 it will show all product tiles of the category",
@@ -40,6 +51,18 @@
                     "id": "sectionCustomClass",
                     "name": "Section Custom Class",
                     "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "leftContentCustomClass",
+                    "name": "Left Content Custom Class",
+                    "type": "string",
+                    "required": false
+                },
+                {
+                    "id": "showOutOfStockProducts",
+                    "name": "Show Out Of Stock Products",
+                    "type": "boolean",
                     "required": false
                 }
             ]

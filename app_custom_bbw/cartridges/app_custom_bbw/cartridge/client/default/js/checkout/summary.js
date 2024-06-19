@@ -5,14 +5,21 @@
  * @param {Array} totals - the totals data
  */
 function updateTotals(totals) {
-    $('.shipping-total-cost').text(totals.totalShippingCost);
+    if (totals.hasFreeShipping) {
+        $('.order-summary .shipping-cost').text('FREE');
+    } else if ($('.order-summary .shipping-cost').hasClass('tax-exclusive')) {
+        $('.order-summary .shipping-cost').text(totals.shippingTotalExclTax);
+    } else {
+        $('.order-summary .shipping-cost').text(totals.totalShippingCost);
+    }
+    $('.order-summary .shipping-tax').text(totals.shippingTotalTax);
     $('.tax-total').text(totals.totalTax);
     $('.sub-total').text(totals.subTotal);
     $('.grand-total-sum').text(totals.grandTotal);
 
-    if (totals.orderLevelDiscountTotal.value > 0) {
+    if (totals.allDiscounts.length > 0) {
         $('.order-discount').removeClass('hide-order-discount');
-        $('.order-discount-total').text('- ' + totals.orderLevelDiscountTotal.formatted);
+        $('.order-discount').empty().append(totals.allDiscountsHTML);
     } else {
         $('.order-discount').addClass('hide-order-discount');
     }
@@ -131,7 +138,7 @@ function updateOrderProductSummaryInformation(order) {
         $productSummary.append($shippingSummary);
     });
 
-    $('.product-summary-block').html($productSummary.html());
+    // $('.product-summary-block').html($productSummary.html());
 
     // Also update the line item prices, as they might have been altered
     $('.grand-total-price').text(order.totals.subTotal);

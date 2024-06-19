@@ -1,13 +1,21 @@
 .header-banner {
     .top-promo-header-banner {
-        height: 2.5rem;
+        min-height: 2.5rem;
         background-position: calc(50% - 0.4375rem) calc(50% - 1.3125rem);
         background-size: 1.75rem 1.75rem;
 
         .promo-text-wrap p {
-            font-family: $ff-base;
+            font-family: get-ff(base, true);
             line-height: 1.1875rem;
-            margin: 0.6875rem 0.9375rem 0;
+            margin: 11px 15px 0;
+
+            @include media-up(sm) {
+                margin: 12px 15px 0;
+            }
+
+            @include media-up(md) {
+                margin: 10px 15px 0;
+            }
         }
     }
 
@@ -15,7 +23,7 @@
         max-height: 6.125rem;
 
         @include media-up(sm) {
-            max-height: 2.75rem;
+            max-height: 100%;
         }
 
         .content-text-wrap {
@@ -26,13 +34,15 @@
             }
 
             ul {
-                padding: 0.625rem 1rem;
+                padding: 12px 1rem;
 
                 li {
-                    line-height: 1.6;
+                    line-height: 0;
                     display: contents;
 
                     .content-title {
+                        line-height: 0;
+
                         &::before {
                             background-color: colour(white);
                             border-radius: 50%;
@@ -60,6 +70,8 @@
     }
 
     .store-header-banner {
+        border-bottom: 2px solid colour(gray, 1);
+
         .store-header-wrap {
             height: 2.25rem;
 

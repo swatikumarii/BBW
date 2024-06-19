@@ -12,8 +12,16 @@
         <isinclude template="product/components/imageCarousel" />
 
         <!-- Product Name and Number -->
-        <div class="col-sm-6">
-            <iscomment>Product Brand</iscomment>
+        <div class="col-sm-6 quickview-detail">
+            <!-- Product Brand -->
+            <isif condition="${product.brand}">
+                <div class="row">
+                    <div class="col">
+                        <h3 class="brand-name h-font-size--16 h-clr--black-1 text-capitalize mb-0">${product.brand}</h3>
+                    </div>
+                </div>
+            </isif>
+            <iscomment>Product Name</iscomment>
             <div class="row">
                 <div class="col">
                     <h1 class="product-name h-clr--black-1 text-capitalize h-font-size--18 h-fw--bold m-0">
@@ -22,7 +30,7 @@
                             <div class="row">
                                 <div class="col">
                                     <span
-                                        class="titlePartB-name small-title h-font-size--16 h-fw--normal h-clr--gray-4 d-block">${product.titlePartB}</span>
+                                        class="titlePartB-name small-title h-font-size--12 h-fw--normal h-clr--gray-4 d-block">${product.titlePartB}</span>
                                 </div>
                             </div>
                         </isif>
@@ -30,26 +38,29 @@
                 </div>
             </div>
 
-            <!-- Product Name -->
-            <isif condition="${product.brand}">
+            <div class="content">
+                <iscomment>Product Description</iscomment>
+                <isif condition="${product.shortDescription && product.shortDescription.trim() != ''}">
+                    <div class="short-descrition h-font-size--14 h-clr--gray">
+                        <isprint value="${product.shortDescription}" encoding="off" />
+                    </div>
+                <iselseif condition="${product.longDescription && product.longDescription.trim() != ''}"/>
+                    <div class="text-justify h-font-size--16 h-clr--gray-4 card-body px-0 pt-0">
+                        <isprint value="${product.longDescription}" encoding="off" />
+                    </div>
+                </isif>
+            </div>
+
+            <div class="prices-add-to-cart-actions">
                 <div class="row">
-                    <div class="col">
-                        <h3 class="brand-name h-font-size--12 mb-0 h-clr--gray-4">${product.brand}</h3>
+                    <div class="col-12">
+                        <!-- Prices -->
+                        <div class="prices">
+                            <isset name="price" value="${product.price}" scope="page" />
+                            <isinclude template="product/components/pricing/main" />
+                        </div>
                     </div>
                 </div>
-            </isif>
-
-            <iscomment>Product Description</iscomment>
-            <isif condition="${product.shortDescription}">
-                <p class="short-descrition h-font-size--14 h-clr--gray">
-                    <isprint value="${product.shortDescription}" encoding="off" />
-                </p>
-            </isif>
-
-            <!-- Prices -->
-            <div class="prices">
-                <isset name="price" value="${product.price}" scope="page" />
-                <isinclude template="product/components/pricing/main" />
             </div>
 
             <div class="attributes">
@@ -79,22 +90,39 @@
                 </isif>
 
                 <!-- Applicable Promotions -->
-                <isloop items="${product.promotions}" var="promotion" status="loopstatus">
-                    <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
-                        <span class="callout-message">
-                            <isprint value="${promotion.calloutMsg}" encoding="off">
-                        </span>
-                        <button type="button" data-placement="top"
-                            class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
-                            data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
-                            title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a><div class='popover-content pdp-pop-content ds-tooltip-content'>
-                                                            <isprint value=" ${promotion.details}" />
-                    </div>
-                    <div class='arrow-fill'></div>"
-                    data-html="true" data-original-title="" aria-describedby="popover14574">
-                    </button>
-                    </div>
-                </isloop>
+                <div class="promotions-wrap">
+                    <isloop items="${product.promotions}" var="promotion" status="loopstatus">
+                        <isif condition="${!empty(promotion.calloutMsg)}">
+                            <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
+                                <span class="callout-message">
+                                    <isprint value="${promotion.calloutMsg}" encoding="off" />
+                                </span>
+                            </div>
+                        </isif>
+                        <isif condition="${!empty(promotion.details)}">
+                            <isif condition="${loopstatus.first}">
+                                <isset name="promotionDetails" value="${promotion.details}" scope="page" />
+                            <iselse/>
+                                <isset name="promotionDetails" value="${promotionDetails + ',<br>' + promotion.details}" scope="page" />
+                            </isif>
+                        </isif>
+                    </isloop>
+                    <isif condition="${!empty(promotionDetails)}">
+                        <div class="promotion-callout h-fw--semibold h-font-size--18 h-clr--pink">
+                            <button type="button" data-placement="top"
+                                class="callout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
+                                data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
+                                title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a>
+                                                                                                        <div class='popover-content pdp-pop-content ds-tooltip-content'>
+                                                                                                            <isprint value="
+                                ${promotionDetails}" />
+                            </div>
+                            <div class='arrow-fill'></div>"
+                            data-html="true" data-original-title="" aria-describedby="popover14574">
+                            </button>
+                        </div>
+                    </isif>
+                </div>
 
 
 
@@ -116,13 +144,12 @@
                     </isif>
                 </div>
             </isloop>
-            <div class="d-sm-none row availability align-self-end " data-ready-to-order="${product.readyToOrder}"
-                data-available="${product.available}">
-                <isinclude template="product/components/availability" />
-            </div>
+
+            <!-- Product Availability -->
+            <isinclude template="product/components/productAvailability" />
 
             <div class="d-flex quantity-cart-wrap w-100">
-                <isif condition="${!product.variationAttributes}">
+                <isif condition="${!product.variationAttributes && product.available}">
                     <div class="simple-quantity">
                         <isinclude template="product/components/quantity" />
                     </div>

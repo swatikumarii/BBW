@@ -1,6 +1,6 @@
 'use strict';
 
-var addressHelpers = require('base/checkout/address');
+var addressHelpers = require('./address');
 var cleave = require('base/components/cleave');
 
 /**
@@ -87,7 +87,7 @@ function updateBillingAddressSelector(order, customer) {
             order.billing.billingAddress.address)
     ) {
         // show
-        $(form).attr('data-address-mode', 'details');
+        $(form).attr('data-address-mode', 'edit');
     } else {
         $(form).attr('data-address-mode', 'new');
     }
@@ -118,12 +118,14 @@ function updateBillingAddress(order) {
     $('input[name$=_address2]', form).val(
         billing.billingAddress.address.address2
     );
-    $('input[name$=_city]', form).val(billing.billingAddress.address.city);
-    $('input[name$=_postalCode]', form).val(
-        billing.billingAddress.address.postalCode
-    );
     $('select[name$=_stateCode],input[name$=_stateCode]', form).val(
         billing.billingAddress.address.stateCode
+    );
+    $('select[name$=_city],input[name$=_city]', form).val(
+        billing.billingAddress.address.city
+    );
+    $('select[name$=_postalCode],input[name$=_postalCode]', form).val(
+        billing.billingAddress.address.postalCode
     );
     $('select[name$=_country]', form).val(
         billing.billingAddress.address.countryCode.value
@@ -230,30 +232,51 @@ function updatePaymentInformation(order) {
     // update payment details
     var $paymentSummary = $('.payment-details');
     var htmlToAppend = '';
+    var giftcards = false;
+    var giftcardsAmount = 0;
 
     if (
         order.billing.payment &&
         order.billing.payment.selectedPaymentInstruments &&
         order.billing.payment.selectedPaymentInstruments.length > 0
     ) {
-        htmlToAppend +=
-            '<span>' +
-            order.resources.cardType +
-            ' ' +
-            order.billing.payment.selectedPaymentInstruments[0].type +
-            '</span><div>' +
-            order.billing.payment.selectedPaymentInstruments[0]
-                .maskedCreditCardNumber +
-            '</div><div><span>' +
-            order.resources.cardEnding +
-            ' ' +
-            order.billing.payment.selectedPaymentInstruments[0]
-                .expirationMonth +
-            '/' +
-            order.billing.payment.selectedPaymentInstruments[0].expirationYear +
-            '</span></div>';
+        order.billing.payment.selectedPaymentInstruments.forEach(function (selectedPaymentInstrument) {
+            if (selectedPaymentInstrument.paymentMethod === 'CREDIT_CARD' || selectedPaymentInstrument.paymentMethod === 'AdyenComponent') {
+                if (selectedPaymentInstrument.type) {
+                    htmlToAppend +=
+                        '<span>'+
+                         order.resources.cardType +
+                        ' ' +
+                        selectedPaymentInstrument.type+
+                        '</span>'+
+                        '<div>' +
+                            selectedPaymentInstrument.maskedCreditCardNumber +
+                        '</div>';
+                } else if (selectedPaymentInstrument.selectedAdyenPM) {
+                    htmlToAppend +=
+                        '<span>'+
+                        selectedPaymentInstrument.selectedAdyenPM +
+                        '</span>';
+                }
+                htmlToAppend +='<div class="payment-amount h-fw--semibold">'+
+                    '<span class="label h-clr--black-1">'+
+                    (order.currencyCode ? order.currencyCode :'') + ' ' + selectedPaymentInstrument.amount+
+                    '</span>'+
+                    '</div>';
+            } else if (selectedPaymentInstrument.paymentMethod === 'GIFT_CERTIFICATE') {
+                giftcards = true;
+                giftcardsAmount += selectedPaymentInstrument.amount;
+            }
+        });
+        if (giftcards) {
+            htmlToAppend += '<div class="mt-2">Gift Card</div>'+
+                '<div class="payment-amount h-fw--semibold mb-3">'+
+                '<span class="label h-clr--black-1">'+
+                (order.currencyCode ? order.currencyCode :'') + ' ' + giftcardsAmount+
+                '</span>'+
+                '</div>';
+        }
     }
-
     $paymentSummary.empty().append(htmlToAppend);
 }
 
@@ -314,13 +337,69 @@ module.exports = {
             // Copy fields
             var attrs = selectedOption.data();
             var element;
+            var stateCode = attrs.stateCode.trim();
+            var city = attrs.city.trim();
+            var postalCode = attrs.postalCode.toString();
+            if (stateCode) {
+                $('.billingState option').each(function () {
+                    if ($(this).val() === stateCode) {
+                        $('.billingState option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.billingState').trigger('change');
+                        return false;
+                    }
+                });
+            }
+            if (city) {
+                $('.billingAddressCity').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
+                $('.billingZipCode').prepend($('<option></option>').attr('value', '').attr('selected', 'selected'));
+                $('.billingAddressCity option').each(function () {
+                    if ($(this).val() === city) {
+                        $('.billingAddressCity option').removeAttr('selected');
+                        $('.billingAddressCity option')[0].remove();
+                        $(this).attr('selected', 'selected');
+                        $('body')
+                            .find('.billingAddressCity')
+                            .trigger('change');
+                        return false;
+                    }
+                    $('.billingZipCode option').slice(1).remove();
+                });
+            }
+            if (postalCode) {
+                $('.billingZipCode option').each(function () {
+                    if ($(this).val() === postalCode) {
+                        $('.billingZipCode option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.billingZipCode').trigger('change');
+                        return false;
+                    }
+                });
+            }
 
             Object.keys(attrs).forEach(function (attr) {
-                element = attr === 'countryCode' ? 'country' : attr;
-                if (element === 'cardNumber') {
-                    $('.cardNumber').data('cleave').setRawValue(attrs[attr]);
-                } else {
-                    $('[name$=' + element + ']', form).val(attrs[attr]);
+                if (!['stateCode', 'city', 'postalCode'].includes(attr)) {
+                    element = attr === 'countryCode' ? 'country' : attr;
+                    if (element === 'cardNumber') {
+                        $('.cardNumber').data('cleave').setRawValue(attrs[attr]);
+                    } else {
+                        $('[name$=' + element + ']', form).val(attrs[attr]);
+                    }
+                    // validate an hide/show errors
+                    var $input = $('[name$=' + element + ']', form);
+                    var $errorMessage = $input.next('.invalid-feedback');
+                    if ($input[0].checkValidity()) {
+                        $errorMessage.hide();
+                        $input.removeClass('is-invalid');
+                    } else {
+                        var errorText;
+                        if ($input.val().length === 0) {
+                            errorText = $input.data('missing-error');
+                        } else {
+                            errorText = $input.data('pattern-mismatch');
+                        }
+                        $errorMessage.text(errorText).show(); // Use the title attribute or customize the message
+                    }
                 }
             });
         });
@@ -397,7 +476,41 @@ module.exports = {
     editBillingAddress: function () {
         $('.edit-billing-address').on('click', function () {
             $(this).parents('form').attr('data-address-mode', 'details');
-            $(this).parents('.summary-details.billing').hide();
+            $(this).parents('.summary-details.billing').slideUp();
+            var billingAddrSummary = $(this).siblings('.address-summary');
+            var stateCode = billingAddrSummary.find('.stateCode').text().trim();
+            var city = billingAddrSummary.find('.city').text().trim().replace(',','');
+            var postalCode = billingAddrSummary.find('.postalCode').text().trim();
+            if (stateCode !== 'null') {
+                $('.billingState option').each(function () {
+                    if ($(this).val() === stateCode) {
+                        $('.billingState option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.billingState').trigger('change');
+                        return false;
+                    }
+                });
+            }
+            if (city !== 'null') {
+                $('.billingAddressCity option').each(function () {
+                    if ($(this).val() === city) {
+                        $('.billingAddressCity option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.billingAddressCity').trigger('change');
+                        return false;
+                    }
+                });
+            }
+            if (postalCode !== 'null') {
+                $('.billingZipCode option').each(function () {
+                    if ($(this).val() === postalCode) {
+                        $('.billingZipCode option').removeAttr('selected');
+                        $(this).attr('selected', 'selected');
+                        $('body').find('.billingZipCode').trigger('change');
+                        return false;
+                    }
+                });
+            }
         });
     }
 };

@@ -5,51 +5,77 @@
         <h1 class="mb-2">${Resource.msg('label.order.your.items', 'order', null)}</h1>
     </div>
     <div class="d-flex align-items-center">
-        <img width="70px" height="70px" alt="${Resource.msg('label.shipping.truck', 'order', null)}" src="${URLUtils.staticURL('/images/account/shipping-truck-32.svg')}" />
-        <p class="your-item h-font-size--16 px-2 mb-0"><span
-                class="pr-2 h-clr-blue h-fw--semibold text-uppercase">${Resource.msg('label.shipping', 'order', null)}</span>${Resource.msg('label.order.shipping', 'order', null)}</p>
+        <img width="40px" height="40px" alt="${Resource.msg('label.shipping.truck', 'order', null)}"
+            src="${URLUtils.staticURL('/images/account/shipping-truck-32.svg')}" />
+        <p class="your-item h-font-size--16 px-2 mb-0 h-clr--black-1 h-fw--bold"><span
+                class="pr-1 h-clr--blue h-fw--bold">${Resource.msg('label.shipping.via', 'order', null)}</span><span class="pr-1 h-fw--bold d-inline-block text-capitalize">${shippingMethod} - <isprint value="${totalProductLineItems}" formatter="##" /> ${Resource.msg('label.items', 'order', null)}</span></p>
     </div>
 </div>
 
-<div class="order-product-summary mb-5">
+<div class="order-product-summary mb-4">
     <table class="table table-responsive">
-        <thead>
+        <thead class="item-details-header">
             <tr>
-                <th class="order-description border-top-0">${Resource.msg('label.item.description', 'order', null)}</th>
-                <th class="order-qty border-top-0">${Resource.msg('label.qty', 'order', null)}</th>
-                <th class="order-price border-top-0">${Resource.msg('label.price', 'order', null)}</th>
+                <th class="order-description border-top-0 text-uppercase" colspan="2">
+                    ${Resource.msg('label.item.description', 'order', null)}</th>
+                <th class="order-qty border-top-0 text-center text-uppercase">${Resource.msg('label.qty', 'order', null)}</th>
+                <th class="order-price border-top-0 text-right text-uppercase">${Resource.msg('label.item.header.savings', 'cart', null)}</th>
+                <th class="order-price border-top-0 text-right text-uppercase">${Resource.msg('label.price', 'order', null)}</th>
             </tr>
         </thead>
         <tbody>
             <isloop items="${pdict.order.shipping}" var="shippingModel">
                 <isloop items="${shippingModel.productLineItems.items}" var="lineItem">
-                    <tr>
-                        <td>
-                            <div class="d-flex">
-                                <div class="item-image">
-                                    <img class="product-image" src="${lineItem.images.small[0].url}"
-                                        alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}"
-                                        width="100" />
-                                </div>
-                                <div class="line-item-name">
-                                    <a class="product-name text-uppercase" title="${lineItem.productName}"
-                                        href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}"><span>${lineItem.productName}</span></a>
-                                    <span
-                                        class="product-number d-block mb-4">${Resource.msg('lable.orderDetail.item.id', 'order', null)} : ${lineItem.id}</span>
-                                    <span class="order-email">${Resource.msg('label.bracket.open', 'order', null)}${orderEmail}${Resource.msg('label.bracket.close', 'order', null)}</span>
-                                </div>
+                    <tr class="product-info uuid-${lineItem.UUID} pid-${lineItem.id}">
+                        <td class="item-image">
+                            <img class="product-image" src="${lineItem.images.small[0].url}" srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x"
+                                alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}"
+                                width="100" />
+                        </td>
+                        <td class="item-details">
+                            <div class="line-item-name">
+                                <isif condition="${pdict.isEgiftCard || lineItem.noProduct}">
+                                    <span>${lineItem.fragranceName ? lineItem.fragranceName : lineItem.productName}</span>
+                                <iselse/>
+                                    <a class="product-name" title="${lineItem.productName}"
+                                    href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}"><span>${lineItem.fragranceName ? lineItem.fragranceName : lineItem.productName}</span></a>
+                                </isif>
+                                <isif condition="${lineItem.titlePartB}">
+                                    <span class="product-number d-block">${lineItem.titlePartB}</span>
+                                </isif>
+                                <isif condition="${lineItem.volume}">
+                                    <span class="product-number d-block">${lineItem.volume}</span>
+                                </isif>
+                                <span class="product-number d-block">${Resource.msg('lable.orderDetail.item.id', 'order', null)} :
+                                    ${lineItem.id}</span>
+                                <iscomment> <span class="order-email">${Resource.msg('label.bracket.open', 'order', null)}${orderEmail}${Resource.msg('label.bracket.close', 'order', null)}</span>
+                                </iscomment>
                             </div>
                         </td>
-                        <td>
-                            <span class="pricing qty-card-quantity-count">
+                        <td class="item-qty">
+                            <span class="mobile-label d-inline-block d-md-none">
+                                ${Resource.msg('label.qty', 'order', null)}
+                            </span>
+                            <span class="pricing qty-card-quantity-count ">
                                 <isprint value="${lineItem.quantity}" formatter="##" /></span>
                         </td>
-                        <td>
-                            <isif condition="${lineItem.isBonusProductLineItem}">
-                                ${Resource.msg('lable.orderDetail.items.bonus', 'order', null)}
-                            <iselse/>
-                                ${lineItem.priceTotal.price}
-                            </isif>
+                        <td class="saving">
+                                <isif condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
+                                    <span class="value">${lineItem.totalSavings}</span>
+                                <iselse/>
+                                    <span class="value-dash">${'-'}</span>
+                                </isif>
+                        </td>
+                        <td class="pricing item-total">
+                            <span>
+                                <isif condition="${lineItem.noProduct}">
+                                    ${lineItem.priceTotal.currencyCode} ${lineItem.priceTotal.value}
+                                <iselseif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}"/>
+                                    ${Resource.msg('label.free.price', 'cart', null)}
+                                <iselse/>
+                                    ${lineItem.priceTotal.price}
+                                </isif>
+                            </span>
                         </td>
                     </tr>
                 </isloop>

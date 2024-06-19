@@ -27,6 +27,9 @@
         </isif>
         <isactivedatahead/>
         <isinclude template="/components/schema" />
+        <isif condition="${pdict.isHomePage}">
+            <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('homePageSchema')}" encoding="off" />
+        </isif>
     </head>
     <body>
         ${dw.system.HookMgr.callHook('app.template.beforeHeader', 'beforeHeader', pdict) || ''}

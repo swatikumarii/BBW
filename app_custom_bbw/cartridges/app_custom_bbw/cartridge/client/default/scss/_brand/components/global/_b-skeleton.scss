@@ -1,0 +1,69 @@
+// ===================================
+// Lazy Load - Fade Effect
+// ===================================
+// .lazyload-fade-in {
+//     opacity: 0;
+//     transition: opacity 0.3s ease;
+// }
+
+// .lazyloaded {
+//     opacity: 1;
+// }
+
+img.lazy {
+    opacity: 0;
+}
+
+img:not(.initial) {
+    transition: opacity 0.3s;
+}
+
+img.initial,
+img.loaded,
+img.error {
+    opacity: 1;
+}
+
+img:not([src]) {
+    visibility: hidden;
+}
+
+/* Skeleton Loader Styles */
+.skeleton-loader {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: colour(gray, 1);
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to right,
+            transparent,
+            rgba(255, 255, 255, 80%),
+            transparent
+        );
+        animation: wave 1.5s infinite;
+    }
+}
+
+@keyframes wave {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.ticker-wrapper {
+    display: none;
+}

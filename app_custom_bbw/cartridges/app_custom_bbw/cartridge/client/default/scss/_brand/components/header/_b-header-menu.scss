@@ -46,7 +46,8 @@
                         position: inherit;
 
                         .menu-wrap-level-1 {
-                            max-height: 500px;
+                            max-height: 0;
+                            padding: 0;
                             overflow: hidden;
                             object-fit: contain;
                             box-shadow: 0 12px 20px rgba(0, 0, 0, 15%);
@@ -65,6 +66,7 @@
                             .level-2-ul-wrap {
                                 margin: 1.3125rem auto;
                                 min-height: 25rem;
+                                max-width: 1500px;
 
                                 .menu-wrap {
                                     display: block;
@@ -72,6 +74,8 @@
                             }
 
                             .level-2-ul {
+                                display: flex;
+
                                 .dropdown-item.active,
                                 .dropdown-item:active {
                                     background-color: transparent;
@@ -82,6 +86,10 @@
                                 .dropdown-item:hover {
                                     background-color: transparent;
                                     color: colour(black);
+                                }
+
+                                li {
+                                    list-style-type: none;
                                 }
 
                                 .level-2-li {
@@ -100,6 +108,7 @@
                                     .level-2-link {
                                         line-height: 1.25rem;
                                         letter-spacing: 0.01em;
+                                        text-transform: uppercase;
 
                                         &::after {
                                             content: none;
@@ -120,6 +129,8 @@
                             opacity: 1;
                             visibility: visible;
                             transition: all 0.5s ease 0.15s;
+                            max-height: 500px;
+                            padding: 0.5rem 0;
                         }
                     }
                 }
@@ -153,16 +164,517 @@
                 }
             }
         }
+
+        .category-top-offers {
+            border-left: 1px solid colour(gray, 6);
+            height: 100%;
+
+            .column-count-2 {
+                column-count: 2;
+            }
+
+            .column-count-3 {
+                column-count: 3;
+            }
+
+            .column-count-4 {
+                column-count: 4;
+            }
+
+            .heading {
+                padding: 6px 0 8px 30px;
+                pointer-events: none;
+                font-weight: 600;
+            }
+
+            .category-top-items {
+                ul {
+                    padding: 0;
+                    margin: 0;
+                    display: block;
+                    position: relative;
+                    border: 0;
+
+                    li {
+                        min-height: 41px;
+                        height: auto;
+                        display: block;
+                        position: relative;
+                        list-style: none;
+
+                        a {
+                            padding: 8px 15px 8px 30px;
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 16px;
+                            letter-spacing: 0.015em;
+                            width: 225px;
+                            text-wrap: wrap;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bbw-brand-menu {
+        max-width: 1400px;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        list-style: none;
+        border: none;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 0;
+        text-transform: capitalize;
+
+        .dropdown-toggle::after {
+            border: 0;
+        }
+
+        .dropdown-item:focus,
+        .dropdown-item:hover {
+            background-color: transparent;
+            color: colour(blue);
+            text-decoration: none;
+        }
+
+        .navbar {
+            position: inherit;
+
+            .level-1-ul {
+                @include media-btw(sm, md) {
+                    flex-wrap: nowrap;
+
+                    .nav-link {
+                        text-wrap: balance;
+                    }
+                }
+
+                .nav-link {
+                    padding: 0.8125rem 0.875rem 0.5rem;
+                    line-height: 1.25rem;
+                    letter-spacing: 0.01em;
+                    border-bottom: 0.1875rem solid transparent;
+                    transition: border 0.5s ease-out;
+                    text-transform: capitalize;
+
+                    &:hover {
+                        border-color: colour(blue);
+                        color: colour(black, 1);
+                    }
+
+                    @include media-up(sm) {
+                        font-size: 16px;
+
+                        &::after {
+                            content: none;
+                        }
+                    }
+
+                    @include media-up(md) {
+                        font-size: 14px;
+                    }
+
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+
+                .level-1-li {
+                    position: inherit;
+
+                    &.show {
+                        .level-1-link {
+                            border-color: colour(blue);
+                        }
+
+                        .menu-wrap-level-1 {
+                            top: auto;
+                            opacity: 1;
+                            pointer-events: auto;
+                            visibility: visible;
+                            max-height: max-content;
+                            z-index: 1;
+                        }
+
+                        .menu-wrap-level-1 .level-2-ul-wrap .menu-right {
+                            max-height: max-content;
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+
+                    .menu-wrap-level-1 {
+                        padding: 0;
+                        max-height: 0;
+                        display: block;
+                        border-top: 0.1875rem solid colour(gray, 1);
+                        left: 0;
+                        top: auto;
+                        background-color: colour(white);
+                        margin-top: 0;
+                        box-shadow: 0 12px 20px rgba(0, 0, 0, 15%);
+                        opacity: 0;
+                        pointer-events: none;
+                        visibility: hidden;
+                        transition-property: visibility, opacity, top;
+                        transition-duration: 0.2s;
+                        transition-timing-function: cubic-bezier(
+                            0.25,
+                            0.46,
+                            0.45,
+                            0.94
+                        );
+
+                        .level-2-ul-wrap {
+                            max-width: 1160px;
+                            margin: 21px auto;
+                            min-height: 213px;
+                            position: relative;
+
+                            .level-2-ul {
+                                margin-left: 54px;
+                                list-style: none;
+                                padding: 0;
+                                display: inline-block;
+                                left: 0;
+                                position: relative;
+                                text-align: left;
+
+                                .explore-li.level-2-li {
+                                    &::after,
+                                    &::before {
+                                        content: none;
+                                        background: none;
+                                    }
+                                }
+
+                                .no-sub-category {
+                                    padding: 0 0 22px;
+
+                                    a {
+                                        color: colour(gray, 4);
+                                        cursor: pointer;
+                                        display: block;
+                                        font-size: 14px;
+                                        font-weight: 600;
+                                        height: 36px;
+                                        letter-spacing: 0.015em;
+                                        line-height: 21px;
+                                        padding: 6px 60px 0 20px;
+
+                                        &:hover {
+                                            color: colour(blue);
+                                        }
+                                    }
+                                }
+
+                                .explore-li a:hover {
+                                    color: colour(blue);
+                                }
+
+                                .level-2-li,
+                                .explore-li {
+                                    position: relative;
+                                    text-transform: capitalize;
+                                    transition: max-height 0.3s ease-out;
+                                    max-height: none;
+                                    padding: 0 0 22px;
+                                    overflow: visible;
+                                    background-color: colour(white);
+
+                                    &::before {
+                                        content: "";
+                                        width: 0;
+                                        height: 36px;
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        background: colour(blue);
+                                        z-index: 30;
+                                    }
+
+                                    &::after {
+                                        content: "";
+                                        background-image: url("../images/header/megamenu-carat.svg");
+                                        top: 13px;
+                                        right: 30px;
+                                        transform: rotate(0deg);
+                                        height: 10px;
+                                        background-size: contain;
+                                        background-repeat: no-repeat;
+                                        width: 12px;
+                                        position: absolute;
+                                        pointer-events: none;
+                                    }
+
+                                    .level-2-link {
+                                        font-weight: map-get(
+                                            $font-weight,
+                                            semibold
+                                        );
+                                        font-size: 14px;
+                                        line-height: 21px;
+                                        letter-spacing: 0.015em;
+                                        padding: 6px 60px 0 20px;
+                                        color: colour(gray, 4);
+                                        cursor: pointer;
+                                        display: block;
+                                        height: 36px;
+                                    }
+
+                                    &.show {
+                                        position: relative;
+                                        max-height: 1000px;
+
+                                        &::before {
+                                            width: 4px;
+                                            transition: all 0.3s ease-out;
+                                        }
+
+                                        &::after {
+                                            transform: rotate(0deg);
+                                            background-image: url("../images/header/megamenu-carat_active.svg");
+                                            right: 20px;
+                                            transition: right 0.3s ease-out;
+                                        }
+
+                                        .level-2-link,
+                                        a {
+                                            color: colour(blue);
+                                        }
+
+                                        .menu-wrap-level-3 {
+                                            top: 0;
+                                            opacity: 1;
+                                            pointer-events: auto;
+                                            visibility: visible;
+                                            transition: all 0.5s ease-out;
+                                            left: 100%;
+                                            padding: 0;
+                                        }
+                                    }
+
+                                    .menu-wrap-level-3 {
+                                        position: absolute;
+                                        left: 95%;
+                                        column-fill: auto;
+                                        opacity: 0;
+                                        visibility: hidden;
+                                        transition: none;
+                                        background: transparent;
+                                        padding: 0;
+                                        display: block;
+
+                                        li {
+                                            height: auto;
+                                            min-height: 41px;
+                                            display: flex;
+                                            position: relative;
+                                            padding: 0 1.5rem;
+
+                                            a {
+                                                text-transform: none;
+                                                color: colour(gray, 4);
+                                                display: block;
+                                                line-height: 1rem;
+                                                letter-spacing: 0.015em;
+                                                white-space: normal;
+                                                box-sizing: initial;
+                                                font-size: 14px;
+                                                font-weight: 400;
+                                                height: 100%;
+                                                padding: 9px 30px 0 0;
+                                                width: 180px;
+
+                                                &:hover {
+                                                    color: colour(blue);
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    &:first-child .menu-wrap-level-3 {
+                                        top: -2px;
+                                    }
+
+                                    &:nth-child(2) .menu-wrap-level-3 {
+                                        top: -59px;
+                                    }
+
+                                    &:nth-child(3) .menu-wrap-level-3 {
+                                        top: -116px !important;
+                                    }
+
+                                    &:nth-child(4) .menu-wrap-level-3 {
+                                        top: -173px !important;
+                                    }
+
+                                    &:nth-child(5) .menu-wrap-level-3 {
+                                        top: -230px !important;
+                                    }
+
+                                    &:nth-child(6) .menu-wrap-level-3 {
+                                        top: -287px !important;
+                                    }
+
+                                    &:nth-child(7) .menu-wrap-level-3 {
+                                        top: -287px !important;
+                                    }
+                                }
+                            }
+
+                            .two-column {
+                                column-count: 2;
+                                column-fill: auto;
+                                height: 213px;
+                            }
+
+                            .menu-right {
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                max-height: 0;
+                                overflow: visible;
+                                margin-bottom: 22px;
+                                text-transform: capitalize;
+                                opacity: 0;
+                                visibility: hidden;
+                                transition: left 0.3s ease-out;
+
+                                .category-top-offers {
+                                    border-left: 1px solid colour(gray, 6);
+                                    height: 100%;
+
+                                    .column-count-2 {
+                                        column-count: 2;
+                                    }
+
+                                    .column-count-3 {
+                                        column-count: 3;
+                                    }
+
+                                    .column-count-4 {
+                                        column-count: 4;
+                                    }
+
+                                    .heading {
+                                        padding: 6px 0 8px 30px;
+                                        pointer-events: none;
+                                        font-weight: 600;
+                                    }
+
+                                    .category-top-items {
+                                        ul {
+                                            padding: 0;
+                                            margin: 0;
+                                            display: block;
+                                            position: relative;
+                                            border: 0;
+
+                                            li {
+                                                min-height: 41px;
+                                                height: auto;
+                                                display: block;
+                                                position: relative;
+                                                list-style: none;
+
+                                                a {
+                                                    padding: 8px 15px 8px 30px;
+                                                    font-weight: 400;
+                                                    font-size: 14px;
+                                                    line-height: 16px;
+                                                    letter-spacing: 0.015em;
+                                                    width: 225px;
+                                                    text-wrap: wrap;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.muted {
+                        transition: none;
+                        transition-property: none;
+
+                        .level-2-ul,
+                        .menu-wrap-level-1 {
+                            transition: none;
+                            transition-property: none;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
 @include media-breakpoint-down(sm) {
-    a:focus {
-        outline: 1px dotted colour(black);
-        outline-offset: 2px;
+    .level-2-li.active .menu-right .category-top-offers a.heading::after {
+        transform: rotate(180deg);
+        transform-origin: center center;
     }
 
-    .bbw-menu {
+    .menu-right {
+        .category-top-offers {
+            a.heading {
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 20px;
+                letter-spacing: 0.01em;
+                color: #4d4d4d;
+                height: 44px;
+                padding: 9px 5px 9px 35px;
+                cursor: pointer;
+                display: block;
+                position: relative;
+
+                &::after {
+                    border: 0;
+                    content: url("../images/header/megamenu-mobile_secondary-carat.svg");
+                    height: auto;
+                    position: absolute;
+                    right: 18px;
+                    top: 0.5rem;
+                    transition: all 0.3s ease-out;
+                    width: auto;
+                }
+            }
+        }
+
+        .category-top-items {
+            a {
+                color: colour(gray, 4);
+                font-size: 16px;
+            }
+        }
+    }
+
+    .dropdown-item.active,
+    .dropdown-item:active {
+        background-color: transparent;
+        color: colour(gray, 4);
+        text-decoration: none;
+    }
+
+    .dropdown-item:focus,
+    .dropdown-item:hover {
+        background-color: transparent;
+        color: colour(gray, 4);
+        text-decoration: none;
+    }
+
+    a:focus {
+        outline: 0;
+    }
+
+    .bbw-menu,
+    .bbw-brand-menu {
         max-width: 350px;
         width: 86%;
         position: fixed;
@@ -172,10 +684,6 @@
         z-index: 9;
         left: -100%;
         transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-        a:active {
-            color: colour(gray, 2);
-        }
 
         .mobile-navbar {
             overflow: hidden auto;
@@ -195,15 +703,17 @@
         .mobile-slide-menu-search {
             padding: 12.5px 0;
 
-            &::before {
-                content: url("../images/header/UI-Search.svg");
-                height: 1.75rem;
-                position: absolute;
-                width: 1.75rem;
-                fill: color(blue);
-                padding: 0.6875rem 0 0 0.5625rem;
-                z-index: 1;
-                margin-left: 0.1875rem;
+            .menu-sidebar-search {
+                width: 19px;
+                margin: 8px 6px 6px 12px;
+            }
+
+            .black-search-icon {
+                display: block;
+            }
+
+            .blue-search-icon {
+                display: none;
             }
 
             input[type="search"] {
@@ -213,6 +723,8 @@
                 height: 1.5625rem;
                 margin: 0.5625rem 0 0 13%;
                 transition: all 0.3s ease-out;
+                background-color: colour(white);
+                border-radius: 0;
 
                 &:focus {
                     outline: none;
@@ -230,8 +742,12 @@
         }
 
         .mobile-slide-menu-search.active {
-            &::before {
-                content: url("../images/header/UI-Search-v2.svg");
+            .black-search-icon {
+                display: none;
+            }
+
+            .blue-search-icon {
+                display: block;
             }
 
             #mobile-slide-search {
@@ -264,7 +780,7 @@
                 position: absolute;
                 width: 19px;
                 height: 19px;
-                fill: #005699;
+                fill: colour(blue);
                 padding: 11px 0 0 15px;
                 left: 0;
                 content: url("../images/header/UI-Tag-v2.svg");
@@ -280,11 +796,11 @@
                 position: absolute;
                 width: 19px;
                 height: 19px;
-                fill: #005699;
+                fill: colour(blue);
                 padding: 11px 0 0 15px;
                 left: 0;
                 content: url("../images/header/UI-StoreLocator-v2.svg");
-                top: 0;
+                top: 7px;
             }
         }
 
@@ -296,11 +812,11 @@
                 position: absolute;
                 width: 19px;
                 height: 19px;
-                fill: #005699;
+                fill: colour(blue);
                 padding: 11px 0 0 15px;
                 left: 0;
                 content: url("../images/header/UI-MyAccount-v2.svg");
-                top: 5px;
+                top: 9px;
             }
         }
 
@@ -308,6 +824,7 @@
             transition: max-height 0.5s ease-out;
             max-height: 58px;
             border-top: 0.0625rem solid colour(gray, 6);
+            width: 100%;
 
             &::before {
                 content: "";
@@ -325,9 +842,10 @@
                 line-height: 1.25rem;
                 letter-spacing: 0.005em;
                 text-transform: capitalize;
+                color: colour(black, 1);
 
-                &:hover {
-                    color: colour(black, 1);
+                &:active {
+                    color: colour(gray, 2);
                 }
             }
 
@@ -347,7 +865,7 @@
             }
 
             &.active {
-                max-height: 156.25rem;
+                max-height: 2500px;
 
                 &::before {
                     width: 0.25rem;
@@ -364,6 +882,14 @@
             }
         }
 
+        .level-1-li.muted {
+            transition: none;
+
+            .level-2-ul {
+                transition: none;
+            }
+        }
+
         .level-2-ul {
             top: -15px;
             opacity: 0;
@@ -373,25 +899,35 @@
             transition-duration: 0.5s;
             transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
             display: initial;
+            border: 0;
+            margin: 0;
+            float: none;
 
             &.active {
                 top: 0;
                 opacity: 1;
                 pointer-events: auto;
                 visibility: visible;
-                border: 0;
             }
 
             .level-2-li {
-                background-color: transparent;
+                overflow: hidden;
+                text-transform: capitalize;
+                transition: max-height 0.3s ease-out;
+                max-height: 44px;
 
                 .level-2-link {
-                    line-height: 1.25rem;
+                    line-height: 20px;
                     letter-spacing: 0.01em;
                     height: 2.75rem;
-                    padding: 0.5625rem 0.3125rem 0.5625rem 2.1875rem;
+                    padding: 9px 5px 9px 35px;
                     display: inherit;
                     outline: 0;
+                    color: colour(gray, 4);
+
+                    &:active {
+                        color: colour(gray, 2);
+                    }
                 }
 
                 .level-2-link.dropdown-toggle {
@@ -401,7 +937,7 @@
                         height: auto;
                         position: absolute;
                         top: 0.5rem;
-                        right: 0.9375rem;
+                        right: 18px;
                         z-index: 30;
                         border: 0;
                         transition: all 0.3s ease-out;
@@ -409,19 +945,14 @@
                 }
 
                 &.active {
+                    position: relative;
+                    max-height: 1000px;
+
                     .level-2-link.dropdown-toggle {
                         &::after {
                             transform: rotate(180deg);
                             transform-origin: center center;
                         }
-                    }
-
-                    .level-3-ul {
-                        top: 0;
-                        opacity: 1;
-                        pointer-events: auto;
-                        visibility: visible;
-                        transition: all 0.5s ease-out;
                     }
                 }
 
@@ -430,8 +961,8 @@
                     top: -8px;
                     opacity: 0;
                     visibility: hidden;
-                    transition: max-height 0.5s ease-out;
-                    max-height: 0;
+                    border: 0;
+                    transition: all 0.5s ease-out;
                     display: block;
 
                     &.active {
@@ -439,15 +970,15 @@
                         opacity: 1;
                         pointer-events: auto;
                         visibility: visible;
-                        display: block;
-                        border: 0;
-                        max-height: 31.25rem;
+                        transition: all 0.5s ease-out;
                     }
 
                     li a {
                         letter-spacing: 0.01em;
-                        padding: 8px 15px 8px 55px;
+                        padding: 8px 34px 8px 55px;
                         line-height: 1.25rem;
+                        height: 100%;
+                        text-wrap: wrap;
                     }
                 }
             }
@@ -459,7 +990,8 @@
         }
     }
 
-    .bbw-menu.in {
+    .bbw-menu.in,
+    .bbw-brand-menu.in {
         left: 0;
         transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
@@ -482,6 +1014,16 @@
             visibility 0s 0.5s,
             opacity 0.5s linear;
     }
+
+    .logged-user-name {
+        padding: 10px 10px 10px 15px;
+        font-size: 0.875rem;
+        line-height: 16px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: colour(blue);
+    }
 }
 
 .input-group-append .btn {
@@ -489,6 +1031,11 @@
 }
 
 .utility-links-container {
+    @include media-down(sm) {
+        z-index: 1;
+        position: relative;
+    }
+
     .utility-links {
         padding-top: 0.75rem;
         background: colour(gray, 1);

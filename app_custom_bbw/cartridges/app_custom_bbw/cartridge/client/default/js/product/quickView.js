@@ -12,7 +12,7 @@ function getModalHtmlElement() {
     }
     var htmlString =
         '<!-- Modal -->' +
-        '<div class="modal fade" id="quickViewModal" role="dialog">' +
+        '<div class="modal fade quick-view-modal" id="quickViewModal" role="dialog">' +
         '<span class="enter-message sr-only" ></span>' +
         '<div class="modal-dialog quick-view-dialog  modal-dialog-centered">' +
         '<!-- Modal content-->' +
@@ -48,7 +48,6 @@ function parseHtml(html) {
  * @param {string} selectedValueUrl - url to be used to retrieve a new product model
  */
 function fillModalElement(selectedValueUrl) {
-    $('#quickViewModal .modal-body').spinner().start();
     $.ajax({
         url: selectedValueUrl,
         method: 'GET',
@@ -72,23 +71,31 @@ function fillModalElement(selectedValueUrl) {
             $('#quickViewModal .enter-message').text(data.enterDialogMessage);
             $('#quickViewModal').modal('show');
             $('body').trigger('quickview:ready');
-
-            $.spinner().stop();
-        },
-        error: function () {
-            $.spinner().stop();
+            $('.quick-view-modal .notifyBackInStockButton').on(
+                'click',
+                function () {
+                    $('#quickViewModal').modal('hide');
+                }
+            );
         }
     });
 }
 
 module.exports = $.extend({}, base, {
     showQuickview: function () {
+        var quickViewButton;
         $('body').on('click', '.quickview', function (e) {
             e.preventDefault();
-            var selectedValueUrl = $(this).closest('a.quickview').attr('href');
+            quickViewButton = $(this);
+            var selectedValueUrl = $(this).data('href');
             $(e.target).trigger('quickview:show');
             getModalHtmlElement();
             fillModalElement(selectedValueUrl);
+        });
+        $('body').on('hidden.bs.modal', '.loginPopup #loginModal', function () {
+            if (quickViewButton) {
+                quickViewButton.trigger('click');
+            }
         });
     },
     popOver: function () {
@@ -137,6 +144,14 @@ module.exports = $.extend({}, base, {
         $(document).on('click', '.popover .close', function (e) {
             e.preventDefault(); // Prevent default behavior of anchor tag
             $(this).parents('.popover').popover('hide');
+        });
+    },
+    enableQuickViewScroll: function () {
+        $('body').on('hidden.bs.modal', '#quickViewModal', function () {
+            // helpers.enableScroll();
+            if ($('#quickViewModal').length !== 0) {
+                $('#quickViewModal').remove();
+            }
         });
     },
 

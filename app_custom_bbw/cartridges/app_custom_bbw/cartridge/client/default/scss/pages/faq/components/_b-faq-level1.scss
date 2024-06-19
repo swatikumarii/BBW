@@ -1,0 +1,89 @@
+.category-container {
+    @include media-down(md) {
+        padding: 0 40px;
+    }
+
+    @include media-down(sm) {
+        padding: 0 20px;
+    }
+
+    .category-content {
+        .content-heading {
+            h1 {
+                flex-grow: 1;
+                margin: 0.67em 0 3px;
+                color: colour(black, 8);
+                line-height: 48px;
+                padding: 8px;
+            }
+        }
+
+        .section-tree {
+            flex-direction: column;
+
+            @include media-up(sm) {
+                flex-direction: row;
+            }
+
+            .section {
+                flex: 0 0 45%;
+                margin-bottom: 30px;
+                padding: 4px;
+
+                .section-tree-title {
+                    margin-top: 40px;
+                    padding: 2px;
+
+                    a {
+                        color: colour(black, 8);
+                        line-height: 27px;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+
+                    .article-list-item {
+                        font-size: 16px;
+                        padding: 15px 0;
+
+                        .icon-star {
+                            color: colour(blue, 10);
+                            margin-right: 4px;
+                            margin-bottom: 3px;
+                            font-size: 18px;
+                            height: 12px;
+                            line-height: 27px;
+                        }
+
+                        a {
+                            color: colour(black, 8);
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .see-all-articles {
+                display: inline-block;
+                margin: 20px 0;
+                font-size: 15px;
+                line-height: 22.5px;
+                color: colour(blue, 9);
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

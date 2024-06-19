@@ -64,6 +64,20 @@ $cssHelpers: (
         step: 2,
         unit: $site-unit
     ),
+    ".h-line-height": (
+        props: (
+            "line-height"
+        ),
+        values: (
+            auto
+        ),
+        range: (
+            0,
+            30
+        ),
+        step: 1,
+        unit: $site-unit
+    ),
     ".h-disable-events": (
         props: (
             "pointer-events"
@@ -448,6 +462,10 @@ $cssHelpers: (
             0,
             200
         ),
+        devicebreakpoints: (
+            sm,
+            lg
+        ),
         rangestep: (
             value: 80,
             step: 5
@@ -493,6 +511,10 @@ $cssHelpers: (
         range: (
             0,
             200
+        ),
+        devicebreakpoints: (
+            sm,
+            lg
         ),
         rangestep: (
             value: 50,

@@ -1,8 +1,8 @@
 <div class="pdp-link">
-    <p class="b-product-tile__badge h-clr--blue h-fw--semibold js-product-tile-badge">New Fragrance</p>
+    <p class="b-product-tile__badge h-clr--blue h-fw--semibold js-product-tile-badge">${product.titleBadge ? product.titleBadge : ''}</p>
     <a class="b-product-tile__link d-block" href="${pdict.urls.product}">
-        <h3 class="b-product-tile__name b-text-h2 h-clr-black-1 h-fw--semibold h-mb--5 js-product-tile-name">${product.productName}</h3>
-        <isif condition="${pdict.product.titlePartB}">
+        <h3 class="b-product-tile__name b-text-h2 h-clr-black-1 h-fw--semibold h-mb--5 js-product-tile-name">${product.fragranceName ? product.fragranceName : product.productName}</h3>
+        <isif condition="${product.titlePartB}">
             <p class="product-type b-product-tile__product-type b-text-h2 h-clr-black-1">
                 ${product.titlePartB}
             </p>
