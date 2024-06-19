@@ -75,7 +75,7 @@
             <preference preference-id="dangerousGoodsMessage">&lt;p&gt;Your cart contains product that are not shippable.&lt;/p&gt;</preference>
             <preference preference-id="countrySiteMapping">
                 [
-                    {"country":"Australia", "site": "https://www.valiramstores.com"},
+                    {"country":"Australia", "site": "https://staging.bathandbodyworks.com.au"},
                     {"country":"Malaysia", "site": "https://www.bathandbodyworks.com.my"},
                     {"country":"Singapore", "site": "https://www.bathandbodyworks.com.sg"},
                     {"country":"Indonesia", "site": "https://www.bathandbodyworks.co.id"},
@@ -219,7 +219,7 @@
             <preference preference-id="careersEmail"></preference>
             <preference preference-id="countrySiteMapping">
                 [
-                    {"country":"Australia", "site": "https://www.valiramstores.com"},
+                    {"country":"Australia", "site": "https://staging.bathandbodyworks.com.au"},
                     {"country":"Malaysia", "site": "https://www.bathandbodyworks.com.my"},
                     {"country":"Singapore", "site": "https://www.bathandbodyworks.com.sg"},
                     {"country":"Indonesia", "site": "https://www.bathandbodyworks.co.id"},
