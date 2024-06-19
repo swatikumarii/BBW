@@ -832,12 +832,16 @@
 
 // -----login modal-----
 .login-modal-body {
-    overflow-y: auto;
-    max-height: calc(88vh - 64px);
-    padding: 4px 17px 17px;
-    -webkit-overflow-scrolling: touch;
+    overflow: scroll !important;
+    overflow-y: auto !important;
+    max-height: calc(88vh - 64px) !important;
+    padding: 4px 17px 17px !important;
+    -webkit-overflow-scrolling: touch !important;
+    -webkit-scrollbar: auto;
 
     @include media-up(sm) {
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
         overflow-y: auto;
         max-height: calc(100vh - 64px);
         padding: 4px 17px 17px;
