@@ -178,7 +178,7 @@ function handlePostCartErrorTosteMessage(response) {
 
         $('.add-to-basket-alert').remove();
         $('.add-to-cart-messages').append(
-            '<div class="alert alert-danger add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+            '<div class="alert error alert-danger add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
                 response.message +
                 '</div>'
         );
