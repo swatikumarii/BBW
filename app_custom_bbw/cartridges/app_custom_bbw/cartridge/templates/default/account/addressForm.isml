@@ -133,8 +133,8 @@
                         </isif>>${country.label}</option>
                 </isloop>
                 </select>
-            </div>
             <div class="invalid-feedback"></div>
+            </div>
         </div>
     </div>
     <!-- City and ZIP -->
@@ -160,8 +160,8 @@
                             >${state.label || ' '}</option>
                     </isloop>
                     </select>
-                </div>
                 <div class="invalid-feedback"></div>
+                </div>
             </div>
         </div>
 
@@ -184,8 +184,8 @@
                         value="${pdict.addressForm.city.attributes}" encoding="off" />
                     autocomplete="address-level2">
                     </select>
-                </div>
                 <div class="invalid-feedback"></div>
+                </div>
             </div>
         </div>
     
@@ -210,8 +210,8 @@
                         value="${pdict.addressForm.postalCode.attributes}" encoding="off" />
                     autocomplete="postal-code">
                         </select>
-                </div>
                 <div class="invalid-feedback"></div>
+                </div>
             </div>
         </div>
 </div>
@@ -230,8 +230,7 @@
         data-pattern-mismatch="${Resource.msg('error.message.pattern.phone', 'forms', null)}"
         data-missing-error="${Resource.msg('error.phone.number', 'forms', null)}"
         data-range-error="${Resource.msg('error.message.parse.phonevalid.form', 'forms', null)}" <isprint
-        value="${pdict.addressForm.phone.attributes}" encoding="off" />
-    autocomplete="tel">
+        value="${pdict.addressForm.phone.attributes}" encoding="off" /> autocomplete="tel"/>
     <div class="invalid-feedback"></div>
 </div>
 
