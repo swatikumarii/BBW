@@ -119,7 +119,22 @@ function handlePostCartAdd(response) {
         Object.keys(response.newBonusDiscountLineItem).length !== 0
     ) {
         chooseBonusProducts(response.newBonusDiscountLineItem);
-    } else {
+    } else if (response.message) {
+        if ($('.add-to-cart-messages').length === 0) {
+            $('body').append('<div class="add-to-cart-messages"></div>');
+        }
+
+        $('.add-to-basket-alert').remove();
+        $('.add-to-cart-messages').append(
+            '<div class="alert ' +
+                messageType +
+                ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                response.message +
+                '</div>'
+        );
+    }
+    messageType = 'alert-success';
+    if (response.removeMessage) {
         if ($('.add-to-cart-messages').length === 0) {
             $('body').append('<div class="add-to-cart-messages"></div>');
         }
@@ -128,15 +143,15 @@ function handlePostCartAdd(response) {
             '<div class="alert ' +
                 messageType +
                 ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
-                response.message +
+                response.removeMessage +
                 '</div>'
         );
-
-        setTimeout(function () {
-            $('.add-to-basket-alert').remove();
-        }, 5000);
     }
+    setTimeout(function () {
+        $('.add-to-basket-alert').remove();
+    }, 5000);
 }
+
 
 
 
@@ -225,7 +240,8 @@ module.exports = $.extend({}, detail, {
             $.ajax({
                 type: 'GET',
                 url: removeGiftPliUrl,
-                success: function () {
+                success: function (res) {
+                    handlePostCartAdd(res);
                     $.ajax({
                         type: 'POST',
                         url: addToCartUrl,
@@ -278,7 +294,8 @@ module.exports = $.extend({}, detail, {
             $.ajax({
                 type: 'GET',
                 url: removeGiftPliUrl,
-                success: function () {
+                success: function (res) {
+                    handlePostCartAdd(res);
                     $.ajax({
                         type: 'POST',
                         url: addToCartUrl,
