@@ -167,6 +167,28 @@ function handlePostCartAdd(response) {
 }
 
 /**
+ * Show error message
+ * @param {string} response - ajax response from clicking the add to cart button
+ */
+function handlePostCartErrorTosteMessage(response) {
+    if (response.error && response.message) {
+        if ($('.add-to-cart-messages').length === 0) {
+            $('body').append('<div class="add-to-cart-messages"></div>');
+        }
+
+        $('.add-to-basket-alert').remove();
+        $('.add-to-cart-messages').append(
+            '<div class="alert alert-danger add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                response.message +
+                '</div>'
+        );
+        setTimeout(function () {
+            $('.add-to-basket-alert').remove();
+        }, 5000);
+    }
+}
+
+/**
  * Retrieves the bundle product item ID's for the Controller to replace bundle master product
  * items with their selected variants
  * @returns {string[]} - List of selected bundle product item ID's
@@ -771,9 +793,13 @@ module.exports = $.extend({}, base, {
                                             data.errorMessage
                                         );
                                     }
-                                } else {
-                                    $('.reserve-stock p').text(data.message);
+                                } else if ($('.reserve-stock').length > 0) {
+                                    $('.reserve-stock p').text(
+                                        data.message
+                                    );
                                     $('.reserve-stock').removeClass('d-none');
+                                } else {
+                                    handlePostCartErrorTosteMessage(data);
                                 }
                                 $.spinner().stop();
                                 return true;
