@@ -132,6 +132,15 @@
                 border-radius: 0;
                 max-height: calc(100vh - 200px);
             }
+
+            .cart-empty-msg {
+                font-size: 18px;
+            }
+
+            .empty-cart-continue {
+                line-height: 2.7;
+                margin-bottom: 20px;
+            }
         }
 
         .remove-line-item {

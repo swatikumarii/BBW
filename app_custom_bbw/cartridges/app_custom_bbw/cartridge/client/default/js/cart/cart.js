@@ -450,7 +450,7 @@ module.exports = function () {
                             '<div class="container text-center">' +
                             '<div class="row cart-empty">' +
                             '<div class="col-12 text-center cart-empty-msg-wrap">' +
-                            '<h1 class="h-font-size--24 h-fw--bold h-clr--black-1 cart-empty-msg">' +
+                            '<h1 class="h-fw--bold h-clr--black-1 cart-empty-msg">' +
                             data.basket.resources.emptyCartMsg +
                             '</h1>' +
                             ' </div>' +
@@ -1220,23 +1220,29 @@ module.exports = function () {
             processData: false,
             success: function (data) {
                 if (data.error) {
-                    $('.dynamic-popup-promo-success').hide();
                     $('.dynamic-popup-promo-error').text(data.errorMessage);
                     $('.dynamic-popup-promo-error').show();
                 } else {
                     updateCartTotals(data);
                     $('.dynamic-popup-promo-error').hide();
-                    $('.dynamic-popup-promo-success').text(
-                        data.resources.couponApplied
+                    $('.dynamic-popup-dialog button.modal-close-icon').click();
+                    if ($('.add-to-cart-messages').length === 0) {
+                        $('body').append('<div class="add-to-cart-messages"></div>');
+                    }
+
+                    $('.add-to-basket-alert').remove();
+                    $('.add-to-cart-messages').append(
+                        '<div class="alert add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                data.resources.couponApplied +
+                '</div>'
                     );
-                    $('.dynamic-popup-promo-success').show();
+                    setTimeout(function () {
+                        $('.add-to-basket-alert').remove();
+                    }, 5000);
                 }
             },
             error: function () {
-                $('.dynamic-popup-promo-success').hide();
-                $('.dynamic-popup-promo-error').text(
-                    $('.something-went-wrong').text()
-                );
+                $('.dynamic-popup-promo-error').text($('.something-went-wrong').text());
                 $('.dynamic-popup-promo-error').show();
             }
         });

@@ -299,7 +299,7 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
     if (!sendPendingEmail && GCNumber === 0) {
         var confirmationEmail = new Mail();
         confirmationEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
-        confirmationEmail.setSubject(Resource.msgf('subject.order.confirmation.email', 'giftcards', null,orderModel.orderNumber));
+        confirmationEmail.setSubject(Resource.msg('subject.egift.delivered.confirmation.email', 'giftcards', null));
         confirmationEmail.addTo(order.customerEmail);
         confirmationEmail.setContent(renderTemplateHelper.getRenderedHtml(context, 'checkout/confirmation/confirmationEgiftEmailToSender'), 'text/html', 'UTF-8');
         var confirmationEmailSend = confirmationEmail.send();
