@@ -59,8 +59,7 @@
             <preference preference-id="apStorePickupDescription">Available for next-day pickup</preference>
             <preference preference-id="enableAfterpay">true</preference>
             <preference preference-id="enableCashAppPay">true</preference>
-            <preference preference-id="hardTimeout">360</preference>
-            <preference preference-id="softTimeout">120</preference>
+            <preference preference-id="softTimeout">15</preference>
             <preference preference-id="popupDuration">2</preference>
             <preference preference-id="zeroOrderEmail"></preference>
             <preference preference-id="careersEmail"></preference>
@@ -113,7 +112,7 @@
                     "@type": "Organization",
                     "name": "Bath and Body Works Australia",
                     "url": "https://www.bathandbodyworks.com.au/",
-                    "logo": "${URLUtils.staticURL('/images/og-image.png')}",
+                    "logo": "og-image.png?$staticlink$",
                     "contactPoint": [
                         {
                             "@type": "ContactPoint",
@@ -206,8 +205,7 @@
             <preference preference-id="apStorePickupDescription">Available for next-day pickup</preference>
             <preference preference-id="enableAfterpay">true</preference>
             <preference preference-id="enableCashAppPay">false</preference>
-            <preference preference-id="hardTimeout">360</preference>
-            <preference preference-id="softTimeout">120</preference>
+            <preference preference-id="softTimeout">15</preference>
             <preference preference-id="popupDuration">2</preference>
             <preference preference-id="zeroOrderEmail"></preference>
             <preference preference-id="chatScript"></preference>
@@ -251,7 +249,7 @@
                     "@type": "Organization",
                     "name": "Bath and Body Works Australia",
                     "url": "https://www.bathandbodyworks.com.au/",
-                    "logo": "${URLUtils.staticURL('/images/og-image.png')}",
+                    "logo": "og-image.png?$staticlink$",
                     "contactPoint": [
                         {
                             "@type": "ContactPoint",

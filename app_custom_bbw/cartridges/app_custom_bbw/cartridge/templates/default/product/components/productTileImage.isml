@@ -35,11 +35,11 @@
             data-next="${Resource.msg('button.next', 'common', null)}">
             <div class="carousel-inner" role="listbox">
                 <a class="d-block"
-                    href="${product.isEgiftCard ? URLUtils.url('Giftcard-Show', 'pid', product.id).relative().toString() : pdict.urls.product}">
+                    href="${pdict.urls.product}">
                     <isloop items="${product.images['medium']}" var="image" status="loopStatus">
                         <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
                             <div class="carousel-img-wrapper d-flex h-maxheight--300">
-                                <img data-src="${image.url}"
+                                <img data-src="${image.url}" data-srcset="${image.url} 1x, ${product.images['medium_2x'][loopStatus.index].url} 2x"
                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E"
                                     class="w-100 h-100 mx-auto b-product-tile__img carousel-product-img lazy"
                                     alt="${image.alt} image number ${image.index}" itemprop="image" width="202px"
@@ -65,9 +65,9 @@
     <iselseif condition="${product.images['medium'].length == 2}" />
         <isloop items="${product.images['medium']}" var="image" status="loopStatus">
             <a class="d-none d-md-none d-lg-block h-hidden-sm-down"
-                href="${product.isEgiftCard ? URLUtils.url('Giftcard-Show', 'pid', product.id).relative().toString() : pdict.urls.product}">
+                href="${pdict.urls.product}">
                 <div class='img-inner-wrapper ${loopStatus.index == 0 ? ' main-img-wrapper' : 'hover-img-wrapper'}'>
-                    <img class="tile-image b-product-tile__img mx-auto w-100 lazy" data-src="${image.url}"
+                    <img class="tile-image b-product-tile__img mx-auto w-100 lazy" data-src="${image.url}" data-srcset="${image.url} 1x, ${product.images['medium_2x'][loopStatus.index].url} 2x"
                         alt="${product.productName}"
                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E"
                         title="${image.title}" itemprop="image" width="202px" height="300px" />
@@ -83,7 +83,7 @@
                     <isloop items="${product.images['medium']}" var="image" status="loopStatus">
                         <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
                             <div class="carousel-img-wrapper d-flex h-maxheight--300">
-                                <img data-src="${image.url}"
+                                <img data-src="${image.url}" data-srcset="${image.url} 1x, ${product.images['medium_2x'][loopStatus.index].url} 2x"
                                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E"
                                     class="w-100 h-100 mx-auto b-product-tile__img carousel-product-img lazy"
                                     alt="${image.alt} image number ${image.index}" itemprop="image" width="202px"
@@ -109,9 +109,9 @@
     <iselseif condition="${product.images['medium'].length < 2}" />
         <isloop items="${product.images['medium']}" var="image" status="loopStatus">
             <a class="d-block"
-                href="${product.isEgiftCard ? URLUtils.url('Giftcard-Show', 'pid', product.id).relative().toString() : pdict.urls.product}">
+                href="${pdict.urls.product}">
                 <div class='img-inner-wrapper lazy-skeleton'>
-                    <img class="tile-image b-product-tile__img mx-auto w-100 lazy" data-src="${image.url}"
+                    <img class="tile-image b-product-tile__img mx-auto w-100 lazy" data-src="${image.url}" data-srcset="${image.url} 1x, ${product.images['medium_2x'][loopStatus.index].url} 2x"
                         src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3C/svg%3E"
                         alt="${product.productName}" title="${image.title}" itemprop="image" width="202px"
                         height="300px" />

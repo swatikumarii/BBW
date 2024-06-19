@@ -27,7 +27,11 @@ module.exports = {
                         addressObject.address1 = element.long_name + ' ';
                         break;
                     case 'route':
-                        addressObject.address1 += element.long_name;
+                        if (addressObject.address1) {
+                            addressObject.address1 += element.long_name;
+                        } else {
+                            addressObject.address1 = element.long_name;
+                        }
                         break;
                     case 'sublocality_level_1':
                         if ('address1' in addressObject) {
@@ -93,7 +97,11 @@ module.exports = {
                         addressObject.address1 = element.long_name + ' ';
                         break;
                     case 'route':
-                        addressObject.address1 += element.long_name;
+                        if (addressObject.address1) {
+                            addressObject.address1 += element.long_name;
+                        } else {
+                            addressObject.address1 = element.long_name;
+                        }
                         break;
                     case 'sublocality_level_1':
                         if ('address1' in addressObject) {
@@ -131,6 +139,70 @@ module.exports = {
             form.find('#billingZipCode')
                 .val(addressObject.zipcode)
                 .trigger('change');
+        });
+    },
+    initializeAccount: function () {
+        var input = document.getElementById('accountAddressAutoComplete');
+        var options = {
+            placeholder: ' ',
+            componentRestrictions: { country: 'AU' },
+            fields: [
+                'formatted_address',
+                'geometry',
+                'name',
+                'address_components'
+            ],
+            strictBounds: false,
+            types: ['address']
+        };
+        var autocomplete = new google.maps.places.Autocomplete(input, options);
+        autocomplete.addListener('place_changed', function () {
+            var place = autocomplete.getPlace();
+            var components = place.address_components;
+            var addressObject = {};
+            for (var index = 0; index < components.length; index++) {
+                var element = components[index];
+                switch (element.types[0]) {
+                    case 'street_number':
+                        addressObject.address1 = element.long_name + ' ';
+                        break;
+                    case 'route':
+                        if (addressObject.address1) {
+                            addressObject.address1 += element.long_name;
+                        } else {
+                            addressObject.address1 = element.long_name;
+                        }
+                        break;
+                    case 'sublocality_level_1':
+                        if ('address1' in addressObject) {
+                            addressObject.address2 = element.long_name;
+                        } else {
+                            addressObject.address1 += element.long_name;
+                        }
+                        break;
+                    case 'locality':
+                        addressObject.city = element.long_name;
+                        break;
+                    case 'administrative_area_level_1':
+                        addressObject.state = element.long_name;
+                        break;
+                    case 'postal_code':
+                        addressObject.zipcode = element.long_name;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            var form = $('.address-form');
+            form.find('#address1')
+                .val(addressObject.address1)
+                .trigger('change');
+            form.find('#address2')
+                .val(addressObject.address2)
+                .trigger('change');
+            form.find('#state').val(addressObject.state).trigger('change');
+            form.find('#city').val(addressObject.city).trigger('change');
+            form.find('#zipCode').val(addressObject.zipcode).trigger('change');
         });
     }
 };

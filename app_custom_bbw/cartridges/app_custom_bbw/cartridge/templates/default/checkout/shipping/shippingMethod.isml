@@ -10,7 +10,7 @@
                     <span class="text-muted arrival-time h-font-size--16">(${shippingMethod.estimatedArrivalTime})</span>
                 </isif>
             </label>
-            <div class="shipping-method-description">
+            <div class="shipping-method-description h-clr--gray-4">
                 <isif condition="${shippingMethod.htmlDescription !== ''}">
                     <isprint value="${shippingMethod.htmlDescription}" encoding="off" />
                 <iselse/>
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="col-3 text-right shipping-method-pricing end-lines">
-            <span class="shipping-cost">${shippingMethod.shippingCost}</span>
+            <span class="shipping-cost h-clr--black-1">${shippingMethod.shippingCost}</span>
         </div>
     </isloop>
 </div>
@@ -40,6 +40,6 @@
             </div>
         </div>
         <div class="col-3 text-right shipping-method-pricing end-lines">
-            <span class="shipping-cost">${shippingMethod.shippingCost}</span>
+            <span class="shipping-cost h-clr--black-1">${shippingMethod.shippingCost}</span>
         </div>
 </div>

@@ -92,6 +92,7 @@ footer {
 
             .heading-text {
                 letter-spacing: 0.01em;
+                line-height: 1.25rem;
             }
 
             .tooltip-container {
@@ -162,6 +163,7 @@ footer {
             .footer-list-item {
                 a {
                     letter-spacing: 0.01em;
+                    line-height: 20px;
                 }
             }
         }
@@ -217,6 +219,7 @@ footer {
                     .ds-link {
                         letter-spacing: 0.015em;
                         color: colour(gray, 4);
+                        line-height: 1.25rem;
 
                         &:hover {
                             text-decoration: underline;
@@ -234,6 +237,7 @@ footer {
                     letter-spacing: 0.015em;
                     color: colour(gray, 4);
                     text-align: center;
+                    line-height: 1.2857;
                 }
             }
         }
@@ -399,6 +403,7 @@ footer {
 .autologout-modal {
     .modal-dialog {
         max-width: 306px;
+        margin: 0 auto;
 
         .modal-content {
             border-radius: 0;

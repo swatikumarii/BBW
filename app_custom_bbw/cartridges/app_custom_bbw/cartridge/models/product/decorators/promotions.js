@@ -4,7 +4,12 @@ var collections = require('*/cartridge/scripts/util/collections');
 var formatMoney = require('dw/util/StringUtils').formatMoney;
 var Money = require('dw/value/Money');
 var BasketMgr = require('dw/order/BasketMgr');
-var currentBasket = BasketMgr.getCurrentBasket();
+var currentBasket;
+try {
+    currentBasket = BasketMgr.getCurrentBasket();
+} catch (error) {
+    currentBasket = false;
+}
 
 /**
  * toFixedIfNecessary
@@ -123,7 +128,8 @@ module.exports = function (object, promotions) {
             var motivator = currentBasket ? checkMotivator(promotion) : false;
             var calloutMsg = promotion.calloutMsg ? promotion.calloutMsg.markup : '';
             return {
-                calloutMsg: motivator || calloutMsg,
+                calloutMsg: calloutMsg,
+                motivator: motivator,
                 details: promotion.details ? promotion.details.markup : '',
                 enabled: promotion.enabled,
                 id: promotion.ID,

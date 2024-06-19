@@ -1,6 +1,25 @@
+<div class="row mb-2">
+    <div class="col-12">
+        <div class="form-group mb-0">
+            <div class="custom-control custom-checkbox">
+                <input class="custom-control-input gift" type="checkbox"
+                    id="checkout.saveAddress-${lineItem ? lineItem.UUID : 'default'}-${shippingModel.UUID}"
+                    checked <isprint
+                    value="${pdict.forms.shippingForm.shippingAddress.checkout.saveAddress.attributes}"
+                    encoding="off" />
+                >
+                <label
+                    for="checkout.saveAddress-${lineItem ? lineItem.UUID : 'default'}-${shippingModel.UUID}"
+                    class="custom-control-label checkout-checkbox h-font-size--16 h-clr--black-1">
+                    ${Resource.msg('check.save.address', 'checkout', null)}
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-12">
-        <div class="form-group">
+        <div class="form-group mb-0">
             <div class="custom-control custom-checkbox">
                 <input class="custom-control-input gift" type="checkbox"
                     id="shippingAddressUseAsBillingAddress-${lineItem ? lineItem.UUID : 'default'}-${shippingModel.UUID}" checked <isprint value="${pdict.forms.shippingForm.shippingAddress.shippingAddressUseAsBillingAddress.attributes}" encoding="off" />

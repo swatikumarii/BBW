@@ -161,10 +161,6 @@
                     }
                 }
 
-                &__name {
-                    font-weight: 700 !important;
-                }
-
                 .tile-body-footer {
                     .add-to-cart {
                         display: none;
@@ -293,7 +289,7 @@
             }
 
             .search-popular-list__icon {
-                background-image: url("../images/icons/search-sug-icon.svg");
+                background-image: url("../images/icons/popular-searches-icon.svg");
             }
 
             .search-trending-list__icon {

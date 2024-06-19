@@ -43,7 +43,7 @@ function Handle(paymentMethodName, basket, paymentInformation) {
 
                 if (paymentInformation.isCreditCard) {
                     // If the card wasn't a stored card we need to convert sfccCardType
-                    var sfccCardType = !paymentInformation.creditCardToken ? AdyenHelper.getSFCCCardType(paymentInformation.cardType) : paymentInformation.cardType;
+                    var sfccCardType = !paymentInformation.creditCardToken ? AdyenHelper.getSfccCardType(paymentInformation.cardType) : paymentInformation.cardType;
                     paymentInstrument.setCreditCardNumber(paymentInformation.cardNumber);
                     paymentInstrument.setCreditCardType(sfccCardType);
                     paymentInstrument.custom.adyenPaymentMethod = sfccCardType;
@@ -71,15 +71,16 @@ function Handle(paymentMethodName, basket, paymentInformation) {
 
 /**
  * default hook if no payment processor is supported
- * @param {number} orderNumber orderNumber
+ * @param {object} order order
  * @param {object} paymentInstrument paymentInstrument
  * @param {object} paymentProcessor paymentProcessor
  * @returns {object} an object that contains error information
  */
-function Authorize(orderNumber, paymentInstrument, paymentProcessor) {
+function Authorize(order, paymentInstrument, paymentProcessor) {
     var serverErrors = [];
     var fieldErrors = {};
     var error = false;
+    var orderNumber = order.orderNo;
 
     try {
         Transaction.wrap(function () {

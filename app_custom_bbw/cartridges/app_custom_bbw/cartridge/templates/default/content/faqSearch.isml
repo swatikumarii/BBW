@@ -7,7 +7,7 @@
         <nav class="sub-nav d-flex justify-content-between">
             <ol class="breadcrumbs">
                 <isinclude template="/content/faqRootBreadcrumb" />
-                <li title="${Resource.msg('faq.search.results', 'faq', null)}">
+                <li class="search-breadcrumb" title="${Resource.msg('faq.search.results', 'faq', null)}">
                     ${Resource.msg('faq.search.results', 'faq', null)}
                 </li>
             </ol>

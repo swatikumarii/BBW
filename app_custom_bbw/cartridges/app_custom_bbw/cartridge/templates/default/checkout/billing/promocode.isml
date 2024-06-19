@@ -1,8 +1,8 @@
 
 <div class="checkoutPromo accordion border-top h-mt--50">
     <span
-        class="h-font-size--18 h-fw--bold h-clr--black-1 customer-heading promocode-title accordion-title d-block">${Resource.msg('label.promo.code', 'cart', null)}</span>
-    <div class="accordion-content h-px--10">
+        class="h-font-size--18 h-fw--bold h-clr--black-1 customer-heading promocode-title accordion-title d-block rotate-down">${Resource.msg('label.promo.code', 'cart', null)}</span>
+    <div class="accordion-content" style="display:none">
         <div class="row">
             <div class="col-12 d-sm-none">
                 <p class="optional-promo">${Resource.msg('action.enter.promo.code', 'cart', null)}</p>
@@ -10,15 +10,15 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <div action="${pdict.actionUrls.submitCouponCodeUrl}" class="promo-code-form" method="GET"
+                <div action="${URLUtils.url('Cart-AddCoupon').toString()}" class="promo-code-form" method="GET"
                     name="promo-code-form">
                     <div class="form-group">
-                        <label class="promoCodeLabel h-clr--black-1"
+                        <label class="promoCodeLabel h-clr--black-1 h-fw--semibold"
                             for="couponCode">${Resource.msg('label.promo.code', 'cart', null)}</label>
-                        <div class="couponForm d-flex h-mt--10 h-mb--30">
+                        <div class="couponForm d-flex h-mt--10 h-mb--30 h-maxwidth-perc-md--90">
                             <input type="text" class="form-control coupon-code-field" id="coupon-code" name="couponCode" />
                             <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
-                            <button type="button" class="btn btn-light promo-code-btn">
+                            <button type="button" class="btn btn-hover btn-light promo-code-btn h-fw--semibold h-font-size--16 text-uppercase">
                                 ${Resource.msg('button.submit.promo.code', 'cart', null)}
                             </button>
                         </div>
@@ -30,8 +30,39 @@
                 </div>
             </div>
         </div>
-        <div class="coupons-and-promos">
-            <isinclude template="cart/cartCouponDisplay" />
+        <div class="coupons-and-promos mb-4 mr-3">
+            <isloop items="${pdict.order.totals.discounts}" var="discount">
+                <isif condition="${discount.type === 'coupon'}">
+                    <div class="coupon-price-adjustment d-flex justify-content-between h-bg--${discount.applied ? 'green-5' : 'red-10'} coupon-uuid-${discount.UUID}"
+                        data-uuid="${discount.UUID}">
+                        <isif condition="${discount.applied}">
+                            <div class="coupon-code h-font-size--16 h-clr--green-2 h-fw--semibold  h-bg--green-5 py-2 px-4">
+                                <isloop items="${discount.relationship}" var="relatedPromotion">
+                                    ${Resource.msgf('msg.coupon.applied', 'cart', null, discount.couponCode)}
+                                </isloop>
+                                <span
+                                    class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + discount.couponCode}</span>
+                            </div>
+                            <span class="delete-coupon-confirmation-btn h-bg--green-5 py-2 px-4" data-code="${discount.couponCode}"
+                                aria-label="${Resource.msgf('text.remove.coupon', 'cart', null, discount.couponCode)}"
+                                data-action="${URLUtils.url('Cart-RemoveCouponLineItem')}" data-uuid="${discount.UUID}">
+                                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="15" />
+                            </span>
+                        <iselse/>
+                            <div class="coupon-code h-font-size--16 h-fw--semibold h-bg--red-10 py-2 px-4">
+                                <span class="coupon-not-applied h-clr--red">${discount.qualificationMsg}</span>
+                                <span
+                                    class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + discount.couponCode}</span>
+                            </div>
+                            <span class="delete-coupon-confirmation-btn h-bg--red-10 py-2 px-4" data-code="${discount.couponCode}"
+                                aria-label="${Resource.msgf('text.remove.coupon', 'cart', null, discount.couponCode)}"
+                                data-action="${URLUtils.url('Cart-RemoveCouponLineItem')}" data-uuid="${discount.UUID}">
+                                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="15" />
+                            </span>
+                        </isif>
+                    </div>
+                </isif>
+            </isloop>
         </div>
     </div>
 </div>

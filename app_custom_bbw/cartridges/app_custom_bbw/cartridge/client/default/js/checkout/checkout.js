@@ -7,7 +7,6 @@ var billingHelpers = require('./billing');
 var summaryHelpers = require('./summary');
 var formHelpers = require('base/checkout/formErrors');
 var scrollAnimate = require('base/components/scrollAnimate');
-var adyenBilling = require('adyen/checkout/billing');
 // ### Custom Adyen cartridge start ###
 var adyenCheckout = require('adyen/adyenCheckout');
 // ### Custom Adyen cartridge end ###
@@ -204,12 +203,18 @@ var history = window.history;
                             type: 'post',
                             data: shippingFormData,
                             success: function (data) {
-                                $.spinner().stop();
                                 // enable the next:Payment button here
-                                $('body').trigger('checkout:enableButton', '.next-step-button button');
-                                shippingHelpers.methods.shippingFormResponse(defer, data);
-                                if ($('.billing .address-summary .firstName').text().trim() !== '') {
-                                    $('.summary-details.billing').removeClass('d-none');
+                                $('body').trigger('checkout:enableButton','.next-step-button button');
+                                if (data.error) {
+                                    shippingHelpers.methods.shippingFormResponse(
+                                        defer,
+                                        data
+                                    );
+                                    $.spinner().stop();
+                                } else {
+                                    // enable the next:Payment button here
+                                    var billingURL = $('input[name="billing-url"]').val();
+                                    window.location.href = billingURL;
                                 }
                             },
                             error: function (err) {
@@ -452,6 +457,7 @@ var history = window.history;
                     e.preventDefault();
                     members.currentStage = checkoutStages.indexOf('customer');
                     members.nextStage();
+                    members.currentStage = checkoutStages.indexOf('shipping');
                 });
                 $('body').on('click', '.submit-customer', function (e) {
                     e.preventDefault();
@@ -580,10 +586,12 @@ var history = window.history;
              * Previous State
              */
             handlePrevStage: function () {
-                if (members.currentStage > 0) {
+                if (members.currentStage > 1) {
                     // move state back
                     members.currentStage--;
                     updateUrl(members.currentStage);
+                } else {
+                    history.back();
                 }
 
                 $(plugin).attr('data-checkout-stage', checkoutStages[members.currentStage]);
@@ -639,7 +647,7 @@ var exports = {
                 data.customer,
                 data.options
             );
-            adyenBilling.methods.updatePaymentInformation(data.order, data.options);
+            billingHelpers.methods.updatePaymentInformation(data.order, data.options);
             summaryHelpers.updateOrderProductSummaryInformation(data.order, data.options);
         });
     },

@@ -79,10 +79,10 @@ function adjustProductGrid(elements) {
     /**
      * @type {number} itemsPerRow - Number of items per row in the product grid.
      */
-    var itemsPerRow = window.matchMedia('(max-width: 1024px)').matches
-        ? window.matchMedia('(max-width: 479px)').matches
-            ? 2
-            : 3
+    var itemsPerRow = window.matchMedia('(max-width: 1024px)').matches // eslint-disable-line
+        ? window.matchMedia('(max-width: 479px)').matches // eslint-disable-line
+            ? 2 // eslint-disable-line
+            : 3 // eslint-disable-line
         : 4; // eslint-disable-line
 
     /**
@@ -111,12 +111,14 @@ function adjustProductGrid(elements) {
             slicedElements.removeAttr('style');
             slicedElements.find('.b-product-tile__name').removeAttr('style');
             slicedElements.find('.js-promo-wrapper').removeAttr('style');
+            slicedElements.find('.js-product-tile-badge').removeAttr('style');
             slicedElements.find('.pdp-link').removeAttr('style');
             slicedElements.find('.price').removeAttr('style');
 
             // Sync heights of various elements
             slicedElements.find('.b-product-tile__name').syncHeight();
             slicedElements.find('.js-promo-wrapper').syncHeight();
+            slicedElements.find('.js-product-tile-badge').syncHeight();
             slicedElements.find('.pdp-link').syncHeight();
             slicedElements.find('.price').syncHeight();
             // slicedElements.syncHeight();

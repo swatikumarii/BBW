@@ -25,5 +25,6 @@ module.exports = function productLineItem(product, apiProduct, options) {
     productDecorators.maxOrderQty(product, apiProduct);
     productDecorators.dynamicBadge(product, apiProduct);
     productDecorators.badge(product, apiProduct);
+    productDecorators.images(product, apiProduct, { types: ['small', 'small_2x'], quantity: 'single' });
     return product;
 };

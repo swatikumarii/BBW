@@ -6,6 +6,7 @@ var lazyload = require('../utils/lazyLoad');
 
 var updateMiniCart = true;
 var location = window.location;
+var timeoutId;
 
 module.exports = function () {
     cart();
@@ -85,16 +86,33 @@ module.exports = function () {
                     updateMiniCart = false;
                     $.spinner().stop();
                 });
-                $('.minicart .popover').addClass('show');
+                if ($('.minicart .popover').hasClass('clear-time')) {
+                    clearTimeout(timeoutId);
+                }
+                $('.minicart .popover').addClass('show js-retain');
             }
-        })
-        .on('mouseleave', function () {
-            $('.minicart .popover').removeClass('show');
         });
+
+    $('.minicart.popup .minicart-total').on('mouseleave', function () {
+        $('.minicart .popover').addClass('js-total-leave');
+        timeoutId = setTimeout(() => {
+            $('.minicart .popover').removeClass('show js-total-to-minicart');
+        }, 200);
+    });
+
+    $('.minicart.popup .popover').on('mouseleave', function () {
+        setTimeout(() => {
+            $('.minicart .popover').removeClass('show');
+        }, 300);
+    }).on('mouseenter', function () {
+        if ($(this).hasClass('js-total-leave')) {
+            clearTimeout(timeoutId);
+        }
+    });
 
     $('body, .minicart-overlay').on('touchstart click', function (e) {
         if ($('.minicart').has(e.target).length <= 0) {
-            $('.minicart .popover').removeClass('show');
+            $('.minicart .popover').removeClass('show js-retain');
             $('.minicart-overlay').removeClass('show');
             $('body').removeClass('overflow-hidden');
             $('.minicart-recommendation-side-panel-wrap').removeClass('open');
@@ -135,9 +153,12 @@ module.exports = function () {
                 $('.minicart .popover').append(minicartData);
             });
             if (isPopupMinicart) {
-                setTimeout(() => {
-                    $('.minicart .popover').removeClass('show');
-                }, 3000);
+                if (!$('.minicart .popover').hasClass('js-retain')) {
+                    $('.minicart .popover').addClass('clear-time');
+                    timeoutId = setTimeout(() => {
+                        $('.minicart .popover').removeClass('show clear-time');
+                    }, 3000);
+                }
             }
         }
     });
@@ -147,7 +168,7 @@ module.exports = function () {
 
     $(document)
         .on('mouseleave', '.promo-details', function () {
-            setTimeout(function () {     
+            setTimeout(function () {
                 $('.promo-details-tooltip').removeClass('d-block');
             }, 50);
         })

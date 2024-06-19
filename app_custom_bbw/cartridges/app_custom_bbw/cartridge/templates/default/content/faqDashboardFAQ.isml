@@ -2,9 +2,11 @@
 <script src="${URLUtils.staticURL('/js/faqSearch.js')}"></script>
 
 <div class="faq-search text-center h-clr--black position-relative">
-    <h1 class="text-capitalize h-font-size--24 h-fw--bold">
+    <h1 class="text-capitalize h-font-size--24 h-fw--bold mb-1">
         ${Resource.msg('faq.header.how.can.we.help.you', 'faq', null)}
     </h1>
+    <small class="px-4 mb-4 d-block h-clr--gray">${Resource.msg('faq.need.help', 'faq', null)} <br/> ${Resource.msg('faq.enquiries', 'faq', null)} <a class="b-link--underlined" href="${URLUtils.url('Page-Show', 'cid', 'contact-us')}">${Resource.msg('faq.customer.service', 'faq', null)}</a> ${Resource.msg('faq.team', 'faq', null)}</small>
+
     <div class="header-search mx-auto position-relative">
         <input type="hidden" class="faq-search-url" data-url="${URLUtils.url('Faq-Content', 'query')}"/>
         <span type="hidden" class="hidden-search-loader"></span>
@@ -14,7 +16,7 @@
                 <circle cx="4.5" cy="4.5" fill="none" r="4" stroke="currentColor"></circle>
                 <path d="M11 11L7.5 7.5" stroke="currentColor" stroke-linecap="round"></path>
             </svg>
-            <input type="text" name="query" id="query" class="search-input" placeholder="${Resource.msg('faq.type.your.question.here', 'faq', null)}"/>
+            <input type="text" name="query" id="query" class="search-input" placeholder="${Resource.msg('faq.example', 'faq', null)}"/>
         </form>
         <div class="faq-search-suggestions h-bg--white w-100 js-faq-search-suggestions" id="faq-search-suggestions">
             <div class="faq-suggestions-wrapper h-bg--white">

@@ -588,6 +588,7 @@
         max-height: 147px;
         overflow-y: auto;
         padding: 0 16px 0 24px;
+        scrollbar-width: thin;
 
         &:focus {
             outline: 1px dotted colour(black);
@@ -601,7 +602,7 @@
             letter-spacing: 0.015em;
             line-height: 20px;
             max-height: 300px;
-            font-family: $ff-base;
+            font-family: get-ff(base, true);
         }
     }
 

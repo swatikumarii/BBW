@@ -10,6 +10,8 @@ input[type="number"],
 input[type="password"],
 input[type="email"],
 input[type="tel"],
+input[type="url"],
+input[type="file"],
 input[type="date"],
 input[type="checkbox"],
 textarea,
@@ -24,8 +26,8 @@ textarea,
     border-radius: 0;
 
     &:focus {
-        outline: 1px dotted colour(black);
-        outline-offset: 2px;
+        // outline: 1px dotted colour(black);
+        // outline-offset: 2px;
         border-color: unset;
         box-shadow: unset;
         color: inherit;
