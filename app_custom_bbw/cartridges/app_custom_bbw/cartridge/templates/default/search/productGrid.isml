@@ -4,7 +4,6 @@
 
     <iscomment> Mobile Filters - Buttons Section </iscomment>
     <isif condition="${pdict.productSearch.productIds.length > 0 && !pdict.apiProductSearch.category.custom.hideFilter}">
-    <iscomment> <isif condition="${pdict.productSearch.productIds.length > 0}"> </iscomment>
         <div class="row filter-bar-mobile d-md-none no-gutters h-mb--25">
             <div class="col-6 col-sm-3 text-right d-md-none order-sm-3">
                 <button type="button"
