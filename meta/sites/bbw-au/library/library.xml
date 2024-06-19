@@ -3734,7 +3734,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
         </custom-attributes>
     </content>
 
-  <content content-id="giftcards">
+     <content content-id="giftcards">
         <display-name xml:lang="x-default">Gift Cards</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -3828,8 +3828,8 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
                         data-maxlength="22" id="dwfrm_giftcard_giftCardID" maxlength="2147483647"&#13;
                         name="dwfrm_giftcard_giftCardID" pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
                 &lt;/div&gt;&#13;
-                &lt;div class="form-caption " id="caption-dwfrm_giftcard_giftCardID"&gt;&amp;nbsp;&lt;/div&gt;&#13;
-            &lt;/div&gt;&#13;
+                &lt;div class="form-caption d-none" id="caption-dwfrm_giftcard_giftCardID"&gt;&amp;nbsp;&lt;/div&gt;&#13;
+            &lt;/div&gt; &#13;
             &lt;div class="form-row pin number-max-length help mb-2" data-required-text=""&gt;&lt;label&#13;
                     for="dwfrm_giftcard_giftCardPin"&gt;&lt;span&gt;PIN&lt;/span&gt;&lt;span class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
                 &lt;div class="field-wrapper d-flex"&gt;&#13;
@@ -3879,23 +3879,37 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
             width: 100%;&#13;
         }&#13;
     }&#13;
+.btn-with-tooltip {&#13;
+    position: relative;&#13;
+    display: inline-block;&#13;
+    min-height: 32px;&#13;
+    border-radius: 50%; &#13;
+    cursor: pointer;&#13;
+    background-color: #f2f2f2;&#13;
+}&#13;
 &#13;
-    .btn-with-tooltip {&#13;
-        border-radius: 20px;&#13;
-        cursor: pointer;&#13;
-        background: #f2f2f2 url("images/gift-cards/UI-Information.svg?$staticlink$") no-repeat 50%;&#13;
-        background-size: 11px;&#13;
-        display: inline-block;&#13;
-        height: 26px;&#13;
-        position: relative;&#13;
-        text-indent: -999em;&#13;
-        width: 26px;&#13;
-    }&#13;
+.btn-with-tooltip::before {&#13;
+    content: '';&#13;
+    position: absolute;&#13;
+    top: 50%;&#13;
+    left: 50%;&#13;
+    transform: translate(-50%, -50%);&#13;
+    width: 28px;&#13;
+    height: 25px;&#13;
+    border-radius: 50%; &#13;
+    background-color: #f2f2f2;&#13;
+    background-image: url("images/gift-cards/UI-Information.svg?$staticlink$");&#13;
+    background-repeat: no-repeat;&#13;
+    background-position: center;&#13;
+    background-size: 11px; &#13;
+}&#13;
 &#13;
-    .btn-with-tooltip:hover {&#13;
-        background: #000000 url("images/gift-cards/UI-Information-hover.svg?$staticlink$") no-repeat 50%;&#13;
-        background-size: 11px;&#13;
-    }&#13;
+.btn-with-tooltip:hover::before {&#13;
+    background-color: #000000 !important;&#13;
+    background-image: url("images/gift-cards/UI-Information-hover.svg?$staticlink$");&#13;
+}&#13;
+&#13;
+&#13;
 &#13;
     .tooltip-field {&#13;
         width: 26px;&#13;
