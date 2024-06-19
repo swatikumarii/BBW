@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
+    <custom-type type-id="QwikcilverTokenAndTXNHandlers">
+        <display-name xml:lang="x-default">QwikcilverTokenAndTXNHandlers</display-name>
+        <staging-mode>no-staging</staging-mode>
+        <storage-scope>site</storage-scope>
+        <key-definition attribute-id="SiteID">
+            <type>string</type>
+            <min-length>0</min-length>
+        </key-definition>
+        <attribute-definitions>
+            <attribute-definition attribute-id="authToken">
+                <display-name xml:lang="x-default">authToken</display-name>
+                <type>text</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="transactionId">
+                <display-name xml:lang="x-default">transactionId</display-name>
+                <type>int</type>
+                <localizable-flag>false</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+        </attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="AuthData">
+                <display-name xml:lang="x-default">AuthData</display-name>
+                <attribute attribute-id="SiteID"/>
+                <attribute attribute-id="authToken"/>
+                <attribute attribute-id="transactionId"/>
+            </attribute-group>
+        </group-definitions>
+    </custom-type>
 
     <custom-type type-id="notifyBackInStock">
         <staging-mode>no-staging</staging-mode>

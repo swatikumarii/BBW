@@ -74,6 +74,13 @@ function showProductPage(querystring, reqPageMetaData) {
     var addToCartUrl = URLUtils.url('Cart-AddProduct');
     var canonicalUrl = URLUtils.url('Product-Show', 'pid', product.id);
     var breadcrumbs = getAllBreadcrumbs(null, product.id, []).reverse();
+    var productName = product.fragranceName ? product.fragranceName : product.productName;
+    if (breadcrumbs && breadcrumbs.length) {
+        breadcrumbs.push({
+            htmlValue: productName,
+            url: URLUtils.url('Product-Show', 'pid', product.id)
+        });
+    }
 
     var template = 'product/productDetails';
     if (product && 'isEgiftCard' in product && product.isEgiftCard) {

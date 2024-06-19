@@ -1509,6 +1509,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="qwikcilverAPISiteID">
+                <display-name xml:lang="x-default">Site ID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="qwikcilverAPIPassword">
                 <display-name xml:lang="x-default">Qwikcilver API Password</display-name>
                 <type>string</type>
@@ -1824,6 +1831,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-group group-id="qwikcilver">
                 <display-name xml:lang="x-default">Qwikcilver</display-name>
                 <attribute attribute-id="enableQwikcilver"/>
+                <attribute attribute-id="qwikcilverAPISiteID"/>
                 <attribute attribute-id="qwikcilverMinRedemptionAmount"/>
                 <attribute attribute-id="qwikcilverCPGName"/>
                 <attribute attribute-id="qwikcilverForwardingEntityId"/>
