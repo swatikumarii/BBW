@@ -253,6 +253,7 @@ server.prepend('SubmitPayment', server.middleware.https, csrfProtection.validate
         var validationHelpers = require('*/cartridge/scripts/helpers/basketValidationHelpers');
         var PaymentManager = require('dw/order/PaymentMgr');
         var HookManager = require('dw/system/HookMgr');
+        var addressHelpers = require('*/cartridge/scripts/helpers/addressHelpers');
 
         var currentBasket = BasketMgr.getCurrentBasket();
         if (!currentBasket) {
@@ -342,6 +343,14 @@ server.prepend('SubmitPayment', server.middleware.https, csrfProtection.validate
             });
 
             viewData.phone = { value: paymentForm.contactInfoFields.phone.value };
+        }
+
+        if (req.currentCustomer.addressBook && paymentForm.saveAddress.value) {
+            var address = addressHelpers.copyShippingAddress(currentBasket.billingAddress);
+            // save all used shipping addresses to address book of the logged in customer
+            if (!addressHelpers.checkIfAddressStored(address, req.currentCustomer.addressBook.addresses)) {
+                addressHelpers.saveAddress(address, req.currentCustomer, addressHelpers.generateAddressName(address), true);
+            }
         }
 
 
