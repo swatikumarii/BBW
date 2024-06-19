@@ -13,6 +13,7 @@ index.badge = require('*/cartridge/models/product/decorators/badge');
 index.maxOrderQty = require('*/cartridge/models/product/decorators/maxOrderQty');
 index.moreInfo = require('*/cartridge/models/product/decorators/moreInfo');
 index.isEgiftCard = require('*/cartridge/models/product/decorators/isEgiftCard');
+index.isBonusProduct = require('*/cartridge/models/product/decorators/isBonusProduct');
 index.promotions = require('*/cartridge/models/product/decorators/promotions');
 index.dynamicBadge = require('*/cartridge/models/product/decorators/dynamicBadge');
 module.exports = index;
