@@ -77,6 +77,12 @@ function fillModalElement(selectedValueUrl) {
                     $('#quickViewModal').modal('hide');
                 }
             );
+            $('.quick-view-modal .add-to-cart').on(
+                'click',
+                function () {
+                    $('#quickViewModal').modal('hide');
+                }
+            );
         }
     });
 }

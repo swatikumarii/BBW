@@ -2553,7 +2553,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 							&lt;p&gt;Need help? We want to hear from you!&lt;/p&gt;&#13;
 							&lt;div class="rn_ConditionalChatLink" id="rn_ConditionalChatLink_6"&gt;&#13;
 								&lt;p class="mb-0"&gt;&#13;
-									&lt;strong class="h-fw--semibold h-clr--black-3"&gt;CALL US:&lt;/strong&gt;  &lt;a href="tel:1-800-57-6972"&gt;1-800-57-6972&lt;/a&gt;&#13;
+									&lt;strong class="h-fw--semibold h-clr--black-3"&gt;CALL US:&lt;/strong&gt;  &lt;a href="tel:1-800-576-972"&gt;1-800-576-972&lt;/a&gt;&#13;
 								&lt;/p&gt;&#13;
 							&lt;/div&gt;&#13;
 							&lt;p&gt;&#13;
@@ -2563,14 +2563,16 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 							&lt;p class="d-flex align-items-center"&gt;9:00am-9:00pm AEST $include('ContactUs-Availability')$&lt;/p&gt;&#13;
 							&#13;
 							&lt;p&gt;&#13;
-								&lt;strong class="h-fw--semibold h-clr--black-3"&gt;MAILING ADDRESS:&lt;/strong&gt;  Level 4, 112 Castlereagh St,Sydney NSW 2000 Australia&#13;
+								&lt;strong class="h-fw--semibold h-clr--black-3"&gt;MAILING ADDRESS:&lt;/strong&gt; Level 4, 112 Castlereagh St, Sydney, NSW, 2000, Australia.&#13;
 							&lt;/p&gt;&#13;
 							&lt;p class="mb-0"&gt;&#13;
 								&lt;strong class="h-fw--semibold h-clr--black-3"&gt;Signing up for our mailing list is easy!&lt;/strong&gt;&#13;
-								&lt;br /&gt;Create an account with us to start shopping &amp;amp; get the latest news from Bath &amp;amp; Body Works Australia. &#13;
-								Sign up to create an account&lt;a href="$url('Login-CreateAccount')$" style="text-decoration: none;"&gt; here &lt;/a&gt;&amp;amp; &#13;
-								access the best of your favorite store! To be updated on all offers, simply input your email address at the bottom &#13;
-								of the page and click subscribe.&lt;/p&gt;&#13;
+								&lt;br /&gt;&#13;
+								Create an account with us to start shopping &amp;amp; get the latest news from Bath &amp;amp; Body Works Australia. Sign up to create an&#13;
+								account &lt;a href="$url('Login-CreateAccount')$" style="text-decoration: none;"&gt; here &lt;/a&gt;&amp;amp; access the best of your favourite store! To &#13;
+								be updated on all offers, simply input your email address at&#13;
+								the bottom of the page and click subscribe.&#13;
+							&lt;/p&gt;&#13;
 						&lt;/div&gt;&#13;
 					&lt;/div&gt;&#13;
 				&lt;/div&gt;&#13;
@@ -7340,7 +7342,8 @@ padding-top:20px;&#xD;
     </custom-attributes>
   </content>
 
- <content content-id="gclearnmore">
+     <content content-id="gclearnmore">
+        <display-name xml:lang="x-default">Gift card View more</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
@@ -7466,5 +7469,5 @@ padding-top:20px;&#xD;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
-
+    
 </library>
