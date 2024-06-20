@@ -146,9 +146,9 @@
     </service-credential>
 
     <service-credential service-credential-id="CapillaryCredentials">
-        <url>https://apac2.api.capillarytech.com/v2/</url>
-        <user-id>valiram.my.ritualsecomtest.1</user-id>
-        <password encrypted="true" encryption-type="common.export">AHIuT6i9O3t3KUjZnGITpoJg/rZikLG8Kj+iXEg1lOr/V5rUYd4sW1Z/L2GrgIPnXIFHfSnoJbLU0X6guP0J9Q==</password>
+        <url>https://apac2.api.capillarytech.com/</url>
+        <user-id>vali.solns.till.1</user-id>
+        <password encrypted="true" encryption-type="common.export">202cb962ac59075b964b07152d234b70</password>
     </service-credential>
     <service-credential service-credential-id="sendgrid_http_credential">
         <url>https://api.sendgrid.com/v3</url>

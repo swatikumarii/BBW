@@ -1,6 +1,6 @@
 'use strict';
 
-var logger = require('dw/system/Logger').getLogger('Service', 'Capillary');
+var logger = require('dw/system/Logger').getLogger('ServiceCapillary', 'Capillary');
 var StringUtils = require('dw/util/StringUtils');
 
 /**
@@ -70,15 +70,16 @@ module.exports = {
                 dob: dob
             }
         };
-        var createStatus = callCapillaryAPI('customers', JSON.stringify(requestObj), 'POST');
+        var createStatus = callCapillaryAPI('v2/customers', JSON.stringify(requestObj), 'POST');
         if (createStatus.ok && 'object' in createStatus && createStatus.object) {
             var createObject = JSON.parse(createStatus.object);
             if ('errors' in createObject && createObject.errors && createObject.errors.length > 0 && createObject.errors[0].code === 8006) {
-                var endPoint = 'customers/lookup?source=INSTORE&identifierName=mobile&identifierValue=' + phoneNumber;
+                var endPoint = 'v2/customers/lookup?source=INSTORE&identifierName=email&identifierValue=' + registrationForm.email;
                 var customerStatus = callCapillaryAPI(endPoint, '', 'GET');
                 if (customerStatus && customerStatus.ok && 'object' in customerStatus && customerStatus.object) {
                     var customerObj = JSON.parse(customerStatus.object);
                     if ('errors' in customerObj && customerObj.errors) {
+                        logger.error('capillary create customer: ' + JSON.stringify(createObject.errors));
                         return '';
                     }
                     if ('entity' in customerObj) {
@@ -89,6 +90,64 @@ module.exports = {
             } else {
                 return createObject.createdId;
             }
+        }
+        return '';
+    },
+    createOrder: function (order) {
+        // prepare shipping address
+        var shippingAddress = order.shipping[0].shippingAddress;
+        var shippingCountry = shippingAddress.countryCode.value === 'AU' ? 'Australia' : shippingAddress.countryCode.value;
+        var fullShippingAddress = shippingAddress.firstName + ' ' + shippingAddress.lastName + ' ' + shippingAddress.address1;
+        fullShippingAddress = shippingAddress.address2 ? fullShippingAddress + ' ' + shippingAddress.address2 : fullShippingAddress;
+        fullShippingAddress = fullShippingAddress + ' ' + shippingAddress.city + ' ' + shippingAddress.stateCode + ' ' + shippingAddress.postalCode + ' ' + shippingCountry;
+
+        // prepare billing address
+        var billingAddress = order.billing.billingAddress.address;
+        var billingCountry = billingAddress.countryCode.value === 'AU' ? 'Australia' : billingAddress.countryCode.value;
+        var fullBillingAddress = billingAddress.firstName + ' ' + billingAddress.lastName + ' ' + billingAddress.address1;
+        fullBillingAddress = billingAddress.address2 ? fullBillingAddress + ' ' + billingAddress.address2 : fullBillingAddress;
+        fullBillingAddress = fullBillingAddress + ' ' + billingAddress.city + ' ' + billingAddress.stateCode + ' ' + billingAddress.postalCode + ' ' + billingCountry;
+
+        // prepare order items
+        var orderItems = [];
+        order.items.items.forEach(function (lineItem) {
+            var itemPrice = 'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0 ? 0 : lineItem.priceTotal.price;
+            itemPrice = parseFloat(itemPrice.replace(order.currencyCode, ''));
+            orderItems.push({
+                itemCode: lineItem.id,
+                amount: itemPrice,
+                rate: lineItem.basePrice.value,
+                qty: lineItem.quantity
+            });
+        });
+
+        var orderTotal = parseFloat((order.totals.grandTotal).replace(order.currencyCode, '')).toFixed(2);
+        var discount = order.totals.totalDiscount.value;
+        var billAmount = orderTotal - discount;
+        var requestObj = {
+            type: 'REGULAR',
+            billNumber: order.orderNumber,
+            discount: Math.abs(discount),
+            billAmount: parseFloat(billAmount).toFixed(2),
+            // note: 'This is test',
+            grossAmount: orderTotal,
+            customFields: {
+                ship_to_address: fullShippingAddress,
+                bill_to_address: fullBillingAddress,
+                paymentmode: order.billing.payment.selectedPaymentInstruments[0].paymentMethod
+            },
+            lineItemsV2: orderItems
+        };
+        var customerEmail = order.orderEmail;
+        var endPoint = 'v2/transactions?source=instore&identifierName=email&identifierValue='+customerEmail+'&rawSideEffects=true';
+        var createStatus = callCapillaryAPI(endPoint, JSON.stringify(requestObj), 'POST');
+        if (createStatus.ok && 'object' in createStatus && createStatus.object) {
+            var createObject = JSON.parse(createStatus.object);
+            if ('errors' in createObject && createObject.errors && createObject.errors.length > 0) {
+                logger.error('capillary create order: ' + JSON.stringify(createObject.errors));
+                return '';
+            }
+            return createObject.createdId;
         }
         return '';
     }

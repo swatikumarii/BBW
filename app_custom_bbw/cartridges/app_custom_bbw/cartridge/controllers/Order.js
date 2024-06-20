@@ -14,6 +14,7 @@ var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 var Order = require('dw/order/Order');
 var seo = require('*/cartridge/scripts/middleware/seo');
+var Transaction = require('dw/system/Transaction');
 
 /**
  * Order-Details : The Order-Details append to add notify-me functionality
@@ -497,6 +498,13 @@ server.append(
                 dynamicBadgeHelpers.updateCartDetailInProfile(
                     req.currentCustomer.raw.profile
                 );
+
+                // Capillary: create order
+                var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
+                var crmOrderID = capillaryAPI.createOrder(viewData.order);
+                Transaction.wrap(function () {
+                    order.custom.capillaryOrderID = crmOrderID;
+                });
             }
         });
         return next();
