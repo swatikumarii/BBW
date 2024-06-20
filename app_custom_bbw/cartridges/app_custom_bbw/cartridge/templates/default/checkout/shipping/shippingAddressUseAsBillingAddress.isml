@@ -4,7 +4,7 @@
             <div class="custom-control custom-checkbox">
                 <input class="custom-control-input gift" type="checkbox"
                     id="saveAddress-${lineItem ? lineItem.UUID : 'default'}-${shippingModel.UUID}"
-                    checked <isprint
+                    <isprint
                     value="${pdict.forms.shippingForm.shippingAddress.saveAddress.attributes}"
                     encoding="off" />
                 >
@@ -22,7 +22,7 @@
         <div class="form-group mb-0">
             <div class="custom-control custom-checkbox">
                 <input class="custom-control-input gift" type="checkbox"
-                    id="shippingAddressUseAsBillingAddress-${lineItem ? lineItem.UUID : 'default'}-${shippingModel.UUID}" checked <isprint value="${pdict.forms.shippingForm.shippingAddress.shippingAddressUseAsBillingAddress.attributes}" encoding="off" />
+                    id="shippingAddressUseAsBillingAddress-${lineItem ? lineItem.UUID : 'default'}-${shippingModel.UUID}" <isprint value="${pdict.forms.shippingForm.shippingAddress.shippingAddressUseAsBillingAddress.attributes}" encoding="off" />
                 >
                 <label for="shippingAddressUseAsBillingAddress-${lineItem ? lineItem.UUID : 'default'}-${shippingModel.UUID}"
                     class="custom-control-label checkout-checkbox h-font-size--16 h-clr--black-1">
