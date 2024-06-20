@@ -7,6 +7,17 @@
         </sorting-attributes>
     </sorting-rule>
 
+    <sorting-rule rule-id="sort-by">
+        <description>Sort By</description>
+        <sorting-attributes>
+            <attribute>
+                <attribute-path>product.brand</attribute-path>
+                <direction>descending</direction>
+                <include-text-relevance>false</include-text-relevance>
+            </attribute>
+        </sorting-attributes>
+    </sorting-rule>
+
     <sorting-rule rule-id="new-arrivals">
         <description>New Arrivals</description>
         <sorting-attributes>
@@ -60,6 +71,11 @@
     <sorting-rule-assignment category-id="root" rule-id="product-position" rule-context="site"/>
 
     <sorting-options>
+        <sorting-option option-id="sort-by">
+            <rule-id>sort-by</rule-id>
+            <rule-context>site</rule-context>
+            <display-name xml:lang="x-default">Sort By</display-name>
+        </sorting-option>
         <sorting-option option-id="product-position">
             <rule-id>product-position</rule-id>
             <rule-context>site</rule-context>
