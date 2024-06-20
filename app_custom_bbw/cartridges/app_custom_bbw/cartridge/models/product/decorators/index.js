@@ -16,4 +16,5 @@ index.isEgiftCard = require('*/cartridge/models/product/decorators/isEgiftCard')
 index.isBonusProduct = require('*/cartridge/models/product/decorators/isBonusProduct');
 index.promotions = require('*/cartridge/models/product/decorators/promotions');
 index.dynamicBadge = require('*/cartridge/models/product/decorators/dynamicBadge');
+index.isSearchableIfUnavailable = require('*/cartridge/models/product/decorators/isSearchableIfUnavailable');
 module.exports = index;
