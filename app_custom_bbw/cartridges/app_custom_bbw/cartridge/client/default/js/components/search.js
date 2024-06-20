@@ -392,7 +392,6 @@ function handlePostCartAdd(response) {
             $('body').append('<div class="add-to-cart-messages"></div>');
         }
 
-        $('.add-to-basket-alert').remove();
         $('.add-to-cart-messages').append(
             '<div class="alert ' +
                 messageType +
@@ -400,10 +399,25 @@ function handlePostCartAdd(response) {
                 response.message +
                 '</div>'
         );
-        setTimeout(function () {
-            $('.add-to-basket-alert').remove();
-        }, 5000);
     }
+    messageType = 'alert-success';
+    if (response.removeMessage) {
+        if ($('.add-to-cart-messages').length === 0) {
+            $('body').append('<div class="add-to-cart-messages"></div>');
+        }
+
+        $('.add-to-basket-alert').remove();
+        $('.add-to-cart-messages').append(
+            '<div class="alert first-message ' +
+                messageType +
+                ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                response.removeMessage +
+                '</div>'
+        );
+    }
+    setTimeout(function () {
+        $('.add-to-basket-alert').remove();
+    }, 5000);
 }
 
 

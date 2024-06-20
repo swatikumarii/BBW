@@ -21,7 +21,7 @@
 <iselse/>
     <div class="row">
         <div class="col-7">
-            <p class="h-font-size--16 h-clr--black-1 h-line-height--20">${Resource.msg('label.merchandise.subtotal', 'cart', null)}</p>
+            <p class="h-font-size--16 h-clr--black-1 h-line-height--20 merchandise-total">${Resource.msg('label.merchandise.subtotal', 'cart', null)}</p>
         </div>
         <div class="col-5">
             <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold subtotal h-line-height--20">${pdict.order.totals.subTotal}</p>

@@ -124,7 +124,6 @@ function handlePostCartAdd(response) {
             $('body').append('<div class="add-to-cart-messages"></div>');
         }
 
-        $('.add-to-basket-alert').remove();
         $('.add-to-cart-messages').append(
             '<div class="alert ' +
                 messageType +
@@ -140,7 +139,7 @@ function handlePostCartAdd(response) {
         }
 
         $('.add-to-cart-messages').append(
-            '<div class="alert ' +
+            '<div class="alert first-message ' +
                 messageType +
                 ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
                 response.removeMessage +

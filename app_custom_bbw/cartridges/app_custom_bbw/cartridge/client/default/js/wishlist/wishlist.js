@@ -10,19 +10,34 @@ var base = require('base/product/base');
 function handlePostCartAdd(response) {
     $('.minicart').trigger('count:update', response);
     var messageType = response.error ? 'alert-danger' : 'alert-success';
+    if (response.message) {
+        if ($('.add-to-cart-messages').length === 0) {
+            $('body').append('<div class="add-to-cart-messages"></div>');
+        }
 
-    if ($('.add-to-cart-messages').length === 0) {
-        $('body').append('<div class="add-to-cart-messages"></div>');
+        $('.add-to-cart-messages').append(
+            '<div class="alert ' +
+                messageType +
+                ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                response.message +
+                '</div>'
+        );
     }
+    messageType = 'alert-success';
+    if (response.removeMessage) {
+        if ($('.add-to-cart-messages').length === 0) {
+            $('body').append('<div class="add-to-cart-messages"></div>');
+        }
 
-    $('.add-to-cart-messages').append(
-        '<div class="alert ' +
-            messageType +
-            ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
-            response.message +
-            '</div>'
-    );
-
+        $('.add-to-basket-alert').remove();
+        $('.add-to-cart-messages').append(
+            '<div class="alert first-message ' +
+                messageType +
+                ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                response.removeMessage +
+                '</div>'
+        );
+    }
     setTimeout(function () {
         $('.add-to-basket-alert').remove();
     }, 5000);

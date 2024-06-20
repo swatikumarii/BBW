@@ -127,11 +127,6 @@ $(document).ready(function () {
     });
 
     var checkoutStage = $('#checkout-main').attr('data-checkout-stage');
-    var form = $('form.shipping-form');
-    if (checkoutStage === 'payment') {
-        form = $('form.billing-form');
-    }
-    checkFields(form);
     $('form.shipping-form input, form.shipping-form select').on(
         'input change',
         function () {
@@ -139,14 +134,6 @@ $(document).ready(function () {
                 $('#checkout-main').attr('data-checkout-stage') === 'shipping'
             ) {
                 checkFields($('form.shipping-form'));
-            }
-        }
-    );
-    $('form.billing-form input, form.billing-form select').on(
-        'input change',
-        function () {
-            if ($('#checkout-main').attr('data-checkout-stage') === 'payment') {
-                checkFields($('form.billing-form'));
             }
         }
     );
@@ -320,6 +307,17 @@ $(document).ready(function () {
         }
     }
     $.spinner().stop();
+});
+
+$(window).on('load', function () {
+    $('form.billing-form input, form.billing-form select').on(
+        'input change',
+        function () {
+            if ($('#checkout-main').attr('data-checkout-stage') === 'payment') {
+                checkFields($('form.billing-form'));
+            }
+        }
+    );
 });
 
 $('.info-icon-text .close').on('click', function () {
