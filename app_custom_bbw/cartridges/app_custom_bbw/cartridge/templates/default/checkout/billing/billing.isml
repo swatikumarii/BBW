@@ -37,7 +37,7 @@
         <!-------------------------------------------------------------------------->
 
         <fieldset class="contact-info-block">
-            <h2 class="card-header-custom h-font-size--20 h-fw--bold h-clr--black-1 billing-address-heading pt-0">
+            <h2 class="card-header-custom h-font-size--20 h-fw--bold h-clr--black-1 billing-address-heading pt-0 b-text-letter-space-005 h-line-height--24">
                 ${Resource.msg('heading.contact.info', 'checkout', null)}</h2>
             <div class="row d-none">
                 <div class="col-sm-12">
@@ -55,12 +55,12 @@
                 </div>
             </div><div class="row ">
                 <div class="col-sm-12">
-                    <div class="form-group info-billing
+                    <div class="form-group info-billing mt-3
                                         <isif condition=${pdict.forms.billingForm.contactInfoFields.email.mandatory === true}>required</isif>
                                         ${pdict.forms.billingForm.contactInfoFields.email.htmlName}">
                         <div class="d-flex justify-content-between">
-                            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label" for="email"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.email', 'checkout', null)}</label>
-                            <span class="h-font-size--14"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('label.required', 'account', null)}</span>
+                            <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label h-line-height--20 b-text-letter-space-01 " for="email"><span class="h-clr--red-9 require-indicator">${'*'}</span>${Resource.msg('field.customer.email', 'checkout', null)}</label>
+                            <span class="required-indicator-text h-clr--black-1 h-font-size--14 h-line-height--20 b-text-letter-space-01"><span class="h-clr--red-9 require-indicator">${'*'}</span>${Resource.msg('label.required', 'account', null)}</span>
                         </div>
                         <input type="text" class="form-control email" id="contactEmail"
                             value="${pdict.order.billing.billingAddress.address ? pdict.order.billing.billingAddress.address.email ? pdict.order.billing.billingAddress.address.email : pdict.customer && 'profile' in pdict.customer && pdict.customer.profile && 'email' in pdict.customer.profile ? pdict.customer.profile.email || '' : '' : ''}"
