@@ -341,6 +341,23 @@ var history = window.history;
 
                                 defer.reject();
                             } else {
+
+                                if (data.isEgiftCardPayment && data.isThankYouPage) {
+                                    var redirect = $('<form>').appendTo(document.body).attr({
+                                        method: 'POST',
+                                        action: data.continueUrl
+                                    });
+                                    $('<input>').appendTo(redirect).attr({
+                                        name: 'orderID',
+                                        value: data.orderID
+                                    });
+                                    $('<input>').appendTo(redirect).attr({
+                                        name: 'orderToken',
+                                        value: data.orderToken
+                                    });
+                                    redirect.submit();
+                                    defer.resolve(data);
+                                }
                                 //
                                 // Populate the Address Summary
                                 //
