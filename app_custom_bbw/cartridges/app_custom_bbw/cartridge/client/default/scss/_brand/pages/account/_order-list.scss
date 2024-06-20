@@ -51,7 +51,7 @@
                 padding: 0 1.25em;
                 text-transform: uppercase;
                 width: 100%;
-                font-size: 15px;
+                font-size: 14px;
                 margin-top: 25px;
 
                 &:hover {
@@ -59,7 +59,7 @@
                 }
 
                 @include media-up(sm) {
-                    width: 110px;
+                    width: 122px;
                     margin-top: 0;
                 }
             }
@@ -442,6 +442,66 @@
             background-repeat: no-repeat;
             content: "";
         }
+    }
+
+    @keyframes fade-in-order {
+        from {
+            bottom: 0;
+            opacity: 0;
+        }
+
+        to {
+            bottom: 30px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes fade-out-order {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
+    }
+}
+
+#order-level-out-of-stock-snackbar {
+    text-align: left;
+    visibility: hidden;
+    z-index: 1;
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translate(-50%);
+    box-shadow:
+        0 8px 10px 1px rgba(0, 0, 0, 14%),
+        0 3px 14px 2px rgba(0, 0, 0, 12%),
+        0 5px 5px -3px rgba(0, 0, 0, 2%);
+    width: 320px;
+    padding: 14px 16px 14px 46px;
+    gap: 8px;
+    background-color: colour(green, 6);
+    color: colour(green, 2);
+
+    &::before {
+        background-image: url("../../images/pdp/check-circle-fill.svg");
+        height: 24px;
+        left: 13px;
+        position: absolute;
+        width: 24px;
+        background-repeat: no-repeat;
+        content: "";
+    }
+
+    &.show {
+        visibility: visible;
+        animation:
+            fade-in-order 0.5s,
+            fade-out-order 0.5s 2.5s;
     }
 
     @keyframes fade-in-order {

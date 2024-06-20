@@ -35,12 +35,6 @@
                             ${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServiceEmail')}
                         </p>
                     </isif>
-                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyTaxNumber')}">
-                        <div style="margin: 0;line-height: 18px; letter-spacing:0.75px;color:#1a1919">
-                            ${Resource.msg('label.tax.number', 'order', null)}:
-                            <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyTaxNumber')}" encoding="off" />
-                        </div>
-                    </isif>
                 </td>
             </tr>
         </tbody>
@@ -231,6 +225,10 @@
                                         condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails && lineItem.giftCardDetails.isEgiftProduct}">
                                         <p
                                             style="margin:0px; margin-left: 10px;font-size:14px;font: normal 14px/24px ScalaSansOT,sans-serif; letter-spacing: 0.75px;color: #1a1919;">
+                                            ${Resource.msg('label.input.recipientsname', 'forms', null)}${': '} ${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails
+                                                                                                                .recipientName : ''}</p>
+                                        <p
+                                            style="margin:0px; margin-left: 10px;font-size:14px;font: normal 14px/24px ScalaSansOT,sans-serif; letter-spacing: 0.75px;color: #1a1919;">
                                             ${Resource.msg('productCard.egift.email.label', 'cart', null)}
                                             ${lineItem.giftCardDetails.recipientEmail}</p>
                                     </isif>
@@ -370,7 +368,11 @@
                             <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                                 <div class="col-md-10">
                                     <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
-                                        <strong>${discount.promotion}:</strong>
+                                        <isif condition="${discount.promotion != null}">
+                                            <strong>${discount.promotion}:</strong>
+                                        <iselse/>
+                                            <strong>${'-'}:</strong>
+                                        </isif>
                                     </p>
                                 </div>
                                 <div class="col-md-2" style=" margin-left: 31px;">

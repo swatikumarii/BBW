@@ -2,25 +2,25 @@
     <div class="modal-dialog add-free-dialog" role="document">
         <div class="modal-content free-item-content border-0">
             <div class="modal-header free-item-header border-0 p-0">
-                <h5 class="modal-title h-font-size--18 h-clr--black-3 m-0 h-fw--semibold free-header">
+                <h5 class="modal-title h-font-size-md--18 h-font-size-sm--18 h-font-size--16  h-clr--black-3 m-0 h-fw--semibold free-header">
                     ${Resource.msg('free-item-header', 'checkout', null)}</h5>
-                <button type="button" class="close close-icon-btn pull-right" data-dismiss="modal">
+                <button type="button" class="close close-icon-btn  h-bg--gray-1 pull-right" data-dismiss="modal">
                     <span aria-hidden="true">
-                        <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
+                        <iscomment> <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" /> </iscomment>
                     </span>
                 </button>
             </div>
             <div class="modal-body free-item-body p-0 mt-3">
                 <div class="col-12 p-0">
-                    <span class="free-item-para h-clr--black-1 h-font-size--16 ">
+                    <span class="free-item-para h-clr--black-1 h-font-size-md--16 h-font-size-sm--16 h-font-size--14 ">
                         ${Resource.msg('free.item.para', 'checkout', null)}</span>
                 </div>
             </div>
             <div class="modal-footer border-0 p-0 mt-3 m-0 justify-content-md-end justify-content-center">
                 <a href="${URLUtils.https('Checkout-Begin')}" class="m-0">
-                    <button type="button" class="btn free-item-btn btn-primary  h-font-size--16 mr-2">${Resource.msg('button.confirm.free', 'checkout', null)}</button>
+                    <button type="button" class="btn free-item-btn btn-primary  h-font-size-md--16 h-font-size-sm--16 h-font-size--14">${Resource.msg('button.confirm.free', 'checkout', null)}</button>
                 </a>
-                <button type="button" class="btn btn-primary free-close-btn btn-secondary h-clr--gray h-font-size--16"
+                <button type="button" class="btn btn-primary free-close-btn btn-secondary h-clr--gray h-font-size-md--16 h-font-size-sm--16 h-font-size--14"
                     data-dismiss="modal">${Resource.msg('button.go-back', 'checkout', null)}</button>
             </div>
         </div>

@@ -36,15 +36,15 @@
 
                 <isif condition="${pdict.order.shippingStatus.value == dw.order.Order.SHIPPING_STATUS_SHIPPED}">
                     <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
-                        src="${URLUtils.staticURL('/images/account/Shipped.png')}" />
+                        src="${URLUtils.staticURL('/images/account/icon-shipped.png')}" />
 
                 <iselseif condition="${pdict.order.exportStatus.value == dw.order.Order.EXPORT_STATUS_EXPORTED}" />
                     <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
-                        src="${URLUtils.staticURL('/images/account/Processing.png')}" />
+                        src="${URLUtils.staticURL('/images/account/icon-processed.png')}" />
 
                 <iselseif condition="${pdict.order.exportStatus.value != dw.order.Order.EXPORT_STATUS_EXPORTED}" />
                     <img width="100%" alt="${Resource.msg('label.heart.filled', 'order', null)}"
-                        src="${URLUtils.staticURL('/images/account/Place-Order.png')}" />
+                        src="${URLUtils.staticURL('/images/account/icon-placed.png')}" />
                 </isif>
             </div>
         </div>
@@ -200,8 +200,13 @@
                             <isloop items="${pdict.order.totals.allDiscounts}" var="discount" status="loopstatus">
                                 <div class="row order-discount">
                                     <div class="col-6 start-lines">
-                                        <p class="order-receipt-label"><span>${discount.promotion}</span>
-                                        </p>
+                                        <isif condition="${discount.promotion != null}">
+                                            <p class="order-receipt-label"><span>${discount.promotion}</span>
+                                            </p>
+                                        <iselse/>
+                                            <p class="order-receipt-label"><span>${'-'}</span>
+                                            </p>
+                                        </isif>
                                     </div>
                                     <div class="col-6 end-lines">
                                         <p class="text-right"><span

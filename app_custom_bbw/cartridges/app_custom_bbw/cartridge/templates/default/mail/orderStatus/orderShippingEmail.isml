@@ -1,5 +1,6 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
 <isdecorate template="common/layout/email">
+    <isset name="miniCart" value="${false}" scope="page" />
     <isset name="urlHelpers" value="${require('*/cartridge/scripts/helpers/urlHelpers')}" scope="page" />
     <iscomment>
         <isemailheaderdynamic heading="${Resource.msg('label.sitename', 'email', null)}"
@@ -268,6 +269,9 @@
                                                     condition="${payment.paymentMethod === 'AdyenComponent' || payment.paymentMethod === 'CREDIT_CARD'}">
                                                     <isinclude
                                                         template="checkout/confirmation/adyenConfirmationDetails" />
+                                                <iselseif
+                                                    condition="${payment.paymentMethod === 'CASHAPPPAY' || payment.paymentMethod === 'CLEARPAY' || payment.paymentMethod === 'AFTERPAY'}">
+                                                    <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
                                                 </isif>
                                                 <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.totals.grandTotal}</p>
                                             </isloop>

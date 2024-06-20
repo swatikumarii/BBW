@@ -203,6 +203,28 @@
             </div>
         </isif>
 
+        <iscomment> Collections Search </iscomment>
+        <isif condition="${pdict.suggestions.collections && pdict.suggestions.collections.available}">
+            <div class="category-suggestions suggestions__list">
+                <h2 class="suggestions-header h-fw--bold text-uppercase">
+                    ${Resource.msg('label.suggest.collections', 'search', null)}
+                </h2>
+                <div class="search-category-list sub-list link-only" role="list">
+                    <isloop items="${pdict.suggestions.collections.categories}" var="collections" status="listindex">
+                        <div
+                            class="search-category-list__item sub-list__item d-flex align-items-center h-py-sm-down--10 h-py-md--5">
+                            <a href="${collections.url}" class="search-category-list__link sub-list__item__link">
+                                <span class="h-fw--semibold">${collections.name}</span>
+                                <isif condition="${collections.parentID !== 'root'}">
+                                    <span class="category-parent"> ${Resource.msg('label.suggest.in', 'search', null)}
+                                        ${collections.parentName} </span>
+                                </isif>
+                            </a>
+                        </div>
+                    </isloop>
+                </div>
+            </div>
+        </isif>
         <iscomment> Content Search </iscomment>
         <isif condition="${pdict.suggestions.content && pdict.suggestions.content.available}">
             <div class="content-suggestions suggestions__list">

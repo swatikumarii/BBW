@@ -152,11 +152,47 @@ function handlePostCartAdd(response) {
             $('body').append('<div class="add-to-cart-messages"></div>');
         }
 
-        $('.add-to-basket-alert').remove();
         $('.add-to-cart-messages').append(
             '<div class="alert ' +
                 messageType +
                 ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                response.message +
+                '</div>'
+        );
+    }
+    messageType = 'alert-success';
+    if (response.removeMessage) {
+        if ($('.add-to-cart-messages').length === 0) {
+            $('body').append('<div class="add-to-cart-messages"></div>');
+        }
+
+        $('.add-to-basket-alert').remove();
+        $('.add-to-cart-messages').append(
+            '<div class="alert first-message ' +
+                messageType +
+                ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                response.removeMessage +
+                '</div>'
+        );
+    }
+    setTimeout(function () {
+        $('.add-to-basket-alert').remove();
+    }, 5000);
+}
+
+/**
+ * Show error message
+ * @param {string} response - ajax response from clicking the add to cart button
+ */
+function handlePostCartErrorTosteMessage(response) {
+    if (response.error && response.message) {
+        if ($('.add-to-cart-messages').length === 0) {
+            $('body').append('<div class="add-to-cart-messages"></div>');
+        }
+
+        $('.add-to-basket-alert').remove();
+        $('.add-to-cart-messages').append(
+            '<div class="alert error alert-danger add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
                 response.message +
                 '</div>'
         );
@@ -771,9 +807,13 @@ module.exports = $.extend({}, base, {
                                             data.errorMessage
                                         );
                                     }
-                                } else {
-                                    $('.reserve-stock p').text(data.message);
+                                } else if ($('.reserve-stock').length > 0) {
+                                    $('.reserve-stock p').text(
+                                        data.message
+                                    );
                                     $('.reserve-stock').removeClass('d-none');
+                                } else {
+                                    handlePostCartErrorTosteMessage(data);
                                 }
                                 $.spinner().stop();
                                 return true;

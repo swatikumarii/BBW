@@ -2099,7 +2099,7 @@ F&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-    
+
 	<content content-id="login.show.seo">
         <display-name xml:lang="x-default">Login Show Seo</display-name>
         <online-flag>true</online-flag>
@@ -2349,6 +2349,20 @@ F&#13;
         </folder-links>
     </content>
 
+    <content content-id="securitybugreport.landing.seo">
+        <display-name xml:lang="x-default">Security Bug Report Landing Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Security Bug Report</page-title>
+            <page-description xml:lang="x-default">Security Bug Report</page-description>
+            <page-keywords xml:lang="x-default">Bath and Body Works</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
     <content content-id="footer-customer-care">
         <display-name xml:lang="x-default">Customer Care</display-name>
         <online-flag>true</online-flag>
@@ -2505,7 +2519,7 @@ F&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-    
+
      <content content-id="store-detail">
         <display-name xml:lang="x-default">Store Detail</display-name>
         <description xml:lang="x-default">Store Detail asset to add shop now button</description>
@@ -2784,7 +2798,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p class="text-justify h-font-size--16 h-clr--gray-4 card-body"&gt;Product can be returned&lt;/p&gt;</custom-attribute>
         </custom-attributes>
     </content>
-    
+
     <content content-id="careers">
         <display-name xml:lang="x-default">Careers</display-name>
         <online-flag>true</online-flag>
@@ -2981,7 +2995,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-footer">
         <display-name xml:lang="x-default">Email Footer</display-name>
         <description xml:lang="x-default">Common Email Footer</description>
@@ -3158,7 +3172,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/tr&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="email-good-to-konw-shipped-block">
         <display-name xml:lang="x-default">Email Shipped Good to Know Block</display-name>
         <online-flag>true</online-flag>
@@ -3224,7 +3238,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="email-good-to-konw-block">
         <display-name xml:lang="x-default">Email Good to Know Block</display-name>
         <online-flag>true</online-flag>
@@ -3300,7 +3314,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-footer-only-topoffer">
         <display-name xml:lang="x-default">Email Footer Only Top Offers</display-name>
         <description xml:lang="x-default">Email Footer Only Top Offers Section</description>
@@ -3495,7 +3509,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/tr&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-footer-with-suggestions">
         <display-name xml:lang="x-default">Email Footer with Suggestions</display-name>
         <description xml:lang="x-default">Email Footer with picked just for you and top offers sections</description>
@@ -3550,7 +3564,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 						&lt;/td&gt;
 						&lt;/tr&gt;
 				&lt;!--Pick Just for you - end --&gt;
-				
+
                 &lt;!--Top Offers - Start --&gt;
                 &lt;tr&gt;
                     &lt;td align="center"
@@ -3770,7 +3784,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/tr&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-header">
         <display-name xml:lang="x-default">Email Header</display-name>
         <online-flag>true</online-flag>
@@ -3780,7 +3794,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p style="margin:0;padding-top:40px;"&gt;&lt;a href="$url('Home-Show')$" alt=""&gt;&lt;img style="width:100%;" alt="" src="images/email/email-header/email-header-nobg.png?$staticlink$" title="" /&gt;&lt;/a&gt;&lt;/p&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-header-newsletter">
         <display-name xml:lang="x-default">Email Header Newsletter</display-name>
         <description xml:lang="x-default">Newsletter Email Header</description>
@@ -3821,81 +3835,81 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;p style="margin-bottom:15px;text-align:center;width:100%;"&gt; &lt;a href="$url('Home-Show')$" style="display:block;text-align:center;"&gt;&lt;img style="margin:0 auto;display:block;" width="270px" alt="Shop Online Now" style="border:0;display:block" border="0" src="images/email/newsletter-email/shop-online-now.jpg?$staticlink$"&gt;&lt;/a&gt;&lt;/p&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="email-terms-and-conditions-block">
-        <display-name xml:lang="x-default">Email Terms and Conditions Block</display-name>
-        <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
-        <page-attributes/>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"
-    style="width:100%;margin-top:20px;"&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;td align="left"&gt;
-                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"
-                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;color:#333333"&gt;
-
-                    &lt;tbody&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" style="padding-bottom:14px;font-size:26px;line-height:28px"&gt;
-                                Terms &amp; Conditions:&lt;/td&gt;
-                        &lt;/tr&gt;
-                    &lt;/tbody&gt;
-                &lt;/table&gt;
-                &lt;table bgcolor="#333333" border="0" cellpadding="0" cellspacing="0" role="presentation"
-                    style="width:536px"&gt;
-
-                    &lt;tbody&gt;
-                        &lt;tr&gt;
-                            &lt;td style="line-height:1px;font-size:0"&gt;
-                                &amp;nbsp;&lt;/td&gt;
-                        &lt;/tr&gt;
-                    &lt;/tbody&gt;
-                &lt;/table&gt;
-                &lt;div style="font-size:1px;line-height:20px"&gt;
-                    &amp;nbsp;&lt;/div&gt;
-                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"
-                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:22px;font-weight:300;color:#333333"&gt;
-
-                    &lt;tbody&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left"&gt;
-                                This card is issued by Bath &amp; Body Works GC, LLC. Redeem this card for merchandise only, and for cash when the balance is under $10, at all Bath &amp; Body Works (BBW) or White Barn (WB) US &amp; Puerto Rico store locations and online at BathandBodyWorks.com.au; it may not otherwise be returned.
-                                &lt;div style="font-size:1px;line-height:15px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left"&gt;
-                                Check your card balance at a participating BBW or WB store or BathandBodyWorks.com/giftcard. If this card is lost, stolen or destroyed, BBW or WB will replace it with the value of the card at the time replacement is requested if you provide the card number. To check your card balance or report a lost, stolen or destroyed card, call 1-800-640-6052.&lt;div
-                                    style="font-size:1px;line-height:10px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left"&gt;
-                                THIS CARD DOES NOT EXPIRE. USE OF THIS CARD CONSTITUTES ACCEPTANCE OF THESE TERMS AND CONDITIONS. PLEASE RECORD YOUR GIFT CARD NUMBER(S) SHOULD YOU NEED TO REQUEST A GIFT CARD REPLACEMENT.&lt;div
-                                    style="font-size:1px;line-height:10px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left"&gt;
-                                For all other Gift Card inquiries, please &lt;a href="$url('Page-Show', 'cid', 'contact-us')$" style="text-decoration:underline;color:#005699;"&gt;contact us.&lt;/a&gt;&lt;div
-                                    style="font-size:1px;line-height:10px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                    &lt;/tbody&gt;
-                &lt;/table&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
+    <display-name xml:lang="x-default">Email Terms and Conditions Block</display-name>
+    <online-flag>true</online-flag>
+    <searchable-flag>false</searchable-flag>
+    <page-attributes/>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
+    style="width:100%;margin-top:20px;"&gt;&#xD;
+    &lt;tbody&gt;&#xD;
+        &lt;tr&gt;&#xD;
+            &lt;td align="left"&gt;&#xD;
+                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
+                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;color:#333333"&gt;&#xD;
+&#xD;
+                    &lt;tbody&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" style="padding-bottom:14px;font-size:26px;line-height:28px"&gt;&#xD;
+                                Terms &amp; Conditions:&lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                    &lt;/tbody&gt;&#xD;
+                &lt;/table&gt;&#xD;
+                &lt;table bgcolor="#333333" border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
+                    style="width:536px"&gt;&#xD;
+&#xD;
+                    &lt;tbody&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td style="line-height:1px;font-size:0"&gt;&#xD;
+                                &amp;nbsp;&lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                    &lt;/tbody&gt;&#xD;
+                &lt;/table&gt;&#xD;
+                &lt;div style="font-size:1px;line-height:20px"&gt;&#xD;
+                    &amp;nbsp;&lt;/div&gt;&#xD;
+                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
+                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:22px;font-weight:300;color:#333333"&gt;&#xD;
+&#xD;
+                    &lt;tbody&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                This E-Gift Card has been issued by Bath &amp; Body Works Australia. You can redeem this gift card for merchandise only at all Bath &amp; Body Works (BBW) stores located within Australia, including the online store at bathandbodyworks.com.au. The voucher code must be applied at checkout. Gift cards cannot be transferred, returned or redeemed for cash.&#xD;
+                                &lt;div style="font-size:1px;line-height:15px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                Check your card balance online &lt;a href="$url('Page-Show', 'cid', 'giftcards')$" style="text-decoration:underline;color:#005699;"&gt;here.&lt;/a&gt;&lt;div&#xD;
+                                    style="font-size:1px;line-height:10px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                This e-gift card does not expire, please keep a copy of your gift card number(s) should you need to request for a gift card replacement for any reason.&lt;div&#xD;
+                                    style="font-size:1px;line-height:10px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                For all other enquiries, please contact our &lt;a href="$url('Page-Show', 'cid', 'contact-us')$" style="text-decoration:underline;color:#005699;"&gt;Customer Service&lt;/a&gt; team.&lt;div&#xD;
+                                    style="font-size:1px;line-height:10px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                    &lt;/tbody&gt;&#xD;
+                &lt;/table&gt;&#xD;
+            &lt;/td&gt;&#xD;
+        &lt;/tr&gt;&#xD;
+    &lt;/tbody&gt;&#xD;
 &lt;/table&gt;</custom-attribute>
-        </custom-attributes>
-    </content>
-	
+    </custom-attributes>
+  </content>
+
     <content content-id="email-order-confirmation">
         <display-name xml:lang="x-default">Email Order Confirmation Content</display-name>
         <description xml:lang="x-default">Order Confirmation Email  Content</description>
@@ -3906,7 +3920,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p style="margin:15px 0;text-align:center;"&gt;&lt;img style="display:block;width:100%;"alt="Bath and Body Works" src="images/email/email-orders/order-confirmation-banner.jpg?$staticlink$" title="" /&gt;&lt;/p&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-you-got-it-block">
         <display-name xml:lang="x-default">YOU'VE GOT IT, NOW USE IT!</display-name>
         <description xml:lang="x-default">YOU'VE GOT IT, NOW USE IT!</description>
@@ -4076,7 +4090,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="email-welcome">
         <display-name xml:lang="x-default">Welcome Email Content</display-name>
         <description xml:lang="x-default">Welcome Email Content</description>
@@ -4087,7 +4101,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;img width="100%" alt="Thanks for signing Up" style="border:0;display:block" border="0" src="images/email/welcome-email/BBW-Ecomm-welcome-email-EDM_02.jpg?$staticlink$"/&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="password-reset-confrimation-mail">
         <display-name xml:lang="x-default">Reset Password Confirmation Email</display-name>
         <description xml:lang="x-default">In this body we can use {{customerName}} and {{myAccountLink}} construction which will be replaced to appropriate data</description>
@@ -4119,7 +4133,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="password-reset-notification-mail">
         <display-name xml:lang="x-default">Reset Password Notification Email</display-name>
         <description xml:lang="x-default">In this body we can use {{customerName}} and {{resetPasswordLink}} construction which will be replaced to appropriate data</description>
@@ -4172,7 +4186,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/tr&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-delete-address">
         <display-name xml:lang="x-default">Email Delete Address</display-name>
         <description xml:lang="x-default">Email Delete Address: : In this body we can use {{customerName}} and  {{myAccountLink}} construction which will be replaced to appropriate data</description>
@@ -4204,7 +4218,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
     <content content-id="email-add-address">
         <display-name xml:lang="x-default">Email Add Address Content</display-name>
         <description xml:lang="x-default">Add Address Email Content : In this body we can use {{customerName}} construction which will be replaced to appropriate data</description>
@@ -4236,7 +4250,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="email-edit-address">
         <display-name xml:lang="x-default">Email Edit Address</display-name>
         <description xml:lang="x-default">Edit Address Email Content : In this body we can use {{customerName}} and  {{myAccountLink}} construction which will be replaced to appropriate data</description>
@@ -4281,7 +4295,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 	&lt;tbody&gt;
 		&lt;tr style="text-align:center"&gt;
 			&lt;td style="color:#333;font-size:14px"&gt;
-				&lt;p style="margin-top:0;text-align:center;width: 65%; margin: 10px auto 0;"&gt;If you didn't make this change, or if you have any other questions, we're here for you! Call our Customer Care at &lt;a href="tel:1800518255" style="color:#005699;font-weight:600;text-decoration: none;"&gt;1-800-51-8255.&lt;/a&gt;&lt;/p&gt;
+				&lt;p style="margin-top:0;text-align:center;width: 65%; margin: 10px auto 0;"&gt;If you didn't make this change, or if you have any other questions, we're here for you! Call our Customer Care at &lt;a href="tel:1800576972" style="color:#005699;font-weight:600;text-decoration: none;"&gt;1800-576-972.&lt;/a&gt;&lt;/p&gt;
 			&lt;/td&gt;
 		&lt;/tr&gt;
 	&lt;/tbody&gt;
@@ -4302,7 +4316,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="corporate-gifting-top">
         <display-name xml:lang="x-default">Corporate Gift Page Top Section</display-name>
         <description xml:lang="x-default">Corporate Gift Page Top Section</description>
@@ -4351,7 +4365,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="corporate-gifting-bottom">
         <display-name xml:lang="x-default">Corporate Gift Page Bottom Section</display-name>
         <description xml:lang="x-default">Corporate Gift Page Bottom Section</description>
@@ -4363,7 +4377,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
         data-src="images/corporate-gift/gifting-banner_sp3_hp-main.jpg?$staticlink$" title="" /&gt;&lt;/a&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="corporate-gifting-thankyou">
         <display-name xml:lang="x-default">Corporate Gift Thank you text</display-name>
         <online-flag>true</online-flag>
@@ -4571,7 +4585,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
-  
+
 
    <content content-id="notFound-error">
         <display-name xml:lang="x-default">Page Error</display-name>
@@ -4978,7 +4992,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
         </folder-links>
     </content>
 
- <content content-id="giftcards">
+   <content content-id="giftcards">
         <display-name xml:lang="x-default">Gift Cards</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -5071,7 +5085,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
                                 with your own message and the fun design you chose.&lt;/div&gt;&#13;
                             &lt;a class="button btn text-white" href="$url('Search-Show', 'cgid', 'giftcards')$"&gt;Get&#13;
                                 Started&lt;/a&gt;&#13;
-                            &lt;p class="center"&gt;&lt;a href="#" target="_blank" title="about e-gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
+                            &lt;p class="center"&gt;&lt;a href="$url('Page-Show', 'cid', 'gclearnmore')$" target="_blank" title="about e-gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
                         &lt;/div&gt;&#13;
                     &lt;/div&gt;&#13;
                 &lt;/div&gt;&#13;
@@ -5404,6 +5418,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
+
 
 	   <content content-id="Instagram-Feed">
         <display-name xml:lang="x-default">Instagram Feed</display-name>
@@ -7553,7 +7568,7 @@ max-height: 35px:&#13;
             <classification-link folder-id="category-seo-content"/>
         </folder-links>
     </content>
-	
+
     <content content-id="security-bug-report-top-content">
         <display-name xml:lang="x-default">Security Bug Report Page Top Content</display-name>
         <online-flag>true</online-flag>
@@ -7580,7 +7595,7 @@ max-height: 35px:&#13;
 	&lt;/p&gt;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
-    </content>	
+    </content>
 
     <content content-id="shopbyingredient-banner">
         <display-name xml:lang="x-default">shop by ingredient</display-name>
@@ -7593,7 +7608,7 @@ max-height: 35px:&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
-	
+
 	<content content-id="category-no-search-result-content">
     <display-name xml:lang="x-default">Category No Search Result Page Content</display-name>
     <online-flag>true</online-flag>
@@ -7665,5 +7680,132 @@ padding-top:20px;&#xD;
 &lt;/div&gt;</custom-attribute>
     </custom-attributes>
   </content>
-  
+
+ <content content-id="gclearnmore">
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+    &lt;div class="row"&gt;&#13;
+        &lt;div class="col-md-9 gctnc-head"&gt;&#13;
+            &lt;div class="first-item"&gt;&#13;
+                &lt;h5 class="h-font-size--16  h-clr--black-3 h-line-height--20 head "&gt;Learn More&lt;/h5&gt;&#13;
+&#13;
+                &lt;div class="gcLMcontent"&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;Bath &amp;amp; Body Works E-Gift Cards are sent via email, making them almost impossible to lose! We&#13;
+                        will&#13;
+                        email your&#13;
+                        recipient within 24 hours of your order. E-Gift Cards are redeemable in our U.S. stores, by&#13;
+                        phone&#13;
+                        and online.&#13;
+                    &lt;/p&gt;&#13;
+&#13;
+                    &lt;p class="gcLMheader"&gt;How to Purchase E-Gift Cards&lt;/p&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;&#13;
+                        Visit our &lt;a class="bodytext h-clr--black-3"&#13;
+                            href="$url('Page-Show', 'cid', 'giftcards')$"&gt;E-Gift&#13;
+                            Cards&lt;/a&gt; page to get&#13;
+                        started. E-Gift Card purchases do not apply towards promotional offers&#13;
+                    &lt;/p&gt;&#13;
+&#13;
+                    &lt;p class="gcLMheader"&gt;Delivery of E-Gift Cards&lt;/p&gt;&#13;
+                    &lt;div&gt;&#13;
+                        &lt;ul class="user-list-data"&gt;&#13;
+                            &lt;li class="list-item"&gt;There are no shipping charges on E-Gift Cards.&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;We will send the E-Gift Card to your recipient via email. The email will include all the&#13;
+                                information&#13;
+                                needed on how to use it.&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;We will send you a confirmation email so you know your E-Gift Card has been sent.&lt;/li&gt;&#13;
+                        &lt;/ul&gt;&#13;
+                    &lt;/div&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+&#13;
+            &lt;div class="second-item"&gt;&#13;
+                &lt;h5 class="h-font-size--16  h-clr--black-3 h-line-height--20 head "&gt;To Redeem&lt;/h5&gt;&#13;
+            &#13;
+                &lt;div class="gcLMcontent"&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;In Stores:&lt;/p&gt;&#13;
+                    &lt;div&gt;&#13;
+                        &lt;ul class="user-list-data"&gt;&#13;
+                            &lt;li class="list-item"&gt;Print a copy of your E-Gift Card or show on your phone at the register when you are ready to check out.&lt;/li&gt;&#13;
+                        &lt;/ul&gt;&#13;
+                    &lt;/div&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;Online:&lt;/p&gt;&#13;
+                    &lt;div&gt;&#13;
+                        &lt;ul class="user-list-data"&gt;&#13;
+                            &lt;li class="list-item"&gt;During checkout, look for the section marked "Gift Card/E-Gift Card" on the Payment page. Enter your E-Gift Card number&#13;
+                            and PIN, then click APPLY.&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;Any unused balance will remain on your E-Gift Card and can be applied to future purchases.&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;If you are having trouble, please contact us at 1-800-756-5005 (TDD #: 1-877-215-5245).&lt;/li&gt;&#13;
+                        &lt;/ul&gt;&#13;
+                    &lt;/div&gt;&#13;
+&#13;
+                    &lt;h3 class=" h-clr--black-3 h-line-height--20 head-text "&gt;E-Gift Card Balance&lt;/h3&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;&#13;
+                        To check your E-Gift Card balance, (1) click the “Redeem Your E-Gift Card” link in the E-Gift Card email; (2) visit&#13;
+                        any Bath &amp;amp; Body Works (BBW) or White Barn (WB) store or click&#13;
+                         &lt;a class="bodytext h-clr--black-3" href="$url('Page-Show', 'cid', 'giftcards')$"&gt;here&lt;/a&gt;; or (3) call 1-800-640-6052.&#13;
+                    &lt;/p&gt;&#13;
+                    &lt;h3 class="  h-clr--black-3 h-line-height--20 head-text "&gt;Terms and Conditions&lt;/h3&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;This card is issued by Bath &amp; Body Works GC, LLC. Redeem this card for merchandise only, and for cash when the balance&#13;
+                    is under $10, at all Bath &amp; Body Works (BBW) or White Barn (WB) US &amp; Puerto Rico store locations and online at&#13;
+                    BathandBodyWorks.com; it may not otherwise be returned.&lt;/p&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;Check your card balance at a participating BBW or WB store or BathandBodyWorks.com/giftcard. If this card is lost,&#13;
+                    stolen or destroyed, BBW or WB will replace it with the value of the card at the time replacement is requested if you&#13;
+                    provide the card number. To check your card balance or report a lost, stolen or destroyed card, call 1-800-640-6052.&lt;/p&gt;&#13;
+                    &lt;h3 class=" h-clr--black-3 h-line-height--20 head-text "&gt;This card does not expire. Use of this card constitutes acceptance of these terms and conditions. PLEASE RECORD YOUR&#13;
+                        GIFT CARD NUMBER(S) SHOULD YOU NEED TO REQUEST A GIFT CARD REPLACEMENT.&lt;/h3&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;For all other Gift Card inquiries, please &#13;
+                       &lt;a class="bodytext h-clr--black-3" href="$url('Page-Show', 'cid', 'contact-us')$"&gt;contact us&lt;/a&gt;.&#13;
+                    &lt;/p&gt;&#13;
+                &lt;/div&gt;&#13;
+            &lt;/div&gt;&#13;
+        &lt;/div&gt;&#13;
+    &lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&#13;
+&#13;
+&lt;style&gt;&#13;
+    .head-text {&#13;
+        font-size: 13px;&#13;
+    }&#13;
+    .head {&#13;
+        padding-top: 1em;&#13;
+        padding-bottom: 1em;&#13;
+    }&#13;
+&#13;
+    .gctnc-head {&#13;
+        margin: 0 auto;&#13;
+    }&#13;
+&#13;
+    .gcLMheader {&#13;
+        line-height: 1.6em;&#13;
+        margin: 1em 0;&#13;
+    }&#13;
+&#13;
+    .gcLMcontent {&#13;
+        padding-top: 20px;&#13;
+        padding-bottom: 40px;&#13;
+    }&#13;
+&#13;
+    .bodytext {&#13;
+        text-decoration: underline;&#13;
+    }&#13;
+&#13;
+    .user-list-data {&#13;
+        line-height: 1.6em;&#13;
+        margin: 1em 0;&#13;
+        padding: 0 1.5em;&#13;
+    }&#13;
+&#13;
+    .list-item {&#13;
+        list-style: disc outside none;&#13;
+        margin-bottom: 1.5625em;&#13;
+    }&#13;
+&lt;/style&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
 </library>

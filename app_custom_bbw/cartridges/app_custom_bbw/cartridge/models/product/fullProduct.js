@@ -17,6 +17,7 @@ module.exports = function fullProduct(product, apiProduct, options) {
     decorators.ingredients(product, apiProduct);
     decorators.moreInfo(product, apiProduct);
     decorators.isEgiftCard(product, apiProduct);
+    decorators.isBonusProduct(product, apiProduct);
     if (options.variationModel) {
         decorators.images(product, options.variationModel, {
             types: ['mediumLarge', 'extraLarge', 'small', 'mediumLarge_2x', 'extraLarge_2x', 'small_2x'],
@@ -28,5 +29,6 @@ module.exports = function fullProduct(product, apiProduct, options) {
             quantity: 'all'
         });
     }
+    decorators.isSearchableIfUnavailable(product, apiProduct);
     return product;
 };

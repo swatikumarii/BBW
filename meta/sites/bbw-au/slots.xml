@@ -62,9 +62,9 @@ padding: 15px 0;
         </custom-attributes>
     </slot-configuration>
 
-    <slot-configuration slot-id="store-header-banner" context="global" configuration-id="Store-banner" default="true" assigned-to-site="true">
+    <slot-configuration slot-id="store-header-banner" context="global" configuration-id="Store-banner" assigned-to-site="true">
         <template>slots/html/htmlSlotContainer.isml</template>
-        <enabled-flag>true</enabled-flag>
+        <enabled-flag>false</enabled-flag>
         <content>
             <html>
                 <body xml:lang="x-default">&lt;div class="store-header-banner  h-bg--gray-1 h-width-perc--100"&gt;
@@ -78,6 +78,26 @@ padding: 15px 0;
         </content>
         <custom-attributes>
             <custom-attribute attribute-id="showOutOfStockProducts">false</custom-attribute>
+        </custom-attributes>
+    </slot-configuration>
+
+    <slot-configuration slot-id="cart-empty-recommendation" context="global" configuration-id="cart-empty-recommendation" default="true" assigned-to-site="true">
+        <description>cart-empty-recommendation</description>
+        <template>slots/product/plpRecentlyViewedProduct.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">Wait! Don’t Forget</callout-msg>
+        <content>
+            <products>
+                <product product-id="26768755"/>
+                <product product-id="26768757"/>
+                <product product-id="26768769"/>
+                <product product-id="26768763"/>
+                <product product-id="26776176"/>
+                <product product-id="26768773"/>
+            </products>
+        </content>
+        <custom-attributes>
+            <custom-attribute attribute-id="showOutOfStockProducts">true</custom-attribute>
         </custom-attributes>
     </slot-configuration>
 

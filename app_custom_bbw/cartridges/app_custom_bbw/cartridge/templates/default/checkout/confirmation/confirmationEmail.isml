@@ -245,11 +245,19 @@
                                             <isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}"
                                                 var="payment">
                                                 <isif
+                                                    condition="${payment.paymentMethod === 'GIFT_CERTIFICATE'}">
+                                                    <p>${Resource.msg('label.add.egift.title', 'giftcards', null)}</p>
+                                                    <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode} ${pdict.order.eGiftTotalAmount}</p>
+                                                </isif>
+                                                <isif
                                                     condition="${payment.paymentMethod === 'AdyenComponent' || payment.paymentMethod === 'CREDIT_CARD'}">
                                                     <isinclude
                                                         template="checkout/confirmation/adyenConfirmationDetails" />
+                                                    <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.currencyCode} ${payment.amount}</p>
+                                                <iselseif
+                                                    condition="${payment.paymentMethod === 'CASHAPPPAY' || payment.paymentMethod === 'CLEARPAY' || payment.paymentMethod === 'AFTERPAY'}">
+                                                    <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
                                                 </isif>
-                                                <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.totals.grandTotal}</p>
                                             </isloop>
                                         </td>
                                     </tr>
