@@ -7342,7 +7342,8 @@ padding-top:20px;&#xD;
     </custom-attributes>
   </content>
 
- <content content-id="gclearnmore">
+     <content content-id="gclearnmore">
+        <display-name xml:lang="x-default">Gift card View more</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
@@ -7468,5 +7469,5 @@ padding-top:20px;&#xD;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
-
+    
 </library>
