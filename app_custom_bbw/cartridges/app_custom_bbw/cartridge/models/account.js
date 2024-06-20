@@ -17,6 +17,9 @@ function account(currentCustomer, addressModel, orderModel) {
         if (currentCustomer.raw.profile) {
             this.profile.birthday = currentCustomer.raw.profile.birthday;
             this.profile.zipCode = currentCustomer.raw.profile.custom.zipCode;
+            this.profile.nationality = currentCustomer.raw.profile.custom.nationality;
+            this.profile.gender = currentCustomer.raw.profile.gender.value;
+            this.profile.salutation = currentCustomer.raw.profile.salutation;
             this.profile.isProfileComplete =
                 currentCustomer.raw.profile.custom.isProfileComplete;
         }
