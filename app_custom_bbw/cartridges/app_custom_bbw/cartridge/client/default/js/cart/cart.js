@@ -225,12 +225,12 @@ function updateApproachingDiscounts(
             '<div class="d-flex flex-column col-12 py-0">\n'+
             '<p class="h-font-size--16 h-clr--pink h-fw--semibold m-0 text-center">' + shippingApproachingDiscounts[0].discountMsg + '</p>\n'+
                 '<div class="d-flex w-100 justify-content-around align-items-center progress-wrap">\n'+
-                    '<span class="pr-3 text-nowrap d-block h-font-size--14 h-fw--bold"> AU$ 0.00 </span>\n' +
+                    '<span class="pr-3 text-nowrap d-block h-font-size--16 h-fw--bold"> AU$ 0.00 </span>\n' +
                 '<span class="d-block w-100 h-pos--relative">\n'+
                         '<progress class="w-100" value="' + (shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold) + '" max="' + shippingApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
                         '<span class="free-shipping-progress" style="left: calc(' + (((shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold)/shippingApproachingDiscounts[0].conditionThreshold)*100).toFixed(2) + '% - 25px );"></span>\n'+
                     '</span>\n'+
-                    '<span class="pl-3 text-nowrap d-block h-font-size--14 h-fw--bold">\n'+
+                    '<span class="pl-3 text-nowrap d-block h-font-size--16 h-fw--bold">\n'+
                         shippingApproachingDiscounts[0].formattedConditionThreshold +
                     '</span>\n'+
                 '</div>\n'+
