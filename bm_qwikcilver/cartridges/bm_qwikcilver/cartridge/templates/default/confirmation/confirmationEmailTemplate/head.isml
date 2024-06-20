@@ -1,0 +1,5 @@
+<tr>
+    <td>
+        <p style="font-size:18px;color:black;letter-spacing:1px;line-height:30px;text-align:justify;margin-bottom: 0;text-transform: capitalize;">${Resource.msgf('confirm.header.email.greeting', 'orderConfirmEmail', null, pdict.order.customerName)}</p>
+    </td>
+</tr>

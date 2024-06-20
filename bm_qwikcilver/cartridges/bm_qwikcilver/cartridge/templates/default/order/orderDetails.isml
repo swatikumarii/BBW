@@ -1,0 +1,91 @@
+<isdecorate template="common/MenuFrame">
+    <iscontent type="text/html" charset="UTF-8" />
+    <isinclude template="custom/modules" />
+    <isset name="orderNo" value="${pdict.CurrentHttpParameterMap.OrderNo.stringValue}" scope ="page"/>
+    <isbreadcrumbs bcurl1="${URLUtils.url('Giftcard-OrderList')}" bctext1="Giftcard Resend"
+        bcurl2="${URLUtils.url('Giftcard-OrderDetails','OrderNo', orderNo)}"
+        bctext2="${Resource.msg('order.details.label','resend',null)}" />
+
+<h1>${Resource.msg('order.details.header','resend',null)+' '+orderNo}</h1>
+<isset name="order" value="${dw.order.OrderMgr.getOrder(orderNo)}" scope ="page"/>
+<isif condition="${pdict.success}">
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tbody>
+            <tr>
+                <td colspan="5" class="overview_title">${Resource.msg('order.resend.success', 'resend', null)} ${pdict.giftcardNumber}</td>
+            </tr>
+        </tbody>
+    </table>
+</isif>
+
+<table border="0" cellpadding="4" cellspacing="0" width="100%" class="infobox n">
+    <tbody>
+        <tr>
+            <td class="table_detail left e w s" nowrap="nowrap"><label class="item-label" for="">${Resource.msg('order.creation.date','resend',null)}</label></td>
+            <td class="table_detail left e s" nowrap="nowrap" width="75%"><label class="item-label" for="">${order.creationDate}</label></td>
+        </tr>
+        <tr>
+            <td class="table_detail left e w s" nowrap="nowrap"><label class="item-label" for="">${Resource.msg('order.site','resend',null)}</label></td>
+            <td class="table_detail left e s" nowrap="nowrap" width="75%"><label class="item-label" for="">${dw.system.Site.current.ID}</label></td>
+        </tr>
+        <tr>
+            <td class="table_detail left e w s" nowrap="nowrap"><label class="item-label" for="">${Resource.msg('order.createdby','resend',null)}</label></td>
+            <td class="table_detail left e s" nowrap="nowrap" width="75%"><label class="item-label" for="">${order.createdBy}</label></td>
+        </tr>
+        <tr>
+            <td class="table_detail left e w s" nowrap="nowrap"><label class="item-label" for="">${Resource.msg('order.customer','resend',null)}</label></td>
+            <td class="table_detail left e s" nowrap="nowrap" width="75%"><label class="item-label" for="">${order.getCustomerName()}</label></td>
+        </tr>
+        <tr>
+            <td class="table_detail left e w s" nowrap="nowrap"><label class="item-label" for="">${Resource.msg('order.customerno','resend',null)}</label></td>
+            <td class="table_detail left e s" nowrap="nowrap" width="75%"><label class="item-label" for="">${order.getCustomerNo() ? order.getCustomerNo() : "anonymous" + order.getCustomer().getID()}</label></td>
+        </tr>
+        <tr>
+            <td class="table_detail left e w s" nowrap="nowrap"><label class="item-label" for="">${Resource.msg('order.customer.email','resend',null)}</label></td>
+            <td class="table_detail left e s" nowrap="nowrap" width="75%"><label class="item-label" for="">${order.getCustomerEmail()}</label></td>
+        </tr>
+    </tbody>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="filtertableProjects">
+    <thead>
+      <tr>
+        <th class="table_header left n e s w" nowrap="nowrap" width="5%">${Resource.msg('order.product.qty','resend',null)}</th>
+        <th class="table_header left n e s" nowrap="nowrap" width="11%">${Resource.msg('order.product.id','resend',null)}</th>
+        <th class="table_header left n e s" nowrap="nowrap" width="20%">${Resource.msg('order.product.name','resend',null)}</th>
+        <th class="table_header left n e s" nowrap="nowrap" width="10%">${Resource.msg('order.product.card.number','resend',null)}</th>
+        <th class="table_header left n e s" nowrap="nowrap" width="10%">${Resource.msg('order.product.itemtotal','resend',null)}</th>
+        <th class="table_header left n e s" nowrap="nowrap" width="10%">${Resource.msg('order.product.recepient','resend',null)}</th>
+        <th class="table_header left n e s" nowrap="nowrap" width="10%">${Resource.msg('order.product.recepient.email','resend',null)}</th>
+        <th class="table_header left n e s" nowrap="nowrap" width="10%">${Resource.msg('order.product.resend','resend',null)}</th>
+    </tr>
+    </thead>
+    <tbody>
+        <isloop items="${order.getAllLineItems()}" var="product" status="loopstate">
+            <isif condition="${'productID' in product && product.productID}">
+                 <tr>
+                    <td class="table_detail left e s w" nowrap="nowrap"><label class="item-label" for="">${'quantityValue' in product ? product.quantityValue.toFixed(0): '1'}</label></td>
+                    <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${'productID' in product ? product.productID : ''}</label></td>
+                    <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${'productName' in product ? product.productName : product.lineItemText}</label></td>
+                    <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${product.custom.cardNumber}</label></td>
+                    <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${product.getNetPrice()}</label></td>
+                    <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${product.custom.recipientName}</label></td>
+                    <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${product.custom.recipientEmail}</label></td>
+                    <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">
+                        <isif condition="${new Date(product.custom.eGiftScheduledDate + ' ' + product.custom.eGiftScheduledMonths + ' ' + new Date().getFullYear()) > new Date()}">
+                            ${Resource.msgf('order.product.resend.single.scheduled','resend',null, product.custom.eGiftScheduledDate + ' ' + product.custom.eGiftScheduledMonths)}
+                        <iselse/>
+                            <isif condition="${product.custom.cardNumber && product.custom.cardNumber !== null && product.custom.cardNumber !== undefined &&product.custom.cardNumber !== 'null' && product.custom.cardNumber !== 'undefined'}">
+                                <a href="${URLUtils.url('Giftcard-ResendEmail','OrderNo', orderNo, 'uuid', product.UUID)}">${Resource.msg('order.product.resend.single','resend',null)}</a>
+                            <iselse/>
+                                <a href="${URLUtils.url('Giftcard-ResendEmail','OrderNo', orderNo, 'uuid', product.UUID)}">
+                                    ${Resource.msg('order.product.resend.single.create','resend',null)}
+                                </a>
+                            </isif>
+                        </isif>
+                    </label></td>
+                </tr>
+            </isif>
+        </isloop>
+    </tbody>
+ </table>
+ </isdecorate>
