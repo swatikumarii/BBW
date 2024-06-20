@@ -368,7 +368,11 @@
                             <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                                 <div class="col-md-10">
                                     <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
-                                        <strong>${discount.promotion}:</strong>
+                                        <isif condition="${discount.promotion != null}">
+                                            <strong>${discount.promotion}:</strong>
+                                        <iselse/>
+                                            <strong>${'-'}:</strong>
+                                        </isif>
                                     </p>
                                 </div>
                                 <div class="col-md-2" style=" margin-left: 31px;">

@@ -3,7 +3,7 @@
     <isinclude template="search/components/topPagination" />
 
     <iscomment> Mobile Filters - Buttons Section </iscomment>
-    <isif condition="${pdict.productSearch.productIds.length > 0 && !pdict.apiProductSearch.category.custom.hideFilter}">
+    <isif condition="${pdict.productSearch.productIds.length > 0 && ((pdict.apiProductSearch && pdict.apiProductSearch.category) ? !pdict.apiProductSearch.category.custom.hideFilter : true)}">
         <div class="row filter-bar-mobile d-md-none no-gutters h-mb--25">
             <div class="col-6 col-sm-3 text-right d-md-none order-sm-3">
                 <button type="button"
@@ -44,7 +44,7 @@
     </isif>
     <isinclude template="search/components/categoryBannerBottom" />
     <iscomment> Desktop Filters </iscomment>
-    <isif condition="${!pdict.apiProductSearch.category.custom.hideFilter}">
+    <isif condition="${(pdict.apiProductSearch && pdict.apiProductSearch.category) ? !pdict.apiProductSearch.category.custom.hideFilter : true}">
         <isinclude template="search/components/searchFiltersDesktop" />
     </isif>
 

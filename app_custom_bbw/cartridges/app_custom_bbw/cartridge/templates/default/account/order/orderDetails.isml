@@ -200,8 +200,13 @@
                             <isloop items="${pdict.order.totals.allDiscounts}" var="discount" status="loopstatus">
                                 <div class="row order-discount">
                                     <div class="col-6 start-lines">
-                                        <p class="order-receipt-label"><span>${discount.promotion}</span>
-                                        </p>
+                                        <isif condition="${discount.promotion != null}">
+                                            <p class="order-receipt-label"><span>${discount.promotion}</span>
+                                            </p>
+                                        <iselse/>
+                                            <p class="order-receipt-label"><span>${'-'}</span>
+                                            </p>
+                                        </isif>
                                     </div>
                                     <div class="col-6 end-lines">
                                         <p class="text-right"><span
