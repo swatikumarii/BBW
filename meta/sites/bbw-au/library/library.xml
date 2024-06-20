@@ -888,7 +888,7 @@
 			&lt;div class="htmlbucket"&gt;&#13;
 				&lt;p&gt;&lt;/p&gt;&#13;
 				&lt;div class="banners" style="margin-bottom: 40px;"&gt;&lt;a href="$url('Product-Show', 'pid', 'luminous')$"&gt;&lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/CNY_LP_KV-m.webp?$staticlink$"&gt;  &lt;img alt="Fragrance-luminous-promo" src="blogs/details/CNY-LP-KV-d.webp?$staticlink$" width="100%"&gt;&lt;/picture&gt; &lt;/a&gt;&#13;
-F&#13;
+&#13;
 				&lt;/div&gt;&#13;
 				&lt;div class="banners"&gt;&lt;a href="$url('Product-Show', 'pid', 'luminous')$"&gt;&lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/CNY_LP_Luminous-m.webp?$staticlink$"&gt;  &lt;img alt="Fragrance-luminous-promo" src="blogs/details/CNY-LP-Luminous-d.webp?$staticlink$" width="100%"&gt;&lt;/picture&gt; &lt;/a&gt;&#13;
 &#13;
