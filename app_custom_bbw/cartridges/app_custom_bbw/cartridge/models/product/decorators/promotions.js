@@ -70,8 +70,8 @@ function checkMotivator(promotion) {
                     qualifyingValueInCart += item.quantityValue;
                 }
             });
+            var getValue;
             if (discountType === 'Free') {
-                var getValue;
                 if (qualifyingValueInCart < (buy[indexToApply] + get[indexToApply]) && ((buy[indexToApply] + get[indexToApply]) - qualifyingValueInCart) >= (buy[indexToApply - 1] + get[indexToApply - 1])) {
                     indexToApply--;
                 } else {
@@ -103,6 +103,30 @@ function checkMotivator(promotion) {
                 }
                 message = qualificationMessage.replace('{{Buy}}', toFixedIfNecessary(buy[indexToApply] - qualifyingValueInCart)).replace('{{Get}}', getValue);
                 return message;
+            }
+
+            if (discountType === 'Fixed Price') {
+                if (qualifyingValueInCart < buy[indexToApply] && (buy[indexToApply] - qualifyingValueInCart) >= buy[indexToApply - 1]) {
+                    indexToApply--;
+                } else {
+                    while (buy[indexToApply]  <= qualifyingValueInCart) {
+                        qualifyingValueInCart -= buy[indexToApply];
+                    }
+                    if (qualifyingValueInCart < buy[indexToApply] && (buy[indexToApply] - qualifyingValueInCart) >= buy[indexToApply - 1]) {
+                        indexToApply--;
+                    }
+                }
+
+                if (qualifyingValueInCart === 0) {
+                    return false;
+                }
+
+                if ((buy[indexToApply] - qualifyingValueInCart) === 0) {
+                    indexToApply++;
+                }
+                message = qualificationMessage.replace('{{Buy}}', toFixedIfNecessary(buy[indexToApply] - qualifyingValueInCart)).replace('{{Get}}', get[indexToApply]);
+                return message;
+
             }
 
             if (buy[indexToApply] <= qualifyingValueInCart) {
