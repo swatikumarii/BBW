@@ -1,0 +1,119 @@
+<isloop items="${pdict.order.items.items}" var="lineItem" status="loopSate">
+        <tr class="order-detail" style="background:#FAFAFA;">
+        <td style="padding:0 40px 30px;">
+
+            <div style="display: flex; width:100%;padding:0px;">
+                <div class="article-attr" style="width:60%;">
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <div style="padding:0px; display:block;margin-bottom:20px">
+                                    <h4 style="font-size: 18px;color: black;font-weight:600;line-height:22px;margin-top:15x;"> ${lineItem.productName}
+                                    </h4>
+                                </div>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                        <div style="display:flex;width:90%;">
+                                    <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:30%;text-transform:uppercase;">${Resource.msg('confirm.order.lineitem.qty', 'orderConfirmEmail', null)}</p>
+                                    <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:70%;text-align:right;">${lineItem.quantity}</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <div style="display:flex;width:90%;">
+                                    <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:30%;text-transform:uppercase;">SKU</p>
+                                    <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:70%;text-align:right;">${lineItem.id}</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <div style="display:flex;width:90%;">
+                                    <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:30%;text-transform:uppercase;">${Resource.msg('confirm.order.product.price', 'orderConfirmEmail', null)}</p>
+                                    <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:70%;text-align:right;" class="">
+                                        <isif condition="${lineItem.virtualPID}">
+                                            ${lineItem.customAdjustedPrice}
+                                        <iselse/>
+                                            ${lineItem.priceTotal.price}
+                                        </isif>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <isif condition="${lineItem.images && lineItem.images.medium && lineItem.images.medium.length > 0}">
+                    <div style="width:40%;display:block;text-align:right;"> <img width="80%" style="margin-left:15px;"
+                            src="${lineItem.images.medium[0].url}" alt="${lineItem.images.medium[0].alt}">
+                    </div>
+                <iselse/>
+                    <isif condition="${lineItem.images && lineItem.images.large && lineItem.images.large.length > 0}">
+                        <div style="width:40%;display:block;text-align:right;"> <img width="80%" style="margin-left:15px;"
+                                src="${lineItem.images.large[0].url}" alt="${lineItem.images.large[0].alt}">
+                        </div>
+                    </isif>
+                </isif>
+
+            </div>
+        </td>
+    </tr>
+    <isif condition="${lineItem.bonusProductLineItemUUID && lineItem.bonusProductLineItemUUID != null && lineItem.bonusProducts}">
+<isloop items="${lineItem.bonusProducts}" var="bonusLineItem" status="loopSate">
+  <tr class="order-detail" style="background:#FAFAFA;">
+        <td style="padding:0 40px 30px;">
+
+            <div style="display: flex; width:100%;padding:0px;">
+                <div class="article-attr" style="width:60%;">
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <div style="padding:0px; display:block;margin-bottom:20px">
+                                    <h4 style="font-size: 18px;color: black;font-weight:600;line-height:22px;margin-top:15x;"> ${bonusLineItem.productName}
+                                    </h4>
+                                </div>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                        <div style="display:flex;width:90%;">
+                                    <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:30%;text-transform:uppercase;">${Resource.msg('confirm.order.lineitem.qty', 'orderConfirmEmail', null)}</p>
+                                    <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:70%;text-align:right;">${bonusLineItem.quantity}</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <div style="display:flex;width:90%;">
+                                    <isif condition="${bonusLineItem.badge && bonusLineItem.badge != null}">
+                                        <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:50%;">${bonusLineItem.badge}</p>
+                                    </isif>
+                                    <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:30%;text-transform:uppercase;">SKU</p>
+                                    <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:70%;text-align:right;">${bonusLineItem.id}</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                        <div style="display:flex;width:90%;">
+                                    <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:30%;text-transform:uppercase;">${Resource.msg('confirm.order.product.price', 'orderConfirmEmail', null)}</p>
+                                    <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:70%;text-align:right;" class="">${bonusLineItem.priceTotal.price}</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <isif condition="${bonusLineItem.images && bonusLineItem.images.large && bonusLineItem.images.large.length > 0}">
+                    <div style="width:40%;display:block;text-align:right;"> <img width="80%" style="margin-left:15px;"
+                            src="${bonusLineItem.images.large[0].absURL}" alt="${bonusLineItem.images.large[0].absURL.alt}">
+                    </div>
+                </isif>
+
+            </div>
+        </td>
+    </tr>
+</isloop>
+</isif>
+</isloop>

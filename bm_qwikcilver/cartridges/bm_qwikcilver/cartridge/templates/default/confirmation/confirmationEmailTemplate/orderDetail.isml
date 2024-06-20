@@ -1,0 +1,118 @@
+<tr class="order-no">
+    <td style="padding:35px 40px 0;">
+        <p style="font-size: 18px;font-weight: 600;color: black;float:left;" class="order-text">${Resource.msg('confirm.order.no', 'orderConfirmEmail', null)}</p>
+        <p style="font-size: 18px;font-weight: 600;color: black;float:right;" class="order-id"><b>${pdict.order.orderNumber}</b></p>
+    </td>
+</tr>
+<tr class="shipping-details" style="background:#FAFAFA;">
+    <td>
+        <table width="100%" style="padding:0px 35px;" cellpadding="0">
+            <tr>
+                <td>
+                    <table style="padding:0;width:100%;" cellpadding="0">
+                        <tr>
+                            <td style="width:50%">
+                                <table style="padding:0;width:100%" cellpadding="0">
+                                    <tr>
+                                        <th style="text-align: left;font-size:20px; font-weight:600;color:black;letter-spacing:1px;padding-bottom:5px">${Resource.msg('confirm.order.detail.delivery', 'orderConfirmEmail', null, )}</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <isset name="address" value="${shippingModel.shippingAddress}" scope="page"/>
+                                            <iscomment> <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;" class="cust-name">${address && address.firstName ? address.firstName : ''} ${address && address.lastName ? address.lastName : ''}</p> </iscomment>
+                                            <isif condition="${address && address.address1}">
+                                                <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${address.address1}</p>
+                                            </isif>
+
+                                            <isif condition="${address && address.address2}">
+                                                <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${address.address2}</p>
+                                            </isif>
+
+                                             <isif condition="${address && address.city}">
+                                                <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${address.city.replace('-', '').trim()}
+                                                </p>
+                                            </isif>
+                                            <isif condition="${address && address.stateCode}">
+                                                <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${address.stateCode}
+                                                        <isif condition="${address && address.postalCode}">
+                                                            <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${address.postalCode}</p>
+                                                        </isif>
+                                                        <iscomment> <isif condition="${address && address.countryCode}">
+                                                            <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${address.countryCode.displayValue}</p>
+                                                        </isif> </iscomment>
+                                                    </p>
+                                            </isif>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td style="width:50%">
+                                <table style="padding:0;width:100%;text-align:right" cellpadding="0">
+                                    <tr>
+                                        <th style="font-size:20px; font-weight:600;color:black;letter-spacing:1px;padding-bottom:5px">${Resource.msg('label.order.billing.address', 'confirmation', null)}</th>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        <isset name="address" value="${pdict.order.billing.billingAddress.address}" scope="page"/>
+                                            <iscomment> <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;" class="cust-name">${address && address.firstName ? address.firstName : ''} ${address && address.lastName ? address.lastName : ''}</p> </iscomment>
+
+                                            <isif condition="${address && address.address1}">
+                                                <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${address.address1}</p>
+                                            </isif>
+
+                                            <isif condition="${address && address.address2}">
+                                                <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${address.address2}</p>
+                                            </isif>
+
+                                            <isif condition="${address && address.city}">
+                                                <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${address.city.replace('-', '').trim()}
+                                                </p>
+                                            </isif>
+                                            <isif condition="${address && address.stateCode}">
+                                                <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${address.stateCode}
+                                                        <isif condition="${address && address.postalCode}">
+                                                            <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${address.postalCode}</p>
+                                                        </isif>
+                                                        <iscomment> <isif condition="${address && address.countryCode}">
+                                                            <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${address.countryCode.displayValue}</p>
+                                                        </isif> </iscomment>
+                                                    </p>
+                                            </isif>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div style="clear:both;display:block;">
+                        <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:30%;float:left;"><b>${Resource.msg('label.order.shipping.method.email', 'confirmation', null)}</b></p>
+                        <p style="font-size: 18px;color: black;font-weight:100;line-height:22px;width:30%;text-align:right;float:right;"><b>${pdict.order.shipping[0].selectedShippingMethod.displayName}</b></p>
+                    </div>
+                </td>
+            </tr>
+
+            <iscomment> <tr class="total-amount">
+                <td>
+                    <p class="total-text">${Resource.msg('confirm.order.detail.total', 'orderConfirmEmail', null, )}</p>
+                    <p class="amount"><b>${pdict.order.totals.grandTotal}</b></p>
+                </td>
+
+            </tr> </iscomment>
+            <tr class="view-order" style="background:#FAFAFA;">
+                <td>
+                    <table align="center" style="padding:0px 40px;">
+                        <tr>
+                            <td><a style="letter-spacing:0.5px;font-weight: 600;color: #ffffff;text-decoration: none;text-align: center;border:0px;padding:20px 25px 15px;line-height:30px;font-size:24px;text-transform:uppercase;background:#ef5f96;text-align:center;width:400px;margin:30px auto; display:block;" href="${pdict.order.target.viewOrder}" hreflang="${request.getLocale()}"
+                                    target="_blank">${Resource.msg('confirm.order.cannot.changed', 'orderConfirmEmail', null)}</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>

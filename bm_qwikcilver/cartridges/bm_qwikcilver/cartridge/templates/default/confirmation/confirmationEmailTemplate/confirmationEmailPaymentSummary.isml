@@ -1,0 +1,32 @@
+<tr class="payment-summary">
+    <td>
+        <div style="padding:15px 15px 0px;">
+            <p><b>${Resource.msg('confirm.order.payment.summary', 'orderConfirmEmail', null)}</b></p>
+        </div>
+        <div style="padding:5px 15px 15px;">
+            <div style="display: flex; width: 100%;justify-content: space-between;">
+                <div style="width:50%;">
+                    <isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}" var="payment">
+                        <isif condition="${payment.paymentMethod === 'CREDIT_CARD'}">
+                            <p>${Resource.msgf('confirm.order.payment.card.detail', 'orderConfirmEmail', null, payment.type, payment
+                               .maskedCreditCardNumber)}</p>
+                        </isif>
+                    </isloop>
+                </div>
+                <div style="width:50%;text-align:right;">
+                    <p>${pdict.order.totals.grandTotal}</p>
+                </div>
+            </div>
+        </div>
+        <div style="padding:15px;">
+            <div style="font-family: inherit; text-align: right"> <span
+                    style="font-size: 14px; line-height: 26.5px; font-family: BentonSans, Helvetica, sans-serif; color: #d43774">${Resource.msg('confirm.order.payment.total', 'orderConfirmEmail', null)}</span>
+            </div>
+            <div style="font-family: inherit; text-align: right"> <span
+                    style="font-size: 28px; font-family: BentonSans, Helvetica, sans-serif; color: #d43774">${pdict.order.totals.grandTotal}</span>
+            </div>
+            <div>
+            </div>
+        </div>
+    </td>
+</tr>

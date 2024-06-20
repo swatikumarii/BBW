@@ -1,0 +1,9 @@
+<form id="sfredirect" action="${pdict.storefrontUrls}" method="POST">
+    <input type="hidden" name="token" value="${pdict.orderNo}" />
+    <input type="hidden" name="emailType" value="${pdict.emailType}" />
+    <input type="hidden" name="redirectUrl" value="${pdict.redirectUrl}" />
+    <input type="hidden" name="refundAmount" value="${pdict.refundAmount}" />
+</form>
+<script>
+    document.getElementById('sfredirect').submit();
+</script>
