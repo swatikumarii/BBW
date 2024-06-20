@@ -38,6 +38,7 @@ server.replace(
         var Resource = require('dw/web/Resource');
         var Transaction = require('dw/system/Transaction');
         var URLUtils = require('dw/web/URLUtils');
+        var CouponMgr = require('dw/campaign/CouponMgr');
         var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
 
         var currentBasket = BasketMgr.getCurrentBasket();
@@ -62,19 +63,25 @@ server.replace(
 
         var error = false;
         var errorMessage;
-
-        try {
-            Transaction.wrap(function () {
-                return currentBasket.createCouponLineItem(
-                    req.querystring.couponCode,
-                    true
-                );
-            });
-        } catch (e) {
+        var coupon = CouponMgr.getCouponByCode(req.querystring.couponCode);
+        var couponPromos = coupon.getPromotions();
+        if (couponPromos.length === 0) {
             error = true;
-            errorMessage = cartHelper.checkCouponCodeError(
-                req.querystring.couponCode, e.errorCode
-            );
+            errorMessage = Resource.msg('error.coupon.unknown', 'cart', null);
+        } else {
+            try {
+                Transaction.wrap(function () {
+                    return currentBasket.createCouponLineItem(
+                        req.querystring.couponCode,
+                        true
+                    );
+                });
+            } catch (e) {
+                error = true;
+                errorMessage = cartHelper.checkCouponCodeError(
+                    req.querystring.couponCode, e.errorCode
+                );
+            }
         }
 
         if (error) {
@@ -361,13 +368,20 @@ server.append(
         var productListHelper = require('*/cartridge/scripts/productList/productListHelpers');
         var dangerousGoodsExists = req.querystring.error === 'dangerous-goods';
         var viewData = res.getViewData();
+        var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
+        var isGiftProductAvailable = false;
         var currentBasket = BasketMgr.getCurrentBasket();
         if (currentBasket) {
+            if (enableQCeGift) {
+                var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
+                isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(currentBasket);
+            }
             var changes = cartHelper.createFreeLineItem(currentBasket, 0);
             var basketModel = new CartModel(currentBasket);
             if (changes) {
                 viewData.items = basketModel.items;
             }
+            viewData.isGiftProductAvailable = isGiftProductAvailable;
         }
         viewData.dangerousGoodsExists = dangerousGoodsExists;
         var list = productListHelper.getCurrentOrNewList(req.currentCustomer.raw, {
@@ -388,6 +402,7 @@ server.append(
         for (var i = 0; i < viewData.items.length; i++) {
             viewData.items[i].itemExist = productListHelper.itemExists(list, viewData.items[i].id, config);
         }
+
         res.setViewData(viewData);
         next();
     }

@@ -139,9 +139,9 @@ function updateCartTotals(data) {
         var totalSavingsHTML = '';
         var lineItemSavingDiv = $('.uuid-' + item.UUID + ' .line-item-savings');
         if (item.totalSavings && item.totalSavings !== '-') {
-            totalSavingsHTML = 
+            totalSavingsHTML =
                 '<span class="d-inline d-md-none">'+
-                'Saved:' + 
+                'Saved:' +
                 '</span>' +
                 '<span class="value">' + item.totalSavings + '</span>';
             lineItemSavingDiv.empty().append(totalSavingsHTML);
@@ -153,15 +153,17 @@ function updateCartTotals(data) {
             lineItemSavingDiv.empty().append(totalSavingsHTML);
         }
         var motivatorHTML = '';
-        item.promotions.forEach(function (promotion) {
-            if (promotion.motivator && promotion.motivator !== 'false') {
-                motivatorHTML +=
-                    '<div class="h-font-size--14 h-fw--semibold">\n' +
-                    promotion.motivator +
-                    '\n' +
-                    '</div>\n';
-            }
-        });
+        if ('promotions' in item && item.promotions) {
+            item.promotions.forEach(function (promotion) {
+                if (promotion.motivator && promotion.motivator !== 'false') {
+                    motivatorHTML +=
+                        '<div class="h-font-size--14 h-fw--semibold">\n' +
+                        promotion.motivator +
+                        '\n' +
+                        '</div>\n';
+                }
+            });
+        }
         $('.line-item-promo-motivator.item-' + item.UUID)
             .empty()
             .append(motivatorHTML);
