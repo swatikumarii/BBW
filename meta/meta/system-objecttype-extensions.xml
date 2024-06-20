@@ -3961,6 +3961,12 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
     </type-extension>
     <type-extension type-id="Promotion">
         <custom-attribute-definitions>
+            <attribute-definition attribute-id="showHppPrice">
+                <display-name xml:lang="x-default">Show HPP Price</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="Buy">
                 <display-name xml:lang="x-default">Buy</display-name>
                 <type>set-of-double</type>
@@ -4117,6 +4123,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             </attribute-group>
             <attribute-group group-id="motivator">
                 <display-name xml:lang="x-default">Motivator</display-name>
+                <attribute attribute-id="showHppPrice"/>
                 <attribute attribute-id="promotionCondition"/>
                 <attribute attribute-id="Buy"/>
                 <attribute attribute-id="Get"/>
