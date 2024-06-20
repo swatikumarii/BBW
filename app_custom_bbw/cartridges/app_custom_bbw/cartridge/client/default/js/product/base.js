@@ -964,5 +964,10 @@ module.exports = $.extend({}, base, {
                 }
             });
         });
+    },
+    denyDeleteItems: function () {
+        $('button.delete-lineitem-deny-btn').on('click', function () {
+            $('button.add-to-cart').prop('disabled', false);
+        });
     }
 });

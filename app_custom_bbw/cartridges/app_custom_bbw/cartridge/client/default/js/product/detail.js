@@ -326,6 +326,11 @@ module.exports = $.extend({}, detail, {
             });
         });
     },
+    denyDeleteItems: function () {
+        $('button.delete-lineitem-deny-btn').on('click', function () {
+            $('button.add-to-cart').prop('disabled', false);
+        });
+    },
     notifyMeCheck: function () {
         $(document).ready(function () {
             var pId = $('.product-detail').data('pid');
