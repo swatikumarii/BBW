@@ -265,9 +265,10 @@
             value=${pdict.profileForm.customer.addtoemaillist.attributes} encoding="off" />
         />
         <label class="custom-control-label h-clr--black-1 h-font-size--16" for="add-to-email-list">
-            <isprint value="${pdict.profileForm.customer.addtoemaillist.label}" encoding="htmlcontent" />
+            
+            <span class="h-clr--black-1 h-font-size--16 cursor-pointer"><isprint value="${pdict.profileForm.customer.addtoemaillist.label}" encoding="htmlcontent" /> ${Resource.msg('label.terms.contitions', 'forms', null)}</span>
             <a href="${URLUtils.url('Page-Show', 'cid', 'terms-of-use')}"
-                class="h-clr--black-1 h-font-size--16">${Resource.msg('label.terms.contitions', 'forms', null)}</a>
+                class="h-clr--black-1 h-font-size--16 d-block text-left b-link--underlined">${Resource.msg('label.read.here', 'forms', null)}</a>
         </label>
     </div>
 

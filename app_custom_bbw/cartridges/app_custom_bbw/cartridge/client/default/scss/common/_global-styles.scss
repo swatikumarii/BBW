@@ -264,6 +264,10 @@ square-placement {
             }
         }
 
+        &.first-message {
+            bottom: 88px;
+        }
+
         &.show {
             visibility: visible;
         }

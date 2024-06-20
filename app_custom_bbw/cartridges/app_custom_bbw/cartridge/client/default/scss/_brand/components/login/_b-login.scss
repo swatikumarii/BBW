@@ -832,7 +832,7 @@
 
 // -----login modal-----
 .login-modal-body {
-    overflow: scroll !important;
+    overflow: hidden !important;
     overflow-y: auto !important;
     max-height: calc(88vh - 64px) !important;
     padding: 4px 17px 17px !important;
@@ -840,11 +840,10 @@
     -webkit-scrollbar: auto;
 
     @include media-up(sm) {
-        overflow: scroll;
-        -webkit-overflow-scrolling: touch;
-        overflow-y: auto;
-        max-height: calc(100vh - 64px);
-        padding: 4px 17px 17px;
+        overflow: hidden !important;
+        overflow-y: auto !important;
+        max-height: calc(100vh - 64px) !important;
+        padding: 4px 17px 17px !important;
     }
 }
 
@@ -1239,4 +1238,20 @@
             }
         }
     }
+}
+
+.registration {
+    .custom-control-label {
+        &::before {
+            left: -1.8rem;
+        }
+
+        &::after {
+            left: -1.8rem;
+        }
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }

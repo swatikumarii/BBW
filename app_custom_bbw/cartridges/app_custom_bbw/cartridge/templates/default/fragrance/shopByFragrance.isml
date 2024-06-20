@@ -51,6 +51,8 @@
                     </div>
                 </iscomment>
                 <div class="all-fragrance-header">
+                    <div class="fragrance-top-border">
+                    </div>
                     <div class="top-fr-head-container d-flex justify-content-center align-items-center mb-3">
                         <h2 class="top-fr-header h-clr--black-3 h-font-size--36 text-center bg-white ">
                             ${Resource.msg('fragrance.title', 'fragrance', null)}</h2>
