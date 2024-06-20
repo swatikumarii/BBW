@@ -104,6 +104,8 @@ function login() {
             data: form.serialize(),
             success: function (data) {
                 form.spinner().stop();
+                form.children('.alert-danger')
+                    .remove();
                 if (!data.success) {
                     if (data.isMigratedNotUpdated) {
                         if (form.hasClass('login')) {
