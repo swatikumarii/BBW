@@ -123,7 +123,7 @@
                     class="${pdict.addressForm.country.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
                 </span> </iscomment>
             </div>
-            <div class="select-wrap">
+            <div class="select-address-wrap">
                 <select class="form-control" id="country" <isprint value="${pdict.addressForm.country.attributes}"
                     encoding="off" />
                 autocomplete="country">
@@ -133,7 +133,7 @@
                         </isif>>${country.label}</option>
                 </isloop>
                 </select>
-            <div class="invalid-feedback"></div>
+            <div class="invalid-feedback select-error"></div>
             </div>
         </div>
     </div>
@@ -150,7 +150,7 @@
                             class="${pdict.addressForm.states.stateCode.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
                         </span> </iscomment>
                 </div>
-                <div class="select-wrap">
+                <div class="select-address-wrap">
                     <select class="form-control address-state-input" id="state" <isprint
                         value="${pdict.addressForm.states.stateCode.attributes}" encoding="off" />
                     autocomplete="address-level1">
@@ -160,7 +160,7 @@
                             >${state.label || ' '}</option>
                     </isloop>
                     </select>
-                <div class="invalid-feedback"></div>
+                <div class="invalid-feedback select-error"></div>
                 </div>
             </div>
         </div>
@@ -177,14 +177,14 @@
                             class="${pdict.addressForm.city.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
                         </span> </iscomment>
                 </div>
-                <div class="select-wrap">
+                <div class="select-address-wrap">
                     <select type="text" class="form-control address-city-input" id="city"
                     data-selected="${pdict.addressForm.city.htmlValue}"
                         data-missing-error="${Resource.msg('address.city.missing', 'forms', null)}" <isprint
                         value="${pdict.addressForm.city.attributes}" encoding="off" />
                     autocomplete="address-level2">
                     </select>
-                <div class="invalid-feedback"></div>
+                <div class="invalid-feedback select-error"></div>
                 </div>
             </div>
         </div>
@@ -201,7 +201,7 @@
                             class="${pdict.addressForm.postalCode.mandatory === true ? 'required' : ''}">${Resource.msg('label.required', 'account', null)}
                         </span> </iscomment>
                 </div>
-                <div class="select-wrap">
+                <div class="select-address-wrap">
                     <select type="text" class="form-control address-zipcode-input" id="zipCode"
                     data-selected="${pdict.addressForm.postalCode.htmlValue}"
                         data-missing-error="${Resource.msg('error.message.zip.required', 'forms', null)}"
@@ -210,7 +210,7 @@
                         value="${pdict.addressForm.postalCode.attributes}" encoding="off" />
                     autocomplete="postal-code">
                         </select>
-                <div class="invalid-feedback"></div>
+                <div class="invalid-feedback select-error"></div>
                 </div>
             </div>
         </div>
