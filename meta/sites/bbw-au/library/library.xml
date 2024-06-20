@@ -4655,7 +4655,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
         </custom-attributes>
     </content>
 
-     <content content-id="giftcards">
+   <content content-id="giftcards">
         <display-name xml:lang="x-default">Gift Cards</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
@@ -4725,7 +4725,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
                 src="images/gift-cards/gift-card-landing-banner-slot_m.svg?$staticlink$" title="" /&gt;&#13;
         &lt;/div&gt;&#13;
         &lt;div class="gift-card-landing-subtitle text-center"&gt;&#13;
-            &lt;h2 class="h-font-size--24 "&gt;Two easy ways to spoil someone special.&lt;/h2&gt;&#13;
+            &lt;h2 class="h-font-size--24 "&gt;One easy ways to spoil someone special.&lt;/h2&gt;&#13;
             &lt;p class="h-font-size--14"&gt;Redeemable In Stores &amp;amp; Online.&lt;/p&gt;&#13;
         &lt;/div&gt;&#13;
         &lt;div class="row"&gt;&#13;
@@ -4734,8 +4734,11 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
                     &lt;div class="giftcard-col1"&gt;&#13;
                         &lt;div class="gift-card-box e-gift"&gt;&#13;
                             &lt;h3 class="card-name"&gt;E-Gift Cards&lt;/h3&gt;&#13;
-                            &lt;div class="card-img"&gt;&lt;img alt="E-Gift Cards"&#13;
-                                    src="images/gift-cards/e-gift-card.webp?$staticlink$" title="" /&gt;&lt;/div&gt;&#13;
+                            &lt;div class="card-img"&gt;&#13;
+                                &lt;a href="$url('Search-Show', 'cgid', 'giftcards')$"&gt;&#13;
+                                    &lt;img alt="E-Gift Cards" src="images/gift-cards/e-gift-card.webp?$staticlink$" title="" /&gt;&#13;
+                                &lt;/a&gt;&#13;
+                            &lt;/div&gt;&#13;
                             &lt;div class="card-desc"&gt;Fast, easy &amp;amp; fun! We'll email it directly to your recipient,&#13;
                                 complete&#13;
                                 with your own message and the fun design you chose.&lt;/div&gt;&#13;
@@ -4766,7 +4769,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
                         name="dwfrm_giftcard_giftCardID" pattern="\d*" placeholder="" type="number" value="" /&gt;&#13;
                 &lt;/div&gt;&#13;
                 &lt;div class="form-caption d-none" id="caption-dwfrm_giftcard_giftCardID"&gt;&amp;nbsp;&lt;/div&gt;&#13;
-            &lt;/div&gt; &#13;
+            &lt;/div&gt;&#13;
             &lt;div class="form-row pin number-max-length help mb-2" data-required-text=""&gt;&lt;label&#13;
                     for="dwfrm_giftcard_giftCardPin"&gt;&lt;span&gt;PIN&lt;/span&gt;&lt;span class="required-indicator"&gt;*&lt;/span&gt;&lt;/label&gt;&#13;
                 &lt;div class="field-wrapper d-flex"&gt;&#13;
@@ -4797,6 +4800,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
     .giftcard-close {&#13;
         top: 0px !important;&#13;
     }&#13;
+&#13;
     .gift-card-top-banner .desktop-image {&#13;
         width: 930px;&#13;
         height: 90px;&#13;
@@ -4816,35 +4820,36 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
             width: 100%;&#13;
         }&#13;
     }&#13;
-.btn-with-tooltip {&#13;
-    position: relative;&#13;
-    display: inline-block;&#13;
-    min-height: 32px;&#13;
-    border-radius: 50%; &#13;
-    cursor: pointer;&#13;
-    background-color: #f2f2f2;&#13;
-}&#13;
 &#13;
-.btn-with-tooltip::before {&#13;
-    content: '';&#13;
-    position: absolute;&#13;
-    top: 50%;&#13;
-    left: 50%;&#13;
-    transform: translate(-50%, -50%);&#13;
-    width: 28px;&#13;
-    height: 25px;&#13;
-    border-radius: 50%; &#13;
-    background-color: #f2f2f2;&#13;
-    background-image: url("images/gift-cards/UI-Information.svg?$staticlink$");&#13;
-    background-repeat: no-repeat;&#13;
-    background-position: center;&#13;
-    background-size: 11px; &#13;
-}&#13;
+    .btn-with-tooltip {&#13;
+        position: relative;&#13;
+        display: inline-block;&#13;
+        min-height: 32px;&#13;
+        border-radius: 50%;&#13;
+        cursor: pointer;&#13;
+        background-color: #f2f2f2;&#13;
+    }&#13;
 &#13;
-.btn-with-tooltip:hover::before {&#13;
-    background-color: #000000 !important;&#13;
-    background-image: url("images/gift-cards/UI-Information-hover.svg?$staticlink$");&#13;
-}&#13;
+    .btn-with-tooltip::before {&#13;
+        content: '';&#13;
+        position: absolute;&#13;
+        top: 50%;&#13;
+        left: 50%;&#13;
+        transform: translate(-50%, -50%);&#13;
+        width: 28px;&#13;
+        height: 25px;&#13;
+        border-radius: 50%;&#13;
+        background-color: #f2f2f2;&#13;
+        background-image: url("images/gift-cards/UI-Information.svg?$staticlink$");&#13;
+        background-repeat: no-repeat;&#13;
+        background-position: center;&#13;
+        background-size: 11px;&#13;
+    }&#13;
+&#13;
+    .btn-with-tooltip:hover::before {&#13;
+        background-color: #000000 !important;&#13;
+        background-image: url("images/gift-cards/UI-Information-hover.svg?$staticlink$");&#13;
+    }&#13;
 &#13;
 &#13;
 &#13;
@@ -5072,6 +5077,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
+
 
 	   <content content-id="Instagram-Feed">
         <display-name xml:lang="x-default">Instagram Feed</display-name>
