@@ -1239,3 +1239,19 @@
         }
     }
 }
+
+.registration {
+    .custom-control-label {
+        &::before {
+            left: -1.8rem;
+        }
+
+        &::after {
+            left: -1.8rem;
+        }
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
