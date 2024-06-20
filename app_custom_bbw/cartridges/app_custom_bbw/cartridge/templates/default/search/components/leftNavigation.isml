@@ -1,25 +1,29 @@
 <div class="left-navigation-wrapper h-hidden-sm-down">
     <div class="left-navigation">
         <isloop items="${pdict.productSearch.levelOneCategory.onlineSubCategories}" var="levelTwoCategory">
-            <div
-                class="collapsible-sm left-navigation-item refinement-${levelTwoCategory.displayName.toLowerCase().replace(/ /g, '-')} border-0 no-gutters mb-0">
-                <div class="col-sm-12">
-                    <h2 aria-label="${levelTwoCategory.displayName}" class="left-navigation-item__title d-none d-md-block h-clr--black-1 b-text-body-14 text-uppercase">
-                        <span>${levelTwoCategory.displayName}</span>
-                    </h2>
+            <isif condition="${levelTwoCategory.custom && levelTwoCategory.custom.showInMenu}">
+                <div
+                    class="collapsible-sm left-navigation-item refinement-${levelTwoCategory.displayName.toLowerCase().replace(/ /g, '-')} border-0 no-gutters mb-0">
+                    <div class="col-sm-12">
+                        <h2 aria-label="${levelTwoCategory.displayName}" class="left-navigation-item__title d-none d-md-block h-clr--black-1 b-text-body-14 text-uppercase">
+                            <span>${levelTwoCategory.displayName}</span>
+                        </h2>
+                    </div>
+                    <div class="card-body content value p-md-0"
+                        id="refinement-${levelTwoCategory.displayName.toLowerCase().replace(/ /g, '-')}">
+                        <ul class="category-level-2 h-mb-md--45 list-unstyled">
+                            <isloop items="${levelTwoCategory.onlineSubCategories}" var="levelThreeCategory">
+                                <isif condition="${levelThreeCategory.custom && levelThreeCategory.custom.showInMenu}">
+                                    <li>
+                                        <a class="${pdict.productSearch.category.id === levelThreeCategory.ID ? 'active' : ''} h-font-size--16 d-block"
+                                            href="${URLUtils.url('Search-Show', 'cgid', levelThreeCategory.ID)}">${levelThreeCategory.displayName}</a>
+                                    </li>
+                                </isif>
+                            </isloop>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card-body content value p-md-0"
-                    id="refinement-${levelTwoCategory.displayName.toLowerCase().replace(/ /g, '-')}">
-                    <ul class="category-level-2 h-mb-md--45 list-unstyled">
-                        <isloop items="${levelTwoCategory.onlineSubCategories}" var="levelThreeCategory">
-                            <li>
-                                <a class="${pdict.productSearch.category.id === levelThreeCategory.ID ? 'active' : ''} h-font-size--16 d-block"
-                                    href="${URLUtils.url('Search-Show', 'cgid', levelThreeCategory.ID)}">${levelThreeCategory.displayName}</a>
-                            </li>
-                        </isloop>
-                    </ul>
-                </div>
-            </div>
+            </isif>
         </isloop>
     </div>
 </div>

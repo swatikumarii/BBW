@@ -14,6 +14,31 @@ var location = window.location;
 var history = window.history;
 
 /**
+ * checks if any required field is empty
+ * @param {object} form - current form
+ */
+function checkFields(form) {
+    var requiredFields = $(form).find('[required]');
+    var allFilled = true;
+    requiredFields.each(function () {
+        var isGftcardField = $(this).parents('.gift-card-apply').length > 0;
+        var isPaymentField = $(this).parents('#paymentMethodsList').length > 0;
+        if (
+            !($(this).val() && $(this).val().trim()) &&
+            !isGftcardField &&
+            !isPaymentField
+        ) {
+            allFilled = false;
+        }
+    });
+    if (allFilled) {
+        $('.verify-msg').hide();
+    } else {
+        $('.verify-msg').show();
+    }
+}
+
+/**
  * Create the jQuery Checkout Plugin.
  *
  * This jQuery plugin will be registered on the dom element in checkout.isml with the
@@ -240,6 +265,8 @@ var history = window.history;
                     var billingAddressForm = $(
                         '#dwfrm_billing .billing-address-block :input'
                     ).serialize();
+                    var billingForm = $('form.billing-form');
+                    checkFields(billingForm);
 
                     $('body').trigger('checkout:serializeBilling', {
                         form: $('#dwfrm_billing .billing-address-block'),
@@ -341,6 +368,23 @@ var history = window.history;
 
                                 defer.reject();
                             } else {
+
+                                if (data.isEgiftCardPayment && data.isThankYouPage) {
+                                    var redirect = $('<form>').appendTo(document.body).attr({
+                                        method: 'POST',
+                                        action: data.continueUrl
+                                    });
+                                    $('<input>').appendTo(redirect).attr({
+                                        name: 'orderID',
+                                        value: data.orderID
+                                    });
+                                    $('<input>').appendTo(redirect).attr({
+                                        name: 'orderToken',
+                                        value: data.orderToken
+                                    });
+                                    redirect.submit();
+                                    defer.resolve(data);
+                                }
                                 //
                                 // Populate the Address Summary
                                 //

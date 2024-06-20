@@ -1765,15 +1765,6 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <field-length>0</field-length>
                 <default-value>no-reply@testorganization.com</default-value>
             </attribute-definition>
-            <attribute-definition attribute-id="companyTaxNumber">
-                <display-name xml:lang="x-default">Company Tax Number on invoice</display-name>
-                <type>string</type>
-                <mandatory-flag>false</mandatory-flag>
-                <externally-managed-flag>false</externally-managed-flag>
-                <min-length>0</min-length>
-                <field-length>0</field-length>
-                <default-value>12345</default-value>
-            </attribute-definition>
             <attribute-definition attribute-id="showMinicartPopup">
                 <display-name xml:lang="x-default">Show Minicart popup</display-name>
                 <type>boolean</type>
@@ -1992,7 +1983,6 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="customerServiceEmail"/>
                 <attribute attribute-id="customerServicePhone"/>
                 <attribute attribute-id="companyAddress"/>
-                <attribute attribute-id="companyTaxNumber"/>
             </attribute-group>
             <attribute-group group-id="Tracking">
                 <display-name xml:lang="x-default">Tracking</display-name>
@@ -2032,6 +2022,13 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-definition attribute-id="isSearchable">
                 <display-name xml:lang="x-default">Is Searchable</display-name>
                 <description xml:lang="x-default">This attribute set true is you want to show on search suggestions.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="hideFilter">
+                <display-name xml:lang="x-default">Hide PLP Filters</display-name>
+                <description xml:lang="x-default">Will hide PLP level Filters</description>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -2749,6 +2746,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="slotId"/>
                 <attribute attribute-id="pageDesignerID"/>
                 <attribute attribute-id="showInMenu"/>
+                <attribute attribute-id="hideFilter"/>
             </attribute-group>
             <attribute-group group-id="promotionTileCommon">
                 <display-name xml:lang="x-default">Promotion Tile Common Attributes</display-name>
