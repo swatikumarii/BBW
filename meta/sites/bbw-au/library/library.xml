@@ -2207,7 +2207,7 @@
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="store-details-bottom-wrapper text-center my-5"&gt;&#13;
 &lt;p class="h-font-size--16"&gt;
-To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" class="h-clr--blue-12"&gt;1-800-57-6972&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au.&lt;/a&gt;&lt;/p&gt;&#13;
+To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" class="h-clr--blue-12"&gt;1800-576-972&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au.&lt;/a&gt;&lt;/p&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
