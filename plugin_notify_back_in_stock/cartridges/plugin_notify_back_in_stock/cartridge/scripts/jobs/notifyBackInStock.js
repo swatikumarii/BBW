@@ -56,10 +56,20 @@ function sendEmail() {
         var productDetails = [];
         for (var counter = 0; counter < pIdArr.length; counter++) {
             var productInfo = ProductFactory.get({ pid: pIdArr[counter] });
+            var productName = productInfo.fragranceName ? productInfo.fragranceName : productInfo.productName;
+            var promotionCallout = productInfo.promotions ? productInfo.promotions[0].calloutMsg : '';
             productDetails.push({
                 id: productInfo.id,
-                name: productInfo.productName,
-                imageUrl: productInfo.images && 'mediumLarge' in productInfo.images && productInfo.images.mediumLarge.length ? productInfo.images.mediumLarge[0].url : productInfo.images.small[0].url
+                name: productName,
+                imageUrl:
+                    productInfo.images &&
+                    'mediumLarge' in productInfo.images &&
+                    productInfo.images.mediumLarge.length
+                        ? productInfo.images.mediumLarge[0].url
+                        : productInfo.images.small[0].url,
+                productTitlePartB: productInfo.titlePartB,
+                productPrice: productInfo.price.sales.formatted,
+                promotionCallout: promotionCallout
             });
         }
         if (productDetails.length > 0) {

@@ -871,7 +871,7 @@
         </folder-links>
     </content>
 
-     <content content-id="lunar-new-year">
+         <content content-id="lunar-new-year">
         <display-name xml:lang="x-default">Lunar New Year</display-name>
         <description xml:lang="x-default">Celebrate Lunar New Year</description>
         <online-flag>true</online-flag>
@@ -1040,7 +1040,7 @@
 							&lt;div class="owl-stage-outer"&gt;&#13;
 								&lt;div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1980px;"&gt;&#13;
 									&lt;div class="owl-item active" style="width: 145px; margin-right: 20px;"&gt;&#13;
-										&lt;div class="item"&gt;&lt;a class="activelink" data-tag="Zodiac-05" href="javascript:void();"&gt; &lt;img alt="image" src="blogs/details/Zodiac-05b.webp?$staticlink$"&gt;&lt;/a&gt;&#13;
+										&lt;div class="item"&gt;&lt;a class="activelink" data-tag="Zodiac-05" href="javascript:void();"&gt; &lt;img alt="image" src="blogs/details/Zodiac-05.webp?$staticlink$"&gt;&lt;/a&gt;&#13;
 &#13;
 										&lt;/div&gt;&#13;
 									&lt;/div&gt;&#13;
@@ -1707,6 +1707,331 @@
 		&lt;div class="controlcontent_r"&gt;&#13;
 			&lt;div class="htmlbucket"&gt;&#13;
 				&lt;p&gt;&lt;/p&gt;&#13;
+				&lt;p&gt;&#13;
+					&lt;script type="text/javascript" src="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Plugin/owl-carousel-min.js"&gt;&lt;/script&gt;&#13;
+				&lt;/p&gt;&#13;
+				&lt;link href="https://storage.sg.content-cdn.io/in-resources/5ad7e6d1-20db-4623-b462-94e54806c8a7/Plugin/owl-carousel-min.css" rel="stylesheet" type="text/css"&gt;&#13;
+				&lt;style type="text/css"&gt;&#13;
+					/* Pgae */&#13;
+					  body.otherpages #main {&#13;
+					      max-width: 100%;&#13;
+					  }&#13;
+					  &#13;
+					  .banners img {&#13;
+					      width: 100%;&#13;
+					  }&#13;
+					    /* tabs */&#13;
+					  .landing_tabs.ui-tabs .ui-tabs-nav .ui-state-default {&#13;
+					      width: 15%;&#13;
+					      height: auto;&#13;
+					      margin: 0;&#13;
+					      padding: 0;&#13;
+					  }&#13;
+					  .landing_tabs.ui-tabs .ui-tabs-nav .ui-state-default a &gt; img {&#13;
+					      width: 80%;&#13;
+					      height: auto;&#13;
+					  }&#13;
+					  .landing_tabs.ui-tabs .ui-tabs-nav {&#13;
+					      display: flex;&#13;
+					      justify-content: center;&#13;
+					  }&#13;
+					  .landing_tabs.ui-tabs .ui-tabs-nav .ui-state-default a {&#13;
+					      display: block;&#13;
+					      height: 100%;&#13;
+					      width: 100%;&#13;
+					      border: 3px solid transparent;&#13;
+					  }&#13;
+					  &#13;
+					  &#13;
+					  .landing_tabs.ui-tabs .ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active::after {&#13;
+					      content: '';&#13;
+					      width: 3px;&#13;
+					      display: block;&#13;
+					      height: 60px;&#13;
+					      background-color: #775f99;&#13;
+					      position: absolute;&#13;
+					      bottom: -60px;&#13;
+					      left: 50%;&#13;
+					      margin-left: -1.5px;&#13;
+					  }&#13;
+					  &#13;
+					  .Shopbybtn {&#13;
+					      text-align: center;&#13;
+					      margin-top: 4rem;&#13;
+					  }&#13;
+					  .Shopbybtn &gt; a {&#13;
+					      color: #dc0735;&#13;
+					      background: #fff;&#13;
+					      font-size: 18px;&#13;
+					      text-transform: uppercase;&#13;
+					      text-decoration: none;&#13;
+					      padding: .5rem 1rem;&#13;
+					      display: inline-block;&#13;
+					      -webkit-box-shadow: 5px 6px 0px 0px rgba(0,0,0,1);&#13;
+					      -moz-box-shadow: 5px 6px 0px 0px rgba(0,0,0,1);&#13;
+					      box-shadow: 5px 6px 0px 0px rgba(0,0,0,1);&#13;
+					      font-weight: 600;&#13;
+					  }&#13;
+					  .owl-nav button.owl-next span {&#13;
+					      background: url(blogs/details/next.webp?$staticlink$) no-repeat 50%;&#13;
+					  }&#13;
+					  .owl-nav button.owl-prev span {&#13;
+					      background: url(blogs/details/next.webp?$staticlink$) no-repeat 50%;&#13;
+					      transform: rotate(180deg);&#13;
+					  }&#13;
+					  /*first_tab*/&#13;
+					  .landing_tabs.ui-tabs .ui-tabs-panel {&#13;
+					      border: 0;&#13;
+					      margin-top: 33px;&#13;
+					      background: url('blogs/details/Raya_LP_section1.png?$staticlink$') no-repeat center / cover;&#13;
+					      padding: 150px 0 100px 0;&#13;
+					          position: relative;&#13;
+					      z-index: 1;&#13;
+					  }&#13;
+					  .landing_tabs.ui-tabs .ui-tabs-nav .ui-state-active a {&#13;
+					      border-color: #7dc3cf;&#13;
+					  }&#13;
+					  .landing_tabs.ui-tabs .ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active::after {&#13;
+					      background-color: #7dc3cf;&#13;
+					  }&#13;
+					  &#13;
+					  /*second_tab*/&#13;
+					  #second_tab.landing_tabs.ui-tabs .ui-tabs-panel {&#13;
+					      background: url('blogs/details/Raya_LP_section2.png?$staticlink$') no-repeat center / cover;&#13;
+					      padding: 150px 0 100px 0;&#13;
+					  }&#13;
+					  #second_tab.landing_tabs.ui-tabs .ui-tabs-nav .ui-state-active a {&#13;
+					      border-color: #886f8f;&#13;
+					  }&#13;
+					  #second_tab.landing_tabs.ui-tabs .ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active::after {&#13;
+					      background-color: #886f8f;&#13;
+					  }&#13;
+					  /*third_tab*/&#13;
+					  #third_tab.landing_tabs.ui-tabs .ui-tabs-panel {&#13;
+					      background: url('blogs/details/Raya_LP_section3.png?$staticlink$') no-repeat center / cover;&#13;
+					      padding: 150px 0 100px 0;&#13;
+					  }&#13;
+					  #third_tab.landing_tabs.ui-tabs .ui-tabs-nav .ui-state-active a {&#13;
+					      border-color: #a55067;&#13;
+					  }&#13;
+					  #third_tab.landing_tabs.ui-tabs .ui-state-default.ui-corner-top.ui-tabs-active.ui-state-active::after {&#13;
+					      background-color: #a55067;&#13;
+					  }&#13;
+					  &#13;
+					  /* Buket */&#13;
+					  .tab_buket .buket_title {&#13;
+					      text-align: center;&#13;
+					      color: #fff;&#13;
+					      text-transform: uppercase;&#13;
+					      font-size: 18px;&#13;
+					      margin-top: 1rem;&#13;
+					      width: 100%;&#13;
+					      overflow: hidden;&#13;
+					      display: -webkit-box;&#13;
+					      -webkit-line-clamp: 2;&#13;
+					      -webkit-box-orient: vertical;&#13;
+					  }&#13;
+					  .tab_buket &gt; a {&#13;
+					      text-decoration: none;&#13;
+					  }&#13;
+					  .tab_buket .buket_category {&#13;
+					      text-align: center;&#13;
+					      display: block;&#13;
+					      color: #fff;&#13;
+					      font-size: 14px;&#13;
+					      text-transform: capitalize;&#13;
+					      margin-top: 0;&#13;
+					  }&#13;
+					   #main .container1{max-width:1300px;}&#13;
+					  @media only screen and (max-width: 768px){&#13;
+					  .landing_tabs.ui-tabs .ui-tabs-nav .ui-state-default {width: 20%;}&#13;
+					  .landing_tabs.ui-tabs .ui-tabs-panel {margin-top: 14px;}&#13;
+					  .landing_tabs.ui-tabs .ui-tabs-nav .ui-state-default a &gt; img {&#13;
+					      width: 100%;&#13;
+					  }&#13;
+					  }&#13;
+					  .module {&#13;
+					      min-height: 150px;&#13;
+					  }&#13;
+					  &#13;
+					  .promo-module .promo-display .promo-tile .cta {&#13;
+					      text-transform: uppercase;&#13;
+					      display: block;&#13;
+					      width: auto;&#13;
+					      padding: 10px;&#13;
+					      max-width: 125px;&#13;
+					      background: #333;&#13;
+					      color: #fff;&#13;
+					      border: 1px solid #333;&#13;
+					      font-size: 10px;&#13;
+					      line-height: 13px;&#13;
+					      letter-spacing: 2.2px;&#13;
+					      -webkit-transition: all .3s ease;&#13;
+					      transition: all .3s ease;&#13;
+					      text-decoration: none;&#13;
+					      font-weight: 400;&#13;
+					      margin: 10px auto;&#13;
+					      font-family: TrendSansW05-One;&#13;
+					      text-align: center;&#13;
+					  }&#13;
+					  .promo-module .promo-display .promo-tile p, .promo-module .promo-display .promo-tile span {&#13;
+					      display: block;&#13;
+					      width: 100%;&#13;
+					      text-align: center;&#13;
+					      font-size: 14px;&#13;
+					  }&#13;
+					  .promo-module .promo-display .promo-tile p, .promo-module .promo-display .promo-tile span {&#13;
+					      display: block;&#13;
+					      width: 100%;&#13;
+					  }&#13;
+					  .promo-module .promo-display .promo-tile .promo {&#13;
+					      height: auto;&#13;
+					      line-height: inherit;&#13;
+					      margin: 6px 0px;&#13;
+					  }&#13;
+					  .promo-module .promo-display .promo-tile .promo.p-title {&#13;
+					      font-size: 14px;&#13;
+					      font-weight: 600;&#13;
+					      text-align: center;&#13;
+					  }&#13;
+					  &#13;
+					  .promo-module .promo-display .promo-tile span.form.video-form {&#13;
+					      font-size: 13px;&#13;
+					      height: auto;&#13;
+					      min-height: 0px;&#13;
+					      max-height: 22px;&#13;
+					      margin: 10px auto;&#13;
+					      text-align: center;&#13;
+					  }&#13;
+				&lt;/style&gt;&#13;
+				&lt;script type="text/javascript"&gt;&#13;
+					$('#section-third').owlCarousel({&#13;
+					          loop: false,&#13;
+					          nav: true,&#13;
+					          arrows:true,&#13;
+					          dots:false,&#13;
+					          items: 6,&#13;
+					          slideBy: "page",&#13;
+					          responsive: {&#13;
+					              0: {&#13;
+					                  &#13;
+					                  items: 3,&#13;
+					                  margin: 20,&#13;
+					                  stagePadding: 40,&#13;
+					                  loop:true&#13;
+					              },&#13;
+					              480: {&#13;
+					                  &#13;
+					                  items: 3,&#13;
+					                  margin: 20,&#13;
+					                  autoWidth:false,&#13;
+					                  stagePadding: 10&#13;
+					  &#13;
+					              },&#13;
+					           &#13;
+					              760: {&#13;
+					                  items: 4,&#13;
+					                  margin: 26,&#13;
+					                   autoWidth:false,&#13;
+					                   stagePadding: 10&#13;
+					              },&#13;
+					              1024: {&#13;
+					                  items: 6,&#13;
+					                  margin: 20,&#13;
+					                 &#13;
+					              }&#13;
+					          },&#13;
+					          &#13;
+					      });&#13;
+					      &#13;
+					  //&#13;
+					  $('#fragrances_tabs').owlCarousel({&#13;
+					          loop: false,&#13;
+					          nav: true,&#13;
+					          arrows:true,&#13;
+					          dots:false,&#13;
+					          items: 6,&#13;
+					          slideBy: "page",&#13;
+					          responsive: {&#13;
+					              0: {&#13;
+					                  &#13;
+					                  items: 3,&#13;
+					                  margin: 20,&#13;
+					                  stagePadding: 40,&#13;
+					                  loop:true&#13;
+					              },&#13;
+					              480: {&#13;
+					                  &#13;
+					                  items: 4,&#13;
+					                  margin: 20,&#13;
+					                  autoWidth:false,&#13;
+					                  stagePadding: 10&#13;
+					  &#13;
+					              },&#13;
+					           &#13;
+					              760: {&#13;
+					                  items: 6,&#13;
+					                  margin: 26,&#13;
+					                   autoWidth:false,&#13;
+					                   stagePadding: 10&#13;
+					              },&#13;
+					              1024: {&#13;
+					                  items: 8,&#13;
+					                  margin: 20,&#13;
+					                 &#13;
+					              }&#13;
+					          },&#13;
+					          &#13;
+					      });&#13;
+				&lt;/script&gt;&#13;
+				&lt;p&gt;&lt;/p&gt;&#13;
+				&lt;div id="loading" style="display: none;"&gt;&#13;
+					&lt;img alt="Loading..." id="loading-image" src="blogs/details/bbwloader18.webp?$staticlink$"&gt;&#13;
+				&lt;/div&gt;&#13;
+				&lt;style type="text/css"&gt;&#13;
+					#loading {&#13;
+					  position: fixed;&#13;
+					  display: none;&#13;
+					  width: 100%;&#13;
+					  height: 100%;&#13;
+					  top: 0;&#13;
+					  left: 0;&#13;
+					  text-align: center;&#13;
+					  opacity: 0.9;&#13;
+					  background-color: #fff;&#13;
+					  z-index: 99;&#13;
+					}&#13;
+					&#13;
+					#loading-image {&#13;
+						position: absolute;&#13;
+						top: 0;&#13;
+						left: 0;&#13;
+						z-index: 100;&#13;
+						right: 0;&#13;
+						bottom: 0;&#13;
+						margin: auto;&#13;
+						width: 30px;&#13;
+					}&#13;
+				&lt;/style&gt;&#13;
+				&lt;script&gt;&#13;
+					$('#loading').show();&#13;
+					&#13;
+					setTimeout(() =&gt; {&#13;
+					  $('#loading').hide();&#13;
+					}, 2000);&#13;
+				&lt;/script&gt;&#13;
+				&lt;p&gt;&lt;/p&gt;&#13;
+				&lt;p&gt;&lt;/p&gt;&#13;
+			&lt;/div&gt;&#13;
+		&lt;/div&gt;&#13;
+		&lt;div class="r_bottom"&gt;&#13;
+			&lt;div class="l_bottom"&gt;&lt;/div&gt;&#13;
+		&lt;/div&gt;&#13;
+	&lt;/div&gt;&#13;
+	&lt;div class="container1"&gt;&#13;
+		&lt;div class="controlcontent_r"&gt;&#13;
+			&lt;div class="htmlbucket"&gt;&#13;
+				&lt;p&gt;&lt;/p&gt;&#13;
 				&lt;div class="cs-page-view" id="main-wrapper"&gt;&#13;
 					&lt;div id="wrapper"&gt;&#13;
 						&lt;div class="main-content"&gt;&#13;
@@ -1773,9 +2098,6 @@
 	&lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
-        <folder-links>
-            <classification-link folder-id="seasonal"/>
-        </folder-links>
     </content>
 
 	<content content-id="login.show.seo">
@@ -2091,7 +2413,7 @@
 &lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
-				&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('shop-by-ingredient')$"&#13;
+				&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Search-Show', 'cgid', 'shop-by-ingredient')$"&#13;
 						class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Shop by Ingredient&#13;
 					&lt;/a&gt;&#13;
 				&#13;
@@ -2207,7 +2529,7 @@
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="store-details-bottom-wrapper text-center my-5"&gt;&#13;
 &lt;p class="h-font-size--16"&gt;
-To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" class="h-clr--blue-12"&gt;1-800-57-6972&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au.&lt;/a&gt;&lt;/p&gt;&#13;
+To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" class="h-clr--blue-12"&gt;1800-576-972&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au.&lt;/a&gt;&lt;/p&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
@@ -4657,11 +4979,30 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
         </custom-attributes>
     </content>
 
+    <content content-id="careers.applyforjob.seo">
+        <display-name xml:lang="x-default">Careers Apply For Job</display-name>
+        <description xml:lang="x-default">Careers Apply For Job</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Careers</page-title>
+            <page-description xml:lang="x-default">Careers</page-description>
+            <page-keywords xml:lang="x-default">Careers</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
    <content content-id="giftcards">
         <display-name xml:lang="x-default">Gift Cards</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
-        <page-attributes/>
+        <page-attributes>
+            <page-title xml:lang="x-default">Gift Cards | Bath &amp; Body Works Australia</page-title>
+            <page-description xml:lang="x-default">Gift Cards | Bath &amp; Body Works Australia</page-description>
+            <page-keywords xml:lang="x-default">Gift Cards</page-keywords>
+        </page-attributes>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script src="https://www.google.com/recaptcha/api.js" defer&gt;&#13;
 &lt;/script&gt;&#13;
