@@ -32,16 +32,104 @@
     top: 0;
     width: 100%;
 
+    .profile-complete-dialog {
+        display: block;
+        animation: bottom-to-top 0.2s;
+        animation-timing-function: cubic-bezier(0.2, 0.05, 0.55, 0.2);
+        transform: translate(-50%) !important;
+        background: colour(white);
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        height: auto;
+        max-height: 388px;
+        min-height: 388px;
+        top: 5vh;
+        width: calc(100% - 40px);
+        max-width: 568px;
+        margin: 0;
+
+        @include media-up(sm) {
+            height: fit-content;
+            max-height: fit-content;
+            width: 464px;
+            min-height: fit-content;
+        }
+    }
+
     .profile-content {
         border-radius: 0;
+        height: auto;
+        padding: 32px;
+
+        .profile-completion-header {
+            .profile-header {
+                letter-spacing: 0.005em;
+                line-height: 1.25rem;
+            }
+
+            .close-icon-btn {
+                background-image: url("../../images/plp/quickview/UI-Close-dark.svg");
+                background-repeat: no-repeat;
+                background-position: 50%;
+                background-size: 15px;
+                height: 35px;
+                width: 35px;
+                right: -16px;
+                position: relative;
+                top: -16px;
+                opacity: 1;
+
+                &:hover {
+                    background-color: colour(black, 3) !important;
+                    border: 1px solid colour(black, 3);
+                    opacity: 1;
+                    background-image: url("../../images/plp/quickview/UI-Close-dark-hover.svg");
+                }
+            }
+        }
+    }
+
+    .profile-completion-body {
+        .modal-content-data {
+            letter-spacing: 0.005em;
+            line-height: 1.75rem;
+        }
+    }
+
+    .modal-footer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
 
         .profile_complete_btn {
-            font-size: 0.6875rem;
-            letter-spacing: 0.12em;
-            line-height: 2.0625rem;
-            min-height: 35px;
-            padding: 0 15px;
-            width: auto;
+            min-height: 40px;
+            max-height: 40px;
+            text-transform: capitalize;
+            width: 142px;
+            padding: 3px;
+
+            @include media-up(sm) {
+                padding: 0 1.0625em;
+                width: 128px;
+            }
+        }
+
+        .profile-close-btn {
+            min-height: 40px;
+            max-height: 40px;
+            text-transform: capitalize;
+            width: 121px;
+            padding: 1px;
+
+            @include media-up(sm) {
+                padding: 0 1.0625em;
+                width: 103px;
+            }
+
+            &:hover {
+                border: 2px solid colour(black, 1);
+            }
         }
     }
 }
