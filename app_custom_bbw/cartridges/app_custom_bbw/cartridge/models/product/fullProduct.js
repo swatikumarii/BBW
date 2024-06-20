@@ -29,5 +29,6 @@ module.exports = function fullProduct(product, apiProduct, options) {
             quantity: 'all'
         });
     }
+    decorators.isSearchableIfUnavailable(product, apiProduct);
     return product;
 };

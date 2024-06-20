@@ -61,6 +61,7 @@
         <pipeline-alias pipeline="Wishlist-ShowOthers">wishlist-others</pipeline-alias>
         <pipeline-alias pipeline="Login-Logout">logout</pipeline-alias>
         <pipeline-alias pipeline="Account-PasswordReset">reset-password</pipeline-alias>
+        <pipeline-alias pipeline="Careers-ApplyForJob">careers/apply-job</pipeline-alias>
     </pipeline-aliases>
     <pipeline-trailing-slash>false</pipeline-trailing-slash>
     <pipeline-perform-redirect>false</pipeline-perform-redirect>

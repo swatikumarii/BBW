@@ -158,12 +158,16 @@ function getBreadcrumbForContentAsset(content) {
 /**
  * Check product availability
  * @param {string} productId product id
- * @returns {boolean} true/false
+ * @returns {JSON} response with product available and isSearchableIfUnavailable
  */
 function checkProductAvailability(productId) {
     var ProductFactory = require('*/cartridge/scripts/factories/product');
     var product = ProductFactory.get({ pid: productId });
-    return product.available;
+    var response = {
+        isAvailable: product.available,
+        isSearchableIfUnavailable: product.isSearchableIfUnavailable
+    };
+    return response;
 }
 
 module.exports = {
