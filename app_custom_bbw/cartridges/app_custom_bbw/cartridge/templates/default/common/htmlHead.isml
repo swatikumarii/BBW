@@ -63,6 +63,7 @@ ${dw.system.HookMgr.callHook('app.template.htmlHead', 'htmlHead', pdict) || ''}
     window.addEventListener("error", function(e) {
         if((e.target.tagName || '').toLowerCase() === "img" && (e.target.className || '').indexOf('no-error') === -1) {          // if the target is an image
             e.target.src = "<isprint value="${URLUtils.staticURL('/images/image-no-longer-available.png')}" encoding="htmlcontent" />"; // then change its src to whatever you want
+            e.target.removeAttribute('srcset');
         }
     }, true);
 </script>
