@@ -2153,6 +2153,21 @@
         </folder-links>
     </content>
 
+    <content content-id="faq.search.seo">
+        <display-name xml:lang="x-default">Faq Search Seo</display-name>
+        <description xml:lang="x-default">Faq Search Seo</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Search results</page-title>
+            <page-description xml:lang="x-default">Search results</page-description>
+            <page-keywords xml:lang="x-default">Search results</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
 	<content content-id="order.history.seo">
         <display-name xml:lang="x-default">Order History Seo</display-name>
         <online-flag>true</online-flag>

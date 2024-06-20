@@ -4,6 +4,7 @@ var server = require('server');
 
 var Resource = require('dw/web/Resource');
 var ContentMgr = require('dw/content/ContentMgr');
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 /**
  * Faq-UpdateVote : UpdateVote
@@ -83,7 +84,7 @@ server.get('Search', function (req, res, next) {
     var folderWiseSearch = searchHelper.setupFaqContentSearch(req.querystring);
     res.render('/content/faqSearch', folderWiseSearch);
     next();
-});
+},seo.addCurrentPageMetaData);
 
 /**
  * Faq-Content : Content search
