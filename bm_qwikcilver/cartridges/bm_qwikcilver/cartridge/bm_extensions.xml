@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<extensions xmlns="http://www.demandware.com/xml/bmmodules/2007-12-11"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.demandware.com/xml/bmmodules/2007-12-11 bmext.xsd">
+	<menuaction id="customsubmenu_resend" menupath="orders"
+		position="800" site="true">
+		<name xml:lang="x-default">Resend Giftcard Email</name>
+		<short_description xml:lang="x-default">
+			Resend Giftcard Email.
+		</short_description>
+		<description xml:lang="x-default">
+			Order level Resend Giftcard Email.
+		</description>
+		<!-- no icon specified -->
+		<exec pipeline="Giftcard" node="OrderList" />
+		<sub-pipelines>
+			<pipeline name="Giftcard-OrderList" />
+			<pipeline name="Giftcard-OrderDetails" />
+			<pipeline name="Giftcard-ResendEmail" />
+		</sub-pipelines>
+		<icon>icons/icons8-envelope-96.png</icon>
+	</menuaction>
+</extensions>

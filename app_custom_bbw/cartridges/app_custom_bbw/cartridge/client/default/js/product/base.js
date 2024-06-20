@@ -889,7 +889,8 @@ module.exports = $.extend({}, base, {
             $.ajax({
                 type: 'GET',
                 url: removeGiftPliUrl,
-                success: function () {
+                success: function (res) {
+                    handlePostCartAdd(res);
                     $.ajax({
                         type: 'POST',
                         url: addToCartUrl,
