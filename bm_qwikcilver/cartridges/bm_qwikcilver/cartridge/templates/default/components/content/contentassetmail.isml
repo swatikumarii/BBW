@@ -1,0 +1,6 @@
+<isset name="content" value="${dw.content.ContentMgr.getContent(pdict.aid)}" scope="page"/>
+<isif condition="${content && content.custom.body !== null}">
+    <div class="content-asset">
+        <isprint value="${content.custom.body}" encoding="off"/>
+    </div>
+</isif>

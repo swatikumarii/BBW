@@ -3,7 +3,7 @@
         <div class="modal-content profile-content border-0">
             <div class="modal-header border-0 p-0 profile-completion-header ">
             <h5
-                class="modal-title h-font-size-md--18 h-font-size-sm--18 h-font-size--16 h-clr--black-3 m-0 h-fw--semibold profile-header">
+                class="modal-title h-font-size-md--18 h-font-size-sm--18 h-font-size--16 h-clr--pink h-fw--bold m-0 h-fw--semibold profile-header">
                 ${Resource.msg('profilecompletion.header.label', 'account', null)}</h5>
                 <button type="button" class="close close-icon-btn modal-close-icon h-bg--gray-1" data-dismiss="modal"
                     aria-label="Close">
@@ -17,12 +17,14 @@
                 <div class="col-12 p-0">
                     <span
                         class="modal-content-data h-clr--black-1 h-font-size-md--16 h-font-size-sm--16 h-font-size--14">${Resource.msg('profileCompletion.description', 'account', null)}</span>
+                        <p
+                            class="modal-content-data h-clr--black-1 h-font-size-md--16 h-font-size-sm--16 h-font-size--14">${Resource.msg('profileCompletion.description2', 'account', null)}</p>
                     <p class="product-to-remove"></p>
                 </div>
             </div>
 
             <div class="modal-footer border-0 p-0 m-0 justify-content-md-end justify-content-center">
-                <span class="redirect-profile btn profile_complete_btn h-font-size-sm--16 h-font-size-md--16 h-font-size--14 m-0 mr-2"
+                <span class="redirect-profile btn profile_complete_btn h-font-size-sm--16 h-font-size-md--16 h-font-size--14 m-0"
                     data-action="${URLUtils.url('Account-EditProfile')}">
                     ${Resource.msg('profileCompletion.button.continue', 'account', null)}</span>
                 <span class="modal-close-button profile-close-btn btn h-font-size-sm--16 h-font-size-md--16 h-font-size--14 m-0"

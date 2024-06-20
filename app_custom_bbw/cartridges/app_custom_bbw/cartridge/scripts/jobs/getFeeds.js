@@ -40,7 +40,7 @@ function getGoogleFeeds() {
     try {
         while (productsIterator.hasNext()) {
             product = productsIterator.next();
-            if (!product.custom.isBonusProduct) {
+            if (!product.custom.isBonusProduct && product.online) {
                 xmlStreamWriter.writeStartElement('item');
                 var apiProduct = ProductMgr.getProduct(product.ID);
                 var images = new ImageModel(apiProduct, config);
