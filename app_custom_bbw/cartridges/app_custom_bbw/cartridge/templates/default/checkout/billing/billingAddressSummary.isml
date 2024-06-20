@@ -11,7 +11,5 @@
     <iselse>
             <span class="order-summary-phone"></span>
     </isif>
-    <span class="edit-billing-address d-block mt-4">Edit</span>
+    <span class="edit-billing-address d-block mt-4 b-link--underlined h-clr--black-1">${Resource.msg('label.edit.link', 'checkout', null)}</span>
 </div>
-
-

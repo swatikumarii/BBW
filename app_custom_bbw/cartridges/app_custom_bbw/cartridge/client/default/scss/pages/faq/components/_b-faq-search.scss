@@ -70,10 +70,8 @@
                 position: relative;
                 font-weight: 700;
                 margin-bottom: 20px;
-
-                @include media-up(md) {
-                    margin-bottom: 0;
-                }
+                line-height: 22.5px;
+                color: colour(black, 8);
             }
 
             .sidenav-item {
@@ -84,6 +82,7 @@
                 margin-bottom: 10px;
                 padding: 10px;
                 font-size: 15px;
+                line-height: 22.5px;
 
                 &:hover {
                     color: colour(blue, 11);
@@ -105,14 +104,18 @@
             display: block;
             padding: 10px;
             color: colour(blue, 9);
+            position: relative;
 
             &:hover {
                 text-decoration: underline;
             }
 
             &::after {
-                content: " \2304";
+                content: "\2304";
                 font-weight: bold;
+                position: absolute;
+                top: 7px;
+                right: -7px;
             }
         }
     }
@@ -223,7 +226,7 @@
                     display: table-row;
 
                     li {
-                        display: table-cell;
+                        display: inline;
                         font-weight: 300;
                         font-size: 13px;
                         max-width: 450px;

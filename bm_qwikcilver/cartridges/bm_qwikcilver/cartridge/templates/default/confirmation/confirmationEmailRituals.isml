@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <isinclude template="/components/modules" sf-toolkit="off" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+        /*client fixes*/
+        #outlook a {
+            padding: 0
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        body {
+            width: 100% !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+            -webkit-text-size-adjust: none !important;
+            -ms-text-size-adjust: none !important
+        }
+
+        .ExternalClass {
+            width: 100%
+        }
+
+        p,
+        h3 {
+            margin: 0;
+        }
+
+        table td {
+            border-collapse: collapse
+        }
+
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        table {
+            border-collapse: collapse !important;
+        }
+
+        .nolink a {
+            color: #FFFFFF;
+        }
+
+        .arimo {
+            font-family: Arial, Helvetica Neue, Helvetica, 'Arimo', sans-serif !important;
+        }
+
+        .tinos {
+            font-family: TimesNewRoman, Times New Roman, 'Tinos', serif !important;
+        }
+    </style>
+</head>
+
+<body>
+    <iscomment> Added below line for email subject preview text </iscomment>
+    <div style="display: none; max-height: 0px; overflow: hidden;">
+        ${Resource.msgf('email.title.confirmation.sender.name', 'common', null, pdict.order.billingAddress.firstName)}
+    </div>
+
+    <table style="border-collapse:collapse;max-width: 660px; background-color:#f7f4f2;" align="center">
+        <iscontentassetmail aid="email-header" />
+        <tr style="background-color:#f7f4f2">
+            <td>
+                <table style="border-collapse:collapse;width:660px;background-color:#f7f4f2">
+                    <tr>
+                        <td style="padding: 20px 20px 0;text-align:center;font:normal 24px/32px TimesNewRoman,Times New Roman,Times,serif;color:#1a1919;letter-spacing:1px;font-weight: 600;"
+                            class="m_-9033724789167341082tinos" height="45">
+                            ${Resource.msg('confirmation.email.title.text', 'common', null)}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font:normal 14px/24px Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919;text-align:center"
+                            class="m_-9033724789167341082arimo" height="75">
+                            <p style="color:#1a1919;text-decoration:none;padding:0 30px;margin:0">
+                                ${Resource.msgf('email.title.confirmation.sender.name', 'common', null, pdict.order.billingAddress.firstName)}
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding:0 60px 30px 60px">
+                <div style="text-align:center;">
+                    <a href="${pdict.invoiceUrl}"
+                        style="background-color:#000000;font-size:12px;line-height:12px;letter-spacing:2px;font-family:Arial,Helvetica Neue,Helvetica,sans-serif;font-weight:normal;text-transform:uppercase;text-decoration:none;padding:15px 29px;color:#ffffff;display:inline-block;border:solid 1px #000000"
+                        target="_blank">
+                        <span class="m_8392873603609897810arimo"> ${Resource.msg('invoice.download', 'common', null)}
+                        </span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table
+                    style="border-collapse:collapse; width: 613px;background-color:#f7f4f2;border-top:2px solid black"
+                    align="center" valign="">
+                    <tbody>
+                        <tr>
+                            <td style="width:237px;vertical-align:text-top;text-align:center">
+                                <h3
+                                    style="margin-bottom:15px; padding:0 30px;font:normal 14px/24px Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;font-weight:600;color:#1a1919">
+                                    ${Resource.msg('email.delivery.status.title', 'common', null)}</h3>
+                                <p
+                                    style="font:normal 14px/24px Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;padding:0 17px;color:#1a1919">
+                                    ${Resource.msg('email.delivery.status.info', 'common', null)}</p>
+                            </td>
+                            <td style="width:220px;vertical-align:text-top;padding:10px;text-align:center">
+                                <h3
+                                    style="margin-bottom:15px; font:normal 14px/24px Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;font-weight:600;color:#1a1919">
+                                    ${Resource.msg('email.delivery.destination.title', 'common', null)}</h3>
+                                <p
+                                    style="font:normal 14px/24px Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919">
+                                    <p style="margin:0px;">
+                                        <isloop items="${pdict.order.shipments}" var="shippingModel"
+                                            status="shippingLoop">
+                                            <isset name="address" value="${shippingModel.shippingAddress}"
+                                                scope="page" />
+                                            <isinclude template="checkout/addressSummary" />
+                                        </isloop>
+                                    </p>
+                                </p>
+                            </td>
+                            <td style="width:220px;vertical-align:text-top;text-align:center">
+                                <h3
+                                    style="margin-bottom:15px; font:normal 14px/24px Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;font-weight:600;color:#1a1919">
+                                    ${Resource.msg('email.delivery.expected.title', 'common', null)}</h3>
+                                <p
+                                    style="font:normal 14px/24px Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919">
+                                    ${pdict.order.shipments[0].shippingMethod.displayName}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td height="20">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table style="border-collapse:collapse; width: 630px; background-color:white;" class="bg_grey_1"
+                    align="center" valign="">
+                    <tr>
+                        <td style="width:630px;">
+                            <table height="50"
+                                style="border-collapse:collapse; width: 600px; background-color:white;border-bottom: 2px solid #f7f4f2;"
+                                align="center">
+                                <tr>
+                                    <td style=" width:315px;font: normal 14px/24px Arial, Helvetica Neue,
+                                        Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919; text-transform:
+                                        uppercase;">
+                                        <p>${Resource.msg('confirmation.email.heading', 'common', null)}</p>
+                                    </td>
+                                    <td
+                                        style="width:315px;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919; text-transform: uppercase;text-align: right;">
+                                        <p>${Resource.msg('confirmation.email.order.number', 'common', null)}
+                                            <span style="font-weight: bold;">
+                                                <span>&#x23;</span>${pdict.order.orderNo}
+                                            </span>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <isif condition="${pdict.order.shipments.length === 1}">
+                        <tr>
+                            <td style="background: white;">
+                                <isloop items="${pdict.order.productLineItems}" var="lineItem">
+                                    <table style="background:white; border-bottom: 2px solid #f7f4f2; width: 600px;"
+                                        align="center">
+                                        <tr>
+                                            <isif
+                                                condition=" ${lineItem.item_list_id === 'greetingCardProducts' || lineItem.item_list_id === 'giftWrapProducts'}">
+                                                <td align="left"
+                                                    style=" padding:15px;vertical-align: text-top;text-align: center;width:30%;">
+                                                    <img height="100" width="100"
+                                                        style="width: 80px; height: 80px;object-fit: contain;"
+                                                        data-src="${lineItem.images.large[0].url}"
+                                                        src="${lineItem.images.large[0].absURL}"
+                                                        alt="${lineItem.images.large[0].alt}" />
+                                                </td>
+                                            <iselse/>
+                                                <td align="left"
+                                                    style=" padding:15px;vertical-align: text-top;width:30%;">
+                                                    <isset name="images"
+                                                        value="${pdict.getCustomImage(lineItem)}"
+                                                        scope="page" />
+                                                    <img height="100" width="100" style="width:150px; height:150px"
+                                                        data-src="${images[0].url}" src="${images[0].url}"
+                                                        alt="${images[0].alt}" />
+                                                </td>
+                                            </isif>
+                                            <td
+                                                style="padding:15px;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                <isif condition="${lineItem.product.custom.ancientRitualFullName}">
+                                                    <h3
+                                                        style="margin-top:0px;margin-bottom:5px;    font: normal 14px/24px Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing: 0.75px;font-weight: bold;color: #1a1919;">
+                                                        <isprint value="${lineItem.quantity}" formatter="##" /> X
+                                                        ${lineItem.product.custom.ancientRitualFullName}
+                                                    </h3>
+                                                    ${lineItem.productName}
+                                                    <isif condition="${lineItem.virtualPID}">
+                                                        <p style="font-size: 12px;">${lineItem.variationName}</p>
+                                                    </isif>
+                                                <iselse/>
+                                                    <h3
+                                                        style="margin-top:0px;margin-bottom:5px;    font: normal 14px/24px Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing: 0.75px;font-weight: bold;color: #1a1919;">
+                                                        <isprint value="${lineItem.quantity}" formatter="##" /> X
+                                                        ${lineItem.productName}
+                                                    </h3>
+                                                </isif>
+                                            </td>
+                                            <td
+                                                style="text-align:right;padding:15px;vertical-align: text-top;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                <isif condition="${!lineItem.bonusProductLineItem}">
+                                                <h3
+                                                    style="margin-bottom: 30px; margin-top:0px;font: normal 14px/24px Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing: 0.75px;font-weight: bold;">
+                                                    <span
+                                                        class="value price-after-discount pricing line-item-total-price-amount item-total-${lineItem.UUID}">
+                                                        <isif condition="${lineItem.virtualPID}">
+                                                            ${lineItem.customAdjustedPrice}
+                                                        <iselse/>
+                                                            ${pdict.getTotals(lineItem.adjustedPrice)}
+                                                            <isif condition=${lineItem.nonAdjustedPrice}>
+                                                                <span
+                                                                    class="sub-${lineItem.UUID} price-before-discount non-adjusted-price"
+                                                                    style="font-size: 11px;line-height: 16px;letter-spacing: 0.75px;color: #8C8C8C;text-decoration: line-through;display: block;text-transform: none;">
+                                                                    ${pdict.getTotals(lineItem.nonAdjustedPrice)}
+                                                                </span>
+                                                            </isif>
+                                                        </isif>
+                                                    </span>
+                                                </h3>
+                                                <iselse/>
+                                                    <h3
+                                                        style="margin-bottom: 30px; margin-top:0px;font: normal 14px/24px Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing: 0.75px;font-weight: bold;">
+                                                        <span
+                                                            class="value price-after-discount pricing line-item-total-price-amount item-total-${lineItem.UUID}">
+                                                            ${Resource.msg('member.gift', 'common', null)}
+                                                        </span>
+                                                    </h3>
+                                                </isif>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </isloop>
+                                <table style="width: 600px;" align="right">
+                                    <tr>
+                                        <td colspan="2">
+                                        </td>
+                                        <td>
+                                            <table class="bg_grey_1"
+                                                style="border-collapse:collapse; width: 350px; background-color: white; margin-top:30px;margin-bottom: 30px;"
+                                                align="right">
+                                                <tr>
+                                                    <td
+                                                        style="padding:0 15px;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                        <p style="margin:0; padding: 0">
+                                                            ${Resource.msgf('label.number.items.email.in.cart1', 'common', null, pdict.order.allLineItems[0].quantityValue)}
+                                                        </p>
+                                                    </td>
+                                                    <td
+                                                        style="padding:0 15px;vertical-align: text-top;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                        <p style="margin:0; padding: 0; text-align:right;">
+                                                            ${pdict.getTotals(pdict.order.adjustedMerchandizeTotalGrossPrice)}</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td
+                                                        style="padding:0 15px;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                        <p style="margin:0; padding: 0">
+                                                            ${Resource.msg('confirmation.email.order.delivery.tax', 'common', null)}</p>
+                                                    </td>
+                                                    <td
+                                                        style="padding:0 15px;vertical-align: text-top;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                        <p style="margin:0; padding: 0; text-align:right;">
+                                                            <isif
+                                                                condition="${pdict.order.adjustedShippingTotalGrossPrice.value === 0}">
+                                                                ${Resource.msg('text.shpping.free', 'common', null)}
+                                                            <iselse/>
+                                                                ${pdict.getTotals(pdict.order.adjustedShippingTotalGrossPrice)}
+                                                            </isif>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <isloop items="${pdict.order.totals.discounts}" var="discount"
+                                                        status="loopstatus">
+                                                        <td
+                                                            style="padding:0 15px;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                            <p style="margin:0; padding: 0">
+                                                                <isif
+                                                                    condition="${!pdict.order.totals.discountAmount.shippingDiscount}">
+                                                                    ${Resource.msg('confirmation.email.order.discount', 'common', null)}
+                                                                </isif>
+                                                            </p>
+                                                        </td>
+                                                        <td
+                                                            style="padding:0 15px;vertical-align: text-top;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                            <p style="margin:0; padding: 0; text-align:right;">
+                                                                <isif
+                                                                    condition="${!pdict.order.totals.discountAmount.shippingDiscount}">
+                                                                    ${pdict.getTotals(discount.price)}
+                                                                </isif>
+                                                            </p>
+                                                        </td>
+                                                    </isloop>
+                                                </tr>
+                                                <tr>
+                                                    <isif condition="${pdict.order.totalTax.value <= 0}">
+                                                        <td
+                                                            style="padding:0 15px;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                            <p style="margin:0; padding: 0">
+                                                                ${Resource.msg('confirmation.email.order.tax', 'common', null)}</p>
+                                                        </td>
+                                                        <td
+                                                            style="padding:0 15px;vertical-align: text-top;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                            <p style="margin:0; padding: 0; text-align:right;">
+                                                                <span>${Resource.msg('text.shpping.inclusive', 'common', null)} </span>
+                                                            </p>
+                                                        </td>
+                                                    <iselse/>
+                                                        <td
+                                                            style="padding:0 15px;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                            <p style="margin:0; padding: 0">
+                                                                ${Resource.msg('confirmation.email.order.tax.inclusive', 'common', null)}</p>
+                                                        </td>
+                                                        <td
+                                                            style="padding:0 15px;vertical-align: text-top;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                            <p style="margin:0; padding: 0; text-align:right;">
+                                                                <isprint value="${pdict.order.totalTax}"
+                                                                    encoding="off" />
+                                                            </p>
+                                                        </td>
+                                                    </isif>
+                                                </tr>
+                                                <isif condition="${pdict.order.shipments[0].custom.carrier}">
+                                                    <tr>
+                                                        <td
+                                                            style="padding:0 15px;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                            <p style="margin:0; padding: 0">
+                                                                ${Resource.msg('confirmation.email.order.delivery', 'common', null)}</p>
+                                                        </td>
+                                                        <td
+                                                            style="padding:0 15px;vertical-align: text-top;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                            <p style="margin:0; padding: 0; text-align:right;">
+                                                                ${pdict.order.shipments[0].custom.carrier}
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </isif>
+                                                <tr>
+                                                    <td
+                                                        style="padding:0 15px;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                        <p style="margin:0; padding: 0">
+                                                            ${Resource.msg('confirmation.email.order.payment', 'common', null)}
+                                                        </p>
+                                                    </td>
+                                                    <td
+                                                        style="padding:0 15px;vertical-align: text-top;font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;width:51%;">
+                                                        <isloop items=" ${pdict.order.paymentInstruments}"
+                                                            var="paymentInstrument" status="loopstatus">
+                                                            <p style="margin: 0px;padding:0px; text-align:right;">
+                                                                ${paymentInstrument.paymentMethod}</p>
+                                                        </isloop>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td
+                                                        style="padding:0 15px;font: bold 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;width:200px;">
+                                                        <span>
+                                                            ${Resource.msg('confirmation.email.order.total', 'common', null)}</span>
+                                                    </td>
+                                                    <td
+                                                        style="padding:0 15px;vertical-align: text-top;font: bold 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;vertical-align: top;">
+                                                        <span style="margin: 0px;padding:0px; text-align:right;">
+                                                            ${pdict.getTotals(pdict.order.totalGrossPrice)}</span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </isif>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="30">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table align="center" style="border-collapse:collapse; width: 660px; background-color:#f7f4f2;"
+                    class="bg_grey_1">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <table style="border-collapse:collapse; width:600px;">
+                                    <tr>
+                                        <td style="padding: 0 15px;">
+                                            <iscontentassetmail aid="email-footer-half" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: left; padding: 0 15px; font: normal 14px/24px Arial, Helvetica Neue, Helvetica, sans-serif; letter-spacing: 0.75px; color: #1A1919;"
+                                            class="arimo">
+                                            <table style="border-collapse:collapse; width:600px;">
+                                                <tr>
+                                                    <td>
+                                                        <table align="center" style="width:600px">
+                                                            <tr>
+                                                                <td style="vertical-align: baseline;">
+                                                                    <div style="width:300px; float:left;">
+                                                                        <a href="" target="_blank"
+                                                                            hreflang="${request.getLocale()}"
+                                                                            style="color: #1A1919; text-decoration: none;">
+                                                                            <h3
+                                                                                style="margin-bottom:0px; margin-top:10px">
+                                                                                ${Resource.msg('delivery.address.title', 'common', null)}
+                                                                            </h3>
+                                                                            <p style="margin:0px;">
+                                                                                <isloop items="${pdict.order.shipments}"
+                                                                                    var="shippingModel"
+                                                                                    status="shippingLoop">
+                                                                                    <isset name="address"
+                                                                                        value="${shippingModel.shippingAddress}"
+                                                                                        scope="page" />
+                                                                                    <isinclude
+                                                                                        template="checkout/addressSummary" />
+                                                                                </isloop>
+                                                                            </p>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div style="width:300px; float:right">
+                                                                        <a href="" target="_blank"
+                                                                            hreflang="${request.getLocale()}"
+                                                                            style="color: #1A1919; text-decoration: none;">
+                                                                            <h3
+                                                                                style="margin-bottom:0px; margin-top:10px">
+                                                                                ${Resource.msg('invoice.address', 'common', null)}
+                                                                            </h3>
+                                                                            <isset name="address"
+                                                                                value="${pdict.order.billingAddress}"
+                                                                                scope="page" />
+                                                                            <p style="margin:0px;">
+                                                                                <isinclude
+                                                                                    template="checkout/addressSummary" />
+                                                                            </p>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td height="20"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <table align="center" style="width:600px">
+                                                            <iscontentassetmail aid="email-footer-body" />
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <iscontentassetmail aid="email-footer-down-heading" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <iscontentassetmail aid="email-footer-down-image" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <iscontentassetmail aid="email-footer-rituals" />
+            </td>
+        </tr>
+        <iscontentassetmail aid="confirmation-order-footer" />
+        <tr>
+            <td>
+                <iscontentassetmail aid="welcome-email-footer-valiram" />
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

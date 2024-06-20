@@ -94,11 +94,7 @@ window.submitNewsLetter = function (token) {
     });
 };
 
-// Initialize popover
-$('[data-toggle="popover"]').popover({
-    placement: 'top',
-    html: true
-});
+$('[data-toggle="popover"]').popover();
 
 // Show popover on mouseenter
 $('[data-toggle="popover"]').on('mouseenter', function () {
@@ -116,6 +112,12 @@ if (
     var regionName = new Intl.DisplayNames(['en'], { type: 'region' });
     var countryDisplayName = regionName.of(countryCode);
     reqCountryDiv.text(countryDisplayName);
+    $('#country-' + countryDisplayName).attr('selected', 'selected');
+    var siteCountryCode = $('#site-country-code').text();
+    var siteCountryDisplayName = regionName.of(siteCountryCode);
+    if (siteCountryDisplayName) {
+        $('#site-country-code').text(siteCountryDisplayName);
+    }
 }
 
 var timer;
@@ -154,8 +156,8 @@ $(document).ready(function () {
 
     // Function to calculate the scroll threshold
     /**
-    * @returns {object} a promise
-    */
+     * @returns {object} a promise
+     */
     function calculateScrollThreshold() {
         var documentHeight = $(document).height();
         // Show the button when the user has scrolled past 70% of the document height

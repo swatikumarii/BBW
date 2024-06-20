@@ -60,10 +60,11 @@
                                 <isprint value="${lineItem.quantity}" formatter="##" /></span>
                         </td>
                         <td class="saving">
-                                <isif condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
-                                    <span class="value">${lineItem.totalSavings}</span>
+                                <isif condition="${lineItem.totalSavings && lineItem.totalSavings != '-'}">
+                                    <span class="d-inline d-md-none h-clr--black-3 h-font-size--14 h-fw--bold">${Resource.msg('cart.label.saved', 'cart', null)}</span>
+                                    <span class="value ml-1">${lineItem.totalSavings}</span>
                                 <iselse/>
-                                    <span class="value-dash">${'-'}</span>
+                                    <span class="value value-dash d-none d-md-block">${'-'}</span>
                                 </isif>
                         </td>
                         <td class="pricing item-total">
@@ -73,9 +74,14 @@
                                 <iselseif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}"/>
                                     ${Resource.msg('label.free.price', 'cart', null)}
                                 <iselse/>
-                                    ${lineItem.priceTotal.price}
+                                    <span class="d-inline d-md-none">${Resource.msg('cart.label.total', 'cart', null)} </span> ${lineItem.priceTotal.price}
                                 </isif>
                             </span>
+                        </td>
+                        <td class="order-add-cart">
+                            <isif condition="${!pdict.isEgiftCard}">
+                                <isinclude template="account/order/orderAddToCartButton" />
+                            </isif>
                         </td>
                     </tr>
                 </isloop>

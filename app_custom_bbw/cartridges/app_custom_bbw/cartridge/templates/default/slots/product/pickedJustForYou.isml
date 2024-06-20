@@ -1,10 +1,5 @@
 <isif condition="${slotcontent}">
-<isscript>
-    var assets = require('*/cartridge/scripts/assets');
-    assets.addCss('/css/notifyMe.css');
-    assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
-    assets.addJs('/js/pickedJustForYou.js');
-</isscript>
+<isset name="commonHelper" value="${require('*/cartridge/scripts/helpers/commonHelpers')}" scope="page" />
 <isset name="showOutOfStockProducts" value="${slotcontent.custom.showOutOfStockProducts === true ? true : false}" scope="page" />
     <isif condition="${!empty(slotcontent.content)}">
         <div class="picked-just-header-wrapper mb-3">
@@ -15,11 +10,16 @@
     </isif>
     <div class="row no-gutters picked-just-recomm ds-smooth-scroll js-picked-just-recomm">
         <isloop items="${slotcontent.content}" var="product" status="loopState">
-            <div class="picked-just-recomm__item col js-picked-just-recomm-item">
-                <isobject object="${product}" view="recommendation">
-                    <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView', false, 'wishlist', false, 'showOutOfStockProducts', showOutOfStockProducts)}" />
-                </isobject>
-            </div>
+            <isset name="checkAvailability" value="${commonHelper.checkProductAvailability(product.ID)}" scope="page" />
+            <isif
+                condition="${checkAvailability.isAvailable === true || (showOutOfStockProducts === true && checkAvailability
+                           .isSearchableIfUnavailable === true)}">
+                <div class="picked-just-recomm__item col js-picked-just-recomm-item">
+                    <isobject object="${product}" view="recommendation">
+                        <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView', false, 'wishlist', false)}" />
+                    </isobject>
+                </div>
+            </isif>
         </isloop>
         <isinclude template="product/components/removeGiftLineItem" />
     </div>

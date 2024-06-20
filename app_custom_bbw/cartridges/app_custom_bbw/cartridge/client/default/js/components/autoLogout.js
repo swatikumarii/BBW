@@ -1,7 +1,15 @@
 'use strict';
 
 var helpers = require('../utils/scrollHelpers');
-
+var timeoutId;
+var warningTimeoutId;
+var lastActivityKey = 'lastActivityTime';
+var softTimeout =
+        Number($('[data-soft-timeout]').data('soft-timeout')) || 44;
+var warningDuration =
+        Number($('[data-popup-duration]').data('popup-duration')) || 2;
+var timeoutDuration = softTimeout - warningDuration;
+timeoutDuration *= 60000;
 /**
  * session out timer
  * @param {any} minutes countdown minutes
@@ -26,95 +34,69 @@ function countdown(minutes, seconds) {
             countdown(minutes - 1, 59);
         }, 1000);
     }
+};
+
+/**
+ *
+ */
+function showTimeoutPopup() {
+    $('#autologout').find('.confirmation').show();
+    $('#autologout').find('#login-refresh').show();
+    helpers.disableScroll();
+    if (!$('.timer').is(':visible')) {
+        countdown(warningDuration, 0);
+    }
+    $('#autologout').find('.logout').hide();
+    $('#autologout').find('#logout-refresh').hide();
+    $('#autologout').modal();
+    setTimeout(function () {
+        $('#autologout').find('.confirmation').hide();
+        $('#autologout').find('#login-refresh').hide();
+        $('#autologout').find('.logout').show();
+        $('#autologout').find('#logout-refresh').show();
+        $('#autologout').modal();
+        // force logout customer
+        var logoutAction = $('.customLogoutUrl').val();
+        $.ajax({
+            url: logoutAction,
+            type: 'GET',
+            success: function () {
+            }
+        });
+    }, warningDuration * 60000);
+}
+/**
+ *
+ */
+function checkForTimeout() {
+    var lastActivityTime = parseInt(localStorage.getItem(lastActivityKey), 10);
+    var currentTime = Date.now();
+    if (currentTime - lastActivityTime >= timeoutDuration) {
+        showTimeoutPopup();
+    } else {
+        warningTimeoutId = setTimeout(showTimeoutPopup, timeoutDuration - (currentTime - lastActivityTime));
+    }
 }
 
 /**
- * set soft auto logout callback
- * @param {number} autoLogout - list of attributes
- * @returns {number} - setTimeout object
+ *
  */
-function setLogoutTimer(autoLogout) {
-    if (autoLogout) {
-        clearTimeout(autoLogout);
-    }
-
-    if (!localStorage.getItem('auto-logout')) {
-        return 0;
-    }
-
-    var softTimeout =
-        Number($('[data-soft-timeout]').data('soft-timeout')) || 44;
-    var popupDuration =
-        Number($('[data-popup-duration]').data('popup-duration')) || 2;
-    var remainingTime = softTimeout - popupDuration;
-    return setTimeout(function () {
-        $('#autologout').find('.confirmation').show();
-        $('#autologout').find('#login-refresh').show();
-        helpers.disableScroll();
-        if (!$('.timer').is(':visible')) {
-            countdown(popupDuration, 0);
-        }
-        $('#autologout').find('.logout').hide();
-        $('#autologout').find('#logout-refresh').hide();
-        $('#autologout').modal();
-        setTimeout(function () {
-            $('#autologout').find('.confirmation').hide();
-            $('#autologout').find('#login-refresh').hide();
-            $('#autologout').find('.logout').show();
-            $('#autologout').find('#logout-refresh').show();
-            $('#autologout').modal();
-            localStorage.removeItem('auto-logout');
-        }, popupDuration * 60000);
-    }, remainingTime * 60000);
+function resetTimeout() {
+    localStorage.setItem(lastActivityKey, Date.now());
+    clearTimeout(timeoutId);
+    clearTimeout(warningTimeoutId);
+    timeoutId = setTimeout(checkForTimeout, timeoutDuration);
 }
 
 $('#autologout').on('hide.bs.modal', function () {
     helpers.enableScroll();
 });
 
-/**
- * set hard auto logout callback, this function will executes when user login & sign up
- */
-function setLogoutTime() {
-    var hardTimeout =
-        Number($('[data-hard-timeout]').data('hard-timeout')) || 360;
-    var time = hardTimeout * 60 * 1000;
-    var logoutTime = new Date().getTime() + time;
-    localStorage.setItem('auto-logout', logoutTime);
-    localStorage.setItem('auto-logout:trigger', new Date().getTime());
-}
-
-/**
- * set hard auto logout callback
- */
-function setHardLogoutTimer() {
-    var logoutTime = Number(localStorage.getItem('auto-logout') || 0);
-    var currentTime = new Date().getTime();
-    if (currentTime < logoutTime) {
-        setTimeout(function () {
-            localStorage.removeItem('auto-logout');
-            window.location.reload();
-        }, logoutTime - currentTime);
-    } else {
-        localStorage.removeItem('auto-logout');
-    }
-}
 
 module.exports = function () {
     $(function () {
-        // remove localStorage value if user is not logged in
-        if ($('[data-is-authenticated]').data('is-authenticated') === false) {
-            localStorage.removeItem('auto-logout');
-        }
-        // Call hard auto logout callback function on document load
-        setHardLogoutTimer();
-        // Call auto logout callback function on document load and each request made to the sfcc server
-        var autoLogout = setLogoutTimer();
-        localStorage.setItem('auto-logout:trigger', new Date().getTime());
-        $(document).ajaxStart(function () {
-            localStorage.setItem('auto-logout:trigger', new Date().getTime());
-            setLogoutTimer(autoLogout);
-        });
+        // Add event listeners to reset the timeout on user activity
+        document.addEventListener('click', resetTimeout);
 
         /**
          * attach event on auto logout continue button
@@ -124,37 +106,21 @@ module.exports = function () {
             window.location.reload();
         });
 
-        /**
-         * attach event on user login
-         */
-        $('body').on('login:success', function () {
-            setLogoutTime();
-            setLogoutTimer(autoLogout);
-        });
-
-        /**
-         * attach event on user register
-         */
-        $('body').on('login:register:success', function () {
-            setLogoutTime();
-            setLogoutTimer(autoLogout);
-        });
-
-        /**
-         * update other tabs if request is made to the server
-         */
-        $(window).on('storage', function (e) {
-            var event = e.originalEvent;
-            if (event.storageArea !== localStorage) return;
-            if (event.key === 'auto-logout:trigger') {
-                setLogoutTimer(autoLogout);
-            } else if (event.key === 'auto-logout:message') {
-                $('#autologout').find('.confirmation').hide();
-                $('#autologout').find('#login-refresh').hide();
-                $('#autologout').find('.logout').show();
-                $('#autologout').find('#logout-refresh').show();
-                $('#autologout').modal();
+        // Listen for storage events to synchronize between tabs
+        window.addEventListener('storage', function(event) {
+            if (event.key === lastActivityKey) {
+                clearTimeout(timeoutId);
+                clearTimeout(warningTimeoutId);
+                checkForTimeout();
             }
         });
+
+        // Click outside the popup content reload the page
+        $('#autologout').on('hidden.bs.modal', function () {
+            window.location.reload();
+        });
+
+        // Initialize the timeout on page load
+        resetTimeout();
     });
 };

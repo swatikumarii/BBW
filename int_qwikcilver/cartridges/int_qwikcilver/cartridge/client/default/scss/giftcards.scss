@@ -16,7 +16,8 @@
 .giftcard-heading {
     border-bottom: 1px solid #333;
     padding-bottom: 11px;
-    margin-bottom: 53px;
+    margin: 1.25rem 0 53px;
+    letter-spacing: normal;
 }
 
 .gc-container {
@@ -48,7 +49,11 @@
     }
 
     label {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+    }
+
+    .same-day-delivery-wrap {
+        margin-bottom: 5px;
     }
 
     .gift-required-fields {
@@ -90,7 +95,7 @@
         .custom-select-wrap {
             &::after {
                 @media (max-width: 768px) {
-                    top: 55%;
+                    top: 47%;
                 }
             }
         }

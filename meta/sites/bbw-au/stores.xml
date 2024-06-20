@@ -9,13 +9,13 @@
         <country-code>AU</country-code>
         <phone>(03) 9568 5699</phone>
         <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
         <latitude>-37.887696</latitude>
         <longitude>145.080598</longitude>
@@ -45,13 +45,13 @@
         <country-code>AU</country-code>
         <phone>(02) 9764 6778</phone>
         <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 08:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 08:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
         <latitude>-33.855776</latitude>
         <longitude>151.076618</longitude>
@@ -81,13 +81,13 @@
         <country-code>AU</country-code>
         <phone>(03) 8710 4913</phone>
         <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
         <latitude>-33.855786</latitude>
         <longitude>151.07661</longitude>
@@ -117,13 +117,13 @@
         <country-code>AU</country-code>
         <phone>(03) 8560 5655</phone>
         <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
         <latitude>-37.812086</latitude>
         <longitude>144.963695</longitude>
@@ -153,13 +153,13 @@
         <country-code>AU</country-code>
         <phone>(07) 5630 1133</phone>
         <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
         <latitude>-27.931414</latitude>
         <longitude>153.387777</longitude>
@@ -189,13 +189,13 @@
         <country-code>uU</country-code>
         <phone>(03) 9017 3537</phone>
         <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
         <latitude>-37.764353</latitude>
         <longitude>145.097206</longitude>
@@ -225,13 +225,13 @@
         <country-code>AU</country-code>
         <phone>(02) 9267 2231</phone>
         <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;11:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;11:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
         <latitude>-33.871752</latitude>
         <longitude>151.206687</longitude>
@@ -261,13 +261,13 @@
         <country-code>AU</country-code>
         <phone>(07) 3359 9584</phone>
         <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
         <latitude>-27.384872</latitude>
         <longitude>153.030459</longitude>
@@ -297,13 +297,13 @@
         <country-code>AU</country-code>
         <phone>(02) 4032 8292</phone>
         <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 04:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 04:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
         <latitude>-32.936564</latitude>
         <longitude>151.711826</longitude>
@@ -333,13 +333,13 @@
         <country-code>AU</country-code>
         <phone>(07) 3236 4010</phone>
         <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
         <latitude>-27.55991</latitude>
         <longitude>153.08105</longitude>
@@ -369,13 +369,13 @@
         <country-code>AU</country-code>
         <phone>(02) 9891 5842</phone>
         <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;09:30 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;09:30 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;09:30 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;09:30 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;09:30 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon:&lt;/span&gt;&lt;span class="sl-time"&gt;09:30 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue:&lt;/span&gt;&lt;span class="sl-time"&gt;09:30 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed:&lt;/span&gt;&lt;span class="sl-time"&gt;09:30 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu:&lt;/span&gt;&lt;span class="sl-time"&gt;09:30 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri:&lt;/span&gt;&lt;span class="sl-time"&gt;09:30 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
         <latitude>-33.817534</latitude>
         <longitude>151.003528</longitude>
@@ -405,13 +405,13 @@
         <country-code>AU</country-code>
         <phone>(02) 4744 2099</phone>
         <store-hours xml:lang="x-default">&lt;ul class="sl-timings" style="list-style-type: none;" &gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat&lt;/span&gt;:&lt;span class="sl-time"&gt;09:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
-&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun&lt;/span&gt;:&lt;span class="sl-time"&gt;10:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Mon:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Tue:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Wed:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Thu:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Fri:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
+&lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
         <latitude>-33.754788</latitude>
         <longitude>150.699689</longitude>

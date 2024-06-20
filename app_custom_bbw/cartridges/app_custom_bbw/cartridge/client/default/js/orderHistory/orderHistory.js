@@ -81,6 +81,13 @@ module.exports = function () {
             });
         }
     });
+    $('.order-level-out-of-stock-snackbar-btn').on('click', function () {
+        var outOfStockSnackbar = $('#order-level-out-of-stock-snackbar');
+        outOfStockSnackbar.addClass('show');
+        setTimeout(function () {
+            outOfStockSnackbar.removeClass('show');
+        }, 3000);
+    });
 
     $('.order-base-delete-egiftitem-confirmation-btn').on('click', function () {
         // var thisData = this;

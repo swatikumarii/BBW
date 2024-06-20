@@ -19,7 +19,7 @@ server.prepend(
         var enableQCeGift =
             Site.current.getCustomPreferenceValue('enableQwikcilver');
         var requestParameter = req.httpParameterMap;
-        var requestOrderId = requestParameter.orderID.value;
+        var requestOrderId = 'orderID' in requestParameter && requestParameter.orderID.value ? requestParameter.orderID.value : requestParameter.ID.value;
         if (enableQCeGift && requestOrderId !== null) {
             var order = OrderMgr.getOrder(requestOrderId);
 
@@ -100,8 +100,7 @@ server.prepend(
                 return true;
             }
             if (
-                order.getPaymentInstruments('GIFT_CERTIFICATE').length > 0 &&
-                order.getPaymentInstruments('AdyenComponent').length > 0
+                order.getPaymentInstruments('GIFT_CERTIFICATE').length > 0 && order.getPaymentInstruments('AFTERPAY').length > 0
             ) {
                 var giftCardAPIRedeemResult;
                 // Handles Gift payment authorization

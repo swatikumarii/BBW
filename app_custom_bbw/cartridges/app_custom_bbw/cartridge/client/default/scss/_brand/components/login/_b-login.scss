@@ -673,6 +673,10 @@
                     @include media-btw(sm, lg) {
                         width: calc(50% - 65px);
                     }
+
+                    .login-form-input {
+                        height: 37px;
+                    }
                 }
             }
         }
@@ -828,14 +832,18 @@
 
 // -----login modal-----
 .login-modal-body {
-    overflow-y: auto;
-    max-height: calc(88vh - 64px);
-    padding: 4px 17px 17px;
+    overflow: hidden !important;
+    overflow-y: auto !important;
+    max-height: calc(88vh - 64px) !important;
+    padding: 4px 17px 17px !important;
+    -webkit-overflow-scrolling: touch !important;
+    -webkit-scrollbar: auto;
 
     @include media-up(sm) {
-        overflow-y: auto;
-        max-height: calc(100vh - 64px);
-        padding: 4px 17px 17px;
+        overflow: hidden !important;
+        overflow-y: auto !important;
+        max-height: calc(100vh - 64px) !important;
+        padding: 4px 17px 17px !important;
     }
 }
 
@@ -962,39 +970,87 @@
 
 // -----Merge cart UI---------
 .merge-cart-modal {
-    .merge-cart-content {
-        border-radius: 0;
+    .merge-cart-dialog {
+        display: block;
+        animation: bottom-to-top 0.2s;
+        animation-timing-function: cubic-bezier(0.2, 0.05, 0.55, 0.2);
+        transform: translate(-50%) !important;
+        background: colour(white);
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        top: 10vh;
+        width: calc(100% - 40px);
+        max-width: 568px;
+        margin: 0;
+        height: auto;
+        max-height: 235px;
 
-        .merge-cart-header {
-            h2 {
-                letter-spacing: 0.005em;
-                line-height: 1.25rem;
-            }
+        @include media-up(sm) {
+            width: 464px;
+            height: fit-content;
+        }
 
-            .close {
-                height: 48px;
+        .close-icon-btn {
+            background-image: url("../../images/plp/quickview/UI-Close-dark.svg");
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: 15px;
+            height: 35px;
+            width: 35px;
+            right: -16px;
+            position: relative;
+            top: -16px;
+            opacity: 1;
+
+            &:hover {
+                background-color: colour(black, 3) !important;
+                border: 1px solid colour(black, 3);
                 opacity: 1;
-                width: 48px;
+                background-image: url("../../images/plp/quickview/UI-Close-dark-hover.svg");
             }
         }
 
-        .merge-cart-body {
-            .merge {
-                width: 85px;
-                font-size: 0.6875rem;
-                letter-spacing: 0.12em;
-                line-height: 2.0625rem;
-                min-height: 35px;
-                padding: 0 15px;
+        .merge-cart-content {
+            border-radius: 0;
+            padding: 32px;
+            height: 100%;
+
+            .merge-cart-header {
+                h2 {
+                    line-height: 1.25rem;
+                    letter-spacing: 0.005em;
+                }
             }
 
-            .dont-merge {
-                width: 115px;
-                font-size: 0.6875rem;
-                letter-spacing: 0.12em;
-                line-height: 2.0625rem;
-                min-height: 35px;
-                padding: 0 15px;
+            .merge-item-body {
+                .merge-item-para {
+                    letter-spacing: 0.005em;
+                    line-height: 1.75rem;
+                }
+            }
+
+            .merge-cart-footer {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px;
+
+                .merge {
+                    min-height: 40px;
+                    max-height: 40px;
+                    text-transform: capitalize;
+                    width: 102px;
+                }
+
+                .dont-merge {
+                    min-height: 40px;
+                    max-height: 40px;
+                    text-transform: capitalize;
+
+                    &:hover {
+                        border: 2px solid colour(black, 1);
+                    }
+                }
             }
         }
     }
@@ -1057,7 +1113,7 @@
 
 .alert-danger {
     color: colour(red);
-    background-color: colour(gray, 28);
+    background-color: colour(red, 10);
     font-weight: 700;
     padding: 8px 15px;
     font-size: 0.875rem;
@@ -1182,4 +1238,20 @@
             }
         }
     }
+}
+
+.registration {
+    .custom-control-label {
+        &::before {
+            left: -1.8rem;
+        }
+
+        &::after {
+            left: -1.8rem;
+        }
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }

@@ -51,7 +51,13 @@ server.get('RemoveLineItems', function (req, res, next) {
             }
         }
     });
-    res.json();
+    res.json({
+        removeMessage: Resource.msg(
+            'lineitems.removed.success.message',
+            'giftcards',
+            null
+        )
+    });
     return next();
 });
 
@@ -154,15 +160,6 @@ server.post('ValidateGiftCard', function (req, res, next) {
         var giftCardAPIResult = qwikcilverApis.validateGiftCard(cardNumber, cardPin);
         if (giftCardAPIResult && giftCardAPIResult.status === 'OK') {
             var validateGiftCard = JSON.parse(giftCardAPIResult.object);
-            if (validateGiftCard.Cards[0].Balance < minRedemptionAmount) {
-                res.json({
-                    error: true,
-                    cardNumber: cardNumber,
-                    hideCreditCardForm: false,
-                    errorMessage: 'Cannot Add gift card amount less than ' + currency + minRedemptionAmount
-                });
-                return next();
-            }
             if (validateGiftCard.ResponseCode !== 0 && validateGiftCard.Cards && validateGiftCard.Cards[0].ResponseCode !== 0) {
                 if (validateGiftCard.Cards[0].ResponseCode === 10638) {
                     res.json({
@@ -177,6 +174,15 @@ server.post('ValidateGiftCard', function (req, res, next) {
                         errorMessage: validateGiftCard.Cards[0].ResponseMessage
                     });
                 }
+                return next();
+            }
+            if (validateGiftCard.Cards[0].Balance < minRedemptionAmount) {
+                res.json({
+                    error: true,
+                    cardNumber: cardNumber,
+                    hideCreditCardForm: false,
+                    errorMessage: 'Cannot Add gift card amount less than ' + currency + minRedemptionAmount
+                });
                 return next();
             }
             if (validateGiftCard.ResponseCode !== 0 && validateGiftCard.Cards && validateGiftCard.Cards[0].ResponseCode === 0) {
@@ -214,7 +220,7 @@ server.post('ValidateGiftCard', function (req, res, next) {
                 }
                 res.json({
                     error: false,
-                    success: Resource.msg('qwikcilver.card.added', 'giftcards', null) + Resource.msgf('qwikcilver.card.pending', 'giftcards', null, currency, remainingAmount.toFixed(2)),
+                    success: Resource.msgf('qwikcilver.card.pending', 'giftcards', null, currency, remainingAmount.toFixed(2)),
                     cardNumber: cardNumber,
                     hideCreditCardForm: false,
                     addedCards: addedCards,
@@ -320,7 +326,12 @@ server.post('RemoveGiftCard', function (req, res, next) {
         error: false,
         basketModel: basketModel,
         remainingCards: remainingCards,
-        hideCreditCardForm: hideCreditCardForm
+        hideCreditCardForm: hideCreditCardForm,
+        removeMessage: Resource.msg(
+            'gift.cards.removed.success.message',
+            'giftcards',
+            null
+        )
     });
     return next();
 });
@@ -332,8 +343,35 @@ server.post('RemoveGiftCard', function (req, res, next) {
  */
 server.post('CheckBalance', function (req, res, next) {
     var qwikcilverApis = require('*/cartridge/scripts/service/qwikcilver/apis');
+    var Site = require('dw/system/Site');
+    var Currency = require('dw/util/Currency');
     var cardNumber = req.form.cardNo;
     var cardPin = req.form.cardPin;
+    var verifyCaptchaHelper = require('*/cartridge/scripts/helpers/verifyCaptchaHelper');
+    var isReCaptchaEnable = Site.getCurrent().getCustomPreferenceValue(
+        'enableGoogleRecaptcha'
+    );
+    // TODO: Remove check once captcha done on checkout balance check
+    var landingPage = req.httpParameterMap.get('landingPage').booleanValue;
+    if (isReCaptchaEnable && landingPage) {
+        var recaptchaResponse = req.httpParameterMap
+            .get('g-recaptcha-response')
+            .getStringValue();
+
+        var pageScore = verifyCaptchaHelper.pageScore('checkBalance');
+        var verifyCaptcha = verifyCaptchaHelper.verifyGoogleCaptcha(
+            recaptchaResponse,
+            pageScore
+        );
+        if (!verifyCaptcha) {
+            res.json({
+                error: true,
+                msg: Resource.msg('error.message.recaptcha', 'common', null)
+            });
+            this.emit('route:Complete', req, res);
+            return;
+        }
+    }
     if (cardNumber && cardPin) {
         var giftCardAPIResult = qwikcilverApis.validateGiftCard(cardNumber, cardPin);
         if (giftCardAPIResult && giftCardAPIResult.status === 'OK') {
@@ -360,7 +398,7 @@ server.post('CheckBalance', function (req, res, next) {
             if (giftCardAPIResultObj.Cards && giftCardAPIResultObj.Cards.length > 0) {
                 res.json({
                     error: false,
-                    cardBalance: giftCardAPIResultObj.Cards[0].Balance,
+                    cardBalance: Currency.getCurrency(Site.getCurrent().getCurrencyCode()).getSymbol()  + ' ' + giftCardAPIResultObj.Cards[0].Balance,
                     cardStatus: giftCardAPIResultObj.Cards[0].CardStatus
                 });
                 return next();

@@ -1,0 +1,104 @@
+<tr class="order-total" style="background:#FAFAFA;">
+    <td  style="padding:0 30px 0px;">
+        <div style="padding:15px 15px 0;">
+            <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;"><b>${Resource.msg('confirm.order.total', 'orderConfirmEmail', null)}</b></p>
+        </div>
+        <div style="padding:10px 15px 15px;">
+            <div style="display: flex; width: 100%;justify-content: space-between;">
+                <div style="width:100%;">
+                    <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${Resource.msg('confirm.order.subtotal', 'orderConfirmEmail', null)} ${Resource.msg('confirm.order.gst', 'orderConfirmEmail', null)}</p>
+                </div>
+                <div style="width:100%; text-align:right;">
+                    <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;"><b>${pdict.order.totals.orderSubTotal}</b></p>
+                </div>
+            </div>
+            <iscomment> Order discount </iscomment>
+              <div style="${pdict.order.totals.orderLevelDiscountTotal.value === 0 ? 'display:none;' : 'display: flex;'} width: 100%;justify-content: space-between;">
+                <div style="width:100%;">
+                    <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${Resource.msg('label.order.discount', 'common', null)}</p>
+                </div>
+                <div style="width:100%; text-align:right;">
+                    <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;"><b>- ${pdict.order.totals.orderLevelDiscountTotal.formatted}</b></p>
+                </div>
+            </div>
+
+<iscomment> End order discount </iscomment>
+            <div style="display: flex; width: 100%;justify-content: space-between;">
+                <div style="width:100%;">
+                    <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${Resource.msg('confirm.order.delivery', 'orderConfirmEmail', null)}</p>
+                </div>
+                <div style="width:100%; text-align:right;">
+                    <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;"><b>${pdict.order.totals.totalOrderShippingCost}</b></p>
+                </div>
+            </div>
+
+            <!--- Shipping Discount --->
+             <div style="${pdict.order.totals.shippingLevelDiscountTotal.value === 0 ? 'display:none;' : 'display: flex;'} width: 100%;justify-content: space-between;">
+                <div style="width:100%;">
+                    <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">${Resource.msg('label.shipping.discount', 'common', null)}</p>
+                </div>
+                <div style="width:100%; text-align:right;">
+                    <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;"><b>- ${pdict.order.totals.shippingLevelDiscountTotal.formatted}</b></p>
+                </div>
+            </div>
+
+            <iscomment> New order total start here </iscomment>
+            <div style="display: flex; width: 100%;justify-content: space-between;margin-top:10px;">
+                <div style="width:100%;">
+                    <p style="font-size: 18px;letter-spacing:1px;line-height:22px;color:#d43774;"><b><span style="text-transform:uppercase;font-size: 18px;font-weight:600;letter-spacing:1px;color:#d43774;">${Resource.msg('label.order.payment.paid', 'confirmation', null)}<b></p>
+                </div>
+                <div style="width:100%; text-align:right;">
+                    <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;color:#d43774;"><b> ${pdict.order.totals.grandTotal}</b></p>
+                </div>
+            </div>
+            <iscomment> New order total end here </iscomment>
+        </div>
+         <div style="padding:0 15px 15px;">
+            <span style="font-size: 15px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;">
+                <iscontentassetmail aid="order-gst-tax" />
+            </span>
+        </div>
+        <hr/>
+    <div style="padding:15px 15px 0;">
+        <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;"><b>${Resource.msg('confirm.order.payment.summary', 'orderConfirmEmail', null)}</b></p>
+    </div>
+    <iscomment> Loop for payment methods </iscomment>
+    <div style="padding:10px 15px 15px;">
+        <isset name="isGiftCertificate" value="false" scope="page" />
+        <isloop items="${pdict.order.billing.payment.selectedPaymentInstruments}" var="selectedMethod" status="loopstatus">
+            <isif condition="${selectedMethod.paymentMethod === 'GIFT_CERTIFICATE' && pdict.order.totals.pendingTotal.isAmountPending && isGiftCertificate === "false"}" >
+                <isset name="isGiftCertificate" value="true" scope="page" />
+                <div style="display: flex; width: 100%;justify-content: space-between;margin-top:30px;">
+                    <div style="width:100%;">
+                        <p style="font-size: 18px;letter-spacing:1px;line-height:22px;color:#d43774;"><b><span style="text-transform:uppercase;font-size: 18px;font-weight:600;letter-spacing:1px;color:#d43774;">${Resource.msg('label.order.gift-total', 'eGiftCard', null)}<b></p>
+                    </div>
+                    <div style="width:100%; text-align:right;">
+                        <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;color:#d43774;"><b>${pdict.order.totals.pendingTotal.giftTotal}</b></p>
+                    </div>
+                </div>
+            <iselse/>
+            <isif condition="${selectedMethod.paymentMethod !== 'GIFT_CERTIFICATE'}">
+            <div style="display: flex; width: 100%;justify-content: space-between;">
+                    <div style="width:100%;">
+                        <p style="font-size: 18px;letter-spacing:1px;line-height:22px;color:#d43774;"><b><span style="text-transform:uppercase;font-size: 18px;font-weight:600;letter-spacing:1px;color:#d43774;">${selectedMethod.type ? selectedMethod.type : selectedMethod.paymentMethod}<b></p>
+                    </div>
+                    <div style="width:100%; text-align:right;">
+                        <p style="font-size: 18px;color: black;font-weight:100;letter-spacing:1px;line-height:22px;color:#d43774;">
+                            <b>
+                                <isif condition="${pdict.order.totals.pendingTotal.isAmountPending}">
+                                    ${pdict.order.totals.pendingTotal.pendingAmount}
+                                <iscomment> <iselseif condition="${pdict.order.totals.orderTotal}" />
+                                    ${pdict.order.totals.orderTotal} </iscomment>
+                                <iselse/>
+                                    ${pdict.order.totals.grandTotal}
+                                </isif>
+                            </b>
+                        </p>
+                    </div>
+                </div>
+                </isif>
+            </isif>
+        </isloop>
+    </div>
+    </td>
+</tr>

@@ -15,7 +15,7 @@
                 <div class="store-name h-font-size--18 h-fw--bold h-clr--black-1 mb-4">
                     ${pdict.storeDetail.name}</div>
                 <address class="h-clr--black-1">
-                    <div class="store-dropdown store-hours-details position-relative">
+                    <div class="store-dropdown store-hours-details position-relative h-mb--5">
                         <button class="border-0 h-bg--white dropdown-toggle p-0" type="button" id="store-hours-details" data-timezone="${pdict.timezone}"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span id="first-element"></span>

@@ -7,12 +7,36 @@ var billingHelpers = require('./billing');
 var summaryHelpers = require('./summary');
 var formHelpers = require('base/checkout/formErrors');
 var scrollAnimate = require('base/components/scrollAnimate');
-var adyenBilling = require('adyen/checkout/billing');
 // ### Custom Adyen cartridge start ###
 var adyenCheckout = require('adyen/adyenCheckout');
 // ### Custom Adyen cartridge end ###
 var location = window.location;
 var history = window.history;
+
+/**
+ * checks if any required field is empty
+ * @param {object} form - current form
+ */
+function checkFields(form) {
+    var requiredFields = $(form).find('[required]');
+    var allFilled = true;
+    requiredFields.each(function () {
+        var isGftcardField = $(this).parents('.gift-card-apply').length > 0;
+        var isPaymentField = $(this).parents('#paymentMethodsList').length > 0;
+        if (
+            !($(this).val() && $(this).val().trim()) &&
+            !isGftcardField &&
+            !isPaymentField
+        ) {
+            allFilled = false;
+        }
+    });
+    if (allFilled) {
+        $('.verify-msg').hide();
+    } else {
+        $('.verify-msg').show();
+    }
+}
 
 /**
  * Create the jQuery Checkout Plugin.
@@ -203,10 +227,20 @@ var history = window.history;
                             url: form.attr('action'),
                             type: 'post',
                             data: shippingFormData,
-                            success: function () {
+                            success: function (data) {
                                 // enable the next:Payment button here
-                                var billingURL = $('input[name="billing-url"]').val();
-                                window.location.href = billingURL;
+                                $('body').trigger('checkout:enableButton','.next-step-button button');
+                                if (data.error) {
+                                    shippingHelpers.methods.shippingFormResponse(
+                                        defer,
+                                        data
+                                    );
+                                    $.spinner().stop();
+                                } else {
+                                    // enable the next:Payment button here
+                                    var billingURL = $('input[name="billing-url"]').val();
+                                    window.location.href = billingURL;
+                                }
                             },
                             error: function (err) {
                                 // enable the next:Payment button here
@@ -231,6 +265,8 @@ var history = window.history;
                     var billingAddressForm = $(
                         '#dwfrm_billing .billing-address-block :input'
                     ).serialize();
+                    var billingForm = $('form.billing-form');
+                    checkFields(billingForm);
 
                     $('body').trigger('checkout:serializeBilling', {
                         form: $('#dwfrm_billing .billing-address-block'),
@@ -321,7 +357,7 @@ var history = window.history;
                                 if (data.serverErrors.length) {
                                     data.serverErrors.forEach(function (error) {
                                         $('.error-message').show();
-                                        $('.error-message-text').text(error);
+                                        $('.error-message-text').append(error);
                                         scrollAnimate($('.error-message'));
                                     });
                                 }
@@ -332,6 +368,23 @@ var history = window.history;
 
                                 defer.reject();
                             } else {
+
+                                if (data.isEgiftCardPayment && data.isThankYouPage) {
+                                    var redirect = $('<form>').appendTo(document.body).attr({
+                                        method: 'POST',
+                                        action: data.continueUrl
+                                    });
+                                    $('<input>').appendTo(redirect).attr({
+                                        name: 'orderID',
+                                        value: data.orderID
+                                    });
+                                    $('<input>').appendTo(redirect).attr({
+                                        name: 'orderToken',
+                                        value: data.orderToken
+                                    });
+                                    redirect.submit();
+                                    defer.resolve(data);
+                                }
                                 //
                                 // Populate the Address Summary
                                 //
@@ -448,6 +501,7 @@ var history = window.history;
                     e.preventDefault();
                     members.currentStage = checkoutStages.indexOf('customer');
                     members.nextStage();
+                    members.currentStage = checkoutStages.indexOf('shipping');
                 });
                 $('body').on('click', '.submit-customer', function (e) {
                     e.preventDefault();
@@ -545,7 +599,7 @@ var history = window.history;
 
                         if (data.errorMessage) {
                             $('.error-message').show();
-                            $('.error-message-text').text(data.errorMessage);
+                            $('.error-message-text').append(data.errorMessage);
                         }
                     }
                 });
@@ -576,10 +630,12 @@ var history = window.history;
              * Previous State
              */
             handlePrevStage: function () {
-                if (members.currentStage > 0) {
+                if (members.currentStage > 1) {
                     // move state back
                     members.currentStage--;
                     updateUrl(members.currentStage);
+                } else {
+                    history.back();
                 }
 
                 $(plugin).attr('data-checkout-stage', checkoutStages[members.currentStage]);
@@ -635,7 +691,7 @@ var exports = {
                 data.customer,
                 data.options
             );
-            adyenBilling.methods.updatePaymentInformation(data.order, data.options);
+            billingHelpers.methods.updatePaymentInformation(data.order, data.options);
             summaryHelpers.updateOrderProductSummaryInformation(data.order, data.options);
         });
     },

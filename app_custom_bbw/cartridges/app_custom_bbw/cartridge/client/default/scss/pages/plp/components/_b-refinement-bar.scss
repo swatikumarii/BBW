@@ -52,6 +52,10 @@
     }
 
     .refinements-wrapper {
+        @include media-down(md) {
+            padding-bottom: 88px;
+        }
+
         .refinements {
             ul {
                 li {
@@ -331,6 +335,14 @@
             &:focus {
                 outline: 1px dotted colour(black);
                 outline-offset: 2px;
+            }
+
+            option {
+                font-size: 1rem;
+                line-height: 1.125rem;
+                font-weight: 600;
+                color: colour(gray, 4);
+                letter-spacing: 0.01em;
             }
         }
     }

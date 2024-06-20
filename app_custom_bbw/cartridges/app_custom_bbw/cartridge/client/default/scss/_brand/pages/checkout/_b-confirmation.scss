@@ -13,6 +13,18 @@
 
         .print-text {
             text-decoration: underline;
+            margin-top: 22px;
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        p {
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
         }
     }
 }
@@ -104,9 +116,11 @@
 }
 
 .card-header-confirmation {
-    border-bottom: 1px solid colour(gray, 3);
-    padding-bottom: 18px;
-    margin-bottom: 27px;
+    border-bottom: 1px solid colour(black, 3);
+    padding-bottom: 14px;
+    padding-top: 12px;
+    margin-bottom: 25px;
+    line-height: 1.75rem;
 }
 
 .confirmation-shipping-summary {
@@ -126,11 +140,21 @@
         }
 
         .address-summary {
-            color: colour(gray);
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+            color: colour(gray, 4);
         }
 
         .shipping-phone {
-            color: colour(gray);
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+            color: colour(gray, 4);
+        }
+
+        .shipping-method-title {
+            color: colour(gray, 4);
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
         }
 
         .summary-details {
@@ -138,6 +162,10 @@
 
             @include media-up(sm) {
                 margin-top: 0;
+            }
+
+            .review-shipping-summary-content {
+                letter-spacing: 0.2px;
             }
         }
     }
@@ -169,6 +197,42 @@
         @include media-up(sm) {
             margin-top: 0;
         }
+
+        .address-summary {
+            color: colour(gray, 4);
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+        }
+
+        .shipping-phone {
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+            color: colour(gray, 4);
+        }
+
+        .payment-details {
+            .credit-card-number {
+                color: colour(gray, 4);
+                line-height: 1.25rem;
+                letter-spacing: 0.01em;
+            }
+
+            .credit-card-expiration-date {
+                color: colour(gray, 4);
+                line-height: 1.25rem;
+                letter-spacing: 0.01em;
+            }
+        }
+
+        .summary-section-label {
+            line-height: 1.25rem;
+            letter-spacing: 0.2px;
+        }
+
+        .payment-amount {
+            line-height: 1.25rem;
+            letter-spacing: 0.2px;
+        }
     }
 
     .edit-button {
@@ -181,6 +245,10 @@
 
     @include media-up(sm) {
         padding: 20px 30px 30px;
+    }
+
+    @include media-btw(sm, lg) {
+        padding: 20px 0;
     }
 
     .confirmation-product-details {
@@ -202,8 +270,22 @@
 
                 .line-item-header {
                     margin-top: 11px;
+
+                    .product-title {
+                        line-height: 1.25rem;
+                        letter-spacing: 0.01em;
+                    }
+
+                    .prod-desc {
+                        line-height: 1rem;
+                        letter-spacing: 0.015em;
+                    }
                 }
             }
+        }
+
+        .headerSavings {
+            letter-spacing: 0.1px;
         }
     }
 
@@ -216,45 +298,55 @@
     }
 
     .headerItem {
-        text-transform: uppercase;
-        line-height: 12px;
+        line-height: 1.25rem;
+        letter-spacing: 0.005em;
     }
 
-    .headerQty {
-        text-transform: uppercase;
-        line-height: 12px;
-        margin-bottom: 18px;
+    .qauntity-label {
+        letter-spacing: 0.1px;
+        line-height: 1.25rem;
 
         @include media-up(sm) {
-            text-transform: uppercase;
-            line-height: 12px;
             margin-bottom: 0;
         }
     }
 
+    .quantity-item-label {
+        letter-spacing: 0.2px;
+        line-height: 1.25rem;
+    }
+
     .headerPrice {
-        text-transform: uppercase;
-        line-height: 12px;
+        line-height: 1.25rem;
+        letter-spacing: 0.1px;
+
+        @include media-down(sm) {
+            padding-top: 10px;
+        }
 
         .line-item-total-price-amount {
-            font-weight: 500 !important;
-            color: colour(gray) !important;
-            font-size: 15px !important;
+            letter-spacing: 0.2px;
+            line-height: 1.25rem;
         }
+    }
+
+    .line-item-savings {
+        line-height: 1.25rem;
+        letter-spacing: 0.2px;
     }
 }
 
 .order-confirmation-continue-shopping {
-    min-height: 37px;
-    max-height: 37px;
-    letter-spacing: 2px;
     width: 100%;
+    line-height: 1.25rem;
+    letter-spacing: 0.015em;
+
+    &:hover {
+        color: colour(white);
+    }
 
     @include media-up(sm) {
-        width: 171px;
-        min-height: 37px;
-        max-height: 37px;
-        letter-spacing: 2px;
+        width: 200px;
     }
 }
 
@@ -289,10 +381,54 @@
         .grand-total-wrap {
             padding-top: 15px;
             border-top: 3px solid colour(gray, 6);
+
+            .total-label {
+                line-height: 1.25rem;
+                letter-spacing: 0.005em;
+            }
+
+            .grand-total {
+                line-height: 1.25rem;
+                letter-spacing: 0.005em;
+            }
         }
 
         .review-order-summary {
             display: none;
+            line-height: 1.5rem;
+            letter-spacing: 0.005em;
+        }
+
+        .merchandise-total {
+            letter-spacing: 0.2px;
+        }
+
+        .subtotal {
+            letter-spacing: 0.2px;
+        }
+
+        .cart-saving {
+            letter-spacing: 0.2px;
+        }
+
+        .order-discount-total {
+            letter-spacing: 0.2px;
+        }
+
+        .shipping-cost {
+            letter-spacing: 0.2px;
+        }
+
+        .shipping-tax {
+            letter-spacing: 0.2px;
+        }
+
+        .shipping-discount-total {
+            letter-spacing: 0.2px;
+        }
+
+        .sales-tax {
+            letter-spacing: 0.2px;
         }
     }
 }
@@ -319,4 +455,8 @@
     @include media-btw(sm, lg) {
         padding-left: 0;
     }
+}
+
+.confirmation-shipping {
+    letter-spacing: 0.01em;
 }

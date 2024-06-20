@@ -2,9 +2,20 @@
 <metadata xmlns="http://www.demandware.com/xml/impex/metadata/2006-10-31">
     <type-extension type-id="Product">
         <custom-attribute-definitions>
+            <attribute-definition attribute-id="searchableIfOOS">
+                <display-name xml:lang="x-default">Searchable if unavailable or OOS</display-name>
+                <description xml:lang="x-default">Searchable if unavailable or OOS</description>
+                <type>boolean</type>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="reserveQty">
                 <display-name xml:lang="x-default">Reserve Inventory Quantity</display-name>
-                <type>double</type>
+                <type>int</type>
                 <localizable-flag>false</localizable-flag>
                 <site-specific-flag>true</site-specific-flag>
                 <mandatory-flag>false</mandatory-flag>
@@ -178,6 +189,19 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <order-required-flag>false</order-required-flag>
                 <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="collectionName">
+                <display-name xml:lang="x-default">Collection Name</display-name>
+                <description xml:lang="x-default">Collection Name</description>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+                <min-length>0</min-length>
             </attribute-definition>
             <attribute-definition attribute-id="usageInstruction">
                 <display-name xml:lang="x-default">Usage Instruction</display-name>
@@ -425,6 +449,14 @@
             <attribute-group group-id="customAttributes">
                 <display-name xml:lang="x-default">Custom Attributes</display-name>
                 <attribute attribute-id="SID"/>
+            </attribute-group>
+            <attribute-group group-id="oosAttributes">
+                <display-name xml:lang="x-default">Out Of Stock Attributes</display-name>
+                <attribute attribute-id="searchableIfOOS"/>
+            </attribute-group>
+            <attribute-group group-id="productDescription">
+                <display-name xml:lang="x-default">Product Description</display-name>
+                <attribute attribute-id="collectionName"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
@@ -1430,6 +1462,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="emarsysTestModeEnabled">
+                <display-name xml:lang="x-default">Enable Test Mode For Emarsys</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <default-value>true</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="currentCurrencyToMyrConversionRate">
                 <display-name xml:lang="x-default">MYR conversion Rate</display-name>
                 <type>double</type>
@@ -1469,6 +1508,13 @@
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="qwikcilverAPISiteID">
+                <display-name xml:lang="x-default">Site ID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
             </attribute-definition>
             <attribute-definition attribute-id="qwikcilverAPIPassword">
                 <display-name xml:lang="x-default">Qwikcilver API Password</display-name>
@@ -1557,9 +1603,9 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-            <attribute-definition attribute-id="hardTimeout">
-                <display-name xml:lang="x-default">Hard Timeout</display-name>
-                <description xml:lang="x-default">Hard Timeout(In Minutes)</description>
+            <attribute-definition attribute-id="collectionSort">
+                <display-name xml:lang="x-default">Search Collections for Sorting</display-name>
+                <description xml:lang="x-default">Search Collections for Sorting</description>
                 <type>string</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -1769,12 +1815,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="metaPixelEnabled"/>
                 <attribute attribute-id="metaPixelScript"/>
                 <attribute attribute-id="emarsysEnabled"/>
+                <attribute attribute-id="emarsysTestModeEnabled"/>
                 <attribute attribute-id="emarsysMerchantID"/>
                 <attribute attribute-id="currentCurrencyToMyrConversionRate"/>
             </attribute-group>
             <attribute-group group-id="qwikcilver">
                 <display-name xml:lang="x-default">Qwikcilver</display-name>
                 <attribute attribute-id="enableQwikcilver"/>
+                <attribute attribute-id="qwikcilverAPISiteID"/>
                 <attribute attribute-id="qwikcilverMinRedemptionAmount"/>
                 <attribute attribute-id="qwikcilverCPGName"/>
                 <attribute attribute-id="qwikcilverForwardingEntityId"/>
@@ -1803,7 +1851,6 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="header_image"/>
                 <attribute attribute-id="zeroOrderEmail"/>
                 <attribute attribute-id="careersEmail"/>
-                <attribute attribute-id="hardTimeout"/>
                 <attribute attribute-id="softTimeout"/>
                 <attribute attribute-id="popupDuration"/>
                 <attribute attribute-id="countrySiteMapping"/>
@@ -1956,11 +2003,36 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="isInCartDynamicBadgeEnabled"/>
                 <attribute attribute-id="isInPurchaseDynamicBadgeEnabled"/>
             </attribute-group>
+            <attribute-group group-id="search">
+                <display-name xml:lang="x-default">Search</display-name>
+                <attribute attribute-id="collectionSort"/>
+            </attribute-group>
         </group-definitions>
     </type-extension>
 
     <type-extension type-id="Category">
         <custom-attribute-definitions>
+            <attribute-definition attribute-id="isCollectionPage">
+                <display-name xml:lang="x-default">Is Collection Page</display-name>
+                <description xml:lang="x-default">Set this attribute true for Collection Pages</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="isSearchable">
+                <display-name xml:lang="x-default">Is Searchable</display-name>
+                <description xml:lang="x-default">This attribute set true is you want to show on search suggestions.</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="hideFilter">
+                <display-name xml:lang="x-default">Hide PLP Filters</display-name>
+                <description xml:lang="x-default">Will hide PLP level Filters</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="promotionEndingTileIndex">
                 <display-name xml:lang="x-default">Promotion Ending Tile Index</display-name>
                 <type>int</type>
@@ -2664,11 +2736,17 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
+            <attribute-group group-id="categoryCollectionAttribute">
+                <display-name xml:lang="x-default">Category Collection Attribute</display-name>
+                <attribute attribute-id="isCollectionPage"/>
+                <attribute attribute-id="isSearchable"/>
+            </attribute-group>
             <attribute-group group-id="storefrontAttributes">
                 <display-name xml:lang="x-default">Storefront Attributes</display-name>
                 <attribute attribute-id="slotId"/>
                 <attribute attribute-id="pageDesignerID"/>
                 <attribute attribute-id="showInMenu"/>
+                <attribute attribute-id="hideFilter"/>
             </attribute-group>
             <attribute-group group-id="promotionTileCommon">
                 <display-name xml:lang="x-default">Promotion Tile Common Attributes</display-name>

@@ -41,6 +41,7 @@ server.append('Show', function (req, res, next) {
  */
 
 server.append('EditProfile', function (req, res, next) {
+    var Site = require('dw/system/Site');
     var accountHelpers = require('*/cartridge/scripts/account/accountHelpers');
     var accountModel = accountHelpers.getAccountModel(req);
 
@@ -58,6 +59,9 @@ server.append('EditProfile', function (req, res, next) {
     var profileModel = {
         dob: birthday,
         zipCode: accountModel.profile.zipCode,
+        salutation: accountModel.profile.salutation,
+        nationality: accountModel.profile.nationality,
+        gender: accountModel.profile.gender,
         emailconfirm: accountModel.profile.email
     };
 
@@ -74,8 +78,12 @@ server.append('EditProfile', function (req, res, next) {
         url: URLUtils.url('Account-EditProfile').toString()
     }
     ];
+
+    var nationalityCO = Site.getCurrent().getCustomPreferenceValue('nationalities');
+    var nationalities = nationalityCO.length > 0 ? nationalityCO.split(',') : [];
     viewData.breadcrumbs = breadcrumbs;
     viewData.profileForm.copyFrom(profileModel);
+    viewData.nationalities = nationalities;
     viewData.profile = accountModel.profile;
     res.setViewData(viewData);
 
@@ -207,7 +215,21 @@ server.replace(
             );
         }
 
+        var gender;
+        if (profileForm.customer.gender.htmlValue === 'Male') {
+            gender = 1;
+        }
+        if (profileForm.customer.gender.htmlValue === 'Female') {
+            gender = 2;
+        }
+        if (profileForm.customer.gender.htmlValue === 'Other') {
+            gender = 3;
+        }
+
         var result = {
+            salutation: profileForm.customer.salutation.value,
+            gender: gender,
+            nationality: profileForm.customer.nationality.value,
             firstName: profileForm.customer.firstname.value,
             lastName: profileForm.customer.lastname.value,
             phone: profileForm.customer.phone.value,
@@ -261,6 +283,9 @@ server.replace(
                         profile.setEmail(formInfo.email);
                         profile.setPhoneHome(formInfo.phone);
                         profile.custom.zipCode = formInfo.zipCode;
+                        profile.setGender(formInfo.gender);
+                        profile.salutation = formInfo.salutation;
+                        profile.custom.nationality = formInfo.nationality;
                         profile.custom.isProfileComplete = true;
                     });
 

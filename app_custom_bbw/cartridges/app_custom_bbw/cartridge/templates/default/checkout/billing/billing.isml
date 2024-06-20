@@ -1,5 +1,5 @@
 <div class="payment-form">
-    <h2 class="card-header-custom h-font-size--20 h-fw--bold h-clr--black-1 billing-address-heading">
+    <h2 class="card-header-custom h-font-size--20 h-fw--bold h-clr--black-1 billing-address-heading ${!pdict.customer.registeredUser ? 'guest' : 'registered'}">
         ${Resource.msg('heading.billing.address', 'checkout', null)}</h2>
     <form autocomplete="on" class="billing-form" method="POST" action="${URLUtils.url('CheckoutServices-SubmitPayment')}"
         data-address-mode="${!pdict.order.billing.billingAddress.address ? 'new' : 'edit'}" <isprint
@@ -62,7 +62,7 @@
                             <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label" for="email"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.email', 'checkout', null)}</label>
                             <span class="h-font-size--14"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('label.required', 'account', null)}</span>
                         </div>
-                        <input type="text" class="form-control email" id="email"
+                        <input type="text" class="form-control email" id="contactEmail"
                             value="${pdict.order.billing.billingAddress.address ? pdict.order.billing.billingAddress.address.email ? pdict.order.billing.billingAddress.address.email : pdict.customer && 'profile' in pdict.customer && pdict.customer.profile && 'email' in pdict.customer.profile ? pdict.customer.profile.email || '' : '' : ''}"
                             <isprint value=${pdict.forms.billingForm.contactInfoFields.email.attributes} encoding="off" />
                             data-missing-error="${Resource.msg('error.email.address', 'forms', null)}"
@@ -104,7 +104,7 @@
         <!-- Payment Options                                                      -->
         <!-------------------------------------------------------------------------->
         <fieldset>
-            <h2 class="card-header-custom h-font-size--20 h-fw--bold h-clr--black-1 billing-address-heading">
+            <h2 class="card-header-custom h-font-size--20 h-fw--bold h-clr--black-1 billing-address-heading payment-options-heading h-mt--40">
                 ${Resource.msg('heading.payment.methods', 'checkout', null)}</h2>
             <isinclude template="checkout/billing/paymentOptions" />
         </fieldset>

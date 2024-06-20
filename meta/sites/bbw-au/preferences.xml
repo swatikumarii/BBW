@@ -59,8 +59,7 @@
             <preference preference-id="apStorePickupDescription">Available for next-day pickup</preference>
             <preference preference-id="enableAfterpay">true</preference>
             <preference preference-id="enableCashAppPay">true</preference>
-            <preference preference-id="hardTimeout">360</preference>
-            <preference preference-id="softTimeout">120</preference>
+            <preference preference-id="softTimeout">15</preference>
             <preference preference-id="popupDuration">2</preference>
             <preference preference-id="zeroOrderEmail"></preference>
             <preference preference-id="careersEmail"></preference>
@@ -76,9 +75,15 @@
             <preference preference-id="dangerousGoodsMessage">&lt;p&gt;Your cart contains product that are not shippable.&lt;/p&gt;</preference>
             <preference preference-id="countrySiteMapping">
                 [
-                    {"country":"India", "site": "https://www.bathandbody.in"},
-                    {"country":"USA", "site": "https://www.bathandbody.com"},
-                    {"country":"Malasiya", "site": "https://www.bathandbody.my"}
+                    {"country":"Australia", "site": "https://staging.bathandbodyworks.com.au"},
+                    {"country":"Malaysia", "site": "https://www.bathandbodyworks.com.my"},
+                    {"country":"Singapore", "site": "https://www.bathandbodyworks.com.sg"},
+                    {"country":"Indonesia", "site": "https://www.bathandbodyworks.co.id"},
+                    {"country":"Thailand", "site": "https://www.bathandbodyworks.co.th"},
+                    {"country":"Philippines", "site": "https://www.bathandbodyworks.ph"},
+                    {"country":"Hongkong", "site": "https://www.bathandbodyworks.hk"},
+                    {"country":"Vietnam", "site": "https://www.bathandbodyworks.com"},
+                    {"country":"New Zealand", "site": "https://www.bathandbodyworks.com"}
                 ]
             </preference>
             <preference preference-id="gtmScriptEnabled">false</preference>
@@ -107,6 +112,7 @@
             <preference preference-id="qwikcilverEGiftBarCodeUrl">https://vs-thailand-sfcc.herokuapp.com/generateBarCode/</preference>
             <preference preference-id="qwikcilverMaxRedemptionAmount">1000</preference>
             <preference preference-id="s3UploadLink">https://vs-thailand-sfcc.herokuapp.com</preference>
+            <preference preference-id="trackingUrl">https://auspost.com.au/mypost/track/</preference>
             <preference preference-id="homePageSchema">&lt;script type="application/ld+json"&gt;
                 {
                     "@context": "https://schema.org",
@@ -206,8 +212,7 @@
             <preference preference-id="apStorePickupDescription">Available for next-day pickup</preference>
             <preference preference-id="enableAfterpay">true</preference>
             <preference preference-id="enableCashAppPay">false</preference>
-            <preference preference-id="hardTimeout">360</preference>
-            <preference preference-id="softTimeout">120</preference>
+            <preference preference-id="softTimeout">15</preference>
             <preference preference-id="popupDuration">2</preference>
             <preference preference-id="zeroOrderEmail"></preference>
             <preference preference-id="chatScript"></preference>
@@ -215,9 +220,15 @@
             <preference preference-id="careersEmail"></preference>
             <preference preference-id="countrySiteMapping">
                 [
-                    {"country":"India", "site": "https://www.bathandbodyworks.in"},
-                    {"country":"USA", "site": "https://www.bathandbodyworks.com"},
-                    {"country":"Malasiya", "site": "https://www.bathandbodyworks.my"}
+                    {"country":"Australia", "site": "https://staging.bathandbodyworks.com.au"},
+                    {"country":"Malaysia", "site": "https://www.bathandbodyworks.com.my"},
+                    {"country":"Singapore", "site": "https://www.bathandbodyworks.com.sg"},
+                    {"country":"Indonesia", "site": "https://www.bathandbodyworks.co.id"},
+                    {"country":"Thailand", "site": "https://www.bathandbodyworks.co.th"},
+                    {"country":"Philippines", "site": "https://www.bathandbodyworks.ph"},
+                    {"country":"Hongkong", "site": "https://www.bathandbodyworks.hk"},
+                    {"country":"Vietnam", "site": "https://www.bathandbodyworks.com"},
+                    {"country":"New Zealand", "site": "https://www.bathandbodyworks.com"}
                 ]
             </preference>
             <preference preference-id="openingTime">2</preference>
@@ -245,6 +256,7 @@
             <preference preference-id="qwikcilverEGiftBarCodeUrl">https://vs-thailand-sfcc.herokuapp.com/generateBarCode/</preference>
             <preference preference-id="qwikcilverMaxRedemptionAmount">1000</preference>
             <preference preference-id="s3UploadLink">https://vs-thailand-sfcc.herokuapp.com</preference>
+            <preference preference-id="trackingUrl">https://auspost.com.au/mypost/track/</preference>
             <preference preference-id="homePageSchema">&lt;script type="application/ld+json"&gt;
                 {
                     "@context": "https://schema.org",

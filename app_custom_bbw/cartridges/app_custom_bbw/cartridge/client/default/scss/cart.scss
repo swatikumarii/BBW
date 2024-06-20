@@ -7,7 +7,7 @@
     margin: 10px 0 10px 25px;
     color: $clr-gray-4;
     text-decoration: underline;
-    font-family: $ff-base;
+    font-family: get-ff(base, true);
     font-size: 14px;
     line-height: 16px;
     letter-spacing: 0.2px;
@@ -55,7 +55,7 @@
         .free-item-toast-message {
             background: colour(green, 7);
             padding: 11px 20px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
 
             p {
                 line-height: 1.25rem;
@@ -75,17 +75,22 @@
 
         .cartDetailsHeader {
             .cartDetailsHeading {
-                display: grid;
+                display: flex;
+                justify-content: center;
                 align-items: center;
                 margin: 10px 0 0;
                 min-height: 35px;
                 background-color: $clr-gray-1;
                 color: $clr-black-1;
-                font-family: $ff-base;
+                font-family: get-ff(base, true);
                 font-size: 18px;
                 line-height: 20px;
                 letter-spacing: 0.1px;
                 font-weight: 700;
+
+                .cart-num-items {
+                    padding-right: 3px;
+                }
             }
 
             .cartDetailsContent {
@@ -105,7 +110,7 @@
                     font-size: 16px;
                     line-height: 20px;
                     letter-spacing: 0.2px;
-                    font-family: $ff-base;
+                    font-family: get-ff(base, true);
                     font-weight: 700;
                     color: $clr-blue;
                 }
@@ -117,7 +122,7 @@
             background-color: $clr-gray-1;
             font-size: 18px;
             font-weight: 700;
-            font-family: $ff-base;
+            font-family: get-ff(base, true);
             color: $clr-black-1;
             line-height: 20px;
             letter-spacing: 0.1px;
@@ -190,16 +195,21 @@
                         padding-top: 10px;
 
                         .line-item-name {
-                            font-family: $ff-base;
+                            font-family: get-ff(base, true);
                             font-weight: 600;
                             font-size: 16px;
                             line-height: 20px;
                             color: $clr-black-1;
                             margin-bottom: 5px;
+
+                            /* stylelint-disable */
+                            @media only screen and (max-width: 375px) {
+                                max-width: 116px;
+                            }
                         }
 
                         .line-item-name-partB {
-                            font-family: $ff-base;
+                            font-family: get-ff(base, true);
                             font-weight: 400;
                             font-size: 14px;
                             line-height: 16px;
@@ -343,13 +353,17 @@
                     font-size: 16px;
                     line-height: 20px;
                     font-weight: 600;
-                    font-family: $ff-base;
+                    font-family: get-ff(base, true);
                     padding-top: 10px;
                     color: $clr-black-3;
 
                     @include media-down(sm) {
-                        width: 25%;
+                        width: 34%;
                         text-align: left;
+                    }
+
+                    @media only screen and (max-width: 375px) {
+                        width: 24%;
                     }
 
                     .strike-through {
@@ -366,8 +380,12 @@
                     padding-top: 10px;
 
                     @include media-down(sm) {
-                        width: 25%;
+                        width: 34%;
                         text-align: left;
+                    }
+
+                    @media only screen and (max-width: 375px) {
+                        width: 24%;
                     }
 
                     .quantity-form {
@@ -419,7 +437,7 @@
                             margin: 0;
                             color: $clr-green-2;
                             font-size: 16px;
-                            font-family: $ff-base;
+                            font-family: get-ff(base, true);
                             font-weight: 400;
                             line-height: 20px;
                             letter-spacing: 0.2px;
@@ -434,15 +452,25 @@
                     line-height: 20px;
                     padding-top: 10px;
                     color: colour(black, 1);
+                    text-align: center;
 
                     .value-dash {
                         display: block;
                         text-align: center;
+
+                        @include media-down(sm) {
+                            text-align: left;
+                        }
                     }
 
                     @include media-down(sm) {
-                        width: 25%;
                         text-align: left;
+                        width: 34%;
+                    }
+
+                    @media only screen and (max-width: 375px) {
+                        width: 35%;
+                        margin-left: 38px;
                     }
                 }
 
@@ -451,14 +479,19 @@
                     font-size: 16px;
                     line-height: 20px;
                     font-weight: 600;
-                    font-family: $ff-base;
+                    font-family: get-ff(base, true);
                     text-align: right;
                     padding-top: 10px;
                     color: $clr-black-1;
 
                     @include media-down(sm) {
-                        width: 25%;
                         text-align: left;
+                        width: 34%;
+                    }
+
+                    @media only screen and (max-width: 375px) {
+                        width: 35%;
+                        margin-left: 38px;
                     }
 
                     .line-item-total-price-amount {
@@ -520,7 +553,7 @@
                         line-height: 20px;
                         letter-spacing: 0.1px;
                         font-weight: 600;
-                        font-family: $ff-base;
+                        font-family: get-ff(base, true);
                     }
 
                     .couponForm {
@@ -538,7 +571,7 @@
                             font-size: 16px;
                             line-height: 20px;
                             font-weight: 600;
-                            font-family: $ff-base;
+                            font-family: get-ff(base, true);
                         }
                     }
                 }
@@ -560,41 +593,49 @@
                         margin: 0 -15px;
                     }
 
-                    p {
-                        line-height: 20px;
-                        letter-spacing: 0.2px;
-
+                    .order-discount {
                         &.accordion-item.collapsed {
-                            &::before {
-                                background: url("../images/UI-Carat.svg") 50%;
-                                background-repeat: no-repeat;
-                                background-size: 1.25rem;
-                                content: "";
-                                height: 12px;
-                                position: absolute;
-                                left: 74px;
-                                transform: rotate(0deg);
-                                transition: all 0.5s ease-out;
-                                width: 12px;
-                                top: 4px;
+                            .cart-saving {
+                                &::before {
+                                    background: url("../images/UI-Carat.svg")
+                                        50%;
+                                    background-repeat: no-repeat;
+                                    background-size: 1.25rem;
+                                    content: "";
+                                    height: 12px;
+                                    position: absolute;
+                                    left: 74px;
+                                    transform: rotate(0deg);
+                                    transition: all 0.5s ease-out;
+                                    width: 12px;
+                                    top: 4px;
+                                }
                             }
                         }
 
                         &.accordion-item {
-                            &::before {
-                                background: url("../images/UI-Carat.svg") 50%;
-                                background-repeat: no-repeat;
-                                background-size: 1.25rem;
-                                content: "";
-                                height: 12px;
-                                position: absolute;
-                                left: 74px;
-                                transition: all 0.5s ease-out;
-                                width: 12px;
-                                top: 4px;
-                                transform: rotate(180deg);
+                            .cart-saving {
+                                &::before {
+                                    background: url("../images/UI-Carat.svg")
+                                        50%;
+                                    background-repeat: no-repeat;
+                                    background-size: 1.25rem;
+                                    content: "";
+                                    height: 12px;
+                                    position: absolute;
+                                    left: 74px;
+                                    transition: all 0.5s ease-out;
+                                    width: 12px;
+                                    top: 4px;
+                                    transform: rotate(180deg);
+                                }
                             }
                         }
+                    }
+
+                    p {
+                        line-height: 20px;
+                        letter-spacing: 0.2px;
                     }
 
                     .accordion-collapse {
@@ -634,6 +675,7 @@
 
     .cart-empty-msg {
         line-height: 28px;
+        font-size: 24px;
     }
 }
 
@@ -648,11 +690,6 @@
         color: $clr-white;
         opacity: 0.9;
     }
-}
-
-.empty-cart-recommendations {
-    margin: 56px 85px 0;
-    padding: 24px 0;
 }
 
 .promo-details {
@@ -720,6 +757,115 @@ footer {
             display: -webkit-box;
             -webkit-box-orient: vertical;
             word-wrap: break-word;
+        }
+    }
+}
+
+.promotion-callout {
+    line-height: 1.25rem;
+    letter-spacing: 0.005em;
+    width: 100%;
+    margin-bottom: 0.75rem;
+
+    .callout-detail {
+        &::after {
+            font-size: 0.875rem;
+            line-height: 1rem;
+            color: colour(gray, 4);
+            margin-top: 0.3125rem;
+            text-decoration: underline;
+            content: "Promotional Details";
+            letter-spacing: 0.21px;
+        }
+
+        .popover-header {
+            display: none;
+        }
+    }
+}
+
+.pdp-popover {
+    border: 1px solid colour(gray);
+    box-shadow: 0 0 13px 0 rgba(0, 0, 0, 15%);
+    color: colour(black, 1);
+    padding: 1.5rem 0.5rem 1.5rem 0;
+    overflow-y: initial;
+    border-radius: 0;
+    left: 13px !important;
+    width: 260px;
+    max-height: 197px;
+
+    @include media-down(sm) {
+        left: 19.5% !important;
+        top: -118px !important;
+
+        .arrow {
+            top: auto !important;
+            bottom: -17px;
+            right: 50%;
+            transform: rotate(90deg);
+        }
+    }
+
+    .popover-body {
+        max-height: 147px;
+        overflow-y: auto;
+        padding: 0 16px 0 24px;
+        scrollbar-width: thin;
+
+        &:focus {
+            outline: 1px dotted colour(black);
+            outline-offset: 2px;
+        }
+
+        .popover-content {
+            color: colour(black, 1);
+            font-size: 14px;
+            height: auto;
+            letter-spacing: 0.015em;
+            line-height: 20px;
+            max-height: 300px;
+            font-family: get-ff(base, true);
+        }
+    }
+
+    .popover-header {
+        display: none;
+    }
+
+    .close {
+        width: 13px;
+        height: 13px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background-size: 0.8125rem;
+    }
+}
+
+.coupon-error-message.d-block {
+    padding: 0.5rem 1rem;
+}
+
+.empty-recommendation-container {
+    border: 1px solid colour(gray, 6);
+    padding: 0 0 24px;
+    position: relative;
+    max-width: 783px;
+    margin: 56px auto 0;
+
+    @include media-down(sm) {
+        padding: 0 15px;
+        border: 0;
+    }
+
+    .picked-just-recomm__item .product .b-product-tile {
+        max-width: 160px;
+        min-width: 160px;
+
+        @include media-down(sm) {
+            min-width: 228px;
+            max-width: 256px;
         }
     }
 }
