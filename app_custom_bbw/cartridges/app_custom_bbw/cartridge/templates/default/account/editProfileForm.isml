@@ -1,11 +1,11 @@
 <form action="${URLUtils.url('Account-SaveProfile')}" class="edit-profile-form" method="POST" <isprint
     value="${pdict.profileForm.attributes}" encoding="off" />>
-<div class="form-group select-box register-form
+<div class="form-group select-box register-form 
         <isif condition=" ${pdict.profileForm.customer.salutation.mandatory === true}">required</isif>">
     <label class="form-control-label" for="salutation">
         <isprint value="${pdict.profileForm.customer.salutation.label}" encoding="htmlcontent" />
     </label>
-    <div class="select-wrap ">
+    <div class="select-wrap w-100">
         <select class="form-control salutation selectric-dropdown salutation-hide h-clr--black-1"
             id="salutation"
             data-missing-error="${Resource.msg('error.salutation.message', 'forms', null)}"
@@ -101,7 +101,7 @@
     <label class="form-control-label h-font-size--14 text-justify" for="registration-form-nationality">
         <isprint value="${pdict.profileForm.customer.nationality.label}" encoding="htmlcontent" />
     </label>
-    <div class="select-wrap">
+    <div class="select-wrap w-100">
         <select class="form-control gender selectric-dropdown gender-hide h-clr--black-1"
             id="nationality"
             data-missing-error="${Resource.msg('error.message.nationality', 'forms', null)}" <isprint
@@ -122,7 +122,7 @@
     <label class="form-control-label h-font-size--14 text-justify" for="registration-form-gender">
         <isprint value="${pdict.profileForm.customer.gender.label}" encoding="htmlcontent" />
     </label>
-    <div class="select-wrap ">
+    <div class="select-wrap w-100">
         <select class="form-control gender selectric-dropdown gender-hide h-clr--black-1" id="gender"
             data-missing-error="${Resource.msg('error.gender.message', 'forms', null)}"
             data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}" <isprint
