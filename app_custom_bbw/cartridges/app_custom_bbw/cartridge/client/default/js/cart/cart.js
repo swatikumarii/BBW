@@ -572,7 +572,7 @@ module.exports = function () {
             errorElem.show();
             setTimeout(function () {
                 errorElem.hide();
-            }, 3000);
+            }, 4500);
         } else {
             $(this).siblings('.quantity').val(quantity).trigger('change');
         }
