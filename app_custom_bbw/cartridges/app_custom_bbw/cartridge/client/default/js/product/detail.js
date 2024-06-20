@@ -232,6 +232,7 @@ module.exports = $.extend({}, detail, {
             var productID = $(this).data('pid');
             var removeGiftPliUrl = $(this).data('action');
             var addToCartUrl = $(this).data('addtocarturl');
+            var updateShippingMethodURL = $(this).data('update-shipping');
             var form = {
                 pid: productID,
                 quantity: 1
@@ -246,6 +247,7 @@ module.exports = $.extend({}, detail, {
                         url: addToCartUrl,
                         data: form,
                         success: function (data) {
+                            $.get(updateShippingMethodURL);
                             handlePostCartAdd(data);
                             $('body').trigger('product:afterAddToCart', data);
                             $('button.add-to-cart').prop('disabled', false);
@@ -285,6 +287,7 @@ module.exports = $.extend({}, detail, {
                     .val()
             };
             egiftCardDetailsObj = JSON.stringify(egiftCardDetails);
+            var updateShippingMethodURL = $(this).data('update-shipping');
             var form = {
                 pid: productID,
                 quantity: 1,
@@ -300,6 +303,7 @@ module.exports = $.extend({}, detail, {
                         url: addToCartUrl,
                         data: form,
                         success: function (data) {
+                            $.get(updateShippingMethodURL);
                             handlePostCartAdd(data);
                             if ($('.gift-card-form').length > 0) {
                                 $('.gift-card-form')[0].reset();
