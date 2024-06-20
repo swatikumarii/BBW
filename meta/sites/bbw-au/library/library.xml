@@ -4655,21 +4655,37 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
         </custom-attributes>
     </content>
 
-    <content content-id="giftcards">
+   <content content-id="giftcards">
         <display-name xml:lang="x-default">Gift Cards</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-        <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script&gt;&#13;
-        function checkbalance() {&#13;
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script src="https://www.google.com/recaptcha/api.js" defer&gt;&#13;
+&lt;/script&gt;&#13;
+&lt;script&gt;&#13;
+    window.checkbalance = function (token) {&#13;
+        return new Promise(function (resolve, reject) {&#13;
+            if (!token) {&#13;
+                reject();&#13;
+            }&#13;
+            if (token !== '') {&#13;
+                checkCardBalance(token);&#13;
+                resolve();&#13;
+            }&#13;
+            grecaptcha.reset();&#13;
+        });&#13;
+    };&#13;
+    function checkCardBalance(token) {&#13;
         var cardNumber = $('#dwfrm_giftcard_giftCardID').val();&#13;
         var cardPin = $('#dwfrm_giftcard_giftCardPin').val();&#13;
         var checkBalanceUrl = $('input[name="checkBalanceUrl"]').val();&#13;
         cardNumber = cardNumber.replace(/\s/g, '');&#13;
         var form = {&#13;
             cardNo: cardNumber,&#13;
-            cardPin: cardPin&#13;
+            cardPin: cardPin,&#13;
+            'g-recaptcha-response': token,&#13;
+            landingPage: true&#13;
         };&#13;
         $.ajax({&#13;
             url: checkBalanceUrl,&#13;
@@ -4774,7 +4790,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
             &lt;/div&gt;&#13;
             &lt;span&#13;
                 class="giftcard-balance-wrap w-100 d-block text-left h-fw--semibold h-font-size--16  h-clr--black-1 mt-0"&gt;&lt;/span&gt;&#13;
-            &lt;button id="check-giftcert" class="btn" onclick="checkbalance()"&gt;Check Gift Card Balance&lt;/button&gt; &lt;br /&gt;&#13;
+            &lt;button id="check-giftcert" data-sitekey="6LebEaYpAAAAAEj5f-_e3Wjpt8QMpFRrevXvZgVh" class="btn g-recaptcha" data-callback="checkbalance"&gt;Check Gift Card Balance&lt;/button&gt; &lt;br /&gt;&#13;
             &lt;span class="gift-card-balance-error h-font-size--16 h-fw--semibold h-clr--red "&gt;&lt;/span&gt;&#13;
         &lt;/div&gt;&#13;
     &lt;/div&gt;&#13;
@@ -4804,35 +4820,6 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
             width: 100%;&#13;
         }&#13;
     }&#13;
-.btn-with-tooltip {&#13;
-    position: relative;&#13;
-    display: inline-block;&#13;
-    min-height: 32px;&#13;
-    border-radius: 50%; &#13;
-    cursor: pointer;&#13;
-    background-color: #f2f2f2;&#13;
-}&#13;
-&#13;
-.btn-with-tooltip::before {&#13;
-    content: '';&#13;
-    position: absolute;&#13;
-    top: 50%;&#13;
-    left: 50%;&#13;
-    transform: translate(-50%, -50%);&#13;
-    width: 28px;&#13;
-    height: 25px;&#13;
-    border-radius: 50%; &#13;
-    background-color: #f2f2f2;&#13;
-    background-image: url("images/gift-cards/UI-Information.svg?$staticlink$");&#13;
-    background-repeat: no-repeat;&#13;
-    background-position: center;&#13;
-    background-size: 11px; &#13;
-}&#13;
-&#13;
-.btn-with-tooltip:hover::before {&#13;
-    background-color: #000000 !important;&#13;
-    background-image: url("images/gift-cards/UI-Information-hover.svg?$staticlink$");&#13;
-}&#13;
 &#13;
     .btn-with-tooltip {&#13;
         position: relative;&#13;
@@ -5090,6 +5077,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800 57 6972" cl
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
     </content>
+
 
 	   <content content-id="Instagram-Feed">
         <display-name xml:lang="x-default">Instagram Feed</display-name>
