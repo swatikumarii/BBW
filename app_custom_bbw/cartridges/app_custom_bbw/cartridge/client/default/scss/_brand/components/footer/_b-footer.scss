@@ -245,16 +245,20 @@ footer {
     }
 }
 
-.popover {
+.footer-tooltip-popover {
     background-color: colour(white);
     height: auto;
     max-height: 25rem;
     overflow-y: auto;
     text-align: left;
-    width: 14.5rem;
-    box-shadow: 0 0 8px rgba(51, 51, 51, 15%);
-    border: 0.0625rem solid colour(gray, 1);
-    border-radius: 4px;
+    width: 14.5rem !important;
+    box-shadow: 0 0 8px rgba(51, 51, 51, 15%) !important;
+    border: 0.0625rem solid colour(gray, 1) !important;
+    border-radius: 4px !important;
+
+    .arrow {
+        display: none;
+    }
 
     .close {
         background-position: 50%;
@@ -275,13 +279,15 @@ footer {
         }
     }
 
-    .popover-header {
+    .footer-tooltip-header {
         background: $clr-white;
         align-items: center;
         border-bottom: 0.0625rem solid colour(gray, 6);
         display: flex;
         justify-content: space-between;
         padding: 8px 8px 8px 16px;
+        margin-top: 0;
+        height: auto;
 
         .header-content {
             line-height: 1.25rem;

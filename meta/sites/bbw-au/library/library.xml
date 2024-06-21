@@ -2492,7 +2492,7 @@
     class="btn btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
     data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486" data-placement="top"&#13;
     title="&amp;lt;div class='popover-title header-content h-font-size--18 h-fw--bold d-flex align-items-center justify-space-between'&amp;gt;BATH &amp;amp; BODY WORKS AUSTRALIA LUXTRALIA PTY LTD&amp;lt;/div&amp;gt; &amp;lt;a href='#' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
-    data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt; &amp;lt;p class='h-clr--black-3 h-font-size--16 mb-0'&amp;gt; Level 4, 112 Castlereagh Street,&amp;lt;br /&amp;gt; Sydney, NSW, 2000&amp;lt;br /&amp;gt; (02) 8666 0666&amp;lt;/p&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;p class='h-clr--black-3 mb-0 h-font-size--16'&amp;gt;You may withdraw your &amp;lt;br /&amp;gt; consent at anytime. View&amp;lt;/p&amp;gt;&amp;lt;a class=' cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'privacy-policy')$'&amp;gt;Privacy Policy&amp;lt;/a&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;a class='cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'contact-us')$'&amp;gt;Contact Us&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;"&#13;
+    data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt; &amp;lt;p class='h-clr--black-3 h-font-size--16 mb-0'&amp;gt; Level 4, 112 Castlereagh St,&amp;lt;br /&amp;gt; Sydney, NSW, 2000&amp;lt;br /&amp;gt; Australia &amp;lt;br /&amp;gt; (02) 8666 0666&amp;lt;/p&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;p class='h-clr--black-3 mb-0 h-font-size--16'&amp;gt;You may withdraw your &amp;lt;br /&amp;gt; consent at anytime. View&amp;lt;/p&amp;gt;&amp;lt;a class=' cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'privacy-policy')$'&amp;gt;Privacy Policy&amp;lt;/a&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;a class='cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'contact-us')$'&amp;gt;Contact Us&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;"&#13;
     data-html="true"&gt;&#13;
 &lt;/button&gt;</custom-attribute>
         </custom-attributes>
@@ -5019,7 +5019,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
             <page-keywords xml:lang="x-default">Gift Cards</page-keywords>
         </page-attributes>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script src="https://www.google.com/recaptcha/api.js" defer&gt;&#13;
+                      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script src="https://www.google.com/recaptcha/api.js" defer&gt;&#13;
 &lt;/script&gt;&#13;
 &lt;script&gt;&#13;
     window.checkbalance = function (token) {&#13;
@@ -5094,7 +5094,8 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
                             &lt;h3 class="card-name"&gt;E-Gift Cards&lt;/h3&gt;&#13;
                             &lt;div class="card-img"&gt;&#13;
                                 &lt;a href="$url('Search-Show', 'cgid', 'giftcards')$"&gt;&#13;
-                                    &lt;img alt="E-Gift Cards" src="images/gift-cards/e-gift-card.webp?$staticlink$" title="" /&gt;&#13;
+                                    &lt;img alt="E-Gift Cards" src="images/gift-cards/e-gift-card.webp?$staticlink$"&#13;
+                                        title="" /&gt;&#13;
                                 &lt;/a&gt;&#13;
                             &lt;/div&gt;&#13;
                             &lt;div class="card-desc"&gt;Fast, easy &amp;amp; fun! We'll email it directly to your recipient,&#13;
@@ -5102,7 +5103,8 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
                                 with your own message and the fun design you chose.&lt;/div&gt;&#13;
                             &lt;a class="button btn text-white" href="$url('Search-Show', 'cgid', 'giftcards')$"&gt;Get&#13;
                                 Started&lt;/a&gt;&#13;
-                            &lt;p class="center"&gt;&lt;a href="$url('Page-Show', 'cid', 'gclearnmore')$" target="_blank" title="about e-gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
+                            &lt;p class="center"&gt;&lt;a href="$url('Page-Show', 'cid', 'gclearnmore')$" target="_blank"&#13;
+                                    title="about e-gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
                         &lt;/div&gt;&#13;
                     &lt;/div&gt;&#13;
                 &lt;/div&gt;&#13;
@@ -5148,7 +5150,8 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
             &lt;/div&gt;&#13;
             &lt;span&#13;
                 class="giftcard-balance-wrap w-100 d-block text-left h-fw--semibold h-font-size--16  h-clr--black-1 mt-0"&gt;&lt;/span&gt;&#13;
-            &lt;button id="check-giftcert" data-sitekey="6LebEaYpAAAAAEj5f-_e3Wjpt8QMpFRrevXvZgVh" class="btn g-recaptcha" data-callback="checkbalance"&gt;Check Gift Card Balance&lt;/button&gt; &lt;br /&gt;&#13;
+            &lt;button id="check-giftcert" data-sitekey="6LebEaYpAAAAAEj5f-_e3Wjpt8QMpFRrevXvZgVh" class="btn g-recaptcha"&#13;
+                data-callback="checkbalance"&gt;Check Gift Card Balance&lt;/button&gt; &lt;br /&gt;&#13;
             &lt;span class="gift-card-balance-error h-font-size--16 h-fw--semibold h-clr--red "&gt;&lt;/span&gt;&#13;
         &lt;/div&gt;&#13;
     &lt;/div&gt;&#13;
@@ -5156,7 +5159,31 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
 &#13;
 &lt;style type="text/css"&gt;&#13;
     .giftcard-close {&#13;
-        top: 0px !important;&#13;
+        background-position: 50%;&#13;
+        background-repeat: no-repeat;&#13;
+        height: 13px;&#13;
+        opacity: inherit;&#13;
+        width: 13px;&#13;
+        top: -11px;&#13;
+        right: 10px;&#13;
+        position: relative;&#13;
+        background-image: url("images/gift-cards/cross.svg?$staticlink$");&#13;
+    }&#13;
+&#13;
+    .giftcard-close:not(:disabled):not(.disabled):hover {&#13;
+        opacity: inherit;&#13;
+    }&#13;
+&#13;
+    .giftcard-close:hover {&#13;
+        background-position: 50%;&#13;
+        background-repeat: no-repeat;&#13;
+        height: 13px;&#13;
+        opacity: inherit;&#13;
+        width: 13px;&#13;
+        top: -11px;&#13;
+        right: 10px;&#13;
+        position: relative;&#13;
+        background-image: url("images/gift-cards/bbwd-tooltip-close-hover.svg?$staticlink$");&#13;
     }&#13;
 &#13;
     .gift-card-top-banner .desktop-image {&#13;
@@ -5226,10 +5253,10 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
     }&#13;
 &#13;
     .popover-header {&#13;
-        display: flex !important;&#13;
-        justify-content: flex-end !important;&#13;
-        padding: 0 !important;&#13;
-        border-bottom: none !important;&#13;
+        display: flex;&#13;
+        justify-content: flex-end;&#13;
+        padding: 0;&#13;
+        border-bottom: none;&#13;
         height: 0px;&#13;
         margin-top: 17px;&#13;
     }&#13;

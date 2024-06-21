@@ -142,7 +142,7 @@
                         <div style="padding: 0 10px;">
                             <isloop var="shippingModel" items="${pdict.order.shipping}" status="shippingLoop">
                              <iscomment> <p  style="text-align:left; margin-left: -3px;">${Resource.msg('label.shipping', 'order', null)}:</p> </iscomment>
-                                <p class="shipping-method"  style="text-align:left; margin-left: -3px;">
+                                <p class="shipping-method"  style="text-align:left; margin-left: -3px;  text-transform: capitalize;">
                                     <span
                                         class="shipping-method-title h-font-size--16">${Resource.msg('label.shipping', 'order', null)} : ${shippingModel.selectedShippingMethod.ID} ${Resource.msg('label.shipping', 'order', null)}
                                         <isif condition="${pdict.order.trackingNumber}">
