@@ -8,7 +8,7 @@
                 <isset name="address" value="${{}}" scope="page"/>
             </isif>
             <div class="summary-details shipping h-font-size--16 h-clr--black-1">
-                <h2 class="h-clr--black-1 review-shipping-summary-content h-fw--bold h-line-height--20 b-text-letter-sapce-001">${Resource.msg('label.order.shipping.address', 'order', null)}</h2>
+                <h2 class="h-clr--black-1 review-shipping-summary-content h-fw--bold h-line-height--20 b-text-letter-sapce-001 b-text-letter-space-01">${Resource.msg('label.order.shipping.address', 'order', null)}</h2>
                 <isinclude template="checkout/addressSummary" />
                 <div class="shipping-phone h-font-size--16 text-left">
                     ${shippingModel.shippingAddress && shippingModel.shippingAddress.phone ? shippingModel.shippingAddress.phone : ''}
@@ -18,7 +18,7 @@
             <!--- Shipping information --->
             <div class="row summary-details leading-lines">
                 <div class="col-12 start-lines">
-                    <h2 class="h-clr--black-1 review-shipping-summary-content h-fw--bold h-line-height--20 b-text-letter-sapce-001">${Resource.msg('heading.shipping.method', 'checkout', null)}</h2>
+                    <h2 class="h-clr--black-1 review-shipping-summary-content h-fw--bold h-line-height--20 b-text-letter-sapce-001 b-text-letter-space-01">${Resource.msg('heading.shipping.method', 'checkout', null)}</h2>
                     <p class="shipping-method h-font-size--16 h-clr--black-1">
                         <span class="shipping-method-title">${Resource.msgf('text.shipping.method', 'checkout',null, shippingModel.selectedShippingMethod.displayName)}</span>
                         <span class="shipping-method-arrival-time h-clr--black-1">

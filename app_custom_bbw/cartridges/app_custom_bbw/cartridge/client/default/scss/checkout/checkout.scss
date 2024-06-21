@@ -1046,6 +1046,19 @@ input[type="tel"],
 }
 
 .info-billing {
+    .required-indicator-text {
+        font-style: italic;
+
+        .required-star {
+            position: relative;
+            right: 5px;
+        }
+    }
+
+    .require-indicator {
+        margin-right: 0.125em;
+    }
+
     .info-icon {
         top: 50%;
 
