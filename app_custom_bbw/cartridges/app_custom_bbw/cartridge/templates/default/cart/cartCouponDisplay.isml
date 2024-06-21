@@ -1,10 +1,10 @@
 <isloop items="${pdict.totals.discounts}" var="discount">
     <isif condition="${discount.type === 'coupon'}">
-        <div class="coupon-price-adjustment d-flex justify-content-between h-bg--${discount.applied ? 'green-5' : 'red-10'} coupon-uuid-${discount.UUID}" data-uuid="${discount.UUID}">
+        <div class="coupon-price-adjustment mb-2 d-flex justify-content-between h-bg--${discount.applied ? 'green-5' : 'red-10'} coupon-uuid-${discount.UUID}" data-uuid="${discount.UUID}">
             <isif condition="${discount.applied}">
             <div class="coupon-code h-font-size--16 h-clr--green-2 h-fw--semibold  h-bg--green-5 py-2 px-4">
                     <isloop items="${discount.relationship}" var="relatedPromotion">
-                        ${Resource.msgf('msg.coupon.applied', 'cart', null, discount.couponCode)}
+                        <span class="h-fw--bold">${Resource.msgf('msg.coupon.heading', 'cart', null, discount.couponCode)}</span> ${Resource.msgf('msg.coupon.applied', 'cart', null, discount.couponCode)}</span>
                     </isloop>
                     <span class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + discount.couponCode}</span>
             </div>
