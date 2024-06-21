@@ -28,11 +28,11 @@
                 </div>
             </div>
             <a href="${URLUtils.url('Home-Show')}"
-                class="btn btn-primary empty-cart-continue h-font-size--16 h-fw--semibold">${Resource.msg('link.continue.shopping', 'cart', null)}</a>   
-        </div>
-        <div class="empty-recommendation-container">
-            <div class="empty-cart-recommendations">
-                <isslot id="cart-empty-recommendation" context="global" description="This is for empty basket recommmendations" />
+                class="btn btn-primary empty-cart-continue h-font-size--16 h-fw--semibold">${Resource.msg('link.continue.shopping', 'cart', null)}</a>
+            <div class="empty-recommendation-container">
+                <div class="empty-cart-recommendations">
+                    <isslot id="cart-empty-recommendation" context="global" description="This is for empty basket recommmendations" />
+                </div>
             </div>
         </div>
         <isif condition="${pdict.items.length !== 0}">
