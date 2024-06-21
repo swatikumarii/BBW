@@ -120,9 +120,6 @@ function login() {
                         formValidation(form, data);
                         form.trigger('login:error', data);
                     }
-                    form.prepend('<input type="text" class="unused"/>');
-                    $('.unused').focus();
-                    $('.unused').remove();
                 } else {
                     form.trigger('login:success', data);
                     if (data.isIncomplete) {
