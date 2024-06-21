@@ -882,6 +882,7 @@ module.exports = $.extend({}, base, {
             var productID = $(this).data('pid');
             var removeGiftPliUrl = $(this).data('action');
             var addToCartUrl = $(this).data('addtocarturl');
+            var updateShippingMethodURL = $(this).data('update-shipping');
             var form = {
                 pid: productID,
                 quantity: 1
@@ -896,6 +897,7 @@ module.exports = $.extend({}, base, {
                         url: addToCartUrl,
                         data: form,
                         success: function (data) {
+                            $.get(updateShippingMethodURL);
                             handlePostCartAdd(data);
                             $('body').trigger('product:afterAddToCart', data);
                             $.spinner().stop();
@@ -915,6 +917,7 @@ module.exports = $.extend({}, base, {
             var productID = $(this).data('pid');
             var removeGiftPliUrl = $(this).data('action');
             var addToCartUrl = $(this).data('addtocarturl');
+            var updateShippingMethodURL = $(this).data('update-shipping');
             var egiftCardDetailsObj;
             var egiftCardDetails = {
                 senderName: $('.gift-card-form').find('input:text[name=\'sender-name\']').val(),
@@ -939,6 +942,7 @@ module.exports = $.extend({}, base, {
                         url: addToCartUrl,
                         data: form,
                         success: function (data) {
+                            $.get(updateShippingMethodURL);
                             handlePostCartAdd(data);
                             if ($('.gift-card-form').length > 0) {
                                 $('.gift-card-form')[0].reset();
@@ -959,6 +963,11 @@ module.exports = $.extend({}, base, {
                     });
                 }
             });
+        });
+    },
+    denyDeleteItems: function () {
+        $('button.delete-lineitem-deny-btn').on('click', function () {
+            $('button.add-to-cart').prop('disabled', false);
         });
     }
 });
