@@ -2,7 +2,7 @@
 <div class="row leading-lines shipping-method-list" data-select-shipping-method-url="${URLUtils.https('CheckoutShippingServices-SelectShippingMethod')}" data-action-url="${URLUtils.https('CheckoutShippingServices-UpdateShippingMethodsList')}">
     <input name="shipmentUUID" type="hidden" value="${shippingModel.UUID}" />
     <isloop items="${shippingModel.applicableShippingMethods}" var="shippingMethod">
-        <div class="form-check col-8 start-lines shipping-methods-block">
+        <div class="form-check col-9 start-lines shipping-methods-block pr-0">
             <isinclude template="checkout/shipping/selectedShippingMethod"/>
             <label class="form-check-label shipping-method-option" for="shippingMethod-${shippingMethod.ID}-${shippingModel.UUID}${lineItem ? '-' + lineItem.UUID : ''}">
                 <span class="display-name h-font-size--16 h-fw--semibold h-clr--black-1">${shippingMethod.displayName}</span>
@@ -19,11 +19,11 @@
             </div>
         </div>
         <isif condition="${shippingMethod.isFree}">
-            <div class="col-4 text-right shipping-method-pricing end-lines">
+            <div class="col-3 text-right shipping-method-pricing end-lines">
                 <span class="shipping-cost h-clr--black-1">${Resource.msg('label.free.price', 'cart', null)}</span>
             </div>
         <iselse/>
-            <div class="col-4 text-right shipping-method-pricing end-lines">
+            <div class="col-3 text-right shipping-method-pricing end-lines">
                 <span class="shipping-cost h-clr--black-1">${shippingMethod.shippingCost}</span>
             </div>
         </isif>
