@@ -7,6 +7,7 @@
 var server = require('server');
 var cache = require('*/cartridge/scripts/middleware/cache');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 /**
  * securityBugReport-Landing : This endpoint is used to load the Security Bug Report page
@@ -23,7 +24,7 @@ server.get('Landing', server.middleware.https, cache.applyDefaultCache, consentT
         actionUrl: URLUtils.url('SecurityBugReport-Submit').toString()
     });
     return next();
-});
+},seo.addCurrentPageMetaData);
 
 /**
  * securityBugReport-Submit : This endpoint is used submit Security Bug Report form

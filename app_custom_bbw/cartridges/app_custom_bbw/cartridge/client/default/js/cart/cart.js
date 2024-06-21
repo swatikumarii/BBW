@@ -136,16 +136,34 @@ function updateCartTotals(data) {
                 .empty()
                 .append(item.renderedPrice);
         }
+        var totalSavingsHTML = '';
+        var lineItemSavingDiv = $('.uuid-' + item.UUID + ' .line-item-savings');
+        if (item.totalSavings && item.totalSavings !== '-') {
+            totalSavingsHTML =
+                '<span class="d-inline d-md-none">'+
+                'Saved:' +
+                '</span>' +
+                '<span class="value">' + item.totalSavings + '</span>';
+            lineItemSavingDiv.empty().append(totalSavingsHTML);
+        } else {
+            totalSavingsHTML =
+                '<span class="value value-dash d-none d-md-block">' +
+                '-' +
+                '</span>';
+            lineItemSavingDiv.empty().append(totalSavingsHTML);
+        }
         var motivatorHTML = '';
-        item.promotions.forEach(function (promotion) {
-            if (promotion.motivator && promotion.motivator !== 'false') {
-                motivatorHTML +=
-                    '<div class="h-font-size--14 h-fw--semibold">\n' +
-                    promotion.motivator +
-                    '\n' +
-                    '</div>\n';
-            }
-        });
+        if ('promotions' in item && item.promotions) {
+            item.promotions.forEach(function (promotion) {
+                if (promotion.motivator && promotion.motivator !== 'false') {
+                    motivatorHTML +=
+                        '<div class="h-font-size--14 h-fw--semibold">\n' +
+                        promotion.motivator +
+                        '\n' +
+                        '</div>\n';
+                }
+            });
+        }
         $('.line-item-promo-motivator.item-' + item.UUID)
             .empty()
             .append(motivatorHTML);
@@ -636,20 +654,6 @@ module.exports = function () {
                     $('.mini-cart-content .product-summary')
                         .empty()
                         .append(data.refreshItemsTemplateMinicart);
-                }
-                if (data.totalSavings) {
-                    $(this)
-                        .closest('.product-info')
-                        .find('.line-item-savings span')
-                        .removeClass('value-dash')
-                        .text(data.totalSavings);
-                    if (data.totalSavings === '-') {
-                        $(this)
-                            .closest('.product-info')
-                            .find('.line-item-savings span')
-                            .addClass('value-dash')
-                            .text(data.totalSavings);
-                    }
                 }
                 $.spinner().stop();
                 if (
@@ -1220,23 +1224,29 @@ module.exports = function () {
             processData: false,
             success: function (data) {
                 if (data.error) {
-                    $('.dynamic-popup-promo-success').hide();
                     $('.dynamic-popup-promo-error').text(data.errorMessage);
                     $('.dynamic-popup-promo-error').show();
                 } else {
                     updateCartTotals(data);
                     $('.dynamic-popup-promo-error').hide();
-                    $('.dynamic-popup-promo-success').text(
-                        data.resources.couponApplied
+                    $('.dynamic-popup-dialog button.modal-close-icon').click();
+                    if ($('.add-to-cart-messages').length === 0) {
+                        $('body').append('<div class="add-to-cart-messages"></div>');
+                    }
+
+                    $('.add-to-basket-alert').remove();
+                    $('.add-to-cart-messages').append(
+                        '<div class="alert add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                data.resources.couponApplied +
+                '</div>'
                     );
-                    $('.dynamic-popup-promo-success').show();
+                    setTimeout(function () {
+                        $('.add-to-basket-alert').remove();
+                    }, 5000);
                 }
             },
             error: function () {
-                $('.dynamic-popup-promo-success').hide();
-                $('.dynamic-popup-promo-error').text(
-                    $('.something-went-wrong').text()
-                );
+                $('.dynamic-popup-promo-error').text($('.something-went-wrong').text());
                 $('.dynamic-popup-promo-error').show();
             }
         });

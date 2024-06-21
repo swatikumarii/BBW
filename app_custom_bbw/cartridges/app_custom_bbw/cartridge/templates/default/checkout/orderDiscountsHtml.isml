@@ -1,8 +1,8 @@
 <div class="col-7">
-    <p class="h-font-size--16 h-clr--black-1 cart-saving">${Resource.msg('label.order.savings', 'common', null)}</p>
+    <p class="h-font-size--16 h-clr--black-1 cart-saving h-line-height--20">${Resource.msg('label.order.savings', 'common', null)}</p>
 </div>
 <div class="col-5">
-    <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold order-discount-total">
+    <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold order-discount-total h-line-height--20">
         ${pdict.order.totals.totalDiscountFormatted}</p>
 </div>
 <isif condition="${pdict.order.totals.allDiscounts.length > 0}">

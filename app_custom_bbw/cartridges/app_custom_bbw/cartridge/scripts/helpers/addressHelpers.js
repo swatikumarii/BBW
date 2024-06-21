@@ -11,7 +11,10 @@ var base = module.superModule;
 function checkIfAddressStored(address, storedAddresses) {
     for (var i = 0, l = storedAddresses.length; i < l; i++) {
         if (storedAddresses[i].address1 === address.address1
+            && storedAddresses[i].address2 === address.address2
             && storedAddresses[i].postalCode === address.postalCode
+            && storedAddresses[i].stateCode === address.states.stateCode
+            && storedAddresses[i].city === address.city
             && storedAddresses[i].firstName === address.firstName
             && storedAddresses[i].lastName === address.lastName
             && storedAddresses[i].phone === address.phone) {

@@ -115,6 +115,11 @@ module.exports = function () {
             }
         });
 
+        // Click outside the popup content reload the page
+        $('#autologout').on('hidden.bs.modal', function () {
+            window.location.reload();
+        });
+
         // Initialize the timeout on page load
         resetTimeout();
     });

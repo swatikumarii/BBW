@@ -98,6 +98,7 @@ $(document).ready(function () {
                         $('.add-giftcard-section').removeClass('show');
                         $('.add-giftcard-header').hide();
                         $('.payment-options-heading').hide();
+                        $(document).off('ajaxComplete');
                     }
                     if (data.success) {
                         $('.giftcard-partial-redemption')

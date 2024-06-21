@@ -9,7 +9,10 @@
         <div id="add-wishlist-to-cart-snackbar">${Resource.msg('item.added.to.cart', 'common', null)}</div>
     </div>
 <iselse/>
-    <div class="notify-me main-quantity-${lineItem.id}">
+    <div id="order-level-out-of-stock-snackbar" class="error" >${Resource.msg('out.of.stock.message', 'order', null)}</div>
+    <button type="button" class="btn order-level-out-of-stock-snackbar-btn"> ${Resource.msg('button.addToBag', 'common', null)}
+    </button>
+    <iscomment> <div class="notify-me main-quantity-${lineItem.id}">
         <span class="notify-me-available-msg"></span>
         <input type="hidden" id="notify-list-msg" value="${Resource.msg('button.notifyInList', 'notifyMe', null)}" />
         <input type="hidden" id="notify-msg" value="${Resource.msg('button.notifyMe', 'notifyMe', null)}" />
@@ -26,5 +29,5 @@
             <button type="button" class="btn out-of-stock"> ${Resource.msg('button.outOfStock', 'notifyMe', null)}
             </button>
         </isif>
-    </div>
+    </div> </iscomment>
 </isif>
