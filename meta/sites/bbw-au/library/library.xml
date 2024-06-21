@@ -2875,7 +2875,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
 							&lt;p&gt;Need help? We want to hear from you!&lt;/p&gt;&#13;
 							&lt;div class="rn_ConditionalChatLink" id="rn_ConditionalChatLink_6"&gt;&#13;
 								&lt;p class="mb-0"&gt;&#13;
-									&lt;strong class="h-fw--semibold h-clr--black-3"&gt;CALL US:&lt;/strong&gt;  &lt;a href="tel:1-800-576-972"&gt;1-800-576-972&lt;/a&gt;&#13;
+									&lt;strong class="h-fw--semibold h-clr--black-3"&gt;CALL US:&lt;/strong&gt;  &lt;a href="tel:1800-576-972"&gt;1800-576-972&lt;/a&gt;&#13;
 								&lt;/p&gt;&#13;
 							&lt;/div&gt;&#13;
 							&lt;p&gt;&#13;
@@ -5929,11 +5929,11 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="login-modal-section"&gt;&#13;
-    &lt;h4 class="h-clr--pink h-font-size--16 h-fw--bold"&gt;Welcome to an updated, exciting shopping experience!&#13;
+    &lt;h4 class="h-clr--pink h-font-size--16 h-fw--bold"&gt;WELCOME TO A NEW SITE EXPERIENCE.&#13;
     &lt;/h4&gt;&#13;
     &lt;p class="h-font-size--16 login-para h-clr--gray "&gt;&#13;
-     If you previously had an account with us, you will need to reset your password to continue using our new website. &#13;
-     If you have updated your password, please continue to login.&#13;
+     First things first! You will need to reset your password if you have an existing account prior to logging into our new website.&#13;
+     If you have already updated your password, please sign in.&#13;
     &lt;/p&gt;&#13;
     &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
        Reset Password&#13;
