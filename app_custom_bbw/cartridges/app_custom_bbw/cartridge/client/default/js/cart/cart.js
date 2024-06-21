@@ -24,6 +24,15 @@ function appendToUrl(url, params) {
 }
 
 /**
+ * Clear error notification
+ */
+function clearErrorNotification() {
+    if ($('.cart-error .d-block') && $('.cart-error .d-block').length > 0) {
+        $('.cart-error .d-block').remove();
+    }
+}
+
+/**
  * Checks whether the basket is valid. if invalid displays error message and disables
  * checkout button
  * @param {object} data - AJAX response from the server
@@ -31,9 +40,10 @@ function appendToUrl(url, params) {
 function validateBasket(data) {
     if (data.valid.error) {
         if (data.valid.message) {
+            $('.pdict-message').remove();
             var errorHtml =
-                '<span class="d-block">' + data.valid.message + '</span>';
-
+                '<span class="pdict-message">' + data.valid.message + '</span>';
+            clearErrorNotification();
             $('.cart-error').append(errorHtml);
         } else {
             $('.cart')
@@ -188,6 +198,7 @@ function updateCartTotals(data) {
  * @param {object} message - Error message to display
  */
 function createErrorNotification(message) {
+    clearErrorNotification();
     var errorHtml = '<span class="d-block">' + message + '</span>';
     $('.cart-error').append(errorHtml);
 }
@@ -424,7 +435,7 @@ module.exports = function () {
 
     $('body').on('click', '.cart-delete-confirmation-btn', function (e) {
         e.preventDefault();
-
+        clearErrorNotification();
         var productID = $(this).data('pid');
         var url = $(this).data('action');
         var uuid = $(this).data('uuid');
@@ -576,6 +587,7 @@ module.exports = function () {
     });
 
     $('body').on('change', '.quantity-form > .quantity', function () {
+        clearErrorNotification();
         var preSelectQty = $(this).data('pre-select-qty');
         var quantity = Number($(this).val());
         var maxOrderQty = $(this).data('max-order-qty');
@@ -667,6 +679,7 @@ module.exports = function () {
     });
 
     $('.shippingMethods').change(function () {
+        clearErrorNotification();
         var url = $(this).attr('data-actionUrl');
         var urlParams = {
             methodID: $(this).find(':selected').attr('data-shipping-id')
@@ -710,6 +723,7 @@ module.exports = function () {
     });
 
     $('.promo-code-form').submit(function (e) {
+        clearErrorNotification();
         e.preventDefault();
         $.spinner().start();
         $('.coupon-missing-error').hide();
@@ -746,6 +760,11 @@ module.exports = function () {
                         .empty()
                         .append(data.errorMessage);
                     $('.coupon-error-message').addClass('d-block');
+                    setTimeout(function () {
+                        $('.coupon-error-message').empty();
+                        $('.coupon-error-message').removeClass('d-block');
+                        $('.promo-code-form .form-control').removeClass('is-invalid');
+                    }, 5000);
                     $('body').trigger('promotion:error', data);
                 } else {
                     $('.coupon-error-message').removeClass('d-block');
@@ -777,6 +796,7 @@ module.exports = function () {
     });
 
     $(document).on('click', '.promo-code-form button', function () {
+        clearErrorNotification();
         $.ajax({
             url: $('.promo-code-form').attr('action'),
             type: 'GET',
@@ -793,6 +813,11 @@ module.exports = function () {
                         .empty()
                         .append(data.errorMessage);
                     $('.coupon-error-message').addClass('d-block');
+                    setTimeout(function () {
+                        $('.coupon-error-message').empty();
+                        $('.coupon-error-message').removeClass('d-block');
+                        $('.promo-code-form .form-control').removeClass('is-invalid');
+                    }, 5000);
                     $('body').trigger('promotion:error', data);
                 } else {
                     $('.coupon-error-message').removeClass('d-block');
@@ -838,7 +863,7 @@ module.exports = function () {
 
     $('body').on('click', '.delete-coupon-confirmation-btn', function (e) {
         e.preventDefault();
-
+        clearErrorNotification();
         var url = $(this).data('action');
         var uuid = $(this).data('uuid');
         var couponCode = $(this).data('code');
@@ -1040,7 +1065,7 @@ module.exports = function () {
 
     $('body').on('click', '.update-cart-product-global', function (e) {
         e.preventDefault();
-
+        clearErrorNotification();
         var updateProductUrl = $(this)
             .closest('.cart-and-ipay')
             .find('.update-cart-url')
