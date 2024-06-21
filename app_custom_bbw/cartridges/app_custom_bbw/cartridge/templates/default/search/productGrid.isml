@@ -5,12 +5,14 @@
     <iscomment> Mobile Filters - Buttons Section </iscomment>
     <isif condition="${pdict.productSearch.productIds.length > 0 && ((pdict.apiProductSearch && pdict.apiProductSearch.category) ? !pdict.apiProductSearch.category.custom.hideFilter : true)}">
         <div class="row filter-bar-mobile d-md-none no-gutters h-mb--25">
-            <div class="col-6 col-sm-3 text-right d-md-none order-sm-3">
-                <button type="button"
-                    class="filter-results h-100 col-12 b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize text-left">
-                    ${Resource.msg('button.filter', 'search', null)}
-                </button>
-            </div>
+            <isif condition="${!pdict.hideFilterBar}">
+                <div class="col-6 col-sm-3 text-right d-md-none order-sm-3">
+                    <button type="button"
+                        class="filter-results h-100 col-12 b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize text-left">
+                        ${Resource.msg('button.filter', 'search', null)}
+                    </button>
+                </div>
+            </isif>
             <div class="col-6 col-sm-3 order-sm-1">
                 <isif condition="${pdict.productSearch.productIds.length > 0}">
                     <select name="sort-order"

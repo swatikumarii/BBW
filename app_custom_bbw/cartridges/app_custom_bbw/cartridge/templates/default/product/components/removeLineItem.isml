@@ -24,10 +24,11 @@
                     data-pid="${product.id}"
                     data-addtocarturl="${pdict.addToCartUrl}"
                     data-action="${pdict.removeLineItemURL}"
+                     data-update-shipping="${URLUtils.url('Cart-UpdateShippingMethod')}"
                 >${Resource.msg('button.confirm.remove','giftcards',null)}</button>
-                <button type="button" class="h-font-size-sm--16 btn btn-primary close-btn btn-secondary h-clr--gray h-font-size-md--16 h-font-size--14 m-0" data-dismiss="modal" data-oid="${pdict.order.orderNumber}"
+                <button type="button" class="h-font-size-sm--16 btn btn-primary close-btn btn-secondary delete-lineitem-deny-btn h-clr--gray h-font-size-md--16 h-font-size--14 m-0" data-dismiss="modal" data-oid="${pdict.order.orderNumber}"
                     data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
-                    data-action="${URLUtils.url('Giftcard-RemoveLineItems')}">${Resource.msg('button.deny.remove', 'giftcards', null)}</button>
+                    data-action="${URLUtils.url('Giftcard-RemoveLineItems')}" data-update-shipping="${URLUtils.url('Cart-UpdateShippingMethod')}">${Resource.msg('button.deny.remove', 'giftcards', null)}</button>
             </div>
         </div>
     </div>
