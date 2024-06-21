@@ -16,6 +16,7 @@ var Template = require('dw/util/Template');
 var cartTemplate = new Template('cart/productCard/cartProductCardAjax');
 var miniCartTemplate = new Template('checkout/productCard/miniCartProductCardAjax');
 var dynamicBadgeHelpers = require('*/cartridge/scripts/helpers/dynamicBadgeHelpers');
+var productValidationHelpers = require('*/cartridge/scripts/helpers/productValidationHelpers');
 var Site = require('dw/system/Site');
 
 /**
@@ -123,6 +124,172 @@ server.replace(
     }
 );
 
+/**
+ * Cart-UpdateQuantity : The Cart-UpdateQuantity endpoint handles updating the quantity of a product line item in the basket
+ * @name Cart-UpdateQuantity
+ * @function
+ * @memberof Cart
+ * @returns {object} - json
+ */
+server.replace('UpdateQuantity', function (req, res, next) {
+    var Resource = require('dw/web/Resource');
+    var Transaction = require('dw/system/Transaction');
+    var URLUtils = require('dw/web/URLUtils');
+    var collections = require('*/cartridge/scripts/util/collections');
+    var basketCalculationHelpers = require('*/cartridge/scripts/helpers/basketCalculationHelpers');
+
+
+    var currentBasket = BasketMgr.getCurrentBasket();
+
+    if (!currentBasket) {
+        res.setStatusCode(500);
+        res.json({
+            error: true,
+            redirectUrl: URLUtils.url('Cart-Show').toString()
+        });
+
+        return next();
+    }
+
+    var productId = req.querystring.pid;
+    var updateQuantity = parseInt(req.querystring.quantity, 10);
+    var uuid = req.querystring.uuid;
+    var productLineItems = currentBasket.productLineItems;
+    var matchingLineItem = collections.find(productLineItems, function (item) {
+        return item.productID === productId && item.UUID === uuid;
+    });
+    var availableToSell = 0;
+
+    var totalQtyRequested = 0;
+    var qtyAlreadyInCartPID = 0;
+    var minOrderQuantity = 0;
+    var perpetual = false;
+    var canBeUpdated = false;
+    var bundleItems;
+    var maxProductQty=0;
+    var maxProductQtyLeft=0;
+    var qtyAlreadyInCartUUID=0;
+    var existingPliQty = 0;
+    var bonusDiscountLineItemCount = currentBasket.bonusDiscountLineItems.length;
+
+    if (matchingLineItem) {
+        if (matchingLineItem.product.bundle) {
+            bundleItems = matchingLineItem.bundledProductLineItems;
+            canBeUpdated = collections.every(bundleItems, function (item) {
+                var quantityToUpdate = updateQuantity
+                    * matchingLineItem.product.getBundledProductQuantity(item.product).value;
+                var qtyAlreadyInCart = cartHelper.getQtyAlreadyInCart(
+                    item.productID,
+                    productLineItems,
+                    item.UUID
+                );
+                totalQtyRequested = quantityToUpdate + qtyAlreadyInCart;
+                availableToSell = item.product.availabilityModel.inventoryRecord.ATS.value;
+                perpetual = item.product.availabilityModel.inventoryRecord.perpetual;
+                minOrderQuantity = item.product.minOrderQuantity.value;
+                return (totalQtyRequested <= availableToSell || perpetual)
+                    && (quantityToUpdate >= minOrderQuantity);
+            });
+        } else {
+            existingPliQty = matchingLineItem.quantityValue;
+            availableToSell = productValidationHelpers.getProductMaxOrderQty(matchingLineItem.product);
+            perpetual = matchingLineItem.product.availabilityModel.inventoryRecord.perpetual;
+            qtyAlreadyInCartPID = cartHelper.getQtyAlreadyInCart(
+                productId,
+                productLineItems
+            );
+            qtyAlreadyInCartUUID = cartHelper.getQtyAlreadyInCart(
+                productId,
+                productLineItems,
+                matchingLineItem.UUID
+            );
+            // Checking total qty of a pid in cart with addition of how much increase is requested.
+            totalQtyRequested =
+                (updateQuantity - existingPliQty) +  qtyAlreadyInCartPID;
+            // Case: User tries to change qty higher than the maxOrderQty
+            if (qtyAlreadyInCartPID < availableToSell && totalQtyRequested > availableToSell) 
+            {
+                if (qtyAlreadyInCartUUID) {
+                    // Case where more than one line item of same pid exist
+                    updateQuantity =
+                        availableToSell -
+                        qtyAlreadyInCartPID +
+                        existingPliQty;
+                    totalQtyRequested = availableToSell;
+                } else {
+                    updateQuantity = availableToSell;
+                    totalQtyRequested = availableToSell;
+                }
+            }
+            minOrderQuantity = matchingLineItem.product.minOrderQuantity.value;
+            canBeUpdated = (totalQtyRequested <= availableToSell || perpetual)
+                && (updateQuantity >= minOrderQuantity);
+            if (canBeUpdated && updateQuantity > availableToSell) {
+                updateQuantity = availableToSell;
+            }
+        }
+    }
+    // Added case where user tries to decrease the qty when out of stock.
+    if (canBeUpdated || (updateQuantity < existingPliQty)) {
+        maxProductQtyLeft = availableToSell - totalQtyRequested;
+        Transaction.wrap(function () {
+            matchingLineItem.setQuantityValue(updateQuantity);
+
+            var previousBounsDiscountLineItems = collections.map(
+                currentBasket.bonusDiscountLineItems,
+                function (bonusDiscountLineItem) {
+                    return bonusDiscountLineItem.UUID;
+                }
+            );
+
+            basketCalculationHelpers.calculateTotals(currentBasket);
+            if (
+                currentBasket.bonusDiscountLineItems.length >
+                bonusDiscountLineItemCount
+            ) {
+                var prevItems = JSON.stringify(previousBounsDiscountLineItems);
+
+                collections.forEach(
+                    currentBasket.bonusDiscountLineItems,
+                    function (bonusDiscountLineItem) {
+                        if (prevItems.indexOf(bonusDiscountLineItem.UUID) < 0) {
+                            bonusDiscountLineItem.custom.bonusProductLineItemUUID =
+                                matchingLineItem.UUID; // eslint-disable-line no-param-reassign
+                            matchingLineItem.custom.bonusProductLineItemUUID =
+                                'bonus';
+                            matchingLineItem.custom.preOrderUUID =
+                                matchingLineItem.UUID;
+                        }
+                    }
+                );
+            }
+        });
+    }
+
+    var basketModel = new CartModel(currentBasket);
+    basketModel.maxProductQty = maxProductQty;
+    basketModel.maxProductQtyLeft = maxProductQtyLeft;
+    basketModel.updatedQty = matchingLineItem.quantityValue;
+    maxProductQty = productValidationHelpers.getProductMaxOrderQty(matchingLineItem.product);
+    if (matchingLineItem && canBeUpdated) {
+        res.json(basketModel);
+    } else if (updateQuantity < existingPliQty) {
+        // Overstock case data sent back for handling on the client side.
+        res.json(basketModel);
+    } else {
+        res.setStatusCode(500);
+        res.json({
+            errorMessage: Resource.msg(
+                'error.cannot.update.product.quantity',
+                'cart',
+                null
+            )
+        });
+    }
+
+    return next();
+});
+
 server.append('UpdateQuantity', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
     var viewData = res.getViewData();
@@ -212,13 +379,15 @@ server.prepend('AddProduct', function (req, res, next) {
 });
 
 server.append('AddProduct', function (req, res, next) {
+    var Resource = require('dw/web/Resource');
     var ProductMgr = require('dw/catalog/ProductMgr');
     var PromotionMgr = require('dw/campaign/PromotionMgr');
     var promotionsDecorator = require('*/cartridge/models/product/decorators/promotions');
     var pdpPromotions = new Template('product/components/promotions');
     var currentBasket = BasketMgr.getCurrentBasket();
     var product = Object.create(null);
-    var promotions = PromotionMgr.activeCustomerPromotions.getProductPromotions(ProductMgr.getProduct(req.form.pid));
+    var apiProduct = ProductMgr.getProduct(req.form.pid);
+    var promotions = PromotionMgr.activeCustomerPromotions.getProductPromotions(apiProduct);
     promotionsDecorator(product, promotions);
     var Product = { product: product };
     var context = new HashMap();
@@ -235,6 +404,26 @@ server.append('AddProduct', function (req, res, next) {
     ) {
         dynamicBadgeHelpers.updateCartDetailInProfile(
             req.currentCustomer.raw.profile
+        );
+    }
+    var maxOrderQtyValue =
+        productValidationHelpers.getProductMaxOrderQtyValue(apiProduct);
+    viewData.maxOrderQty = maxOrderQtyValue;
+    if (maxOrderQtyValue > 0) {
+        viewData.maxOrderQtyMessage = Resource.msgf(
+            'error.alert.selected.quantity.cannot.be.added.for.max',
+            'product',
+            null,
+            maxOrderQtyValue,
+            apiProduct.name
+        );
+    } else {
+        viewData.maxOrderQtyMessage = Resource.msgf(
+            'error.alert.selected.quantity.cannot.be.added.negative',
+            'product',
+            null,
+            maxOrderQtyValue,
+            apiProduct.name
         );
     }
     res.setViewData(viewData);
