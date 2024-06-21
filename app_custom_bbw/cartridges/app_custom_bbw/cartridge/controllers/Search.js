@@ -14,7 +14,6 @@ server.append(
     ingredientCategoryHelper.appendIngredientSearch,
     seo.addCurrentPageMetaData
 );
-
 server.append(
     'ShowAjax',
     categoryHelper.appendLevelOneCategory,
