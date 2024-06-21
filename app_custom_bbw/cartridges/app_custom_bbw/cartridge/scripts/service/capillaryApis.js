@@ -79,7 +79,7 @@ module.exports = {
                 if (customerStatus && customerStatus.ok && 'object' in customerStatus && customerStatus.object) {
                     var customerObj = JSON.parse(customerStatus.object);
                     if ('errors' in customerObj && customerObj.errors) {
-                        logger.error('capillary create customer: ' + JSON.stringify(createObject.errors));
+                        logger.error('capillary create customer: ' + JSON.stringify(customerObj.errors));
                         return '';
                     }
                     if ('entity' in customerObj) {
@@ -134,7 +134,8 @@ module.exports = {
             customFields: {
                 ship_to_address: fullShippingAddress,
                 bill_to_address: fullBillingAddress,
-                paymentmode: order.billing.payment.selectedPaymentInstruments[0].paymentMethod
+                paymentmode: order.billing.payment.selectedPaymentInstruments[0].paymentMethod,
+                is_sf_order: true
             },
             lineItemsV2: orderItems
         };
@@ -150,5 +151,77 @@ module.exports = {
             return createObject.createdId;
         }
         return '';
+    },
+    updateCustomer: function (profileForm, profile) {
+        // var date = new Date(profileForm.birthday);
+        // var dob = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
+        var gender;
+        switch (profileForm.gender) {
+            case 1:
+                gender = 'Male';
+                break;
+            case 2:
+                gender = 'Female';
+                break;
+            default:
+                gender = 'Other';
+                break;
+        };
+        var requestObj = {
+            profiles: [{
+                firstName: profileForm.firstName,
+                lastName: profileForm.lastName,
+                source: 'INSTORE'
+            }],
+            extendedFields: {
+                gender: gender
+            }
+        };
+        var capillaryCustomerID = '';
+        if ('capillaryCustomerID' in profile.custom && profile.custom.capillaryCustomerID) {
+            capillaryCustomerID = profile.custom.capillaryCustomerID;
+        } else {
+            var getCustomerEndPoint = 'v2/customers/lookup?source=INSTORE&identifierName=email&identifierValue=' + profile.email;
+            var customerStatus = callCapillaryAPI(getCustomerEndPoint, '', 'GET');
+            if (customerStatus && customerStatus.ok && 'object' in customerStatus && customerStatus.object) {
+                var customerObj = JSON.parse(customerStatus.object);
+                if ('errors' in customerObj && customerObj.errors) {
+                    logger.error('capillary update profile: get customer: ' + JSON.stringify(customerObj.errors));
+                    return '';
+                }
+                if ('entity' in customerObj) {
+                    capillaryCustomerID = customerObj.entity;
+                }
+            }
+        }
+        if (capillaryCustomerID) {
+            var endPoint = 'v2/customers/' + capillaryCustomerID + '?source=INSTORE';
+            var createStatus = callCapillaryAPI(endPoint, JSON.stringify(requestObj), 'PUT');
+            if (createStatus.ok && 'object' in createStatus && createStatus.object) {
+                var createObject = JSON.parse(createStatus.object);
+                if ('errors' in createObject && createObject.errors && createObject.errors.length > 0) {
+                    logger.error('capillary update customer: ' + JSON.stringify(createObject.errors));
+                    return '';
+                }
+                return capillaryCustomerID;
+            }
+        }
+        return '';
+    },
+    getOrders: function (customerEmail) {
+        var endPoint = 'v1.1/customer/transactions?format=json&email=' + customerEmail + '&mlp=true';
+        var createStatus = callCapillaryAPI(endPoint, '', 'GET');
+        if (createStatus.ok && 'object' in createStatus && createStatus.object) {
+            var createObject = JSON.parse(createStatus.object);
+            if ('errors' in createObject && createObject.errors && createObject.errors.length > 0) {
+                logger.error('capillary get order: ' + JSON.stringify(createObject.errors));
+                return '';
+            }
+            var customerData = createObject.response.customer;
+            if ('transactions' in customerData) {
+                return createObject.response.customer.transactions.transaction;
+            }
+        }
+        return [];
     }
 };

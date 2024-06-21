@@ -15,6 +15,7 @@ var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 var Order = require('dw/order/Order');
 var seo = require('*/cartridge/scripts/middleware/seo');
 var Transaction = require('dw/system/Transaction');
+var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
 
 /**
  * Order-Details : The Order-Details append to add notify-me functionality
@@ -500,7 +501,6 @@ server.append(
                 );
 
                 // Capillary: create order
-                var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
                 var crmOrderID = capillaryAPI.createOrder(viewData.order);
                 Transaction.wrap(function () {
                     order.custom.capillaryOrderID = crmOrderID;
