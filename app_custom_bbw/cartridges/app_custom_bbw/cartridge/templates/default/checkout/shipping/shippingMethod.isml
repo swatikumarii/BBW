@@ -18,9 +18,15 @@
                 </isif>
             </div>
         </div>
-        <div class="col-4 text-right shipping-method-pricing end-lines">
-            <span class="shipping-cost h-clr--black-1">${shippingMethod.shippingCost}</span>
-        </div>
+        <isif condition="${shippingMethod.isFree}">
+            <div class="col-4 text-right shipping-method-pricing end-lines">
+                <span class="shipping-cost h-clr--black-1">${Resource.msg('label.free.price', 'cart', null)}</span>
+            </div>
+        <iselse/>
+            <div class="col-4 text-right shipping-method-pricing end-lines">
+                <span class="shipping-cost h-clr--black-1">${shippingMethod.shippingCost}</span>
+            </div>
+        </isif>
     </isloop>
 </div>
 
@@ -39,7 +45,13 @@
                 ${shippingMethod.description}
             </div>
         </div>
-        <div class="col-4 text-right shipping-method-pricing end-lines">
-            <span class="shipping-cost h-clr--black-1">${shippingMethod.shippingCost}</span>
-        </div>
+        <isif condition="${shippingMethod.isFree}">
+            <div class="col-4 text-right shipping-method-pricing end-lines">
+                <span class="shipping-cost h-clr--black-1">${Resource.msg('label.free.price', 'cart', null)}</span>
+            </div>
+        <iselse/>
+            <div class="col-4 text-right shipping-method-pricing end-lines">
+                <span class="shipping-cost h-clr--black-1">${shippingMethod.shippingCost}</span>
+            </div>
+        </isif>
 </div>
