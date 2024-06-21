@@ -318,8 +318,7 @@ function remainingLoginAttempts(email) {
     if (
         customer &&
         customer.profile &&
-        customer.profile.credentials &&
-        customer.profile.credentials.remainingLoginAttempts
+        customer.profile.credentials
     ) {
         leftLoginAttempts =
             customer.profile.credentials.remainingLoginAttempts;
