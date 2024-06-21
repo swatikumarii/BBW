@@ -83,7 +83,8 @@ server.prepend('Show', function (req, res, next) {
         months: months,
         days: days,
         addToCartUrl: addToCartUrl,
-        removeLineItemURL: removeLineItemURL
+        removeLineItemURL: removeLineItemURL,
+        product: giftCard
     });
     next();
 });

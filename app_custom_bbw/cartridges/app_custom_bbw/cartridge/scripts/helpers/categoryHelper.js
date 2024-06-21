@@ -27,6 +27,20 @@ function appendLevelOneCategory(req, res, next) {
         );
         res.setViewData(viewData);
     }
+    var hideFilterBar = false;
+
+    if (viewData.productSearch && viewData.productSearch.refinements.length > 0) {
+        var countvalue = 0;
+        for (var i = 0; i < viewData.productSearch.refinements.length; i++) {
+            if (viewData.productSearch.refinements[i].values && viewData.productSearch.refinements[i].values.length < 2) {
+                countvalue++;
+            }
+        }
+        if (countvalue === viewData.productSearch.refinements.length) {
+            hideFilterBar = true;
+        }
+    }
+    viewData.hideFilterBar = hideFilterBar;
     next();
 }
 

@@ -1,7 +1,7 @@
 
 <div class="checkoutPromo accordion border-top h-mt--50">
     <span
-        class="h-font-size--18 h-fw--bold h-clr--black-1 customer-heading promocode-title accordion-title d-block rotate-down">${Resource.msg('label.promo.code', 'cart', null)}</span>
+        class="h-font-size--18 h-fw--bold h-clr--black-1 customer-heading promocode-title accordion-title d-block b-text-letter-space-005 rotate-down">${Resource.msg('label.promo.code', 'cart', null)}</span>
     <div class="accordion-content" style="display:none">
         <div class="row">
             <div class="col-12 d-sm-none">
@@ -33,34 +33,36 @@
         <div class="coupons-and-promos mb-4 mr-3">
             <isloop items="${pdict.order.totals.discounts}" var="discount">
                 <isif condition="${discount.type === 'coupon'}">
-                    <div class="coupon-price-adjustment d-flex justify-content-between h-bg--${discount.applied ? 'green-5' : 'red-10'} coupon-uuid-${discount.UUID}"
-                        data-uuid="${discount.UUID}">
-                        <isif condition="${discount.applied}">
-                            <div class="coupon-code h-font-size--16 h-clr--green-2 h-fw--semibold  h-bg--green-5 py-2 px-4">
-                                <isloop items="${discount.relationship}" var="relatedPromotion">
-                                    ${Resource.msgf('msg.coupon.applied', 'cart', null, discount.couponCode)}
-                                </isloop>
-                                <span
-                                    class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + discount.couponCode}</span>
-                            </div>
-                            <span class="delete-coupon-confirmation-btn h-bg--green-5 py-2 px-4" data-code="${discount.couponCode}"
-                                aria-label="${Resource.msgf('text.remove.coupon', 'cart', null, discount.couponCode)}"
-                                data-action="${URLUtils.url('Cart-RemoveCouponLineItem')}" data-uuid="${discount.UUID}">
-                                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="15" />
-                            </span>
-                        <iselse/>
-                            <div class="coupon-code h-font-size--16 h-fw--semibold h-bg--red-10 py-2 px-4">
-                                <span class="coupon-not-applied h-clr--red">${discount.qualificationMsg}</span>
-                                <span
-                                    class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + discount.couponCode}</span>
-                            </div>
-                            <span class="delete-coupon-confirmation-btn h-bg--red-10 py-2 px-4" data-code="${discount.couponCode}"
-                                aria-label="${Resource.msgf('text.remove.coupon', 'cart', null, discount.couponCode)}"
-                                data-action="${URLUtils.url('Cart-RemoveCouponLineItem')}" data-uuid="${discount.UUID}">
-                                <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="15" />
-                            </span>
-                        </isif>
-                    </div>
+                    <isif condition="${discount.qualificationMsg && discount.qualificationMsg != null}">
+                        <div class="coupon-price-adjustment d-flex justify-content-between h-bg--${discount.applied ? 'green-5' : 'red-10'} coupon-uuid-${discount.UUID}"
+                            data-uuid="${discount.UUID}">
+                            <isif condition="${discount.applied}">
+                                <div class="coupon-code h-font-size--16 h-clr--green-2 h-fw--semibold  h-bg--green-5 py-2 px-4">
+                                    <isloop items="${discount.relationship}" var="relatedPromotion">
+                                        ${Resource.msgf('msg.coupon.applied', 'cart', null, discount.couponCode)}
+                                    </isloop>
+                                    <span
+                                        class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + discount.couponCode}</span>
+                                </div>
+                                <span class="delete-coupon-confirmation-btn h-bg--green-5 py-2 px-4" data-code="${discount.couponCode}"
+                                    aria-label="${Resource.msgf('text.remove.coupon', 'cart', null, discount.couponCode)}"
+                                    data-action="${URLUtils.url('Cart-RemoveCouponLineItem')}" data-uuid="${discount.UUID}">
+                                    <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="15" />
+                                </span>
+                            <iselse/>
+                                    <div class="coupon-code h-font-size--16 h-fw--semibold h-bg--red-10 py-2 px-4">
+                                        <span class="coupon-not-applied h-clr--red">${discount.qualificationMsg}</span>
+                                        <span
+                                            class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + discount.couponCode}</span>
+                                    </div>
+                                <span class="delete-coupon-confirmation-btn h-bg--red-10 py-2 px-4" data-code="${discount.couponCode}"
+                                    aria-label="${Resource.msgf('text.remove.coupon', 'cart', null, discount.couponCode)}"
+                                    data-action="${URLUtils.url('Cart-RemoveCouponLineItem')}" data-uuid="${discount.UUID}">
+                                    <img src="${URLUtils.staticURL('/images/close-icon.svg')}" alt="close icon" width="15" />
+                                </span>
+                            </isif>
+                        </div>
+                    </isif>
                 </isif>
             </isloop>
         </div>

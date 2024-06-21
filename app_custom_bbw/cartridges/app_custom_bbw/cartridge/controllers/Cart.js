@@ -64,24 +64,44 @@ server.replace(
         var error = false;
         var errorMessage;
         var coupon = CouponMgr.getCouponByCode(req.querystring.couponCode);
-        var couponPromos = coupon.getPromotions();
-        if (couponPromos.length === 0) {
-            error = true;
-            errorMessage = Resource.msg('error.coupon.unknown', 'cart', null);
-        } else {
-            try {
-                Transaction.wrap(function () {
-                    return currentBasket.createCouponLineItem(
-                        req.querystring.couponCode,
-                        true
-                    );
-                });
-            } catch (e) {
+        if (coupon) {
+            var couponPromos = coupon.getPromotions();
+            if (couponPromos.length === 0) {
                 error = true;
-                errorMessage = cartHelper.checkCouponCodeError(
-                    req.querystring.couponCode, e.errorCode
-                );
+                errorMessage = Resource.msg('error.coupon.unknown', 'cart', null);
+            } else {
+                try {
+                    Transaction.wrap(function () {
+                        return currentBasket.createCouponLineItem(
+                            req.querystring.couponCode,
+                            true
+                        );
+                    });
+                } catch (e) {
+                    error = true;
+                    var errorCodes = {
+                        COUPON_CODE_ALREADY_IN_BASKET: 'error.coupon.already.in.cart',
+                        COUPON_ALREADY_IN_BASKET: 'error.coupon.cannot.be.combined',
+                        COUPON_CODE_ALREADY_REDEEMED: 'error.coupon.already.redeemed',
+                        COUPON_CODE_UNKNOWN: 'error.unable.to.add.coupon',
+                        COUPON_DISABLED: 'error.unable.to.add.coupon',
+                        REDEMPTION_LIMIT_EXCEEDED: 'error.unable.to.add.coupon',
+                        TIMEFRAME_REDEMPTION_LIMIT_EXCEEDED: 'error.unable.to.add.coupon',
+                        NO_ACTIVE_PROMOTION: 'error.unable.to.add.coupon',
+                        default: 'error.unable.to.add.coupon'
+                    };
+
+                    var errorMessageKey = errorCodes[e.errorCode] || errorCodes.default;
+                    errorMessage = Resource.msg(errorMessageKey, 'cart', null);
+                    // error = true;
+                    // errorMessage = cartHelper.checkCouponCodeError(
+                    //     req.querystring.couponCode, e.errorCode
+                    // );
+                }
             }
+        }else{
+            error = true;
+            errorMessage = Resource.msgf('error.coupon.invlaid', 'cart', null, req.querystring.couponCode);
         }
 
         if (error) {
@@ -465,6 +485,29 @@ server.get('MissingFree', function (req, res, next) {
         }
     });
     res.json({ loosingFree: loosingFree });
+    next();
+});
+
+server.get('UpdateShippingMethod', function (req, res, next) {
+    var ShippingMgr = require('dw/order/ShippingMgr');
+    var collections = require('*/cartridge/scripts/util/collections');
+    var Transaction = require('dw/system/Transaction');
+    var currentBasket = BasketMgr.getCurrentBasket();
+    if (currentBasket) {
+        var appliedShippingMethodID = currentBasket.getDefaultShipment().shippingMethodID;
+        var applicableShippingMethods = ShippingMgr.getShipmentShippingModel(
+            currentBasket.getDefaultShipment()
+        ).getApplicableShippingMethods();
+        var applicableShippingMethodsIDs = collections.map(applicableShippingMethods, function (applicableShippingMethod) {
+            return applicableShippingMethod.ID;
+        });
+        if (!applicableShippingMethodsIDs.includes(appliedShippingMethodID)) {
+            Transaction.wrap(function () {
+                currentBasket.getDefaultShipment().setShippingMethod(applicableShippingMethods[0]);
+            });
+        }
+    }
+    res.json({success: true});
     next();
 });
 

@@ -191,7 +191,11 @@ function updateShippingMethods(shipping) {
                             .show();
                     }
                     // set shipping cost
-                    $('.shipping-cost', tmpl).text(shippingMethod.shippingCost);
+                    if (shippingMethod.isFree) {
+                        $('.shipping-cost', tmpl).text('FREE');
+                    } else {
+                        $('.shipping-cost', tmpl).text(shippingMethod.shippingCost);
+                    }
                     $shippingMethodList.append(tmpl.html());
                 });
             }

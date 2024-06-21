@@ -104,6 +104,8 @@ function login() {
             data: form.serialize(),
             success: function (data) {
                 form.spinner().stop();
+                form.children('.alert-danger')
+                    .remove();
                 if (!data.success) {
                     if (data.isMigratedNotUpdated) {
                         if (form.hasClass('login')) {
@@ -168,6 +170,7 @@ function login() {
 
     $('#loginModal').on('hidden.bs.modal', function () {
         $('.migration-login-message').addClass('d-none');
+        $('form.modal-login').children('.alert-danger').remove();
         $('.login-form-div').removeClass('d-none');
         $('.login-modal-body .privacy-block').removeClass('d-none');
     });

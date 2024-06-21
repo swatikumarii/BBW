@@ -62,31 +62,30 @@ $(document).ready(function () {
         timeZone: timeZone
     });
     var nowTime = now.split(/\s*\,\s*/g)[1];
-    var nowOpenHr = (nowTime.toLowerCase()).includes('am')
-        ? Number(nowTime.split(/\s*\:\s*/g)[0])
-        : Number(nowTime.split(/\s*\:\s*/g)[0]) + 12;
+    var currentHr = (nowTime.toLowerCase()).includes('am') ? (((Number(nowTime.split(/\s*\:\s*/g)[0])) == 12 ? 0 : Number(nowTime.split(/\s*\:\s*/g)[0]))) : Number(nowTime.split(/\s*\:\s*/g)[0]) + 12;
+    var currentMin = Number(nowTime.split(/\s*\:\s*/g)[1]);
     var todaysOpeningTime = $(`li:contains(` + currday + `)`).children('.sl-time').text();
     var firstEleDiv = $(`.sl-weekday:contains(`+currday+`)`).first()
-    $('#first-element').text(firstEleDiv.html() + ' ' + ' ' + firstEleDiv.siblings().first().html()); 
+    $('#first-element').text(firstEleDiv.html() + ' ' + ' ' + firstEleDiv.siblings().first().html());
+    
     if(todaysOpeningTime){
-        var arr = todaysOpeningTime.split(/\s*\-\s*/g);      
-        //break time to get open hour
-        var exactOpenHr = (arr[0].toLowerCase()).includes('am')
-            ? Number(arr[0].split(/\s*\:\s*/g)[0])
-            : Number(arr[0].split(/\s*\:\s*/g)[0]) + 12; ;      
-        
-        var exactClosingHr = (arr[1].toLowerCase()).includes('am') ? Number((arr[1].split(/\s*\:\s*/g))[0]) : Number((arr[1].split(/\s*\:\s*/g))[0]) + 12;
-        if(exactOpenHr > nowOpenHr){
-            $('.closed').removeClass('d-none');
+        var arr = todaysOpeningTime.split(/\s*\-\s*/g);
+        //break time to get opening hour
+        var exactOpenHr = (arr[0].toLowerCase()).includes('am') ? (((Number(arr[0].split(/\s*\:\s*/g)[0])) == 12 ? 0 : Number(arr[0].split(/\s*\:\s*/g)[0]))) : Number(arr[0].split(/\s*\:\s*/g)[0]) + 12;
+        var exactOpenMin = Number((arr[0].split(/\s*\:\s*/g)[1]).slice(0, -2));
+        var openFlag =false;
+        if (currentHr > exactOpenHr) {
+            openFlag = true;
         }
-        if (nowOpenHr >= exactOpenHr) {
+        else if (currentHr == exactOpenHr && currentMin >= exactOpenMin) {
+            openFlag = true;
+        }
+        if (openFlag){
             $('.closed').addClass('d-none');
             $('.opened').removeClass('d-none');
             $('#open-now').append(arr[1]);
-        }
-        if(nowOpenHr > exactClosingHr){
+        }else{
             $('.closed').removeClass('d-none');
-            $('.opened').addClass('d-none'); 
         }
     }
 
