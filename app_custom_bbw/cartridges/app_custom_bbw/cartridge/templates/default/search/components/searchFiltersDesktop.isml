@@ -1,5 +1,5 @@
 <div class="filter-bar-desktop h-hidden-sm-down">
-    <div class="row justify-content-between ${pdict.productSearch.selectedFilters.length > 0 ? 'align-items-start' : 'align-items-center'} no-gutters">
+    <div class="row ${pdict.productSearch.selectedFilters.length > 0 ? 'align-items-start' : 'align-items-center'} no-gutters ${pdict.hideFilterBar ? 'justify-content-end' : 'justify-content-between'}">
         <isif condition="${!pdict.hideFilterBar}">
             <div class="filter-bar-desktop__filters no-gutters d-flex h-bg--gray-1 w-100 flex-nowrap h-clr--black-1 js-desktop-filters ${pdict.productSearch.selectedFilters.length > 0 ? 'align-items-start h-pb-md--0' : 'align-items-center'}"
                 id="filters-refinements">
