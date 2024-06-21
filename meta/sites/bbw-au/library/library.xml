@@ -2409,34 +2409,37 @@
     </content>
 
     <content content-id="footer-discover">
-        <display-name xml:lang="x-default">Discover</display-name>
-        <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
-        <page-attributes/>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
-	&lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14 d-flex align-items-center justify-content-between cursor-pointer" aria-expanded="false" aria-controls="collapsible-discover" data-toggle="collapse" data-target="#collapsible-discover"&gt;DISCOVER&lt;/button&gt;&#13;
-	&lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-discover"&gt;&#13;
-		&lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;DISCOVER&lt;/li&gt;&#13;
-		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'aboutus')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;About Us&lt;/a&gt;&#13;
-&#13;
-		&lt;/li&gt;&#13;
-		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Careers-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Careers&lt;/a&gt;&#13;
-&#13;
-		&lt;/li&gt;&#13;
-		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'giftcards')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#13;
-&lt;/a&gt;&#13;
-&#13;
-		&lt;/li&gt;&#13;
-				&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Search-Show', 'cgid', 'shop-by-ingredient')$"&#13;
-						class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Shop by Ingredient&#13;
-					&lt;/a&gt;&#13;
-				&#13;
-				&lt;/li&gt;&#13;
-	&lt;/ul&gt;&#13;
+    <display-name xml:lang="x-default">Discover</display-name>
+    <online-flag>true</online-flag>
+    <searchable-flag>false</searchable-flag>
+    <page-attributes/>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#xD;
+	&lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14 d-flex align-items-center justify-content-between cursor-pointer" aria-expanded="false" aria-controls="collapsible-discover" data-toggle="collapse" data-target="#collapsible-discover"&gt;DISCOVER&lt;/button&gt;&#xD;
+	&lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-discover"&gt;&#xD;
+		&lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;DISCOVER&lt;/li&gt;&#xD;
+		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'aboutus')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;About Us&lt;/a&gt;&#xD;
+&#xD;
+		&lt;/li&gt;&#xD;
+		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Careers-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Careers&lt;/a&gt;&#xD;
+&#xD;
+		&lt;/li&gt;&#xD;
+		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'giftcards')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#xD;
+&lt;/a&gt;&#xD;
+&#xD;
+		&lt;!-- &lt;/li&gt;&#xD;
+				&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Search-Show', 'cgid', 'shop-by-ingredient')$"&#xD;
+						class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Shop by Ingredient&#xD;
+					&lt;/a&gt;&#xD;
+				&#xD;
+				&lt;/li&gt; --&gt;&#xD;
+&lt;li class="footer-list-item mb-3 link-item"&gt;&#xD;
+            &lt;a href="$url('Fragrance-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Shop by Fragrance&lt;/a&gt;&#xD;
+        &lt;/li&gt;&#xD;
+	&lt;/ul&gt;&#xD;
 &lt;/div&gt;</custom-attribute>
-        </custom-attributes>
-    </content>
+    </custom-attributes>
+  </content>
 
     <content content-id="footer-locate-store">
         <display-name xml:lang="x-default">Find Us</display-name>
@@ -6528,7 +6531,7 @@ max-height: 35px:&#13;
 	&lt;div class="category-seo-text-section__inner-wrapper"&gt;&#13;
 		&lt;h2 class="category-seo-text-section__title"&gt;About Body Lotion from Bath &amp;amp; Body Works&lt;/h2&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Crisp fruits, sensational florals, mouth-watering baked goods: we all have a fave fragrance (or ten) and love the instant-happiness boost you get when you put on your signature lotion in the morning. Hello, all-day joy and confidence!&lt;/p&gt;&#13;
-		&lt;p class="category-seo-text-section__description"&gt;Obviously, body lotion has always been your staple (and ours, too), which is great because moisturiser is an important step during your &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','skincare-routine')$"&gt;skincare routine&lt;/a&gt;. The lightweight pick-me-up keeps your skin super-smooth and locks in moisture for all-day hydration. Plus, our powerful 24-hour formula mixes hydrating vitamin E, skin-nourishing coconut oil and creamy shea butter into a lightweight blend that melts right into your skin.&lt;/p&gt;&#13;
+		&lt;p class="category-seo-text-section__description"&gt;Obviously, body lotion has always been your staple (and ours, too), which is great because moisturiser is an important step during your &lt;a class="category-seo-text-section__link" href="$url('Page-Show','cid','skincare-routine')$"&gt;skincare routine&lt;/a&gt;. The lightweight pick-me-up keeps your skin super-smooth and locks in moisture for all-day hydration. Plus, our powerful 24-hour formula mixes hydrating vitamin E, skin-nourishing coconut oil and creamy shea butter into a lightweight blend that melts right into your skin.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;So, you just use body lotion after the shower and that’s it, right? Actually, we’re big fans of using it any time. At the office, lounging on the lake, just chilling at home…if your skin needs a blast of moisturiser, go ahead and spread that lotion. And pro-tip: while you’re running around, grab a &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','travel-size')$"&gt;travel size&lt;/a&gt; bottle of your fave lotion so you can stay super smooth on the go. We even have tiny, really cute shower gels, mists, body creams and hand creams to keep you in tip-top shape, no matter where you are.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Don’t forget to put a bottle of our extremely smooth body lotion in your car, your carry-on, your gym bag or anywhere else you think you may need a little pick-me-up during your day. Honestly, your lotion buddy wants to go with you everywhere. Extra points for you if you finish off with a matching&#13;
 			&lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-spray-and-mists')$" "&gt;fine fragrance mist&lt;/a&gt;. Extra, extra points if it matches your Bath &amp;amp; Body Works scented lotion!&lt;/p&gt;&#13;
@@ -6551,7 +6554,7 @@ max-height: 35px:&#13;
 	&lt;div class="category-seo-text-section__inner-wrapper"&gt;&#13;
 		&lt;h2 class="category-seo-text-section__title"&gt;About Body Scrubs from Bath &amp;amp; Body Works&lt;/h2&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Searching for ways to get super-smooth, touchable skin in a snap? This page is exactly what you need. Our body scrubs combine exfoliants, like sea salt, sugar and even hyaluronic acid (weird name aside, it’s a hyper-hydrator) with your favourite fragrances to leave your skin ultra-soft and smelling amazing.&lt;/p&gt;&#13;
-		&lt;p class="category-seo-text-section__description"&gt;And they’re our favourite way to take your &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','skincare-routine')$"&gt;skincare routine&lt;/a&gt; up a notch (or ten). It all starts by scrubbing away dead skin at the beginning of your shower. Gently rub in a circular motion for about 30 seconds in each area, then rinse off and reveal smooth skin. Just don’t overdo it – over exfoliating with a scrub could leave your skin irritated. We recommend only one or two times a week.&lt;/p&gt;&#13;
+		&lt;p class="category-seo-text-section__description"&gt;And they’re our favourite way to take your &lt;a class="category-seo-text-section__link" href="$url('Page-Show','cid','skincare-routine')$"&gt;skincare routine&lt;/a&gt; up a notch (or ten). It all starts by scrubbing away dead skin at the beginning of your shower. Gently rub in a circular motion for about 30 seconds in each area, then rinse off and reveal smooth skin. Just don’t overdo it – over exfoliating with a scrub could leave your skin irritated. We recommend only one or two times a week.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;The best part? Each scrub is packed with vitamins and minerals to help you achieve the skin you want: radiant, smooth, moisturised, all of the above. A natural moisturiser, vitamin E is perfect for locking in hydration once the scrub has been wiped away. Cleansed and exfoliated skin always craves hydration, so it’s one of the best body scrub ingredients.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Need to relax after a long day or get energized in the morning? Our &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','aromatherapy')$"&gt;aromatherapy body care collection &lt;/a&gt;has amazing body scrubs that can help you get whatever mood you need from de-stressed to chill, sleepy to invigorated. Breathe deep and take in our exclusive blend of essential oils to enhance your mind, body and soul.&lt;/p&gt;&#13;
 	&lt;/div&gt;&#13;
@@ -6596,7 +6599,7 @@ max-height: 35px:&#13;
 		&lt;h2 class="category-seo-text-section__title"&gt;About Body Wash and Shower Gel from Bath &amp;amp; Body Works&lt;/h2&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;A great shower routine starts with a super-luxe moisturising body wash or bubbly shower gel. Why? A great body soap refreshes, cleans and gets you ready to take on your day.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;They’re light, silky and super moisturising, everyone loves them (and you will, too). What you’ll love even more: THE FRAGRANCE. From iconic staples to seasonal goodies, there’s a fragrance (or two) for you. Ocean breezy? Check. Fragrant fall spices? Check, check. Fresh flowers and spring water? Yes. Cozy winter fragrances? Crazy Christmassy? Absolutely. Even some discontinued fragrances pop up from time-to-time. It’s a win-win.&lt;/p&gt;&#13;
-		&lt;p class="category-seo-text-section__description"&gt;When your skin needs a little extra hydration, check out our moisturising body wash. Available in our most popular fragrances, you’re sure to find one of your favourites (or some new loves). Clinically tested to moisturise after one shower, this blend of&lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','shea-butter-benefits')$"&gt; shea butter&lt;/a&gt;, &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','coconut-oil-benefits')$"&gt; coconut oil&lt;/a&gt; and&lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-cream-and-butter')$"&gt; cocoa butter&lt;/a&gt; gently cleanses and instantly hydrates skin in a rich, creamy lather. Looking for body wash advice? Let us help you &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-wash-and-shower-gel')$"&gt; choose the best body wash &lt;/a&gt;for your needs.&lt;/p&gt;&#13;
+		&lt;p class="category-seo-text-section__description"&gt;When your skin needs a little extra hydration, check out our moisturising body wash. Available in our most popular fragrances, you’re sure to find one of your favourites (or some new loves). Clinically tested to moisturise after one shower, this blend of&lt;a class="category-seo-text-section__link" href="$url('Page-Show','cid','shea-butter-benefits')$"&gt; shea butter&lt;/a&gt;, &lt;a class="category-seo-text-section__link" href="$url('Page-Show','cid','coconut-oil-benefits')$"&gt; coconut oil&lt;/a&gt; and&lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-cream-and-butter')$"&gt; cocoa butter&lt;/a&gt; gently cleanses and instantly hydrates skin in a rich, creamy lather. Looking for body wash advice? Let us help you &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-wash-and-shower-gel')$"&gt; choose the best body wash &lt;/a&gt;for your needs.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Complete your body care kit with a matching body cream, lotion and fine fragrance mist so you can take your favourite scents with you throughout the day.&lt;/p&gt;&#13;
 	&lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
@@ -6809,7 +6812,7 @@ max-height: 35px:&#13;
 		&lt;p class="category-seo-text-section__description"&gt;For those special, once-a-year events: Birthdays. Anniversaries. Graduations. Etc. We’ve created gift sets for every once a year event and absolutely everyone on your list at a great price (hello, savings).&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Shop body care gift sets with our iconic lotions, fine fragrance mists and body washes. Take a second to look at gift boxes with fragrance collections in oh-so-beautiful packaging. Whether you’re shopping for your child’s teacher, your yoga instructor or your brother-in-law, you’ll easily find something for them.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Which is great, right? Because graduations and anniversaries always sneak up on you. For the recent grad, consider a relaxing, stress-less Aromatherapy body care set. Spoil that special someone with a romantic body care set, think scents like rose or sweet vanilla – champagne (not) optional.&lt;/p&gt;&#13;
-		&lt;p class="category-seo-text-section__description"&gt;Holiday gifts in a snap? Bath &amp;amp; Body Works has gift sets to make shopping a breeze. Each time a holiday rolls around, like Easter, Halloween, &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','mothers-day-gift-guide')$"&gt;Mother’s Day&lt;/a&gt;, Father's Day, Christmas and more, we freshen up our page with the best presents of the season. Check back often, because we’re always introducing something new and totally gift-worthy.&lt;/p&gt;&#13;
+		&lt;p class="category-seo-text-section__description"&gt;Holiday gifts in a snap? Bath &amp;amp; Body Works has gift sets to make shopping a breeze. Each time a holiday rolls around, like Easter, Halloween, &lt;a class="category-seo-text-section__link" href="$url('Page-Show','cid','mothers-day-gift-guide')$"&gt;Mother’s Day&lt;/a&gt;, Father's Day, Christmas and more, we freshen up our page with the best presents of the season. Check back often, because we’re always introducing something new and totally gift-worthy.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;If you haven’t found the perfect present, don’t give up yet. Make your own gift set by mixing and matching fragrances.&lt;/p&gt;&#13;
 	&lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
@@ -6893,7 +6896,7 @@ max-height: 35px:&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Hey there, welcome to the footer. Need some helpful gifting tips? Good news: the perfect gift for her is just a few clicks away. No matter who she is – your sister or daughter, favourite teacher, girlfriend or wife – there’s a gift for every leading lady on your list.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;There’s never a bad time to give her a candle. Valentine’s Day...her birthday...a bridal shower… candles are always perfect. With so many scents to choose from at Bath &amp;amp; Body Works, there’s definitely a fragrance profile she’ll love. Secondly, &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','all-candles')$"&gt;candles&lt;/a&gt; transform the home in seconds and look amazing on the shelf – so she’s sure to show them off. Add a shiny gold candle holder or a sleek marble pedestal and it’s a win-win.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;And if she’s into fragrance, get her a &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-spray-and-mists')$"&gt;fine fragrance mist&lt;/a&gt;. Perfect for every season and vibe, she’ll fall in love at first mist. This conditioning aloe mist is super light and incredibly refreshing, making it a great gift idea for her birthday, an upcoming holiday or just because (our favourite reason!). We also recommend going the ultra-fancy route and spoiling her with an &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','perfume-and-cologne')$"&gt;eau de perfume&lt;/a&gt;. These luxurious perfumes come in the most exclusive fragrances available, so she’ll always have a true signature scent. Plus, the bottles are so display-worthy that she’ll want to show them off everywhere. Spritz, spritz, smile&lt;/p&gt;&#13;
-		&lt;p class="category-seo-text-section__description"&gt;Looking for more great ideas, especially for &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','mothers-day-gift-guide')$"&gt;Mother’s Day&lt;/a&gt;? Explore body care: lotions and creams and scrubs – oh, my! Not to mention bath fizzies, bubble bath, shower gels and moisturising body wash...there’s so much to choose from. Treat her to a spa day, without leaving the house. Don’t forget the sparkling rosé!&lt;/p&gt;&#13;
+		&lt;p class="category-seo-text-section__description"&gt;Looking for more great ideas, especially for &lt;a class="category-seo-text-section__link" href="$url('Page-Show','cgid','mothers-day-gift-guide')$"&gt;Mother’s Day&lt;/a&gt;? Explore body care: lotions and creams and scrubs – oh, my! Not to mention bath fizzies, bubble bath, shower gels and moisturising body wash...there’s so much to choose from. Treat her to a spa day, without leaving the house. Don’t forget the sparkling rosé!&lt;/p&gt;&#13;
 	&lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
