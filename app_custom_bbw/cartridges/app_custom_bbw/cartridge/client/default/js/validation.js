@@ -242,7 +242,10 @@ $(document).ready(function () {
             selector: '#currentPassword',
             validationFunction: validatePasswordField
         },
-        { selector: '#newPassword', validationFunction: validatePasswordFieldWithValidation },
+        {
+            selector: '#newPassword',
+            validationFunction: validatePasswordFieldWithValidation
+        },
         { selector: '#firstName', validationFunction: validMinLength },
         { selector: '#lastName', validationFunction: validMinLength },
         { selector: '#phone', validationFunction: validPhoneNumber },
@@ -253,8 +256,8 @@ $(document).ready(function () {
         { selector: '#city', validationFunction: validateRequiredField },
         { selector: '#state', validationFunction: validateRequiredField },
         { selector: '#zipCode', validationFunction: validZipCode },
-        { selector: '#phone', validationFunction: validPhoneNumber },
         { selector: '#salutation', validationFunction: validDropdown },
+        { selector: '#dob', validationFunction: validateRequiredField },
         { selector: '#gender', validationFunction: validDropdown }
     ];
 
