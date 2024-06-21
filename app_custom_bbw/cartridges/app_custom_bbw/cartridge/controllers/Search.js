@@ -11,10 +11,9 @@ server.append(
     'Show',
     categoryHelper.appendLevelOneCategory,
     categoryHelper.appendCategoryBreadcrum,
-    ingredientCategoryHelper.appendIngredientSearch
+    ingredientCategoryHelper.appendIngredientSearch,
+    seo.addCurrentPageMetaData
 );
-
-server.prepend('Show', seo.addCurrentPageMetaData);
 
 server.append(
     'ShowAjax',
