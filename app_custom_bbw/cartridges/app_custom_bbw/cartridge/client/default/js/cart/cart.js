@@ -225,12 +225,12 @@ function updateApproachingDiscounts(
             '<div class="d-flex flex-column col-12 py-0">\n'+
             '<p class="h-font-size--16 h-clr--pink h-fw--semibold m-0 text-center">' + shippingApproachingDiscounts[0].discountMsg + '</p>\n'+
                 '<div class="d-flex w-100 justify-content-around align-items-center progress-wrap">\n'+
-                    '<span class="pr-3 text-nowrap d-block h-font-size--14 h-fw--bold"> AU$ 0.00 </span>\n' +
+                    '<span class="pr-3 text-nowrap d-block h-font-size--16 h-fw--bold"> AU$ 0.00 </span>\n' +
                 '<span class="d-block w-100 h-pos--relative">\n'+
                         '<progress class="w-100" value="' + (shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold) + '" max="' + shippingApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
                         '<span class="free-shipping-progress" style="left: calc(' + (((shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold)/shippingApproachingDiscounts[0].conditionThreshold)*100).toFixed(2) + '% - 25px );"></span>\n'+
                     '</span>\n'+
-                    '<span class="pl-3 text-nowrap d-block h-font-size--14 h-fw--bold">\n'+
+                    '<span class="pl-3 text-nowrap d-block h-font-size--16 h-fw--bold">\n'+
                         shippingApproachingDiscounts[0].formattedConditionThreshold +
                     '</span>\n'+
                 '</div>\n'+
@@ -464,22 +464,8 @@ module.exports = function () {
                             });
                         }
                     } else {
-                        var emptyCartHtml =
-                            '<div class="container text-center">' +
-                            '<div class="row cart-empty">' +
-                            '<div class="col-12 text-center cart-empty-msg-wrap">' +
-                            '<h1 class="h-fw--bold h-clr--black-1 cart-empty-msg">' +
-                            data.basket.resources.emptyCartMsg +
-                            '</h1>' +
-                            ' </div>' +
-                            '</div>' +
-                            '<a href="' +
-                            data.basket.continueShoppingLink +
-                            '" class="btn btn-primary empty-cart-continue h-font-size--16 h-fw--semibold">' +
-                            data.basket.resources.continueShoppingMsg +
-                            '</a>' +
-                            '</div>';
-                        $('.cart').empty().append(emptyCartHtml);
+                        $('.cart').remove();
+                        $('.cartContainer .container').removeClass('d-none');
                     }
                     $('.number-of-items')
                         .empty()
@@ -544,6 +530,9 @@ module.exports = function () {
                     );
                     validateBasket(data.basket);
                     $('.item-removed-message').removeClass('d-none');
+                    if (data.basket.valid.error === false) {
+                        $('.cart-error-messaging').addClass('d-none');
+                    }
                 }
 
                 $('body').trigger('cart:update', data);
@@ -572,7 +561,7 @@ module.exports = function () {
             errorElem.show();
             setTimeout(function () {
                 errorElem.hide();
-            }, 3000);
+            }, 4500);
         } else {
             $(this).siblings('.quantity').val(quantity).trigger('change');
         }

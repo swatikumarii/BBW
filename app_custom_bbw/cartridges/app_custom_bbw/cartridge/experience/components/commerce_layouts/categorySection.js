@@ -29,7 +29,7 @@ function addProduct(product, productId) {
 function processProduct(productId, showOutOfStockProducts) {
     if (pids.indexOf(productId) < 0) {
         var product = ProductFactory.get({ pid: productId });
-        if (showOutOfStockProducts || product.available) {
+        if ((showOutOfStockProducts === true && product.isSearchableIfUnavailable === true)  || product.available) {
             addProduct(product, productId);
             if (productCount === tileLimit) {
                 return true; // tile limit reached

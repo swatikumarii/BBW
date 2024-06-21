@@ -66,9 +66,10 @@
                                 <div
                                     class="line-item-savings col-8 col-md-4 d-flex justify-content-md-center justify-content-start h-clr--black-1 h-fw--semibold h-line-height--20">
                                     <isif condition="${lineItem.totalSavings && lineItem.totalSavings != '-'}">
-                                        <span class="value">${lineItem.totalSavings}</span>
+                                        <span class="d-inline d-md-none">${Resource.msg('cart.label.saved', 'cart', null)}</span>
+                                        <span class="value ml-1">${lineItem.totalSavings}</span>
                                     <iselse/>
-                                        <span class="value value-dash">${'-'}</span>
+                                        <span class="value value-dash d-none d-md-block">${'-'}</span>
                                     </isif>
                                 </div>
                                 <div class="headerPrice d-flex col-8 col-md-4 justify-content-md-center justify-content-start h-line-height--20">

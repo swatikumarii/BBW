@@ -1,0 +1,98 @@
+<style>
+            table p,
+            table span{
+                font: 300 12px benton-sans, helvetica;
+                color: #666666;
+            }
+
+            .welcome-msg p {
+                font-size: 13px;
+            }
+
+            .cust-name {
+                font-size: 15px;
+            }
+
+            .order-no span {
+                display: block;
+                padding: 10px 0;
+                font-weight: normal;
+            }
+
+            .shipping-details,
+            .view-order,
+            .order-detail,
+            .order-total,
+            .payment-summary,
+            .general-text,
+            .ask-question,
+            .footer {
+                background-color: #f5f5f5;
+            }
+
+            .shipping-details table {
+                padding: 15px;
+            }
+
+            .shipping-details p,
+            .order-no p,
+            .order-total p,
+            .payment-summary p,
+            .article-attr p,
+            .ask-question div span {
+                margin-bottom: 5px;
+                margin-top: 0;
+            }
+
+            .total-amount td {
+                border-top: 2px solid #ffffff;
+                border-bottom: 1px solid #ffffff;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                width: 100%;
+            }
+
+            .total-amount p,
+            .order-no p,
+            .qty-details p,
+            .order-detail p {
+                width: 50%;
+                float: left;
+            }
+
+            .amount,
+            .order-id,
+            .qty-details .qty-value {
+                text-align: right;
+            }
+
+            button {
+                background: #EF5F96;
+                text-transform: uppercase;
+                color: #ffffff;
+                font-size: 20px;
+                font-weight: 600;
+                letter-spacing: 3px;
+                line-height: 40px;
+                padding: 15px 15px 10px 15px;
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+
+            h4 {
+                font-size: 16px;
+            }
+
+            .qty-details p {
+                font-size: 13px;
+            }
+
+            .colored-text {
+                color: #D91560;
+            }
+
+            .footer-nav a {
+                color: #ffffff;
+                text-decoration: none;
+            }
+        </style>

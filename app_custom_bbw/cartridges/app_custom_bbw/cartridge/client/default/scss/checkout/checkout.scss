@@ -649,7 +649,8 @@ input[type="tel"],
     }
 
     .billing-address-heading {
-        margin-bottom: 13px;
+        margin-bottom: 10px;
+        padding-bottom: 17px;
         margin-top: 0;
 
         &.guest {
@@ -659,10 +660,6 @@ input[type="tel"],
         &.registered {
             padding-top: 0;
             padding-bottom: 15px;
-        }
-
-        @include media-up(md) {
-            margin-bottom: 6px;
         }
     }
 }
@@ -1049,6 +1046,19 @@ input[type="tel"],
 }
 
 .info-billing {
+    .required-indicator-text {
+        font-style: italic;
+
+        .required-star {
+            position: relative;
+            right: 5px;
+        }
+    }
+
+    .require-indicator {
+        margin-right: 0.125em;
+    }
+
     .info-icon {
         top: 50%;
 

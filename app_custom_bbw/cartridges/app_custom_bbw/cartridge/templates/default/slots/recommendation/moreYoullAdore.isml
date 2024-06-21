@@ -17,7 +17,9 @@
     </isif>
     <div class="row no-gutters picked-just-recomm ds-smooth-scroll js-picked-just-recomm">
         <isloop items="${slotcontent.content}" var="product" status="loopState">
-            <isif condition="${commonHelper.checkProductAvailability(product.ID) === true || showOutOfStockProducts}">
+            <isset name="checkAvailability" value="${commonHelper.checkProductAvailability(product.ID)}" scope="page" />
+            <isif condition="${checkAvailability.isAvailable === true || (showOutOfStockProducts === true && checkAvailability
+                             .isSearchableIfUnavailable === true)}">
                 <div class="picked-just-recomm__item col js-picked-just-recomm-item">
                     <isobject object="${product}" view="recommendation">
                         <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.ID, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView',

@@ -12,7 +12,7 @@
                                 <input type="text" class="form-control input-text rounded-0 w-100" id="newsletter-input" name="hpEmailSignUp"
                                     data-csrf-error="${Resource.msg('error.message.csrf', 'homePage', null)}"
                                     aria-label="${Resource.msg('placeholdertext.form.emailsignup', 'homePage', null)}" required />
-                                <div class="newletter-msg js-newsletter-msg bg-transparent h-font-size--14 m-0"></div>
+                                <div class="newletter-msg js-newsletter-msg bg-transparent h-font-size--14 m-0 pt-2"></div>
                             </div>
                             <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
                             <span class="input-group-append ml-0">

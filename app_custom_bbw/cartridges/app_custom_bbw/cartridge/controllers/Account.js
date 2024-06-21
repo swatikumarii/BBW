@@ -42,6 +42,7 @@ server.append('Show', function (req, res, next) {
  */
 
 server.append('EditProfile', function (req, res, next) {
+    var Site = require('dw/system/Site');
     var accountHelpers = require('*/cartridge/scripts/account/accountHelpers');
     var accountModel = accountHelpers.getAccountModel(req);
 
@@ -59,7 +60,15 @@ server.append('EditProfile', function (req, res, next) {
     var profileModel = {
         dob: birthday,
         zipCode: accountModel.profile.zipCode,
-        emailconfirm: accountModel.profile.email
+        salutation: accountModel.profile.salutation,
+        nationality: accountModel.profile.nationality,
+        gender: accountModel.profile.gender,
+        emailconfirm: accountModel.profile.email,
+        isProfileComplete:
+            accountModel.profile.isProfileComplete !== null ||
+            accountModel.profile.isProfileComplete !== undefined
+                ? accountModel.profile.isProfileComplete
+                : false
     };
 
     var breadcrumbs = [{
@@ -75,8 +84,12 @@ server.append('EditProfile', function (req, res, next) {
         url: URLUtils.url('Account-EditProfile').toString()
     }
     ];
+
+    var nationalityCO = Site.getCurrent().getCustomPreferenceValue('nationalities');
+    var nationalities = nationalityCO.length > 0 ? nationalityCO.split(',') : [];
     viewData.breadcrumbs = breadcrumbs;
     viewData.profileForm.copyFrom(profileModel);
+    viewData.nationalities = nationalities;
     viewData.profile = accountModel.profile;
     res.setViewData(viewData);
 
@@ -208,7 +221,21 @@ server.replace(
             );
         }
 
+        var gender;
+        if (profileForm.customer.gender.htmlValue === 'Male') {
+            gender = 1;
+        }
+        if (profileForm.customer.gender.htmlValue === 'Female') {
+            gender = 2;
+        }
+        if (profileForm.customer.gender.htmlValue === 'Other') {
+            gender = 3;
+        }
+
         var result = {
+            salutation: profileForm.customer.salutation.value,
+            gender: gender,
+            nationality: profileForm.customer.nationality.value,
             firstName: profileForm.customer.firstname.value,
             lastName: profileForm.customer.lastname.value,
             phone: profileForm.customer.phone.value,
@@ -218,6 +245,69 @@ server.replace(
             zipCode: profileForm.customer.zipCode.value,
             profileForm: profileForm
         };
+
+        var isProfileComplete = req.httpParameterMap.get('isProfileComplete')
+            .value
+            ? req.httpParameterMap.get('isProfileComplete').value
+            : 'true';
+        if (isProfileComplete === 'false') {
+            var birthdayArray = profileForm.customer.dob.value.split('-');
+
+            var birthday = new Date(
+                birthdayArray[1] +
+                    '/' +
+                    birthdayArray[0] +
+                    '/' +
+                    birthdayArray[2]
+            );
+            var currentDate = new Date();
+            var birthdayTimestamp = birthday.getTime();
+            var todayTimeStamp = currentDate.getTime();
+            var diff = (todayTimeStamp - birthdayTimestamp) / (86400000 * 365);
+            if (diff < 0) {
+                profileForm.customer.dob.valid = false;
+                profileForm.customer.dob.error = Resource.msg(
+                    'error.message.dob.invaliddate',
+                    'forms',
+                    null
+                );
+                profileForm.valid = false;
+            }
+            if (birthday > currentDate) {
+                profileForm.customer.dob.valid = false;
+                profileForm.customer.dob.error = Resource.msg(
+                    'error.message.dob.invaliddate',
+                    'forms',
+                    null
+                );
+                profileForm.valid = false;
+            }
+
+            if (!accountHelpers.isValidDate(birthdayArray)) {
+                profileForm.customer.dob.valid = false;
+                profileForm.customer.dob.error = Resource.msg(
+                    'error.message.dob.invaliddate',
+                    'forms',
+                    null
+                );
+                profileForm.valid = false;
+            }
+            result = {
+                salutation: profileForm.customer.salutation.value,
+                gender: gender,
+                nationality: profileForm.customer.nationality.value,
+                firstName: profileForm.customer.firstname.value,
+                lastName: profileForm.customer.lastname.value,
+                phone: profileForm.customer.phone.value,
+                email: profileForm.customer.email.value,
+                confirmEmail: profileForm.customer.emailconfirm.value,
+                password: profileForm.login.password.value,
+                zipCode: profileForm.customer.zipCode.value,
+                birthday: birthday,
+                profileForm: profileForm
+            };
+        }
+
         if (profileForm.valid) {
             res.setViewData(result);
             this.on('route:BeforeComplete', function (req, res) { // eslint-disable-line no-shadow
@@ -256,14 +346,32 @@ server.replace(
                 delete formInfo.confirmEmail;
 
                 if (customerLogin) {
-                    Transaction.wrap(function () {
-                        profile.setFirstName(formInfo.firstName);
-                        profile.setLastName(formInfo.lastName);
-                        profile.setEmail(formInfo.email);
-                        profile.setPhoneHome(formInfo.phone);
-                        profile.custom.zipCode = formInfo.zipCode;
-                        profile.custom.isProfileComplete = true;
-                    });
+                    if (isProfileComplete === 'false') {
+                        Transaction.wrap(function () {
+                            profile.setFirstName(formInfo.firstName);
+                            profile.setLastName(formInfo.lastName);
+                            profile.setEmail(formInfo.email);
+                            profile.setPhoneHome(formInfo.phone);
+                            profile.custom.zipCode = formInfo.zipCode;
+                            profile.setGender(formInfo.gender);
+                            profile.salutation = formInfo.salutation;
+                            profile.custom.nationality = formInfo.nationality;
+                            profile.birthday = formInfo.birthday;
+                            profile.custom.isProfileComplete = true;
+                        });
+                    } else {
+                        Transaction.wrap(function () {
+                            profile.setFirstName(formInfo.firstName);
+                            profile.setLastName(formInfo.lastName);
+                            profile.setEmail(formInfo.email);
+                            profile.setPhoneHome(formInfo.phone);
+                            profile.custom.zipCode = formInfo.zipCode;
+                            profile.setGender(formInfo.gender);
+                            profile.salutation = formInfo.salutation;
+                            profile.custom.nationality = formInfo.nationality;
+                            profile.custom.isProfileComplete = true;
+                        });
+                    }
 
                     // Send account edited email
                     accountHelpers.sendAccountEditedEmail(customer.profile);
