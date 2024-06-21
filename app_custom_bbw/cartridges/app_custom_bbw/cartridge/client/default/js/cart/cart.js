@@ -760,6 +760,11 @@ module.exports = function () {
                         .empty()
                         .append(data.errorMessage);
                     $('.coupon-error-message').addClass('d-block');
+                    setTimeout(function () {
+                        $('.coupon-error-message').empty();
+                        $('.coupon-error-message').removeClass('d-block');
+                        $('.promo-code-form .form-control').removeClass('is-invalid');
+                    }, 5000);
                     $('body').trigger('promotion:error', data);
                 } else {
                     $('.coupon-error-message').removeClass('d-block');
@@ -808,6 +813,11 @@ module.exports = function () {
                         .empty()
                         .append(data.errorMessage);
                     $('.coupon-error-message').addClass('d-block');
+                    setTimeout(function () {
+                        $('.coupon-error-message').empty();
+                        $('.coupon-error-message').removeClass('d-block');
+                        $('.promo-code-form .form-control').removeClass('is-invalid');
+                    }, 5000);
                     $('body').trigger('promotion:error', data);
                 } else {
                     $('.coupon-error-message').removeClass('d-block');
