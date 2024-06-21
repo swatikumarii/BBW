@@ -2153,6 +2153,21 @@
         </folder-links>
     </content>
 
+    <content content-id="faq.search.seo">
+        <display-name xml:lang="x-default">Faq Search Seo</display-name>
+        <description xml:lang="x-default">Faq Search Seo</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Search results</page-title>
+            <page-description xml:lang="x-default">Search results</page-description>
+            <page-keywords xml:lang="x-default">Search results</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
 	<content content-id="order.history.seo">
         <display-name xml:lang="x-default">Order History Seo</display-name>
         <online-flag>true</online-flag>
@@ -2477,7 +2492,7 @@
     class="btn btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
     data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486" data-placement="top"&#13;
     title="&amp;lt;div class='popover-title header-content h-font-size--18 h-fw--bold d-flex align-items-center justify-space-between'&amp;gt;BATH &amp;amp; BODY WORKS AUSTRALIA LUXTRALIA PTY LTD&amp;lt;/div&amp;gt; &amp;lt;a href='#' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
-    data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt; &amp;lt;p class='h-clr--black-3 h-font-size--16 mb-0'&amp;gt; Level 4, 112 Castlereagh Street,&amp;lt;br /&amp;gt; Sydney, NSW, 2000&amp;lt;br /&amp;gt; (02) 8666 0666&amp;lt;/p&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;p class='h-clr--black-3 mb-0 h-font-size--16'&amp;gt;You may withdraw your &amp;lt;br /&amp;gt; consent at anytime. View&amp;lt;/p&amp;gt;&amp;lt;a class=' cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'privacy-policy')$'&amp;gt;Privacy Policy&amp;lt;/a&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;a class='cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'contact-us')$'&amp;gt;Contact Us&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;"&#13;
+    data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt; &amp;lt;p class='h-clr--black-3 h-font-size--16 mb-0'&amp;gt; Level 4, 112 Castlereagh St,&amp;lt;br /&amp;gt; Sydney, NSW, 2000&amp;lt;br /&amp;gt; Australia &amp;lt;br /&amp;gt; (02) 8666 0666&amp;lt;/p&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;p class='h-clr--black-3 mb-0 h-font-size--16'&amp;gt;You may withdraw your &amp;lt;br /&amp;gt; consent at anytime. View&amp;lt;/p&amp;gt;&amp;lt;a class=' cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'privacy-policy')$'&amp;gt;Privacy Policy&amp;lt;/a&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;a class='cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'contact-us')$'&amp;gt;Contact Us&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;"&#13;
     data-html="true"&gt;&#13;
 &lt;/button&gt;</custom-attribute>
         </custom-attributes>
@@ -2875,7 +2890,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
 							&lt;p&gt;Need help? We want to hear from you!&lt;/p&gt;&#13;
 							&lt;div class="rn_ConditionalChatLink" id="rn_ConditionalChatLink_6"&gt;&#13;
 								&lt;p class="mb-0"&gt;&#13;
-									&lt;strong class="h-fw--semibold h-clr--black-3"&gt;CALL US:&lt;/strong&gt;  &lt;a href="tel:1-800-576-972"&gt;1-800-576-972&lt;/a&gt;&#13;
+									&lt;strong class="h-fw--semibold h-clr--black-3"&gt;CALL US:&lt;/strong&gt;  &lt;a href="tel:1800-576-972"&gt;1800-576-972&lt;/a&gt;&#13;
 								&lt;/p&gt;&#13;
 							&lt;/div&gt;&#13;
 							&lt;p&gt;&#13;
@@ -5004,7 +5019,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
             <page-keywords xml:lang="x-default">Gift Cards</page-keywords>
         </page-attributes>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script src="https://www.google.com/recaptcha/api.js" defer&gt;&#13;
+                      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script src="https://www.google.com/recaptcha/api.js" defer&gt;&#13;
 &lt;/script&gt;&#13;
 &lt;script&gt;&#13;
     window.checkbalance = function (token) {&#13;
@@ -5079,7 +5094,8 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
                             &lt;h3 class="card-name"&gt;E-Gift Cards&lt;/h3&gt;&#13;
                             &lt;div class="card-img"&gt;&#13;
                                 &lt;a href="$url('Search-Show', 'cgid', 'giftcards')$"&gt;&#13;
-                                    &lt;img alt="E-Gift Cards" src="images/gift-cards/e-gift-card.webp?$staticlink$" title="" /&gt;&#13;
+                                    &lt;img alt="E-Gift Cards" src="images/gift-cards/e-gift-card.webp?$staticlink$"&#13;
+                                        title="" /&gt;&#13;
                                 &lt;/a&gt;&#13;
                             &lt;/div&gt;&#13;
                             &lt;div class="card-desc"&gt;Fast, easy &amp;amp; fun! We'll email it directly to your recipient,&#13;
@@ -5087,7 +5103,8 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
                                 with your own message and the fun design you chose.&lt;/div&gt;&#13;
                             &lt;a class="button btn text-white" href="$url('Search-Show', 'cgid', 'giftcards')$"&gt;Get&#13;
                                 Started&lt;/a&gt;&#13;
-                            &lt;p class="center"&gt;&lt;a href="$url('Page-Show', 'cid', 'gclearnmore')$" target="_blank" title="about e-gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
+                            &lt;p class="center"&gt;&lt;a href="$url('Page-Show', 'cid', 'gclearnmore')$" target="_blank"&#13;
+                                    title="about e-gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
                         &lt;/div&gt;&#13;
                     &lt;/div&gt;&#13;
                 &lt;/div&gt;&#13;
@@ -5133,7 +5150,8 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
             &lt;/div&gt;&#13;
             &lt;span&#13;
                 class="giftcard-balance-wrap w-100 d-block text-left h-fw--semibold h-font-size--16  h-clr--black-1 mt-0"&gt;&lt;/span&gt;&#13;
-            &lt;button id="check-giftcert" data-sitekey="6LebEaYpAAAAAEj5f-_e3Wjpt8QMpFRrevXvZgVh" class="btn g-recaptcha" data-callback="checkbalance"&gt;Check Gift Card Balance&lt;/button&gt; &lt;br /&gt;&#13;
+            &lt;button id="check-giftcert" data-sitekey="6LebEaYpAAAAAEj5f-_e3Wjpt8QMpFRrevXvZgVh" class="btn g-recaptcha"&#13;
+                data-callback="checkbalance"&gt;Check Gift Card Balance&lt;/button&gt; &lt;br /&gt;&#13;
             &lt;span class="gift-card-balance-error h-font-size--16 h-fw--semibold h-clr--red "&gt;&lt;/span&gt;&#13;
         &lt;/div&gt;&#13;
     &lt;/div&gt;&#13;
@@ -5141,7 +5159,31 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
 &#13;
 &lt;style type="text/css"&gt;&#13;
     .giftcard-close {&#13;
-        top: 0px !important;&#13;
+        background-position: 50%;&#13;
+        background-repeat: no-repeat;&#13;
+        height: 13px;&#13;
+        opacity: inherit;&#13;
+        width: 13px;&#13;
+        top: -11px;&#13;
+        right: 10px;&#13;
+        position: relative;&#13;
+        background-image: url("images/gift-cards/cross.svg?$staticlink$");&#13;
+    }&#13;
+&#13;
+    .giftcard-close:not(:disabled):not(.disabled):hover {&#13;
+        opacity: inherit;&#13;
+    }&#13;
+&#13;
+    .giftcard-close:hover {&#13;
+        background-position: 50%;&#13;
+        background-repeat: no-repeat;&#13;
+        height: 13px;&#13;
+        opacity: inherit;&#13;
+        width: 13px;&#13;
+        top: -11px;&#13;
+        right: 10px;&#13;
+        position: relative;&#13;
+        background-image: url("images/gift-cards/bbwd-tooltip-close-hover.svg?$staticlink$");&#13;
     }&#13;
 &#13;
     .gift-card-top-banner .desktop-image {&#13;
@@ -5211,10 +5253,10 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
     }&#13;
 &#13;
     .popover-header {&#13;
-        display: flex !important;&#13;
-        justify-content: flex-end !important;&#13;
-        padding: 0 !important;&#13;
-        border-bottom: none !important;&#13;
+        display: flex;&#13;
+        justify-content: flex-end;&#13;
+        padding: 0;&#13;
+        border-bottom: none;&#13;
         height: 0px;&#13;
         margin-top: 17px;&#13;
     }&#13;
@@ -5929,11 +5971,11 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="login-modal-section"&gt;&#13;
-    &lt;h4 class="h-clr--pink h-font-size--16 h-fw--bold"&gt;Welcome to an updated, exciting shopping experience!&#13;
+    &lt;h4 class="h-clr--pink h-font-size--16 h-fw--bold"&gt;WELCOME TO A NEW SITE EXPERIENCE.&#13;
     &lt;/h4&gt;&#13;
     &lt;p class="h-font-size--16 login-para h-clr--gray "&gt;&#13;
-     You will need to reset your password to continue using our new website. &#13;
-     If you have updated your password, please continue to login.&#13;
+     First things first! You will need to reset your password if you have an existing account prior to logging into our new website.&#13;
+     If you have already updated your password, please sign in.&#13;
     &lt;/p&gt;&#13;
     &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
        Reset Password&#13;
@@ -5971,7 +6013,7 @@ min-height: 35px;&#13;
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="login-modal-section"&gt;&#13;
 	&lt;h4 class="h-clr--pink h-font-size--16 h-fw--bold"&gt;Reset your password&lt;/h4&gt;&#13;
-	&lt;p class="h-font-size--16 login-para h-clr--gray "&gt;You will need to reset your password to continue using our new website. If you have updated your password, please continue to login.&lt;/p&gt; &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
+	&lt;p class="h-font-size--16 login-para h-clr--gray "&gt;If you previously had an account with us, you will need to reset your password to continue using our new website. If you have updated your password, please continue to login.&lt;/p&gt; &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
        Reset Password&#13;
     &lt;/a&gt;&#13;
 &#13;
@@ -7689,79 +7731,67 @@ padding-top:20px;&#xD;
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+          <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
     &lt;div class="row"&gt;&#13;
         &lt;div class="col-md-9 gctnc-head"&gt;&#13;
             &lt;div class="first-item"&gt;&#13;
                 &lt;h5 class="h-font-size--16  h-clr--black-3 h-line-height--20 head "&gt;Learn More&lt;/h5&gt;&#13;
 &#13;
                 &lt;div class="gcLMcontent"&gt;&#13;
-                    &lt;p class="gcLMheader"&gt;Bath &amp;amp; Body Works E-Gift Cards are sent via email, making them almost impossible to lose! We&#13;
-                        will&#13;
-                        email your&#13;
-                        recipient within 24 hours of your order. E-Gift Cards are redeemable in our U.S. stores, by&#13;
-                        phone&#13;
-                        and online.&#13;
+                    &lt;p class="gcLMheader"&gt;Bath &amp; Body Works E-Gift Cards are sent via email, making them impossible to lose. We’ll email your recipient at your&#13;
+                    scheduled date and time. E-Gift Cards are redeemable in stores &amp; online.&#13;
                     &lt;/p&gt;&#13;
 &#13;
-                    &lt;p class="gcLMheader"&gt;How to Purchase E-Gift Cards&lt;/p&gt;&#13;
-                    &lt;p class="gcLMheader"&gt;&#13;
-                        Visit our &lt;a class="bodytext h-clr--black-3"&#13;
-                            href="$url('Page-Show', 'cid', 'giftcards')$"&gt;E-Gift&#13;
-                            Cards&lt;/a&gt; page to get&#13;
-                        started. E-Gift Card purchases do not apply towards promotional offers&#13;
+                    &lt;p class="gcLMheader"&gt;How To Purchase E-Gift Cards&lt;/p&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;Visit our &lt;a class="bodytext h-clr--black-3" href="$url('Page-Show', 'cid', 'giftcards')$"&gt;E-Gift&#13;
+                    Cards&lt;/a&gt; page to get started!&#13;
+                    &lt;/p&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;E-Gift Card purchases do not apply towards promotional offers: e.g. Buy 2 Get 1 Free.&#13;
                     &lt;/p&gt;&#13;
 &#13;
                     &lt;p class="gcLMheader"&gt;Delivery of E-Gift Cards&lt;/p&gt;&#13;
                     &lt;div&gt;&#13;
                         &lt;ul class="user-list-data"&gt;&#13;
-                            &lt;li class="list-item"&gt;There are no shipping charges on E-Gift Cards.&lt;/li&gt;&#13;
-                            &lt;li class="list-item"&gt;We will send the E-Gift Card to your recipient via email. The email will include all the&#13;
-                                information&#13;
-                                needed on how to use it.&lt;/li&gt;&#13;
-                            &lt;li class="list-item"&gt;We will send you a confirmation email so you know your E-Gift Card has been sent.&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;There will be no shipping charges are applied on E-Gift Card purchases&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;We’ll send the E-Gift Card to your recipient via email. It will include all the information needed on how to use it.&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;We will send you a confirmation email once your E-Gift Card has been delivered.&lt;/li&gt;&#13;
                         &lt;/ul&gt;&#13;
                     &lt;/div&gt;&#13;
                 &lt;/div&gt;&#13;
             &lt;/div&gt;&#13;
 &#13;
             &lt;div class="second-item"&gt;&#13;
-                &lt;h5 class="h-font-size--16  h-clr--black-3 h-line-height--20 head "&gt;To Redeem&lt;/h5&gt;&#13;
+                &lt;h5 class="h-font-size--16  h-clr--black-3 h-line-height--20 head "&gt;How To Redeem E-Gift Cards&lt;/h5&gt;&#13;
             &#13;
                 &lt;div class="gcLMcontent"&gt;&#13;
-                    &lt;p class="gcLMheader"&gt;In Stores:&lt;/p&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;In Stores&lt;/p&gt;&#13;
                     &lt;div&gt;&#13;
                         &lt;ul class="user-list-data"&gt;&#13;
-                            &lt;li class="list-item"&gt;Print a copy of your E-Gift Card or show on your phone at the register when you are ready to check out.&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;You can either print the gift card email once you receive it or keep it on your phone.&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;Present your gift card email with the barcode at the register when you are ready to check out.&lt;/li&gt;&#13;
                         &lt;/ul&gt;&#13;
                     &lt;/div&gt;&#13;
-                    &lt;p class="gcLMheader"&gt;Online:&lt;/p&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;Online&lt;/p&gt;&#13;
                     &lt;div&gt;&#13;
                         &lt;ul class="user-list-data"&gt;&#13;
-                            &lt;li class="list-item"&gt;During checkout, look for the section marked "Gift Card/E-Gift Card" on the Payment page. Enter your E-Gift Card number&#13;
-                            and PIN, then click APPLY.&lt;/li&gt;&#13;
-                            &lt;li class="list-item"&gt;Any unused balance will remain on your E-Gift Card and can be applied to future purchases.&lt;/li&gt;&#13;
-                            &lt;li class="list-item"&gt;If you are having trouble, please contact us at 1-800-756-5005 (TDD #: 1-877-215-5245).&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;Claim your e-gift card using the link above and shop at bathandbodyworks.com.au&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;Click on the section marked ‘Gift Card’ on the payment page and enter the number and PIN, then click apply.&lt;/li&gt;&#13;
                         &lt;/ul&gt;&#13;
                     &lt;/div&gt;&#13;
 &#13;
-                    &lt;h3 class=" h-clr--black-3 h-line-height--20 head-text "&gt;E-Gift Card Balance&lt;/h3&gt;&#13;
                     &lt;p class="gcLMheader"&gt;&#13;
-                        To check your E-Gift Card balance, (1) click the “Redeem Your E-Gift Card” link in the E-Gift Card email; (2) visit&#13;
-                        any Bath &amp;amp; Body Works (BBW) or White Barn (WB) store or click&#13;
-                         &lt;a class="bodytext h-clr--black-3" href="$url('Page-Show', 'cid', 'giftcards')$"&gt;here&lt;/a&gt;; or (3) call 1-800-640-6052.&#13;
+                        This E-Gift Card has been issued by Bath &amp; Body Works Australia. You can redeem this gift card for merchandise only at&#13;
+                        all Bath &amp; Body Works (BBW) stores located within Australia, including the online store at bathandbodyworks.com.au. The&#13;
+                        voucher code must be applied at checkout. Gift cards cannot be transferred, returned or redeemed for cash.&#13;
                     &lt;/p&gt;&#13;
-                    &lt;h3 class="  h-clr--black-3 h-line-height--20 head-text "&gt;Terms and Conditions&lt;/h3&gt;&#13;
-                    &lt;p class="gcLMheader"&gt;This card is issued by Bath &amp; Body Works GC, LLC. Redeem this card for merchandise only, and for cash when the balance&#13;
-                    is under $10, at all Bath &amp; Body Works (BBW) or White Barn (WB) US &amp; Puerto Rico store locations and online at&#13;
-                    BathandBodyWorks.com; it may not otherwise be returned.&lt;/p&gt;&#13;
-                    &lt;p class="gcLMheader"&gt;Check your card balance at a participating BBW or WB store or BathandBodyWorks.com/giftcard. If this card is lost,&#13;
-                    stolen or destroyed, BBW or WB will replace it with the value of the card at the time replacement is requested if you&#13;
-                    provide the card number. To check your card balance or report a lost, stolen or destroyed card, call 1-800-640-6052.&lt;/p&gt;&#13;
-                    &lt;h3 class=" h-clr--black-3 h-line-height--20 head-text "&gt;This card does not expire. Use of this card constitutes acceptance of these terms and conditions. PLEASE RECORD YOUR&#13;
-                        GIFT CARD NUMBER(S) SHOULD YOU NEED TO REQUEST A GIFT CARD REPLACEMENT.&lt;/h3&gt;&#13;
-                    &lt;p class="gcLMheader"&gt;For all other Gift Card inquiries, please &#13;
-                       &lt;a class="bodytext h-clr--black-3" href="$url('Page-Show', 'cid', 'contact-us')$"&gt;contact us&lt;/a&gt;.&#13;
+                    &lt;p class="gcLMheader"&gt;&#13;
+                        Check your card balance online&#13;
+                         &lt;a class="bodytext h-clr--black-3" href="$url('Page-Show', 'cid', 'giftcards')$"&gt;here&lt;/a&gt;&#13;
+                    &lt;/p&gt;&#13;
+                    &lt;h3 class=" h-clr--black-3 h-line-height--20 head-text "&gt;This e-gift card does not expire, please keep a copy of your gift card number(s) should you need to request for a gift&#13;
+                    card replacement for any reason.&lt;/h3&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;For all other enquiries, please contact our&#13;
+                       &lt;a class="bodytext h-clr--black-3" href="$url('Page-Show', 'cid', 'contact-us')$"&gt;Customer Service&lt;/a&gt; team.&#13;
                     &lt;/p&gt;&#13;
                 &lt;/div&gt;&#13;
             &lt;/div&gt;&#13;
@@ -7777,6 +7807,7 @@ padding-top:20px;&#xD;
     .head {&#13;
         padding-top: 1em;&#13;
         padding-bottom: 1em;&#13;
+        margin-bottom: 0;&#13;
     }&#13;
 &#13;
     .gctnc-head {&#13;
