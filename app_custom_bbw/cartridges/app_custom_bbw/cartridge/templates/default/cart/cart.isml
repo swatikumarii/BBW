@@ -2,6 +2,7 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/afterpay.js');
+        assets.addJs('/js/productDetail.js');
         assets.addCss('/css/cart.css');
         assets.addCss('/css/afterpaystyle.css');
         assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
@@ -29,9 +30,14 @@
             </div>
             <a href="${URLUtils.url('Home-Show')}"
                 class="btn btn-primary empty-cart-continue h-font-size--16 h-fw--semibold">${Resource.msg('link.continue.shopping', 'cart', null)}</a>
-            <div class="empty-recommendation-container">
+            <div class="empty-recommendation-container cart-page-add-to-bag">
                 <div class="empty-cart-recommendations">
                     <isslot id="cart-empty-recommendation" context="global" description="This is for empty basket recommmendations" />
+                </div>
+            </div>
+            <div class="empty-recommendation-container cart-page-add-to-bag">
+                <div class="empty-cart-recommendations">
+                    <isslot id="cart-empty-recommendation-second" context="global" description="This is for empty basket recommmendations" />
                 </div>
             </div>
         </div>
@@ -55,7 +61,7 @@
                         class="cart-error-messaging cart-error h-font-size--14 h-bg--red-10 h-clr--red-9 px-3 py-2 mb-2">
                         <img src="${URLUtils.staticURL('images/Alert-Error.svg')}" alt="error alert" width="28px"
                             height="28px">
-                        <span>${pdict.valid.message}</span>
+                        <span class="pdict-message">${pdict.valid.message}</span>
                     </div>
                 </isif>
                 <div class="item-removed-message success-toast mt-2 d-none">
