@@ -120,6 +120,9 @@ function login() {
                         formValidation(form, data);
                         form.trigger('login:error', data);
                     }
+                    form.prepend('<input type="text" class="unused"/>');
+                    $('.unused').focus();
+                    $('.unused').remove();
                 } else {
                     form.trigger('login:success', data);
                     if (data.isIncomplete) {
@@ -170,6 +173,7 @@ function login() {
 
     $('#loginModal').on('hidden.bs.modal', function () {
         $('.migration-login-message').addClass('d-none');
+        $('form.modal-login').children('.alert-danger').remove();
         $('.login-form-div').removeClass('d-none');
         $('.login-modal-body .privacy-block').removeClass('d-none');
     });
