@@ -35,6 +35,10 @@ module.exports.render = function (context, modelIn) {
         HookManager.callHook('app.experience.editmode', 'editmode');
         model.resetEditPDMode = true;
     }
+    var viewData = JSON.parse(context.renderParameters);
+
+    model.emarsysTestModeEnabled = viewData.emarsysTestModeEnabled;
+    model.emarsysData = viewData.emarsysData;
 
     model.CurrentPageMetaData = PageRenderHelper.getPageMetaData(page);
     if (model && model.page && model.page.ID) {
