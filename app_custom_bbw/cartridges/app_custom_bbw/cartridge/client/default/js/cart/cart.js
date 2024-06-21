@@ -544,6 +544,9 @@ module.exports = function () {
                     );
                     validateBasket(data.basket);
                     $('.item-removed-message').removeClass('d-none');
+                    if (data.basket.valid.error === false) {
+                        $('.cart-error-messaging').addClass('d-none');
+                    }
                 }
 
                 $('body').trigger('cart:update', data);
