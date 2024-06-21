@@ -204,3 +204,14 @@ module.exports = function () {
         newsLetter();
     });
 };
+// Added class on popover
+$('[data-toggle="popover"]').popover();
+$('body').on(
+    'mouseenter',
+    '.tooltip-container [data-toggle="popover"]',
+    function () {
+        $(this).popover('show');
+        $('.popover').addClass('footer-tooltip-popover');
+        $('.popover-header').addClass('footer-tooltip-header');
+    }
+);

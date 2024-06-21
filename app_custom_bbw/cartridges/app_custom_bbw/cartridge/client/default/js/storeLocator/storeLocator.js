@@ -196,7 +196,7 @@ function getAllDataAndSubmit() {
     var isNumber = Boolean(Number(postalCodeVal));
     var method = $form.attr('method');
     var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ address: postalCodeVal }).then(function (response) {
+    geocoder.geocode({ address: postalCodeVal, componentRestrictions: {country: 'Australia'} }).then(function (response) {
         if (response.results[0]) {
             var location = response.results[0].geometry.location;
             var addressComponents = response.results[0].address_components;
@@ -243,7 +243,7 @@ function search(element) {
     var isNumber = Boolean(Number(postalCodeVal));
     var method = $form.attr('method');
     var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ address: postalCodeVal }).then(function (response) {
+    geocoder.geocode({ address: postalCodeVal, componentRestrictions: {country: 'Australia'} }).then(function (response) {
         if (response.results[0]) {
             var location = response.results[0].geometry.location;
             var addressComponents = response.results[0].address_components;

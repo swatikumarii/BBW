@@ -468,4 +468,27 @@ server.get('MissingFree', function (req, res, next) {
     next();
 });
 
+server.get('UpdateShippingMethod', function (req, res, next) {
+    var ShippingMgr = require('dw/order/ShippingMgr');
+    var collections = require('*/cartridge/scripts/util/collections');
+    var Transaction = require('dw/system/Transaction');
+    var currentBasket = BasketMgr.getCurrentBasket();
+    if (currentBasket) {
+        var appliedShippingMethodID = currentBasket.getDefaultShipment().shippingMethodID;
+        var applicableShippingMethods = ShippingMgr.getShipmentShippingModel(
+            currentBasket.getDefaultShipment()
+        ).getApplicableShippingMethods();
+        var applicableShippingMethodsIDs = collections.map(applicableShippingMethods, function (applicableShippingMethod) {
+            return applicableShippingMethod.ID;
+        });
+        if (!applicableShippingMethodsIDs.includes(appliedShippingMethodID)) {
+            Transaction.wrap(function () {
+                currentBasket.getDefaultShipment().setShippingMethod(applicableShippingMethods[0]);
+            });
+        }
+    }
+    res.json({success: true});
+    next();
+});
+
 module.exports = server.exports();

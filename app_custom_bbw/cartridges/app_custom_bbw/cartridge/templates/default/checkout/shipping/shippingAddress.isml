@@ -16,7 +16,7 @@
                     for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}">
                     <span class="h-clr--red-9 require-indicator">${'*'}</span>${Resource.msg('field.shipping.address.first.name', 'address', null)}
                 </label>
-                <span class="h-font-size--14 required-indicator-text h-clr--black-1"><span class="h-clr--red-9 required-star">${'*'}</span>${Resource.msg('label.required', 'account', null)}</span>
+                <span class="h-font-size--14 required-indicator-text h-clr--black-1 h-line-height--16"><span class="h-clr--red-9 required-star">${'*'}</span>${Resource.msg('label.required', 'account', null)}</span>
             </div>
             <input type="text" class="form-control shippingFirstName"
                 id="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"

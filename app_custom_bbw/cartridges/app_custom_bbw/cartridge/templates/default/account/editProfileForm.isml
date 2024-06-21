@@ -69,19 +69,34 @@
     <p class="form-caption">${Resource.msg('form.phone.caption', 'forms', null)}</p>
     <div class="invalid-feedback" id="form-phone-error"></div>
 </div>
-
-<div class="form-group
-            <isif condition=" ${pdict.profileForm.customer.dob.mandatory === true}">
-    </isif>">
-    <label class="birthday-label form-control-label" for="dob">
-        <isprint value="${Resource.msg('label.input.birthday', 'forms', null)}" encoding="htmlcontent" />
-    </label>
-    <div class="birthday-date">
-        <p class="mb-0">${pdict.profileForm.customer.dob.value}</p>
+<isif condition="${!pdict.profile.isProfileComplete}">
+    <div class="form-group register-form text-center <isif condition="
+        ${!!pdict.profileForm.customer.dob.mandatory === true}">required
+        </isif>">
+        <label class="form-control-label h-font-size--14 text-justify" for="dob">
+            <isprint value="${pdict.profileForm.customer.dob.label}" encoding="htmlcontent" />
+        </label>
+        <input type="date" class="form-control datepicker select-dropdown-value h-clr--black-1" id="dob"
+            data-mask="99/99/9999" data-min-age="0" placeholder="DD/MM/YYYY"
+            data-missing-error="${Resource.msg('error.message.dob.required', 'forms', null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.parse.dob', 'forms', null)}" required <isprint
+            value=${pdict.profileForm.customer.dob.attributes} encoding="off" />>
+        <div class="invalid-feedback text-left" id="dob-error=">${Resource.msg('error.message.dob.required', 'forms', null)}
+        </div>
     </div>
-        <p class="form-caption">${Resource.msg('form.birthday.caption', 'forms', null)}</p>
-</div>
-
+<iselse/>
+    <div class="form-group
+                <isif condition=" ${pdict.profileForm.customer.dob.mandatory === true}">
+        </isif>">
+        <label class="birthday-label form-control-label" for="dob">
+            <isprint value="${Resource.msg('label.input.birthday', 'forms', null)}" encoding="htmlcontent" />
+        </label>
+        <div class="birthday-date">
+            <p class="mb-0">${pdict.profileForm.customer.dob.value}</p>
+        </div>
+            <p class="form-caption">${Resource.msg('form.birthday.caption', 'forms', null)}</p>
+    </div>
+</isif>
 
 <div class="form-group
             <isif condition=" ${pdict.profileForm.customer.zipCode.mandatory === true}">required</isif>">
@@ -157,6 +172,7 @@
     <p class="form-caption">${Resource.msg('form.password.caption', 'forms', null)}</p>
 </div>
 
+<input type="hidden" name="isProfileComplete" value="${pdict.profile.isProfileComplete}" />
 <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
 <input type="hidden" name="${pdict.profileForm.customer.emailconfirm.attributes}"
     value="${pdict.profileForm.customer.emailconfirm.attributes}" />
