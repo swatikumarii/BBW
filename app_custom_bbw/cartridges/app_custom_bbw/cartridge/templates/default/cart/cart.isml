@@ -55,7 +55,7 @@
                         class="cart-error-messaging cart-error h-font-size--14 h-bg--red-10 h-clr--red-9 px-3 py-2 mb-2">
                         <img src="${URLUtils.staticURL('images/Alert-Error.svg')}" alt="error alert" width="28px"
                             height="28px">
-                        <span>${pdict.valid.message}</span>
+                        <span class="pdict-message">${pdict.valid.message}</span>
                     </div>
                 </isif>
                 <div class="item-removed-message success-toast mt-2 d-none">
