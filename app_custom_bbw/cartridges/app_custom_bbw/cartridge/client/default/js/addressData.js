@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    'New South Western Australiales': {
+    'New South Wales': {
         'Aarons Pass': [2850],
         Abbotsbury: [2176],
         Abbotsford: [2046],
