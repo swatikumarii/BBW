@@ -153,8 +153,6 @@ module.exports = {
         return '';
     },
     updateCustomer: function (profileForm, profile) {
-        // var date = new Date(profileForm.birthday);
-        // var dob = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
         var gender;
         switch (profileForm.gender) {
             case 1:
@@ -177,6 +175,11 @@ module.exports = {
                 gender: gender
             }
         };
+        if (profileForm.birthday) {
+            var date = new Date(profileForm.birthday);
+            var dob = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
+            requestObj.extendedFields.dob = dob;
+        }
         var capillaryCustomerID = '';
         if ('capillaryCustomerID' in profile.custom && profile.custom.capillaryCustomerID) {
             capillaryCustomerID = profile.custom.capillaryCustomerID;
