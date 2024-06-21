@@ -6013,7 +6013,7 @@ min-height: 35px;&#13;
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="login-modal-section"&gt;&#13;
 	&lt;h4 class="h-clr--pink h-font-size--16 h-fw--bold"&gt;Reset your password&lt;/h4&gt;&#13;
-	&lt;p class="h-font-size--16 login-para h-clr--gray "&gt;If you previously had an account with us, you will need to reset your password to continue using our new website. If you have updated your password, please continue to login.&lt;/p&gt; &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
+	&lt;p class="h-font-size--16 login-para h-clr--gray "&gt;You will need to reset your password to continue using our new website.&lt;/p&gt; &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
        Reset Password&#13;
     &lt;/a&gt;&#13;
 &#13;
