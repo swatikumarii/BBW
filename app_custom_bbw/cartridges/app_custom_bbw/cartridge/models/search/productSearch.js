@@ -272,8 +272,8 @@ function ProductSearch(
     this.isCategorySearch = productSearch.categorySearch;
     this.isRefinedCategorySearch = productSearch.refinedCategorySearch;
     this.searchKeywords = productSearch.searchPhrase;
-    if(productSearch.category && productSearch.category.custom){
-        this.promotionTitle = productSearch.category.custom.promotionTitle? productSearch.category.custom.promotionTitle : '';
+    if(productSearch.category && productSearch.category.custom && productSearch.category.custom.promotionTitle && productSearch.category.custom.promotionDescription){
+        this.promotionTitle = productSearch.category.custom.promotionTitle ? productSearch.category.custom.promotionTitle : '';
         this.promotionDescription = productSearch.category.custom.promotionDescription ? productSearch.category.custom.promotionDescription : '';
     }
     this.resetLink = getResetLink(
