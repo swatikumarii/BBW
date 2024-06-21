@@ -29,7 +29,10 @@ function registerRoute(route) {
                 }
             }
         }
-
+        res.viewData.email =
+            'currentCustomer' in req &&
+            'profile' in req.currentCustomer &&
+            req.currentCustomer.profile.email;
         if (isJson) {
             res.viewData.emarsysEvents = [];
             var emarsysData = emarsysHelpers.getScarabQueueData(res.viewData);
