@@ -13,10 +13,10 @@
                     </button>
                 </div>
             </isif>
-            <div class="col-6 col-sm-3 order-sm-1">
+            <div class="${!pdict.hideFilterBar ? 'col-6' : 'col-12'} col-sm-3 order-sm-1">
                 <isif condition="${pdict.productSearch.productIds.length > 0}">
                     <select name="sort-order"
-                        class="w-100 sort-filter b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize border-left-0"
+                        class="w-100 sort-filter b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize ${!pdict.hideFilterBar ? 'border-left-0' : ''}"
                         aria-label="${Resource.msg('label.sort.by', 'search', null)}">
                         <isloop items="${pdict.productSearch.productSort.options}" var="option">
                             <isif condition="${option.id !== 'product-position'}">

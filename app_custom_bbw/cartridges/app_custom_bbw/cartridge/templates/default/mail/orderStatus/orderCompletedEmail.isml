@@ -164,7 +164,7 @@
                             style="font-size:14px;line-height:14px;color:#666666;text-align:center;font-family:'HelveticaNeue-Regular','Helvetica Neue Regular','HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;border-top: 3px solid #f2f2f2;padding: 20px 0;">
                             ${Resource.msg('email.order.looking.more.text', 'confirmation', null)}<a
                                 style="color:#005699;text-decoration:underline;"
-                                href="${dw.web.URLUtils.abs('Order-Status')}">
+                                href="${dw.web.URLUtils.abs('Order-History')}">
                                 ${Resource.msg('email.order.looking.more.here.text', 'confirmation', null)}</a>
                         </p>
                         <iscomment> Shipping Section </iscomment>

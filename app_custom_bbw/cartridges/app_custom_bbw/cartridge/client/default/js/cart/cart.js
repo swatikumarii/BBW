@@ -464,22 +464,8 @@ module.exports = function () {
                             });
                         }
                     } else {
-                        var emptyCartHtml =
-                            '<div class="container text-center">' +
-                            '<div class="row cart-empty">' +
-                            '<div class="col-12 text-center cart-empty-msg-wrap">' +
-                            '<h1 class="h-fw--bold h-clr--black-1 cart-empty-msg">' +
-                            data.basket.resources.emptyCartMsg +
-                            '</h1>' +
-                            ' </div>' +
-                            '</div>' +
-                            '<a href="' +
-                            data.basket.continueShoppingLink +
-                            '" class="btn btn-primary empty-cart-continue h-font-size--16 h-fw--semibold">' +
-                            data.basket.resources.continueShoppingMsg +
-                            '</a>' +
-                            '</div>';
-                        $('.cart').empty().append(emptyCartHtml);
+                        $('.cart').remove();
+                        $('.cartContainer .container').removeClass('d-none');
                     }
                     $('.number-of-items')
                         .empty()
