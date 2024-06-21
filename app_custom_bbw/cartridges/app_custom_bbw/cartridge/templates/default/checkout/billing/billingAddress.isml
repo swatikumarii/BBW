@@ -186,7 +186,7 @@
         <div class="form-group">
             <div class="custom-control custom-checkbox">
                 <input class="custom-control-input gift" type="checkbox"
-                    id="billingSaveAddress" checked
+                    id="billingSaveAddress"
                     <isprint value="${pdict.forms.billingForm.saveAddress.attributes}"
                     encoding="off" />
                 >

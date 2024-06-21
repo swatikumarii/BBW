@@ -818,6 +818,10 @@ module.exports = $.extend({}, base, {
                                 $.spinner().stop();
                                 return true;
                             }
+                            // refresh page when add to bag from cart page.
+                            if($('.cart-page-add-to-bag').length > 0){
+                                window.location.reload();
+                            }
                             if (data.isProductLineItemsExist) {
                                 $('#delete-line-item-modal').modal('show');
                                 $.spinner().stop();
