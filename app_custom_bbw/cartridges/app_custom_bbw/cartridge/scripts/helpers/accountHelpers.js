@@ -314,7 +314,16 @@ function updateMigratedUsersPasswordChangeFlag(customer) {
 function remainingLoginAttempts(email) {
     var CustomerMgr = require('dw/customer/CustomerMgr');
     var customer = CustomerMgr.getCustomerByLogin(email);
-    var leftLoginAttempts = customer.profile.credentials.remainingLoginAttempts;
+    var leftLoginAttempts = 9;
+    if (
+        customer &&
+        customer.profile &&
+        customer.profile.credentials &&
+        customer.profile.credentials.remainingLoginAttempts
+    ) {
+        leftLoginAttempts =
+            customer.profile.credentials.remainingLoginAttempts;
+    }
     return leftLoginAttempts;
 }
 
