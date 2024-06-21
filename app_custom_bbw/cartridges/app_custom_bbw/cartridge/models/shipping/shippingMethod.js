@@ -8,7 +8,11 @@ var base = module.superModule;
  */
 function ShippingMethodModel(shippingMethod, shipment) {
     base.call(this, shippingMethod, shipment);
+    var ShippingMgr = require('dw/order/ShippingMgr');
+    var shipmentShippingModel = ShippingMgr.getShipmentShippingModel(shipment);
+    var shippingCost = shipmentShippingModel.getShippingCost(shippingMethod);
     this.htmlDescription = 'custom' in shippingMethod && shippingMethod.custom  && 'htmlDescription' in  shippingMethod.custom && shippingMethod.custom.htmlDescription ? shippingMethod.custom.htmlDescription.source : '';
+    this.isFree = shippingCost.amount.value === 0;
 }
 
 module.exports = ShippingMethodModel;
