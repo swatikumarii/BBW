@@ -51,4 +51,9 @@
             </isif>
         </span>
     </isif>
+    <isif condition="${pdict.product.promoPrice}">
+        <span class="promo-price text-danger">
+            ${pdict.product.promoPrice}
+        </span>
+    </isif>
 </span>
