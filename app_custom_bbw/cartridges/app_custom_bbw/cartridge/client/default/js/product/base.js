@@ -555,6 +555,9 @@ function attributeSelect(selectedValueUrl, $productContainer) {
                     'product:afterAttributeSelect',
                     { data: data, container: $productContainer }
                 );
+                if (data.product && data.product !== null && 'variantURL' in data.product) {
+                    window.history.pushState({}, '', data.product.variantURL);
+                }
                 $.spinner().stop();
             },
             error: function () {
