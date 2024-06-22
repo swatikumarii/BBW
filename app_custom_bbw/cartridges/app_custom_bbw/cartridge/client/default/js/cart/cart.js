@@ -275,8 +275,9 @@ function updateAvailability(data, uuid) {
         if (lineItem.availability) {
             if (lineItem.availability.messages) {
                 lineItem.availability.messages.forEach(function (message) {
+                    var colorClass = lineItem.available ? '' : 'h-clr--red';
                     messages +=
-                        '<p class="line-item-attributes">' + message + '</p>';
+                        `<p class="line-item-attributes ${colorClass}"> ${message} </p>`;
                 });
             }
 
