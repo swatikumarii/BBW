@@ -821,8 +821,7 @@ module.exports = function () {
         return false;
     });
 
-    $(document).on('click', '.promo-code-form button', function () {
-        clearErrorNotification();
+    $(document).on('click', '.checkout-promo-code-form .promo-code-form button', function () {
         $.ajax({
             url: $('.promo-code-form').attr('action'),
             type: 'GET',
