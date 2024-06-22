@@ -6,7 +6,7 @@
         aria-label="quantity: ${StringUtils.formatInteger(lineItem.quantity)}" value="${StringUtils.formatInteger(lineItem.quantity)}" ${lineItem.isFreeItem || lineItem.isEgiftCard ? 'disabled' : ''}>
     <span class="quantity-plus ${lineItem.isFreeItem || lineItem.isEgiftCard ? 'd-none' : ''}">+</span>
 </div>
-<isif condition="${!lineItem.isFreeItem && !lineItem.isEgiftCard && lineItem.qtyAddedMoreThanStock}">
+<isif condition="${!lineItem.isFreeItem && !lineItem.isEgiftCard && lineItem.qtyAddedMoreThanStock && !lineItem.maxOrderQty}">
     <span class="max-order-qty-error h-clr--red-1 h-font-size--12" >${Resource.msgf('max.order.qty.error', 'cart', null, lineItem.maxOrderQty)}</span>
 <iselse/>
     <span class="max-order-qty-error h-clr--red-1 h-font-size--12"  style="display:none">${Resource.msgf('max.order.qty.error', 'cart', null, lineItem.maxOrderQty)}</span>
