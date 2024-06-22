@@ -514,6 +514,11 @@
                         right: 0;
                     }
 
+                    @include media-btw(sm, lg) {
+                        padding-right: 5px;
+                        padding-left: 4px;
+                    }
+
                     .cart-delete-confirmation-btn {
                         cursor: pointer;
                     }
@@ -597,8 +602,8 @@
                         &.accordion-item.collapsed {
                             .cart-saving {
                                 &::before {
-                                    background: url("../images/UI-Carat.svg")
-                                        50%;
+                                    background: url("../images/UI-Carat.svg") 
+                                    50%;
                                     background-repeat: no-repeat;
                                     background-size: 1.25rem;
                                     content: "";
@@ -616,8 +621,8 @@
                         &.accordion-item {
                             .cart-saving {
                                 &::before {
-                                    background: url("../images/UI-Carat.svg")
-                                        50%;
+                                    background: url("../images/UI-Carat.svg") 
+                                    50%;
                                     background-repeat: no-repeat;
                                     background-size: 1.25rem;
                                     content: "";

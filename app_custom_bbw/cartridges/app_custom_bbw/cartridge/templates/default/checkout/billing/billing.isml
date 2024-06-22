@@ -18,7 +18,7 @@
             <!-------------------------------------------------------------------------->
             <fieldset class="billing-address">
                 <fieldset class="address-selector-block">
-                    <div class="form-group">
+                    <div class="form-group billing-select-wrap">
 
                         <isinclude template="checkout/billing/addressSelector" />
                         <div class="invalid-feedback"></div>

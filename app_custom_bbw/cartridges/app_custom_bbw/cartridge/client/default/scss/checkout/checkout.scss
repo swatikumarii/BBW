@@ -670,6 +670,46 @@ input[type="tel"],
 
 .shipping-address,
 .billing-address {
+    .billing-select-wrap {
+        box-sizing: border-box;
+        height: 48px;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 46%;
+            transform: translateY(-46%);
+            height: 47px;
+            width: 35px;
+            border-left: 1px solid colour(gray, 5);
+            background: colour(white) url("../../images/UI-Carat.svg") no-repeat 50%;
+            background-size: 15px;
+        }
+
+        select {
+            border-radius: 0;
+            background: transparent;
+            padding: 0 2.25rem 0 0.625rem;
+            height: 48px;
+            cursor: pointer;
+            appearance: none;
+            z-index: 1;
+            position: absolute;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-color: colour(black, 1);
+
+            &:focus {
+                box-shadow: none;
+                border-color: colour(black, 1);
+                background: none;
+            }
+        }
+    }
+
     .form-group {
         margin: 10px 0 30px;
         position: relative;
