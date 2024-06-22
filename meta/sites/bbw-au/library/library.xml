@@ -2545,9 +2545,9 @@
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="store-details-bottom-wrapper text-center my-5"&gt;&#13;
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="store-details-bottom-wrapper text-center my-5"&gt;
 &lt;p class="h-font-size--16"&gt;
-To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" class="h-clr--blue-12"&gt;1800-576-972&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au.&lt;/a&gt;&lt;/p&gt;&#13;
+To contact our Customer Service team, please call &lt;a href="phone:1800-576-972" class="h-clr--blue-12"&gt;1800-576-972&lt;/a&gt; or email us at &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au.&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
@@ -5980,7 +5980,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
      First things first! You will need to reset your password if you have an existing account prior to logging into our new website.&#13;
      If you have already updated your password, please sign in.&#13;
     &lt;/p&gt;&#13;
-    &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
+    &lt;a name="save" class="btn-save bg-white text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
        Reset Password&#13;
     &lt;/a&gt;&#13;
 &lt;/div&gt;&#13;
