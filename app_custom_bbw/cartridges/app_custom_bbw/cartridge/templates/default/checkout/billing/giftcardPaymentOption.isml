@@ -12,7 +12,7 @@
                 <div class="required">
                     <input type="hidden" name="remove-giftcard-url" value="${URLUtils.url('Giftcard-RemoveGiftCard')}">
                     <div class="row no-gutters">
-                        <h2 class="gift-cardtitle h-font-size--18 h-fw--bold h-clr--black-1 customer-heading accordion-title d-block col-12 m-0 rotate-down b-text-letter-space-005 h-line-height--20">${Resource.msg('label.add.egift.title', 'giftcards', null)}</h2>
+                        <h2 class="gift-cardtitle h-font-size--18 h-fw--bold h-clr--black-1 customer-heading accordion-title d-block col-12 m-0 rotate-down b-text-letter-space-005 h-line-height--20 px-0">${Resource.msg('label.add.egift.title', 'giftcards', null)}</h2>
                         <div class="accordion-content col-12 h-maxwidth-perc-md--90" style="display:none">
                             <div class="add-giftcard-header-wrap">
                                 <div class="d-flex flex-column justify-content-between added-cards" data-btn-label="${Resource.msg('label.remove.gift.card', 'checkout', null)}">

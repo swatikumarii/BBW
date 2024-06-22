@@ -92,7 +92,13 @@ function getProductMaxOrderQtyValue(apiProduct) {
         maxOrderQty = maxOrderQtyByReserveStock;
     }
 
-    var basket = BasketMgr.getCurrentBasket();
+    var basket = false;
+    try {
+        basket = BasketMgr.getCurrentBasket();
+    } catch (e) {
+        basket = false;
+    }
+
     if (basket) {
         var productLineItems = basket.productLineItems;
         collections.forEach(productLineItems, function (item) {
@@ -101,6 +107,7 @@ function getProductMaxOrderQtyValue(apiProduct) {
             }
         });
     }
+
     return maxOrderQty;
 }
 
