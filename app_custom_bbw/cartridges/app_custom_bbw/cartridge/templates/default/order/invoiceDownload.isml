@@ -29,11 +29,11 @@
                                 encoding="off" />
                         </div>
                     </isif>
-                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServiceEmail')}">
-                        <p
-                            style="margin: 0;line-height: 18px; letter-spacing:0.75px;color:#1a1919">
-                            ${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServiceEmail')}
-                        </p>
+                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyTaxNumber')}">
+                        <div style="margin: 0;line-height: 18px; letter-spacing:0.75px;color:#1a1919">
+                            ${Resource.msg('label.tax.number', 'order', null)}:
+                            <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyTaxNumber')}" encoding="off" />
+                        </div>
                     </isif>
                 </td>
             </tr>

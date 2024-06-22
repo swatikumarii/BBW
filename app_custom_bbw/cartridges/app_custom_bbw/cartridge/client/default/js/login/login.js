@@ -120,6 +120,10 @@ function login() {
                         formValidation(form, data);
                         form.trigger('login:error', data);
                     }
+                    $('.login-modal-body').animate(
+                        { scrollTop: $('.alert-danger').offset().top },
+                        200
+                    );
                 } else {
                     form.trigger('login:success', data);
                     if (data.isIncomplete) {
@@ -170,6 +174,7 @@ function login() {
 
     $('#loginModal').on('hidden.bs.modal', function () {
         $('.migration-login-message').addClass('d-none');
+        $('form.modal-login').children('.alert-danger').remove();
         $('.login-form-div').removeClass('d-none');
         $('.login-modal-body .privacy-block').removeClass('d-none');
     });

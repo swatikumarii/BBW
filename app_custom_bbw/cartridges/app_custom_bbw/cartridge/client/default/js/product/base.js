@@ -818,6 +818,18 @@ module.exports = $.extend({}, base, {
                                 $.spinner().stop();
                                 return true;
                             }
+                            if ($('input[name="maxOrderQty"]').length) {
+                                if (!data.error && 'maxOrderQty' in data && data.maxOrderQty >= 0) {
+                                    $('input[name="maxOrderQty"]').val(data.maxOrderQty);
+                                    if ($('.reserve-stock').length) {
+                                        $('.reserve-stock p').empty().append(data.maxOrderQtyMessage);
+                                    }
+                                }
+                            }
+                            // refresh page when add to bag from cart page.
+                            if($('.cart-page-add-to-bag').length > 0){
+                                window.location.reload();
+                            }
                             if (data.isProductLineItemsExist) {
                                 $('#delete-line-item-modal').modal('show');
                                 $.spinner().stop();

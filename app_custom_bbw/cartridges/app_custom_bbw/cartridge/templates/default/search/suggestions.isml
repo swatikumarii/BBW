@@ -15,7 +15,7 @@
                                     encoding="off" />
                             </span>
                             <span>
-                                <isprint value="${Resource.msgf('label.results.for.without.link', 'search', null, pdict.suggestions.searchProductCount, pdict.suggestions.searchTerms)}" encoding="off" />
+                                <isprint value="${Resource.msgf('label.results.for.without.link', 'search', null, pdict.suggestions.searchProductCount, phrase.value)}" encoding="off" />
                             </span>
                         <iselse/>
                             <span>
