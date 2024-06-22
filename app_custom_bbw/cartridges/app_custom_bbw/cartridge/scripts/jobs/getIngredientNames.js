@@ -66,18 +66,6 @@ function getIngredientNames() {
 
         while (allProducts.hasNext()) {
             var product = allProducts.next();
-            // if (product.availabilityModel.availabilityStatus === 'IN_STOCK' && product.online) {
-                
-            //     // get ingredients from all products
-            //     if (product.custom.ingredients) {
-            //         productIngredients = product.custom.ingredients;
-            //         for (var index = 0; index < productIngredients.length; index++) {
-            //             if (!ingredientNamesArray.includes(productIngredients[index])) {
-            //                 ingredientNamesArray.push(productIngredients[index]);
-            //             }
-            //         }
-            //     }
-            // }
             if (product.availabilityModel.availabilityStatus === 'IN_STOCK' && product.online) {
                 var productLevelReserveQty =
                 'custom' in product &&
