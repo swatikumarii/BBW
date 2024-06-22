@@ -12,7 +12,12 @@ server.append(
     categoryHelper.appendLevelOneCategory,
     categoryHelper.appendCategoryBreadcrum,
     ingredientCategoryHelper.appendIngredientSearch,
-    seo.addCurrentPageMetaData
+    function (req, res, next) {
+        if (!req.querystring.cgid) {
+            seo.addCurrentPageMetaData(req, res, next);
+        }
+        next();
+    }
 );
 server.append(
     'ShowAjax',
