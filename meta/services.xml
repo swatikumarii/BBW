@@ -145,6 +145,11 @@
         <password masked="true">********</password>
     </service-credential>
 
+    <service-credential service-credential-id="CapillaryCredentials">
+        <url>https://apac2.api.capillarytech.com/</url>
+        <user-id>vali.solns.till.1</user-id>
+        <password encrypted="true" encryption-type="common.export">202cb962ac59075b964b07152d234b70</password>
+    </service-credential>
     <service-credential service-credential-id="sendgrid_http_credential">
         <url>https://api.sendgrid.com/v3</url>
         <user-id/>
@@ -167,6 +172,16 @@
         <rate-limit-millis>0</rate-limit-millis>
         <cb-enabled>true</cb-enabled>
         <cb-calls>10</cb-calls>
+        <cb-millis>15000</cb-millis>
+    </service-profile>
+
+    <service-profile service-profile-id="CapillaryProfile">
+        <timeout-millis>30000</timeout-millis>
+        <rate-limit-enabled>false</rate-limit-enabled>
+        <rate-limit-calls>0</rate-limit-calls>
+        <rate-limit-millis>0</rate-limit-millis>
+        <cb-enabled>false</cb-enabled>
+        <cb-calls>15</cb-calls>
         <cb-millis>15000</cb-millis>
     </service-profile>
 
@@ -362,6 +377,17 @@
         <mock-mode-enabled>false</mock-mode-enabled>
         <profile-id>afterpay.profile</profile-id>
         <credential-id>clearpay.credentials.GB.v2</credential-id>
+    </service>
+
+    <service service-id="Capillary">
+        <service-type>HTTP</service-type>
+        <enabled>true</enabled>
+        <log-prefix>capillary</log-prefix>
+        <comm-log-enabled>true</comm-log-enabled>
+        <force-prd-enabled>true</force-prd-enabled>
+        <mock-mode-enabled>false</mock-mode-enabled>
+        <profile-id>CapillaryProfile</profile-id>
+        <credential-id>CapillaryCredentials</credential-id>
     </service>
 
     <service service-id="sendgrid_http_service">
