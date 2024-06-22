@@ -341,7 +341,6 @@ function checkFields(form) {
                         method: 'POST',
                         data: paymentForm,
                         success: function (data) {
-                            $.spinner().stop();
                             // enable the next:Place Order button here
                             $('body').trigger('checkout:enableButton', '.next-step-button button');
                             // look for field validation errors
@@ -385,27 +384,30 @@ function checkFields(form) {
                                     redirect.submit();
                                     defer.resolve(data);
                                 }
+
+                                var reviewURL = $('input[name="review-url"]').val();
+                                window.location.href = reviewURL;
                                 //
                                 // Populate the Address Summary
                                 //
-                                $('body').trigger(
-                                    'checkout:updateCheckoutView',
-                                    { order: data.order, customer: data.customer }
-                                );
+                                // $('body').trigger(
+                                //     'checkout:updateCheckoutView',
+                                //     { order: data.order, customer: data.customer }
+                                // );
 
-                                if (data.renderedPaymentInstruments) {
-                                    $('.stored-payments').empty().html(
-                                        data.renderedPaymentInstruments
-                                    );
-                                }
+                                // if (data.renderedPaymentInstruments) {
+                                //     $('.stored-payments').empty().html(
+                                //         data.renderedPaymentInstruments
+                                //     );
+                                // }
 
-                                if (data.customer.registeredUser
-                                    && data.customer.customerPaymentInstruments.length
-                                ) {
-                                    $('.cancel-new-payment').removeClass('checkout-hidden');
-                                }
+                                // if (data.customer.registeredUser
+                                //     && data.customer.customerPaymentInstruments.length
+                                // ) {
+                                //     $('.cancel-new-payment').removeClass('checkout-hidden');
+                                // }
 
-                                scrollAnimate();
+                                // scrollAnimate();
                                 defer.resolve(data);
                             }
                         },
@@ -428,7 +430,6 @@ function checkFields(form) {
                         url: $('.place-order').data('action'),
                         method: 'POST',
                         success: function (data) {
-                            $.spinner().stop();
                             // enable the placeOrder button here
                             $('body').trigger('checkout:enableButton', '.next-step-button button');
                             if (data.error) {
@@ -439,6 +440,7 @@ function checkFields(form) {
                                     // go to appropriate stage and display error message
                                     defer.reject(data);
                                 }
+                                $.spinner().stop();
                                 // ### Custom Adyen cartridge start ###
                             } else if (data.adyenAction) {
                                 window.orderToken = data.orderToken;

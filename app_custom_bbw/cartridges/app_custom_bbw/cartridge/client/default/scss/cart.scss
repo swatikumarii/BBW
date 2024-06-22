@@ -672,6 +672,7 @@
 .cart-empty-msg-wrap {
     border-bottom: 1px solid $clr-black-1;
     margin-bottom: 30px;
+    margin-top: 50px;
 
     .cart-empty-msg {
         line-height: 28px;
@@ -684,7 +685,7 @@
     min-height: 48px;
     line-height: 44px;
     padding: 0 32px;
-    margin-bottom: 64px;
+    margin-bottom: 40px;
 
     &:hover {
         color: $clr-white;
@@ -862,6 +863,7 @@ footer {
     .picked-just-recomm__item .product .b-product-tile {
         max-width: 160px;
         min-width: 160px;
+        text-align: left;
 
         @include media-down(sm) {
             min-width: 228px;
