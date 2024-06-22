@@ -13,9 +13,13 @@ var promotionCache = require('*/cartridge/scripts/util/promotionCache');
 module.exports = function productTile(product, apiProduct, productType) {
     var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
     var productSearchHit = productHelper.getProductSearchHit(apiProduct);
+    var productMasterSearchHit = productSearchHit;
+    if (productType === 'variant') {
+        productMasterSearchHit = productHelper.getProductSearchHit(apiProduct.masterProduct);
+    }
     decorators.base(product, apiProduct, productType);
     decorators.dynamicBadge(product, apiProduct);
-    decorators.searchPrice(product, productSearchHit, promotionCache.promotions, productHelper.getProductSearchHit);
+    decorators.searchPrice(product, productMasterSearchHit, promotionCache.promotions, productHelper.getProductSearchHit);
     decorators.images(product, apiProduct, { types: ['medium', 'medium_2x'], quantity: 'all' });
     decorators.ratings(product);
     if (productType === 'set') {
