@@ -2599,6 +2599,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-value>1.0</min-value>
             </attribute-definition>
+            <attribute-definition attribute-id="promotionTitle">
+                <display-name xml:lang="x-default">Promotion Title</display-name>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="promotionTileRandom1">
                 <display-name xml:lang="x-default">Promotion Tile 1 Random Index</display-name>
                 <type>boolean</type>
@@ -2737,6 +2745,14 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="promotionDescription">
+                <display-name xml:lang="x-default">Promotion Description</display-name>
+                <type>string</type>
+                <localizable-flag>true</localizable-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="showInMenu">
                 <display-name xml:lang="x-default">Show in Menu Navigation</display-name>
                 <description xml:lang="x-default">Used to indicate that a category (such as Mens -&gt; Footwear -&gt; Boots) will display in the roll-over navigation. A sub-category only shows if also the parent category is marked as showInMenu. Up to three category levels are shown in roll-over navigation.</description>
@@ -2757,6 +2773,11 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="pageDesignerID"/>
                 <attribute attribute-id="showInMenu"/>
                 <attribute attribute-id="hideFilter"/>
+            </attribute-group>
+            <attribute-group group-id="seoPromotionContent">
+                <display-name xml:lang="x-default">Seo Promotion Content</display-name>
+                <attribute attribute-id="promotionTitle"/>
+                <attribute attribute-id="promotionDescription"/>
             </attribute-group>
             <attribute-group group-id="promotionTileCommon">
                 <display-name xml:lang="x-default">Promotion Tile Common Attributes</display-name>

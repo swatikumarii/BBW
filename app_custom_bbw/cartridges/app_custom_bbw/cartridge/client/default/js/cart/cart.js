@@ -24,6 +24,15 @@ function appendToUrl(url, params) {
 }
 
 /**
+ * Clear error notification
+ */
+function clearErrorNotification() {
+    if ($('.cart-error .d-block') && $('.cart-error .d-block').length > 0) {
+        $('.cart-error .d-block').remove();
+    }
+}
+
+/**
  * Checks whether the basket is valid. if invalid displays error message and disables
  * checkout button
  * @param {object} data - AJAX response from the server
@@ -31,9 +40,10 @@ function appendToUrl(url, params) {
 function validateBasket(data) {
     if (data.valid.error) {
         if (data.valid.message) {
+            $('.pdict-message').remove();
             var errorHtml =
-                '<span class="d-block">' + data.valid.message + '</span>';
-
+                '<span class="pdict-message">' + data.valid.message + '</span>';
+            clearErrorNotification();
             $('.cart-error').append(errorHtml);
         } else {
             $('.cart')
@@ -59,6 +69,7 @@ function validateBasket(data) {
 
         $('.checkout-btn').addClass('disabled');
     } else {
+        $('.cart-error').remove();
         $('.checkout-btn').removeClass('disabled');
     }
 }
@@ -188,6 +199,7 @@ function updateCartTotals(data) {
  * @param {object} message - Error message to display
  */
 function createErrorNotification(message) {
+    clearErrorNotification();
     var errorHtml = '<span class="d-block">' + message + '</span>';
     $('.cart-error').append(errorHtml);
 }
@@ -263,8 +275,9 @@ function updateAvailability(data, uuid) {
         if (lineItem.availability) {
             if (lineItem.availability.messages) {
                 lineItem.availability.messages.forEach(function (message) {
+                    var colorClass = lineItem.available ? '' : 'h-clr--red';
                     messages +=
-                        '<p class="line-item-attributes">' + message + '</p>';
+                        `<p class="line-item-attributes ${colorClass}"> ${message} </p>`;
                 });
             }
 
@@ -424,7 +437,7 @@ module.exports = function () {
 
     $('body').on('click', '.cart-delete-confirmation-btn', function (e) {
         e.preventDefault();
-
+        clearErrorNotification();
         var productID = $(this).data('pid');
         var url = $(this).data('action');
         var uuid = $(this).data('uuid');
@@ -551,10 +564,23 @@ module.exports = function () {
     });
 
     $(document).on('click', '.quantity-form > .quantity-plus', function () {
+        var pid = $(this).siblings('input').data('pid');
+        var uuid = $(this).siblings('input').data('uuid');
         var quantity = Number($(this).siblings('.quantity').val());
-        quantity += 1;
+        var totalExistingQuantity = 0;
         var maxOrderQty = $(this).siblings('.quantity').data('max-order-qty');
-        if (maxOrderQty && Number(maxOrderQty) < quantity) {
+        var allQuantityElements = $('input.quantity');
+        $.each(allQuantityElements,function () {
+            if ($(this).data('pid') === pid && $(this).data('uuid') !== uuid) {
+                totalExistingQuantity += Number($(this).val());
+            }
+        });
+       
+        quantity += 1;
+        if (
+            maxOrderQty &&
+            ((Number(maxOrderQty) - totalExistingQuantity) < quantity)
+        ) {
             var errorElem = $(this)
                 .parents('.quantity-form')
                 .siblings('.max-order-qty-error');
@@ -576,23 +602,12 @@ module.exports = function () {
     });
 
     $('body').on('change', '.quantity-form > .quantity', function () {
+        clearErrorNotification();
         var preSelectQty = $(this).data('pre-select-qty');
         var quantity = Number($(this).val());
-        var maxOrderQty = $(this).data('max-order-qty');
+        var self = $(this); 
         var isMiniCartTrigger = $(this).parents('.popover').length > 0;
         var isCartPageTrigger = $(this).parents('.cart-page').length > 0;
-
-        if (maxOrderQty && Number(maxOrderQty) < quantity && quantity > 0) {
-            var errorElem = $(this)
-                .parents('.quantity-form')
-                .siblings('.max-order-qty-error');
-            errorElem.show();
-            setTimeout(function () {
-                errorElem.hide();
-            }, 3000);
-            $(this).val(Math.floor(maxOrderQty));
-            quantity = Number(maxOrderQty);
-        }
         var productID = $(this).data('pid');
         var url = $(this).data('action');
         var uuid = $(this).data('uuid');
@@ -624,6 +639,29 @@ module.exports = function () {
                     return;
                 }
                 $('.quantity[data-uuid="' + uuid + '"]').val(quantity);
+                var totalExistingQuantity=0;
+                var allQuantityElements = $('input.quantity');
+                var pid = self.data('pid');
+                var UUID = self.data('uuid');
+                $.each(allQuantityElements, function () {
+                    if (
+                        $(this).data('pid') === pid &&
+                        $(this).data('uuid') !== UUID
+                    ) {
+                        totalExistingQuantity += Number($(this).val());
+                    }
+                });
+                if (data.updatedQty) {
+                    if (Number(self.val()) !== data.updatedQty) {
+                        self.val(data.updatedQty);
+                        self.closest('.line-item-quantity').find('.max-order-qty-error').show();
+                        setTimeout(function() {
+                            self.closest('.line-item-quantity').find('.max-order-qty-error').hide();
+                        }, 5000);
+                    } else if ((data.updatedQty + totalExistingQuantity) <= Number(self.data('max-order-qty'))) {
+                        self.closest('.line-item-quantity').find('.max-order-qty-error').hide();
+                    }
+                }
                 $('.coupons-and-promos')
                     .empty()
                     .append(data.totals.discountsHtml);
@@ -667,6 +705,7 @@ module.exports = function () {
     });
 
     $('.shippingMethods').change(function () {
+        clearErrorNotification();
         var url = $(this).attr('data-actionUrl');
         var urlParams = {
             methodID: $(this).find(':selected').attr('data-shipping-id')
@@ -710,6 +749,7 @@ module.exports = function () {
     });
 
     $('.promo-code-form').submit(function (e) {
+        clearErrorNotification();
         e.preventDefault();
         $.spinner().start();
         $('.coupon-missing-error').hide();
@@ -848,7 +888,7 @@ module.exports = function () {
 
     $('body').on('click', '.delete-coupon-confirmation-btn', function (e) {
         e.preventDefault();
-
+        clearErrorNotification();
         var url = $(this).data('action');
         var uuid = $(this).data('uuid');
         var couponCode = $(this).data('code');
@@ -1050,7 +1090,7 @@ module.exports = function () {
 
     $('body').on('click', '.update-cart-product-global', function (e) {
         e.preventDefault();
-
+        clearErrorNotification();
         var updateProductUrl = $(this)
             .closest('.cart-and-ipay')
             .find('.update-cart-url')

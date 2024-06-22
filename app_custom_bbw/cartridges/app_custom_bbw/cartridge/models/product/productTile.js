@@ -34,7 +34,7 @@ module.exports = function productTile(product, apiProduct, productType) {
     decorators.badge(product, apiProduct);
     decorators.fragrance(product, apiProduct);
     decorators.titlePartB(product, apiProduct);
-    decorators.promoPrice(product, options.promotions);
+    decorators.promoPrice(product, options.promotions, apiProduct);
     decorators.availability(
         product,
         options.quantity,

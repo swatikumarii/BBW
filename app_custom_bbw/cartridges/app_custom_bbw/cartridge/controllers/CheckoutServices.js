@@ -31,10 +31,12 @@ server.prepend('SubmitPayment', function (req, res, next) {
             });
         }
         if (req.currentCustomer.addressBook && paymentForm.saveAddress.value) {
-            var address = addressHelpers.copyShippingAddress(currentBasket.billingAddress);
-            // save all used shipping addresses to address book of the logged in customer
-            if (!addressHelpers.checkIfAddressStored(address, req.currentCustomer.addressBook.addresses)) {
-                addressHelpers.saveAddress(address, req.currentCustomer, addressHelpers.generateAddressName(address), true);
+            if (currentBasket.billingAddress) {
+                var address = addressHelpers.copyShippingAddress(currentBasket.billingAddress);
+                // save all used shipping addresses to address book of the logged in customer
+                if (!addressHelpers.checkIfAddressStored(address, req.currentCustomer.addressBook.addresses)) {
+                    addressHelpers.saveAddress(address, req.currentCustomer, addressHelpers.generateAddressName(address), true);
+                }
             }
         }
     }

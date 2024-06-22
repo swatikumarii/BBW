@@ -150,13 +150,26 @@ server.append('Login', function (req, res, next) {
     var email = req.form.loginEmail;
     var viewData = res.getViewData();
     var remainingLoginAttempts = accountHelper.remainingLoginAttempts(email);
-    if(remainingLoginAttempts !== -1){
-        viewData.error =
-            [
-                Resource.msgf('error.message.login.form.attempts', 'login', null, remainingLoginAttempts)
-            ];
-    
-        if(!remainingLoginAttempts || remainingLoginAttempts === 0){
+    if (remainingLoginAttempts === 'USER_NOT_FOUND') {
+        viewData.error = [
+            Resource.msg(
+                'error.message.username.password.does.not.match',
+                'login',
+                null
+            )
+        ];
+        res.setViewData(viewData);
+    } else if (remainingLoginAttempts !== -1) {
+        viewData.error = [
+            Resource.msgf(
+                'error.message.login.form.attempts',
+                'login',
+                null,
+                remainingLoginAttempts
+            )
+        ];
+
+        if (!remainingLoginAttempts || remainingLoginAttempts === 0) {
             viewData.error = [
                 Resource.msg('error.message.account.locked', 'login', null)
             ];
