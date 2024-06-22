@@ -306,7 +306,7 @@
                                                         <tr>
                                                             <td
                                                                 style="font-size:14px;text-transform:uppercase;vertical-align:top;padding:5px 13px;">
-                                                                ${discount.promotion}
+                                                                ${discount.promotion && discount.promotion != null ? discount.promotion : "-"}
                                                             </td>
                                                             <td
                                                                 style="font-size:14px;text-transform:uppercase;vertical-align:top;padding:5px 0;text-align:right">
