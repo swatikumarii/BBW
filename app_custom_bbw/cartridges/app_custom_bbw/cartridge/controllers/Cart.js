@@ -17,6 +17,7 @@ var cartTemplate = new Template('cart/productCard/cartProductCardAjax');
 var miniCartTemplate = new Template('checkout/productCard/miniCartProductCardAjax');
 var dynamicBadgeHelpers = require('*/cartridge/scripts/helpers/dynamicBadgeHelpers');
 var productValidationHelpers = require('*/cartridge/scripts/helpers/productValidationHelpers');
+var giftWrapCartHelpers = require('*/cartridge/scripts/helpers/cart/giftWrap');
 var Site = require('dw/system/Site');
 
 /**
@@ -254,7 +255,7 @@ server.replace('UpdateQuantity', function (req, res, next) {
                     function (bonusDiscountLineItem) {
                         if (prevItems.indexOf(bonusDiscountLineItem.UUID) < 0) {
                             bonusDiscountLineItem.custom.bonusProductLineItemUUID =
-                                matchingLineItem.UUID; // eslint-disable-line no-param-reassign
+                                matchingLineItem.UUID; // eslint-disable-line
                             matchingLineItem.custom.bonusProductLineItemUUID =
                                 'bonus';
                             matchingLineItem.custom.preOrderUUID =
@@ -320,6 +321,72 @@ server.append('UpdateQuantity', function (req, res, next) {
     }
     next();
 });
+
+// Plugin gift card and gift wrap routes
+
+/**
+ * Cart-UpdateQuantity : The Cart-UpdateQuantity endpoint handles updating the quantity of a product line item in the basket
+ * @name Cart-UpdateQuantity
+ */
+server.prepend('UpdateQuantity', function (req, res, next) {
+    var URLUtils = require('dw/web/URLUtils');
+    var Resource = require('dw/web/Resource');
+    var productHelpers = require('*/cartridge/scripts/helpers/product');
+    var customPreferenceNames = require('*/cartridge/config/customPreferenceNames');
+    var giftWrapCategoryName = Site.current.getCustomPreferenceValue(
+        customPreferenceNames.giftWrapCategoryName
+    );
+    var currentBasket = BasketMgr.getCurrentBasket();
+    if (!currentBasket) {
+        res.setStatusCode(500);
+        res.json({
+            error: true,
+            redirectUrl: URLUtils.url('Cart-Show').toString()
+        });
+
+        return next();
+    }
+    if (req.querystring.pid && req.querystring.uuid) {
+        var giftWrapProductLineItem = productHelpers.getProductLineItemByCategory(
+            currentBasket.getAllProductLineItems(),
+            giftWrapCategoryName
+        );
+        if (giftWrapProductLineItem) {
+            if (giftWrapProductLineItem.product.ID === req.querystring.pid) {
+                res.json({
+                    error: true,
+                    errorMessage: Resource.msg(
+                        'error.update.giftwrap.product.quantity',
+                        'giftWrap',
+                        null
+                    )
+                });
+                return this.emit('route:Complete', req, res);
+            }
+            giftWrapCartHelpers.handleUpdateQuantity(
+                currentBasket, giftWrapProductLineItem,
+                req.querystring.pid,
+                req.querystring.quantity
+            );
+        }
+    }
+    return next();
+});
+
+/**
+ * Cart-UpdateQuantity : The Cart-UpdateQuantity endpoint handles updating the quantity of a product line item in the basket
+ * @name Cart-UpdateQuantity
+ */
+server.append(
+    'UpdateQuantity',
+    function (req, res, next) {
+        var currentBasket = BasketMgr.getCurrentBasket();
+        res.setViewData(
+            giftWrapCartHelpers.getGiftWrapLineItemCart(currentBasket)
+        );
+        next();
+    }
+);
 
 server.append('RemoveProductLineItem', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
