@@ -36,7 +36,7 @@
             </a>
         </span>
     <iselse/>
-        <span class="sales ${reducedPrice === 'true' ? 'reduced':''}">
+        <span class="sales ${pdict.product.promoPrice ? 'hpp-promo-price': ''} ${reducedPrice === 'true' ? 'reduced':''}">
             <isif condition="${isLowPrice == 'range-low'}">
                 <span class="value low" content="${price.decimalPrice}"></span>
             </isif>
