@@ -5,19 +5,12 @@ server.extend(module.superModule);
 
 var categoryHelper = require('*/cartridge/scripts/helpers/categoryHelper');
 var ingredientCategoryHelper = require('*/cartridge/scripts/helpers/ingredientCategoryHelper');
-var seo = require('*/cartridge/scripts/middleware/seo');
 
 server.append(
     'Show',
     categoryHelper.appendLevelOneCategory,
     categoryHelper.appendCategoryBreadcrum,
-    ingredientCategoryHelper.appendIngredientSearch,
-    function (req, res, next) {
-        if (!req.querystring.cgid) {
-            seo.addCurrentPageMetaData(req, res, next);
-        }
-        next();
-    }
+    ingredientCategoryHelper.appendIngredientSearch
 );
 server.append(
     'ShowAjax',
