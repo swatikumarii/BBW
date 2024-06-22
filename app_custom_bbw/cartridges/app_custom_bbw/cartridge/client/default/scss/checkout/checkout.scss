@@ -791,6 +791,23 @@ input[type="tel"],
             padding-left: 10px;
             padding-right: 0;
         }
+
+        .coupon-error {
+            .coupon-error-message.d-block {
+                padding: 0.5rem 1rem;
+            }
+
+            .coupon-missing-error.d-block {
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        .coupons-and-promos {
+            .delete-coupon-confirmation-btn {
+                margin-top: 7px;
+                cursor: pointer;
+            }
+        }
     }
 }
 

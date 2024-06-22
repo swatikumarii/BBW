@@ -574,6 +574,13 @@
                             font-family: get-ff(base, true);
                         }
                     }
+
+                    .coupons-and-promos {
+                        .delete-coupon-confirmation-btn {
+                            margin-top: 7px;
+                            cursor: pointer;
+                        }
+                    }
                 }
             }
 
@@ -597,8 +604,8 @@
                         &.accordion-item.collapsed {
                             .cart-saving {
                                 &::before {
-                                    background: url("../images/UI-Carat.svg")
-                                        50%;
+                                    background: url("../images/UI-Carat.svg") 
+                                    50%;
                                     background-repeat: no-repeat;
                                     background-size: 1.25rem;
                                     content: "";
@@ -617,7 +624,7 @@
                             .cart-saving {
                                 &::before {
                                     background: url("../images/UI-Carat.svg")
-                                        50%;
+                                     50%;
                                     background-repeat: no-repeat;
                                     background-size: 1.25rem;
                                     content: "";
