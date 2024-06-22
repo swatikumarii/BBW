@@ -69,6 +69,7 @@ function validateBasket(data) {
 
         $('.checkout-btn').addClass('disabled');
     } else {
+        $('.cart-error').remove();
         $('.checkout-btn').removeClass('disabled');
     }
 }
@@ -274,8 +275,9 @@ function updateAvailability(data, uuid) {
         if (lineItem.availability) {
             if (lineItem.availability.messages) {
                 lineItem.availability.messages.forEach(function (message) {
+                    var colorClass = lineItem.available ? '' : 'h-clr--red';
                     messages +=
-                        '<p class="line-item-attributes">' + message + '</p>';
+                        `<p class="line-item-attributes ${colorClass}"> ${message} </p>`;
                 });
             }
 
@@ -562,10 +564,23 @@ module.exports = function () {
     });
 
     $(document).on('click', '.quantity-form > .quantity-plus', function () {
+        var pid = $(this).siblings('input').data('pid');
+        var uuid = $(this).siblings('input').data('uuid');
         var quantity = Number($(this).siblings('.quantity').val());
-        quantity += 1;
+        var totalExistingQuantity = 0;
         var maxOrderQty = $(this).siblings('.quantity').data('max-order-qty');
-        if (maxOrderQty && Number(maxOrderQty) < quantity) {
+        var allQuantityElements = $('input.quantity');
+        $.each(allQuantityElements,function () {
+            if ($(this).data('pid') === pid && $(this).data('uuid') !== uuid) {
+                totalExistingQuantity += Number($(this).val());
+            }
+        });
+       
+        quantity += 1;
+        if (
+            maxOrderQty &&
+            ((Number(maxOrderQty) - totalExistingQuantity) < quantity)
+        ) {
             var errorElem = $(this)
                 .parents('.quantity-form')
                 .siblings('.max-order-qty-error');
@@ -590,21 +605,9 @@ module.exports = function () {
         clearErrorNotification();
         var preSelectQty = $(this).data('pre-select-qty');
         var quantity = Number($(this).val());
-        var maxOrderQty = $(this).data('max-order-qty');
+        var self = $(this); 
         var isMiniCartTrigger = $(this).parents('.popover').length > 0;
         var isCartPageTrigger = $(this).parents('.cart-page').length > 0;
-
-        if (maxOrderQty && Number(maxOrderQty) < quantity && quantity > 0) {
-            var errorElem = $(this)
-                .parents('.quantity-form')
-                .siblings('.max-order-qty-error');
-            errorElem.show();
-            setTimeout(function () {
-                errorElem.hide();
-            }, 3000);
-            $(this).val(Math.floor(maxOrderQty));
-            quantity = Number(maxOrderQty);
-        }
         var productID = $(this).data('pid');
         var url = $(this).data('action');
         var uuid = $(this).data('uuid');
@@ -636,6 +639,29 @@ module.exports = function () {
                     return;
                 }
                 $('.quantity[data-uuid="' + uuid + '"]').val(quantity);
+                var totalExistingQuantity=0;
+                var allQuantityElements = $('input.quantity');
+                var pid = self.data('pid');
+                var UUID = self.data('uuid');
+                $.each(allQuantityElements, function () {
+                    if (
+                        $(this).data('pid') === pid &&
+                        $(this).data('uuid') !== UUID
+                    ) {
+                        totalExistingQuantity += Number($(this).val());
+                    }
+                });
+                if (data.updatedQty) {
+                    if (Number(self.val()) !== data.updatedQty) {
+                        self.val(data.updatedQty);
+                        self.closest('.line-item-quantity').find('.max-order-qty-error').show();
+                        setTimeout(function() {
+                            self.closest('.line-item-quantity').find('.max-order-qty-error').hide();
+                        }, 5000);
+                    } else if ((data.updatedQty + totalExistingQuantity) <= Number(self.data('max-order-qty'))) {
+                        self.closest('.line-item-quantity').find('.max-order-qty-error').hide();
+                    }
+                }
                 $('.coupons-and-promos')
                     .empty()
                     .append(data.totals.discountsHtml);
@@ -795,8 +821,7 @@ module.exports = function () {
         return false;
     });
 
-    $(document).on('click', '.promo-code-form button', function () {
-        clearErrorNotification();
+    $(document).on('click', '.checkout-promo-code-form .promo-code-form button', function () {
         $.ajax({
             url: $('.promo-code-form').attr('action'),
             type: 'GET',
