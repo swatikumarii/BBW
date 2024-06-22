@@ -18,4 +18,5 @@ index.promotions = require('*/cartridge/models/product/decorators/promotions');
 index.dynamicBadge = require('*/cartridge/models/product/decorators/dynamicBadge');
 index.promoPrice = require('*/cartridge/models/product/decorators/promoPrice');
 index.isSearchableIfUnavailable = require('*/cartridge/models/product/decorators/isSearchableIfUnavailable');
+index.variantURL = require('*/cartridge/models/product/decorators/variantURL');
 module.exports = index;

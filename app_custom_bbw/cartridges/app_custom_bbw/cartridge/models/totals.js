@@ -237,6 +237,7 @@ function totals(lineItemContainer) {
         this.salesTax = getTotals(
             lineItemContainer.adjustedMerchandizeTotalTax
         );
+        this.miniCartSubTotal = getTotals(lineItemContainer.getAdjustedMerchandizeTotalPrice(false));
     } else {
         this.pendingTotal = '-';
     }

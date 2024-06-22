@@ -14,6 +14,7 @@ var ContentMgr = require('dw/content/ContentMgr');
 var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
 var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
 var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
 
 /**
  * Append Account-Show controller: Update breadcrumbs
@@ -129,10 +130,11 @@ server.prepend('Login', function (req, res, next) {
         res.json({
             isMigratedNotUpdated: true,
             error: [
-                Resource.msg(
+                Resource.msgf(
                     'reset.password.message.migrated.user',
                     'login',
-                    null
+                    null,
+                    URLUtils.url('Account-PasswordReset')
                 )
             ]
         });
@@ -387,6 +389,14 @@ server.replace(
 
                     // Send account edited email
                     accountHelpers.sendAccountEditedEmail(customer.profile);
+
+                    // Capillary: update customer service
+                    var crmCustomerID = capillaryAPI.updateCustomer(formInfo, profile);
+                    if (crmCustomerID) {
+                        Transaction.wrap(function () {
+                            profile.custom.capillaryCustomerID = crmCustomerID;
+                        });
+                    }
 
                     delete formInfo.profileForm;
                     delete formInfo.email;
@@ -964,6 +974,13 @@ server.replace(
                         res.setViewData({
                             authenticatedCustomer: authenticatedCustomer
                         });
+                        // Capillary: create customer service
+                        var crmCustomerID = capillaryAPI.createCustomer(registrationForm);
+                        if (crmCustomerID) {
+                            Transaction.wrap(function () {
+                                authenticatedCustomer.profile.custom.capillaryCustomerID = crmCustomerID;
+                            });
+                        }
                         res.json({
                             success: true,
                             redirectUrl: accountHelper.getLoginRedirectURL(

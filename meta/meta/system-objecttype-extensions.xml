@@ -548,6 +548,13 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="capillaryCustomerID">
+                <display-name xml:lang="x-default">Capillary Customer ID</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Standard">
@@ -558,6 +565,7 @@
                 <display-name xml:lang="x-default">RegistrationAttribute</display-name>
                 <attribute attribute-id="nationality"/>
                 <attribute attribute-id="zipCode"/>
+                <attribute attribute-id="capillaryCustomerID"/>
             </attribute-group>
             <attribute-group group-id="MigrationAttribute">
                 <display-name xml:lang="x-default">Migration Attribute</display-name>
@@ -3067,6 +3075,15 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="capillaryOrderID">
+                <display-name xml:lang="x-default">Capillary Order ID</display-name>
+                <description xml:lang="x-default">Used to store capillary order ID</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="AdyenPayments">
@@ -3096,6 +3113,10 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-group group-id="MigrationAttribute">
                 <display-name xml:lang="x-default">Migration Attribute</display-name>
                 <attribute attribute-id="giftMessage"/>
+            </attribute-group>
+            <attribute-group group-id="customAttributes">
+                <display-name xml:lang="x-default">Custom Attributes</display-name>
+                <attribute attribute-id="capillaryOrderID"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

@@ -664,6 +664,7 @@ module.exports = {
                         },
                         method: 'GET',
                         success: function (response) {
+                            $('#search-ingredient-div').addClass('d-md-none');
                             parseResults(response);
                             searchAlphabetSort();
                             $.spinner().stop();

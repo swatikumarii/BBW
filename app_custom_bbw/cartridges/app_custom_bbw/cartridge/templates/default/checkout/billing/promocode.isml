@@ -9,7 +9,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="checkout-promo-code-form col-12">
                 <div action="${URLUtils.url('Cart-AddCoupon').toString()}" class="promo-code-form" method="GET"
                     name="promo-code-form">
                     <div class="form-group">
@@ -33,7 +33,6 @@
         <div class="coupons-and-promos mb-4 mr-3">
             <isloop items="${pdict.order.totals.discounts}" var="discount">
                 <isif condition="${discount.type === 'coupon'}">
-                    <isif condition="${discount.qualificationMsg && discount.qualificationMsg != null}">
                         <div class="coupon-price-adjustment d-flex justify-content-between h-bg--${discount.applied ? 'green-5' : 'red-10'} coupon-uuid-${discount.UUID}"
                             data-uuid="${discount.UUID}">
                             <isif condition="${discount.applied}">
@@ -51,7 +50,7 @@
                                 </span>
                             <iselse/>
                                     <div class="coupon-code h-font-size--16 h-fw--semibold h-bg--red-10 py-2 px-4">
-                                        <span class="coupon-not-applied h-clr--red">${discount.qualificationMsg}</span>
+                                        <span class="coupon-not-applied h-clr--red">${discount.qualificationMsg && discount.qualificationMsg != null ? discount.qualificationMsg : Resource.msg('msg.coupon.not.applicable', 'cart', null) }</span>
                                         <span
                                             class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + discount.couponCode}</span>
                                     </div>
@@ -63,7 +62,6 @@
                             </isif>
                         </div>
                     </isif>
-                </isif>
             </isloop>
         </div>
     </div>

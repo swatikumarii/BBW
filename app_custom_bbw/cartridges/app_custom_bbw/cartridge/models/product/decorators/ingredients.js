@@ -10,7 +10,7 @@ module.exports = function (object, apiProduct) {
             'custom' in apiProduct &&
             'ingredients' in apiProduct.custom &&
             apiProduct.custom.ingredients !== ''
-                ? apiProduct.custom.ingredients
+                ? Object.values(apiProduct.custom.ingredients).join(', ')
                 : false
     });
 };
