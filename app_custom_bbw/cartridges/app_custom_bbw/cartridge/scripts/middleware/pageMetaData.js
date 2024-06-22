@@ -19,10 +19,6 @@ function computedPageMetaData(req, res, next) {
         resourceKey = pathParts[pathParts.length - 1].replace('-', '.').toLowerCase();
     }
 
-    if (resourceKey === 'search.show' && !req.querystring.cgid) {
-        return next();
-    }
-
     var computedMetaData = {
         title: req.pageMetaData.title,
         description: req.pageMetaData.description,
@@ -30,17 +26,30 @@ function computedPageMetaData(req, res, next) {
         pageMetaTags: []
     };
 
-    req.pageMetaData.pageMetaTags.forEach(function (item) {
-        if (item.title) {
-            computedMetaData.title = item.content;
-        } else if (item.name && item.ID === 'description') {
-            computedMetaData.description = item.content;
-        } else if (item.name && item.ID === 'keywords') {
-            computedMetaData.keywords = item.content;
-        } else {
-            computedMetaData.pageMetaTags.push(item);
+    if (resourceKey === 'search.show' && !req.querystring.cgid) {
+        var ContentMgr = require('dw/content/ContentMgr');
+        var contentAsset = ContentMgr.getContent(resourceKey + '.seo');
+        // As the content asset is mainly used for SEO purpose, no need to put it online
+        if (!empty(contentAsset)) {
+            computedMetaData.title = contentAsset.getPageTitle();
+            computedMetaData.description = contentAsset.getPageDescription();
+            computedMetaData.keywords = contentAsset.getPageKeywords();
+            computedMetaData.pageMetaTags = contentAsset.getPageMetaTags();
         }
-    });
+    } else {
+        req.pageMetaData.pageMetaTags.forEach(function (item) {
+            if (item.title) {
+                computedMetaData.title = item.content;
+            } else if (item.name && item.ID === 'description') {
+                computedMetaData.description = item.content;
+            } else if (item.name && item.ID === 'keywords') {
+                computedMetaData.keywords = item.content;
+            } else {
+                computedMetaData.pageMetaTags.push(item);
+            }
+        });
+    }
+
 
     res.setViewData({
         CurrentPageMetaData: computedMetaData
