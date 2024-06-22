@@ -129,7 +129,7 @@ padding: 15px 0;
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-1-detail-section"/>
+                <content-asset content-id="menu-item-slot-2-detail-section"/>
             </content-assets>
         </content>
     </slot-configuration>
@@ -140,7 +140,7 @@ padding: 15px 0;
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-1-detail-section"/>
+                <content-asset content-id="menu-item-slot-3-detail-section"/>
             </content-assets>
         </content>
     </slot-configuration>
@@ -151,7 +151,18 @@ padding: 15px 0;
         <enabled-flag>true</enabled-flag>
         <content>
             <content-assets>
-                <content-asset content-id="menu-item-slot-1-detail-section"/>
+                <content-asset content-id="menu-item-slot-4-detail-section"/>
+            </content-assets>
+        </content>
+    </slot-configuration>
+
+    <slot-configuration slot-id="menu-item-slot-5" context="global" configuration-id="menu-item-slot-5" default="true" assigned-to-site="true">
+        <description>Menu Item Slot 5</description>
+        <template>slots/content/contentAssetBody.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <content>
+            <content-assets>
+                <content-asset content-id="menu-item-slot-5-detail-section"/>
             </content-assets>
         </content>
     </slot-configuration>
