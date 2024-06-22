@@ -5,6 +5,7 @@ var server = require('server');
 server.extend(module.superModule);
 
 var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
+var URLUtils = require('dw/web/URLUtils');
 
 /**
  *  Handle Ajax payment (and billing) form submit
@@ -96,10 +97,11 @@ server.prepend(
                 form: customerForm,
                 fieldErrors: formFieldErrors,
                 serverErrors: [],
-                customerErrorMessage: Resource.msg(
+                customerErrorMessage: Resource.msgf(
                     'reset.password.message.migrated.user',
                     'login',
-                    null
+                    null,
+                    URLUtils.url('Account-PasswordReset')
                 ),
                 error: true
             });
@@ -108,6 +110,45 @@ server.prepend(
         return next();
     }
 );
+
+/**
+ * CheckoutServices-LoginCustomer : The CheckoutServices-LoginCustomer endpoint.
+ */
+server.append('LoginCustomer', function (req, res, next) {
+    var viewData = res.getViewData();
+    if (viewData.error) {
+        var Resource = require('dw/web/Resource');
+        var accountHelper = require('*/cartridge/scripts/helpers/accountHelpers');
+        var email = viewData.form.email.value;
+        var remainingLoginAttempts =
+            accountHelper.remainingLoginAttempts(email);
+        if (remainingLoginAttempts === 'USER_NOT_FOUND') {
+            viewData.customerErrorMessage = Resource.msg(
+                'error.message.username.password.does.not.match',
+                'login',
+                null
+            );
+        } else if (remainingLoginAttempts !== -1) {
+            viewData.customerErrorMessage = Resource.msgf(
+                'error.message.login.form.attempts',
+                'login',
+                null,
+                remainingLoginAttempts
+            );
+
+            if (!remainingLoginAttempts || remainingLoginAttempts === 0) {
+                viewData.customerErrorMessage = Resource.msg(
+                    'error.message.account.locked',
+                    'login',
+                    null
+                );
+            }
+            viewData.remainingLoginAttempts = remainingLoginAttempts;
+        }
+        res.setViewData(viewData);
+    }
+    next();
+});
 
 /**
  * Handle dynamic badges
