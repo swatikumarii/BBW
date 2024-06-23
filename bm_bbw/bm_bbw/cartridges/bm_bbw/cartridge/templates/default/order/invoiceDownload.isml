@@ -1,0 +1,592 @@
+<div id="content">
+    <table style="table-layout: fixed; width: 100%; ">
+        <tbody>
+            <tr style="vertical-align: baseline; font-family: SourceSansPro, Arial, sans-serif;">
+                <td class="" style="vertical-align: bottom; width:56%;">
+                    <div style="margin-left: 30px;">
+                        <isset name="headerImage"
+                            value="${require('dw/system/Site').getCurrent().getCustomPreferenceValue('header_image')}"
+                            scope="page" />
+                        <img class="hidden-md-down img-fluid w-100"
+                            src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/bbw-logo-invoice.png')}"
+                            alt="${Resource.msg('global.storename', 'common', null)}" style="width: 220px" />
+                    </div>
+                </td>
+                <td style="vertical-align: baseline;">
+                 <h1>${Resource.msg('label.invoice', 'order', null)}</h1>
+                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyAddress')}">
+                        <div
+                            style="margin: 0;line-height: 18px; letter-spacing:0.75px;color:#1a1919">
+                            <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyAddress')}"
+                                encoding="off" />
+                        </div>
+                    </isif>
+                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServicePhone')}">
+                        <div
+                            style="margin: 0;line-height: 18px; letter-spacing:0.75px;color:#1a1919">
+                            ${Resource.msg('label.contact', 'order', null)}:
+                            <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServicePhone')}"
+                                encoding="off" />
+                        </div>
+                    </isif>
+                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServiceEmail')}">
+                        <p
+                            style="margin: 0;line-height: 18px; letter-spacing:0.75px;color:#1a1919">
+                            ${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServiceEmail')}
+                        </p>
+                    </isif>
+                    <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyTaxNumber')}">
+                        <div style="margin: 0;line-height: 18px; letter-spacing:0.75px;color:#1a1919">
+                            ${Resource.msg('label.tax.number', 'order', null)}:
+                            <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyTaxNumber')}" encoding="off" />
+                        </div>
+                    </isif>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <table
+            style="table-layout: fixed; width: 100%; background-color: #5a88b5; margin-top: 30px;">
+            <tbody>
+                <tr style="vertical-align: baseline;">
+                    <td style="vertical-align:baseline;     padding: 19px 0px 19px 7px;">
+                        <p style="color:white; font-size:19px; margin:0px; font-family: SourceSansPro, Arial, sans-serif; margin-bottom: 11px;">
+                            <span style="color:white; font-weight:700; font-size:19px">${Resource.msg('label.order', 'order', null)}: </span>
+                            ${pdict.order.orderNumber}
+                        </p>
+                        <p style="color:white; font-size:19px; margin-top:5px; font-family: SourceSansPro, Arial, sans-serif;">
+                            <span
+                                style="color:white; font-weight:700; font-size:19px">${Resource.msg('label.order.date', 'confirmation', null)} </span>
+                            <isprint value="${pdict.order.creationDate}" style="DATE_LONG" />
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="padding-top:8px; padding-bottom:8px;">
+        <table style="table-layout: fixed; width: 100%;    margin-left: 3px;">
+            <tbody>
+                <tr style="vertical-align: baseline; font-family: SourceSansPro, Arial, sans-serif;">
+                    <td style="width:56%;">
+                        <div>
+                            <div style="    background-color:#B0C8EA;  margin-left: -5px;     padding: 12px 9px;">
+                                <strong
+                                    style="text-transform: uppercase;font-family: SourceSansPro, Arial,
+                                    sans-serif;font-size:19px;letter-sapcing:1px;line-height:normal;display: block;width: 100%;">
+                                    ${Resource.msg('billing.details.invoice', 'order', null)}:
+                                </strong>
+                            </div>
+                            <div>
+                                <isset name="address" value="${pdict.order.billing.billingAddress.address}"
+                                    scope="page" />
+                                <p style="margin:0px; font-family: SourceSansPro, Arial,
+                                    sans-serif;">
+                                    <isinclude template="order/addressSummaryInvoice" />
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="vertical-align:baseline; width:44%;">
+                        <div style="    background-color:#B0C8EA; margin-left: -4px; padding: 12px 9px;">
+                            <strong class=""
+                                style="text-transform: uppercase;font-family: SourceSansPro, Arial,
+                                    sans-serif;font-size:19px;letter-sapcing:1px;line-height:normal;">
+                                ${Resource.msg('shipping.details.invoice', 'order', null)}:
+                            </strong>
+                        </div>
+                        <div>
+                            <isloop items="${pdict.order.shipping}" var="shippingModel" status="shippingLoop">
+                                <isset name="address" value="${shippingModel.shippingAddress}" scope="page" />
+                                <isinclude template="order/addressSummaryInvoice" />
+                            </isloop>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="padding-top:8px; padding-bottom:8px;">
+        <table style="table-layout: fixed; width: 100%;">
+            <tbody>
+                <tr style="vertical-align: baseline; font-family: SourceSansPro, Arial, sans-serif;">
+                    <td style="width:56%;">
+                        <div>
+                            <div style=" background-color:#B0C8EA;  margin-left: -4px;     padding: 12px 9px;">
+                                <strong
+                                    style="text-transform: uppercase;font-family: SourceSansPro, Arial,
+                                    sans-serif;font-size:19px;letter-sapcing:1px;line-height:normal;display: block;width: 100%;">
+                                ${Resource.msg('label.order.payment.info', 'order', null)}:
+                                </strong>
+                            </div>
+                            <div style="padding: 0 10px;">
+                            <p>${Resource.msg('label.online.payment', 'order', null)}:
+                               <isinclude template="checkout/billing/paymentOptions/paymentOptionsSummary" /> 
+                            </p>
+                            <div style="letter-spacing:0.75px;color:#1a1919"
+                                class="email">
+                                <p>${Resource.msg('label.payer.email', 'order', null)}:
+                                <span>
+                                    <isif condition="${pdict.order.orderEmail}">${pdict.order.orderEmail}</isif>
+                                </span>
+                                </p>
+                            </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td style="vertical-align:baseline; width:44%;">
+                        <div style="    background-color:#B0C8EA; margin-left: -4px; padding: 12px 9px;">
+                            <strong
+                                style="text-transform: uppercase;font-family: SourceSansPro, Arial, sans-serif;font-size:19px;letter-sapcing:1px;line-height:normal;">
+                                ${Resource.msg('label.order.shipping.method', 'confirmation', null)}
+                            </strong>
+                        </div>
+                        <div style="padding: 0 10px;">
+                            <isloop var="shippingModel" items="${pdict.order.shipping}" status="shippingLoop">
+                                <p class="shipping-method"  style="text-align:left; margin-left: -3px;">
+                                    <span
+                                        class="shipping-method-title h-font-size--16">${Resource.msg('label.shipping', 'order', null)} : ${shippingModel.selectedShippingMethod.ID} ${Resource.msg('label.shipping', 'order', null)}
+                                        <isif condition="${pdict.order.trackingNumber}">
+                                            <a href="${pdict.order.trackingUrl + pdict.order.trackingNumber}" hreflang="${request.getLocale()}"
+                                                target="_blank">
+                                                <span>${pdict.order.trackingNumber}</span>
+                                            </a>
+                                        </isif>
+                                    </span>
+                                </p>
+                            </isloop>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table style="width: 100%;">
+            <thead style="width: 100%; vertical-align:baseline; font-family: SourceSansPro, Arial, sans-serif;">
+                <tr>
+                    <th 
+                        style="text-align:left; width: 27%; font-size:19px; background-color:#B0C8EA; padding: 12px 9px;">
+                        ${Resource.msg('label.item.invoice.description', 'order', null)}
+                    </th>
+                    <th  style=" width: 18%; font-size:19px; background-color:#B0C8EA; padding: 12px 9px;">
+                        ${Resource.msg('label.item.sku', 'order', null)}
+                    </th>
+                    <th style="    background-color:#B0C8EA; font-size:19px; width: 16%; padding: 12px 9px;">
+                        ${Resource.msg('label.qty', 'order', null)}
+                    </th>
+                    <th style="    background-color:#B0C8EA; font-size:19px; width: 15%; padding: 12px 9px;">
+                        ${Resource.msg('label.price', 'order', null)}
+                    </th>
+                    <th
+                        style="    background-color:#B0C8EA; text-align: right; font-size:19px;  width: 12%; padding: 12px 9px;">
+                        ${Resource.msg('label.amount', 'order', null)}
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <isloop items="${pdict.order.items.items}" var="lineItem">
+                    <tr style="font-family: SourceSansPro, Arial, sans-serif;">
+                        <td style=" padding: 5px; vertical-align: middle; height: 120px;"
+                            valign="center">
+                            <div class="product-card-wrapper" style="width: 100%;height: auto;display: flex;">
+                                <div class="product-image">
+                                    <isif condition="${lineItem.ispersonalizedGiftcard}">
+                                        <img style="float:left;margin-right:10px"
+                                            src="${lineItem.personalizeGiftcardImage}" alt="${lineItem.alt}" height="90"
+                                            width="90">
+                                    <iselse/>
+                                        <img style="float:left;" src="${lineItem.images.small[0].absURL}"
+                                            alt="${lineItem.images.small[0].alt}"
+                                            title="${lineItem.images.small[0].title}" height="90" width="90">
+                                    </isif>
+                                </div>
+                                <div class="product-details" style="margin-top:12px;">
+                                    <isif condition="${lineItem.ispersonalizedGiftcard}">
+                                        <p style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919;">
+                                            ${Resource.msg('personalized.giftcard.name', 'common', null)}</p>
+                                    <iselse/>
+                                        <p style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919; margin-left:16px;">
+                                        ${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</p>
+                                    </isif>
+                                    <isif condition="${lineItem.titlePartB}">
+                                        <p style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919; margin-left:16px;">${lineItem.titlePartB}
+                                        </p>
+                                    </isif>
+                                    <isif condition="${lineItem.volume}">
+                                        <p style="margin:0px;font-size:16px;letter-spacing: 0.75px;color: #1a1919; margin-left:16px;">${lineItem.volume}</p>
+                                    </isif>
+                                    <isif condition="${lineItem.productCategory === 'greetingCardProducts'}">
+                                        <p
+                                            style="margin:0px;font-size:14px;font: normal 14px/24px ScalaSansOT,sans-serif; letter-spacing: 0.75px;color: #1a1919;">
+                                            ${lineItem.greetingCardMessage}</p>
+                                    </isif>
+                                    <isif
+                                        condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails && lineItem.giftCardDetails.isEgiftProduct}">
+                                        <p
+                                            style="margin:0px; margin-left: 10px;font-size:14px;font: normal 14px/24px ScalaSansOT,sans-serif; letter-spacing: 0.75px;color: #1a1919;">
+                                            ${Resource.msg('productCard.egift.email.label', 'cart', null)}
+                                            ${lineItem.giftCardDetails.recipientEmail}</p>
+                                    </isif>
+                                </div>
+                            </div>
+                        </td>
+                        <td valign="center">
+                            <div class="product-card-wrapper">
+                                <div class="product-details" style="text-align:center">
+                                    <p
+                                        style="margin:0px;font-size:14px;font: normal 14px/24px ScalaSansOT,sans-serif; letter-spacing: 0.75px;color: #1a1919;">
+                                        ${lineItem.id}</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td align="center">
+                            <isprint value="${lineItem.quantity}" formatter="##" />
+                        </td>
+                        <td align="center">
+                            <isif condition="${lineItem.noProduct}">
+                                <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}">
+                                ${lineItem.basePrice.currencyCode} ${lineItem.basePrice.value}</div>
+                            <iselseif
+                                condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}"/>
+                                <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}">
+                                </div>
+                            <iselse/>
+                                <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}">
+                                    ${lineItem.price.sales.formatted}</div>
+                            </isif>
+                        </td>
+                        <td align="right" style=" padding: 5px; font-family: SourceSansPro, Arial,
+                                    sans-serif;">
+                            <isif condition="${lineItem.noProduct}">
+                                <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}">
+                                ${lineItem.priceTotal.currencyCode} ${lineItem.priceTotal.value}</div>
+                            <iselseif
+                                condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}"/>
+                                <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}">
+                                    ${Resource.msg('label.free.price', 'cart', null)}</div>
+                            <iselse/>
+                                <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID}">
+                                    ${lineItem.priceTotal.price}</div>
+                            </isif>
+                        </td>
+                    </tr>
+                </isloop>
+            </tbody>
+        </table>
+    </div>
+    <div style="text-align:end;">
+        <table style="table-layout: fixed; width: 100%; border-collapse: collapse; max-width:800px; margin:15px auto; font-family: SourceSansPro, Arial, sans-serif;">
+            <tbody>
+                <isset name="totalExclusiveTax"
+                    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showTotalsExcludingTaxes')}"
+                    scope="page" />
+                <isset name="shippingExclusiveTax"
+                    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingExcludingTaxes')}"
+                    scope="page" />
+                <isset name="showSalesTaxes" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showSalesTaxes')}"
+                    scope="page" />
+                <isset name="showShippingHandlingTaxes"
+                    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingHandlingTaxes')}" scope="page" />
+
+                <isif condition="${totalExclusiveTax}">
+                    <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                        <div class="col-md-10">
+                            <p class="h-font-size--16 h-clr--red-1" style=" margin-bottom: 0px;">
+                                <strong>${Resource.msg('label.merchandise.subtotal.excluding.taxes', 'cart', null)}:</strong>
+                            </p>
+                        </div>
+                        <div class="col-md-2" style=" margin-left: 31px;">
+                            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sub-total "
+                                style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                ${pdict.order.totals.subTotalExclTax}
+                            </p>
+                        </div>
+                    </div>
+                <iselse/>
+                    <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                        <div class="col-md-10">
+                            <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                <strong>${Resource.msg('label.merchandise.subtotal', 'cart', null)}:</strong>
+                            </p>
+                        </div>
+                        <div class="col-md-2" style=" margin-left: 31px;">
+                            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sub-total"
+                                style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                ${pdict.order.totals.subTotal}
+                            </p>
+                        </div>
+                    </div>
+                </isif>
+                <isif condition="${pdict.order.totals.totalDiscount.value != 0}">
+                    <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                        <div class="col-md-10">
+                            <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                <strong>${Resource.msg('label.order.savings', 'common', null)}:</strong>
+                            </p>
+                        </div>
+                        <div class="col-md-2" style=" margin-left: 31px;">
+                            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sub-total"
+                                style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                ${pdict.order.totals.totalDiscountFormatted}</p>
+                        </div>
+                    </div>
+                    <isif condition="${pdict.order.totals.allDiscounts.length > 0}">
+                        <isloop items="${pdict.order.totals.allDiscounts}" var="discount" status="loopstatus">
+                            <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                                <div class="col-md-10">
+                                    <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                        <strong>${discount.promotion}:</strong>
+                                    </p>
+                                </div>
+                                <div class="col-md-2" style=" margin-left: 31px;">
+                                    <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sub-total"
+                                        style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                        ${discount.discount}</p>
+                                </div>
+                            </div>
+                        </isloop>
+                    </isif>
+                </isif>
+
+                <isif condition="${shippingExclusiveTax}">
+                    <div class="row" style="display:flex; justify-content: flex-end;">
+                        <div class="col-md-10">
+                            <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                <strong>${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}:</strong>
+                            </p>
+                        </div>
+                        <div class="col-md-2" style=" margin-left: 38px;">
+                            <isif condition="${!pdict.order.hasFreeShipping}">
+                                <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive">
+                                    ${pdict.order.totals.shippingTotalExclTax}</p>
+                            <iselse/>
+                                <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive">
+                                    ${Resource.msg('label.free.price', 'cart', null)}</p>
+                            </isif>
+                        </div>
+                    </div>
+                <iselse/>
+                    <div class="row" style="display:flex; justify-content: flex-end;">
+                        <div class="col-md-10">
+                            <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                <strong>${Resource.msg('label.shipping.and.handling', 'cart', null)}:</strong>
+                            </p>
+                        </div>
+                        <div class="col-md-2" style=" margin-left: 35px;">
+                            <p style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;"
+                                class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive">
+                                <isif condition="${!pdict.order.hasFreeShipping}">
+                                        ${pdict.order.totals.totalShippingCost}</p>
+                                <iselse/>
+                                        ${Resource.msg('label.free.price', 'cart', null)}</p>
+                                </isif>
+                            </p>
+                        </div>
+                    </div>
+                </isif>
+
+                <isif condition="${showShippingHandlingTaxes}">
+                    <isif condition="${!pdict.order.hasFreeShipping}">
+                        <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                            <div class="col-md-10">
+                                <isif condition="${shippingExclusiveTax}">
+                                    <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
+                                        <strong>${Resource.msg('label.shipping.and.handling.tax', 'cart', null)}:</strong>
+                                    </p>
+                                <iselse/>
+                                    <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
+                                        <strong> ${Resource.msg('label.shipping.and.handling.tax.inclusive', 'cart', null)}:</strong>
+                                    </p>
+                                </isif>
+                            </div>
+                            <div class="col-md-2" style=" margin-left: 34px;">
+                                <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-tax"
+                                    style=" margin-bottom: 0px;">
+                                    ${pdict.order.totals.shippingTotalTax}</p>
+                            </div>
+                        </div>
+                    </isif>
+                </isif>
+
+                <isif condition="${!pdict.order.hasFreeShipping}">
+                    <isif condition="${pdict.order.totals.shippingLevelDiscountTotal.value === 0}">
+                        <div class="row shipping-discount" style="display:none; font-family: SourceSansPro, Arial, sans-serif;">
+                            <div class="col-md-10">
+                                <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
+                                    <strong>${Resource.msg('label.shipping.discount', 'common', null)}:</strong>
+                                </p>
+                            </div>
+                            <div class="col-md-2" style=" margin-left: 29px;">
+                                <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-discount-total"
+                                    style=" margin-bottom: 0px;">
+                                    ${'-' + pdict.order.totals.shippingLevelDiscountTotal.formatted}</p>
+                            </div>
+                        </div>
+                    <iselse/>
+                        <div class="row shipping-discount" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                            <div class="col-md-10">
+                                <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
+                                    <strong>${Resource.msg('label.shipping.discount', 'common', null)}:</strong>
+                                </p>
+                            </div>
+                            <div class="col-md-2" style=" margin-left: 29px;">
+                                <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-discount-total"
+                                    style=" margin-bottom: 0px;">
+                                    ${'-' + pdict.order.totals.shippingLevelDiscountTotal.formatted}</p>
+                            </div>
+                        </div>
+                    </isif>
+                </isif>
+                <isif condition="${showSalesTaxes}">
+                    <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                        <div class="col-md-10">
+                            <isif condition="${totalExclusiveTax}">
+                                <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
+                                    <strong>${Resource.msg('label.sales.tax', 'cart', null)}:</strong>
+                                </p>
+                            <iselse/>
+                                <p class="h-font-size--16 h-clr--black-1" style=" margin-bottom: 0px;">
+                                    <strong>${Resource.msg('label.sales.tax.inclusive', 'cart', null)}:</strong>
+                                </p>
+                            </isif>
+                        </div>
+                        <div class="col-md-2" style=" margin-left: 33px;">
+                            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sales-tax"
+                                style=" margin-bottom: 0px;">
+                                ${pdict.order.totals.salesTax}</p>
+                        </div>
+                    </div>
+                </isif>
+
+                <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                    <div class="col-md-10">
+                        <p class="h-font-size--18 h-clr--black-1 h-fw--semibold" style=" margin-bottom: 0px;">
+                            <strong>${Resource.msg('label.estimatedtotal', 'cart', null)}:</strong>
+                        </p>
+                    </div>
+                    <div class="col-md-2" style=" margin-left: 26px;">
+                        <p class="text-right h-font-size--18 h-clr--black-1 h-fw--semibold grand-total"
+                            style=" margin-bottom: 0px;">
+                            ${pdict.order.totals.grandTotal}
+                        </p>
+                    </div>
+                </div>
+                <isif condition="${pdict.taxRate !== 0}">
+                    <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                        <p class="h-font-size--18 h-clr--black-1 h-fw--semibold" style=" margin-bottom: 0px;">
+                            ${Resource.msgf('label.tax.rate', 'order', null, pdict.taxRate)}</p>
+                    </div>
+                </isif>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table style="table-layout: fixed; width: 100%; font-family: SourceSansPro, Arial, sans-serif;">
+            <tbody>
+                <tr style="vertical-align: baseline; font-family: SourceSansPro, Arial, sans-serif;">
+                    <td style="vertical-align:baseline;">
+                        <p style="font-size:16px; margin-bottom: 20px;">
+                            ${Resource.msg('label.invoice.purchase', 'order', null)}
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table style="table-layout: fixed; width: 100%; font-family: SourceSansPro, Arial, sans-serif;">
+            <tbody>
+                <tr style="vertical-align: baseline;">
+                    <td style="vertical-align:baseline;">
+                        <p style="font-size:16px; margin-bottom: 20px;">
+                            ${Resource.msg('label.contact.return', 'order', null)}
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table style="table-layout: fixed; width: 100%; font-family: SourceSansPro, Arial, sans-serif;">
+            <tbody>
+                <tr style="vertical-align: baseline;">
+                    <td style="vertical-align:baseline;">
+                        <p style="font-size:16px;">
+                            ${Resource.msg('label.contat.service', 'order', null)}
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table style="table-layout: fixed; width: 880px; margin-top: 20px; margin-bottom: 21px; font-family: SourceSansPro, Arial, sans-serif; ">
+            <tbody>
+                <tr style="vertical-align: baseline; display:flex;  margin-left: 40px;">
+                    <td style="vertical-align:baseline; display:flex; align-items:center;">
+                        <img class=" img-fluid w-100"
+                            src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/InvoiceReports-revis-logo-01.png')}"
+                            alt="${Resource.msg('global.storename', 'common', null)}" style="width: 50px" />
+                        <p style="font-size:16px; margin-bottom: 20px; width: 227px; margin-left: 20px;">
+                            ${Resource.msg('label.return.faulty', 'order', null)}
+                        </p>
+                    </td>
+                    <td style="vertical-align:baseline;  display:flex; align-items:center;">
+                        <img class=" img-fluid w-100"
+                            src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/InvoiceReports-revis-logo-02.png')}"
+                            alt="${Resource.msg('global.storename', 'common', null)}" style="width: 50px" />
+                        <p style="font-size:16px; margin-bottom: 20px; width: 176px; margin-left: 10px;">
+                            ${Resource.msg('label.invoice.available', 'order', null)}
+                        </p>
+                    </td>
+                    <td style="vertical-align:baseline;  display:flex; align-items:center;">
+                        <img class="img-fluid w-100"
+                            src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/InvoiceReports-revis-logo-03.png')}"
+                            alt="${Resource.msg('global.storename', 'common', null)}" style="width: 50px" />
+                        <p style="font-size:16px; margin-bottom: 20px; width: 200px; margin-left: 20px;">
+                            ${Resource.msg('label.packaging', 'order', null)}
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <table style="table-layout: fixed; width: 100%; font-family: SourceSansPro, Arial, sans-serif;">
+            <tbody>
+                <tr style="vertical-align: baseline;">
+                    <td style="vertical-align:baseline;">
+                        <h1 style="font-size:16px; margin-bottom:0px;">
+                            ${Resource.msg('label.return.policy', 'order', null)}
+                        </h1>
+                        <ol style="padding-left:22px; padding-top:0px; margin-top:0px;">
+                            <li style="font-size:16px">
+                                ${Resource.msg('first.return.policy', 'order', null)}
+                            </li>
+                            <li style="font-size:16px">
+                                ${Resource.msg('second.return.policy', 'order', null)}
+                            </li>
+                            <li style="font-size:16px">
+                                ${Resource.msg('third.return.policy', 'order', null)}
+                            </li>
+                            <li style="font-size:16px">
+                                ${Resource.msg('fourth.return.policy', 'order', null)}
+                            </li>
+                        </ol>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        window.print();
+    };
+</script>

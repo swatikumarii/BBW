@@ -1,0 +1,33 @@
+${pdict.Order.orderNo}
+${pdict.order.orderNumber}
+${pdict.order.creationDate}
+${pdict.order.billing.billingAddress.address}
+${pdict.order.shipping}
+${pdict.order.orderEmail}
+${pdict.order.orderEmail}
+${pdict.order.shipping}
+${pdict.order.trackingNumber}
+${pdict.order.trackingUrl + pdict.order.trackingNumber}
+${pdict.order.trackingNumber}
+${pdict.order.items.items}
+${pdict.order.totals.subTotalExclTax}
+${pdict.order.totals.subTotal}
+${pdict.order.totals.totalDiscount.value != 0}
+${pdict.order.totals.totalDiscountFormatted}
+${pdict.order.totals.allDiscounts.length > 0}
+${pdict.order.totals.allDiscounts}
+${!pdict.order.hasFreeShipping}
+${pdict.order.totals.shippingTotalExclTax}
+${!pdict.order.hasFreeShipping}
+${pdict.order.totals.totalShippingCost}
+${!pdict.order.hasFreeShipping}
+${pdict.order.totals.shippingTotalTax}
+${!pdict.order.hasFreeShipping}
+${pdict.order.totals.shippingLevelDiscountTotal.value === 0}
+${'-' + pdict.order.totals.shippingLevelDiscountTotal.formatted}
+${'-' + pdict.order.totals.shippingLevelDiscountTotal.formatted}
+${pdict.order.totals.salesTax}
+${pdict.order.totals.grandTotal}
+
+${pdict.taxRate !== 0}
+${Resource.msgf('label.tax.rate', 'order', null, pdict.taxRate)}

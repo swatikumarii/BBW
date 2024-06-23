@@ -1,0 +1,16 @@
+<iscontent type="text/html" charset="UTF-8" compact="true">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+    <head>
+        <title>Order <isprint value="${pdict.Order.orderNo}"></title>
+        <link rel="STYLESHEET" type="text/css" href="${URLUtils.webRoot()}/css/enterprisesite.css"/>
+        <ismodule template = "inc/AddressInfoSmall_52.isml" name="AddressInfo" attribute="address">
+        <link rel="shortcut icon" href="${URLUtils.webRoot()}/images/favicon.ico" />
+    </head>
+
+    <body id="print_order" onload="window.print();">
+        <isinclude url="${URLUtils.url('Order-DownLo', 'mobile', true)}" />
+    </body>
+</html>
