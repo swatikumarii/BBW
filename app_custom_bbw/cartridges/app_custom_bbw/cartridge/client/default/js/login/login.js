@@ -120,6 +120,10 @@ function login() {
                         formValidation(form, data);
                         form.trigger('login:error', data);
                     }
+                    $('.login-modal-body').animate(
+                        { scrollTop: $('.alert-danger').offset().top },
+                        200
+                    );
                 } else {
                     form.trigger('login:success', data);
                     if (data.isIncomplete) {

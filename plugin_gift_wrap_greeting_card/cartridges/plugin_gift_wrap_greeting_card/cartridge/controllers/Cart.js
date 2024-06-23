@@ -31,8 +31,7 @@ server.append(
             res.setViewData(giftWrapCartHelpers.getGiftWrapConfig(viewData.items));
         }
         next();
-    },
-    pageMetaData.computedPageMetaData
+    }
 );
 
 /**

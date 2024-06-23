@@ -3,7 +3,7 @@
 module.exports = function (object, apiProduct) {
     var productValidationHelpers = require('*/cartridge/scripts/helpers/productValidationHelpers');
     var maxOrderQty =
-        productValidationHelpers.getProductMaxOrderQty(apiProduct);
+        productValidationHelpers.getProductMaxOrderQtyValue(apiProduct);
     
     Object.defineProperty(object, 'maxOrderQty', {
         enumerable: true,

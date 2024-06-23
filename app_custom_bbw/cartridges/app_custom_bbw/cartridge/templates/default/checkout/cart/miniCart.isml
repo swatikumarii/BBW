@@ -94,11 +94,11 @@
             <div class="minicart-footer border-top">
                 <div class="sub-total-wrap d-flex justify-content-between border-bottom">
                     <p class="sub-total-label m-0 h-font-size--14 h-clr--black-1">${Resource.msg('label.sub.total', 'cart', null)}</p>
-                    <p class="text-right sub-total m-0 h-font-size--14 h-clr--black-1">${pdict.totals.subTotal}</p>
+                    <p class="text-right sub-total m-0 h-font-size--14 h-clr--black-1">${pdict.totals.miniCartSubTotal}</p>
                 </div>
                 <div class="estimated-total d-flex justify-content-between border-bottom ${afterpayPDPEnable == true ? 'mb-0' : ''}">
                     <p class="estimated-total-label m-0 h-font-size--22 h-fw--semibold h-clr--black-1">${Resource.msg('label.estimatedtotal', 'cart', null)}</p>
-                    <p class="text-right sub-total m-0 h-font-size--22 h-fw--semibold h-clr--blue-1">${pdict.totals.subTotal}</p>
+                    <p class="text-right sub-total m-0 h-font-size--22 h-fw--semibold h-clr--blue-1">${pdict.totals.miniCartSubTotal}</p>
                 </div>
                 <!--- Afterpay Widget --->
                 <isif condition="${afterpayPDPEnable == true}">
@@ -166,7 +166,7 @@
         <div>
             <div class="sub-total-wrap d-flex justify-content-between">
                 <p class="sub-total-label m-0 h-font-size--16 h-fw--semibold h-ls-01 text-center h-clr--black-1">${Resource.msg('label.sub.total.estimated', 'cart', null)}</p>
-                <p class="text-right sub-total m-0 h-font-size--16 h-fw--semibold h-ls-01 text-center h-clr--black-1">${pdict.totals.subTotal}</p>
+                <p class="text-right sub-total m-0 h-font-size--16 h-fw--semibold h-ls-01 text-center h-clr--black-1">${pdict.totals.miniCartSubTotal}</p>
             </div>
             <a href="${URLUtils.url('Cart-Show')}" class="btn btn-primary btn-block h-bg--black-1 h-clr--white h-font-size--16 h-fw--semibold h-lh-42 view-cart-btn">${Resource.msg('view.cart.and.checkout', 'cart', null)}</a>
         </div>

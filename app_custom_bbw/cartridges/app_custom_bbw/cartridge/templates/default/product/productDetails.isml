@@ -242,9 +242,13 @@
                             </div>
                         </div>
 
-                        <div class="reserve-stock mt-3 d-none">
+                        <div class="reserve-stock mt-3 ${product.maxOrderQty > 0 ? 'd-none' : ''} ">
                             <p class="h-clr--red h-font-size--16 mb-0">
+                            <isif condition="${product.maxOrderQty > 0}">
                                 ${Resource.msgf('error.alert.selected.quantity.cannot.be.added.for.max', 'product', null, product.maxOrderQty);}
+                            <iselse/>
+                                ${Resource.msgf('error.alert.selected.quantity.cannot.be.added.negative', 'product', null, product.maxOrderQty);}
+                            </isif>
                             </p>
                         </div>
 

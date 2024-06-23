@@ -5,6 +5,7 @@ var server = require('server');
 server.extend(module.superModule);
 
 var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
+var URLUtils = require('dw/web/URLUtils');
 
 /**
  *  Handle Ajax payment (and billing) form submit
@@ -43,6 +44,52 @@ server.prepend('SubmitPayment', function (req, res, next) {
 
     next();
 });
+
+server.append(
+    'SubmitPayment',
+    server.middleware.https,
+    csrfProtection.validateAjaxRequest,
+    function (req, res, next) {
+        var BasketMgr = require('dw/order/BasketMgr');
+        var addressHelpers = require('*/cartridge/scripts/helpers/addressHelpers');
+        var currentBasket = BasketMgr.getCurrentBasket();
+        if (currentBasket) {
+            var paymentForm = server.forms.getForm('billing');
+            if (
+                req.currentCustomer.addressBook &&
+                paymentForm.saveAddress.value
+            ) {
+                var billingAddress = {
+                    firstName: paymentForm.addressFields.firstName.value,
+                    lastName: paymentForm.addressFields.lastName.value,
+                    address1: paymentForm.addressFields.address1.value,
+                    address2: paymentForm.addressFields.address2.value,
+                    city: paymentForm.addressFields.city.value,
+                    states: paymentForm.addressFields.states.value,
+                    postalCode: paymentForm.addressFields.postalCode.value,
+                    countryCode: paymentForm.addressFields.country.value,
+                    phone: paymentForm.addressFields.phone.value
+                };
+
+                if (
+                    !addressHelpers.checkIfAddressStored(
+                        billingAddress,
+                        req.currentCustomer.addressBook.addresses
+                    )
+                ) {
+                    addressHelpers.saveAddress(
+                        billingAddress,
+                        req.currentCustomer,
+                        addressHelpers.generateAddressName(billingAddress),
+                        true
+                    );
+                }
+            }
+        }
+
+        next();
+    }
+);
 
 /**
  * Validates the given form and creates response JSON if there are errors.
@@ -96,10 +143,11 @@ server.prepend(
                 form: customerForm,
                 fieldErrors: formFieldErrors,
                 serverErrors: [],
-                customerErrorMessage: Resource.msg(
+                customerErrorMessage: Resource.msgf(
                     'reset.password.message.migrated.user',
                     'login',
-                    null
+                    null,
+                    URLUtils.url('Account-PasswordReset')
                 ),
                 error: true
             });
@@ -108,6 +156,45 @@ server.prepend(
         return next();
     }
 );
+
+/**
+ * CheckoutServices-LoginCustomer : The CheckoutServices-LoginCustomer endpoint.
+ */
+server.append('LoginCustomer', function (req, res, next) {
+    var viewData = res.getViewData();
+    if (viewData.error) {
+        var Resource = require('dw/web/Resource');
+        var accountHelper = require('*/cartridge/scripts/helpers/accountHelpers');
+        var email = viewData.form.email.value;
+        var remainingLoginAttempts =
+            accountHelper.remainingLoginAttempts(email);
+        if (remainingLoginAttempts === 'USER_NOT_FOUND') {
+            viewData.customerErrorMessage = Resource.msg(
+                'error.message.username.password.does.not.match',
+                'login',
+                null
+            );
+        } else if (remainingLoginAttempts !== -1) {
+            viewData.customerErrorMessage = Resource.msgf(
+                'error.message.login.form.attempts',
+                'login',
+                null,
+                remainingLoginAttempts
+            );
+
+            if (!remainingLoginAttempts || remainingLoginAttempts === 0) {
+                viewData.customerErrorMessage = Resource.msg(
+                    'error.message.account.locked',
+                    'login',
+                    null
+                );
+            }
+            viewData.remainingLoginAttempts = remainingLoginAttempts;
+        }
+        res.setViewData(viewData);
+    }
+    next();
+});
 
 /**
  * Handle dynamic badges

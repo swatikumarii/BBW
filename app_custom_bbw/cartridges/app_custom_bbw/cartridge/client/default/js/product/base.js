@@ -555,6 +555,9 @@ function attributeSelect(selectedValueUrl, $productContainer) {
                     'product:afterAttributeSelect',
                     { data: data, container: $productContainer }
                 );
+                if (data.product && data.product !== null && 'variantURL' in data.product) {
+                    window.history.pushState({}, '', data.product.variantURL);
+                }
                 $.spinner().stop();
             },
             error: function () {
@@ -817,6 +820,14 @@ module.exports = $.extend({}, base, {
                                 }
                                 $.spinner().stop();
                                 return true;
+                            }
+                            if ($('input[name="maxOrderQty"]').length) {
+                                if (!data.error && 'maxOrderQty' in data && data.maxOrderQty >= 0) {
+                                    $('input[name="maxOrderQty"]').val(data.maxOrderQty);
+                                    if ($('.reserve-stock').length) {
+                                        $('.reserve-stock p').empty().append(data.maxOrderQtyMessage);
+                                    }
+                                }
                             }
                             // refresh page when add to bag from cart page.
                             if($('.cart-page-add-to-bag').length > 0){

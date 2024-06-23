@@ -514,6 +514,11 @@
                         right: 0;
                     }
 
+                    @include media-btw(sm, lg) {
+                        padding-right: 5px;
+                        padding-left: 4px;
+                    }
+
                     .cart-delete-confirmation-btn {
                         cursor: pointer;
                     }
@@ -574,6 +579,13 @@
                             font-family: get-ff(base, true);
                         }
                     }
+
+                    .coupons-and-promos {
+                        .delete-coupon-confirmation-btn {
+                            margin-top: 7px;
+                            cursor: pointer;
+                        }
+                    }
                 }
             }
 
@@ -597,8 +609,8 @@
                         &.accordion-item.collapsed {
                             .cart-saving {
                                 &::before {
-                                    background: url("../images/UI-Carat.svg")
-                                        50%;
+                                    background: url("../images/UI-Carat.svg") 
+                                    50%;
                                     background-repeat: no-repeat;
                                     background-size: 1.25rem;
                                     content: "";
@@ -617,7 +629,7 @@
                             .cart-saving {
                                 &::before {
                                     background: url("../images/UI-Carat.svg")
-                                        50%;
+                                     50%;
                                     background-repeat: no-repeat;
                                     background-size: 1.25rem;
                                     content: "";
@@ -672,6 +684,7 @@
 .cart-empty-msg-wrap {
     border-bottom: 1px solid $clr-black-1;
     margin-bottom: 30px;
+    margin-top: 50px;
 
     .cart-empty-msg {
         line-height: 28px;
@@ -684,7 +697,7 @@
     min-height: 48px;
     line-height: 44px;
     padding: 0 32px;
-    margin-bottom: 64px;
+    margin-bottom: 40px;
 
     &:hover {
         color: $clr-white;
@@ -862,6 +875,7 @@ footer {
     .picked-just-recomm__item .product .b-product-tile {
         max-width: 160px;
         min-width: 160px;
+        text-align: left;
 
         @include media-down(sm) {
             min-width: 228px;

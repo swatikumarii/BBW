@@ -173,6 +173,7 @@ function createProductLineItemsObject(allLineItems, view) {
         if ('volume' in item.product.custom && item.product.custom.volume) {
             newLineItem.volume = item.product.custom.volume;
         }
+        newLineItem.basePrice = 'basePrice' in item ? item.basePrice : '';
 
         if ('greetingCardMessage' in item.custom && item.custom.greetingCardMessage) {
             newLineItem.greetingCardMessage = item.custom.greetingCardMessage;
