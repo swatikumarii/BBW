@@ -790,7 +790,7 @@ module.exports = function () {
                         $('.coupon-error-message').empty();
                         $('.coupon-error-message').removeClass('d-block');
                         $('.promo-code-form .form-control').removeClass('is-invalid');
-                    }, 5000);
+                    }, 3000);
                     $('body').trigger('promotion:error', data);
                 } else {
                     $('.coupon-error-message').removeClass('d-block');
@@ -842,7 +842,7 @@ module.exports = function () {
                         $('.coupon-error-message').empty();
                         $('.coupon-error-message').removeClass('d-block');
                         $('.promo-code-form .form-control').removeClass('is-invalid');
-                    }, 5000);
+                    }, 3000);
                     $('body').trigger('promotion:error', data);
                 } else {
                     $('.coupon-error-message').removeClass('d-block');

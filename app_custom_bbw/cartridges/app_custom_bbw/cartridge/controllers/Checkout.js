@@ -15,6 +15,19 @@ server.append('Begin', function (req, res, next) {
     if (!areShipmentsValid.length) {
         viewData.containsDangerousGoods = true;
     }
+    var userEmail = '';
+    userEmail =
+        viewData.order.billing.billingAddress.address &&
+        viewData.order.billing.billingAddress.address.email
+            ? viewData.order.billing.billingAddress.address.email
+            : '';
+    if (userEmail === '') {
+        userEmail =
+            viewData.customer &&
+            viewData.customer.profile &&
+            viewData.customer.profile.email ? viewData.customer.profile.email || '' : '';
+    }
+    viewData.userEmail = userEmail;
     res.setViewData(viewData);
     next();
 });

@@ -4,6 +4,7 @@ var Template = require('dw/util/Template');
 var HashMap = require('dw/util/HashMap');
 var PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelper.js');
 var Site = require('dw/system/Site');
+var seoHelper = require('*/cartridge/scripts/helpers/seoHelper');
 
 /**
  * Render logic for the storepage.
@@ -24,8 +25,14 @@ module.exports.render = function (context, modelIn) {
     var homePage = Site.current.getCustomPreferenceValue('pageDesignerID');
     if (model && model.page && model.page.ID && model.page.ID !== homePage) {
         model.queryString = 'cid=' + model.page.ID;
+        model.canonicalUrl = seoHelper.getCanonicalUrl(
+            'Page-Show',
+            'cid',
+            model.page.ID
+        );
     } else {
         model.isHomePage = true;
+        model.canonicalUrl = 'https://' + request.httpHost;
     }
     // automatically register configured regions
     model.regions = PageRenderHelper.getRegionModelRegistry(page);

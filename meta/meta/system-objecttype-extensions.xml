@@ -216,7 +216,7 @@
             </attribute-definition>
             <attribute-definition attribute-id="ingredients">
                 <display-name xml:lang="x-default">Ingredients</display-name>
-                <type>html</type>
+                <type>set-of-string</type>
                 <localizable-flag>true</localizable-flag>
                 <site-specific-flag>false</site-specific-flag>
                 <mandatory-flag>false</mandatory-flag>
