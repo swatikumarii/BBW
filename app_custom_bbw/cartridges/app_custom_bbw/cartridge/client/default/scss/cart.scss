@@ -514,6 +514,11 @@
                         right: 0;
                     }
 
+                    @include media-btw(sm, lg) {
+                        padding-right: 5px;
+                        padding-left: 4px;
+                    }
+
                     .cart-delete-confirmation-btn {
                         cursor: pointer;
                     }
