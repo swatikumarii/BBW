@@ -16,14 +16,7 @@
     <isscript>
         var orderModel = require('bm_bbw/cartridge/models/customOrder.js');
         var orderDetail = orderModel.getInvoice(pdict.Order.orderNo);
-        var formatMoney = require('dw/util/StringUtils').formatMoney;
-        function getTotals(total) {
-            return !total.available ? '-' : formatMoney(total);
-        }
     </isscript>
-    <iscomment> SSSSS=${sm} </iscomment>
-    SSSSS=${orderModel}
-    SSSSS+=${orderDetail}
         <div id="content">
             <table style="table-layout: fixed; width: 100%; ">
                 <tbody>

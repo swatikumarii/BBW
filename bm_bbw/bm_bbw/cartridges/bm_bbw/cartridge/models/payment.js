@@ -2,7 +2,22 @@
 
 var PaymentMgr = require('dw/order/PaymentMgr');
 var PaymentInstrument = require('dw/order/PaymentInstrument');
-var collections = require('*/cartridge/scripts/util/collections');
+var collections = require("*/cartridge/scripts/util/collections");
+var _require = require("./createPayment"),
+  createSelectedPaymentInstruments = _require.createSelectedPaymentInstruments;
+
+/**
+ * Creates an array of objects containing selected payment information
+ * @param {dw.util.ArrayList<dw.order.PaymentInstrument>} selectedPaymentInstruments - ArrayList
+ *      of payment instruments that the user is using to pay for the current basket
+ * @returns {Array} Array of objects that contain information about the selected payment instruments
+ */
+function getAdyenSelectedPaymentInstruments(selectedPaymentInstruments) {
+  return collections.map(
+    selectedPaymentInstruments,
+    createSelectedPaymentInstruments
+  );
+}
 
 /**
  * Creates an array of objects containing applicable payment methods
@@ -90,6 +105,9 @@ function Payment(currentBasket, currentCustomer, countryCode) {
 
     this.selectedPaymentInstruments = paymentInstruments
         ? getSelectedPaymentInstruments(paymentInstruments) : null;
+    this.selectedPaymentInstruments = paymentInstruments
+        ? getAdyenSelectedPaymentInstruments(paymentInstruments)
+        : null;
 }
 
 module.exports = Payment;
