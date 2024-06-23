@@ -341,11 +341,13 @@ function checkFields(form) {
                         method: 'POST',
                         data: paymentForm,
                         success: function (data) {
+                            $.spinner().stop();
                             // enable the next:Place Order button here
                             $('body').trigger('checkout:enableButton', '.next-step-button button');
                             // look for field validation errors
                             if (data.error) {
                                 if (data.fieldErrors.length) {
+                                    $('.edit-billing-address').click();
                                     data.fieldErrors.forEach(function (error) {
                                         if (Object.keys(error).length) {
                                             formHelpers.loadFormErrors('.payment-form', error);

@@ -1,11 +1,11 @@
 'use strict';
 
 // eslint-disable-next-line no-unused-vars
-/* global response */
 
 var Template = require('dw/util/Template');
 var HashMap = require('dw/util/HashMap');
 var PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelper.js');
+var seoHelper = require('*/cartridge/scripts/helpers/seoHelper');
 
 /**
  * Render logic for the storepage.
@@ -31,6 +31,14 @@ module.exports.render = function (context, modelIn) {
         var HookManager = require('dw/system/HookMgr');
         HookManager.callHook('app.experience.editmode', 'editmode');
         model.resetEditPDMode = true;
+    }
+
+    if (model && model.page && model.page.ID) {
+        model.canonicalUrl = seoHelper.getCanonicalUrl(
+            'Page-Show',
+            'cid',
+            model.page.ID
+        );
     }
 
     model.CurrentPageMetaData = PageRenderHelper.getPageMetaData(page);

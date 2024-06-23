@@ -22,7 +22,7 @@
                                 ${Resource.msg('button.submit.promo.code', 'cart', null)}
                             </button>
                         </div>
-                        <div class="coupon-error h-font-size--16 h-fw--semibold h-bg--red-10 mt-3 h-clr--red">
+                        <div class="coupon-error h-font-size--16 h-fw--semibold h-bg--red-10 mt-3 h-clr--red h-maxwidth-perc-md--90">
                             <span class="coupon-missing-error" id="missingCouponCode" role="alert"></span>
                             <span class="coupon-error-message" id="invalidCouponCode" role="alert"></span>
                         </div>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="coupons-and-promos mb-4 mr-3">
+        <div class="coupons-and-promos mb-4 h-maxwidth-perc-md--90">
             <isloop items="${pdict.order.totals.discounts}" var="discount">
                 <isif condition="${discount.type === 'coupon'}">
                         <div class="coupon-price-adjustment d-flex justify-content-between h-bg--${discount.applied ? 'green-5' : 'red-10'} coupon-uuid-${discount.UUID}"
