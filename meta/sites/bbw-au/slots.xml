@@ -85,7 +85,7 @@ padding: 15px 0;
         <description>cart-empty-recommendation</description>
         <template>slots/product/plpRecentlyViewedProduct.isml</template>
         <enabled-flag>true</enabled-flag>
-        <callout-msg xml:lang="x-default">Wait! Don’t Forget</callout-msg>
+        <callout-msg xml:lang="x-default">Wait! Let Us Recommend</callout-msg>
         <content>
             <products>
                 <product product-id="26768755"/>
@@ -94,6 +94,25 @@ padding: 15px 0;
                 <product product-id="26768763"/>
                 <product product-id="26776176"/>
                 <product product-id="26768773"/>
+            </products>
+        </content>
+        <custom-attributes>
+            <custom-attribute attribute-id="showOutOfStockProducts">true</custom-attribute>
+        </custom-attributes>
+    </slot-configuration>
+    <slot-configuration slot-id="cart-empty-recommendation-second" context="global" configuration-id="cart-empty-recommendation-second" default="true" assigned-to-site="true">
+        <description>cart-empty-recommendation-second</description>
+        <template>slots/product/plpRecentlyViewedProduct.isml</template>
+        <enabled-flag>true</enabled-flag>
+        <callout-msg xml:lang="x-default">Wait! Don’t Forget</callout-msg>
+        <content>
+            <products>
+                <product product-id="26632910"/>
+                <product product-id="26681940"/>
+                <product product-id="26686022"/>
+                <product product-id="26686021"/>
+                <product product-id="26776176"/>
+                <product product-id="26686023"/>
             </products>
         </content>
         <custom-attributes>
