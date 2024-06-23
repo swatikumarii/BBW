@@ -44,7 +44,11 @@
                         </h1>
                         <p
                             style="margin:0 30px 20px;font-size:22px;line-height:33px;padding-right:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
-                            ${Resource.msg('msg.placed.order.thank.you', 'confirmation', null)}
+                            <isif condition="${'giftCardDetails' in pdict.order.items.items[0] && pdict.order.items.items[0].giftCardDetails}">
+                                ${Resource.msg('msg.placed.e-gift.order.thank.you', 'confirmation', null)}
+                            <iselse/>
+                                ${Resource.msg('msg.placed.order.thank.you', 'confirmation', null)}
+                            </isif>
                         </p>
                         <iscomment> View Order Status Image and Button </iscomment>
                         <div style="border:3px solid #f2f2f2;padding:36px 0;text-align:center">
@@ -318,7 +322,7 @@
                                                         <tr>
                                                             <td
                                                                 style="font-size:14px;text-transform:uppercase;vertical-align:top;padding:5px 13px;">
-                                                                ${discount.promotion}
+                                                                ${discount.promotion && discount.promotion != null ? discount.promotion : "-"}
                                                             </td>
                                                             <td
                                                                 style="font-size:14px;text-transform:uppercase;vertical-align:top;padding:5px 0;text-align:right">
@@ -332,8 +336,6 @@
                                                         <td
                                                             style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
                                                             ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
-                                                            - <span
-                                                                style="text-transform:none">${Resource.msg('email.order.payment.shipping.ground.label2', 'confirmation', null)}</span>
                                                         </td>
                                                         <isif condition="${pdict.order.hasFreeShipping}">
                                                             <td
@@ -348,8 +350,6 @@
                                                         <td
                                                             style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
                                                             ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
-                                                            - <span
-                                                                style="text-transform:none">${Resource.msg('email.order.payment.shipping.ground.label2', 'confirmation', null)}</span>
                                                         </td>
                                                         <isif condition="${pdict.order.hasFreeShipping}">
                                                             <td
@@ -362,18 +362,16 @@
                                                         </isif>
                                                     </isif>
                                                 </tr>
-                                                <iscomment> Shipping Ground </iscomment>
-                                                <isif condition="${!pdict.order.hasFreeShipping && shippingExclusiveTax}">
-                                                    <tr>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                            ${Resource.msg('email.shipping.and.handling.tax', 'confirmation', null)}
-                                                        </td>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                            ${pdict.order.totals.shippingTotalTax}</td>
-                                                    </tr>
-                                                </isif>
+                                                <iscomment> SHIPPING & HANDLING TAX </iscomment>
+                                                <iscomment> <tr>
+                                                    <td
+                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                        ${Resource.msg('email.shipping.and.handling.tax', 'confirmation', null)}
+                                                    </td>
+                                                    <td
+                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                        ${pdict.order.totals.shippingTotalTax}</td>
+                                                </tr> </iscomment>
                                                 <iscomment> Shipping Discounts </iscomment>
                                                 <tr>
                                                     <isif

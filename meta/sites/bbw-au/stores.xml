@@ -17,8 +17,8 @@
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 09:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
-        <latitude>-37.887696</latitude>
-        <longitude>145.080598</longitude>
+        <latitude>-37.886159279303115</latitude>
+        <longitude>145.08336460914006</longitude>
         <store-locator-enabled-flag>true</store-locator-enabled-flag>
         <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
         <pos-enabled-flag>false</pos-enabled-flag>
@@ -53,8 +53,8 @@
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
-        <latitude>-33.855776</latitude>
-        <longitude>151.076618</longitude>
+        <latitude>-33.85512258377398</latitude>
+        <longitude>151.07579569865328</longitude>
         <store-locator-enabled-flag>true</store-locator-enabled-flag>
         <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
         <pos-enabled-flag>false</pos-enabled-flag>
@@ -89,8 +89,8 @@
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
-        <latitude>-33.855786</latitude>
-        <longitude>151.07661</longitude>
+        <latitude>-37.84122775776968</latitude>
+        <longitude>144.92948954650473</longitude>
         <store-locator-enabled-flag>true</store-locator-enabled-flag>
         <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
         <pos-enabled-flag>false</pos-enabled-flag>
@@ -125,8 +125,8 @@
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
-        <latitude>-37.812086</latitude>
-        <longitude>144.963695</longitude>
+        <latitude>-37.81224829817448</latitude>
+        <longitude>144.9638760836806</longitude>
         <store-locator-enabled-flag>true</store-locator-enabled-flag>
         <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
         <pos-enabled-flag>false</pos-enabled-flag>
@@ -161,8 +161,8 @@
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
-        <latitude>-27.931414</latitude>
-        <longitude>153.387777</longitude>
+        <latitude>-27.923221428496166</latitude>
+        <longitude>153.38050903250496</longitude>
         <store-locator-enabled-flag>true</store-locator-enabled-flag>
         <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
         <pos-enabled-flag>false</pos-enabled-flag>
@@ -197,8 +197,8 @@
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 07:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
-        <latitude>-37.764353</latitude>
-        <longitude>145.097206</longitude>
+        <latitude>-37.81971088331029</latitude>
+        <longitude>144.94671744212954</longitude>
         <store-locator-enabled-flag>true</store-locator-enabled-flag>
         <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
         <pos-enabled-flag>false</pos-enabled-flag>
@@ -233,8 +233,8 @@
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;11:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
-        <latitude>-33.871752</latitude>
-        <longitude>151.206687</longitude>
+        <latitude>-33.87180142129792</latitude>
+        <longitude>151.20639234472637</longitude>
         <store-locator-enabled-flag>true</store-locator-enabled-flag>
         <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
         <pos-enabled-flag>false</pos-enabled-flag>
@@ -269,8 +269,8 @@
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:30PM&lt;/span&gt;&lt;/li&gt;
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
-        <latitude>-27.384872</latitude>
-        <longitude>153.030459</longitude>
+        <latitude>-27.388363164064224</latitude>
+        <longitude>153.05089892471943</longitude>
         <store-locator-enabled-flag>true</store-locator-enabled-flag>
         <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
         <pos-enabled-flag>false</pos-enabled-flag>
@@ -305,8 +305,8 @@
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 04:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
-        <latitude>-32.936564</latitude>
-        <longitude>151.711826</longitude>
+        <latitude>-32.942342573226945</latitude>
+        <longitude>151.71446243978423</longitude>
         <store-locator-enabled-flag>true</store-locator-enabled-flag>
         <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
         <pos-enabled-flag>false</pos-enabled-flag>
@@ -341,8 +341,8 @@
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
-        <latitude>-27.55991</latitude>
-        <longitude>153.08105</longitude>
+        <latitude>-27.595138919860165</latitude>
+        <longitude>153.06189169616715</longitude>
         <store-locator-enabled-flag>true</store-locator-enabled-flag>
         <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
         <pos-enabled-flag>false</pos-enabled-flag>
@@ -377,8 +377,8 @@
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 06:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
-        <latitude>-33.817534</latitude>
-        <longitude>151.003528</longitude>
+        <latitude>-33.818371769566</latitude>
+        <longitude>151.00153636563883</longitude>
         <store-locator-enabled-flag>true</store-locator-enabled-flag>
         <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
         <pos-enabled-flag>false</pos-enabled-flag>
@@ -413,8 +413,8 @@
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sat:&lt;/span&gt;&lt;span class="sl-time"&gt;09:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;li class="dropdown-item"&gt;&lt;span class="sl-weekday"&gt;Sun:&lt;/span&gt;&lt;span class="sl-time"&gt;10:00 AM - 05:00PM&lt;/span&gt;&lt;/li&gt;
 &lt;/ul&gt;</store-hours>
-        <latitude>-33.754788</latitude>
-        <longitude>150.699689</longitude>
+        <latitude>-33.751600182237844</latitude>
+        <longitude>150.69313364064237</longitude>
         <store-locator-enabled-flag>true</store-locator-enabled-flag>
         <demandware-pos-enabled-flag>false</demandware-pos-enabled-flag>
         <pos-enabled-flag>false</pos-enabled-flag>

@@ -130,10 +130,11 @@ server.prepend('Login', function (req, res, next) {
         res.json({
             isMigratedNotUpdated: true,
             error: [
-                Resource.msg(
+                Resource.msgf(
                     'reset.password.message.migrated.user',
                     'login',
-                    null
+                    null,
+                    URLUtils.url('Account-PasswordReset')
                 )
             ]
         });

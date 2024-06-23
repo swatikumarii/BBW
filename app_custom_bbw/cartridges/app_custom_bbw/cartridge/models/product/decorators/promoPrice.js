@@ -28,7 +28,7 @@ function getPromotionPrice(promotions, apiProduct) {
                         promoPrice = formatMoney(
                             new Money(
                                 (apiProduct.priceModel.price.value *
-                                    promotion.custom.For) /
+                                    (100 - promotion.custom.For)) /
                                     100,
                                 Site.current.getDefaultCurrency()
                             )

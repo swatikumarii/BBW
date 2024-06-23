@@ -105,7 +105,6 @@
     }
 
     .prices .sales {
-        margin-bottom: 15px;
         line-height: 1.25rem;
         letter-spacing: 0.005em;
         color: colour(black, 1);
@@ -124,8 +123,21 @@
     }
 
     .prices-add-to-cart-actions {
+        margin-bottom: 15px;
+
         .price span {
             display: flex;
+
+            &.hpp-promo-price {
+                text-decoration: line-through;
+                padding-right: 0.5rem;
+                font-weight: 400;
+            }
+        }
+
+        .promo-price {
+            letter-spacing: 0.005em;
+            line-height: 1.25rem;
         }
 
         .strike-through {

@@ -4,9 +4,9 @@
             <isif condition="${discount.applied}">
             <div class="coupon-code h-font-size--16 h-clr--green-2 h-fw--semibold  h-bg--green-5 py-2 px-4">
                     <isloop items="${discount.relationship}" var="relatedPromotion">
-                        <span class="h-fw--bold">${Resource.msgf('msg.coupon.heading', 'cart', null, discount.couponCode)}</span> ${Resource.msgf('msg.coupon.applied', 'cart', null, discount.couponCode)}</span>
+                        <span class="h-fw--bold">${Resource.msgf('msg.coupon.heading', 'cart', null, discount.couponCode)}</span> ${Resource.msgf('msg.coupon.applied', 'cart', null, discount.couponCode)}
                     </isloop>
-                    <span class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + discount.couponCode}</span>
+                    <span class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + " " + discount.couponCode}</span>
             </div>
             <span class="delete-coupon-confirmation-btn h-bg--green-5 py-2 px-4" data-code="${discount.couponCode}"
                 aria-label="${Resource.msgf('text.remove.coupon', 'cart', null, discount.couponCode)}"
@@ -15,8 +15,8 @@
             </span>
             <iselse/>
                 <div class="coupon-code h-font-size--16 h-fw--semibold h-bg--red-10 py-2 px-4">
-                    <span class="coupon-not-applied h-clr--red">${discount.qualificationMsg}</span>
-                    <span class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + discount.couponCode}</span>
+                    <span class="coupon-not-applied h-clr--red">${discount.qualificationMsg && discount.qualificationMsg != null ? discount.qualificationMsg : Resource.msg('msg.coupon.not.applicable', 'cart', null)}</span>
+                    <span class="coupon-applied d-block h-clr--black-1 h-font-size--14 h-fw--normal">${Resource.msg('msg.coupon.code', 'cart', null) + " " + discount.couponCode}</span>
                 </div>
                 <span class="delete-coupon-confirmation-btn h-bg--red-10 py-2 px-4" data-code="${discount.couponCode}"
                     aria-label="${Resource.msgf('text.remove.coupon', 'cart', null, discount.couponCode)}"
