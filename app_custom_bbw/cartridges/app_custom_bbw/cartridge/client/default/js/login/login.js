@@ -176,6 +176,12 @@ function login() {
         $('.migration-login-message').addClass('d-none');
         $('form.modal-login').children('.alert-danger').remove();
         $('.login-form-div').removeClass('d-none');
+        $('#loginModal-form-email').removeClass('is-invalid');
+        $('#loginModal-form-email').removeClass('border-danger');
+        $('#loginModal-form-email').val('');
+        $('#login-modal-form-password').val('');
+        $('#login-modal-form-password').removeClass('is-invalid');
+        $('#login-modal-form-password').removeClass('border-danger');
         $('.login-modal-body .privacy-block').removeClass('d-none');
     });
 
