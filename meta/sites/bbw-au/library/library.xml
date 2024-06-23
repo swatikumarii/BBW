@@ -4103,279 +4103,378 @@ To contact our Customer Service team, please call &lt;a href="phone:1800-576-972
     </content>
 
     <content content-id="email-footer-with-suggestions">
-        <display-name xml:lang="x-default">Email Footer with Suggestions</display-name>
-        <description xml:lang="x-default">Email Footer with picked just for you and top offers sections</description>
-        <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
-        <page-attributes/>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;tr&gt;
-    &lt;td
-        style="vertical-align:top;text-align:center;color:#666;font-size:14px;line-height:1;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif; padding:0 32px 15px;"&gt;
-        &lt;table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0;margin:0 auto;max-width:600px;min-width:320px;table-layout:fixed;vertical-align:top;width:100%;background:#ffffff"&gt;
-            &lt;tbody&gt;
-				&lt;!--Pick Just for you - start --&gt;
-				 &lt;tr&gt;
-                    &lt;td align="center"
-                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding-bottom:24px"&gt;
-                        &lt;a href="#" style="display:block;cursor: pointer;" target="_blank"&gt;
-                            &lt;img width="70%" alt="Top Offers - Today's Deals" style="border:0;display:block;margin:0 auto;" border="0"
-                                src="images/email/email-footer/footer-suggestions/Picked-just-for-you!.jpg?$staticlink$"&gt;
-                        &lt;/a&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-				&lt;tr&gt;
-                    &lt;td&gt;
-                        &lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation" style="padding: 40px 0;"&gt;
-                            &lt;tbody&gt;
-                                &lt;tr&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-
-                                        &lt;a href="$('Product-Show', 'pid', '25139400')$" style="display:block;cursor: pointer;" target="_blank"&gt;
-                                            &lt;img alt="Aromatheraphy" style="border:0;display:block" border="0"  width="100%" height="300px"
-                                                src="images/email/email-footer/footer-suggestions/pjs-product-1.jpg?$staticlink$"/&gt;
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-
-                                        &lt;a href="$('Product-Show', 'pid', '26182136')$" style="display:block;cursor: pointer;" target="_blank"&gt;
-                                            &lt;img alt="Boday Care" style="border:0;display:block" border="0" width="100%" height="300px"
-                                                src="images/email/email-footer/footer-suggestions/pjs-product-2.jpg?$staticlink$"/&gt;
-                                        &lt;/a&gt;
-                                    &lt;/td&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-                                        &lt;a href="$('Product-Show', 'pid', '25133698')$" style="display:block;cursor: pointer;" target="_blank"&gt;
-                                            &lt;img alt="Candles" style="border:0;display:block" border="0" width="100%" height="300px"
-                                                src="images/email/email-footer/footer-suggestions/pjs-product-3.jpg?$staticlink$"/&gt;
-                                        &lt;/a&gt;
-                                    &lt;/td&gt;
-                                &lt;/tr&gt;
-                            &lt;/tbody&gt;
-                        &lt;/table&gt;
-						&lt;/td&gt;
-						&lt;/tr&gt;
-				&lt;!--Pick Just for you - end --&gt;
-
-                &lt;!--Top Offers - Start --&gt;
-                &lt;tr&gt;
-                    &lt;td align="center"
-                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding:24px 0;border-top: 7px solid #333;"&gt;
-                        &lt;a href="$url('Home-Show')$" style="display:block" target="_blank"&gt;
-                            &lt;img width="100%" alt="Top Offers - Today's Deals" style="border:0;display:block" border="0"
-                                src="images/email/email-footer/footer-suggestions/top-offer-cta.jpg?$staticlink$"&gt;
-                        &lt;/a&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr&gt;
-                    &lt;td&gt;
-                        &lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation"&gt;
-                            &lt;tbody&gt;
-                                &lt;tr&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-
-                                        &lt;a href="$url('Search-Show','cgid','wellness-and-aromatherapy')$" style="display:block" target="_blank"&gt;
-                                            &lt;img alt="Aromatheraphy" style="border:0;display:block" border="0"  width="160px" height="160px"
-                                                src="images/email/email-footer/footer-suggestions/fbc_wellness_sp3_vn.jpg?$staticlink$"
-                                                class/&gt;
-                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Aromatheraphy&lt;/p&gt;
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-
-                                        &lt;a href="$url('Search-Show','cgid','body-care')$" style="display:block" target="_blank"&gt;
-                                            &lt;img alt="Boday Care" style="border:0;display:block" border="0" width="160px" height="160px"
-                                                src="images/email/email-footer/footer-suggestions/bc_fragrance_GL_vn.jpg?$staticlink$"/&gt;
-                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Boday Care&lt;/p&gt;
-                                        &lt;/a&gt;
-                                    &lt;/td&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-                                        &lt;a href="$url('Search-Show','cgid','candles')$" style="display:block" target="_blank"&gt;
-                                            &lt;img alt="Candles" style="border:0;display:block" border="0" width="160px" height="160px"
-                                                src="images/email/email-footer/footer-suggestions/cndl_all_GL_vn.jpg?$staticlink$"/&gt;
-                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Candles&lt;/p&gt;
-                                        &lt;/a&gt;
-                                    &lt;/td&gt;
-                                &lt;/tr&gt;
-                            &lt;/tbody&gt;
-                        &lt;/table&gt;
-						&lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation" style="margin-top:15px;"&gt;
-                            &lt;tbody&gt;
-                                &lt;tr&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-
-                                        &lt;a href="$url('Search-Show','cgid','wallflowers')$" style="display:block" target="_blank"&gt;
-                                            &lt;img alt="Aromatheraphy" style="border:0;display:block" border="0"  width="160px" height="160px"
-                                                src="images/email/email-footer/footer-suggestions/hf_wf_GL_vn.jpg?$staticlink$"
-                                                class/&gt;
-                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Wallflowers&lt;/p&gt;
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-
-                                        &lt;a href="$url('Search-Show','cgid','hand-soaps')$" style="display:block" target="_blank"&gt;
-                                            &lt;img alt="Boday Care" style="border:0;display:block" border="0" width="160px" height="160px"
-                                                src="images/email/email-footer/footer-suggestions/sp_all_GL_vn.jpg?$staticlink$"/&gt;
-                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Hand Soaps&lt;/p&gt;
-                                        &lt;/a&gt;
-                                    &lt;/td&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-                                        &lt;a href="$url('Search-Show','cgid','the-men-s-shop')$" style="display:block" target="_blank"&gt;
-                                            &lt;img alt="Candles" style="border:0;display:block" border="0" width="160px" height="160px"
-                                                src="images/email/email-footer/footer-suggestions/mens_all_GL_vn.jpg?$staticlink$"/&gt;
-                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Men's Shop&lt;/p&gt;
-                                        &lt;/a&gt;
-                                    &lt;/td&gt;
-                                &lt;/tr&gt;
-                            &lt;/tbody&gt;
-                        &lt;/table&gt;
-                    &lt;/td&gt;
-
-                &lt;/tr&gt;
-                &lt;!--Top Offers - End --&gt;
-                &lt;!--Shop Now Button- Start--&gt;
-                &lt;tr&gt;
-                    &lt;td align="center"
-                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding: 20px 0;"&gt;
-                        &lt;div&gt;
-                            &lt;!--[if mso]&gt;
-                            &lt;v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="$url('Home-Show')$" style="height:40px;v-text-anchor:middle;width:500px;" arcsize="0%" strokecolor="#333" fillcolor="#333"&gt;
-                              &lt;w:anchorlock/&gt;
-                              &lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"&gt;Shop Now&lt;/center&gt;
-                            &lt;/v:roundrect&gt;
-                          &lt;![endif]--&gt;&lt;a href="$url('Home-Show')$"
-                                style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;border-radius:0px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:500px;-webkit-text-size-adjust:none;mso-hide:all;"&gt;Shop
-                                Now&lt;/a&gt;&lt;/div&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;!--Shop Now Button- End--&gt;
-                &lt;!--Useful Link - Start--&gt;
-                &lt;tr&gt;
-                    &lt;td align="center"
-                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;vertical-align:top;padding:30px 0"&gt;
-                        &lt;table border="0" cellpadding="0" cellspacing="0" width="90%"&gt;
-                            &lt;tbody&gt;
-                                &lt;tr&gt;
-                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'store-locator')$" title="Find a Store"
-                                            style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase"
-                                            target="_blank"&gt;
-                                            Find a Store
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td align="center"
-                                        style="border-left:1px solid #666666;border-right:1px solid #666666"&gt; &lt;a
-                                            href="$url('Account-Show')$" title="My Account"
-                                            style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase"
-                                            target="_blank"&gt;
-                                            My Account
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-customer-care')$" title="Customer Care"
-                                            style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase"
-                                            target="_blank"&gt;
-                                            Customer Care
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                &lt;/tr&gt;
-                            &lt;/tbody&gt;
-                        &lt;/table&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;!--Useful Link - End--&gt;
-                &lt;!--Social Meadia icons - Start--&gt;
-                &lt;tr&gt;
-                    &lt;td align="center"
-                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding-bottom:40px"&gt;
-                        &lt;table border="0" cellpadding="0" cellspacing="0" width="35%"&gt;
-                            &lt;tbody&gt;
-                                &lt;tr&gt;
-                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block"
-                                            href="https://www.facebook.com/bbwaustralia/" title="Facebook"
-                                            target="_blank"&gt;
-                                            &lt;img src="images/email/email-footer/footer-icons/facebook-icon.png?$staticlink$"
-                                                alt="Facebook" style="border:0;vertical-align:top" width="35px"
-                                                height="35px" /&gt;
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block"
-                                            href="https://www.instagram.com/bathandbodyworks.au/" title="Instagram"
-                                            target="_blank"&gt;
-                                            &lt;img src="images/email/email-footer/footer-icons/instagram-icon.png?$staticlink$"
-                                                alt="Instagram" style="border:0;vertical-align:top" width="35px"
-                                                height="35px" /&gt;
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block" href="https://www.tiktok.com/@bathandbodyworks.au"
-                                            title="TikTok" target="_blank"&gt;
-                                            &lt;img src="images/email/email-footer/footer-icons/tiktok-icon.png?$staticlink$"
-                                                alt="TikTok" style="border:0;vertical-align:top" /&gt;
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block"
-                                            href="https://www.youtube.com/channel/UCi4-fFB4Odqjttdwomvg3rQ"
-                                            title="YouTube" target="_blank"&gt;
-                                            &lt;img src="images/email/email-footer/footer-icons/youtube-icon.png?$staticlink$"
-                                                alt="YouTube" style="border:0;vertical-align:top" /&gt;
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                &lt;/tr&gt;
-                            &lt;/tbody&gt;
-                        &lt;/table&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;!--Social Meadia icons - End--&gt;
-                &lt;!--Bottom Link - Start--&gt;
-                &lt;tr&gt;
-                    &lt;td align="center"
-                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding-bottom:40px"&gt;
-                        &lt;table border="0" cellpadding="0" cellspacing="0" width="60%"&gt;
-                            &lt;tbody&gt;
-                                &lt;tr&gt;
-                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'privacy-policy')$" title="Privacy Policy"
-                                            style="color:#666666;padding:0;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:12px;line-height:1;display:inline-block;text-transform:uppercase"
-                                            target="_blank"&gt;
-                                            Privacy Policy
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td align="center"
-                                        style="border-left:1px solid #666666;border-right:1px solid #666666"&gt; &lt;a
-                                            href="tel:1800576972" title="Phone"
-                                            style="color:#666666;padding:0;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:14px;line-height:1;display:inline-block;text-transform:uppercase"
-                                            target="_blank"&gt;
-                                            1800-576-972
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$"
-                                            title="Contact Us"
-                                            style="color:#666666;padding:0;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:12px;line-height:1;display:inline-block;text-transform:uppercase"
-                                            target="_blank"&gt;
-                                            Contact Us
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                &lt;/tr&gt;
-                            &lt;/tbody&gt;
-                        &lt;/table&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;!--Bottom Link - End--&gt;
-            &lt;/tbody&gt;
-        &lt;/table&gt;
-    &lt;/td&gt;
+    <display-name xml:lang="x-default">Email Footer with Suggestions</display-name>
+    <description xml:lang="x-default">Email Footer with picked just for you and top offers sections</description>
+    <online-flag>true</online-flag>
+    <searchable-flag>false</searchable-flag>
+    <page-attributes/>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;tr&gt;&#xD;
+    &lt;td&#xD;
+        style="vertical-align:top;text-align:center;color:#666;font-size:14px;line-height:1;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif; padding:0 32px 15px;"&gt;&#xD;
+        &lt;table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0;margin:0 auto;max-width:600px;min-width:320px;table-layout:fixed;vertical-align:top;width:100%;background:#ffffff"&gt;&#xD;
+            &lt;tbody&gt;&#xD;
+				&lt;!--Pick Just for you - start --&gt;&#xD;
+				 &lt;tr&gt;&#xD;
+                    &lt;td align="center"&#xD;
+                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding-bottom:24px"&gt;&#xD;
+                        &lt;a href="#" style="display:block;cursor: pointer;" target="_blank"&gt;&#xD;
+                            &lt;img width="70%" alt="Top Offers - Today's Deals" style="border:0;display:block;margin:0 auto;" border="0"&#xD;
+                                src="images/email/email-footer/footer-suggestions/Picked-just-for-you!.jpg?$staticlink$"&gt;&#xD;
+                        &lt;/a&gt;&#xD;
+                    &lt;/td&gt;&#xD;
+                &lt;/tr&gt;&#xD;
+				&lt;tr&gt;&#xD;
+                    &lt;td&gt;&#xD;
+                        &lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation" style="padding: 40px 0;"&gt;&#xD;
+                            &lt;tbody&gt;&#xD;
+                                &lt;tr&gt;&#xD;
+                                    &lt;!--Product 1 - Start --&gt;&#xD;
+                                    &lt;td align="center" style="padding:0 5px 20px;vertical-align:top;text-align:center;"&gt;&#xD;
+                                        &lt;table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" class="product-tile" style="width: 100%;max-width: 200px;margin: 0 auto;"&gt;&#xD;
+                                            &lt;tr&gt;&#xD;
+                                                &lt;td&gt;&#xD;
+                                                    &lt;div class="img-wrapper" style="width: 100%;text-align: center;margin: 0 auto;"&gt;&#xD;
+                                                        &lt;a class="product-ing-link" href="${URLUtils.https('Product-Show', 'pid', '26438529')}" style="display: block;width: 100%;"&gt;&#xD;
+                                                            &lt;img class="product-image" src="images/email/email-footer/footer-suggestions/026438528.jpg?$staticlink$"&#xD;
+                                                                alt="Japanese Cherry Blossom" title="Japanese Cherry Blossom"&#xD;
+                                                                itemprop="image" style="width: 100%;margin: 0 auto;"/&gt;&#xD;
+                                                        &lt;/a&gt;&#xD;
+                                                    &lt;/div&gt;&#xD;
+                                                &lt;/td&gt;&#xD;
+                                            &lt;/tr&gt;&#xD;
+                                            &lt;tr&gt;&#xD;
+                                                &lt;td style="vertical-align:bottom;height: 149px;"&gt;&#xD;
+                                                    &lt;div class="detail-wrapper"&gt;&#xD;
+                                                        &lt;div class="product-details" style="text-align: center;"&gt;&#xD;
+                                                            &lt;div class="product-name" style="color: #1a1a1a;letter-spacing: .16px;line-height: 20px;font-size: 16px;text-transform: capitalize;font-weight: 600;margin-bottom: 5px;"&gt;Japanese Cherry Blossom&lt;/div&gt;&#xD;
+                                                            &lt;div class="product-title-b" style="font-size: 14px;color: #1a1a1a;line-height: 16px;letter-spacing: 0.21px;margin-bottom: 5px;"&gt;Fine Fragrance Mist&lt;/div&gt;&#xD;
+                                                            &lt;div class="product-price" style="color: #1a1a1a;font-weight: 600;font-size: 16px;letter-spacing: .09px;line-height: 20px;"&gt;AU$ 37.95&lt;/div&gt;&#xD;
+                                                        &lt;/div&gt;&#xD;
+                                                        &lt;div class="product-btn-wrapper"&gt;&#xD;
+                                                            &lt;div&gt;&#xD;
+                                                                &lt;!--[if mso]&gt;&#xD;
+                                                                &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${URLUtils.https('Product-Show', 'pid', '26438529')}" style="height:35px;v-text-anchor:middle;width:100%;max-width:80%;margin-top:10px;" strokecolor="#333" fillcolor="#333"&gt;&#xD;
+                                                                    &lt;w:anchorlock/&gt;&#xD;
+                                                                    &lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;text-transform: uppercase;"&gt;Add to Bag&lt;/center&gt;&#xD;
+                                                                &lt;/v:rect&gt;&#xD;
+                                                                &lt;![endif]--&gt;&#xD;
+                                                                &lt;a href="${URLUtils.https('Product-Show', 'pid', '26438529')}"&#xD;
+                                                                    style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:35px;text-align:center;text-decoration:none;width:100%;max-width:80%;margin-top:10px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;text-transform: uppercase;"&gt;Add to Bag&lt;/a&gt;&#xD;
+                                                            &lt;/div&gt;&#xD;
+                                                        &lt;/div&gt;&#xD;
+                                                    &lt;/div&gt;&#xD;
+                                                &lt;/td&gt;&#xD;
+                                            &lt;/tr&gt;&#xD;
+                                        &lt;/table&gt;&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;!--Product 1 - end --&gt;&#xD;
+                                    &lt;!--Product 2 - Start --&gt;&#xD;
+                                    &lt;td align="center" style="padding:0 5px 20px;vertical-align:top;text-align:center;"&gt;&#xD;
+                                        &lt;table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" class="product-tile" style="width: 100%;max-width: 200px;margin: 0 auto;"&gt;&#xD;
+                                            &lt;tr&gt;&#xD;
+                                                &lt;td&gt;&#xD;
+                                                    &lt;div class="img-wrapper" style="width: 100%;text-align: center;margin: 0 auto;"&gt;&#xD;
+                                                        &lt;a class="product-ing-link" href="${URLUtils.https('Product-Show', 'pid', '26291248')}" style="display: block;width: 100%;"&gt;&#xD;
+                                                            &lt;img class="product-image" src="images/email/email-footer/footer-suggestions/026291227.jpg?$staticlink$"&#xD;
+                                                                alt="Champagne Toast" title="Champagne Toast"&#xD;
+                                                                itemprop="image" style="width: 100%;margin: 0 auto;"/&gt;&#xD;
+                                                        &lt;/a&gt;&#xD;
+                                                    &lt;/div&gt;&#xD;
+                                                &lt;/td&gt;&#xD;
+                                            &lt;/tr&gt;&#xD;
+                                            &lt;tr&gt;&#xD;
+                                                &lt;td style="vertical-align:bottom;height: 149px;"&gt;&#xD;
+                                                    &lt;div class="detail-wrapper"&gt;&#xD;
+                                                        &lt;div class="product-details" style="text-align: center;"&gt;&#xD;
+                                                            &lt;div class="product-name" style="color: #1a1a1a;letter-spacing: .16px;line-height: 20px;font-size: 16px;text-transform: capitalize;font-weight: 600;margin-bottom: 5px;"&gt;Champagne Toast&lt;/div&gt;&#xD;
+                                                            &lt;div class="product-title-b" style="font-size: 14px;color: #1a1a1a;line-height: 16px;letter-spacing: 0.21px;margin-bottom: 5px;"&gt;3-Wick Candle&lt;/div&gt;&#xD;
+                                                            &lt;div class="product-price" style="color: #1a1a1a;font-weight: 600;font-size: 16px;letter-spacing: .09px;line-height: 20px;"&gt;AU$ 54.95&lt;/div&gt;&#xD;
+                                                        &lt;/div&gt;&#xD;
+                                                        &lt;div class="product-btn-wrapper"&gt;&#xD;
+                                                            &lt;div&gt;&#xD;
+                                                                &lt;!--[if mso]&gt;&#xD;
+                                                                &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${URLUtils.https('Product-Show', 'pid', '26291248')}" style="height:35px;v-text-anchor:middle;width:100%;max-width:80%;margin-top:10px;" strokecolor="#333" fillcolor="#333"&gt;&#xD;
+                                                                    &lt;w:anchorlock/&gt;&#xD;
+                                                                    &lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;text-transform: uppercase;"&gt;Add to Bag&lt;/center&gt;&#xD;
+                                                                &lt;/v:rect&gt;&#xD;
+                                                                &lt;![endif]--&gt;&#xD;
+                                                                &lt;a href="${URLUtils.https('Product-Show', 'pid', '26291248')}"&#xD;
+                                                                    style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:35px;text-align:center;text-decoration:none;width:100%;max-width:80%;margin-top:10px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;text-transform: uppercase;"&gt;Add to Bag&lt;/a&gt;&#xD;
+                                                            &lt;/div&gt;&#xD;
+                                                        &lt;/div&gt;&#xD;
+                                                    &lt;/div&gt;&#xD;
+                                                &lt;/td&gt;&#xD;
+                                            &lt;/tr&gt;&#xD;
+                                        &lt;/table&gt;&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;!--Product 2 - end --&gt;&#xD;
+                                    &lt;!--Product 3 - Start --&gt;&#xD;
+                                    &lt;td align="center" style="padding:0 5px 20px;vertical-align:top;text-align:center;"&gt;&#xD;
+                                        &lt;table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" class="product-tile" style="width: 100%;max-width: 200px;margin: 0 auto;"&gt;&#xD;
+                                            &lt;tr&gt;&#xD;
+                                                &lt;td&gt;&#xD;
+                                                    &lt;div class="img-wrapper" style="width: 100%;text-align: center;margin: 0 auto;"&gt;&#xD;
+                                                        &lt;a class="product-ing-link" href="${URLUtils.https('Product-Show', 'pid', '26502530')}" style="display: block;width: 100%;"&gt;&#xD;
+                                                            &lt;img class="product-image" src="images/email/email-footer/footer-suggestions/026502529.jpg?$staticlink$"&#xD;
+                                                                alt="A Thousand Wishes" title="A Thousand Wishes"&#xD;
+                                                                itemprop="image" style="width: 100%;margin: 0 auto;"/&gt;&#xD;
+                                                        &lt;/a&gt;&#xD;
+                                                    &lt;/div&gt;&#xD;
+                                                &lt;/td&gt;&#xD;
+                                            &lt;/tr&gt;&#xD;
+                                            &lt;tr&gt;&#xD;
+                                                &lt;td style="vertical-align:bottom;height: 149px;"&gt;&#xD;
+                                                    &lt;div class="detail-wrapper"&gt;&#xD;
+                                                        &lt;div class="product-details" style="text-align: center;"&gt;&#xD;
+                                                            &lt;div class="product-name" style="color: #1a1a1a;letter-spacing: .16px;line-height: 20px;font-size: 16px;text-transform: capitalize;font-weight: 600;margin-bottom: 5px;"&gt;A Thousand Wishes&lt;/div&gt;&#xD;
+                                                            &lt;div class="product-title-b" style="font-size: 14px;color: #1a1a1a;line-height: 16px;letter-spacing: 0.21px;margin-bottom: 5px;"&gt;Shower Gel&lt;/div&gt;&#xD;
+                                                            &lt;div class="product-price" style="color: #1a1a1a;font-weight: 600;font-size: 16px;letter-spacing: .09px;line-height: 20px;"&gt;AU$ 34.95&lt;/div&gt;&#xD;
+                                                        &lt;/div&gt;&#xD;
+                                                        &lt;div class="product-btn-wrapper"&gt;&#xD;
+                                                            &lt;div&gt;&#xD;
+                                                                &lt;!--[if mso]&gt;&#xD;
+                                                                &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${URLUtils.https('Product-Show', 'pid', '26502530')}" style="height:35px;v-text-anchor:middle;width:100%;max-width:80%;margin-top:10px;" strokecolor="#333" fillcolor="#333"&gt;&#xD;
+                                                                    &lt;w:anchorlock/&gt;&#xD;
+                                                                    &lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;text-transform: uppercase;"&gt;Add to Bag&lt;/center&gt;&#xD;
+                                                                &lt;/v:rect&gt;&#xD;
+                                                                &lt;![endif]--&gt;&#xD;
+                                                                &lt;a href="${URLUtils.https('Product-Show', 'pid', '26502530')}"&#xD;
+                                                                    style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:35px;text-align:center;text-decoration:none;width:100%;max-width:80%;margin-top:10px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;text-transform: uppercase;"&gt;Add to Bag&lt;/a&gt;&#xD;
+                                                            &lt;/div&gt;&#xD;
+                                                        &lt;/div&gt;&#xD;
+                                                    &lt;/div&gt;&#xD;
+                                                &lt;/td&gt;&#xD;
+                                            &lt;/tr&gt;&#xD;
+                                        &lt;/table&gt;&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;!--Product 3 - end --&gt;&#xD;
+                                &lt;/tr&gt;&#xD;
+                            &lt;/tbody&gt;&#xD;
+                        &lt;/table&gt;&#xD;
+					&lt;/td&gt;&#xD;
+				&lt;/tr&gt;&#xD;
+				&lt;!--Pick Just for you - end --&gt;&#xD;
+&#xD;
+                &lt;!--Top Offers - Start --&gt;&#xD;
+                &lt;tr&gt;&#xD;
+                    &lt;td align="center"&#xD;
+                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding:24px 0;border-top: 7px solid #333;"&gt;&#xD;
+                        &lt;a href="$url('Home-Show')$" style="display:block" target="_blank"&gt;&#xD;
+                            &lt;img width="100%" alt="Top Offers - Today's Deals" style="border:0;display:block" border="0"&#xD;
+                                src="images/email/email-footer/footer-suggestions/top-offer-cta.jpg?$staticlink$"&gt;&#xD;
+                        &lt;/a&gt;&#xD;
+                    &lt;/td&gt;&#xD;
+                &lt;/tr&gt;&#xD;
+                &lt;tr&gt;&#xD;
+                    &lt;td&gt;&#xD;
+                        &lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation"&gt;&#xD;
+                            &lt;tbody&gt;&#xD;
+                                &lt;tr&gt;&#xD;
+                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;&#xD;
+&#xD;
+                                        &lt;a href="$url('Search-Show','cgid','wellness-and-aromatherapy')$" style="display:block" target="_blank"&gt;&#xD;
+                                            &lt;img alt="Aromatheraphy" style="border:0;display:block" border="0"  width="160px" height="160px"&#xD;
+                                                src="images/email/email-footer/footer-suggestions/fbc_wellness_sp3_vn.jpg?$staticlink$"&#xD;
+                                                class/&gt;&#xD;
+                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Aromatheraphy&lt;/p&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;&#xD;
+&#xD;
+                                        &lt;a href="$url('Search-Show','cgid','body-care')$" style="display:block" target="_blank"&gt;&#xD;
+                                            &lt;img alt="Boday Care" style="border:0;display:block" border="0" width="160px" height="160px"&#xD;
+                                                src="images/email/email-footer/footer-suggestions/bc_fragrance_GL_vn.jpg?$staticlink$"/&gt;&#xD;
+                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Body Care&lt;/p&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;&#xD;
+                                        &lt;a href="$url('Search-Show','cgid','candles-and-home-fragrance')$" style="display:block" target="_blank"&gt;&#xD;
+                                            &lt;img alt="Candles" style="border:0;display:block" border="0" width="160px" height="160px"&#xD;
+                                                src="images/email/email-footer/footer-suggestions/cndl_all_GL_vn.jpg?$staticlink$"/&gt;&#xD;
+                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Candles&lt;/p&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+                                    &lt;/td&gt;&#xD;
+                                &lt;/tr&gt;&#xD;
+                            &lt;/tbody&gt;&#xD;
+                        &lt;/table&gt;&#xD;
+						&lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation" style="margin-top:15px;"&gt;&#xD;
+                            &lt;tbody&gt;&#xD;
+                                &lt;tr&gt;&#xD;
+                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;&#xD;
+&#xD;
+                                        &lt;a href="$url('Search-Show','cgid','wallflowers')$" style="display:block" target="_blank"&gt;&#xD;
+                                            &lt;img alt="Aromatheraphy" style="border:0;display:block" border="0"  width="160px" height="160px"&#xD;
+                                                src="images/email/email-footer/footer-suggestions/hf_wf_GL_vn.jpg?$staticlink$"&#xD;
+                                                class/&gt;&#xD;
+                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Wallflowers&lt;/p&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;&#xD;
+&#xD;
+                                        &lt;a href="$url('Search-Show','cgid','hand-soaps')$" style="display:block" target="_blank"&gt;&#xD;
+                                            &lt;img alt="Boday Care" style="border:0;display:block" border="0" width="160px" height="160px"&#xD;
+                                                src="images/email/email-footer/footer-suggestions/sp_all_GL_vn.jpg?$staticlink$"/&gt;&#xD;
+                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Hand Soaps&lt;/p&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;&#xD;
+                                        &lt;a href="$url('Search-Show','cgid','men-s')$" style="display:block" target="_blank"&gt;&#xD;
+                                            &lt;img alt="Candles" style="border:0;display:block" border="0" width="160px" height="160px"&#xD;
+                                                src="images/email/email-footer/footer-suggestions/mens_all_GL_vn.jpg?$staticlink$"/&gt;&#xD;
+                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Men's Shop&lt;/p&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+                                    &lt;/td&gt;&#xD;
+                                &lt;/tr&gt;&#xD;
+                            &lt;/tbody&gt;&#xD;
+                        &lt;/table&gt;&#xD;
+                    &lt;/td&gt;&#xD;
+&#xD;
+                &lt;/tr&gt;&#xD;
+                &lt;!--Top Offers - End --&gt;&#xD;
+                &lt;!--Shop Now Button- Start--&gt;&#xD;
+                &lt;tr&gt;&#xD;
+                    &lt;td align="center"&#xD;
+                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding: 20px 0;"&gt;&#xD;
+                        &lt;div&gt;&#xD;
+                            &lt;!--[if mso]&gt;&#xD;
+                            &lt;v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="$url('Home-Show')$" style="height:40px;v-text-anchor:middle;width:500px;" arcsize="0%" strokecolor="#333" fillcolor="#333"&gt;&#xD;
+                              &lt;w:anchorlock/&gt;&#xD;
+                              &lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"&gt;Shop Now&lt;/center&gt;&#xD;
+                            &lt;/v:roundrect&gt;&#xD;
+                          &lt;![endif]--&gt;&lt;a href="$url('Home-Show')$"&#xD;
+                                style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;border-radius:0px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:500px;-webkit-text-size-adjust:none;mso-hide:all;"&gt;Shop&#xD;
+                                Now&lt;/a&gt;&lt;/div&gt;&#xD;
+                    &lt;/td&gt;&#xD;
+                &lt;/tr&gt;&#xD;
+                &lt;!--Shop Now Button- End--&gt;&#xD;
+                &lt;!--Useful Link - Start--&gt;&#xD;
+                &lt;tr&gt;&#xD;
+                    &lt;td align="center"&#xD;
+                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;vertical-align:top;padding:30px 0"&gt;&#xD;
+                        &lt;table border="0" cellpadding="0" cellspacing="0" width="90%"&gt;&#xD;
+                            &lt;tbody&gt;&#xD;
+                                &lt;tr&gt;&#xD;
+                                    &lt;td align="center"&gt; &lt;a href="$url('Stores-Find')$" title="Find a Store"&#xD;
+                                            style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            Find a Store&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td align="center"&#xD;
+                                        style="border-left:1px solid #666666;border-right:1px solid #666666"&gt; &lt;a&#xD;
+                                            href="$url('Account-Show')$" title="My Account"&#xD;
+                                            style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            My Account&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$" title="Customer Care"&#xD;
+                                            style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            Customer Care&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                &lt;/tr&gt;&#xD;
+                            &lt;/tbody&gt;&#xD;
+                        &lt;/table&gt;&#xD;
+                    &lt;/td&gt;&#xD;
+                &lt;/tr&gt;&#xD;
+                &lt;!--Useful Link - End--&gt;&#xD;
+                &lt;!--Social Meadia icons - Start--&gt;&#xD;
+                &lt;tr&gt;&#xD;
+                    &lt;td align="center"&#xD;
+                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding-bottom:40px"&gt;&#xD;
+                        &lt;table border="0" cellpadding="0" cellspacing="0" width="35%"&gt;&#xD;
+                            &lt;tbody&gt;&#xD;
+                                &lt;tr&gt;&#xD;
+                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block"&#xD;
+                                            href="https://www.facebook.com/bbwaustralia/" title="Facebook"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            &lt;img src="images/email/email-footer/footer-icons/facebook-icon.png?$staticlink$"&#xD;
+                                                alt="Facebook" style="border:0;vertical-align:top" width="35px"&#xD;
+                                                height="35px" /&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block"&#xD;
+                                            href="https://www.instagram.com/bathandbodyworks.au/" title="Instagram"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            &lt;img src="images/email/email-footer/footer-icons/instagram-icon.png?$staticlink$"&#xD;
+                                                alt="Instagram" style="border:0;vertical-align:top" width="35px"&#xD;
+                                                height="35px" /&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block" href="https://www.tiktok.com/@bathandbodyworks.au"&#xD;
+                                            title="TikTok" target="_blank"&gt;&#xD;
+                                            &lt;img src="images/email/email-footer/footer-icons/tiktok-icon.png?$staticlink$"&#xD;
+                                                alt="TikTok" style="border:0;vertical-align:top" /&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block"&#xD;
+                                            href="https://www.youtube.com/channel/UCi4-fFB4Odqjttdwomvg3rQ"&#xD;
+                                            title="YouTube" target="_blank"&gt;&#xD;
+                                            &lt;img src="images/email/email-footer/footer-icons/youtube-icon.png?$staticlink$"&#xD;
+                                                alt="YouTube" style="border:0;vertical-align:top" /&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                &lt;/tr&gt;&#xD;
+                            &lt;/tbody&gt;&#xD;
+                        &lt;/table&gt;&#xD;
+                    &lt;/td&gt;&#xD;
+                &lt;/tr&gt;&#xD;
+                &lt;!--Social Meadia icons - End--&gt;&#xD;
+                &lt;!--Bottom Link - Start--&gt;&#xD;
+                &lt;tr&gt;&#xD;
+                    &lt;td align="center"&#xD;
+                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding-bottom:40px"&gt;&#xD;
+                        &lt;table border="0" cellpadding="0" cellspacing="0" width="60%"&gt;&#xD;
+                            &lt;tbody&gt;&#xD;
+                                &lt;tr&gt;&#xD;
+                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'privacy-policy')$" title="Privacy Policy"&#xD;
+                                            style="color:#666666;padding:0;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:12px;line-height:1;display:inline-block;text-transform:uppercase"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            Privacy Policy&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td align="center"&#xD;
+                                        style="border-left:1px solid #666666;border-right:1px solid #666666"&gt; &lt;a&#xD;
+                                            href="tel:1800576972" title="Phone"&#xD;
+                                            style="color:#666666;padding:0;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:14px;line-height:1;display:inline-block;text-transform:uppercase"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            1800-576-972&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$"&#xD;
+                                            title="Contact Us"&#xD;
+                                            style="color:#666666;padding:0;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:12px;line-height:1;display:inline-block;text-transform:uppercase"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            Contact Us&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                &lt;/tr&gt;&#xD;
+                            &lt;/tbody&gt;&#xD;
+                        &lt;/table&gt;&#xD;
+                    &lt;/td&gt;&#xD;
+                &lt;/tr&gt;&#xD;
+                &lt;!--Bottom Link - End--&gt;&#xD;
+            &lt;/tbody&gt;&#xD;
+        &lt;/table&gt;&#xD;
+    &lt;/td&gt;&#xD;
 &lt;/tr&gt;</custom-attribute>
-        </custom-attributes>
-    </content>
+    </custom-attributes>
+  </content>
 
     <content content-id="email-header">
         <display-name xml:lang="x-default">Email Header</display-name>
