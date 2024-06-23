@@ -142,7 +142,7 @@ server.get('Detail', server.middleware.https, cache.applyDefaultCache, consentTr
     var timezone = storeMgrResult.custom.timezone ? storeMgrResult.custom.timezone : Site.getCurrent().getTimezone();
     var storeMapLink = storeMgrResult.custom.storeMapLink;
     var nearbyStores = storeHelpers.getStores(
-        30,
+        2000,
         null,
         null,
         null,
