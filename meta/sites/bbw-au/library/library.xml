@@ -5,6 +5,17 @@
         <page-attributes/>
     </folder>
 
+    <folder folder-id="giftcards">
+        <display-name xml:lang="x-default">Gift Cards</display-name>
+        <description xml:lang="x-default">Gift Cards</description>
+        <online-flag>false</online-flag>
+        <parent>root</parent>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="isShow">false</custom-attribute>
+        </custom-attributes>
+    </folder>
+
     <folder folder-id="privacy-policy">
         <display-name xml:lang="x-default">Privacy Policy</display-name>
         <description xml:lang="x-default">Privacy Policy</description>
@@ -7826,13 +7837,13 @@ padding-top:20px;&#xD;
     </custom-attributes>
   </content>
 
-     <content content-id="gclearnmore">
-        <display-name xml:lang="x-default">Gift card View more</display-name>
+    <content content-id="gclearnmore">
+        <display-name xml:lang="x-default">E-Gift Cards More Info</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-          <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
     &lt;div class="row"&gt;&#13;
         &lt;div class="col-md-9 gctnc-head"&gt;&#13;
             &lt;div class="first-item"&gt;&#13;
@@ -7941,6 +7952,9 @@ padding-top:20px;&#xD;
     }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <folder-link folder-id="giftcards"/>
+        </folder-links>
     </content>
 
 </library>
