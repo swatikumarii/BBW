@@ -45,6 +45,52 @@ server.prepend('SubmitPayment', function (req, res, next) {
     next();
 });
 
+server.append(
+    'SubmitPayment',
+    server.middleware.https,
+    csrfProtection.validateAjaxRequest,
+    function (req, res, next) {
+        var BasketMgr = require('dw/order/BasketMgr');
+        var addressHelpers = require('*/cartridge/scripts/helpers/addressHelpers');
+        var currentBasket = BasketMgr.getCurrentBasket();
+        if (currentBasket) {
+            var paymentForm = server.forms.getForm('billing');
+            if (
+                req.currentCustomer.addressBook &&
+                paymentForm.saveAddress.value
+            ) {
+                var billingAddress = {
+                    firstName: paymentForm.addressFields.firstName.value,
+                    lastName: paymentForm.addressFields.lastName.value,
+                    address1: paymentForm.addressFields.address1.value,
+                    address2: paymentForm.addressFields.address2.value,
+                    city: paymentForm.addressFields.city.value,
+                    states: paymentForm.addressFields.states.value,
+                    postalCode: paymentForm.addressFields.postalCode.value,
+                    countryCode: paymentForm.addressFields.country.value,
+                    phone: paymentForm.addressFields.phone.value
+                };
+
+                if (
+                    !addressHelpers.checkIfAddressStored(
+                        billingAddress,
+                        req.currentCustomer.addressBook.addresses
+                    )
+                ) {
+                    addressHelpers.saveAddress(
+                        billingAddress,
+                        req.currentCustomer,
+                        addressHelpers.generateAddressName(billingAddress),
+                        true
+                    );
+                }
+            }
+        }
+
+        next();
+    }
+);
+
 /**
  * Validates the given form and creates response JSON if there are errors.
  * @param {string} form - the customer form to validate

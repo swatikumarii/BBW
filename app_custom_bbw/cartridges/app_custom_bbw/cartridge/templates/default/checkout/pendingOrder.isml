@@ -12,7 +12,7 @@
     <div class="hero slant-down hero-confirmation mmjv jm">
 
     </div>
-    <div class="container receipt <isif condition="${pdict.order.shipping.length > 1}">multi-ship</isif>">
+    <div class="hide-sessionTimeOut container receipt <isif condition="${pdict.order.shipping.length > 1}">multi-ship</isif>">
     <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
         <div class="row">
         <div class="col-md-12 col-sm-12 d-flex justify-content-center slot-banner">
