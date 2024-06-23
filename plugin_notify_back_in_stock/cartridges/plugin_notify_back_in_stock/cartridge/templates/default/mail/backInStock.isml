@@ -35,7 +35,7 @@
                                                 itemprop="image" style="width: 100%;margin: 0 auto;"/>
                                         </a>
                                     </div>
-                                    <div class="detail-wrapper" style="height: 149px;table-layout: auto;display: table-cell;vertical-align: bottom;">
+                                    <div class="detail-wrapper" style="height: 149px;table-layout: auto;display: table-cell;vertical-align: bottom;width: 100vw;">
                                         <div class="product-details" style="text-align: center;">
                                             <isif condition="${productDetail.name}">
                                                 <div class="product-name" style="color: #1a1a1a;letter-spacing: .16px;line-height: 20px;font-size: 16px;text-transform: capitalize;font-weight: 600;margin-bottom: 5px;">${productDetail.name}</div>
