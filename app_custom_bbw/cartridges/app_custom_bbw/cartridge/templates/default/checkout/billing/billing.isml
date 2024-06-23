@@ -63,7 +63,7 @@
                             <span class="required-indicator-text h-clr--black-1 h-font-size--14 h-line-height--20 b-text-letter-space-01"><span class="h-clr--red-9 require-indicator">${'*'}</span>${Resource.msg('label.required', 'account', null)}</span>
                         </div>
                         <input type="text" class="form-control email" id="contactEmail"
-                            value="${pdict.order.billing.billingAddress.address ? pdict.order.billing.billingAddress.address.email ? pdict.order.billing.billingAddress.address.email : pdict.customer && 'profile' in pdict.customer && pdict.customer.profile && 'email' in pdict.customer.profile ? pdict.customer.profile.email || '' : '' : ''}"
+                            value="${pdict.userEmail}"
                             <isprint value=${pdict.forms.billingForm.contactInfoFields.email.attributes} encoding="off" />
                             data-missing-error="${Resource.msg('error.email.address', 'forms', null)}"
                             data-pattern-mismatch="${Resource.msg('valid.email.address', 'forms', null)}"
