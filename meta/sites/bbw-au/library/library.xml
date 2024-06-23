@@ -4409,6 +4409,17 @@ To contact our Customer Service team, please call &lt;a href="phone:1800-576-972
 &lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
+	
+	<content content-id="email-notifyme-content">
+    <display-name xml:lang="x-default">Notify Me Email Content</display-name>
+    <description xml:lang="x-default">Notify Me Email Content</description>
+    <online-flag>true</online-flag>
+    <searchable-flag>false</searchable-flag>
+    <page-attributes/>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p style="margin:0;"&gt;&lt;a style="width:100%; display:block;" href="$url('Home-Show')$"&gt;&lt;img width="100%" style="width:100%;" alt="Good News! Your Item Is Back In Stock" border="0" src="images/email/notifyme-email/notifyme-email-banner.jpg?$staticlink$" style="border-color: initial; border-image: initial; display: block;" title="" /&gt;&lt;/a&gt;&lt;/p&gt;</custom-attribute>
+    </custom-attributes>
+	</content>
 
 <content content-id="Order-tracking-banner">
         <display-name xml:lang="x-default">Order Tracking</display-name>
