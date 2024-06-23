@@ -2179,6 +2179,465 @@
         </folder-links>
     </content>
 
+    <content content-id="fathers-day-gift-guide">
+        <display-name xml:lang="x-default">GIFTS FOR DADS</display-name>
+        <description xml:lang="x-default">Six ways to get Dad’s gift game in order…before you resort to another tie.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Our Greatest Gift Guide for Dads 2024</page-title>
+            <page-description xml:lang="x-default">Make Dad proud on his special day. From bold colognes to fresh body washes, we smell nothing but winning Father’s Day gifts for every type of dad.</page-description>
+            <page-keywords xml:lang="x-default">Gifts for Dad, Father’s Day, Father’s Gifts, Father’s Day gift ideas, best cologne for men, colognes</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+	&lt;div class="controlcontent_r"&gt;&#13;
+		&lt;div class="htmlbucket"&gt;&#13;
+			&lt;p&gt;&#13;
+				&lt;style type="text/css"&gt;&#13;
+					/*head section*/&#13;
+					.shop-by-fragnance-submain {&#13;
+						position: relative;&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 {&#13;
+						width: 85%;&#13;
+						margin: 0px auto;&#13;
+						padding: 0px;&#13;
+						margin-bottom: 10px;&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 .imgsection {&#13;
+						width: 100%;&#13;
+						position: relative;&#13;
+						display: block;&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 .imgsection img {&#13;
+						width: 100%;&#13;
+						height: auto;&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 .contentsection {&#13;
+						width: 100%;&#13;
+						position: absolute;&#13;
+						z-index: 1;&#13;
+						text-align: center;&#13;
+						top: 0px;&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 .contentsection h1 {&#13;
+						font-size: 136px;&#13;
+						font-family: "Just Lovely";&#13;
+						text-align: right;&#13;
+						margin: 7% 6%;&#13;
+						padding: 0;&#13;
+						min-height: 44px;&#13;
+						border: none;&#13;
+						line-height: 0.6;&#13;
+						color: #fff;&#13;
+						text-shadow: 2px 2px #333;&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 .contentsection .head2 {&#13;
+						font-size: 34px;&#13;
+						text-align: center;&#13;
+						margin: 0px auto;&#13;
+						padding: 0;&#13;
+						border: none;&#13;
+						line-height: 1;&#13;
+						color: #333;&#13;
+						font-weight: 400;&#13;
+						font-family: "TrendSansW05-One", Arial, sans-serif;&#13;
+						width: 36%;&#13;
+						display: block;&#13;
+						letter-spacing: -4px;&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 .headparagraph {&#13;
+						color: #333;&#13;
+						font-weight: 400;&#13;
+						font-size: 26px;&#13;
+						margin: 5% auto;&#13;
+						color: #000;&#13;
+						display: block;&#13;
+						width: 78%;&#13;
+						text-align: center;&#13;
+						line-height: 1.2&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 .contentsection p {&#13;
+						font-size: 1rem;&#13;
+						text-align: center;&#13;
+						line-height: 1.2;&#13;
+						color: #333;&#13;
+						margin-top: 2%;&#13;
+					}&#13;
+&#13;
+					/*head section ends*/&#13;
+&#13;
+					/*step*/&#13;
+					.stephead {&#13;
+						display: block;&#13;
+						width: 85%;&#13;
+						margin: 0px auto;&#13;
+						padding: 2%;&#13;
+						background: #dff2ff;&#13;
+					}&#13;
+&#13;
+					.stephead .stephead-h {&#13;
+						font-size: 96px;&#13;
+						font-family: "Just Lovely";&#13;
+						text-align: center;&#13;
+						margin: 0px auto;&#13;
+						padding: 0;&#13;
+						border: none;&#13;
+						line-height: 1.1;&#13;
+						color: #000000;&#13;
+						width: 100%;&#13;
+						display: block;&#13;
+					}&#13;
+&#13;
+					.stephead .stephead-p {&#13;
+						font-size: 18px;&#13;
+						text-align: center;&#13;
+						margin: 0px auto;&#13;
+						line-height: 1.5;&#13;
+						color: #666;&#13;
+						width: 80%;&#13;
+						display: block;&#13;
+						letter-spacing: 0.3px;&#13;
+						font-weight: 400;&#13;
+					}&#13;
+&#13;
+					.stepcontent {&#13;
+						display: block;&#13;
+						width: 85%;&#13;
+						margin: 0px auto;&#13;
+						padding: 2%;&#13;
+					}&#13;
+&#13;
+					.stepcontent .stepcontent-sec {&#13;
+						display: flex;&#13;
+						flex-wrap: wrap;&#13;
+						width: 100%;&#13;
+						margin: 0px auto;&#13;
+						justify-content: space-between;&#13;
+					}&#13;
+&#13;
+					.stepcontent .stepcontent-sec .txt {&#13;
+						width: 56%;&#13;
+						margin: 0px auto;&#13;
+						padding: 8% 5%;&#13;
+					}&#13;
+&#13;
+					.stepcontent .stepcontent-sec .txt .txt-h {&#13;
+						font-size: 30px;&#13;
+						font-weight: 800;&#13;
+						text-transform: uppercase;&#13;
+						color: #000000;&#13;
+						font-family: "TrendSansW05-One", Arial, sans-serif;&#13;
+						letter-spacing: -0.5px;&#13;
+					}&#13;
+&#13;
+					.stepcontent .stepcontent-sec .txt .txt-p {&#13;
+						font-size: 18px;&#13;
+						font-weight: 400;&#13;
+						color: #333;&#13;
+						line-height: 1.5;&#13;
+					}&#13;
+&#13;
+					.stepcontent .stepcontent-sec a {&#13;
+						font-weight: 600;&#13;
+					}&#13;
+&#13;
+					.stepcontent .stepcontent-sec .img {&#13;
+						width: 40%;&#13;
+					}&#13;
+&#13;
+					.stepcontent .stepcontent-sec .img img {&#13;
+						width: 100%;&#13;
+						height: auto;&#13;
+					}&#13;
+&#13;
+					/*step ends*/&#13;
+&#13;
+					/*Finalstep*/&#13;
+					.stephead.finalstep {&#13;
+						background: unset;&#13;
+					}&#13;
+&#13;
+					.stephead.finalstep .stephead-h {&#13;
+						line-height: 1;&#13;
+					}&#13;
+&#13;
+					.stephead.finalstep .stephead-p {&#13;
+						color: #333;&#13;
+						font-weight: 400;&#13;
+						font-size: 26px;&#13;
+						margin: 0px auto;&#13;
+						color: #000;&#13;
+						display: block;&#13;
+						width: 78%;&#13;
+						text-align: center;&#13;
+						line-height: 1.5;&#13;
+					}&#13;
+&#13;
+					.stephead.finalstep .shop-cta {&#13;
+						text-transform: uppercase;&#13;
+						color: #fff;&#13;
+						padding: 1.5%;&#13;
+						border: 1px solid #666;&#13;
+						text-decoration: none;&#13;
+						text-align: center;&#13;
+						margin: 2% auto;&#13;
+						width: 30%;&#13;
+						display: block;&#13;
+						font-size: 20px;&#13;
+						font-weight: 600;&#13;
+						background: #666;&#13;
+						letter-spacing: 2px;&#13;
+					}&#13;
+&#13;
+					.stephead.finalstep .shop-cta:hover {&#13;
+						color: #fff;&#13;
+						background: #000;&#13;
+						border: 1px solid #000;&#13;
+					}&#13;
+&#13;
+					/*Finalstep ends*/&#13;
+&#13;
+					@media only screen and (max-width:767px) {&#13;
+						.otherpages .col1_T04 #ctl00_ContentPlaceHolder1_ctl00_Pane1 .container2 {&#13;
+							width: 100% !important;&#13;
+						}&#13;
+&#13;
+						/*head section*/&#13;
+						.shop-by-fragrance-section1 {&#13;
+							width: 100%;&#13;
+						}&#13;
+&#13;
+						.shop-by-fragrance-section1 .contentsection {&#13;
+							width: 100%;&#13;
+						}&#13;
+&#13;
+						.shop-by-fragrance-section1 .contentsection h1 {&#13;
+							font-size: 60px;&#13;
+							margin: 4% auto;&#13;
+							line-height: 0.8;&#13;
+							margin-left: 42%;&#13;
+							text-align: center;&#13;
+						}&#13;
+&#13;
+						.shop-by-fragrance-section1 .contentsection .head2 {&#13;
+							font-size: 22px;&#13;
+							width: 70%;&#13;
+							letter-spacing: -3px;&#13;
+							margin-left: 27%;&#13;
+						}&#13;
+&#13;
+						.shop-by-fragrance-section1 .headparagraph {&#13;
+							width: 87%;&#13;
+							font-size: 14px;&#13;
+						}&#13;
+&#13;
+						.shop-by-fragrance-section1 .contentsection p {&#13;
+							line-height: 1.6;&#13;
+							padding: 0 10%;&#13;
+						}&#13;
+&#13;
+						.shop-by-fragrance-section1 .contentsection p.shopnow {&#13;
+							margin-top: 8%;&#13;
+						}&#13;
+&#13;
+						.shop-by-fragrance-section1 .contentsection .down-ico {&#13;
+							margin: 0px auto;&#13;
+							margin-top: 6px;&#13;
+						}&#13;
+&#13;
+						/*head section ends*/&#13;
+&#13;
+						/*step*/&#13;
+						.stephead {&#13;
+							width: 100%;&#13;
+						}&#13;
+&#13;
+						.stephead .stephead-h {&#13;
+							font-size: 70px;&#13;
+						}&#13;
+&#13;
+						.stephead .stephead-p {&#13;
+							font-size: 14px;&#13;
+						}&#13;
+&#13;
+						.stepcontent {&#13;
+							width: 100%;&#13;
+						}&#13;
+&#13;
+						.stepcontent .stepcontent-sec.flxrev {&#13;
+							flex-direction: column-reverse;&#13;
+						}&#13;
+&#13;
+						.stepcontent .stepcontent-sec .txt {&#13;
+							width: 100%;&#13;
+						}&#13;
+&#13;
+						.stepcontent .stepcontent-sec .img {&#13;
+							width: 100%;&#13;
+						}&#13;
+&#13;
+						.stepcontent .stepcontent-sec .txt .txt-h {&#13;
+							font-size: 18px;&#13;
+						}&#13;
+&#13;
+						.stepcontent .stepcontent-sec .txt .txt-p {&#13;
+							font-size: 14px;&#13;
+						}&#13;
+&#13;
+						.stephead.finalstep .stephead-p {&#13;
+							width: 85%;&#13;
+							font-size: 14px;&#13;
+						}&#13;
+&#13;
+						.stephead.finalstep .shop-cta {&#13;
+							width: 60%;&#13;
+							font-size: 14px;&#13;
+							padding: 2.5%;&#13;
+						}&#13;
+&#13;
+						.stephead.finalstep .shop-cta:hover {&#13;
+							width: 60%;&#13;
+							font-size: 14px;&#13;
+							padding: 2.5%;&#13;
+						}&#13;
+&#13;
+						.stephead.finalstep .stephead-h {&#13;
+							font-size: 60px;&#13;
+						}&#13;
+&#13;
+						/*step ends*/&#13;
+					}&#13;
+&#13;
+&#13;
+					.stephead-description {&#13;
+						font-family: "TrendSansW05-One" !important;&#13;
+						font-size: 2rem !important;&#13;
+						text-transform: uppercase;&#13;
+						font-weight: bold;&#13;
+					}&#13;
+				&lt;/style&gt;&#13;
+			&lt;/p&gt;&#13;
+			&lt;div class="shop-by-fragrance-section1"&gt;&#13;
+				&lt;div class="shop-by-fragnance-submain"&gt;&#13;
+					&lt;div class="imgsection"&gt;&#13;
+						&lt;picture&gt;&#13;
+							&lt;source media="(max-width: 767px)" srcset="blogs/details/GetInspired_FathersDay_spr2_mobile_00.jpg?$staticlink$"&gt;&#13;
+								&lt;img src="blogs/details/GetInspired_FathersDay_spr2_desktop_00.webp?$staticlink$" width="100%"&gt;&#13;
+						&lt;/picture&gt;&#13;
+					&lt;/div&gt;&#13;
+					&lt;p class="headparagraph"&gt;To: dads of any kind, searching for any adventure. This Fatherʼs Day (or any special day), give fragrance that speaks to allll the endless fun that he is, and enjoys— because no one knows him quite like you!&lt;/p&gt;&#13;
+				&lt;/div&gt;&#13;
+			&lt;/div&gt;&#13;
+			&lt;div class="stepcontent"&gt;&#13;
+				&lt;div class="stepcontent-sec flxrev"&gt;&#13;
+					&lt;div class="txt"&gt;&#13;
+						&lt;h1 class="txt-h"&gt;GIVE A DAY AT THE MUSEUM:&#13;
+							&lt;br&gt;GRAPHITE&lt;/h1&gt;&#13;
+						&lt;p class="txt-p"&gt;Calm, collected and always exploring the cutting edge of cool. This refreshing—not overpowering—scent puts on display all the chill that he is and deserves. &lt;a href="$url('Page-Show', 'cid', 'graphite')$"&gt;SHOP​&lt;/a&gt;&#13;
+&#13;
+						&lt;/p&gt;&#13;
+					&lt;/div&gt;&#13;
+					&lt;div class="img"&gt;&#13;
+						&lt;img src="blogs/details/G1-IMAGE-1.jpg?$staticlink$"&gt;&#13;
+					&lt;/div&gt;&#13;
+				&lt;/div&gt;&#13;
+				&lt;div class="stepcontent-sec flxrev"&gt;&#13;
+					&lt;div class="img"&gt;&#13;
+						&lt;img src="blogs/details/G1-IMAGE-3.jpg?$staticlink$"&gt;&#13;
+					&lt;/div&gt;&#13;
+					&lt;div class="txt"&gt;&#13;
+						&lt;h1 class="txt-h"&gt;GIVE A SEASIDE GETAWAY:&#13;
+							&lt;br&gt;OCEAN&lt;/h1&gt;&#13;
+						&lt;p class="txt-p"&gt;Does he love a refreshing dip? Treat him to all the salty freshness that comes with his ideal ocean retreat—all day, any day&lt;a href="$url('Page-Show', 'cid', 'ocean')$"&gt;SHOP&lt;/a&gt;&#13;
+&#13;
+						&lt;/p&gt;&#13;
+					&lt;/div&gt;&#13;
+				&lt;/div&gt;&#13;
+				&lt;div class="stepcontent-sec"&gt;&#13;
+					&lt;div class="txt"&gt;&#13;
+						&lt;h1 class="txt-h"&gt;GIVE AN OUTING TO A LOCAL LOUNGE:&#13;
+							&lt;br&gt;BOURBON&lt;/h1&gt;&#13;
+						&lt;p class="txt-p"&gt;This rich, spicy and slightly sweet fragrance exudes confidence (just like him) and feels something like sipping on his favorite boozy drink.&lt;a href="$url('Page-Show', 'cid', 'bourbon')$"&gt;SHOP&lt;/a&gt;&#13;
+&#13;
+						&lt;/p&gt;&#13;
+					&lt;/div&gt;&#13;
+					&lt;div class="img"&gt;&#13;
+						&lt;img src="blogs/details/G1-IMAGE-4.jpg?$staticlink$"&gt;&#13;
+					&lt;/div&gt;&#13;
+				&lt;/div&gt;&#13;
+				&lt;div class="stepcontent-sec flxrev"&gt;&#13;
+					&lt;div class="img"&gt;&#13;
+						&lt;img src="blogs/details/G1-IMAGE-5.jpg?$staticlink$"&gt;&#13;
+					&lt;/div&gt;&#13;
+					&lt;div class="txt"&gt;&#13;
+						&lt;h1 class="txt-h"&gt;GIVE A WOODLAND STROLL:&#13;
+							&lt;br&gt;MAHOGANY TEAKWOOD&lt;/h1&gt;&#13;
+						&lt;p class="txt-p"&gt;So, exploring the great outdoors is his thing? Then he’ll love basking in these earthy yet tranquil aromas, even from the comfort of his mancave.&lt;a href="$url('Page-Show', 'cid', 'mahogany-teakwood')$"&gt;SHOP&lt;/a&gt;&#13;
+&#13;
+						&lt;/p&gt;&#13;
+					&lt;/div&gt;&#13;
+				&lt;/div&gt;&#13;
+				&lt;div class="stepcontent-sec"&gt;&#13;
+					&lt;div class="txt"&gt;&#13;
+						&lt;h1 class="txt-h"&gt;GIVE AN ICONIC NIGHT DOWNTOWN:&#13;
+							&lt;br&gt;NOIR&lt;/h1&gt;&#13;
+						&lt;p class="txt-p"&gt;This fragrance is a must for the guy who likes to make a bold statement. Dark, smokey with a hint of musk is the ideal complement to his greatest nights.&lt;a href="$url('Page-Show', 'cid', 'noir')$"&gt;SHOP&lt;/a&gt;&#13;
+&#13;
+						&lt;/p&gt;&#13;
+					&lt;/div&gt;&#13;
+					&lt;div class="img"&gt;&#13;
+						&lt;img src="blogs/details/G1-IMAGE-6.webp?$staticlink$"&gt;&#13;
+					&lt;/div&gt;&#13;
+				&lt;/div&gt;&#13;
+				&lt;div class="stepcontent-sec flxrev"&gt;&#13;
+					&lt;div class="img"&gt;&#13;
+						&lt;img src="blogs/details/G1-IMAGE-7.jpg?$staticlink$"&gt;&#13;
+					&lt;/div&gt;&#13;
+					&lt;div class="txt"&gt;&#13;
+						&lt;h1 class="txt-h"&gt;GIVE A SELF CARE ROUTINE:&#13;
+							&lt;br&gt;GROOMING ESSENTIALS​&lt;/h1&gt;&#13;
+						&lt;p class="txt-p"&gt;The perfect shave and a good hair day, every day. He’ll love a moment to himself with a complete grooming routine.&lt;a href="$url('Page-Show', 'cid', 'mens-grooming')$"&gt;SHOP&lt;/a&gt;&#13;
+&#13;
+						&lt;/p&gt;&#13;
+					&lt;/div&gt;&#13;
+				&lt;/div&gt;&#13;
+			&lt;/div&gt;&#13;
+			&lt;div class="stephead finalstep"&gt;&#13;
+				&lt;p class="stephead-p small" style="padding-top:10px;"&gt;If you like what you see…&lt;/p&gt;&#13;
+				&lt;h2 align="center" class="txt-h"&gt;Weʼve got even more to enjoy, especially for dad or any father figures youʼre celebrating this season&lt;/h2&gt;&#13;
+				&lt;h1 class="stephead-h"&gt;P.S. Father's Day 2024&lt;/h1&gt;&#13;
+				&lt;h2 align="center" class="txt-h"&gt;&#13;
+					&lt;span style="font-size:26px;"&gt;is Sunday, June 16.&lt;/span&gt;&#13;
+				&lt;/h2&gt;	&lt;a class="shop-cta" href="$url('Page-Show', 'cid', 'all-men-collection')$"&gt;SHOP NOW&lt;/a&gt;&#13;
+&#13;
+			&lt;/div&gt;&#13;
+			&lt;p&gt;&lt;/p&gt;&#13;
+		&lt;/div&gt;&#13;
+	&lt;/div&gt;&#13;
+	&lt;div class="r_bottom"&gt;&#13;
+		&lt;div class="l_bottom"&gt;&lt;/div&gt;&#13;
+	&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/Fthrsday-thmbnail.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="featured">
+                <position>6.0</position>
+            </classification-link>
+        </folder-links>
+    </content>
+
 	<content content-id="order.history.seo">
         <display-name xml:lang="x-default">Order History Seo</display-name>
         <online-flag>true</online-flag>
@@ -2269,14 +2728,29 @@
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes>
-            <page-title xml:lang="x-default">Search Results</page-title>
-            <page-description xml:lang="x-default">Search Results</page-description>
+            <page-title xml:lang="x-default">Search Results | Bath &amp; Body Works Australia</page-title>
+            <page-description xml:lang="x-default">Search Results | Bath &amp; Body Works Australia</page-description>
             <page-keywords xml:lang="x-default">Search Results</page-keywords>
         </page-attributes>
         <folder-links>
             <classification-link folder-id="seo-title"/>
         </folder-links>
     </content>
+
+    <content content-id="redirecturl.start.seo">
+        <display-name xml:lang="x-default">Search Results</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Page Error</page-title>
+            <page-description xml:lang="x-default">Whoops! We couldn't find the page!</page-description>
+            <page-keywords xml:lang="x-default">Bath and Body Works</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+    
 	<content content-id="giftcard.show.seo">
         <display-name xml:lang="x-default">E-Gift Cards</display-name>
         <online-flag>true</online-flag>
