@@ -4,7 +4,7 @@
         <description/>
         <parameters/>
         <flow>
-            <context site-id="bbw-au"/>
+            <context site-id="bbw-aus"/>
             <step step-id="qwikcilverFuture" type="custom.Qwikcilver.GiftCard.Send" enforce-restart="false">
                 <description/>
                 <parameters/>
@@ -22,7 +22,7 @@
         <description>Job to send back in stock mails to the user who subscribed .</description>
         <parameters/>
         <flow>
-            <context site-id="bbw-au"/>
+            <context site-id="bbw-aus"/>
             <step step-id="sendEmail" type="custom.NotifyBackInStock" enforce-restart="false">
                 <description/>
                 <parameters/>
@@ -41,7 +41,8 @@
         <parameters/>
         <split sequential="false">
             <flow>
-                <context site-id="RefArch"/>
+
+                <context site-id="bbw-aus"/>
                 <template-ref template-id="template_48"/>
             </flow>
             <flow-template template-id="template_48">
@@ -77,7 +78,7 @@
         <description/>
         <parameters/>
         <flow>
-            <context site-id="bbw-au"/>
+            <context site-id="bbw-aus"/>
             <step step-id="getFragranceNames" type="custom.GetFragranceNames" enforce-restart="false">
                 <description>Get products list and extract fragrance names list.</description>
                 <parameters/>
@@ -107,7 +108,7 @@
         <description/>
         <parameters/>
         <flow>
-            <context site-id="bbw-au"/>
+            <context site-id="bbw-aus"/>
             <step step-id="getIngredientNames" type="custom.GetIngredientNames" enforce-restart="false">
                 <description/>
                 <parameters/>
@@ -137,7 +138,7 @@
         <description/>
         <parameters/>
         <flow>
-            <context site-id="bbw-au"/>
+            <context site-id="bbw-aus"/>
             <step step-id="AfterpayOrderProcess" type="ExecuteScriptModule" enforce-restart="false">
                 <description/>
                 <parameters>
@@ -159,7 +160,7 @@
         <description/>
         <parameters/>
         <flow>
-            <context site-id="bbw-au"/>
+            <context site-id="bbw-aus"/>
             <step step-id="CreateGoogleFeed" type="custom.createGoogleFeed" enforce-restart="false">
                 <description/>
                 <parameters/>

@@ -7,5 +7,6 @@ index.promoPrice = require('*/cartridge/models/productLineItem/decorators/promoP
 index.dangerousGoods = require('*/cartridge/models/productLineItem/decorators/dangerousGoods');
 index.promotionsHTML = require('*/cartridge/models/productLineItem/decorators/promotionsHTML');
 index.totalSavings = require('*/cartridge/models/productLineItem/decorators/totalSavings');
+index.maxOrderQty = require('*/cartridge/models/productLineItem/decorators/maxOrderQty');
 
 module.exports = index;

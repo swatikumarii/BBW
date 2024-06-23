@@ -231,8 +231,26 @@ function setPageMetaData(req, metaDataObj) {
     }
 }
 
+/**
+ * getCanonicalUrl function is responsible to prepare the canonical urls
+ * @param  {string} actionName action name
+ * @param  {string} paramKey param key
+ * @param  {string} paramValue param value
+ * @returns {Array} HrefLang
+ */
+function getCanonicalUrl(actionName, paramKey, paramValue) {
+    var URLUtils = require('dw/web/URLUtils');
+    var URLAction = require('dw/web/URLAction');
+    var URLParameter = require('dw/web/URLParameter');
+    var siteID = Site.getCurrent().ID;
+    var urlAction = new URLAction(actionName, siteID, Site.getCurrent().defaultLocale);
+    return URLUtils.abs(urlAction, paramKey ? new URLParameter(paramKey, paramValue) : null);
+}
+
+
 base.renderHreflang = renderHreflang;
 base.renderOpenGraphMetaTags = renderOpenGraphMetaTags;
 base.setPageMetaData = setPageMetaData;
+base.getCanonicalUrl = getCanonicalUrl;
 
 module.exports = base;

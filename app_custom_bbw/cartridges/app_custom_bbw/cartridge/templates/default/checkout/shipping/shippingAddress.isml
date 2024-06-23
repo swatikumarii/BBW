@@ -16,7 +16,7 @@
                     for="shippingFirstName${lineItem ? lineItem.UUID : 'default'}">
                     <span class="h-clr--red-9 require-indicator">${'*'}</span>${Resource.msg('field.shipping.address.first.name', 'address', null)}
                 </label>
-                <span class="h-font-size--14 required-indicator-text h-clr--black-1"><span class="h-clr--red-9 required-star">${'*'}</span>${Resource.msg('label.required', 'account', null)}</span>
+                <span class="h-font-size--14 required-indicator-text h-clr--black-1 h-line-height--16"><span class="h-clr--red-9 required-star">${'*'}</span>${Resource.msg('label.required', 'account', null)}</span>
             </div>
             <input type="text" class="form-control shippingFirstName"
                 id="shippingFirstName${lineItem ? lineItem.UUID : 'default'}"
@@ -184,7 +184,6 @@
                     autocomplete="shipping address-level2"
                     <isprint value="${addressFields.city.attributes}" encoding="off" />
                     >
-                    <option value="" selected></option>
                     <isif condition="${shippingAddress && shippingAddress.city}">
                         <option id="${shippingAddress.city}" value="${shippingAddress.city}" selected> ${shippingAddress.city} </option>
                     </isif>
@@ -213,7 +212,6 @@
                     <isprint value="${addressFields.postalCode.attributes}"
                     encoding="off" />
                     autocomplete="shipping postal-code">
-                    <option value="" selected></option>
                     <isif condition="${shippingAddress && shippingAddress.city}">
                         <option id="${shippingAddress.postalCode}" value="${shippingAddress.postalCode}" selected> ${shippingAddress.postalCode} </option>
                     </isif>

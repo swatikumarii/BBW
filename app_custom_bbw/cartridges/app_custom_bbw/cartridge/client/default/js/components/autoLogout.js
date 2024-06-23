@@ -82,10 +82,12 @@ function checkForTimeout() {
  *
  */
 function resetTimeout() {
-    localStorage.setItem(lastActivityKey, Date.now());
-    clearTimeout(timeoutId);
-    clearTimeout(warningTimeoutId);
-    timeoutId = setTimeout(checkForTimeout, timeoutDuration);
+    if ($('.hide-sessionTimeOut').length === 0) {
+        localStorage.setItem(lastActivityKey, Date.now());
+        clearTimeout(timeoutId);
+        clearTimeout(warningTimeoutId);
+        timeoutId = setTimeout(checkForTimeout, timeoutDuration);
+    }
 }
 
 $('#autologout').on('hide.bs.modal', function () {

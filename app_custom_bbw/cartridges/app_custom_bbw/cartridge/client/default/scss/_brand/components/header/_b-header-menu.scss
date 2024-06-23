@@ -275,6 +275,8 @@
 
                     @include media-up(md) {
                         font-size: 14px;
+                        letter-spacing: 0.14px;
+                        line-height: 20px;
                     }
 
                     &:focus {
@@ -528,8 +530,6 @@
 
                             .two-column {
                                 column-count: 2;
-                                column-fill: auto;
-                                height: 213px;
                             }
 
                             .menu-right {
@@ -564,6 +564,9 @@
                                         padding: 6px 0 8px 30px;
                                         pointer-events: none;
                                         font-weight: 600;
+                                        color: colour(gray, 4);
+                                        line-height: 1rem;
+                                        letter-spacing: 0.015em;
                                     }
 
                                     .category-top-items {
@@ -586,7 +589,7 @@
                                                     font-weight: 400;
                                                     font-size: 14px;
                                                     line-height: 16px;
-                                                    letter-spacing: 0.015em;
+                                                    letter-spacing: 0.21px;
                                                     width: 225px;
                                                     text-wrap: wrap;
                                                 }

@@ -24,31 +24,33 @@
 <div class="refinements-wrapper">
     <div class="refinements d-md-none">
         <isloop items="${pdict.productSearch.refinements}" var="refinement">
-            <div
-                class="card collapsible-sm d-md-none refinement refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')} border-0 mb-0">
-                <div class="card-header col-sm-12 d-md-none">
-                    <button
-                        class="title text-left d-md-none px-0 d-flex align-items-center w-100 h-font-size--18 h-fw--bold h-clr--black-1"
-                        aria-controls="${refinement.displayName.toLowerCase().replace(/ /g, '-')}"
-                        aria-expanded="false">
-                        <span>${refinement.displayName}</span>
-                    </button>
-                    <h2 aria-label="${refinement.displayName}" class="d-none d-md-block">
-                        ${refinement.displayName}</h2>
-                </div>
+            <isif condition="${refinement.values.length > 1}">
+                <div
+                    class="card collapsible-sm d-md-none refinement refinement-${refinement.displayName.toLowerCase().replace(/ /g, '-')} border-0 mb-0">
+                    <div class="card-header col-sm-12 d-md-none">
+                        <button
+                            class="title text-left d-md-none px-0 d-flex align-items-center w-100 h-font-size--18 h-fw--bold h-clr--black-1"
+                            aria-controls="${refinement.displayName.toLowerCase().replace(/ /g, '-')}"
+                            aria-expanded="false">
+                            <span>${refinement.displayName}</span>
+                        </button>
+                        <h2 aria-label="${refinement.displayName}" class="d-none d-md-block">
+                            ${refinement.displayName}</h2>
+                    </div>
 
-                <div id="${refinement.displayName.toLowerCase().replace(/ /g, '-')}"
-                    class="filter-list-wrapper card-body content value p-md-0 ${refinement.displayName.toLowerCase().replace(/ /g, '-')}" aria-labelledby="" data-parent="#filters-refinements">
-                    <isif condition="${refinement.isAttributeRefinement || refinement.isPromotionRefinement}">
-                        <isinclude template="search/refinements/attributes" />
-                    </isif>
+                    <div id="${refinement.displayName.toLowerCase().replace(/ /g, '-')}"
+                        class="filter-list-wrapper card-body content value p-md-0 ${refinement.displayName.toLowerCase().replace(/ /g, '-')}" aria-labelledby="" data-parent="#filters-refinements">
+                        <isif condition="${refinement.isAttributeRefinement || refinement.isPromotionRefinement}">
+                            <isinclude template="search/refinements/attributes" />
+                        </isif>
+                    </div>
                 </div>
-            </div>
-            <!--- Mobile - Selected filters bar --->
-            <div
-                class="col-12 d-md-none selected-filter-mobile px-0 ${pdict.productSearch.selectedFilters.length > 0 ? 'd-block' : 'd-none'}">
-                <isinclude template="search/filterBar" />
-            </div>
+                <!--- Mobile - Selected filters bar --->
+                <div
+                    class="col-12 d-md-none selected-filter-mobile px-0 ${pdict.productSearch.selectedFilters.length > 0 ? 'd-block' : 'd-none'}">
+                    <isinclude template="search/filterBar" />
+                </div>
+            </isif>
         </isloop>
     </div>
 </div>

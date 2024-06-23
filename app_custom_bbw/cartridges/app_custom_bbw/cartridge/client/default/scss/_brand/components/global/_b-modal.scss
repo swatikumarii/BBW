@@ -44,7 +44,7 @@
         height: auto;
         max-height: fit-content;
         min-height: fit-content;
-        top: 5vh;
+        top: 30vh;
         width: calc(100% - 40px);
         max-width: 568px;
         margin: 0;
@@ -54,6 +54,11 @@
             max-height: fit-content;
             width: 464px;
             min-height: fit-content;
+            top: 32vh;
+        }
+
+        @include media-btw(sm, lg) {
+            top: 27vh;
         }
     }
 
@@ -344,7 +349,7 @@
 
         @include media-up(sm) {
             width: 464px;
-            height: 270px;
+            height: 243px;
         }
 
         .delete-gift-content {

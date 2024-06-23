@@ -555,6 +555,9 @@ function attributeSelect(selectedValueUrl, $productContainer) {
                     'product:afterAttributeSelect',
                     { data: data, container: $productContainer }
                 );
+                if (data.product && data.product !== null && 'variantURL' in data.product) {
+                    window.history.pushState({}, '', data.product.variantURL);
+                }
                 $.spinner().stop();
             },
             error: function () {
@@ -818,6 +821,18 @@ module.exports = $.extend({}, base, {
                                 $.spinner().stop();
                                 return true;
                             }
+                            if ($('input[name="maxOrderQty"]').length) {
+                                if (!data.error && 'maxOrderQty' in data && data.maxOrderQty >= 0) {
+                                    $('input[name="maxOrderQty"]').val(data.maxOrderQty);
+                                    if ($('.reserve-stock').length) {
+                                        $('.reserve-stock p').empty().append(data.maxOrderQtyMessage);
+                                    }
+                                }
+                            }
+                            // refresh page when add to bag from cart page.
+                            if($('.cart-page-add-to-bag').length > 0){
+                                window.location.reload();
+                            }
                             if (data.isProductLineItemsExist) {
                                 $('#delete-line-item-modal').modal('show');
                                 $.spinner().stop();
@@ -882,6 +897,7 @@ module.exports = $.extend({}, base, {
             var productID = $(this).data('pid');
             var removeGiftPliUrl = $(this).data('action');
             var addToCartUrl = $(this).data('addtocarturl');
+            var updateShippingMethodURL = $(this).data('update-shipping');
             var form = {
                 pid: productID,
                 quantity: 1
@@ -896,6 +912,7 @@ module.exports = $.extend({}, base, {
                         url: addToCartUrl,
                         data: form,
                         success: function (data) {
+                            $.get(updateShippingMethodURL);
                             handlePostCartAdd(data);
                             $('body').trigger('product:afterAddToCart', data);
                             $.spinner().stop();
@@ -915,6 +932,7 @@ module.exports = $.extend({}, base, {
             var productID = $(this).data('pid');
             var removeGiftPliUrl = $(this).data('action');
             var addToCartUrl = $(this).data('addtocarturl');
+            var updateShippingMethodURL = $(this).data('update-shipping');
             var egiftCardDetailsObj;
             var egiftCardDetails = {
                 senderName: $('.gift-card-form').find('input:text[name=\'sender-name\']').val(),
@@ -939,6 +957,7 @@ module.exports = $.extend({}, base, {
                         url: addToCartUrl,
                         data: form,
                         success: function (data) {
+                            $.get(updateShippingMethodURL);
                             handlePostCartAdd(data);
                             if ($('.gift-card-form').length > 0) {
                                 $('.gift-card-form')[0].reset();
@@ -959,6 +978,11 @@ module.exports = $.extend({}, base, {
                     });
                 }
             });
+        });
+    },
+    denyDeleteItems: function () {
+        $('button.delete-lineitem-deny-btn').on('click', function () {
+            $('button.add-to-cart').prop('disabled', false);
         });
     }
 });
