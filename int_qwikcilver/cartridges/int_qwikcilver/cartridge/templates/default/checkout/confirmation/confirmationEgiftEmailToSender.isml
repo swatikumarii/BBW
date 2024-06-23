@@ -60,7 +60,7 @@
                             <p
                                 style="margin:0 0 20px;font-size:16px;line-height:18px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center;text-transform: capitalize;">
                                 <isprint
-                                    value="${Resource.msgf('egift.treated.msg', 'giftcards', null, pdict.recipientName)}"
+                                    value="${Resource.msgf('egift.treated.msg', 'giftcards', null, pdict.senderName)}"
                                     encoding="off" />
                             </p>
                             <iscomment> Normal Product Line Items </iscomment>
