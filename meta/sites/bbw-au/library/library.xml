@@ -5215,7 +5215,7 @@ To contact our Customer Service team, please call &lt;a href="phone:1800-576-972
                                 with your own message and the fun design you chose.&lt;/div&gt;&#13;
                             &lt;a class="button btn text-white" href="$url('Search-Show', 'cgid', 'giftcards')$"&gt;Get&#13;
                                 Started&lt;/a&gt;&#13;
-                            &lt;p class="center"&gt;&lt;a href="$url('Page-Show', 'cid', 'gclearnmore')$" target="_blank"&#13;
+                            &lt;p class="center"&gt;&lt;a href="$url('Page-Show', 'cid', 'gc-e-learn-more')$" target="_blank"&#13;
                                     title="about e-gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
                         &lt;/div&gt;&#13;
                     &lt;/div&gt;&#13;
@@ -7837,7 +7837,7 @@ padding-top:20px;&#xD;
     </custom-attributes>
   </content>
 
-    <content content-id="gclearnmore">
+    <content content-id="gc-e-learn-more">
         <display-name xml:lang="x-default">E-Gift Cards More Info</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
