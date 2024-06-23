@@ -75,15 +75,13 @@
             <preference preference-id="dangerousGoodsMessage">&lt;p&gt;Your cart contains product that are not shippable.&lt;/p&gt;</preference>
             <preference preference-id="countrySiteMapping">
                 [
-                    {"country":"Australia", "site": "https://staging.bathandbodyworks.com.au"},
+                    {"country":"Australia", "site": "https://www.bathandbodyworks.com.au"},
                     {"country":"Malaysia", "site": "https://www.bathandbodyworks.com.my"},
                     {"country":"Singapore", "site": "https://www.bathandbodyworks.com.sg"},
                     {"country":"Indonesia", "site": "https://www.bathandbodyworks.co.id"},
                     {"country":"Thailand", "site": "https://www.bathandbodyworks.co.th"},
                     {"country":"Philippines", "site": "https://www.bathandbodyworks.ph"},
-                    {"country":"Hongkong", "site": "https://www.bathandbodyworks.hk"},
-                    {"country":"Vietnam", "site": "https://www.bathandbodyworks.com"},
-                    {"country":"New Zealand", "site": "https://www.bathandbodyworks.com"}
+                    {"country":"Hong Kong", "site": "https://www.bathandbodyworks.hk"}
                 ]
             </preference>
             <preference preference-id="gtmScriptEnabled">false</preference>
@@ -220,15 +218,13 @@
             <preference preference-id="careersEmail"></preference>
             <preference preference-id="countrySiteMapping">
                 [
-                    {"country":"Australia", "site": "https://staging.bathandbodyworks.com.au"},
+                    {"country":"Australia", "site": "https://www.bathandbodyworks.com.au"},
                     {"country":"Malaysia", "site": "https://www.bathandbodyworks.com.my"},
                     {"country":"Singapore", "site": "https://www.bathandbodyworks.com.sg"},
                     {"country":"Indonesia", "site": "https://www.bathandbodyworks.co.id"},
                     {"country":"Thailand", "site": "https://www.bathandbodyworks.co.th"},
                     {"country":"Philippines", "site": "https://www.bathandbodyworks.ph"},
-                    {"country":"Hongkong", "site": "https://www.bathandbodyworks.hk"},
-                    {"country":"Vietnam", "site": "https://www.bathandbodyworks.com"},
-                    {"country":"New Zealand", "site": "https://www.bathandbodyworks.com"}
+                    {"country":"Hong Kong", "site": "https://www.bathandbodyworks.hk"}
                 ]
             </preference>
             <preference preference-id="openingTime">2</preference>
