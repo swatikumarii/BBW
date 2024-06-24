@@ -6,7 +6,6 @@ var collections = require('*/cartridge/scripts/util/collections');
 var ProductMgr = require('dw/catalog/ProductMgr');
 
 var ImageModel = require("*/cartridge/models/product/productImages");
-// var productHelper = require("*/cartridge/scripts/helpers/productHelpers");
 
 /**
  * If a product is master and only have one variant for a given attribute - auto select it
@@ -149,25 +148,6 @@ function getConfig(apiProduct, params) {
 }
 
 function getImages(apiProduct, options, params) {
-  // fullProduct(product, options.apiProduct, options);
-  // if (options.variationModel) {
-  //     decorators.images(product, options.variationModel, {
-  //         types: ['mediumLarge', 'extraLarge', 'small', 'mediumLarge_2x', 'extraLarge_2x', 'small_2x'],
-  //         quantity: 'all'
-  //     });
-  // } else {
-  //     decorators.images(product, apiProduct, {
-  //         types: ['mediumLarge', 'extraLarge', 'small', 'mediumLarge_2x', 'extraLarge_2x', 'small_2x'],
-  //         quantity: 'all'
-  //     });
-  // }
-
-  // if (options.variationModel) {
-  //     decorators.images(product, options.variationModel, { types: ['large', 'small'], quantity: 'all' });
-  // } else {
-  //     decorators.images(product, apiProduct, { types: ['large', 'small'], quantity: 'all' });
-  // }
-
   var product;
   var config = {
     types: [
@@ -180,18 +160,12 @@ function getImages(apiProduct, options, params) {
     ],
     quantity: "all",
   };
-  //   if (options.variationModel) {
-  //     product = options.variationModel;
-  //   } else {
   product = apiProduct;
-  //   }
   return new ImageModel(product, config);
 }
 
 function getPrice(product, options) {
-  var priceFactory = require("*/cartridge/scripts/factories/price");
-//   .price(product, apiProduct, options.promotions, false, options.optionModel);
-  // module.exports = function (object, product, promotions, useSimplePrice, currentOptions) {
+    var priceFactory = require("*/cartridge/scripts/factories/price");
     return priceFactory.getPrice(product, null, false, options.promotions, options.optionModel)
 }
 
@@ -252,84 +226,7 @@ function createProductLineItemsObject(allLineItems, view) {
     var enableQCeGift = Site.current.getCustomPreferenceValue('enableQwikcilver');
 
     collections.forEach(allLineItems, function (item) {
-        // var product = Object.create(null);
         var apiProduct = ProductMgr.getProduct(item.productID);
-        // if (!empty(apiProduct)) {
-        //     var productType = getProductType(apiProduct);
-        //     product = productDetailForAddToCart(product, apiProduct, productType);
-        // }
-
-        // // when item's category is unassigned, return a lineItem with limited attributes
-        // if (!item.product) {
-        //     lineItems.push({
-        //         id: item.productID,
-        //         quantity: item.quantity.value,
-        //         productName: item.productName,
-        //         priceTotal: 'adjustedPrice' in item ? item.adjustedPrice : '',
-        //         basePrice: 'basePrice' in item ? item.basePrice : '',
-        //         titlePartB: item.product && 'titlePartB' in item.product.custom ? item.product.custom.titlePartB : '',
-        //         UUID: item.UUID,
-        //         noProduct: true,
-        //         images: {
-        //             small: [
-        //                 {
-        //                     url: URLUtils.staticURL('/images/noimagelarge.png'),
-        //                     alt: Resource.msgf('msg.no.image', 'common', null),
-        //                     title: Resource.msgf('msg.no.image', 'common', null)
-        //                 }
-        //             ]
-        //         }
-        //     });
-        //     return;
-        // }
-        // var options = collections.map(
-        //     item.optionProductLineItems,
-        //     function (optionItem) {
-        //         return {
-        //             optionId: optionItem.optionID,
-        //             selectedValueId: optionItem.optionValueID
-        //         };
-        //     }
-        // );
-
-        // var bonusProducts = null;
-
-        // if (
-        //     !item.bonusProductLineItem &&
-        //     item.custom.bonusProductLineItemUUID &&
-        //     item.custom.preOrderUUID
-        // ) {
-        //     bonusProducts = [];
-        //     collections.forEach(allLineItems, function (bonusItem) {
-        //         if (
-        //             !!item.custom.preOrderUUID &&
-        //             bonusItem.custom.bonusProductLineItemUUID ===
-        //                 item.custom.preOrderUUID
-        //         ) {
-        //             var bpliOptions = collections.map(
-        //                 bonusItem.optionProductLineItems,
-        //                 function (boptionItem) {
-        //                     return {
-        //                         optionId: boptionItem.optionID,
-        //                         selectedValueId: boptionItem.optionValueID
-        //                     };
-        //                 }
-        //             );
-        //             var params = {
-        //                 pid: bonusItem.product.ID,
-        //                 quantity: bonusItem.quantity.value,
-        //                 variables: null,
-        //                 pview: 'bonusProductLineItem',
-        //                 containerView: view,
-        //                 lineItem: bonusItem,
-        //                 options: bpliOptions
-        //             };
-
-        //             bonusProducts.push(ProductFactory.get(params));
-        //         }
-        //     });
-        // }
-
         var view = null;
         var options = collections.map(
           item.optionProductLineItems,
@@ -362,12 +259,6 @@ function createProductLineItemsObject(allLineItems, view) {
           id: apiProduct.ID,
           UUID: item.UUID,
           images: images,
-          //   // ${lineItem.isgetImagespersonalizedGiftcard}
-          //   // ${lineItem.personalizeGiftcardImage}
-          //   // ${lineItem.alt}
-          //   // ${lineItem.images.small[0].absURL}
-          //   // ${lineItem.images.small[0].alt}
-          //   // ${lineItem.images.small[0].title}
           fragranceName:
             "custom" in apiProduct &&
             "fragranceName" in apiProduct.custom &&
@@ -387,27 +278,13 @@ function createProductLineItemsObject(allLineItems, view) {
             apiProduct.custom.volume !== ""
               ? apiProduct.custom.volume
               : false,
-          // ${lineItem.productCategory}
           greetingCardMessage: greetingCardMessage,
           priceTotal: getTotalPrice(item),
           giftCardDetails: getEgiftCardDetails(item),
           quantity: item.quantity,
           noProduct: null,
           basePrice: "basePrice" in item ? item.basePrice : "",
-          price: price,
-          // ${'giftCardDetails' in lineItem && lineItem.giftCardDetails && lineItem.giftCardDetails.isEgiftProduct}
-          // ${lineItem.giftCardDetails.recipientEmail}
-          // ${lineItem.quantity}
-          // ${lineItem.noProduct}
-          // ${lineItem.UUID}
-          // ${lineItem.basePrice.currencyCode}
-          // ${lineItem.basePrice.value}
-          // ${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}
-          // ${lineItem.price.sales.formatted}
-          // ${lineItem.priceTotal.currencyCode}
-          // ${lineItem.priceTotal.value}
-          // ${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}
-          // ${lineItem.priceTotal.price}
+          price: price
         };
         lineItems.push(product);
     });
@@ -423,7 +300,6 @@ function createProductLineItemsObject(allLineItems, view) {
  */
 function ProductLineItems(productLineItems, view) {
     if (productLineItems) {
-        // var allLineItems = createProductLineItemsObject(productLineItems, view);
         return {
             items: createProductLineItemsObject(productLineItems, view)
         }
