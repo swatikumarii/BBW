@@ -199,8 +199,10 @@ span.ship-to-city-st-zip {
 }
 
 .data-checkout-stage {
+
     // Initial states ------------------------
     &[data-checkout-stage] {
+
         .card.payment-summary,
         .shipping-summary {
             display: none;
@@ -243,6 +245,7 @@ span.ship-to-city-st-zip {
     }
 
     &[data-checkout-stage="submitted"] {
+
         .shipping-form,
         .card.payment-form,
         button.submit-customer,
@@ -268,7 +271,7 @@ span.ship-to-city-st-zip {
         display: none;
     }
 
-    h5 > span {
+    h5>span {
         font-size: 0.8em;
     }
 }
@@ -1003,10 +1006,10 @@ input[type="tel"],
     &:hover {
         display: block;
 
-        + .info-icon-border-arrow-outline {
+        +.info-icon-border-arrow-outline {
             display: block;
 
-            + .info-icon-border-arrow {
+            +.info-icon-border-arrow {
                 display: block;
             }
         }
@@ -1089,13 +1092,13 @@ input[type="tel"],
             display: none;
         }
 
-        + .info-icon-text {
+        +.info-icon-text {
             display: block;
 
-            + .info-icon-border-arrow-outline {
+            +.info-icon-border-arrow-outline {
                 display: block;
 
-                + .info-icon-border-arrow {
+                +.info-icon-border-arrow {
                     display: block;
                 }
             }
@@ -1178,6 +1181,7 @@ input[type="tel"],
         color: colour(red);
         margin: 5px 0;
         text-align: left;
+        font-weight: 600;
         position: relative;
 
         @include media-up(sm) {
@@ -1187,6 +1191,13 @@ input[type="tel"],
         @include media-btw(sm, lg) {
             width: 100%;
         }
+    }
+
+    .checkout-password-btn {
+        height: 36px;
+        max-height: 36px;
+        min-height: 36px;
+        margin-top: 8px;
     }
 }
 
@@ -1214,10 +1225,10 @@ input[type="tel"],
     &:hover {
         display: block;
 
-        + .tooltip-arrow {
+        +.tooltip-arrow {
             display: block;
 
-            + .tooltip-arrow::before {
+            +.tooltip-arrow::before {
                 display: block;
             }
         }
