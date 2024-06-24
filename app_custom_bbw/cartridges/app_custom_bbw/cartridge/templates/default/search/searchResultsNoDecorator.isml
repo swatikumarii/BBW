@@ -1,11 +1,61 @@
+<isscript>
+    var assets = require('*/cartridge/scripts/assets');
+    assets.addJs('/js/pickedJustForYou.js');
+    assets.addCss('/css/experience/components/commerceLayouts/pickedJustForYou.css');
+    assets.addCss('/css/pages/shopbyingredient/b-shopbyingredient.css');
+</isscript>
+<isinclude template="/components/modules" sf-toolkit="off" />
 <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
     <isinclude template="reporting/reportingUrls" />
 </isif>
 
 <!--- Search Results Banner --->
-<div class="container-fluid ${!pdict.productSearch.isCategorySearch ? 'search-results' : ''}">
+<div
+    class="${pdict.productSearch.isCategorySearch && pdict.productSearch.category.id === 'shop-by-ingredient' ? 'container' :
+           'container-fluid'} ${!pdict.productSearch.isCategorySearch || pdict.productSearch.category.id === 's-fragrance' ? 'search-results' : ''}">
     <iscomment> Bread Crumb </iscomment>
     <isinclude template="search/components/searchBreadcrumb" />
+    <isif condition="${pdict.isIngredientSearch}">
+        <div class="banner pb-5">
+            <iscontentasset aid="shopbyingredient-banner" />
+        </div>
+        <div class="fragrance-header-search">
+            <div class="fragrance-search search-wrapper text-center">
+                <p class="h-font-size--18 h-line-height--24 ">
+                    ${Resource.msg('ingredient-search-label', 'common', null)}
+                </p>
+                <input type="hidden" class="form-control " name="shopByIngredientUrl" id="shopByIngredientUrl"
+                    data-href="${URLUtils.https('Search-ShowAjax', 'cgid', 'shop-by-ingredient')}"
+                    data-seo-href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-ingredient')}" />
+                <fieldset class="ingredient-search-section">
+                    <input type="text" id="ingredient-search" name="ingredient-search"
+                        placeholder="search by ingredient name....."
+                        data-href="${URLUtils.https('Search-ShowAjax', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', '')}"
+                        data-seo-href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', '')}"
+                        autocomplete="off" />
+                    <div class="search-icon-details">
+                        <img width="17" class="h-auto"
+                            src="${URLUtils.staticURL('/images/shopByFragrance/UI-Search.svg')}" alt="Search Icon">
+                    </div>
+
+                </fieldset>
+                <div id="search-ingredient-div" class="alphabet-group search-data-list d-md-none">
+                    <isloop iterator="${pdict.ingredientsNames}" alias="ingredientsName" status="loop   state">
+                        <div id="search-ingredient" class="alphabet-group">
+                            <ul>
+                                <li class="level-2 text-justify">
+                                    <a class="h-clr--black-3 h-font-size--16" href='#'
+                                        data-href="${URLUtils.https('Search-ShowAjax', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', ingredientsName)}"
+                                        data-seo-href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', ingredientsName)}"
+                                        data-ingredientname="${ingredientsName}">${ingredientsName}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </isloop>
+                </div>
+            </div>
+        </div>
+    </isif>
 
     <div class="row no-gutters">
         <div class="tab-content col-12">
@@ -13,8 +63,11 @@
                 aria-labelledby="product-tab">
                 <isif condition="${pdict.productSearch.productIds.length > 0}">
                     <!--- Refinement bar --->
-                    <div class="row no-gutters h-grid-gap--40 h-grid-gap-lg--50 h-pl-lg-25 flex-nowrap">
-                        <isif condition="${pdict.productSearch.isCategorySearch}">
+                    <div
+                        class=" ${pdict.productSearch.category.id === 'shop-by-ingredient' ? 'row' :
+                        'row no-gutters h-grid-gap--40 h-grid-gap-lg--50 h-pl-lg-25 flex-nowrap'}">
+                        <isif
+                            condition="${pdict.productSearch.isCategorySearch && pdict.productSearch.category.id !== 's-fragrance'}">
                             <div class="left-navigation-bar col-md-3 col-lg-2 px-md-0 h-hidden-sm-down">
                                 <isinclude template="search/components/leftNavigation" />
                             </div>
@@ -24,7 +77,10 @@
                             <isinclude url="${pdict.refineurl}" />
                         </div>
 
-                        <div class="${pdict.productSearch.isCategorySearch ? 'col-12 col-lg-10 col-md-9' : 'col-12 search-results'}">
+                        <div
+                            class="${!pdict.productSearch.isCategorySearch ? 'col-12 search-results h-px--0 h-px-md--15' : (pdict.productSearch.category.id === 's-fragrance' ?
+                            'col-12 fragrance-search-results' : (pdict.productSearch.category.id === 'shop-by-ingredient' ?
+                            'col-12 ingredient-search-results mt-5' : 'col-12 col-lg-10 col-md-9'))}">
                             <isinclude template="search/components/categoryBannerTop" />
                             <isinclude template="search/components/categorySlider" />
 
@@ -32,12 +88,11 @@
                             <isinclude template="search/productGrid" />
                         </div>
                     </div>
-                 <iselse/>
+                <iselse/>
                     <isif condition="${!pdict.productSearch.productIds.length}">
                         <div class="product-grid-wrapper">
-                            <div class="no-results">
-                                <h3 class="no-items-available">${Resource.msg('label.no.results.found', 'search', null)}</h3>
-                                <p class="no-results-para">${Resource.msg('label.no.results.found.desc', 'search', null)}</p>
+                            <div class="no-results mb-0">
+                                <iscontentasset aid="category-no-search-result-content" />
                             </div>
                         </div>
                     </isif>
@@ -51,3 +106,12 @@
         </div>
     </div>
 </div>
+<div class="recommendations">
+    <isslot id="plp-recently-viewed-product" description="Recently viewed product slot for PLP" context="global" />
+</div>
+<isif condition="${!pdict.productSearch.count}">
+    <div class="recommendations">
+        <isslot id="plp-no-results-recommendation" description="Recently viewed product slot for PLP"
+            context="global" />
+    </div>
+</isif>

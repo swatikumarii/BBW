@@ -213,13 +213,39 @@ $(document).ready(function () {
         return true;
     }
 
+    /**
+     * Generic validation function for dropdown code
+     * @param {object} input input field on which validation will be tested
+     * @returns {boolean} valid or not
+     */
+    function validDropdown(input) {
+        if (!validateRequiredField(input)) return false;
+        if ($(input).val() === '') {
+            $(input).addClass('is-invalid border-danger'); // Add class for input border error
+            var errorMessage = $('#' + input.attr('id')).attr(
+                'data-required-error'
+            );
+            $(input)
+                .closest('.form-group')
+                .find('.invalid-feedback')
+                .text(errorMessage);
+            return false;
+        }
+        $(input).removeClass('is-invalid border-danger'); // Remove class if input is valid
+        $('#' + input.attr('id') + '-error').empty(); // Clear error message
+        return true;
+    }
+
     // Define an array of validation fields with selector and validation function
     var validationFields = [
         {
             selector: '#currentPassword',
             validationFunction: validatePasswordField
         },
-        { selector: '#newPassword', validationFunction: validatePasswordFieldWithValidation },
+        {
+            selector: '#newPassword',
+            validationFunction: validatePasswordFieldWithValidation
+        },
         { selector: '#firstName', validationFunction: validMinLength },
         { selector: '#lastName', validationFunction: validMinLength },
         { selector: '#phone', validationFunction: validPhoneNumber },
@@ -230,7 +256,9 @@ $(document).ready(function () {
         { selector: '#city', validationFunction: validateRequiredField },
         { selector: '#state', validationFunction: validateRequiredField },
         { selector: '#zipCode', validationFunction: validZipCode },
-        { selector: '#phone', validationFunction: validPhoneNumber }
+        { selector: '#salutation', validationFunction: validDropdown },
+        { selector: '#dob', validationFunction: validateRequiredField },
+        { selector: '#gender', validationFunction: validDropdown }
     ];
 
     /**

@@ -4,6 +4,7 @@ var server = require('server');
 
 var Resource = require('dw/web/Resource');
 var ContentMgr = require('dw/content/ContentMgr');
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 /**
  * Faq-UpdateVote : UpdateVote
@@ -81,11 +82,9 @@ server.post('GetContentAssets', function (req, res, next) {
 server.get('Search', function (req, res, next) {
     var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
     var folderWiseSearch = searchHelper.setupFaqContentSearch(req.querystring);
-    res.render('/content/faqSearch', {
-        searchResult: folderWiseSearch
-    });
+    res.render('/content/faqSearch', folderWiseSearch);
     next();
-});
+},seo.addCurrentPageMetaData);
 
 /**
  * Faq-Content : Content search

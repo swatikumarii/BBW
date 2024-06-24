@@ -225,9 +225,19 @@ function totals(lineItemContainer) {
             allDiscounts.totalDiscount
         );
         this.totalDiscountFormatted = getTotals(allDiscounts.totalDiscount);
+        if (lineItemContainer.adjustedMerchandizeTotalNetPrice.available && allDiscounts.totalDiscount.available) {
+            this.subTotalExclTax = getTotals(lineItemContainer.adjustedMerchandizeTotalNetPrice.add(allDiscounts.totalDiscount.multiply(-1)));
+        }
+        if (lineItemContainer.getAdjustedMerchandizeTotalPrice(false).available && allDiscounts.totalDiscount.available) {
+            this.subTotal = getTotals(lineItemContainer.getAdjustedMerchandizeTotalPrice(false).add(allDiscounts.totalDiscount.multiply(-1)));
+        }
         this.discounts = getDiscounts(lineItemContainer);
         this.pendingTotal = getPendingTotal(lineItemContainer);
         this.discountsHtml = getDiscountsHtml(this.discounts);
+        this.salesTax = getTotals(
+            lineItemContainer.adjustedMerchandizeTotalTax
+        );
+        this.miniCartSubTotal = getTotals(lineItemContainer.getAdjustedMerchandizeTotalPrice(false));
     } else {
         this.pendingTotal = '-';
     }

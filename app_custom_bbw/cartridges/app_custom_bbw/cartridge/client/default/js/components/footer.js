@@ -94,11 +94,7 @@ window.submitNewsLetter = function (token) {
     });
 };
 
-// Initialize popover
-$('[data-toggle="popover"]').popover({
-    placement: 'top',
-    html: true
-});
+$('[data-toggle="popover"]').popover();
 
 // Show popover on mouseenter
 $('[data-toggle="popover"]').on('mouseenter', function () {
@@ -107,15 +103,26 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
 });
 
 if (
-    !localStorage.getItem('is-country-selector') &&
-    $('.countrySelectPopup').data('country-selector-enabled')
+    !localStorage.getItem('is-country-selector') 
+    && $('.countrySelectPopup').data('country-selector-enabled')
 ) {
-    $('.countrySelectPopup').find('.modal').modal('show');
     var reqCountryDiv = $('#request-country-name');
     var countryCode = reqCountryDiv.data('country-code');
-    var regionName = new Intl.DisplayNames(['en'], { type: 'region' });
-    var countryDisplayName = regionName.of(countryCode);
-    reqCountryDiv.text(countryDisplayName);
+    var siteCountryCode = $('#site-country-code').text();
+    if (countryCode !== siteCountryCode) {
+        $('.countrySelectPopup').find('.modal').modal('show');
+        var regionName = new Intl.DisplayNames(['en'], { type: 'region' });
+        var countryDisplayName = regionName.of(countryCode);
+        if(countryDisplayName){
+            reqCountryDiv.text(countryDisplayName);
+            $('#country-' + countryDisplayName).attr('selected', 'selected');
+            siteCountryCode = $('#site-country-code').text();
+            var siteCountryDisplayName = regionName.of(siteCountryCode);
+            if (siteCountryDisplayName) {
+                $('#site-country-code').text(siteCountryDisplayName);
+            }
+        }
+    }
 }
 
 var timer;
@@ -153,9 +160,11 @@ $(document).ready(function () {
     var $scrollToTopButton = $('.js-scrolltotop');
 
     // Function to calculate the scroll threshold
+    /**
+     * @returns {object} a promise
+     */
     function calculateScrollThreshold() {
         var documentHeight = $(document).height();
-        var windowHeight = $window.height();
         // Show the button when the user has scrolled past 70% of the document height
         // Ensure it is within the scrollable content
         return Math.min(0.7 * documentHeight, documentHeight - 630);
@@ -195,3 +204,14 @@ module.exports = function () {
         newsLetter();
     });
 };
+// Added class on popover
+$('[data-toggle="popover"]').popover();
+$('body').on(
+    'mouseenter',
+    '.tooltip-container [data-toggle="popover"]',
+    function () {
+        $(this).popover('show');
+        $('.popover').addClass('footer-tooltip-popover');
+        $('.popover-header').addClass('footer-tooltip-header');
+    }
+);

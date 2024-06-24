@@ -1,5 +1,32 @@
 <form action="${URLUtils.url('Account-SaveProfile')}" class="edit-profile-form" method="POST" <isprint
     value="${pdict.profileForm.attributes}" encoding="off" />>
+<div class="form-group select-box register-form 
+        <isif condition=" ${pdict.profileForm.customer.salutation.mandatory === true}">required</isif>">
+    <label class="form-control-label" for="salutation">
+        <isprint value="${pdict.profileForm.customer.salutation.label}" encoding="htmlcontent" />
+    </label>
+    <div class="select-wrap w-100">
+        <select class="form-control salutation selectric-dropdown salutation-hide h-clr--black-1"
+            id="salutation"
+            data-missing-error="${Resource.msg('error.salutation.message', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}" <isprint
+            value="${pdict.profileForm.customer.salutation.attributes}" encoding="off" />
+        >
+        <option value=""> ${Resource.msg('label.select.salutation.profile', 'forms', null)} </option>
+        <option value="Mr" <isif condition="${pdict.profile.salutation === "Mr"}">selected</isif>>
+            ${Resource.msg('label.select.mr.salutation.profile', 'forms', null)}
+        </option>
+        <option value="Mrs" <isif condition="${pdict.profile.salutation === "Mrs"}">selected</isif>>
+            ${Resource.msg('label.select.mrs.salutation.profile', 'forms', null)}</option>
+        <option value="Miss" <isif condition="${pdict.profile.salutation === "Miss"}">selected</isif>>
+            ${Resource.msg('label.select.miss.salutation.profile', 'forms', null)}
+        </option>
+        </select>
+        <div class="invalid-feedback" id="salutation-error">${Resource.msg('error.salutation.message', 'forms', null)}
+        </div>
+    </div>
+</div>
+
 <div class="form-group
         <isif condition=" ${pdict.profileForm.customer.firstname.mandatory === true}">required</isif>">
     <label class="form-control-label" for="firstName">
@@ -42,19 +69,34 @@
     <p class="form-caption">${Resource.msg('form.phone.caption', 'forms', null)}</p>
     <div class="invalid-feedback" id="form-phone-error"></div>
 </div>
-
-<div class="form-group
-            <isif condition=" ${pdict.profileForm.customer.dob.mandatory === true}">
-    </isif>">
-    <label class="birthday-label form-control-label" for="dob">
-        <isprint value="${Resource.msg('label.input.birthday', 'forms', null)}" encoding="htmlcontent" />
-    </label>
-    <div class="birthday-date">
-        <p class="mb-0">${pdict.profileForm.customer.dob.value}</p>
+<isif condition="${!pdict.profile.isProfileComplete}">
+    <div class="form-group register-form text-center <isif condition="
+        ${!!pdict.profileForm.customer.dob.mandatory === true}">required
+        </isif>">
+        <label class="form-control-label h-font-size--14 text-justify" for="dob">
+            <isprint value="${pdict.profileForm.customer.dob.label}" encoding="htmlcontent" />
+        </label>
+        <input type="date" class="form-control datepicker select-dropdown-value h-clr--black-1" id="dob"
+            data-mask="99/99/9999" data-min-age="0" placeholder="DD/MM/YYYY"
+            data-missing-error="${Resource.msg('error.message.dob.required', 'forms', null)}"
+            data-pattern-mismatch="${Resource.msg('error.message.parse.dob', 'forms', null)}" required <isprint
+            value=${pdict.profileForm.customer.dob.attributes} encoding="off" />>
+        <div class="invalid-feedback text-left" id="dob-error=">${Resource.msg('error.message.dob.required', 'forms', null)}
+        </div>
     </div>
-        <p class="form-caption">${Resource.msg('form.birthday.caption', 'forms', null)}</p>
-</div>
-
+<iselse/>
+    <div class="form-group
+                <isif condition=" ${pdict.profileForm.customer.dob.mandatory === true}">
+        </isif>">
+        <label class="birthday-label form-control-label" for="dob">
+            <isprint value="${Resource.msg('label.input.birthday', 'forms', null)}" encoding="htmlcontent" />
+        </label>
+        <div class="birthday-date">
+            <p class="mb-0">${pdict.profileForm.customer.dob.value}</p>
+        </div>
+            <p class="form-caption">${Resource.msg('form.birthday.caption', 'forms', null)}</p>
+    </div>
+</isif>
 
 <div class="form-group
             <isif condition=" ${pdict.profileForm.customer.zipCode.mandatory === true}">required</isif>">
@@ -69,6 +111,50 @@
     <div class="invalid-feedback" id="form-zip-error"></div>
 </div>
 
+<div class="form-group select-box register-form <isif condition="
+    ${!!pdict.profileForm.customer.nationality.mandatory === true}">required</isif>">
+    <label class="form-control-label h-font-size--14 text-justify" for="registration-form-nationality">
+        <isprint value="${pdict.profileForm.customer.nationality.label}" encoding="htmlcontent" />
+    </label>
+    <div class="select-wrap w-100">
+        <select class="form-control gender selectric-dropdown gender-hide h-clr--black-1"
+            id="nationality"
+            data-missing-error="${Resource.msg('error.message.nationality', 'forms', null)}" <isprint
+            value="${pdict.profileForm.customer.nationality.attributes}" encoding="off" />>
+        <isloop items=${pdict.nationalities} var="nationality">
+            <option id="${nationality}" value="${nationality.toLowerCase().trim()}" <isif
+                condition="${pdict.profileForm.customer.nationality.htmlValue.toLowerCase().trim() == nationality.toLowerCase().trim()}">
+                selected
+                </isif>>${nationality}</option>
+        </isloop>
+        </select>
+        <div class="invalid-feedback text-left mt-5" id="nationality-error">${Resource.msg('error.message.nationality', 'forms', null)}</div>
+    </div>
+</div>
+
+<div class="form-group select-box register-form <isif condition="
+    ${!!pdict.profileForm.customer.gender.mandatory === true}">required</isif>">
+    <label class="form-control-label h-font-size--14 text-justify" for="registration-form-gender">
+        <isprint value="${pdict.profileForm.customer.gender.label}" encoding="htmlcontent" />
+    </label>
+    <div class="select-wrap w-100">
+        <select class="form-control gender selectric-dropdown gender-hide h-clr--black-1" id="gender"
+            data-missing-error="${Resource.msg('error.gender.message', 'forms', null)}"
+            data-range-error="${Resource.msg('error.message.50orless', 'forms', null)}" <isprint
+            value="${pdict.profileForm.customer.gender.attributes}" encoding="off" />>
+        <option value=""> ${Resource.msg('label.select.gender.profile', 'forms', null)} </option>
+        <option value="Male" <isif condition="${pdict.profile.gender == "1"}">selected</isif>>
+            ${Resource.msg('label.select.male.gender.profile', 'forms', null)}
+        </option>
+        <option value="Female" <isif condition="${pdict.profile.gender == "2"}">selected</isif>>
+            ${Resource.msg('label.select.female.gender.profile', 'forms', null)}</option>
+        <option value="Other" <isif condition="${pdict.profile.gender == "3"}">selected</isif>>
+            ${Resource.msg('label.select.notToSay.gender.profile', 'forms', null)}
+        </option>
+        </select>
+        <div class="invalid-feedback text-left mt-5" id="gender-error">${Resource.msg('error.gender.message', 'forms', null)}</div>
+    </div>
+</div>
 <div class="form-group position-relative password-btn-wrap
         <isif condition=" ${pdict.profileForm.login.password.mandatory === true}">required</isif>">
     <label class="form-control-label" for="password">
@@ -86,6 +172,7 @@
     <p class="form-caption">${Resource.msg('form.password.caption', 'forms', null)}</p>
 </div>
 
+<input type="hidden" name="isProfileComplete" value="${pdict.profile.isProfileComplete}" />
 <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
 <input type="hidden" name="${pdict.profileForm.customer.emailconfirm.attributes}"
     value="${pdict.profileForm.customer.emailconfirm.attributes}" />

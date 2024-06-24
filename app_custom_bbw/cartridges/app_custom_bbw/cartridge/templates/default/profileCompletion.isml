@@ -1,22 +1,33 @@
 <div class="modal profile_complete" role="dialog">
-    <div class="modal-dialog modal-dialog-centered generic-modal-container modal-large" role="document">
-        <div class="modal-content profile-content">
-            <div class="modal-header border-0">
-                <p class="h-clr--gray h-font-size--18 modal-title"> ${Resource.msg('profileCompletion.header', 'account', null)}
-                </p>
-                <button type="button" class="close close-icon-btn modal-close-icon" data-dismiss="modal"
+    <div class="modal-dialog modal-dialog-centered generic-modal-container modal-large profile-complete-dialog" role="document">
+        <div class="modal-content profile-content border-0">
+            <div class="modal-header border-0 p-0 profile-completion-header ">
+            <h5
+                class="modal-title h-font-size-md--18 h-font-size-sm--18 h-font-size--16 h-clr--pink h-fw--bold m-0 h-fw--semibold profile-header">
+                ${Resource.msg('profilecompletion.header.label', 'account', null)}</h5>
+                <button type="button" class="close close-icon-btn modal-close-icon h-bg--gray-1" data-dismiss="modal"
                     aria-label="Close">
-                    <span aria-hidden="true">
+                    <span aria-hidden="true" class="d-none">
                         <img src="${URLUtils.staticURL('/images/login/cross.svg')}" alt="cross icon" width="17" />
                     </span>
                 </button>
             </div>
 
-            <div class="modal-footer border-0">
-                <span class="redirect-profile btn profile_complete_btn h-fw--normal text-uppercase"
+            <div class="modal-body profile-completion-body p-0 mt-3">
+                <div class="col-12 p-0">
+                    <span
+                        class="modal-content-data h-clr--black-1 h-font-size-md--16 h-font-size-sm--16 h-font-size--14">${Resource.msg('profileCompletion.description', 'account', null)}</span>
+                        <p
+                            class="modal-content-data h-clr--black-1 h-font-size-md--16 h-font-size-sm--16 h-font-size--14">${Resource.msg('profileCompletion.description2', 'account', null)}</p>
+                    <p class="product-to-remove"></p>
+                </div>
+            </div>
+
+            <div class="modal-footer border-0 p-0 m-0 justify-content-md-end justify-content-center">
+                <span class="redirect-profile btn profile_complete_btn h-font-size-sm--16 h-font-size-md--16 h-font-size--14 m-0"
                     data-action="${URLUtils.url('Account-EditProfile')}">
                     ${Resource.msg('profileCompletion.button.continue', 'account', null)}</span>
-                <span class="modal-close-button btn profile_complete_btn h-fw--normal text-uppercase"
+                <span class="modal-close-button profile-close-btn btn h-font-size-sm--16 h-font-size-md--16 h-font-size--14 m-0"
                     data-action="${URLUtils.url('Account-Show')}">
                     ${Resource.msg('profileCompletion.button.later', 'account', null)}</span>
             </div>

@@ -4,7 +4,12 @@ var collections = require('*/cartridge/scripts/util/collections');
 var formatMoney = require('dw/util/StringUtils').formatMoney;
 var Money = require('dw/value/Money');
 var BasketMgr = require('dw/order/BasketMgr');
-var currentBasket = BasketMgr.getCurrentBasket();
+var currentBasket;
+try {
+    currentBasket = BasketMgr.getCurrentBasket();
+} catch (error) {
+    currentBasket = false;
+}
 
 /**
  * toFixedIfNecessary
@@ -13,6 +18,22 @@ var currentBasket = BasketMgr.getCurrentBasket();
  */
 function toFixedIfNecessary(value){
     return +value.toFixed(2);
+}
+
+
+/**
+ *
+ * @param {Array} buy - Buy Qty Array
+ * @param {number} inCart - No of items in cart
+ * @returns {number} index after decrement
+ */
+function applicableIndex(buy, inCart) {
+    for (var i = 0; i < buy.length - 1; i++) {
+        if (buy[i] <= inCart && buy[i + 1] > inCart) {
+            return i+1;
+        }
+    }
+    return 0;
 }
 
 /**
@@ -65,8 +86,8 @@ function checkMotivator(promotion) {
                     qualifyingValueInCart += item.quantityValue;
                 }
             });
+            var getValue;
             if (discountType === 'Free') {
-                var getValue;
                 if (qualifyingValueInCart < (buy[indexToApply] + get[indexToApply]) && ((buy[indexToApply] + get[indexToApply]) - qualifyingValueInCart) >= (buy[indexToApply - 1] + get[indexToApply - 1])) {
                     indexToApply--;
                 } else {
@@ -100,6 +121,43 @@ function checkMotivator(promotion) {
                 return message;
             }
 
+            if (discountType === 'Fixed Price') {
+                var showFullPricedMsg = true;
+                var buyTotal = 0;
+                var actualqualifyingValueInCart = qualifyingValueInCart;
+                buy.forEach(function (buyQty) {
+                    buyTotal += buyQty;
+                    if (qualifyingValueInCart === buyTotal || (qualifyingValueInCart > buyTotal && (qualifyingValueInCart % buyTotal) ===0)) {
+                        showFullPricedMsg = false;
+                    }
+                });
+                if (qualifyingValueInCart < buy[indexToApply]) {
+                    indexToApply = applicableIndex(buy, qualifyingValueInCart);
+                } else {
+                    while (buy[indexToApply]  <= qualifyingValueInCart) {
+                        qualifyingValueInCart -= buy[indexToApply];
+                    }
+                    if (qualifyingValueInCart < buy[indexToApply] && (buy[indexToApply] - qualifyingValueInCart) >= buy[indexToApply - 1]) {
+                        indexToApply = applicableIndex(buy, qualifyingValueInCart);
+                    }
+                }
+
+                if (qualifyingValueInCart === 0) {
+                    return false;
+                }
+
+                if ((buy[indexToApply] - qualifyingValueInCart) === 0) {
+                    indexToApply++;
+                }
+
+                message = qualificationMessage.replace('{{Buy}}', toFixedIfNecessary(buy[indexToApply] - qualifyingValueInCart)).replace('{{Get}}', get[indexToApply]);
+                if (showFullPricedMsg && (indexToApply !== 0 || actualqualifyingValueInCart > buy[0])) {
+                    message += '<span class="h-clr--red h-font-size--12 d-block mt-2">There are some full priced items</span>';
+                }
+                return message;
+
+            }
+
             if (buy[indexToApply] <= qualifyingValueInCart) {
                 return false;
             }
@@ -123,7 +181,8 @@ module.exports = function (object, promotions) {
             var motivator = currentBasket ? checkMotivator(promotion) : false;
             var calloutMsg = promotion.calloutMsg ? promotion.calloutMsg.markup : '';
             return {
-                calloutMsg: motivator || calloutMsg,
+                calloutMsg: calloutMsg,
+                motivator: motivator,
                 details: promotion.details ? promotion.details.markup : '',
                 enabled: promotion.enabled,
                 id: promotion.ID,

@@ -124,40 +124,60 @@ function positionSuggestions(scope) {
  * suggestions template contents
  */
 function processResponse(response) {
-    if (typeof (response) !== 'object') {
-        var $suggestionsWrapper = getSuggestionsWrapper('.search-suggestions');
-        $('.search-suggestions').find('.suggestions').empty().append(response);
-        if (layout.isDesktop() || layout.isTablet()) {
-            $suggestionsWrapper.parent().stop().slideDown();
+    if (typeof response !== 'object') {
+        if (
+            !$('.searchTerms').val() ||
+            $('.searchTerms').val() !== $('input.search-field').val() ||
+            !$('.js-search-suggestions').is(':visible')
+        ) {
+            var $suggestionsWrapper = getSuggestionsWrapper(
+                '.search-suggestions'
+            );
+            $('.search-suggestions')
+                .find('.suggestions')
+                .empty()
+                .append(response);
+            if (layout.isDesktop() || layout.isTablet()) {
+                $suggestionsWrapper.parent().stop().slideDown();
 
-            //  Apply Max Height to Product Part
-            var productPart;
-            productPart = $('.suggestions__results .pdp-link');
-            var productPartMaxHeight = helpers.getMaxElementHeight(productPart);
-            productPart.css('height', productPartMaxHeight);
-
-        } else {
-            $suggestionsWrapper.show();
-            if (!$suggestionsWrapper.find('.suggestions').hasClass('active')) {
-                $suggestionsWrapper.find('.suggestions').offset({ top: $('#header-search').outerHeight()}).addClass('active modal').slideDown();
+                //  Apply Max Height to Product Part
+                var productPart;
+                productPart = $('.suggestions__results .pdp-link');
+                var productPartMaxHeight =
+                    helpers.getMaxElementHeight(productPart);
+                productPart.css('height', productPartMaxHeight);
+            } else {
+                $suggestionsWrapper.show();
+                if (
+                    !$suggestionsWrapper.find('.suggestions').hasClass('active')
+                ) {
+                    $suggestionsWrapper
+                        .find('.suggestions')
+                        .offset({ top: $('#header-search').outerHeight() })
+                        .addClass('active modal')
+                        .slideDown();
+                }
             }
-        }
 
-        positionSuggestions(this);
+            positionSuggestions(this);
 
-        if (isMobileSearch(this)) {
-            toggleSuggestionsIcon('close');
-            applyModals(this);
-        }
+            if (isMobileSearch(this)) {
+                toggleSuggestionsIcon('close');
+                applyModals(this);
+            }
 
-        // Trigger screen reader by setting aria-describedby with the new suggestion message.
-        var suggestionsList = $('.suggestions .item');
-        if ($(suggestionsList).length) {
-            $('input.search-field').attr('aria-describedby', 'search-result-count');
-        } else {
-            $('input.search-field').removeAttr('aria-describedby');
+            // Trigger screen reader by setting aria-describedby with the new suggestion message.
+            var suggestionsList = $('.suggestions .item');
+            if ($(suggestionsList).length) {
+                $('input.search-field').attr(
+                    'aria-describedby',
+                    'search-result-count'
+                );
+            } else {
+                $('input.search-field').removeAttr('aria-describedby');
+            }
+            lazyload.lazyLoad();
         }
-        lazyload.lazyLoad();
     } else {
         $('.search-suggestions').find('.suggestions').empty().hide();
     }
@@ -168,7 +188,6 @@ function processResponse(response) {
  * @param {object} scope - Search field DOM element
  */
 function getSuggestions(scope) {
-    $('.js-search-suggestions .suggestions__results').spinner().start();
     $.ajax({
         context: scope,
         url: endpoint + encodeURIComponent($(scope).val()),
@@ -233,7 +252,8 @@ function resizeSuggestionWrapper() {
 
             $suggestionWrapper.css({
                 width: newWidth,
-                left: leftPosition + 'px'
+                left: leftPosition + 'px',
+                top: Math.floor($('.search-field').offset().top - $('.bbw-nav-wrap').offset().top) + 1 + 'px'
             });
 
             var styles = '.site-search .search-suggestions { width : ' + newWidth + ' !important; left : '+ leftPosition + 'px !important; }';
@@ -367,23 +387,37 @@ function handlePostCartAdd(response) {
         Object.keys(response.newBonusDiscountLineItem).length !== 0
     ) {
         chooseBonusProducts(response.newBonusDiscountLineItem);
-    } else if (layout.isMobile()) {
+    } else if (response.message) {
+        if ($('.add-to-cart-messages').length === 0) {
+            $('body').append('<div class="add-to-cart-messages"></div>');
+        }
+
+        $('.add-to-cart-messages').append(
+            '<div class="alert ' +
+                messageType +
+                ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                response.message +
+                '</div>'
+        );
+    }
+    messageType = 'alert-success';
+    if (response.removeMessage) {
         if ($('.add-to-cart-messages').length === 0) {
             $('body').append('<div class="add-to-cart-messages"></div>');
         }
 
         $('.add-to-basket-alert').remove();
         $('.add-to-cart-messages').append(
-            '<div class="alert ' +
-            messageType +
-            ' add-to-basket-alert text-center" role="alert">' +
-            response.message +
-            '</div>'
+            '<div class="alert first-message ' +
+                messageType +
+                ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+                response.removeMessage +
+                '</div>'
         );
-        setTimeout(function () {
-            $('.add-to-basket-alert').remove();
-        }, 5000);
     }
+    setTimeout(function () {
+        $('.add-to-basket-alert').remove();
+    }, 5000);
 }
 
 
@@ -491,6 +525,7 @@ module.exports = function () {
         if (!$(e.target).closest('.js-search-suggestions').length || !$(e.target).closest('.search-field') || !$(e.target).closest('.js-reset-button')) {
             if (layout.isDesktop() || layout.isTablet()) {
                 $('.js-search-suggestions').stop().slideUp();
+                // $('input.search-field').val('');
             }
             $('.js-reset-button').hide();
         }
@@ -501,7 +536,7 @@ module.exports = function () {
         $('.utility-user, .minicart').removeClass('d-lg-none d-md-none');
     });
 
-    $('.js-cancel-search-button').on('click touchend', function (e) {
+    $('.js-cancel-search-button').on('click', function (e) {
         if (layout.isMobile()) {
             e.preventDefault();
             toggleSuggestionsIcon('search');
@@ -589,11 +624,6 @@ module.exports = function () {
 
                         handlePostCartAdd(data);
                         $('body').trigger('product:afterAddToCart', data);
-                        var addToCartSnackbar = $('#add-to-cart-snackbar');
-                        addToCartSnackbar.addClass('show');
-                        setTimeout(function () {
-                            addToCartSnackbar.removeClass('show');
-                        }, 3000);
                         $.spinner().stop();
                         miniCartReportingUrlSearch(data.reportingURL);
                         return true;

@@ -9,14 +9,15 @@
 }
 
 .product-image {
-    @media (max-width:768px) {
+    @media (max-width: 768px) {
         max-width: 100%;
     }
 }
 .giftcard-heading {
     border-bottom: 1px solid #333;
     padding-bottom: 11px;
-    margin-bottom: 53px;
+    margin: 1.25rem 0 53px;
+    letter-spacing: normal;
 }
 
 .gc-container {
@@ -24,14 +25,35 @@
 }
 
 .gift-card-form {
-    input,
-    select {
+    input {
         height: 48px;
         border-color: #1a1a1a;
     }
 
+    select {
+        background: none;
+        padding: 0 2.25rem 0 0.625rem;
+        height: 48px;
+        cursor: pointer;
+        appearance: none;
+        z-index: 1;
+        border-radius: 0;
+        position: absolute;
+        border-color: #1a1a1a;
+
+        &:focus {
+            border-color: #1a1a1a;
+            background: none;
+            box-shadow: none;
+        }
+    }
+
     label {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+    }
+
+    .same-day-delivery-wrap {
+        margin-bottom: 5px;
     }
 
     .gift-required-fields {
@@ -43,11 +65,17 @@
     }
 
     .custom-select-wrap {
+        height: 48px;
+        width: 100%;
+        border: 1px solid colour(gray, 5);
+        position: relative;
+        box-sizing: border-box;
+
         &::after {
             content: "";
             position: absolute;
-            right: 20px;
-            top: 55%;
+            right: 6px;
+            top: 45%;
             transform: translateY(-46%);
             height: 45px;
             width: 35px;
@@ -55,8 +83,8 @@
             background: #fff url("../../images/UI-Carat.svg") no-repeat 50%;
             background-size: 15px;
 
-            @media (max-width:768px) {
-                top: 57%;
+            @media (max-width: 768px) {
+                top: 47%;
             }
         }
     }
@@ -66,15 +94,76 @@
 
         .custom-select-wrap {
             &::after {
-                @media (max-width:768px) {
-                    top: 55%;
+                @media (max-width: 768px) {
+                    top: 47%;
                 }
             }
         }
     }
 
+    .gift-cert-message {
+        margin-top: 20px;
+    }
 }
 
+#add-to-cart-snackbar {
+    visibility: hidden;
+    z-index: 1;
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translate(-50%);
+    box-shadow:
+        0 8px 10px 1px rgba(0, 0, 0, 14%),
+        0 3px 14px 2px rgba(0, 0, 0, 12%),
+        0 5px 5px -3px rgba(0, 0, 0, 2%);
+    width: 320px;
+    padding: 14px 16px 14px 46px;
+    gap: 8px;
+    background-color: #e6f7eb;
+    color: #007a14;
+
+    &::before {
+        background-image: url("../../images/pdp/check-circle-fill.svg");
+        height: 24px;
+        left: 13px;
+        position: absolute;
+        width: 24px;
+        background-repeat: no-repeat;
+        content: "";
+    }
+
+    &.show {
+        visibility: visible;
+        animation:
+            fadein 0.5s,
+            fadeout 0.5s 2.5s;
+    }
+
+    @keyframes fadein {
+        from {
+            bottom: 0;
+            opacity: 0;
+        }
+
+        to {
+            bottom: 30px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeout {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
+    }
+}
 
 .egift-video-label {
     min-height: 155px;
@@ -87,10 +176,10 @@
 
     .video-upload-btn {
         margin-top: 15px;
-        background: #1B5699;
+        background: #1b5699;
         color: white;
         padding: 10px;
-        border: 1px solid #1B5699;
+        border: 1px solid #1b5699;
         border-radius: 20px;
     }
 }
@@ -103,6 +192,13 @@
         background-color: transparent;
         width: 150px;
         height: 150px;
+        flex: 1 1 50%;
+        opacity: 0.4;
+
+        &.selected {
+            opacity: 1;
+            border: 1px solid #1a1a1a;
+        }
 
         span {
             display: block;
@@ -115,9 +211,48 @@
 
     .style {
         width: 100%;
-        min-width: 500px;
         padding-top: 20px;
+        flex-wrap: wrap;
     }
+}
+
+.custom-checkbox .custom-control-label:before {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("../images/check-box-unchecked.svg");
+    background-size: cover;
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    background-repeat: no-repeat;
+    border-color: unset !important;
+    box-shadow: none !important;
+    top: 0;
+    left: 0;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label:after {
+    background-image: url("../images/check-box-checked.svg");
+    background-size: cover;
+    border: none;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+}
+
+.custom-checkbox {
+    .custom-control-label {
+        span {
+            padding-left: 20px;
+        }
+    }
+}
+input[type="checkbox"] {
+    width: auto;
 }
 
 #delete-gift-certificate-line-item-modal,
@@ -147,13 +282,13 @@
 }
 
 .tablet-padding {
-    @media (min-width:768px) and (max-width:1024px) {
+    @media (min-width: 768px) and (max-width: 1024px) {
         padding-left: 40px;
     }
 }
 
 #video-preview {
-    @media (max-width:1024px) {
+    @media (max-width: 1024px) {
         width: 100%;
         max-height: 180px;
     }

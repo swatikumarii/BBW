@@ -32,7 +32,7 @@ function sendEmail() {
         } else {
             threshold = product.notifyMeThreshold ? product.notifyMeThreshold : notifyEmailThreshold;
         }
-        if (product.available && product.readyToOrder) {
+        if (threshold && (product.availableToSell >= threshold || product.perpetual) && product.available && product.readyToOrder) {
             var userObj = JSON.parse(record.custom.user);
             var emailList = [];
             for (var j = 0; j < userObj.length; j++) {
@@ -40,34 +40,37 @@ function sendEmail() {
             }
             for (var i = 0; i < emailList.length; i++) {
                 if (!emailsArray[emailList[i]]) {
-                    emailsArray[emailList[i]] = record.custom.productID + ',';
+                    emailsArray[emailList[i]] = record.custom.productID;
                 } else {
                     var pid = emailsArray[emailList[i]];
-                    pid += record.custom.productID + ',';
+                    pid += ',' + record.custom.productID;
                     emailsArray[emailList[i]] = pid;
                 }
             }
-            if (threshold && product.availableToSell >= threshold) {
-                recordArray.push(record);
-            }
+            recordArray.push(record);
         }
     }
     Object.keys(emailsArray).forEach(function (key) {
         var pIds = emailsArray[key];
         var pIdArr = new ArrayList(pIds.split(','));
         var productDetails = [];
-        var count = 0;
-        for (var counter = 0; counter < pIdArr.length - 1; counter++) {
+        for (var counter = 0; counter < pIdArr.length; counter++) {
             var productInfo = ProductFactory.get({ pid: pIdArr[counter] });
-            threshold = productInfo.notifyMeThreshold ? productInfo.notifyMeThreshold : notifyEmailThreshold;
-            if (threshold && productInfo.availableToSell >= threshold) {
-                productDetails[count] = {
-                    id: productInfo.id,
-                    name: productInfo.productName,
-                    imageUrl: productInfo.images && 'large' in productInfo.images && productInfo.images.large.length ? productInfo.images.large[0].url : productInfo.images.small[0].url
-                };
-                count++;
-            }
+            var productName = productInfo.fragranceName ? productInfo.fragranceName : productInfo.productName;
+            var promotionCallout = productInfo.promotions ? productInfo.promotions[0].calloutMsg : '';
+            productDetails.push({
+                id: productInfo.id,
+                name: productName,
+                imageUrl:
+                    productInfo.images &&
+                    'mediumLarge' in productInfo.images &&
+                    productInfo.images.mediumLarge.length
+                        ? productInfo.images.mediumLarge[0].url
+                        : productInfo.images.small[0].url,
+                productTitlePartB: productInfo.titlePartB,
+                productPrice: productInfo.price.sales.formatted,
+                promotionCallout: promotionCallout
+            });
         }
         if (productDetails.length > 0) {
             try {

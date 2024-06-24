@@ -113,6 +113,7 @@
                 <select class="form-control billingState custom-select"
                     id="billingState" name="${billingFields.states.stateCode.htmlName}"
                     data-missing-error="${Resource.msg('error.state', 'forms', null)}"
+                    data-selected="${pdict.order.billing.billingAddress && pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.stateCode}"
                     <isprint value="${pdict.addressForm.states.stateCode.attributes}" encoding="off" />
                 autocomplete="shipping address-level1"
                 aria-describedby="${lineItem ? lineItem.UUID : 'default'}State">
@@ -133,13 +134,21 @@
                 ${billingFields.city.htmlName}">
             <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
                 for="billingAddressCity"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.city', 'address', null)}</label>
-            <input type="text" class="form-control billingAddressCity" id="billingAddressCity"
-                value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.city ? pdict.order.billing
-                    .billingAddress.address.city : ' '}" <isprint value=${billingFields.city.attributes}
-                encoding="off" />
-                data-missing-error="${Resource.msg('error.city', 'forms', null)}"
-                autocomplete="billing address-level2">
-            <div class="invalid-feedback"></div>
+            
+            <div class="custom-select-wrap">
+                <select class="form-control billingAddressCity custom-select" id="billingAddressCity"
+                    data-missing-error="${Resource.msg('error.city', 'forms', null)}"
+                autocomplete="billing address-level2"
+                data-selected="${pdict.order.billing.billingAddress && pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.city}"
+                <isprint value="${billingFields.city.attributes}" encoding="off" />>
+                <isif condition="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.city}">
+                    <option id="${pdict.order.billing.billingAddress.address.city}" value="${pdict.order.billing.billingAddress.address.city}"  selected>${pdict.order.billing.billingAddress.address.city}</option>
+                </isif>
+                </select>
+                <div class="invalid-feedback shipping-select-error"></div>
+            </div>
+
+
         </div>
     </div>
     <div class="col-sm-12">
@@ -148,14 +157,45 @@
                 ${billingFields.postalCode.htmlName}">
             <label class="h-font-size--16 h-fw--semibold h-clr--black-1 form-control-label"
                 for="billingZipCode"><span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.billing.address.zip.code', 'address', null)}</label>
-            <input type="text" class="form-control billingZipCode" id="billingZipCode"
-                value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.postalCode ? pdict.order
+            
+            <div class="custom-select-wrap">
+                <select class="form-control billingZipCode custom-select"
+                    id="billingZipCode"
+                    value="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.postalCode ? pdict.order
                     .billing.billingAddress.address.postalCode : ''}" <isprint
                 value=${billingFields.postalCode.attributes} encoding="off" />
+                data-selected="${pdict.order.billing.billingAddress && pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress
+                              .address.postalCode}"
                 data-missing-error="${Resource.msg('error.zip.code', 'forms', null)}"
                 data-pattern-mismatch="${Resource.msg('valid.zip.code', 'forms', null)}"
-                autocomplete="billing postal-code">
-            <div class="invalid-feedback"></div>
+                autocomplete="billing postal-code"
+                >
+                <isif condition="${pdict.order.billing.billingAddress.address && pdict.order.billing.billingAddress.address.postalCode}">
+                    <option id="${pdict.order.billing.billingAddress.address.postalCode}"
+                        value="${pdict.order.billing.billingAddress.address.postalCode}" selected>
+                        ${pdict.order.billing.billingAddress.address.postalCode}</option>
+                </isif>
+                </select>
+                <div class="invalid-feedback shipping-select-error"></div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <div class="custom-control custom-checkbox">
+                <input class="custom-control-input gift" type="checkbox"
+                    id="billingSaveAddress"
+                    <isprint value="${pdict.forms.billingForm.saveAddress.attributes}"
+                    encoding="off" />
+                >
+                <label for="billingSaveAddress"
+                    class="custom-control-label checkout-checkbox h-font-size--16 h-clr--black-1">
+                    ${Resource.msg('check.save.address', 'checkout', null)}
+                </label>
+            </div>
         </div>
     </div>
 </div>

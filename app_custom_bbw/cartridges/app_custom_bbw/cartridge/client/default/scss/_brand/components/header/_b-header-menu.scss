@@ -88,6 +88,10 @@
                                     color: colour(black);
                                 }
 
+                                li {
+                                    list-style-type: none;
+                                }
+
                                 .level-2-li {
                                     min-width: 10.875rem;
 
@@ -162,53 +166,51 @@
         }
 
         .category-top-offers {
-            height: 100%;
             border-left: 1px solid colour(gray, 6);
-            transition: all 0.3s ease-out;
-            text-transform: capitalize;
-            max-height: none;
-            margin-bottom: 22px;
-            overflow: visible;
+            height: 100%;
+
+            .column-count-2 {
+                column-count: 2;
+            }
+
+            .column-count-3 {
+                column-count: 3;
+            }
+
+            .column-count-4 {
+                column-count: 4;
+            }
 
             .heading {
                 padding: 6px 0 8px 30px;
                 pointer-events: none;
                 font-weight: 600;
-                font-size: 14px;
-                font-size: 0.875rem;
-                line-height: 16px;
-                line-height: 1rem;
-                letter-spacing: 0.015em;
-                height: auto;
-                color: colour(black, 1);
-                cursor: pointer;
-                display: block;
-                text-transform: uppercase;
             }
 
-            .toggle {
-                display: none;
-            }
-
-            ul {
-                padding: 0;
-                margin: 0;
-                list-style: none;
-
-                li {
-                    height: auto;
+            .category-top-items {
+                ul {
+                    padding: 0;
+                    margin: 0;
                     display: block;
                     position: relative;
-                    padding: 8px 15px 8px 31px;
+                    border: 0;
 
-                    a {
-                        width: 180px;
-                        font-weight: 400;
-                        font-size: 14px;
-                        line-height: 16px;
-                        letter-spacing: 0.015em;
-                        white-space: normal;
+                    li {
+                        min-height: 41px;
+                        height: auto;
                         display: block;
+                        position: relative;
+                        list-style: none;
+
+                        a {
+                            padding: 8px 15px 8px 30px;
+                            font-weight: 400;
+                            font-size: 14px;
+                            line-height: 16px;
+                            letter-spacing: 0.015em;
+                            width: 225px;
+                            text-wrap: wrap;
+                        }
                     }
                 }
             }
@@ -242,6 +244,14 @@
             position: inherit;
 
             .level-1-ul {
+                @include media-btw(sm, md) {
+                    flex-wrap: nowrap;
+
+                    .nav-link {
+                        text-wrap: balance;
+                    }
+                }
+
                 .nav-link {
                     padding: 0.8125rem 0.875rem 0.5rem;
                     line-height: 1.25rem;
@@ -265,6 +275,8 @@
 
                     @include media-up(md) {
                         font-size: 14px;
+                        letter-spacing: 0.14px;
+                        line-height: 20px;
                     }
 
                     &:focus {
@@ -286,7 +298,7 @@
                             pointer-events: auto;
                             visibility: visible;
                             max-height: max-content;
-                            border-top: 0.1875rem solid colour(gray, 1);
+                            z-index: 1;
                         }
 
                         .menu-wrap-level-1 .level-2-ul-wrap .menu-right {
@@ -300,7 +312,7 @@
                         padding: 0;
                         max-height: 0;
                         display: block;
-                        border: 0;
+                        border-top: 0.1875rem solid colour(gray, 1);
                         left: 0;
                         top: auto;
                         background-color: colour(white);
@@ -339,6 +351,30 @@
                                         content: none;
                                         background: none;
                                     }
+                                }
+
+                                .no-sub-category {
+                                    padding: 0 0 22px;
+
+                                    a {
+                                        color: colour(gray, 4);
+                                        cursor: pointer;
+                                        display: block;
+                                        font-size: 14px;
+                                        font-weight: 600;
+                                        height: 36px;
+                                        letter-spacing: 0.015em;
+                                        line-height: 21px;
+                                        padding: 6px 60px 0 20px;
+
+                                        &:hover {
+                                            color: colour(blue);
+                                        }
+                                    }
+                                }
+
+                                .explore-li a:hover {
+                                    color: colour(blue);
                                 }
 
                                 .level-2-li,
@@ -407,7 +443,8 @@
                                             transition: right 0.3s ease-out;
                                         }
 
-                                        .level-2-link {
+                                        .level-2-link,
+                                        a {
                                             color: colour(blue);
                                         }
 
@@ -493,8 +530,6 @@
 
                             .two-column {
                                 column-count: 2;
-                                column-fill: auto;
-                                height: 213px;
                             }
 
                             .menu-right {
@@ -529,6 +564,9 @@
                                         padding: 6px 0 8px 30px;
                                         pointer-events: none;
                                         font-weight: 600;
+                                        color: colour(gray, 4);
+                                        line-height: 1rem;
+                                        letter-spacing: 0.015em;
                                     }
 
                                     .category-top-items {
@@ -551,7 +589,7 @@
                                                     font-weight: 400;
                                                     font-size: 14px;
                                                     line-height: 16px;
-                                                    letter-spacing: 0.015em;
+                                                    letter-spacing: 0.21px;
                                                     width: 225px;
                                                     text-wrap: wrap;
                                                 }
@@ -560,6 +598,17 @@
                                     }
                                 }
                             }
+                        }
+                    }
+
+                    &.muted {
+                        transition: none;
+                        transition-property: none;
+
+                        .level-2-ul,
+                        .menu-wrap-level-1 {
+                            transition: none;
+                            transition-property: none;
                         }
                     }
                 }
@@ -657,15 +706,17 @@
         .mobile-slide-menu-search {
             padding: 12.5px 0;
 
-            &::before {
-                content: url("../images/header/UI-Search.svg");
-                height: 1.75rem;
-                position: absolute;
-                width: 1.75rem;
-                fill: color(blue);
-                padding: 0.6875rem 0 0 0.5625rem;
-                z-index: 1;
-                margin-left: 0.1875rem;
+            .menu-sidebar-search {
+                width: 19px;
+                margin: 8px 6px 6px 12px;
+            }
+
+            .black-search-icon {
+                display: block;
+            }
+
+            .blue-search-icon {
+                display: none;
             }
 
             input[type="search"] {
@@ -694,8 +745,12 @@
         }
 
         .mobile-slide-menu-search.active {
-            &::before {
-                content: url("../images/header/UI-Search-v2.svg");
+            .black-search-icon {
+                display: none;
+            }
+
+            .blue-search-icon {
+                display: block;
             }
 
             #mobile-slide-search {
@@ -813,7 +868,7 @@
             }
 
             &.active {
-                max-height: 2450px;
+                max-height: 2500px;
 
                 &::before {
                     width: 0.25rem;
@@ -847,15 +902,15 @@
             transition-duration: 0.5s;
             transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
             display: initial;
+            border: 0;
+            margin: 0;
+            float: none;
 
             &.active {
                 top: 0;
                 opacity: 1;
                 pointer-events: auto;
                 visibility: visible;
-                border: 0;
-                margin: 0;
-                float: none;
             }
 
             .level-2-li {

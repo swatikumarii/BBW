@@ -1,13 +1,10 @@
 <div class="row cart-and-ipay">
     <div class="col-sm-12">
         <input type="hidden" class="add-to-cart-url" value="${pdict.addToCartUrl}">
-        <button class="add-to-cart btn btn-primary btn-hover" data-toggle="modal" data-target="#chooseBonusProductModal"
+        <button class="add-to-cart btn btn-primary" data-toggle="modal" data-target="#chooseBonusProductModal"
             data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
             ${Resource.msg('button.addToBag', 'common', null)}
         </button>
-        <isif condition="${!product.isEgiftCard}">
-            <div id="add-to-cart-snackbar">${Resource.msg('item.added', 'common', null)}</div>
-        </isif>
     </div>
 </div>
 <isinclude template="product/components/removeGiftLineItem" />

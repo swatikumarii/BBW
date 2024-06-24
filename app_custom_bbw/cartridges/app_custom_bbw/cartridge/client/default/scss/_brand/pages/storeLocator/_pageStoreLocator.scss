@@ -96,6 +96,52 @@
                         padding: 0 0.625em;
                         line-height: 20px;
                     }
+
+                    input {
+                        width: 24px;
+                        height: 24px;
+                        border-radius: 0;
+                        margin-right: 10px;
+                        cursor: pointer;
+                    }
+
+                    input[type="checkbox"] {
+                        opacity: 0;
+                        position: absolute;
+                        z-index: -1;
+                    }
+
+                    input[type="checkbox"] + label::before {
+                        display: inline-block;
+                        width: 21px;
+                        height: 21px;
+                        background-image: url("../images/check-box-unchecked.svg");
+                        content: "";
+                        background-size: cover;
+                        cursor: pointer;
+                        border: none;
+                        border-radius: 0;
+                        background-repeat: no-repeat;
+                        border-color: unset !important;
+                        box-shadow: none !important;
+                        position: relative;
+                        right: 10px;
+                        top: 5px;
+                    }
+
+                    input[type="checkbox"]:checked + label::before {
+                        background-image: url("../images/check-box-checked.svg");
+                        content: "";
+                        background-size: cover;
+                        border: none;
+                        width: 21px;
+                        height: 21px;
+                        cursor: pointer;
+                        position: relative;
+                        right: 10px;
+                        background-repeat: no-repeat;
+                        top: 5px;
+                    }
                 }
             }
         }
@@ -341,6 +387,12 @@
 }
 
 .map-canvas {
+    height: 100%;
+
+    @include media-down(sm) {
+        height: 255px;
+    }
+
     .gm-style .gm-style-iw-a {
         max-width: 265px;
     }

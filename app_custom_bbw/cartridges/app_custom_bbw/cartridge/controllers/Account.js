@@ -14,6 +14,7 @@ var ContentMgr = require('dw/content/ContentMgr');
 var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
 var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
 var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
 
 /**
  * Append Account-Show controller: Update breadcrumbs
@@ -41,6 +42,7 @@ server.append('Show', function (req, res, next) {
  */
 
 server.append('EditProfile', function (req, res, next) {
+    var Site = require('dw/system/Site');
     var accountHelpers = require('*/cartridge/scripts/account/accountHelpers');
     var accountModel = accountHelpers.getAccountModel(req);
 
@@ -58,7 +60,15 @@ server.append('EditProfile', function (req, res, next) {
     var profileModel = {
         dob: birthday,
         zipCode: accountModel.profile.zipCode,
-        emailconfirm: accountModel.profile.email
+        salutation: accountModel.profile.salutation,
+        nationality: accountModel.profile.nationality,
+        gender: accountModel.profile.gender,
+        emailconfirm: accountModel.profile.email,
+        isProfileComplete:
+            accountModel.profile.isProfileComplete !== null ||
+            accountModel.profile.isProfileComplete !== undefined
+                ? accountModel.profile.isProfileComplete
+                : false
     };
 
     var breadcrumbs = [{
@@ -74,8 +84,12 @@ server.append('EditProfile', function (req, res, next) {
         url: URLUtils.url('Account-EditProfile').toString()
     }
     ];
+
+    var nationalityCO = Site.getCurrent().getCustomPreferenceValue('nationalities');
+    var nationalities = nationalityCO.length > 0 ? nationalityCO.split(',') : [];
     viewData.breadcrumbs = breadcrumbs;
     viewData.profileForm.copyFrom(profileModel);
+    viewData.nationalities = nationalities;
     viewData.profile = accountModel.profile;
     res.setViewData(viewData);
 
@@ -114,11 +128,13 @@ server.prepend('Login', function (req, res, next) {
     }
     if (accountHelpers.handleMigratedCustomers(req.form.loginEmail)) {
         res.json({
+            isMigratedNotUpdated: true,
             error: [
-                Resource.msg(
+                Resource.msgf(
                     'reset.password.message.migrated.user',
                     'login',
-                    null
+                    null,
+                    URLUtils.url('Account-PasswordReset')
                 )
             ]
         });
@@ -127,6 +143,45 @@ server.prepend('Login', function (req, res, next) {
         next();
     }
 });
+
+/**
+ * Account-Login : The Account-Login endpoint will render the shopper's account page. Once a shopper logs in they will see is a dashboard that displays profile, address, payment and order information.
+ */
+server.append('Login', function (req, res, next) {
+    var accountHelper = require('*/cartridge/scripts/helpers/accountHelpers');
+    var email = req.form.loginEmail;
+    var viewData = res.getViewData();
+    var remainingLoginAttempts = accountHelper.remainingLoginAttempts(email);
+    if (remainingLoginAttempts === 'USER_NOT_FOUND') {
+        viewData.error = [
+            Resource.msg(
+                'error.message.username.password.does.not.match',
+                'login',
+                null
+            )
+        ];
+        res.setViewData(viewData);
+    } else if (remainingLoginAttempts !== -1) {
+        viewData.error = [
+            Resource.msgf(
+                'error.message.login.form.attempts',
+                'login',
+                null,
+                remainingLoginAttempts
+            )
+        ];
+
+        if (!remainingLoginAttempts || remainingLoginAttempts === 0) {
+            viewData.error = [
+                Resource.msg('error.message.account.locked', 'login', null)
+            ];
+        }
+        viewData.remainingLoginAttempts = remainingLoginAttempts;
+        res.setViewData(viewData);
+    }
+    next();
+});
+
 
 server.replace(
     'SaveProfile',
@@ -180,7 +235,21 @@ server.replace(
             );
         }
 
+        var gender;
+        if (profileForm.customer.gender.htmlValue === 'Male') {
+            gender = 1;
+        }
+        if (profileForm.customer.gender.htmlValue === 'Female') {
+            gender = 2;
+        }
+        if (profileForm.customer.gender.htmlValue === 'Other') {
+            gender = 3;
+        }
+
         var result = {
+            salutation: profileForm.customer.salutation.value,
+            gender: gender,
+            nationality: profileForm.customer.nationality.value,
             firstName: profileForm.customer.firstname.value,
             lastName: profileForm.customer.lastname.value,
             phone: profileForm.customer.phone.value,
@@ -190,6 +259,69 @@ server.replace(
             zipCode: profileForm.customer.zipCode.value,
             profileForm: profileForm
         };
+
+        var isProfileComplete = req.httpParameterMap.get('isProfileComplete')
+            .value
+            ? req.httpParameterMap.get('isProfileComplete').value
+            : 'true';
+        if (isProfileComplete === 'false') {
+            var birthdayArray = profileForm.customer.dob.value.split('-');
+
+            var birthday = new Date(
+                birthdayArray[1] +
+                    '/' +
+                    birthdayArray[0] +
+                    '/' +
+                    birthdayArray[2]
+            );
+            var currentDate = new Date();
+            var birthdayTimestamp = birthday.getTime();
+            var todayTimeStamp = currentDate.getTime();
+            var diff = (todayTimeStamp - birthdayTimestamp) / (86400000 * 365);
+            if (diff < 0) {
+                profileForm.customer.dob.valid = false;
+                profileForm.customer.dob.error = Resource.msg(
+                    'error.message.dob.invaliddate',
+                    'forms',
+                    null
+                );
+                profileForm.valid = false;
+            }
+            if (birthday > currentDate) {
+                profileForm.customer.dob.valid = false;
+                profileForm.customer.dob.error = Resource.msg(
+                    'error.message.dob.invaliddate',
+                    'forms',
+                    null
+                );
+                profileForm.valid = false;
+            }
+
+            if (!accountHelpers.isValidDate(birthdayArray)) {
+                profileForm.customer.dob.valid = false;
+                profileForm.customer.dob.error = Resource.msg(
+                    'error.message.dob.invaliddate',
+                    'forms',
+                    null
+                );
+                profileForm.valid = false;
+            }
+            result = {
+                salutation: profileForm.customer.salutation.value,
+                gender: gender,
+                nationality: profileForm.customer.nationality.value,
+                firstName: profileForm.customer.firstname.value,
+                lastName: profileForm.customer.lastname.value,
+                phone: profileForm.customer.phone.value,
+                email: profileForm.customer.email.value,
+                confirmEmail: profileForm.customer.emailconfirm.value,
+                password: profileForm.login.password.value,
+                zipCode: profileForm.customer.zipCode.value,
+                birthday: birthday,
+                profileForm: profileForm
+            };
+        }
+
         if (profileForm.valid) {
             res.setViewData(result);
             this.on('route:BeforeComplete', function (req, res) { // eslint-disable-line no-shadow
@@ -228,17 +360,43 @@ server.replace(
                 delete formInfo.confirmEmail;
 
                 if (customerLogin) {
-                    Transaction.wrap(function () {
-                        profile.setFirstName(formInfo.firstName);
-                        profile.setLastName(formInfo.lastName);
-                        profile.setEmail(formInfo.email);
-                        profile.setPhoneHome(formInfo.phone);
-                        profile.custom.zipCode = formInfo.zipCode;
-                        profile.custom.isProfileComplete = true;
-                    });
+                    if (isProfileComplete === 'false') {
+                        Transaction.wrap(function () {
+                            profile.setFirstName(formInfo.firstName);
+                            profile.setLastName(formInfo.lastName);
+                            profile.setEmail(formInfo.email);
+                            profile.setPhoneHome(formInfo.phone);
+                            profile.custom.zipCode = formInfo.zipCode;
+                            profile.setGender(formInfo.gender);
+                            profile.salutation = formInfo.salutation;
+                            profile.custom.nationality = formInfo.nationality;
+                            profile.birthday = formInfo.birthday;
+                            profile.custom.isProfileComplete = true;
+                        });
+                    } else {
+                        Transaction.wrap(function () {
+                            profile.setFirstName(formInfo.firstName);
+                            profile.setLastName(formInfo.lastName);
+                            profile.setEmail(formInfo.email);
+                            profile.setPhoneHome(formInfo.phone);
+                            profile.custom.zipCode = formInfo.zipCode;
+                            profile.setGender(formInfo.gender);
+                            profile.salutation = formInfo.salutation;
+                            profile.custom.nationality = formInfo.nationality;
+                            profile.custom.isProfileComplete = true;
+                        });
+                    }
 
                     // Send account edited email
                     accountHelpers.sendAccountEditedEmail(customer.profile);
+
+                    // Capillary: update customer service
+                    var crmCustomerID = capillaryAPI.updateCustomer(formInfo, profile);
+                    if (crmCustomerID) {
+                        Transaction.wrap(function () {
+                            profile.custom.capillaryCustomerID = crmCustomerID;
+                        });
+                    }
 
                     delete formInfo.profileForm;
                     delete formInfo.email;
@@ -397,7 +555,7 @@ server.replace(
 
                     var emailObj = {
                         to: email,
-                        subject: Resource.msg('subject.profile.resetpassword.email', 'login', null),
+                        subject: Resource.msg('subject.password.changed.email', 'login', null),
                         from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
                         type: emailHelpers.emailTypes.passwordReset
                     };
@@ -816,6 +974,13 @@ server.replace(
                         res.setViewData({
                             authenticatedCustomer: authenticatedCustomer
                         });
+                        // Capillary: create customer service
+                        var crmCustomerID = capillaryAPI.createCustomer(registrationForm);
+                        if (crmCustomerID) {
+                            Transaction.wrap(function () {
+                                authenticatedCustomer.profile.custom.capillaryCustomerID = crmCustomerID;
+                            });
+                        }
                         res.json({
                             success: true,
                             redirectUrl: accountHelper.getLoginRedirectURL(
@@ -930,7 +1095,7 @@ server.replace('SaveNewPassword', server.middleware.https, function (req, res, n
 
                 var emailObj = {
                     to: email,
-                    subject: Resource.msg('subject.profile.resetpassword.email', 'login', null),
+                    subject: Resource.msg('subject.password.changed.email', 'login', null),
                     from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
                     type: emailHelpers.emailTypes.passwordReset
                 };
@@ -946,6 +1111,85 @@ server.replace('SaveNewPassword', server.middleware.https, function (req, res, n
         res.render('account/password/newPassword', {
             passwordForm: passwordForm,
             token: token
+        });
+    }
+    next();
+});
+
+/**
+ * Account-PasswordResetDialogForm : The Account-PasswordResetDialogForm endpoint is the endpoint that gets hit once the shopper has clicked forgot password and has submitted their email address to request to reset their password
+ */
+server.replace('PasswordResetDialogForm', server.middleware.https, function (req, res, next) {
+    var CustomerMgr = require('dw/customer/CustomerMgr');
+    var Transaction = require('dw/system/Transaction');
+    var accountHelpers = require('*/cartridge/scripts/helpers/accountHelpers');
+
+    var email = req.form.loginEmail;
+    var errorMsg;
+    var isValidEmail;
+    var resettingCustomer;
+    var mobile = req.querystring.mobile;
+    var receivedMsgHeading = Resource.msg('label.resetpasswordreceived', 'login', null);
+    var receivedMsgBody = Resource.msg('msg.requestedpasswordreset', 'login', null);
+    var buttonText = Resource.msg('button.text.loginform', 'login', null);
+    var returnUrl = URLUtils.url('Login-Show').toString();
+    if (email) {
+        isValidEmail = emailHelpers.validateEmail(email);
+        if (isValidEmail) {
+            resettingCustomer = CustomerMgr.getCustomerByLogin(email);
+            if (resettingCustomer) {
+                if (
+                    resettingCustomer.profile.custom &&
+                    'lastForgotPasswordRequest' in
+                        resettingCustomer.profile.custom &&
+                    resettingCustomer.profile.custom.lastForgotPasswordRequest &&
+                    (new Date() - resettingCustomer.profile.custom.lastForgotPasswordRequest) < 60000
+                ) {
+                    errorMsg = Resource.msg('error.message.passwordreset.within.one.min', 'login', null);
+                    res.json({
+                        fields: {
+                            loginEmail: errorMsg
+                        }
+                    });
+                } else {
+                    accountHelpers.sendPasswordResetEmail(email, resettingCustomer);
+                    Transaction.wrap(function () {
+                        resettingCustomer.profile.custom.lastForgotPasswordRequest =
+                                new Date();
+                    });
+                    res.json({
+                        success: true,
+                        receivedMsgHeading: receivedMsgHeading,
+                        receivedMsgBody: receivedMsgBody,
+                        buttonText: buttonText,
+                        mobile: mobile === 'true',
+                        returnUrl: returnUrl
+                    });
+                }
+            } else {
+                res.json({
+                    success: true,
+                    receivedMsgHeading: receivedMsgHeading,
+                    receivedMsgBody: receivedMsgBody,
+                    buttonText: buttonText,
+                    mobile: mobile === 'true',
+                    returnUrl: returnUrl
+                });
+            }
+        } else {
+            errorMsg = Resource.msg('error.message.passwordreset', 'login', null);
+            res.json({
+                fields: {
+                    loginEmail: errorMsg
+                }
+            });
+        }
+    } else {
+        errorMsg = Resource.msg('error.message.required', 'login', null);
+        res.json({
+            fields: {
+                loginEmail: errorMsg
+            }
         });
     }
     next();

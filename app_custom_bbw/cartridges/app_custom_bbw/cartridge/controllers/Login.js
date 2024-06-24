@@ -11,6 +11,7 @@ var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var URLUtils = require('dw/web/URLUtils');
 var Resource = require('dw/web/Resource');
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 /**
  * Append Account-Show controller: Update breadcrumbs
@@ -83,8 +84,8 @@ server.get(
         });
 
         next();
-    }
-);
+    },
+    seo.addCurrentPageMetaData);
 
 server.get('Popup', csrfProtection.generateToken, function (req, res, next) {
     var loginRedirectExceptions = require('*/cartridge/config/loginRedirectExceptions');
@@ -127,6 +128,16 @@ server.replace('Logout', function (req, res, next) {
 
     CustomerMgr.logoutCustomer(false);
     res.redirect(URLUtils.url('Login-Show'));
+    next();
+});
+
+/**
+ * Login-customSessionLogout : This endpoint is called to force logout of customer after custom session timeout
+ *
+ */
+server.get('customSessionLogout', function (req, res, next) {
+    var CustomerMgr = require('dw/customer/CustomerMgr');
+    CustomerMgr.logoutCustomer(false);
     next();
 });
 

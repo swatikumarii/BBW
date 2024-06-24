@@ -92,6 +92,7 @@ footer {
 
             .heading-text {
                 letter-spacing: 0.01em;
+                line-height: 1.25rem;
             }
 
             .tooltip-container {
@@ -162,6 +163,7 @@ footer {
             .footer-list-item {
                 a {
                     letter-spacing: 0.01em;
+                    line-height: 20px;
                 }
             }
         }
@@ -180,6 +182,7 @@ footer {
                 background-color: transparent;
                 border: none;
                 color: colour(green, 4);
+                font-weight: 600;
             }
         }
     }
@@ -217,6 +220,7 @@ footer {
                     .ds-link {
                         letter-spacing: 0.015em;
                         color: colour(gray, 4);
+                        line-height: 1rem;
 
                         &:hover {
                             text-decoration: underline;
@@ -234,22 +238,27 @@ footer {
                     letter-spacing: 0.015em;
                     color: colour(gray, 4);
                     text-align: center;
+                    line-height: 1.2857;
                 }
             }
         }
     }
 }
 
-.popover {
+.footer-tooltip-popover {
     background-color: colour(white);
     height: auto;
     max-height: 25rem;
     overflow-y: auto;
     text-align: left;
-    width: 14.5rem;
-    box-shadow: 0 0 8px rgba(51, 51, 51, 15%);
-    border: 0.0625rem solid colour(gray, 1);
-    border-radius: 4px;
+    width: 14.5rem !important;
+    box-shadow: 0 0 8px rgba(51, 51, 51, 15%) !important;
+    border: 0.0625rem solid colour(gray, 1) !important;
+    border-radius: 4px !important;
+
+    .arrow {
+        display: none;
+    }
 
     .close {
         background-position: 50%;
@@ -257,6 +266,8 @@ footer {
         height: 2.5rem;
         opacity: inherit;
         width: 2.5rem;
+        top: -15px;
+        position: relative;
         background-image: url("../images/footer/cross.svg");
 
         &:not(:disabled) {
@@ -268,13 +279,15 @@ footer {
         }
     }
 
-    .popover-header {
+    .footer-tooltip-header {
         background: $clr-white;
         align-items: center;
         border-bottom: 0.0625rem solid colour(gray, 6);
         display: flex;
         justify-content: space-between;
         padding: 8px 8px 8px 16px;
+        margin-top: 0;
+        height: auto;
 
         .header-content {
             line-height: 1.25rem;
@@ -397,6 +410,7 @@ footer {
 .autologout-modal {
     .modal-dialog {
         max-width: 306px;
+        margin: 0 auto;
 
         .modal-content {
             border-radius: 0;

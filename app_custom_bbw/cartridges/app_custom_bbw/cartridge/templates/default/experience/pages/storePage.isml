@@ -10,10 +10,10 @@
     <div class="storepage" id="${pdict.page.ID}">
         <div class="container-fluid">
             <div class="row">
-                <isprint value="${pdict.regions.main.setClassName("col-12 px-0").render()}" encoding="off" />
+                <isprint value="${pdict.regions.main.setClassName("col-12 p-0 h-100 w-100").render()}" encoding="off" />
             </div>
             <div class="row">
-                <isprint value="${pdict.regions.legalnotice.setClassName("col-12 px-0").render()}" encoding="off" />
+                <isprint value="${pdict.regions.legalnotice.setClassName("col-12 p-0 h-100 w-100").render()}" encoding="off" />
             </div>
         </div>
     </div>

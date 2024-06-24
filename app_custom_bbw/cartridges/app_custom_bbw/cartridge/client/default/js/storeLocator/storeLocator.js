@@ -44,7 +44,7 @@ function maps() {
         url: imageUrlBlack,
         labelOrigin: {
             x: 15,
-            y: 15
+            y: 14
         }
     };
 
@@ -53,7 +53,7 @@ function maps() {
         url: imageUrlPink,
         labelOrigin: {
             x: 15,
-            y: 15
+            y: 14
         }
     };
     var markers=[];
@@ -71,7 +71,7 @@ function maps() {
             map: map,
             title: item.name,
             icon: imageUrlBlack,
-            label: { text: lable.toString(), color: 'black', fontSize: '16px' }
+            label: { text: lable.toString(), color: 'black', fontSize: '14px' }
         });
         contents.push(item);
         markers.push(marker);
@@ -196,7 +196,7 @@ function getAllDataAndSubmit() {
     var isNumber = Boolean(Number(postalCodeVal));
     var method = $form.attr('method');
     var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ address: postalCodeVal }).then(function (response) {
+    geocoder.geocode({ address: postalCodeVal, componentRestrictions: {country: 'Australia'} }).then(function (response) {
         if (response.results[0]) {
             var location = response.results[0].geometry.location;
             var addressComponents = response.results[0].address_components;
@@ -243,7 +243,7 @@ function search(element) {
     var isNumber = Boolean(Number(postalCodeVal));
     var method = $form.attr('method');
     var geocoder = new google.maps.Geocoder();
-    geocoder.geocode({ address: postalCodeVal }).then(function (response) {
+    geocoder.geocode({ address: postalCodeVal, componentRestrictions: {country: 'Australia'} }).then(function (response) {
         if (response.results[0]) {
             var location = response.results[0].geometry.location;
             var addressComponents = response.results[0].address_components;

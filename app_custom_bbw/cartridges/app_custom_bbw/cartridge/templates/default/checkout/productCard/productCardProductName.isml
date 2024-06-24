@@ -1,7 +1,7 @@
 <div class="line-item-name">
-    <span class="d-block h-fw--semibold h-clr--black-1 h-font-size--15">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</span>
-    <span class="d-block h-font-size--14">${lineItem.titlePartB ? lineItem.titlePartB : ''}</span>
-    <span class="d-block h-font-size--14">${lineItem.volume ? lineItem.volume : ''}</span>
+    <span class="d-block h-fw--semibold h-clr--black-1 h-font-size--15 product-title">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</span>
+    <span class="d-block h-font-size--14 h-clr--gray-4 prod-desc h-line-height--16">${lineItem.titlePartB ? lineItem.titlePartB : ''}</span>
+    <span class="d-block h-font-size--14 h-clr--gray-4 prod-desc mt-2 mb-2 h-line-height--16">${lineItem.volume ? lineItem.volume : ''}</span>
     <isif condition="${'customBundle' in lineItem && lineItem.customBundle}">
         <span class="d-block h-font-size--14">${dw.experience.PageMgr.getPage(lineItem.customBundle).name}</span>
     </isif>

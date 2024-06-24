@@ -2,52 +2,102 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>${Resource.msg('siteoffline.header','error',null)}</title>
+        <title>${Resource.msg('siteoffline.header', 'error', null)}</title>
+        <meta charset=UTF-8 />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
     <style>
-    .container {
-            max-width: 47%;
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            height: 100%;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 0 20px;
+            position: relative;
+            height: 100%;
+        }
+
+        .site-offline {
+            max-width: 1200px;
             margin: 0 auto;
-    }
-    .siteoffline-para {
-        text-align: center;
-        font-size: 23px;
-        line-height: 34px;
-        max-width: 81%;
-        margin: 0 auto;
-    }
-    img {
-        width: 100%;
-    }
-    .site-offline {
-        margin-top: 15%;
-    }
-    span {
-        text-align: center;
-    }
-    .site-offline-assistance {
-        margin-top: 30%;
-    }
-    .site-offline-assistance p{
-        text-align: center;
-    }
-    .site-offline-assistance p span{
-        color: #005699;
-        cursor: pointer;
-    }
+            display: flex;
+            height: 100%;
+        }
+
+        .siteoffline-para {
+            text-align: center;
+            font-size: 23px;
+            line-height: 34px;
+            max-width: 81%;
+            margin: 0 auto;
+        }
+
+        .site-offline-picture {
+            margin: auto;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        span {
+            text-align: center;
+        }
+
+        .site-offline-assistance {
+            margin-top: 30%;
+        }
+
+        .site-offline-assistance p {
+            text-align: center;
+        }
+
+        .site-offline-assistance p span {
+            color: #005699;
+            cursor: pointer;
+        }
+
+        @media (max-width: 575.98px) {
+            .container {
+                padding: 0;
+                height: 100%;
+            }
+
+            .site-offline {
+                box-sizing: border-box;
+                line-height: 0;
+                padding: 0 16px;
+                text-align: center;
+                max-width: 100%;
+                margin: 0 auto;
+                display: flex;
+                height: 100%;
+            }
+
+            .site-offline-picture {
+                margin-top: 15%;
+            }
+        }
+
     </style>
     <body>
         <div class="container">
             <div class="site-offline">
-                <img src="${URLUtils.staticURL('/images/maintenance/maintenance-img.png')}" alt="Website maintenance page" />
-                <p class="siteoffline-para">${Resource.msg('siteoffline.message.para', 'error', null)}</p>
-            </div>
-            <div class="site-offline-assistance">
-                <p>${Resource.msg('siteoffline.message.assistance', 'error', null)}</p>
-                <p> 
-                   <span>${Resource.msg('siteoffline.message.assistance.msg', 'error', null)}</span> 
-                    ${Resource.msg('siteoffline.message.help', 'error', null)}
-                </p>
+                <picture class="site-offline-picture">
+                    <source media="(min-width: 769px)"
+                        srcset="${URLUtils.staticURL('/images/maintenance/bbw-maintenance-desktop.jpg')}"/>
+                    <img src="${URLUtils.staticURL('/images/maintenance/bbw-maintenance-mobile.jpg')}"
+                        alt="${Resource.msg('siteoffline.img.alt', 'error', null)}" style="width:100%;"/>
+                </picture>
             </div>
         </div>
     </body>

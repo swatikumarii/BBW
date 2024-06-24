@@ -3,7 +3,7 @@
     <general-settings>
         <lower-case-urls>true</lower-case-urls>
         <blank-substitute>-</blank-substitute>
-        <character-replacements-enabled>false</character-replacements-enabled>
+        <character-replacements-enabled>true</character-replacements-enabled>
         <character-replacements-for-page-url-enabled>true</character-replacements-for-page-url-enabled>
     </general-settings>
     <category-rule>[ category-path, [ attribute, ID ], / ]</category-rule>
@@ -38,20 +38,43 @@
         <pipeline-alias pipeline="Fragrance-Show">shop-by-fragrance</pipeline-alias>
         <pipeline-alias pipeline="Careers-Show">careers</pipeline-alias>
         <pipeline-alias pipeline="Checkout-Begin">checkout-begin</pipeline-alias>
-        <pipeline-alias pipeline="Login-CreateAccount">registration/user-registration</pipeline-alias>
+        <pipeline-alias pipeline="Login-CreateAccount">sign-up</pipeline-alias>
         <pipeline-alias pipeline="Address-List">saved-address</pipeline-alias>
         <pipeline-alias pipeline="Fragrance-Ingredient">ingredient</pipeline-alias>
         <pipeline-alias pipeline="Wishlist-Show">wishlist</pipeline-alias>
         <pipeline-alias pipeline="Order-History">orders-list</pipeline-alias>
-        <pipeline-alias pipeline="Login-Show">registration/login</pipeline-alias>
+        <pipeline-alias pipeline="Login-Show">sign-in</pipeline-alias>
         <pipeline-alias pipeline="Search-Show">search</pipeline-alias>
         <pipeline-alias pipeline="Stores-Find">store-locator</pipeline-alias>
         <pipeline-alias pipeline="Order-Status">track-order</pipeline-alias>
         <pipeline-alias pipeline="Cart-Show">cart</pipeline-alias>
         <pipeline-alias pipeline="Blogs-Show">get-inspired</pipeline-alias>
+        <pipeline-alias pipeline="CorporateGifting-Landing">corporate-gifting</pipeline-alias>
+        <pipeline-alias pipeline="Account-Show">dashboard</pipeline-alias>
+        <pipeline-alias pipeline="Order-Confirm">order-confirm</pipeline-alias>
+        <pipeline-alias pipeline="Order-Pending">order-pending</pipeline-alias>
+        <pipeline-alias pipeline="Order-Failed">order-failed</pipeline-alias>
+        <pipeline-alias pipeline="Giftcard-Show">e-giftcard</pipeline-alias>
+        <pipeline-alias pipeline="Order-Details">order-details</pipeline-alias>
+        <pipeline-alias pipeline="PaymentInstruments-List">payment-methods-list</pipeline-alias>
+        <pipeline-alias pipeline="PaymentInstruments-AddPayment">add-payment-method</pipeline-alias>
+        <pipeline-alias pipeline="Wishlist-ShowOthers">wishlist-others</pipeline-alias>
+        <pipeline-alias pipeline="Login-Logout">logout</pipeline-alias>
+        <pipeline-alias pipeline="Account-PasswordReset">reset-password</pipeline-alias>
+        <pipeline-alias pipeline="Careers-ApplyForJob">careers/apply-job</pipeline-alias>
     </pipeline-aliases>
     <pipeline-trailing-slash>false</pipeline-trailing-slash>
     <pipeline-perform-redirect>false</pipeline-perform-redirect>
+    <character-replacements xml:lang="x-default">
+        <character-replacement>
+            <character>&amp;</character>
+            <replacement>and</replacement>
+        </character-replacement>
+        <character-replacement>
+            <character>'</character>
+            <replacement/>
+        </character-replacement>
+    </character-replacements>
     <search-refinement-url-settings>
         <position>after</position>
         <segment-delimiter>slash</segment-delimiter>

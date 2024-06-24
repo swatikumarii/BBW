@@ -2,7 +2,7 @@
 <isloop items="${pdict.items}" var="lineItem" status="loopstatus">
     <isset name="hasEmbeddedBonusProducts" value="${lineItem.bonusProductLineItemUUID === 'bonus'}" scope="page" />
     <isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}" scope="page" />
-    <isset name="bonuslineitemrow" value="${hasEmbeddedBonusProducts ? 'bonus-line-item-row' : ''}" scope="page" />
+    <isset name="bonuslineitemrow" value="${hasEmbeddedBonushasEmbeddedBonusProductsProducts ? 'bonus-line-item-row' : ''}" scope="page" />
     <div class="card">
         <div class="product-info ${bonusproductlineitem} uuid-${lineItem.UUID}">
             <!--- name and remove buttons --->
@@ -10,11 +10,11 @@
             <div class="line-item">
                 <div class="item-image">
                     <isif condition="${lineItem.isEgiftCard}">
-                        <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
+                        <img class="product-image" src="${lineItem.images.small[0].url}" srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x" alt="${lineItem.images.small[0].alt}"
                             title="${lineItem.images.small[0].title}" />
                     <iselse/>
                         <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
-                            <img class="product-image" src="${lineItem.images.small[0].url}" alt="${lineItem.images.small[0].alt}"
+                            <img class="product-image" src="${lineItem.images.small[0].url}" srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x" alt="${lineItem.images.small[0].alt}"
                                 title="${lineItem.images.small[0].title}" />
                         </a>
                     </isif>
@@ -38,6 +38,13 @@
                         <isset name="miniCart" value="${false}" scope="page" />
                         <isinclude template="checkout/productCard/productCardProductPromotions" />
                     </div>
+                    <iscomment> motivators </iscomment>
+                    <div class="line-item-promo-motivator item-${lineItem.UUID} ${lineItem.isFreeItem ? 'd-none' : ''}">
+                        <isset name="cartPage" value="${true}" scope="page" />
+                        <isinclude template="checkout/productCard/productCardProductMotivators" />
+                    </div>
+                    <iscomment> wishlist </iscomment>
+                    <isinclude template="wishlist/components/addToWishListButtonCart" sf-toolkit="on" />
                 </div>
                 <div class="row">
                     <div class="col-lg-12 d-flex flex-row">

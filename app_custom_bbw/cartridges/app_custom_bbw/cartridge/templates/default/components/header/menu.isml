@@ -7,11 +7,13 @@
                     <isif condition="${category.subCategories}">
                         <li class="nav-item dropdown level-1-li" role="presentation">
                             <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
-                                id="${category.id}" class="level-1-link nav-link h-fw--semibold text-capitalize dropdown-toggle"
-                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                tabindex="0">${category.name}</a>
+                            id="${category.id}" class="level-1-link nav-link h-fw--semibold text-capitalize
+                            dropdown-toggle"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            tabindex="0">${category.name}</a>
                             <isset name="menuItem" value="${category}" scope="page" />
-                            <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('navSameAsDotCom')}">
+                            <isif
+                                condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('navSameAsDotCom')}">
                                 <isinclude template="components/header/brandMenuItem" />
                             <iselse/>
                                 <isinclude template="components/header/menuItem" />
@@ -20,8 +22,8 @@
                     <iselse/>
                         <li class="nav-item" role="presentation">
                             <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
-                                id="${category.id}" class="nav-link h-font-size--14 h-fw--semibold" role="link"
-                                tabindex="0">${category.name}</a>
+                            id="${category.id}" class="nav-link h-font-size--14 h-fw--semibold" role="link"
+                            tabindex="0">${category.name}</a>
                         </li>
                     </isif>
                 </isloop>
@@ -40,18 +42,26 @@
         <div class="close-button pull-right">
             <button class="border-0 p-0 h-bg--white" role="button"
                 aria-label="${Resource.msg('label.header.menu.close', 'common', null)}">
-                <img class="h-width--20" src="${URLUtils.staticURL('/images/header/UI-Close-blue.svg')}" alt="${Resource.msg('global.close', 'common', null)}" />
+                <img class="h-width--20" src="${URLUtils.staticURL('/images/header/UI-Close-blue.svg')}"
+                    alt="${Resource.msg('global.close', 'common', null)}" />
             </button>
         </div>
     </div>
     <div class="menu-group w-100 h-bg--white" role="navigation">
         <div class="mobile-slide-menu-search position-relative">
-            <form role="search">
+            <form id="menu-search" role="search" action="${URLUtils.url('Search-Show')}" method="get"
+                name="simpleSearch">
                 <fieldset>
                     <input class="h-font-size--18 p-0" type="search" id="mobile-slide-search" value=""
-                        placeholder="Search" />
-                    <button type="submit" id="menusearch"
-                        class="position-absolute h-100 border-0 p-0 h-bg--white "></button>
+                        placeholder="Search" name="q" />
+                    <button type="submit" id="menusearch" class="position-absolute h-100 border-0 p-0 h-bg--white ">
+                        <img class="h-width--20 menu-sidebar-search black-search-icon"
+                            src="${URLUtils.staticURL('/images/header/UI-Search.svg')}"
+                            alt="${Resource.msg('global.close', 'common', null)}" />
+                        <img class="h-width--20 menu-sidebar-search blue-search-icon"
+                            src="${URLUtils.staticURL('/images/header/UI-Search-v2.svg')}"
+                            alt="${Resource.msg('global.close', 'common', null)}" />
+                    </button>
                     <span role="button" class="mobile-slide-cancel h-font-size--14 h-clr--black-3 position-absolute"
                         tabindex="-1" style="display: none;">${Resource.msg('label.header.menu.cancel', 'common', null)}</span>
                 </fieldset>
@@ -59,41 +69,54 @@
         </div>
 
         <ul class="nav navbar-nav justify-content-between level-1-ul" role="menu">
-            <li class="nav-top-offers nav-item level-1-li" role="presentation">
-                <a href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold"
-                >${Resource.msg('mobile.menu.topOffers', 'common', null)}</a>
-            </li>
             <isif condition="${pdict.categories}">
+                <isloop items="${pdict.categories}" var="category">
+                    <isif condition="${category.id == 'top-offers'}">
+                        <li class="nav-top-offers nav-item level-1-li" role="presentation">
+                            <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
+                            class="level-1-link nav-link h-font-size--18
+                            h-fw--semibold">${Resource.msg('mobile.menu.topOffers', 'common', null)}</a>
+                        </li>
+                        <isbreak/>
+                    </isif>
+                </isloop>
                 <isloop items="${pdict.categories}" var="category">
                     <isif condition="${category.subCategories}">
                         <li class="nav-item dropdown level-1-li" role="presentation">
                             <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
-                                id="${category.id}" class="level-1-link nav-link h-font-size--18 h-fw--semibold
-                                    dropdown-toggle"
-                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                tabindex="0">${category.name}</a>
+                            id="${category.id}" class="level-1-link nav-link h-font-size--18 h-fw--semibold
+                            dropdown-toggle"
+                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            tabindex="0">${category.name}</a>
                             <isset name="menuItem" value="${category}" scope="page" />
                             <isinclude template="components/header/mobileMenuItem" />
                         </li>
                     <iselse/>
-                        <li class="nav-item" role="presentation">
-                            <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
-                                id="${category.id}" class="nav-link h-font-size--18 h-fw--semibold" role="link"
+                        <isif condition="${category.id != 'top-offers'}">
+                            <li class="nav-item level-1-li position-relative" role="presentation">
+                                <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
+                                id="${category.id}" class="level-1-link nav-link h-font-size--18 h-fw--semibold"
+                                role="link"
                                 tabindex="0">${category.name}</a>
-                        </li>
+                            </li>
+                        </isif>
                     </isif>
                 </isloop>
             </isif>
             <li class="nav-store-locator nav-item level-1-li" role="presentation">
-                <a href="${URLUtils.url('Stores-Find')}" class="level-1-link nav-link h-font-size--18 h-fw--semibold">${Resource.msg('mobile.menu.storeLocator', 'common', null)}</a>
+                <a href="${URLUtils.url('Stores-Find')}"
+                    class="level-1-link nav-link h-font-size--18 h-fw--semibold">${Resource.msg('mobile.menu.storeLocator', 'common', null)}</a>
             </li>
             <li class="nav-my-account nav-item level-1-li dropdown" role="presentation">
-                <a href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
+                <a href="#" class="level-1-link nav-link h-font-size--18 h-fw--semibold dropdown-toggle" role="button"
+                    data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">${Resource.msg('mobile.menu.myAccount', 'common', null)}</a>
                 <isif condition="${pdict.customerName === null}">
-                    <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true" aria-label="${category.id}">
+                    <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true"
+                        aria-label="${category.id}">
                         <li class="level-2-li p-0" role="presentation">
-                            <a href="${URLUtils.url('Login-Show')}" class="level-2-link h-clr--gray h-font-size--16"
-                                role="button">${Resource.msg('mobile.menu.signIn', 'common', null)}</a>
+                            <button
+                                class="border-0 bg-white loginPopupBtn level-2-link h-clr--gray h-font-size--16">${Resource.msg('mobile.menu.signIn', 'common', null)}</button>
                         </li>
                         <li class="level-2-li p-0" role="presentation">
                             <a href="${URLUtils.url('Order-Status')}" class="level-2-link h-clr--gray h-font-size--16"
@@ -109,9 +132,11 @@
                         </li>
                     </ul>
                 <iselse/>
-                    <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true" aria-label="${category.id}">
+                    <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true"
+                        aria-label="${category.id}">
                         <li class="level-2-li logged-user-name" role="presentation">
-                            ${Resource.msg('mobile.menu.hi', 'common', null)} ${pdict.customerName} ${Resource.msg('mobile.menu.exclamation', 'common', null)}
+                            ${Resource.msg('mobile.menu.hi', 'common', null)} ${pdict.customerName}
+                            ${Resource.msg('mobile.menu.exclamation', 'common', null)}
                         </li>
                         <li class="level-2-li p-0" role="presentation">
                             <a href="${URLUtils.url('Account-Show')}" class="level-2-link h-clr--gray h-font-size--16"

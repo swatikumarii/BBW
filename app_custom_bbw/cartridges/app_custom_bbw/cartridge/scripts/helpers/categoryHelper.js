@@ -27,6 +27,23 @@ function appendLevelOneCategory(req, res, next) {
         );
         res.setViewData(viewData);
     }
+    var hideFilterBar = false;
+
+    if (viewData.productSearch && viewData.productSearch.refinements.length > 0) {
+        var countvalue = 0;
+        var ingredient = 'ingredients';
+        var filteredRefinements = viewData.productSearch.refinements.filter((item) => item.id !== ingredient);
+        Object.defineProperty(viewData.productSearch, 'refinements', { value: filteredRefinements });
+        for (var i = 0; i < viewData.productSearch.refinements.length; i++) {
+            if (viewData.productSearch.refinements[i].values && viewData.productSearch.refinements[i].values.length < 2) {
+                countvalue++;
+            }
+        }
+        if (countvalue === viewData.productSearch.refinements.length) {
+            hideFilterBar = true;
+        }
+    }
+    viewData.hideFilterBar = hideFilterBar;
     next();
 }
 
@@ -39,24 +56,46 @@ function appendLevelOneCategory(req, res, next) {
 function appendCategoryBreadcrum(req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
     var Resource = require('dw/web/Resource');
+    var CatalogMgr = require('dw/catalog/CatalogMgr');
     var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
     var viewData = res.getViewData();
-    var breadcrumbs = productHelper.getAllBreadcrumbs(
-        req.querystring.cgid,
-        null,
-        []
-    );
-
-    if (!viewData.productSearch.isCategorySearch) {
+    var breadcrumbs = [];
+    if (req.querystring.cgid === 's-fragrance' && 'preferences' in req.querystring) {
+        if ('fragranceName' in req.querystring.preferences) {
+            var category = CatalogMgr.getCategory(req.querystring.cgid);
+            if (category) {
+                breadcrumbs = [
+                    {
+                        htmlValue: req.querystring.preferences.fragranceName
+                            ? req.querystring.preferences.fragranceName
+                            : ''
+                    },
+                    {
+                        htmlValue: category.displayName,
+                        url: URLUtils.url('Fragrance-Show')
+                    }
+                ];
+            }
+        }
+    }else{
+        breadcrumbs = productHelper.getAllBreadcrumbs(
+            req.querystring.cgid,
+            null,
+            []
+        );
+    }
+    if (!viewData.productSearch.isCategorySearch && viewData.productSearch.searchKeywords) {
         breadcrumbs.push({
             htmlValue: Resource.msgf('search.result.breadcrumb', 'search', null, viewData.productSearch.searchKeywords)
         });
     }
+    if (breadcrumbs.length > 0) {
+        breadcrumbs.push({
+            htmlValue: Resource.msg('global.home', 'common', null),
+            url: URLUtils.home().toString()
+        });
+    }
 
-    breadcrumbs.push({
-        htmlValue: Resource.msg('global.home', 'common', null),
-        url: URLUtils.home().toString()
-    });
     breadcrumbs = breadcrumbs.reverse();
 
     viewData.breadcrumbs = breadcrumbs;

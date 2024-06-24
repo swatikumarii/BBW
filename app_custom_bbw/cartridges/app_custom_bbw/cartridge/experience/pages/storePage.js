@@ -4,6 +4,7 @@ var Template = require('dw/util/Template');
 var HashMap = require('dw/util/HashMap');
 var PageRenderHelper = require('*/cartridge/experience/utilities/PageRenderHelper.js');
 var Site = require('dw/system/Site');
+var seoHelper = require('*/cartridge/scripts/helpers/seoHelper');
 
 /**
  * Render logic for the storepage.
@@ -24,8 +25,14 @@ module.exports.render = function (context, modelIn) {
     var homePage = Site.current.getCustomPreferenceValue('pageDesignerID');
     if (model && model.page && model.page.ID && model.page.ID !== homePage) {
         model.queryString = 'cid=' + model.page.ID;
+        model.canonicalUrl = seoHelper.getCanonicalUrl(
+            'Page-Show',
+            'cid',
+            model.page.ID
+        );
     } else {
         model.isHomePage = true;
+        model.canonicalUrl = 'https://' + request.httpHost;
     }
     // automatically register configured regions
     model.regions = PageRenderHelper.getRegionModelRegistry(page);
@@ -35,9 +42,24 @@ module.exports.render = function (context, modelIn) {
         HookManager.callHook('app.experience.editmode', 'editmode');
         model.resetEditPDMode = true;
     }
+    var viewData = JSON.parse(context.renderParameters);
+
+    model.emarsysTestModeEnabled = viewData.emarsysTestModeEnabled;
+    model.emarsysData = viewData.emarsysData;
 
     model.CurrentPageMetaData = PageRenderHelper.getPageMetaData(page);
-
+    if (model && model.page && model.page.ID) {
+        var ContentMgr = require('dw/content/ContentMgr');
+        var contentAsset = ContentMgr.getContent(model.page.ID + '.seo');
+        // As the content asset is mainly used for SEO purpose, no need to put it online
+        if (
+            !empty(contentAsset) &&
+            'image' in contentAsset.custom &&
+            'absURL' in contentAsset.custom.image
+        ) {
+            model.image = contentAsset.custom.image.absURL;
+        }
+    }
     // no pagecache setting here, this is dynamically determined by the components used within the page
 
     // render the page

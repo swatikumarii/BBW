@@ -15,84 +15,76 @@ var emarsysEnabled =
  * @returns {object} Object containing emarsys data corresponding to the controller.
  */
 function getScarabQueueData(res) {
-    var userEmail='';
+    var userEmail = res.email;
     try {
         switch (res.action) {
-            case 'Search-Show':
+            case 'Account-Login':
                 userEmail =
-                    'CurrentUser' in res && 'profile' in res.CurrentUser
-                        ? res.CurrentUser.profile.email
+                    'authenticatedCustomer' in res &&
+                    'profile' in res.authenticatedCustomer
+                        ? res.authenticatedCustomer.profile.email
                         : '';
                 return dataHelpers.prepareEmrasysData(
                     userEmail,
-                    res.category,
+                    null    ,
+                    null
+                );
+            case 'Search-Show':
+                var categories = '';
+                for (var index = 0; index < res.breadcrumbs.length; index++) {
+                    if (
+                        index > 1 &&
+                            res.breadcrumbs[index].htmlValue === 'Home'
+                    ) {
+                        break;
+                    }
+                    if (index !== 0) {
+                        categories += '>';
+                    }
+                    categories += res.breadcrumbs[index].htmlValue;
+                }
+                return dataHelpers.prepareEmrasysData(
+                    userEmail,
+                    categories,
                     null
                 );
             case 'Cart-Show':
-                userEmail =
-                    'CurrentUser' in res && 'profile' in res.CurrentUser && res.CurrentUser.profile
-                        ? res.CurrentUser.profile.email
-                        : '';
-                return dataHelpers.prepareEmrasysData(userEmail, 'cart', null);
+                return dataHelpers.prepareEmrasysData(userEmail, null, null);
             case 'Checkout-Begin':
-                userEmail =
-                    'CurrentUser' in res && 'profile' in res.CurrentUser
-                        ? res.CurrentUser.profile.email
-                        : '';
                 return dataHelpers.prepareEmrasysData(
                     userEmail,
                     'checkout-begin',
                     null
                 );
             case 'CheckoutServices-SubmitPayment':
-                userEmail =
-                    'CurrentUser' in res && 'profile' in res.CurrentUser
-                        ? res.CurrentUser.profile.email
-                        : '';
                 return dataHelpers.prepareEmrasysData(
                     userEmail,
                     'checkout-payment',
                     null
                 );
             case 'CheckoutShippingServices-SubmitShipping':
-                userEmail =
-                    'customer' in res && 'profile' in res.customer
-                        ? res.customer.profile.email
-                        : '';
                 return dataHelpers.prepareEmrasysData(
                     userEmail,
                     'checkout-shipment',
                     null
                 );
             case 'Default-Start':
-                userEmail =
-                    'CurrentUser' in res && 'profile' in res.CurrentUser
-                        ? res.CurrentUser.profile.email
-                        : '';
                 return dataHelpers.prepareEmrasysData(
                     userEmail,
                     'homepage',
                     null
                 );
             case 'Home-Show':
-                userEmail =
-                    'CurrentUser' in res && 'profile' in res.CurrentUser
-                        ? res.CurrentUser.profile.email
-                        : '';
                 return dataHelpers.prepareEmrasysData(
                     userEmail,
                     'homepage',
                     null
                 );
             case 'Product-Show':
-                userEmail =
-                    'CurrentUser' in res && 'profile' in res.CurrentUser
-                        ? res.CurrentUser.profile.email
-                        : '';
                 return dataHelpers.prepareEmrasysData(
                     userEmail,
-                    'productDetail',
-                    null
+                    null,
+                    {detail:res.product.id}
                 );
             case 'Order-Confirm':
                 return dataHelpers.prepareEmrasysOrderData(res.order);

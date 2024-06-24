@@ -4,7 +4,7 @@
         <description/>
         <parameters/>
         <flow>
-            <context site-id="bbw-au"/>
+            <context site-id="bbw-aus"/>
             <step step-id="qwikcilverFuture" type="custom.Qwikcilver.GiftCard.Send" enforce-restart="false">
                 <description/>
                 <parameters/>
@@ -22,7 +22,7 @@
         <description>Job to send back in stock mails to the user who subscribed .</description>
         <parameters/>
         <flow>
-            <context site-id="bbw-au"/>
+            <context site-id="bbw-aus"/>
             <step step-id="sendEmail" type="custom.NotifyBackInStock" enforce-restart="false">
                 <description/>
                 <parameters/>
@@ -41,7 +41,8 @@
         <parameters/>
         <split sequential="false">
             <flow>
-                <context site-id="RefArch"/>
+
+                <context site-id="bbw-aus"/>
                 <template-ref template-id="template_48"/>
             </flow>
             <flow-template template-id="template_48">
@@ -77,25 +78,67 @@
         <description/>
         <parameters/>
         <flow>
-            <context site-id="bbw-au"/>
+            <context site-id="bbw-aus"/>
             <step step-id="getFragranceNames" type="custom.GetFragranceNames" enforce-restart="false">
-                <description>Get products list and extract fragrance names list and Ingredient list.</description>
+                <description>Get products list and extract fragrance names list.</description>
                 <parameters/>
             </step>
         </flow>
         <rules/>
         <triggers>
-            <run-once enabled="false">
-                <date>2024-04-04Z</date>
-                <time>05:25:00.000Z</time>
-            </run-once>
+            <run-recurring enabled="true">
+                <recurrence>
+                    <date-from>2024-06-11Z</date-from>
+                    <start-time>12:09:00.000Z</start-time>
+                    <interval>1d</interval>
+                    <day-of-week>
+                        <weekday>Monday</weekday>
+                        <weekday>Tuesday</weekday>
+                        <weekday>Wednesday</weekday>
+                        <weekday>Thursday</weekday>
+                        <weekday>Friday</weekday>
+                        <weekday>Saturday</weekday>
+                        <weekday>Sunday</weekday>
+                    </day-of-week>
+                </recurrence>
+            </run-recurring>
+        </triggers>
+    </job>
+    <job job-id="getIngredientNames">
+        <description/>
+        <parameters/>
+        <flow>
+            <context site-id="bbw-aus"/>
+            <step step-id="getIngredientNames" type="custom.GetIngredientNames" enforce-restart="false">
+                <description/>
+                <parameters/>
+            </step>
+        </flow>
+        <rules/>
+        <triggers>
+            <run-recurring enabled="true">
+                <recurrence>
+                    <date-from>2024-06-09Z</date-from>
+                    <start-time>16:00:00.000Z</start-time>
+                    <interval>1d</interval>
+                    <day-of-week>
+                        <weekday>Monday</weekday>
+                        <weekday>Tuesday</weekday>
+                        <weekday>Wednesday</weekday>
+                        <weekday>Thursday</weekday>
+                        <weekday>Friday</weekday>
+                        <weekday>Saturday</weekday>
+                        <weekday>Sunday</weekday>
+                    </day-of-week>
+                </recurrence>
+            </run-recurring>
         </triggers>
     </job>
     <job job-id="AfterpayOrderProcess" priority="1">
         <description/>
         <parameters/>
         <flow>
-            <context site-id="bbw-au"/>
+            <context site-id="bbw-aus"/>
             <step step-id="AfterpayOrderProcess" type="ExecuteScriptModule" enforce-restart="false">
                 <description/>
                 <parameters>
@@ -110,6 +153,24 @@
             <run-once enabled="true">
                 <date>2018-03-27Z</date>
                 <time>21:14:58.000Z</time>
+            </run-once>
+        </triggers>
+    </job>
+    <job job-id="createGoogleFeeds">
+        <description/>
+        <parameters/>
+        <flow>
+            <context site-id="bbw-aus"/>
+            <step step-id="CreateGoogleFeed" type="custom.createGoogleFeed" enforce-restart="false">
+                <description/>
+                <parameters/>
+            </step>
+        </flow>
+        <rules/>
+        <triggers>
+            <run-once enabled="false">
+                <date>2024-05-29Z</date>
+                <time>08:02:00.000Z</time>
             </run-once>
         </triggers>
     </job>

@@ -113,16 +113,16 @@ exports.afterPATCH = function (order, orderInput) {
 
         var shippedEmailMarkup = '';
         var shippedEmailFooterMarkup = '';
-        var shippedemailContent = ContentMgr.getContent('email-good-to-konw-shipped-block'); // Canceled Order Email Content Asset Id
-        var cancelEmailFooterContent = ContentMgr.getContent('email-order-confirmation'); // Canceled Order Email Footer Image Content Asset Id
+        var shippedemailContent = ContentMgr.getContent('email-good-to-konw-shipped-block'); // Shipped Order Email Content Asset Id
+        // var shippedEmailFooterContent = ContentMgr.getContent('email-order-confirmation'); // Shipped Order Email Footer Image Content Asset Id
 
         if (!empty(shippedemailContent) && shippedemailContent.online) {
             shippedEmailMarkup = shippedemailContent.custom.body.markup;
         }
 
-        if (!empty(cancelEmailFooterContent) && cancelEmailFooterContent.online) {
-            shippedEmailFooterMarkup = cancelEmailFooterContent.custom.body.markup;
-        }
+        // if (!empty(shippedEmailFooterContent) && shippedEmailFooterContent.online) {
+        //     shippedEmailFooterMarkup = shippedEmailFooterContent.custom.body.markup;
+        // }
 
 
         emailObj.subject = Resource.msg(

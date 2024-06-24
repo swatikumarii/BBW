@@ -155,10 +155,26 @@ function getBreadcrumbForContentAsset(content) {
     return '';
 }
 
+/**
+ * Check product availability
+ * @param {string} productId product id
+ * @returns {JSON} response with product available and isSearchableIfUnavailable
+ */
+function checkProductAvailability(productId) {
+    var ProductFactory = require('*/cartridge/scripts/factories/product');
+    var product = ProductFactory.get({ pid: productId });
+    var response = {
+        isAvailable: product.available,
+        isSearchableIfUnavailable: product.isSearchableIfUnavailable
+    };
+    return response;
+}
+
 module.exports = {
     sendNewsLetterSubscribeEmail: sendNewsLetterSubscribeEmail,
     zeroOrderEmail: zeroOrderEmail,
     sendChangePasswordEmail: sendChangePasswordEmail,
     getAvailability: getAvailability,
-    getBreadcrumbForContentAsset: getBreadcrumbForContentAsset
+    getBreadcrumbForContentAsset: getBreadcrumbForContentAsset,
+    checkProductAvailability: checkProductAvailability
 };

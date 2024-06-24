@@ -63,6 +63,7 @@ $(document).ready(function () {
 
     // search functionality for product ingredients
     $('#ingredient-search').on('change keyup', function (event) {
+        $('#search-ingredient-div').removeClass('d-md-none');
         var searchTerm = $(event.currentTarget);
         var searchPhrase = searchTerm.val();
         var liElements = $('li.level-2');
@@ -72,16 +73,17 @@ $(document).ready(function () {
         liElements.each(function (index, element) {
             var a = $(element).find('a');
             var ingredientName = a.data('ingredientname');
-
-            if (ingredientName.toLowerCase().includes(searchPhrase.toLowerCase())) {
+            var ingredientNameStr = String(ingredientName);
+            var searchPhraseStr = String(searchPhrase);
+            if (ingredientNameStr.toLowerCase().includes(searchPhraseStr.toLowerCase())) {
                 $(element).show();
-                var showAlphabet = ingredientName.match(/[a-z]/i)[0].toUpperCase();
+                var showAlphabet = ingredientNameStr.charAt(0);
                 if (showAlphabets.indexOf(showAlphabet) === -1) {
                     showAlphabets.push(showAlphabet);
                 }
             } else {
                 $(element).hide();
-                var hideAlphabet = ingredientName.match(/[a-z]/i)[0].toUpperCase();
+                var hideAlphabet = ingredientNameStr.charAt(0);
                 if (hideAlphabets.indexOf(hideAlphabet) === -1) {
                     hideAlphabets.push(hideAlphabet);
                 }

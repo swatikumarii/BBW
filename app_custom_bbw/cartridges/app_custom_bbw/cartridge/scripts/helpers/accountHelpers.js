@@ -261,43 +261,6 @@ function sendDeleteAddressEmail(profile) {
 }
 
 /**
- * Sends the email with password reset instructions
- * @param {string} email - email for password reset
- * @param {object} resettingCustomer - the customer requesting password reset
- */
-function sendPasswordResetEmailForMigrated(email, resettingCustomer) {
-    var Resource = require('dw/web/Resource');
-    var Site = require('dw/system/Site');
-    var emailContent = ContentMgr.getContent('password-reset-notification-mail');
-    var emailMarkup = '';
-    var passwordResetToken = getPasswordResetToken(resettingCustomer);
-    var url = URLUtils.https('Account-SetNewPassword', 'Token', passwordResetToken);
-
-    if (!empty(emailContent) && emailContent.online) {
-        emailMarkup = emailContent.custom.body.markup;
-        emailMarkup = emailMarkup.replace('{{customerName}}', resettingCustomer.profile.firstName);
-        emailMarkup = emailMarkup.replace('{{resetPasswordLink}}', url);
-        emailMarkup = emailMarkup.replace('{{resetPasswordText}}', url.toString());
-    }
-
-    var objectForEmail = {
-        passwordResetToken: passwordResetToken,
-        markup: emailMarkup,
-        preHeader: Resource.msg('text.preheader.account.password.reset', 'email', null),
-        content: emailContentHelpers.getEmailContent('normal-footer')
-    };
-
-    var emailObj = {
-        to: email,
-        subject: Resource.msg('subject.profile.resetpassword.email', 'login', null),
-        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
-        type: emailHelpers.emailTypes.passwordChanged
-    };
-
-    emailHelpers.sendEmail(emailObj, 'mail/account/password/passwordResetEmail', objectForEmail);
-}
-
-/**
  * @param {dw.customer.Customer} customer - Customer
  * @returns {boolean} true is migrated user never changed his/her password else false
  */
@@ -324,7 +287,6 @@ function handleMigratedCustomers(email) {
         if (isValidEmail) {
             var customer = CustomerMgr.getCustomerByLogin(email);
             if (isMigratedCustomerRequiredToChangePassword(customer)) {
-                sendPasswordResetEmailForMigrated(email, customer);
                 return true;
             }
         }
@@ -345,6 +307,26 @@ function updateMigratedUsersPasswordChangeFlag(customer) {
     }
 }
 
+/**
+ * @param {email} email - email
+ * @returns {number} - number of login attempts remaining
+ */
+function remainingLoginAttempts(email) {
+    var CustomerMgr = require('dw/customer/CustomerMgr');
+    var customer = CustomerMgr.getCustomerByLogin(email);
+    var leftLoginAttempts = 'USER_NOT_FOUND';
+    if (
+        customer &&
+        customer.profile &&
+        customer.profile.credentials
+    ) {
+        leftLoginAttempts =
+            customer.profile.credentials.remainingLoginAttempts;
+    }
+    return leftLoginAttempts;
+}
+
+
 module.exports = {
     isValidDate: isValidDate,
     sendPasswordResetEmail: sendPasswordResetEmail,
@@ -354,7 +336,8 @@ module.exports = {
     sendEditAddressEmail: sendEditAddressEmail,
     sendDeleteAddressEmail: sendDeleteAddressEmail,
     handleMigratedCustomers: handleMigratedCustomers,
-    updateMigratedUsersPasswordChangeFlag: updateMigratedUsersPasswordChangeFlag
+    updateMigratedUsersPasswordChangeFlag: updateMigratedUsersPasswordChangeFlag,
+    remainingLoginAttempts: remainingLoginAttempts
 };
 
 Object.keys(base).forEach(function (prop) {

@@ -13,19 +13,35 @@
 
         .print-text {
             text-decoration: underline;
+            margin-top: 22px;
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        p {
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
         }
     }
 }
 
+.confirmation-msg {
+    margin: 0 0 20px;
+}
+
 .purhase-message {
     height: fit-content;
-    background-color: colour(blue, 2);
+    background-color: colour(blue, 16);
     padding: 7px 20px;
     line-height: 0;
     margin-bottom: 24px;
 
     @include media-up(sm) {
-        background-color: colour(blue, 2);
+        background-color: colour(blue, 16);
         padding: 7px 20px;
         line-height: 0;
         height: 39px;
@@ -100,9 +116,11 @@
 }
 
 .card-header-confirmation {
-    border-bottom: 1px solid colour(gray, 3);
-    padding-bottom: 18px;
-    margin-bottom: 27px;
+    border-bottom: 1px solid colour(black, 3);
+    padding-bottom: 14px;
+    padding-top: 12px;
+    margin-bottom: 25px;
+    line-height: 1.75rem;
 }
 
 .confirmation-shipping-summary {
@@ -122,15 +140,21 @@
         }
 
         .address-summary {
-            color: colour(gray);
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+            color: colour(gray, 4);
         }
 
         .shipping-phone {
-            color: colour(gray);
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+            color: colour(gray, 4);
         }
 
         .shipping-method-title {
-            color: colour(gray) !important;
+            color: colour(gray, 4);
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
         }
 
         .summary-details {
@@ -138,6 +162,10 @@
 
             @include media-up(sm) {
                 margin-top: 0;
+            }
+
+            .review-shipping-summary-content {
+                letter-spacing: 0.2px;
             }
         }
     }
@@ -169,6 +197,42 @@
         @include media-up(sm) {
             margin-top: 0;
         }
+
+        .address-summary {
+            color: colour(gray, 4);
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+        }
+
+        .shipping-phone {
+            line-height: 1.25rem;
+            letter-spacing: 0.01em;
+            color: colour(gray, 4);
+        }
+
+        .payment-details {
+            .credit-card-number {
+                color: colour(gray, 4);
+                line-height: 1.25rem;
+                letter-spacing: 0.01em;
+            }
+
+            .credit-card-expiration-date {
+                color: colour(gray, 4);
+                line-height: 1.25rem;
+                letter-spacing: 0.01em;
+            }
+        }
+
+        .summary-section-label {
+            line-height: 1.25rem;
+            letter-spacing: 0.2px;
+        }
+
+        .payment-amount {
+            line-height: 1.25rem;
+            letter-spacing: 0.2px;
+        }
     }
 
     .edit-button {
@@ -177,10 +241,24 @@
 }
 
 .confirmation-product-summary {
-    padding: 20px 30px 30px;
+    padding: 20px 0;
+
+    @include media-up(sm) {
+        padding: 20px 30px 30px;
+    }
+
+    @include media-btw(sm, lg) {
+        padding: 20px 0;
+    }
 
     .confirmation-product-details {
         border-bottom: 1px solid colour(gray, 27);
+        padding-left: 0 !important;
+
+        @include media-up(sm) {
+            border-bottom: 1px solid colour(gray, 27);
+            padding-left: 15px !important;
+        }
 
         .cart-lineitems {
             .cart-lineitem {
@@ -192,8 +270,22 @@
 
                 .line-item-header {
                     margin-top: 11px;
+
+                    .product-title {
+                        line-height: 1.25rem;
+                        letter-spacing: 0.01em;
+                    }
+
+                    .prod-desc {
+                        line-height: 1rem;
+                        letter-spacing: 0.015em;
+                    }
                 }
             }
+        }
+
+        .headerSavings {
+            letter-spacing: 0.1px;
         }
     }
 
@@ -206,41 +298,79 @@
     }
 
     .headerItem {
-        text-transform: uppercase;
-        line-height: 12px;
+        line-height: 1.25rem;
+        letter-spacing: 0.005em;
     }
 
-    .headerQty {
-        text-transform: uppercase;
-        line-height: 12px;
-        margin-bottom: 18px;
+    .qauntity-label {
+        letter-spacing: 0.1px;
+        line-height: 1.25rem;
 
         @include media-up(sm) {
-            text-transform: uppercase;
-            line-height: 12px;
             margin-bottom: 0;
         }
     }
 
+    .quantity-item-label {
+        letter-spacing: 0.2px;
+        line-height: 1.25rem;
+    }
+
     .headerPrice {
-        text-transform: uppercase;
-        line-height: 12px;
+        line-height: 1.25rem;
+        letter-spacing: 0.1px;
+
+        @include media-down(sm) {
+            padding-top: 10px;
+        }
+
+        .line-item-total-price-amount {
+            letter-spacing: 0.2px;
+            line-height: 1.25rem;
+        }
+    }
+
+    .line-item-savings {
+        line-height: 1.25rem;
+        letter-spacing: 0.2px;
     }
 }
 
 .order-confirmation-continue-shopping {
-    min-height: 37px;
-    max-height: 37px;
-    letter-spacing: 2px;
+    width: 100%;
+    line-height: 1.25rem;
+    letter-spacing: 0.015em;
+
+    &:hover {
+        color: colour(white);
+    }
+
+    @include media-up(sm) {
+        width: 200px;
+    }
 }
 
 .confirmation-order-summary {
     background-color: colour(gray, 1);
     border-color: colour(gray, 1);
     padding: 0 15px 30px;
+    margin: 0 -15px;
+    margin-bottom: 1em;
+    border-radius: 0;
+
+    @include media-up(sm) {
+        background-color: colour(gray, 1);
+        border-color: colour(gray, 1);
+        padding: 0 15px 30px;
+        margin: 0;
+    }
 
     .confirmation-total-summary-wrap {
         padding: 15px 15px 0;
+
+        @include media-btw(sm, lg) {
+            padding: 0;
+        }
 
         .payment-title {
             border-bottom: 3px solid colour(gray, 6);
@@ -251,10 +381,54 @@
         .grand-total-wrap {
             padding-top: 15px;
             border-top: 3px solid colour(gray, 6);
+
+            .total-label {
+                line-height: 1.25rem;
+                letter-spacing: 0.005em;
+            }
+
+            .grand-total {
+                line-height: 1.25rem;
+                letter-spacing: 0.005em;
+            }
         }
 
         .review-order-summary {
             display: none;
+            line-height: 1.5rem;
+            letter-spacing: 0.005em;
+        }
+
+        .merchandise-total {
+            letter-spacing: 0.2px;
+        }
+
+        .subtotal {
+            letter-spacing: 0.2px;
+        }
+
+        .cart-saving {
+            letter-spacing: 0.2px;
+        }
+
+        .order-discount-total {
+            letter-spacing: 0.2px;
+        }
+
+        .shipping-cost {
+            letter-spacing: 0.2px;
+        }
+
+        .shipping-tax {
+            letter-spacing: 0.2px;
+        }
+
+        .shipping-discount-total {
+            letter-spacing: 0.2px;
+        }
+
+        .sales-tax {
+            letter-spacing: 0.2px;
         }
     }
 }
@@ -269,4 +443,20 @@
             margin: 0 10px 0 0;
         }
     }
+}
+
+.confirmation-payment-section {
+    padding: 0;
+
+    @include media-up(sm) {
+        padding-left: 15px;
+    }
+
+    @include media-btw(sm, lg) {
+        padding-left: 0;
+    }
+}
+
+.confirmation-shipping {
+    letter-spacing: 0.01em;
 }

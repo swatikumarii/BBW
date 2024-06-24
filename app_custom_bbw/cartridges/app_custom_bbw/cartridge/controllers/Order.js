@@ -14,6 +14,8 @@ var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 var Order = require('dw/order/Order');
 var seo = require('*/cartridge/scripts/middleware/seo');
+var Transaction = require('dw/system/Transaction');
+var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
 
 /**
  * Order-Details : The Order-Details append to add notify-me functionality
@@ -53,7 +55,7 @@ server.append(
         viewData.isOrderBaseRemoveGiftCard = true;
         res.setViewData(viewData);
         next();
-    });
+    },seo.addCurrentPageMetaData);
 
 
 
@@ -102,10 +104,15 @@ server.append(
 server.get('InvoiceDownload', function (req, res, next) {
     var OrderMgr = require('dw/order/OrderMgr');
     var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
+    var TaxMgr = require('dw/order/TaxMgr');
     var orderID = encryptionHelper.decryptPin(
         decodeURIComponent(req.querystring.token)
     );
     var order = OrderMgr.getOrder(orderID);
+    var taxClassId = TaxMgr.getDefaultTaxClassID();
+    var taxJurisdictionId = TaxMgr.getDefaultTaxJurisdictionID();
+    var getTaxRate = TaxMgr.getTaxRate(taxClassId, taxJurisdictionId);
+    var taxRate = getTaxRate * 100;
 
     if (order) {
         var orderModel = orderHelpers.getOrderDetailsByID(
@@ -113,7 +120,8 @@ server.get('InvoiceDownload', function (req, res, next) {
             req.locale.id
         );
         res.render('order/invoiceDownload', {
-            order: orderModel
+            order: orderModel,
+            taxRate: taxRate
         });
     } else {
         res.redirect(URLUtils.url('Order-History'));
@@ -199,7 +207,8 @@ server.get(
             });
         }
         return next();
-    }
+    },
+    seo.addCurrentPageMetaData
 );
 
 /**
@@ -279,7 +288,8 @@ server.get(
             });
         }
         return next();
-    }
+    },
+    seo.addCurrentPageMetaData
 );
 
 /**
@@ -304,7 +314,8 @@ server.get(
         viewData.breadcrumbs = breadcrumbs;
         res.render('account/orderTracking');
         return next();
-    }
+    },
+    seo.addCurrentPageMetaData
 );
 
 /**
@@ -464,6 +475,7 @@ server.append(
         this.on('route:BeforeComplete', function () {
             // send email when order total 0
             var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
+            var dynamicBadgeHelpers = require('*/cartridge/scripts/helpers/dynamicBadgeHelpers');
             var viewData = res.getViewData();
             var OrderMgr = require('dw/order/OrderMgr');
             var order = OrderMgr.getOrder(viewData.order.orderNumber);
@@ -478,6 +490,37 @@ server.append(
             }
             if (order.status.value === Order.ORDER_STATUS_CREATED) {
                 res.redirect(URLUtils.url('Order-Pending'));
+            }
+            var crmOrderID = '';
+            if (
+                req.currentCustomer &&
+                req.currentCustomer.raw &&
+                req.currentCustomer.raw.profile
+            ) {
+                dynamicBadgeHelpers.updateCartDetailInProfile(
+                    req.currentCustomer.raw.profile
+                );
+
+                // Capillary: create order
+                crmOrderID = capillaryAPI.createOrder(viewData.order);
+                Transaction.wrap(function () {
+                    order.custom.capillaryOrderID = crmOrderID;
+                });
+            } else {
+                var billingAddress = viewData.order.billing.billingAddress.address;
+                var customerData = {
+                    firstName : billingAddress.firstName,
+                    lastName: billingAddress.lastName,
+                    phone: billingAddress.phone,
+                    email: viewData.order.orderEmail
+                };
+                var crmCustomerID = capillaryAPI.createCustomer(customerData);
+                if (crmCustomerID) {
+                    crmOrderID = capillaryAPI.createOrder(viewData.order);
+                    Transaction.wrap(function () {
+                        order.custom.capillaryOrderID = crmOrderID;
+                    });
+                }
             }
         });
         return next();

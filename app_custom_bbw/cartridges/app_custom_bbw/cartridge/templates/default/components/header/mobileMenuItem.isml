@@ -1,3 +1,4 @@
+<isset name="exploreCategory" value="${category}" scope="page" />
 <ul class="level-2-ul dropdown-menu position-relative p-0" role="menu" aria-hidden="true" aria-label="${category.id}">
     <isset name="categorySlotId" value="${category.slotId}" scope="page" />
     <isloop items="${menuItem.subCategories}" var="category">
@@ -10,16 +11,23 @@
                 <isinclude template="components/header/mobileMenuItemsItem" />
             </li>
         <iselse/>
-            <li class="dropdown-item" role="presentation">
-                <a href="${category.url}" id="${category.id}" role="menuitem" class="dropdown-link"
+            <li class="dropdown-item level-2-li p-0" role="presentation">
+                <a href="${category.url}" id="${category.id}" role="menuitem" class="dropdown-link level-2-link h-font-size--16 h-fw--semibold"
                     tabindex="0">${category.name}</a>
             </li>
         </isif>
     </isloop>
+    
     <li class="dropdown-item dropdown level-2-li p-0">
         <iscomment>Menu right with images and text</iscomment>
         <div class="menu-right w-100">
             <isinclude template="components/header/menuItemSlot" />
         </div>
+    </li>
+    <li class="level-2-li explore-li" role="presentation">
+        <a href="<isprint value=" ${exploreCategory.url}" encoding="htmldoublequote" />"
+        class="level-2-link h-font-size--16 h-fw--semibold h-clr--gray"
+        role="button">${'Explore ' + exploreCategory.name}</a>
+        <isset name="menuItem" value="${category}" scope="page" />
     </li>
 </ul>

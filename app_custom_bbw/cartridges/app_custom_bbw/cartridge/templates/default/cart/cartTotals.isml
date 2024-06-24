@@ -2,6 +2,9 @@
     value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showTotalsExcludingTaxes')}" scope="page" />
 <isset name="shippingExclusiveTax"
     value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingExcludingTaxes')}" scope="page" />
+<isset name="showSalesTaxes" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showSalesTaxes')}" scope="page" />
+<isset name="showShippingHandlingTaxes" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingHandlingTaxes')}"
+    scope="page" />
 
 <iscomment> Subtotal </iscomment>
 <isif condition="${totalExclusiveTax}">
@@ -26,77 +29,91 @@
 </isif>
 
 <iscomment> Order Discount </iscomment>
-<div class="row order-discount ${pdict.totals.totalDiscount.value === 0 ? " hide-order-discount" : ""}">
+<div class="row order-discount accordion-item collapsed ${pdict.totals.totalDiscount.value === 0 ? " hide-order-discount" : ""}" data-toggle="collapse" data-target="#allDiscounts" aria-expanded="false" aria-controls="allDiscounts" role="button">
     <isinclude template="cart/cartDiscountsHtml" sf-toolkit="on" />
 </div>
 
 
 <iscomment> Shipping Charge </iscomment>
-
-<isif condition="${shippingExclusiveTax}">
-    <div class="row">
-        <div class="col-8">
-            <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}</p>
-        </div>
-        <div class="col-4">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive">
-                ${pdict.totals.shippingTotalExclTax}</p>
+<isif condition="${!pdict.isGiftProductAvailable}">
+    <isif condition="${shippingExclusiveTax}">
+        <div class="row">
+            <div class="col-8">
+                <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling.excluding.taxes', 'cart', null)}</p>
             </div>
-    </div>
-<iselse/>
-    <div class="row">
-        <div class="col-8">
-            <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling', 'cart', null)}</p>
+            <div class="col-4">
+                <isif condition="${!pdict.hasFreeShipping}">
+                    <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive">
+                        ${pdict.totals.shippingTotalExclTax}</p>
+                <iselse/>
+                    <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-exclusive">
+                    ${Resource.msg('label.free.price', 'cart', null)}</p>
+                </isif>
+            </div>
         </div>
-        <div class="col-4">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive">
-                ${pdict.totals.totalShippingCost}</p>
+    <iselse/>
+        <div class="row">
+            <div class="col-8">
+                <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling', 'cart', null)}</p>
+            </div>
+            <div class="col-4">
+                <isif condition="${!pdict.hasFreeShipping}">
+                    <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive">
+                        ${pdict.totals.totalShippingCost}</p>
+                <iselse/>
+                    <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive">
+                            ${Resource.msg('label.free.price', 'cart', null)}</p>
+                </isif>
+            </div>
         </div>
-    </div>
+    </isif>
+
+
+    <iscomment> Shipping Tax </iscomment>
+    <isif condition="${showShippingHandlingTaxes}">
+        <isif condition="${!pdict.hasFreeShipping}">
+            <div class="row">
+                <div class="col-8">
+                    <isif condition="${shippingExclusiveTax}">
+                        <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling.tax', 'cart', null)}</p>
+                    <iselse/>
+                        <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling.tax.inclusive', 'cart', null)}</p>
+                    </isif>
+                </div>
+                <div class="col-4">
+                    <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-tax">
+                        ${pdict.totals.shippingTotalTax}</p>
+                </div>
+            </div>
+            <iscomment> Shipping Discount </iscomment>
+            <div class="row shipping-discount ${pdict.totals.shippingLevelDiscountTotal.value === 0 ? 'hide-shipping-discount' : ''}">
+                <div class="col-8">
+                    <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.discount', 'common', null)}</p>
+                </div>
+                <div class="col-4 pr-0">
+                    <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-discount-total"> ${'-' + pdict.totals.shippingLevelDiscountTotal.formatted}</p>
+                </div>
+            </div>
+        </isif>
+    </isif>
 </isif>
 
 
-<iscomment> Shipping Tax </iscomment>
-<div class="row">
-    <div class="col-8">
-        <isif condition="${shippingExclusiveTax}">
-            <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling.tax', 'cart', null)}
-            </p>
-        <iselse/>
-            <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.and.handling.tax.inclusive', 'cart', null)}</p>
-        </isif>
-    </div>
-    <div class="col-4">
-        <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-tax">
-            ${pdict.totals.shippingTotalTax}</p>
-    </div>
-</div>
-
-<iscomment> Shipping Discount </iscomment>
-<div
-    class="row shipping-discount ${pdict.totals.shippingLevelDiscountTotal.value === 0 ? 'hide-shipping-discount' : ''}">
-    <div class="col-8">
-        <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.shipping.discount', 'common', null)}</p>
-    </div>
-    <div class="col-4">
-        <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-discount-total"> ${'-' + pdict.totals.shippingLevelDiscountTotal.formatted}</p>
-    </div>
-</div>
-
-
 <iscomment> Sales Tax </iscomment>
-<div class="row">
-    <div class="col-8">
-        <isif condition="${totalExclusiveTax}">
-            <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.sales.tax', 'cart', null)}</p>
-        <iselse/>
-            <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.sales.tax.inclusive', 'cart', null)}</p>
-        </isif>
+<isif condition="${showSalesTaxes}">
+    <div class="row">
+        <div class="col-8">
+            <isif condition="${totalExclusiveTax}">
+                <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.sales.tax', 'cart', null)}</p>
+            <iselse/>
+                <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.sales.tax.inclusive', 'cart', null)}</p>
+            </isif>
+        </div>
+        <div class="col-4">
+            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sales-tax">${pdict.totals.salesTax}</p>
+        </div>
     </div>
-    <div class="col-4">
-        <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sales-tax">${pdict.totals.totalTax}</p>
-    </div>
-</div>
+</isif>
 
 <div class="row">
     <div class="col-12">

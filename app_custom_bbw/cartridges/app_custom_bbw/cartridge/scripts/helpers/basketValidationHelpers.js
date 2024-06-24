@@ -14,6 +14,7 @@ var collections = require('*/cartridge/scripts/util/collections');
  * @returns {object} an error object
  */
 function validateProducts(basket) {
+    var cartHelper = require('*/cartridge/scripts/cart/cartHelpers');
     var result = {
         error: false,
         hasInventory: true
@@ -21,6 +22,10 @@ function validateProducts(basket) {
     var productLineItems = basket.productLineItems;
     collections.forEach(productLineItems, function (item) {
         var apiProduct = ProductMgr.getProduct(item.productID);
+        var qtyAlreadyInCart = cartHelper.getQtyAlreadyInCart(
+            item.productID,
+            productLineItems
+        );
         var productLevelReserveQty =
             'custom' in apiProduct &&
             'reserveQty' in apiProduct.custom &&
@@ -44,12 +49,14 @@ function validateProducts(basket) {
                 && storeInventory.getRecord(item.productID).ATS.value >= item.quantityValue);
         } else {
             try {
-                var availabilityLevels = item.product.availabilityModel
-                    .getAvailabilityLevels(item.quantityValue + reserveOosQty);
+                var availabilityLevels =
+                    item.product.availabilityModel.getAvailabilityLevels(
+                        qtyAlreadyInCart + reserveOosQty
+                    );
                 result.hasInventory =
-                        result.hasInventory &&
-                        (availabilityLevels.notAvailable.value === 0) &&
-                        (maxOrderQty ? item.quantityValue <= maxOrderQty : true);
+                    result.hasInventory &&
+                    availabilityLevels.notAvailable.value === 0 &&
+                    (maxOrderQty ? qtyAlreadyInCart <= maxOrderQty : true);
             } catch (error) {
                 Logger.error(
                     'Inventory check failed for max order qty for product: ' + item.productID + ' '

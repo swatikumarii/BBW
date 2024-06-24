@@ -19,7 +19,7 @@ function getStores(radius, postalCode, lat, long, geolocation, countryCode, stor
     var Site = require('dw/system/Site');
     var URLUtils = require('dw/web/URLUtils');
     var SystemObjMgr = require('dw/object/SystemObjectMgr');
-    var distanceUnit = 'mi';
+    var distanceUnit = 'km';
     var resolvedRadius = radius ? parseInt(radius, 10) : 15;
 
     var searchKey = {};

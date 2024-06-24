@@ -1,6 +1,6 @@
 <isif condition="${!pdict.customer.registeredUser}">
     <span
-        class="h-font-size--18 h-fw--bold h-clr--black-1 customer-heading accordion-title d-block">${Resource.msg('siginin.label.checkout', 'checkout', null)}</span>
+        class="h-font-size--18 h-fw--bold h-clr--black-1 b-text-letter-space-005 customer-heading accordion-title d-block">${Resource.msg('siginin.label.checkout', 'checkout', null)}</span>
     <div class="accordion-content">
 
         <form autocomplete="on" id="registered-customer" method="POST" class="registered-form"
@@ -11,11 +11,11 @@
                     <div class="col-sm-12 form-error-div d-none">
                         <img alt="error alert" width="28px" height="28px" class="error-icon"
                             src="${URLUtils.staticURL('/images/Alert-Error.svg')}" />
-                        <span class="text-danger error-class error-form h-font-size--14" id="form-error"></span>
+                        <span class="text-danger error-class error-form h-font-size--14 " id="form-error"></span>
                     </div>
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block">
+                            <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block b-text-letter-space-01 h-line-height--20 mb-0">
                                 <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.email', 'checkout', null)}
                             </label>
                             <input type="text" class="form-control email" id="email"
@@ -26,13 +26,13 @@
                             <div class="invalid-feedback" id="emailInvalidMessage"></div>
                         </div>
                         <div class="form-group password-form h-pos--relative">
-                            <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block">
+                            <label class="form-control-label h-font-size--16 h-fw--semibold h-clr--black-1 d-block b-text-letter-space-01 h-line-height--20 mb-0">
                                 <span class="h-clr--red-9">${'*'}</span>${Resource.msg('field.customer.password', 'checkout', null)}
                             </label>
                             <input type="password" class="form-control password" id="password" <isprint
                                 value=${pdict.forms.registeredCustomerForm.password.attributes} encoding="off" />
                                 aria-describedby="passwordInvalidMessage" >
-                            <span class="toggle-password">${Resource.msg('form.show', 'forms', null)}</span>
+                            <span class="toggle-password h-clr--black-3 h-line-height--24 b-text-letter-space-0">${Resource.msg('form.show', 'forms', null)}</span>
                             <div class="invalid-feedback" id="passwordInvalidMessage"></div>
                         </div>
                         <a href="${URLUtils.url('Account-PasswordReset')}"
@@ -41,8 +41,8 @@
                 </div>
                 <div class="row login-button-section h-xs-mb--30">
                     <div class="col-12">
-                        <div class="mb-md-3">
-                            <button class="btn btn-primary submit-customer-login ml-2 h-font-size--11" type="submit"
+                        <div class="mb-3">
+                            <button class="btn btn-primary submit-customer-login ml-2" type="submit"
                                 name="submit" value="submit-login">
                                 ${Resource.msg('button.customer.login', 'checkout', null)}
                             </button>
@@ -53,7 +53,7 @@
             <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
         </form>
         <div class="checkout-login-signup-info ml-2">
-            <p class="h-font-size--16 h-fw--semibold h-clr--black-1">${Resource.msg('msg.do.not.have.account', 'checkout', null)}</p>
+            <p class="h-font-size--16 h-fw--semibold h-clr--black-1 account-tag">${Resource.msg('msg.do.not.have.account', 'checkout', null)}</p>
             <p class="h-font-size--16 h-clr--black-1">${Resource.msg('msg.create.account.after.checkout', 'checkout', null)}
             </p>
         </div>

@@ -19,6 +19,7 @@
                 <th class="order-description border-top-0 text-uppercase" colspan="2">
                     ${Resource.msg('label.item.description', 'order', null)}</th>
                 <th class="order-qty border-top-0 text-center text-uppercase">${Resource.msg('label.qty', 'order', null)}</th>
+                <th class="order-price border-top-0 text-right text-uppercase">${Resource.msg('label.item.header.savings', 'cart', null)}</th>
                 <th class="order-price border-top-0 text-right text-uppercase">${Resource.msg('label.price', 'order', null)}</th>
             </tr>
         </thead>
@@ -27,13 +28,13 @@
                 <isloop items="${shippingModel.productLineItems.items}" var="lineItem">
                     <tr class="product-info uuid-${lineItem.UUID} pid-${lineItem.id}">
                         <td class="item-image">
-                            <img class="product-image" src="${lineItem.images.small[0].url}"
+                            <img class="product-image" src="${lineItem.images.small[0].url}" srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x"
                                 alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}"
                                 width="100" />
                         </td>
                         <td class="item-details">
                             <div class="line-item-name">
-                                <isif condition="${pdict.isEgiftCard}">
+                                <isif condition="${pdict.isEgiftCard || lineItem.noProduct}">
                                     <span>${lineItem.fragranceName ? lineItem.fragranceName : lineItem.productName}</span>
                                 <iselse/>
                                     <a class="product-name" title="${lineItem.productName}"
@@ -58,14 +59,29 @@
                             <span class="pricing qty-card-quantity-count ">
                                 <isprint value="${lineItem.quantity}" formatter="##" /></span>
                         </td>
+                        <td class="saving">
+                                <isif condition="${lineItem.totalSavings && lineItem.totalSavings != '-'}">
+                                    <span class="d-inline d-md-none h-clr--black-3 h-font-size--14 h-fw--bold">${Resource.msg('cart.label.saved', 'cart', null)}</span>
+                                    <span class="value ml-1">${lineItem.totalSavings}</span>
+                                <iselse/>
+                                    <span class="value value-dash d-none d-md-block">${'-'}</span>
+                                </isif>
+                        </td>
                         <td class="pricing item-total">
                             <span>
-                                <isif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
+                                <isif condition="${lineItem.noProduct}">
+                                    ${lineItem.priceTotal.currencyCode} ${lineItem.priceTotal.value}
+                                <iselseif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}"/>
                                     ${Resource.msg('label.free.price', 'cart', null)}
                                 <iselse/>
-                                    ${lineItem.priceTotal.price}
+                                    <span class="d-inline d-md-none">${Resource.msg('cart.label.total', 'cart', null)} </span> ${lineItem.priceTotal.price}
                                 </isif>
                             </span>
+                        </td>
+                        <td class="order-add-cart">
+                            <isif condition="${!pdict.isEgiftCard}">
+                                <isinclude template="account/order/orderAddToCartButton" />
+                            </isif>
                         </td>
                     </tr>
                 </isloop>

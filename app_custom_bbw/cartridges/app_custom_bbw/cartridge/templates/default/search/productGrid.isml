@@ -3,18 +3,20 @@
     <isinclude template="search/components/topPagination" />
 
     <iscomment> Mobile Filters - Buttons Section </iscomment>
-    <isif condition="${pdict.productSearch.productIds.length > 0}">
+    <isif condition="${pdict.productSearch.productIds.length > 0 && ((pdict.apiProductSearch && pdict.apiProductSearch.category) ? !pdict.apiProductSearch.category.custom.hideFilter : true)}">
         <div class="row filter-bar-mobile d-md-none no-gutters h-mb--25">
-            <div class="col-6 col-sm-3 text-right d-md-none order-sm-3">
-                <button type="button"
-                    class="filter-results h-100 col-12 b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize text-left">
-                    ${Resource.msg('button.filter', 'search', null)}
-                </button>
-            </div>
-            <div class="col-6 col-sm-3 order-sm-1">
+            <isif condition="${!pdict.hideFilterBar}">
+                <div class="col-6 col-sm-3 text-right d-md-none order-sm-3">
+                    <button type="button"
+                        class="filter-results h-100 col-12 b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize text-left">
+                        ${Resource.msg('button.filter', 'search', null)}
+                    </button>
+                </div>
+            </isif>
+            <div class="${!pdict.hideFilterBar ? 'col-6' : 'col-12'} col-sm-3 order-sm-1">
                 <isif condition="${pdict.productSearch.productIds.length > 0}">
                     <select name="sort-order"
-                        class="w-100 sort-filter b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize border-left-0"
+                        class="w-100 sort-filter b-text-h2 h-fw--semibold h-clr--black-1 text-capitalize ${!pdict.hideFilterBar ? 'border-left-0' : ''}"
                         aria-label="${Resource.msg('label.sort.by', 'search', null)}">
                         <isloop items="${pdict.productSearch.productSort.options}" var="option">
                             <isif condition="${option.id !== 'product-position'}">
@@ -36,7 +38,7 @@
             </div>
         </div>
     <iselse/>
-        <div class="row grid-header justify-content-center">
+        <div class="row grid-header justify-content-center d-md-none">
             <div class="result-count col">
                 <isinclude template="search/resultsCount" />
             </div>
@@ -44,7 +46,9 @@
     </isif>
     <isinclude template="search/components/categoryBannerBottom" />
     <iscomment> Desktop Filters </iscomment>
-    <isinclude template="search/components/searchFiltersDesktop" />
+    <isif condition="${(pdict.apiProductSearch && pdict.apiProductSearch.category) ? !pdict.apiProductSearch.category.custom.hideFilter : true}">
+        <isinclude template="search/components/searchFiltersDesktop" />
+    </isif>
 
     <iscomment>
         <div class="refinement-bar-without-store p-3 h-bg--gray-1">
@@ -69,8 +73,9 @@
         <input type="hidden" class="add-to-cart-url" value="${URLUtils.url('Cart-AddProduct')}" />
     </div>
 
-    <isinclude template="search/components/seoText" />
-
     <iscomment>Produc Grid - Footer </iscomment>
     <isinclude template="search/components/productGridFooter" />
+
+    <iscomment> Category Seo Text-Content </iscomment>
+    <isinclude template="search/components/seoText" />
 </div>

@@ -109,6 +109,148 @@ function renderHreflang(pdict) {
     }
 }
 
+/**
+ * Returns custom Open Graph Meta Tags (such as image)
+ * @param {dw.system.PipelineDictionary} pdict - Pipeline Dictionary
+ * @returns {object} Open Graph Meta Tags
+ */
+function getOpenGraphMetaTags(pdict) {
+    var URLUtils = require('dw/web/URLUtils');
+    var pageMetaTags = pdict.CurrentPageMetaData.pageMetaTags || [];
+    var ogMetaTags = [
+        { ID: 'og:type', content: 'website' },
+        { ID: 'og:title', content: pdict.CurrentPageMetaData.title },
+        { ID: 'og:locale', content: request.getLocale() },
+        { ID: 'twitter:card', content: 'summary_large_image' }
+    ];
+    if (!empty(pdict.CurrentPageMetaData.description)) {
+        ogMetaTags.push({
+            ID: 'og:description',
+            content: pdict.CurrentPageMetaData.description
+        });
+    }
+    if (
+        pdict.product &&
+        pdict.product.images &&
+        pdict.product.images.mediumLarge &&
+        pdict.product.images.mediumLarge[0]
+    ) {
+        ogMetaTags.push({
+            ID: 'image',
+            content: pdict.product.images.mediumLarge[0].absURL
+        });
+        ogMetaTags.push({
+            ID: 'og:image',
+            content: pdict.product.images.mediumLarge[0].absURL
+        });
+    } else if (
+        pdict.apiProductSearch &&
+        pdict.apiProductSearch.category &&
+        pdict.apiProductSearch.category.thumbnail &&
+        pdict.apiProductSearch.category.thumbnail.absURL
+    ) {
+        ogMetaTags.push({
+            ID: 'og:image',
+            content: pdict.apiProductSearch.category.thumbnail.absURL
+        });
+    } else if (
+        pdict.image
+    ) {
+        ogMetaTags.push({
+            ID: 'og:image',
+            content: pdict.image
+        });
+    } else {
+        ogMetaTags.push({
+            ID: 'og:image',
+            content: URLUtils.staticURL('/images/bbw-logo.png')
+        });
+    }
+    if (pdict.canonicalUrl) {
+        ogMetaTags.push({ ID: 'og:url', content: pdict.canonicalUrl });
+    }
+    return ogMetaTags.filter(function (ogMeta) {
+        return !base.metaExists(ogMeta.ID, pageMetaTags);
+    });
+}
+
+/**
+ * Renders Open Graph Meta Tags
+ * @param {dw.system.PipelineDictionary} pdict - Pipeline Dictionary
+ * @returns {string} open graph content
+ */
+function renderOpenGraphMetaTags(pdict) {
+    var ogTags = getOpenGraphMetaTags(pdict);
+    var model = new HashMap();
+    model.put('ogTags', ogTags);
+    try {
+        return new Template('/seo/openGraphMetaTags').render(model).text;
+    } catch (e) {
+        Logger.error('Error while rendering template seo/openGraphMetaTags : ' + e.message);
+        return '';
+    }
+}
+
+
+/**
+ * Set the page meta data to the current request
+ * @param {object} req The request object
+ * @param {object} metaDataObj The object that contains all the metadata
+ */
+function setPageMetaData(req, metaDataObj) {
+    // Extension point that allows other catridges to change the values
+    var HookMgr = require('dw/system/HookMgr');
+    if (HookMgr.hasHook('app.seo.setpagemetadata')) {
+        var result = HookMgr.callHook('app.seo.setpagemetadata', metaDataObj.key.replace('.', '_'), metaDataObj);
+        if (!empty(result)) {
+            metaDataObj.title = result.title || metaDataObj.title;// eslint-disable-line
+            metaDataObj.description = result.description || metaDataObj.description;// eslint-disable-line
+            metaDataObj.keywords = result.keywords || metaDataObj.keywords;// eslint-disable-line
+            metaDataObj.pageMetaTags = result.pageMetaTags || metaDataObj.pageMetaTags;// eslint-disable-line
+        }
+    }
+
+    if (metaDataObj.title) {
+        req.pageMetaData.setTitle(
+            metaDataObj.title.indexOf(Site.getCurrent().getName()) === -1
+                ? metaDataObj.title + ' | ' + Site.getCurrent().getName()
+                : metaDataObj.title
+        );
+    }
+
+    if (metaDataObj.description) {
+        req.pageMetaData.setDescription(metaDataObj.description);
+    }
+
+    if (metaDataObj.keywords) {
+        req.pageMetaData.setKeywords(metaDataObj.keywords);
+    }
+
+    if (metaDataObj.pageMetaTags) {
+        req.pageMetaData.addPageMetaTags(metaDataObj.pageMetaTags);
+    }
+}
+
+/**
+ * getCanonicalUrl function is responsible to prepare the canonical urls
+ * @param  {string} actionName action name
+ * @param  {string} paramKey param key
+ * @param  {string} paramValue param value
+ * @returns {Array} HrefLang
+ */
+function getCanonicalUrl(actionName, paramKey, paramValue) {
+    var URLUtils = require('dw/web/URLUtils');
+    var URLAction = require('dw/web/URLAction');
+    var URLParameter = require('dw/web/URLParameter');
+    var siteID = Site.getCurrent().ID;
+    var urlAction = new URLAction(actionName, siteID, Site.getCurrent().defaultLocale);
+    return URLUtils.abs(urlAction, paramKey ? new URLParameter(paramKey, paramValue) : null);
+}
+
+
 base.renderHreflang = renderHreflang;
+base.renderOpenGraphMetaTags = renderOpenGraphMetaTags;
+base.setPageMetaData = setPageMetaData;
+base.getCanonicalUrl = getCanonicalUrl;
 
 module.exports = base;

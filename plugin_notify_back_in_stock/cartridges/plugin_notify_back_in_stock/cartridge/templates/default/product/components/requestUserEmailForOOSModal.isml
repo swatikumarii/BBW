@@ -1,4 +1,4 @@
-<div class="modal fade out-of-stock-modal outOfstockModal right modal-right" id="requestUserEmailForOOSModal"
+<div class="modal fade out-of-stock-modal outOfstockModal modal-right" id="requestUserEmailForOOSModal"
     tabindex="-1" role="dialog" aria-labelledby="requestUserEmailForOOSModal">
     <div class="modal-dialog modal-dialog-bottom modal-reset" role="document">
         <div class="modal-content">
@@ -31,12 +31,12 @@
                                 <isprint value="${Resource.msg('label.input.email', 'notifyMe', null)}"
                                     encoding="htmlcontent" />
                             </label>
-                            <div class="invalid-feedback"></div>
                             <input id="notify-me-email" type="email" class="form-control"
                                 placeholder="${Resource.msg('label.input.email', 'notifyMe', null)}"
                                 name="notifyMeEmail" aria-describedby="emailHelp"
                                 data-pattern-mismatch="${Resource.msg('error.message.emailinvalid', 'notifyMe', null)}"
                                 required />
+                            <div class="invalid-feedback"></div>
                             <p class="pt-2 text-left">${Resource.msg('label.backinstock.msg', 'notifyMe', null)}</p>
                         </div>
                     </div>

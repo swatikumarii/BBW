@@ -84,14 +84,11 @@ server.get(
         siteCountryCode = siteCountryCode.split('_');
         siteCountryCode = siteCountryCode[1];
         var reqCountryCode = req.geolocation.countryCode;
-        var enableCountrySelectorPopup = Site.current.getCustomPreferenceValue('enableCountrySelectorPopup');
-        if (!(siteCountryCode === reqCountryCode) && enableCountrySelectorPopup) {
-            res.render('/common/countrySelector', {
-                reqCountryCode: reqCountryCode,
-                siteCountryCode: siteCountryCode,
-                countrySiteMapping: countrySiteMapping
-            });
-        }
+        res.render('/common/countrySelector', {
+            reqCountryCode: reqCountryCode,
+            siteCountryCode: siteCountryCode,
+            countrySiteMapping: countrySiteMapping
+        });
         next();
     }
 );

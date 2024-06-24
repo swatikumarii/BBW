@@ -44,64 +44,37 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
     var totalQtyRequested = 0;
     var canBeAdded = false;
 
-    var productLevelReserveQty =
-        'custom' in product &&
-        'reserveQty' in product.custom &&
-        product.custom.reserveQty
-            ? product.custom.reserveQty
-            : 0;
-    var productLevelMaxOrderQty =
-        'custom' in product &&
-        'maxOrderQty' in product.custom &&
-        product.custom.maxOrderQty
-            ? product.custom.maxOrderQty
-            : false;
-    var globalLevelMaxOrderQty = dw.system.Site.getCurrent().getCustomPreferenceValue('maxOrderQty');
-    var globalLevelReserveQty = dw.system.Site.getCurrent().getCustomPreferenceValue('reserveQty');
-    var maxOrderQty = productLevelMaxOrderQty || globalLevelMaxOrderQty;
-    var reserveOosQty = productLevelReserveQty || globalLevelReserveQty;
-    var maxOrderQtyByReserveStock =
-        product.availabilityModel.inventoryRecord.ATS.value - reserveOosQty;
-    if (maxOrderQty && maxOrderQtyByReserveStock) {
-        maxOrderQty =
-            maxOrderQtyByReserveStock < maxOrderQty
-                ? maxOrderQtyByReserveStock
-                : maxOrderQty;
-    } else if (!maxOrderQty) {
-        maxOrderQty = maxOrderQtyByReserveStock;
-    }
     var errorType = '';
+    var productValidationHelpers = require('*/cartridge/scripts/helpers/productValidationHelpers');
+    var maxOrderQty = productValidationHelpers.getProductMaxOrderQty(product);
+
     if (product.bundle) {
         canBeAdded = base.checkBundledProductCanBeAdded(childProducts, productLineItems, quantity);
-    } else if (maxOrderQty) {
+    } else {
         totalQtyRequested = quantity + base.getQtyAlreadyInCart(productId, productLineItems);
         perpetual = product.availabilityModel.inventoryRecord.perpetual;
         canBeAdded = perpetual || totalQtyRequested <= maxOrderQty;
         errorType = 'maxOrderQty';
-    } else {
-        totalQtyRequested = quantity + base.getQtyAlreadyInCart(productId, productLineItems);
-        perpetual = product.availabilityModel.inventoryRecord.perpetual;
-        canBeAdded = (perpetual
-                || totalQtyRequested <= (product.availabilityModel.inventoryRecord.ATS.value - reserveOosQty));
-        errorType = 'reserveOosQty';
     }
 
     if (!canBeAdded) {
         result.error = true;
         if (errorType === 'maxOrderQty') {
             result.message = Resource.msgf(
-                'error.alert.selected.quantity.cannot.be.added.for.max',
+                'error.alert.selected.quantity.cannot.be.added.negative',
                 'product',
                 null,
                 maxOrderQty,
-                product.name);
+                product.name
+            );
         } else {
             result.message = Resource.msgf(
                 'error.alert.selected.quantity.cannot.be.added.for',
                 'product',
                 null,
-                product.availabilityModel.inventoryRecord.ATS.value - reserveOosQty,
-                product.name);
+                maxOrderQty,
+                product.name
+            );
         }
         return result;
     }
@@ -112,7 +85,7 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
         'isEgiftCard' in product.custom &&
         product.custom.isEgiftCard &&
         product.custom.isEgiftCard === true;
-
+    result.message = isGiftCard ? Resource.msg('cart.updated.giftcard', 'giftcards', null) : result.message;
     if (productInCart && !isGiftCard) {
         productQuantityInCart = productInCart.quantity.value;
         quantityToSet = quantity
@@ -149,7 +122,9 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
             optionModel,
             defaultShipment
         );
-
+        if ('SID' in product.custom && product.custom.SID) {
+            productLineItem.custom.SID = product.custom.SID;
+        }
         result.uuid = productLineItem.UUID;
     }
 

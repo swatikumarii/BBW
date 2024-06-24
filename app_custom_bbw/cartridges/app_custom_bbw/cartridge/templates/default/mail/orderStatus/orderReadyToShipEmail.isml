@@ -49,7 +49,7 @@
                         <iscomment> View Order Status Image and Button </iscomment>
                         <div style="border:3px solid #f2f2f2;padding:36px 0;text-align:center">
                             <p style="margin:0 0 44px">
-                                <img src="${URLUtils.absStatic('/images/email/orders/icon-processed.png')}"
+                                <img src="${URLUtils.absStatic('/images/email/orders/status/icon-processed.png')}"
                                     alt="Progress" style="border:0;vertical-align:top;width:90%;" />
                             </p>
                             <div>
@@ -88,7 +88,7 @@
                                                         width="119" />
                                                 </a>
                                             </td>
-                                            <td style="padding:46px 0 20px 20px;vertical-align:top">
+                                            <td width="245" style="padding:46px 0 20px 20px;vertical-align:top">
                                                 <div style="width:245px">
                                                     <div
                                                         style="text-transform:uppercase;font-size:16px;color:#333;margin-bottom:15px;line-height:23px">
@@ -140,6 +140,14 @@
                                                 <isprint value="${lineItem.quantity}" formatter="##" />
                                             </td>
                                             <td
+                                                style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:center">
+                                                <isif condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
+                                                    ${lineItem.totalSavings}
+                                                <iselse/>
+                                                    ${'-'}
+                                                </isif>
+                                            </td>
+                                            <td
                                                 style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:right">
                                                 <isif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
                                                     ${Resource.msg('label.free.price', 'cart', null)}
@@ -156,7 +164,7 @@
                             style="font-size:14px;line-height:14px;color:#666666;text-align:center;font-family:'HelveticaNeue-Regular','Helvetica Neue Regular','HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;border-top: 3px solid #f2f2f2;padding: 20px 0;">
                             ${Resource.msg('email.order.looking.more.text', 'confirmation', null)}<a
                                 style="color:#005699;text-decoration:underline;"
-                                href="${dw.web.URLUtils.abs('Order-Status')}">
+                                href="${dw.web.URLUtils.abs('Order-History')}">
                                 ${Resource.msg('email.order.looking.more.here.text', 'confirmation', null)}</a>
                         </p>
                         <iscomment> Shipping Section </iscomment>
@@ -232,6 +240,9 @@
                                                     condition="${payment.paymentMethod === 'AdyenComponent' || payment.paymentMethod === 'CREDIT_CARD'}">
                                                     <isinclude
                                                         template="checkout/confirmation/adyenConfirmationDetails" />
+                                                <iselseif
+                                                    condition="${payment.paymentMethod === 'CASHAPPPAY' || payment.paymentMethod === 'CLEARPAY' || payment.paymentMethod === 'AFTERPAY'}">
+                                                    <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
                                                 </isif>
                                                 <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${pdict.order.totals.grandTotal}</p>
                                             </isloop>
@@ -276,17 +287,26 @@
                                                     </isif>
                                                 </tr>
 
+                                                <iscomment> Discounts </iscomment>
+                                                <tr>
+                                                    <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                        ${Resource.msg('label.order.savings', 'common', null)}
+                                                    </td>
+                                                    <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                        ${pdict.order.totals.totalDiscountFormatted}</td>
+                                                </tr>
+
                                                 <iscomment> Order Discount </iscomment>
                                                 <isif condition="${pdict.order.totals.allDiscounts.length > 0}">
                                                     <isloop items="${pdict.order.totals.allDiscounts}" var="discount"
                                                         status="loopstatus">
                                                         <tr>
                                                             <td
-                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                                ${discount.promotion}
+                                                                style="font-size:14px;text-transform:uppercase;vertical-align:top;padding:5px 13px;">
+                                                                ${discount.promotion && discount.promotion != null ? discount.promotion : "-"}
                                                             </td>
                                                             <td
-                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                style="font-size:14px;text-transform:uppercase;vertical-align:top;padding:5px 0;text-align:right">
                                                                 ${discount.discount}</td>
                                                         </tr>
                                                     </isloop>
@@ -340,16 +360,6 @@
                                                     </isif>
                                                 </tr>
 
-                                                <iscomment> Discounts </iscomment>
-                                                <tr>
-                                                    <td
-                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                        ${Resource.msg('label.order.discount', 'common', null)}
-                                                    </td>
-                                                    <td
-                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                        ${pdict.order.totals.totalDiscountFormatted}</td>
-                                                </tr>
                                                 <tr>
                                                     <td
                                                         style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0 20px">

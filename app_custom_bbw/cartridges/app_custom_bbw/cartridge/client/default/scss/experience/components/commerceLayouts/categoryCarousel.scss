@@ -39,6 +39,7 @@
         overflow: auto hidden;
         cursor: grab;
         column-gap: 16px;
+        scrollbar-width: none;
 
         &::-webkit-scrollbar {
             display: none;
@@ -107,6 +108,11 @@
                         height: auto;
                         max-height: 160px;
                         max-width: 100%;
+                    }
+
+                    &__product-type {
+                        font-size: 14px;
+                        line-height: 16px;
                     }
 
                     &__quickview,
