@@ -220,10 +220,10 @@
             .add-to-cart {
                 font-size: 14px;
                 min-height: 40px;
-            }
 
-            @include media-btw(sm, lg) {
-                width: 110px;
+                @include media-btw(sm, lg) {
+                    width: 110px;
+                }
             }
 
             @include media-down(sm) {
