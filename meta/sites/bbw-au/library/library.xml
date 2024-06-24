@@ -753,6 +753,35 @@
         </folder-links>
     </content>
 
+    <content content-id="cart.minicartshow.seo">
+        <display-name xml:lang="x-default">Cart Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Cart page</page-title>
+            <page-description xml:lang="x-default">Cart page</page-description>
+            <page-keywords xml:lang="x-default">Cart page</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="reportingevent.minicart.seo">
+        <display-name xml:lang="x-default">Cart Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Cart page</page-title>
+            <page-description xml:lang="x-default">Cart page</page-description>
+            <page-keywords xml:lang="x-default">Cart page</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+
      <content content-id="checkout.customer.seo">
         <display-name xml:lang="x-default">Checkout Customer Seo</display-name>
         <description xml:lang="x-default">Checkout Customer Seo</description>
