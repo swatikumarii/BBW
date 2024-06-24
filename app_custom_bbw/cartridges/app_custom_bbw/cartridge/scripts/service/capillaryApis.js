@@ -30,8 +30,6 @@ function callCapillaryAPI(endPoint, requestJSON, method) {
 
 module.exports = {
     createCustomer: function (registrationForm) {
-        var date = new Date(registrationForm.birthday);
-        var dob = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
         var gender;
         switch (registrationForm.gender) {
             case 1:
@@ -60,16 +58,17 @@ module.exports = {
                         value: registrationForm.email
                     }
                 ],
-                source: 'INSTORE',
-                fields: {
-                    dateofbirth: dob
-                }
+                source: 'INSTORE'
             }],
             extendedFields: {
-                gender: gender,
-                dob: dob
+                gender: gender
             }
         };
+        if (registrationForm.birthday) {
+            var date = new Date(registrationForm.birthday);
+            var dob = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
+            requestObj.extendedFields.dob = dob;
+        }
         var createStatus = callCapillaryAPI('v2/customers', JSON.stringify(requestObj), 'POST');
         if (createStatus.ok && 'object' in createStatus && createStatus.object) {
             var createObject = JSON.parse(createStatus.object);

@@ -609,8 +609,8 @@
                         &.accordion-item.collapsed {
                             .cart-saving {
                                 &::before {
-                                    background: url("../images/UI-Carat.svg") 
-                                    50%;
+                                    background: url("../images/UI-Carat.svg")
+                                        50%;
                                     background-repeat: no-repeat;
                                     background-size: 1.25rem;
                                     content: "";
@@ -629,7 +629,7 @@
                             .cart-saving {
                                 &::before {
                                     background: url("../images/UI-Carat.svg")
-                                     50%;
+                                        50%;
                                     background-repeat: no-repeat;
                                     background-size: 1.25rem;
                                     content: "";
@@ -880,6 +880,10 @@ footer {
         @include media-down(sm) {
             min-width: 228px;
             max-width: 256px;
+        }
+
+        .b-product-tile__body .price span:first-of-type {
+            text-wrap: nowrap;
         }
     }
 }
