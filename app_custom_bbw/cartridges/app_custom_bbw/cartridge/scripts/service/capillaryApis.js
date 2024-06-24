@@ -70,7 +70,7 @@ module.exports = {
             requestObj.extendedFields.dob = dob;
         }
         var createStatus = callCapillaryAPI('v2/customers', JSON.stringify(requestObj), 'POST');
-        if (createStatus.ok && 'object' in createStatus && createStatus.object) {
+        if (createStatus && createStatus.ok && 'object' in createStatus && createStatus.object) {
             var createObject = JSON.parse(createStatus.object);
             if ('errors' in createObject && createObject.errors && createObject.errors.length > 0 && createObject.errors[0].code === 8006) {
                 var endPoint = 'v2/customers/lookup?source=INSTORE&identifierName=email&identifierValue=' + registrationForm.email;

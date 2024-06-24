@@ -37,6 +37,20 @@ window.submitRegistration = function (token) {
             reject();
         }
         if (token !== '') {
+            var form = $(".registration").closest('form');
+                setTimeout(function () {
+                    var element = form.find(
+                        '.form-control.is-invalid, .selectric-form-control.is-invalid'
+                    );
+                    if (element && element.length) {
+                        $('body,html').animate(
+                            {
+                                scrollTop: element.offset().top - 250
+                            },
+                            500
+                        );
+                    }
+                }, 100);
             $('.g-recaptcha').closest('form.registration').submit();
             resolve();
         }
