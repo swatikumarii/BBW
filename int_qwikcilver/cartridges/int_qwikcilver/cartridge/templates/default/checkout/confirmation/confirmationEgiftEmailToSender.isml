@@ -52,23 +52,21 @@
                         </p>
                         <iscomment> Gift Card Image Details </iscomment>
                         <div style="border:2px solid #f2f2f2;padding:15px 0 24px; margin-bottom:30px;">
-                            <p
-                                style="margin:0;font-size:36px;line-height:50px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center">
-                                <isprint value="${Resource.msg('egift.surprise.heading', 'giftcards', null)}"
-                                    encoding="off" />
-                            </p>
-                            <p
-                                style="margin:0 0 20px;font-size:16px;line-height:18px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center;text-transform: capitalize;">
-                                <isprint
-                                    value="${Resource.msgf('egift.treated.msg', 'giftcards', null, pdict.senderName)}"
-                                    encoding="off" />
-                            </p>
-                            <iscomment> Normal Product Line Items </iscomment>
-                            <table width="100%" cellpadding="0" cellspacing="0"
-                                style="border-collapse:collapse;margin-top:15px;">
-                                <tbody>
-                                    <isif condition="${pdict.order.shipping.length === 1}">
-                                        <isloop items="${pdict.order.items.items}" var="lineItem">
+                            <isloop items="${pdict.order.items.items}" var="lineItem">
+                                <p
+                                    style="margin:0;font-size:36px;line-height:50px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center">
+                                    <isprint value="${Resource.msg('egift.surprise.heading', 'giftcards', null)}"
+                                        encoding="off" />
+                                </p>
+                                <p
+                                    style="margin:0 0 20px;font-size:16px;line-height:18px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center;text-transform: capitalize;">
+                                    ${Resource.msgf('egift.treated.msg', 'giftcards', null, lineItem.giftCardDetails.senderName)}
+                                </p>
+                                <iscomment> Normal Product Line Items </iscomment>
+                                <table width="100%" cellpadding="0" cellspacing="0"
+                                    style="border-collapse:collapse;margin-top:15px;">
+                                    <tbody>
+                                        <isif condition="${pdict.order.shipping.length === 1}">
                                             <tr>
                                                 <td style="vertical-align:middle;padding-left: 32px;padding-right: 15px;width: 50%;">
                                                     <a style="display:block;text-align:left;"
@@ -114,10 +112,10 @@
                                                 </td>
                                                 <td style="width: 20%;"></td>
                                             </tr>
-                                        </isloop>
-                                    </isif>
-                                </tbody>
-                            </table>
+                                        </isif>
+                                    </tbody>
+                                </table>
+                            </isloop>
                         </div>
                         <div>
                             <iscomment> Terms and Conditions Content Asset </iscomment>
