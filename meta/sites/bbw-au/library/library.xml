@@ -3238,7 +3238,7 @@ To contact our Customer Service team, please call &lt;a href="phone:1800-576-972
         <custom-attributes>
         <custom-attribute attribute-id="body" xml:lang="x-default">
             &lt;div class="category-top-offers"&gt; &lt;a href="$url('Search-Show','cgid','select-hand-soaps')$" class="heading"
-        aria-expanded="false"&gt;&lt;span&gt;Hand Soap & Sanitizer Offers&lt;/span&gt;&lt;/a&gt;
+        aria-expanded="false"&gt;&lt;span&gt;Hand Soap &amp; Sanitizer Offers&lt;/span&gt;&lt;/a&gt;
     &lt;div class="category-top-items"&gt;
         &lt;ul class="level-3-ul dropdown-menu p-0" role="menu"&gt;
             &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a
@@ -3283,9 +3283,8 @@ To contact our Customer Service team, please call &lt;a href="phone:1800-576-972
         <page-attributes/>
         <custom-attributes>
         <custom-attribute attribute-id="body" xml:lang="x-default">
-        </custom-attribute>
         &lt;div class="category-top-offers"&gt; &lt;a href="$url('Search-Show','cgid','select-candles')$" class="heading"
-        aria-expanded="false"&gt;&lt;span&gt;Candles & Home Fragrance Offers&lt;/span&gt;&lt;/a&gt;
+        aria-expanded="false"&gt;&lt;span&gt;Candles &amp; Home Fragrance Offers&lt;/span&gt;&lt;/a&gt;
     &lt;div class="category-top-items"&gt;
         &lt;ul class="level-3-ul dropdown-menu p-0 column-count-2" role="menu"&gt;
             &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a&gt;
@@ -3299,11 +3298,12 @@ To contact our Customer Service team, please call &lt;a href="phone:1800-576-972
                     AU$ 92 &lt;/a&gt; &lt;/li&gt;
             &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a&gt;
                     href="$url('Search-Show','cgid','select-room-spray-and-scentportable-buy-3-get-1-free')$"
-                    role="menuitem" class="dropdown-link d-block"&gt; Select Room Spray & Scentportable Buy 3 Get 1 Free
+                    role="menuitem" class="dropdown-link d-block"&gt; Select Room Spray &amp; Scentportable Buy 3 Get 1 Free
                 &lt;/a&gt; &lt;/li&gt;
         &lt;/ul&gt;
     &lt;/div&gt;
 &lt;/div&gt;
+        </custom-attribute>
         </custom-attributes>
     </content>
 
