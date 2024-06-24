@@ -5,7 +5,6 @@
  */
 
 var server = require('server');
-var cache = require('*/cartridge/scripts/middleware/cache');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var seo = require('*/cartridge/scripts/middleware/seo');
 
@@ -14,11 +13,10 @@ var seo = require('*/cartridge/scripts/middleware/seo');
  * @name securityBugReport-Landing
  * @function
  * @param {middleware} server.middleware.https
- * @param {middleware} cache.applyDefaultCache
  * @param {middleware} consentTracking
  * @param {serverfunction} get
  */
-server.get('Landing', server.middleware.https, cache.applyDefaultCache, consentTracking.consent, function (req, res, next) {
+server.get('Landing', server.middleware.https, consentTracking.consent, function (req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
     res.render('securityBugReport/securityBugReport', {
         actionUrl: URLUtils.url('SecurityBugReport-Submit').toString()
@@ -31,11 +29,10 @@ server.get('Landing', server.middleware.https, cache.applyDefaultCache, consentT
  * @name securityBugReport-Submit
  * @function
  * @param {middleware} server.middleware.https
- * @param {middleware} cache.applyDefaultCache
  * @param {middleware} consentTracking
  * @param {serverfunction} post
  */
-server.post('Submit', server.middleware.https, cache.applyDefaultCache, consentTracking.consent, function (req, res, next) {
+server.post('Submit', server.middleware.https, consentTracking.consent, function (req, res, next) {
     var Resource = require('dw/web/Resource');
     var Transaction = require('dw/system/Transaction');
     var UUIDUtils = require('dw/util/UUIDUtils');
