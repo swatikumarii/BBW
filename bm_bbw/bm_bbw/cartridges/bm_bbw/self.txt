@@ -1,0 +1,26 @@
+${lineItem.ispersonalizedGiftcard}
+${lineItem.personalizeGiftcardImage}
+${lineItem.alt}
+${lineItem.images.small[0].absURL}
+${lineItem.images.small[0].alt}
+${lineItem.images.small[0].title}
+${lineItem.fragranceName}
+${lineItem.productName}
+${lineItem.titlePartB}
+${lineItem.volume}
+${lineItem.productCategory}
+${lineItem.greetingCardMessage}
+${'giftCardDetails' in lineItem && lineItem.giftCardDetails && lineItem.giftCardDetails.isEgiftProduct}
+${lineItem.giftCardDetails.recipientEmail}
+${lineItem.id}
+${lineItem.quantity}
+${lineItem.noProduct}
+${lineItem.UUID}
+${lineItem.basePrice.currencyCode}
+${lineItem.basePrice.value}
+${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}
+${lineItem.price.sales.formatted}
+${lineItem.priceTotal.currencyCode}
+${lineItem.priceTotal.value}
+${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}
+${lineItem.priceTotal.price}
