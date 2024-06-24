@@ -136,7 +136,7 @@ function OrderModel(lineItemContainer, options) {
           null
         );
 
-        var productLineItemsModel = new ProductLineItemsModel(lineItemContainer.productLineItems, options.containerView);
+        var productLineItemsModel = new ProductLineItemsModel(lineItemContainer.productLineItems, options.containerView ? options.containerView : null);
         var totalsModel = new TotalsModel(lineItemContainer);
 
         // this.shippable = safeOptions.shippable || false;

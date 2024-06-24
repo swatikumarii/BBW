@@ -227,7 +227,6 @@ function createProductLineItemsObject(allLineItems, view) {
 
     collections.forEach(allLineItems, function (item) {
         var apiProduct = ProductMgr.getProduct(item.productID);
-        var view = null;
         var options = collections.map(
           item.optionProductLineItems,
           function (optionItem) {
@@ -248,44 +247,48 @@ function createProductLineItemsObject(allLineItems, view) {
         };
 
 
-        var greetingCardMessage = null;
-        if ('greetingCardMessage' in item.custom && item.custom.greetingCardMessage) {
-            greetingCardMessage = item.custom.greetingCardMessage;
+        if (view === '') {
+            
+        } else {
+            var greetingCardMessage = null;
+            if ('greetingCardMessage' in item.custom && item.custom.greetingCardMessage) {
+                greetingCardMessage = item.custom.greetingCardMessage;
+            }
+            var options = getConfig(apiProduct, params);
+            var images = getImages(apiProduct, options, params);
+            var price = getPrice(apiProduct, options);
+            var product = {
+            id: apiProduct.ID,
+            UUID: item.UUID,
+            images: images,
+            fragranceName:
+                "custom" in apiProduct &&
+                "fragranceName" in apiProduct.custom &&
+                apiProduct.custom.fragranceName !== ""
+                ? apiProduct.custom.fragranceName
+                : false,
+            productName: apiProduct.name,
+            titlePartB:
+                "custom" in apiProduct &&
+                "titlePartB" in apiProduct.custom &&
+                apiProduct.custom.titlePartB !== ""
+                ? apiProduct.custom.titlePartB
+                : false,
+            volume:
+                "custom" in apiProduct &&
+                "volume" in apiProduct.custom &&
+                apiProduct.custom.volume !== ""
+                ? apiProduct.custom.volume
+                : false,
+            greetingCardMessage: greetingCardMessage,
+            priceTotal: getTotalPrice(item),
+            giftCardDetails: getEgiftCardDetails(item),
+            quantity: item.quantity,
+            noProduct: null,
+            basePrice: "basePrice" in item ? item.basePrice : "",
+            price: price
+            };
         }
-        var options = getConfig(apiProduct, params);
-        var images = getImages(apiProduct, options, params);
-        var price = getPrice(apiProduct, options);
-        var product = {
-          id: apiProduct.ID,
-          UUID: item.UUID,
-          images: images,
-          fragranceName:
-            "custom" in apiProduct &&
-            "fragranceName" in apiProduct.custom &&
-            apiProduct.custom.fragranceName !== ""
-              ? apiProduct.custom.fragranceName
-              : false,
-          productName: apiProduct.name,
-          titlePartB:
-            "custom" in apiProduct &&
-            "titlePartB" in apiProduct.custom &&
-            apiProduct.custom.titlePartB !== ""
-              ? apiProduct.custom.titlePartB
-              : false,
-          volume:
-            "custom" in apiProduct &&
-            "volume" in apiProduct.custom &&
-            apiProduct.custom.volume !== ""
-              ? apiProduct.custom.volume
-              : false,
-          greetingCardMessage: greetingCardMessage,
-          priceTotal: getTotalPrice(item),
-          giftCardDetails: getEgiftCardDetails(item),
-          quantity: item.quantity,
-          noProduct: null,
-          basePrice: "basePrice" in item ? item.basePrice : "",
-          price: price
-        };
         lineItems.push(product);
     });
     return lineItems;
