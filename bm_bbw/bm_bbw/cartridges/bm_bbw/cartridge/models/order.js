@@ -1,7 +1,5 @@
 'use strict';
 
-// var Resource = require('dw/web/Resource');
-
 var AddressModel = require('*/cartridge/models/address');
 var BillingModel = require('*/cartridge/models/billing');
 var PaymentModel = require('*/cartridge/models/payment');
@@ -10,7 +8,6 @@ var TotalsModel = require('*/cartridge/models/totals');
 
 var ShippingHelpers = require('*/cartridge/scripts/checkout/shippingHelpers');
 
-// var encryptionHelper = require("*/cartridge/scripts/helpers/encryptionHelpers");
 var URLUtils = require("dw/web/URLUtils");
 var Site = require("dw/system/Site");
 var Money = require("dw/value/Money");
@@ -118,8 +115,6 @@ function OrderModel(lineItemContainer, options) {
         var countryCode = safeOptions.countryCode || null;
         var modelConfig = safeOptions.config || DEFAULT_MODEL_CONFIG;
         var customer = safeOptions.customer || lineItemContainer.customer;
-        // var usingMultiShipping = (safeOptions.usingMultiShipping
-        //     || lineItemContainer.shipments.length > 1);
 
         var currentSite = Site.getCurrent();
         var currency = new Money(0, currentSite.getDefaultCurrency());
@@ -131,20 +126,15 @@ function OrderModel(lineItemContainer, options) {
 
         var billingAddressModel = new AddressModel(lineItemContainer.billingAddress);
 
-        // var associatedAddress = getAssociatedAddress(lineItemContainer, customer);
-
         var billingModel = new BillingModel(
           billingAddressModel,
-          paymentModel /*, associatedAddress*/,
-          //   null,
+          paymentModel,
           null
         );
 
         var productLineItemsModel = new ProductLineItemsModel(lineItemContainer.productLineItems, options.containerView ? options.containerView : null);
         var totalsModel = new TotalsModel(lineItemContainer);
 
-        // this.shippable = safeOptions.shippable || false;
-        // this.usingMultiShipping = usingMultiShipping;
         this.orderNumber = Object.hasOwnProperty.call(lineItemContainer, 'orderNo')
             ? lineItemContainer.orderNo
             : null;
@@ -154,32 +144,14 @@ function OrderModel(lineItemContainer, options) {
             ? lineItemContainer.creationDate
             : null;
         this.orderEmail = lineItemContainer.customerEmail;
-        // this.orderStatus = Object.hasOwnProperty.call(lineItemContainer, 'status')
-        //     ? lineItemContainer.status
-        //     : null;
-        // this.productQuantityTotal = lineItemContainer.productQuantityTotal
-        //     ? lineItemContainer.productQuantityTotal : null;
 
         if (modelConfig.numberOfLineItems === '*') {
            this.totals = totalsModel;
-        //     this.lineItemTotal = productLineItemsModel ? productLineItemsModel.length : null;
-           this.items = productLineItemsModel;//TODO:
-        //  this.billingAddress = billingAddressModel;
+           this.items = productLineItemsModel;
             this.billing = billingModel;
             this.shipping = shippingModels;
         }
-        //  else if (modelConfig.numberOfLineItems === 'single'
-        //         && shippingModels[0].shippingAddress) {
-        //     this.firstLineItem = getFirstProductLineItem(productLineItemsModel);
-        //     this.shippedToFirstName = shippingModels[0].shippingAddress.firstName || '';
-        //     this.shippedToLastName = shippingModels[0].shippingAddress.lastName || '';
-        // }
-        // this.exportStatus = 'exportStatus' in lineItemContainer ? lineItemContainer.exportStatus : 0;
         this.trackingUrl = trackingUrl;
-        // var currentSite = Site.getCurrent();
-        // var currency = new Money(0, currentSite.getDefaultCurrency());
-        // var currencyCode = currency.toFormattedString();
-        // this.currencyCode = (currencyCode || '').trim().split(' ')[0] || '';
 
         this.hasFreeShipping = getFreeShippingStatus(lineItemContainer);
         if (this.totals) {
@@ -201,10 +173,7 @@ function OrderModel(lineItemContainer, options) {
           trackingNumber: this.trackingNumber,
           priceTotal: this.priceTotal,
           items: this.items,
-          currencyCode: this.currencyCode,
-          orderStatusURL: URLUtils.abs('Order-Status'),
-          orderDetailsURL: URLUtils.abs('Order-Details', 'orderID', this.orderNumber, 'orderFilter', ''),
-          orderHistoryURL: URLUtils.abs('Order-History')
+          currencyCode: this.currencyCode
         };
     }
 }
