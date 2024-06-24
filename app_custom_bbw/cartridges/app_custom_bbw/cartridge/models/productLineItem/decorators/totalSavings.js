@@ -27,8 +27,8 @@ function getTotalSavings(lineItem) {
                 );
             }
         }
-        return totalSavings.value !== 0 ? formatMoney(totalSavings) : '-';
-    }
+        return formatMoney(totalSavings);
+    } 
     return '-';
     
 }
