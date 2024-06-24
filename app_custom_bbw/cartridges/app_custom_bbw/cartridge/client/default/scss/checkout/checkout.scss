@@ -1124,6 +1124,11 @@ input[type="tel"],
             top: 109%;
             right: 90%;
         }
+
+        @include media-btw(sm, lg) {
+            top: 51%;
+            margin-right: 10px;
+        }
     }
 
     .info-icon-text {
