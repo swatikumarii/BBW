@@ -238,25 +238,23 @@
                             </div>
                         </div>
                     <iselse/>
-                        <isif condition="${pdict.order.items.items[0].isEgiftCard !== true}">
-                            <div class="row leading-lines shipping-item">
-                                <div class="col-6 start-lines">
-                                    <p class="order-receipt-label"><span>${Resource.msg('label.shipping.and.handling', 'cart', null)}</span>
-                                    </p>
-                                </div>
-                                <div class="col-6 end-lines">
-                                    <isif condition="${!pdict.order.hasFreeShipping}">
-                                        <p class="text-right"><span
-                                                class="shipping-total-cost">${pdict.order.totals.totalShippingCost}</span>
-                                        </p>
-                                    <iselse/>
-                                        <p class="text-right"><span
-                                                class="shipping-total-cost">${Resource.msg('label.free.price', 'cart', null)}</span>
-                                        </p>
-                                    </isif>
-                                </div>
+                        <div class="row leading-lines shipping-item">
+                            <div class="col-6 start-lines">
+                                <p class="order-receipt-label"><span>${Resource.msg('label.shipping.and.handling', 'cart', null)}</span>
+                                </p>
                             </div>
-                        </isif>
+                            <div class="col-6 end-lines">
+                                <isif condition="${!pdict.order.hasFreeShipping}">
+                                    <p class="text-right"><span
+                                            class="shipping-total-cost">${pdict.order.totals.totalShippingCost}</span>
+                                    </p>
+                                <iselse/>
+                                    <p class="text-right"><span
+                                            class="shipping-total-cost">${Resource.msg('label.free.price', 'cart', null)}</span>
+                                    </p>
+                                </isif>
+                            </div>
+                        </div>
                     </isif>
 
                     <!--- Sales Tax --->
