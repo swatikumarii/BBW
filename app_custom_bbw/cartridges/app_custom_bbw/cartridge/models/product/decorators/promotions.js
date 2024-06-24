@@ -152,7 +152,7 @@ function checkMotivator(promotion) {
 
                 message = qualificationMessage.replace('{{Buy}}', toFixedIfNecessary(buy[indexToApply] - qualifyingValueInCart)).replace('{{Get}}', get[indexToApply]);
                 if (showFullPricedMsg && (indexToApply !== 0 || actualqualifyingValueInCart > buy[0])) {
-                    message += '<span class="h-clr--red h-font-size--12 d-block mt-2">There are some full priced items</span>';
+                    message += '<span class="h-clr--red h-font-size--12 d-none">There are some full priced items</span>';
                 }
                 return message;
 
