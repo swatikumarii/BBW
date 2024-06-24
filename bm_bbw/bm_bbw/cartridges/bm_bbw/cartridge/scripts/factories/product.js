@@ -3,17 +3,7 @@
 var ProductMgr = require('dw/catalog/ProductMgr');
 var PromotionMgr = require('dw/campaign/PromotionMgr');
 var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
-// var productTile = require('*/cartridge/models/product/productTile');
-// var bonusProduct = require('*/cartridge/models/product/bonusProduct');
-// var fullProduct = require('*/cartridge/models/product/fullProduct');
-// var productSet = require('*/cartridge/models/product/productSet');
-// var productBundle = require('*/cartridge/models/product/productBundle');
 var productLineItem = require('*/cartridge/models/productLineItem/productLineItem');
-// var bonusProductLineItem = require('*/cartridge/models/productLineItem/bonusProductLineItem');
-// var bundleProductLineItem = require('*/cartridge/models/productLineItem/bundleLineItem');
-// var orderLineItem = require('*/cartridge/models/productLineItem/orderLineItem');
-// var bonusOrderLineItem = require('*/cartridge/models/productLineItem/bonusOrderLineItem');
-// var bundleOrderLineItem = require('*/cartridge/models/productLineItem/bundleOrderLineItem');
 
 module.exports = {
     get: function (params) {
@@ -28,50 +18,6 @@ module.exports = {
         var promotions;
 
         switch (params.pview) {
-            // case 'bonusProductLineItem':
-            //     promotions = PromotionMgr.activeCustomerPromotions.getProductPromotions(apiProduct);
-            //     options = {
-            //         promotions: promotions,
-            //         quantity: params.quantity,
-            //         variables: params.variables,
-            //         lineItem: params.lineItem,
-            //         productType: productType
-            //     };
-
-            //     switch (productType) {
-            //         case 'bundle':
-            //             // product = bundleProductLineItem(product, apiProduct, options, this);
-            //             break;
-            //         default:
-            //             var variationsBundle = productHelper.getVariationModel(apiProduct, params.variables);
-            //             if (variationsBundle) {
-            //                 apiProduct = variationsBundle.getSelectedVariant() || apiProduct; // eslint-disable-line
-            //             }
-
-            //             var optionModelBundle = apiProduct.optionModel;
-            //             var optionLineItemsBundle = params.lineItem.optionProductLineItems;
-            //             var currentOptionModelBundle = productHelper.getCurrentOptionModel(
-            //                 optionModelBundle,
-            //                 productHelper.getLineItemOptions(optionLineItemsBundle, productId)
-            //             );
-            //             var lineItemOptionsBundle = optionLineItemsBundle.length
-            //                 ? productHelper.getLineItemOptionNames(optionLineItemsBundle)
-            //                 : productHelper.getDefaultOptions(optionModelBundle, optionModelBundle.options);
-
-            //             options.variationModel = variationsBundle;
-            //             options.lineItemOptions = lineItemOptionsBundle;
-            //             options.currentOptionModel = currentOptionModelBundle;
-
-            //             if (params.containerView === 'order') {
-            //                 // product = bonusOrderLineItem(product, apiProduct, options);
-            //             } else {
-            //                 product = bonusProductLineItem(product, apiProduct, options);
-            //             }
-
-            //             break;
-            //     }
-
-            //     break;
             case 'productLineItem':
                 promotions = PromotionMgr.activeCustomerPromotions.getProductPromotions(apiProduct);
                 options = {
