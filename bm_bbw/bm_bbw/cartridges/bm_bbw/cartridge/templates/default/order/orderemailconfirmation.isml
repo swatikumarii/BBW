@@ -9,8 +9,6 @@
 --->
 
 <iscontent type="text/html" session="false" charset="UTF-8">
-<isset name="SHOP_URL" value="${URLUtils.http(new dw.web.URLAction('Home-Show', orderDetail.StorefrontName))}" scope="PAGE"/>
-<isset name="TRACK_URL" value="${URLUtils.https(new dw.web.URLAction('Order-Track', orderDetail.StorefrontName))}" scope="PAGE"/>
 
 <subject>${Resource.msgf('subject.order.confirmation.email', 'order', null, pdict.Order.orderNo)}</subject>
 
