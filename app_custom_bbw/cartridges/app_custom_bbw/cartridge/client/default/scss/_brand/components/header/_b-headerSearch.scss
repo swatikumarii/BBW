@@ -74,7 +74,7 @@
 
     &__product-list {
         @include media-up(md) {
-            padding: 0 2.8125rem 2.8125rem 1.5rem;
+            padding: 0 2.5rem 2.8125rem 1.5rem;
             flex-wrap: wrap;
         }
 
