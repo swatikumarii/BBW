@@ -693,6 +693,14 @@ module.exports = function () {
                 }
             },
             error: function (err) {
+                self.closest('.line-item-quantity')
+                    .find('.max-order-qty-error')
+                    .show();
+                setTimeout(function () {
+                    self.closest('.line-item-quantity')
+                        .find('.max-order-qty-error')
+                        .hide();
+                }, 5000);
                 if (err.responseJSON.redirectUrl) {
                     window.location.href = err.responseJSON.redirectUrl;
                 } else {
