@@ -126,7 +126,7 @@ function login() {
                     );
                 } else {
                     form.trigger('login:success', data);
-                    if (data.isIncomplete && data.showCartMergePopup) {
+                    if (data.isIncomplete && data.showPopup) {
                         sessionStorage.setItem('profileIncomplete', true);
                     }
                     if (data.showCartMergePopup) {

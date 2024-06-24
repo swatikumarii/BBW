@@ -671,23 +671,25 @@ server.append(
                     viewData.authenticatedCustomer.profile
                 );
             }
-            viewData.isIncomplete = 'custom' in viewData.authenticatedCustomer.profile && 'isProfileComplete' in viewData.authenticatedCustomer.profile.custom ? !viewData.authenticatedCustomer.profile.custom .isProfileComplete : true;
+            viewData.isIncomplete = 'custom' in viewData.authenticatedCustomer.profile && 'isProfileComplete' in viewData.authenticatedCustomer.profile.custom ? !viewData.authenticatedCustomer.profile.custom.isProfileComplete : true;
             res.setViewData(viewData);
-            if (!viewData.isProfileComplete) {
+            if (viewData.isIncomplete) {
                 Transaction.wrap(function () {
                     viewData = res.getViewData();
                     if (
-                        'custom' in
-                            viewData.authenticatedCustomer.profile &&
+                        'custom' in viewData.authenticatedCustomer.profile &&
                         'noOfTimeProfilePopUpShowed' in
                             viewData.authenticatedCustomer.profile.custom
                     ) {
-                        viewData.authenticatedCustomer.profile.custom
-                            .noOfTimeProfilePopUpShowed+=1;
-                        viewData.showPopup=viewData.authenticatedCustomer.profile.custom.noOfTimeProfilePopUpShowed <= 3;
-                    }
-                    else if ('custom' in viewData.authenticatedCustomer.profile) {
+                        viewData.authenticatedCustomer.profile.custom.noOfTimeProfilePopUpShowed += 1;
+                        viewData.showPopup =
+                            viewData.authenticatedCustomer.profile.custom
+                                .noOfTimeProfilePopUpShowed <= 3;
+                    } else if (
+                        'custom' in viewData.authenticatedCustomer.profile
+                    ) {
                         viewData.authenticatedCustomer.profile.custom.noOfTimeProfilePopUpShowed = 1;
+                        viewData.showPopup = true;
                     }
                 });
             }
