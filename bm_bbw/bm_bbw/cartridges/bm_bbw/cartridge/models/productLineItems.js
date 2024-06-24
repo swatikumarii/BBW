@@ -6,6 +6,7 @@ var collections = require('*/cartridge/scripts/util/collections');
 var ProductMgr = require('dw/catalog/ProductMgr');
 
 var ImageModel = require("*/cartridge/models/product/productImages");
+var URLUtils = require("dw/web/URLUtils");
 
 /**
  * If a product is master and only have one variant for a given attribute - auto select it
@@ -209,6 +210,9 @@ function getEgiftCardDetails(item) {
   var cardInfo = {
     recipientEmail: item.custom.eGiftReceiverEmail || "",
     isEgiftProduct: item.custom.isEgiftCard || false,
+    eGiftMessage: item.custom.eGiftMessage || "",
+    recipientName: item.custom.eGiftReceiver || "",
+    senderName: item.custom.eGiftSender || "",
   };
   return cardInfo;
 }
@@ -247,18 +251,55 @@ function createProductLineItemsObject(allLineItems, view) {
         };
 
 
+        var greetingCardMessage = null;
+        if (
+        "greetingCardMessage" in item.custom &&
+        item.custom.greetingCardMessage
+        ) {
+        greetingCardMessage = item.custom.greetingCardMessage;
+        }
+        var options = getConfig(apiProduct, params);
+        var images = getImages(apiProduct, options, params);
+        var price = getPrice(apiProduct, options);
         if (view === "order") {
+            var product = {
+              id: apiProduct.ID,
+              UUID: item.UUID,
+              images: images,
+              fragranceName:
+                "custom" in apiProduct &&
+                "fragranceName" in apiProduct.custom &&
+                apiProduct.custom.fragranceName !== ""
+                  ? apiProduct.custom.fragranceName
+                  : false,
+              productName: apiProduct.name,
+              titlePartB:
+                "custom" in apiProduct &&
+                "titlePartB" in apiProduct.custom &&
+                apiProduct.custom.titlePartB !== ""
+                  ? apiProduct.custom.titlePartB
+                  : false,
+              volume:
+                "custom" in apiProduct &&
+                "volume" in apiProduct.custom &&
+                apiProduct.custom.volume !== ""
+                  ? apiProduct.custom.volume
+                  : false,
+              greetingCardMessage: greetingCardMessage,
+              priceTotal: getTotalPrice(item),
+              quantity: item.quantity,
+              noProduct: null,
+              basePrice: "basePrice" in item ? item.basePrice : "",
+              price: price,
+              volume:
+                "custom" in apiProduct &&
+                "volume" in apiProduct.custom &&
+                apiProduct.custom.volume !== ""
+                  ? apiProduct.custom.volume
+                  : false,
+              productUrl: URLUtils.https("Product-Show", "pid", apiProduct.ID),
+            };
         } else {
-          var greetingCardMessage = null;
-          if (
-            "greetingCardMessage" in item.custom &&
-            item.custom.greetingCardMessage
-          ) {
-            greetingCardMessage = item.custom.greetingCardMessage;
-          }
-          var options = getConfig(apiProduct, params);
-          var images = getImages(apiProduct, options, params);
-          var price = getPrice(apiProduct, options);
           var product = {
             id: apiProduct.ID,
             UUID: item.UUID,
@@ -284,12 +325,20 @@ function createProductLineItemsObject(allLineItems, view) {
                 : false,
             greetingCardMessage: greetingCardMessage,
             priceTotal: getTotalPrice(item),
-            giftCardDetails: getEgiftCardDetails(item),
             quantity: item.quantity,
             noProduct: null,
             basePrice: "basePrice" in item ? item.basePrice : "",
             price: price,
           };
+        }
+        if (
+          enableQCeGift &&
+          "custom" in item &&
+          "isEgiftCard" in item.custom &&
+          item.custom.isEgiftCard
+        ) {
+          product.giftCardDetails = getEgiftCardDetails(item);
+          product.isEgiftCard = true;
         }
         lineItems.push(product);
     });

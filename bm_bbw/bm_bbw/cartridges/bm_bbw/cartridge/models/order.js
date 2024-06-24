@@ -11,7 +11,7 @@ var TotalsModel = require('*/cartridge/models/totals');
 var ShippingHelpers = require('*/cartridge/scripts/checkout/shippingHelpers');
 
 // var encryptionHelper = require("*/cartridge/scripts/helpers/encryptionHelpers");
-// var URLUtils = require("dw/web/URLUtils");
+var URLUtils = require("dw/web/URLUtils");
 var Site = require("dw/system/Site");
 var Money = require("dw/value/Money");
 
@@ -121,6 +121,10 @@ function OrderModel(lineItemContainer, options) {
         // var usingMultiShipping = (safeOptions.usingMultiShipping
         //     || lineItemContainer.shipments.length > 1);
 
+        var currentSite = Site.getCurrent();
+        var currency = new Money(0, currentSite.getDefaultCurrency());
+        var currencyCode = currency.toFormattedString();
+        this.currencyCode = (currencyCode || "").trim().split(" ")[0] || "";
         var shippingModels = ShippingHelpers.getShippingModels(lineItemContainer, customer, safeOptions.containerView, safeOptions);
 
         var paymentModel = new PaymentModel(lineItemContainer, customer, countryCode);
@@ -197,6 +201,10 @@ function OrderModel(lineItemContainer, options) {
           trackingNumber: this.trackingNumber,
           priceTotal: this.priceTotal,
           items: this.items,
+          currencyCode: this.currencyCode,
+          orderStatusURL: URLUtils.abs('Order-Status'),
+          orderDetailsURL: URLUtils.abs('Order-Details', 'orderID', this.orderNumber, 'orderFilter', ''),
+          orderHistoryURL: URLUtils.abs('Order-History')
         };
     }
 }

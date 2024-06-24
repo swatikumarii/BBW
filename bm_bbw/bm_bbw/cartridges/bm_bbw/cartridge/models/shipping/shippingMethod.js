@@ -37,11 +37,11 @@
  */
 function ShippingMethodModel(shippingMethod, shipment) {
     this.ID = shippingMethod ? shippingMethod.ID : null;
-    // this.displayName = shippingMethod ? shippingMethod.displayName : null;
-    // this.description = shippingMethod ? shippingMethod.description : null;
-    // this.estimatedArrivalTime = shippingMethod && shippingMethod.custom
-    //     ? shippingMethod.custom.estimatedArrivalTime : null;
-    // this.default = shippingMethod ? shippingMethod.defaultMethod : null;
+    this.displayName = shippingMethod ? shippingMethod.displayName : null;
+    this.description = shippingMethod ? shippingMethod.description : null;
+    this.estimatedArrivalTime = shippingMethod && shippingMethod.custom
+        ? shippingMethod.custom.estimatedArrivalTime : null;
+    this.default = shippingMethod ? shippingMethod.defaultMethod : null;
 
     // // Mix in dynamically transformed properties
     // if (shipment) {
