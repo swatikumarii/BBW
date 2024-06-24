@@ -12,7 +12,6 @@
                         <span class="d-block order-left-info">${Resource.msg('label.orderhistory.dateordered', 'account', null)}</span>
                         <span class="d-block order-right-info">
                             <isset name="creationDate" value="${new Date(order.creationDate)}" scope="page" />
-                            <isset name="siteLocale" value="${dw.system.Site.getCurrent().defaultLocale}" scope="page" />
                             <isprint value="${creationDate}" formatter="dd-MM-yyyy hh:mm a" />
                         </span>
                     </p>
