@@ -115,13 +115,27 @@ server.get('InvoiceDownload', function (req, res, next) {
     var taxRate = getTaxRate * 100;
 
     if (order) {
+        var isEgiftCard = false;
         var orderModel = orderHelpers.getOrderDetailsByID(
             orderID,
             req.locale.id
         );
+        if (orderModel && orderModel.shipping && orderModel.shipping.length > 0) {
+            if (orderModel.shipping[0].productLineItems && orderModel.shipping[0].productLineItems.items) {
+                var products = orderModel.shipping[0].productLineItems.items;
+                for (var index = 0; index < products.length; index++) {
+                    if (products[index].isEgiftCard) {
+                        isEgiftCard = products[index].isEgiftCard;
+                        break;
+                    }
+                }
+            }
+        }
+
         res.render('order/invoiceDownload', {
             order: orderModel,
-            taxRate: taxRate
+            taxRate: taxRate,
+            isEgiftCard: isEgiftCard
         });
     } else {
         res.redirect(URLUtils.url('Order-History'));

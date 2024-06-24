@@ -96,23 +96,22 @@
             </div>
         </isif>
     </isif>
-</isif>
 
-
-<iscomment> Sales Tax </iscomment>
-<isif condition="${showSalesTaxes}">
-    <div class="row">
-        <div class="col-8">
-            <isif condition="${totalExclusiveTax}">
-                <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.sales.tax', 'cart', null)}</p>
-            <iselse/>
-                <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.sales.tax.inclusive', 'cart', null)}</p>
-            </isif>
+    <iscomment> Sales Tax </iscomment>
+    <isif condition="${showSalesTaxes}">
+        <div class="row">
+            <div class="col-8">
+                <isif condition="${totalExclusiveTax}">
+                    <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.sales.tax', 'cart', null)}</p>
+                <iselse/>
+                    <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.sales.tax.inclusive', 'cart', null)}</p>
+                </isif>
+            </div>
+            <div class="col-4">
+                <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sales-tax">${pdict.totals.salesTax}</p>
+            </div>
         </div>
-        <div class="col-4">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sales-tax">${pdict.totals.salesTax}</p>
-        </div>
-    </div>
+    </isif>
 </isif>
 
 <div class="row">

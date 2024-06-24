@@ -269,6 +269,15 @@
                             </table>
                         </div>
                         <iscomment> Payment Summary </iscomment>
+                        <iscomment> <isinclude template="mail/components/paymentSummary" /> </iscomment>
+                        <isset name="totalExclusiveTax"
+                            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showTotalsExcludingTaxes')}" scope="page" />
+                        <isset name="shippingExclusiveTax"
+                            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingExcludingTaxes')}" scope="page" />
+                        <isset name="showSalesTaxes" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showSalesTaxes')}"
+                            scope="page" />
+                        <isset name="showShippingHandlingTaxes"
+                            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingHandlingTaxes')}" scope="page" />
                         <table width="100%" cellpadding="0" cellspacing="0">
                             <tbody>
                                 <tr>
@@ -363,29 +372,33 @@
                                                     </isif>
                                                 </tr>
                                                 <iscomment> SHIPPING & HANDLING TAX </iscomment>
-                                                <iscomment> <tr>
-                                                    <td
-                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                        ${Resource.msg('email.shipping.and.handling.tax', 'confirmation', null)}
-                                                    </td>
-                                                    <td
-                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                        ${pdict.order.totals.shippingTotalTax}</td>
-                                                </tr> </iscomment>
-                                                <iscomment> Shipping Discounts </iscomment>
-                                                <tr>
-                                                    <isif
-                                                        condition="${!pdict.order.totals.shippingLevelDiscountTotal.value === 0}">
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                            ${Resource.msg('label.shipping.discount', 'common', null)}
-                                                        </td>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                            ${'-' + pdict.order.totals.shippingLevelDiscountTotal.formatted}
-                                                        </td>
+                                                <isif condition="${showShippingHandlingTaxes}">
+                                                    <isif condition="${!pdict.hasFreeShipping}">
+                                                        <iscomment> <tr>
+                                                            <td
+                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                                ${Resource.msg('email.shipping.and.handling.tax', 'confirmation', null)}
+                                                            </td>
+                                                            <td
+                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                ${pdict.order.totals.shippingTotalTax}</td>
+                                                        </tr> </iscomment>
+                                                        <iscomment> Shipping Discounts </iscomment>
+                                                        <tr>
+                                                            <isif
+                                                                condition="${!pdict.order.totals.shippingLevelDiscountTotal.value === 0}">
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                                    ${Resource.msg('label.shipping.discount', 'common', null)}
+                                                                </td>
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                    ${'-' + pdict.order.totals.shippingLevelDiscountTotal.formatted}
+                                                                </td>
+                                                            </isif>
+                                                        </tr>
                                                     </isif>
-                                                </tr>
+                                                </isif>
 
                                                 <isif condition="${showSalesTaxes}">
                                                     <tr>
