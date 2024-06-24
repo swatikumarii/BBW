@@ -44,7 +44,7 @@
                         </h1>
                         <p
                             style="margin:0 0 20px;font-size:22px;line-height:33px;padding-right:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
-                            ${Resource.msg('msg.placed.order.thank.you', 'confirmation', null)}
+                            ${Resource.msg('msg.order.completed', 'confirmation', null)}
                         </p>
                         <iscomment> View Order Status Image and Button </iscomment>
                         <div style="border:3px solid #f2f2f2;padding:36px 0;text-align:center">
