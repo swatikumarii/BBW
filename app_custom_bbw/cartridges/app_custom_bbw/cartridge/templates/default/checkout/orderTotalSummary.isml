@@ -52,20 +52,22 @@
             </div>
         </div>
     <iselse/>
-        <div class="row">
-            <div class="col-7">
-                <p class="h-font-size--16 h-clr--black-1 merchandise-total h-line-height--20 b-text-letter-space-01">${Resource.msg('label.shipping.and.handling', 'cart', null)}</p>
+        <isif condition="${pdict.order.items.items[0].isEgiftCard !== true}">
+            <div class="row">
+                <div class="col-7">
+                    <p class="h-font-size--16 h-clr--black-1 merchandise-total h-line-height--20 b-text-letter-space-01">${Resource.msg('label.shipping.and.handling', 'cart', null)}</p>
+                </div>
+                <div class="col-5">
+                    <isif condition="${!pdict.order.hasFreeShipping}">
+                        <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive h-line-height--20 b-text-letter-space-01">
+                            ${pdict.order.totals.totalShippingCost}</p>
+                    <iselse/>
+                        <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive h-line-height--20 b-text-letter-space-01">
+                            ${Resource.msg('label.free.price', 'cart', null)}</p>
+                    </isif>
+                </div>
             </div>
-            <div class="col-5">
-                <isif condition="${!pdict.order.hasFreeShipping}">
-                    <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive h-line-height--20 b-text-letter-space-01">
-                        ${pdict.order.totals.totalShippingCost}</p>
-                <iselse/>
-                    <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold shipping-cost tax-inclusive h-line-height--20 b-text-letter-space-01">
-                        ${Resource.msg('label.free.price', 'cart', null)}</p>
-                </isif>
-            </div>
-        </div>
+        </isif>
     </isif>
     <iscomment> Shipping Tax </iscomment>
     <isif condition="${showShippingHandlingTaxes}">

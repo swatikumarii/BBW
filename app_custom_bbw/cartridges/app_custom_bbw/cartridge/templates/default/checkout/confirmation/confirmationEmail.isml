@@ -331,37 +331,39 @@
                                                     </isloop>
                                                 </isif>
                                                 <iscomment> Shipping Charge </iscomment>
-                                                <tr>
-                                                    <isif condition="${shippingExclusiveTax}">
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                            ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
-                                                        </td>
-                                                        <isif condition="${pdict.order.hasFreeShipping}">
+                                                <isif condition="${pdict.order.items.items[0].isEgiftCard !== true}">
+                                                    <tr>
+                                                        <isif condition="${shippingExclusiveTax}">
                                                             <td
-                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                                ${Resource.msg('label.free.price', 'cart', null)}</td>
+                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                                ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
+                                                            </td>
+                                                            <isif condition="${pdict.order.hasFreeShipping}">
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                    ${Resource.msg('label.free.price', 'cart', null)}</td>
+                                                            <iselse/>
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                    ${pdict.order.totals.shippingTotalExclTax}</td>
+                                                            </isif>
                                                         <iselse/>
                                                             <td
-                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                                ${pdict.order.totals.shippingTotalExclTax}</td>
+                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                                ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
+                                                            </td>
+                                                            <isif condition="${pdict.order.hasFreeShipping}">
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                    ${Resource.msg('label.free.price', 'cart', null)}</td>
+                                                            <iselse/>
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                    ${pdict.order.totals.totalShippingCost}</td>
+                                                            </isif>
                                                         </isif>
-                                                    <iselse/>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                            ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
-                                                        </td>
-                                                        <isif condition="${pdict.order.hasFreeShipping}">
-                                                            <td
-                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                                ${Resource.msg('label.free.price', 'cart', null)}</td>
-                                                        <iselse/>
-                                                            <td
-                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                                ${pdict.order.totals.totalShippingCost}</td>
-                                                        </isif>
-                                                    </isif>
-                                                </tr>
+                                                    </tr>
+                                                </isif>
                                                 <iscomment> SHIPPING & HANDLING TAX </iscomment>
                                                 <iscomment> <tr>
                                                     <td
