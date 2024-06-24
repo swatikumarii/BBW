@@ -221,23 +221,6 @@ $(document).ready(function () {
         }, 100);
     });
 
-    // For reCAPTCHA buttons
-    $('body').on('click', 'submitRegistration', function () {
-        var form = $(this).closest('form');
-        setTimeout(function () {
-            var element = form.find(
-                '.form-control.is-invalid, .selectric-form-control.is-invalid'
-            );
-            if (element && element.length) {
-                $('body,html').animate(
-                    {
-                        scrollTop: element.offset().top - 250
-                    },
-                    500
-                );
-            }
-        }, 100);
-    });
     $(function () {
         $('#registration-form-dob').prop('max', function () {
             return new Date().toJSON().split('T')[0];
