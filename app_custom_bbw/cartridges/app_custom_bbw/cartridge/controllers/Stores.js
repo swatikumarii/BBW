@@ -6,7 +6,6 @@
 
 var server = require('server');
 server.extend(module.superModule);
-var cache = require('*/cartridge/scripts/middleware/cache');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 
 var storeHelpers = require('*/cartridge/scripts/helpers/storeHelpers');
@@ -126,12 +125,11 @@ server.append('FindStores', function (req, res, next) {
  * @function
  * @memberof Stores
  * @param {middleware} https- server.middleware.https
- * @param {middleware} applyDefaultCache- cache.applyDefaultCache
  * @param {middleware} consentTracking- consentTracking
  * @param {querystringparameter} storeId - storeId to get a particular store detail
  * @param {serverfunction} get
  */
-server.get('Detail', server.middleware.https, cache.applyDefaultCache, consentTracking.consent, function(req, res, next){
+server.get('Detail', server.middleware.https, consentTracking.consent, function(req, res, next){
     var storeId = req.querystring.storeId;
     var StoreMgr = require('dw/catalog/StoreMgr');
     var Site = require('dw/system/Site');
