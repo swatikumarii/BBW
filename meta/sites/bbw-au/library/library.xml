@@ -2405,7 +2405,7 @@
 		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'shipping-options')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Shipping&lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
-		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'what-is-your-return-policy')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Returns &amp; Exchanges&lt;/a&gt;&#13;
+		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'return-policy')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Returns &amp; Exchanges&lt;/a&gt;&#13;
 &#13;
 		&lt;/li&gt;&#13;
 		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Order-Status')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Order Tracking&lt;/a&gt;&#13;
