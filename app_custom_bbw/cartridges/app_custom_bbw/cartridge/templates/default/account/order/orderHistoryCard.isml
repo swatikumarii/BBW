@@ -13,11 +13,9 @@
                         <span class="d-block order-right-info">
                             <isset name="creationDate" value="${new Date(order.creationDate)}" scope="page" />
                             <isset name="siteLocale" value="${dw.system.Site.getCurrent().defaultLocale}" scope="page" />
-                            
                             <isprint value="${creationDate.getDate().toString().padStart(2, '0') + "-" + (creationDate.getMonth() + 1).toString().padStart(2, '0')+
                                            "-" + creationDate.getFullYear() + " " + (creationDate.getHours() % 12 || 12).toString().padStart(2, '0') + ":" +
                                            creationDate.getMinutes().toString().padStart(2, '0') + " " + (creationDate.getHours() < 12 ? 'AM' : 'PM')}" />
-                            
                         </span>
                     </p>
                     <p class="date-placed">
