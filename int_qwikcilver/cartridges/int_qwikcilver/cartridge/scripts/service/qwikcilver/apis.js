@@ -281,7 +281,9 @@ function createGiftCards(order, GCNumber) {
     var retryCount = getRetryCount(isretry);
     logger.info('Request object of gift card creation is {0}', JSON.stringify(requestObj));
     var returnCard = qwikcilverAPICall('gc/transactions', requestObj, 'POST', retryCount, isretry, 'Create GiftCard');
-    qwikcilverHelpers.saveGiftCardData(order, returnCard, GCNumber);
+    if (returnCard && returnCard.object) {
+        qwikcilverHelpers.saveGiftCardData(order, returnCard, GCNumber);
+    }
     return returnCard;
 }
 

@@ -104,6 +104,8 @@ function login() {
             data: form.serialize(),
             success: function (data) {
                 form.spinner().stop();
+                form.children('.alert-danger')
+                    .remove();
                 if (!data.success) {
                     if (data.isMigratedNotUpdated) {
                         if (form.hasClass('login')) {
@@ -118,6 +120,10 @@ function login() {
                         formValidation(form, data);
                         form.trigger('login:error', data);
                     }
+                    $('.login-modal-body').animate(
+                        { scrollTop: $('.alert-danger').offset().top },
+                        200
+                    );
                 } else {
                     form.trigger('login:success', data);
                     if (data.isIncomplete) {
@@ -168,7 +174,14 @@ function login() {
 
     $('#loginModal').on('hidden.bs.modal', function () {
         $('.migration-login-message').addClass('d-none');
+        $('form.modal-login').children('.alert-danger').remove();
         $('.login-form-div').removeClass('d-none');
+        $('#loginModal-form-email').removeClass('is-invalid');
+        $('#loginModal-form-email').removeClass('border-danger');
+        $('#loginModal-form-email').val('');
+        $('#login-modal-form-password').val('');
+        $('#login-modal-form-password').removeClass('is-invalid');
+        $('#login-modal-form-password').removeClass('border-danger');
         $('.login-modal-body .privacy-block').removeClass('d-none');
     });
 

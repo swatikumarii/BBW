@@ -44,10 +44,14 @@
     width: 100%;
     margin: 0 auto;
     overflow-y: auto;
-    height: 400px;
+    height: 85px;
 
     @include media-up(sm) {
         width: 65%;
+    }
+
+    @include media-btw(sm, lg) {
+        width: 100%;
     }
 
     ul {

@@ -5,7 +5,18 @@
         <page-attributes/>
     </folder>
 
-		<folder folder-id="privacy-policy">
+    <folder folder-id="giftcards">
+        <display-name xml:lang="x-default">Gift Cards</display-name>
+        <description xml:lang="x-default">Gift Cards</description>
+        <online-flag>false</online-flag>
+        <parent>root</parent>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="isShow">false</custom-attribute>
+        </custom-attributes>
+    </folder>
+
+    <folder folder-id="privacy-policy">
         <display-name xml:lang="x-default">Privacy Policy</display-name>
         <description xml:lang="x-default">Privacy Policy</description>
         <online-flag>true</online-flag>
@@ -20,7 +31,7 @@
         </custom-attributes>
     </folder>
 
-		<folder folder-id="terms-of-use">
+    <folder folder-id="terms-of-use">
         <display-name xml:lang="x-default">Terms of Use</display-name>
         <description xml:lang="x-default">Terms of Use</description>
         <online-flag>true</online-flag>
@@ -741,6 +752,35 @@
             <classification-link folder-id="seo-title"/>
         </folder-links>
     </content>
+
+    <content content-id="cart.minicartshow.seo">
+        <display-name xml:lang="x-default">Cart Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Cart page</page-title>
+            <page-description xml:lang="x-default">Cart page</page-description>
+            <page-keywords xml:lang="x-default">Cart page</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="reportingevent.minicart.seo">
+        <display-name xml:lang="x-default">Cart Show Seo</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Cart page</page-title>
+            <page-description xml:lang="x-default">Cart page</page-description>
+            <page-keywords xml:lang="x-default">Cart page</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
 
      <content content-id="checkout.customer.seo">
         <display-name xml:lang="x-default">Checkout Customer Seo</display-name>
@@ -2153,6 +2193,480 @@
         </folder-links>
     </content>
 
+    <content content-id="faq.search.seo">
+        <display-name xml:lang="x-default">Faq Search Seo</display-name>
+        <description xml:lang="x-default">Faq Search Seo</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Search results</page-title>
+            <page-description xml:lang="x-default">Search results</page-description>
+            <page-keywords xml:lang="x-default">Search results</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+
+    <content content-id="fathers-day-gift-guide">
+        <display-name xml:lang="x-default">GIFTS FOR DADS</display-name>
+        <description xml:lang="x-default">Six ways to get Dad’s gift game in order…before you resort to another tie.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Our Greatest Gift Guide for Dads 2024</page-title>
+            <page-description xml:lang="x-default">Make Dad proud on his special day. From bold colognes to fresh body washes, we smell nothing but winning Father’s Day gifts for every type of dad.</page-description>
+            <page-keywords xml:lang="x-default">Gifts for Dad, Father’s Day, Father’s Gifts, Father’s Day gift ideas, best cologne for men, colognes</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+	&lt;div class="controlcontent_r"&gt;&#13;
+		&lt;div class="htmlbucket"&gt;&#13;
+			&lt;p&gt;&#13;
+				&lt;style type="text/css"&gt;&#13;
+					/*head section*/&#13;
+					.shop-by-fragnance-submain {&#13;
+						position: relative;&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 {&#13;
+						width: 85%;&#13;
+						margin: 0px auto;&#13;
+						padding: 0px;&#13;
+						margin-bottom: 10px;&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 .imgsection {&#13;
+						width: 100%;&#13;
+						position: relative;&#13;
+						display: block;&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 .imgsection img {&#13;
+						width: 100%;&#13;
+						height: auto;&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 .contentsection {&#13;
+						width: 100%;&#13;
+						position: absolute;&#13;
+						z-index: 1;&#13;
+						text-align: center;&#13;
+						top: 0px;&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 .contentsection h1 {&#13;
+						font-size: 136px;&#13;
+						font-family: "Just Lovely";&#13;
+						text-align: right;&#13;
+						margin: 7% 6%;&#13;
+						padding: 0;&#13;
+						min-height: 44px;&#13;
+						border: none;&#13;
+						line-height: 0.6;&#13;
+						color: #fff;&#13;
+						text-shadow: 2px 2px #333;&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 .contentsection .head2 {&#13;
+						font-size: 34px;&#13;
+						text-align: center;&#13;
+						margin: 0px auto;&#13;
+						padding: 0;&#13;
+						border: none;&#13;
+						line-height: 1;&#13;
+						color: #333;&#13;
+						font-weight: 400;&#13;
+						font-family: "TrendSansW05-One", Arial, sans-serif;&#13;
+						width: 36%;&#13;
+						display: block;&#13;
+						letter-spacing: -4px;&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 .headparagraph {&#13;
+						color: #333;&#13;
+						font-weight: 400;&#13;
+						font-size: 26px;&#13;
+						margin: 5% auto;&#13;
+						color: #000;&#13;
+						display: block;&#13;
+						width: 78%;&#13;
+						text-align: center;&#13;
+						line-height: 1.2&#13;
+					}&#13;
+&#13;
+					.shop-by-fragrance-section1 .contentsection p {&#13;
+						font-size: 1rem;&#13;
+						text-align: center;&#13;
+						line-height: 1.2;&#13;
+						color: #333;&#13;
+						margin-top: 2%;&#13;
+					}&#13;
+&#13;
+					/*head section ends*/&#13;
+&#13;
+					/*step*/&#13;
+					.stephead {&#13;
+						display: block;&#13;
+						width: 85%;&#13;
+						margin: 0px auto;&#13;
+						padding: 2%;&#13;
+						background: #dff2ff;&#13;
+					}&#13;
+&#13;
+					.stephead .stephead-h {&#13;
+						font-size: 96px;&#13;
+						font-family: "Just Lovely";&#13;
+						text-align: center;&#13;
+						margin: 0px auto;&#13;
+						padding: 0;&#13;
+						border: none;&#13;
+						line-height: 1.1;&#13;
+						color: #000000;&#13;
+						width: 100%;&#13;
+						display: block;&#13;
+					}&#13;
+&#13;
+					.stephead .stephead-p {&#13;
+						font-size: 18px;&#13;
+						text-align: center;&#13;
+						margin: 0px auto;&#13;
+						line-height: 1.5;&#13;
+						color: #666;&#13;
+						width: 80%;&#13;
+						display: block;&#13;
+						letter-spacing: 0.3px;&#13;
+						font-weight: 400;&#13;
+					}&#13;
+&#13;
+					.stepcontent {&#13;
+						display: block;&#13;
+						width: 85%;&#13;
+						margin: 0px auto;&#13;
+						padding: 2%;&#13;
+					}&#13;
+&#13;
+					.stepcontent .stepcontent-sec {&#13;
+						display: flex;&#13;
+						flex-wrap: wrap;&#13;
+						width: 100%;&#13;
+						margin: 0px auto;&#13;
+						justify-content: space-between;&#13;
+					}&#13;
+&#13;
+					.stepcontent .stepcontent-sec .txt {&#13;
+						width: 56%;&#13;
+						margin: 0px auto;&#13;
+						padding: 8% 5%;&#13;
+					}&#13;
+&#13;
+					.stepcontent .stepcontent-sec .txt .txt-h {&#13;
+						font-size: 30px;&#13;
+						font-weight: 800;&#13;
+						text-transform: uppercase;&#13;
+						color: #000000;&#13;
+						font-family: "TrendSansW05-One", Arial, sans-serif;&#13;
+						letter-spacing: -0.5px;&#13;
+					}&#13;
+&#13;
+					.stepcontent .stepcontent-sec .txt .txt-p {&#13;
+						font-size: 18px;&#13;
+						font-weight: 400;&#13;
+						color: #333;&#13;
+						line-height: 1.5;&#13;
+					}&#13;
+&#13;
+					.stepcontent .stepcontent-sec a {&#13;
+						font-weight: 600;&#13;
+					}&#13;
+&#13;
+					.stepcontent .stepcontent-sec .img {&#13;
+						width: 40%;&#13;
+					}&#13;
+&#13;
+					.stepcontent .stepcontent-sec .img img {&#13;
+						width: 100%;&#13;
+						height: auto;&#13;
+					}&#13;
+&#13;
+					/*step ends*/&#13;
+&#13;
+					/*Finalstep*/&#13;
+					.stephead.finalstep {&#13;
+						background: unset;&#13;
+					}&#13;
+&#13;
+					.stephead.finalstep .stephead-h {&#13;
+						line-height: 1;&#13;
+					}&#13;
+&#13;
+					.stephead.finalstep .stephead-p {&#13;
+						color: #333;&#13;
+						font-weight: 400;&#13;
+						font-size: 26px;&#13;
+						margin: 0px auto;&#13;
+						color: #000;&#13;
+						display: block;&#13;
+						width: 78%;&#13;
+						text-align: center;&#13;
+						line-height: 1.5;&#13;
+					}&#13;
+&#13;
+					.stephead.finalstep .shop-cta {&#13;
+						text-transform: uppercase;&#13;
+						color: #fff;&#13;
+						padding: 1.5%;&#13;
+						border: 1px solid #666;&#13;
+						text-decoration: none;&#13;
+						text-align: center;&#13;
+						margin: 2% auto;&#13;
+						width: 30%;&#13;
+						display: block;&#13;
+						font-size: 20px;&#13;
+						font-weight: 600;&#13;
+						background: #666;&#13;
+						letter-spacing: 2px;&#13;
+					}&#13;
+&#13;
+					.stephead.finalstep .shop-cta:hover {&#13;
+						color: #fff;&#13;
+						background: #000;&#13;
+						border: 1px solid #000;&#13;
+					}&#13;
+&#13;
+					/*Finalstep ends*/&#13;
+&#13;
+					@media only screen and (max-width:767px) {&#13;
+						.otherpages .col1_T04 #ctl00_ContentPlaceHolder1_ctl00_Pane1 .container2 {&#13;
+							width: 100% !important;&#13;
+						}&#13;
+&#13;
+						/*head section*/&#13;
+						.shop-by-fragrance-section1 {&#13;
+							width: 100%;&#13;
+						}&#13;
+&#13;
+						.shop-by-fragrance-section1 .contentsection {&#13;
+							width: 100%;&#13;
+						}&#13;
+&#13;
+						.shop-by-fragrance-section1 .contentsection h1 {&#13;
+							font-size: 60px;&#13;
+							margin: 4% auto;&#13;
+							line-height: 0.8;&#13;
+							margin-left: 42%;&#13;
+							text-align: center;&#13;
+						}&#13;
+&#13;
+						.shop-by-fragrance-section1 .contentsection .head2 {&#13;
+							font-size: 22px;&#13;
+							width: 70%;&#13;
+							letter-spacing: -3px;&#13;
+							margin-left: 27%;&#13;
+						}&#13;
+&#13;
+						.shop-by-fragrance-section1 .headparagraph {&#13;
+							width: 87%;&#13;
+							font-size: 14px;&#13;
+						}&#13;
+&#13;
+						.shop-by-fragrance-section1 .contentsection p {&#13;
+							line-height: 1.6;&#13;
+							padding: 0 10%;&#13;
+						}&#13;
+&#13;
+						.shop-by-fragrance-section1 .contentsection p.shopnow {&#13;
+							margin-top: 8%;&#13;
+						}&#13;
+&#13;
+						.shop-by-fragrance-section1 .contentsection .down-ico {&#13;
+							margin: 0px auto;&#13;
+							margin-top: 6px;&#13;
+						}&#13;
+&#13;
+						/*head section ends*/&#13;
+&#13;
+						/*step*/&#13;
+						.stephead {&#13;
+							width: 100%;&#13;
+						}&#13;
+&#13;
+						.stephead .stephead-h {&#13;
+							font-size: 70px;&#13;
+						}&#13;
+&#13;
+						.stephead .stephead-p {&#13;
+							font-size: 14px;&#13;
+						}&#13;
+&#13;
+						.stepcontent {&#13;
+							width: 100%;&#13;
+						}&#13;
+&#13;
+						.stepcontent .stepcontent-sec.flxrev {&#13;
+							flex-direction: column-reverse;&#13;
+						}&#13;
+&#13;
+						.stepcontent .stepcontent-sec .txt {&#13;
+							width: 100%;&#13;
+						}&#13;
+&#13;
+						.stepcontent .stepcontent-sec .img {&#13;
+							width: 100%;&#13;
+						}&#13;
+&#13;
+						.stepcontent .stepcontent-sec .txt .txt-h {&#13;
+							font-size: 18px;&#13;
+						}&#13;
+&#13;
+						.stepcontent .stepcontent-sec .txt .txt-p {&#13;
+							font-size: 14px;&#13;
+						}&#13;
+&#13;
+						.stephead.finalstep .stephead-p {&#13;
+							width: 85%;&#13;
+							font-size: 14px;&#13;
+						}&#13;
+&#13;
+						.stephead.finalstep .shop-cta {&#13;
+							width: 60%;&#13;
+							font-size: 14px;&#13;
+							padding: 2.5%;&#13;
+						}&#13;
+&#13;
+						.stephead.finalstep .shop-cta:hover {&#13;
+							width: 60%;&#13;
+							font-size: 14px;&#13;
+							padding: 2.5%;&#13;
+						}&#13;
+&#13;
+						.stephead.finalstep .stephead-h {&#13;
+							font-size: 60px;&#13;
+						}&#13;
+&#13;
+						/*step ends*/&#13;
+					}&#13;
+&#13;
+&#13;
+					.stephead-description {&#13;
+						font-family: "TrendSansW05-One" !important;&#13;
+						font-size: 2rem !important;&#13;
+						text-transform: uppercase;&#13;
+						font-weight: bold;&#13;
+					}&#13;
+				&lt;/style&gt;&#13;
+			&lt;/p&gt;&#13;
+			&lt;div class="shop-by-fragrance-section1"&gt;&#13;
+				&lt;div class="shop-by-fragnance-submain"&gt;&#13;
+					&lt;div class="imgsection"&gt;&#13;
+						&lt;picture&gt;&#13;
+							&lt;source media="(max-width: 767px)" srcset="blogs/details/GetInspired_FathersDay_spr2_mobile_00.jpg?$staticlink$"&gt;&#13;
+								&lt;img src="blogs/details/GetInspired_FathersDay_spr2_desktop_00.webp?$staticlink$" width="100%"&gt;&#13;
+						&lt;/picture&gt;&#13;
+					&lt;/div&gt;&#13;
+					&lt;p class="headparagraph"&gt;To: dads of any kind, searching for any adventure. This Fatherʼs Day (or any special day), give fragrance that speaks to allll the endless fun that he is, and enjoys— because no one knows him quite like you!&lt;/p&gt;&#13;
+				&lt;/div&gt;&#13;
+			&lt;/div&gt;&#13;
+			&lt;div class="stepcontent"&gt;&#13;
+				&lt;div class="stepcontent-sec flxrev"&gt;&#13;
+					&lt;div class="txt"&gt;&#13;
+						&lt;h1 class="txt-h"&gt;GIVE A DAY AT THE MUSEUM:&#13;
+							&lt;br&gt;GRAPHITE&lt;/h1&gt;&#13;
+						&lt;p class="txt-p"&gt;Calm, collected and always exploring the cutting edge of cool. This refreshing—not overpowering—scent puts on display all the chill that he is and deserves. &lt;a href="$url('Page-Show', 'cid', 'graphite')$"&gt;SHOP​&lt;/a&gt;&#13;
+&#13;
+						&lt;/p&gt;&#13;
+					&lt;/div&gt;&#13;
+					&lt;div class="img"&gt;&#13;
+						&lt;img src="blogs/details/G1-IMAGE-1.jpg?$staticlink$"&gt;&#13;
+					&lt;/div&gt;&#13;
+				&lt;/div&gt;&#13;
+				&lt;div class="stepcontent-sec flxrev"&gt;&#13;
+					&lt;div class="img"&gt;&#13;
+						&lt;img src="blogs/details/G1-IMAGE-3.jpg?$staticlink$"&gt;&#13;
+					&lt;/div&gt;&#13;
+					&lt;div class="txt"&gt;&#13;
+						&lt;h1 class="txt-h"&gt;GIVE A SEASIDE GETAWAY:&#13;
+							&lt;br&gt;OCEAN&lt;/h1&gt;&#13;
+						&lt;p class="txt-p"&gt;Does he love a refreshing dip? Treat him to all the salty freshness that comes with his ideal ocean retreat—all day, any day&lt;a href="$url('Page-Show', 'cid', 'ocean')$"&gt;SHOP&lt;/a&gt;&#13;
+&#13;
+						&lt;/p&gt;&#13;
+					&lt;/div&gt;&#13;
+				&lt;/div&gt;&#13;
+				&lt;div class="stepcontent-sec"&gt;&#13;
+					&lt;div class="txt"&gt;&#13;
+						&lt;h1 class="txt-h"&gt;GIVE AN OUTING TO A LOCAL LOUNGE:&#13;
+							&lt;br&gt;BOURBON&lt;/h1&gt;&#13;
+						&lt;p class="txt-p"&gt;This rich, spicy and slightly sweet fragrance exudes confidence (just like him) and feels something like sipping on his favorite boozy drink.&lt;a href="$url('Page-Show', 'cid', 'bourbon')$"&gt;SHOP&lt;/a&gt;&#13;
+&#13;
+						&lt;/p&gt;&#13;
+					&lt;/div&gt;&#13;
+					&lt;div class="img"&gt;&#13;
+						&lt;img src="blogs/details/G1-IMAGE-4.jpg?$staticlink$"&gt;&#13;
+					&lt;/div&gt;&#13;
+				&lt;/div&gt;&#13;
+				&lt;div class="stepcontent-sec flxrev"&gt;&#13;
+					&lt;div class="img"&gt;&#13;
+						&lt;img src="blogs/details/G1-IMAGE-5.jpg?$staticlink$"&gt;&#13;
+					&lt;/div&gt;&#13;
+					&lt;div class="txt"&gt;&#13;
+						&lt;h1 class="txt-h"&gt;GIVE A WOODLAND STROLL:&#13;
+							&lt;br&gt;MAHOGANY TEAKWOOD&lt;/h1&gt;&#13;
+						&lt;p class="txt-p"&gt;So, exploring the great outdoors is his thing? Then he’ll love basking in these earthy yet tranquil aromas, even from the comfort of his mancave.&lt;a href="$url('Page-Show', 'cid', 'mahogany-teakwood')$"&gt;SHOP&lt;/a&gt;&#13;
+&#13;
+						&lt;/p&gt;&#13;
+					&lt;/div&gt;&#13;
+				&lt;/div&gt;&#13;
+				&lt;div class="stepcontent-sec"&gt;&#13;
+					&lt;div class="txt"&gt;&#13;
+						&lt;h1 class="txt-h"&gt;GIVE AN ICONIC NIGHT DOWNTOWN:&#13;
+							&lt;br&gt;NOIR&lt;/h1&gt;&#13;
+						&lt;p class="txt-p"&gt;This fragrance is a must for the guy who likes to make a bold statement. Dark, smokey with a hint of musk is the ideal complement to his greatest nights.&lt;a href="$url('Page-Show', 'cid', 'noir')$"&gt;SHOP&lt;/a&gt;&#13;
+&#13;
+						&lt;/p&gt;&#13;
+					&lt;/div&gt;&#13;
+					&lt;div class="img"&gt;&#13;
+						&lt;img src="blogs/details/G1-IMAGE-6.webp?$staticlink$"&gt;&#13;
+					&lt;/div&gt;&#13;
+				&lt;/div&gt;&#13;
+				&lt;div class="stepcontent-sec flxrev"&gt;&#13;
+					&lt;div class="img"&gt;&#13;
+						&lt;img src="blogs/details/G1-IMAGE-7.jpg?$staticlink$"&gt;&#13;
+					&lt;/div&gt;&#13;
+					&lt;div class="txt"&gt;&#13;
+						&lt;h1 class="txt-h"&gt;GIVE A SELF CARE ROUTINE:&#13;
+							&lt;br&gt;GROOMING ESSENTIALS​&lt;/h1&gt;&#13;
+						&lt;p class="txt-p"&gt;The perfect shave and a good hair day, every day. He’ll love a moment to himself with a complete grooming routine.&lt;a href="$url('Page-Show', 'cid', 'mens-grooming')$"&gt;SHOP&lt;/a&gt;&#13;
+&#13;
+						&lt;/p&gt;&#13;
+					&lt;/div&gt;&#13;
+				&lt;/div&gt;&#13;
+			&lt;/div&gt;&#13;
+			&lt;div class="stephead finalstep"&gt;&#13;
+				&lt;p class="stephead-p small" style="padding-top:10px;"&gt;If you like what you see…&lt;/p&gt;&#13;
+				&lt;h2 align="center" class="txt-h"&gt;Weʼve got even more to enjoy, especially for dad or any father figures youʼre celebrating this season&lt;/h2&gt;&#13;
+				&lt;h1 class="stephead-h"&gt;P.S. Father's Day 2024&lt;/h1&gt;&#13;
+				&lt;h2 align="center" class="txt-h"&gt;&#13;
+					&lt;span style="font-size:26px;"&gt;is Sunday, June 16.&lt;/span&gt;&#13;
+				&lt;/h2&gt;	&lt;a class="shop-cta" href="$url('Page-Show', 'cid', 'all-men-collection')$"&gt;SHOP NOW&lt;/a&gt;&#13;
+&#13;
+			&lt;/div&gt;&#13;
+			&lt;p&gt;&lt;/p&gt;&#13;
+		&lt;/div&gt;&#13;
+	&lt;/div&gt;&#13;
+	&lt;div class="r_bottom"&gt;&#13;
+		&lt;div class="l_bottom"&gt;&lt;/div&gt;&#13;
+	&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/Fthrsday-thmbnail.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="featured">
+                <position>6.0</position>
+            </classification-link>
+        </folder-links>
+    </content>
+
 	<content content-id="order.history.seo">
         <display-name xml:lang="x-default">Order History Seo</display-name>
         <online-flag>true</online-flag>
@@ -2243,14 +2757,29 @@
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes>
-            <page-title xml:lang="x-default">Search Results</page-title>
-            <page-description xml:lang="x-default">Search Results</page-description>
+            <page-title xml:lang="x-default">Search Results | Bath &amp; Body Works Australia</page-title>
+            <page-description xml:lang="x-default">Search Results | Bath &amp; Body Works Australia</page-description>
             <page-keywords xml:lang="x-default">Search Results</page-keywords>
         </page-attributes>
         <folder-links>
             <classification-link folder-id="seo-title"/>
         </folder-links>
     </content>
+
+    <content content-id="redirecturl.start.seo">
+        <display-name xml:lang="x-default">Search Results</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes>
+            <page-title xml:lang="x-default">Page Error</page-title>
+            <page-description xml:lang="x-default">Whoops! We couldn't find the page!</page-description>
+            <page-keywords xml:lang="x-default">Bath and Body Works</page-keywords>
+        </page-attributes>
+        <folder-links>
+            <classification-link folder-id="seo-title"/>
+        </folder-links>
+    </content>
+    
 	<content content-id="giftcard.show.seo">
         <display-name xml:lang="x-default">E-Gift Cards</display-name>
         <online-flag>true</online-flag>
@@ -2394,34 +2923,37 @@
     </content>
 
     <content content-id="footer-discover">
-        <display-name xml:lang="x-default">Discover</display-name>
-        <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
-        <page-attributes/>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#13;
-	&lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14 d-flex align-items-center justify-content-between cursor-pointer" aria-expanded="false" aria-controls="collapsible-discover" data-toggle="collapse" data-target="#collapsible-discover"&gt;DISCOVER&lt;/button&gt;&#13;
-	&lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-discover"&gt;&#13;
-		&lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;DISCOVER&lt;/li&gt;&#13;
-		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'aboutus')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;About Us&lt;/a&gt;&#13;
-&#13;
-		&lt;/li&gt;&#13;
-		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Careers-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Careers&lt;/a&gt;&#13;
-&#13;
-		&lt;/li&gt;&#13;
-		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'giftcards')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#13;
-&lt;/a&gt;&#13;
-&#13;
-		&lt;/li&gt;&#13;
-				&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Search-Show', 'cgid', 'shop-by-ingredient')$"&#13;
-						class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Shop by Ingredient&#13;
-					&lt;/a&gt;&#13;
-				&#13;
-				&lt;/li&gt;&#13;
-	&lt;/ul&gt;&#13;
+    <display-name xml:lang="x-default">Discover</display-name>
+    <online-flag>true</online-flag>
+    <searchable-flag>false</searchable-flag>
+    <page-attributes/>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="footer-inner-div"&gt;&#xD;
+	&lt;button class="title h-fw--bold h-clr--black text-left btn-block d-md-none footer-list-title footer-collapse collapsed h-font-size--14 d-flex align-items-center justify-content-between cursor-pointer" aria-expanded="false" aria-controls="collapsible-discover" data-toggle="collapse" data-target="#collapsible-discover"&gt;DISCOVER&lt;/button&gt;&#xD;
+	&lt;ul class="footer-list footer-discover-detail menu-footer content mb-0 d-md-block" id="collapsible-discover"&gt;&#xD;
+		&lt;li class="footer-list-item mb-3 first-list-item footer-list-title d-none d-md-block h-clr--black-1 h-fw--bold"&gt;DISCOVER&lt;/li&gt;&#xD;
+		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'aboutus')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;About Us&lt;/a&gt;&#xD;
+&#xD;
+		&lt;/li&gt;&#xD;
+		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Careers-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Careers&lt;/a&gt;&#xD;
+&#xD;
+		&lt;/li&gt;&#xD;
+		&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Page-Show', 'cid', 'giftcards')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Gift Cards&#xD;
+&lt;/a&gt;&#xD;
+&#xD;
+		&lt;!-- &lt;/li&gt;&#xD;
+				&lt;li class="footer-list-item mb-3 link-item"&gt; &lt;a href="$url('Search-Show', 'cgid', 'shop-by-ingredient')$"&#xD;
+						class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Shop by Ingredient&#xD;
+					&lt;/a&gt;&#xD;
+				&#xD;
+				&lt;/li&gt; --&gt;&#xD;
+&lt;li class="footer-list-item mb-3 link-item"&gt;&#xD;
+            &lt;a href="$url('Fragrance-Show')$" class="footer-item-link h-clr--black-1 h-font-size--16"&gt;Shop by Fragrance&lt;/a&gt;&#xD;
+        &lt;/li&gt;&#xD;
+	&lt;/ul&gt;&#xD;
 &lt;/div&gt;</custom-attribute>
-        </custom-attributes>
-    </content>
+    </custom-attributes>
+  </content>
 
     <content content-id="footer-locate-store">
         <display-name xml:lang="x-default">Find Us</display-name>
@@ -2477,7 +3009,7 @@
     class="btn btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"&#13;
     data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486" data-placement="top"&#13;
     title="&amp;lt;div class='popover-title header-content h-font-size--18 h-fw--bold d-flex align-items-center justify-space-between'&amp;gt;BATH &amp;amp; BODY WORKS AUSTRALIA LUXTRALIA PTY LTD&amp;lt;/div&amp;gt; &amp;lt;a href='#' class='close cursor-pointer'&amp;gt;&amp;lt;/a&amp;gt;"&#13;
-    data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt; &amp;lt;p class='h-clr--black-3 h-font-size--16 mb-0'&amp;gt; Level 4, 112 Castlereagh Street,&amp;lt;br /&amp;gt; Sydney, NSW, 2000&amp;lt;br /&amp;gt; (02) 8666 0666&amp;lt;/p&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;p class='h-clr--black-3 mb-0 h-font-size--16'&amp;gt;You may withdraw your &amp;lt;br /&amp;gt; consent at anytime. View&amp;lt;/p&amp;gt;&amp;lt;a class=' cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'privacy-policy')$'&amp;gt;Privacy Policy&amp;lt;/a&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;a class='cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'contact-us')$'&amp;gt;Contact Us&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;"&#13;
+    data-content="&amp;lt;div class='popover-content ds-tooltip-content'&amp;gt; &amp;lt;p class='h-clr--black-3 h-font-size--16 mb-0'&amp;gt; Level 4, 112 Castlereagh St,&amp;lt;br /&amp;gt; Sydney, NSW, 2000&amp;lt;br /&amp;gt; Australia &amp;lt;br /&amp;gt; (02) 8666 0666&amp;lt;/p&amp;gt; &amp;lt;br /&amp;gt; &amp;lt;p class='h-clr--black-3 mb-0 h-font-size--16'&amp;gt;You may withdraw your &amp;lt;br /&amp;gt; consent at anytime. View&amp;lt;/p&amp;gt;&amp;lt;a class=' cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'privacy-policy')$'&amp;gt;Privacy Policy&amp;lt;/a&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;a class='cursor-pointer d-block h-font-size--16' href='$url('Page-Show', 'cid', 'contact-us')$'&amp;gt;Contact Us&amp;lt;/a&amp;gt;&amp;lt;/div&amp;gt;"&#13;
     data-html="true"&gt;&#13;
 &lt;/button&gt;</custom-attribute>
         </custom-attributes>
@@ -2527,9 +3059,9 @@
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="store-details-bottom-wrapper text-center my-5"&gt;&#13;
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="store-details-bottom-wrapper text-center my-5"&gt;
 &lt;p class="h-font-size--16"&gt;
-To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" class="h-clr--blue-12"&gt;1800-576-972&lt;/a&gt; or email &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au.&lt;/a&gt;&lt;/p&gt;&#13;
+To contact our Customer Service team, please call &lt;a href="phone:1800-576-972" class="h-clr--blue-12"&gt;1800-576-972&lt;/a&gt; or email us at &lt;a class="h-clr--blue-12" href="mailto:cs@bathandbodyworks.com.au"&gt;cs@bathandbodyworks.com.au.&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
     </content>
@@ -2613,43 +3145,32 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
         </custom-attributes>
     </content>
 
-		<content content-id="menu-item-slot-1-detail-section">
-        <display-name xml:lang="x-default">Menu Item Slot-1 Detail Section</display-name>
-        <description xml:lang="x-default">Menu Item Slot-1 Detail Section</description>
-        <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
-        <page-attributes/>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="category-top-offers"&gt;&#13;
-&lt;a href="#" class="heading" aria-expanded="false"&gt;&lt;span&gt;Body Care Offers&lt;/span&gt;&lt;/a&gt;&#13;
-&lt;div class="category-top-items"&gt;&#13;
-&lt;ul class="level-3-ul dropdown-menu p-0" role="menu"&gt;&#13;
-&lt;li class="dropdown-item p-0 border-0"&gt;&#13;
-		&lt;a href="#" role="menuitem" class="dropdown-link d-block"&gt;&#13;
-			2 for $12 All Skincare&#13;
-		&lt;/a&gt;&#13;
-	&lt;/li&gt;&#13;
-&lt;li class="dropdown-item p-0 border-0"&gt;&#13;
-		&lt;a href="#" role="menuitem" class="dropdown-link d-block"&gt;&#13;
-			Buy 3, Get 2 FREE Select Body, Skin &amp;amp; Hair Care&#13;
-		&lt;/a&gt;&#13;
-	&lt;/li&gt;	&#13;
-&lt;li class="dropdown-item p-0 border-0"&gt;&#13;
-		&lt;a href="#" role="menuitem" class="dropdown-link d-block"&gt;&#13;
-			Buy 3, Get 1 FREE Travel &amp;amp; Hand Cream&#13;
-		&lt;/a&gt;&#13;
-	&lt;/li&gt;&#13;
-&lt;li class="dropdown-item p-0 border-0"&gt;&#13;
-		&lt;a href="#" role="menuitem" class="dropdown-link d-block"&gt;&#13;
-			Pride Month Collection&#13;
-		&lt;/a&gt;&#13;
-	&lt;/li&gt;&#13;
-&lt;/ul&gt;&#13;
-&lt;/div&gt;&#13;
-&#13;
-&lt;/div&gt;</custom-attribute>
-        </custom-attributes>
-    </content>
+	<content content-id="menu-item-slot-1-detail-section">
+<display-name xml:lang="x-default">Menu Item Slot-1 Detail Section</display-name>
+<description xml:lang="x-default">Menu Item Slot-1 Detail Section</description>
+<online-flag>true</online-flag>
+<searchable-flag>false</searchable-flag>
+<page-attributes/>
+<custom-attributes>
+<custom-attribute attribute-id="body" xml:lang="x-default">
+&lt;div class="category-top-offers"&gt; &lt;a href="$url('Search-Show','cgid','all-sas-offers')$" class="heading"
+        aria-expanded="false"&gt;&lt;span&gt;All Sale Offers&lt;/span&gt;&lt;/a&gt;
+    &lt;div class="category-top-items"&gt;
+        &lt;ul class="level-3-ul dropdown-menu p-0" role="menu"&gt;
+            &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a href="$url('Search-Show','cgid','sas-60')$" role="menuitem"
+                    class="dropdown-link d-block"&gt; 60% Off Select Sale items &lt;/a&gt; &lt;/li&gt;
+            &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a href="$url('Search-Show','cgid','sas-70')$" role="menuitem"
+                    class="dropdown-link d-block"&gt; 70% Off Select Sale items &lt;/a&gt; &lt;/li&gt;
+            &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a href="$url('Search-Show','cgid','sas-80')$" role="menuitem"
+                    class="dropdown-link d-block"&gt; 80% Off Select Sale items &lt;/a&gt; &lt;/li&gt;
+            &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a href="$url('Search-Show','cgid','sas-85')$" role="menuitem"
+                    class="dropdown-link d-block"&gt; 85% Off Select Sale items &lt;/a&gt; &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</custom-attribute>
+</custom-attributes>
+</content>
 
     <content content-id="menu-item-slot-1-image-section">
         <display-name xml:lang="x-default">Menu Item Slot 1 Image Section</display-name>
@@ -2667,6 +3188,26 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
 &lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot3.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand sanitizers&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$6&lt;/p&gt;&lt;/div&gt;&#13;
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="menu-item-slot-2-detail-section">
+        <display-name xml:lang="x-default">menu item slot 2 detail section</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+        <custom-attribute attribute-id="body" xml:lang="x-default">
+        &lt;div class="category-top-offers"&gt; &lt;a href="$url('Search-Show','cgid','select-body-care')$" class="heading"
+        aria-expanded="false"&gt;&lt;span&gt;Body Care Offers&lt;/span&gt;&lt;/a&gt;
+    &lt;div class="category-top-items"&gt;
+        &lt;ul class="level-3-ul dropdown-menu p-0" role="menu"&gt;
+            &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a&gt; href="$url('Search-Show','cgid','body-care-buy-3-get-1-free')$"
+                    role="menuitem" class="dropdown-link d-block"&gt; Body Care Buy 3 Get 1 Free &lt;/a&gt; &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </custom-attribute>
         </custom-attributes>
     </content>
 
@@ -2689,6 +3230,33 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
         </custom-attributes>
     </content>
 
+    <content content-id="menu-item-slot-3-detail-section">
+        <display-name xml:lang="x-default">menu item slot 3 detail section</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+        <custom-attribute attribute-id="body" xml:lang="x-default">
+            &lt;div class="category-top-offers"&gt; &lt;a href="$url('Search-Show','cgid','select-hand-soaps')$" class="heading"
+        aria-expanded="false"&gt;&lt;span&gt;Hand Soap & Sanitizer Offers&lt;/span&gt;&lt;/a&gt;
+    &lt;div class="category-top-items"&gt;
+        &lt;ul class="level-3-ul dropdown-menu p-0" role="menu"&gt;
+            &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a
+                    href="$url('Search-Show','cgid','hand-soaps-buy-3-for-43-buy-6-for-82')$" role="menuitem"
+                    class="dropdown-link d-block"&gt; Hand Soaps Buy 3 for AU$ 43, Buy 6 for AU$ 82 &lt;/a&gt; &lt;/li&gt;
+            &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a
+                    href="$url('Search-Show','cgid','all-pocketbacs-buy-3-for-16-buy-5-for-25')$" role="menuitem"
+                    class="dropdown-link d-block"&gt; All Pocketbacs Buy 3 for AU$ 16, Buy 5 for AU$ 25 &lt;/a&gt; &lt;/li&gt;
+            &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a
+                    href="$url('Search-Show','cgid','hand-sanitizer-sprays-buy-3-get-1-free')$" role="menuitem"
+                    class="dropdown-link d-block"&gt; Hand Sanitizer Spray Buy 3 Get 1 Free &lt;/a&gt; &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </custom-attribute>
+        </custom-attributes>
+    </content>
+
     <content content-id="menu-item-slot-3-image-section">
         <display-name xml:lang="x-default">Menu Item Slot 3 Image Section</display-name>
         <description xml:lang="x-default">Menu Item Slot 3 Image Section</description>
@@ -2708,6 +3276,37 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
         </custom-attributes>
     </content>
 
+    <content content-id="menu-item-slot-4-detail-section">
+        <display-name xml:lang="x-default">menu item slot 4 detail section</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+        <custom-attribute attribute-id="body" xml:lang="x-default">
+        </custom-attribute>
+        &lt;div class="category-top-offers"&gt; &lt;a href="$url('Search-Show','cgid','select-candles')$" class="heading"
+        aria-expanded="false"&gt;&lt;span&gt;Candles & Home Fragrance Offers&lt;/span&gt;&lt;/a&gt;
+    &lt;div class="category-top-items"&gt;
+        &lt;ul class="level-3-ul dropdown-menu p-0 column-count-2" role="menu"&gt;
+            &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a&gt;
+                    href="$url('Search-Show','cgid','select-large-candles-2-for-92')$" role="menuitem"
+                    class="dropdown-link d-block"&gt; Select Large Candles 2 For AU$ 92 &lt;/a&gt; &lt;/li&gt;
+            &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a&gt; href="$url('Search-Show','cgid','single-wick-candles-2-for-62')$"
+                    role="menuitem" class="dropdown-link d-block"&gt; Single Wick Candles 2 Foe AU$ 62 &lt;/a&gt; &lt;/li&gt;
+            &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a&gt;
+                    href="$url('Search-Show','cgid','wallflowers-plug-refill-buy-3-for-48-buy-6-for-92')$"
+                    role="menuitem" class="dropdown-link d-block"&gt; Wallflowers Plug + Refill Buy 3 for AU$ 48, Buy 6 for
+                    AU$ 92 &lt;/a&gt; &lt;/li&gt;
+            &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a&gt;
+                    href="$url('Search-Show','cgid','select-room-spray-and-scentportable-buy-3-get-1-free')$"
+                    role="menuitem" class="dropdown-link d-block"&gt; Select Room Spray & Scentportable Buy 3 Get 1 Free
+                &lt;/a&gt; &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </custom-attributes>
+    </content>
+
     <content content-id="menu-item-slot-4-image-section">
         <display-name xml:lang="x-default">Menu Item Slot 4 Image Section</display-name>
         <description xml:lang="x-default">Menu Item Slot 4 Image Section</description>
@@ -2724,6 +3323,26 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
 &lt;div&gt;&lt;p class="h-clr--black text-uppercase"&gt;shop hand soaps&lt;/p&gt;&lt;img class="w-100" alt="" src="images/header/menu/Screenshot3.png?$staticlink$" title="" /&gt;&lt;p class="h-clr--blue text-uppercase mb-0 font-weight-bold"&gt;select hand sanitizers&lt;/p&gt;&lt;p class="h-clr--blue font-weight-bold"&gt;$6&lt;/p&gt;&lt;/div&gt;&#13;
 &lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="menu-item-slot-5-detail-section">
+        <display-name xml:lang="x-default">menu item slot 5 detail section</display-name>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+        <custom-attribute attribute-id="body" xml:lang="x-default">
+        &lt;div class="category-top-offers"&gt; &lt;a href="$url('Search-Show','cgid','select-body-care')$" class="heading"
+        aria-expanded="false"&gt;&lt;span&gt;Body Care Offers&lt;/span&gt;&lt;/a&gt;
+    &lt;div class="category-top-items"&gt;
+        &lt;ul class="level-3-ul dropdown-menu p-0" role="menu"&gt;
+            &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a href="$url('Search-Show','cgid','body-care-buy-3-get-1-free')$"
+                    role="menuitem" class="dropdown-link d-block"&gt; Body Care Buy 3 Get 1 Free &lt;/a&gt; &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </custom-attribute>
         </custom-attributes>
     </content>
 
@@ -2875,7 +3494,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
 							&lt;p&gt;Need help? We want to hear from you!&lt;/p&gt;&#13;
 							&lt;div class="rn_ConditionalChatLink" id="rn_ConditionalChatLink_6"&gt;&#13;
 								&lt;p class="mb-0"&gt;&#13;
-									&lt;strong class="h-fw--semibold h-clr--black-3"&gt;CALL US:&lt;/strong&gt;  &lt;a href="tel:1-800-576-972"&gt;1-800-576-972&lt;/a&gt;&#13;
+									&lt;strong class="h-fw--semibold h-clr--black-3"&gt;CALL US:&lt;/strong&gt;  &lt;a href="tel:1800-576-972"&gt;1800-576-972&lt;/a&gt;&#13;
 								&lt;/p&gt;&#13;
 							&lt;/div&gt;&#13;
 							&lt;p&gt;&#13;
@@ -3513,279 +4132,378 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
     </content>
 
     <content content-id="email-footer-with-suggestions">
-        <display-name xml:lang="x-default">Email Footer with Suggestions</display-name>
-        <description xml:lang="x-default">Email Footer with picked just for you and top offers sections</description>
-        <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
-        <page-attributes/>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;tr&gt;
-    &lt;td
-        style="vertical-align:top;text-align:center;color:#666;font-size:14px;line-height:1;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif; padding:0 32px 15px;"&gt;
-        &lt;table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0;margin:0 auto;max-width:600px;min-width:320px;table-layout:fixed;vertical-align:top;width:100%;background:#ffffff"&gt;
-            &lt;tbody&gt;
-				&lt;!--Pick Just for you - start --&gt;
-				 &lt;tr&gt;
-                    &lt;td align="center"
-                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding-bottom:24px"&gt;
-                        &lt;a href="#" style="display:block;cursor: pointer;" target="_blank"&gt;
-                            &lt;img width="70%" alt="Top Offers - Today's Deals" style="border:0;display:block;margin:0 auto;" border="0"
-                                src="images/email/email-footer/footer-suggestions/Picked-just-for-you!.jpg?$staticlink$"&gt;
-                        &lt;/a&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-				&lt;tr&gt;
-                    &lt;td&gt;
-                        &lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation" style="padding: 40px 0;"&gt;
-                            &lt;tbody&gt;
-                                &lt;tr&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-
-                                        &lt;a href="$('Product-Show', 'pid', '25139400')$" style="display:block;cursor: pointer;" target="_blank"&gt;
-                                            &lt;img alt="Aromatheraphy" style="border:0;display:block" border="0"  width="100%" height="300px"
-                                                src="images/email/email-footer/footer-suggestions/pjs-product-1.jpg?$staticlink$"/&gt;
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-
-                                        &lt;a href="$('Product-Show', 'pid', '26182136')$" style="display:block;cursor: pointer;" target="_blank"&gt;
-                                            &lt;img alt="Boday Care" style="border:0;display:block" border="0" width="100%" height="300px"
-                                                src="images/email/email-footer/footer-suggestions/pjs-product-2.jpg?$staticlink$"/&gt;
-                                        &lt;/a&gt;
-                                    &lt;/td&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-                                        &lt;a href="$('Product-Show', 'pid', '25133698')$" style="display:block;cursor: pointer;" target="_blank"&gt;
-                                            &lt;img alt="Candles" style="border:0;display:block" border="0" width="100%" height="300px"
-                                                src="images/email/email-footer/footer-suggestions/pjs-product-3.jpg?$staticlink$"/&gt;
-                                        &lt;/a&gt;
-                                    &lt;/td&gt;
-                                &lt;/tr&gt;
-                            &lt;/tbody&gt;
-                        &lt;/table&gt;
-						&lt;/td&gt;
-						&lt;/tr&gt;
-				&lt;!--Pick Just for you - end --&gt;
-
-                &lt;!--Top Offers - Start --&gt;
-                &lt;tr&gt;
-                    &lt;td align="center"
-                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding:24px 0;border-top: 7px solid #333;"&gt;
-                        &lt;a href="$url('Home-Show')$" style="display:block" target="_blank"&gt;
-                            &lt;img width="100%" alt="Top Offers - Today's Deals" style="border:0;display:block" border="0"
-                                src="images/email/email-footer/footer-suggestions/top-offer-cta.jpg?$staticlink$"&gt;
-                        &lt;/a&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;tr&gt;
-                    &lt;td&gt;
-                        &lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation"&gt;
-                            &lt;tbody&gt;
-                                &lt;tr&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-
-                                        &lt;a href="$url('Search-Show','cgid','wellness-and-aromatherapy')$" style="display:block" target="_blank"&gt;
-                                            &lt;img alt="Aromatheraphy" style="border:0;display:block" border="0"  width="160px" height="160px"
-                                                src="images/email/email-footer/footer-suggestions/fbc_wellness_sp3_vn.jpg?$staticlink$"
-                                                class/&gt;
-                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Aromatheraphy&lt;/p&gt;
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-
-                                        &lt;a href="$url('Search-Show','cgid','body-care')$" style="display:block" target="_blank"&gt;
-                                            &lt;img alt="Boday Care" style="border:0;display:block" border="0" width="160px" height="160px"
-                                                src="images/email/email-footer/footer-suggestions/bc_fragrance_GL_vn.jpg?$staticlink$"/&gt;
-                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Boday Care&lt;/p&gt;
-                                        &lt;/a&gt;
-                                    &lt;/td&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-                                        &lt;a href="$url('Search-Show','cgid','candles')$" style="display:block" target="_blank"&gt;
-                                            &lt;img alt="Candles" style="border:0;display:block" border="0" width="160px" height="160px"
-                                                src="images/email/email-footer/footer-suggestions/cndl_all_GL_vn.jpg?$staticlink$"/&gt;
-                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Candles&lt;/p&gt;
-                                        &lt;/a&gt;
-                                    &lt;/td&gt;
-                                &lt;/tr&gt;
-                            &lt;/tbody&gt;
-                        &lt;/table&gt;
-						&lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation" style="margin-top:15px;"&gt;
-                            &lt;tbody&gt;
-                                &lt;tr&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-
-                                        &lt;a href="$url('Search-Show','cgid','wallflowers')$" style="display:block" target="_blank"&gt;
-                                            &lt;img alt="Aromatheraphy" style="border:0;display:block" border="0"  width="160px" height="160px"
-                                                src="images/email/email-footer/footer-suggestions/hf_wf_GL_vn.jpg?$staticlink$"
-                                                class/&gt;
-                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Wallflowers&lt;/p&gt;
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-
-                                        &lt;a href="$url('Search-Show','cgid','hand-soaps')$" style="display:block" target="_blank"&gt;
-                                            &lt;img alt="Boday Care" style="border:0;display:block" border="0" width="160px" height="160px"
-                                                src="images/email/email-footer/footer-suggestions/sp_all_GL_vn.jpg?$staticlink$"/&gt;
-                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Hand Soaps&lt;/p&gt;
-                                        &lt;/a&gt;
-                                    &lt;/td&gt;
-                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;
-                                        &lt;a href="$url('Search-Show','cgid','the-men-s-shop')$" style="display:block" target="_blank"&gt;
-                                            &lt;img alt="Candles" style="border:0;display:block" border="0" width="160px" height="160px"
-                                                src="images/email/email-footer/footer-suggestions/mens_all_GL_vn.jpg?$staticlink$"/&gt;
-                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Men's Shop&lt;/p&gt;
-                                        &lt;/a&gt;
-                                    &lt;/td&gt;
-                                &lt;/tr&gt;
-                            &lt;/tbody&gt;
-                        &lt;/table&gt;
-                    &lt;/td&gt;
-
-                &lt;/tr&gt;
-                &lt;!--Top Offers - End --&gt;
-                &lt;!--Shop Now Button- Start--&gt;
-                &lt;tr&gt;
-                    &lt;td align="center"
-                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding: 20px 0;"&gt;
-                        &lt;div&gt;
-                            &lt;!--[if mso]&gt;
-                            &lt;v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="$url('Home-Show')$" style="height:40px;v-text-anchor:middle;width:500px;" arcsize="0%" strokecolor="#333" fillcolor="#333"&gt;
-                              &lt;w:anchorlock/&gt;
-                              &lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"&gt;Shop Now&lt;/center&gt;
-                            &lt;/v:roundrect&gt;
-                          &lt;![endif]--&gt;&lt;a href="$url('Home-Show')$"
-                                style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;border-radius:0px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:500px;-webkit-text-size-adjust:none;mso-hide:all;"&gt;Shop
-                                Now&lt;/a&gt;&lt;/div&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;!--Shop Now Button- End--&gt;
-                &lt;!--Useful Link - Start--&gt;
-                &lt;tr&gt;
-                    &lt;td align="center"
-                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;vertical-align:top;padding:30px 0"&gt;
-                        &lt;table border="0" cellpadding="0" cellspacing="0" width="90%"&gt;
-                            &lt;tbody&gt;
-                                &lt;tr&gt;
-                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'store-locator')$" title="Find a Store"
-                                            style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase"
-                                            target="_blank"&gt;
-                                            Find a Store
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td align="center"
-                                        style="border-left:1px solid #666666;border-right:1px solid #666666"&gt; &lt;a
-                                            href="$url('Account-Show')$" title="My Account"
-                                            style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase"
-                                            target="_blank"&gt;
-                                            My Account
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-customer-care')$" title="Customer Care"
-                                            style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase"
-                                            target="_blank"&gt;
-                                            Customer Care
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                &lt;/tr&gt;
-                            &lt;/tbody&gt;
-                        &lt;/table&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;!--Useful Link - End--&gt;
-                &lt;!--Social Meadia icons - Start--&gt;
-                &lt;tr&gt;
-                    &lt;td align="center"
-                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding-bottom:40px"&gt;
-                        &lt;table border="0" cellpadding="0" cellspacing="0" width="35%"&gt;
-                            &lt;tbody&gt;
-                                &lt;tr&gt;
-                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block"
-                                            href="https://www.facebook.com/bbwaustralia/" title="Facebook"
-                                            target="_blank"&gt;
-                                            &lt;img src="images/email/email-footer/footer-icons/facebook-icon.png?$staticlink$"
-                                                alt="Facebook" style="border:0;vertical-align:top" width="35px"
-                                                height="35px" /&gt;
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block"
-                                            href="https://www.instagram.com/bathandbodyworks.au/" title="Instagram"
-                                            target="_blank"&gt;
-                                            &lt;img src="images/email/email-footer/footer-icons/instagram-icon.png?$staticlink$"
-                                                alt="Instagram" style="border:0;vertical-align:top" width="35px"
-                                                height="35px" /&gt;
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block" href="https://www.tiktok.com/@bathandbodyworks.au"
-                                            title="TikTok" target="_blank"&gt;
-                                            &lt;img src="images/email/email-footer/footer-icons/tiktok-icon.png?$staticlink$"
-                                                alt="TikTok" style="border:0;vertical-align:top" /&gt;
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block"
-                                            href="https://www.youtube.com/channel/UCi4-fFB4Odqjttdwomvg3rQ"
-                                            title="YouTube" target="_blank"&gt;
-                                            &lt;img src="images/email/email-footer/footer-icons/youtube-icon.png?$staticlink$"
-                                                alt="YouTube" style="border:0;vertical-align:top" /&gt;
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                &lt;/tr&gt;
-                            &lt;/tbody&gt;
-                        &lt;/table&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;!--Social Meadia icons - End--&gt;
-                &lt;!--Bottom Link - Start--&gt;
-                &lt;tr&gt;
-                    &lt;td align="center"
-                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding-bottom:40px"&gt;
-                        &lt;table border="0" cellpadding="0" cellspacing="0" width="60%"&gt;
-                            &lt;tbody&gt;
-                                &lt;tr&gt;
-                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'privacy-policy')$" title="Privacy Policy"
-                                            style="color:#666666;padding:0;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:12px;line-height:1;display:inline-block;text-transform:uppercase"
-                                            target="_blank"&gt;
-                                            Privacy Policy
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td align="center"
-                                        style="border-left:1px solid #666666;border-right:1px solid #666666"&gt; &lt;a
-                                            href="tel:1800576972" title="Phone"
-                                            style="color:#666666;padding:0;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:14px;line-height:1;display:inline-block;text-transform:uppercase"
-                                            target="_blank"&gt;
-                                            1800-576-972
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$"
-                                            title="Contact Us"
-                                            style="color:#666666;padding:0;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:12px;line-height:1;display:inline-block;text-transform:uppercase"
-                                            target="_blank"&gt;
-                                            Contact Us
-                                        &lt;/a&gt;
-
-                                    &lt;/td&gt;
-                                &lt;/tr&gt;
-                            &lt;/tbody&gt;
-                        &lt;/table&gt;
-                    &lt;/td&gt;
-                &lt;/tr&gt;
-                &lt;!--Bottom Link - End--&gt;
-            &lt;/tbody&gt;
-        &lt;/table&gt;
-    &lt;/td&gt;
+    <display-name xml:lang="x-default">Email Footer with Suggestions</display-name>
+    <description xml:lang="x-default">Email Footer with picked just for you and top offers sections</description>
+    <online-flag>true</online-flag>
+    <searchable-flag>false</searchable-flag>
+    <page-attributes/>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;tr&gt;&#xD;
+    &lt;td&#xD;
+        style="vertical-align:top;text-align:center;color:#666;font-size:14px;line-height:1;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif; padding:0 32px 15px;"&gt;&#xD;
+        &lt;table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0;margin:0 auto;max-width:600px;min-width:320px;table-layout:fixed;vertical-align:top;width:100%;background:#ffffff"&gt;&#xD;
+            &lt;tbody&gt;&#xD;
+				&lt;!--Pick Just for you - start --&gt;&#xD;
+				 &lt;tr&gt;&#xD;
+                    &lt;td align="center"&#xD;
+                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding-bottom:24px"&gt;&#xD;
+                        &lt;a href="#" style="display:block;cursor: pointer;" target="_blank"&gt;&#xD;
+                            &lt;img width="70%" alt="Top Offers - Today's Deals" style="border:0;display:block;margin:0 auto;" border="0"&#xD;
+                                src="images/email/email-footer/footer-suggestions/Picked-just-for-you!.jpg?$staticlink$"&gt;&#xD;
+                        &lt;/a&gt;&#xD;
+                    &lt;/td&gt;&#xD;
+                &lt;/tr&gt;&#xD;
+				&lt;tr&gt;&#xD;
+                    &lt;td&gt;&#xD;
+                        &lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation" style="padding: 40px 0;"&gt;&#xD;
+                            &lt;tbody&gt;&#xD;
+                                &lt;tr&gt;&#xD;
+                                    &lt;!--Product 1 - Start --&gt;&#xD;
+                                    &lt;td align="center" style="padding:0 5px 20px;vertical-align:top;text-align:center;"&gt;&#xD;
+                                        &lt;table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" class="product-tile" style="width: 100%;max-width: 200px;margin: 0 auto;"&gt;&#xD;
+                                            &lt;tr&gt;&#xD;
+                                                &lt;td&gt;&#xD;
+                                                    &lt;div class="img-wrapper" style="width: 100%;text-align: center;margin: 0 auto;"&gt;&#xD;
+                                                        &lt;a class="product-ing-link" href="${URLUtils.https('Product-Show', 'pid', '26438529')}" style="display: block;width: 100%;"&gt;&#xD;
+                                                            &lt;img class="product-image" src="images/email/email-footer/footer-suggestions/026438528.jpg?$staticlink$"&#xD;
+                                                                alt="Japanese Cherry Blossom" title="Japanese Cherry Blossom"&#xD;
+                                                                itemprop="image" style="width: 100%;margin: 0 auto;"/&gt;&#xD;
+                                                        &lt;/a&gt;&#xD;
+                                                    &lt;/div&gt;&#xD;
+                                                &lt;/td&gt;&#xD;
+                                            &lt;/tr&gt;&#xD;
+                                            &lt;tr&gt;&#xD;
+                                                &lt;td style="vertical-align:bottom;height: 149px;"&gt;&#xD;
+                                                    &lt;div class="detail-wrapper"&gt;&#xD;
+                                                        &lt;div class="product-details" style="text-align: center;"&gt;&#xD;
+                                                            &lt;div class="product-name" style="color: #1a1a1a;letter-spacing: .16px;line-height: 20px;font-size: 16px;text-transform: capitalize;font-weight: 600;margin-bottom: 5px;"&gt;Japanese Cherry Blossom&lt;/div&gt;&#xD;
+                                                            &lt;div class="product-title-b" style="font-size: 14px;color: #1a1a1a;line-height: 16px;letter-spacing: 0.21px;margin-bottom: 5px;"&gt;Fine Fragrance Mist&lt;/div&gt;&#xD;
+                                                            &lt;div class="product-price" style="color: #1a1a1a;font-weight: 600;font-size: 16px;letter-spacing: .09px;line-height: 20px;"&gt;AU$ 37.95&lt;/div&gt;&#xD;
+                                                        &lt;/div&gt;&#xD;
+                                                        &lt;div class="product-btn-wrapper"&gt;&#xD;
+                                                            &lt;div&gt;&#xD;
+                                                                &lt;!--[if mso]&gt;&#xD;
+                                                                &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${URLUtils.https('Product-Show', 'pid', '26438529')}" style="height:35px;v-text-anchor:middle;width:100%;max-width:80%;margin-top:10px;" strokecolor="#333" fillcolor="#333"&gt;&#xD;
+                                                                    &lt;w:anchorlock/&gt;&#xD;
+                                                                    &lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;text-transform: uppercase;"&gt;Add to Bag&lt;/center&gt;&#xD;
+                                                                &lt;/v:rect&gt;&#xD;
+                                                                &lt;![endif]--&gt;&#xD;
+                                                                &lt;a href="${URLUtils.https('Product-Show', 'pid', '26438529')}"&#xD;
+                                                                    style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:35px;text-align:center;text-decoration:none;width:100%;max-width:80%;margin-top:10px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;text-transform: uppercase;"&gt;Add to Bag&lt;/a&gt;&#xD;
+                                                            &lt;/div&gt;&#xD;
+                                                        &lt;/div&gt;&#xD;
+                                                    &lt;/div&gt;&#xD;
+                                                &lt;/td&gt;&#xD;
+                                            &lt;/tr&gt;&#xD;
+                                        &lt;/table&gt;&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;!--Product 1 - end --&gt;&#xD;
+                                    &lt;!--Product 2 - Start --&gt;&#xD;
+                                    &lt;td align="center" style="padding:0 5px 20px;vertical-align:top;text-align:center;"&gt;&#xD;
+                                        &lt;table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" class="product-tile" style="width: 100%;max-width: 200px;margin: 0 auto;"&gt;&#xD;
+                                            &lt;tr&gt;&#xD;
+                                                &lt;td&gt;&#xD;
+                                                    &lt;div class="img-wrapper" style="width: 100%;text-align: center;margin: 0 auto;"&gt;&#xD;
+                                                        &lt;a class="product-ing-link" href="${URLUtils.https('Product-Show', 'pid', '26291248')}" style="display: block;width: 100%;"&gt;&#xD;
+                                                            &lt;img class="product-image" src="images/email/email-footer/footer-suggestions/026291227.jpg?$staticlink$"&#xD;
+                                                                alt="Champagne Toast" title="Champagne Toast"&#xD;
+                                                                itemprop="image" style="width: 100%;margin: 0 auto;"/&gt;&#xD;
+                                                        &lt;/a&gt;&#xD;
+                                                    &lt;/div&gt;&#xD;
+                                                &lt;/td&gt;&#xD;
+                                            &lt;/tr&gt;&#xD;
+                                            &lt;tr&gt;&#xD;
+                                                &lt;td style="vertical-align:bottom;height: 149px;"&gt;&#xD;
+                                                    &lt;div class="detail-wrapper"&gt;&#xD;
+                                                        &lt;div class="product-details" style="text-align: center;"&gt;&#xD;
+                                                            &lt;div class="product-name" style="color: #1a1a1a;letter-spacing: .16px;line-height: 20px;font-size: 16px;text-transform: capitalize;font-weight: 600;margin-bottom: 5px;"&gt;Champagne Toast&lt;/div&gt;&#xD;
+                                                            &lt;div class="product-title-b" style="font-size: 14px;color: #1a1a1a;line-height: 16px;letter-spacing: 0.21px;margin-bottom: 5px;"&gt;3-Wick Candle&lt;/div&gt;&#xD;
+                                                            &lt;div class="product-price" style="color: #1a1a1a;font-weight: 600;font-size: 16px;letter-spacing: .09px;line-height: 20px;"&gt;AU$ 54.95&lt;/div&gt;&#xD;
+                                                        &lt;/div&gt;&#xD;
+                                                        &lt;div class="product-btn-wrapper"&gt;&#xD;
+                                                            &lt;div&gt;&#xD;
+                                                                &lt;!--[if mso]&gt;&#xD;
+                                                                &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${URLUtils.https('Product-Show', 'pid', '26291248')}" style="height:35px;v-text-anchor:middle;width:100%;max-width:80%;margin-top:10px;" strokecolor="#333" fillcolor="#333"&gt;&#xD;
+                                                                    &lt;w:anchorlock/&gt;&#xD;
+                                                                    &lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;text-transform: uppercase;"&gt;Add to Bag&lt;/center&gt;&#xD;
+                                                                &lt;/v:rect&gt;&#xD;
+                                                                &lt;![endif]--&gt;&#xD;
+                                                                &lt;a href="${URLUtils.https('Product-Show', 'pid', '26291248')}"&#xD;
+                                                                    style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:35px;text-align:center;text-decoration:none;width:100%;max-width:80%;margin-top:10px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;text-transform: uppercase;"&gt;Add to Bag&lt;/a&gt;&#xD;
+                                                            &lt;/div&gt;&#xD;
+                                                        &lt;/div&gt;&#xD;
+                                                    &lt;/div&gt;&#xD;
+                                                &lt;/td&gt;&#xD;
+                                            &lt;/tr&gt;&#xD;
+                                        &lt;/table&gt;&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;!--Product 2 - end --&gt;&#xD;
+                                    &lt;!--Product 3 - Start --&gt;&#xD;
+                                    &lt;td align="center" style="padding:0 5px 20px;vertical-align:top;text-align:center;"&gt;&#xD;
+                                        &lt;table cellpadding="0" cellspacing="0" border="0" align="center" width="100%" class="product-tile" style="width: 100%;max-width: 200px;margin: 0 auto;"&gt;&#xD;
+                                            &lt;tr&gt;&#xD;
+                                                &lt;td&gt;&#xD;
+                                                    &lt;div class="img-wrapper" style="width: 100%;text-align: center;margin: 0 auto;"&gt;&#xD;
+                                                        &lt;a class="product-ing-link" href="${URLUtils.https('Product-Show', 'pid', '26502530')}" style="display: block;width: 100%;"&gt;&#xD;
+                                                            &lt;img class="product-image" src="images/email/email-footer/footer-suggestions/026502529.jpg?$staticlink$"&#xD;
+                                                                alt="A Thousand Wishes" title="A Thousand Wishes"&#xD;
+                                                                itemprop="image" style="width: 100%;margin: 0 auto;"/&gt;&#xD;
+                                                        &lt;/a&gt;&#xD;
+                                                    &lt;/div&gt;&#xD;
+                                                &lt;/td&gt;&#xD;
+                                            &lt;/tr&gt;&#xD;
+                                            &lt;tr&gt;&#xD;
+                                                &lt;td style="vertical-align:bottom;height: 149px;"&gt;&#xD;
+                                                    &lt;div class="detail-wrapper"&gt;&#xD;
+                                                        &lt;div class="product-details" style="text-align: center;"&gt;&#xD;
+                                                            &lt;div class="product-name" style="color: #1a1a1a;letter-spacing: .16px;line-height: 20px;font-size: 16px;text-transform: capitalize;font-weight: 600;margin-bottom: 5px;"&gt;A Thousand Wishes&lt;/div&gt;&#xD;
+                                                            &lt;div class="product-title-b" style="font-size: 14px;color: #1a1a1a;line-height: 16px;letter-spacing: 0.21px;margin-bottom: 5px;"&gt;Shower Gel&lt;/div&gt;&#xD;
+                                                            &lt;div class="product-price" style="color: #1a1a1a;font-weight: 600;font-size: 16px;letter-spacing: .09px;line-height: 20px;"&gt;AU$ 34.95&lt;/div&gt;&#xD;
+                                                        &lt;/div&gt;&#xD;
+                                                        &lt;div class="product-btn-wrapper"&gt;&#xD;
+                                                            &lt;div&gt;&#xD;
+                                                                &lt;!--[if mso]&gt;&#xD;
+                                                                &lt;v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${URLUtils.https('Product-Show', 'pid', '26502530')}" style="height:35px;v-text-anchor:middle;width:100%;max-width:80%;margin-top:10px;" strokecolor="#333" fillcolor="#333"&gt;&#xD;
+                                                                    &lt;w:anchorlock/&gt;&#xD;
+                                                                    &lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;text-transform: uppercase;"&gt;Add to Bag&lt;/center&gt;&#xD;
+                                                                &lt;/v:rect&gt;&#xD;
+                                                                &lt;![endif]--&gt;&#xD;
+                                                                &lt;a href="${URLUtils.https('Product-Show', 'pid', '26502530')}"&#xD;
+                                                                    style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:35px;text-align:center;text-decoration:none;width:100%;max-width:80%;margin-top:10px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;text-transform: uppercase;"&gt;Add to Bag&lt;/a&gt;&#xD;
+                                                            &lt;/div&gt;&#xD;
+                                                        &lt;/div&gt;&#xD;
+                                                    &lt;/div&gt;&#xD;
+                                                &lt;/td&gt;&#xD;
+                                            &lt;/tr&gt;&#xD;
+                                        &lt;/table&gt;&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;!--Product 3 - end --&gt;&#xD;
+                                &lt;/tr&gt;&#xD;
+                            &lt;/tbody&gt;&#xD;
+                        &lt;/table&gt;&#xD;
+					&lt;/td&gt;&#xD;
+				&lt;/tr&gt;&#xD;
+				&lt;!--Pick Just for you - end --&gt;&#xD;
+&#xD;
+                &lt;!--Top Offers - Start --&gt;&#xD;
+                &lt;tr&gt;&#xD;
+                    &lt;td align="center"&#xD;
+                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding:24px 0;border-top: 7px solid #333;"&gt;&#xD;
+                        &lt;a href="$url('Home-Show')$" style="display:block" target="_blank"&gt;&#xD;
+                            &lt;img width="100%" alt="Top Offers - Today's Deals" style="border:0;display:block" border="0"&#xD;
+                                src="images/email/email-footer/footer-suggestions/top-offer-cta.jpg?$staticlink$"&gt;&#xD;
+                        &lt;/a&gt;&#xD;
+                    &lt;/td&gt;&#xD;
+                &lt;/tr&gt;&#xD;
+                &lt;tr&gt;&#xD;
+                    &lt;td&gt;&#xD;
+                        &lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation"&gt;&#xD;
+                            &lt;tbody&gt;&#xD;
+                                &lt;tr&gt;&#xD;
+                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;&#xD;
+&#xD;
+                                        &lt;a href="$url('Search-Show','cgid','wellness-and-aromatherapy')$" style="display:block" target="_blank"&gt;&#xD;
+                                            &lt;img alt="Aromatheraphy" style="border:0;display:block" border="0"  width="160px" height="160px"&#xD;
+                                                src="images/email/email-footer/footer-suggestions/fbc_wellness_sp3_vn.jpg?$staticlink$"&#xD;
+                                                class/&gt;&#xD;
+                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Aromatheraphy&lt;/p&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;&#xD;
+&#xD;
+                                        &lt;a href="$url('Search-Show','cgid','body-care')$" style="display:block" target="_blank"&gt;&#xD;
+                                            &lt;img alt="Boday Care" style="border:0;display:block" border="0" width="160px" height="160px"&#xD;
+                                                src="images/email/email-footer/footer-suggestions/bc_fragrance_GL_vn.jpg?$staticlink$"/&gt;&#xD;
+                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Body Care&lt;/p&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;&#xD;
+                                        &lt;a href="$url('Search-Show','cgid','candles-and-home-fragrance')$" style="display:block" target="_blank"&gt;&#xD;
+                                            &lt;img alt="Candles" style="border:0;display:block" border="0" width="160px" height="160px"&#xD;
+                                                src="images/email/email-footer/footer-suggestions/cndl_all_GL_vn.jpg?$staticlink$"/&gt;&#xD;
+                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Candles&lt;/p&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+                                    &lt;/td&gt;&#xD;
+                                &lt;/tr&gt;&#xD;
+                            &lt;/tbody&gt;&#xD;
+                        &lt;/table&gt;&#xD;
+						&lt;table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation" style="margin-top:15px;"&gt;&#xD;
+                            &lt;tbody&gt;&#xD;
+                                &lt;tr&gt;&#xD;
+                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;&#xD;
+&#xD;
+                                        &lt;a href="$url('Search-Show','cgid','wallflowers')$" style="display:block" target="_blank"&gt;&#xD;
+                                            &lt;img alt="Aromatheraphy" style="border:0;display:block" border="0"  width="160px" height="160px"&#xD;
+                                                src="images/email/email-footer/footer-suggestions/hf_wf_GL_vn.jpg?$staticlink$"&#xD;
+                                                class/&gt;&#xD;
+                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Wallflowers&lt;/p&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;&#xD;
+&#xD;
+                                        &lt;a href="$url('Search-Show','cgid','hand-soaps')$" style="display:block" target="_blank"&gt;&#xD;
+                                            &lt;img alt="Boday Care" style="border:0;display:block" border="0" width="160px" height="160px"&#xD;
+                                                src="images/email/email-footer/footer-suggestions/sp_all_GL_vn.jpg?$staticlink$"/&gt;&#xD;
+                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Hand Soaps&lt;/p&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td width="200" align="center" valign="top" style="line-height:1px"&gt;&#xD;
+                                        &lt;a href="$url('Search-Show','cgid','men-s')$" style="display:block" target="_blank"&gt;&#xD;
+                                            &lt;img alt="Candles" style="border:0;display:block" border="0" width="160px" height="160px"&#xD;
+                                                src="images/email/email-footer/footer-suggestions/mens_all_GL_vn.jpg?$staticlink$"/&gt;&#xD;
+                                            &lt;p style="text-decoration:underline;line-height: normal;font-weight:600;"&gt;Men's Shop&lt;/p&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+                                    &lt;/td&gt;&#xD;
+                                &lt;/tr&gt;&#xD;
+                            &lt;/tbody&gt;&#xD;
+                        &lt;/table&gt;&#xD;
+                    &lt;/td&gt;&#xD;
+&#xD;
+                &lt;/tr&gt;&#xD;
+                &lt;!--Top Offers - End --&gt;&#xD;
+                &lt;!--Shop Now Button- Start--&gt;&#xD;
+                &lt;tr&gt;&#xD;
+                    &lt;td align="center"&#xD;
+                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding: 20px 0;"&gt;&#xD;
+                        &lt;div&gt;&#xD;
+                            &lt;!--[if mso]&gt;&#xD;
+                            &lt;v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="$url('Home-Show')$" style="height:40px;v-text-anchor:middle;width:500px;" arcsize="0%" strokecolor="#333" fillcolor="#333"&gt;&#xD;
+                              &lt;w:anchorlock/&gt;&#xD;
+                              &lt;center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;font-weight:bold;"&gt;Shop Now&lt;/center&gt;&#xD;
+                            &lt;/v:roundrect&gt;&#xD;
+                          &lt;![endif]--&gt;&lt;a href="$url('Home-Show')$"&#xD;
+                                style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;border-radius:0px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:40px;text-align:center;text-decoration:none;width:500px;-webkit-text-size-adjust:none;mso-hide:all;"&gt;Shop&#xD;
+                                Now&lt;/a&gt;&lt;/div&gt;&#xD;
+                    &lt;/td&gt;&#xD;
+                &lt;/tr&gt;&#xD;
+                &lt;!--Shop Now Button- End--&gt;&#xD;
+                &lt;!--Useful Link - Start--&gt;&#xD;
+                &lt;tr&gt;&#xD;
+                    &lt;td align="center"&#xD;
+                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;vertical-align:top;padding:30px 0"&gt;&#xD;
+                        &lt;table border="0" cellpadding="0" cellspacing="0" width="90%"&gt;&#xD;
+                            &lt;tbody&gt;&#xD;
+                                &lt;tr&gt;&#xD;
+                                    &lt;td align="center"&gt; &lt;a href="$url('Stores-Find')$" title="Find a Store"&#xD;
+                                            style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            Find a Store&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td align="center"&#xD;
+                                        style="border-left:1px solid #666666;border-right:1px solid #666666"&gt; &lt;a&#xD;
+                                            href="$url('Account-Show')$" title="My Account"&#xD;
+                                            style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            My Account&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$" title="Customer Care"&#xD;
+                                            style="color:#666666;padding:0 20px;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:15px;line-height:1;display:inline-block;text-transform:uppercase"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            Customer Care&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                &lt;/tr&gt;&#xD;
+                            &lt;/tbody&gt;&#xD;
+                        &lt;/table&gt;&#xD;
+                    &lt;/td&gt;&#xD;
+                &lt;/tr&gt;&#xD;
+                &lt;!--Useful Link - End--&gt;&#xD;
+                &lt;!--Social Meadia icons - Start--&gt;&#xD;
+                &lt;tr&gt;&#xD;
+                    &lt;td align="center"&#xD;
+                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding-bottom:40px"&gt;&#xD;
+                        &lt;table border="0" cellpadding="0" cellspacing="0" width="35%"&gt;&#xD;
+                            &lt;tbody&gt;&#xD;
+                                &lt;tr&gt;&#xD;
+                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block"&#xD;
+                                            href="https://www.facebook.com/bbwaustralia/" title="Facebook"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            &lt;img src="images/email/email-footer/footer-icons/facebook-icon.png?$staticlink$"&#xD;
+                                                alt="Facebook" style="border:0;vertical-align:top" width="35px"&#xD;
+                                                height="35px" /&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block"&#xD;
+                                            href="https://www.instagram.com/bathandbodyworks.au/" title="Instagram"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            &lt;img src="images/email/email-footer/footer-icons/instagram-icon.png?$staticlink$"&#xD;
+                                                alt="Instagram" style="border:0;vertical-align:top" width="35px"&#xD;
+                                                height="35px" /&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block" href="https://www.tiktok.com/@bathandbodyworks.au"&#xD;
+                                            title="TikTok" target="_blank"&gt;&#xD;
+                                            &lt;img src="images/email/email-footer/footer-icons/tiktok-icon.png?$staticlink$"&#xD;
+                                                alt="TikTok" style="border:0;vertical-align:top" /&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td&gt; &lt;a style="padding:0;text-decoration:none;display:inline-block"&#xD;
+                                            href="https://www.youtube.com/channel/UCi4-fFB4Odqjttdwomvg3rQ"&#xD;
+                                            title="YouTube" target="_blank"&gt;&#xD;
+                                            &lt;img src="images/email/email-footer/footer-icons/youtube-icon.png?$staticlink$"&#xD;
+                                                alt="YouTube" style="border:0;vertical-align:top" /&gt;&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                &lt;/tr&gt;&#xD;
+                            &lt;/tbody&gt;&#xD;
+                        &lt;/table&gt;&#xD;
+                    &lt;/td&gt;&#xD;
+                &lt;/tr&gt;&#xD;
+                &lt;!--Social Meadia icons - End--&gt;&#xD;
+                &lt;!--Bottom Link - Start--&gt;&#xD;
+                &lt;tr&gt;&#xD;
+                    &lt;td align="center"&#xD;
+                        style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;padding:0;vertical-align:top;padding-bottom:40px"&gt;&#xD;
+                        &lt;table border="0" cellpadding="0" cellspacing="0" width="60%"&gt;&#xD;
+                            &lt;tbody&gt;&#xD;
+                                &lt;tr&gt;&#xD;
+                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'privacy-policy')$" title="Privacy Policy"&#xD;
+                                            style="color:#666666;padding:0;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:12px;line-height:1;display:inline-block;text-transform:uppercase"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            Privacy Policy&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td align="center"&#xD;
+                                        style="border-left:1px solid #666666;border-right:1px solid #666666"&gt; &lt;a&#xD;
+                                            href="tel:1800576972" title="Phone"&#xD;
+                                            style="color:#666666;padding:0;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:14px;line-height:1;display:inline-block;text-transform:uppercase"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            1800-576-972&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                    &lt;td align="center"&gt; &lt;a href="$url('Page-Show', 'cid', 'contact-us')$"&#xD;
+                                            title="Contact Us"&#xD;
+                                            style="color:#666666;padding:0;text-decoration:none;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,'Lucida Grande',sans-serif;font-size:12px;line-height:1;display:inline-block;text-transform:uppercase"&#xD;
+                                            target="_blank"&gt;&#xD;
+                                            Contact Us&#xD;
+                                        &lt;/a&gt;&#xD;
+&#xD;
+                                    &lt;/td&gt;&#xD;
+                                &lt;/tr&gt;&#xD;
+                            &lt;/tbody&gt;&#xD;
+                        &lt;/table&gt;&#xD;
+                    &lt;/td&gt;&#xD;
+                &lt;/tr&gt;&#xD;
+                &lt;!--Bottom Link - End--&gt;&#xD;
+            &lt;/tbody&gt;&#xD;
+        &lt;/table&gt;&#xD;
+    &lt;/td&gt;&#xD;
 &lt;/tr&gt;</custom-attribute>
-        </custom-attributes>
-    </content>
+    </custom-attributes>
+  </content>
 
     <content content-id="email-header">
         <display-name xml:lang="x-default">Email Header</display-name>
@@ -3924,174 +4642,182 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
     </content>
 
     <content content-id="email-you-got-it-block">
-        <display-name xml:lang="x-default">YOU'VE GOT IT, NOW USE IT!</display-name>
-        <description xml:lang="x-default">YOU'VE GOT IT, NOW USE IT!</description>
-        <online-flag>true</online-flag>
-        <searchable-flag>false</searchable-flag>
-        <page-attributes/>
-        <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"
-    style="width:100%;margin-top:50px;"&gt;
-    &lt;tbody&gt;
-        &lt;tr&gt;
-            &lt;td align="left" style="padding-bottom:0;"&gt;
-                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"
-                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;color:#333333"&gt;
-
-                    &lt;tbody&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" style="padding-bottom:14px;font-size:26px;line-height:28px"&gt;
-                                YOU'VE GOT IT, NOW USE IT!&lt;/td&gt;
-                        &lt;/tr&gt;
-                    &lt;/tbody&gt;
-                &lt;/table&gt;
-                &lt;table bgcolor="#333333" border="0" cellpadding="0" cellspacing="0" role="presentation"
-                    style="width:100%;"&gt;
-                    &lt;tbody&gt;
-                        &lt;tr&gt;
-                            &lt;td style="line-height:1px;font-size:0"&gt;
-                                &amp;nbsp;&lt;/td&gt;
-                        &lt;/tr&gt;
-                    &lt;/tbody&gt;
-                &lt;/table&gt;
-                &lt;div style="font-size:1px;line-height:20px"&gt;
-                    &amp;nbsp;&lt;/div&gt;
-                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"
-                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;line-height:30px;font-weight:300;color:#333333"&gt;
-
-                    &lt;tbody&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" valign="top" colspan="3"&gt;
-                                &lt;p style="margin:0 0 10px;font-weight: bold;font-size: 18px;color:#000000;"&gt;IN STORES&lt;/p&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" valign="top"&gt;
-                                •&lt;/td&gt;
-                            &lt;td style="width:24px"&gt;
-                            &lt;/td&gt;
-                            &lt;td align="left"&gt;
-                                Claim your E-Gift Card using the link above. You can either print the gift card once you redeem it or show it on your phone.&lt;div style="font-size:1px;line-height:24px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" valign="top"&gt;
-                                •&lt;/td&gt;
-                            &lt;td style="width:24px"&gt;
-                            &lt;/td&gt;
-                            &lt;td align="left"&gt;
-                                Present at the register when you are ready to check out.&lt;div style="font-size:1px;line-height:24px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" valign="top" colspan="3"&gt;
-                                &lt;p style="margin: 10px 0;font-weight: bold;font-size: 18px;color:#000000;"&gt;ONLINE&lt;/p&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" valign="top"&gt;
-                                •&lt;/td&gt;
-                            &lt;td style="width:24px"&gt;
-                            &lt;/td&gt;
-                            &lt;td align="left"&gt;
-                                Claim your E-Gift Card using the link above.&lt;div style="font-size:1px;line-height:24px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" valign="top"&gt;
-                                •&lt;/td&gt;
-                            &lt;td style="width:24px"&gt;
-                            &lt;/td&gt;
-                            &lt;td align="left"&gt;
-                                Shop at &lt;a href="https://www.BathandBodyWorks.com.au" style="color:#005699;font-weight: bold;text-decoration: underline;"&gt;BathandBodyWorks.com.au&lt;/a&gt;&lt;div style="font-size:1px;line-height:24px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" valign="top"&gt;
-                                •&lt;/td&gt;
-                            &lt;td style="width:24px"&gt;
-                            &lt;/td&gt;
-                            &lt;td align="left"&gt;
-                                During checkout, click on the section marked "GiftCard" on the payment page. Enter your E-Gift Card number and PIN. Then click APPLY.&lt;div style="font-size:1px;line-height:24px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" valign="top"&gt;
-                                •&lt;/td&gt;
-                            &lt;td style="width:24px"&gt;
-                            &lt;/td&gt;
-                            &lt;td align="left"&gt;
-                                If you have more than one E-Gift Card, enter each code and PIN seperately.&lt;div style="font-size:1px;line-height:24px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" valign="top" colspan="3"&gt;
-                                &lt;p style="margin: 10px 0;font-weight: bold;font-size: 18px;color:#000000;"&gt;MORE INFO&lt;/p&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" valign="top"&gt;
-                                •&lt;/td&gt;
-                            &lt;td style="width:24px"&gt;
-                            &lt;/td&gt;
-                            &lt;td align="left"&gt;
-                                To check your E-Gift Card balance, (1) click the "Redeem Your E-Gift Card" link above; (2) visit any Bath &amp; Body Works (BBW) or White Barn (WB) store or click &lt;a href="https://www.BathandBodyWorks.com.au" style="color:#005699;font-weight: bold;text-decoration: underline;"&gt;here&lt;/a&gt;; or (3) call &lt;a href="tel:18006406052" style="color:#005699;font-weight: bold;text-decoration: underline;"&gt;1-800-640-6052&lt;/a&gt;.&lt;div style="font-size:1px;line-height:24px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" valign="top"&gt;
-                                •&lt;/td&gt;
-                            &lt;td style="width:24px"&gt;
-                            &lt;/td&gt;
-                            &lt;td align="left"&gt;
-                                E-Gift Cards can be redeemed in U.S. Bath &amp; Body Works and White Barn stores or online at &lt;a href="https://www.BathandBodyWorks.com.au" style="color:#005699;font-weight: bold;text-decoration: underline;"&gt;BathandBodyWorks.com.au&lt;/a&gt;. You can also redeem by phone at &lt;a href="tel:18006406052" style="color:#005699;font-weight: bold;text-decoration: underline;"&gt;1-800-756-5005&lt;/a&gt;.&lt;div style="font-size:1px;line-height:24px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" valign="top"&gt;
-                                •&lt;/td&gt;
-                            &lt;td style="width:24px"&gt;
-                            &lt;/td&gt;
-                            &lt;td align="left"&gt;
-                                Once an E-Gift Card has been used, it cannot be reloaded. We'll send you a new E-Gift Card for returns made online or through our Care Center. For returns in store, you will receive a merchandise credit.&lt;div style="font-size:1px;line-height:24px"&gt;
-                                    &amp;nbsp;&lt;/div&gt;
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" valign="top"&gt;
-                                •&lt;/td&gt;
-                            &lt;td style="width:24px"&gt;
-                            &lt;/td&gt;
-                            &lt;td align="left"&gt;
-                                Please record your E-Gift Card number in case you need to request a replacement E-Gift Card.
-                            &lt;/td&gt;
-                        &lt;/tr&gt;
-                    &lt;/tbody&gt;
-                &lt;/table&gt;
-                &lt;table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"
-                    style="margin-top:40px; width:100%;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;color:#000000"&gt;
-                    &lt;tbody&gt;
-                        &lt;tr&gt;
-                            &lt;td align="left" style="padding-bottom:14px;font-size:18px;line-height:24px;border-bottom: 1px solid;"&gt;
-                                Terms &amp; Conditions:&lt;/td&gt;
-                        &lt;/tr&gt;
-                    &lt;/tbody&gt;
-                &lt;/table&gt;
-                &lt;p style="font-size: 16px;color: #000000;line-height:24px;"&gt;This e-gift voucher is valid for online purchase only within the country of issuance. Valid for 30 days from the date of this email. E-gift voucher is non-transferable, and is non-exchangeable for cash. Valid for single redemption only, unredeemed value will be forfeited. Voucher code must be keyed in at checkout. While supplies last. Valiram reserves the right to amend the offer and T&amp;Cs without prior notice.&lt;/p&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-    &lt;/tbody&gt;
+    <display-name xml:lang="x-default">YOU'VE GOT IT, USE IT!</display-name>
+    <description xml:lang="x-default">YOU'VE GOT IT, USE IT!</description>
+    <online-flag>true</online-flag>
+    <searchable-flag>false</searchable-flag>
+    <page-attributes/>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
+    style="width:100%;margin-top:50px;"&gt;&#xD;
+    &lt;tbody&gt;&#xD;
+        &lt;tr&gt;&#xD;
+            &lt;td align="left" style="padding-bottom:0;"&gt;&#xD;
+                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
+                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;color:#333333"&gt;&#xD;
+&#xD;
+                    &lt;tbody&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" style="padding-bottom:14px;font-size:26px;line-height:28px"&gt;&#xD;
+                                YOU'VE GOT IT, USE IT!&lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                    &lt;/tbody&gt;&#xD;
+                &lt;/table&gt;&#xD;
+                &lt;table bgcolor="#333333" border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
+                    style="width:100%;"&gt;&#xD;
+                    &lt;tbody&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td style="line-height:1px;font-size:0"&gt;&#xD;
+                                &amp;nbsp;&lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                    &lt;/tbody&gt;&#xD;
+                &lt;/table&gt;&#xD;
+                &lt;div style="font-size:1px;line-height:20px"&gt;&#xD;
+                    &amp;nbsp;&lt;/div&gt;&#xD;
+                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
+                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;line-height:30px;font-weight:300;color:#333333"&gt;&#xD;
+&#xD;
+                    &lt;tbody&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" valign="top" colspan="3"&gt;&#xD;
+                                &lt;p style="margin:0 0 10px;font-weight: bold;font-size: 18px;color:#000000;"&gt;IN STORES&lt;/p&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" valign="top"&gt;&#xD;
+                                •&lt;/td&gt;&#xD;
+                            &lt;td style="width:24px"&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                Claim your e-gift card using the link above. You can either print the gift card once you receive it or keep it on your phone.&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" valign="top"&gt;&#xD;
+                                •&lt;/td&gt;&#xD;
+                            &lt;td style="width:24px"&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                Present your gift card at the register when you are ready to check out.&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" valign="top" colspan="3"&gt;&#xD;
+                                &lt;p style="margin: 10px 0;font-weight: bold;font-size: 18px;color:#000000;"&gt;ONLINE&lt;/p&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" valign="top"&gt;&#xD;
+                                •&lt;/td&gt;&#xD;
+                            &lt;td style="width:24px"&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                Claim your e-gift card using the link above and shop at BathandBodyWorks.com.au&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;!-- &lt;tr&gt;&#xD;
+                            &lt;td align="left" valign="top"&gt;&#xD;
+                                •&lt;/td&gt;&#xD;
+                            &lt;td style="width:24px"&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                Shop at &lt;a href="https://www.BathandBodyWorks.com.au" style="color:#005699;font-weight: bold;text-decoration: underline;"&gt;BathandBodyWorks.com.au&lt;/a&gt;&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt; --&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" valign="top"&gt;&#xD;
+                                •&lt;/td&gt;&#xD;
+                            &lt;td style="width:24px"&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                Click on the section marked ‘Gift Card’ on the payment page and enter the number and PIN, then click apply.&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;!-- &lt;tr&gt;&#xD;
+                            &lt;td align="left" valign="top"&gt;&#xD;
+                                •&lt;/td&gt;&#xD;
+                            &lt;td style="width:24px"&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                If you have more than one E-Gift Card, enter each code and PIN seperately.&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt; --&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" valign="top" colspan="3"&gt;&#xD;
+                                &lt;p style="margin: 10px 0;font-weight: bold;font-size: 18px;color:#000000;"&gt;MORE INFO&lt;/p&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" valign="top"&gt;&#xD;
+                                •&lt;/td&gt;&#xD;
+                            &lt;td style="width:24px"&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                &lt;div&gt;To check your E-Gift Card balance:&lt;br/&gt;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" valign="top"&gt;&lt;/td&gt;&#xD;
+                            &lt;td style="width:24px"&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                &lt;div&gt;1. Click the ‘Redeem your e-gift card’ link above&lt;br/&gt; 2. Visit any Bath &amp; Body Works store and speak to a sales associate&lt;br/&gt;3. Contact our customer service team on 1800-576-972&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" valign="top"&gt;&#xD;
+                                •&lt;/td&gt;&#xD;
+                            &lt;td style="width:24px"&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                E-gift cards can be redeemed at Bath &amp; Body Works stores in Australia or online at BathandBodyWorks.com.au&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" valign="top"&gt;&#xD;
+                                •&lt;/td&gt;&#xD;
+                            &lt;td style="width:24px"&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                Once an e-gift card has been used, it cannot be reloaded. We’ll send you a new e-gift card for returns made in stores and online&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
+                                    &amp;nbsp;&lt;/div&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" valign="top"&gt;&#xD;
+                                •&lt;/td&gt;&#xD;
+                            &lt;td style="width:24px"&gt;&#xD;
+                            &lt;/td&gt;&#xD;
+                            &lt;td align="left"&gt;&#xD;
+                                Keep a record of your e-gift card number in case you need to request for a replacement&#xD;
+                            &lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                    &lt;/tbody&gt;&#xD;
+                &lt;/table&gt;&#xD;
+                &lt;table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
+                    style="margin-top:40px; width:100%;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;color:#000000"&gt;&#xD;
+                    &lt;tbody&gt;&#xD;
+                        &lt;tr&gt;&#xD;
+                            &lt;td align="left" style="padding-bottom:14px;font-size:18px;line-height:24px;border-bottom: 1px solid;"&gt;&#xD;
+                                Terms &amp; Conditions:&lt;/td&gt;&#xD;
+                        &lt;/tr&gt;&#xD;
+                    &lt;/tbody&gt;&#xD;
+                &lt;/table&gt;&#xD;
+                &lt;p style="font-size: 16px;color: #000000;line-height:24px;"&gt;This e-gift voucher is valid for online purchase only within the country of issuance. Valid for 30 days from the date of this email. E-gift voucher is non-transferable, and is non-exchangeable for cash. Valid for single redemption only, unredeemed value will be forfeited. Voucher code must be keyed in at checkout. While supplies last. Valiram reserves the right to amend the offer and T&amp;Cs without prior notice.&lt;/p&gt;&#xD;
+            &lt;/td&gt;&#xD;
+        &lt;/tr&gt;&#xD;
+    &lt;/tbody&gt;&#xD;
 &lt;/table&gt;</custom-attribute>
-        </custom-attributes>
-    </content>
+    </custom-attributes>
+  </content>
 
 	<content content-id="email-welcome">
         <display-name xml:lang="x-default">Welcome Email Content</display-name>
@@ -4304,6 +5030,17 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
 &lt;/table&gt;</custom-attribute>
         </custom-attributes>
     </content>
+	
+	<content content-id="email-notifyme-content">
+    <display-name xml:lang="x-default">Notify Me Email Content</display-name>
+    <description xml:lang="x-default">Notify Me Email Content</description>
+    <online-flag>true</online-flag>
+    <searchable-flag>false</searchable-flag>
+    <page-attributes/>
+    <custom-attributes>
+      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;p style="margin:0;"&gt;&lt;a style="width:100%; display:block;" href="$url('Home-Show')$"&gt;&lt;img width="100%" style="width:100%;" alt="Good News! Your Item Is Back In Stock" border="0" src="images/email/notifyme-email/notifyme-email-banner.jpg?$staticlink$" style="border-color: initial; border-image: initial; display: block;" title="" /&gt;&lt;/a&gt;&lt;/p&gt;</custom-attribute>
+    </custom-attributes>
+	</content>
 
 <content content-id="Order-tracking-banner">
         <display-name xml:lang="x-default">Order Tracking</display-name>
@@ -5004,7 +5741,7 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
             <page-keywords xml:lang="x-default">Gift Cards</page-keywords>
         </page-attributes>
         <custom-attributes>
-            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script src="https://www.google.com/recaptcha/api.js" defer&gt;&#13;
+                      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;script src="https://www.google.com/recaptcha/api.js" defer&gt;&#13;
 &lt;/script&gt;&#13;
 &lt;script&gt;&#13;
     window.checkbalance = function (token) {&#13;
@@ -5079,7 +5816,8 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
                             &lt;h3 class="card-name"&gt;E-Gift Cards&lt;/h3&gt;&#13;
                             &lt;div class="card-img"&gt;&#13;
                                 &lt;a href="$url('Search-Show', 'cgid', 'giftcards')$"&gt;&#13;
-                                    &lt;img alt="E-Gift Cards" src="images/gift-cards/e-gift-card.webp?$staticlink$" title="" /&gt;&#13;
+                                    &lt;img alt="E-Gift Cards" src="images/gift-cards/e-gift-card.webp?$staticlink$"&#13;
+                                        title="" /&gt;&#13;
                                 &lt;/a&gt;&#13;
                             &lt;/div&gt;&#13;
                             &lt;div class="card-desc"&gt;Fast, easy &amp;amp; fun! We'll email it directly to your recipient,&#13;
@@ -5087,7 +5825,8 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
                                 with your own message and the fun design you chose.&lt;/div&gt;&#13;
                             &lt;a class="button btn text-white" href="$url('Search-Show', 'cgid', 'giftcards')$"&gt;Get&#13;
                                 Started&lt;/a&gt;&#13;
-                            &lt;p class="center"&gt;&lt;a href="$url('Page-Show', 'cid', 'gclearnmore')$" target="_blank" title="about e-gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
+                            &lt;p class="center"&gt;&lt;a href="$url('Page-Show', 'cid', 'gclearnmore')$" target="_blank"&#13;
+                                    title="about e-gift cards"&gt;More Info&lt;/a&gt;&lt;/p&gt;&#13;
                         &lt;/div&gt;&#13;
                     &lt;/div&gt;&#13;
                 &lt;/div&gt;&#13;
@@ -5133,7 +5872,8 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
             &lt;/div&gt;&#13;
             &lt;span&#13;
                 class="giftcard-balance-wrap w-100 d-block text-left h-fw--semibold h-font-size--16  h-clr--black-1 mt-0"&gt;&lt;/span&gt;&#13;
-            &lt;button id="check-giftcert" data-sitekey="6LebEaYpAAAAAEj5f-_e3Wjpt8QMpFRrevXvZgVh" class="btn g-recaptcha" data-callback="checkbalance"&gt;Check Gift Card Balance&lt;/button&gt; &lt;br /&gt;&#13;
+            &lt;button id="check-giftcert" data-sitekey="6LebEaYpAAAAAEj5f-_e3Wjpt8QMpFRrevXvZgVh" class="btn g-recaptcha"&#13;
+                data-callback="checkbalance"&gt;Check Gift Card Balance&lt;/button&gt; &lt;br /&gt;&#13;
             &lt;span class="gift-card-balance-error h-font-size--16 h-fw--semibold h-clr--red "&gt;&lt;/span&gt;&#13;
         &lt;/div&gt;&#13;
     &lt;/div&gt;&#13;
@@ -5141,7 +5881,31 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
 &#13;
 &lt;style type="text/css"&gt;&#13;
     .giftcard-close {&#13;
-        top: 0px !important;&#13;
+        background-position: 50%;&#13;
+        background-repeat: no-repeat;&#13;
+        height: 13px;&#13;
+        opacity: inherit;&#13;
+        width: 13px;&#13;
+        top: -11px;&#13;
+        right: 10px;&#13;
+        position: relative;&#13;
+        background-image: url("images/gift-cards/cross.svg?$staticlink$");&#13;
+    }&#13;
+&#13;
+    .giftcard-close:not(:disabled):not(.disabled):hover {&#13;
+        opacity: inherit;&#13;
+    }&#13;
+&#13;
+    .giftcard-close:hover {&#13;
+        background-position: 50%;&#13;
+        background-repeat: no-repeat;&#13;
+        height: 13px;&#13;
+        opacity: inherit;&#13;
+        width: 13px;&#13;
+        top: -11px;&#13;
+        right: 10px;&#13;
+        position: relative;&#13;
+        background-image: url("images/gift-cards/bbwd-tooltip-close-hover.svg?$staticlink$");&#13;
     }&#13;
 &#13;
     .gift-card-top-banner .desktop-image {&#13;
@@ -5211,10 +5975,10 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
     }&#13;
 &#13;
     .popover-header {&#13;
-        display: flex !important;&#13;
-        justify-content: flex-end !important;&#13;
-        padding: 0 !important;&#13;
-        border-bottom: none !important;&#13;
+        display: flex;&#13;
+        justify-content: flex-end;&#13;
+        padding: 0;&#13;
+        border-bottom: none;&#13;
         height: 0px;&#13;
         margin-top: 17px;&#13;
     }&#13;
@@ -5929,13 +6693,13 @@ To contact the Customer Care Team please call &lt;a href="phone:1800-576-972" cl
         <page-attributes/>
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="login-modal-section"&gt;&#13;
-    &lt;h4 class="h-clr--pink h-font-size--16 h-fw--bold"&gt;Welcome to an updated, exciting shopping experience!&#13;
+    &lt;h4 class="h-clr--pink h-font-size--16 h-fw--bold"&gt;WELCOME TO A NEW SITE EXPERIENCE.&#13;
     &lt;/h4&gt;&#13;
     &lt;p class="h-font-size--16 login-para h-clr--gray "&gt;&#13;
-     If you previously had an account with us, you will need to reset your password to continue using our new website. &#13;
-     If you have updated your password, please continue to login.&#13;
+     First things first! You will need to reset your password if you have an existing account prior to logging into our new website.&#13;
+     If you have already updated your password, please sign in.&#13;
     &lt;/p&gt;&#13;
-    &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
+    &lt;a name="save" class="btn-save bg-white text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
        Reset Password&#13;
     &lt;/a&gt;&#13;
 &lt;/div&gt;&#13;
@@ -5971,7 +6735,7 @@ min-height: 35px;&#13;
         <custom-attributes>
             <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="login-modal-section"&gt;&#13;
 	&lt;h4 class="h-clr--pink h-font-size--16 h-fw--bold"&gt;Reset your password&lt;/h4&gt;&#13;
-	&lt;p class="h-font-size--16 login-para h-clr--gray "&gt;If you previously had an account with us, you will need to reset your password to continue using our new website. If you have updated your password, please continue to login.&lt;/p&gt; &lt;a name="save" class="btn-save text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
+	&lt;p class="h-font-size--16 login-para h-clr--gray "&gt;You will need to reset your password to continue using our new website.&lt;/p&gt; &lt;a name="save" class="btn-save bg-white text-uppercase btn-hover btn-primary reset-password-btn h-clr--black-1" href="$url('Account-PasswordReset')$"&gt;&#13;
        Reset Password&#13;
     &lt;/a&gt;&#13;
 &#13;
@@ -6486,7 +7250,7 @@ max-height: 35px:&#13;
 	&lt;div class="category-seo-text-section__inner-wrapper"&gt;&#13;
 		&lt;h2 class="category-seo-text-section__title"&gt;About Body Lotion from Bath &amp;amp; Body Works&lt;/h2&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Crisp fruits, sensational florals, mouth-watering baked goods: we all have a fave fragrance (or ten) and love the instant-happiness boost you get when you put on your signature lotion in the morning. Hello, all-day joy and confidence!&lt;/p&gt;&#13;
-		&lt;p class="category-seo-text-section__description"&gt;Obviously, body lotion has always been your staple (and ours, too), which is great because moisturiser is an important step during your &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','skincare-routine')$"&gt;skincare routine&lt;/a&gt;. The lightweight pick-me-up keeps your skin super-smooth and locks in moisture for all-day hydration. Plus, our powerful 24-hour formula mixes hydrating vitamin E, skin-nourishing coconut oil and creamy shea butter into a lightweight blend that melts right into your skin.&lt;/p&gt;&#13;
+		&lt;p class="category-seo-text-section__description"&gt;Obviously, body lotion has always been your staple (and ours, too), which is great because moisturiser is an important step during your &lt;a class="category-seo-text-section__link" href="$url('Page-Show','cid','skincare-routine')$"&gt;skincare routine&lt;/a&gt;. The lightweight pick-me-up keeps your skin super-smooth and locks in moisture for all-day hydration. Plus, our powerful 24-hour formula mixes hydrating vitamin E, skin-nourishing coconut oil and creamy shea butter into a lightweight blend that melts right into your skin.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;So, you just use body lotion after the shower and that’s it, right? Actually, we’re big fans of using it any time. At the office, lounging on the lake, just chilling at home…if your skin needs a blast of moisturiser, go ahead and spread that lotion. And pro-tip: while you’re running around, grab a &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','travel-size')$"&gt;travel size&lt;/a&gt; bottle of your fave lotion so you can stay super smooth on the go. We even have tiny, really cute shower gels, mists, body creams and hand creams to keep you in tip-top shape, no matter where you are.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Don’t forget to put a bottle of our extremely smooth body lotion in your car, your carry-on, your gym bag or anywhere else you think you may need a little pick-me-up during your day. Honestly, your lotion buddy wants to go with you everywhere. Extra points for you if you finish off with a matching&#13;
 			&lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-spray-and-mists')$" "&gt;fine fragrance mist&lt;/a&gt;. Extra, extra points if it matches your Bath &amp;amp; Body Works scented lotion!&lt;/p&gt;&#13;
@@ -6509,7 +7273,7 @@ max-height: 35px:&#13;
 	&lt;div class="category-seo-text-section__inner-wrapper"&gt;&#13;
 		&lt;h2 class="category-seo-text-section__title"&gt;About Body Scrubs from Bath &amp;amp; Body Works&lt;/h2&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Searching for ways to get super-smooth, touchable skin in a snap? This page is exactly what you need. Our body scrubs combine exfoliants, like sea salt, sugar and even hyaluronic acid (weird name aside, it’s a hyper-hydrator) with your favourite fragrances to leave your skin ultra-soft and smelling amazing.&lt;/p&gt;&#13;
-		&lt;p class="category-seo-text-section__description"&gt;And they’re our favourite way to take your &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','skincare-routine')$"&gt;skincare routine&lt;/a&gt; up a notch (or ten). It all starts by scrubbing away dead skin at the beginning of your shower. Gently rub in a circular motion for about 30 seconds in each area, then rinse off and reveal smooth skin. Just don’t overdo it – over exfoliating with a scrub could leave your skin irritated. We recommend only one or two times a week.&lt;/p&gt;&#13;
+		&lt;p class="category-seo-text-section__description"&gt;And they’re our favourite way to take your &lt;a class="category-seo-text-section__link" href="$url('Page-Show','cid','skincare-routine')$"&gt;skincare routine&lt;/a&gt; up a notch (or ten). It all starts by scrubbing away dead skin at the beginning of your shower. Gently rub in a circular motion for about 30 seconds in each area, then rinse off and reveal smooth skin. Just don’t overdo it – over exfoliating with a scrub could leave your skin irritated. We recommend only one or two times a week.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;The best part? Each scrub is packed with vitamins and minerals to help you achieve the skin you want: radiant, smooth, moisturised, all of the above. A natural moisturiser, vitamin E is perfect for locking in hydration once the scrub has been wiped away. Cleansed and exfoliated skin always craves hydration, so it’s one of the best body scrub ingredients.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Need to relax after a long day or get energized in the morning? Our &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','aromatherapy')$"&gt;aromatherapy body care collection &lt;/a&gt;has amazing body scrubs that can help you get whatever mood you need from de-stressed to chill, sleepy to invigorated. Breathe deep and take in our exclusive blend of essential oils to enhance your mind, body and soul.&lt;/p&gt;&#13;
 	&lt;/div&gt;&#13;
@@ -6554,7 +7318,7 @@ max-height: 35px:&#13;
 		&lt;h2 class="category-seo-text-section__title"&gt;About Body Wash and Shower Gel from Bath &amp;amp; Body Works&lt;/h2&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;A great shower routine starts with a super-luxe moisturising body wash or bubbly shower gel. Why? A great body soap refreshes, cleans and gets you ready to take on your day.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;They’re light, silky and super moisturising, everyone loves them (and you will, too). What you’ll love even more: THE FRAGRANCE. From iconic staples to seasonal goodies, there’s a fragrance (or two) for you. Ocean breezy? Check. Fragrant fall spices? Check, check. Fresh flowers and spring water? Yes. Cozy winter fragrances? Crazy Christmassy? Absolutely. Even some discontinued fragrances pop up from time-to-time. It’s a win-win.&lt;/p&gt;&#13;
-		&lt;p class="category-seo-text-section__description"&gt;When your skin needs a little extra hydration, check out our moisturising body wash. Available in our most popular fragrances, you’re sure to find one of your favourites (or some new loves). Clinically tested to moisturise after one shower, this blend of&lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','shea-butter-benefits')$"&gt; shea butter&lt;/a&gt;, &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','coconut-oil-benefits')$"&gt; coconut oil&lt;/a&gt; and&lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-cream-and-butter')$"&gt; cocoa butter&lt;/a&gt; gently cleanses and instantly hydrates skin in a rich, creamy lather. Looking for body wash advice? Let us help you &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-wash-and-shower-gel')$"&gt; choose the best body wash &lt;/a&gt;for your needs.&lt;/p&gt;&#13;
+		&lt;p class="category-seo-text-section__description"&gt;When your skin needs a little extra hydration, check out our moisturising body wash. Available in our most popular fragrances, you’re sure to find one of your favourites (or some new loves). Clinically tested to moisturise after one shower, this blend of&lt;a class="category-seo-text-section__link" href="$url('Page-Show','cid','shea-butter-benefits')$"&gt; shea butter&lt;/a&gt;, &lt;a class="category-seo-text-section__link" href="$url('Page-Show','cid','coconut-oil-benefits')$"&gt; coconut oil&lt;/a&gt; and&lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-cream-and-butter')$"&gt; cocoa butter&lt;/a&gt; gently cleanses and instantly hydrates skin in a rich, creamy lather. Looking for body wash advice? Let us help you &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-wash-and-shower-gel')$"&gt; choose the best body wash &lt;/a&gt;for your needs.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Complete your body care kit with a matching body cream, lotion and fine fragrance mist so you can take your favourite scents with you throughout the day.&lt;/p&gt;&#13;
 	&lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
@@ -6767,7 +7531,7 @@ max-height: 35px:&#13;
 		&lt;p class="category-seo-text-section__description"&gt;For those special, once-a-year events: Birthdays. Anniversaries. Graduations. Etc. We’ve created gift sets for every once a year event and absolutely everyone on your list at a great price (hello, savings).&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Shop body care gift sets with our iconic lotions, fine fragrance mists and body washes. Take a second to look at gift boxes with fragrance collections in oh-so-beautiful packaging. Whether you’re shopping for your child’s teacher, your yoga instructor or your brother-in-law, you’ll easily find something for them.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Which is great, right? Because graduations and anniversaries always sneak up on you. For the recent grad, consider a relaxing, stress-less Aromatherapy body care set. Spoil that special someone with a romantic body care set, think scents like rose or sweet vanilla – champagne (not) optional.&lt;/p&gt;&#13;
-		&lt;p class="category-seo-text-section__description"&gt;Holiday gifts in a snap? Bath &amp;amp; Body Works has gift sets to make shopping a breeze. Each time a holiday rolls around, like Easter, Halloween, &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','mothers-day-gift-guide')$"&gt;Mother’s Day&lt;/a&gt;, Father's Day, Christmas and more, we freshen up our page with the best presents of the season. Check back often, because we’re always introducing something new and totally gift-worthy.&lt;/p&gt;&#13;
+		&lt;p class="category-seo-text-section__description"&gt;Holiday gifts in a snap? Bath &amp;amp; Body Works has gift sets to make shopping a breeze. Each time a holiday rolls around, like Easter, Halloween, &lt;a class="category-seo-text-section__link" href="$url('Page-Show','cid','mothers-day-gift-guide')$"&gt;Mother’s Day&lt;/a&gt;, Father's Day, Christmas and more, we freshen up our page with the best presents of the season. Check back often, because we’re always introducing something new and totally gift-worthy.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;If you haven’t found the perfect present, don’t give up yet. Make your own gift set by mixing and matching fragrances.&lt;/p&gt;&#13;
 	&lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
@@ -6851,7 +7615,7 @@ max-height: 35px:&#13;
 		&lt;p class="category-seo-text-section__description"&gt;Hey there, welcome to the footer. Need some helpful gifting tips? Good news: the perfect gift for her is just a few clicks away. No matter who she is – your sister or daughter, favourite teacher, girlfriend or wife – there’s a gift for every leading lady on your list.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;There’s never a bad time to give her a candle. Valentine’s Day...her birthday...a bridal shower… candles are always perfect. With so many scents to choose from at Bath &amp;amp; Body Works, there’s definitely a fragrance profile she’ll love. Secondly, &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','all-candles')$"&gt;candles&lt;/a&gt; transform the home in seconds and look amazing on the shelf – so she’s sure to show them off. Add a shiny gold candle holder or a sleek marble pedestal and it’s a win-win.&lt;/p&gt;&#13;
 		&lt;p class="category-seo-text-section__description"&gt;And if she’s into fragrance, get her a &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','body-spray-and-mists')$"&gt;fine fragrance mist&lt;/a&gt;. Perfect for every season and vibe, she’ll fall in love at first mist. This conditioning aloe mist is super light and incredibly refreshing, making it a great gift idea for her birthday, an upcoming holiday or just because (our favourite reason!). We also recommend going the ultra-fancy route and spoiling her with an &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','perfume-and-cologne')$"&gt;eau de perfume&lt;/a&gt;. These luxurious perfumes come in the most exclusive fragrances available, so she’ll always have a true signature scent. Plus, the bottles are so display-worthy that she’ll want to show them off everywhere. Spritz, spritz, smile&lt;/p&gt;&#13;
-		&lt;p class="category-seo-text-section__description"&gt;Looking for more great ideas, especially for &lt;a class="category-seo-text-section__link" href="$url('Search-Show','cgid','mothers-day-gift-guide')$"&gt;Mother’s Day&lt;/a&gt;? Explore body care: lotions and creams and scrubs – oh, my! Not to mention bath fizzies, bubble bath, shower gels and moisturising body wash...there’s so much to choose from. Treat her to a spa day, without leaving the house. Don’t forget the sparkling rosé!&lt;/p&gt;&#13;
+		&lt;p class="category-seo-text-section__description"&gt;Looking for more great ideas, especially for &lt;a class="category-seo-text-section__link" href="$url('Page-Show','cgid','mothers-day-gift-guide')$"&gt;Mother’s Day&lt;/a&gt;? Explore body care: lotions and creams and scrubs – oh, my! Not to mention bath fizzies, bubble bath, shower gels and moisturising body wash...there’s so much to choose from. Treat her to a spa day, without leaving the house. Don’t forget the sparkling rosé!&lt;/p&gt;&#13;
 	&lt;/div&gt;&#13;
 &lt;/div&gt;</custom-attribute>
         </custom-attributes>
@@ -7683,8 +8447,8 @@ padding-top:20px;&#xD;
     </custom-attributes>
   </content>
 
-     <content content-id="gclearnmore">
-        <display-name xml:lang="x-default">Gift card View more</display-name>
+    <content content-id="gclearnmore">
+        <display-name xml:lang="x-default">E-Gift Cards More Info</display-name>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes/>
@@ -7696,72 +8460,60 @@ padding-top:20px;&#xD;
                 &lt;h5 class="h-font-size--16  h-clr--black-3 h-line-height--20 head "&gt;Learn More&lt;/h5&gt;&#13;
 &#13;
                 &lt;div class="gcLMcontent"&gt;&#13;
-                    &lt;p class="gcLMheader"&gt;Bath &amp;amp; Body Works E-Gift Cards are sent via email, making them almost impossible to lose! We&#13;
-                        will&#13;
-                        email your&#13;
-                        recipient within 24 hours of your order. E-Gift Cards are redeemable in our U.S. stores, by&#13;
-                        phone&#13;
-                        and online.&#13;
+                    &lt;p class="gcLMheader"&gt;Bath &amp; Body Works E-Gift Cards are sent via email, making them impossible to lose. We’ll email your recipient at your&#13;
+                    scheduled date and time. E-Gift Cards are redeemable in stores &amp; online.&#13;
                     &lt;/p&gt;&#13;
 &#13;
-                    &lt;p class="gcLMheader"&gt;How to Purchase E-Gift Cards&lt;/p&gt;&#13;
-                    &lt;p class="gcLMheader"&gt;&#13;
-                        Visit our &lt;a class="bodytext h-clr--black-3"&#13;
-                            href="$url('Page-Show', 'cid', 'giftcards')$"&gt;E-Gift&#13;
-                            Cards&lt;/a&gt; page to get&#13;
-                        started. E-Gift Card purchases do not apply towards promotional offers&#13;
+                    &lt;p class="gcLMheader"&gt;How To Purchase E-Gift Cards&lt;/p&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;Visit our &lt;a class="bodytext h-clr--black-3" href="$url('Page-Show', 'cid', 'giftcards')$"&gt;E-Gift&#13;
+                    Cards&lt;/a&gt; page to get started!&#13;
+                    &lt;/p&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;E-Gift Card purchases do not apply towards promotional offers: e.g. Buy 2 Get 1 Free.&#13;
                     &lt;/p&gt;&#13;
 &#13;
                     &lt;p class="gcLMheader"&gt;Delivery of E-Gift Cards&lt;/p&gt;&#13;
                     &lt;div&gt;&#13;
                         &lt;ul class="user-list-data"&gt;&#13;
-                            &lt;li class="list-item"&gt;There are no shipping charges on E-Gift Cards.&lt;/li&gt;&#13;
-                            &lt;li class="list-item"&gt;We will send the E-Gift Card to your recipient via email. The email will include all the&#13;
-                                information&#13;
-                                needed on how to use it.&lt;/li&gt;&#13;
-                            &lt;li class="list-item"&gt;We will send you a confirmation email so you know your E-Gift Card has been sent.&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;There will be no shipping charges are applied on E-Gift Card purchases&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;We’ll send the E-Gift Card to your recipient via email. It will include all the information needed on how to use it.&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;We will send you a confirmation email once your E-Gift Card has been delivered.&lt;/li&gt;&#13;
                         &lt;/ul&gt;&#13;
                     &lt;/div&gt;&#13;
                 &lt;/div&gt;&#13;
             &lt;/div&gt;&#13;
 &#13;
             &lt;div class="second-item"&gt;&#13;
-                &lt;h5 class="h-font-size--16  h-clr--black-3 h-line-height--20 head "&gt;To Redeem&lt;/h5&gt;&#13;
+                &lt;h5 class="h-font-size--16  h-clr--black-3 h-line-height--20 head "&gt;How To Redeem E-Gift Cards&lt;/h5&gt;&#13;
             &#13;
                 &lt;div class="gcLMcontent"&gt;&#13;
-                    &lt;p class="gcLMheader"&gt;In Stores:&lt;/p&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;In Stores&lt;/p&gt;&#13;
                     &lt;div&gt;&#13;
                         &lt;ul class="user-list-data"&gt;&#13;
-                            &lt;li class="list-item"&gt;Print a copy of your E-Gift Card or show on your phone at the register when you are ready to check out.&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;You can either print the gift card email once you receive it or keep it on your phone.&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;Present your gift card email with the barcode at the register when you are ready to check out.&lt;/li&gt;&#13;
                         &lt;/ul&gt;&#13;
                     &lt;/div&gt;&#13;
-                    &lt;p class="gcLMheader"&gt;Online:&lt;/p&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;Online&lt;/p&gt;&#13;
                     &lt;div&gt;&#13;
                         &lt;ul class="user-list-data"&gt;&#13;
-                            &lt;li class="list-item"&gt;During checkout, look for the section marked "Gift Card/E-Gift Card" on the Payment page. Enter your E-Gift Card number&#13;
-                            and PIN, then click APPLY.&lt;/li&gt;&#13;
-                            &lt;li class="list-item"&gt;Any unused balance will remain on your E-Gift Card and can be applied to future purchases.&lt;/li&gt;&#13;
-                            &lt;li class="list-item"&gt;If you are having trouble, please contact us at 1-800-756-5005 (TDD #: 1-877-215-5245).&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;Claim your e-gift card using the link above and shop at bathandbodyworks.com.au&lt;/li&gt;&#13;
+                            &lt;li class="list-item"&gt;Click on the section marked ‘Gift Card’ on the payment page and enter the number and PIN, then click apply.&lt;/li&gt;&#13;
                         &lt;/ul&gt;&#13;
                     &lt;/div&gt;&#13;
 &#13;
-                    &lt;h3 class=" h-clr--black-3 h-line-height--20 head-text "&gt;E-Gift Card Balance&lt;/h3&gt;&#13;
                     &lt;p class="gcLMheader"&gt;&#13;
-                        To check your E-Gift Card balance, (1) click the “Redeem Your E-Gift Card” link in the E-Gift Card email; (2) visit&#13;
-                        any Bath &amp;amp; Body Works (BBW) or White Barn (WB) store or click&#13;
-                         &lt;a class="bodytext h-clr--black-3" href="$url('Page-Show', 'cid', 'giftcards')$"&gt;here&lt;/a&gt;; or (3) call 1-800-640-6052.&#13;
+                        This E-Gift Card has been issued by Bath &amp; Body Works Australia. You can redeem this gift card for merchandise only at&#13;
+                        all Bath &amp; Body Works (BBW) stores located within Australia, including the online store at bathandbodyworks.com.au. The&#13;
+                        voucher code must be applied at checkout. Gift cards cannot be transferred, returned or redeemed for cash.&#13;
                     &lt;/p&gt;&#13;
-                    &lt;h3 class="  h-clr--black-3 h-line-height--20 head-text "&gt;Terms and Conditions&lt;/h3&gt;&#13;
-                    &lt;p class="gcLMheader"&gt;This card is issued by Bath &amp; Body Works GC, LLC. Redeem this card for merchandise only, and for cash when the balance&#13;
-                    is under $10, at all Bath &amp; Body Works (BBW) or White Barn (WB) US &amp; Puerto Rico store locations and online at&#13;
-                    BathandBodyWorks.com; it may not otherwise be returned.&lt;/p&gt;&#13;
-                    &lt;p class="gcLMheader"&gt;Check your card balance at a participating BBW or WB store or BathandBodyWorks.com/giftcard. If this card is lost,&#13;
-                    stolen or destroyed, BBW or WB will replace it with the value of the card at the time replacement is requested if you&#13;
-                    provide the card number. To check your card balance or report a lost, stolen or destroyed card, call 1-800-640-6052.&lt;/p&gt;&#13;
-                    &lt;h3 class=" h-clr--black-3 h-line-height--20 head-text "&gt;This card does not expire. Use of this card constitutes acceptance of these terms and conditions. PLEASE RECORD YOUR&#13;
-                        GIFT CARD NUMBER(S) SHOULD YOU NEED TO REQUEST A GIFT CARD REPLACEMENT.&lt;/h3&gt;&#13;
-                    &lt;p class="gcLMheader"&gt;For all other Gift Card inquiries, please &#13;
-                       &lt;a class="bodytext h-clr--black-3" href="$url('Page-Show', 'cid', 'contact-us')$"&gt;contact us&lt;/a&gt;.&#13;
+                    &lt;p class="gcLMheader"&gt;&#13;
+                        Check your card balance online&#13;
+                         &lt;a class="bodytext h-clr--black-3" href="$url('Page-Show', 'cid', 'giftcards')$"&gt;here&lt;/a&gt;&#13;
+                    &lt;/p&gt;&#13;
+                    &lt;h3 class=" h-clr--black-3 h-line-height--20 head-text "&gt;This e-gift card does not expire, please keep a copy of your gift card number(s) should you need to request for a gift&#13;
+                    card replacement for any reason.&lt;/h3&gt;&#13;
+                    &lt;p class="gcLMheader"&gt;For all other enquiries, please contact our&#13;
+                       &lt;a class="bodytext h-clr--black-3" href="$url('Page-Show', 'cid', 'contact-us')$"&gt;Customer Service&lt;/a&gt; team.&#13;
                     &lt;/p&gt;&#13;
                 &lt;/div&gt;&#13;
             &lt;/div&gt;&#13;
@@ -7777,6 +8529,7 @@ padding-top:20px;&#xD;
     .head {&#13;
         padding-top: 1em;&#13;
         padding-bottom: 1em;&#13;
+        margin-bottom: 0;&#13;
     }&#13;
 &#13;
     .gctnc-head {&#13;
@@ -7809,6 +8562,9 @@ padding-top:20px;&#xD;
     }&#13;
 &lt;/style&gt;</custom-attribute>
         </custom-attributes>
+        <folder-links>
+            <folder-link folder-id="giftcards"/>
+        </folder-links>
     </content>
-    
+
 </library>

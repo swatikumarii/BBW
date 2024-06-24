@@ -14,6 +14,8 @@ var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
 var Order = require('dw/order/Order');
 var seo = require('*/cartridge/scripts/middleware/seo');
+var Transaction = require('dw/system/Transaction');
+var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
 
 /**
  * Order-Details : The Order-Details append to add notify-me functionality
@@ -489,6 +491,7 @@ server.append(
             if (order.status.value === Order.ORDER_STATUS_CREATED) {
                 res.redirect(URLUtils.url('Order-Pending'));
             }
+            var crmOrderID = '';
             if (
                 req.currentCustomer &&
                 req.currentCustomer.raw &&
@@ -497,6 +500,27 @@ server.append(
                 dynamicBadgeHelpers.updateCartDetailInProfile(
                     req.currentCustomer.raw.profile
                 );
+
+                // Capillary: create order
+                crmOrderID = capillaryAPI.createOrder(viewData.order);
+                Transaction.wrap(function () {
+                    order.custom.capillaryOrderID = crmOrderID;
+                });
+            } else {
+                var billingAddress = viewData.order.billing.billingAddress.address;
+                var customerData = {
+                    firstName : billingAddress.firstName,
+                    lastName: billingAddress.lastName,
+                    phone: billingAddress.phone,
+                    email: viewData.order.orderEmail
+                };
+                var crmCustomerID = capillaryAPI.createCustomer(customerData);
+                if (crmCustomerID) {
+                    crmOrderID = capillaryAPI.createOrder(viewData.order);
+                    Transaction.wrap(function () {
+                        order.custom.capillaryOrderID = crmOrderID;
+                    });
+                }
             }
         });
         return next();

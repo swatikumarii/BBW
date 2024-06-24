@@ -11,6 +11,7 @@ var csrfProtection = require('*/cartridge/scripts/middleware/csrf');
 var consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 var URLUtils = require('dw/web/URLUtils');
 var Resource = require('dw/web/Resource');
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 /**
  * Append Account-Show controller: Update breadcrumbs
@@ -83,8 +84,8 @@ server.get(
         });
 
         next();
-    }
-);
+    },
+    seo.addCurrentPageMetaData);
 
 server.get('Popup', csrfProtection.generateToken, function (req, res, next) {
     var loginRedirectExceptions = require('*/cartridge/config/loginRedirectExceptions');

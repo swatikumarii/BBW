@@ -347,6 +347,7 @@ function checkFields(form) {
                             // look for field validation errors
                             if (data.error) {
                                 if (data.fieldErrors.length) {
+                                    $('.edit-billing-address').click();
                                     data.fieldErrors.forEach(function (error) {
                                         if (Object.keys(error).length) {
                                             formHelpers.loadFormErrors('.payment-form', error);
@@ -385,27 +386,30 @@ function checkFields(form) {
                                     redirect.submit();
                                     defer.resolve(data);
                                 }
+
+                                var reviewURL = $('input[name="review-url"]').val();
+                                window.location.href = reviewURL;
                                 //
                                 // Populate the Address Summary
                                 //
-                                $('body').trigger(
-                                    'checkout:updateCheckoutView',
-                                    { order: data.order, customer: data.customer }
-                                );
+                                // $('body').trigger(
+                                //     'checkout:updateCheckoutView',
+                                //     { order: data.order, customer: data.customer }
+                                // );
 
-                                if (data.renderedPaymentInstruments) {
-                                    $('.stored-payments').empty().html(
-                                        data.renderedPaymentInstruments
-                                    );
-                                }
+                                // if (data.renderedPaymentInstruments) {
+                                //     $('.stored-payments').empty().html(
+                                //         data.renderedPaymentInstruments
+                                //     );
+                                // }
 
-                                if (data.customer.registeredUser
-                                    && data.customer.customerPaymentInstruments.length
-                                ) {
-                                    $('.cancel-new-payment').removeClass('checkout-hidden');
-                                }
+                                // if (data.customer.registeredUser
+                                //     && data.customer.customerPaymentInstruments.length
+                                // ) {
+                                //     $('.cancel-new-payment').removeClass('checkout-hidden');
+                                // }
 
-                                scrollAnimate();
+                                // scrollAnimate();
                                 defer.resolve(data);
                             }
                         },
@@ -428,7 +432,6 @@ function checkFields(form) {
                         url: $('.place-order').data('action'),
                         method: 'POST',
                         success: function (data) {
-                            $.spinner().stop();
                             // enable the placeOrder button here
                             $('body').trigger('checkout:enableButton', '.next-step-button button');
                             if (data.error) {
@@ -439,6 +442,7 @@ function checkFields(form) {
                                     // go to appropriate stage and display error message
                                     defer.reject(data);
                                 }
+                                $.spinner().stop();
                                 // ### Custom Adyen cartridge start ###
                             } else if (data.adyenAction) {
                                 window.orderToken = data.orderToken;

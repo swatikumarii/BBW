@@ -59,6 +59,7 @@ footer {
 
 .checkout-checkbox {
     font-size: 0.875em;
+    padding-left: 5px;
 }
 
 .customer-information-block .btn-link {
@@ -649,7 +650,8 @@ input[type="tel"],
     }
 
     .billing-address-heading {
-        margin-bottom: 13px;
+        margin-bottom: 10px;
+        padding-bottom: 17px;
         margin-top: 0;
 
         &.guest {
@@ -660,10 +662,6 @@ input[type="tel"],
             padding-top: 0;
             padding-bottom: 15px;
         }
-
-        @include media-up(md) {
-            margin-bottom: 6px;
-        }
     }
 }
 
@@ -673,6 +671,46 @@ input[type="tel"],
 
 .shipping-address,
 .billing-address {
+    .billing-select-wrap {
+        box-sizing: border-box;
+        height: 48px;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 46%;
+            transform: translateY(-46%);
+            height: 47px;
+            width: 35px;
+            border-left: 1px solid colour(gray, 5);
+            background: colour(white) url("../../images/UI-Carat.svg") no-repeat 50%;
+            background-size: 15px;
+        }
+
+        select {
+            border-radius: 0;
+            background: transparent;
+            padding: 0 2.25rem 0 0.625rem;
+            height: 48px;
+            cursor: pointer;
+            appearance: none;
+            z-index: 1;
+            position: absolute;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-color: colour(black, 1);
+
+            &:focus {
+                box-shadow: none;
+                border-color: colour(black, 1);
+                background: none;
+            }
+        }
+    }
+
     .form-group {
         margin: 10px 0 30px;
         position: relative;
@@ -793,6 +831,23 @@ input[type="tel"],
         @include media-up(md) {
             padding-left: 10px;
             padding-right: 0;
+        }
+
+        .coupon-error {
+            .coupon-error-message.d-block {
+                padding: 0.5rem 1rem;
+            }
+
+            .coupon-missing-error.d-block {
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        .coupons-and-promos {
+            .delete-coupon-confirmation-btn {
+                margin-top: 7px;
+                cursor: pointer;
+            }
         }
     }
 }
@@ -1049,6 +1104,19 @@ input[type="tel"],
 }
 
 .info-billing {
+    .required-indicator-text {
+        font-style: italic;
+
+        .required-star {
+            position: relative;
+            right: 5px;
+        }
+    }
+
+    .require-indicator {
+        margin-right: 0.125em;
+    }
+
     .info-icon {
         top: 50%;
 

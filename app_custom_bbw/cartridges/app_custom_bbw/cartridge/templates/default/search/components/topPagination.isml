@@ -4,8 +4,9 @@
             <h1 class="search-results__top-header__category-name h-clr--black-1 h-fw--bold h-mb--0 h-mb-sm-down--0">
                 ${pdict.productSearch.selectedFilters[0].displayValue}</h1>
         <iselseif condition="${pdict.productSearch.isCategorySearch}" />
-            <h1 class="search-results__top-header__category-name h-clr--black-1 h-fw--bold h-mb--0 h-mb-sm-down--0">
-                ${pdict.productSearch.category.name}</h1>
+            <h1 class="search-results__top-header__category-name h-clr--black-1 h-mb--0 h-mb-sm-down--0 h-font-size--24 h-fw--bold text-capitalize">
+                ${pdict.productSearch.promotionTitle ? pdict.productSearch.promotionTitle : pdict.productSearch.category.name}</h1>
+                <span class="h-font-size--14 h-clr--black-3">${pdict.productSearch.promotionDescription}</span>
         <iselse/>
             <h1 class="search-results__top-header__category-name h-clr--black-1 h-fw--bold h-mb--0 h-mb-sm-down--0"> ${Resource.msg('title.search.result.page', 'search', null)}</h1>
         </isif>

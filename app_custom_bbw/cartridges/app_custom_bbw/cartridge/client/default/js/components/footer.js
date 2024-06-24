@@ -103,20 +103,25 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
 });
 
 if (
-    !localStorage.getItem('is-country-selector') &&
-    $('.countrySelectPopup').data('country-selector-enabled')
+    !localStorage.getItem('is-country-selector') 
+    && $('.countrySelectPopup').data('country-selector-enabled')
 ) {
-    $('.countrySelectPopup').find('.modal').modal('show');
     var reqCountryDiv = $('#request-country-name');
     var countryCode = reqCountryDiv.data('country-code');
-    var regionName = new Intl.DisplayNames(['en'], { type: 'region' });
-    var countryDisplayName = regionName.of(countryCode);
-    reqCountryDiv.text(countryDisplayName);
-    $('#country-' + countryDisplayName).attr('selected', 'selected');
     var siteCountryCode = $('#site-country-code').text();
-    var siteCountryDisplayName = regionName.of(siteCountryCode);
-    if (siteCountryDisplayName) {
-        $('#site-country-code').text(siteCountryDisplayName);
+    if (countryCode !== siteCountryCode) {
+        $('.countrySelectPopup').find('.modal').modal('show');
+        var regionName = new Intl.DisplayNames(['en'], { type: 'region' });
+        var countryDisplayName = regionName.of(countryCode);
+        if(countryDisplayName){
+            reqCountryDiv.text(countryDisplayName);
+            $('#country-' + countryDisplayName).attr('selected', 'selected');
+            siteCountryCode = $('#site-country-code').text();
+            var siteCountryDisplayName = regionName.of(siteCountryCode);
+            if (siteCountryDisplayName) {
+                $('#site-country-code').text(siteCountryDisplayName);
+            }
+        }
     }
 }
 
@@ -199,3 +204,14 @@ module.exports = function () {
         newsLetter();
     });
 };
+// Added class on popover
+$('[data-toggle="popover"]').popover();
+$('body').on(
+    'mouseenter',
+    '.tooltip-container [data-toggle="popover"]',
+    function () {
+        $(this).popover('show');
+        $('.popover').addClass('footer-tooltip-popover');
+        $('.popover-header').addClass('footer-tooltip-header');
+    }
+);

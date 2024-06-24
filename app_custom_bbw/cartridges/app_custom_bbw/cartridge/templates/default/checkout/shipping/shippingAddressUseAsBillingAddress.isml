@@ -21,7 +21,7 @@
     <div class="col-12">
         <div class="form-group mb-0">
             <div class="custom-control custom-checkbox">
-                <input class="custom-control-input gift" type="checkbox"
+                <input class="custom-control-input gift" checked type="checkbox"
                     id="shippingAddressUseAsBillingAddress-${lineItem ? lineItem.UUID : 'default'}-${shippingModel.UUID}" <isprint value="${pdict.forms.shippingForm.shippingAddress.shippingAddressUseAsBillingAddress.attributes}" encoding="off" />
                 >
                 <label for="shippingAddressUseAsBillingAddress-${lineItem ? lineItem.UUID : 'default'}-${shippingModel.UUID}"
