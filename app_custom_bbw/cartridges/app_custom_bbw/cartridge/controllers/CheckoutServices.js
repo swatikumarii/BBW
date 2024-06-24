@@ -65,7 +65,8 @@ server.append(
                     address1: paymentForm.addressFields.address1.value,
                     address2: paymentForm.addressFields.address2.value,
                     city: paymentForm.addressFields.city.value,
-                    states: paymentForm.addressFields.states.value,
+                    states: {
+                        stateCode: paymentForm.addressFields.states.stateCode.value},
                     postalCode: paymentForm.addressFields.postalCode.value,
                     countryCode: paymentForm.addressFields.country.value,
                     phone: paymentForm.addressFields.phone.value
