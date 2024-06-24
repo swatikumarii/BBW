@@ -543,3 +543,8 @@ $('.billingAddressCity').change(function () {
         zipDropdown.trigger('change');
     }
 });
+
+$('.skipToPayment').on('click', function (e) {
+    e.preventDefault();
+    $('.submit-shipping').click();
+});
