@@ -191,7 +191,7 @@
                             class="h-font-size--16 h-clr--black-3 privacy-policy"><u>${Resource.msg('label.privacy.policy', 'giftcards', null)}</u></a> </iscomment>
                     <isinclude template="product/components/addToCartProduct" />
                 </form>
-                <a href="${URLUtils.url('Page-Show', 'cid', 'gclearnmore')}"
+                <a href="${URLUtils.url('Page-Show', 'cid', 'gc-e-learn-more')}"
                     class="h-font-size--16 h-clr--black-3"><u>${Resource.msg('label.gc.terms.and.conditions', 'giftcards', null)}</u></a>
                 <isslot id="e-gify-video-upload-consent" context="global" description="giftcard upload tncs" />
 

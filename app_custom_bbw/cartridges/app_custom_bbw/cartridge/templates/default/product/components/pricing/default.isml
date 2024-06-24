@@ -1,4 +1,4 @@
-<span>
+<span class="${pdict.product.promoPrice ? 'hpp-promo-price-wrapper' : ''}">
     <isset name="finalOrigPrice" value="${price}" scope="page" />
 
     <isif condition="${finalOrigPrice.list !== null}">
