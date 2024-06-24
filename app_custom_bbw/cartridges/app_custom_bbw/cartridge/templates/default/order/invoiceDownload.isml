@@ -623,7 +623,7 @@
                                 ${Resource.msg('third.return.policy', 'order', null)}
                             </li>
                             <li style="font-size:16px">
-                                ${Resource.msg('fourth.return.policy', 'order', null)}
+                                ${Resource.msgf('fourth.return.policy', 'order', null, URLUtils.abs('Page-Show', 'cid', 'return-policy'))}
                             </li>
                         </ol>
                     </td>
