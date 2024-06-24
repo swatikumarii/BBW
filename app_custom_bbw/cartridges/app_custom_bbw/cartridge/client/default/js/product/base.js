@@ -548,6 +548,7 @@ function attributeSelect(selectedValueUrl, $productContainer) {
                     'data-pid',
                     data.product.id
                 );
+                $('button.add-to-cart, button.add-to-cart-global').data('pid', data.product.id).trigger('change');
                 handleVariantResponse(data, $productContainer);
                 updateOptions(data.product.optionsHtml, $productContainer);
                 updateQuantities(data.product.quantities, $productContainer);
