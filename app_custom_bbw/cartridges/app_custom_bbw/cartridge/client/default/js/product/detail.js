@@ -354,20 +354,20 @@ module.exports = $.extend({}, detail, {
         $('[data-toggle="popover"]').popover();
 
         // Show popover on mouseenter
-        $('body').on(
-            'mouseenter',
-            '.promotion-callout [data-toggle="popover"]',
-            function () {
-                $(this).popover('show');
-                $('.pdp-title')
-                    .parents('.popover')
-                    .addClass('pdp-popover bs-popover-top');
-                $('.pdp-title')
-                    .parents('.popover')
-                    .removeClass('bs-popover-right');
-                $('.popover-header').addClass('d-none');
-            }
-        );
+        // $('body').on(
+        //     'mouseenter',
+        //     '.promotion-callout [data-toggle="popover"]',
+        //     function () {
+        //         $(this).popover('show');
+        //         $('.pdp-title')
+        //             .parents('.popover')
+        //             .addClass('pdp-popover bs-popover-top');
+        //         $('.pdp-title')
+        //             .parents('.popover')
+        //             .removeClass('bs-popover-right');
+        //         $('.popover-header').addClass('d-none');
+        //     }
+        // );
 
         var timer;
         $('body')

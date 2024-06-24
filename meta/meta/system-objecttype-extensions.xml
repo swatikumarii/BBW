@@ -484,6 +484,12 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="noOfTimeProfilePopUpShowed">
+                <display-name xml:lang="x-default">No of Times Profile Complete Popup Showed</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="activatedDate">
                 <display-name xml:lang="x-default">Activated Date</display-name>
                 <type>datetime</type>
