@@ -74,7 +74,7 @@
 
     &__product-list {
         @include media-up(md) {
-            padding: 0 2.8125rem 2.8125rem 2.5rem;
+            padding: 0 2.8125rem 2.8125rem 1.5rem;
             flex-wrap: wrap;
         }
 
@@ -158,6 +158,14 @@
                         align-items: center;
                         justify-content: flex-start;
                         gap: 5px;
+                    }
+
+                    .hpp-promo-price-wrapper {
+                        flex-wrap: wrap;
+
+                        .promo-price {
+                            margin-left: 0;
+                        }
                     }
                 }
 
