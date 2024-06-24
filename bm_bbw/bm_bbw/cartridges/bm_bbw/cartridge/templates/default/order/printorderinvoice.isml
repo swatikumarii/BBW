@@ -26,7 +26,7 @@
                                 <isset name="headerImage"
                                     value="${require('dw/system/Site').getCurrent().getCustomPreferenceValue('header_image')}"
                                     scope="page" />
-                                <img class="hidden-md-down img-fluid w-100"
+                                <img class="hidden-md-down img-fluid "
                                     src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/bbw-logo-invoice.png')}"
                                     alt="${Resource.msg('global.storename', 'common', null)}" style="width: 220px" />
                             </div>
@@ -549,7 +549,7 @@
                     <tbody>
                         <tr style="vertical-align: baseline; display:flex;  margin-left: 40px;">
                             <td style="vertical-align:baseline; display:flex; align-items:center;">
-                                <img class=" img-fluid w-100"
+                                <img class=" img-fluid "
                                     src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/InvoiceReports-revis-logo-01.png')}"
                                     alt="${Resource.msg('global.storename', 'common', null)}" style="width: 50px" />
                                 <p style="font-size:16px; margin-bottom: 20px; width: 227px; margin-left: 20px;">
@@ -557,7 +557,7 @@
                                 </p>
                             </td>
                             <td style="vertical-align:baseline;  display:flex; align-items:center;">
-                                <img class=" img-fluid w-100"
+                                <img class=" img-fluid "
                                     src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/InvoiceReports-revis-logo-02.png')}"
                                     alt="${Resource.msg('global.storename', 'common', null)}" style="width: 50px" />
                                 <p style="font-size:16px; margin-bottom: 20px; width: 176px; margin-left: 10px;">
@@ -565,7 +565,7 @@
                                 </p>
                             </td>
                             <td style="vertical-align:baseline;  display:flex; align-items:center;">
-                                <img class="img-fluid w-100"
+                                <img class="img-fluid "
                                     src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/InvoiceReports-revis-logo-03.png')}"
                                     alt="${Resource.msg('global.storename', 'common', null)}" style="width: 50px" />
                                 <p style="font-size:16px; margin-bottom: 20px; width: 200px; margin-left: 20px;">
