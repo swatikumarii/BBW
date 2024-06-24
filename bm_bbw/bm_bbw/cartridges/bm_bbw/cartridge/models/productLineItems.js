@@ -247,37 +247,39 @@ function createProductLineItemsObject(allLineItems, view) {
         };
 
 
-        if (view === '') {
-            
+        if (view === "order") {
         } else {
-            var greetingCardMessage = null;
-            if ('greetingCardMessage' in item.custom && item.custom.greetingCardMessage) {
-                greetingCardMessage = item.custom.greetingCardMessage;
-            }
-            var options = getConfig(apiProduct, params);
-            var images = getImages(apiProduct, options, params);
-            var price = getPrice(apiProduct, options);
-            var product = {
+          var greetingCardMessage = null;
+          if (
+            "greetingCardMessage" in item.custom &&
+            item.custom.greetingCardMessage
+          ) {
+            greetingCardMessage = item.custom.greetingCardMessage;
+          }
+          var options = getConfig(apiProduct, params);
+          var images = getImages(apiProduct, options, params);
+          var price = getPrice(apiProduct, options);
+          var product = {
             id: apiProduct.ID,
             UUID: item.UUID,
             images: images,
             fragranceName:
-                "custom" in apiProduct &&
-                "fragranceName" in apiProduct.custom &&
-                apiProduct.custom.fragranceName !== ""
+              "custom" in apiProduct &&
+              "fragranceName" in apiProduct.custom &&
+              apiProduct.custom.fragranceName !== ""
                 ? apiProduct.custom.fragranceName
                 : false,
             productName: apiProduct.name,
             titlePartB:
-                "custom" in apiProduct &&
-                "titlePartB" in apiProduct.custom &&
-                apiProduct.custom.titlePartB !== ""
+              "custom" in apiProduct &&
+              "titlePartB" in apiProduct.custom &&
+              apiProduct.custom.titlePartB !== ""
                 ? apiProduct.custom.titlePartB
                 : false,
             volume:
-                "custom" in apiProduct &&
-                "volume" in apiProduct.custom &&
-                apiProduct.custom.volume !== ""
+              "custom" in apiProduct &&
+              "volume" in apiProduct.custom &&
+              apiProduct.custom.volume !== ""
                 ? apiProduct.custom.volume
                 : false,
             greetingCardMessage: greetingCardMessage,
@@ -286,8 +288,8 @@ function createProductLineItemsObject(allLineItems, view) {
             quantity: item.quantity,
             noProduct: null,
             basePrice: "basePrice" in item ? item.basePrice : "",
-            price: price
-            };
+            price: price,
+          };
         }
         lineItems.push(product);
     });
