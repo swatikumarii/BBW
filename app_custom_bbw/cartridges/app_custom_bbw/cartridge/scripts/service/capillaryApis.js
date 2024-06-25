@@ -154,7 +154,7 @@ module.exports = {
         var customerEmail = order.orderEmail;
         var endPoint = 'v2/transactions?source=instore&identifierName=email&identifierValue='+customerEmail+'&rawSideEffects=true';
         var createStatus = callCapillaryAPI(endPoint, JSON.stringify(requestObj), 'POST');
-        if (createStatus.ok && 'object' in createStatus && createStatus.object) {
+        if (createStatus && createStatus !== null && createStatus.ok && 'object' in createStatus && createStatus.object) {
             var createObject = JSON.parse(createStatus.object);
             if ('errors' in createObject && createObject.errors && createObject.errors.length > 0) {
                 logger.error('capillary create order: ' + JSON.stringify(createObject.errors));
