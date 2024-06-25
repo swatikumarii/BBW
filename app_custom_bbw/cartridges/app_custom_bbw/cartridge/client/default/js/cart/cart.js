@@ -95,9 +95,13 @@ function updateCartTotals(data) {
         $('.shipping-tax').closest('div.row').removeClass('d-none');
     }
     $('.number-of-items').empty().append(data.resources.numberOfItems);
+    if ($('.sub-total').hasClass('tax-exclusive')) {
+        $('.sub-total').empty().append(data.totals.subTotalExclTax);
+    } else {
+        $('.sub-total').empty().append(data.totals.subTotal);
+    }
     $('.tax-total').empty().append(data.totals.totalTax);
     $('.grand-total').empty().append(data.totals.grandTotal);
-    $('.sub-total').empty().append(data.totals.subTotal);
     $('.minicart-quantity').empty().append(data.numItems);
     $('.cart-num-items').empty().append(data.numItems);
     $('.minicart-link').attr({

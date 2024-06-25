@@ -226,10 +226,10 @@ function totals(lineItemContainer) {
         );
         this.totalDiscountFormatted = getTotals(allDiscounts.totalDiscount);
         if (lineItemContainer.adjustedMerchandizeTotalNetPrice.available && allDiscounts.totalDiscount.available) {
-            this.subTotalExclTax = getTotals(lineItemContainer.adjustedMerchandizeTotalNetPrice.add(allDiscounts.totalDiscount.multiply(-1)));
+            this.subTotalExclTax = getTotals(lineItemContainer.merchandizeTotalNetPrice);
         }
         if (lineItemContainer.getAdjustedMerchandizeTotalPrice(false).available && allDiscounts.totalDiscount.available) {
-            this.subTotal = getTotals(lineItemContainer.getAdjustedMerchandizeTotalPrice(false).add(allDiscounts.totalDiscount.multiply(-1)));
+            this.subTotal = getTotals(lineItemContainer.merchandizeTotalGrossPrice);
         }
         this.discounts = getDiscounts(lineItemContainer);
         this.pendingTotal = getPendingTotal(lineItemContainer);
