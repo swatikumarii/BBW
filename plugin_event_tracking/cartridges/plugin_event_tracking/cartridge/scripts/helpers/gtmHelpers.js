@@ -314,27 +314,24 @@ function removeFromCart(res) {
 function addToWishlist(res) {
     var pid = res.pid;
     var productData = ProductMgr.getProduct(pid);
-    var ecommerce = {
+    var obj = {
         event: gtmEvents.ADD_TO_WISHLIST,
-        currency: productData.priceModel.price.currencyCode,
-        value: productData.priceModel.price.value,
-
-        items: {
-            item_id: pid,
-            item_name: productData.name,
-            item_brand: productData.brand ? productData.brand : '',
-            'item-category': productData.allCategories[0].displayName
-                ? productData.allCategories[0].displayName
-                : '',
-            item_categoryID: productData.allCategories[0].parent.ID
-                ? productData.allCategories[0].parent.ID
-                : '',
-            price: productData.priceModel.price.value
+        ecommerce: {
+            currency: productData.priceModel.price.currencyCode,
+            value: productData.priceModel.price.value,
+            items: {
+                item_id: pid,
+                item_name: productData.name,
+                item_brand: productData.brand ? productData.brand : '',
+                item_category: productData.allCategories[0].displayName ? productData.allCategories[0].displayName : '',
+                price: productData.priceModel.price.value,
+                quantity:1
+            }
         }
     };
-
-    return ecommerce;
+    return obj;
 }
+
 /**
  * @param {object} res - current route response object
  * @returns {object} an object containing a product list

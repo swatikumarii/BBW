@@ -2,7 +2,7 @@
 
 module.exports = {
     ADD_TO_CART: 'add_to_cart',
-    ADD_TO_WISHLIST: 'AddToWishlist',
+    ADD_TO_WISHLIST: 'add_to_wishlist',
     ADD_PAYMENT_INFO: 'add_payment_info',
     ADD_SHIPPING_INFO: 'add_shipping_info',
     BEGIN_CHECKOUT: 'begin_checkout',
