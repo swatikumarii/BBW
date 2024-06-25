@@ -102,10 +102,8 @@ function getProductObject(product) {
 
     if (product.primaryCategory !== null) {
         obj.item_category = product.primaryCategory.displayName;
-        obj.item_categoryID = product.primaryCategory.ID.replace(/_/gi, '/');
     } else if (master && master.primaryCategory !== null) {
         obj.item_category = master.primaryCategory.displayName;
-        obj.item_categoryID = master.primaryCategory.ID.replace(/_/gi, '/');
     }
     if (product.priceModel.maxPrice.valueOrNull !== null) {
         obj.price = product.priceModel.maxPrice.value.toFixed(2);
@@ -130,7 +128,6 @@ function getGA4OrderProductObject(productLineItem) {
 function getProductArrayFromList(productList, callback) {
 
     var productArray = [];
-    var position = 1;
 
     while (productList.hasNext()) {
         var item = productList.next();
@@ -138,14 +135,13 @@ function getProductArrayFromList(productList, callback) {
 
         if (item instanceof dw.catalog.Product || item instanceof dw.catalog.Variant) {
             prodObj = callback(item);
-            prodObj.position = position;
-            prodObj.list = 'Search Results';
+            prodObj.item_list_id = 'search_results';
+            prodObj.item_list_name = 'Search Results';
 
         } else if (item instanceof dw.customer.ProductListItem || item instanceof dw.order.ProductLineItem) {
             prodObj = callback(item);
         }
         productArray.push(prodObj);
-        position++;
     }
     return productArray;
 }
@@ -394,7 +390,7 @@ function getSearchImpressionData(res) {
         obj = {
             event: gtmEvents.SEARCH_SHOW,
             ecommerce: {
-                impressions: getProductArrayFromList(
+                items: getProductArrayFromList(
                     getSearchProducts(res).iterator(),
                     getProductObject
                 )
@@ -403,7 +399,7 @@ function getSearchImpressionData(res) {
 
         if ('productSearch' in res) {
             for (var i = 0; i < res.productSearch.category.length; i++) {
-                obj.ecommerce.impressions.push({
+                obj.ecommerce.items.push({
                     category: res.productSearch.category.displayName
                         ? res.productSearch.category.displayName
                         : ''
@@ -574,24 +570,18 @@ function getConfirmationData(res) {
         event: gtmEvents.PURCHASE,
         ecommerce: {
             transaction_id: order.orderNo,
-            purchase: {
-                products: [],
-                actionField: {
-                    revenue: order.totalGrossPrice.value,
-                    tax: order.getTotalTax().getValue().toFixed(2),
-                    shipping: order.getAdjustedShippingTotalPrice().getValue(),
-                    coupon: order.couponLineItems.length
-                        ? order.couponLineItems[0].couponCode
-                        : '',
-                    currencyCode: order.currencyCode
-                }
-            },
-            orderStatus: orderStatusMatrix[order.status.value]
+            value: order.totalGrossPrice.value,
+            tax: order.getTotalTax().getValue().toFixed(2),
+            shipping: order.getAdjustedShippingTotalPrice().getValue(),
+            coupon: order.couponLineItems.length ? order.couponLineItems[0].couponCode : '',
+            currency: order.currencyCode,
+            orderStatus: orderStatusMatrix[order.status.value],
+            items: []
         }
     };
     if ('order' in res) {
         for (var i = 0; i < res.order.items.items.length; i++) {
-            obj.ecommerce.purchase.products.push({
+            obj.ecommerce.items.push({
                 item_name: res.order.items.items[i].productName,
                 item_id: res.order.items.items[i].id,
                 item_brand: res.order.items.items[i].brand
@@ -600,10 +590,6 @@ function getConfirmationData(res) {
                 // coupon:res.order.totals.discounts[i].couponCode,
                 item_category: res.order.items.items[i].gtmData.item_category
                     ? res.order.items.items[i].gtmData.item_category
-                    : '',
-                item_categoryID: res.order.items.items[i].gtmData
-                    .item_categoryID
-                    ? res.order.items.items[i].gtmData.item_categoryID
                     : '',
                 price: res.order.items.items[i].gtmData.price,
                 quantity: res.order.productQuantityTotal
