@@ -737,6 +737,7 @@ module.exports = $.extend({}, base, {
                                         .hide();
                                 }
                             });
+                        $(this).prop('disabled', false);
                         return false;
                     }
                     var eGiftVideo = document.getElementById('giftCard-video');
