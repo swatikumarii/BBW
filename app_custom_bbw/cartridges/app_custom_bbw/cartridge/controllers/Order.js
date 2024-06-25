@@ -475,6 +475,7 @@ server.append(
         this.on('route:BeforeComplete', function () {
             // send email when order total 0
             var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
+            var COHelpers = require('*/cartridge/scripts/checkout/checkoutHelpers');
             var dynamicBadgeHelpers = require('*/cartridge/scripts/helpers/dynamicBadgeHelpers');
             var viewData = res.getViewData();
             var OrderMgr = require('dw/order/OrderMgr');
@@ -482,8 +483,18 @@ server.append(
             if (order && order.totalGrossPrice.value === 0) {
                 commonHelper.zeroOrderEmail(viewData.order);
             }
+
             // redirection url
             viewData.orderStatusVal = Order;
+            if (order && order.paymentStatus.value === viewData.orderStatusVal.PAYMENT_STATUS_NOTPAID
+                && order.paymentTransaction && order.paymentTransaction !== null && 'custom' in order.paymentTransaction && order.paymentTransaction.custom
+                && 'Adyen_paymentMethod' in order.paymentTransaction.custom && 'authCode' in order.paymentTransaction.custom
+                && order.paymentTransaction.custom.authCode === 'Authorised') {
+                Transaction.wrap(function () {
+                    order.setPaymentStatus(Order.PAYMENT_STATUS_PAID);
+                });
+                COHelpers.sendConfirmationEmail(order, req.locale.id);
+            }
             res.setViewData(viewData);
             if (order.status.value === Order.ORDER_STATUS_FAILED || order.status.value === Order.ORDER_STATUS_CANCELLED) {
                 res.redirect(URLUtils.url('Order-Failed'));
