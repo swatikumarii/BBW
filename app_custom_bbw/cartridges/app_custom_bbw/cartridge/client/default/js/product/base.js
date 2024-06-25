@@ -744,11 +744,13 @@ module.exports = $.extend({}, base, {
 
                     if (eGiftVideo.files.length > 0 && (eGiftVideo.files[0].type || '').indexOf('video/') === -1) {
                         $('.giftcard-video').parent().find('.invalid-feedback').text($('#giftCard-video').data('error-type'));
+                        $(this).prop('disabled', false);
                         return false;
                     }
 
                     if (eGiftVideo.files.length > 0 && eGiftVideo.files[0].size > 15728640) {
                         $('.giftcard-video').parent().find('.invalid-feedback').text($('#giftCard-video').data('error-size'));
+                        $(this).prop('disabled', false);
                         return false;
                     }
 
