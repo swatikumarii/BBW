@@ -578,7 +578,8 @@ function getConfirmationData(res) {
 function signUp(res) {
     if (res.success) {
         var obj = {
-            event: gtmEvents.SIGN_UP
+            event: gtmEvents.SIGN_UP,
+            method: 'Site'
         };
         return obj;
     }
