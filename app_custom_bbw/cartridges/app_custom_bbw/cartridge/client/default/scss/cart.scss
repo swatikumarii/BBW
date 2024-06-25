@@ -189,6 +189,10 @@
                         width: 100%;
                         max-width: 100%;
                         padding-right: 0;
+
+                        .item-image {
+                            width: 35%;
+                        }
                     }
 
                     .item-attributes {
@@ -358,12 +362,9 @@
                     color: $clr-black-3;
 
                     @include media-down(sm) {
-                        width: 34%;
                         text-align: left;
-                    }
-
-                    @media only screen and (max-width: 375px) {
-                        width: 24%;
+                        width: 100%;
+                        padding-left: 35%;
                     }
 
                     .strike-through {
@@ -380,12 +381,8 @@
                     padding-top: 10px;
 
                     @include media-down(sm) {
-                        width: 34%;
-                        text-align: left;
-                    }
-
-                    @media only screen and (max-width: 375px) {
-                        width: 24%;
+                        width: 100%;
+                        padding-left: 35%;
                     }
 
                     .quantity-form {
@@ -464,13 +461,9 @@
                     }
 
                     @include media-down(sm) {
+                        width: 100%;
+                        padding-left: 35%;
                         text-align: left;
-                        width: 34%;
-                    }
-
-                    @media only screen and (max-width: 375px) {
-                        width: 35%;
-                        margin-left: 38px;
                     }
                 }
 
@@ -485,13 +478,9 @@
                     color: $clr-black-1;
 
                     @include media-down(sm) {
+                        width: 100%;
+                        padding-left: 35%;
                         text-align: left;
-                        width: 34%;
-                    }
-
-                    @media only screen and (max-width: 375px) {
-                        width: 35%;
-                        margin-left: 38px;
                     }
 
                     .line-item-total-price-amount {
