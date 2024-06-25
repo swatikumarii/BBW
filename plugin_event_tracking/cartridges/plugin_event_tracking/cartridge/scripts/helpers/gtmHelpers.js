@@ -437,11 +437,6 @@ function getCheckoutData(res) {
                 price: res.order.items.items[i].price.sales.decimalPrice,
                 quantity: res.order.productQuantityTotal
             });
-            if (i === 0) {
-                obj.ecommerce.add.products.push({
-                    item_name: res.order.items.items[i].productName
-                });
-            }
         }
     }
     return obj;
