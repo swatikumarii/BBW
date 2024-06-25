@@ -67,15 +67,11 @@ server.replace(
  * @function
  * @memberof Home
  * @param {middleware} https- server.middleware.https
- * @param {middleware} applyDefaultCache- cache.applyDefaultCache
- * @param {middleware} consentTracking- consentTracking
  * @param {serverfunction} get
  */
 server.get(
     'CountrySelector',
     server.middleware.https,
-    cache.applyDefaultCache,
-    consentTracking.consent,
     function (req, res, next) {
         var countrySiteMapping =
             Site.current.getCustomPreferenceValue('countrySiteMapping');
