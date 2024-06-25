@@ -120,6 +120,9 @@
             </a>
         </isloop>
     </isif>
+    <isif condition="${product.images['medium'].length > 0}">
+        <link itemprop="image" href="${product.images['medium'][0].url}" />
+    </isif>
     <isif condition="${!product.isEgiftCard}">
         <iscomment> <a
                 class="b-product-tile__wishlistTile wishlistTile position-absolute add-to-wish-list ${pdict.itemExist ? 'added' : ''}"
