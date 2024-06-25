@@ -154,14 +154,9 @@ function getPdpData(res) {
     var obj = {
         event: gtmEvents.PRODUCT_SHOW,
         ecommerce: {
-            add: {products:[{item_name:res.product.gtmData.item_name}]},
-            detail: { products: [] },
-            purchase: {
-                actionField: {
-                    currencyCode: res.product.price.sales.currency,
-                    revenue: res.product.price.sales.value
-                }
-            }
+            currency: res.product.price.sales.currency,
+            value: res.product.price.sales.value,
+            items:[]
         }
     };
 
@@ -170,21 +165,16 @@ function getPdpData(res) {
         for(var i= 0;i<res.breadcrumbs.length; i++){
             category[i]=res.breadcrumbs[i].htmlValue;
         }
-        obj.ecommerce.detail.products.push({
+        obj.ecommerce.items.push({
             item_name: res.product.gtmData.item_name,
             item_id: res.product.gtmData.item_id,
-            item_brand: res.product.brand ? res.product.brand : '',
-            discount: res.product.tierPrice
-                ? (
-                    res.product.tierPrice -
-                      res.product.price.sales.decimalPrice
-                ).toFixed(2)
-                : '',
+            discount: res.product.tierPrice ? (res.product.tierPrice - res.product.price.sales.decimalPrice).toFixed(2) : '',
             item_category: category[0] || '',
             item_category2: category[1] || '',
             item_category3: category[2] || '',
             item_category4: category[3] || '',
-            price: res.product.price.sales.decimalPrice
+            price: res.product.price.sales.decimalPrice,
+            quantity: 1
         });
     }
     return obj;
