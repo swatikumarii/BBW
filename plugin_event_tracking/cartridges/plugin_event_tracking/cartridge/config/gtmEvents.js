@@ -10,7 +10,6 @@ module.exports = {
     ORDER_CHCEK_FAILURE: 'order_tracking_failure',
     PRODUCT_SEARCH: 'search',
     PRODUCT_SHOW: 'view_item',
-    PRODUCT_TILE_CLICK: 'productTileClick',
     PURCHASE: 'purchase',
     REMOVE_PRODUCT_LINE_ITEM_FROM_CART: 'remove_from_cart',
     SEARCH_SHOW: 'view_item_list',
