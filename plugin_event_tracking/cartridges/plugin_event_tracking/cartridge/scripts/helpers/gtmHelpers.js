@@ -71,6 +71,7 @@ function logIn(res) {
     if (res.success) {
         obj = {
             'event': gtmEvents.LOGIN,
+            'method' : 'Site',
             'ecommerce': {
                 'firstname': res.authenticatedCustomer.profile.firstName,
                 'lastname': res.authenticatedCustomer.profile.lastName,
@@ -283,6 +284,7 @@ function addToCart(res) {
  * @returns {object} obj - an object of containing product data
  */
 function removeFromCart(res) {
+    var currentBasket = dw.order.BasketMgr.getCurrentBasket();
     var lineItem=res.itemToRemove;
     var obj = [];
     obj.push({
@@ -301,12 +303,11 @@ function removeFromCart(res) {
     var object = {
         event: gtmEvents.REMOVE_PRODUCT_LINE_ITEM_FROM_CART,
         ecommerce: {
-            remove: {
-                products: obj
-            },
-            add: {
-                products: obj
-            }
+            items: obj,
+            currency: currentBasket.currencyCode,
+            value: lineItem.product.priceModel.price
+                ? lineItem.product.priceModel.price.value
+                : '',
         }
     };
     return object;
@@ -413,20 +414,18 @@ function getCheckoutData(res) {
         obj = {
             event:  gtmEvents.BEGIN_CHECKOUT,
             ecommerce: {
-                checkout: {
-                    currency: currentBasket.currencyCode,
-                    value: currentBasket
-                        .getAdjustedMerchandizeTotalNetPrice()
-                        .value.toFixed(2),
-                    products: []
-                },
-                add:{products:[]}
+                currency: currentBasket.currencyCode,
+                value: currentBasket
+                    .getAdjustedMerchandizeTotalNetPrice()
+                    .value.toFixed(2),
+                coupon: currentBasket.couponLineItems.length > 0 ? currentBasket.couponLineItems[0].couponCode : '',
+                items: [],
             }
         };
     }
     if ('order' in res) {
         for (var i = 0; i < res.order.items.items.length; i++) {
-            obj.ecommerce.checkout.products.push({
+            obj.ecommerce.items.push({
                 item_name: res.order.items.items[i].productName,
                 item_id: res.order.items.items[i].id,
                 item_brand: res.order.items.items[i].brand
@@ -434,10 +433,6 @@ function getCheckoutData(res) {
                     : '',
                 item_category: res.order.items.items[i].gtmData.item_category
                     ? res.order.items.items[i].gtmData.item_category
-                    : '',
-                item_categoryID: res.order.items.items[i].gtmData
-                    .item_categoryID
-                    ? res.order.items.items[i].gtmData.item_categoryID
                     : '',
                 price: res.order.items.items[i].price.sales.decimalPrice,
                 quantity: res.order.productQuantityTotal

@@ -12,7 +12,7 @@ module.exports = {
     PRODUCT_SHOW: 'productView',
     PRODUCT_TILE_CLICK: 'productTileClick',
     PURCHASE: 'purchase',
-    REMOVE_PRODUCT_LINE_ITEM_FROM_CART: 'removeFromCart',
+    REMOVE_PRODUCT_LINE_ITEM_FROM_CART: 'remove_from_cart',
     SEARCH_SHOW: 'view_item_list',
     SIGN_IN_FAILURE: 'signin_failure',
     SIGN_UP: 'sign_up'
