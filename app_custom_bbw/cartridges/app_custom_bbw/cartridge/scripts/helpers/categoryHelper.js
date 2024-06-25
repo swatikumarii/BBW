@@ -44,6 +44,7 @@ function appendLevelOneCategory(req, res, next) {
         }
     }
     viewData.hideFilterBar = hideFilterBar;
+    res.setViewData(viewData);
     next();
 }
 
