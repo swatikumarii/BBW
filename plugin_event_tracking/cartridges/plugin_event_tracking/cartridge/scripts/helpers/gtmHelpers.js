@@ -265,18 +265,10 @@ function addToCart(res) {
     var object = {
         event: gtmEvents.ADD_TO_CART,
         ecommerce: {
-            add: {
-                currency: currentBasket.currencyCode,
-                value: obj[0].price,
-                products: obj,
-                item_name: lineItem.productName
-            },
-            purchase: {
-                actionField: {
-                    currencyCode: currentBasket.currencyCode,
-                    revenue: obj[0].price
-                }
-            }
+            currency: currentBasket.currencyCode,
+            value: obj.length && obj[0].price,
+            items: obj,
+            item_name: obj.length && obj[0].item_name
         }
     };
     return object;
