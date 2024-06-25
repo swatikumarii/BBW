@@ -395,6 +395,7 @@ server.replace(
                     if (crmCustomerID) {
                         Transaction.wrap(function () {
                             profile.custom.capillaryCustomerID = crmCustomerID;
+                            profile.custom.capillaryResponse = '';
                         });
                     }
 
@@ -991,10 +992,11 @@ server.replace(
                             authenticatedCustomer: authenticatedCustomer
                         });
                         // Capillary: create customer service
-                        var crmCustomerID = capillaryAPI.createCustomer(registrationForm);
+                        var crmCustomerID = capillaryAPI.createCustomer(registrationForm, authenticatedCustomer.profile);
                         if (crmCustomerID) {
                             Transaction.wrap(function () {
                                 authenticatedCustomer.profile.custom.capillaryCustomerID = crmCustomerID;
+                                authenticatedCustomer.profile.custom.capillaryResponse = '';
                             });
                         }
                         res.json({
