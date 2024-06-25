@@ -11,6 +11,7 @@ var windowWidth = $(window).outerWidth();
 var lazyload = require('../utils/lazyLoad');
 var layout = require('../utils/layout');
 var helpers = require('../utils/helpers');
+var isRequested = false;
 
 /**
  * Retrieves Suggestions element relative to scope
@@ -188,15 +189,21 @@ function processResponse(response) {
  * @param {object} scope - Search field DOM element
  */
 function getSuggestions(scope) {
-    $.ajax({
-        context: scope,
-        url: endpoint + encodeURIComponent($(scope).val()),
-        method: 'GET',
-        success: processResponse,
-        error: function () {
-            $.spinner().stop();
-        }
-    });
+    if (!isRequested) {
+        isRequested = true;
+        setTimeout(function () {
+            isRequested = false;
+            $.ajax({
+                context: scope,
+                url: endpoint + encodeURIComponent($(scope).val()),
+                method: 'GET',
+                success: processResponse,
+                error: function () {
+                    $.spinner().stop();
+                }
+            });
+        }, 500);
+    }
 }
 
 /**
