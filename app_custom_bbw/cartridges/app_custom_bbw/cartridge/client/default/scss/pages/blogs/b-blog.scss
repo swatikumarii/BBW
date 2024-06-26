@@ -885,3 +885,79 @@
 .scroll-margin {
     scroll-margin-top: 237px;
 }
+
+
+// /Summer skin care tips------
+.summer-skin-care-tips {
+    .bc-image {
+        img {
+            height: 100%;
+
+            @include media-up(sm) {
+                height: 243.61px;
+            }
+        }
+    }
+
+    .body-care-content {
+        .bodycare-text-section {
+            .skin-care-head {
+                margin: 20px 0;
+                text-transform: uppercase;
+            }
+
+            .description-list {
+                li {
+                    margin-top: 10px;
+                    margin-left: 50px;
+                }
+
+                .skin-care-desc {
+                    a {
+                        color: colour(black, 3) !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ------fathers day gift guide--------
+.fathers-day-submain {
+    width: 85%;
+    margin: 0px auto;
+    padding: 0px;
+    margin-bottom: 10px;
+
+    .headparagraph {
+        width: 78%;
+        margin: 5% auto;
+        line-height: 1.2;
+    }
+}
+
+.fathers-stepcontent {
+    display: block;
+    width: 85%;
+    margin: 0px auto;
+    padding: 2%;
+
+    .stepcontent-sec {
+        margin: 0px auto;
+
+        .txt {
+            width: 56%;
+            margin: 0px auto;
+            padding: 8% 5%;
+
+            .txt-h {
+                font-family: 800;
+                letter-spacing: -0.5px;
+            }
+        }
+
+        img {
+                width: 40%;
+        }
+    }
+}
