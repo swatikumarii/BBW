@@ -567,6 +567,12 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="capillaryFailed">
+                <display-name xml:lang="x-default">Capillary Failed</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Standard">
@@ -579,6 +585,7 @@
                 <attribute attribute-id="zipCode"/>
                 <attribute attribute-id="capillaryCustomerID"/>
                 <attribute attribute-id="capillaryResponse"/>
+                <attribute attribute-id="capillaryFailed"/>
             </attribute-group>
             <attribute-group group-id="MigrationAttribute">
                 <display-name xml:lang="x-default">Migration Attribute</display-name>
@@ -3103,6 +3110,12 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="capillaryFailed">
+                <display-name xml:lang="x-default">Capillary Failed</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="AdyenPayments">
@@ -3137,6 +3150,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <display-name xml:lang="x-default">Custom Attributes</display-name>
                 <attribute attribute-id="capillaryOrderID"/>
                 <attribute attribute-id="capillaryResponse"/>
+                <attribute attribute-id="capillaryFailed"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
