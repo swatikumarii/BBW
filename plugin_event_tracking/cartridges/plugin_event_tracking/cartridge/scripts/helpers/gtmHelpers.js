@@ -71,6 +71,7 @@ function logIn(res) {
     if (res.success) {
         obj = {
             'event': gtmEvents.LOGIN,
+            'method' : 'Site',
             'ecommerce': {
                 'firstname': res.authenticatedCustomer.profile.firstName,
                 'lastname': res.authenticatedCustomer.profile.lastName,
@@ -153,14 +154,9 @@ function getPdpData(res) {
     var obj = {
         event: gtmEvents.PRODUCT_SHOW,
         ecommerce: {
-            add: {products:[{item_name:res.product.gtmData.item_name}]},
-            detail: { products: [] },
-            purchase: {
-                actionField: {
-                    currencyCode: res.product.price.sales.currency,
-                    revenue: res.product.price.sales.value
-                }
-            }
+            currency: res.product.price.sales.currency,
+            value: res.product.price.sales.value,
+            items:[]
         }
     };
 
@@ -169,21 +165,16 @@ function getPdpData(res) {
         for(var i= 0;i<res.breadcrumbs.length; i++){
             category[i]=res.breadcrumbs[i].htmlValue;
         }
-        obj.ecommerce.detail.products.push({
+        obj.ecommerce.items.push({
             item_name: res.product.gtmData.item_name,
             item_id: res.product.gtmData.item_id,
-            item_brand: res.product.brand ? res.product.brand : '',
-            discount: res.product.tierPrice
-                ? (
-                    res.product.tierPrice -
-                      res.product.price.sales.decimalPrice
-                ).toFixed(2)
-                : '',
+            discount: res.product.tierPrice ? (res.product.tierPrice - res.product.price.sales.decimalPrice).toFixed(2) : '',
             item_category: category[0] || '',
             item_category2: category[1] || '',
             item_category3: category[2] || '',
             item_category4: category[3] || '',
-            price: res.product.price.sales.decimalPrice
+            price: res.product.price.sales.decimalPrice,
+            quantity: 1
         });
     }
     return obj;
@@ -265,18 +256,10 @@ function addToCart(res) {
     var object = {
         event: gtmEvents.ADD_TO_CART,
         ecommerce: {
-            add: {
-                currency: currentBasket.currencyCode,
-                value: obj[0].price,
-                products: obj,
-                item_name: lineItem.productName
-            },
-            purchase: {
-                actionField: {
-                    currencyCode: currentBasket.currencyCode,
-                    revenue: obj[0].price
-                }
-            }
+            currency: currentBasket.currencyCode,
+            value: obj.length && obj[0].price,
+            items: obj,
+            item_name: obj.length && obj[0].item_name
         }
     };
     return object;
@@ -291,6 +274,7 @@ function addToCart(res) {
  * @returns {object} obj - an object of containing product data
  */
 function removeFromCart(res) {
+    var currentBasket = dw.order.BasketMgr.getCurrentBasket();
     var lineItem=res.itemToRemove;
     var obj = [];
     obj.push({
@@ -309,12 +293,11 @@ function removeFromCart(res) {
     var object = {
         event: gtmEvents.REMOVE_PRODUCT_LINE_ITEM_FROM_CART,
         ecommerce: {
-            remove: {
-                products: obj
-            },
-            add: {
-                products: obj
-            }
+            items: obj,
+            currency: currentBasket.currencyCode,
+            value: lineItem.product.priceModel.price
+                ? lineItem.product.priceModel.price.value
+                : '',
         }
     };
     return object;
@@ -331,27 +314,24 @@ function removeFromCart(res) {
 function addToWishlist(res) {
     var pid = res.pid;
     var productData = ProductMgr.getProduct(pid);
-    var ecommerce = {
+    var obj = {
         event: gtmEvents.ADD_TO_WISHLIST,
-        currency: productData.priceModel.price.currencyCode,
-        value: productData.priceModel.price.value,
-
-        items: {
-            item_id: pid,
-            item_name: productData.name,
-            item_brand: productData.brand ? productData.brand : '',
-            'item-category': productData.allCategories[0].displayName
-                ? productData.allCategories[0].displayName
-                : '',
-            item_categoryID: productData.allCategories[0].parent.ID
-                ? productData.allCategories[0].parent.ID
-                : '',
-            price: productData.priceModel.price.value
+        ecommerce: {
+            currency: productData.priceModel.price.currencyCode,
+            value: productData.priceModel.price.value,
+            items: {
+                item_id: pid,
+                item_name: productData.name,
+                item_brand: productData.brand ? productData.brand : '',
+                item_category: productData.allCategories[0].displayName ? productData.allCategories[0].displayName : '',
+                price: productData.priceModel.price.value,
+                quantity:1
+            }
         }
     };
-
-    return ecommerce;
+    return obj;
 }
+
 /**
  * @param {object} res - current route response object
  * @returns {object} an object containing a product list
@@ -421,20 +401,18 @@ function getCheckoutData(res) {
         obj = {
             event:  gtmEvents.BEGIN_CHECKOUT,
             ecommerce: {
-                checkout: {
-                    currency: currentBasket.currencyCode,
-                    value: currentBasket
-                        .getAdjustedMerchandizeTotalNetPrice()
-                        .value.toFixed(2),
-                    products: []
-                },
-                add:{products:[]}
+                currency: currentBasket.currencyCode,
+                value: currentBasket
+                    .getAdjustedMerchandizeTotalNetPrice()
+                    .value.toFixed(2),
+                coupon: currentBasket.couponLineItems.length > 0 ? currentBasket.couponLineItems[0].couponCode : '',
+                items: [],
             }
         };
     }
     if ('order' in res) {
         for (var i = 0; i < res.order.items.items.length; i++) {
-            obj.ecommerce.checkout.products.push({
+            obj.ecommerce.items.push({
                 item_name: res.order.items.items[i].productName,
                 item_id: res.order.items.items[i].id,
                 item_brand: res.order.items.items[i].brand
@@ -443,18 +421,9 @@ function getCheckoutData(res) {
                 item_category: res.order.items.items[i].gtmData.item_category
                     ? res.order.items.items[i].gtmData.item_category
                     : '',
-                item_categoryID: res.order.items.items[i].gtmData
-                    .item_categoryID
-                    ? res.order.items.items[i].gtmData.item_categoryID
-                    : '',
                 price: res.order.items.items[i].price.sales.decimalPrice,
                 quantity: res.order.productQuantityTotal
             });
-            if (i === 0) {
-                obj.ecommerce.add.products.push({
-                    item_name: res.order.items.items[i].productName
-                });
-            }
         }
     }
     return obj;
@@ -606,7 +575,8 @@ function getConfirmationData(res) {
 function signUp(res) {
     if (res.success) {
         var obj = {
-            event: gtmEvents.SIGN_UP
+            event: gtmEvents.SIGN_UP,
+            method: 'Site'
         };
         return obj;
     }
