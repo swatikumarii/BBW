@@ -25,18 +25,18 @@
                         data-action="${removeLineItemURL}"
                     >${Resource.msg('giftcard.added.button','giftcards',null)}</button>
                     <button type="button" class="btn btn-primary close-btn btn-secondary h-clr--gray h-font-size-md--16 h-font-size-sm--16 h-font-size--14 mr-1 m-0" data-dismiss="modal"
-                        data-oid="${pdict.order.orderNumber}" data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
+                        data-oid="${pdict.order && pdict.order.orderNumber}" data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
                         data-action="${URLUtils.url('Giftcard-RemoveLineItems')}" data-update-shipping="${URLUtils.url('Cart-UpdateShippingMethod')}">${Resource.msg('giftcad.remove.button', 'giftcards', null)}</button>
                 <iselseif condition="${pdict.isOrderBaseRemoveGiftCard}" />
                     <button type="button" class="btn order-base-delete-egiftitem-confirmation-btn  h-font-size-md--16 h-font-size-sm--16 h-font-size--14 m-0"
                         data-dismiss="modal"
-                        data-oid="${pdict.order.orderNumber}"
+                        data-oid="${pdict.order && pdict.order.orderNumber}"
                         data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
                         data-action="${URLUtils.url('Giftcard-RemoveLineItems')}"
                         data-update-shipping="${URLUtils.url('Cart-UpdateShippingMethod')}"
                     >${Resource.msg('giftcard.added.button','giftcards',null)}</button>
                     <button type="button" class="btn btn-primary close-btn btn-secondary h-clr--gray h-font-size-md--16 h-font-size-sm--16 h-font-size--14 m-0" data-dismiss="modal"
-                        data-oid="${pdict.order.orderNumber}" data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
+                        data-oid="${pdict.order && pdict.order.orderNumber}" data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
                         data-action="${URLUtils.url('Giftcard-RemoveLineItems')}" data-update-shipping="${URLUtils.url('Cart-UpdateShippingMethod')}">${Resource.msg('giftcad.remove.button', 'giftcards', null)}</button>
                 <iselse/>
                     <button type="button" class="btn delete-egiftitem-confirmation-btn  h-font-size-md--16 h-font-size-sm--16 h-font-size--14 m-0 mr-1"
@@ -46,7 +46,7 @@
                         data-update-shipping="${URLUtils.url('Cart-UpdateShippingMethod')}"
                     >${Resource.msg('giftcard.added.button','giftcards',null)}</button>
                     <button type="button" class="btn btn-primary close-btn btn-secondary h-clr--gray h-font-size-md--16 h-font-size-sm--16 h-font-size--14 m-0" data-dismiss="modal"
-                        data-oid="${pdict.order.orderNumber}" data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
+                        data-oid="${pdict.order && pdict.order.orderNumber}" data-addtocarturl="${URLUtils.url('Cart-AddProductFromOrder')}"
                         data-action="${URLUtils.url('Giftcard-RemoveLineItems')}" data-update-shipping="${URLUtils.url('Cart-UpdateShippingMethod')}">${Resource.msg('giftcad.remove.button', 'giftcards', null)}</button>
                 </isif>
             </div>

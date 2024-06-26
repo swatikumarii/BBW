@@ -548,6 +548,7 @@ function attributeSelect(selectedValueUrl, $productContainer) {
                     'data-pid',
                     data.product.id
                 );
+                $('button.add-to-cart, button.add-to-cart-global').data('pid', data.product.id).trigger('change');
                 handleVariantResponse(data, $productContainer);
                 updateOptions(data.product.optionsHtml, $productContainer);
                 updateQuantities(data.product.quantities, $productContainer);
@@ -736,17 +737,20 @@ module.exports = $.extend({}, base, {
                                         .hide();
                                 }
                             });
+                        $(this).prop('disabled', false);
                         return false;
                     }
                     var eGiftVideo = document.getElementById('giftCard-video');
 
                     if (eGiftVideo.files.length > 0 && (eGiftVideo.files[0].type || '').indexOf('video/') === -1) {
                         $('.giftcard-video').parent().find('.invalid-feedback').text($('#giftCard-video').data('error-type'));
+                        $(this).prop('disabled', false);
                         return false;
                     }
 
                     if (eGiftVideo.files.length > 0 && eGiftVideo.files[0].size > 15728640) {
                         $('.giftcard-video').parent().find('.invalid-feedback').text($('#giftCard-video').data('error-size'));
+                        $(this).prop('disabled', false);
                         return false;
                     }
 

@@ -17,6 +17,7 @@ function getGoogleFeeds() {
     var currentSite = require('dw/system/Site').getCurrent();
     var ImageModel = require('*/cartridge/models/product/productImages');
     var productHelper = require('*/cartridge/scripts/helpers/productHelpers');
+    var productValidationHelpers = require('*/cartridge/scripts/helpers/productValidationHelpers');
     var productsIterator = ProductMgr.queryAllSiteProducts();
     var fileName = 'google-feed';
     var outputFile = new File(
@@ -37,12 +38,13 @@ function getGoogleFeeds() {
         types: ['mediumLarge'],
         quantity: 'all'
     };
+    var apiProduct;
     try {
         while (productsIterator.hasNext()) {
             product = productsIterator.next();
-            if (!product.custom.isBonusProduct && product.online) {
+            apiProduct = ProductMgr.getProduct(product.ID);
+            if (!product.custom.isBonusProduct && product.online && productValidationHelpers.getProductMaxOrderQty(apiProduct) >= 1) {
                 xmlStreamWriter.writeStartElement('item');
-                var apiProduct = ProductMgr.getProduct(product.ID);
                 var images = new ImageModel(apiProduct, config);
                 breadcrumbs = '';
                 categories = '';

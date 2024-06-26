@@ -305,5 +305,12 @@
 }
 
 .pac-container {
-    z-index: 10000;
+    z-index: 10000 !important;
+    top: 81px !important;
+    left: 0 !important;
+}
+
+#salutation-error {
+    position: absolute;
+    top: 45px;
 }

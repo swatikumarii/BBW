@@ -13,7 +13,7 @@
             <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.merchandise.subtotal.excluding.taxes', 'cart', null)}</p>
         </div>
         <div class="col-4">
-            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sub-total">${pdict.totals.subTotalExclTax}
+            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sub-total tax-exclusive">${pdict.totals.subTotalExclTax}
             </p>
         </div>
     </div>

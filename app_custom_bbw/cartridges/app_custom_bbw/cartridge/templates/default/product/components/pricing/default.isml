@@ -1,12 +1,12 @@
-<span class="${pdict.product.promoPrice ? 'hpp-promo-price-wrapper' : ''}">
+<span class="${pdict.product && pdict.product.promoPrice ? 'hpp-promo-price-wrapper' : ''}">
     <isset name="finalOrigPrice" value="${price}" scope="page" />
-
+    <isset name="reducedPrice" value="false" scope="page" />
     <isif condition="${finalOrigPrice.list !== null}">
         <isset name="reducedPrice" value="true" scope="page" />
         <isset name="price" value="${finalOrigPrice.list}" scope="page" />
         <del>
             <span class="strike-through list">
-                <span class="value h-font-size--18 mr-1" content="${price.decimalPrice}">
+                <span class="value h-font-size--18 mr-1" itemprop="price" content="${price.decimalPrice}">
                     <span class="sr-only">
                         ${Resource.msg('label.price.reduced.from', 'pricing', null)}
                     </span>
@@ -20,39 +20,39 @@
     </isif>
 
     <isset name="price" value="${finalOrigPrice.sales}" scope="page" />
-    <isif condition="${pdict.urls.product}">
+    <isif condition="${pdict.urls && pdict.urls.product}">
         <span class="sales">
-            <a class="b-product-tile__price-link d-block h-font-size--18 mt-0 js-product-tile-price ${pdict.product.promoPrice ? 'hpp-promo-price h-fw--normal' : 'h-fw--semibold'}" href="${pdict.urls.product}">
+            <a class="b-product-tile__price-link d-block mt-0 js-product-tile-price gift-cards-price ${pdict.product.promoPrice ? 'hpp-promo-price h-fw--normal' : 'h-fw--semibold'}" href="${pdict.urls.product}">
                 <isif condition="${isLowPrice == 'range-low'}">
-                    <span class="value" content="${price.decimalPrice}"></span>
+                    <span class="value" itemprop="price" content="${price.decimalPrice}"></span>
                 </isif>
                 <isif condition="${isLowPrice == 'range-high'}">
-                    <span class="value" content="${price.decimalPrice}"></span>
+                    <span class="value" itemprop="price" content="${price.decimalPrice}"></span>
                 </isif>
                 <isif condition="${isLowPrice == null}">
-                    <span class="value" data-url="${pdict.urls.product}" content="${price.decimalPrice}"></span>
+                    <span class="value" data-url="${pdict.urls && pdict.urls.product}" itemprop="price" content="${price.decimalPrice}"></span>
                 </isif>
                 <isinclude template="/product/components/pricing/formatted" />
             </a>
         </span>
     <iselse/>
-        <span class="sales ${pdict.product.promoPrice ? 'hpp-promo-price': ''} ${reducedPrice === 'true' ? 'reduced':''}">
+        <span class="sales ${pdict.product && pdict.product.promoPrice ? 'hpp-promo-price': ''} ${reducedPrice === 'true' ? 'reduced':''}">
             <isif condition="${isLowPrice == 'range-low'}">
-                <span class="value low" content="${price.decimalPrice}"></span>
+                <span class="value low" itemprop="price" content="${price.decimalPrice}"></span>
             </isif>
             <isif condition="${isLowPrice == 'range-high'}">
-                <span class="value high" content="${price.decimalPrice}"></span>
+                <span class="value high" itemprop="price" content="${price.decimalPrice}"></span>
             </isif>
             <isif condition="${isLowPrice == null}">
-                <span class="value" data-url="${pdict.urls.product}" content="${price.decimalPrice}"></span>
+                <span class="value" data-url="${pdict.urls && pdict.urls.product}" itemprop="price" content="${price.decimalPrice}"></span>
             </isif>
             <isif condition="${price.value > 0}">
                 <isinclude template="/product/components/pricing/formatted" />
             </isif>
         </span>
     </isif>
-    <isif condition="${pdict.product.promoPrice}">
-        <span class="promo-price h-font-size--18 h-clr--pink h-fw--semibold">
+    <isif condition="${pdict.product && pdict.product.promoPrice}">
+        <span class="promo-price h-clr--pink h-fw--semibold gift-cards-price">
             ${pdict.product.promoPrice}
         </span>
     </isif>

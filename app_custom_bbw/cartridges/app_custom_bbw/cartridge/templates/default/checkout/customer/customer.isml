@@ -68,7 +68,7 @@
         <p class="h-clr--blue-1 h-font-size--18 h-fw--bold">${Resource.msgf('msg.hello.customer', 'checkout', null, session.customer.profile.firstName)}</p>
         <isif condition="${pdict.customer.addresses && pdict.customer.addresses.length > 0}">
             <p class="h-clr--black-1 h-font-size--16">${Resource.msg('text.loggedin.customer.with.address.section', 'checkout', null)}
-                <a href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">${Resource.msg('text.skip.to.payment', 'checkout', null)}</a>
+                <a class="skipToPayment" href="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">${Resource.msg('text.skip.to.payment', 'checkout', null)}</a>
             </p>
         <iselse/>
             <p class="h-clr--black-1 h-font-size--16">${Resource.msg('text.loggedin.customer.section', 'checkout', null)}</p>

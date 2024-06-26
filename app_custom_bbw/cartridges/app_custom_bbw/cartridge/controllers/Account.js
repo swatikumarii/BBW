@@ -395,6 +395,7 @@ server.replace(
                     if (crmCustomerID) {
                         Transaction.wrap(function () {
                             profile.custom.capillaryCustomerID = crmCustomerID;
+                            profile.custom.capillaryResponse = '';
                         });
                     }
 
@@ -593,6 +594,7 @@ server.append(
     'Login',
     function (req, res, next) {
         var BasketMgr = require('dw/order/BasketMgr');
+        var Transaction = require('dw/system/Transaction');
         var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
         var loginRedirectExceptions = require('*/cartridge/config/loginRedirectExceptions');
         var dynamicBadgeHelpers = require('*/cartridge/scripts/helpers/dynamicBadgeHelpers');
@@ -662,23 +664,38 @@ server.append(
         viewData.currentBasketHasGiftProducts = currentBasketHasGiftProducts;
         viewData.storedBasketHasGiftProducts = storedBasketHasGiftProducts;
         viewData.storedBasketProducts = storedBasketProducts;
-        if (
-            'authenticatedCustomer' in viewData &&
-            viewData.authenticatedCustomer.authenticated
+        res.setViewData(viewData);
+        if ('authenticatedCustomer' in viewData && viewData.authenticatedCustomer.authenticated
         ) {
             if (viewData.authenticatedCustomer.profile) {
                 dynamicBadgeHelpers.updateCartDetailInProfile(
                     viewData.authenticatedCustomer.profile
                 );
             }
-            viewData.isIncomplete =
-                'custom' in viewData.authenticatedCustomer.profile &&
-                'isProfileComplete' in
-                viewData.authenticatedCustomer.profile.custom ?
-                    !viewData.authenticatedCustomer.profile.custom
-                        .isProfileComplete :
-                    true;
+            viewData.isIncomplete = 'custom' in viewData.authenticatedCustomer.profile && 'isProfileComplete' in viewData.authenticatedCustomer.profile.custom ? !viewData.authenticatedCustomer.profile.custom.isProfileComplete : true;
+            res.setViewData(viewData);
+            if (viewData.isIncomplete) {
+                Transaction.wrap(function () {
+                    viewData = res.getViewData();
+                    if (
+                        'custom' in viewData.authenticatedCustomer.profile &&
+                        'noOfTimeProfilePopUpShowed' in
+                            viewData.authenticatedCustomer.profile.custom
+                    ) {
+                        viewData.authenticatedCustomer.profile.custom.noOfTimeProfilePopUpShowed += 1;
+                        viewData.showPopup =
+                            viewData.authenticatedCustomer.profile.custom
+                                .noOfTimeProfilePopUpShowed <= 3;
+                    } else if (
+                        'custom' in viewData.authenticatedCustomer.profile
+                    ) {
+                        viewData.authenticatedCustomer.profile.custom.noOfTimeProfilePopUpShowed = 1;
+                        viewData.showPopup = true;
+                    }
+                });
+            }
         }
+        res.setViewData(viewData);           
         next();
     }
 );
@@ -975,10 +992,11 @@ server.replace(
                             authenticatedCustomer: authenticatedCustomer
                         });
                         // Capillary: create customer service
-                        var crmCustomerID = capillaryAPI.createCustomer(registrationForm);
+                        var crmCustomerID = capillaryAPI.createCustomer(registrationForm, authenticatedCustomer.profile);
                         if (crmCustomerID) {
                             Transaction.wrap(function () {
                                 authenticatedCustomer.profile.custom.capillaryCustomerID = crmCustomerID;
+                                authenticatedCustomer.profile.custom.capillaryResponse = '';
                             });
                         }
                         res.json({
