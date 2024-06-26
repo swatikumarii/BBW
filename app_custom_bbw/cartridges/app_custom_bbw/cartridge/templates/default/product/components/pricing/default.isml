@@ -27,7 +27,7 @@
                     <span class="value" itemprop="price" content="${price.decimalPrice}"></span>
                 </isif>
                 <isif condition="${isLowPrice == 'range-high'}">
-                    <span class="value" itemprop="price" content="${price.decimalPrice}"></span>
+                    <span class="value" content="${price.decimalPrice}"></span>
                 </isif>
                 <isif condition="${isLowPrice == null}">
                     <span class="value" data-url="${pdict.urls && pdict.urls.product}" itemprop="price" content="${price.decimalPrice}"></span>
@@ -41,7 +41,7 @@
                 <span class="value low" itemprop="price" content="${price.decimalPrice}"></span>
             </isif>
             <isif condition="${isLowPrice == 'range-high'}">
-                <span class="value high" itemprop="price" content="${price.decimalPrice}"></span>
+                <span class="value high" content="${price.decimalPrice}"></span>
             </isif>
             <isif condition="${isLowPrice == null}">
                 <span class="value" data-url="${pdict.urls && pdict.urls.product}" itemprop="price" content="${price.decimalPrice}"></span>
