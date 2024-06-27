@@ -42,7 +42,7 @@
         <ul>
             <isloop items="${pdict.relatedArticles}" var="relatedArticle">
                 <li>
-                    <a href="${URLUtils.url('Page-Show', 'cid', relatedArticle.ID)}" rel="nofollow">
+                    <a href="${URLUtils.url('Page-Show', 'cid', relatedArticle.ID)}">
                         ${relatedArticle.name}
                     </a>
                 </li>
