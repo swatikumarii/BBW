@@ -4,7 +4,6 @@
 var Status = require('dw/system/Status');
 var Transaction = require('dw/system/Transaction');
 var CustomerMgr = require('dw/customer/CustomerMgr');
-var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
 
 
 /**
@@ -13,6 +12,7 @@ var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
  */
 function execute() {
     try {
+        var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
         // fetch customers whose don't have capillaryCustomerID in profile
         var customerList = CustomerMgr.searchProfiles('custom.capillaryFailed = {0}', 'lastModified desc', true);
         // Loop through the customer and process them as needed
