@@ -514,12 +514,15 @@ server.append(
 
                 // Capillary: create order
                 crmOrderID = capillaryAPI.createOrder(viewData.order, order);
-                if (crmOrderID) {
-                    Transaction.wrap(function () {
+                Transaction.wrap(function () {
+                    if (crmOrderID) {
                         order.custom.capillaryOrderID = crmOrderID;
                         order.custom.capillaryResponse = '';
-                    });
-                }
+                        order.custom.capillaryFailed = false;
+                    } else {
+                        order.custom.capillaryFailed = true;
+                    }
+                });
             } else {
                 var billingAddress = viewData.order.billing.billingAddress.address;
                 var customerData = {
@@ -531,12 +534,19 @@ server.append(
                 var crmCustomerID = capillaryAPI.createCustomer(customerData, order);
                 if (crmCustomerID) {
                     crmOrderID = capillaryAPI.createOrder(viewData.order);
-                    if (crmOrderID) {
-                        Transaction.wrap(function () {
+                    Transaction.wrap(function () {
+                        if (crmOrderID) {
                             order.custom.capillaryOrderID = crmOrderID;
                             order.custom.capillaryResponse = '';
-                        });
-                    }
+                            order.custom.capillaryFailed = false;
+                        } else {
+                            order.custom.capillaryFailed = true;
+                        }
+                    });
+                } else {
+                    Transaction.wrap(function () {
+                        order.custom.capillaryFailed = true;
+                    });
                 }
             }
         });
