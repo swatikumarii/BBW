@@ -3238,7 +3238,7 @@ To contact our Customer Service team, please call &lt;a href="phone:1800-576-972
         <custom-attributes>
         <custom-attribute attribute-id="body" xml:lang="x-default">
             &lt;div class="category-top-offers"&gt; &lt;a href="$url('Search-Show','cgid','select-hand-soaps')$" class="heading"
-        aria-expanded="false"&gt;&lt;span&gt;Hand Soap & Sanitizer Offers&lt;/span&gt;&lt;/a&gt;
+        aria-expanded="false"&gt;&lt;span&gt;Hand Soap &amp; Sanitizer Offers&lt;/span&gt;&lt;/a&gt;
     &lt;div class="category-top-items"&gt;
         &lt;ul class="level-3-ul dropdown-menu p-0" role="menu"&gt;
             &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a
@@ -3283,9 +3283,8 @@ To contact our Customer Service team, please call &lt;a href="phone:1800-576-972
         <page-attributes/>
         <custom-attributes>
         <custom-attribute attribute-id="body" xml:lang="x-default">
-        </custom-attribute>
         &lt;div class="category-top-offers"&gt; &lt;a href="$url('Search-Show','cgid','select-candles')$" class="heading"
-        aria-expanded="false"&gt;&lt;span&gt;Candles & Home Fragrance Offers&lt;/span&gt;&lt;/a&gt;
+        aria-expanded="false"&gt;&lt;span&gt;Candles &amp; Home Fragrance Offers&lt;/span&gt;&lt;/a&gt;
     &lt;div class="category-top-items"&gt;
         &lt;ul class="level-3-ul dropdown-menu p-0 column-count-2" role="menu"&gt;
             &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a&gt;
@@ -3299,11 +3298,12 @@ To contact our Customer Service team, please call &lt;a href="phone:1800-576-972
                     AU$ 92 &lt;/a&gt; &lt;/li&gt;
             &lt;li class="dropdown-item p-0 border-0"&gt; &lt;a&gt;
                     href="$url('Search-Show','cgid','select-room-spray-and-scentportable-buy-3-get-1-free')$"
-                    role="menuitem" class="dropdown-link d-block"&gt; Select Room Spray & Scentportable Buy 3 Get 1 Free
+                    role="menuitem" class="dropdown-link d-block"&gt; Select Room Spray &amp; Scentportable Buy 3 Get 1 Free
                 &lt;/a&gt; &lt;/li&gt;
         &lt;/ul&gt;
     &lt;/div&gt;
 &lt;/div&gt;
+        </custom-attribute>
         </custom-attributes>
     </content>
 
@@ -4642,182 +4642,182 @@ To contact our Customer Service team, please call &lt;a href="phone:1800-576-972
     </content>
 
     <content content-id="email-you-got-it-block">
-    <display-name xml:lang="x-default">YOU'VE GOT IT, USE IT!</display-name>
-    <description xml:lang="x-default">YOU'VE GOT IT, USE IT!</description>
-    <online-flag>true</online-flag>
-    <searchable-flag>false</searchable-flag>
-    <page-attributes/>
-    <custom-attributes>
-      <custom-attribute attribute-id="body" xml:lang="x-default">&lt;table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
-    style="width:100%;margin-top:50px;"&gt;&#xD;
-    &lt;tbody&gt;&#xD;
-        &lt;tr&gt;&#xD;
-            &lt;td align="left" style="padding-bottom:0;"&gt;&#xD;
-                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
-                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;color:#333333"&gt;&#xD;
-&#xD;
-                    &lt;tbody&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td align="left" style="padding-bottom:14px;font-size:26px;line-height:28px"&gt;&#xD;
-                                YOU'VE GOT IT, USE IT!&lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                    &lt;/tbody&gt;&#xD;
-                &lt;/table&gt;&#xD;
-                &lt;table bgcolor="#333333" border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
-                    style="width:100%;"&gt;&#xD;
-                    &lt;tbody&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td style="line-height:1px;font-size:0"&gt;&#xD;
-                                &amp;nbsp;&lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                    &lt;/tbody&gt;&#xD;
-                &lt;/table&gt;&#xD;
-                &lt;div style="font-size:1px;line-height:20px"&gt;&#xD;
-                    &amp;nbsp;&lt;/div&gt;&#xD;
-                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
-                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;line-height:30px;font-weight:300;color:#333333"&gt;&#xD;
-&#xD;
-                    &lt;tbody&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td align="left" valign="top" colspan="3"&gt;&#xD;
-                                &lt;p style="margin:0 0 10px;font-weight: bold;font-size: 18px;color:#000000;"&gt;IN STORES&lt;/p&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td align="left" valign="top"&gt;&#xD;
-                                •&lt;/td&gt;&#xD;
-                            &lt;td style="width:24px"&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                            &lt;td align="left"&gt;&#xD;
-                                Claim your e-gift card using the link above. You can either print the gift card once you receive it or keep it on your phone.&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
-                                    &amp;nbsp;&lt;/div&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td align="left" valign="top"&gt;&#xD;
-                                •&lt;/td&gt;&#xD;
-                            &lt;td style="width:24px"&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                            &lt;td align="left"&gt;&#xD;
-                                Present your gift card at the register when you are ready to check out.&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
-                                    &amp;nbsp;&lt;/div&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td align="left" valign="top" colspan="3"&gt;&#xD;
-                                &lt;p style="margin: 10px 0;font-weight: bold;font-size: 18px;color:#000000;"&gt;ONLINE&lt;/p&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td align="left" valign="top"&gt;&#xD;
-                                •&lt;/td&gt;&#xD;
-                            &lt;td style="width:24px"&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                            &lt;td align="left"&gt;&#xD;
-                                Claim your e-gift card using the link above and shop at BathandBodyWorks.com.au&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
-                                    &amp;nbsp;&lt;/div&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                        &lt;!-- &lt;tr&gt;&#xD;
-                            &lt;td align="left" valign="top"&gt;&#xD;
-                                •&lt;/td&gt;&#xD;
-                            &lt;td style="width:24px"&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                            &lt;td align="left"&gt;&#xD;
-                                Shop at &lt;a href="https://www.BathandBodyWorks.com.au" style="color:#005699;font-weight: bold;text-decoration: underline;"&gt;BathandBodyWorks.com.au&lt;/a&gt;&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
-                                    &amp;nbsp;&lt;/div&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                        &lt;/tr&gt; --&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td align="left" valign="top"&gt;&#xD;
-                                •&lt;/td&gt;&#xD;
-                            &lt;td style="width:24px"&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                            &lt;td align="left"&gt;&#xD;
-                                Click on the section marked ‘Gift Card’ on the payment page and enter the number and PIN, then click apply.&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
-                                    &amp;nbsp;&lt;/div&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                        &lt;!-- &lt;tr&gt;&#xD;
-                            &lt;td align="left" valign="top"&gt;&#xD;
-                                •&lt;/td&gt;&#xD;
-                            &lt;td style="width:24px"&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                            &lt;td align="left"&gt;&#xD;
-                                If you have more than one E-Gift Card, enter each code and PIN seperately.&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
-                                    &amp;nbsp;&lt;/div&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                        &lt;/tr&gt; --&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td align="left" valign="top" colspan="3"&gt;&#xD;
-                                &lt;p style="margin: 10px 0;font-weight: bold;font-size: 18px;color:#000000;"&gt;MORE INFO&lt;/p&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td align="left" valign="top"&gt;&#xD;
-                                •&lt;/td&gt;&#xD;
-                            &lt;td style="width:24px"&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                            &lt;td align="left"&gt;&#xD;
-                                &lt;div&gt;To check your E-Gift Card balance:&lt;br/&gt;&lt;/div&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td align="left" valign="top"&gt;&lt;/td&gt;&#xD;
-                            &lt;td style="width:24px"&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                            &lt;td align="left"&gt;&#xD;
-                                &lt;div&gt;1. Click the ‘Redeem your e-gift card’ link above&lt;br/&gt; 2. Visit any Bath &amp; Body Works store and speak to a sales associate&lt;br/&gt;3. Contact our customer service team on 1800-576-972&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
-                                    &amp;nbsp;&lt;/div&gt;&lt;/div&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td align="left" valign="top"&gt;&#xD;
-                                •&lt;/td&gt;&#xD;
-                            &lt;td style="width:24px"&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                            &lt;td align="left"&gt;&#xD;
-                                E-gift cards can be redeemed at Bath &amp; Body Works stores in Australia or online at BathandBodyWorks.com.au&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
-                                    &amp;nbsp;&lt;/div&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td align="left" valign="top"&gt;&#xD;
-                                •&lt;/td&gt;&#xD;
-                            &lt;td style="width:24px"&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                            &lt;td align="left"&gt;&#xD;
-                                Once an e-gift card has been used, it cannot be reloaded. We’ll send you a new e-gift card for returns made in stores and online&lt;div style="font-size:1px;line-height:24px"&gt;&#xD;
-                                    &amp;nbsp;&lt;/div&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td align="left" valign="top"&gt;&#xD;
-                                •&lt;/td&gt;&#xD;
-                            &lt;td style="width:24px"&gt;&#xD;
-                            &lt;/td&gt;&#xD;
-                            &lt;td align="left"&gt;&#xD;
-                                Keep a record of your e-gift card number in case you need to request for a replacement&#xD;
-                            &lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                    &lt;/tbody&gt;&#xD;
-                &lt;/table&gt;&#xD;
-                &lt;table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"&#xD;
-                    style="margin-top:40px; width:100%;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;color:#000000"&gt;&#xD;
-                    &lt;tbody&gt;&#xD;
-                        &lt;tr&gt;&#xD;
-                            &lt;td align="left" style="padding-bottom:14px;font-size:18px;line-height:24px;border-bottom: 1px solid;"&gt;&#xD;
-                                Terms &amp; Conditions:&lt;/td&gt;&#xD;
-                        &lt;/tr&gt;&#xD;
-                    &lt;/tbody&gt;&#xD;
-                &lt;/table&gt;&#xD;
-                &lt;p style="font-size: 16px;color: #000000;line-height:24px;"&gt;This e-gift voucher is valid for online purchase only within the country of issuance. Valid for 30 days from the date of this email. E-gift voucher is non-transferable, and is non-exchangeable for cash. Valid for single redemption only, unredeemed value will be forfeited. Voucher code must be keyed in at checkout. While supplies last. Valiram reserves the right to amend the offer and T&amp;Cs without prior notice.&lt;/p&gt;&#xD;
-            &lt;/td&gt;&#xD;
-        &lt;/tr&gt;&#xD;
-    &lt;/tbody&gt;&#xD;
+        <display-name xml:lang="x-default">YOU'VE GOT IT, USE IT!</display-name>
+        <description xml:lang="x-default">YOU'VE GOT IT, USE IT!</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>false</searchable-flag>
+        <page-attributes/>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation"&#13;
+    style="width:100%;margin-top:50px;"&gt;&#13;
+    &lt;tbody&gt;&#13;
+        &lt;tr&gt;&#13;
+            &lt;td align="left" style="padding-bottom:0;"&gt;&#13;
+                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"&#13;
+                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;color:#333333"&gt;&#13;
+&#13;
+                    &lt;tbody&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td align="left" style="padding-bottom:14px;font-size:26px;line-height:28px"&gt;&#13;
+                                YOU'VE GOT IT, USE IT!&lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                    &lt;/tbody&gt;&#13;
+                &lt;/table&gt;&#13;
+                &lt;table bgcolor="#333333" border="0" cellpadding="0" cellspacing="0" role="presentation"&#13;
+                    style="width:100%;"&gt;&#13;
+                    &lt;tbody&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td style="line-height:1px;font-size:0"&gt;&#13;
+                                &amp;nbsp;&lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                    &lt;/tbody&gt;&#13;
+                &lt;/table&gt;&#13;
+                &lt;div style="font-size:1px;line-height:20px"&gt;&#13;
+                    &amp;nbsp;&lt;/div&gt;&#13;
+                &lt;table border="0" cellpadding="0" cellspacing="0" role="presentation"&#13;
+                    style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:22px;line-height:30px;font-weight:300;color:#333333"&gt;&#13;
+&#13;
+                    &lt;tbody&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td align="left" valign="top" colspan="3"&gt;&#13;
+                                &lt;p style="margin:0 0 10px;font-weight: bold;font-size: 18px;color:#000000;"&gt;IN STORES&lt;/p&gt;&#13;
+                            &lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td align="left" valign="top"&gt;&#13;
+                                •&lt;/td&gt;&#13;
+                            &lt;td style="width:24px"&gt;&#13;
+                            &lt;/td&gt;&#13;
+                            &lt;td align="left"&gt;&#13;
+                                Claim your e-gift card using the link above. You can either print this email or keep it on your phone.&lt;div style="font-size:1px;line-height:24px"&gt;&#13;
+                                    &amp;nbsp;&lt;/div&gt;&#13;
+                            &lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td align="left" valign="top"&gt;&#13;
+                                •&lt;/td&gt;&#13;
+                            &lt;td style="width:24px"&gt;&#13;
+                            &lt;/td&gt;&#13;
+                            &lt;td align="left"&gt;&#13;
+                                Present your gift card at the register when you are ready to check out.&lt;div style="font-size:1px;line-height:24px"&gt;&#13;
+                                    &amp;nbsp;&lt;/div&gt;&#13;
+                            &lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td align="left" valign="top" colspan="3"&gt;&#13;
+                                &lt;p style="margin: 10px 0;font-weight: bold;font-size: 18px;color:#000000;"&gt;ONLINE&lt;/p&gt;&#13;
+                            &lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td align="left" valign="top"&gt;&#13;
+                                •&lt;/td&gt;&#13;
+                            &lt;td style="width:24px"&gt;&#13;
+                            &lt;/td&gt;&#13;
+                            &lt;td align="left"&gt;&#13;
+                                Claim your e-gift card using the link above and Shop at BathandBodyWorks.com.au&lt;div style="font-size:1px;line-height:24px"&gt;&#13;
+                                    &amp;nbsp;&lt;/div&gt;&#13;
+                            &lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                        &lt;!-- &lt;tr&gt;&#13;
+                            &lt;td align="left" valign="top"&gt;&#13;
+                                •&lt;/td&gt;&#13;
+                            &lt;td style="width:24px"&gt;&#13;
+                            &lt;/td&gt;&#13;
+                            &lt;td align="left"&gt;&#13;
+                                Shop at &lt;a href="https://www.BathandBodyWorks.com.au" style="color:#005699;font-weight: bold;text-decoration: underline;"&gt;BathandBodyWorks.com.au&lt;/a&gt;&lt;div style="font-size:1px;line-height:24px"&gt;&#13;
+                                    &amp;nbsp;&lt;/div&gt;&#13;
+                            &lt;/td&gt;&#13;
+                        &lt;/tr&gt; --&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td align="left" valign="top"&gt;&#13;
+                                •&lt;/td&gt;&#13;
+                            &lt;td style="width:24px"&gt;&#13;
+                            &lt;/td&gt;&#13;
+                            &lt;td align="left"&gt;&#13;
+                                Click on the section marked ‘Gift Card’ on the payment page and enter the number and PIN, then click apply.&lt;div style="font-size:1px;line-height:24px"&gt;&#13;
+                                    &amp;nbsp;&lt;/div&gt;&#13;
+                            &lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                        &lt;!-- &lt;tr&gt;&#13;
+                            &lt;td align="left" valign="top"&gt;&#13;
+                                •&lt;/td&gt;&#13;
+                            &lt;td style="width:24px"&gt;&#13;
+                            &lt;/td&gt;&#13;
+                            &lt;td align="left"&gt;&#13;
+                                If you have more than one E-Gift Card, enter each code and PIN seperately.&lt;div style="font-size:1px;line-height:24px"&gt;&#13;
+                                    &amp;nbsp;&lt;/div&gt;&#13;
+                            &lt;/td&gt;&#13;
+                        &lt;/tr&gt; --&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td align="left" valign="top" colspan="3"&gt;&#13;
+                                &lt;p style="margin: 10px 0;font-weight: bold;font-size: 18px;color:#000000;"&gt;MORE INFO&lt;/p&gt;&#13;
+                            &lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td align="left" valign="top"&gt;&#13;
+                                •&lt;/td&gt;&#13;
+                            &lt;td style="width:24px"&gt;&#13;
+                            &lt;/td&gt;&#13;
+                            &lt;td align="left"&gt;&#13;
+                                &lt;div&gt;To check your E-Gift Card balance:&lt;br/&gt;&lt;/div&gt;&#13;
+                            &lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td align="left" valign="top"&gt;&lt;/td&gt;&#13;
+                            &lt;td style="width:24px"&gt;&#13;
+                            &lt;/td&gt;&#13;
+                            &lt;td align="left"&gt;&#13;
+                                &lt;div&gt;1. Click the ‘Check Your Gift Card Balance’ link above&lt;br/&gt; 2. Visit any Bath &amp; Body Works store and speak to a sales associate&lt;br/&gt;3. Contact our customer service team on 1800-576-972&lt;div style="font-size:1px;line-height:24px"&gt;&#13;
+                                    &amp;nbsp;&lt;/div&gt;&lt;/div&gt;&#13;
+                            &lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td align="left" valign="top"&gt;&#13;
+                                •&lt;/td&gt;&#13;
+                            &lt;td style="width:24px"&gt;&#13;
+                            &lt;/td&gt;&#13;
+                            &lt;td align="left"&gt;&#13;
+                                E-gift cards can be redeemed at Bath &amp; Body Works stores in Australia or online at BathandBodyWorks.com.au&lt;div style="font-size:1px;line-height:24px"&gt;&#13;
+                                    &amp;nbsp;&lt;/div&gt;&#13;
+                            &lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td align="left" valign="top"&gt;&#13;
+                                •&lt;/td&gt;&#13;
+                            &lt;td style="width:24px"&gt;&#13;
+                            &lt;/td&gt;&#13;
+                            &lt;td align="left"&gt;&#13;
+                                Once an e-gift card has been used, it cannot be reloaded. We’ll send you a new e-gift card for returns made in stores and online&lt;div style="font-size:1px;line-height:24px"&gt;&#13;
+                                    &amp;nbsp;&lt;/div&gt;&#13;
+                            &lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td align="left" valign="top"&gt;&#13;
+                                •&lt;/td&gt;&#13;
+                            &lt;td style="width:24px"&gt;&#13;
+                            &lt;/td&gt;&#13;
+                            &lt;td align="left"&gt;&#13;
+                                Keep a record of your e-gift card number in case you need to request for a replacement&#13;
+                            &lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                    &lt;/tbody&gt;&#13;
+                &lt;/table&gt;&#13;
+                &lt;table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation"&#13;
+                    style="margin-top:40px; width:100%;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:300;color:#000000"&gt;&#13;
+                    &lt;tbody&gt;&#13;
+                        &lt;tr&gt;&#13;
+                            &lt;td align="left" style="padding-bottom:14px;font-size:18px;line-height:24px;border-bottom: 1px solid;"&gt;&#13;
+                                Terms &amp; Conditions:&lt;/td&gt;&#13;
+                        &lt;/tr&gt;&#13;
+                    &lt;/tbody&gt;&#13;
+                &lt;/table&gt;&#13;
+                &lt;p style="font-size: 16px;color: #000000;line-height:24px;"&gt;This E-Gift Card has been issued by Bath &amp; Body Works Australia. You can redeem this gift card for merchandise only at all Bath &amp; Body Works (BBW) stores located within Australia, including the online store at bathandbodyworks.com.au. The voucher code must be applied at checkout. Gift cards cannot be transferred, returned or redeemed for cash. This e-gift card does not expire, please keep a copy of your gift card number(s) should you need to request for a gift card replacement for any reason. Valiram reserves the right to amend the offer and T&amp;Cs without prior notice.&lt;/p&gt;&#13;
+            &lt;/td&gt;&#13;
+        &lt;/tr&gt;&#13;
+    &lt;/tbody&gt;&#13;
 &lt;/table&gt;</custom-attribute>
-    </custom-attributes>
-  </content>
+        </custom-attributes>
+    </content>
 
 	<content content-id="email-welcome">
         <display-name xml:lang="x-default">Welcome Email Content</display-name>
@@ -8566,5 +8566,117 @@ padding-top:20px;&#xD;
             <folder-link folder-id="giftcards"/>
         </folder-links>
     </content>
+
+       <content content-id="spa-day-wellness-products">
+        <display-name xml:lang="x-default">National Relaxation Day</display-name>
+        <description xml:lang="x-default">Creating Spa Day at Home</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">National Relaxation Day</page-title>
+            <page-description xml:lang="x-default">National Relaxation Day Bath &amp; Body Works Australia</page-description>
+            <page-keywords xml:lang="x-default">National Relaxation Day</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+&lt;div class="controlcontent_r"&gt;&#13;
+&lt;div class="htmlbucket"&gt;&#13;
+&lt;p&gt;&#13;
+&lt;/p&gt;&lt;div class="banners first-col"&gt;&lt;a href=""&gt; &lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/Spa-Day_fa2_Get-Inspired_M_01.jpg?$staticlink$"&gt; &lt;img alt="SPA Day At Home" src="blogs/details/Spa-Day_fa2_Get-Inspired_D_ref_01.jpg&#13;
+    " style="margin-bottom: 20px;" width="100%" data-gtm-vis-recent-on-screen32270531_251="860" data-gtm-vis-first-on-screen32270531_251="862" data-gtm-vis-total-visible-time32270531_251="100" data-gtm-vis-has-fired32270531_251="1"&gt; &lt;/picture&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&lt;p&gt;&lt;span class="sub"&gt;Need a self-care day? We do, too! And the best part? You don’t even have to leave the house to have it. Everything you need to create the ultimate spa day at home is right here in our Wellness shop: two curated collections for body &amp;amp; home that just might make your perfect self-care routine. &lt;/span&gt;&lt;/p&gt;&#13;
+&lt;div class="container1"&gt;&#13;
+&lt;div class="content"&gt;&#13;
+&lt;div&gt;&lt;a href=""&gt; &lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/Spa-Day_fa2_Get-Inspired_M_03.jpg?$staticlink$" style="width: 100%;"&gt; &lt;img alt="SPA Day At Home" class="forget" src="blogs/details/Spa-Day_fa2_Get-Inspired_D_ref_04.jpg&#13;
+                " style="margin: 10px;"&gt; &lt;/picture&gt; &lt;/a&gt; &lt;span class="bottom-text"&gt; &lt;span class="sub-content"&gt;&lt;span class="start"&gt;START YOUR MORNING&lt;/span&gt; &lt;span class="fragrance"&gt;with fragrance&lt;/span&gt; &lt;span class="sub"&gt;Nothing says “spa” like a &lt;a&gt;3-Wick Candle&lt;/a&gt;—especially When you’re kicking off an at-home self-care day. Our super-recharging recommendation? Energizing &lt;a&gt;Orange &amp;amp;Ginger&lt;/a&gt;. Don’t forget your coffee! &lt;/span&gt;&lt;/span&gt; &lt;/span&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;a href=""&gt; &lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/Spa-Day_fa2_Get-Inspired_M_05.jpg?$staticlink$" style="width: 100%;"&gt; &lt;img alt="SPA Day At Home" class="forget" src="blogs/details/Spa-Day_fa2_Get-Inspired_D_ref_06.jpg&#13;
+                    " style="margin: 10px;"&gt; &lt;/picture&gt; &lt;/a&gt; &lt;span class="bottom-text"&gt; &lt;span class="sub-content"&gt;&lt;span class="start"&gt;WAKE YOURSELF UP&lt;/span&gt; &lt;span class="fragrance"&gt;with a refreshing shower&lt;/span&gt; &lt;span class="sub"&gt;Say it with us: phew. A great &lt;a&gt;shower&lt;/a&gt; (with the best fragrances) will help get you de-stressed and ready for the day, especially with woodsy Fresh Start &lt;a&gt;body wash.&lt;/a&gt; &lt;/span&gt;&lt;/span&gt; &lt;/span&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div&gt;&lt;a href=""&gt; &lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/Spa-Day_fa2_Get-Inspired_M_07.jpg?$staticlink$" style="width: 100%;"&gt; &lt;img alt="SPA Day At Home" src="blogs/details/Spa-Day_fa2_Get-Inspired_D_ref_10.jpg&#13;
+                    " style="margin: 10px;width:100%"&gt; &lt;/picture&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&lt;div class="content"&gt;&#13;
+&lt;div&gt;&lt;span class="bottom-text"&gt;&lt;span class="sub-content"&gt;&lt;span class="start"&gt;REJUVENATE YOUR SKIN&lt;/span&gt; &lt;span class="fragrance"&gt;with a super-satisfying scrub&lt;/span&gt; &lt;span class="sub"&gt;A body scrub is literally relaxation in a bottle. It smells amazing. It feels amazing. And it’s perfect for any time, but especially at the end of your super-pampering spa day bath. &lt;/span&gt;&lt;/span&gt; &lt;/span&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;span class="bottom-text"&gt;&lt;span class="sub-content"&gt;&lt;span class="start"&gt;SLATHER ON&lt;/span&gt; &lt;span class="fragrance"&gt;hydration and good vibes&lt;/span&gt; &lt;span class="sub"&gt;A post-shower, moisturizing body cream leaves you perfectly hydrated and ready to start the rest of your spa day. Stay so (and Breathe Deep) while doing some of your favourite chill activities. &lt;/span&gt;&lt;/span&gt; &lt;/span&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div class="content"&gt;&#13;
+&lt;div&gt;&lt;a href=""&gt; &lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/Spa-Day_fa2_Get-Inspired_M_09.jpg?$staticlink$"&gt; &lt;img alt="SPA Day At Home" class="forget" src="blogs/details/Spa-Day_fa2_Get-Inspired_D_ref_12.jpg&#13;
+                " style="margin: 10px;"&gt; &lt;/picture&gt; &lt;/a&gt; &lt;span class="bottom-text"&gt; &lt;span class="sub-content"&gt;&lt;span class="start"&gt;SOAK YOUR&lt;/span&gt; &lt;span class="fragrance"&gt;worries away&lt;/span&gt; &lt;span class="sub"&gt;A soak in the bath will get you ready for sweet dreams, recharge your mood and leave you feeling just overall cozy in no time at all. Pro tip: You’re going to want to pick up super-relaxing &lt;a&gt;bath soak&lt;/a&gt; &lt;/span&gt;&lt;/span&gt; &lt;/span&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;a href=""&gt; &lt;picture&gt; &lt;source class="first-col" media="(max-width: 767px)" srcset="blogs/details/Spa-Day_fa2_Get-Inspired_M_11.jpg?$staticlink$"&gt; &lt;img alt="SPA Day At Home" class="forget" src="blogs/details/Spa-Day_fa2_Get-Inspired_D_ref_14.jpg&#13;
+                    " style="margin: 10px;"&gt; &lt;/picture&gt; &lt;/a&gt; &lt;span class="sub-content"&gt;&lt;span class="start"&gt;GET THE BEST&lt;/span&gt; &lt;span class="fragrance"&gt;night of sleep ever&lt;/span&gt; &lt;span class="sub"&gt;Or: the finishing touch to the best at-home spa day ever. How? With a &lt;a&gt;pillow mist,&lt;/a&gt; of course. Just spritz it on your pillow a few minutes before bed, then drift off to a great sleep. Have sweet dreams and goodnight! &lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div class="banners first-col"&gt;&lt;a href="/wellness"&gt;&lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/Spa-Day_fa2_Get-Inspired_M_13.jpg?$staticlink$"&gt; &lt;img alt="SPA Day At Home" src="blogs/details/Spa-Day_fa2_Get-Inspired_D_ref_17.jpg&#13;
+        " style="margin-bottom: 10px;"&gt; &lt;/picture&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&lt;style type="text/css"&gt;&#13;
+        .first-col img {&#13;
+            width: 100%;&#13;
+        }&#13;
+&#13;
+        .start {&#13;
+            color: darkolivegreen;&#13;
+            font-size: 18px;&#13;
+            text-align: center;&#13;
+            font-weight: bold;&#13;
+            margin: 2%;&#13;
+            display: block;&#13;
+            font-family: Source Sans Pro;&#13;
+        }&#13;
+&#13;
+        .fragrance {&#13;
+            color: darkolivegreen;&#13;
+            font-size: 35px;&#13;
+            text-align: center;&#13;
+            font-weight: bold;&#13;
+            margin: 2%;&#13;
+            display: block;&#13;
+            line-height: 30px;&#13;
+            font-family: Adobe Caslon Pro;&#13;
+        }&#13;
+&#13;
+        .sub {&#13;
+            color: black;&#13;
+            font-size: 15px;&#13;
+            text-align: center;&#13;
+            margin: 1% 15%;&#13;
+            display: block;&#13;
+&#13;
+        }&#13;
+&#13;
+        .bottom-text {&#13;
+            font-family: Source Sans Pro;&#13;
+        }&#13;
+&#13;
+        @media only screen and (max-width:768px) {&#13;
+            .content {&#13;
+                display: block;&#13;
+            }&#13;
+            .forget{&#13;
+                width: 100%;&#13;
+            }&#13;
+&#13;
+            .sub {&#13;
+                margin: 1% 8%;&#13;
+            }&#13;
+&#13;
+            .coffee {&#13;
+                width: 100%;&#13;
+            }&#13;
+&#13;
+        }&#13;
+&lt;/style&gt;&#13;
+&lt;p&gt;&lt;/p&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;p&gt;&lt;/p&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div class="r_bottom"&gt;&#13;
+&lt;div class="l_bottom"&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/Spa-Day_fa2_Get-Inspired_tile.jpg</custom-attribute>
+        </custom-attributes>
+    </content>
+
 
 </library>

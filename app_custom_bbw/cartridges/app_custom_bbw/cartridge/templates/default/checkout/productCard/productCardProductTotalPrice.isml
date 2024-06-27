@@ -1,5 +1,5 @@
 <isif condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
-    <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID} h-font-size--${!(miniCart) ? '16' : '14'} h-fw--semibold h-clr--black-1">${Resource.msg('label.free.price', 'cart', null)}</div>
+    <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID} h-font-size--16 h-fw--semibold h-clr--black-1">${Resource.msg('label.free.price', 'cart', null)}</div>
 <iselse/>
-    <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID} h-font-size--${!(miniCart) ? '16' : '14'} h-fw--semibold ${'nonAdjustedPrice' in lineItem.priceTotal ? 'minicart-red cart-black-1' : 'checkout-black-1'}"><span class="d-inline d-md-none">${Resource.msg('cart.label.total', 'cart', null)} </span>${lineItem.priceTotal.price}</div>
+    <div class="pricing line-item-total-price-amount item-total-${lineItem.UUID} h-font-size--16 h-fw--semibold ${'nonAdjustedPrice' in lineItem.priceTotal ? 'minicart-red cart-black-1' : 'checkout-black-1'}"><span class="d-inline d-md-none">${Resource.msg('cart.label.total', 'cart', null)} </span>${lineItem.priceTotal.price}</div>
 </isif>

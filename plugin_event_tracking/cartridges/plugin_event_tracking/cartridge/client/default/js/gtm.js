@@ -11,6 +11,7 @@ $(document).on(
             ) {
                 data.gtmEvents.forEach(function gtmEvent(gtmEvent) {
                     if (gtmEvent) {
+                        dataLayer.push({ ecommerce: null });
                         dataLayer.push(gtmEvent);
                     }
                 });

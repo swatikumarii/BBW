@@ -1,6 +1,7 @@
 <script>
     var pageAction = '${pdict.action.replace("-", "").toLowerCase()}';
     window.dataLayer = window.dataLayer || [];
+    dataLayer.push({ ecommerce: null });
     dataLayer.push(<isprint value="${pdict.datalayer}" encoding="off"/>);
 </script>
 
