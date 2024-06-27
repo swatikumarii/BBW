@@ -16,6 +16,7 @@ server.prepend(
     // eslint-disable-next-line consistent-return
     function (req, res, next) {
         var Site = require('dw/system/Site');
+        var OrderModel = require('*/cartridge/models/order');
         var enableQCeGift =
             Site.current.getCustomPreferenceValue('enableQwikcilver');
         var requestParameter = req.httpParameterMap;
@@ -96,6 +97,10 @@ server.prepend(
                     'Gift Card Email is not Sent to the Customer for OrderID: {0}',
                     order.orderNo
                 );
+                var orderModel = new OrderModel(order, {
+                    containerView: 'order'
+                });
+                res.setViewData({ order: orderModel });
                 this.emit('route:Complete', req, res);
                 return true;
             }
