@@ -49,6 +49,7 @@ function setProductProperties(productSearch, httpParams, selectedCategory, sorti
         productSearch.setSortingRule(sortingRule);
     }
 
+    productSearch.setRefinementValues('isEgiftCard', 'false');
     productSearch.setRecursiveCategorySearch(true);
 }
 
