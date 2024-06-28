@@ -45,13 +45,13 @@
                         </h1>
                         <p
                             style="margin:0 30px 20px;font-size:22px;line-height:33px;padding-right:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
-                            ${Resource.msg('shipped.order.email.body', 'email', null)}
+                            ${Resource.msg('Shipped.order.email.body.get.excited', 'email', null)}
                         </p>
-                        <p
+                        <iscomment> <p
                             style="margin:0 30px 20px;font-size:22px;line-height:33px;padding-right:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
                             ${Resource.msg('track.order.text.alert.msg', 'email', null)} <a href="#"
                                 style="text-decoration:underline;color:#005699;">${Resource.msg('track.order.alert.text.label', 'email', null)}</a>
-                        </p>
+                        </p> </iscomment>
                         <p
                             style="margin:0 30px 20px;font-size:22px;line-height:33px;padding-right:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
                             ${Resource.msg('email.customer.care.text', 'email', null)} <a
@@ -205,7 +205,7 @@
                         </p>
 
                         <iscomment> Shipped Order Email Content Asset - Content </iscomment>
-                        <isprint value="${pdict.markup}" encoding="off" />
+                        <iscomment> <isprint value="${pdict.markup}" encoding="off" /> </iscomment>
 
                         <iscomment> Shipping Section </iscomment>
                         <div
@@ -293,6 +293,14 @@
                             </table>
                         </div>
                         <iscomment> Payment Summary </iscomment>
+                        <isset name="totalExclusiveTax"
+                            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showTotalsExcludingTaxes')}" scope="page" />
+                        <isset name="shippingExclusiveTax"
+                            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingExcludingTaxes')}" scope="page" />
+                        <isset name="showSalesTaxes" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showSalesTaxes')}"
+                            scope="page" />
+                        <isset name="showShippingHandlingTaxes"
+                            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingHandlingTaxes')}" scope="page" />
                         <table width="100%" cellpadding="0" cellspacing="0">
                             <tbody>
                                 <tr>

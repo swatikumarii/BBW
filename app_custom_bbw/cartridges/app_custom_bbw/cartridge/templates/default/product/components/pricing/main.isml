@@ -12,12 +12,12 @@
 <iselseif condition="${price.type === 'range'}">
     <div class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
         <isinclude template="/product/components/pricing/range" />
-        <isif condition="${product.price.type === 'range'}">
-            <meta itemprop="priceCurrency" content="${product.price.currency}" />
-        <iselseif condition="${product.price.sales}">
-            <meta itemprop="priceCurrency" content="${product.price.sales.currency}" />
+        <isif condition="${price && 'min' in price && price.price.sales}">
+            <meta itemprop="priceCurrency" content="${price.min.sales.currency}" />
+        <iselseif condition="${price && 'min' in price && price.price.list}">
+            <meta itemprop="priceCurrency" content="${product.min.list.currency}" />
         <iselse>
-            <meta itemprop="priceCurrency" content="${product.price.list.currency}" />
+            <meta itemprop="priceCurrency" content="${request.session.currency}" />
         </isif>
     </div>
 <iselse>
