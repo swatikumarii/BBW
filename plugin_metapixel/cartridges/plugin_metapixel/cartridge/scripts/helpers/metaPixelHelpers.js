@@ -99,6 +99,31 @@ function addToWishlist(res) {
     return obj;
 }
 
+function queryStringToObject(queryString) {
+    queryString = queryString.replace(/^\?/, '');
+
+    var pairs = queryString.split('&');
+
+    var result = {};
+
+    pairs.forEach((pair) => {
+        pair = pair.split('=');
+        var key = decodeURIComponent(pair[0]);
+        var value = decodeURIComponent(pair[1] || '');
+
+        if (result[key]) {
+            if (!Array.isArray(result[key])) {
+                result[key] = [result[key]];
+            }
+            result[key].push(value);
+        } else {
+            result[key] = value;
+        }
+    });
+
+    return result;
+}
+
 /**
  * @param {object} res - current route response object
  * @returns {object} Object containing search impression data.
@@ -114,6 +139,13 @@ function getSearchImpressionData(res) {
         if ('productSearch' in res) {
             obj.data.query =res.productSearch.searchKeywords;
         }
+    } else {
+        obj = {
+            event: 'Search',
+            data: {}
+        };
+        var queryObject = queryStringToObject(res.queryString)
+        obj.data.cgid = queryObject.cgid;
     }
     return obj;
 }
@@ -203,7 +235,7 @@ function getFbqData(res) {
             case 'Stores-FindStores':
                 return getStoresData(res);
             default:
-                return false;
+                return {};
         }
     } catch (error) {
         Logger.getLogger('FB_Pixel', 'FB_Pixel').error(
