@@ -141,6 +141,17 @@ $fonts: (
                 ),
                 "weightValue": map-get($font-weight, normal),
                 "styleValue": normal
+            ),
+            "bold": (
+                "fontFaceParams": (
+                    "fontName": $ff-turbinado,
+                    "fontFolder": "TurbinadoPro",
+                    "fontFileName": "Turbinado Pro Bold",
+                    "system": true,
+                    "ext": "ttf"
+                ),
+                "weightValue": map-get($font-weight, bold),
+                "styleValue": normal
             )
         )
     ),
