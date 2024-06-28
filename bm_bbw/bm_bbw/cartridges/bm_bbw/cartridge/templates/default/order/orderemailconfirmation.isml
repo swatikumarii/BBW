@@ -31,7 +31,6 @@ Multiple email address can be separated by , (a la RFC2822)
         var orderModel = require('bm_bbw/cartridge/models/customOrder.js');
         var orderDetail = orderModel.getInvoice(pdict.Order.orderNo);
     </isscript>
-    ${pdict.StorefrontName}
     <isset name="urlHelpers" value="${require('*/cartridge/scripts/helpers/urlHelpers')}" scope="page" />
     <tr style="padding: 0;">
         <td style="vertical-align: middle; text-align: center; color: #333; font-size:14px;">
@@ -77,7 +76,7 @@ Multiple email address can be separated by , (a la RFC2822)
                         <iscomment> View Order Status Image and Button </iscomment>
                         <div style="border:3px solid #f2f2f2;padding:36px 0;text-align:center">
                             <p style="margin:0 0 44px">
-                                <img src="${URLUtils.absStatic(URLUtils.staticURL('/images/email/orders/status/icon-placed.png'))}"
+                            <img src="${URLUtils.absStatic(URLUtils.staticURL('/images/email/orders/status/icon-placed.png'))}"
                                     alt="Progress" style="border:0;vertical-align:top;width:90%;" />
                             </p>
                             <div>
