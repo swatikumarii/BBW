@@ -40,6 +40,7 @@ $clr-blue-14: #00e;
 $clr-blue-15: #1f73b7;
 $clr-blue-16: #007bff29;
 $clr-blue-17: #214293;
+$clr-blue-18: #205794;
 $clr-pink: #e20887;
 $clr-pink-1: #dd0493;
 $clr-pink-2: #ec3fa8;
@@ -144,7 +145,8 @@ $map-colors: (
         14: $clr-blue-14,
         15: $clr-blue-15,
         16: $clr-blue-16,
-        17: $clr-blue-17
+        17: $clr-blue-17,
+        18: $clr-blue-18
     ),
     pink: (
         base: $clr-pink,

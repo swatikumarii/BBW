@@ -679,3 +679,22 @@
         }
     }
 }
+
+.gift-cards-price {
+    font-size: 18px;
+
+    @include media-down(sm) {
+        font-size: 15px;
+    }
+
+    /* stylelint-disable */
+    @media screen and (max-width: 375px) {
+        font-size: 14px;
+    }
+}
+
+@include media-down(sm) {
+    .b-product-tile .price span:first-of-type {
+        gap: 0px;
+    }
+}

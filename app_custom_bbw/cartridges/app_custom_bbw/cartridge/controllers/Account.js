@@ -392,12 +392,15 @@ server.replace(
 
                     // Capillary: update customer service
                     var crmCustomerID = capillaryAPI.updateCustomer(formInfo, profile);
-                    if (crmCustomerID) {
-                        Transaction.wrap(function () {
+                    Transaction.wrap(function () {
+                        if (crmCustomerID) {
                             profile.custom.capillaryCustomerID = crmCustomerID;
                             profile.custom.capillaryResponse = '';
-                        });
-                    }
+                            profile.custom.capillaryFailed = false;
+                        } else {
+                            profile.custom.capillaryFailed = true;
+                        }
+                    });
 
                     delete formInfo.profileForm;
                     delete formInfo.email;
@@ -993,12 +996,15 @@ server.replace(
                         });
                         // Capillary: create customer service
                         var crmCustomerID = capillaryAPI.createCustomer(registrationForm, authenticatedCustomer.profile);
-                        if (crmCustomerID) {
-                            Transaction.wrap(function () {
+                        Transaction.wrap(function () {
+                            if (crmCustomerID) {
                                 authenticatedCustomer.profile.custom.capillaryCustomerID = crmCustomerID;
                                 authenticatedCustomer.profile.custom.capillaryResponse = '';
-                            });
-                        }
+                                authenticatedCustomer.profile.custom.capillaryFailed = false;
+                            } else {
+                                authenticatedCustomer.profile.custom.capillaryFailed = true;
+                            }
+                        });
                         res.json({
                             success: true,
                             redirectUrl: accountHelper.getLoginRedirectURL(

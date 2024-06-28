@@ -8567,4 +8567,970 @@ padding-top:20px;&#xD;
         </folder-links>
     </content>
 
+       <content content-id="spa-day-wellness-products">
+        <display-name xml:lang="x-default">National Relaxation Day</display-name>
+        <description xml:lang="x-default">Creating Spa Day at Home</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">National Relaxation Day</page-title>
+            <page-description xml:lang="x-default">National Relaxation Day Bath &amp; Body Works Australia</page-description>
+            <page-keywords xml:lang="x-default">National Relaxation Day</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container"&gt;&#13;
+&lt;div class="controlcontent_r"&gt;&#13;
+&lt;div class="htmlbucket"&gt;&#13;
+&lt;p&gt;&#13;
+&lt;/p&gt;&lt;div class="banners first-col"&gt;&lt;a href=""&gt; &lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/Spa-Day_fa2_Get-Inspired_M_01.jpg?$staticlink$"&gt; &lt;img alt="SPA Day At Home" src="blogs/details/Spa-Day_fa2_Get-Inspired_D_ref_01.jpg&#13;
+    " style="margin-bottom: 20px;" width="100%" data-gtm-vis-recent-on-screen32270531_251="860" data-gtm-vis-first-on-screen32270531_251="862" data-gtm-vis-total-visible-time32270531_251="100" data-gtm-vis-has-fired32270531_251="1"&gt; &lt;/picture&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&lt;p&gt;&lt;span class="sub"&gt;Need a self-care day? We do, too! And the best part? You don’t even have to leave the house to have it. Everything you need to create the ultimate spa day at home is right here in our Wellness shop: two curated collections for body &amp;amp; home that just might make your perfect self-care routine. &lt;/span&gt;&lt;/p&gt;&#13;
+&lt;div class="container1"&gt;&#13;
+&lt;div class="content"&gt;&#13;
+&lt;div&gt;&lt;a href=""&gt; &lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/Spa-Day_fa2_Get-Inspired_M_03.jpg?$staticlink$" style="width: 100%;"&gt; &lt;img alt="SPA Day At Home" class="forget" src="blogs/details/Spa-Day_fa2_Get-Inspired_D_ref_04.jpg&#13;
+                " style="margin: 10px;"&gt; &lt;/picture&gt; &lt;/a&gt; &lt;span class="bottom-text"&gt; &lt;span class="sub-content"&gt;&lt;span class="start"&gt;START YOUR MORNING&lt;/span&gt; &lt;span class="fragrance"&gt;with fragrance&lt;/span&gt; &lt;span class="sub"&gt;Nothing says “spa” like a &lt;a&gt;3-Wick Candle&lt;/a&gt;—especially When you’re kicking off an at-home self-care day. Our super-recharging recommendation? Energizing &lt;a&gt;Orange &amp;amp;Ginger&lt;/a&gt;. Don’t forget your coffee! &lt;/span&gt;&lt;/span&gt; &lt;/span&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;a href=""&gt; &lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/Spa-Day_fa2_Get-Inspired_M_05.jpg?$staticlink$" style="width: 100%;"&gt; &lt;img alt="SPA Day At Home" class="forget" src="blogs/details/Spa-Day_fa2_Get-Inspired_D_ref_06.jpg&#13;
+                    " style="margin: 10px;"&gt; &lt;/picture&gt; &lt;/a&gt; &lt;span class="bottom-text"&gt; &lt;span class="sub-content"&gt;&lt;span class="start"&gt;WAKE YOURSELF UP&lt;/span&gt; &lt;span class="fragrance"&gt;with a refreshing shower&lt;/span&gt; &lt;span class="sub"&gt;Say it with us: phew. A great &lt;a&gt;shower&lt;/a&gt; (with the best fragrances) will help get you de-stressed and ready for the day, especially with woodsy Fresh Start &lt;a&gt;body wash.&lt;/a&gt; &lt;/span&gt;&lt;/span&gt; &lt;/span&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div&gt;&lt;a href=""&gt; &lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/Spa-Day_fa2_Get-Inspired_M_07.jpg?$staticlink$" style="width: 100%;"&gt; &lt;img alt="SPA Day At Home" src="blogs/details/Spa-Day_fa2_Get-Inspired_D_ref_10.jpg&#13;
+                    " style="margin: 10px;width:100%"&gt; &lt;/picture&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&lt;div class="content"&gt;&#13;
+&lt;div&gt;&lt;span class="bottom-text"&gt;&lt;span class="sub-content"&gt;&lt;span class="start"&gt;REJUVENATE YOUR SKIN&lt;/span&gt; &lt;span class="fragrance"&gt;with a super-satisfying scrub&lt;/span&gt; &lt;span class="sub"&gt;A body scrub is literally relaxation in a bottle. It smells amazing. It feels amazing. And it’s perfect for any time, but especially at the end of your super-pampering spa day bath. &lt;/span&gt;&lt;/span&gt; &lt;/span&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;span class="bottom-text"&gt;&lt;span class="sub-content"&gt;&lt;span class="start"&gt;SLATHER ON&lt;/span&gt; &lt;span class="fragrance"&gt;hydration and good vibes&lt;/span&gt; &lt;span class="sub"&gt;A post-shower, moisturizing body cream leaves you perfectly hydrated and ready to start the rest of your spa day. Stay so (and Breathe Deep) while doing some of your favourite chill activities. &lt;/span&gt;&lt;/span&gt; &lt;/span&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div class="content"&gt;&#13;
+&lt;div&gt;&lt;a href=""&gt; &lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/Spa-Day_fa2_Get-Inspired_M_09.jpg?$staticlink$"&gt; &lt;img alt="SPA Day At Home" class="forget" src="blogs/details/Spa-Day_fa2_Get-Inspired_D_ref_12.jpg&#13;
+                " style="margin: 10px;"&gt; &lt;/picture&gt; &lt;/a&gt; &lt;span class="bottom-text"&gt; &lt;span class="sub-content"&gt;&lt;span class="start"&gt;SOAK YOUR&lt;/span&gt; &lt;span class="fragrance"&gt;worries away&lt;/span&gt; &lt;span class="sub"&gt;A soak in the bath will get you ready for sweet dreams, recharge your mood and leave you feeling just overall cozy in no time at all. Pro tip: You’re going to want to pick up super-relaxing &lt;a&gt;bath soak&lt;/a&gt; &lt;/span&gt;&lt;/span&gt; &lt;/span&gt;&lt;/div&gt;&#13;
+&lt;div&gt;&lt;a href=""&gt; &lt;picture&gt; &lt;source class="first-col" media="(max-width: 767px)" srcset="blogs/details/Spa-Day_fa2_Get-Inspired_M_11.jpg?$staticlink$"&gt; &lt;img alt="SPA Day At Home" class="forget" src="blogs/details/Spa-Day_fa2_Get-Inspired_D_ref_14.jpg&#13;
+                    " style="margin: 10px;"&gt; &lt;/picture&gt; &lt;/a&gt; &lt;span class="sub-content"&gt;&lt;span class="start"&gt;GET THE BEST&lt;/span&gt; &lt;span class="fragrance"&gt;night of sleep ever&lt;/span&gt; &lt;span class="sub"&gt;Or: the finishing touch to the best at-home spa day ever. How? With a &lt;a&gt;pillow mist,&lt;/a&gt; of course. Just spritz it on your pillow a few minutes before bed, then drift off to a great sleep. Have sweet dreams and goodnight! &lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div class="banners first-col"&gt;&lt;a href="/wellness"&gt;&lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/Spa-Day_fa2_Get-Inspired_M_13.jpg?$staticlink$"&gt; &lt;img alt="SPA Day At Home" src="blogs/details/Spa-Day_fa2_Get-Inspired_D_ref_17.jpg&#13;
+        " style="margin-bottom: 10px;"&gt; &lt;/picture&gt; &lt;/a&gt;&lt;/div&gt;&#13;
+&lt;style type="text/css"&gt;&#13;
+        .first-col img {&#13;
+            width: 100%;&#13;
+        }&#13;
+&#13;
+        .start {&#13;
+            color: darkolivegreen;&#13;
+            font-size: 18px;&#13;
+            text-align: center;&#13;
+            font-weight: bold;&#13;
+            margin: 2%;&#13;
+            display: block;&#13;
+            font-family: Source Sans Pro;&#13;
+        }&#13;
+&#13;
+        .fragrance {&#13;
+            color: darkolivegreen;&#13;
+            font-size: 35px;&#13;
+            text-align: center;&#13;
+            font-weight: bold;&#13;
+            margin: 2%;&#13;
+            display: block;&#13;
+            line-height: 30px;&#13;
+            font-family: Adobe Caslon Pro;&#13;
+        }&#13;
+&#13;
+        .sub {&#13;
+            color: black;&#13;
+            font-size: 15px;&#13;
+            text-align: center;&#13;
+            margin: 1% 15%;&#13;
+            display: block;&#13;
+&#13;
+        }&#13;
+&#13;
+        .bottom-text {&#13;
+            font-family: Source Sans Pro;&#13;
+        }&#13;
+&#13;
+        @media only screen and (max-width:768px) {&#13;
+            .content {&#13;
+                display: block;&#13;
+            }&#13;
+            .forget{&#13;
+                width: 100%;&#13;
+            }&#13;
+&#13;
+            .sub {&#13;
+                margin: 1% 8%;&#13;
+            }&#13;
+&#13;
+            .coffee {&#13;
+                width: 100%;&#13;
+            }&#13;
+&#13;
+        }&#13;
+&lt;/style&gt;&#13;
+&lt;p&gt;&lt;/p&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;p&gt;&lt;/p&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;div class="r_bottom"&gt;&#13;
+&lt;div class="l_bottom"&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;&#13;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/Spa-Day_fa2_Get-Inspired_tile.jpg</custom-attribute>
+        </custom-attributes>
+    </content>
+
+    <content content-id="hand-soap-faq">
+        <display-name xml:lang="x-default">Q&amp;A: Hand Care Routine</display-name>
+        <description xml:lang="x-default">Psst. It starts at the sink and goes beyond a dab of hand cream.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Hand Soap FAQ Ã¢â‚¬â€œ</page-title>
+            <page-description xml:lang="x-default">Sudsy, soapy and a household staple Ã¢â‚¬â€œ our hand soaps are perfect for every sink. Discover which is best for you and everything else youÃ¢â‚¬â„¢d want to know.</page-description>
+            <page-keywords xml:lang="x-default">Hand Soap FAQ</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container blogs-container"&gt;
+	&lt;div class="controlcontent_r"&gt;
+		&lt;div class="htmlbucket"&gt;
+			&lt;div class="bc-image"&gt;
+				&lt;picture&gt;
+					&lt;source media="(max-width: 767px)" srcset="blogs/details/handsoap_mob.jpg?$staticlink$"&gt;
+						&lt;img src="blogs/details/handsoap_desk.jpg?$staticlink$" width="100%"&gt;
+				&lt;/picture&gt;
+			&lt;/div&gt;
+			&lt;div class="body-care-content"&gt;
+				&lt;div class="bodycare-text-section"&gt;
+					&lt;div class="bc-description blog-description-16"&gt;
+						&lt;h1 class="h-fw--semibold"&gt;​Our hand soaps: spreading love, not germs.&lt;/h1&gt;
+						&lt;p&gt;IMeet the sink-side companion you’ll always need: our fragrant, hydrating, cleansing, perfect-for-every-room hand soaps! And since we have fragrances you’ll always be obsessed with, they’re a bubbly part of your routine you won’t skip. From blends made to hydrate the driest hands to &lt;a href="/hand-soaps/foaming-handsoap"&gt;hand soap&lt;/a&gt; formulas gentle enough for sensitive skin, this easy-to-read guide gives you all the details on our super-loved suds (and your most-asked questions!).&lt;/p&gt;
+						&lt;p class="first-sub-head"&gt;Why are Bath &amp;amp; Body Works hand soaps so amazing?&lt;/p&gt;
+						&lt;p class="first-sub-desc mb-0"&gt;The fragrances, the formulas, the eye-catching packaging, we could go on for a while. But let’s start with the scents. From our most iconic signature scents to delightful seasonal finds, there’s more than enough to love. Sweet. Spicy. Fresh. Clean. Floral. Citrusy. Woodsy. Exotic. We actually have it all.&lt;/p&gt;
+						&lt;p class="first-sub-desc"&gt;And speaking of all…have you met all of our hand soap blends? Our iconic, rich and non-drying &lt;a href="/hand-soaps/foaming-handsoap"&gt;gentle foaming hand soaps&lt;/a&gt; are a staple. Since they’re blended with vitamin E, natural essential oils, nourishing shea extract and soothing aloe, these soaps get rid of dirt and germs but rare still gentle on hands – perfect for everyone. Of course, we also have soaps for every need, specifically exfoliating and nourishing. We keep an extra bottle of each in a cabinet for when our hands need a little extra TLC.&lt;/p&gt;
+						&lt;p class="first-sub-head"&gt;Which scented hand soap should I start with?&lt;/p&gt;
+						&lt;p class="first-sub-desc"&gt;You can’t go wrong with something super fresh, like linen or lemon, but being adventurous with your fragrance is never a bad thing. Grab a tropical scent in the middle of winter. Pick a spring floral as the leaves are changing colors. Have an absolute favorite? It never hurts to stock up and have one at every sink.&lt;/p&gt;
+						&lt;p class="first-sub-head"&gt;Which soap blend should I try?&lt;/p&gt;
+						&lt;p class="first-sub-desc mb-0"&gt;It depends on your skin type and personal preferences! If you’re dealing with dry or parched hands, we have two different &lt;a href="/handsoaps/nourishing-soaps"&gt;nourishing hand soaps:&lt;/a&gt; creamy luxe and &lt;a href="/handsoaps/gel-soaps"&gt;gentle gel.&lt;/a&gt; The shimmery, swirly lather of the creamy luxe hand soaps will leave your hands silky smooth and richly scented. And our newest member of the Bath &amp;amp; Body Works soap family, our rich, non-drying gentle gel, is as equally fabulous! It’s made without dyes and parabens, but it is made with good-for-you ingredients like shea extract, vitamin E, aloe and essential oils. Bonus…they look amazing by the sink.&lt;/p&gt;
+						&lt;p class="first-sub-desc mb-0"&gt;For hands that need a little more love, we recommend our &lt;a href="/handsoaps/deep-cleansing"&gt;deep cleansing hand soaps.&lt;/a&gt; They have vitamin E, shea extract, essential oils, aloe and tiny exfoliating pearls (to get rid of dead skin). Plus, they clean and condition your hands at the same time…a total win-win.&lt;/p&gt;
+						&lt;p class="first-sub-desc"&gt;And, of course, our iconic gentle foaming hand soaps are perfect for every sink and pair of hands. These sudsy goodies are made with hydrating vitamin E, softening shea butter and conditioning aloe, and the super bubbly lather gently washes away germs and dirt, while leaving your skin super hydrated. Trust us: They’re a classic for a reason.&lt;/p&gt;
+						&lt;p class="first-sub-head"&gt;What’s the difference between liquid soap and bar soap?&lt;/p&gt;
+						&lt;p class="first-sub-desc"&gt;Both have the same germ-fighting, hand-cleansing properties, but the ease of use is a little different. While bar soap requires a soap dish and can be a little messy, bottled soap keeps germs, random dinner-prep flakes and water off of your soap – so it doesn’t require nearly as much clean-up. Plus, everything’s a bit more organized when you only have to set out one bottle of soap.&lt;/p&gt;
+						&lt;p class="first-sub-head"&gt;What’s the best way to wash my hands with Bath &amp;amp; Body Works soaps?&lt;/p&gt;
+						&lt;p class="first-sub-desc"&gt;Start with your favorite fragrance and formula, wet your hands and wash thoroughly for at least 20 seconds and say goodbye to germs. Pro-tip: sing a little tune while you’re washing…or consider it some premium “me time.”&lt;/p&gt;
+						&lt;p class="first-sub-head"&gt;Which soap is best for dry hands?&lt;/p&gt;
+						&lt;p class="first-sub-desc"&gt;Our &lt;a href="/handsoaps/nourishing-soaps"&gt;nourishing hand soap!&lt;/a&gt; We have two different blends: creamy luxe hand soaps and gentle gel soaps. Both are great for dry, itchy, parched hands, but if you’re going for a specific aesthetic with your sink-side décor…there are plenty of options. Our creamy luxe formula is shimmery, swirly and adds a bit of sparkle to room, while our clean and sophisticated gentle gel hand soap makes a chic addition to the sink. With dry hands, don’t forget to add a &lt;a href="/body-care/hand-care"&gt;hand cream&lt;/a&gt; to your routine…your hands will love you for it.&lt;/p&gt;
+						&lt;p class="first-sub-head"&gt;Which soap is best for sensitive skin?&lt;/p&gt;
+						&lt;p class="first-sub-desc"&gt;Our gentle foaming or gentle gel hand soaps are perfect for sensitive skin. Each is gentle, just like its name, and will work amazingly well on your hands. Plus, they’re so fluffy and light, they’ll instantly become your favorite way to wash germs away.&lt;/p&gt;
+						&lt;p&gt;Ready to get soapy? Shop all of our iconic hand soaps &lt;a href="/hand-soaps/foaming-handsoap"&gt;here.&lt;/a&gt;
+
+						&lt;/p&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;p&gt;&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="r_bottom"&gt;
+		&lt;div class="l_bottom"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/xcat_Hand-care_fa1_0_tile.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="hand-care"/>
+        </folder-links>
+    </content>
+
+    <content content-id="global-handwashing-day-get-inspired">
+        <display-name xml:lang="x-default">Celebrating Global Hand Washing Day</display-name>
+        <description xml:lang="x-default">Join us in spreading love, not germs.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Celebrate Global Handwashing Day</page-title>
+            <page-description xml:lang="x-default">Ready to get soapy? Shop all of our hand soaps this Global Handwashing Day. Hands down the cleanest around!</page-description>
+            <page-keywords xml:lang="x-default">Fragrance, Hand Soaps, Bath and Body Works, Celebrate Global Handwashing Day&amp;quot;</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container blogs-container"&gt;
+	&lt;div class="controlcontent_r"&gt;
+		&lt;div class="htmlbucket"&gt;
+			&lt;div class="shop-by-fragrance-section1"&gt;
+				&lt;div class="shop-by-fragnance-submain"&gt;
+					&lt;div class="imgsection"&gt;
+						&lt;img src="blogs/details/GHWD_fall_Get-Inspired_D_ref_01.jpg?$staticlink$" width="100%"&gt;
+					&lt;/div&gt;
+					&lt;p class="headparagraph text-center"&gt;On October 15th each year we celebrate Global Handwashing Day - a day to raise awareness for the importnat role handwashing plays in preventing the spread of disease. Join us in spreading love, not germs. ​&lt;/p&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="stepcontent w-100"&gt;
+				&lt;div class="stepcontent-sec"&gt;
+					&lt;div class="img"&gt;
+						&lt;img class="w-100" src="blogs/details/GHWD_fall_Get-Inspired_D_ref_04.jpg?$staticlink$"&gt;
+					&lt;/div&gt;
+					&lt;div class="txt"&gt;
+						&lt;h2 class="txt-h2 h-clr--blue-18"&gt;We Love,&lt;/h2&gt;
+						&lt;h2 class="txt-h h-clr--blue-18 m-font-turbinado--bold my-4"&gt;CLEAN HANDS&lt;/h2&gt;
+						&lt;p class="h-font-size--16"&gt;Meet the sink-side companion you’ll always need: our fragrant, hydrating, cleansing perfect-for-every-room hand soaps! And since we have fragrances you’ll always be obsessed with, they’re a bubbly part of your routine you won’t skip.​&lt;/p&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class="stepcontent"&gt;
+					&lt;div class="stepcontent-sec flxrev d-md-flex h-dsp--grid h-flex-order--0 h-flex-order-md--1"&gt;
+						&lt;div class="txt h-flex-order--1 h-flex-order-md--1"&gt;
+							&lt;h2 class="txt-h2 h-clr--blue-18"&gt;Hands down&lt;/h2&gt;
+							&lt;h2 class="txt-h h-clr--blue-18 m-font-turbinado--bold my-4"&gt;THE CLEANEST AROUND&lt;/h2&gt;
+							&lt;p class="h-font-size--16"&gt;Have you met all of our hand soap blends? Here are a few of our favourites:&lt;/p&gt;
+							&lt;h2 class="h-fw--semibold h-clr--gray"&gt;Gentle Foaming Hand Soap&lt;/h2&gt;
+							&lt;p class="h-font-size--16"&gt;Our most iconic soap-in its bubbly glory. Its luxurious foam (and rich, non-drying formula) washes hands while taking care of the skin's natural moisture barrier. &lt;a class="h-clr--gray b-link--underlined" href="/hand-soaps/foaming-handsoap"&gt;Shop Now. &lt;/a&gt;
+
+							&lt;/p&gt;
+							&lt;h2 class="h-fw--semibold h-clr--gray"&gt;Gentle Gel Hand Soap&lt;/h2&gt;
+							&lt;p class="h-font-size--16"&gt;A smooth, lightweight gel soap, thoughfully made without parabens or dyes, that gently cleans hands. &lt;a class="h-clr--gray b-link--underlined" href="/handsoaps/gel-soaps"&gt;Shop Now. &lt;/a&gt;
+
+							&lt;/p&gt;
+						&lt;/div&gt;
+						&lt;div class="img h-flex-order--0 h-flex-order-md--1"&gt;
+							&lt;img class="w-100" src="blogs/details/GHWD_fall_Get-Inspired_D_ref_08.jpg?$staticlink$"&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class="stepcontent-sec" style="display: none;"&gt;
+					&lt;div class="img"&gt;
+						&lt;img class="w-100" src="blogs/details/Fall1_2023_BestFallCandles_D_v3_04.jpg?$staticlink$"&gt;
+					&lt;/div&gt;
+					&lt;div class="txt"&gt;
+						&lt;h2 class="txt-h2 h-clr--blue-18"&gt;HONEYCRISP APPLE&lt;/h2&gt;
+						&lt;p class="h-font-size--16"&gt;Best of apple. Crisp, fruity sweetness is back! This blend of golden honeycrisp, apple blossom and fresh sugar cane smells like it's been handpick staight from the orchard. &lt;a class="h-clr--gray b-link--underlined" href="$url('Product-Show', 'pid', '26703048')$"&gt;SHOP&lt;/a&gt;
+
+						&lt;/p&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;div class="shop-by-fragrance-section1"&gt;
+				&lt;div class="shop-by-fragnance-submain"&gt;
+					&lt;div class="imgsection"&gt;&lt;a href="/hand-soaps/all-hand-soaps"&gt;&lt;img class="w-100" src="blogs/details/GHWD_fall_Get-Inspired_D_ref_11.jpg?$staticlink$"&gt;&lt;/a&gt;
+
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;p&gt;&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="r_bottom"&gt;
+		&lt;div class="l_bottom"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/GHWD_fall_Get-Inspired_tile.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="hand-care"/>
+        </folder-links>
+    </content>
+
+    <content content-id="sneaky-adventure-germs">
+        <display-name xml:lang="x-default">Global Hand Washing Day</display-name>
+        <description xml:lang="x-default">In the wake of the global health challenges and with the commemoration of Global Handwashing Day, we take a moment to emphasise its importance, and how Bath &amp; Body Works can be your partner in this daily ritual.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Global Handwashing Day: The Sneaky Adventure of Germs</page-title>
+            <page-description xml:lang="x-default">Ready to get soapy? Shop all of our hand soaps this Global Handwashing Day. Hands down the cleanest around!</page-description>
+            <page-keywords xml:lang="x-default">Fragrance, Hand Soaps, Celebrate Global Handwashing Day , Bath and Body Works</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container blogs-container"&gt;
+&lt;div class="controlcontent_r"&gt;
+&lt;div class="htmlbucket"&gt;
+&lt;div class="bc-image"&gt;&lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/GME-GIpage-Other-m_02.jpg?$staticlink$"&gt; &lt;img src="blogs/details/GHWD-GIpage-d_03.jpg?$staticlink$" width="100%"&gt; &lt;/picture&gt;&lt;/div&gt;
+
+&lt;div class="body-care-content"&gt;
+&lt;div class="bodycare-text-section"&gt;
+&lt;div class="bc-description blog-description-16"&gt;
+&lt;h1 class="h-fw--semibold"&gt;Global Handwashing Day: The Sneaky Adventure of Germs&lt;/h1&gt;
+&lt;p&gt;Germs are everywhere, hiding in plain sight and always ready to jump aboard! This is where handwashing comes in handy (notice the pun?).&lt;/p&gt;
+&lt;p&gt;Handwashing is often touted as one of the most effective ways to combat the spread of germs and illnesses. In the wake of the global health challenges and with the commemoration of Global Handwashing Day, we take a moment to emphasise its importance, and how Bath &amp;amp; Body Works can be your partner in this daily ritual.&lt;/p&gt;
+&lt;p class="first-sub-head"&gt;Show Germs the Door &lt;/p&gt;
+&lt;p&gt;Ready to give germs the boot? Here are some times when you really should be washing up:&lt;/p&gt;
+&lt;ul class="description-list"&gt;
+&lt;li&gt;&lt;p class="mb-0"&gt;Before eating: &lt;/p&gt;
+&lt;p&gt;You wouldn't eat with dirty utensils, right? Think of your hands the same way before digging into that sandwich.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="mb-0"&gt;Playing doctor at home: &lt;/p&gt;
+&lt;p&gt;If you're taking care of someone not feeling their best, wash up your hands before and after. It's good for you and them.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="mb-0"&gt;Post-bathroom: &lt;/p&gt;
+&lt;p&gt;After any trip to the restroom, a good handwash is basically a must. It's just the unwritten rule.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="mb-0"&gt;After the sneezes and coughs: &lt;/p&gt;
+&lt;p&gt;Had a little sneeze or cough? A quick rinse keeps things fresh.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="mb-0"&gt;Pet time: &lt;/p&gt;
+&lt;p&gt;After playing with Mr. Whiskers or feeding your pet fish, it's a good idea to freshen up.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Just remember, it's not about being paranoid – it's just about being smart. And hey, a good handwash can feel pretty refreshing, right?&lt;/p&gt;
+&lt;p class="first-sub-head"&gt;The Right Way to Wash Your Hands &lt;/p&gt;
+&lt;p&gt;Washing your hands is a skill and it’s imperative you get it right to make sure those germs back off. Here's a step-by-step guide to ensure you're doing it effectively:&lt;/p&gt;
+&lt;ol class="description-list"&gt;
+&lt;li&gt;&lt;p class="mb-0"&gt;Begin with water:&lt;/p&gt;
+&lt;p&gt;Start by wetting your hands with clean, running water. Following this, turn off the tap and apply soap.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="mb-0"&gt;Lather up: &lt;/p&gt;
+&lt;p&gt;Generate a good lather by rubbing your hands together. Ensure you cover the back of your hands, between fingers, and underneath nails.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="mb-0"&gt;Duration matters:&lt;/p&gt;
+&lt;p&gt;Spend at least 20 seconds scrubbing. If you need a timer, hum the "Happy Birthday" song twice.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="mb-0"&gt;Rinsing: &lt;/p&gt;
+&lt;p&gt;Ensure all the soap is washed off by using clean, running water.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="mb-0"&gt;Drying off: &lt;/p&gt;
+&lt;p&gt;Complete the process by drying your hands using a clean towel or air dryer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p class="first-sub-head"&gt;From Routine to Ritual: Handwashing with Bath &amp;amp; Body Works &lt;/p&gt;
+&lt;p&gt;Of course, with handwashing, it’s also about the product. With Bath &amp;amp; Body Works, not only do you cleanse your hands, but you also treat them to a luxurious experience. Here are some of our distinguished hand soap types:&lt;/p&gt;
+&lt;ol class="description-list"&gt;
+&lt;li&gt;&lt;p class="mb-0"&gt;&lt;a href="/hand-soaps/foaming-handsoap"&gt;Gentle Foaming Hand Soap&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Dive into the bubbly pleasure of our iconic hand soap. Let the bubbles from the &lt;strong&gt;White Barn Collection&lt;/strong&gt; like &lt;a href="$url('Product-Show', 'pid', '26393071')$"&gt;Black Cherry Merlot&lt;/a&gt; and &lt;a href="$url('Product-Show', 'pid', '26416320')$"&gt;Mahogany Teakwood&lt;/a&gt; envelop your hands in aromatic luxury. Your skin will feel cleansed while retaining its natural moisture.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="mb-0"&gt;&lt;a href="/handsoaps/gel-soaps"&gt;Gel Soap&lt;/a&gt;: &lt;/p&gt;
+&lt;p&gt;Our smooth, paraben-free, and dye-free gel soap promises not just cleanliness but a sensory journey. The Signature scents such as &lt;a href="$url('Product-Show', 'pid', '26681943')$"&gt;Kitchen Mandarin&lt;/a&gt; and Warm Vanilla Sugar will elevate your handwashing ritual, making it an experience to love.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p class="mb-0"&gt;&lt;a href="/handsoaps/deep-cleansing"&gt;Deep Cleansing Soap&lt;/a&gt;: &lt;/p&gt;
+&lt;p&gt;A deeper cleanse with a bubbly touch. Infused with exfoliating pearls, this soap refreshes your hands like no other. Don't forget to indulge in the calming aura of our Aromatherapy scent, Lavender Vanilla, which transforms every handwash into a spa-like escape.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p class="first-sub-head"&gt;From Routine to Ritual: Handwashing with Bath &amp;amp; Body Works &lt;/p&gt;
+&lt;p&gt;Handwashing might seem like a simple task, but with the right products, it can transform from routine to ritual. At Bath &amp;amp; Body Works, it's not just about getting those hands clean - it's about bringing the experience, delighting the senses, and giving your hands the luxury they deserve.&lt;/p&gt;
+&amp;nbsp;
+&lt;p&gt;This Global Handwashing Day, let's pledge to keep our hands clean and our health intact. And when you think of giving your hands the care they deserve, remember that Bath &amp;amp; Body Works is here to give you the best experience.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="r_bottom"&gt;
+&lt;div class="l_bottom"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/GHWD-Get-Inspired_tile.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="hand-care"/>
+        </folder-links>
+    </content>
+
+    <content content-id="hand-care-tips">
+        <display-name xml:lang="x-default">Hand Soaps 101</display-name>
+        <description xml:lang="x-default">Everything you need to know about our favorite suds, in one easy place.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Hand Care Routine Q&amp;A</page-title>
+            <page-description xml:lang="x-default">It goes way beyond just picking a hand cream. We answer your questions and recommend plenty of ways to keep your hands super soft.</page-description>
+            <page-keywords xml:lang="x-default">Hand Care Routine Q&amp;A</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container blogs-container"&gt;
+&lt;div class="controlcontent_r"&gt;
+&lt;div class="htmlbucket"&gt;
+&lt;div class="bc-image"&gt;&lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/hand_care_mob.jpg?$staticlink$"&gt; &lt;img src="blogs/details/hand_care_desk.jpg?$staticlink$" width="100%"&gt; &lt;/picture&gt;&lt;/div&gt;
+
+&lt;div class="body-care-content"&gt;
+
+&lt;div class="bodycare-text-section"&gt;
+&lt;div class="bc-description blog-description-16"&gt;
+&lt;h1 class="h-fw--semibold"&gt;​Soft, healthy skin is just one hand care routine away.&lt;/h1&gt;
+&lt;p&gt;If you’re like us, the sink has basically become your second home. But with all that hand washing, there’s a good chance your hands are feeling rough, which leaves you wondering: What type is soap is best for you? Do you need to use a hand cream (and when)? What ingredients should you be on the lookout for? We’re answering all your hand care questions (and helping you build up your hand care routine!) right now.&lt;/p&gt;
+&lt;p class="first-sub-head"&gt;What type of hand soap should I use?&lt;/p&gt;
+&lt;p class="first-sub-desc"&gt;You’d be surprised to know that your choice in hand soap can majorly affect your hands and hand care routine, since you could be something too harsh or drying for your skin. Of course, the type of hand soap that’s best for you varies by blend and ingredients (each hand soap is blended with vitamin E, aloe, shea extract and essential oils to keep hands feeling super soft). Here are a few of our favorites:&lt;/p&gt;
+&lt;p class="second-sub-head mb-0"&gt;Gentle Foaming Hand Soap&lt;/p&gt;
+&lt;p class="second-sub-desc"&gt;Our most iconic soap—in its bubbly glory. Its luxurious foam (and rich, non-drying formula) washes hands while taking care of the skin’s natural moisture barrier. &lt;a href="/hand-soaps/foaming-handsoap"&gt;Shop now.&lt;/a&gt;&lt;/p&gt;
+&lt;p class="second-sub-head mb-0"&gt;Gentle Gel Hand Soap&lt;/p&gt;
+&lt;p class="second-sub-desc"&gt;A smooth, lightweight gel soap, thoughtfully made without parabens or dyes, that gently cleans hands. &lt;a href="/handsoaps/gel-soaps"&gt;Shop now.&lt;/a&gt;&lt;/p&gt;
+&lt;p class="second-sub-head mb-0"&gt;Deep Cleansing Hand Soap&lt;/p&gt;
+&lt;p class="second-sub-desc"&gt;This bubbly formula has exfoliating pearls that wash away dirt and buffs away dry skin from your hands. &lt;a href="/handsoaps/deep-cleansing"&gt;Shop now.&lt;/a&gt;&lt;/p&gt;
+&lt;p class="first-sub-head"&gt;How long should I wash my hands for?&lt;/p&gt;
+&lt;p class="first-sub-desc"&gt;No matter which soap you choose, be sure to suds up for at least 20 seconds to keep germs at bay. By the way, 20 seconds is longer than it seems. Here’s a fun way to pass the time: name as many Bath &amp;amp; Body Works fragrances before time’s up. For more hand washing tips and tricks, check out &lt;a href="/hand-soap-faq"&gt;Hand Soaps 101.&lt;/a&gt;&lt;/p&gt;
+&lt;p class="first-sub-head"&gt;Do I really need a hand cream?&lt;/p&gt;
+&lt;p class="first-sub-desc"&gt;If you want soft hands, we’d say yes! While body lotion or cream can definitely take care of your hands as well, having a hand-specific cream is best – just like you’d use a separate hydrator for your face. Our &lt;a href="/body-care/hand-care"&gt;hand creams&lt;/a&gt; have been specifically designed to soak right into your skin, with good-for-you ingredients like glycerin to shea butter, hyaluronic acid to paraffin and more.&lt;/p&gt;
+&lt;p class="first-sub-head"&gt;When should I use hand cream?&lt;/p&gt;
+&lt;p class="first-sub-desc"&gt;We recommend using it after you wash your hands or when you need some hydration – just make sure your hands are dry before you apply cream. Stash one in your purse or backpack, car console, desk drawer, bathroom or wherever else is handy.&lt;/p&gt;
+&lt;p class="first-sub-head"&gt;Does the hand sanitizer I use matter?&lt;/p&gt;
+&lt;p class="first-sub-desc"&gt;Absolutely. These days, you may be zeroed-in on the alcohol percentage, but unless you want to dry out your hands, it’s best to look with a hand sanitizer with hydrating ingredients and germ-killing power. Thankfully, we have two super nourishing and effective hand sanitizer blends for you to choose from.&lt;/p&gt;
+&lt;p class="second-sub-head mb-0"&gt;Anti-Bacterial Hand Sanitizer Gel&lt;/p&gt;
+&lt;p class="second-sub-desc"&gt;Say hello to our most popular, most-refreshing hand sanitizer gel with 68-71% alcohol (meeting CDC requirements), vitamin E, shea extract, aloe and essential oils. It gets rid of 99.9% of the most common germs that cause illness and conditions your hands at the same time. Hint: This germ-fighting superstar comes in a pocket-friendly size for travel and a larger size to keep around the house (or anywhere you need it).&lt;/p&gt;
+&lt;p class="second-sub-head mb-0"&gt;Anti-Bacterial Hand Sanitizer Spray&lt;/p&gt;
+&lt;p class="second-sub-desc"&gt;Enriched with aloe, essential oils and 72% alcohol – this spritzable blend is perfect for super-quick, on-the-go sanitation. Plus, it kills 99.9% of common germs that cause illness and comes in some of your favorite scents.&lt;/p&gt;
+&lt;p class="first-sub-head mb-0"&gt;What ingredients will keep my hands soft?&lt;/p&gt;
+&lt;p class="first-sub-desc"&gt;Glad you asked; there are tons of ingredients out there that can help your hands stay super-smooth. Here are a few of our favorite things to add to our hand soaps, hand creams and sanitizers.&lt;/p&gt;
+&lt;ul class="description-list"&gt;
+&lt;li&gt;&lt;span&gt;Aloe: &lt;/span&gt; Soothes skin and is anti-inflammatory.&lt;/li&gt;
+&lt;li&gt;&lt;span&gt;Vitamin E: &lt;/span&gt;Hydrates and nourishes your hands.&lt;/li&gt;
+&lt;li&gt;&lt;span&gt;Shea Extract: &lt;/span&gt;Smooths dry or cracked skin.&lt;/li&gt;
+&lt;li&gt;&lt;span&gt;And of course: &lt;/span&gt;Essential oils and amazing fragrance.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now that you know everything hand care, it’s time to grab a few things for your routine. Shop it all at our &lt;a href="/hand-soaps/foaming-handsoap"&gt;Healthy Hands Headquarters.&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="r_bottom"&gt;
+&lt;div class="l_bottom"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/sp_hand-soap_su3_0_tile.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="hand-care"/>
+        </folder-links>
+    </content>
+
+    <content content-id="choose-your-scent">
+        <display-name xml:lang="x-default">How to Find Your Perfect Scent</display-name>
+        <description xml:lang="x-default">Our step-by-step breakdown for discovering your true (fragrance) loves.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">How to Find Your Perfect Scent Ã¢â‚¬â€œ Bath &amp; Body Works</page-title>
+            <page-description xml:lang="x-default">Do you prefer floral fragrances, sweet scents or something completely different? This step-by-step guide will help you find your perfect scent in a matter of minutes.</page-description>
+            <page-keywords xml:lang="x-default">How to Find Your Perfect Scent Ã¢â‚¬â€œ Bath &amp; Body Works</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container blogs-container"&gt;
+&lt;div class="controlcontent_r"&gt;
+&lt;div class="htmlbucket"&gt;
+&lt;div class="bc-image"&gt;&lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/perfectscent_mgh_v2.jpg?$staticlink$"&gt; &lt;img src="blogs/details/perfectscent_gh_v2.jpg?$staticlink$" width="100%"&gt; &lt;/picture&gt;&lt;/div&gt;
+
+&lt;div class="body-care-content"&gt;
+
+&lt;div class="bodycare-text-section"&gt;
+&lt;div class="bc-description blog-description-16"&gt;
+&lt;h1 class="h-fw--semibold"&gt;​Are you floral, sweet, fresh or a fragrance in between?&lt;/h1&gt;
+&lt;p class="h-font-size--16 mb-0 h-fw--normal"&gt;Zesty. Uplifting. Refreshing. Like the world’s coolest iced tea on the hottest day, there’s nothing better than a citrus scent for summer. They perfectly match the season’s beachy vibes, warm breezes, nights out on the patio and every get together you’re going to attend (or host). Full sail ahead, here are four reasons why you need some citrus notes this season.&lt;/p&gt;
+&lt;span class="desc_subhead h-clr--black-3 h-font-size--16 h-fw--semibold"&gt;Start with what you like (and don’t).&lt;/span&gt;
+&lt;p class="mb-0 h-font-size--16 h-fw--normal"&gt;Do you have a go-to lotion you carry everywhere? What about a candle that always makes you smile? Do you find yourself enjoying that “just out of the oven” scent from baking? And on the opposite end of the spectrum…are you not a fan of musky fragrances? Or what about that one floral you just can’t stand? All of these things are significant indicators of what types of fragrances are right for you. The more aware you are of your likes and dislikes, the easier it will be to…&lt;/p&gt;
+&lt;span class="desc_subhead h-clr--black-3 h-font-size--16 h-fw--semibold"&gt;Narrow down the fragrance family.&lt;/span&gt;
+&lt;p class="h-font-size--16 mb-0 h-fw--normal"&gt;Get ready: We’re breaking down the key notes and moods that come within each scent’s category.&lt;/p&gt;
+&lt;ol class="description-list"&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;
+&lt;p class="h-font-size--16 h-fw--normal h-clr--black-3 mb-0"&gt;&lt;span class="h-fw--semibold"&gt;Citrus: &lt;/span&gt;Think lemon. Think lime. Think orange. Think super bright, super refreshing scents that scream sunshine and instantly perk you up. Most popular in summer.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;
+&lt;p class="h-font-size--16 h-fw--normal h-clr--black-3 mb-0"&gt;&lt;span class="h-fw--semibold"&gt;Exotic: &lt;/span&gt;Unique. Mysterious. Alluring. Blends with tempting scents, like bergamot incense or seductive vanilla rum, are exactly what you’d want to wear on date night.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;
+&lt;p class="h-font-size--16 h-fw--normal h-clr--black-3 mb-0"&gt;&lt;span class="h-fw--semibold"&gt;Floral: &lt;/span&gt;A fragrance category that’s always in season. From romantic roses to airy peonies and everything in between, you’ll love smelling like a blooming garden.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;
+&lt;p class="h-font-size--16 h-fw--normal h-clr--black-3 mb-0"&gt;&lt;span class="h-fw--semibold"&gt;Fresh: &lt;/span&gt;Love the scent of fresh-out-of-the-dryer sheets? Fresh fragrances are for you. Cotton, sea breeze, basically anything that makes you feel cool and clean.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;
+&lt;p class="h-font-size--16 h-fw--normal h-clr--black-3 mb-0"&gt;&lt;span class="h-fw--semibold"&gt;Fruit: &lt;/span&gt;Strawberry-topped cakes, fruity cocktails, peachy treats and tropical delicacies…these goodies make every day a little sunnier.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;
+&lt;p class="h-font-size--16 h-fw--normal h-clr--black-3 mb-0"&gt;&lt;span class="h-fw--semibold"&gt;Gourmand: &lt;/span&gt;A dash of sweetness for every moment of your day? Yes, please. Cookies, cupcakes and other sugary ingredients are great for treating yourself.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;
+&lt;p class="h-font-size--16 h-fw--normal h-clr--black-3 mb-0"&gt;&lt;span class="h-fw--semibold"&gt;Warm: &lt;/span&gt;Cozy moments. A comforting blanket. Warm fragrances are like an embrace you could relax in forever. Think amber, cashmere and musk.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;
+&lt;p class="h-font-size--16 h-fw--normal h-clr--black-3 mb-0"&gt;&lt;span class="h-fw--semibold"&gt;Woods: &lt;/span&gt;Imagine taking a stroll through a pine forest. Wandering around a spring meadow. Already running out the door? Look for pine, sandalwood, birch, etc. in a scent like &lt;a href="/s-fragrance/in-the-stars"&gt;In the Stars&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;span class="desc_subhead h-clr--black-3 h-font-size--16 h-fw--semibold"&gt;Decide on where you want to use it.&lt;/span&gt;
+&lt;p class="h-font-size--16 mb-0 h-fw--normal"&gt;Odds are, you’ll probably have a few different scents for specific events or occasions. Your daily 9-5 signature, your night-out go-to, your fun weekend splurge, etc. And, of course, as the seasons change, your fragrance preferences will change, too! We recommend picking up a light and airy floral for spring (hint: &lt;a href="/fragrance/perfect-peony"&gt;Perfect Peony&lt;/a&gt;), a sweet and cheery gourmand for the holidays, a warm pumpkin for fall and a fruity, citrusy number for summer.&lt;/p&gt;
+&lt;span class="desc_subhead h-clr--black-3 h-font-size--16 h-fw--semibold"&gt;Take it for a test drive.&lt;/span&gt;
+&lt;p class="h-font-size--16 mb-0 h-fw--normal"&gt;Now that you have a better idea of the fragrance categories, it’s time to head to the &lt;a href="/store-locator"&gt;store&lt;/a&gt;. Grab a few testing sheets. Spray the testing paper and wait about 10 seconds for the scent to settle in. We recommend only trying a few scents per visit. Why? Because over time, your nose gets desensitized to smell.&lt;/p&gt;
+&lt;p class="h-font-size--16 mb-0 h-fw--normal"&gt;Pro tip: most blends have different layers of fragrance notes…a top, middle and bottom. As time goes on, the top scent will slowly fade into the middle notes and so on. So be sure to smell each note layer before you buy it.&lt;/p&gt;
+&lt;p class="h-font-size--16 mb-0 h-fw--normal"&gt;Not able to go to the store? It’s actually surprisingly easy to explore new categories online, with a few tools. Our &lt;a href="/fragrance"&gt;shop by fragrance&lt;/a&gt; section is a great place to start, but we also love reading reviews to get a sense of what other people think about the scent. And once you’ve picked a few, &lt;a href="/bodycare/travel-size"&gt;mini perfumes&lt;/a&gt; are a great way to try them (especially if you’re not fully ready to commit).&lt;/p&gt;
+&lt;span class="desc_subhead h-clr--black-3 h-font-size--16 h-fw--semibold"&gt;Pick a favorite way to fragrance.&lt;/span&gt;
+&lt;p class="h-font-size--16 mb-0 h-fw--normal"&gt;We carry two main types of forms…eau de parfum and fine fragrance mists. Both are just as amazing, but there are a few key differences.&lt;/p&gt;
+&lt;p class="h-font-size--16 mb-0 h-fw--normal desc_subsec"&gt;&lt;span class="desc_subhead h-clr--black-3 h-font-size--16 h-fw--semibold"&gt;Fine Fragrance Mist: &lt;/span&gt; Light and airy, they’re perfect for spritzing throughout the day, no matter where you are or who you’re with. Our &lt;a href="/body-care/body-spray-and-mists"&gt;fine fragrance mists&lt;/a&gt; last about 2-3 hours and since they have a lower concentration of essential oils, they’re super buildable.&lt;/p&gt;
+&lt;p class="h-font-size--16 mb-0 h-fw--normal desc_subsec"&gt;&lt;span class="desc_subhead h-clr--black-3 h-font-size--16 h-fw--semibold"&gt;Perfume: &lt;/span&gt;Our most luxurious blends, in the most beautiful bottles. With a higher concentration of fragrance oils, our &lt;a href="/body-care/perfume-and-cologne"&gt;perfumes&lt;/a&gt; are more fragrant and long-lasting than fine fragrance mists. Plus, every time you use them, it’ll make the occasion a little more special.&lt;/p&gt;
+&lt;p class="h-font-size--16 mb-0 h-fw--normal desc_subsec"&gt;&lt;span class="desc_subhead h-clr--black-3 h-font-size--16 h-fw--semibold"&gt;Pro tip: &lt;/span&gt;layer your mists and perfumes with matching body lotions, shower gels and body creams to complete the collection and keep the scent going&lt;/p&gt;
+&lt;span class="desc_subhead"&gt;Shop and enjoy.&lt;/span&gt;
+&lt;p class="h-font-size--16 mb-0 h-fw--normal"&gt;It’s finally time to purchase and use! Couldn’t narrow down to one choice? There’s no shame in picking a few, we won’t tell. Shop our &lt;a href="/new-arrivals"&gt;newest arrivals&lt;/a&gt; for the latest and greatest fragrances we’ve got.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="r_bottom"&gt;
+&lt;div class="l_bottom"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/xcat_perfect-scent_su3_0_tile.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="behind-the-scents"/>
+        </folder-links>
+    </content>
+
+    <content content-id="sandalwood">
+        <display-name xml:lang="x-default">Fragrance Obsession: Sandalwood</display-name>
+        <description xml:lang="x-default">What makes this rich, woodsy note so intriguing? We’ve got the story.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Sandalwood Essential Oil Ã¢â‚¬â€œ Bath &amp; Body Works</page-title>
+            <page-description xml:lang="x-default">Sandalwood is a warm, woodsy favorite in everything from perfumes to aromatherapy essential oils. HereÃ¢â‚¬â„¢s why weÃ¢â‚¬â„¢re absolutely loving it.</page-description>
+            <page-keywords xml:lang="x-default">Sandalwood Essential Oil Ã¢â‚¬â€œ Bath &amp; Body Works</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container blogs-container"&gt;
+	&lt;div class="controlcontent_r"&gt;
+		&lt;div class="htmlbucket"&gt;
+			&lt;div class="bc-image"&gt;
+				&lt;img src="blogs/details/Sandalwood_gh.jpg?$staticlink$" width="100%"&gt;
+			&lt;/div&gt;
+			&lt;div class="body-care-content"&gt;
+				&lt;div class="bodycare-text-section"&gt;
+					&lt;div class="bc-description blog-description-16"&gt;
+						&lt;p class="h-pt--20"&gt;Sandalwood may be a slow-growing tree, but it’s an absolute fragrance goldmine. Native to areas like China and India, this ancient plant (known as Santalum) is beloved for its warm, vibrant, and complex character – plus, it’s at the center of some of our favorite blends (think &lt;a href="/fragrance/japanese-cherry-blossom"&gt;Japanese Cherry Blossom&lt;/a&gt;, Magic in the Air and In the Stars). Why are we obsessed? Join us for a stroll through the forest to find out.&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It’s liquid gold.&lt;/span&gt;Almost literally. Not only does its distillation process create a rich, fragrant, deep-gold liquid, but the pure sandalwood oil is highly coveted and extremely expensive. Talk about a 24-karat tree.&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It takes its time.&lt;/span&gt;Sandalwood trees need at least 15-20 years of growing time before the fragrant oil can be extracted. They can take 60-80 years to fully mature – which makes harvesting the oil one of the most time-consuming productions (but so worth it).&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It has divine history.&lt;/span&gt;Used by many cultures over the years, sandalwood has been carved into sculptures and jewelry, ground into powder for religious ceremonies and burned to promote a connection between the mind and spirit. And with that, the scent’s been a cornerstone all over the globe ever since.&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It’s a complex fragrance.&lt;/span&gt;While it’s generally considered warm, woodsy and a little sweet, sandalwood’s scent profile perfectly harmonizes with other notes, making it both distinctive and versatile. Maybe that’s why...&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It loves to pair up.&lt;/span&gt;Creamy vanilla sweetens the woodsy aroma of sandalwood, like in one of our all-time fave fragrances, Magic in the Air. Our iconic Japanese Cherry Blossom, and other florals like rose and jasmine, take the scent straight into spring. Plus, this woodsy babe adds the perfect amount of glowing warmth to a more wintery blend, like In the Stars. The combinations are absolutely limitless (and we love that).&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It’s always in season.&lt;/span&gt;Clearly, sandalwood works well with other fragrances, which explains why it’s been used for so many centuries across the globe. Winter, spring, summer and fall, this woodsy scent is sophisticated and timeless – making it an all-season-long, always on-trend babe.&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It promotes clarity.&lt;/span&gt;Looking to spend a quiet night in? Sandalwood is perfect for calming down, promoting feelings of inner strength and taking an evening for yourself. Break out some &lt;a href="/bodycare/aromatherapy"&gt;aromatherapy&lt;/a&gt; goodies, light a candle and grab those facemasks – you’ll thank yourself later.&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It’s everywhere.&lt;/span&gt;Yes! Sandalwood is basically in everything. Find it décor, body care and skincare products, candles and air fresheners (think our &lt;a href="/home-fragrance/all-wallflowers"&gt;Wallflowers&lt;/a&gt;), and as an essential oil in aromatherapy.&lt;/p&gt;
+						&lt;p&gt;Feeling inspired? Shop sandalwood (and everything it goes well with) &lt;a href="/search?q=sandalwood"&gt;here.&lt;/a&gt;
+						&lt;/p&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;p&gt;&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="r_bottom"&gt;
+		&lt;div class="l_bottom"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/ebc_sandlewood_su3_0_tile.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="behind-the-scents"/>
+        </folder-links>
+    </content>
+
+    <content content-id="jasmine-scent">
+        <display-name xml:lang="x-default">Fragrance Obsession: Jasmine</display-name>
+        <description xml:lang="x-default">Our love letter to one of the most popular (and timeless) floral notes ever.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Jasmine Fragrance</page-title>
+            <page-description xml:lang="x-default">Timeless, captivating and romantic. JasmineÃ¢â‚¬â„¢s fragrance is one of the most popular scents ever. Find out why (and how) now!</page-description>
+            <page-keywords xml:lang="x-default">Jasmine Fragrance| Bath &amp; Body Works</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container blogs-container"&gt;
+&lt;div class="controlcontent_r"&gt;
+&lt;div class="htmlbucket"&gt;
+&lt;div class="bc-image"&gt;&lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/jasmine_mgh.jpg?$staticlink$"&gt; &lt;img src="blogs/details/jasmine_gh.jpg?$staticlink$" width="100%"&gt; &lt;/picture&gt;&lt;/div&gt;
+
+&lt;div class="body-care-content"&gt;
+
+&lt;div class="bodycare-text-section"&gt;
+&lt;div class="bc-description blog-description-16"&gt;
+&lt;h1 class="h-fw--semibold"&gt;​JASMINE: UNLIMITED FRAGRANCE POTENTIAL.&lt;/h1&gt;
+&lt;p class="h-font-size--16 mb-0 h-fw--normal"&gt;Jasmine’s like that girl who captivates the room as soon as she walks in – and manages to make friends with absolutely everyone. It’s floral, sensual, romantic, sweet and the central part of many different fragrances (like our ever-popular &lt;a class="h-clr--black-3" href="/all-products?Rfs=attrZZCU00388442-005VPYQCU00388442-005-134"&gt;One in a Million&lt;/a&gt;). Totally safe to say we’re obsessed. What else do we love about this star-shaped flower? Glad you asked!&lt;/p&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;It’s a scent staple.&lt;/span&gt; Jasmine’s become an iconic blending piece for generations of fragrance. It adds a floral hint to woodsy and musky aromas, lifts spicy scents up, completes any floral combination and grounds tones of super-sweet blends with a kiss of muskiness. It even has the power to bring focus to more avant-garde scents.&lt;/p&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;It’s a modern classic.&lt;/span&gt; Over the years, jasmine has been mixed into light, airy fragrances (think classic 1950s perfume bottles), but modern jasmine is so much more. It runs the gamut from spicy and sexy scents – and we’re living for almost euphoric, over-the-top floral combinations. Plus, jasmine fragrances aren’t only for nights out – it’s a modern day-to-night scent that you can wear everywhere, like &lt;a class="h-clr--black-3" href="/all-products?Rfs=attrZZCU00388442-005VPYQCU00388442-005-134"&gt;One in a Million&lt;/a&gt;. It’s a delicate blend of jasmine extract, tuberose oil, white gardenia, pink pepper and cashmere musk is genuinely unique, super-wearable and perfect for every occasion.&lt;/p&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;But it takes a lot to make a little.&lt;/span&gt; Just because jasmine’s scent is in almost everything, that doesn’t mean it’s easy to obtain. It takes 8,000 jasmine flowers to make one gram of pure jasmine oil, and they have to be put in a special basket, so the petals don’t bruise. Plus, they have to be produced right away, or they’ll wilt.&lt;/p&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;It’s floral royalty.&lt;/span&gt; While rose rules alongside it, the slightly sweet, yet potent scent of jasmine remains ever-popular, making it a crown jewel in the fragrance world. It’s the second-most-used floral note, described as a less dainty version of rose. Put jasmine and rose together and mwah: a garden party scent you’ll wear head to toe.&lt;/p&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;It’s surprisingly unisex.&lt;/span&gt; This little white flower appears in more than 80% of women’s fragrances and more than 30% of men’s fragrances – so you could say everyone’s fallen head-over-heels for jasmine. Its ability to complement other scents is almost uncanny, giving it an upper hand over other notes.&lt;/p&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;It’s really romantic.&lt;/span&gt; Most florals scents are considered key players in the game of romance, but jasmine appears in massage oils, candles, bubble baths, perfumes and other date night items. In the world of aromatherapy, the tiny white flower is perfect for setting the mood, hence the creation of our Jasmine Sandalwood blend. Pair with a sparkling glass of Moscato and enjoy.&lt;/p&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;It’s a lovely gift.&lt;/span&gt; For hundreds of years, jasmine flowers have been given as symbols of love and affection – and we think fragrance is the best modern-day gift. Jasmine-scented candles, bubble baths and soaps are the definitions of pampering luxury (and they last way longer than flowers). Taking a trip to a freshly-bloomed garden or giving a tin of a relaxing jasmine tea are excellent ways to spoil your special someone. By the way, in addition to love, these blossoms have generally been associated with good luck and appreciation, so keep them in mind for graduations, birthdays…or whatever celebration you’ve got on the horizon.&lt;/p&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list"&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;It’s ultra-soothing.&lt;/span&gt; If you’re looking for something to help you unwind after a long day, jasmine has your back. Rub a little jasmine essential oil on your skin to calm down, put a few drops in your diffuser to help you fall asleep, and loosen up with a jasmine massage oil. And when you pair that with the right candle, a few feel-good snacks and your favorite sitcom? Literally the best night ever.&lt;/p&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list"&gt; Ready for all things jasmine? Find body creams, candles, air fresheners, body mists and a lot more: &lt;a class="h-clr--black-3" href="/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="r_bottom"&gt;
+&lt;div class="l_bottom"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/xcat_jasmine_su3_0_tile.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="behind-the-scents"/>
+        </folder-links>
+    </content>
+
+    <content content-id="rose">
+        <display-name xml:lang="x-default">Fragrance Obsession: Rose</display-name>
+        <description xml:lang="x-default">A behind-the-scents peek at why this romantic flower has serious staying power.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Rose Fragrance</page-title>
+            <page-description xml:lang="x-default">EveryoneÃ¢â‚¬â„¢s obsessed with rose fragrances (us too). Learn all about this floral scent and why itÃ¢â‚¬â„¢s so loved in rose perfume, rose essential oils and more.</page-description>
+            <page-keywords xml:lang="x-default">Rose Fragrance</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container blogs-container"&gt;
+&lt;div class="controlcontent_r"&gt;
+&lt;div class="htmlbucket"&gt;
+&lt;div class="bc-image"&gt;
+&lt;picture&gt;
+&lt;source media="(max-width: 767px)" srcset="blogs/details/F1_rose_mgh.jpg?$staticlink$"&gt;
+&lt;img src="blogs/details/F1_rose_gh.jpg?$staticlink$" width="100%"&gt;
+&lt;/picture&gt;
+&lt;/div&gt;
+&lt;div class="body-care-content"&gt;
+&lt;div class="bodycare-text-section"&gt;
+&lt;div class="bc-description blog-description-16"&gt;
+&lt;h2 class="h-fw--semibold"&gt;​Everything’s coming up roses&lt;/h2&gt;
+&lt;p class="h-font-size--16 "&gt;Confession: we’re a little obsessed with rose. It’s the romantic icon,
+the Valentine’s Day staple,
+the classic flower for literally every special occasion. And while we’re all about a bouquet on February 14th,
+we’re feeling the fragrance version all year round. Why do we adore it? Let us count the ways.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It has a rich history. &lt;/span&gt;Rose has been used in beauty so long,
+no wonder it’s become a worldwide scent-sation (get it?). In fact,
+during the 17th century,
+some nobles used rose water as legal currency because it was that popular.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It’s a fave of the original beauty queen. &lt;/span&gt;Cleopatra absolutely loved roses. Legend has it that she even decorated her chambers with the romantic petals when Marc Anthony visited. Swoon.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It’s an updated classic. &lt;/span&gt;Rose has been a go-to for centuries,
+but our playful,
+modern,
+airy version feels so perfect right now. It’s special,
+but versatile. Subtle,
+but lively. Exactly what you want to wear every day,
+everywhere,
+from head to toe.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It’s on trend. &lt;/span&gt;You’ve probably noticed that rose is the hottest floral this side of a garden party. Even “rose just isn’t my thing” types are falling in love with our spin on the scent. (The super-pretty, Instagram-worthy packaging is a bonus, too.)&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It’s incredibly versatile. &lt;/span&gt;From light-as-air fragrance mists to luscious hair oils,
+fun and fresh &lt;a class="h-clr--black-3" href="/body-care/bubble-bath"&gt;bubble bath&lt;/a&gt;to moisturizing &lt;a class="h-clr--black-3" href="/body-care/body-lotion"&gt;body lotions&lt;/a&gt;,
+rose is the first stop for beauty lovers everywhere…especially when it’s time to unwind.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It has mood-boosting powers. &lt;/span&gt;Rose essential oil: the queen of lifting spirits and moods. When it’s mixed with the right aromatherapy formula,
+this petal-powered oil can help relieve stress,
+create positive emotions and inspire a little love.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It’s made of thousands of petals. &lt;/span&gt;Yeah,
+that’s a lot of petals. A 5mL bottle of pure rose oil requires over 10,
+000 petals to make. Talk about liquid gold.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;&lt;span class="h-fw--semibold"&gt;It’s perfect no matter where it is. &lt;/span&gt;The body-care versions are definitely must-haves,
+but rose is actually amazing for any room,
+any season,
+any day. Whether it’s a &lt;a class="h-clr--black-3" href="/home-fragrance/wallflowers-plugs"&gt;Wallflowers plug&lt;/a&gt;,
+a 3-wick &lt;a class="h-clr--black-3" href="/home-fragrance/3-wick-candles"&gt;candle&lt;/a&gt;or a concentrated &lt;a class="h-clr--black-3" href="/home-fragrance/room-spray-and-mist"&gt;room spray&lt;/a&gt;,
+one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p class="h-font-size--16 "&gt;Can’t wait to try it? Explore our entire &lt;a class="h-clr--black-3" href="/s-fragrance/rose"&gt;rose collection.&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;p class="h-font-size--16 "&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="r_bottom"&gt;&lt;div class="l_bottom"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/xcat_rose_su3_0_tile.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="behind-the-scents"/>
+        </folder-links>
+    </content>
+
+    <content content-id="vanilla-scent">
+        <display-name xml:lang="x-default">Fragrance Obsession: Vanilla</display-name>
+        <description xml:lang="x-default">When it comes to sweet scents, this long-beloved note is where it all begins.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Vanilla Fragrance</page-title>
+            <page-description xml:lang="x-default">Vanilla is anything but ordinary. From its use in perfumes to lotions, candles to air fresheners and everything in between, see why weÃ¢â‚¬â„¢re so into this sweet treat.</page-description>
+            <page-keywords xml:lang="x-default">Vanilla Fragrance</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container blogs-container"&gt;
+	&lt;div class="controlcontent_r"&gt;
+		&lt;div class="htmlbucket"&gt;
+			&lt;div class="bc-image"&gt;
+				&lt;img src="blogs/details/vanilla_gh.jpg?$staticlink$" width="100%"&gt;
+			&lt;/div&gt;
+			&lt;div class="body-care-content"&gt;
+				&lt;div class="bodycare-text-section"&gt;
+					&lt;div class="bc-description blog-description-16"&gt;
+						&lt;h1 class="h-fw--semibold"&gt;​Spoiler: Vanilla’s way more than a sweet treat.&lt;/h1&gt;
+						&lt;p&gt;We’re not sure how the word “vanilla” evolved to mean bland, basic or boring – because the truth is, vanilla itself isn’t even close to being blah. It’s the coziness on top of a woodsy note, the dash of sweetness in a spicy scent, the seductive hint in a floral base, and it’s in some of our most-known fragrances (shout out to &lt;a href="/s-fragrance/warm-vanilla-sugar"&gt;Warm Vanilla Sugar&lt;/a&gt;). What makes this sweet treat so great? Let’s take a look.&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span&gt;It’s long-loved.&lt;/span&gt;After vanilla was discovered in 15th century Mexico, it instantly became an absolute phenomenon. Vanilla was the ingredient to mix with chocolate – until the 17th century, when Queen Elizabeth I fell in love with vanilla-only treats. From there, it’s taken the world by (super-sweet) storm.&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span&gt;It’s the go-to sweet.&lt;/span&gt;Vanilla’s a dependable way to sweeten perfumes, body care goodies (like aromatherapy’s Lavender Vanilla), bubble bath mixes, &lt;a href="/home-fragrance/room-spray-and-mist"&gt;room sprays&lt;/a&gt;, vanilla-scented &lt;a href="/home-fragrance/all-candles"&gt;candles&lt;/a&gt;, and &lt;a href="/home-fragrance/all-wallflowers"&gt;air fresheners&lt;/a&gt;. Even beyond fragrance, this sugary ingredient pops up in drinks, chocolates, ice creams and your favorite treats from the holidays...all of which inspire some of your favorite scents, too. Truly a full-circle moment.&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span&gt;But it’s not just about sweetness.&lt;/span&gt;Sure, vanilla is sometimes all about the sugar, but with the right blend, it can become incredibly sophisticated, spicy or even musky and woodsy. And get this: it has over 250 aromatic components, which makes it super complex – and so ideal for blending.&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span&gt;It’s a total mix-master.&lt;/span&gt;Vanilla is fantastic by itself (we scream for vanilla ice cream), but it also pairs well with floral, spicy, woodsy and seaside fragrances – like the refined-yet-irresistible tones of a fruity perfume. How many things can be mixed with vanilla? The possibilities are actually endless.&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span&gt;It’s super romantic.&lt;/span&gt;Florals and vanilla (hint: &lt;a href="/s-fragrance/rose-vanilla"&gt;Rose Vanilla&lt;/a&gt; from our aromatherapy collection) create an instant date-night mood. The scent of roses wafting through the room, the comforting warmth of a vanilla bubble bath and a hint of a spicy candle. Love and romance never smelled so good.&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span&gt;It’s ultra-comforting.&lt;/span&gt;In &lt;a href="/bodycare/aromatherapy"&gt;aromatherapy&lt;/a&gt;, vanilla is known to reduce stress and increase feelings of warmth, relaxation and comfort. It’s also a super popular add-in for other aromatherapy scents, like rose, lavender or patchouli. (Psst. Need sleep? Try &lt;a href="/fragrance/lavender-vanilla"&gt;Lavender Vanilla.&lt;/a&gt;)&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span&gt;It isn’t easy to harvest.&lt;/span&gt;Why’s vanilla so expensive? The flowering vanilla orchid vines take up to three years to mature and once the vanilla beans are fully grown, they must be on the vine for at least nine months before harvesting. Plus, it takes about five to seven pounds of vanilla beans to produce one pound of vanilla – it’s a lot of work, but it’s a sweet reward.&lt;/p&gt;
+						&lt;p&gt;
+							&lt;span&gt;It’s going nowhere.&lt;/span&gt;Even though it’s is hard to produce, artificial vanilla flavoring and fragrance have made this sweetie much more accessible. It’s affordable, readily available and that means more sweetness, cakes and vanilla for all.&lt;/p&gt;
+						&lt;p&gt;Ready to travel to the comforting, sweet and complex world of vanilla? We’ll meet you: &lt;a href="/search?q=vanilla"&gt;here.&lt;/a&gt;
+						&lt;/p&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;p&gt;&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="r_bottom"&gt;
+		&lt;div class="l_bottom"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/xcat_vanilla_su3_0_tile.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="behind-the-scents"/>
+        </folder-links>
+    </content>
+
+    <content content-id="your-horoscope-scent">
+        <display-name xml:lang="x-default">What’s Your Horoscope Scent?</display-name>
+        <description xml:lang="x-default">Japanese Cherry Blossom? Perfect Peony? The answer’s in the stars!</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">WhatÃ¢â‚¬â„¢s Your Horoscope Scent?</page-title>
+            <page-description xml:lang="x-default">We know youÃ¢â‚¬â„¢ve been wondering which scent goes with your horoscopeÃ¢â‚¬â„¢s sign and weÃ¢â‚¬â„¢re happy to say the wait is over. Read more about our zodiac picks.</page-description>
+            <page-keywords xml:lang="x-default">WhatÃ¢â‚¬â„¢s Your Horoscope Scent?</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container blogs-container"&gt;
+	&lt;div class="controlcontent_r"&gt;
+		&lt;div class="htmlbucket"&gt;
+			&lt;div class="bc-image"&gt;
+				&lt;img src="blogs/details/zodiac_gh.jpg?$staticlink$" width="100%"&gt;
+			&lt;/div&gt;
+			&lt;div class="body-care-content"&gt;
+				&lt;div class="bodycare-text-section"&gt;
+					&lt;div class="bc-description blog-description-16"&gt;
+						&lt;h1 class="h-fw--semibold"&gt;​The stars say you’ll love your horoscope’s scent.&lt;/h1&gt;
+						&lt;p&gt;You’ve made your star chart. You’ve read your horoscopes. You’ve screamed, “that’s so me” along with every other astrology fan. But, did you know your zodiac’s horoscope sign can lead you to your signature fragrance? Discover an incredible new scent (and little more about yourself, too).&lt;/p&gt;
+						&lt;span class="desc_subhead h-fw--semibold"&gt;Aquarius: Jan. 20 – Feb. 18&lt;/span&gt;
+						&lt;p&gt;Imaginative. Original. Idealistic. As an Aquarius, you’re definitely unique, which is why &lt;a href="/all-products?Rfs=attrZZCU00388442-005VPYQCU00388442-005-134"&gt;One in a Million&lt;/a&gt; is the perfect fragrance partner for you. Not only does the name say it all, but its delicate and modern twist on floral notes will keep you feeling confident all day.&lt;/p&gt;
+						&lt;span class="desc_subhead h-fw--semibold"&gt;Pisces: Feb. 19 – Mar. 20&lt;/span&gt;
+						&lt;p&gt;Creative. Sensitive. Wise. Take note Pisces because &lt;a href="/fragrance/japanese-cherry-blossom"&gt;Japanese Cherry Blossom&lt;/a&gt; is the symbol of grace and tranquility you need in your life. This classic floral fragrance will transport you to a place of peace – which means you’ll have an easier time letting your intuition guide you. Watch as the world opens to you.&lt;/p&gt;
+						&lt;span class="desc_subhead h-fw--semibold"&gt;Aries: Mar. 21 – Apr. 19&lt;/span&gt;
+						&lt;p&gt;Ambitious. Independent. Competitive. An Aries, you need a fragrance that’s as courageous as you are…so meet &lt;a href="/all-products?Rfs=attrZZCU00388442-005VPYQCU00388442-005-14"&gt;Forever Red&lt;/a&gt;. This blend of fiery pomegranate, red peony and vanilla rum is the finishing touch on your look for a special night out. Make sure to keep this scent on hand, because it’ll always have your back – forever and always.&lt;/p&gt;
+						&lt;span class="desc_subhead h-fw--semibold"&gt;Taurus: Apr. 20 – May 20&lt;/span&gt;
+						&lt;p&gt;Dependable. Strong. Trustworthy. Sound like you, Taurus? Then &lt;a href="/fragrance/a-thousand-wishes"&gt;A Thousand Wishes&lt;/a&gt; is the best fragrance for you. Your sights are always set towards your future and goals, which is why a scent that reminds you of your dreams makes a great partner. Enjoy this sparkling blend anytime you need a boost.&lt;/p&gt;
+						&lt;span class="desc_subhead h-fw--semibold"&gt;Gemini: May 21 – June 20&lt;/span&gt;
+						&lt;p&gt;Curious. Versatile. Expressive. As a Gemini, you’re always looking for your unique edge, which is why you need &lt;a href="/"&gt;Twilight Woods&lt;/a&gt; in your collection. This mysterious, super-enchanting fragrance lives in between day and night, making it perfect for anytime and whatever frame of mind you’re in.&lt;/p&gt;
+						&lt;span class="desc_subhead h-fw--semibold"&gt;Cancer: June 21 – July 22&lt;/span&gt;
+						&lt;p&gt;Intuitive. Emotional. Passionate. Enter a scent as sweet as you, Cancer – &lt;a href="/all-products?Rfs=attrZZCU00388442-005VPYQCU00388442-005-130"&gt;Pink Chiffon&lt;/a&gt;. It’s a reflection on your kind and wonderful personality. Pick up a bottle of Pink Chiffon every day (or just on the sweetest of occasions).&lt;/p&gt;
+						&lt;span class="desc_subhead h-fw--semibold"&gt;Leo: July 23 – Aug. 22&lt;/span&gt;
+						&lt;p&gt;Proud. Bold Self-assured. As a Leo, you’re always ready to try out new experiences, so &lt;a href="/fragrance/into-the-night"&gt;Into the Night&lt;/a&gt; is amazing for an adventurous soul. It’s timeless, feminine, alluring and always kicks up the confidence. Bonus: it’s a great power fragrance to have in your collection.&lt;/p&gt;
+						&lt;span class="desc_subhead h-fw--semibold"&gt;Virgo: Aug. 23 – Sept. 22&lt;/span&gt;
+						&lt;p&gt;Practical. Analytical. Graceful. Virgos and &lt;a href="/s-fragrance/rose"&gt;Rose&lt;/a&gt; – name a better combination. You, Virgo, spend a lot of time getting caught up in the rush of life, so a modern floral fragrance provides just the right amount of nature into your day. Don’t forget to stop and smell the roses.&lt;/p&gt;
+						&lt;span class="desc_subhead h-fw--semibold"&gt;Libra: Sept. 23 – Oct. 22&lt;/span&gt;
+						&lt;p&gt;Diplomatic. Artistic. Social. Fun and lightness are on the horizon for you, Libra, especially when you have &lt;a href="/"&gt;Gingham&lt;/a&gt; on hand. This happy, bright fragrance will have you smiling 24/7.&lt;/p&gt;
+						&lt;span class="desc_subhead h-fw--semibold"&gt;Scorpio: Oct. 23 – Nov. 21&lt;/span&gt;
+						&lt;p&gt;Seductive. Independent. Brave. Calling all Scorpios. Focus your passion with the invigorating notes of &lt;a href="/s-fragrance/dark-kiss"&gt;Dark Kiss&lt;/a&gt;. Let this exotic mix of berries, flowers and vanilla help your creative energy flow wherever you whenever the caffeine isn’t cutting it.&lt;/p&gt;
+						&lt;span class="desc_subhead h-fw--semibold"&gt;Sagittarius: Nov. 22 – Dec. 21&lt;/span&gt;
+						&lt;p&gt;Adventurous. Creative. Optimistic. And when you need a scent to keep you focused, Sagittarius, reach for &lt;a href="/s-fragrance/in-the-stars"&gt;In the Stars&lt;/a&gt;. Just like its name implies, this scent is all about shining bright and spreading positive vibes, so enjoy it anytime you need it.&lt;/p&gt;
+						&lt;span class="desc_subhead h-fw--semibold"&gt;Capricorn: Dec. 22 – Jan. 19&lt;/span&gt;
+						&lt;p&gt;Detail-oriented. Intelligent. Tenacious. Like most Capricorns, you’re probably hardworking by nature, so &lt;a href="/s-fragrance/warm-vanilla-sugar"&gt;Warm Vanilla Sugar&lt;/a&gt; is a great scent to keep you cozy and cheerful – especially when you need a breather. Keep this sugary fragrance nearby and sweet things are sure to follow.&lt;/p&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+			&lt;/div&gt;
+			&lt;p&gt;&lt;/p&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div class="r_bottom"&gt;
+		&lt;div class="l_bottom"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/xcat_horoscope_su3_0_tile.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="behind-the-scents"/>
+        </folder-links>
+    </content>
+
+    <content content-id="lavender">
+        <display-name xml:lang="x-default">Fragrance Obsession: Lavender</display-name>
+        <description xml:lang="x-default">Floral fans: here’s why you need this gentle scent in your rotation, stat.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Lavender Essential Oils and Fragrance</page-title>
+            <page-description xml:lang="x-default">ThereÃ¢â‚¬â„¢s a reason lavender is so popular Ã¢â‚¬â€œ from the benefits to using lavender essential oils to the amazing fragrance Ã¢â‚¬â€œ learn about one of the most versatile flowers.</page-description>
+            <page-keywords xml:lang="x-default">Lavender Essential Oils and Fragrance</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container blogs-container"&gt;
+&lt;div class="controlcontent_r"&gt;
+&lt;div class="htmlbucket"&gt;
+&lt;div class="bc-image"&gt;&lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/C1_LAVENDER-AT_mgh.jpg?$staticlink$"&gt; &lt;img src="blogs/details/C1_LAVENDER-AT_gh.jpg?$staticlink$" width="100%"&gt; &lt;/picture&gt;&lt;/div&gt;
+
+&lt;div class="body-care-content"&gt;
+
+&lt;div class="bodycare-text-section"&gt;
+&lt;div class="bc-description blog-description-16"&gt;
+&lt;h2 class="h-fw--semibold"&gt;​WE LOVE WALKING INTO FIELDS OF LAVENDER&lt;/h2&gt;
+&lt;p class="h-font-size--16 h-clr--gray"&gt;It’s no secret we’re totally into lavender. Beautiful, petite flowers and relaxing, rejuvenating fragrances are always welcome in our books (and products). You’re probably familiar with lavender (especially since it’s such an ingredient trend right now), but why do we love it so much? Here’s a little peek.&lt;/p&gt;
+&lt;p class="h-clr--gray h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It has an elegant history. &lt;/span&gt;Originally from the Mediterranean, Middle East and India, these beautiful stalks quickly became the perfect ingredient for teas, body care, home fragrance and more. Lavender was even considered a holy plant by the ancient Greeks, which explains why it’s such a holy grail these days.&lt;/p&gt;
+&lt;p class="h-clr--gray h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It’s meaningful. &lt;/span&gt;The purple petals of the lavender flower have long been associated with royalty and majesty. Add in more symbolism, like healing, femininity, purity and calmness, and no wonder people have loved lavender for ages.&lt;/p&gt;
+&lt;p class="h-clr--gray h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It’s timeless in all things. &lt;/span&gt;Always popular, always fragrant and always on-trend. Lavender was originally found in the homes of ancient civilizations, and due to its amazing smell and wondrous properties, it’s made a name for itself through the ages. And as we’ve continued to explore fragrance over the years, we keep finding new ways to highlight the lavender scent.&lt;/p&gt;
+&lt;p class="h-clr--gray h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It’s beautiful. &lt;/span&gt;The scent is gorgeous, of course, but the flower itself is seriously lovely. There’s a reason lavender gets tucked into bridal bouquets or shown off in gorgeous glass vases. Artists have even incorporated the flower into their works, whether it’s painted, printed or pressed.&lt;/p&gt;
+&lt;p class=" h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It’s completely seasonless. &lt;/span&gt;Sure, floral fragrances are usually at the forefront in spring or early summer (before we get in the mode for something fruity and tropical, of course), but lavender is the exception. Give us a spritz for New Year’s Eve (or any other party you’re attending). Light a lavender &lt;a class="h-clr--black-3" href="/home-fragrance/3-wick-candles"&gt;candle&lt;/a&gt; on a cozy fall night. She’s definitely a year-round girl.&lt;/p&gt;
+&lt;p class="h-clr--gray h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It plays well with others. &lt;/span&gt;Lavender is amazing on its own, but we’ve created a few blends that make it even better. Lavender and vanilla: the ultimate sweet treat. Lavender and woodsy scents: an instant escape to a relaxing retreat. Lavender and linen: so fresh and clean. The fragrance combinations are actually endless (and we love that).&lt;/p&gt;
+&lt;p class="h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It’s extra relaxing. &lt;/span&gt;Lavender essential oils are soothing, calming and utterly tranquil. Our &lt;a class="h-clr--black-3" href="/bodycare/aromatherapy"&gt;aromatherapy collection&lt;/a&gt; features so many lotions, scrubs and body washes with lavender in the mix to help you sleep tight every night. And speaking of options…&lt;/p&gt;
+&lt;p class="h-clr--gray h-font-size--16"&gt;&lt;span class="h-clr--black-3 h-fw--semibold"&gt;It comes in so many forms. &lt;/span&gt;Think lavender-based body scrubs, body lotions, creams, bubble baths…you get the idea. We even created Bath &amp;amp; Body Works pillow mists to inspire a few lavender dreams. Plus, you’ll find lavender essential oils in candles and concentrated room sprays. We just love it that much.&lt;/p&gt;
+&lt;p class="h-clr--gray h-font-size--16"&gt;Permission to explore lavender further – granted. Take a stroll through our lavender collection.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="r_bottom"&gt;
+&lt;div class="l_bottom"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/ebc_lav-ess-oil_su3_0_tile.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="behind-the-scents"/>
+        </folder-links>
+    </content>
+
+    <content content-id="citrus-scent">
+        <display-name xml:lang="x-default">Trend Alert: Summer Citrus</display-name>
+        <description xml:lang="x-default">Four reasons this bright, sunny fragrance family is the season’s hottest.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">New Trend: Summer Citrus Scents &amp; Fragrances</page-title>
+            <page-description xml:lang="x-default">What's the best fragrance family for the summer. Citrus! Check out our top 4 reasons you'll want to grab a couple citrus scents this season.</page-description>
+            <page-keywords xml:lang="x-default">New Trend: Summer Citrus Scents &amp; Fragrances Ã¢â‚¬â€œ Bath &amp; Body Works</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container blogs-container"&gt;
+&lt;div class="controlcontent_r"&gt;
+&lt;div class="htmlbucket"&gt;
+	&lt;div class="bc-image"&gt;&lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/citrus_mgh.jpg?$staticlink$"&gt; &lt;img src="blogs/details/citrus_gh.jpg?$staticlink$" width="100%"&gt; &lt;/picture&gt;&lt;/div&gt;
+
+&lt;div class="body-care-content"&gt;
+
+&lt;div class="bodycare-text-section"&gt;
+&lt;div class="bc-description blog-description-16"&gt;
+&lt;h1 class="h-fw--semibold"&gt;​HELLO, CITRUS SCENTS. HELLO, SUMMER GOODNESS.&lt;/h1&gt;
+&lt;p class="h-font-size--16 mb-0 h-fw--normal"&gt;Zesty. Uplifting. Refreshing. Like the world’s coolest iced tea on the hottest day, there’s nothing better than a citrus scent for summer. They perfectly match the season’s beachy vibes, warm breezes, nights out on the patio and every get together you’re going to attend (or host). Full sail ahead, here are four reasons why you need some citrus notes this season.&lt;/p&gt;
+&lt;ol class="description-list"&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;They’re super refreshing.&lt;/span&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list mb-0"&gt;Like the first lick of a popsicle, citrus scents instantly cool things around them to the perfect level of summer chill. The acidic components of fruits like lemons and oranges actually make your mouth water – and while you’re obviously not tasting the scent, that cool, invigorating spirit comes through and helps you cool down. So, whether you’re spritzing a tart and citrusy fine fragrance mist or grabbing a glass of lemonade, you’ll be refreshed in no time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;They scream sunshine.&lt;/span&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list mb-0"&gt;If you’re like us, you probably think of this tart fragrance family as bright, cheerful and an absolute treat. But it also captures some of the most summery moments around: the joyfulness of warm sun rays, the brightness of lemon-colored decor, the tartness of lime-based cocktails and the zest of orange scents. It even brightens things up in combo with other notes, like flowers. A great example of a fragrance that blends well with it is &lt;a class="h-clr--black-3" href="/all-products?Rfs=attrZZCU00388442-005VPYQCU00388442-005-118"&gt;Orange Ginger&lt;/a&gt; – it’s a fresh scent with just enough citrus to bring in the sunshine, along with the beauty of its other notes. They transport you someplace bright. The best example? A Kitchen Lemon hand soap. With just 20 seconds of handwashing, this scent transports you to a mini-vacation – think something like a relaxing day poolside (or lakeside. Or any other destination). Close your eyes, breathe in deeply and enjoy the refreshing air.&lt;/p&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list mb-0"&gt;P.S. For constant, always-on, lemony-goodness, shop the rest of the &lt;a class="h-clr--black-3" href="s-fragrance/lavender-water"&gt;Kitchen Lemon&lt;/a&gt; collection. Your home is only a few steps away from a citrus summer paradise.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;They go great with other summery scents.&lt;/span&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list mb-0"&gt;Can we start by saying that when you pair any fruity fragrance with a citrus note you get magic? Summer is the season of fresh strawberries, tart raspberries and juicy watermelon – so nothing says warm weather more than a crisp, fruity, citrus number.&lt;/p&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list mb-0"&gt;And the options don’t stop there. Citrus treats paired with something sweet make a mouth-watering combination...think something like a tasty lemon pound cake. We also love mixing fragrances with citrus and tropical fruits, like pineapples and coconuts...they’re great for when you’re in a Caribbean mood. Another favorite: adding some lime or orange in a salty, seawater fragrance. Hello, boat vibes. We’ve even blended fresh scents, like linen or cotton, with a cool citrus note to get the ultimate refreshing goodie.&lt;/p&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list mb-0"&gt;Ready for sunshine and citrus (in both body care and home fragrance)? Shop it all &lt;a class="h-clr--black-3" href="/all-products?Rfs=attrZZCU00388442-006VPYQCU00388442-006-8"&gt;right here.&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="r_bottom"&gt;
+&lt;div class="l_bottom"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/xcat_citrus_su3_0_tile.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="behind-the-scents"/>
+        </folder-links>
+    </content>
+
+    <content content-id="eucalyptus">
+        <display-name xml:lang="x-default">Fragrance Obsession: Eucalyptus</display-name>
+        <description xml:lang="x-default">See why this minty, soothing icon is way more than just a koala’s favorite snack.</description>
+        <online-flag>true</online-flag>
+        <searchable-flag>true</searchable-flag>
+        <template>blogs/blogDetails</template>
+        <page-attributes>
+            <page-title xml:lang="x-default">Eucalyptus Fragrance</page-title>
+            <page-description xml:lang="x-default">Minty, fresh and super relaxing. Eucalyptus is one of our most favorite aromatherapy fragrances ever. Find out why (and how itÃ¢â‚¬â„¢s used) now!</page-description>
+            <page-keywords xml:lang="x-default">Eucalyptus Fragrance</page-keywords>
+        </page-attributes>
+        <custom-attributes>
+            <custom-attribute attribute-id="body" xml:lang="x-default">&lt;div class="container blogs-container"&gt;
+&lt;div class="controlcontent_r"&gt;
+&lt;div class="htmlbucket"&gt;
+&lt;div class="bc-image"&gt;&lt;picture&gt; &lt;source media="(max-width: 767px)" srcset="blogs/details/eucalyptus_mgh.jpg?$staticlink$"&gt; &lt;img src="blogs/details/eucalyptus_gh.jpg?$staticlink$" width="100%"&gt; &lt;/picture&gt;&lt;/div&gt;
+
+&lt;div class="body-care-content"&gt;
+
+&lt;div class="bodycare-text-section"&gt;
+&lt;div class="bc-description blog-description-16"&gt;
+&lt;h1 class="h-fw--semibold"&gt;​EUCALYPTUS: LEAFY, MINTY AND OH-SO FRAGRANT.&lt;/h1&gt;
+&lt;p class="h-font-size--16 mb-0 h-fw--normal"&gt;Koalas love it. Aromatherapy fans love it. We love it. Eucalyptus: it’s calming and compelling, but there’s so much more to it than its chill-seeking, mind-clearing properties. This cool, collected note is an instant refresher, with just a hint of sweetness. And when paired with another mint? You get our literally-award-winning, super-popular scent &lt;a class="h-clr--black-3" href="/s-fragrance/eucalyptus-spearmint"&gt;Eucalyptus Spearmint&lt;/a&gt;. Ahead, you’ll find our love letter to eucalyptus…and basically all the reasons we come back to it again and again.&lt;/p&gt;
+&lt;ol class="description-list"&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;It’s from the land down under.&lt;/span&gt;
+&lt;p class="h-font-size--16 h-fw--normal obsession-list mb-0"&gt;Typically grown and harvested in Australia, eucalyptus oil eventually made its way across the globe and onto a pharmacist’s shelves. It contains a specific element called eucalyptol – an ingredient that’s believed to have soothing properties. But eucalyptus has come a long way since its strictly clinical origins: now it’s an aromatherapy superstar…and utterly unique fragrance note.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;It’s a little minty.&lt;/span&gt;
+&lt;p class="h-font-size--16 h-fw--normal  obsession-list mb-0"&gt;And it’s really cool, super fresh, plus it can have a sweet or lemony twist (or both!). We love a great minty scent for instantly waking up your senses, all while giving you that super-refreshed feeling. Think the invigorating cool of a minty gum paired with fact you can take this note with you anywhere and you have it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;It goes well with greenery.&lt;/span&gt;
+&lt;p class="h-font-size--16 h-fw--normal  obsession-list mb-0"&gt;The combo of cool eucalyptus and a pure minty scent is one of our favorites, but it totally pairs well with other leafy, flowery and citrusy fragrances. And of course, in &lt;a class="h-clr--black-3" href="/bodycare/aromatherapy"&gt;aromatherapy&lt;/a&gt;, we love it with relaxing, refreshing tones that help ground you.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;It’s really refreshing.&lt;/span&gt;
+&lt;p class="h-font-size--16 h-fw--normal  obsession-list mb-0"&gt;Cool and collected, this fragrance has your back. The scent leaves you in a super-relaxing, just-finished-yoga sort of mood. Like other minty babes, it’s hard not to feel instantly chill when you’re around this fragrance. Especially because…&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;It clears your mind.&lt;/span&gt;
+&lt;p class="h-font-size--16 h-fw--normal  obsession-list mb-0"&gt;We love our Eucalyptus Spearmint line after the end of a long day. In fact, it’s basically stress relief in bottle. We’re always spritzing a little pillow mist right before bed (pro-tip: breathe deeply and relax) and we’ll always recommend our award-winning &lt;a class="h-clr--black-3" href="/body-care/body-scrub"&gt;body scrub&lt;/a&gt; to kick off bath-time right. Plus, when you finish with the matching body lotion, you’ll take those chill vibes with you everywhere.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li class="h-fw--semibold h-font-size--16 "&gt;&lt;span class="h-fw--semibold h-clr--black-3"&gt;And we can’t get enough of it.&lt;/span&gt;
+&lt;p class="h-font-size--16 h-fw--normal  obsession-list mb-0"&gt;Even though eucalyptus has been a staple since the 1800s, we love how this classic note continues to feel fresh and new. Whether it’s taking center stage in the world of aromatherapy or playing a cool supporting role to other mints and greens, we don’t see it going anywhere anytime soon – and that’s a very, very good thing.&lt;/p&gt;
+&lt;p class="h-font-size--16 h-fw--normal  obsession-list mb-0"&gt;Ready to chill? Need those positive vibes? Absolutely can’t wait any longer? Shop all eucalyptus &lt;a class="h-clr--black-3"href="/s-fragrance/eucalyptus-spearmint"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="r_bottom"&gt;
+&lt;div class="l_bottom"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</custom-attribute>
+            <custom-attribute attribute-id="image" xml:lang="x-default">blogs/thumbnail/xcat_eucalyptus_su3_0_tile.webp</custom-attribute>
+        </custom-attributes>
+        <folder-links>
+            <classification-link folder-id="behind-the-scents"/>
+        </folder-links>
+    </content>
+
+
 </library>

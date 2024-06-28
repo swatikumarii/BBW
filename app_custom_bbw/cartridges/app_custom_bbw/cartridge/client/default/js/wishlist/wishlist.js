@@ -129,6 +129,7 @@ module.exports = $.extend({}, wishlist, {
     addToWishlist: function () {
         $(document).on('click', '.product-quickview .add-to-wish-list, .product-line-item .add-to-wish-list', function (e) {
             e.preventDefault();
+            var self= $(this);
             var url = $(this).data('href') || $(this).attr('href');
             var pid =
                 $(this).closest('.product-detail').length > 0
@@ -171,11 +172,11 @@ module.exports = $.extend({}, wishlist, {
                         }, 3000);
                     }
                     if (data.success) {
-                        $('.remove-from-wishlist').removeClass('d-none');
-                        $('.add-to-wish-list').addClass('d-none');
+                        self.siblings('.remove-from-wishlist').removeClass('d-none');
+                        self.addClass('d-none');
                     } else {
-                        $('.remove-from-wishlist').addClass('d-none');
-                        $('.add-to-wish-list').removeClass('d-none');
+                        self.siblings('.remove-from-wishlist').addClass('d-none');
+                        self.removeClass('d-none');
                     }
                 },
             });

@@ -32,7 +32,8 @@ function appendLevelOneCategory(req, res, next) {
     if (viewData.productSearch && viewData.productSearch.refinements.length > 0) {
         var countvalue = 0;
         var ingredient = 'ingredients';
-        var filteredRefinements = viewData.productSearch.refinements.filter((item) => item.id !== ingredient);
+        var giftcard = 'isEgiftCard';
+        var filteredRefinements = viewData.productSearch.refinements.filter((item) => item.id !== ingredient && item.id !== giftcard);
         Object.defineProperty(viewData.productSearch, 'refinements', { value: filteredRefinements });
         for (var i = 0; i < viewData.productSearch.refinements.length; i++) {
             if (viewData.productSearch.refinements[i].values && viewData.productSearch.refinements[i].values.length < 2) {
@@ -44,6 +45,7 @@ function appendLevelOneCategory(req, res, next) {
         }
     }
     viewData.hideFilterBar = hideFilterBar;
+    res.setViewData(viewData);
     next();
 }
 

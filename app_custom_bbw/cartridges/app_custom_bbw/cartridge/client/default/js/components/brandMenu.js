@@ -53,6 +53,150 @@ if (layout.isMobile()) {
     });
 }
 
+if (layout.isTablet() && !layout.isDesktop() && !layout.isMobile()) {
+    $('.level-1-li .level-1-link, .level-2-li .level-2-link')
+        .filter(function () {
+            // Exclude elements that are children of .level-2-li and have class .explore-li
+            return !$(this).closest('.level-2-li').hasClass('explore-li');
+        })
+        .on('click', function (e) {
+            e.preventDefault();
+        });
+
+    // Show class on hover
+    var $tabletlevel2li = $('.level-2-li');
+    var $tabletlevel1li = $('.level-1-link');
+
+    $tabletlevel1li.on('mouseenter', function () {
+        clearTimeout(timeoutId);
+        var lvl1liElement = this;
+        menuTimeOut2 = setTimeout(function () {
+            var $level1Parent = $(lvl1liElement).parent();
+            $('.level-1-li').not($level1Parent).addClass('muted');
+            var maxWidth;
+            $(lvl1liElement)
+                .find('.level-2-li')
+                .each(function () {
+                    if ($(lvl1liElement).width() > maxWidth) {
+                        maxWidth = $(lvl1liElement).width();
+                    }
+                });
+            $(lvl1liElement).find('.level-2-li').width(maxWidth);
+
+            var $ul = $level1Parent
+                .find('.level-2-li')
+                .first()
+                .find('.level-3-ul');
+            var totalLiHeight = 0;
+
+            // Calculate the total height of all li elements in the current ul
+            $ul.find('li').each(function () {
+                totalLiHeight += $(this).height();
+            });
+
+            var containerHeight = $(lvl1liElement)
+                .parent()
+                .find('.level-2-ul')
+                .height();
+            // Compare total height of li elements with main container height
+            if (totalLiHeight > containerHeight) {
+                $ul.addClass('two-column');
+            }
+
+            $('body').find('.menu-wrap-level-3').removeClass('show');
+            $tabletlevel2li.removeClass('show');
+            $(lvl1liElement)
+                .parent()
+                .find('.level-2-li')
+                .first()
+                .addClass('show');
+            $(lvl1liElement)
+                .parent()
+                .find('.level-2-li')
+                .first()
+                .find('.menu-wrap-level-3')
+                .addClass('show');
+            var $level2liWidth = $(lvl1liElement)
+                .parent()
+                .find('.level-2-li')
+                .first()
+                .width();
+            var $menuWrapLevel3Width = $(lvl1liElement)
+                .parent()
+                .find('.level-3-ul')
+                .width();
+            $(lvl1liElement)
+                .parent()
+                .find('.menu-right')
+                .css('left', $level2liWidth + $menuWrapLevel3Width);
+            window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
+        }, 350);
+    });
+
+    $tabletlevel2li.hover(function () {
+        // e.preventDefault();
+        $('body').find('.menu-wrap-level-3').removeClass('show');
+        $tabletlevel2li.removeClass('show');
+        $(this).addClass('show');
+        $(this).find('.menu-wrap-level-3').addClass('show');
+        var this1 = $(this);
+        var $level2liWidth = $(this).width();
+        var $menuWrapLevel3Width = $(this).find('.level-3-ul').width();
+        $(this)
+            .parent()
+            .find('.menu-right')
+            .css('left', $level2liWidth + $menuWrapLevel3Width);
+        window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
+
+        var $mainContainer = $(this).parent();
+
+        // Get the height of the main container div
+        var containerHeight = $mainContainer.height();
+
+        // Iterate over each ul within the container
+        $mainContainer.find('.level-3-ul').each(function () {
+            var $ul = $(this);
+            var totalLiHeight = 0;
+
+            // Calculate the total height of all li elements in the current ul
+            $ul.find('li').each(function () {
+                totalLiHeight += $(this).height();
+            });
+
+            // Compare total height of li elements with main container height
+            if (totalLiHeight > containerHeight) {
+                $ul.addClass('two-column');
+
+                $level2liWidth = this1.width();
+                $menuWrapLevel3Width = this1.find('.level-3-ul').width();
+                this1
+                    .parent()
+                    .find('.menu-right')
+                    .css('left', $level2liWidth + $menuWrapLevel3Width);
+                window.menuRightWidth = $level2liWidth + $menuWrapLevel3Width;
+            }
+        });
+    });
+
+    $('.explore-li').hover(
+        function () {
+            var $level2liWidth = $(this).width();
+            $('body').find('.menu-wrap-level-3').removeClass('show');
+            $tabletlevel2li.removeClass('show');
+            $(this)
+                .closest('div.level-2-ul-wrap')
+                .find('.menu-right')
+                .css('left', $level2liWidth);
+        },
+        function () {
+            $(this)
+                .closest('div.level-2-ul-wrap')
+                .find('.menu-right')
+                .css('left', window.menuRightWidth);
+        }
+    );
+}
+
 /* Close slide panel on clicking of menu overlay */
 
 $('.mobile-menu-overlay').on('click', function () {
@@ -78,7 +222,7 @@ $('body').on('click', function () {
 });
 
 /** BBW Brand Header Start */
-if (layout.isDesktop() || layout.isTablet()) {
+if (layout.isDesktop()) {
     // Show class on hover
     var $level2li = $('.level-2-li');
     var $level1li = $('.level-1-link');
@@ -86,7 +230,7 @@ if (layout.isDesktop() || layout.isTablet()) {
     $level1li.on('mouseenter', function () {
         clearTimeout(timeoutId);
         var lvl1liElement = this;
-        menuTimeOut2 =setTimeout(function () {
+        menuTimeOut2 = setTimeout(function () {
             var $level1Parent = $(lvl1liElement).parent();
             $('.level-1-li').not($level1Parent).addClass('muted');
             var maxWidth;
@@ -98,24 +242,34 @@ if (layout.isDesktop() || layout.isTablet()) {
                     }
                 });
             $(lvl1liElement).find('.level-2-li').width(maxWidth);
-    
-            var $ul = $level1Parent.find('.level-2-li').first().find('.level-3-ul');
+
+            var $ul = $level1Parent
+                .find('.level-2-li')
+                .first()
+                .find('.level-3-ul');
             var totalLiHeight = 0;
-    
+
             // Calculate the total height of all li elements in the current ul
             $ul.find('li').each(function () {
                 totalLiHeight += $(this).height();
             });
-    
-            var containerHeight = $(lvl1liElement).parent().find('.level-2-ul').height();
+
+            var containerHeight = $(lvl1liElement)
+                .parent()
+                .find('.level-2-ul')
+                .height();
             // Compare total height of li elements with main container height
             if (totalLiHeight > containerHeight) {
                 $ul.addClass('two-column');
             }
-    
+
             $('body').find('.menu-wrap-level-3').removeClass('show');
             $level2li.removeClass('show');
-            $(lvl1liElement).parent().find('.level-2-li').first().addClass('show');
+            $(lvl1liElement)
+                .parent()
+                .find('.level-2-li')
+                .first()
+                .addClass('show');
             $(lvl1liElement)
                 .parent()
                 .find('.level-2-li')
@@ -127,7 +281,10 @@ if (layout.isDesktop() || layout.isTablet()) {
                 .find('.level-2-li')
                 .first()
                 .width();
-            var $menuWrapLevel3Width = $(lvl1liElement).parent().find('.level-3-ul').width();
+            var $menuWrapLevel3Width = $(lvl1liElement)
+                .parent()
+                .find('.level-3-ul')
+                .width();
             $(lvl1liElement)
                 .parent()
                 .find('.menu-right')
@@ -380,7 +537,7 @@ module.exports = function () {
             if (isDesktop(this)) {
                 clearTimeout(timeoutId);
                 var eventElement = this;
-                menuTimeOut = setTimeout(function() {
+                menuTimeOut = setTimeout(function () {
                     $('.navbar-nav > li').each(function () {
                         if (!$.contains(this, eventElement)) {
                             if ($(this).hasClass('show')) {
@@ -414,7 +571,7 @@ module.exports = function () {
                     $('.menu-wrap-level-3').removeClass('show');
                     $('.level-1-li.muted').removeClass('muted');
                     $('.navbar-nav > li.show').each(function () {
-                        if($(this).hasClass('show')){
+                        if ($(this).hasClass('show')) {
                             $(this).removeClass('show');
                             $(this)
                                 .children('.dropdown-menu')
