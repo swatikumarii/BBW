@@ -112,7 +112,7 @@ function getProductMaxOrderQtyValue(apiProduct) {
         });
     }
 
-    return maxOrderQty;
+    return maxOrderQty < 0 ? 0 : maxOrderQty;
 }
 
 module.exports = {

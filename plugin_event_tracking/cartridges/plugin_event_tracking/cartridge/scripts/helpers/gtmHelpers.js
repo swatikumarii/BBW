@@ -482,6 +482,12 @@ function addPayment(res) {
     var currentBasket = dw.order.BasketMgr.getCurrentBasket();
 
     if (currentBasket !== null) {
+        var paymentMethod = currentBasket.paymentInstrument.paymentMethod;
+        if (paymentMethod === 'AdyenComponent') {
+            paymentMethod =
+                currentBasket.paymentInstrument.custom &&
+                currentBasket.paymentInstrument.custom.adyen_payment__Adyen_Payment_Method;
+        }
         var obj = {
             event: gtmEvents.ADD_PAYMENT_INFO,
             ecommerce: {
@@ -489,7 +495,7 @@ function addPayment(res) {
                 value: currentBasket
                     .getAdjustedMerchandizeTotalNetPrice()
                     .value.toFixed(2),
-                payment_type: currentBasket.paymentInstrument.paymentMethod,
+                payment_type: paymentMethod,
                 add: {
                     products: []
                 }
@@ -528,6 +534,7 @@ function addPayment(res) {
  */
 function getConfirmationData(res) {
     var order = null;
+    var obj = {};
     try {
         order = dw.order.OrderMgr.getOrder(res.order.orderNumber);
     } catch (e) {
@@ -535,7 +542,7 @@ function getConfirmationData(res) {
     }
 
     try {
-        var obj = {
+        obj = {
             event: gtmEvents.PURCHASE,
             ecommerce: {
                 transaction_id: order.orderNo,
@@ -550,7 +557,7 @@ function getConfirmationData(res) {
         };
         if ('order' in res) {
             for (var i = 0; i < res.order.items.items.length; i++) {
-                var unitBaseDiscountedPrice = (res.order.items.items[i].priceTotal.priceValue / res.order.items.items[i].quantity).toFixed(2)
+                var unitBaseDiscountedPrice = (res.order.items.items[i].priceTotal.priceValue / res.order.items.items[i].quantity).toFixed(2);
                 obj.ecommerce.items.push({
                     item_name: res.order.items.items[i].productName,
                     item_id: res.order.items.items[i].id,
@@ -573,6 +580,7 @@ function getConfirmationData(res) {
         }
     } catch (e) {
         Logger.error('GTMHelpers - Error in creating oject: '.concat(e));
+        return {};
     }
     return obj;
 }
