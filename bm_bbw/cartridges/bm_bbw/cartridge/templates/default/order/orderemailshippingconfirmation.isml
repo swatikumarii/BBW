@@ -11,7 +11,7 @@
 <isset name="SHOP_URL" value="${URLUtils.http(new dw.web.URLAction('Home-Show', pdict.StorefrontName))}" scope="PAGE"/>
 <isset name="TRACK_URL" value="${URLUtils.https(new dw.web.URLAction('Order-Track', pdict.StorefrontName))}" scope="PAGE"/>
 
-<subject>${Resource.msg('email.subject.order.ready.to.ship', 'order', null)}</subject>
+<subject>${Resource.msg('email.subject.order.completed', 'order', null)}</subject>
 
 <html>
 <head>
