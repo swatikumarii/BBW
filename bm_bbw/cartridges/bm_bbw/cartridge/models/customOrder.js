@@ -103,12 +103,55 @@ function getCanceledData(orderNo) {
   return {};
 }
 
+function getShippedData(orderNo) {
+  var OrderMgr = require("dw/order/OrderMgr");
+  var ContentMgr = require("dw/content/ContentMgr");
+  var URLUtils = require("dw/web/URLUtils");
+  var encryptionHelper = require("*/cartridge/scripts/helpers/encryptionHelpers");
+  // var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
+  var orderModel = require("*/cartridge/models/order");
+  var TaxMgr = require("dw/order/TaxMgr");
+
+  var order = OrderMgr.getOrder(orderNo);
+  var taxClassId = TaxMgr.getDefaultTaxClassID();
+  var taxJurisdictionId = TaxMgr.getDefaultTaxJurisdictionID();
+  var getTaxRate = TaxMgr.getTaxRate(taxClassId, taxJurisdictionId);
+  var taxRate = getTaxRate * 100;
+
+  if (order) {
+    var config = {
+      numberOfLineItems: "*",
+    };
+
+    var orderModelData = orderModel.OrderModel(order, {
+      config: config,
+    });
+    var shippedEmailMarkup = "";
+    var shippedEmailFooterMarkup = "";
+    var shippedemailContent = ContentMgr.getContent(
+      "email-good-to-konw-shipped-block"
+    );
+    if (!empty(shippedemailContent) && shippedemailContent.online) {
+      shippedEmailMarkup = shippedemailContent.custom.body.markup;
+    }
+
+    return {
+      order: orderModelData,
+      taxRate: taxRate,
+      markup: shippedEmailMarkup
+    };
+  }
+  return {};
+}
+
 
 getInvoice.public = true;
 getCanceledData.public = true;
+getShippedData.public = true;
 
 exports.getCanceledData = getCanceledData;
 exports.getInvoice = getInvoice;
+exports.getShippedData = getShippedData;
 
 // module.exports = getInvoice;
 
