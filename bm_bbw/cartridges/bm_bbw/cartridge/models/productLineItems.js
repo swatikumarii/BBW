@@ -7,6 +7,7 @@ var ProductMgr = require('dw/catalog/ProductMgr');
 
 var ImageModel = require("*/cartridge/models/product/productImages");
 var URLUtils = require("dw/web/URLUtils");
+// var productHelpers = require("bm_bbw/cartridge/scripts/helpers/productHelpers");
 
 /**
  * If a product is master and only have one variant for a given attribute - auto select it
@@ -253,10 +254,10 @@ function createProductLineItemsObject(allLineItems, view) {
 
         var greetingCardMessage = null;
         if (
-        "greetingCardMessage" in item.custom &&
-        item.custom.greetingCardMessage
+            "greetingCardMessage" in item.custom &&
+            item.custom.greetingCardMessage
         ) {
-        greetingCardMessage = item.custom.greetingCardMessage;
+            greetingCardMessage = item.custom.greetingCardMessage;
         }
         var options = getConfig(apiProduct, params);
         var images = getImages(apiProduct, options, params);
