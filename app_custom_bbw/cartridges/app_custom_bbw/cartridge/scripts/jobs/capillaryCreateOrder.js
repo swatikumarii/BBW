@@ -21,16 +21,18 @@ function execute() {
         var orderList = OrderMgr.queryOrders('custom.capillaryFailed = {0}', 'lastModified desc', true);
         // Loop through the order and process them as needed
         Transaction.wrap(function () {
+            var sendFailedOrderFlag = false;
+            var failedOrders = [];
+            var emailObj = {
+                to: Site.current.getCustomPreferenceValue('capillaryOrderFailedEmail') || 'no-reply@salesforce.com',
+                subject: Resource.msg('subject.capillary.order.failed.email', 'order', null),
+                from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@salesforce.com',
+                type: 1
+            };
             while (orderList.hasNext()) {
                 var order = orderList.next();
                 var orderModel = new OrderModel(order, { containerView: 'order' });
                 var crmOrderID = '';
-                var emailObj = {
-                    to: Site.current.getCustomPreferenceValue('capillaryOrderFailedEmail') || 'no-reply@salesforce.com',
-                    subject: Resource.msg('subject.capillary.order.failed.email', 'order', null),
-                    from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@salesforce.com',
-                    type: 1
-                };
                 if (order.customerNo) {
                     // Capillary: create order
                     crmOrderID = capillaryAPI.createOrder(orderModel, order);
@@ -39,7 +41,7 @@ function execute() {
                         order.custom.capillaryResponse = '';
                         order.custom.capillaryFailed = false;
                     } else {
-                        emailHelpers.sendEmail(emailObj, 'mail/capillaryFailedOrder', orderModel);
+                        sendFailedOrderFlag = true;
                     }
                 } else {
                     var billingAddress = orderModel.billing.billingAddress.address;
@@ -57,12 +59,20 @@ function execute() {
                             order.custom.capillaryResponse = '';
                             order.custom.capillaryFailed = false;
                         } else {
-                            emailHelpers.sendEmail(emailObj, 'mail/capillaryFailedOrder', orderModel);
+                            sendFailedOrderFlag = true;
                         }
                     } else {
-                        emailHelpers.sendEmail(emailObj, 'mail/capillaryFailedOrder', orderModel);
+                        sendFailedOrderFlag = true;
                     }
                 }
+                if (sendFailedOrderFlag === true) {
+                    failedOrders.push(orderModel.orderNumber);
+                }
+            }
+            if (sendFailedOrderFlag === true) {
+                emailHelpers.sendEmail(emailObj, 'mail/capillaryFailedOrder', {
+                    failedOrders: failedOrders
+                });
             }
         });
         return new Status(Status.OK);
