@@ -95,9 +95,13 @@ function updateCartTotals(data) {
         $('.shipping-tax').closest('div.row').removeClass('d-none');
     }
     $('.number-of-items').empty().append(data.resources.numberOfItems);
+    if ($('.sub-total').hasClass('tax-exclusive')) {
+        $('.sub-total').empty().append(data.totals.subTotalExclTax);
+    } else {
+        $('.sub-total').empty().append(data.totals.subTotal);
+    }
     $('.tax-total').empty().append(data.totals.totalTax);
     $('.grand-total').empty().append(data.totals.grandTotal);
-    $('.sub-total').empty().append(data.totals.subTotal);
     $('.minicart-quantity').empty().append(data.numItems);
     $('.cart-num-items').empty().append(data.numItems);
     $('.minicart-link').attr({
@@ -652,6 +656,7 @@ module.exports = function () {
                     }
                 });
                 if (data.updatedQty) {
+                    self.data('pre-select-qty', data.updatedQty);
                     if (Number(self.val()) !== data.updatedQty) {
                         self.val(data.updatedQty);
                         self.closest('.line-item-quantity').find('.max-order-qty-error').show();
@@ -672,7 +677,6 @@ module.exports = function () {
                 );
                 updateAvailability(data, uuid);
                 validateBasket(data);
-                $(this).data('pre-select-qty', quantity);
                 $('body').trigger('cart:update', data);
                 if ('refreshItems' in data && data.refreshItems) {
                     $('.cart-lineitems')
@@ -705,7 +709,7 @@ module.exports = function () {
                     window.location.href = err.responseJSON.redirectUrl;
                 } else {
                     createErrorNotification(err.responseJSON.errorMessage);
-                    $(this).val(parseInt(preSelectQty, 10));
+                    self.val(parseInt(preSelectQty, 10));
                     $.spinner().stop();
                 }
             }

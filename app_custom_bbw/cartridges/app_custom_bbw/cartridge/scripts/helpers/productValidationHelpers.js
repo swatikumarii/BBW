@@ -43,6 +43,8 @@ function getProductMaxOrderQty(apiProduct) {
                     : maxOrderQty;
     } else if (!maxOrderQty) {
         maxOrderQty = maxOrderQtyByReserveStock;
+    } else if (!maxOrderQtyByReserveStock) {
+        maxOrderQty = 0;
     }
 
     return maxOrderQty;
@@ -90,6 +92,8 @@ function getProductMaxOrderQtyValue(apiProduct) {
                     : maxOrderQty;
     } else if (!maxOrderQty) {
         maxOrderQty = maxOrderQtyByReserveStock;
+    } else if (!maxOrderQtyByReserveStock) {
+        maxOrderQty = 0;
     }
 
     var basket = false;
@@ -99,7 +103,7 @@ function getProductMaxOrderQtyValue(apiProduct) {
         basket = false;
     }
 
-    if (basket) {
+    if (basket && maxOrderQty) {
         var productLineItems = basket.productLineItems;
         collections.forEach(productLineItems, function (item) {
             if (item.productID === apiProduct.ID) {
@@ -108,7 +112,7 @@ function getProductMaxOrderQtyValue(apiProduct) {
         });
     }
 
-    return maxOrderQty;
+    return maxOrderQty < 0 ? 0 : maxOrderQty;
 }
 
 module.exports = {

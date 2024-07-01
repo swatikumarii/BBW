@@ -1,0 +1,64 @@
+<div class="address-summary" style="margin-left: 6px;">
+    <div>
+        <span
+            style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+            class="firstName">
+            <isif condition="${address.firstName !== 'null'}">
+                <isif condition="${address && address.firstName}">${address.firstName}</isif>
+            </isif>
+        </span>
+        <span
+            style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+            class="lastName">
+            <isif condition="${address.lastName !== 'null'}">
+                <isif condition="${address && address.lastName}">${address.lastName}</isif>
+            </isif>
+        </span>
+    </div>
+    <div style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="address1">
+        <isif condition="${address.address1 !== 'null'}">
+            <isif condition="${address && address.address1}">${address.address1}</isif>
+        </isif>
+    </div>
+    <div style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="address2">
+        <isif condition="${address.address2 !== 'null'}">
+            <isif condition="${address && address.address2}">${address.address2}</isif>
+        </isif>
+    </div>
+    <span
+        style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="city">
+        <isif condition="${address && address.city}">${address.city}&#44;</isif>
+    </span>
+    <span
+        style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="stateCode">
+        <isif condition="${address && address.stateCode}">${address.stateCode}&#44;</isif>
+    </span>
+    <span
+        style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="postalCode">
+        <isif condition="${address && address.countryCode}">${address.countryCode.value === 'AU' ? 'Australia' : address.countryCode.value}&#44;</isif>
+    </span>
+    <span
+        style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="postalCode">
+        <isif condition="${address && address.postalCode}">${address.postalCode}&#44;</isif>
+    </span>
+    <br>
+    <span
+        style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="postalCode">
+        <isif condition="${address.phone !== 'null'}">
+            <isif condition="${address && address.phone}">${address.phone}&#44;</isif>
+        </isif>
+    </span>
+    <div style="font:normal 14px/24px ScalaSansOT,Arial,Helvetica Neue,Helvetica,sans-serif;letter-spacing:0.75px;color:#1a1919"
+        class="email">
+        <span>
+            <isif condition="${pdict.Order.customerEmail}">${pdict.Order.customerEmail}</isif>
+        </span>
+    </div>
+</div>

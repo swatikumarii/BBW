@@ -1,0 +1,36 @@
+<div class="payment-details h-font-size--16">
+    <isloop items="${orderDetail.order.billing.payment.selectedPaymentInstruments}" var="payment">
+        <isif condition="${payment.paymentMethod == 'AdyenPOS' || payment.paymentMethod == 'AdyenComponent' || payment.paymentMethod ===
+                         'CREDIT_CARD'}">
+            <isinclude template="checkout/billing/paymentOptions/adyenComponentSummary" />
+        <iselseif
+                condition="${payment.paymentMethod === 'CASHAPPPAY' || payment.paymentMethod === 'CLEARPAY' || payment.paymentMethod === 'AFTERPAY'}" />
+            <isinclude template="checkout/billing/paymentOptions/afterpaySummary" />
+        <iselseif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE'}" />
+            <div class="mb-2">
+                ${Resource.msg('label.add.egift.title', 'giftcards', null)}
+            </div>
+            <div class="payment-amount h-fw--bold mb-3">
+                <span class="label h-clr--black-1">
+                    <isif condition="${orderDetail.order.currencyCode}">
+                        ${orderDetail.order.currencyCode}
+                        <isprint value="${orderDetail.eGiftTotalAmount}" />
+                    <iselse/>
+                        <isprint value="${orderDetail.eGiftTotalAmount}" />
+                    </isif>
+                </span>
+            </div>
+        </isif>
+        <isif condition="${payment.amount && payment.paymentMethod !== 'GIFT_CERTIFICATE'}">
+            <div class="payment-amount h-fw--bold mt-2">
+                <span class="label h-clr--black-1">
+                    <isif condition="${orderDetail.order.currencyCode}">
+                        ${orderDetail.order.currencyCode} <isprint value="${payment.amount}" />
+                    <iselse/>
+                        <isprint value="${payment.amount}" />
+                    </isif>
+                </span>
+            </div>
+        </isif>
+    </isloop>
+</div>

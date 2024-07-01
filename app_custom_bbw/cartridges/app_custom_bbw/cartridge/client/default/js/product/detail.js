@@ -159,7 +159,7 @@ module.exports = $.extend({}, detail, {
         $(document).on('click', '.quantity-field > .increase', function () {
             var maxOrderQty = Number($('input[name="maxOrderQty"]').val());
             var quantity = Number($(this).siblings('#Quantity').val());
-            if (quantity === maxOrderQty) {
+            if (quantity >= maxOrderQty) {
                 $('.reserve-stock').removeClass('d-none');
             } else {
                 quantity += 1;
@@ -354,20 +354,20 @@ module.exports = $.extend({}, detail, {
         $('[data-toggle="popover"]').popover();
 
         // Show popover on mouseenter
-        $('body').on(
-            'mouseenter',
-            '.promotion-callout [data-toggle="popover"]',
-            function () {
-                $(this).popover('show');
-                $('.pdp-title')
-                    .parents('.popover')
-                    .addClass('pdp-popover bs-popover-top');
-                $('.pdp-title')
-                    .parents('.popover')
-                    .removeClass('bs-popover-right');
-                $('.popover-header').addClass('d-none');
-            }
-        );
+        // $('body').on(
+        //     'mouseenter',
+        //     '.promotion-callout [data-toggle="popover"]',
+        //     function () {
+        //         $(this).popover('show');
+        //         $('.pdp-title')
+        //             .parents('.popover')
+        //             .addClass('pdp-popover bs-popover-top');
+        //         $('.pdp-title')
+        //             .parents('.popover')
+        //             .removeClass('bs-popover-right');
+        //         $('.popover-header').addClass('d-none');
+        //     }
+        // );
 
         var timer;
         $('body')

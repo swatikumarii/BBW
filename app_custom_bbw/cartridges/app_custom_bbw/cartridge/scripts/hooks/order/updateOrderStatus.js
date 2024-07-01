@@ -78,7 +78,7 @@ exports.afterPATCH = function (order, orderInput) {
     } else {
         multipleShippers = false;
     }
-    if (multipleShippers) {
+    if (multipleShippers && shipment && shipment.length > 0) {
         if (
             shipment[0].tracking_number.substring(0, 1) === 'C' ||
             shipment[0].tracking_number.substring(0, 1) === 'c'

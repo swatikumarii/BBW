@@ -115,13 +115,27 @@ server.get('InvoiceDownload', function (req, res, next) {
     var taxRate = getTaxRate * 100;
 
     if (order) {
+        var isEgiftCard = false;
         var orderModel = orderHelpers.getOrderDetailsByID(
             orderID,
             req.locale.id
         );
+        if (orderModel && orderModel.shipping && orderModel.shipping.length > 0) {
+            if (orderModel.shipping[0].productLineItems && orderModel.shipping[0].productLineItems.items) {
+                var products = orderModel.shipping[0].productLineItems.items;
+                for (var index = 0; index < products.length; index++) {
+                    if (products[index].isEgiftCard) {
+                        isEgiftCard = products[index].isEgiftCard;
+                        break;
+                    }
+                }
+            }
+        }
+
         res.render('order/invoiceDownload', {
             order: orderModel,
-            taxRate: taxRate
+            taxRate: taxRate,
+            isEgiftCard: isEgiftCard
         });
     } else {
         res.redirect(URLUtils.url('Order-History'));
@@ -475,6 +489,7 @@ server.append(
         this.on('route:BeforeComplete', function () {
             // send email when order total 0
             var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
+            var COHelpers = require('*/cartridge/scripts/checkout/checkoutHelpers');
             var dynamicBadgeHelpers = require('*/cartridge/scripts/helpers/dynamicBadgeHelpers');
             var viewData = res.getViewData();
             var OrderMgr = require('dw/order/OrderMgr');
@@ -482,8 +497,18 @@ server.append(
             if (order && order.totalGrossPrice.value === 0) {
                 commonHelper.zeroOrderEmail(viewData.order);
             }
+
             // redirection url
             viewData.orderStatusVal = Order;
+            if (order && order.paymentStatus.value === viewData.orderStatusVal.PAYMENT_STATUS_NOTPAID
+                && order.paymentTransaction && order.paymentTransaction !== null && 'custom' in order.paymentTransaction && order.paymentTransaction.custom
+                && 'Adyen_paymentMethod' in order.paymentTransaction.custom && 'authCode' in order.paymentTransaction.custom
+                && order.paymentTransaction.custom.authCode === 'Authorised') {
+                Transaction.wrap(function () {
+                    order.setPaymentStatus(Order.PAYMENT_STATUS_PAID);
+                });
+                COHelpers.sendConfirmationEmail(order, req.locale.id);
+            }
             res.setViewData(viewData);
             if (order.status.value === Order.ORDER_STATUS_FAILED || order.status.value === Order.ORDER_STATUS_CANCELLED) {
                 res.redirect(URLUtils.url('Order-Failed'));
@@ -502,9 +527,15 @@ server.append(
                 );
 
                 // Capillary: create order
-                crmOrderID = capillaryAPI.createOrder(viewData.order);
+                crmOrderID = capillaryAPI.createOrder(viewData.order, order);
                 Transaction.wrap(function () {
-                    order.custom.capillaryOrderID = crmOrderID;
+                    if (crmOrderID) {
+                        order.custom.capillaryOrderID = crmOrderID;
+                        order.custom.capillaryResponse = '';
+                        order.custom.capillaryFailed = false;
+                    } else {
+                        order.custom.capillaryFailed = true;
+                    }
                 });
             } else {
                 var billingAddress = viewData.order.billing.billingAddress.address;
@@ -514,11 +545,21 @@ server.append(
                     phone: billingAddress.phone,
                     email: viewData.order.orderEmail
                 };
-                var crmCustomerID = capillaryAPI.createCustomer(customerData);
+                var crmCustomerID = capillaryAPI.createCustomer(customerData, order);
                 if (crmCustomerID) {
                     crmOrderID = capillaryAPI.createOrder(viewData.order);
                     Transaction.wrap(function () {
-                        order.custom.capillaryOrderID = crmOrderID;
+                        if (crmOrderID) {
+                            order.custom.capillaryOrderID = crmOrderID;
+                            order.custom.capillaryResponse = '';
+                            order.custom.capillaryFailed = false;
+                        } else {
+                            order.custom.capillaryFailed = true;
+                        }
+                    });
+                } else {
+                    Transaction.wrap(function () {
+                        order.custom.capillaryFailed = true;
                     });
                 }
             }

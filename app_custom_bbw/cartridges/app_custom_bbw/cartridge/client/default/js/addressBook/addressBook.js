@@ -212,6 +212,12 @@ $(document).on('click', '#editAddress', function () {
     });
 });
 
+/** Append Pac container inside div */
+var addressInputElement = $('#accountAddressAutoComplete');
+addressInputElement.on('focus', function () {
+    var pacContainer = $('.pac-container');
+    $(addressInputElement.parent()).append(pacContainer);
+});
 
 module.exports = $.extend({}, base, {
     stateDropdown: function () {

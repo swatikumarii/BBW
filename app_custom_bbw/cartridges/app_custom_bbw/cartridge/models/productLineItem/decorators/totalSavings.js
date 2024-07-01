@@ -27,10 +27,10 @@ function getTotalSavings(lineItem) {
                 );
             }
         }
-        return formatMoney(totalSavings);
-    } 
+        return totalSavings.value !== 0 ? formatMoney(totalSavings) : '-';
+    }
     return '-';
-    
+
 }
 
 module.exports = function (object, lineItem) {

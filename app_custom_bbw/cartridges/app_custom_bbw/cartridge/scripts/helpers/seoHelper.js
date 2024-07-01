@@ -29,7 +29,7 @@ function getHreflang(
             url: 'https://' + request.httpHost,
             hreflang: isDefault
                 ? 'x-default'
-                : locale.split('_').reverse().join('-').toLowerCase()
+                : locale.split('_').join('-').toLowerCase()
         };
     }
     var link = base.getLink(urlParameters, currentSite.ID, locale);
@@ -46,7 +46,7 @@ function getHreflang(
             ),
         hreflang: isDefault
             ? 'x-default'
-            : locale.split('_').reverse().join('-').toLowerCase()
+            : locale.split('_').join('-').toLowerCase()
     };
 }
 

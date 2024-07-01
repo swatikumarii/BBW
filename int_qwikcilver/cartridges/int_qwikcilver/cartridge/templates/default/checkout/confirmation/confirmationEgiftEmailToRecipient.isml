@@ -11,22 +11,20 @@
                     <td style="padding:0 32px 15px;vertical-align:top;text-align:left;">
                         <iscomment> Gift Card Image Details </iscomment>
                         <div style="border:2px solid #f2f2f2;padding:15px 0 24px; margin-bottom:30px;">
-                            <p
-                                style="margin:0;font-size:36px;line-height:50px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center">
-                                <isprint value="${Resource.msg('egift.surprise.heading', 'giftcards', null)}"
-                                    encoding="off" />
-                            </p>
-                            <p
-                                style="margin:0 0 20px;font-size:16px;line-height:18px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center;text-transform: capitalize;">
-                                <isprint
-                                    value="${Resource.msgf('egift.treated.msg', 'giftcards', null, pdict.senderName)}"
-                                    encoding="off" />
-                            </p>
-                            <iscomment> Normal Product Line Items </iscomment>
-                            <table width="100%" cellpadding="0" cellspacing="0"
-                                style="border-collapse:collapse;margin-top:15px;">
-                                <tbody>
-                                    <isloop items="${pdict.order.items.items}" var="lineItem" status="loopState">
+                            <isloop items="${pdict.order.items.items}" var="lineItem" status="loopState">
+                                <p
+                                    style="margin:0;font-size:36px;line-height:50px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center">
+                                    <isprint value="${Resource.msg('egift.surprise.heading', 'giftcards', null)}"
+                                        encoding="off" />
+                                </p>
+                                <p
+                                    style="margin:0 0 20px;font-size:16px;line-height:18px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#005699;font-weight:bold;text-align:center;text-transform: capitalize;">
+                                    ${Resource.msgf('egift.treated.msg', 'giftcards', null, lineItem.giftCardDetails.senderName)}
+                                </p>
+                                <iscomment> Normal Product Line Items </iscomment>
+                                <table width="100%" cellpadding="0" cellspacing="0"
+                                    style="border-collapse:collapse;margin-top:15px;">
+                                    <tbody>
                                         <isif
                                             condition="${pdict.sendEmailNow && pdict.recipientEmail === lineItem.giftCardDetails.recipientEmail && pdict.giftcardNumber === loopState.index}">
                                             <tr>
@@ -124,15 +122,15 @@
                                                             ${lineItem.priceTotal.price}
                                                         </isif>
                                                     </p>
-                                                    <p style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#000000;font-size: 14px;text-align:center;">
+                                                    <p style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#000000;font-size: 14px;text-align:center;background-image:url('${URLUtils.absStatic('/images/email/white-bg.jpg')}');">
                                                         <img style="display:block;margin:0 auto;" src="${lineItem.giftCardDetails.giftBarCode}" alt="eGift Barcode" />
                                                         <isif condition="${lineItem.giftCardDetails.giftBarCodeNumber}">
-                                                            <span style="display:inline-block" class="card-no">${lineItem.giftCardDetails.giftBarCodeNumber}</span>
+                                                            <span style="display:inline-block;color: white;mix-blend-mode: difference;" class="card-no">${lineItem.giftCardDetails.giftBarCodeNumber}</span>
                                                         </isif>
                                                     </p>
                                                     <p style="font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;color:#000000;font-weight:600;">
                                                         ${Resource.msg('confirm.order.card.expiry.date', 'giftcards', null)}<span
-                                                            style="font-size: 14px; padding-left: 5px;font-style: italic;"><isprint value="${new Date(lineItem.giftCardDetails.cardExpiryDate)}" formatter="dd-MM-YYYY " timezone="SITE" /></span>
+                                                            style="mix-blend-mode:difference;color: #ffffff;font-size: 14px; padding-left: 5px;font-style: italic;"><isprint value="${new Date(lineItem.giftCardDetails.cardExpiryDate)}" formatter="dd-MM-YYYY " timezone="SITE" /></span>
                                                     </p>
                                                 </td>
                                             </tr>
@@ -149,9 +147,9 @@
                                                 </td>
                                             </tr> </iscomment>
                                         </isif>
-                                    </isloop>
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </isloop>
                         </div>
                         <div>
                             <iscomment> You've got it Content Asset </iscomment>

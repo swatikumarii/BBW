@@ -1124,6 +1124,11 @@ input[type="tel"],
             top: 109%;
             right: 90%;
         }
+
+        @include media-btw(sm, lg) {
+            top: 51%;
+            margin-right: 10px;
+        }
     }
 
     .info-icon-text {
@@ -1178,6 +1183,7 @@ input[type="tel"],
         color: colour(red);
         margin: 5px 0;
         text-align: left;
+        font-weight: 600;
         position: relative;
 
         @include media-up(sm) {
@@ -1187,6 +1193,13 @@ input[type="tel"],
         @include media-btw(sm, lg) {
             width: 100%;
         }
+    }
+
+    .checkout-password-btn {
+        height: 36px;
+        max-height: 36px;
+        min-height: 36px;
+        margin-top: 8px;
     }
 }
 
