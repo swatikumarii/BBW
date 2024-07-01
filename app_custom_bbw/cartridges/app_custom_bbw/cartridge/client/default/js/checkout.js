@@ -65,6 +65,7 @@ function checkFields(form) {
 }
 
 $(document).ready(function () {
+    processInclude(require('./checkout/checkout'));
     var name = 'paymentError';
     var error = new RegExp(
         '[?&]'.concat(encodeURIComponent(name), '=([^&]*)')
@@ -76,7 +77,6 @@ $(document).ready(function () {
         }
         adyenCheckout.renderGenericComponent();
     }
-    processInclude(require('./checkout/checkout'));
     // processInclude(require('adyen/checkout/billing'));
     $('#selectedPaymentOption').val(
         $('.payment-options .nav-item .active').parent().attr('data-method-id')
