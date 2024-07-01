@@ -227,7 +227,7 @@ function placeOrder(req, res, next) {
     // Reset usingMultiShip after successful Order placement
     req.session.privacyCache.set('usingMultiShipping', false);
     var options = {};
-
+    // TODO: Handle gracefully
     res.json({
         error: false,
         orderID: order.orderNo,
@@ -235,7 +235,8 @@ function placeOrder(req, res, next) {
         continueUrl: URLUtils.url('Order-Confirm').toString(),
         options: options,
         isThankYouPage: true,
-        isEgiftCardPayment: true
+        isEgiftCardPayment: true,
+        customer: { registeredUser : false }
     });
 }
 

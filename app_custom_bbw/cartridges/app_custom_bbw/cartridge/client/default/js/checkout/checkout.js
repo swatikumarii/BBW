@@ -385,10 +385,11 @@ function checkFields(form) {
                                     });
                                     redirect.submit();
                                     defer.resolve(data);
+                                } else {
+                                    var reviewURL = $('input[name="review-url"]').val();
+                                    window.location.href = reviewURL;
                                 }
 
-                                var reviewURL = $('input[name="review-url"]').val();
-                                window.location.href = reviewURL;
                                 //
                                 // Populate the Address Summary
                                 //

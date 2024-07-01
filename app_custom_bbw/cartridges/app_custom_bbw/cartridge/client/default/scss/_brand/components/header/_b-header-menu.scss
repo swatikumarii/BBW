@@ -376,12 +376,16 @@
                                 .explore-li a:hover {
                                     color: colour(blue);
                                 }
-
+                                /* stylelint-disable */
                                 .level-2-li,
                                 .explore-li {
                                     position: relative;
                                     text-transform: capitalize;
                                     transition: max-height 0.3s ease-out;
+                                    -webkit-transition: max-height 0.3s ease-out;
+                                    -moz-transition: max-height 0.3s ease-out;
+                                    -ms-transition: max-height 0.3s ease-out;
+                                    -o-transition: max-height 0.3s ease-out;
                                     max-height: none;
                                     padding: 0 0 22px;
                                     overflow: visible;
@@ -617,10 +621,46 @@
     }
 }
 
+@include media-btw(sm, md) {
+    .bbw-brand-menu {
+        .navbar {
+            .level-1-ul .level-1-li .menu-wrap-level-1 .level-2-ul-wrap {
+                min-height: 270px;
+
+                .level-2-ul {
+                    margin-left: 15px;
+
+                    .level-2-link {
+                        width: 180px;
+                        white-space: break-spaces;
+                    }
+
+                    .level-2-li .menu-wrap-level-3 li {
+                        padding: 0 0.5rem;
+                        width: 160px;
+                    }
+                }
+
+                .menu-right .category-top-offers .category-top-items ul li a {
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
 @include media-breakpoint-down(sm) {
     .level-2-li.active .menu-right .category-top-offers a.heading::after {
         transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
         transform-origin: center center;
+        -webkit-transform-origin: center center;
+        -moz-transform-origin: center center;
+        -ms-transform-origin: center center;
+        -o-transform-origin: center center;
     }
 
     .menu-right {
@@ -825,6 +865,10 @@
 
         .nav-item {
             transition: max-height 0.5s ease-out;
+            -webkit-transition: max-height 0.5s ease-out;
+            -moz-transition: max-height 0.5s ease-out;
+            -ms-transition: max-height 0.5s ease-out;
+            -o-transition: max-height 0.5s ease-out;
             max-height: 58px;
             border-top: 0.0625rem solid colour(gray, 6);
             width: 100%;
@@ -944,6 +988,10 @@
                         z-index: 30;
                         border: 0;
                         transition: all 0.3s ease-out;
+                        -webkit-transition: all 0.3s ease-out;
+                        -moz-transition: all 0.3s ease-out;
+                        -ms-transition: all 0.3s ease-out;
+                        -o-transition: all 0.3s ease-out;
                     }
                 }
 
@@ -966,6 +1014,10 @@
                     visibility: hidden;
                     border: 0;
                     transition: all 0.5s ease-out;
+                    -webkit-transition: all 0.5s ease-out;
+                    -moz-transition: all 0.5s ease-out;
+                    -ms-transition: all 0.5s ease-out;
+                    -o-transition: all 0.5s ease-out;
                     display: block;
 
                     &.active {
@@ -974,6 +1026,10 @@
                         pointer-events: auto;
                         visibility: visible;
                         transition: all 0.5s ease-out;
+                        -webkit-transition: all 0.5s ease-out;
+                        -moz-transition: all 0.5s ease-out;
+                        -ms-transition: all 0.5s ease-out;
+                        -o-transition: all 0.5s ease-out;
                     }
 
                     li a {

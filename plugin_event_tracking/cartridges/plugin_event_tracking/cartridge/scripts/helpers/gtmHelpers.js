@@ -482,6 +482,12 @@ function addPayment(res) {
     var currentBasket = dw.order.BasketMgr.getCurrentBasket();
 
     if (currentBasket !== null) {
+        var paymentMethod = currentBasket.paymentInstrument.paymentMethod;
+        if (paymentMethod === 'AdyenComponent') {
+            paymentMethod =
+                currentBasket.paymentInstrument.custom &&
+                currentBasket.paymentInstrument.custom.adyen_payment__Adyen_Payment_Method;
+        }
         var obj = {
             event: gtmEvents.ADD_PAYMENT_INFO,
             ecommerce: {
@@ -489,7 +495,7 @@ function addPayment(res) {
                 value: currentBasket
                     .getAdjustedMerchandizeTotalNetPrice()
                     .value.toFixed(2),
-                payment_type: currentBasket.paymentInstrument.paymentMethod,
+                payment_type: paymentMethod,
                 add: {
                     products: []
                 }
@@ -528,42 +534,53 @@ function addPayment(res) {
  */
 function getConfirmationData(res) {
     var order = null;
+    var obj = {};
     try {
         order = dw.order.OrderMgr.getOrder(res.order.orderNumber);
     } catch (e) {
-        Logger.error('GTMHelpers - cannot retrieve order'.concat(e));
+        Logger.error('GTMHelpers - cannot retrieve order: '.concat(e));
     }
 
-
-    var obj = {
-        event: gtmEvents.PURCHASE,
-        ecommerce: {
-            transaction_id: order.orderNo,
-            value: order.totalGrossPrice.value,
-            tax: order.getTotalTax().getValue().toFixed(2),
-            shipping: order.getAdjustedShippingTotalPrice().getValue(),
-            coupon: order.couponLineItems.length ? order.couponLineItems[0].couponCode : '',
-            currency: order.currencyCode,
-            orderStatus: orderStatusMatrix[order.status.value],
-            items: []
+    try {
+        obj = {
+            event: gtmEvents.PURCHASE,
+            ecommerce: {
+                transaction_id: order.orderNo,
+                value: order.totalGrossPrice.value,
+                tax: order.getTotalTax().getValue().toFixed(2),
+                shipping: order.getAdjustedShippingTotalPrice().getValue(),
+                coupon: order.couponLineItems.length ? order.couponLineItems[0].couponCode : '',
+                currency: order.currencyCode,
+                orderStatus: orderStatusMatrix[order.status.value],
+                items: []
+            }
+        };
+        if ('order' in res) {
+            for (var i = 0; i < res.order.items.items.length; i++) {
+                var unitBaseDiscountedPrice = (res.order.items.items[i].priceTotal.priceValue / res.order.items.items[i].quantity).toFixed(2);
+                obj.ecommerce.items.push({
+                    item_name: res.order.items.items[i].productName,
+                    item_id: res.order.items.items[i].id,
+                    item_brand: res.order.items.items[i].brand
+                        ? res.order.items.items[i].brand
+                        : '',
+                    // coupon:res.order.totals.discounts[i].couponCode,
+                    item_category: res.order.items.items[i].gtmData
+                        .item_category
+                        ? res.order.items.items[i].gtmData.item_category
+                        : '',
+                    price: unitBaseDiscountedPrice,
+                    discount: res.order.items.items[i].basePrice.valueOrNull
+                        ? (res.order.items.items[i].basePrice.value -
+                          unitBaseDiscountedPrice).toFixed(2)
+                        : 0,
+                    quantity: res.order.items.items[i].quantity
+                });
+            }
         }
-    };
-    if ('order' in res) {
-        for (var i = 0; i < res.order.items.items.length; i++) {
-            obj.ecommerce.items.push({
-                item_name: res.order.items.items[i].productName,
-                item_id: res.order.items.items[i].id,
-                item_brand: res.order.items.items[i].brand
-                    ? res.order.items.items[i].brand
-                    : '',
-                // coupon:res.order.totals.discounts[i].couponCode,
-                item_category: res.order.items.items[i].gtmData.item_category
-                    ? res.order.items.items[i].gtmData.item_category
-                    : '',
-                price: res.order.items.items[i].gtmData.price,
-                quantity: res.order.productQuantityTotal
-            });
-        }
+    } catch (e) {
+        Logger.error('GTMHelpers - Error in creating oject: '.concat(e));
+        return {};
     }
     return obj;
 }

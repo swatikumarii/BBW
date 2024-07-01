@@ -126,7 +126,7 @@ module.exports = {
         var orderItems = [];
         order.items.items.forEach(function (lineItem) {
             var itemPrice = 'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0 ? 0 : lineItem.priceTotal.price;
-            itemPrice = parseFloat(itemPrice.replace(order.currencyCode, ''));
+            itemPrice = parseFloat(itemPrice.toString().replace(order.currencyCode, ''));
             orderItems.push({
                 itemCode: lineItem.id,
                 amount: itemPrice,
