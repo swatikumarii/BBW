@@ -26,448 +26,469 @@ Multiple email address can be separated by , (a la RFC2822)
 <FROM>sender@demandware.com</FROM>
 --->
 
-<body>
-    <isscript>
-        var orderModel = require('bm_bbw/cartridge/models/customOrder.js');
-        var orderDetail = orderModel.getInvoice(pdict.Order.orderNo);
-    </isscript>
-    <isset name="urlHelpers" value="${require('*/cartridge/scripts/helpers/urlHelpers')}" scope="page" />
-    <tr style="padding: 0;">
-        <td style="vertical-align: middle; text-align: center; color: #333; font-size:14px;">
-            <table style="padding-top:35px;" cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
-                <iscomment> Order Line Items </iscomment>
-                <tr style="padding: 0;">
-                    <td style="padding:0 32px 15px;vertical-align:top;text-align:left;">
-                        <iscomment> Order Number and Order Date </iscomment>
-                        <table cellpadding="0" cellspacing="0" style="width:100%">
-                            <tbody>
-                                <tr>
-                                    <td style="vertical-align:bottom;text-align:left;font-size:18px">
-                                        ${Resource.msg('label.order.number', 'confirmation', null)}
-                                        <div style="color:#005699;font-weight:bold;font-size:22px;padding-top:6px">
-                                            <a href="${URLUtils.https(new dw.web.URLAction('Order-Status', pdict.StorefrontName))}"
-                                                title="${orderDetail.order.orderNumber}"
-                                                style="text-decoration:none;color:#005699;font-weight:bold;font-size:22px;"
-                                                target="_blank">
-                                                ${orderDetail.order.orderNumber}
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td style="vertical-align:bottom;text-align:right;font-size:18px">
-                                        ${Resource.msg('label.order.date', 'confirmation', null)} <span
-                                            style="font-weight:bold">
-                                            <isprint value="${new Date(orderDetail.order.creationDate)}" formatter="dd/MM/YYYY "
-                                                timezone="SITE" />
-                                        </span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <iscomment> Order Customer Name and Thank you Text</iscomment>
-                        <h1
-                            style="margin:35px 30px 14px;font-size:28px;font-weight:normal;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
-                            ${Resource.msgf('email.title.confirmation.sender.name', 'confirmation', null, orderDetail.order.billing.billingAddress.address
-                            .firstName)}
-                        </h1>
-                        <p
-                            style="margin:0 30px 20px;font-size:22px;line-height:33px;padding-right:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
-                            ${Resource.msg('msg.placed.order.thank.you', 'confirmation', null)}
-                        </p>
-                        <iscomment> View Order Status Image and Button </iscomment>
-                        <div style="border:3px solid #f2f2f2;padding:36px 0;text-align:center">
-                            <p style="margin:0 0 44px">
-                            <img src="${URLUtils.absStatic(URLUtils.staticURL('/images/email/orders/status/icon-placed.png'))}"
-                                    alt="Progress" style="border:0;vertical-align:top;width:90%;" />
-                            </p>
-                            <div>
-                                <!--[if mso]>
-                                                <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${URLUtils.abs('Order-Details', 'orderID', orderDetail.order.orderNumber, 'orderFilter', orderDetail.orderFilter)}" style="height:40px;v-text-anchor:middle;width:200px;" strokecolor="#333" fillcolor="#333">
-                                                    <w:anchorlock/>
-                                                    <center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;">${Resource.msg('email.btn.view.order.status', 'confirmation', null)}</center>
-                                                </v:rect>
-                                                URLUtils.http(new dw.web.URLAction('Order-Status', pdict.StorefrontName))
-                                            <![endif]--><a
-                                    href="${URLUtils.https(new dw.web.URLAction('Order-Details', pdict.StorefrontName), new dw.web.URLParameter('orderID', orderDetail.order.orderNumber), new dw.web.URLParameter('orderFilter', orderDetail.orderFilter))}"
-                                    style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;">${Resource.msg('email.btn.view.order.status', 'confirmation', null)}</a>
-                            </div>
-                        </div>
-                        <p
-                            style="margin:11px 0 32px;font-size:14px;line-height:14px;color:#666666;text-align:center;font-family:'HelveticaNeue-Regular','Helvetica Neue Regular','HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
-                            ${Resource.msg('email.order.cant.change.text', 'confirmation', null)}</p>
-                        <div
-                            style="font-size:26px;border-bottom:1px solid #333;text-transform:uppercase;margin:0;padding-bottom:13px;margin-bottom:5px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
-                            ${Resource.msg('email.order.youritem.label', 'confirmation', null)}
-                        </div>
-                        <iscomment> Normal Product Line Items </iscomment>
-                        <table width="100%" cellpadding="0" cellspacing="0"
-                            style="border-collapse:collapse;margin-top:15px;">
-                            <tbody>
-                                <isif condition="${orderDetail.order.shipping.length === 1}">
-                                    <isloop items="${orderDetail.order.items.items}" var="lineItem">
+    <body>
+        <isscript>
+            var orderModel = require('bm_bbw/cartridge/models/customOrder.js');
+            var orderDetail = orderModel.getInvoice(pdict.Order.orderNo);
+        </isscript>
+        <isset name="urlHelpers" value="${require('*/cartridge/scripts/helpers/urlHelpers')}" scope="page" />
+        <table cellpadding="0" cellspacing="0" border="0" align="center" width="700" style=" border-collapse: collapse; border-spacing: 0; margin: 0 auto; width: 700px; max-width: 700px; min-width: 320px; vertical-align: top; background: #ffffff;">
+            <tr style="padding: 0; display: none;">
+                <td style="padding: 0; width: 100%;" width="100%">
+                    <table align="center" width="100%">
+                        <tbody>
+                            <tr style="padding: 0;">
+                                <td style="padding: 0;">
+                                    <isprint value="${orderDetail.preHeader}" encoding="on" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <iscomment>Email Header</iscomment>
+            <tr style="padding: 0;">
+                <td style="height: 120px; text-align: center; vertical-align: middle;">
+                    <isprint value="${orderDetail.content ? orderDetail.content.headerContent : ''}" encoding="off" />
+                </td>
+            </tr>
+            <tr style="padding: 0;">
+                <td style="vertical-align: middle; text-align: center; color: #333; font-size:14px;">
+                    <table style="padding-top:35px;" cellpadding="0" cellspacing="0" border="0" align="center" width="100%">
+                        <iscomment> Order Line Items </iscomment>
+                        <tr style="padding: 0;">
+                            <td style="padding:0 32px 15px;vertical-align:top;text-align:left;">
+                                <iscomment> Order Number and Order Date </iscomment>
+                                <table cellpadding="0" cellspacing="0" style="width:100%">
+                                    <tbody>
                                         <tr>
-                                            <td width="119"
-                                                style="vertical-align:middle;padding:20px 0 0;width:119px;text-align:center">
-                                                <a style="display:block;"
-                                                    href="${URLUtils.https('ViewStorefront-PreviewProduct', 'pid', lineItem.id)}">
-                                                    <img src="${lineItem.images.small[0].url}"
-                                                        alt="${lineItem.images.small[0].alt}"
-                                                        title="${lineItem.images.small[0].title}"
-                                                        style="border:0;vertical-align:top;width:auto;max-height: 160px;height: 100%;max-width:119px;"
-                                                        width="119" />
-                                                </a>
-                                            </td>
-                                            <td width="245" style="padding:46px 0 20px 20px;vertical-align:top">
-                                                <div style="width:245px">
-                                                    <div
-                                                        style="text-transform:uppercase;font-size:16px;color:#333;margin-bottom:15px;line-height:23px">
-                                                        <a href="${URLUtils.https('ViewStorefront-PreviewProduct', 'pid', lineItem.id)}"
-                                                            title="${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}"
-                                                            style="text-decoration:none;text-transform:uppercase;font-size:16px;color:#333;line-height:23px;margin-bottom:15px;font-family:'HelveticaNeue-Light',Arial,sans-serif"
-                                                            target="_blank">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</a>
-                                                    </div>
-                                                    <isif
-                                                        condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
-                                                        <div style="color:#666;font-size:14px;line-height:18px">
-                                                            ${lineItem.giftCardDetails.recipientName}
-                                                        </div>
-                                                        <isif
-                                                            condition="${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null}">
-                                                            <div style="color:#666;font-size:14px;line-height:18px">
-                                                                ${lineItem.giftCardDetails.eGiftMessage}
-                                                            </div>
-                                                        </isif>
-                                                        <div style="color:#666;font-size:14px;line-height:18px">
-                                                            ${lineItem.giftCardDetails.senderName}
-                                                        </div>
-                                                        <iselseif
-                                                            condition="${'greetingCardMessage' in lineItem && lineItem.greetingCardMessage}" />
-                                                        <div style="color:#666;font-size:14px;line-height:18px">
-                                                            ${lineItem.greetingCardMessage}
-                                                        </div>
-                                                    <iselse/>
-                                                        <isif
-                                                            condition="${'titlePartB' in lineItem && lineItem.titlePartB}">
-                                                            <div style="color:#666;font-size:14px;line-height:18px">
-                                                                ${lineItem.titlePartB}
-                                                            </div>
-                                                        </isif>
-                                                        <div style="color:#666;font-size:14px;line-height:18px">
-                                                            ${lineItem.volume ? lineItem.volume : ''}
-                                                        </div>
-                                                        <isif
-                                                            condition="${'customBundle' in lineItem && lineItem.customBundle}">
-                                                            <div style="color:#666;font-size:14px;line-height:18px">
-                                                                ${dw.experience.PageMgr.getPage(lineItem.customBundle).name}
-                                                            </div>
-                                                        </isif>
-                                                        <div style="color:#666;font-size:14px;line-height:18px">
-                                                            ${Resource.msg('email.order.itemno.label', 'confirmation', null)} ${lineItem.id}
-                                                        </div>
-                                                    </isif>
+                                            <td style="vertical-align:bottom;text-align:left;font-size:18px">
+                                                ${Resource.msg('label.order.number', 'confirmation', null)}
+                                                <div style="color:#005699;font-weight:bold;font-size:22px;padding-top:6px">
+                                                    <a href="${URLUtils.https(new dw.web.URLAction('Order-Status', pdict.StorefrontName))}"
+                                                        title="${orderDetail.order.orderNumber}"
+                                                        style="text-decoration:none;color:#005699;font-weight:bold;font-size:22px;"
+                                                        target="_blank">
+                                                        ${orderDetail.order.orderNumber}
+                                                    </a>
                                                 </div>
                                             </td>
-                                            <td
-                                                style="font-size:16px;color:#333;padding:50px 10px 20px;vertical-align:top;text-align:center;">
-                                                <span
-                                                    style="text-transform: uppercase;">${Resource.msg('label.header.quantity', 'confirmation', null)} </span>
-                                                <isprint value="${lineItem.quantity}" formatter="##" />
-                                            </td>
-                                            <td
-                                                style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:center">
-                                                <isif
-                                                    condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
-                                                    ${lineItem.totalSavings}
-                                                <iselse/>
-                                                    ${'-'}
-                                                </isif>
-                                            </td>
-                                            <td
-                                                style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:right">
-                                                <isif
-                                                    condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
-                                                    ${Resource.msg('label.free.price', 'cart', null)}
-                                                <iselse/>
-                                                    ${lineItem.priceTotal.price}
-                                                </isif>
+                                            <td style="vertical-align:bottom;text-align:right;font-size:18px">
+                                                ${Resource.msg('label.order.date', 'confirmation', null)} <span
+                                                    style="font-weight:bold">
+                                                    <isprint value="${new Date(orderDetail.order.creationDate)}" formatter="dd/MM/YYYY "
+                                                        timezone="SITE" />
+                                                </span>
                                             </td>
                                         </tr>
-                                    </isloop>
-                                </isif>
-                            </tbody>
-                        </table>
-                        <p
-                            style="font-size:14px;line-height:14px;color:#666666;text-align:center;font-family:'HelveticaNeue-Regular','Helvetica Neue Regular','HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;border-top: 3px solid #f2f2f2;padding: 20px 0;">
-                            ${Resource.msg('email.order.looking.more.text', 'confirmation', null)}<a
-                                style="color:#005699;text-decoration:underline;"
-                                href="${URLUtils.https(new dw.web.URLAction('Order-History', pdict.StorefrontName))}">
-                                ${Resource.msg('email.order.looking.more.here.text', 'confirmation', null)}</a>
-                        </p>
-                        <iscomment> Shipping Section </iscomment>
-                        <div
-                            style="font-size:26px;border-bottom:1px solid #333;text-transform:uppercase;margin:37px 0 16px;padding-bottom:13px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
-                            ${Resource.msg('email.order.shipping.heading', 'confirmation', null)}
-                        </div>
-                        <iscomment> Shipping Summary </iscomment>
-                        <div style="border:1px solid #e5e5e5;margin-bottom:37px">
-                            <table width="100%" cellpadding="0" cellspacing="0" style="table-layout:fixed">
-                                <tbody>
-                                    <tr>
-                                        <isloop items="${orderDetail.order.shipping}" var="shippingModel" status="shippingLoop">
-                                            <td
-                                                style="vertical-align:top;padding:21px 12px 33px 24px;color:#666666;font-size:16px;line-height:24px">
-                                                <div style="color:#333;font-weight:bold;margin-bottom:10px">
-                                                    ${Resource.msg('email.order.shippedto.heading', 'confirmation', null)}
-                                                </div>
-                                                <isset name="address" value="${shippingModel.shippingAddress}"
-                                                    scope="page" />
-                                            <isinclude template="checkout/addressSummary" />
-                                            </td>
-                                            <td
-                                                style="vertical-align:top;padding:21px 0 33px 50px;color:#666666;font-size:16px;line-height:24px">
-    
-                                                <div style="color:#333;font-weight:bold;margin-bottom:10px">
-                                                    ${Resource.msg('email.order.shipping.method.heading', 'confirmation', null)}</div>
-                                                <div style="padding-bottom:20px">
-                                                    <div style="color:#333333">
-
-                                                        ${shippingModel.selectedShippingMethod.displayName}</div>
-                                                </div>
-                                                <isif
-                                                    condition="${shippingModel.selectedShippingMethod.estimatedArrivalTime}">
-                                                    <div style="color:#333;font-weight:bold;margin-bottom:10px">
-                                                        ${Resource.msg('email.order.shipping.estimated.delivery.heading', 'confirmation', null)}</div>
-                                                    <div style="padding-bottom:20px">
-                                                        <div style="color:#333333">
-                                                            ${shippingModel.selectedShippingMethod.estimatedArrivalTime}
+                                    </tbody>
+                                </table>
+                                <iscomment> Order Customer Name and Thank you Text</iscomment>
+                                <h1
+                                    style="margin:35px 30px 14px;font-size:28px;font-weight:normal;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
+                                    ${Resource.msgf('email.title.confirmation.sender.name', 'confirmation', null, orderDetail.order.billing.billingAddress.address
+                                    .firstName)}
+                                </h1>
+                                <p
+                                    style="margin:0 30px 20px;font-size:22px;line-height:33px;padding-right:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
+                                    ${Resource.msg('msg.placed.order.thank.you', 'confirmation', null)}
+                                </p>
+                                <iscomment> View Order Status Image and Button </iscomment>
+                                <div style="border:3px solid #f2f2f2;padding:36px 0;text-align:center">
+                                    <p style="margin:0 0 44px">
+                                    <isprint value="${orderDetail.progressImage}" encoding="off" />
+                                    </p>
+                                    <div>
+                                        <!--[if mso]>
+                                                        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${URLUtils.abs('Order-Details', 'orderID', orderDetail.order.orderNumber, 'orderFilter', orderDetail.orderFilter)}" style="height:40px;v-text-anchor:middle;width:200px;" strokecolor="#333" fillcolor="#333">
+                                                            <w:anchorlock/>
+                                                            <center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;">${Resource.msg('email.btn.view.order.status', 'confirmation', null)}</center>
+                                                        </v:rect>
+                                                        URLUtils.http(new dw.web.URLAction('Order-Status', pdict.StorefrontName))
+                                                    <![endif]--><a
+                                            href="${URLUtils.https(new dw.web.URLAction('Order-Details', pdict.StorefrontName), new dw.web.URLParameter('orderID', orderDetail.order.orderNumber), new dw.web.URLParameter('orderFilter', orderDetail.orderFilter))}"
+                                            style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;">${Resource.msg('email.btn.view.order.status', 'confirmation', null)}</a>
+                                    </div>
+                                </div>
+                                <p
+                                    style="margin:11px 0 32px;font-size:14px;line-height:14px;color:#666666;text-align:center;font-family:'HelveticaNeue-Regular','Helvetica Neue Regular','HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
+                                    ${Resource.msg('email.order.cant.change.text', 'confirmation', null)}</p>
+                                <div
+                                    style="font-size:26px;border-bottom:1px solid #333;text-transform:uppercase;margin:0;padding-bottom:13px;margin-bottom:5px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
+                                    ${Resource.msg('email.order.youritem.label', 'confirmation', null)}
+                                </div>
+                                <iscomment> Normal Product Line Items </iscomment>
+                                <table width="100%" cellpadding="0" cellspacing="0"
+                                    style="border-collapse:collapse;margin-top:15px;">
+                                    <tbody>
+                                        <isif condition="${orderDetail.order.shipping.length === 1}">
+                                            <isloop items="${orderDetail.order.items.items}" var="lineItem">
+                                                <tr>
+                                                    <td width="119"
+                                                        style="vertical-align:middle;padding:20px 0 0;width:119px;text-align:center">
+                                                        <a style="display:block;"
+                                                            href="${URLUtils.https('ViewStorefront-PreviewProduct', 'pid', lineItem.id)}">
+                                                            <img src="${lineItem.images.small[0].url}"
+                                                                alt="${lineItem.images.small[0].alt}"
+                                                                title="${lineItem.images.small[0].title}"
+                                                                style="border:0;vertical-align:top;width:auto;max-height: 160px;height: 100%;max-width:119px;"
+                                                                width="119" />
+                                                        </a>
+                                                    </td>
+                                                    <td width="245" style="padding:46px 0 20px 20px;vertical-align:top">
+                                                        <div style="width:245px">
+                                                            <div
+                                                                style="text-transform:uppercase;font-size:16px;color:#333;margin-bottom:15px;line-height:23px">
+                                                                <a href="${URLUtils.https('ViewStorefront-PreviewProduct', 'pid', lineItem.id)}"
+                                                                    title="${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}"
+                                                                    style="text-decoration:none;text-transform:uppercase;font-size:16px;color:#333;line-height:23px;margin-bottom:15px;font-family:'HelveticaNeue-Light',Arial,sans-serif"
+                                                                    target="_blank">${lineItem.fragranceName && lineItem.fragranceName !== '' ? lineItem.fragranceName : lineItem.productName}</a>
+                                                            </div>
+                                                            <isif
+                                                                condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
+                                                                <div style="color:#666;font-size:14px;line-height:18px">
+                                                                    ${lineItem.giftCardDetails.recipientName}
+                                                                </div>
+                                                                <isif
+                                                                    condition="${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null}">
+                                                                    <div style="color:#666;font-size:14px;line-height:18px">
+                                                                        ${lineItem.giftCardDetails.eGiftMessage}
+                                                                    </div>
+                                                                </isif>
+                                                                <div style="color:#666;font-size:14px;line-height:18px">
+                                                                    ${lineItem.giftCardDetails.senderName}
+                                                                </div>
+                                                                <iselseif
+                                                                    condition="${'greetingCardMessage' in lineItem && lineItem.greetingCardMessage}" />
+                                                                <div style="color:#666;font-size:14px;line-height:18px">
+                                                                    ${lineItem.greetingCardMessage}
+                                                                </div>
+                                                            <iselse/>
+                                                                <isif
+                                                                    condition="${'titlePartB' in lineItem && lineItem.titlePartB}">
+                                                                    <div style="color:#666;font-size:14px;line-height:18px">
+                                                                        ${lineItem.titlePartB}
+                                                                    </div>
+                                                                </isif>
+                                                                <div style="color:#666;font-size:14px;line-height:18px">
+                                                                    ${lineItem.volume ? lineItem.volume : ''}
+                                                                </div>
+                                                                <isif
+                                                                    condition="${'customBundle' in lineItem && lineItem.customBundle}">
+                                                                    <div style="color:#666;font-size:14px;line-height:18px">
+                                                                        ${dw.experience.PageMgr.getPage(lineItem.customBundle).name}
+                                                                    </div>
+                                                                </isif>
+                                                                <div style="color:#666;font-size:14px;line-height:18px">
+                                                                    ${Resource.msg('email.order.itemno.label', 'confirmation', null)} ${lineItem.id}
+                                                                </div>
+                                                            </isif>
                                                         </div>
-                                                    </div>
-                                                </isif>
-                                            </td>
-                                        </isloop>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <iscomment> Billing Section </iscomment>
-                        <div
-                            style="font-size:26px;border-bottom:1px solid #333;text-transform:uppercase;margin:0;padding-bottom:13px;margin-bottom:16px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
-                            ${Resource.msg('email.order.billing.heading', 'confirmation', null)}
-                        </div>
-                        <div style="border:1px solid #e5e5e5;margin-bottom:30px">
-                            <table width="100%" cellpadding="0" cellspacing="0" style="table-layout:fixed">
-                                <tbody>
-                                    <tr>
-                                        <td
-                                            style="vertical-align:top;padding:21px 12px 33px 24px;color:#666666;font-size:16px;line-height:24px">
-                                            <div style="color:#333;font-weight:bold;margin-bottom:10px">
-                                                ${Resource.msg('email.order.billto.heading', 'confirmation', null)}
-                                            </div>
-                                            <isinclude template="checkout/addressSummary" />
-                                        </td>
-                                        <td
-                                            style="vertical-align:top;padding:21px 0 33px 50px;color:#666666;font-size:16px;line-height:24px">
-                                            <div style="color:#333;font-weight:bold;margin-bottom:10px">
-                                                ${Resource.msg('email.order.payment.method.heading', 'confirmation', null)}
-                                            </div>
-                                            
-                                            <isloop items="${orderDetail.order.billing.payment.selectedPaymentInstruments}"
-                                                var="payment">
-                                                <isif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE'}">
-                                                    <p>${Resource.msg('label.add.egift.title', 'giftcards', null)}</p>
-                                                    <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${orderDetail.order.currencyCode}
-                                                        ${orderDetail.order.eGiftTotalAmount}</p>
-                                                </isif>
-                                                <isif
-                                                    condition="${payment.paymentMethod === 'AdyenComponent' || payment.paymentMethod === 'CREDIT_CARD'}">
-                                                    <isinclude template="checkout/confirmation/adyenConfirmationDetails" />
-                                                    <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${orderDetail.order.currencyCode}
-                                                        ${payment.amount}</p>
-                                                    <iselseif
-                                                        condition="${payment.paymentMethod === 'CASHAPPPAY' || payment.paymentMethod === 'CLEARPAY' || payment.paymentMethod === 'AFTERPAY'}">
-                                                        <isinclude
-                                                            template="checkout/billing/paymentOptions/afterpaySummary" />
-                                                </isif>
+                                                    </td>
+                                                    <td
+                                                        style="font-size:16px;color:#333;padding:50px 10px 20px;vertical-align:top;text-align:center;">
+                                                        <span
+                                                            style="text-transform: uppercase;">${Resource.msg('label.header.quantity', 'confirmation', null)} </span>
+                                                        <isprint value="${lineItem.quantity}" formatter="##" />
+                                                    </td>
+                                                    <td
+                                                        style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:center">
+                                                        <isif
+                                                            condition="${lineItem.totalSavings && lineItem.totalSavings.value != 0}">
+                                                            ${lineItem.totalSavings}
+                                                        <iselse/>
+                                                            ${'-'}
+                                                        </isif>
+                                                    </td>
+                                                    <td
+                                                        style="font-size:16px;padding:50px 0 20px;vertical-align:top;text-align:right">
+                                                        <isif
+                                                            condition="${'priceValue' in lineItem.priceTotal && lineItem.priceTotal.priceValue <= 0}">
+                                                            ${Resource.msg('label.free.price', 'cart', null)}
+                                                        <iselse/>
+                                                            ${lineItem.priceTotal.price}
+                                                        </isif>
+                                                    </td>
+                                                </tr>
                                             </isloop>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <iscomment> Payment Summary </iscomment>
-                        <table width="100%" cellpadding="0" cellspacing="0">
-                            <tbody>
-                                <tr>
-                                    <td style="vertical-align:top;background:#f2f2f2;padding:30px 35px;">
-                                        <table width="100%" cellpadding="0" cellspacing="0">
-                                            <tbody>
-                                                <tr>
-                                                    <td colspan="2"
-                                                        style="vertical-align:top;font-size:26px;line-height:26px;text-transform:uppercase;border-bottom:3px solid #e5e5e5;padding-bottom:18px;text-align:center;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
-                                                        ${Resource.msg('email.order.payment.summary.heading', 'confirmation', null)}
-                                                    </td>
-                                                </tr>
-                                                <iscomment> Subtotal </iscomment>
-                                                <tr>
-                                                    <isif condition="${totalExclusiveTax}">
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:23px 0 13px">
-                                                            ${Resource.msg('email.order.payment.merch.subtotal.label', 'confirmation', null)}
-                                                        </td>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:23px 0 13px;text-align:right">
-                                                            ${orderDetail.order.totals.subTotalExclTax}
-                                                        </td>
-                                                    <iselse/>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:23px 0 13px">
-                                                            ${Resource.msg('email.order.payment.merch.subtotal.label', 'confirmation', null)}
-                                                        </td>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:23px 0 13px;text-align:right">
-                                                            ${orderDetail.order.totals.subTotal}
-                                                        </td>
-                                                    </isif>
-                                                </tr>
-    
-                                                <iscomment> Discounts </iscomment>
-                                                <tr>
+                                        </isif>
+                                    </tbody>
+                                </table>
+                                <p
+                                    style="font-size:14px;line-height:14px;color:#666666;text-align:center;font-family:'HelveticaNeue-Regular','Helvetica Neue Regular','HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif;border-top: 3px solid #f2f2f2;padding: 20px 0;">
+                                    ${Resource.msg('email.order.looking.more.text', 'confirmation', null)}<a
+                                        style="color:#005699;text-decoration:underline;"
+                                        href="${URLUtils.https(new dw.web.URLAction('Order-History', pdict.StorefrontName))}">
+                                        ${Resource.msg('email.order.looking.more.here.text', 'confirmation', null)}</a>
+                                </p>
+                                <iscomment> Shipping Section </iscomment>
+                                <div
+                                    style="font-size:26px;border-bottom:1px solid #333;text-transform:uppercase;margin:37px 0 16px;padding-bottom:13px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
+                                    ${Resource.msg('email.order.shipping.heading', 'confirmation', null)}
+                                </div>
+                                <iscomment> Shipping Summary </iscomment>
+                                <div style="border:1px solid #e5e5e5;margin-bottom:37px">
+                                    <table width="100%" cellpadding="0" cellspacing="0" style="table-layout:fixed">
+                                        <tbody>
+                                            <tr>
+                                                <isloop items="${orderDetail.order.shipping}" var="shippingModel" status="shippingLoop">
                                                     <td
-                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                        ${Resource.msg('label.order.savings', 'common', null)}
+                                                        style="vertical-align:top;padding:21px 12px 33px 24px;color:#666666;font-size:16px;line-height:24px">
+                                                        <div style="color:#333;font-weight:bold;margin-bottom:10px">
+                                                            ${Resource.msg('email.order.shippedto.heading', 'confirmation', null)}
+                                                        </div>
+                                                        <isset name="address" value="${shippingModel.shippingAddress}"
+                                                            scope="page" />
+                                                    <isinclude template="checkout/addressSummary" />
                                                     </td>
                                                     <td
-                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                        ${orderDetail.order.totals.totalDiscountFormatted}</td>
-                                                </tr>
-    
-                                                <iscomment> Order Discount </iscomment>
-                                                <isif condition="${orderDetail.order.totals.allDiscounts.length > 0}">
-                                                    <isloop items="${orderDetail.order.totals.allDiscounts}" var="discount"
-                                                        status="loopstatus">
+                                                        style="vertical-align:top;padding:21px 0 33px 50px;color:#666666;font-size:16px;line-height:24px">
+            
+                                                        <div style="color:#333;font-weight:bold;margin-bottom:10px">
+                                                            ${Resource.msg('email.order.shipping.method.heading', 'confirmation', null)}</div>
+                                                        <div style="padding-bottom:20px">
+                                                            <div style="color:#333333">
+
+                                                                ${shippingModel.selectedShippingMethod.displayName}</div>
+                                                        </div>
+                                                        <isif
+                                                            condition="${shippingModel.selectedShippingMethod.estimatedArrivalTime}">
+                                                            <div style="color:#333;font-weight:bold;margin-bottom:10px">
+                                                                ${Resource.msg('email.order.shipping.estimated.delivery.heading', 'confirmation', null)}</div>
+                                                            <div style="padding-bottom:20px">
+                                                                <div style="color:#333333">
+                                                                    ${shippingModel.selectedShippingMethod.estimatedArrivalTime}
+                                                                </div>
+                                                            </div>
+                                                        </isif>
+                                                    </td>
+                                                </isloop>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <iscomment> Billing Section </iscomment>
+                                <div
+                                    style="font-size:26px;border-bottom:1px solid #333;text-transform:uppercase;margin:0;padding-bottom:13px;margin-bottom:16px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
+                                    ${Resource.msg('email.order.billing.heading', 'confirmation', null)}
+                                </div>
+                                <div style="border:1px solid #e5e5e5;margin-bottom:30px">
+                                    <table width="100%" cellpadding="0" cellspacing="0" style="table-layout:fixed">
+                                        <tbody>
+                                            <tr>
+                                                <td
+                                                    style="vertical-align:top;padding:21px 12px 33px 24px;color:#666666;font-size:16px;line-height:24px">
+                                                    <div style="color:#333;font-weight:bold;margin-bottom:10px">
+                                                        ${Resource.msg('email.order.billto.heading', 'confirmation', null)}
+                                                    </div>
+                                                    <isinclude template="checkout/addressSummary" />
+                                                </td>
+                                                <td
+                                                    style="vertical-align:top;padding:21px 0 33px 50px;color:#666666;font-size:16px;line-height:24px">
+                                                    <div style="color:#333;font-weight:bold;margin-bottom:10px">
+                                                        ${Resource.msg('email.order.payment.method.heading', 'confirmation', null)}
+                                                    </div>
+                                                    
+                                                    <isloop items="${orderDetail.order.billing.payment.selectedPaymentInstruments}"
+                                                        var="payment">
+                                                        <isif condition="${payment.paymentMethod === 'GIFT_CERTIFICATE'}">
+                                                            <p>${Resource.msg('label.add.egift.title', 'giftcards', null)}</p>
+                                                            <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${orderDetail.order.currencyCode}
+                                                                ${orderDetail.order.eGiftTotalAmount}</p>
+                                                        </isif>
+                                                        <isif
+                                                            condition="${payment.paymentMethod === 'AdyenComponent' || payment.paymentMethod === 'CREDIT_CARD'}">
+                                                            <isinclude template="checkout/confirmation/adyenConfirmationDetails" />
+                                                            <p>${Resource.msg('email.order.payment.order.amount.label', 'confirmation', null)}: ${orderDetail.order.currencyCode}
+                                                                ${payment.amount}</p>
+                                                            <iselseif
+                                                                condition="${payment.paymentMethod === 'CASHAPPPAY' || payment.paymentMethod === 'CLEARPAY' || payment.paymentMethod === 'AFTERPAY'}">
+                                                                <isinclude
+                                                                    template="checkout/billing/paymentOptions/afterpaySummary" />
+                                                        </isif>
+                                                    </isloop>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <iscomment> Payment Summary </iscomment>
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td style="vertical-align:top;background:#f2f2f2;padding:30px 35px;">
+                                                <table width="100%" cellpadding="0" cellspacing="0">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td colspan="2"
+                                                                style="vertical-align:top;font-size:26px;line-height:26px;text-transform:uppercase;border-bottom:3px solid #e5e5e5;padding-bottom:18px;text-align:center;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
+                                                                ${Resource.msg('email.order.payment.summary.heading', 'confirmation', null)}
+                                                            </td>
+                                                        </tr>
+                                                        <iscomment> Subtotal </iscomment>
+                                                        <tr>
+                                                            <isif condition="${totalExclusiveTax}">
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:23px 0 13px">
+                                                                    ${Resource.msg('email.order.payment.merch.subtotal.label', 'confirmation', null)}
+                                                                </td>
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:23px 0 13px;text-align:right">
+                                                                    ${orderDetail.order.totals.subTotalExclTax}
+                                                                </td>
+                                                            <iselse/>
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:23px 0 13px">
+                                                                    ${Resource.msg('email.order.payment.merch.subtotal.label', 'confirmation', null)}
+                                                                </td>
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:23px 0 13px;text-align:right">
+                                                                    ${orderDetail.order.totals.subTotal}
+                                                                </td>
+                                                            </isif>
+                                                        </tr>
+            
+                                                        <iscomment> Discounts </iscomment>
                                                         <tr>
                                                             <td
-                                                                style="font-size:14px;text-transform:uppercase;vertical-align:top;padding:5px 13px;">
-                                                                ${discount.promotion && discount.promotion != null ? discount.promotion : "-"}
+                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                                ${Resource.msg('label.order.savings', 'common', null)}
                                                             </td>
                                                             <td
-                                                                style="font-size:14px;text-transform:uppercase;vertical-align:top;padding:5px 0;text-align:right">
-                                                                ${discount.discount}</td>
+                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                ${orderDetail.order.totals.totalDiscountFormatted}</td>
                                                         </tr>
-                                                    </isloop>
-                                                </isif>
-                                                <iscomment> Shipping Charge </iscomment>
-                                                <tr>
-                                                    <isif condition="${shippingExclusiveTax}">
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                            ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
-                                                            - <span
-                                                                style="text-transform:none">${Resource.msg('email.order.payment.shipping.ground.label2', 'confirmation', null)}</span>
-                                                        </td>
-                                                        <isif condition="${orderDetail.order.hasFreeShipping}">
-                                                            <td
-                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                                ${Resource.msg('label.free.price', 'cart', null)}</td>
-                                                        <iselse/>
-                                                            <td
-                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                                ${orderDetail.order.totals.shippingTotalExclTax}</td>
+            
+                                                        <iscomment> Order Discount </iscomment>
+                                                        <isif condition="${orderDetail.order.totals.allDiscounts.length > 0}">
+                                                            <isloop items="${orderDetail.order.totals.allDiscounts}" var="discount"
+                                                                status="loopstatus">
+                                                                <tr>
+                                                                    <td
+                                                                        style="font-size:14px;text-transform:uppercase;vertical-align:top;padding:5px 13px;">
+                                                                        ${discount.promotion && discount.promotion != null ? discount.promotion : "-"}
+                                                                    </td>
+                                                                    <td
+                                                                        style="font-size:14px;text-transform:uppercase;vertical-align:top;padding:5px 0;text-align:right">
+                                                                        ${discount.discount}</td>
+                                                                </tr>
+                                                            </isloop>
                                                         </isif>
-                                                    <iselse/>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                            ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
-                                                            - <span
-                                                                style="text-transform:none">${Resource.msg('email.order.payment.shipping.ground.label2', 'confirmation', null)}</span>
-                                                        </td>
-                                                        <isif condition="${orderDetail.order.hasFreeShipping}">
-                                                            <td
-                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                                ${Resource.msg('label.free.price', 'cart', null)}</td>
-                                                        <iselse/>
-                                                            <td
-                                                                style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                                ${orderDetail.order.totals.totalShippingCost}</td>
+                                                        <iscomment> Shipping Charge </iscomment>
+                                                        <tr>
+                                                            <isif condition="${shippingExclusiveTax}">
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                                    ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
+                                                                    - <span
+                                                                        style="text-transform:none">${Resource.msg('email.order.payment.shipping.ground.label2', 'confirmation', null)}</span>
+                                                                </td>
+                                                                <isif condition="${orderDetail.order.hasFreeShipping}">
+                                                                    <td
+                                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                        ${Resource.msg('label.free.price', 'cart', null)}</td>
+                                                                <iselse/>
+                                                                    <td
+                                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                        ${orderDetail.order.totals.shippingTotalExclTax}</td>
+                                                                </isif>
+                                                            <iselse/>
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                                    ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
+                                                                    - <span
+                                                                        style="text-transform:none">${Resource.msg('email.order.payment.shipping.ground.label2', 'confirmation', null)}</span>
+                                                                </td>
+                                                                <isif condition="${orderDetail.order.hasFreeShipping}">
+                                                                    <td
+                                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                        ${Resource.msg('label.free.price', 'cart', null)}</td>
+                                                                <iselse/>
+                                                                    <td
+                                                                        style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                        ${orderDetail.order.totals.totalShippingCost}</td>
+                                                                </isif>
+                                                            </isif>
+                                                        </tr>
+                                                        <iscomment> Shipping Ground </iscomment>
+                                                        <isif condition="${!orderDetail.order.hasFreeShipping && shippingExclusiveTax}">
+                                                            <tr>
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                                    ${Resource.msg('email.shipping.and.handling.tax', 'confirmation', null)}
+                                                                </td>
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                    ${orderDetail.order.totals.shippingTotalTax}</td>
+                                                            </tr>
                                                         </isif>
-                                                    </isif>
-                                                </tr>
-                                                <iscomment> Shipping Ground </iscomment>
-                                                <isif condition="${!orderDetail.order.hasFreeShipping && shippingExclusiveTax}">
-                                                    <tr>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                            ${Resource.msg('email.shipping.and.handling.tax', 'confirmation', null)}
-                                                        </td>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                            ${orderDetail.order.totals.shippingTotalTax}</td>
-                                                    </tr>
-                                                </isif>
-                                                <iscomment> Shipping Discounts </iscomment>
-                                                <tr>
-                                                    <isif
-                                                        condition="${!orderDetail.order.totals.shippingLevelDiscountTotal.value === 0}">
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
-                                                            ${Resource.msg('label.shipping.discount', 'common', null)}
-                                                        </td>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
-                                                            ${'-' + orderDetail.order.totals.shippingLevelDiscountTotal.formatted}
-                                                        </td>
-                                                    </isif>
-                                                </tr>
-    
-                                                <isif condition="${showSalesTaxes}">
-                                                    <tr>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0 20px">
-                                                            ${Resource.msg('email.order.payment.sales.tax.label', 'confirmation', null)}</td>
-                                                        <td
-                                                            style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0 20px;text-align:right">
-                                                            ${orderDetail.order.totals.totalTax}
-                                                        </td>
-                                                    </tr>
-                                                </isif>
-                                                <tr>
-                                                    <td
-                                                        style="font-size:21px;text-transform:uppercase;vertical-align:top;padding:22px 0 2px;border-top:3px solid #e5e5e5;font-weight:bold">
-                                                        ${Resource.msg('email.order.payment.order.total.label', 'confirmation', null)}</td>
-                                                    <td
-                                                        style="font-size:21px;text-transform:uppercase;vertical-align:top;padding:22px 0 2px;border-top:3px solid #e5e5e5;font-weight:bold;text-align:right">
-                                                        ${orderDetail.order.totals.grandTotal}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-                <iscomment> View Order Detail - Button </iscomment>
-                <tr style="padding: 0;">
-                    <td style="padding:15px 32px;vertical-align:top;text-align:center;">
-                        <div>
-                            <!--[if mso]>
-                                <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${dw.web.URLUtils.abs('Login-Show')}" style="height:40px;v-text-anchor:middle;width:200px;" strokecolor="#333" fillcolor="#333">
-                                    <w:anchorlock/>
-                                    <center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;">${Resource.msg('email.btn.view.order.details', 'confirmation', null)}</center>
-                                </v:rect>
-                                <![endif]-->
-                            <a href="${URLUtils.https(new dw.web.URLAction('Order-Details', pdict.StorefrontName), new dw.web.URLParameter('orderID', orderDetail.order.orderNumber))}"
-                                style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;">${Resource.msg('email.btn.view.order.details', 'confirmation', null)}</a>
-                        </div>
-                    </td>
-                </tr>
-                <iscomment> Order Email Content Asset - Content </iscomment>
-                <tr style="padding: 0;">
-                    <td style="padding:0 32px 0;vertical-align:top;text-align:left;">
-                        <isprint value="${orderDetail.markup}" encoding="off" />
-                    </td>
-                </tr>
-            </table>
-        </td>
-    </tr>
-</body>
+                                                        <iscomment> Shipping Discounts </iscomment>
+                                                        <tr>
+                                                            <isif
+                                                                condition="${!orderDetail.order.totals.shippingLevelDiscountTotal.value === 0}">
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
+                                                                    ${Resource.msg('label.shipping.discount', 'common', null)}
+                                                                </td>
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                                    ${'-' + orderDetail.order.totals.shippingLevelDiscountTotal.formatted}
+                                                                </td>
+                                                            </isif>
+                                                        </tr>
+            
+                                                        <isif condition="${showSalesTaxes}">
+                                                            <tr>
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0 20px">
+                                                                    ${Resource.msg('email.order.payment.sales.tax.label', 'confirmation', null)}</td>
+                                                                <td
+                                                                    style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0 20px;text-align:right">
+                                                                    ${orderDetail.order.totals.totalTax}
+                                                                </td>
+                                                            </tr>
+                                                        </isif>
+                                                        <tr>
+                                                            <td
+                                                                style="font-size:21px;text-transform:uppercase;vertical-align:top;padding:22px 0 2px;border-top:3px solid #e5e5e5;font-weight:bold">
+                                                                ${Resource.msg('email.order.payment.order.total.label', 'confirmation', null)}</td>
+                                                            <td
+                                                                style="font-size:21px;text-transform:uppercase;vertical-align:top;padding:22px 0 2px;border-top:3px solid #e5e5e5;font-weight:bold;text-align:right">
+                                                                ${orderDetail.order.totals.grandTotal}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <iscomment> View Order Detail - Button </iscomment>
+                        <tr style="padding: 0;">
+                            <td style="padding:15px 32px;vertical-align:top;text-align:center;">
+                                <div>
+                                    <!--[if mso]>
+                                        <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${dw.web.URLUtils.abs('Login-Show')}" style="height:40px;v-text-anchor:middle;width:200px;" strokecolor="#333" fillcolor="#333">
+                                            <w:anchorlock/>
+                                            <center style="font-size:14px;text-transform:uppercase;color:#ffffff;font-family:sans-serif;font-size:13px;">${Resource.msg('email.btn.view.order.details', 'confirmation', null)}</center>
+                                        </v:rect>
+                                        <![endif]-->
+                                    <a href="${URLUtils.https(new dw.web.URLAction('Order-Details', pdict.StorefrontName), new dw.web.URLParameter('orderID', orderDetail.order.orderNumber))}"
+                                        style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;">${Resource.msg('email.btn.view.order.details', 'confirmation', null)}</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <iscomment> Order Email Content Asset - Content </iscomment>
+                        <tr style="padding: 0;">
+                            <td style="padding:0 32px 0;vertical-align:top;text-align:left;">
+                                <isprint value="${orderDetail.markup}" encoding="off" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <isprint value="${orderDetail.content ? orderDetail.content.footerContent : ''}" encoding="off" />
+        </table>
+    </body>
 </html>
