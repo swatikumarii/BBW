@@ -128,17 +128,11 @@ Multiple email address can be separated by , (a la RFC2822)
                                                         style="vertical-align:middle;padding:20px 0 0;width:119px;text-align:center">
                                                         <a style="display:block;"
                                                             href="${URLUtils.https('ViewStorefront-PreviewProduct', 'pid', lineItem.id)}">
-                                                            <img src="${lineItem.images.small[0].url}"
+                                                            <img src="https://staging.bathandbodyworks.com.au${lineItem.images.small[0].url}"
                                                                 alt="${lineItem.images.small[0].alt}"
                                                                 title="${lineItem.images.small[0].title}"
                                                                 style="border:0;vertical-align:top;width:auto;max-height: 160px;height: 100%;max-width:119px;"
                                                                 width="119" />
-                                                            <img src="${lineItem.images.small[0].httpsURL}" alt="${lineItem.images.small[0].alt}"
-                                                                title="${lineItem.images.small[0].title}"
-                                                                style="border:0;vertical-align:top;width:auto;max-height: 160px;height: 100%;max-width:119px;" width="119" />
-                                                            <img src="${lineItem.images.small[0].absURL}" alt="${lineItem.images.small[0].alt}"
-                                                                title="${lineItem.images.small[0].title}"
-                                                                style="border:0;vertical-align:top;width:auto;max-height: 160px;height: 100%;max-width:119px;" width="119" />
                                                         </a>
                                                     </td>
                                                     <td width="245" style="padding:46px 0 20px 20px;vertical-align:top">
