@@ -231,7 +231,7 @@ module.exports = {
     getOrders: function (customerEmail) {
         var endPoint = 'v1.1/customer/transactions?format=json&email=' + customerEmail + '&mlp=true';
         var createStatus = callCapillaryAPI(endPoint, '', 'GET');
-        if (createStatus.ok && 'object' in createStatus && createStatus.object) {
+        if (createStatus && createStatus !== null && createStatus.ok && 'object' in createStatus && createStatus.object) {
             var createObject = JSON.parse(createStatus.object);
             if ('errors' in createObject && createObject.errors && createObject.errors.length > 0) {
                 logger.error('capillary get order: ' + JSON.stringify(createObject.errors));
@@ -243,5 +243,20 @@ module.exports = {
             }
         }
         return [];
+    },
+    getOrderDetail: function (orderNo) {
+        var endPoint = 'v2/transactions/' + orderNo;
+        var createStatus = callCapillaryAPI(endPoint, '', 'GET');
+        if (createStatus && createStatus !== null && createStatus.ok && 'object' in createStatus && createStatus.object) {
+            var createObject = JSON.parse(createStatus.object);
+            if ('errors' in createObject && createObject.errors && createObject.errors.length > 0) {
+                logger.error('capillary get order detail: ' + JSON.stringify(createObject.errors));
+                return '';
+            }
+            if ('billDetails' in createObject) {
+                return createObject;
+            }
+        }
+        return '';
     }
 };

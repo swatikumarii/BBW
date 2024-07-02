@@ -568,4 +568,70 @@ server.append(
     },
     seo.addCurrentPageMetaData);
 
+server.get(
+    'CapillaryOrders',
+    consentTracking.consent,
+    server.middleware.https,
+    userLoggedIn.validateLoggedIn,
+    function (req, res, next) {
+        var breadcrumbs = [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            },
+            {
+                htmlValue: Resource.msg(
+                    'page.title.myaccount',
+                    'account',
+                    null
+                ),
+                url: URLUtils.url('Account-Show').toString()
+            },
+            {
+                htmlValue: Resource.msg('label.orderhistory', 'account', null),
+                url: URLUtils.url('Address-List').toString()
+            }
+        ];
+        var customerEmail = req.currentCustomer.profile.email;
+        var orders = capillaryAPI.getOrders(customerEmail);
+        res.render('account/order/capillaryOrders', {
+            orders: orders,
+            accountlanding: false,
+            breadcrumbs: breadcrumbs
+        });
+        next();
+    },
+    seo.addCurrentPageMetaData);
+
+server.get(
+    'CapillaryDetails',
+    consentTracking.consent,
+    server.middleware.https,
+    userLoggedIn.validateLoggedIn,
+    function (req, res, next) {
+        var breadcrumbs = [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            },
+            {
+                htmlValue: Resource.msg('page.title.myaccount', 'account', null),
+                url: URLUtils.url('Account-Show').toString()
+            },
+            {
+                htmlValue: Resource.msg('label.orderhistory', 'account', null),
+                url: URLUtils.url('Order-History').toString()
+            }
+        ];
+        var order = capillaryAPI.getOrderDetail(req.querystring.orderID);
+        var exitLinkText = Resource.msg('link.orderdetails.orderhistory', 'account', null);
+        res.render('account/capillaryOrderDetails', {
+            order: order,
+            exitLinkText: exitLinkText,
+            breadcrumbs: breadcrumbs
+        });
+        next();
+    },
+    seo.addCurrentPageMetaData);
+
 module.exports = server.exports();
