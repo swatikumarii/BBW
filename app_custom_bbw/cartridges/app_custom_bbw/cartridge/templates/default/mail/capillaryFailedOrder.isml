@@ -1,0 +1,4 @@
+<p>${Resource.msg('capillary.failed.order.title', 'order', null)}</p>
+<isloop iterator="${pdict.failedOrders}" alias="order">
+    <p>${order}</p>
+</isloop>
