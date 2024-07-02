@@ -71,6 +71,7 @@ function logIn(res) {
     if (res.success) {
         obj = {
             'event': gtmEvents.LOGIN,
+            'method' : 'Site',
             'ecommerce': {
                 'firstname': res.authenticatedCustomer.profile.firstName,
                 'lastname': res.authenticatedCustomer.profile.lastName,
@@ -102,10 +103,8 @@ function getProductObject(product) {
 
     if (product.primaryCategory !== null) {
         obj.item_category = product.primaryCategory.displayName;
-        obj.item_categoryID = product.primaryCategory.ID.replace(/_/gi, '/');
     } else if (master && master.primaryCategory !== null) {
         obj.item_category = master.primaryCategory.displayName;
-        obj.item_categoryID = master.primaryCategory.ID.replace(/_/gi, '/');
     }
     if (product.priceModel.maxPrice.valueOrNull !== null) {
         obj.price = product.priceModel.maxPrice.value.toFixed(2);
@@ -130,7 +129,6 @@ function getGA4OrderProductObject(productLineItem) {
 function getProductArrayFromList(productList, callback) {
 
     var productArray = [];
-    var position = 1;
 
     while (productList.hasNext()) {
         var item = productList.next();
@@ -138,14 +136,13 @@ function getProductArrayFromList(productList, callback) {
 
         if (item instanceof dw.catalog.Product || item instanceof dw.catalog.Variant) {
             prodObj = callback(item);
-            prodObj.position = position;
-            prodObj.list = 'Search Results';
+            prodObj.item_list_id = 'search_results';
+            prodObj.item_list_name = 'Search Results';
 
         } else if (item instanceof dw.customer.ProductListItem || item instanceof dw.order.ProductLineItem) {
             prodObj = callback(item);
         }
         productArray.push(prodObj);
-        position++;
     }
     return productArray;
 }
@@ -157,14 +154,9 @@ function getPdpData(res) {
     var obj = {
         event: gtmEvents.PRODUCT_SHOW,
         ecommerce: {
-            add: {products:[{item_name:res.product.gtmData.item_name}]},
-            detail: { products: [] },
-            purchase: {
-                actionField: {
-                    currencyCode: res.product.price.sales.currency,
-                    revenue: res.product.price.sales.value
-                }
-            }
+            currency: res.product.price.sales.currency,
+            value: res.product.price.sales.value,
+            items:[]
         }
     };
 
@@ -173,21 +165,16 @@ function getPdpData(res) {
         for(var i= 0;i<res.breadcrumbs.length; i++){
             category[i]=res.breadcrumbs[i].htmlValue;
         }
-        obj.ecommerce.detail.products.push({
+        obj.ecommerce.items.push({
             item_name: res.product.gtmData.item_name,
             item_id: res.product.gtmData.item_id,
-            item_brand: res.product.brand ? res.product.brand : '',
-            discount: res.product.tierPrice
-                ? (
-                    res.product.tierPrice -
-                      res.product.price.sales.decimalPrice
-                ).toFixed(2)
-                : '',
+            discount: res.product.tierPrice ? (res.product.tierPrice - res.product.price.sales.decimalPrice).toFixed(2) : '',
             item_category: category[0] || '',
             item_category2: category[1] || '',
             item_category3: category[2] || '',
             item_category4: category[3] || '',
-            price: res.product.price.sales.decimalPrice
+            price: res.product.price.sales.decimalPrice,
+            quantity: 1
         });
     }
     return obj;
@@ -197,10 +184,9 @@ function getPdpData(res) {
 
 /**
  *
- * @param {object} res - current route response object
  * @returns {object} obj - an object of containing cart data
  */
-function viewCart(res) {
+function viewCart() {
     var currentBasket = dw.order.BasketMgr.getCurrentBasket();
 
     if (currentBasket !== null) {
@@ -208,26 +194,21 @@ function viewCart(res) {
             'event': 'view_cart',
             'ecommerce': {
                 'currency': currentBasket.currencyCode,
-                'value': currentBasket.getAdjustedMerchandizeTotalNetPrice().value.toFixed(2),
+                'value': currentBasket.totalGrossPrice.value.toFixed(2),
                 'items': []
             }
         };
-        if ('items' in res) {
-            for (var i = 0; i < res.items.length; i++) {
-                obj.ecommerce.items.push({
-                    item_name: res.items[i].productName,
-                    item_id: res.items[i].id,
-                    item_brand: res.items[i].brand ?  res.items[i].brand:'',
-                    discount: res.items[i].tierPrice ?  (res.items[i].tierPrice - res.items[i].price.sales.value).toFixed(2):'',
-                    item_category: res.items[i].product ? res.items[i].product:'',
-                    item_category2: res.items[i].gtmData.category ? res.cart.items[i].gtmData.category : '',
-                    quantity: res.items[i].quantity,
-                    price: res.items[i].price.sales.decimalPrice
-
-
-                });
-
-            }
+        for (var i = 0; i < currentBasket.productLineItems.length; i++) {
+            var product = currentBasket.productLineItems[i];
+            obj.ecommerce.items.push({
+                item_name: product.productName,
+                item_id: product.productID,
+                item_brand: product.product.brand ? product.product.brand : '',
+                discount: product.basePrice && product.adjustedGrossPrice ? (product.basePrice.value - product.adjustedGrossPrice.value).toFixed(2): '',
+                item_category: product.category ? product.category : '',
+                quantity: product.quantity.value,
+                price: product.adjustedGrossPrice.value
+            });
         }
         return obj;
 
@@ -269,18 +250,10 @@ function addToCart(res) {
     var object = {
         event: gtmEvents.ADD_TO_CART,
         ecommerce: {
-            add: {
-                currency: currentBasket.currencyCode,
-                value: obj[0].price,
-                products: obj,
-                item_name: lineItem.productName
-            },
-            purchase: {
-                actionField: {
-                    currencyCode: currentBasket.currencyCode,
-                    revenue: obj[0].price
-                }
-            }
+            currency: currentBasket.currencyCode,
+            value: obj.length && obj[0].price,
+            items: obj,
+            item_name: obj.length && obj[0].item_name
         }
     };
     return object;
@@ -295,30 +268,26 @@ function addToCart(res) {
  * @returns {object} obj - an object of containing product data
  */
 function removeFromCart(res) {
+    var currentBasket = dw.order.BasketMgr.getCurrentBasket();
     var lineItem=res.itemToRemove;
     var obj = [];
     obj.push({
         item_name: lineItem.productName,
         item_id: lineItem.productID,
-        discount: 'tierPrice' in lineItem
-            ? (lineItem.tierPrice - lineItem.price.sales.value).toFixed(2)
-            : '',
+        discount: lineItem.basePrice && lineItem.adjustedGrossPrice ? (lineItem.basePrice.value - lineItem.adjustedGrossPrice.value).toFixed(2): '',
         item_brand: lineItem.product.brand ? lineItem.product.brand : '',
         item_category: lineItem.category ? lineItem.category : '',
-        price: lineItem.product.priceModel.price
-            ? lineItem.product.priceModel.price.value
-            : '',
-        quantity: lineItem.quantityValue
+        quantity: lineItem.quantity.value,
+        price: lineItem.adjustedGrossPrice.value
     });
     var object = {
         event: gtmEvents.REMOVE_PRODUCT_LINE_ITEM_FROM_CART,
         ecommerce: {
-            remove: {
-                products: obj
-            },
-            add: {
-                products: obj
-            }
+            items: obj,
+            currency: currentBasket.currencyCode,
+            value: lineItem.product.priceModel.price
+                ? lineItem.product.priceModel.price.value
+                : '',
         }
     };
     return object;
@@ -335,27 +304,24 @@ function removeFromCart(res) {
 function addToWishlist(res) {
     var pid = res.pid;
     var productData = ProductMgr.getProduct(pid);
-    var ecommerce = {
+    var obj = {
         event: gtmEvents.ADD_TO_WISHLIST,
-        currency: productData.priceModel.price.currencyCode,
-        value: productData.priceModel.price.value,
-
-        items: {
-            item_id: pid,
-            item_name: productData.name,
-            item_brand: productData.brand ? productData.brand : '',
-            'item-category': productData.allCategories[0].displayName
-                ? productData.allCategories[0].displayName
-                : '',
-            item_categoryID: productData.allCategories[0].parent.ID
-                ? productData.allCategories[0].parent.ID
-                : '',
-            price: productData.priceModel.price.value
+        ecommerce: {
+            currency: productData.priceModel.price.currencyCode,
+            value: productData.priceModel.price.value,
+            items: {
+                item_id: pid,
+                item_name: productData.name,
+                item_brand: productData.brand ? productData.brand : '',
+                item_category: productData.allCategories[0].displayName ? productData.allCategories[0].displayName : '',
+                price: productData.priceModel.price.value,
+                quantity:1
+            }
         }
     };
-
-    return ecommerce;
+    return obj;
 }
+
 /**
  * @param {object} res - current route response object
  * @returns {object} an object containing a product list
@@ -394,7 +360,7 @@ function getSearchImpressionData(res) {
         obj = {
             event: gtmEvents.SEARCH_SHOW,
             ecommerce: {
-                impressions: getProductArrayFromList(
+                items: getProductArrayFromList(
                     getSearchProducts(res).iterator(),
                     getProductObject
                 )
@@ -403,7 +369,7 @@ function getSearchImpressionData(res) {
 
         if ('productSearch' in res) {
             for (var i = 0; i < res.productSearch.category.length; i++) {
-                obj.ecommerce.impressions.push({
+                obj.ecommerce.items.push({
                     category: res.productSearch.category.displayName
                         ? res.productSearch.category.displayName
                         : ''
@@ -415,50 +381,36 @@ function getSearchImpressionData(res) {
 }
 
 /**
- * @param {object} res - current route response object
  * @returns {object} Object containing checkout data.
  */
-function getCheckoutData(res) {
+function getCheckoutData() {
     var currentBasket = dw.order.BasketMgr.getCurrentBasket();
-    var obj;
+    var obj = {};
     if (currentBasket !== null) {
         obj = {
             event:  gtmEvents.BEGIN_CHECKOUT,
             ecommerce: {
-                checkout: {
-                    currency: currentBasket.currencyCode,
-                    value: currentBasket
-                        .getAdjustedMerchandizeTotalNetPrice()
-                        .value.toFixed(2),
-                    products: []
-                },
-                add:{products:[]}
+                currency: currentBasket.currencyCode,
+                value: currentBasket
+                    .totalGrossPrice
+                    .value.toFixed(2),
+                coupon: currentBasket.couponLineItems.length > 0 ? currentBasket.couponLineItems[0].couponCode : '',
+                items: [],
             }
         };
-    }
-    if ('order' in res) {
-        for (var i = 0; i < res.order.items.items.length; i++) {
-            obj.ecommerce.checkout.products.push({
-                item_name: res.order.items.items[i].productName,
-                item_id: res.order.items.items[i].id,
-                item_brand: res.order.items.items[i].brand
-                    ? res.order.items.items[i].brand
+        for (var i = 0; i < currentBasket.productLineItems.length; i++) {
+            var product = currentBasket.productLineItems[i];
+            obj.ecommerce.items.push({
+                item_name: product.productName,
+                item_id: product.productID,
+                item_brand: product.product.brand
+                    ? product.product.brand
                     : '',
-                item_category: res.order.items.items[i].gtmData.item_category
-                    ? res.order.items.items[i].gtmData.item_category
-                    : '',
-                item_categoryID: res.order.items.items[i].gtmData
-                    .item_categoryID
-                    ? res.order.items.items[i].gtmData.item_categoryID
-                    : '',
-                price: res.order.items.items[i].price.sales.decimalPrice,
-                quantity: res.order.productQuantityTotal
+                discount: product.basePrice && product.adjustedGrossPrice ? (product.basePrice.value - product.adjustedGrossPrice.value).toFixed(2): '',
+                item_category: product.category ? product.category : '',
+                quantity: product.quantity.value,
+                price: product.adjustedGrossPrice.value
             });
-            if (i === 0) {
-                obj.ecommerce.add.products.push({
-                    item_name: res.order.items.items[i].productName
-                });
-            }
         }
     }
     return obj;
@@ -517,6 +469,12 @@ function addPayment(res) {
     var currentBasket = dw.order.BasketMgr.getCurrentBasket();
 
     if (currentBasket !== null) {
+        var paymentMethod = currentBasket.paymentInstrument.paymentMethod;
+        if (paymentMethod === 'AdyenComponent') {
+            paymentMethod =
+                currentBasket.paymentInstrument.custom &&
+                currentBasket.paymentInstrument.custom.adyen_payment__Adyen_Payment_Method;
+        }
         var obj = {
             event: gtmEvents.ADD_PAYMENT_INFO,
             ecommerce: {
@@ -524,7 +482,7 @@ function addPayment(res) {
                 value: currentBasket
                     .getAdjustedMerchandizeTotalNetPrice()
                     .value.toFixed(2),
-                payment_type: currentBasket.paymentInstrument.paymentMethod,
+                payment_type: paymentMethod,
                 add: {
                     products: []
                 }
@@ -563,52 +521,53 @@ function addPayment(res) {
  */
 function getConfirmationData(res) {
     var order = null;
+    var obj = {};
     try {
         order = dw.order.OrderMgr.getOrder(res.order.orderNumber);
     } catch (e) {
-        Logger.error('GTMHelpers - cannot retrieve order'.concat(e));
+        Logger.error('GTMHelpers - cannot retrieve order: '.concat(e));
     }
 
-
-    var obj = {
-        event: gtmEvents.PURCHASE,
-        ecommerce: {
-            transaction_id: order.orderNo,
-            purchase: {
-                products: [],
-                actionField: {
-                    revenue: order.totalGrossPrice.value,
-                    tax: order.getTotalTax().getValue().toFixed(2),
-                    shipping: order.getAdjustedShippingTotalPrice().getValue(),
-                    coupon: order.couponLineItems.length
-                        ? order.couponLineItems[0].couponCode
+    try {
+        obj = {
+            event: gtmEvents.PURCHASE,
+            ecommerce: {
+                transaction_id: order.orderNo,
+                value: order.totalGrossPrice.value,
+                tax: order.getTotalTax().getValue().toFixed(2),
+                shipping: order.getAdjustedShippingTotalPrice().getValue(),
+                coupon: order.couponLineItems.length ? order.couponLineItems[0].couponCode : '',
+                currency: order.currencyCode,
+                orderStatus: orderStatusMatrix[order.status.value],
+                items: []
+            }
+        };
+        if ('order' in res) {
+            for (var i = 0; i < res.order.items.items.length; i++) {
+                var unitBaseDiscountedPrice = (res.order.items.items[i].priceTotal.priceValue / res.order.items.items[i].quantity).toFixed(2);
+                obj.ecommerce.items.push({
+                    item_name: res.order.items.items[i].productName,
+                    item_id: res.order.items.items[i].id,
+                    item_brand: res.order.items.items[i].brand
+                        ? res.order.items.items[i].brand
                         : '',
-                    currencyCode: order.currencyCode
-                }
-            },
-            orderStatus: orderStatusMatrix[order.status.value]
+                    // coupon:res.order.totals.discounts[i].couponCode,
+                    item_category: res.order.items.items[i].gtmData
+                        .item_category
+                        ? res.order.items.items[i].gtmData.item_category
+                        : '',
+                    price: unitBaseDiscountedPrice,
+                    discount: res.order.items.items[i].basePrice.valueOrNull
+                        ? (res.order.items.items[i].basePrice.value -
+                          unitBaseDiscountedPrice).toFixed(2)
+                        : 0,
+                    quantity: res.order.items.items[i].quantity
+                });
+            }
         }
-    };
-    if ('order' in res) {
-        for (var i = 0; i < res.order.items.items.length; i++) {
-            obj.ecommerce.purchase.products.push({
-                item_name: res.order.items.items[i].productName,
-                item_id: res.order.items.items[i].id,
-                item_brand: res.order.items.items[i].brand
-                    ? res.order.items.items[i].brand
-                    : '',
-                // coupon:res.order.totals.discounts[i].couponCode,
-                item_category: res.order.items.items[i].gtmData.item_category
-                    ? res.order.items.items[i].gtmData.item_category
-                    : '',
-                item_categoryID: res.order.items.items[i].gtmData
-                    .item_categoryID
-                    ? res.order.items.items[i].gtmData.item_categoryID
-                    : '',
-                price: res.order.items.items[i].gtmData.price,
-                quantity: res.order.productQuantityTotal
-            });
-        }
+    } catch (e) {
+        Logger.error('GTMHelpers - Error in creating oject: '.concat(e));
+        return {};
     }
     return obj;
 }
@@ -620,7 +579,8 @@ function getConfirmationData(res) {
 function signUp(res) {
     if (res.success) {
         var obj = {
-            event: gtmEvents.SIGN_UP
+            event: gtmEvents.SIGN_UP,
+            method: 'Site'
         };
         return obj;
     }

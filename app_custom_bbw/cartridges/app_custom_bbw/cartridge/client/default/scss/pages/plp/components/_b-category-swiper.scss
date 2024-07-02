@@ -17,6 +17,10 @@
         }
     }
 
+    @include media-up(md) {
+        margin: 0 auto;
+    }
+
     &__link {
         min-width: 36vw;
         width: 100%;

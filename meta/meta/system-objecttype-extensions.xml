@@ -567,6 +567,12 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="capillaryFailed">
+                <display-name xml:lang="x-default">Capillary Failed</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Standard">
@@ -579,6 +585,7 @@
                 <attribute attribute-id="zipCode"/>
                 <attribute attribute-id="capillaryCustomerID"/>
                 <attribute attribute-id="capillaryResponse"/>
+                <attribute attribute-id="capillaryFailed"/>
             </attribute-group>
             <attribute-group group-id="MigrationAttribute">
                 <display-name xml:lang="x-default">Migration Attribute</display-name>
@@ -1526,6 +1533,12 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="showEgiftCardExpiry">
+                <display-name xml:lang="x-default">Enable Qwikcilver</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="essentialFragrances">
                 <display-name xml:lang="x-default">essentialFragrances</display-name>
                 <description xml:lang="x-default">This fragrance will always present on shop by fragrance page.</description>
@@ -1796,6 +1809,15 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <field-length>0</field-length>
                 <default-value>no-reply@testorganization.com</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="capillaryOrderFailedEmail">
+                <display-name xml:lang="x-default">Capillary Order Failed Email</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+                <default-value>no-reply@testorganization.com</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="showMinicartPopup">
                 <display-name xml:lang="x-default">Show Minicart popup</display-name>
                 <type>boolean</type>
@@ -1865,6 +1887,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="qwikcilverMaxRedemptionAmount"/>
                 <attribute attribute-id="qwikclverAuthToken"/>
                 <attribute attribute-id="qwikcilverTransactionID"/>
+                <attribute attribute-id="showEgiftCardExpiry"/>
                 <attribute attribute-id="s3UploadLink"/>
             </attribute-group>
             <attribute-group group-id="Storefront Configs">
@@ -1875,6 +1898,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="GoogleVerificationTag"/>
                 <attribute attribute-id="countryCode"/>
                 <attribute attribute-id="customerServiceEmail"/>
+                <attribute attribute-id="capillaryOrderFailedEmail"/>
                 <attribute attribute-id="mapAPI"/>
                 <attribute attribute-id="reserveQty"/>
                 <attribute attribute-id="maxOrderQty"/>
@@ -2046,6 +2070,13 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-definition attribute-id="isCollectionPage">
                 <display-name xml:lang="x-default">Is Collection Page</display-name>
                 <description xml:lang="x-default">Set this attribute true for Collection Pages</description>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="isEGiftCategory">
+                <display-name xml:lang="x-default">Is E-Giftcard category</display-name>
+                <description xml:lang="x-default">Set this attribute true for Giftcard Category</description>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -2794,6 +2825,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="pageDesignerID"/>
                 <attribute attribute-id="showInMenu"/>
                 <attribute attribute-id="hideFilter"/>
+                <attribute attribute-id="isEGiftCategory"/>
             </attribute-group>
             <attribute-group group-id="seoPromotionContent">
                 <display-name xml:lang="x-default">Seo Promotion Content</display-name>
@@ -3103,6 +3135,12 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="capillaryFailed">
+                <display-name xml:lang="x-default">Capillary Failed</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="AdyenPayments">
@@ -3137,6 +3175,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <display-name xml:lang="x-default">Custom Attributes</display-name>
                 <attribute attribute-id="capillaryOrderID"/>
                 <attribute attribute-id="capillaryResponse"/>
+                <attribute attribute-id="capillaryFailed"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

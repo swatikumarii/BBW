@@ -453,6 +453,14 @@
                     text-decoration: underline;
                 }
             }
+
+            .txt-h2 {
+                font-size: 60px;
+                font-weight: 800;
+                text-transform: uppercase;
+                color: colour(black);
+                letter-spacing: -0.5px;
+            }
         }
     }
 
@@ -518,6 +526,10 @@
             color: colour(black, 3);
             margin-top: 0.625rem;
             margin-left: 3.125rem;
+
+            @include media-down(sm) {
+                margin-left: 25px;
+            }
         }
     }
 }
@@ -1232,7 +1244,7 @@
     }
 
     .step1 {
-        background-color: colour(blue, 18);
+        background-color: colour(blue, 21);
     }
 
     .stephead {
@@ -1315,7 +1327,7 @@
     }
 
     .step3 {
-        background-color: colour(blue, 18);
+        background-color: colour(blue, 21);
     }
 
     .step4 {
@@ -1688,4 +1700,53 @@
         width: 88%;
         margin: 20px auto;
     }
+/* Hand Care */
+.blogs-container {
+    @include media-down(md) {
+        padding: 0;
+    }
+
+    .blog-description-16 {
+        @include media-down(md) {
+            width: 98%;
+            margin: 0 auto;
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @include media-down(sm) {
+            width: 97%;
+            margin: 0 auto;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        p.first-sub-head {
+            font-weight: map-get($font-weight, semibold);
+            line-height: 1.2;
+            margin-bottom: 0;
+        }
+
+        p.second-sub-head {
+            padding-left: 10%;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        p.second-sub-desc {
+            padding-left: 10%;
+            margin-top: 0;
+        }
+
+        a {
+            &:hover {
+                color: colour(black, 3);
+            }
+        }
+    }
+}
 }

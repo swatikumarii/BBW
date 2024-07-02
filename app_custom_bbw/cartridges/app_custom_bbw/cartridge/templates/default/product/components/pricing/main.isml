@@ -1,14 +1,35 @@
 <isif condition="${price.type === 'tiered'}">
-    <div class="price">
+    <div class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
         <isinclude template="/product/components/pricing/tiered" />
+        <isif condition="${product.price.type === 'range'}">
+            <meta itemprop="priceCurrency" content="${product.price.currency}" />
+        <iselseif condition="${product.price.sales}">
+            <meta itemprop="priceCurrency" content="${product.price.sales.currency}" />
+        <iselse>
+            <meta itemprop="priceCurrency" content="${product.price.list.currency}" />
+        </isif>
     </div>
 <iselseif condition="${price.type === 'range'}">
-    <div class="price">
+    <div class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
         <isinclude template="/product/components/pricing/range" />
+        <isif condition="${price && 'min' in price && price.price.sales}">
+            <meta itemprop="priceCurrency" content="${price.min.sales.currency}" />
+        <iselseif condition="${price && 'min' in price && price.price.list}">
+            <meta itemprop="priceCurrency" content="${product.min.list.currency}" />
+        <iselse>
+            <meta itemprop="priceCurrency" content="${request.session.currency}" />
+        </isif>
     </div>
 <iselse>
-    <div class="price">
+    <div class="price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
         <isset name="isLowPrice" value="${}" scope="page" />
         <isinclude template="/product/components/pricing/default" />
+        <isif condition="${product.price.type === 'range'}">
+            <meta itemprop="priceCurrency" content="${product.price.currency}" />
+        <iselseif condition="${product.price.sales}">
+            <meta itemprop="priceCurrency" content="${product.price.sales.currency}" />
+        <iselse>
+            <meta itemprop="priceCurrency" content="${product.price.list.currency}" />
+        </isif>
     </div>
 </isif>

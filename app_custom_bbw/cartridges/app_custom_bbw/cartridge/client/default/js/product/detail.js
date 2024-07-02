@@ -159,7 +159,7 @@ module.exports = $.extend({}, detail, {
         $(document).on('click', '.quantity-field > .increase', function () {
             var maxOrderQty = Number($('input[name="maxOrderQty"]').val());
             var quantity = Number($(this).siblings('#Quantity').val());
-            if (quantity === maxOrderQty) {
+            if (quantity >= maxOrderQty) {
                 $('.reserve-stock').removeClass('d-none');
             } else {
                 quantity += 1;

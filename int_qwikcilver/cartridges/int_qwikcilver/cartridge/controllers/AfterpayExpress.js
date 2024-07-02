@@ -98,7 +98,7 @@ function integratedShippingFlow(req, res, next, afterPayOrderResponse) {
         if (!shipMethod) {
             Logger.error('Shipping method returned by Afterpay was invalid.');
             redirectToErrorDisplay(res, Resource.msg('expresscheckout.error.checkout', 'afterpay', null));
-            return next();
+            return {emit: false};
         }
         AfterpayShippingHelpers.setBasketShippingMethod(currentBasket, shipMethod.ID);
     } else {
@@ -123,7 +123,7 @@ function integratedShippingFlow(req, res, next, afterPayOrderResponse) {
         // this can occur if session was modified while express checkout was in flight
         Logger.error('Amount returned by Afterpay did not match expected amount. Afterpay returned=' + amount + currency + ' Merchant computed=' + adjustCartResponse.totalCost.value + adjustCartResponse.totalCost.currencyCode);
         redirectToErrorDisplay(res, Resource.msg('expresscheckout.error.amountMismatch', 'afterpay', null));
-        return next();
+        return {emit: false};
     }
 
     var buyNow = sitePreferences.isExpressCheckoutBuyNowEnabled();
@@ -177,7 +177,7 @@ function integratedShippingFlow(req, res, next, afterPayOrderResponse) {
                                     orderToken: order.orderToken,
                                     continueUrl: URLUtils.url('Order-Confirm').toString()
                                 });
-                                return this.emit('route:Complete', req, res);
+                                return {emit: true};
                             }
                         } else {
                             qwikcilverHelpers.sendGiftCardEmail(order, req.locale.id, false, false, index);
@@ -189,7 +189,7 @@ function integratedShippingFlow(req, res, next, afterPayOrderResponse) {
                                     orderToken: order.orderToken,
                                     continueUrl: URLUtils.url('Order-Confirm').toString()
                                 });
-                                return this.emit('route:Complete', req, res);
+                                return {emit: true};
                             }
                         }
                     }
@@ -215,7 +215,7 @@ function integratedShippingFlow(req, res, next, afterPayOrderResponse) {
             });
             res.redirect(URLUtils.url('Checkout-Begin', 'stage', 'payment', 'afterpayErrorMessage', paymentStatusUpdated.AfterpayOrderErrorMessage ? paymentStatusUpdated.AfterpayOrderErrorMessage : Resource.msg('apierror.flow.default', 'afterpay', null)));
         }
-        return next();
+        return {emit: false};
     }
     Transaction.wrap(function () {
         AfterpayRefArchCOHelpers.removeAllNonGiftCertificatePayments(currentBasket);
@@ -230,7 +230,7 @@ function integratedShippingFlow(req, res, next, afterPayOrderResponse) {
         status: 'SUCCESS', orderToken: apOrderToken, apExpressCheckout: true
     });
     res.redirect(URLUtils.url('Checkout-Begin', 'stage', 'placeOrder'));
-    return next();
+    return {emit: false};
 }
 
 server.prepend('PostAfterpayCheckoutFlow', server.middleware.https, function (req, res, next) {
@@ -289,7 +289,11 @@ server.prepend('PostAfterpayCheckoutFlow', server.middleware.https, function (re
                 return deferredShippingFlow(req, res, next, afterPayOrderResponse);
             }
 
-            return integratedShippingFlow(req, res, next, afterPayOrderResponse);
+            var integratedShippingFlowResponse = integratedShippingFlow(req, res, next, afterPayOrderResponse);
+            if (integratedShippingFlowResponse.emit) {
+                return this.emit('route:Complete', req, res);
+            }
+            return next();
         }
     }
     return next();
