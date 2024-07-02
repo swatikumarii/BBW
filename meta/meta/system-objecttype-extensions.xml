@@ -1533,6 +1533,12 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="showEgiftCardExpiry">
+                <display-name xml:lang="x-default">Enable Qwikcilver</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="essentialFragrances">
                 <display-name xml:lang="x-default">essentialFragrances</display-name>
                 <description xml:lang="x-default">This fragrance will always present on shop by fragrance page.</description>
@@ -1872,6 +1878,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="qwikcilverMaxRedemptionAmount"/>
                 <attribute attribute-id="qwikclverAuthToken"/>
                 <attribute attribute-id="qwikcilverTransactionID"/>
+                <attribute attribute-id="showEgiftCardExpiry"/>
                 <attribute attribute-id="s3UploadLink"/>
             </attribute-group>
             <attribute-group group-id="Storefront Configs">

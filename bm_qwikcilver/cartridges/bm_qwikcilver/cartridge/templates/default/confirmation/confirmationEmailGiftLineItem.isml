@@ -241,11 +241,13 @@
             </td>
         </tr>
         <td colspan="2">
-            <p
-                style="text-align:center;font-size: 18px;color: black;font-weight:600;line-height:22px;margin:0;color: #1a1919;margin-bottom: 5px;">
-                ${Resource.msg('confirm.order.card.expiry.date', 'common', null)}<span
-                    style="font-size: 15px; padding-left: 5px;font-style: italic;"> <isprint value="${new Date(pdict.expiryDate)}" formatter="dd-MM-YYYY " timezone="SITE" /></span>
-            </p>
+            <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue("showEgiftCardExpiry")}">
+                <p
+                    style="text-align:center;font-size: 18px;color: black;font-weight:600;line-height:22px;margin:0;color: #1a1919;margin-bottom: 5px;">
+                    ${Resource.msg('confirm.order.card.expiry.date', 'common', null)}<span
+                        style="font-size: 15px; padding-left: 5px;font-style: italic;"> <isprint value="${new Date(pdict.expiryDate)}" formatter="dd-MM-YYYY " timezone="SITE" /></span>
+                </p>
+            </isif>
         </td>
         </tr>
         <tr>
