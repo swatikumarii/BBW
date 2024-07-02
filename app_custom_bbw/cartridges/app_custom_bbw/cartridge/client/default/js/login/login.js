@@ -139,6 +139,7 @@ function login() {
                         200
                     );
                 } else {
+                    localStorage.setItem('isLoggedIn', true);
                     form.trigger('login:success', data);
                     if (data.isIncomplete && data.showPopup) {
                         sessionStorage.setItem('profileIncomplete', true);
