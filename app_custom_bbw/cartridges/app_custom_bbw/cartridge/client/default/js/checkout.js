@@ -455,6 +455,7 @@ $('.shippingAddressCity').change(function () {
         });
         zipDropdown.trigger('change');
     } else {
+        $(this).val('');
         zipDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -462,6 +463,13 @@ $('.shippingAddressCity').change(function () {
             }).attr('selected', 'selected')
         );
         zipDropdown.trigger('change');
+    }
+});
+
+$('.shippingZipCode').change(function () {
+    var selectedZipCode = $(this).val(); 
+    if (selectedZipCode === null) {
+        $(this).val('').change();
     }
 });
 
@@ -534,6 +542,7 @@ $('.billingAddressCity').change(function () {
         });
         zipDropdown.trigger('change');
     } else {
+        $(this).val('');
         zipDropdown.prepend(
             $('<option>', {
                 value: '',
@@ -541,6 +550,13 @@ $('.billingAddressCity').change(function () {
             }).attr('selected', 'selected')
         );
         zipDropdown.trigger('change');
+    }
+});
+
+$('.billingZipCode').change(function () {
+    var selectedZipCode = $(this).val();
+    if (selectedZipCode === null) {
+        $(this).val('').change();
     }
 });
 
