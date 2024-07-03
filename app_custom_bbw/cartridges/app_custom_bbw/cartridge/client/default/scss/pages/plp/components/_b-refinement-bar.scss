@@ -382,10 +382,21 @@
         width: 20px;
         right: 23px;
         top: 15px;
+
+        @include media-btw(sm, md) {
+            width: 15px;
+            padding: 8px;
+            right: 9px;
+        }
     }
 }
 
 input.frag-search {
+    @include media-btw(sm, md) {
+        font-size: 16px;
+        padding-left: 10px;
+    }
+
     @include media-down(sm) {
         border: 0;
         margin-bottom: 0;
@@ -403,6 +414,7 @@ input.frag-search {
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 20px;
+    font-size: 18px;
 }
 
 .fragrance-filter-header {
