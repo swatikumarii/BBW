@@ -29,9 +29,15 @@ Multiple email address can be separated by , (a la RFC2822)
     <body>
         <isscript>
             var orderModel = require('bm_bbw/cartridge/models/customOrder.js');
-            var orderDetail = orderModel.getInvoice(pdict.Order.orderNo);
+            var orderDetail = orderModel.getInvoice(pdict.Order.orderNo, pdict.StorefrontName);
         </isscript>
-        <isset name="urlHelpers" value="${require('*/cartridge/scripts/helpers/urlHelpers')}" scope="page" />
+                <isset name="urlHelpers" value="${require('*/cartridge/scripts/helpers/urlHelpers')}" scope="page" />
+        =================${request.httpHost}++++++++++++
+        -----------------
+        ${require('dw/system/Site').getCurrent().httpsHostName}
+        ++++++++++++++
+        ${require('dw/system/Site').getCurrent().httpsHostName}
+        ================
         <table cellpadding="0" cellspacing="0" border="0" align="center" width="700" style=" border-collapse: collapse; border-spacing: 0; margin: 0 auto; width: 700px; max-width: 700px; min-width: 320px; vertical-align: top; background: #ffffff;">
             <tr style="padding: 0; display: none;">
                 <td style="padding: 0; width: 100%;" width="100%">
@@ -73,7 +79,7 @@ Multiple email address can be separated by , (a la RFC2822)
                                                     </a>
                                                 </div>
                                             </td>
-                                            <td style="vertical-align:bottom;text-align:right;font-size:18px">
+                                                                                        <td style="vertical-align:bottom;text-align:right;font-size:18px">
                                                 ${Resource.msg('label.order.date', 'confirmation', null)} <span
                                                     style="font-weight:bold">
                                                     <isprint value="${new Date(orderDetail.order.creationDate)}" formatter="dd/MM/YYYY "
@@ -96,7 +102,13 @@ Multiple email address can be separated by , (a la RFC2822)
                                 <iscomment> View Order Status Image and Button </iscomment>
                                 <div style="border:3px solid #f2f2f2;padding:36px 0;text-align:center">
                                     <p style="margin:0 0 44px">
-                                    <isprint value="${orderDetail.progressImage}" encoding="off" />
+                                    <iscomment> <isprint value="${orderDetail.progressImage}" encoding="off" /> </iscomment>
+                                    <iscomment> ${URLUtils.https images/email/email-status-image/icon-placed.png?$staticlink$ </iscomment>
+                                    ---
+                                    ${orderDetail.progressImage}
+                                    +++
+
+                                    <img src="${orderDetail.progressImage}"  alt="Progressalt" style="border:0;vertical-align:top;width:90%;"/>
                                     </p>
                                     <div>
                                         <!--[if mso]>
