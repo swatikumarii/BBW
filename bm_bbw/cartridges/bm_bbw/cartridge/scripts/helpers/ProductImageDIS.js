@@ -137,7 +137,8 @@ ProductImage.prototype.getURL = function () {
     if (this.imageObject === null) {
         return null;
     }
-    return this.getImageURL();
+    var img = this.image;
+    return Site.getCurrent().httpsHostName + this.image.url;
 };
 
 ProductImage.prototype.getHttpURL = function () {

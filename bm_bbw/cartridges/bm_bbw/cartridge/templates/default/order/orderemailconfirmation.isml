@@ -31,13 +31,7 @@ Multiple email address can be separated by , (a la RFC2822)
             var orderModel = require('bm_bbw/cartridge/models/customOrder.js');
             var orderDetail = orderModel.getInvoice(pdict.Order.orderNo, pdict.StorefrontName);
         </isscript>
-                <isset name="urlHelpers" value="${require('*/cartridge/scripts/helpers/urlHelpers')}" scope="page" />
-        =================${request.httpHost}++++++++++++
-        -----------------
-        ${require('dw/system/Site').getCurrent().httpsHostName}
-        ++++++++++++++
-        ${require('dw/system/Site').getCurrent().httpsHostName}
-        ================
+        <isset name="urlHelpers" value="${require('*/cartridge/scripts/helpers/urlHelpers')}" scope="page" />
         <table cellpadding="0" cellspacing="0" border="0" align="center" width="700" style=" border-collapse: collapse; border-spacing: 0; margin: 0 auto; width: 700px; max-width: 700px; min-width: 320px; vertical-align: top; background: #ffffff;">
             <tr style="padding: 0; display: none;">
                 <td style="padding: 0; width: 100%;" width="100%">
@@ -104,10 +98,6 @@ Multiple email address can be separated by , (a la RFC2822)
                                     <p style="margin:0 0 44px">
                                     <iscomment> <isprint value="${orderDetail.progressImage}" encoding="off" /> </iscomment>
                                     <iscomment> ${URLUtils.https images/email/email-status-image/icon-placed.png?$staticlink$ </iscomment>
-                                    ---
-                                    ${orderDetail.progressImage}
-                                    +++
-
                                     <img src="${orderDetail.progressImage}"  alt="Progressalt" style="border:0;vertical-align:top;width:90%;"/>
                                     </p>
                                     <div>
