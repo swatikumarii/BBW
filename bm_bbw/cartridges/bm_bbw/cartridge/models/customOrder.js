@@ -2,6 +2,8 @@
 
 var Locale = require("dw/util/Locale");
 
+var contentApi = require("*/cartridge/scripts/service/contentApi");
+
 /**
  * get Email Content
  * @returns {object} - object with content to be putted in email
@@ -9,34 +11,36 @@ var Locale = require("dw/util/Locale");
  * @param {string} headerType - Footer type
  */
 function getEmailContent(footerType, headerType) {
-    var ContentMgr = require('dw/content/ContentMgr');
+    // var ContentMgr = require('dw/content/ContentMgr');
 
     var headerContent = null;
     var footerContent = null;
     var content = null;
 
     if(headerType === 'newsletter-header') {
-        content = ContentMgr.getContent('email-header-newsletter');
+        content = contentApi.contentApi(
+          "email-header-newsletter"
+        );
     } else {
-        content = ContentMgr.getContent('email-header');
+        content = contentApi.contentApi("email-header");
     }
 
-    if (content && content.isOnline()) {
-        headerContent = content.getCustom().body.markup;
+    if (content) {
+        headerContent = content;
     }
 
     if (footerType === 'normal-footer') {
-        content = ContentMgr.getContent('email-footer');
+        content = contentApi.contentApi('email-footer');
     } else if (footerType === 'footer-suggestions') {
-        content = ContentMgr.getContent('email-footer-with-suggestions');
+        content = contentApi.contentApi('email-footer-with-suggestions');
     } else if (footerType === 'footer-only-topoffer') {
-        content = ContentMgr.getContent('email-footer-only-topoffer');
+        content = contentApi.contentApi('email-footer-only-topoffer');
     } else {
         content = false;
     }
 
-    if (content && content.isOnline()) {
-        footerContent = content.getCustom().body.markup;
+    if (content) {
+        footerContent = content;
     }
 
     return {
@@ -48,7 +52,7 @@ function getEmailContent(footerType, headerType) {
 function getInvoice(orderNo, hostName) {
     var URLUtils = require("dw/web/URLUtils");
     var OrderMgr = require('dw/order/OrderMgr');
-    var ContentMgr = require("dw/content/ContentMgr");
+    // var ContentMgr = require("dw/content/ContentMgr");
     // var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
     var orderModel = require("*/cartridge/models/order");
     var TaxMgr = require('dw/order/TaxMgr');
@@ -77,8 +81,7 @@ function getInvoice(orderNo, hostName) {
           // countryCode: currentLocale.country,
         });
         var content = getEmailContent("normal-footer", "email-header");
-        var image = ContentMgr.getContent("email-progress-status-image").getCustom().body
-          .markup;
+        var image = contentApi.contentApi("email-progress-status-image");
         return {
           order: orderModelData,
           content: content,
@@ -95,7 +98,7 @@ function getInvoice(orderNo, hostName) {
 
 function getCanceledData(orderNo) {
   var OrderMgr = require("dw/order/OrderMgr");
-  var ContentMgr = require("dw/content/ContentMgr");
+  // var ContentMgr = require("dw/content/ContentMgr");
   var URLUtils = require("dw/web/URLUtils");
   var encryptionHelper = require("*/cartridge/scripts/helpers/encryptionHelpers");
   // var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
@@ -118,8 +121,8 @@ function getCanceledData(orderNo) {
     });
     var cancelEmailMarkup = "";
     var cancelEmailFooterMarkup = "";
-    var emailContent = ContentMgr.getContent("email-good-to-konw-block"); // Canceled Order Email Content Asset Id
-    var emailFooterContent = ContentMgr.getContent(
+    var emailContent = contentApi.contentApi("email-good-to-konw-block"); // Canceled Order Email Content Asset Id
+    var emailFooterContent = contentApi.contentApi(
       "email-order-confirmation"
     ); // Canceled Order Email Footer Image Content Asset Id
 
@@ -156,7 +159,7 @@ function getCanceledData(orderNo) {
 
 function getShippedData(orderNo) {
   var OrderMgr = require("dw/order/OrderMgr");
-  var ContentMgr = require("dw/content/ContentMgr");
+  // var ContentMgr = require("dw/content/ContentMgr");
   var URLUtils = require("dw/web/URLUtils");
   var encryptionHelper = require("*/cartridge/scripts/helpers/encryptionHelpers");
   // var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
@@ -179,7 +182,7 @@ function getShippedData(orderNo) {
     });
     var shippedEmailMarkup = "";
     var shippedEmailFooterMarkup = "";
-    var shippedemailContent = ContentMgr.getContent(
+    var shippedemailContent = contentApi.contentApi(
       "email-good-to-konw-shipped-block"
     );
     if (!empty(shippedemailContent) && shippedemailContent.online) {
@@ -191,7 +194,7 @@ function getShippedData(orderNo) {
       content: getEmailContent('normal-footer', 'email-header'),
       taxRate: taxRate,
       markup: shippedEmailMarkup,
-      shippedImage: ContentMgr.getContent("email-shipped-image").getCustom().body.markup
+      shippedImage: contentApi.contentApi("email-shipped-image")
     };
   }
   return {};
