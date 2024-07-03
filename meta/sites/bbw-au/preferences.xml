@@ -63,6 +63,7 @@
             <preference preference-id="popupDuration">2</preference>
             <preference preference-id="zeroOrderEmail"></preference>
             <preference preference-id="careersEmail"></preference>
+            <preference preference-id="careersFromEmail">careers.au@valiram.com</preference>
             <preference preference-id="liveChatEnabled">true</preference>
             <preference preference-id="emarsysEnabled">true</preference>
             <preference preference-id="emarsysMerchantID"></preference>
@@ -216,6 +217,7 @@
             <preference preference-id="chatScript"></preference>
             <preference preference-id="liveChatEnabled">true</preference>
             <preference preference-id="careersEmail"></preference>
+            <preference preference-id="careersFromEmail">careers.au@valiram.com</preference>
             <preference preference-id="countrySiteMapping">
                 [
                     {"country":"Australia", "site": "https://www.bathandbodyworks.com.au"},

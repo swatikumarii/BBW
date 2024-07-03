@@ -120,7 +120,6 @@ server.post(
         mailAttributes.put('EmailMessage', user);
         CareersHelper.addFilesToMailAttributes(mailAttributes, resume);
         var mail = new Mail();
-
         // Render the template with the data in the Hash
         try {
             var content = template.render(mailAttributes);
@@ -130,7 +129,7 @@ server.post(
             );
             mail.addCc(jobDetails.custom.ccEmail || '');
             mail.setFrom(
-                Site.current.getCustomPreferenceValue('customerServiceEmail')
+                Site.current.getCustomPreferenceValue('careersFromEmail') || Site.current.getCustomPreferenceValue('customerServiceEmail')
             );
             mail.setSubject(
                 Resource.msgf(
