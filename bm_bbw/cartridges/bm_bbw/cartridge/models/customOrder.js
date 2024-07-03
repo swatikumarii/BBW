@@ -1,14 +1,54 @@
 'use strict';
 
-// var OrderMgr = require("dw/order/OrderMgr");
 var Locale = require("dw/util/Locale");
 
 /**
- * @namespace Order
+ * get Email Content
+ * @returns {object} - object with content to be putted in email
+ * @param {string} footerType - Footer type
+ * @param {string} headerType - Footer type
  */
+function getEmailContent(footerType, headerType) {
+    var ContentMgr = require('dw/content/ContentMgr');
 
-function getInvoice(orderNo) {
+    var headerContent = null;
+    var footerContent = null;
+    var content = null;
+
+    if(headerType === 'newsletter-header') {
+        content = ContentMgr.getContent('email-header-newsletter');
+    } else {
+        content = ContentMgr.getContent('email-header');
+    }
+
+    if (content && content.isOnline()) {
+        headerContent = content.getCustom().body.markup;
+    }
+
+    if (footerType === 'normal-footer') {
+        content = ContentMgr.getContent('email-footer');
+    } else if (footerType === 'footer-suggestions') {
+        content = ContentMgr.getContent('email-footer-with-suggestions');
+    } else if (footerType === 'footer-only-topoffer') {
+        content = ContentMgr.getContent('email-footer-only-topoffer');
+    } else {
+        content = false;
+    }
+
+    if (content && content.isOnline()) {
+        footerContent = content.getCustom().body.markup;
+    }
+
+    return {
+        headerContent: headerContent,
+        footerContent: footerContent
+    };
+}
+
+function getInvoice(orderNo, hostName) {
+    var URLUtils = require("dw/web/URLUtils");
     var OrderMgr = require('dw/order/OrderMgr');
+    var ContentMgr = require("dw/content/ContentMgr");
     // var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
     var orderModel = require("*/cartridge/models/order");
     var TaxMgr = require('dw/order/TaxMgr');
@@ -36,9 +76,18 @@ function getInvoice(orderNo) {
           // ,
           // countryCode: currentLocale.country,
         });
+        var content = getEmailContent("normal-footer", "email-header");
+        var image = ContentMgr.getContent("email-progress-status-image").getCustom().body
+          .markup;
         return {
           order: orderModelData,
+          content: content,
           taxRate: taxRate,
+          progressImage: URLUtils.httpsImage(
+            require("dw/system/Site").getCurrent().httpsHostName,
+            "/images/email/orders/status/icon-placed.png",
+            {}
+          ),
         };
     }
     return {};
@@ -84,6 +133,7 @@ function getCanceledData(orderNo) {
     var encodedOrderNumber = encodeURIComponent(
       encryptionHelper.encryptPin(orderModelData.orderNumber)
     );
+    var content = getEmailContent("normal-footer", "email-header");
     return {
       order: orderModelData,
       taxRate: taxRate,
@@ -92,6 +142,7 @@ function getCanceledData(orderNo) {
         "token",
         encodedOrderNumber
       ).toString(),
+      content: content,
       // content: emailContentHelpers.getEmailContent(
       //   "normal-footer",
       //   "email-header"
@@ -137,8 +188,10 @@ function getShippedData(orderNo) {
 
     return {
       order: orderModelData,
+      content: getEmailContent('normal-footer', 'email-header'),
       taxRate: taxRate,
-      markup: shippedEmailMarkup
+      markup: shippedEmailMarkup,
+      shippedImage: ContentMgr.getContent("email-shipped-image").getCustom().body.markup
     };
   }
   return {};

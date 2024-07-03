@@ -184,10 +184,9 @@ function getPdpData(res) {
 
 /**
  *
- * @param {object} res - current route response object
  * @returns {object} obj - an object of containing cart data
  */
-function viewCart(res) {
+function viewCart() {
     var currentBasket = dw.order.BasketMgr.getCurrentBasket();
 
     if (currentBasket !== null) {
@@ -195,26 +194,21 @@ function viewCart(res) {
             'event': 'view_cart',
             'ecommerce': {
                 'currency': currentBasket.currencyCode,
-                'value': currentBasket.getAdjustedMerchandizeTotalNetPrice().value.toFixed(2),
+                'value': currentBasket.totalGrossPrice.value.toFixed(2),
                 'items': []
             }
         };
-        if ('items' in res) {
-            for (var i = 0; i < res.items.length; i++) {
-                obj.ecommerce.items.push({
-                    item_name: res.items[i].productName,
-                    item_id: res.items[i].id,
-                    item_brand: res.items[i].brand ?  res.items[i].brand:'',
-                    discount: res.items[i].tierPrice ?  (res.items[i].tierPrice - res.items[i].price.sales.value).toFixed(2):'',
-                    item_category: res.items[i].product ? res.items[i].product:'',
-                    item_category2: res.items[i].gtmData.category ? res.cart.items[i].gtmData.category : '',
-                    quantity: res.items[i].quantity,
-                    price: res.items[i].price.sales.decimalPrice
-
-
-                });
-
-            }
+        for (var i = 0; i < currentBasket.productLineItems.length; i++) {
+            var product = currentBasket.productLineItems[i];
+            obj.ecommerce.items.push({
+                item_name: product.productName,
+                item_id: product.productID,
+                item_brand: product.product.brand ? product.product.brand : '',
+                discount: product.basePrice && product.adjustedGrossPrice ? (product.basePrice.value - product.adjustedGrossPrice.value).toFixed(2): '',
+                item_category: product.category ? product.category : '',
+                quantity: product.quantity.value,
+                price: product.adjustedGrossPrice.value
+            });
         }
         return obj;
 
@@ -280,15 +274,11 @@ function removeFromCart(res) {
     obj.push({
         item_name: lineItem.productName,
         item_id: lineItem.productID,
-        discount: 'tierPrice' in lineItem
-            ? (lineItem.tierPrice - lineItem.price.sales.value).toFixed(2)
-            : '',
+        discount: lineItem.basePrice && lineItem.adjustedGrossPrice ? (lineItem.basePrice.value - lineItem.adjustedGrossPrice.value).toFixed(2): '',
         item_brand: lineItem.product.brand ? lineItem.product.brand : '',
         item_category: lineItem.category ? lineItem.category : '',
-        price: lineItem.product.priceModel.price
-            ? lineItem.product.priceModel.price.value
-            : '',
-        quantity: lineItem.quantityValue
+        quantity: lineItem.quantity.value,
+        price: lineItem.adjustedGrossPrice.value
     });
     var object = {
         event: gtmEvents.REMOVE_PRODUCT_LINE_ITEM_FROM_CART,
@@ -391,38 +381,35 @@ function getSearchImpressionData(res) {
 }
 
 /**
- * @param {object} res - current route response object
  * @returns {object} Object containing checkout data.
  */
-function getCheckoutData(res) {
+function getCheckoutData() {
     var currentBasket = dw.order.BasketMgr.getCurrentBasket();
-    var obj;
+    var obj = {};
     if (currentBasket !== null) {
         obj = {
             event:  gtmEvents.BEGIN_CHECKOUT,
             ecommerce: {
                 currency: currentBasket.currencyCode,
                 value: currentBasket
-                    .getAdjustedMerchandizeTotalNetPrice()
+                    .totalGrossPrice
                     .value.toFixed(2),
                 coupon: currentBasket.couponLineItems.length > 0 ? currentBasket.couponLineItems[0].couponCode : '',
                 items: [],
             }
         };
-    }
-    if ('order' in res) {
-        for (var i = 0; i < res.order.items.items.length; i++) {
+        for (var i = 0; i < currentBasket.productLineItems.length; i++) {
+            var product = currentBasket.productLineItems[i];
             obj.ecommerce.items.push({
-                item_name: res.order.items.items[i].productName,
-                item_id: res.order.items.items[i].id,
-                item_brand: res.order.items.items[i].brand
-                    ? res.order.items.items[i].brand
+                item_name: product.productName,
+                item_id: product.productID,
+                item_brand: product.product.brand
+                    ? product.product.brand
                     : '',
-                item_category: res.order.items.items[i].gtmData.item_category
-                    ? res.order.items.items[i].gtmData.item_category
-                    : '',
-                price: res.order.items.items[i].price.sales.decimalPrice,
-                quantity: res.order.productQuantityTotal
+                discount: product.basePrice && product.adjustedGrossPrice ? (product.basePrice.value - product.adjustedGrossPrice.value).toFixed(2): '',
+                item_category: product.category ? product.category : '',
+                quantity: product.quantity.value,
+                price: product.adjustedGrossPrice.value
             });
         }
     }
