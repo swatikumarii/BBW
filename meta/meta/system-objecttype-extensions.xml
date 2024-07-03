@@ -1487,6 +1487,14 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="careersFromEmail">
+                <display-name xml:lang="x-default">Careers From Email</display-name>
+                <description xml:lang="x-default">The resumes of the candidates will be send from this email address.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="emarsysEnabled">
                 <display-name xml:lang="x-default">Is Emarsys Enabled</display-name>
                 <type>boolean</type>
@@ -1906,6 +1914,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="header_image"/>
                 <attribute attribute-id="zeroOrderEmail"/>
                 <attribute attribute-id="careersEmail"/>
+                <attribute attribute-id="careersFromEmail"/>
                 <attribute attribute-id="softTimeout"/>
                 <attribute attribute-id="popupDuration"/>
                 <attribute attribute-id="countrySiteMapping"/>
