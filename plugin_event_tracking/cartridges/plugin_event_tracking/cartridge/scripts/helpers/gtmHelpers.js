@@ -309,14 +309,14 @@ function addToWishlist(res) {
         ecommerce: {
             currency: productData.priceModel.price.currencyCode,
             value: productData.priceModel.price.value,
-            items: {
+            items: [{
                 item_id: pid,
                 item_name: productData.name,
                 item_brand: productData.brand ? productData.brand : '',
                 item_category: productData.allCategories[0].displayName ? productData.allCategories[0].displayName : '',
                 price: productData.priceModel.price.value,
                 quantity:1
-            }
+            }]
         }
     };
     return obj;
@@ -433,8 +433,7 @@ function addShipping(res) {
                 shipping_tier: res.shippingMethod,
                 coupon: currentBasket.couponLineItems.length > 0 ? currentBasket
                     .couponLineItems[0].couponCode : null,
-                items: [],
-                add:{products:[]}
+                items: []
             }
         };
         if ('order' in res) {
@@ -448,11 +447,6 @@ function addShipping(res) {
                     price: res.order.items.items[i].price.sales.decimalPrice,
                     quantity: res.order.productQuantityTotal,
                 });
-                if (i===0) {
-                    obj.ecommerce.add.products.push({
-                        item_name: res.order.items.items[i].productName
-                    });
-                }
             }
         }
         return obj;
