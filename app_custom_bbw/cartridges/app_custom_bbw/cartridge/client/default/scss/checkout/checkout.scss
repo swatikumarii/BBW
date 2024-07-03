@@ -650,8 +650,8 @@ input[type="tel"],
     }
 
     .billing-address-heading {
-        margin-bottom: 10px;
-        padding-bottom: 17px;
+        margin-bottom: 0;
+        padding-bottom: 0;
         margin-top: 0;
 
         &.guest {
@@ -661,6 +661,25 @@ input[type="tel"],
         &.registered {
             padding-top: 0;
             padding-bottom: 15px;
+        }
+    }
+
+    .payment-options-wrapper {
+        margin: 20px 0;
+
+        .payment-methods-label {
+            width: 100%;
+            min-width: 65px;
+        }
+
+        .payment-icon {
+            height: 36px;
+            width: 36px;
+
+            @include media-up(md) {
+                height: 40px;
+                width: 40px;
+            }
         }
     }
 }
@@ -685,7 +704,8 @@ input[type="tel"],
             height: 47px;
             width: 35px;
             border-left: 1px solid colour(gray, 5);
-            background: colour(white) url("../../images/UI-Carat.svg") no-repeat 50%;
+            background: colour(white) url("../../images/UI-Carat.svg") no-repeat
+                50%;
             background-size: 15px;
         }
 
