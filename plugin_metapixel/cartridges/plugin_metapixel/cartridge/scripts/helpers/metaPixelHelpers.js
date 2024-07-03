@@ -54,17 +54,19 @@ function addToCart(res) {
                 break;
             }
         };
-        obj.item_name = lineItem.productName;
-        obj.item_id = lineItem.id;
-        obj.discount = lineItem.tierPrice ? (lineItem.tierPrice - lineItem.price.sales.value).toFixed(2):'';
-        obj.item_brand = lineItem.brand ? lineItem.brand:'';
-        obj.item_category = lineItem.product ? lineItem.product:'';
-        obj.price = lineItem.price.sales.decimalPrice ? lineItem.price.sales.decimalPrice : '';
+        obj.content_name = lineItem.productName;
+        obj.content_ids = [lineItem.id];
+        obj.content_type = 'product';
+        obj.contents = [{'id': lineItem.id, 'quantity': 1}];
+        obj.value = lineItem.price.sales.decimalPrice
+            ? lineItem.price.sales.decimalPrice
+            : '';
         obj.quantity = lineItem.quantity;
+        obj.currency = currentBasket.getCurrencyCode();
     }
 
     var object = {
-        event: 'Add To Cart',
+        event: 'AddToCart',
         data: obj
     };
     return object;
@@ -80,7 +82,7 @@ function addToWishlist(res) {
     var pid = res.pid;
     var productData = ProductMgr.getProduct(pid);
     var obj = {
-        event: 'Add to wishlist',
+        event: 'AddToWishlist',
         data: {
             item_id: pid,
             item_name: productData.name,
@@ -157,23 +159,37 @@ function getSearchImpressionData(res) {
  */
 function getConfirmationData(res) {
     var order = null;
+    var obj = {};
     try {
         order = dw.order.OrderMgr.getOrder(res.order.orderNumber);
     }
     catch (e) {
         Logger.error('MetaHelpers - cannot retrieve order'+e);
+        return obj;
+    }
+    var contentIds = [];
+    var contents = [];
+    var num_items=0
+    for (var index = 0; index < order.allProductLineItems.length; index++) {
+        var product = order.allProductLineItems[index];
+        contentIds.push(product.productID);
+        contents.push({'id': product.productID, 'quantity' : product.quantityValue});
+        num_items += product.quantityValue;
     }
 
 
-    var obj = {
-        'event': 'Purchase',
-        'data': {
-            'currency': order.currencyCode,
-            'transaction_id': order.orderNo,
-            'value': order.getAdjustedMerchandizeTotalPrice(true).getValue(),
-            'shipping': order.getAdjustedShippingTotalPrice().getValue(),
-            'tax': order.getTotalTax().getValue().toFixed(2),
-            'total': order.totalNetPrice.value,
+    obj = {
+        event: 'Purchase',
+        data: {
+            content_ids: contentIds,
+            content_type: 'product',
+            contents:contents,
+            currency: order.currencyCode,
+            num_items: num_items,
+            value: order.totalGrossPrice.value,
+            order_id: order.orderNo,
+            shipping: order.getAdjustedShippingTotalPrice().getValue(),
+            tax: order.getTotalTax().getValue().toFixed(2),
         }
     };
     return obj;
