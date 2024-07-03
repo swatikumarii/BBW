@@ -40,6 +40,9 @@ $clr-blue-14: #00e;
 $clr-blue-15: #1f73b7;
 $clr-blue-16: #007bff29;
 $clr-blue-17: #214293;
+$clr-blue-21: #cbe2f3;
+$clr-blue-19: #0c76db;
+$clr-blue-20: #205794;
 $clr-blue-18: #205794;
 $clr-pink: #e20887;
 $clr-pink-1: #dd0493;
@@ -47,6 +50,8 @@ $clr-pink-2: #ec3fa8;
 $clr-pink-3: #cb1595;
 $clr-pink-4: #ed088c;
 $clr-pink-5: #eb008a;
+$clr-pink-6: #f8d0e9;
+$clr-pink-7: #ad3370;
 $clr-gray: #666;
 $clr-gray-1: #f2f2f2;
 $clr-gray-2: #c2c2c2;
@@ -89,6 +94,7 @@ $clr-green-4: #1d6b49;
 $clr-green-5: #e9ffe9;
 $clr-green-6: #e6f7eb;
 $clr-green-7: #e9fff2;
+$clr-green-8: #556b2f;
 $clr-red: #cb0100;
 $clr-red-1: #fe5000;
 $clr-red-2: #ff0015;
@@ -102,11 +108,14 @@ $clr-red-9: #c00;
 $clr-red-10: #ffe9e9;
 $clr-red-11: #faebd7;
 $clr-red-12: #db0a33;
+$clr-red-13: #eb121d;
 $clr-brown: #aa8275;
 $clr-brown-1: #ba861e;
 $orange: #f89021;
 $orange-1: #df6e06;
 $orange-2: #b79051;
+$orange-3: #fa5a1a;
+$orange-4: #ad3270;
 $map-colors: (
     black: (
         base: $clr-black,
@@ -146,7 +155,10 @@ $map-colors: (
         15: $clr-blue-15,
         16: $clr-blue-16,
         17: $clr-blue-17,
-        18: $clr-blue-18
+        18: $clr-blue-18,
+        19: $clr-blue-19,
+        20: $clr-blue-20,
+        21: $clr-blue-21
     ),
     pink: (
         base: $clr-pink,
@@ -154,7 +166,9 @@ $map-colors: (
         2: $clr-pink-2,
         3: $clr-pink-3,
         4: $clr-pink-4,
-        5: $clr-pink-5
+        5: $clr-pink-5,
+        6: $clr-pink-6,
+        7: $clr-pink-7
     ),
     gray: (
         base: $clr-gray,
@@ -199,7 +213,8 @@ $map-colors: (
         4: $clr-green-4,
         5: $clr-green-5,
         6: $clr-green-6,
-        7: $clr-green-7
+        7: $clr-green-7,
+        8: $clr-green-8
     ),
     red: (
         base: $clr-red,
@@ -214,7 +229,8 @@ $map-colors: (
         9: $clr-red-9,
         10: $clr-red-10,
         11: $clr-red-11,
-        12: $clr-red-12
+        12: $clr-red-12,
+        13: $clr-red-13
     ),
     brown: (
         base: $clr-brown,
@@ -223,7 +239,9 @@ $map-colors: (
     orange: (
         base: $orange,
         1: $orange-1,
-        2: $orange-2
+        2: $orange-2,
+        3: $orange-3,
+        4: $orange-4
     ),
     none: (
         base: transparent
