@@ -1,12 +1,12 @@
 <h2 class="h-font-size--20 h-font-size-md--24 h-clr--black-1 h-mt--30 h-mb--10 h-line-height-md--28 h-line-height--24 pb-3 h-fw--bold border-bottom border-dark">${Resource.msg('label.order.review.your.items', 'order', null)}</h2>
 <div class="h-px--15 confirmation-product-details">
     <div class="itemsHeader row border-bottom d-none d-md-flex align-items-center">
-        <div class="headerItem h-font-size--18 h-fw--bold h-clr--black-1 col-6 p-3">${Resource.msg('label.item.header.item', 'cart', null)}</div>
+        <div class="headerItem h-font-size--18 h-fw--bold h-clr--black-1 col-6 p-3 p-md-1">${Resource.msg('label.item.header.item', 'cart', null)}</div>
         <div class="col-6">
             <div class="row">
-                <div class="headerQty h-font-size--18 h-fw--bold h-clr--black-1 text-center col-4 p-3 qauntity-label h-line-height--20">${Resource.msg('label.item.header.quantity', 'cart', null)}</div>
-                <div class="headerSavings h-font-size--18 h-fw--bold h-clr--black-1 text-center col-4 p-3 headerQty h-line-height--20">${Resource.msg('label.item.header.savings', 'cart', null)}</div>
-                <div class="headerPrice h-font-size--18 h-fw--bold h-clr--black-1 text-center col-4 p-3 h-line-height--20">${Resource.msg('label.item.header.price', 'cart', null)}</div>
+                <div class="headerQty h-font-size--18 h-fw--bold h-clr--black-1 text-center col-4 p-3 qauntity-label h-line-height--20 p-md-1">${Resource.msg('label.item.header.quantity', 'cart', null)}</div>
+                <div class="headerSavings h-font-size--18 h-fw--bold h-clr--black-1 text-center col-4 p-3 headerQty h-line-height--20 p-md-1">${Resource.msg('label.item.header.savings', 'cart', null)}</div>
+                <div class="headerPrice h-font-size--18 h-fw--bold h-clr--black-1 text-center col-4 p-3 h-line-height--20 p-md-1">${Resource.msg('label.item.header.price', 'cart', null)}</div>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
             <div class="row cart-lineitem">
                 <div class="col-12 col-md-6">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-4 col-lg-4 col-md-6">
                             <iscomment> Image </iscomment>
                             <div class="product-line-item-details d-flex flex-row">
                                 <isif condition="${lineItem.isEgiftCard}">
@@ -33,7 +33,7 @@
                                 </isif>
                             </div>
                         </div>
-                        <div class="col-8">
+                        <div class="col-8 col-lg-8 col-md-6">
                             <div class="line-item-header flex-column">
                                 <isinclude template="checkout/productCard/productCardProductName" />
                                 <isif condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">

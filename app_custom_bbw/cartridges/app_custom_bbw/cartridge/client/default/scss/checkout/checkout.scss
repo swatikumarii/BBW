@@ -294,7 +294,7 @@ span.ship-to-city-st-zip {
     text-align: center;
     line-height: 16px;
     letter-spacing: 0.2px;
-    width: 290px;
+    width: 500px;
 
     @include media-up(md) {
         margin: 25px auto 58px;
@@ -308,6 +308,7 @@ span.ship-to-city-st-zip {
     a {
         display: block;
         width: fit-content;
+        z-index: 1;
     }
 
     .step-1 {
@@ -353,6 +354,15 @@ span.ship-to-city-st-zip {
             @include media-up(md) {
                 width: calc(100% - 30px);
             }
+
+            @include media-btw(sm, md) {
+                width: calc(100% - 16px);
+            }
+        }
+
+        @include media-btw(sm, md) {
+            float: left;
+            width: 33.33%;
         }
     }
 
@@ -685,7 +695,8 @@ input[type="tel"],
             height: 47px;
             width: 35px;
             border-left: 1px solid colour(gray, 5);
-            background: colour(white) url("../../images/UI-Carat.svg") no-repeat 50%;
+            background: colour(white) url("../../images/UI-Carat.svg") no-repeat
+                50%;
             background-size: 15px;
         }
 
