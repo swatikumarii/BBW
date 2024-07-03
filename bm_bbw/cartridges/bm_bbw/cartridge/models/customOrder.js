@@ -45,7 +45,8 @@ function getEmailContent(footerType, headerType) {
     };
 }
 
-function getInvoice(orderNo) {
+function getInvoice(orderNo, hostName) {
+    var URLUtils = require("dw/web/URLUtils");
     var OrderMgr = require('dw/order/OrderMgr');
     var ContentMgr = require("dw/content/ContentMgr");
     // var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
@@ -82,7 +83,11 @@ function getInvoice(orderNo) {
           order: orderModelData,
           content: content,
           taxRate: taxRate,
-          progressImage: ContentMgr.getContent("email-progress-status-image").getCustom().body.markup
+          progressImage: URLUtils.httpsImage(
+            require("dw/system/Site").getCurrent().httpsHostName,
+            "/images/email/orders/status/icon-placed.png",
+            {}
+          ),
         };
     }
     return {};
