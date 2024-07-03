@@ -301,6 +301,10 @@
                             visibility: visible;
                             max-height: max-content;
                             z-index: 1;
+
+                            @include media-btw(sm, md) {
+                                top: 100%;
+                            }
                         }
 
                         .menu-wrap-level-1 .level-2-ul-wrap .menu-right {
@@ -649,6 +653,10 @@
 
                 .menu-right .category-top-offers .category-top-items ul li a {
                     width: auto;
+
+                    @include media-btw(sm, md) {
+                        width: 100%;
+                    }
                 }
             }
         }
