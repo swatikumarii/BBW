@@ -69,6 +69,12 @@
                 margin-top: 10px;
                 padding-top: 20px;
 
+                @include media-btw(sm, md) {
+                    .product-line-item-details .item-image img {
+                        width: 100%;
+                    }
+                }
+
                 .headerPrice {
                     @include media-down(sm) {
                         padding-top: 10px;

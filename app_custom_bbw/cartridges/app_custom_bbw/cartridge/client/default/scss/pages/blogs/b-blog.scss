@@ -539,30 +539,45 @@
 }
 
 // ------find-your-wellness-----
-// .content {
-//     display: block;
+.find-wellness-content {
+    display: block;
 
-//     @include media-up(sm) {
-//         display: flex;
-//         justify-content: center;
-//     }
+    @include media-up(sm) {
+        display: flex;
+        justify-content: center;
+    }
 
-//     img {
-//         margin: 20px;
-//     }
+    @include media-btw(sm, lg) {
+        display: block;
+    }
 
-//     .sub-content {
-//         .sub {
-//             margin: 1% 15%;
-//         }
+    img {
+        margin: 10px;
+        width: 100%;
 
-//         .start {
-//             margin: 2%;
-//             color: $clr-black-4;
-//             text-decoration: underline;
-//         }
-//     }
-// }
+        @include media-up(sm) {
+            width: auto;
+            margin: 20px;
+        }
+
+        @include media-btw(sm, lg) {
+            width: 100%;
+            margin: 10px;
+        }
+    }
+
+    .sub-content {
+        .sub {
+            margin: 1% 15%;
+        }
+
+        .start {
+            margin: 2%;
+            color: $clr-black-4;
+            text-decoration: underline;
+        }
+    }
+}
 
 // ------fine-fragrance-mist------
 .bodycare-text-data {
@@ -622,13 +637,18 @@
 }
 
 .stephead {
-    margin: 0 auto;
-    padding: 2%;
+    width: 100%;
+
+    @include media-up(sm) {
+        margin: 0 auto;
+        padding: 2%;
+        width: 85%;
+    }
 
     .stephead-h {
         margin: 0 auto;
         line-height: 1.1;
-        color: $clr-pink-3;
+        color: colour(pink, 3);
     }
 
     .stephead-p {
@@ -644,9 +664,9 @@
     background: unset;
 
     .stephead-h {
-        color: $clr-pink-1;
+        color: colour(pink, 1);
         line-height: 1.7;
-        letter-spacing: -1px;
+        letter-spacing: 5px;
     }
 
     .stephead-p {
@@ -684,7 +704,7 @@
     }
 }
 
-.finalstep {
+.tbc-finalstep {
     .signup-btn {
         padding: 1.5%;
         border: 1px solid $clr-pink-1;
@@ -896,6 +916,791 @@
 // scrolll height
 .scroll-margin {
     scroll-margin-top: 237px;
+}
+
+// /Summer skin care tips------
+.summer-skin-care-tips {
+    .bc-image {
+        img {
+            height: 100%;
+
+            @include media-up(sm) {
+                height: 243.61px;
+            }
+        }
+    }
+
+    .body-care-content {
+        .bodycare-text-section {
+            .skin-care-head {
+                margin: 20px 0;
+                text-transform: uppercase;
+            }
+
+            .description-list {
+                li {
+                    margin-top: 10px;
+                    margin-left: 50px;
+                }
+
+                .skin-care-desc {
+                    a {
+                        color: colour(black, 3) !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ------fathers day gift guide--------
+.fathers-day-submain {
+    width: 100%;
+
+    @include media-up(sm) {
+        width: 85%;
+        margin: 0 auto;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    .headparagraph {
+        width: 85%;
+        margin: 0 auto;
+
+        @include media-up(sm) {
+            width: 78%;
+            margin: 5% auto;
+            line-height: 1.2;
+        }
+    }
+}
+
+.fathers-stepcontent {
+    width: 100%;
+
+    @include media-up(sm) {
+        display: block;
+        width: 85%;
+        margin: 0 auto;
+        padding: 2%;
+    }
+
+    .stepcontent-sec {
+        display: flex;
+        flex-direction: column-reverse;
+
+        @include media-up(sm) {
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .txt {
+            width: 100%;
+            margin: 0 auto;
+            padding: 8% 5%;
+
+            @include media-up(sm) {
+                width: 56%;
+                margin: 0 auto;
+                padding: 8% 5%;
+            }
+
+            .txt-h {
+                font-weight: 800;
+                letter-spacing: -0.5px;
+                margin-top: 0;
+                line-height: 35px;
+            }
+        }
+
+        .img {
+            width: 100%;
+
+            @include media-up(sm) {
+                width: 40%;
+            }
+        }
+    }
+
+    .flxrev {
+        flex-direction: column;
+
+        @include media-up(sm) {
+            flex-direction: row;
+        }
+    }
+}
+
+.finalstep {
+    width: 100%;
+
+    @include media-up(sm) {
+        width: 85%;
+        margin: 0 auto;
+        padding: 2%;
+    }
+
+    .stephead-p {
+        line-height: 39px;
+        width: 78%;
+        margin: 0 auto;
+        padding-top: 10px;
+    }
+
+    .txt-h {
+        font-size: 16.5px;
+    }
+
+    .shop-cta {
+        @include media-up(sm) {
+            padding: 1.5%;
+            border: 1px solid colour(gray);
+            text-decoration: none;
+            margin: 2% auto;
+            width: 30%;
+            background: colour(gray);
+            letter-spacing: 2px;
+        }
+
+        &:hover {
+            background: colour(black);
+            border: 1px solid colour(black);
+        }
+
+        width: 60%;
+        padding: 2.5%;
+        background: colour(black);
+        border: 1px solid colour(black);
+        margin: 2% auto;
+        letter-spacing: 2px;
+    }
+}
+
+// ---spa day wellness -----------
+.spa-day-wellness {
+    .spa-day-content {
+        display: block;
+
+        @include media-up(sm) {
+            display: flex;
+        }
+
+        .first-image {
+            height: fit-content;
+
+            @include media-up(sm) {
+                height: 448px;
+            }
+        }
+
+        .forget {
+            width: 100%;
+            margin: 0;
+
+            @include media-up(sm) {
+                width: 590px;
+                margin: 10px;
+            }
+        }
+
+        .second-image {
+            width: 100%;
+            margin: 0;
+
+            @include media-up(sm) {
+                width: 555px;
+                margin: 10px;
+            }
+        }
+
+        .third-image {
+            width: 100%;
+            margin: 0;
+
+            @include media-up(sm) {
+                width: 580px;
+                margin: 10px;
+            }
+        }
+
+        .fourth-image {
+            width: 100%;
+            margin: 0;
+
+            @include media-up(sm) {
+                width: 577px;
+                margin: 10px;
+            }
+        }
+    }
+
+    .first-col img {
+        width: 100%;
+    }
+
+    .start {
+        color: colour(green, 8);
+        margin: 2%;
+    }
+
+    .fragrance {
+        color: colour(green, 8);
+        font-size: 35px;
+        margin: 2%;
+        line-height: 30px;
+    }
+
+    .sub {
+        margin: 1% 8%;
+
+        @include media-up(sm) {
+            color: colour(black);
+            font-size: 15px;
+            text-align: center;
+            margin: 1% 15%;
+            display: block;
+        }
+    }
+}
+
+// -------global-mist-event--------
+.global-mist-event {
+    .fragrance-cta {
+        background: $clr-pink-2;
+        padding: 10px 40px;
+        margin: 2% auto;
+        width: 88%;
+
+        &:hover {
+            border: 1px solid colour(black);
+        }
+
+        @include media-up(sm) {
+            width: 30%;
+        }
+    }
+
+    .flexrev {
+        display: flex;
+        flex-direction: column-reverse;
+
+        @include media-up(sm) {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
+
+// --------mens-shop-intro-------
+.mens-shop-intro {
+    .mens-content {
+        display: block;
+
+        @include media-up(sm) {
+            display: flex;
+        }
+    }
+
+    .sub {
+        font-size: 15px;
+        margin: 1% 15%;
+        display: block;
+    }
+}
+
+// -----skincare-routing----------
+.skincare-routine {
+    .shop-by-fragrance-section1 {
+        width: 85%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+
+        .contentsection {
+            z-index: 1;
+            top: 0;
+
+            h2 {
+                margin: 30px 0 52px;
+                min-height: 44px;
+                border: none;
+                line-height: 0.6;
+            }
+
+            .head2 {
+                margin: 0 auto;
+                padding: 0;
+                border: none;
+                line-height: 1;
+                width: 36%;
+                letter-spacing: -4px;
+            }
+        }
+
+        .headparagraph {
+            margin: 5% auto;
+            width: 78%;
+            line-height: 1.2;
+        }
+    }
+
+    .step1 {
+        background-color: colour(blue, 21);
+    }
+
+    .stephead {
+        margin: 28px auto;
+        padding: 2%;
+        width: 100%;
+
+        .stephead-h {
+            margin: 0 auto;
+            line-height: 1.1;
+        }
+
+        .stephead-p {
+            margin: 0 auto;
+            line-height: 1.1;
+            letter-spacing: 0.3px;
+        }
+
+        .prod-imgsection {
+            width: 85%;
+            margin: 0 auto;
+            padding: 2%;
+        }
+    }
+
+    .stephead2 {
+        width: 83%;
+        padding-top: 0;
+
+        .stephead-p {
+            line-height: 1.5;
+        }
+    }
+
+    .stepcontent {
+        width: 85%;
+        margin: 0 auto;
+        padding: 2%;
+
+        .stepcontent-sec {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            margin: 0 auto;
+            justify-content: space-between;
+
+            .txt {
+                width: 56%;
+                margin: 0 auto;
+                padding: 8% 5%;
+
+                .txt-h {
+                    font-weight: 800;
+                    color: colour(blue, 19);
+                    letter-spacing: -0.5px;
+                }
+
+                .txt-p {
+                    line-height: 1.5;
+                }
+            }
+
+            .img {
+                width: 40%;
+            }
+        }
+    }
+
+    .step2 {
+        background-color: colour(pink, 6);
+
+        .stephead-h {
+            line-height: 1.1;
+        }
+
+        .stephead-p {
+            letter-spacing: 0.3px;
+            line-height: 1.1;
+        }
+    }
+
+    .step3 {
+        background-color: colour(blue, 21);
+    }
+
+    .step4 {
+        .stephead-p {
+            width: 78%;
+            line-height: 1.5;
+        }
+    }
+
+    .shop-cta {
+        text-transform: uppercase;
+        color: colour(pink);
+        padding: 1.5%;
+        border: 1px solid colour(pink);
+        margin: 2% auto;
+        width: 30%;
+
+        &:hover {
+            color: colour(white);
+            background: colour(black);
+            border: 1px solid colour(black);
+        }
+    }
+}
+
+// -----best-candles-content----
+.best-candles-content {
+    padding: 0 0 20px;
+
+    .bodycare-text-section {
+        margin-bottom: 100px;
+
+        .bc-description {
+            .description-list {
+                li {
+                    margin-top: 10px;
+                    margin-left: 50px;
+
+                    p {
+                        color: colour(gray);
+                    }
+
+                    span {
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// -----  best-all-candles------
+.best-all-candles {
+    width: 100%;
+
+    @include media-up(sm) {
+        width: 85%;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+
+    .shop-by-fragnance-submain {
+        .headparagraph {
+            width: 100%;
+
+            @include media-up(sm) {
+                margin: 5% auto;
+                width: 78%;
+                line-height: 1.2;
+            }
+        }
+    }
+
+    .stepcontent {
+        width: 100%;
+
+        @include media-up(sm) {
+            padding: 4% 0;
+            width: 85%;
+            margin: 0 auto;
+        }
+
+        .stepcontent-sec {
+            display: block;
+
+            @include media-up(sm) {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                margin: 0 auto;
+                justify-content: space-between;
+            }
+
+            .img {
+                width: 100%;
+
+                @include media-up(sm) {
+                    width: 40%;
+                }
+            }
+
+            .txt {
+                width: 100%;
+
+                @include media-up(sm) {
+                    width: 56%;
+                    margin: 0 auto;
+                    padding: 8% 5%;
+                }
+
+                .best-para {
+                    font-weight: 800;
+                    letter-spacing: -0.5px;
+                    color: colour(blue, 20);
+                }
+            }
+        }
+
+        .flxrev {
+            flex-direction: column-reverse;
+            display: flex;
+
+            @include media-up(sm) {
+                flex-direction: row;
+                display: flex;
+            }
+        }
+
+        .step4 {
+            .stephead-h {
+                color: colour(blue, 20);
+                margin: 0 auto;
+                line-height: 0.9em;
+            }
+
+            .stephead-p {
+                padding-top: 20px;
+                letter-spacing: 0.3px;
+                margin: 0 auto;
+                width: 80%;
+            }
+
+            .shop-candles-cta {
+                width: 100%;
+                background-color: colour(blue, 20);
+                border: 1px solid colour(blue, 20);
+                margin: 2% auto;
+                margin: 10px auto;
+                padding: 10px 40px;
+                text-align: center;
+
+                @include media-up(sm) {
+                    background-color: colour(blue, 20);
+                    border: 1px solid colour(blue, 20);
+                    margin: 2% auto;
+                    margin: 10px auto;
+                    padding: 10px 40px;
+                    width: 33%;
+                    text-align: center;
+                }
+
+                &:hover {
+                    border: 1px solid colour(black);
+                }
+            }
+        }
+    }
+}
+
+// ---best-christmas-candles----------
+.best-christmas-candles {
+    .first-col {
+        img {
+            margin-bottom: 30px;
+        }
+    }
+
+    .sub {
+        margin: 1% 15%;
+
+        .start {
+            margin: 2%;
+            text-decoration: underline;
+        }
+    }
+
+    .container1 {
+        .content {
+            display: block;
+
+            @include media-up(sm) {
+                display: flex;
+            }
+
+            .forget {
+                width: 550px;
+                height: 450px;
+            }
+        }
+    }
+
+    .finalstep {
+        .stephead-p {
+            margin: 0 auto;
+            width: 78%;
+            line-height: 1.5;
+        }
+
+        .shop-cta {
+            padding: 1.5%;
+            border: 1px solid colour(red, 13);
+            text-decoration: none;
+            margin: 2% auto;
+            width: 30%;
+            background: colour(red, 13);
+            letter-spacing: 2px;
+
+            &:hover {
+                background-color: colour(black);
+                border: 1px solid colour(black);
+            }
+        }
+    }
+}
+
+// ----wallflowers-content-----
+.wallflowers-content {
+    .wallflowers-section {
+        .first-sub-head {
+            line-height: 1.2;
+        }
+
+        .description-list li {
+            margin-top: 10px;
+            margin-left: 50px;
+            list-style: disc;
+        }
+    }
+}
+
+// -----fall-icons---------
+.fall-icons-content {
+    .shop-by-fragrance-section1 {
+        width: 85%;
+        margin: 0 auto;
+        padding: 0;
+        margin-bottom: 10px;
+
+        .shop-by-fragnance-submain {
+            position: relative;
+        }
+
+        .imgsection {
+            width: 100%;
+            position: relative;
+            display: block;
+        }
+
+        .contentsection {
+            width: 100%;
+            position: absolute;
+            z-index: 1;
+            text-align: center;
+            top: 0;
+
+            h1 {
+                margin: 7% 6%;
+                min-height: 44px;
+                line-height: 0.6;
+                color: colour(pink, 7);
+            }
+        }
+
+        .headparagraph {
+            margin: 5% auto;
+            width: 78%;
+            line-height: 1.2;
+        }
+    }
+
+    .stephead {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        padding: 2%;
+        background: colour(orange, 3);
+
+        .stephead-h {
+            margin: 0 auto;
+            line-height: 1.1;
+        }
+
+        .stephead-p {
+            margin: 0 auto;
+            width: 80%;
+            letter-spacing: 0.3px;
+        }
+    }
+
+    .stephead2 {
+        background: colour(orange, 4);
+    }
+}
+
+// ----cyber-monday----
+.cyber-monday {
+    .gip_subsection {
+        width: 88%;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0 auto;
+
+        .gip_subsection_contsec {
+            width: 33%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+            h3 {
+                line-height: 1.125;
+                margin: 10px 0;
+                font-size: 1.2rem;
+
+                a {
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// --------black-friday-----------
+.black-friday {
+    .gip_subsection {
+        width: 88%;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 0 auto;
+
+        .gip_subsection_contsec {
+            width: 33%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+            h3 {
+                line-height: 1.125;
+                margin: 10px 0;
+                font-size: 1.2rem;
+
+                a {
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    .bodycare-text-section {
+        width: 88%;
+        margin: 20px auto;
+    }
 }
 
 /* Hand Care */

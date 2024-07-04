@@ -44,6 +44,12 @@ function handlePostCartAdd(response) {
 }
 
 $(document).ready(function () {
+    if (!localStorage.getItem('isLoggedIn') && localStorage.getItem('isLoggedIn') !== 'true') {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('isQuickView');
+        localStorage.removeItem('addToWishListURL');
+        localStorage.removeItem('addToWishListPid');
+    }
     if (localStorage.getItem('addToWishListPid') && localStorage.getItem('addToWishListURL')){
         $.ajax({
             url: localStorage.getItem('addToWishListURL'),
@@ -52,6 +58,12 @@ $(document).ready(function () {
             data: {
                 pid: localStorage.getItem('addToWishListPid')
             },
+            success: function () {
+                if (localStorage.getItem('isQuickView') === 'false') {
+                    window.location.reload();
+                }
+                localStorage.removeItem('isQuickView');
+            }
         });
         localStorage.removeItem('addToWishListPid');
         localStorage.removeItem('addToWishListURL');
@@ -158,8 +170,10 @@ module.exports = $.extend({}, wishlist, {
                     if(data.loginShow === true){
                         $('#quickViewModal').modal('hide');
                         $('.loginPopup').find('#loginModal').modal('show');
+                        localStorage.removeItem('isLoggedIn');
                         localStorage.setItem('addToWishListPid', pid);
                         localStorage.setItem('addToWishListURL', url);
+                        localStorage.setItem('isQuickView', $('#quickViewModal').length > 0);
                     } else {
                         $('.loginPopup').find('#exampleModalLong').modal('hide');
                         $('.wishlist-toast.toast')

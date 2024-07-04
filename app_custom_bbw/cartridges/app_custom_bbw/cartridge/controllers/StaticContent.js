@@ -18,6 +18,23 @@ server.get('Dashboard', function (req, res, next) {
 });
 
 /**
+ * StaticContent-ContentBody
+ */
+server.get('ContentBody', function (req, res, next) {
+    var contentAsset = ContentMgr.getContent(req.querystring.cid);
+    var contentAssetBody;
+    if (
+        contentAsset &&
+        'custom' in contentAsset &&
+        'body' in contentAsset.custom
+    ) {
+        contentAssetBody = contentAsset.custom.body.markup;
+    }
+    res.json({ contentAssetBody: contentAssetBody });
+    next();
+});
+
+/**
  * StaticContent-DashboardFAQ : Show FAQs and search field
  * @name StaticContent-DashboardFAQ
  */

@@ -104,8 +104,11 @@
         <!-- Payment Options                                                      -->
         <!-------------------------------------------------------------------------->
         <fieldset>
-            <h2 class="card-header-custom h-font-size--20 h-fw--bold h-clr--black-1 billing-address-heading payment-options-heading h-mt--40 b-text-letter-space-005 h-line-height--24">
+            <h2 class="card-header-custom h-font-size--20 h-fw--bold h-clr--black-1 payment-options-heading h-mt--40 b-text-letter-space-005 h-line-height--24">
                 ${Resource.msg('heading.payment.methods', 'checkout', null)}</h2>
+            <div class="payment-options-wrapper">
+                <iscontentasset aid="checkout-billing-payment-methods-icons"/>
+            </div>
             <isinclude template="checkout/billing/paymentOptions" />
         </fieldset>
 

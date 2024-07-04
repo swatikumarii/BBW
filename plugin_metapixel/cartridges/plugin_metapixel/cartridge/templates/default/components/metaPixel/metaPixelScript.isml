@@ -6,10 +6,10 @@
                 var fbqDataEvent = <isprint value="${JSON.stringify(pdict.fbqData.event)}" encoding="off" />;
                 var fbqDataData = <isprint value="${JSON.stringify(pdict.fbqData.data)}" encoding="off" />;
                 if (fbqDataEvent && fbqDataData) {
-                    if (['Add To Cart', 'Add to wishlist','Locator Search'].includes(fbqDataEvent)){
-                        fbq('trackCustom', fbqEvent.event, fbqDataData);
+                    if (['Locator Search'].includes(fbqDataEvent)){
+                        fbq('trackCustom', fbqDataEvent, fbqDataData);
                     } else {
-                        fbq('track', fbqEvent.event, fbqDataData);
+                        fbq('track', fbqDataEvent, fbqDataData);
                     }
                 }
             </script>
