@@ -4,7 +4,7 @@
     <input type="hidden" class="searchTerms" value="${pdict.suggestions.searchTerms}" />
     <isif condition="${pdict.suggestions.product}">
         <div class="suggestions__search-product-header d-flex justify-content-between mb-2">
-            <isif condition="${pdict.suggestions.product.phrases.length > 0}">
+            <isif condition="${pdict.suggestions.product.available && pdict.suggestions.product.phrases.length > 0}">
                 <isset name="phrase" value="${pdict.suggestions.product.phrases[0]}" scope="page"/>
                 <div class="items" id="phrase-1-0" role="option">
                     <div class="item term">
