@@ -1,5 +1,6 @@
 'use strict';
 
+var Logger = require("dw/system/Logger");
 var contentAssetAPI = require('*/cartridge/scripts/service/init/contentAssetAPI');
 var URLUtils = require('dw/web/URLUtils');
 var URLAction = require('dw/web/URLAction');
@@ -15,9 +16,16 @@ function contentApi(contentID) {
   service.setURL(baseUrl);
   service.setRequestMethod('GET');
   serviceResult = service.call();
+  Logger.info("Before Service response");
   if (serviceResult.status === 'OK') {
+    Logger.info(
+      "Service response : serviceResult.status : " + serviceResult.status
+    );
     return JSON.parse(serviceResult.object).contentAssetBody;
   }
+  Logger.info(
+    "Service response : serviceResult.status : " + serviceResult.status
+  );
   return '';
 }
 
