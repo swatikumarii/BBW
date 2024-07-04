@@ -155,7 +155,7 @@ function getBreadcrumbForContentAssetFolders(folder, isBlogs) {
  * @returns {boolean} - returns an element of the array that is breadcrumbs.
  */
 function isContentBlock(content) {
-    return content.folders[0].parent.ID === 'Blogs';
+    return content.folders && content.folders.length > 0 && content.folders[0].parent.ID === 'Blogs';
 }
 
 /**
