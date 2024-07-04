@@ -569,7 +569,7 @@ server.append(
     seo.addCurrentPageMetaData);
 
 server.get(
-    'CapillaryOrders',
+    'StoreOrders',
     consentTracking.consent,
     server.middleware.https,
     userLoggedIn.validateLoggedIn,
@@ -604,7 +604,7 @@ server.get(
     seo.addCurrentPageMetaData);
 
 server.get(
-    'CapillaryDetails',
+    'StoreDetails',
     consentTracking.consent,
     server.middleware.https,
     userLoggedIn.validateLoggedIn,

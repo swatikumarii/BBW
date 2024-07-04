@@ -9112,9 +9112,9 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
             <classification-link folder-id="behind-the-scents"/>
         </folder-links>
     </content>
-    <content content-id="order.capillarydetails.seo">
-        <display-name xml:lang="x-default">Capillary Details SEO</display-name>
-        <description xml:lang="x-default">Capillary Details SEO</description>
+    <content content-id="order.storedetails.seo">
+        <display-name xml:lang="x-default">Store Details SEO</display-name>
+        <description xml:lang="x-default">Store Details SEO</description>
         <online-flag>false</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes>
@@ -9124,9 +9124,9 @@ one smell of this floral masterpiece instantly has us blushing.&lt;/p&gt;&lt;p c
         </page-attributes>
     </content>
 
-    <content content-id="order.capillaryorders.seo">
-        <display-name xml:lang="x-default">Capillary Orders SEO</display-name>
-        <description xml:lang="x-default">Capillary Orders SEO</description>
+    <content content-id="order.storeorders.seo">
+        <display-name xml:lang="x-default">Store Orders SEO</display-name>
+        <description xml:lang="x-default">Store Orders SEO</description>
         <online-flag>true</online-flag>
         <searchable-flag>false</searchable-flag>
         <page-attributes>
