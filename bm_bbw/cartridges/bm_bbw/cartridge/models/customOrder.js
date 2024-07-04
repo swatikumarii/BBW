@@ -97,6 +97,7 @@ function getInvoice(orderNo, hostName) {
             "/images/email/orders/status/icon-placed.png",
             {}
           ),
+          markup: contentApi.contentApi('email-order-confirmation'),
         };
     }
     return {};
