@@ -1664,7 +1664,6 @@
     }
 }
 
-
 // --------black-friday-----------
 .black-friday {
     .gip_subsection {
@@ -1700,6 +1699,8 @@
         width: 88%;
         margin: 20px auto;
     }
+}
+
 /* Hand Care */
 .blogs-container {
     @include media-down(md) {
@@ -1748,5 +1749,4 @@
             }
         }
     }
-}
 }
