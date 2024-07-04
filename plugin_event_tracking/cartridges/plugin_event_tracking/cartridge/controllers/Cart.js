@@ -19,6 +19,7 @@ server.prepend('RemoveProductLineItem', function (req, res, next) {
         var item = productLineItems[i];
         if (item.UUID === req.querystring.uuid) {
             viewData.itemToRemove = item;
+            viewData.itemPrice = item.adjustedGrossPrice.value.toFixed(2);
         }
     }
     res.setViewData(viewData);
