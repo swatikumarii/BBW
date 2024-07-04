@@ -274,11 +274,11 @@ function removeFromCart(res) {
     obj.push({
         item_name: lineItem.productName,
         item_id: lineItem.productID,
-        discount: lineItem.basePrice && lineItem.adjustedGrossPrice ? (lineItem.basePrice.value - lineItem.adjustedGrossPrice.value).toFixed(2): '',
+        discount: lineItem.product.priceModel.price.value && res.itemPrice ? (lineItem.product.priceModel.price.value - res.itemPrice).toFixed(2): '',
         item_brand: lineItem.product.brand ? lineItem.product.brand : '',
         item_category: lineItem.category ? lineItem.category : '',
         quantity: lineItem.quantity.value,
-        price: lineItem.adjustedGrossPrice.value
+        price: res.itemPrice
     });
     var object = {
         event: gtmEvents.REMOVE_PRODUCT_LINE_ITEM_FROM_CART,
@@ -427,9 +427,7 @@ function addShipping(res) {
             event: 'add_shipping_info',
             ecommerce: {
                 currency: currentBasket.currencyCode,
-                value: currentBasket
-                    .getAdjustedMerchandizeTotalNetPrice()
-                    .value.toFixed(2),
+                value: currentBasket.totalGrossPrice.value.toFixed(2),
                 shipping_tier: res.shippingMethod,
                 coupon: currentBasket.couponLineItems.length > 0 ? currentBasket
                     .couponLineItems[0].couponCode : null,
@@ -473,9 +471,7 @@ function addPayment(res) {
             event: gtmEvents.ADD_PAYMENT_INFO,
             ecommerce: {
                 currency: currentBasket.currencyCode,
-                value: currentBasket
-                    .getAdjustedMerchandizeTotalNetPrice()
-                    .value.toFixed(2),
+                value: currentBasket.totalGrossPrice.value.toFixed(2),
                 payment_type: paymentMethod,
                 add: {
                     products: []
@@ -527,7 +523,7 @@ function getConfirmationData(res) {
             event: gtmEvents.PURCHASE,
             ecommerce: {
                 transaction_id: order.orderNo,
-                value: order.totalGrossPrice.value,
+                value: order.totalGrossPrice.value.toFixed(2),
                 tax: order.getTotalTax().getValue().toFixed(2),
                 shipping: order.getAdjustedShippingTotalPrice().getValue(),
                 coupon: order.couponLineItems.length ? order.couponLineItems[0].couponCode : '',
