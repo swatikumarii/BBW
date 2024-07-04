@@ -87,7 +87,6 @@ function getInvoice(orderNo, hostName) {
 
         Logger.info("get content ");
         var content = getEmailContent("normal-footer", "email-header");
-1        // var image = contentApi.contentApi("email-progress-status-image");
         Logger.info("get content content : " + content);
         return {
           order: orderModelData,
@@ -196,12 +195,22 @@ function getShippedData(orderNo) {
       shippedEmailMarkup = shippedemailContent.custom.body.markup;
     }
 
+    var content = getEmailContent("normal-footer", "email-header");
     return {
       order: orderModelData,
-      content: getEmailContent('normal-footer', 'email-header'),
+      content: content,
       taxRate: taxRate,
       markup: shippedEmailMarkup,
-      shippedImage: contentApi.contentApi("email-shipped-image")
+      shippedImage: URLUtils.httpsImage(
+        require("dw/system/Site").getCurrent().httpsHostName,
+        "/images/email/orders/status/icon-shipped.png",
+        {}
+      ),
+      shippedIcon: URLUtils.httpsImage(
+        require("dw/system/Site").getCurrent().httpsHostName,
+        "/images/email/orders/status/shipped-icon.png",
+        {}
+      ),
     };
   }
   return {};

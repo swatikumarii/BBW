@@ -107,7 +107,9 @@
                                 <iscomment> View Order Status Image and Button </iscomment>
                                 <div style="border:3px solid #f2f2f2;padding:36px 0;text-align:center">
                                     <p style="margin:0 0 44px">
-                                        <isprint value="${orderDetail.shippedImage}" encoding="off" />
+                                        <iscomment> <isprint value="${orderDetail.shippedImage}" encoding="off" /> </iscomment>
+                                        <img src="${orderDetail.shippedImage}" alt="Progress"
+                                            style="border:0;vertical-align:top;width:90%;" />
                                     </p>
                                     <div>
                                         <!--[if mso]>
@@ -137,7 +139,7 @@
                                 <p
                                     style="margin:20px 0 20px;color:#666666;text-align:left;font-family:'HelveticaNeue-Regular','Helvetica Neue Regular','HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
                                     <img width="42px" height="22px"
-                                        src="${URLUtils.absStatic('/images/email/orders/status/shipped-icon.png')}" alt="Shipped"
+                                        src="${orderDetail.shippedIcon}" alt="Shipped"
                                         style="border:0;vertical-align:top;width:42pxlheight:22px;" />
                                     <span
                                         style="margin-left:10px;color:#000000;font-weight:bold;font-size:16px;line-height:16px;display: inline-block;height: 28px;vertical-align: middle;">${Resource.msg('track.order.shipped.label', 'email', null)}</span>
