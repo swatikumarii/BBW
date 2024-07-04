@@ -32,7 +32,7 @@
                     <isinclude template="account/order/capillaryOrderDetails" />
                     <div class="d-md-flex">
                         <div class="order-btn mr-2 mb-2 mb-md-0">
-                            <a class="btn btn-hover btn-block" href="${URLUtils.url('Order-CapillaryOrders')}"
+                            <a class="btn btn-hover btn-block" href="${URLUtils.url('Order-StoreOrders')}"
                                 title="${Resource.msg('link.orderdetails.myaccount', 'account', null)}"
                                 aria-label="${Resource.msg('link.orderdetails.myaccount', 'account', null)}">
                                 ${pdict.exitLinkText}

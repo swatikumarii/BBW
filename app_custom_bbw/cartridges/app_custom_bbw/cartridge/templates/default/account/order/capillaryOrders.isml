@@ -30,24 +30,30 @@
                     <div class="account-profile">
                         <div class="profile-heading">
                             <h1>${Resource.msg('label.store.orderhistory', 'account', null)}</h1>
-                            <isif condition="${empty(pdict.orders)}">
-                                <div class="h-font-size--12">${Resource.msg('label.noOrder', 'account', null)}</div>
-                            </isif>
                         </div>
                     </div>
                 </div>
                 <div class="order-list-container">
                     <div id="order-list-accordion" class="accordion">
                         <isset name="previousYear" value="0" scope="page" />
+                        <isset name="storeOrdersAval" value="0" scope="page" />
                         <isloop items="${pdict.orders}" var="order" status="loopstate">
-                            <isset name="orderDate" value="${(order.billing_time).replace(' ', 'T')+'+05:30'}" scope="page" />
-                            <isif condition="${new Date(orderDate).getFullYear().toString() !== previousYear}">
-                                <h3 class="headinfo-year" data-toggle="collapse" data-target="#orderlist" aria-expanded="true"
-                                    aria-controls="orderlist">${new Date(orderDate).getFullYear().toString()} ${Resource.msg('label.orders', 'account', null)}</h3>
-                                <isset name="previousYear" value="${new Date(orderDate).getFullYear().toString()}" scope="page" />
+                            <isif
+                                condition="${order.custom_fields.field[0].name === '' || (order.custom_fields.field[1].name === 'is_sf_order' && order.custom_fields
+                                           .field[1].value === 'false') || order.custom_fields.field[1].name !== 'is_sf_order'}">
+                                <isset name="storeOrdersAval" value="1" scope="page" />
+                                <isset name="orderDate" value="${(order.billing_time).replace(' ', 'T')+'+05:30'}" scope="page" />
+                                <isif condition="${new Date(orderDate).getFullYear().toString() !== previousYear}">
+                                    <h3 class="headinfo-year" data-toggle="collapse" data-target="#orderlist" aria-expanded="true"
+                                        aria-controls="orderlist">${new Date(orderDate).getFullYear().toString()} ${Resource.msg('label.orders', 'account', null)}</h3>
+                                    <isset name="previousYear" value="${new Date(orderDate).getFullYear().toString()}" scope="page" />
+                                </isif>
+                                <isinclude template="account/order/capillaryOrderHistoryCard" />
                             </isif>
-                            <isinclude template="account/order/capillaryOrderHistoryCard" />
                         </isloop>
+                        <isif condition="${storeOrdersAval === '0'}">
+                            <div class="h-font-size--12">${Resource.msg('label.noOrder', 'account', null)}</div>
+                        </isif>
                     </div>
                 </div>
             </div>
