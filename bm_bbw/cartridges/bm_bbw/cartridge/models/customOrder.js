@@ -1,5 +1,6 @@
 'use strict';
 
+var Logger = require("dw/system/Logger");
 var Locale = require("dw/util/Locale");
 
 var contentApi = require("*/cartridge/scripts/service/contentApi");
@@ -23,11 +24,13 @@ function getEmailContent(footerType, headerType) {
         );
     } else {
         content = contentApi.contentApi("email-header");
+        Logger.info("get content email-header : " + content);
     }
 
     if (content) {
         headerContent = content;
     }
+    Logger.info("get content email-header  headerContent : " + headerContent);
 
     if (footerType === 'normal-footer') {
         content = contentApi.contentApi('email-footer');
@@ -38,6 +41,7 @@ function getEmailContent(footerType, headerType) {
     } else {
         content = false;
     }
+    Logger.info("get content email-header footerType : " + content);
 
     if (content) {
         footerContent = content;
@@ -80,8 +84,11 @@ function getInvoice(orderNo, hostName) {
           // ,
           // countryCode: currentLocale.country,
         });
+
+        Logger.info("get content ");
         var content = getEmailContent("normal-footer", "email-header");
-        var image = contentApi.contentApi("email-progress-status-image");
+1        // var image = contentApi.contentApi("email-progress-status-image");
+        Logger.info("get content content : " + content);
         return {
           order: orderModelData,
           content: content,
