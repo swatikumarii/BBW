@@ -442,7 +442,7 @@ function addShipping(res) {
                     item_brand: res.order.items.items[i].brand ? res.order.items.items[i].brand:'' ,
                     item_category: res.order.items.items[i].gtmData.item_category ? res.order.items.items[i].gtmData.item_category:'',
                     item_categoryID: res.order.items.items[i].gtmData.item_categoryID ? res.order.items.items[i].gtmData.item_categoryID:'',
-                    price: res.order.items.items[i].price.sales.decimalPrice,
+                    price: res.order.items.items[i].priceTotal.priceValue,
                     quantity: res.order.productQuantityTotal,
                 });
             }
