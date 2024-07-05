@@ -43,6 +43,7 @@
         <pipeline-alias pipeline="Fragrance-Ingredient">ingredient</pipeline-alias>
         <pipeline-alias pipeline="Wishlist-Show">wishlist</pipeline-alias>
         <pipeline-alias pipeline="Order-History">orders-list</pipeline-alias>
+        <pipeline-alias pipeline="Order-StoreOrders">store-orders-list</pipeline-alias>
         <pipeline-alias pipeline="Login-Show">sign-in</pipeline-alias>
         <pipeline-alias pipeline="Search-Show">search</pipeline-alias>
         <pipeline-alias pipeline="Stores-Find">store-locator</pipeline-alias>
@@ -56,6 +57,7 @@
         <pipeline-alias pipeline="Order-Failed">order-failed</pipeline-alias>
         <pipeline-alias pipeline="Giftcard-Show">e-giftcard</pipeline-alias>
         <pipeline-alias pipeline="Order-Details">order-details</pipeline-alias>
+        <pipeline-alias pipeline="Order-StoreDetails">store-order-details</pipeline-alias>
         <pipeline-alias pipeline="PaymentInstruments-List">payment-methods-list</pipeline-alias>
         <pipeline-alias pipeline="PaymentInstruments-AddPayment">add-payment-method</pipeline-alias>
         <pipeline-alias pipeline="Wishlist-ShowOthers">wishlist-others</pipeline-alias>
