@@ -364,6 +364,15 @@ $(document).ready(function () {
     $(document.body).on('click', '.password-hide-show', function () {
         togglePasswordVisibility($('#newPasswordConfirm'), $(this));
     });
+    $(document).on("keyup",'#newPassword', function () {
+        validatePasswordFieldWithValidation($(this));
+    });
+    $('#newPassword').click(function () {
+        $('.required-pass').removeClass('d-none');
+    });
+    $('#newPasswordConfirm').click(function () {
+        $('.required-pass').addClass('d-none');
+    });
 });
 var validationFields = [
     {
@@ -406,15 +415,15 @@ validationFields.forEach(function (field) {
 });
 
 $('#registration-form-password').click(function () {
-    $('.required-pass').removeClass('d-none');
-});
+        $('.required-pass').removeClass('d-none');
+    });
 
 $('body').click(function (event) {
-    // Check if the clicked element is not inside the #registration-form-password element
-    if (!$(event.target).closest('#registration-form-password').length) {
-        $('.required-pass').addClass('d-none');
-    }
-});
+        // Check if the clicked element is not inside the #registration-form-password element
+        if (!$(event.target).closest('#registration-form-password').length && $(event.target).closest('#registration-form-password').length) {
+            $('.required-pass').addClass('d-none');
+        }
+    });
 
 $('.mobile-slide-cancel').click(function () {
     $('#mobile-slide-search').val('');
