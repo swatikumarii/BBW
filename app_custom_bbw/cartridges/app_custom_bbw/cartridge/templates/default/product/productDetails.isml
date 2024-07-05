@@ -149,7 +149,7 @@
                                     </div>
                                 </isif>
                                 <isloop items="${product.promotions}" var="promotion" status="loopstatus">
-                                    <isif condition="${!empty(promotion.motivator)}">
+                                    <isif condition="${promotion.motivator && promotion.motivator !== 'false' && !empty(promotion.motivator)}">
                                         <div class="mb-1">
                                             <isprint value="${promotion.motivator}" encoding="off" />
                                         </div>
