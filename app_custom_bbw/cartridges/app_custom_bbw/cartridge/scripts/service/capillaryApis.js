@@ -90,30 +90,28 @@ module.exports = {
             var dob = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
             requestObj.extendedFields.dob = dob;
         }
-        var createStatus = callCapillaryAPI('v2/customers', JSON.stringify(requestObj), 'POST');
-        if (createStatus && createStatus.ok && 'object' in createStatus && createStatus.object) {
-            var createObject = JSON.parse(createStatus.object);
-            if ('errors' in createObject && createObject.errors && createObject.errors.length > 0) {
-                storeErrorResponse(newCustomerprofile, JSON.stringify(createObject.errors));
-                if (createObject.errors[0].code === 8006) {
-                    var encodeEmailAddress = encodeEmailExceptAt(registrationForm.email);
-                    var endPoint = 'v2/customers/lookup?source=INSTORE&identifierName=email&identifierValue=' + encodeEmailAddress;
-                    var customerStatus = callCapillaryAPI(endPoint, '', 'GET');
-                    if (customerStatus && customerStatus.ok && 'object' in customerStatus && customerStatus.object) {
-                        var customerObj = JSON.parse(customerStatus.object);
-                        if ('errors' in customerObj && customerObj.errors) {
-                            logger.error('capillary create customer: ' + JSON.stringify(customerObj.errors));
-                            return '';
-                        }
-                        if ('entity' in customerObj) {
-                            return customerObj.entity;
-                        }
+        var encodeEmailAddress = encodeEmailExceptAt(registrationForm.email);
+        var endPoint = 'v2/customers/lookup?source=INSTORE&identifierName=email&identifierValue=' + encodeEmailAddress;
+        var customerStatus = callCapillaryAPI(endPoint, '', 'GET');
+        if (customerStatus && customerStatus.ok && 'object' in customerStatus && customerStatus.object) {
+            var customerObj = JSON.parse(customerStatus.object);
+            if ('errors' in customerObj && customerObj.errors) {
+                logger.error('capillary get customer: ' + JSON.stringify(customerObj.errors));
+                var createStatus = callCapillaryAPI('v2/customers', JSON.stringify(requestObj), 'POST');
+                if (createStatus && createStatus.ok && 'object' in createStatus && createStatus.object) {
+                    var createObject = JSON.parse(createStatus.object);
+                    if ('errors' in createObject && createObject.errors && createObject.errors.length > 0) {
+                        storeErrorResponse(newCustomerprofile, JSON.stringify(createObject.errors));
                         return '';
                     }
+                    return createObject.createdId;
                 }
                 return '';
             }
-            return createObject.createdId;
+            if ('entity' in customerObj) {
+                return customerObj.entity;
+            }
+            return '';
         }
         return '';
     },
