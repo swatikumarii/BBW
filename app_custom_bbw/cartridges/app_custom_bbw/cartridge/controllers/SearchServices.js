@@ -126,9 +126,10 @@ server.replace('GetSuggestions', cache.applyDefaultCache, function (req, res, ne
             popularSuggestions.available ||
             brandSuggestions.available
     ) {
-        total = recentSuggestions.phrases.length +
-            popularSuggestions.phrases.length +
-            brandSuggestions.phrases.length;
+        total =
+            (recentSuggestions.phrases ? recentSuggestions.phrases.length : 0) +
+            (popularSuggestions.phrases ? popularSuggestions.phrases.length : 0) +
+            (brandSuggestions.phrases ? brandSuggestions.phrases.length : 0);
         res.render('search/suggestions', {
             suggestions: {
                 recent: recentSuggestions,

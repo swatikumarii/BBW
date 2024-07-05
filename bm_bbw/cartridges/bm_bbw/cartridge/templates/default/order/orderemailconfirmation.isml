@@ -382,8 +382,6 @@ Multiple email address can be separated by , (a la RFC2822)
                                                                 <td
                                                                     style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
                                                                     ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
-                                                                    - <span
-                                                                        style="text-transform:none">${Resource.msg('email.order.payment.shipping.ground.label2', 'confirmation', null)}</span>
                                                                 </td>
                                                                 <isif condition="${orderDetail.order.hasFreeShipping}">
                                                                     <td
@@ -398,8 +396,6 @@ Multiple email address can be separated by , (a la RFC2822)
                                                                 <td
                                                                     style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0">
                                                                     ${Resource.msg('email.order.payment.shipping.ground.label1', 'confirmation', null)}
-                                                                    - <span
-                                                                        style="text-transform:none">${Resource.msg('email.order.payment.shipping.ground.label2', 'confirmation', null)}</span>
                                                                 </td>
                                                                 <isif condition="${orderDetail.order.hasFreeShipping}">
                                                                     <td

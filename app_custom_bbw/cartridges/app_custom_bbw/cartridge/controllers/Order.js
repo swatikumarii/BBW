@@ -500,15 +500,15 @@ server.append(
 
             // redirection url
             viewData.orderStatusVal = Order;
-            if (order && order.paymentStatus.value === viewData.orderStatusVal.PAYMENT_STATUS_NOTPAID
-                && order.paymentTransaction && order.paymentTransaction !== null && 'custom' in order.paymentTransaction && order.paymentTransaction.custom
-                && 'Adyen_paymentMethod' in order.paymentTransaction.custom && 'authCode' in order.paymentTransaction.custom
-                && order.paymentTransaction.custom.authCode === 'Authorised') {
-                Transaction.wrap(function () {
-                    order.setPaymentStatus(Order.PAYMENT_STATUS_PAID);
-                });
-                COHelpers.sendConfirmationEmail(order, req.locale.id);
-            }
+            // if (order && order.paymentStatus.value === viewData.orderStatusVal.PAYMENT_STATUS_NOTPAID
+            //     && order.paymentTransaction && order.paymentTransaction !== null && 'custom' in order.paymentTransaction && order.paymentTransaction.custom
+            //     && 'Adyen_paymentMethod' in order.paymentTransaction.custom && 'authCode' in order.paymentTransaction.custom
+            //     && order.paymentTransaction.custom.authCode === 'Authorised') {
+            //     Transaction.wrap(function () {
+            //         order.setPaymentStatus(Order.PAYMENT_STATUS_PAID);
+            //     });
+            //     COHelpers.sendConfirmationEmail(order, req.locale.id);
+            // }
             res.setViewData(viewData);
             if (order.status.value === Order.ORDER_STATUS_FAILED || order.status.value === Order.ORDER_STATUS_CANCELLED) {
                 res.redirect(URLUtils.url('Order-Failed'));

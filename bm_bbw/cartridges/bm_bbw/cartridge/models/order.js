@@ -119,7 +119,8 @@ function OrderModel(lineItemContainer, options) {
         var currentSite = Site.getCurrent();
         var currency = new Money(0, currentSite.getDefaultCurrency());
         var currencyCode = currency.toFormattedString();
-        this.currencyCode = (currencyCode || "").trim().split(" ")[0] || "";
+        currencyCode = (currencyCode || "").trim().split(" ")[0] || "";
+        this.currencyCode = currencyCode.replace('0.00', '').replace('0,00', '');
         var shippingModels = ShippingHelpers.getShippingModels(lineItemContainer, customer, safeOptions.containerView, safeOptions);
 
         var paymentModel = new PaymentModel(lineItemContainer, customer, countryCode);

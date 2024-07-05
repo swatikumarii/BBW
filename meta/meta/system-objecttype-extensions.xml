@@ -3804,6 +3804,12 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="proratedPrice">
+                <display-name xml:lang="x-default">Prorated Price</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="receivedQuantity">
                 <display-name xml:lang="x-default">Received Quantity</display-name>
                 <type>string</type>
@@ -3918,6 +3924,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-group group-id="customAttributes">
                 <display-name xml:lang="x-default">Custom Attributes</display-name>
                 <attribute attribute-id="SID"/>
+                <attribute attribute-id="proratedPrice"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

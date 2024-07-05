@@ -4,6 +4,7 @@
  * @namespace Site
  */
 var server = require('server');
+var seo = require('*/cartridge/scripts/middleware/seo');
 
 /**
  * Site-Show : The Site-Show endpoint will show categories list
@@ -35,6 +36,6 @@ server.get('Show', function (req, res, next) {
 
     res.render('/sitemap/siteMap', { categories: topLevelCategories });
     next();
-});
+},seo.addCurrentPageMetaData);
 
 module.exports = server.exports();

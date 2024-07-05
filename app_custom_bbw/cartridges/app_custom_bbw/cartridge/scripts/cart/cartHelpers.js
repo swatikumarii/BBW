@@ -416,6 +416,9 @@ function createFreeLineItem(lineItemContainer) {
                 breakLoop = true;
             }
         }
+        Transaction.wrap(function () {
+            productLineItem.custom.proratedPrice = productLineItem.proratedPrice.value;
+        });
         if (breakLoop) {
             changes = true;
             break; // Exit the loop

@@ -105,27 +105,57 @@ function getAvailability() {
 /**
  * function : This point will get breadcrumb for a content asset folder
  * @param {object} folder content folder
+ * @param {boolean} isBlogs to check content is blog
  * @returns {object} - returns an element of the array that is breadcrumbs.
  */
-function getBreadcrumbForContentAssetFolders(folder) {
-    if (folder.ID !== 'faq') {// displayName.
+function getBreadcrumbForContentAssetFolders(folder, isBlogs) {
+    if (folder.ID !== 'faq') {
+        // displayName.
         if (folder.parent !== null) {
-            var breadcrumbs = getBreadcrumbForContentAssetFolders(folder.parent);
+            var breadcrumbs = getBreadcrumbForContentAssetFolders(
+                folder.parent,
+                isBlogs
+            );
             if (breadcrumbs) {
-                breadcrumbs.push({
-                    htmlValue: folder.displayName,
-                    url: URLUtils.https('Page-Show', 'cid', folder.ID).toString()
-                });
+                if(isBlogs) {
+                    if (folder.ID === 'Blogs') {
+                        breadcrumbs.push({
+                            htmlValue: folder.displayName,
+                            url: URLUtils.https('Blogs-Show').toString()
+                        });
+                    } else {
+                        breadcrumbs.push({
+                            htmlValue: folder.displayName,
+                            url:URLUtils.https('Blogs-Show').toString() + '#' + folder.displayName.replace(' ', '')
+                        });
+                    }
+                } else {
+                    breadcrumbs.push({
+                        htmlValue: folder.displayName,
+                        url: URLUtils.https('Page-Show', 'cid', folder.ID).toString()
+                    });
+                }
                 return breadcrumbs;
             }
         } else {
-            return [{
-                htmlValue: Resource.msg('global.home', 'common', null),
-                url: URLUtils.home().toString()
-            }];
+            return [
+                {
+                    htmlValue: Resource.msg('global.home', 'common', null),
+                    url: URLUtils.home().toString()
+                }
+            ];
         }
     }
     return '';
+}
+
+/**
+ * function : This will return boolean to check content blogs. 
+ * @param {object} content content assests
+ * @returns {boolean} - returns an element of the array that is breadcrumbs.
+ */
+function isContentBlock(content) {
+    return content.folders && content.folders.length > 0 && content.folders[0].parent.ID === 'Blogs';
 }
 
 /**
@@ -135,8 +165,12 @@ function getBreadcrumbForContentAssetFolders(folder) {
  */
 function getBreadcrumbForContentAsset(content) {
     var breadcrumbs = [];
+    var isBlogs = isContentBlock(content);
     if (content.folders && content.folders.length > 0) {
-        breadcrumbs = getBreadcrumbForContentAssetFolders(content.folders[0]);
+        breadcrumbs = getBreadcrumbForContentAssetFolders(
+            content.folders[0],
+            isBlogs
+        );
     } else {
         breadcrumbs = [
             {

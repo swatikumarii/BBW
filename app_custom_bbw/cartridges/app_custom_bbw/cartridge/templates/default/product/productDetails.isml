@@ -148,6 +148,13 @@
                                         </button>
                                     </div>
                                 </isif>
+                                <isloop items="${product.promotions}" var="promotion" status="loopstatus">
+                                    <isif condition="${promotion.motivator && promotion.motivator !== 'false' && !empty(promotion.motivator)}">
+                                        <div class="mb-1">
+                                            <isprint value="${promotion.motivator}" encoding="off" />
+                                        </div>
+                                    </isif>
+                                </isloop>
                             </div>
 
                         <iscomment> Hiding Bopis Options for now </iscomment>
