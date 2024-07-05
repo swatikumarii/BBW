@@ -61,7 +61,6 @@
         <div class="tab-content col-12">
             <div class="tab-pane container active h-maxwidth--1400 px-0" id="product-search-results" role="tabpanel"
                 aria-labelledby="product-tab">
-                
                 <isif condition="${pdict.productSearch.productIds.length > 0}">
                     <!--- Refinement bar --->
                     <div
