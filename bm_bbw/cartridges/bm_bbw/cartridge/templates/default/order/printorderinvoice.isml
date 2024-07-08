@@ -17,7 +17,7 @@
         var orderModel = require('bm_bbw/cartridge/models/customOrder.js');
         var orderDetail = orderModel.getInvoice(pdict.Order.orderNo);
     </isscript>
-        <div id="content">
+            <div id="content">
             <table style="table-layout: fixed; width: 100%; ">
                 <tbody>
                     <tr style="vertical-align: baseline; font-family: SourceSansPro, Arial, sans-serif;">
@@ -47,12 +47,6 @@
                                     <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServicePhone')}"
                                         encoding="off" />
                                 </div>
-                            </isif>
-                            <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServiceEmail')}">
-                                <p
-                                    style="margin: 0;line-height: 18px; letter-spacing:0.75px;color:#1a1919">
-                                    ${dw.system.Site.getCurrent().getCustomPreferenceValue('customerServiceEmail')}
-                                </p>
                             </isif>
                             <isif condition="${dw.system.Site.getCurrent().getCustomPreferenceValue('companyTaxNumber')}">
                                 <div style="margin: 0;line-height: 18px; letter-spacing:0.75px;color:#1a1919">

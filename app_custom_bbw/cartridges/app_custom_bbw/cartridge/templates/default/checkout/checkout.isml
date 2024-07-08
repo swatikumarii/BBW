@@ -22,6 +22,7 @@
         data-customer-type="${pdict.customer.registeredUser ? 'registered' : 'guest'}"
         data-checkout-stage="${pdict.currentStage}" data-checkout-get-url="${URLUtils.https('CheckoutServices-Get')}">
         <div class="container">
+            <input type="hidden" name="overrideAfterpay" value="${false}">
             <input type="hidden" name="billing-url" value="${URLUtils.url('Checkout-Begin', 'stage', 'payment')}">
             <input type="hidden" name="review-url" value="${URLUtils.url('Checkout-Begin', 'stage', 'placeOrder')}">
             <div class="checkout-steps d-flex justify-content-between">

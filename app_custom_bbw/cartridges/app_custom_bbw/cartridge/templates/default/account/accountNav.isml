@@ -12,6 +12,12 @@
             ${Resource.msg('label.orderhistory', 'account', null)}
         </a>
     </li>
+    <iscomment> <li <isif condition="${pdict.action == 'Order-StoreOrders'}"> class="active" </isif>>
+        <span></span>
+        <a title="${Resource.msg('label.orderhistory.title', 'account', null)}" href="${URLUtils.url('Order-StoreOrders')}">
+            ${Resource.msg('label.store.orderhistory', 'account', null)}
+        </a>
+    </li> </iscomment>
     <li <isif condition="${pdict.action == 'PaymentInstruments-List'}"> class="active" </isif>>
         <span></span>
         <a title="${Resource.msg('label.payment.title', 'account', null)}" href="${URLUtils.url('PaymentInstruments-List')}">

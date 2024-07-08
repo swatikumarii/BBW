@@ -500,15 +500,15 @@ server.append(
 
             // redirection url
             viewData.orderStatusVal = Order;
-            if (order && order.paymentStatus.value === viewData.orderStatusVal.PAYMENT_STATUS_NOTPAID
-                && order.paymentTransaction && order.paymentTransaction !== null && 'custom' in order.paymentTransaction && order.paymentTransaction.custom
-                && 'Adyen_paymentMethod' in order.paymentTransaction.custom && 'authCode' in order.paymentTransaction.custom
-                && order.paymentTransaction.custom.authCode === 'Authorised') {
-                Transaction.wrap(function () {
-                    order.setPaymentStatus(Order.PAYMENT_STATUS_PAID);
-                });
-                COHelpers.sendConfirmationEmail(order, req.locale.id);
-            }
+            // if (order && order.paymentStatus.value === viewData.orderStatusVal.PAYMENT_STATUS_NOTPAID
+            //     && order.paymentTransaction && order.paymentTransaction !== null && 'custom' in order.paymentTransaction && order.paymentTransaction.custom
+            //     && 'Adyen_paymentMethod' in order.paymentTransaction.custom && 'authCode' in order.paymentTransaction.custom
+            //     && order.paymentTransaction.custom.authCode === 'Authorised') {
+            //     Transaction.wrap(function () {
+            //         order.setPaymentStatus(Order.PAYMENT_STATUS_PAID);
+            //     });
+            //     COHelpers.sendConfirmationEmail(order, req.locale.id);
+            // }
             res.setViewData(viewData);
             if (order.status.value === Order.ORDER_STATUS_FAILED || order.status.value === Order.ORDER_STATUS_CANCELLED) {
                 res.redirect(URLUtils.url('Order-Failed'));
@@ -565,6 +565,72 @@ server.append(
             }
         });
         return next();
+    },
+    seo.addCurrentPageMetaData);
+
+server.get(
+    'StoreOrders',
+    consentTracking.consent,
+    server.middleware.https,
+    userLoggedIn.validateLoggedIn,
+    function (req, res, next) {
+        var breadcrumbs = [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            },
+            {
+                htmlValue: Resource.msg(
+                    'page.title.myaccount',
+                    'account',
+                    null
+                ),
+                url: URLUtils.url('Account-Show').toString()
+            },
+            {
+                htmlValue: Resource.msg('label.orderhistory', 'account', null),
+                url: URLUtils.url('Address-List').toString()
+            }
+        ];
+        var customerEmail = req.currentCustomer.profile.email;
+        var orders = capillaryAPI.getOrders(customerEmail);
+        res.render('account/order/capillaryOrders', {
+            orders: orders,
+            accountlanding: false,
+            breadcrumbs: breadcrumbs
+        });
+        next();
+    },
+    seo.addCurrentPageMetaData);
+
+server.get(
+    'StoreDetails',
+    consentTracking.consent,
+    server.middleware.https,
+    userLoggedIn.validateLoggedIn,
+    function (req, res, next) {
+        var breadcrumbs = [
+            {
+                htmlValue: Resource.msg('global.home', 'common', null),
+                url: URLUtils.home().toString()
+            },
+            {
+                htmlValue: Resource.msg('page.title.myaccount', 'account', null),
+                url: URLUtils.url('Account-Show').toString()
+            },
+            {
+                htmlValue: Resource.msg('label.orderhistory', 'account', null),
+                url: URLUtils.url('Order-History').toString()
+            }
+        ];
+        var order = capillaryAPI.getOrderDetail(req.querystring.orderID);
+        var exitLinkText = Resource.msg('link.orderdetails.orderhistory', 'account', null);
+        res.render('account/capillaryOrderDetails', {
+            order: order,
+            exitLinkText: exitLinkText,
+            breadcrumbs: breadcrumbs
+        });
+        next();
     },
     seo.addCurrentPageMetaData);
 

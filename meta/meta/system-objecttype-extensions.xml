@@ -1487,6 +1487,14 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="careersFromEmail">
+                <display-name xml:lang="x-default">Careers From Email</display-name>
+                <description xml:lang="x-default">The resumes of the candidates will be send from this email address.</description>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="emarsysEnabled">
                 <display-name xml:lang="x-default">Is Emarsys Enabled</display-name>
                 <type>boolean</type>
@@ -1528,6 +1536,12 @@
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
             <attribute-definition attribute-id="enableQwikcilver">
+                <display-name xml:lang="x-default">Enable Qwikcilver</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
+            <attribute-definition attribute-id="showEgiftCardExpiry">
                 <display-name xml:lang="x-default">Enable Qwikcilver</display-name>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
@@ -1803,6 +1817,15 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <field-length>0</field-length>
                 <default-value>no-reply@testorganization.com</default-value>
             </attribute-definition>
+            <attribute-definition attribute-id="capillaryOrderFailedEmail">
+                <display-name xml:lang="x-default">Capillary Order Failed Email</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+                <field-length>0</field-length>
+                <default-value>no-reply@testorganization.com</default-value>
+            </attribute-definition>
             <attribute-definition attribute-id="showMinicartPopup">
                 <display-name xml:lang="x-default">Show Minicart popup</display-name>
                 <type>boolean</type>
@@ -1872,6 +1895,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="qwikcilverMaxRedemptionAmount"/>
                 <attribute attribute-id="qwikclverAuthToken"/>
                 <attribute attribute-id="qwikcilverTransactionID"/>
+                <attribute attribute-id="showEgiftCardExpiry"/>
                 <attribute attribute-id="s3UploadLink"/>
             </attribute-group>
             <attribute-group group-id="Storefront Configs">
@@ -1882,6 +1906,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="GoogleVerificationTag"/>
                 <attribute attribute-id="countryCode"/>
                 <attribute attribute-id="customerServiceEmail"/>
+                <attribute attribute-id="capillaryOrderFailedEmail"/>
                 <attribute attribute-id="mapAPI"/>
                 <attribute attribute-id="reserveQty"/>
                 <attribute attribute-id="maxOrderQty"/>
@@ -1889,6 +1914,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="header_image"/>
                 <attribute attribute-id="zeroOrderEmail"/>
                 <attribute attribute-id="careersEmail"/>
+                <attribute attribute-id="careersFromEmail"/>
                 <attribute attribute-id="softTimeout"/>
                 <attribute attribute-id="popupDuration"/>
                 <attribute attribute-id="countrySiteMapping"/>
@@ -3778,6 +3804,12 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="proratedPrice">
+                <display-name xml:lang="x-default">Prorated Price</display-name>
+                <type>double</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="receivedQuantity">
                 <display-name xml:lang="x-default">Received Quantity</display-name>
                 <type>string</type>
@@ -3892,6 +3924,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
             <attribute-group group-id="customAttributes">
                 <display-name xml:lang="x-default">Custom Attributes</display-name>
                 <attribute attribute-id="SID"/>
+                <attribute attribute-id="proratedPrice"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

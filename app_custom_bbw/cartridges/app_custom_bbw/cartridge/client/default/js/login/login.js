@@ -139,6 +139,7 @@ function login() {
                         200
                     );
                 } else {
+                    localStorage.setItem('isLoggedIn', true);
                     form.trigger('login:success', data);
                     if (data.isIncomplete && data.showPopup) {
                         sessionStorage.setItem('profileIncomplete', true);
@@ -363,6 +364,15 @@ $(document).ready(function () {
     $(document.body).on('click', '.password-hide-show', function () {
         togglePasswordVisibility($('#newPasswordConfirm'), $(this));
     });
+    $(document).on("keyup",'#newPassword', function () {
+        validatePasswordFieldWithValidation($(this));
+    });
+    $('#newPassword').click(function () {
+        $('.required-pass').removeClass('d-none');
+    });
+    $('#newPasswordConfirm').click(function () {
+        $('.required-pass').addClass('d-none');
+    });
 });
 var validationFields = [
     {
@@ -410,7 +420,7 @@ $('#registration-form-password').click(function () {
 
 $('body').click(function (event) {
     // Check if the clicked element is not inside the #registration-form-password element
-    if (!$(event.target).closest('#registration-form-password').length) {
+    if (!$(event.target).closest('#registration-form-password').length && $(event.target).closest('#registration-form-password').length) {
         $('.required-pass').addClass('d-none');
     }
 });

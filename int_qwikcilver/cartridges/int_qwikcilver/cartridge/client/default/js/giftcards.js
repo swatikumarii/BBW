@@ -92,6 +92,7 @@ $(document).ready(function () {
                     $('#egift-pin').val('');
                     $('.giftcard-balance-text').empty();
                     if (data.noPendingAmount) {
+                        $('input[name="overrideAfterpay"]').val('true');
                         $('.giftcard-full-redemption')
                             .empty()
                             .append(data.noPendingAmount).addClass('mt-4 p-2');
@@ -111,15 +112,9 @@ $(document).ready(function () {
                     }
 
                     if (data.hideAfterPay) {
+                        $('input[name="overrideAfterpay"]').val('true');
                         if ($('.nav-link').hasClass('afterpay-tab')) {
                             $('.afterpay-tab').parent().hide();
-                        }
-                        // select another payment gateway if afterpay is not eligible
-                        if ($('.nav-link.afterpay-tab').hasClass('active')) {
-                            $('.payment-options .nav-item:not(.d-none)')
-                                .eq(0)
-                                .find('a')
-                                .click(); // active another method
                         }
                         $('#afterpay-widget-container').hide();
                         $('.afterpay-widget').hide();
