@@ -60,10 +60,10 @@ module.exports = function () {
                         setTimeout(function () {
                             addToCartSnackbar.removeClass('show');
                         }, 3000);
-    
+
                         $(thisData).spinner().stop();
                         return true;
-                    } 
+                    }
                     addToCartSnackbar.text(data.message);
                     addToCartSnackbar.addClass('error');
                     addToCartSnackbar.addClass('show');
@@ -93,6 +93,7 @@ module.exports = function () {
         // var thisData = this;
         $(this).spinner().start();
         var removeGiftPliUrl = $(this).data('action');
+        var updateShippingMethodURL = $(this).data('update-shipping');
         var addToCartUrl = $(this).data('addtocarturl');
         var form = {
             orderNumber: $(this).data('oid')
@@ -106,6 +107,7 @@ module.exports = function () {
                     url: addToCartUrl,
                     data: form,
                     success: function (result) {
+                        $.get(updateShippingMethodURL);
                         window.location.href = result.redirectUrl;
 
                         var addToCartSnackbar = $('#add-order-to-cart-snackbar');
