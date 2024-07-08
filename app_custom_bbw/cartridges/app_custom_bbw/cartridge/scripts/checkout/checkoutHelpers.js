@@ -15,7 +15,7 @@ var Transaction = require('dw/system/Transaction');
 var OrderMgr = require('dw/order/OrderMgr');
 var HookMgr = require('dw/system/HookMgr');
 Logger = require('dw/system/Logger');
-var loggerOrderConfirmation = Logger.getLogger('OrderConfirmationMailServiceCheckoutHelpers');
+var loggerOrderConfirmation = Logger.getLogger('CheckoutHelpersOrder');
 
 /**
  * Validates payment
@@ -90,7 +90,9 @@ function sendConfirmationEmail(order, locale) {
     var emailContent = ContentMgr.getContent('email-order-confirmation'); // Order Confirmation Email Content Asset Id
     var currentLocale = Locale.getLocale(locale);
 
-    loggerOrderConfirmation.info('Order Confirmation mail trigger for this '+order.customerEmail);
+    loggerOrderConfirmation.info(
+        'Order Confirmation mail trigger for this ' + order.customerEmail
+    );
 
     if (!empty(emailContent) && emailContent.online) {
         emailMarkup = emailContent.custom.body.markup;
@@ -110,13 +112,22 @@ function sendConfirmationEmail(order, locale) {
         type: emailHelpers.emailTypes.orderConfirmation
     };
 
-    try{
-        var mailSent = emailHelpers.sendEmail(emailObj, 'checkout/confirmation/confirmationEmail', orderObject);
-    }catch(e){
-        loggerOrderConfirmation.error('Error in Sending Order Confirmation mail ' + e.message);
+    try {
+        var mailSent = emailHelpers.sendEmail(
+            emailObj,
+            'checkout/confirmation/confirmationEmail',
+            orderObject
+        );
+    } catch (e) {
+        loggerOrderConfirmation.error(
+            'Error in Sending Order Confirmation mail ' + e.message
+        );
     }
 
-    loggerOrderConfirmation.info('Order Confirmation mail successfully sended for this '+order.customerEmail);
+    loggerOrderConfirmation.info(
+        'Order Confirmation mail successfully sended for this ' +
+            order.customerEmail
+    );
 }
 
 /**

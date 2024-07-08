@@ -10,7 +10,7 @@ var Order = require('dw/order/Order');
 var COHelpers = require('*/cartridge/scripts/checkout/checkoutHelpers');
 var OrderModel = require('*/cartridge/models/order');
 Logger = require('dw/system/Logger');
-var loggerOrderConfirmation = Logger.getLogger('OrderConfirmationMailServiceAdyenService');
+var loggerOrderConfirmation = Logger.getLogger('OrderAdyenService');
 OrderConfirmationMailServiceAdyenService
 function sendEmail(order) {
   var confirmationEmail = new Mail();
@@ -21,7 +21,9 @@ function sendEmail(order) {
   var orderObject = {
     order: orderModel
   };
-  loggerOrderConfirmation.info('Order Confirmation mail trigger for this '+order.customerEmail);
+  loggerOrderConfirmation.info(
+      'Order Confirmation mail trigger for this ' + order.customerEmail
+  );
   confirmationEmail.addTo(order.customerEmail);
   confirmationEmail.setSubject(Resource.msg('subject.order.confirmation.email', 'order', null));
   confirmationEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@salesforce.com');
@@ -31,13 +33,19 @@ function sendEmail(order) {
   var template = new Template('checkout/confirmation/confirmationEmail');
   var content = template.render(context).text;
   confirmationEmail.setContent(content, 'text/html', 'UTF-8');
+  
   try {
-    var mailSent = confirmationEmail.send();
-  } catch(e) {
-    loggerOrderConfirmation.error('Error in Sending Order Confirmation mail ' + e.message);
+      var mailSent = confirmationEmail.send();
+  } catch (e) {
+      loggerOrderConfirmation.error(
+          'Error in Sending Order Confirmation mail ' + e.message
+      );
   }
 
-  loggerOrderConfirmation.info('Order Confirmation mail successfully sended for this '+order.customerEmail);
+  loggerOrderConfirmation.info(
+      'Order Confirmation mail successfully sended for this ' +
+          order.customerEmail
+  );
 }
 function submit(order) {
   try {

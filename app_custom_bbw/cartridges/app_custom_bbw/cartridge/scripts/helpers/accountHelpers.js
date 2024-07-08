@@ -8,7 +8,7 @@ var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpe
 var ContentMgr = require('dw/content/ContentMgr');
 var Logger = require('dw/system/Logger');
 var loggerResetMail = Logger.getLogger('ResetMailService');
-var loggerAccountCreate = Logger.getLogger('CreateAccountMailServiceAccountHelpers');
+var loggerAccountCreate = Logger.getLogger('CreateAccountService');
 
 // var endpoints = require('*/cartridge/config/oAuthRenentryRedirectEndpoints');
 
@@ -64,7 +64,7 @@ function sendPasswordResetEmail(email, resettingCustomer) {
     var passwordResetToken = getPasswordResetToken(resettingCustomer);
     var url = URLUtils.https('Account-SetNewPassword', 'Token', passwordResetToken);
 
-    loggerResetMail.info('Reset password mail trigger for this '+email);
+    loggerResetMail.info('Reset password mail trigger for this ' + email);
 
     if (!empty(emailContent) && emailContent.online) {
         emailMarkup = emailContent.custom.body.markup;
@@ -87,13 +87,21 @@ function sendPasswordResetEmail(email, resettingCustomer) {
         type: emailHelpers.emailTypes.passwordChanged
     };
 
-    try{
-        var mailSent = emailHelpers.sendEmail(emailObj, 'mail/account/password/passwordResetEmail', objectForEmail);
-    }catch(e){
-        loggerResetMail.error('Error in Sending Reset password mail ' + e.message);
+    try {
+        var mailSent = emailHelpers.sendEmail(
+            emailObj,
+            'mail/account/password/passwordResetEmail',
+            objectForEmail
+        );
+    } catch (e) {
+        loggerResetMail.error(
+            'Error in Sending Reset password mail ' + e.message
+        );
     }
-    
-    loggerResetMail.info('Reset password mail successfully sended for this '+email);
+
+    loggerResetMail.info(
+        'Reset password mail successfully sended for this ' + email
+    );
 }
 
 /**
@@ -106,7 +114,9 @@ function sendCreateAccountEmail(registeredUser) {
     var emailMarkup = '';
     var emailContent = ContentMgr.getContent('email-welcome'); // Welcome Email Content Asset Id
 
-    loggerAccountCreate.info('Account create mail trigger for this '+ registeredUser.email);
+    loggerAccountCreate.info(
+        'Account create mail trigger for this ' + registeredUser.email
+    );
 
     if (!empty(emailContent) && emailContent.online) {
         emailMarkup = emailContent.custom.body.markup;
@@ -128,12 +138,21 @@ function sendCreateAccountEmail(registeredUser) {
         type: emailHelpers.emailTypes.registration
     };
 
-    try{
-        var mailSent = emailHelpers.sendEmail(emailObj, 'mail/account/accountRegisteredEmail', userObject);
-    }catch(e){
-        loggerAccountCreate.error('Error in Sending Account create mail '+ e.message);
+    try {
+        var mailSent = emailHelpers.sendEmail(
+            emailObj,
+            'mail/account/accountRegisteredEmail',
+            userObject
+        );
+    } catch (e) {
+        loggerAccountCreate.error(
+            'Error in Sending Account create mail ' + e.message
+        );
     }
-    loggerAccountCreate.info('Account create mail successfully sended for this '+ registeredUser.email);
+    loggerAccountCreate.info(
+        'Account create mail successfully sended for this ' +
+            registeredUser.email
+    );
 }
 
 /**
