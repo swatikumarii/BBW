@@ -403,7 +403,7 @@ function createFreeLineItem(lineItemContainer) {
                 );
                 breakLoop = true;
             } else {
-                if (productLineItem.quantityValue ===1) {
+                if (productLineItem.quantityValue <= qtyUpdateFreeItem) {
                     callBackSetItemAsFree(productLineItem);
                 } else {
                     callBackCreateNewFreeItem(
