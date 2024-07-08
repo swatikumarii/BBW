@@ -360,6 +360,12 @@
 // -------home-decor--------
 .bodycare-text-section {
     .bc-description {
+        h1 {
+            font-size: 1.5rem;
+            line-height: 1.125;
+            margin: 20px 0;
+        }
+
         h2 {
             font-size: 1.5rem;
             line-height: 1.125;
@@ -615,7 +621,7 @@
         z-index: 1;
         top: 0;
 
-        h2 {
+        h1 {
             font-size: 115px;
             margin: 3% 6%;
             min-height: 44px;
@@ -1666,7 +1672,7 @@
             margin-top: 10px;
             margin-bottom: 10px;
 
-            h3 {
+            .cyber-monday-details {
                 line-height: 1.125;
                 margin: 10px 0;
                 font-size: 1.2rem;
