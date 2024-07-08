@@ -1,223 +1,74 @@
 'use strict';
 
 var Logger = require("dw/system/Logger");
-var Locale = require("dw/util/Locale");
+var Site = require("dw/system/Site");
 
 var contentApi = require("*/cartridge/scripts/service/contentApi");
 
-/**
- * get Email Content
- * @returns {object} - object with content to be putted in email
- * @param {string} footerType - Footer type
- * @param {string} headerType - Footer type
- */
-function getEmailContent(footerType, headerType) {
-    // var ContentMgr = require('dw/content/ContentMgr');
-
-    var headerContent = null;
-    var footerContent = null;
-    var content = null;
-
-    if(headerType === 'newsletter-header') {
-        content = contentApi.contentApi(
-          "email-header-newsletter"
-        );
-    } else {
-        content = contentApi.contentApi("email-header");
-        Logger.info("get content email-header : " + content);
-    }
-
-    if (content) {
-        headerContent = content;
-    }
-    Logger.info("get content email-header  headerContent : " + headerContent);
-
-    if (footerType === 'normal-footer') {
-        content = contentApi.contentApi('email-footer');
-    } else if (footerType === 'footer-suggestions') {
-        content = contentApi.contentApi('email-footer-with-suggestions');
-    } else if (footerType === 'footer-only-topoffer') {
-        content = contentApi.contentApi('email-footer-only-topoffer');
-    } else {
-        content = false;
-    }
-    Logger.info("get content email-header footerType : " + content);
-
-    if (content) {
-        footerContent = content;
-    }
-
-    return {
-        headerContent: headerContent,
-        footerContent: footerContent
-    };
-}
-
 function getInvoice(orderNo) {
-    var URLUtils = require("dw/web/URLUtils");
-    var OrderMgr = require('dw/order/OrderMgr');
-    // var ContentMgr = require("dw/content/ContentMgr");
-    // var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
-    var orderModel = require("*/cartridge/models/order");
-    var TaxMgr = require('dw/order/TaxMgr');
-
-    var order = OrderMgr.getOrder(orderNo);
-    var taxClassId = TaxMgr.getDefaultTaxClassID();
-    var taxJurisdictionId = TaxMgr.getDefaultTaxJurisdictionID();
-    var getTaxRate = TaxMgr.getTaxRate(taxClassId, taxJurisdictionId);
-    var taxRate = getTaxRate * 100;
-
-    if (order) {
-        // var orderModel = orderHelpers.getOrderDetailsByID(
-        //   req.querystring.orderNo,
-        //   req.locale.id
-        // );
-
-        var config = {
-            numberOfLineItems: "*",
-        };
-
-        // var currentLocale = Locale.getLocale(locale);
-
-        var orderModelData = orderModel.OrderModel(order, {
-          config: config,
-          // ,
-          // countryCode: currentLocale.country,
-        });
-        var host = require("dw/system/Site").getCurrent().httpsHostName;
-        var imageURL = URLUtils.httpsImage("/images/email/orders/status/icon-placed.png", {});
-        var progressImage = imageURL.toString().replace(request.httpHost, host);
-        Logger.info("get content ");
-        var content = getEmailContent("normal-footer", "email-header");
-        Logger.info("get content content : " + content);
-        return {
-          order: orderModelData,
-          content: content,
-          taxRate: taxRate,
-          progressImage: progressImage,
-          markup: contentApi.contentApi("email-order-confirmation"),
-        };
-    }
-    return {};
-}
-
-function getCanceledData(orderNo) {
-  var OrderMgr = require("dw/order/OrderMgr");
-  // var ContentMgr = require("dw/content/ContentMgr");
+  Logger.info('Get Invoice triggered for orderNo : ' + orderNo);
   var URLUtils = require("dw/web/URLUtils");
+  var URLAction = require("dw/web/URLAction");
+  var URLParameter = require("dw/web/URLParameter");
   var encryptionHelper = require("*/cartridge/scripts/helpers/encryptionHelpers");
-  // var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
-  var orderModel = require("*/cartridge/models/order");
-  var TaxMgr = require("dw/order/TaxMgr");
-
-  var order = OrderMgr.getOrder(orderNo);
-  var taxClassId = TaxMgr.getDefaultTaxClassID();
-  var taxJurisdictionId = TaxMgr.getDefaultTaxJurisdictionID();
-  var getTaxRate = TaxMgr.getTaxRate(taxClassId, taxJurisdictionId);
-  var taxRate = getTaxRate * 100;
-
-  if (order) {
-    var config = {
-      numberOfLineItems: "*",
-    };
-
-    var orderModelData = orderModel.OrderModel(order, {
-      config: config,
-    });
-    var cancelEmailMarkup = "";
-    var cancelEmailFooterMarkup = "";
-    var emailContent = contentApi.contentApi("email-good-to-konw-block"); // Canceled Order Email Content Asset Id
-    var emailFooterContent = contentApi.contentApi(
-      "email-order-confirmation"
-    ); // Canceled Order Email Footer Image Content Asset Id
-
-    if (!empty(emailContent) && emailContent.online) {
-      cancelEmailMarkup = emailContent.custom.body.markup;
-    }
-
-    if (!empty(emailFooterContent) && emailFooterContent.online) {
-      cancelEmailFooterMarkup = emailFooterContent.custom.body.markup;
-    }
-    var encodedOrderNumber = encodeURIComponent(
-      encryptionHelper.encryptPin(orderModelData.orderNumber)
-    );
-    var content = getEmailContent("normal-footer", "email-header");
-    return {
-      order: orderModelData,
-      taxRate: taxRate,
-      invoiceUrl: URLUtils.https(
-        "Order-InvoiceDownload",
-        "token",
-        encodedOrderNumber
-      ).toString(),
-      content: content,
-      // content: emailContentHelpers.getEmailContent(
-      //   "normal-footer",
-      //   "email-header"
-      // ),
-      markup: cancelEmailMarkup,
-      footermarkup: cancelEmailFooterMarkup,
-    };
-  }
-  return {};
+  var encodedOrderNumber = encodeURIComponent(
+    encryptionHelper.encryptPin(orderNo)
+  );
+  var data = contentApi.callAPI(
+    URLUtils.https(
+      new URLAction("Order-InvoiceDownload", Site.current.ID),
+      new URLParameter("token", encodedOrderNumber)
+    ).toString()
+  );
+  return data;
 }
 
-function getShippedData(orderNo) {
-  var OrderMgr = require("dw/order/OrderMgr");
-  // var ContentMgr = require("dw/content/ContentMgr");
+function getConfirmationEmailData(orderNo) {
+  Logger.info("getConfirmationEmailData triggered for orderNo : " + orderNo);
   var URLUtils = require("dw/web/URLUtils");
-  var encryptionHelper = require("*/cartridge/scripts/helpers/encryptionHelpers");
-  // var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
-  var orderModel = require("*/cartridge/models/order");
-  var TaxMgr = require("dw/order/TaxMgr");
-
-  var order = OrderMgr.getOrder(orderNo);
-  var taxClassId = TaxMgr.getDefaultTaxClassID();
-  var taxJurisdictionId = TaxMgr.getDefaultTaxJurisdictionID();
-  var getTaxRate = TaxMgr.getTaxRate(taxClassId, taxJurisdictionId);
-  var taxRate = getTaxRate * 100;
-
-  if (order) {
-    var config = {
-      numberOfLineItems: "*",
-    };
-
-    var orderModelData = orderModel.OrderModel(order, {
-      config: config,
-    });
-    var shippedEmailMarkup = "";
-    var shippedEmailFooterMarkup = "";
-    var shippedemailContent = contentApi.contentApi(
-      "email-good-to-konw-shipped-block"
-    );
-    if (!empty(shippedemailContent) && shippedemailContent.online) {
-      shippedEmailMarkup = shippedemailContent.custom.body.markup;
-    }
-
-    var content = getEmailContent("normal-footer", "email-header");
-    var host = require("dw/system/Site").getCurrent().httpsHostName;
-    var shippedImage = URLUtils.httpsImage("/images/email/orders/status/icon-shipped.png", {}).toString().replace(request.httpHost, host);
-    var shippedIcon = URLUtils.httpsImage("/images/email/orders/status/shipped-icon.png", {}).toString().replace(request.httpHost, host);
-    return {
-      order: orderModelData,
-      content: content,
-      taxRate: taxRate,
-      markup: shippedEmailMarkup,
-      shippedImage: shippedImage,
-      shippedIcon: shippedIcon,
-    };
-  }
-  return {};
+  var URLAction = require('dw/web/URLAction');
+  var URLParameter = require('dw/web/URLParameter');
+  var data = contentApi.callAPI(
+    URLUtils.https(
+      new URLAction("StaticContent-ConfirmationEmailContent", Site.current.ID),
+      new URLParameter("orderNo", orderNo)
+    ).toString()
+  );
+  return data;
 }
 
+function getCancelledEmailContent(orderNo) {
+  Logger.info("getCancelledEmailContent triggered for orderNo : " + orderNo);
+  var URLUtils = require("dw/web/URLUtils");
+  var URLAction = require("dw/web/URLAction");
+  var URLParameter = require("dw/web/URLParameter");
+  var data = contentApi.callAPI(
+    URLUtils.https(
+      new URLAction("StaticContent-CancelledEmailContent", Site.current.ID),
+      new URLParameter("orderNo", orderNo)
+    ).toString()
+  );
+  return data;
+}
 
-getInvoice.public = true;
-getCanceledData.public = true;
-getShippedData.public = true;
+function getShippedEmailContent(orderNo) {
+  Logger.info("getShippedEmailContent triggered for orderNo : " + orderNo);
+  var URLUtils = require("dw/web/URLUtils");
+  var URLAction = require("dw/web/URLAction");
+  var URLParameter = require("dw/web/URLParameter");
+  var data = contentApi.callAPI(
+    URLUtils.https(
+      new URLAction("StaticContent-ShippedEmailContent", Site.current.ID),
+      new URLParameter("orderNo", orderNo)
+    ).toString()
+  );
+  return data;
+}
 
-exports.getCanceledData = getCanceledData;
-exports.getInvoice = getInvoice;
-exports.getShippedData = getShippedData;
-
-// module.exports = getInvoice;
+module.exports = {
+  getInvoice: getInvoice,
+  getConfirmationEmailData: getConfirmationEmailData,
+  getCancelledEmailContent: getCancelledEmailContent,
+  getShippedEmailContent: getShippedEmailContent
+};
 

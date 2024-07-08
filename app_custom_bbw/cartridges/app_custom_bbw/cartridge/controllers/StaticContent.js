@@ -160,4 +160,115 @@ server.get('Folders', function (req, res, next) {
     next();
 });
 
+server.get('ConfirmationEmailContent', function (req, res, next) {
+    var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+    var OrderMgr = require('dw/order/OrderMgr');
+    var OrderModel = require('*/cartridge/models/order');
+    var Locale = require('dw/util/Locale');
+    var emailMarkup = '';
+    var emailContent = ContentMgr.getContent('email-order-confirmation'); // Order Confirmation Email Content Asset Id
+    var currentLocale = Locale.getLocale(req.locale.id);
+
+    if (!empty(emailContent) && emailContent.online) {
+        emailMarkup = emailContent.custom.body.markup;
+    }
+    var order = OrderMgr.getOrder(req.querystring.orderNo);
+    var orderModel = new OrderModel(order, {
+        countryCode: currentLocale.country,
+        containerView: 'order'
+    });
+
+    var data = {
+        order: orderModel,
+        markup: emailMarkup,
+        content: emailContentHelpers.getEmailContent(
+            'normal-footer',
+            'email-header'
+        )
+    };
+    res.render('checkout/confirmation/confirmationEmail', data);
+    next();
+});
+
+server.get('CancelledEmailContent', function (req, res, next) {
+    var URLUtils = require('dw/web/URLUtils');
+    var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+    var OrderMgr = require('dw/order/OrderMgr');
+    var OrderModel = require('*/cartridge/models/order');
+    var Locale = require('dw/util/Locale');
+    var currentLocale = Locale.getLocale(req.locale.id);
+
+    var order = OrderMgr.getOrder(req.querystring.orderNo);
+    var orderModel = new OrderModel(order, {
+        countryCode: currentLocale.country,
+        containerView: 'order'
+    });
+    var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
+    var encodedOrderNumber = encodeURIComponent(
+        encryptionHelper.encryptPin(orderModel.orderNumber)
+    );
+
+    var cancelEmailMarkup = '';
+    var cancelEmailFooterMarkup = '';
+    var emailContent = ContentMgr.getContent('email-good-to-konw-block'); // Canceled Order Email Content Asset Id
+    var emailFooterContent = ContentMgr.getContent('email-order-confirmation'); // Canceled Order Email Footer Image Content Asset Id
+
+    if (!empty(emailContent) && emailContent.online) {
+        cancelEmailMarkup = emailContent.custom.body.markup;
+    }
+
+    if (!empty(emailFooterContent) && emailFooterContent.online) {
+        cancelEmailFooterMarkup = emailFooterContent.custom.body.markup;
+    }
+    var data = {
+        order: orderModel,
+        invoiceUrl: URLUtils.https(
+            'Order-InvoiceDownload',
+            'token',
+            encodedOrderNumber
+        ).toString(),
+        content: emailContentHelpers.getEmailContent(
+            'normal-footer',
+            'email-header'
+        ),
+        markup: cancelEmailMarkup,
+        footermarkup: cancelEmailFooterMarkup
+    };
+    res.render('mail/orderStatus/orderCancelledEmail', data);
+    next();
+});
+
+server.get('ShippedEmailContent', function (req, res, next) {
+    var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+    var OrderMgr = require('dw/order/OrderMgr');
+    var OrderModel = require('*/cartridge/models/order');
+    var Locale = require('dw/util/Locale');
+    var currentLocale = Locale.getLocale(req.locale.id);
+
+    var order = OrderMgr.getOrder(req.querystring.orderNo);
+    var orderModel = new OrderModel(order, {
+        countryCode: currentLocale.country,
+        containerView: 'order'
+    });
+
+    var shippedEmailMarkup = '';
+    var shippedEmailFooterMarkup = '';
+    var shippedemailContent = ContentMgr.getContent(
+        'email-good-to-konw-shipped-block'
+    );
+
+    if (!empty(shippedemailContent) && shippedemailContent.online) {
+        shippedEmailMarkup = shippedemailContent.custom.body.markup;
+    }
+
+    var data = {
+        order: orderModel,
+        content: emailContentHelpers.getEmailContent('normal-footer', 'email-header'),
+        markup: shippedEmailMarkup,
+        footermarkup: shippedEmailFooterMarkup
+    };
+    res.render('mail/orderStatus/orderShippingEmail', data);
+    next();
+});
+
 module.exports = server.exports();
