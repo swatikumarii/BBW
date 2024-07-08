@@ -151,6 +151,9 @@ function integratedShippingFlow(req, res, next, afterPayOrderResponse) {
             var orderPlacementStatus = OrderMgr.placeOrder(order);
             Transaction.commit();
             if (!orderPlacementStatus.error) {
+                Transaction.wrap(function () {
+                    order.custom.isEgiftOrder = true;
+                });
                 for (var index = 0; index < order.productLineItems.length; index++) {
                     var giftCardAPIResult = qwikcilverApis.createGiftCards(order, index);
                     if (giftCardAPIResult && giftCardAPIResult.errorMessage) {
