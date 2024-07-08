@@ -6,6 +6,9 @@ var URLUtils = require('dw/web/URLUtils');
 var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
 var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
 var ContentMgr = require('dw/content/ContentMgr');
+var Logger = require('dw/system/Logger');
+var loggerResetMail = Logger.getLogger('ResetMailService');
+var loggerAccountCreate = Logger.getLogger('CreateAccountMailServiceAccountHelpers');
 
 // var endpoints = require('*/cartridge/config/oAuthRenentryRedirectEndpoints');
 
@@ -61,6 +64,8 @@ function sendPasswordResetEmail(email, resettingCustomer) {
     var passwordResetToken = getPasswordResetToken(resettingCustomer);
     var url = URLUtils.https('Account-SetNewPassword', 'Token', passwordResetToken);
 
+    loggerResetMail.info('Reset password mail trigger for this '+email);
+
     if (!empty(emailContent) && emailContent.online) {
         emailMarkup = emailContent.custom.body.markup;
         emailMarkup = emailMarkup.replace('{{customerName}}', resettingCustomer.profile.firstName);
@@ -82,7 +87,13 @@ function sendPasswordResetEmail(email, resettingCustomer) {
         type: emailHelpers.emailTypes.passwordChanged
     };
 
-    emailHelpers.sendEmail(emailObj, 'mail/account/password/passwordResetEmail', objectForEmail);
+    try{
+        var mailSent = emailHelpers.sendEmail(emailObj, 'mail/account/password/passwordResetEmail', objectForEmail);
+    }catch(e){
+        loggerResetMail.error('Error in Sending Reset password mail ' + e.message);
+    }
+    
+    loggerResetMail.info('Reset password mail successfully sended for this '+email);
 }
 
 /**
@@ -94,6 +105,8 @@ function sendCreateAccountEmail(registeredUser) {
     var Resource = require('dw/web/Resource');
     var emailMarkup = '';
     var emailContent = ContentMgr.getContent('email-welcome'); // Welcome Email Content Asset Id
+
+    loggerAccountCreate.info('Account create mail trigger for this '+ registeredUser.email);
 
     if (!empty(emailContent) && emailContent.online) {
         emailMarkup = emailContent.custom.body.markup;
@@ -115,7 +128,12 @@ function sendCreateAccountEmail(registeredUser) {
         type: emailHelpers.emailTypes.registration
     };
 
-    emailHelpers.sendEmail(emailObj, 'mail/account/accountRegisteredEmail', userObject);
+    try{
+        var mailSent = emailHelpers.sendEmail(emailObj, 'mail/account/accountRegisteredEmail', userObject);
+    }catch(e){
+        loggerAccountCreate.error('Error in Sending Account create mail '+ e.message);
+    }
+    loggerAccountCreate.info('Account create mail successfully sended for this '+ registeredUser.email);
 }
 
 /**
