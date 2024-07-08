@@ -19,16 +19,16 @@
             </div>
             <div class="col-sm-9">
                 <isloop items="${pdict.categories}" var="category">
-                    <isif condition="${category.siteMapIncluded === 1
+                    <isif condition="${(category.siteMapIncluded === null || category.siteMapIncluded === 1)
                         && (category.hasOnlineProducts() || category.hasOnlineSubCategories())}">
                         <h1 class="sitemap-title-head mb-0">
                             <a class="sitemap-cateogry h-font-size--18 h-fw--bold text-uppercase text-left h-clr--blue" href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
-                                ${category.displayName} 
+                                ${category.displayName}
                             </a>
                         </h1>
                         <div class="row">
                             <isloop items="${category.onlineSubCategories}" var="category">
-                                <isif condition="${category.siteMapIncluded === 1
+                                <isif condition="${(category.siteMapIncluded === null || category.siteMapIncluded === 1)
                                             && (category.hasOnlineProducts() || category.hasOnlineSubCategories())}">
                                     <div class="col-md-4 col-sm-12">
                                         <h1 class="sitemap-title">
@@ -37,7 +37,7 @@
                                             </a>
                                         </h1>
                                         <isloop items="${category.onlineSubCategories}" var="category">
-                                            <isif condition="${category.siteMapIncluded === 1
+                                            <isif condition="${(category.siteMapIncluded === null || category.siteMapIncluded === 1)
                                                         && (category.hasOnlineProducts() || category.hasOnlineSubCategories())}">
                                                 <div class="end-level-category">
                                                     <a class="h-font-size--16 h-clr--blue"  href="${URLUtils.url('Search-Show', 'cgid', category.ID)}" id="${category.ID}">
