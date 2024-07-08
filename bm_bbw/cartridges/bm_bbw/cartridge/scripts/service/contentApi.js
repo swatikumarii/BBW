@@ -16,7 +16,7 @@ function contentApi(contentID) {
   service.setURL(baseUrl);
   service.setRequestMethod('GET');
   serviceResult = service.call();
-  Logger.info("Before Service response");
+  Logger.info("Before Service response : contentID : " + contentID);
   if (serviceResult.status === 'OK') {
     Logger.info(
       "Service response : serviceResult.status : " + serviceResult.status

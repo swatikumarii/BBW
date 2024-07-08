@@ -103,8 +103,9 @@ $('[data-toggle="popover"]').on('mouseenter', function () {
 });
 
 if (
-    !localStorage.getItem('is-country-selector') 
-    && $('.countrySelectPopup').data('country-selector-enabled')
+    !localStorage.getItem('is-country-selector') &&
+    $('.countrySelectPopup').data('country-selector-enabled') &&
+    ($('#is-home-page').val() === 'true')
 ) {
     var reqCountryDiv = $('#request-country-name');
     var countryCode = reqCountryDiv.data('country-code');
@@ -113,7 +114,7 @@ if (
         $('.countrySelectPopup').find('.modal').modal('show');
         var regionName = new Intl.DisplayNames(['en'], { type: 'region' });
         var countryDisplayName = regionName.of(countryCode);
-        if(countryDisplayName){
+        if (countryDisplayName) {
             reqCountryDiv.text(countryDisplayName);
             $('#country-' + countryDisplayName).attr('selected', 'selected');
             siteCountryCode = $('#site-country-code').text();

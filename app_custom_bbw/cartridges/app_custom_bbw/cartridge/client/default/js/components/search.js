@@ -623,6 +623,10 @@ module.exports = function () {
                             $.spinner().stop();
                             return true;
                         }
+                        if ($('.cart-page-url').val() === window.location.href) {
+                            window.location.reload();
+                            return true;
+                        }
                         $('.js-search-suggestions').stop().slideUp();
                         $('.js-reset-button').hide();
                         $('.search-fly-out-opacity').addClass('d-none');
