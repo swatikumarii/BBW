@@ -27,6 +27,7 @@
         </isif>
         <isactivedatahead/>
         <isinclude template="/components/schema" />
+        <input type="hidden" id="is-home-page" value="${pdict.isHomePage ? 'true' : 'false'}" />
         <isif condition="${pdict.isHomePage}">
             <isprint value="${dw.system.Site.getCurrent().getCustomPreferenceValue('homePageSchema')}" encoding="off" />
         </isif>

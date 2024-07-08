@@ -90,6 +90,9 @@ server.prepend('HandleResponse', server.middleware.https, function (req, res, ne
                             order.setExportStatus(Order.EXPORT_STATUS_READY);
                             Transaction.commit();
                             if (isGiftProductAvailable) {
+                                Transaction.wrap(function () {
+                                    order.custom.isEgiftOrder = true;
+                                });
                                 for (var index = 0; index < order.productLineItems.length; index++) {
                                     giftCardAPIResult = qwikcilverApis.createGiftCards(order, index);
                                     if (giftCardAPIResult && giftCardAPIResult.errorMessage) {

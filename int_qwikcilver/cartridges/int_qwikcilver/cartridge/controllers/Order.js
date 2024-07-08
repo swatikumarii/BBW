@@ -17,6 +17,7 @@ server.prepend(
     function (req, res, next) {
         var Site = require('dw/system/Site');
         var OrderModel = require('*/cartridge/models/order');
+        var Transaction = require('dw/system/Transaction');
         var enableQCeGift =
             Site.current.getCustomPreferenceValue('enableQwikcilver');
         var requestParameter = req.httpParameterMap;
@@ -31,6 +32,9 @@ server.prepend(
             if ( isGiftProductAvailable && (order.getPaymentInstruments('AdyenComponent').length > 0 ||
                 order.getPaymentInstruments('CREDIT_CARD').length > 0)
             ) {
+                Transaction.wrap(function () {
+                    order.custom.isEgiftOrder = true;
+                });
                 var giftCardAPIResult;
                 var log = dw.system.Logger.getLogger('QwikcilverService');
                 for (
