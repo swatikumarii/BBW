@@ -162,6 +162,7 @@ server.get('Folders', function (req, res, next) {
 
 server.get('ConfirmationEmailContent', function (req, res, next) {
     var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+    var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
     var OrderMgr = require('dw/order/OrderMgr');
     var OrderModel = require('*/cartridge/models/order');
     var Locale = require('dw/util/Locale');
@@ -172,7 +173,10 @@ server.get('ConfirmationEmailContent', function (req, res, next) {
     if (!empty(emailContent) && emailContent.online) {
         emailMarkup = emailContent.custom.body.markup;
     }
-    var order = OrderMgr.getOrder(req.querystring.orderNo);
+    var orderNo = encryptionHelper.decryptPin(
+        decodeURIComponent(req.querystring.token)
+    );
+    var order = OrderMgr.getOrder(orderNo);
     var orderModel = new OrderModel(order, {
         countryCode: currentLocale.country,
         containerView: 'order'
@@ -193,17 +197,20 @@ server.get('ConfirmationEmailContent', function (req, res, next) {
 server.get('CancelledEmailContent', function (req, res, next) {
     var URLUtils = require('dw/web/URLUtils');
     var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+    var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
     var OrderMgr = require('dw/order/OrderMgr');
     var OrderModel = require('*/cartridge/models/order');
     var Locale = require('dw/util/Locale');
     var currentLocale = Locale.getLocale(req.locale.id);
 
-    var order = OrderMgr.getOrder(req.querystring.orderNo);
+    var orderNo = encryptionHelper.decryptPin(
+        decodeURIComponent(req.querystring.token)
+    );
+    var order = OrderMgr.getOrder(orderNo);
     var orderModel = new OrderModel(order, {
         countryCode: currentLocale.country,
         containerView: 'order'
     });
-    var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
     var encodedOrderNumber = encodeURIComponent(
         encryptionHelper.encryptPin(orderModel.orderNumber)
     );
@@ -240,12 +247,16 @@ server.get('CancelledEmailContent', function (req, res, next) {
 
 server.get('ShippedEmailContent', function (req, res, next) {
     var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
+    var encryptionHelper = require('*/cartridge/scripts/helpers/encryptionHelpers');
     var OrderMgr = require('dw/order/OrderMgr');
     var OrderModel = require('*/cartridge/models/order');
     var Locale = require('dw/util/Locale');
     var currentLocale = Locale.getLocale(req.locale.id);
 
-    var order = OrderMgr.getOrder(req.querystring.orderNo);
+    var orderNo = encryptionHelper.decryptPin(
+        decodeURIComponent(req.querystring.token)
+    );
+    var order = OrderMgr.getOrder(orderNo);
     var orderModel = new OrderModel(order, {
         countryCode: currentLocale.country,
         containerView: 'order'
