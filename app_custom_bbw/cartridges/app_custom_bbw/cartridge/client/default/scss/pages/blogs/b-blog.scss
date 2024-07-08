@@ -390,11 +390,15 @@
 // -----------cny-wellness-collection----
 .shop-by-fragnance-submain {
     .headparagraph {
-        font-size: 1.625rem;
-        margin: 5% auto;
-        color: colour(black);
-        width: 78%;
-        line-height: 1.2;
+        width: 100%;
+
+        @include media-up(sm) {
+            font-size: 1.625rem;
+            margin: 5% auto;
+            color: colour(black);
+            width: 78%;
+            line-height: 1.2;
+        }
     }
 }
 
@@ -630,9 +634,13 @@
     }
 
     .headparagraph {
-        margin: 5% auto;
-        width: 78%;
-        line-height: 1.2;
+        width: 100%;
+
+        @include media-up(sm) {
+            margin: 5% auto;
+            width: 78%;
+            line-height: 1.2;
+        }
     }
 }
 
@@ -1239,9 +1247,13 @@
         }
 
         .headparagraph {
-            margin: 5% auto;
-            width: 78%;
-            line-height: 1.2;
+            width: 100%;
+
+            @include media-up(sm) {
+                margin: 5% auto;
+                width: 78%;
+                line-height: 1.2;
+            }
         }
     }
 
@@ -1302,6 +1314,7 @@
                     font-weight: 800;
                     color: colour(blue, 19);
                     letter-spacing: -0.5px;
+                    line-height: 38px;
                 }
 
                 .txt-p {
@@ -1604,9 +1617,13 @@
         }
 
         .headparagraph {
-            margin: 5% auto;
-            width: 78%;
-            line-height: 1.2;
+            width: 100%;
+
+            @include media-up(sm) {
+                margin: 5% auto;
+                width: 78%;
+                line-height: 1.2;
+            }
         }
     }
 
@@ -1749,6 +1766,426 @@
             &:hover {
                 color: colour(black, 3);
             }
+        }
+    }
+}
+
+// ------candle-day---------
+.candle-day {
+    .shop-by-fragrance-section1 {
+        width: 100%;
+
+        @include media-up(sm) {
+            width: 85%;
+            margin: 0 auto;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        .shop-by-fragnance-submain {
+            position: relative;
+
+            .imgsection {
+                width: 100%;
+                position: relative;
+                display: block;
+            }
+        }
+
+        .contentsection {
+            width: 100%;
+            position: absolute;
+            z-index: 1;
+            text-align: center;
+            top: 0;
+
+            h1 {
+                margin-bottom: 10px;
+                color: colour(pink, 8);
+            }
+
+            .head2 {
+                width: 100%;
+
+                @include media-up(sm) {
+                    margin: 0 auto;
+                    line-height: 1;
+                    color: colour(blue, 19);
+                    width: 36%;
+                }
+            }
+        }
+    }
+
+    .stephead {
+        width: 100%;
+
+        @include media-up(sm) {
+            width: 85%;
+            margin: 0 auto;
+            padding: 2%;
+            background-color: colour(pink, 9);
+        }
+
+        .stephead-h {
+            margin: 0 auto;
+            line-height: 1.1;
+            color: colour(pink, 3);
+        }
+
+        .stephead-p {
+            width: 100%;
+
+            @include media-up(sm) {
+                margin: 0 auto;
+                line-height: 1.5;
+                width: 80%;
+                letter-spacing: 0.3px;
+            }
+        }
+    }
+
+    .prod-imgsection {
+        width: 100%;
+
+        @include media-up(sm) {
+            display: block;
+            width: 85%;
+            margin: 0 auto;
+            padding: 2% 0;
+        }
+    }
+
+    .stephead2 {
+        width: 100%;
+
+        @include media-up(sm) {
+            width: 73%;
+            padding-top: 0;
+            background-color: unset;
+            margin: 0 auto;
+        }
+
+        .stephead-h {
+            font-size: 34px;
+            text-align: left;
+            color: colour(blue, 19);
+            line-height: 1.7;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .stephead-p {
+            line-height: 1.5;
+        }
+    }
+
+    .stephead3 {
+        background-color: unset;
+
+        .stephead-p {
+
+            width: 100%;
+
+            @include media-up(sm) {
+                line-height: 1.5;
+                width: 70%;
+            }
+
+            .imgleft {
+                width: 5%;
+                height: auto;
+                display: inline-block;
+                margin-right: 0.5%;
+            }
+
+            .imgright {
+                width: 5%;
+                height: auto;
+                display: inline-block;
+                margin-left: 0.5%;
+            }
+        }
+
+        span {
+            line-height: 1.5;
+            width: 70%;
+            color: colour(blue, 19);
+        }
+    }
+
+    .stepcontent-sec {
+        display: flex;
+        margin: 0 auto;
+        width: 100%;
+        flex-direction: column-reverse;
+
+        @include media-up(sm) {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .txt {
+            .txt-h {
+                color: colour(blue, 19);
+                line-height: 38px;
+            }
+        }
+    }
+
+    .flexrev {
+        display: flex;
+        flex-direction: column-reverse;
+
+        @include media-up(sm) {
+            flex-direction: row;
+        }
+    }
+
+    .finalstep {
+        background-color: unset;
+
+        .stephead-h {
+            line-height: 1;
+        }
+
+        .shop-cta {
+            width: 100%;
+            border: 1px solid colour(pink, 3);
+            background: colour(pink, 3);
+
+            @include media-up(sm) {
+                padding: 1.5%;
+                border: 1px solid colour(pink, 3);
+                margin: 2% auto;
+                width: 30%;
+                background: colour(pink, 3);
+                letter-spacing: 2px;
+            }
+
+            &:hover {
+                background: colour(black);
+                border: 1px solid colour(black);
+            }
+        }
+    }
+}
+
+// -------spring-breaks-essentials--------
+.spring-breaks-essentials {
+    .bc-image {
+        img {
+            height: 100%;
+
+            @include media-up(sm) {
+                height: 243.61px;
+            }
+        }
+    }
+
+    .body-care-content {
+        .bodycare-text-section {
+            .skin-care-head {
+                margin: 20px 0;
+                text-transform: uppercase;
+            }
+
+            .description-list {
+                li {
+                    margin-top: 10px;
+                    margin-left: 50px;
+                }
+
+                .skin-care-desc {
+                    a {
+                        color: colour(black, 3) !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// -------gifts-every-occasion-----
+.gifts-every-occasion {
+    .shop-by-fragrance-section1 {
+        width: 100%;
+
+        @include media-up(sm) {
+            width: 85%;
+            margin: 0 auto;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        .shop-by-fragnance-submain {
+            position: relative;
+
+            .imgsection {
+                width: 100%;
+                position: relative;
+                display: block;
+            }
+        }
+
+        .headparagraph {
+            width: 100%;
+            padding-top: 19px;
+
+            @include media-up(sm) {
+                margin: 5% auto;
+                width: 78%;
+                line-height: 1.2;
+            }
+        }
+
+        .contentsection {
+            width: 100%;
+            position: absolute;
+            z-index: 1;
+            text-align: center;
+            top: 0;
+
+            h2 {
+                margin: 64px -21px;
+                line-height: 56px;
+
+                @include media-up(sm) {
+                    margin: 1% -3%;
+                    min-height: 44px;
+                    line-height: normal;
+                }
+            }
+        }
+    }
+
+    .stephead {
+        width: 100%;
+        background-color: colour(brown, 2);
+
+        @include media-up(sm) {
+            width: 85%;
+            margin: 0 auto;
+            padding: 2%;
+            background-color: colour(brown, 2);
+        }
+
+        .stephead-h {
+            margin: 0 auto;
+            line-height: 1.1;
+            color: colour(pink, 3);
+        }
+
+        .stephead-p {
+            width: 100%;
+
+            @include media-up(sm) {
+                margin: 0 auto;
+                line-height: 1.5;
+                width: 80%;
+                letter-spacing: 0.3px;
+            }
+        }
+    }
+
+    .stepcontent-sec {
+        display: flex;
+        margin: 0 auto;
+        width: 100%;
+        flex-direction: column-reverse;
+
+        @include media-up(sm) {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .txt {
+            .txt-h {
+                color: colour(blue, 19);
+                line-height: 38px;
+            }
+        }
+    }
+
+    .flexrev {
+        display: flex;
+        flex-direction: column-reverse;
+
+        @include media-up(sm) {
+            flex-direction: row;
+        }
+    }
+
+    .finalstep {
+        background-color: unset;
+
+        .stephead-h {
+            line-height: 69px;
+            margin: 0 auto;
+        }
+
+        .stephead-p {
+            margin: 0 auto;
+            width: 78%;
+            line-height: 1.5;
+            padding-top: 25px;
+        }
+
+        .shop-cta {
+            width: 100%;
+            border: 1px solid colour(blue);
+            background: colour(blue);
+
+            @include media-up(sm) {
+                padding: 1.5%;
+                border: 1px solid colour(blue);
+                margin: 2% auto;
+                width: 30%;
+                background: colour(blue);
+                letter-spacing: 2px;
+            }
+
+            &:hover {
+                background: colour(black);
+                border: 1px solid colour(black);
+            }
+        }
+    }
+}
+
+// ----valentines-gift-guide--------
+.valentines-gift-guide {
+    .shop-by-fragrance-section1 {
+        .headparagraph {
+            margin: 5% auto;
+            width: 78%;
+        }
+    }
+
+    .pink {
+        background-color: colour(pink, 10);
+
+        .stephead-h {
+            margin: 0 auto;
+        }
+    }
+
+    .shop-men-cta {
+        width: 100%;
+        background: colour(orange, 5);
+
+        @include media-up(sm) {
+            background: colour(orange, 5);
+            padding: 10px 40px;
+            margin: 2% auto;
+            width: 30%;
+        }
+
+        &:hover {
+            border: 1px solid colour(black);
+            padding: 10px 40px;
+            margin: 2% auto;
+            width: 30%;
         }
     }
 }

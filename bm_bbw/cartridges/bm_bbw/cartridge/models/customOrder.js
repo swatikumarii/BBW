@@ -53,7 +53,7 @@ function getEmailContent(footerType, headerType) {
     };
 }
 
-function getInvoice(orderNo, hostName) {
+function getInvoice(orderNo) {
     var URLUtils = require("dw/web/URLUtils");
     var OrderMgr = require('dw/order/OrderMgr');
     // var ContentMgr = require("dw/content/ContentMgr");
@@ -84,7 +84,9 @@ function getInvoice(orderNo, hostName) {
           // ,
           // countryCode: currentLocale.country,
         });
-
+        var host = require("dw/system/Site").getCurrent().httpsHostName;
+        var imageURL = URLUtils.httpsImage("/images/email/orders/status/icon-placed.png", {});
+        var progressImage = imageURL.toString().replace(request.httpHost, host);
         Logger.info("get content ");
         var content = getEmailContent("normal-footer", "email-header");
         Logger.info("get content content : " + content);
@@ -92,12 +94,8 @@ function getInvoice(orderNo, hostName) {
           order: orderModelData,
           content: content,
           taxRate: taxRate,
-          progressImage: URLUtils.httpsImage(
-            require("dw/system/Site").getCurrent().httpsHostName,
-            "/images/email/orders/status/icon-placed.png",
-            {}
-          ),
-          markup: contentApi.contentApi('email-order-confirmation'),
+          progressImage: progressImage,
+          markup: contentApi.contentApi("email-order-confirmation"),
         };
     }
     return {};
@@ -197,21 +195,16 @@ function getShippedData(orderNo) {
     }
 
     var content = getEmailContent("normal-footer", "email-header");
+    var host = require("dw/system/Site").getCurrent().httpsHostName;
+    var shippedImage = URLUtils.httpsImage("/images/email/orders/status/icon-shipped.png", {}).toString().replace(request.httpHost, host);
+    var shippedIcon = URLUtils.httpsImage("/images/email/orders/status/shipped-icon.png", {}).toString().replace(request.httpHost, host);
     return {
       order: orderModelData,
       content: content,
       taxRate: taxRate,
       markup: shippedEmailMarkup,
-      shippedImage: URLUtils.httpsImage(
-        require("dw/system/Site").getCurrent().httpsHostName,
-        "/images/email/orders/status/icon-shipped.png",
-        {}
-      ),
-      shippedIcon: URLUtils.httpsImage(
-        require("dw/system/Site").getCurrent().httpsHostName,
-        "/images/email/orders/status/shipped-icon.png",
-        {}
-      ),
+      shippedImage: shippedImage,
+      shippedIcon: shippedIcon,
     };
   }
   return {};
