@@ -473,14 +473,13 @@ function addPayment(res) {
                 currency: currentBasket.currencyCode,
                 value: currentBasket.totalGrossPrice.value.toFixed(2),
                 payment_type: paymentMethod,
-                add: {
-                    products: []
-                }
+                coupon: currentBasket.couponLineItems.length > 0 ? currentBasket.couponLineItems[0].couponCode : '',
+                items: []
             }
         };
         if ('order' in res) {
             for (var i = 0; i < res.order.items.items.length; i++) {
-                obj.ecommerce.add.products.push({
+                obj.ecommerce.items.push({
                     item_name: res.order.items.items[i].productName,
                     item_id: res.order.items.items[i].id,
                     item_brand: res.order.items.items[i].brand
