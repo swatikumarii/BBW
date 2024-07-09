@@ -7,32 +7,25 @@ var URLAction = require('dw/web/URLAction');
 var URLParameter = require('dw/web/URLParameter');
 var Site = require('dw/system/Site');
 
-function contentApi(contentID) {
+function callAPI(url) {
   var service = contentAssetAPI.contentAssetAPI;
   var serviceResult;
-  var baseUrl = URLUtils.https(
-    new URLAction('StaticContent-ContentBody', Site.current.ID), new URLParameter('cid', contentID)
-  ).toString();
-  service.setURL(baseUrl);
-  service.setRequestMethod('GET');
+  service.setURL(url);
+  service.setRequestMethod("GET");
   serviceResult = service.call();
-  Logger.info("Before Service response : contentID : " + contentID);
-  if (serviceResult.status === 'OK') {
+  Logger.info("Before Service response");
+  if (serviceResult.status === "OK") {
     Logger.info(
       "Service response : serviceResult.status : " + serviceResult.status
     );
-    return JSON.parse(serviceResult.object).contentAssetBody;
+    return serviceResult.object;
   }
   Logger.info(
     "Service response : serviceResult.status : " + serviceResult.status
   );
-  return '';
+  return "";
 }
 
-// module.exports = {
-//   contentApi: contentApi
-// };
-
-
-contentApi.public = true;
-exports.contentApi = contentApi;
+module.exports = {
+  callAPI: callAPI
+};
