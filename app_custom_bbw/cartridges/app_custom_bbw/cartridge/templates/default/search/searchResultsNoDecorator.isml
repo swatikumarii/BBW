@@ -33,13 +33,13 @@
                         data-href="${URLUtils.https('Search-ShowAjax', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', '')}"
                         data-seo-href="${URLUtils.https('Search-Show', 'cgid', 'shop-by-ingredient', 'prefn1', 'ingredients', 'prefv1', '')}"
                         autocomplete="off" />
-                    <div class="search-icon-details">
+                    <div class="search-icon-details" id="ingredient-search-icon">
                         <img width="17" class="h-auto"
                             src="${URLUtils.staticURL('/images/shopByFragrance/UI-Search.svg')}" alt="Search Icon">
                     </div>
 
                 </fieldset>
-                <div id="search-ingredient-div" class="alphabet-group search-data-list d-md-none">
+                <div id="search-ingredient-div" class="alphabet-group search-data-list d-none">
                     <isloop iterator="${pdict.ingredientsNames}" alias="ingredientsName" status="loop   state">
                         <div id="search-ingredient" class="alphabet-group">
                             <ul>
