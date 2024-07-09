@@ -659,6 +659,13 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="merchantEmailforGiftCardFailure">
+                <display-name xml:lang="x-default">Merchant Email for GiftCard Failure</display-name>
+                <type>string</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <min-length>0</min-length>
+            </attribute-definition>
             <attribute-definition attribute-id="liveChatEnabled">
                 <display-name xml:lang="x-default">Enable Live Chat</display-name>
                 <description xml:lang="x-default">Enable Live Chat</description>
@@ -1897,6 +1904,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="qwikcilverTransactionID"/>
                 <attribute attribute-id="showEgiftCardExpiry"/>
                 <attribute attribute-id="s3UploadLink"/>
+                <attribute attribute-id="merchantEmailforGiftCard"/>
             </attribute-group>
             <attribute-group group-id="Storefront Configs">
                 <display-name xml:lang="x-default">Storefront Configurations</display-name>
@@ -3627,7 +3635,20 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="isEgiftOrder">
+                <display-name xml:lang="x-default">isEgiftOrder</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
+        <group-definitions>
+            <attribute-group group-id="Giftcard">
+                <display-name xml:lang="x-default">Giftcard</display-name>
+                <attribute attribute-id="isEgiftOrder"/>
+                <attribute attribute-id="eGiftTotalAmount"/>
+            </attribute-group>
+        </group-definitions>
         <group-definitions>
             <attribute-group group-id="AdyenPayment">
                 <display-name xml:lang="x-default">Adyen Payment</display-name>

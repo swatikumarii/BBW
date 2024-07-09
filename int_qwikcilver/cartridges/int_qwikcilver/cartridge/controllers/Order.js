@@ -104,9 +104,8 @@ server.prepend(
                 var orderModel = new OrderModel(order, {
                     containerView: 'order'
                 });
-                res.setViewData({ order: orderModel });
-                this.emit('route:Complete', req, res);
-                return true;
+                res.setViewData({ order: orderModel });;
+                return next();
             }
             if (
                 order.getPaymentInstruments('GIFT_CERTIFICATE').length > 0 && order.getPaymentInstruments('AFTERPAY').length > 0
