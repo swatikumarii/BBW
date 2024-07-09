@@ -612,69 +612,72 @@ module.exports = {
 
         $('#ingredient-search').on('keyup', function () {
             if ($(this).val().length > 0) {
-                $('#search-ingredient-div').removeClass('d-md-none');
+                $('#search-ingredient-div').removeClass('d-none');
             } else {
-                $('#search-ingredient-div').addClass('d-md-none');
+                $('#search-ingredient-div').addClass('d-none');
             }
         });
 
-        $('#ingredient-search').on('keydown', function (event) {
-            var inputValue = $(this).val();
+        /**
+         * Searches for an ingredient when the Enter key is pressed or the search icon is clicked.
+         * @param event
+         */
+        function searchIngredient(event) {
+            var inputValue = event.val();
             var inputField = $('#ingredient-search');
+            var firstVisibleLi = $('#search-ingredient ul li')
+                .filter((_, li) => $(li).css('display') !== 'none')
+                .first();
 
-            if (
-                event.key === 'Enter' ||
-                event.which === 13 ||
-                $(event.target).hasClass('search-icon')
-            ) {
-                var firstVisibleLi = $('#search-ingredient ul li')
-                    .filter((_, li) => $(li).css('display') !== 'none')
-                    .first();
-
-                if (firstVisibleLi.length) {
-                    if (inputValue.length !== 0) {
-                        var ingredientName = firstVisibleLi.find('a').text();
-                        inputValue = ingredientName;
-                        inputField.val(ingredientName);
-                    }
-
-                    // var inputValue = $(this).val();
-                    $.spinner().start();
-                    var seoHref = $(this).data('seo-href');
-                    var href = $(this).data('href');
-                    var updatedSEOHref = seoHref + '&prefv1=' + inputValue;
-                    var updatedHref = href + ('prefv1', inputValue);
-                    var searchUrl = $('#shopByIngredientUrl').data('href');
-                    var seoUrl = $('#shopByIngredientUrl').data('seo-href');
-
-                    if (inputValue.length !== 0) {
-                        searchUrl = updatedHref;
-                        seoUrl = updatedSEOHref || searchUrl;
-                    }
-
-                    if (seoUrl) {
-                        window.history.pushState({}, null, seoUrl);
-                    }
-
-                    $.ajax({
-                        url: searchUrl,
-                        data: {
-                            page: $('.grid-footer').data('page-number'),
-                            selectedUrl: searchUrl
-                        },
-                        method: 'GET',
-                        success: function (response) {
-                            $('#search-ingredient-div').addClass('d-md-none');
-                            parseResults(response);
-                            searchAlphabetSort();
-                            $.spinner().stop();
-                            lazyload.lazyLoad();
-                        },
-                        error: function () {
-                            $.spinner().stop();
-                        }
-                    });
+            if (firstVisibleLi.length) {
+                if (inputValue.length !== 0) {
+                    var ingredientName = firstVisibleLi.find('a').text();
+                    inputValue = ingredientName;
+                    inputField.val(ingredientName);
                 }
+
+                // var inputValue = $(this).val();
+                $.spinner().start();
+                var seoHref = event.data('seo-href');
+                var href = event.data('href');
+                var updatedSEOHref = seoHref + '&prefv1=' + inputValue;
+                var updatedHref = href + ('prefv1', inputValue);
+                var searchUrl = $('#shopByIngredientUrl').data('href');
+                var seoUrl = $('#shopByIngredientUrl').data('seo-href');
+
+                if (inputValue.length !== 0) {
+                    searchUrl = updatedHref;
+                    seoUrl = updatedSEOHref || searchUrl;
+                }
+
+                if (seoUrl) {
+                    window.history.pushState({}, null, seoUrl);
+                }
+
+                $.ajax({
+                    url: searchUrl,
+                    data: {
+                        page: $('.grid-footer').data('page-number'),
+                        selectedUrl: searchUrl
+                    },
+                    method: 'GET',
+                    success: function (response) {
+                        $('#search-ingredient-div').addClass('d-none');
+                        parseResults(response);
+                        searchAlphabetSort();
+                        $.spinner().stop();
+                        lazyload.lazyLoad();
+                    },
+                    error: function () {
+                        $.spinner().stop();
+                    }
+                });
+            }
+        }
+        $('#ingredient-search-icon').on('click', () => searchIngredient($('#ingredient-search')));
+        $('#ingredient-search').on('keydown', (event) => {
+            if (event.key === 'Enter' || event.which === 13) {
+                searchIngredient($('#ingredient-search'));
             }
         });
     }
