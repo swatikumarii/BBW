@@ -134,6 +134,18 @@ server.prepend('HandleResponse', server.middleware.https, function (req, res, ne
                                                 return this.emit('route:Complete', req, res);
                                             }
                                         }
+                                    } else {
+                                        qwikcilverHelpers.sendGiftCardEmail(order, req.locale.id, false, false, index);
+                                        log.info('Error while Creating a Gift Card for OrderNo: {0}', order.orderNo);
+                                        log.info('Gift Card Email is Not Sent to the Customer for OrderID: {0}', order.orderNo);
+                                        if (index === order.productLineItems.length - 1 ) {
+                                            res.render('checkout/confirmOrder', {
+                                                orderID: order.orderNo,
+                                                orderToken: order.orderToken,
+                                                continueUrl: URLUtils.url('Order-Confirm').toString()
+                                            });
+                                            return this.emit('route:Complete', req, res);
+                                        }
                                     }
                                 }
                             }
