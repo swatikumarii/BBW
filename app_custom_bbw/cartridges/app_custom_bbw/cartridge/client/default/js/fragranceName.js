@@ -63,7 +63,7 @@ $(document).ready(function () {
 
     // search functionality for product ingredients
     $('#ingredient-search').on('change keyup', function (event) {
-        $('#search-ingredient-div').removeClass('d-md-none');
+        $('#search-ingredient-div').removeClass('d-none');
         var searchTerm = $(event.currentTarget);
         var searchPhrase = searchTerm.val();
         var liElements = $('li.level-2');
