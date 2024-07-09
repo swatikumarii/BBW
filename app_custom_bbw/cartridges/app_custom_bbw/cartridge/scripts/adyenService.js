@@ -9,9 +9,9 @@ var Transaction = require('dw/system/Transaction');
 var Order = require('dw/order/Order');
 var COHelpers = require('*/cartridge/scripts/checkout/checkoutHelpers');
 var OrderModel = require('*/cartridge/models/order');
-Logger = require('dw/system/Logger');
+var Logger = require('dw/system/Logger');
 var loggerOrderConfirmation = Logger.getLogger('OrderAdyenService');
-OrderConfirmationMailServiceAdyenService
+
 function sendEmail(order) {
   var confirmationEmail = new Mail();
   var context = new HashMap();

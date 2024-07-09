@@ -2,8 +2,8 @@
 
 var Site = require('dw/system/Site');
 var Resource = require('dw/web/Resource');
-Logger = require('dw/system/Logger');
-var loggerOrderConfirmation = Logger.getLogger('OrderConfirmationMailAfterpayUpdateOrderService');
+var Logger = require('dw/system/Logger');
+var loggerOrderConfirmation = Logger.getLogger('AfterpayUpdateOrder');
 
 var afterpayUpdateOrderService = module.superModule;
 

@@ -14,7 +14,7 @@ var Site = require('dw/system/Site');
 var Transaction = require('dw/system/Transaction');
 var OrderMgr = require('dw/order/OrderMgr');
 var HookMgr = require('dw/system/HookMgr');
-Logger = require('dw/system/Logger');
+var Logger = require('dw/system/Logger');
 var loggerOrderConfirmation = Logger.getLogger('CheckoutHelpersOrder');
 
 /**
