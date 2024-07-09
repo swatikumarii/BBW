@@ -141,7 +141,7 @@ module.exports = $.extend({}, wishlist, {
     addToWishlist: function () {
         $(document).on('click', '.product-quickview .add-to-wish-list, .product-line-item .add-to-wish-list', function (e) {
             e.preventDefault();
-            var self= $(this);
+            var self = $(this);
             var url = $(this).data('href') || $(this).attr('href');
             var pid =
                 $(this).closest('.product-detail').length > 0
@@ -198,8 +198,9 @@ module.exports = $.extend({}, wishlist, {
     },
 
     removeFromWishlist: function () {
-        $('body').on('click', '.product-detail .remove-from-wishlist, .product-quickview .remove-from-wishlist, .product-line-item .remove-from-wishlist, .line-item-header .remove-from-wishlist', function (e) {
+        $('body').on('click', '.product-detail .remove-from-wishlist, .product-quickview .remove-from-wishlist, .product-line-item .remove-from-wishlist, .line-item-header .remove-from-wishlist, .added-to-wish-list', function (e) {
             e.preventDefault();
+            var self = $(this);
             var url = $(this).data('url');
             var elMyAccount = $('.account-wishlist-item').length;
             var isReloadRequired = $('.is-reload-required-while-remove').val();
@@ -242,10 +243,10 @@ module.exports = $.extend({}, wishlist, {
                             var pageNumber =
                                 $('.wishlistItemCardsData').data('page-number') - 1;
                             renderNewPageOfItems(pageNumber, false);
-                            $('.remove-from-wishlist').addClass('d-none');
-                            $('.add-to-wish-list').removeClass('d-none');
-                            $('.remove-from-wishlist').removeClass('d-block');
-                            $('.added-to-wish-list').removeClass('d-block');
+                            self.addClass('d-none');
+                            self.siblings('.add-to-wish-list').removeClass('d-none');
+                            self.removeClass('d-block');
+                            self.siblings('.added-to-wish-list').removeClass('d-block');
                         }
                     },
                     error: function () {
