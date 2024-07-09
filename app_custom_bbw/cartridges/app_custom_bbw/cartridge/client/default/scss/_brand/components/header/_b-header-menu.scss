@@ -656,6 +656,8 @@
 
                     @include media-btw(sm, md) {
                         width: 100%;
+                        word-wrap: break-word;
+                        white-space: normal;
                     }
                 }
             }
