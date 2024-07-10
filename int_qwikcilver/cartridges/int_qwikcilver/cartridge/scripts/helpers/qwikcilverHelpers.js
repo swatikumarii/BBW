@@ -289,6 +289,18 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
             logger.info('After updating order and shipping status for order id {0} is {1}', order.orderNo, order.status.displayValue);
             // If Card is not created, Set Email pending status and Sent email through Job
             if (!cardIssued) {
+                if(Site.getCurrent().getCustomPreferenceValue('merchantEmailforGiftCardFailure')){
+                    var contextFailure = {
+                        order: orderModel
+                    };
+                    var giftCardFailureEmail = new Mail();
+                    giftCardFailureEmail.addTo(Site.current.getCustomPreferenceValue('merchantEmailforGiftCardFailure'));
+                    giftCardFailureEmail.setSubject(Resource.msgf('subject.order.egift.failure.email', 'giftcards', null,orderModel.orderNumber));
+                    giftCardFailureEmail.setFrom(Site.current.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
+                    giftCardFailureEmail.setContent(renderTemplateHelper.getRenderedHtml(contextFailure, 'checkout/confirmation/eGiftFailureEmailToMerchant'), 'text/html', 'UTF-8');
+                    giftCardFailureEmail.send();
+                    logger.info('giftCardFailureEmail: GC failure email status, message and code of order id {0} is {1} {2} {3}',  orderModel.orderNumber, giftCardFailureEmail.status, giftCardFailureEmail.message, giftCardFailureEmail.code);
+                }
                 order.custom.eGiftEmailPending = true;
             }
         } catch (error) {
@@ -296,7 +308,7 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
         }
     });
     logger.info('updated order and shipping status for order id {0} is {1}', order.orderNo, order.status.displayValue);
-    if (!sendPendingEmail && GCNumber === 0) {
+    if (!sendPendingEmail && GCNumber === 0 && cardIssued) {
         var confirmationEmail = new Mail();
         confirmationEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
         confirmationEmail.setSubject(Resource.msg('subject.egift.delivered.confirmation.email', 'giftcards', null));
