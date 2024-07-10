@@ -876,3 +876,80 @@ footer {
         }
     }
 }
+
+.checkout-mobile-modal-btn {
+    display: block;
+    font-size: 1rem;
+    line-height: 20px;
+    font-weight: 600;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    z-index: 1;
+    transition: bottom 0.5s;
+    margin: 0 auto;
+
+    @include media-up(sm) {
+        display: none !important;
+    }
+
+    span.arrow {
+        display: inline-block;
+        background: url("../../images/cart/Caret_Bold.svg") no-repeat 50%;
+        background-size: 14px;
+        height: 12px;
+        width: 12px;
+        margin-left: 20px;
+        position: relative;
+        transition: transform 0.5s ease-out;
+    }
+}
+
+#mobile-cart-checkout {
+    .modal-dialog {
+        bottom: 15px;
+
+        .modal-content {
+            border-radius: 0;
+
+            .close {
+                float: none;
+                opacity: 1;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                font-size: 1rem;
+                line-height: 20px;
+                letter-spacing: 0.015em;
+                text-transform: uppercase;
+                text-shadow: none;
+                font-weight: 600;
+            }
+
+            span.arrow {
+                display: inline-block;
+                background: url("../../images/cart/Caret_Bold.svg") no-repeat
+                    50%;
+                background-size: 14px;
+                height: 12px;
+                width: 12px;
+                margin-left: 20px;
+                position: relative;
+                transition: transform 0.5s ease-out;
+                transform: rotate(180deg);
+            }
+
+            .order-total {
+                padding: 14px 15px;
+            }
+
+            .checkout-mobile-detail {
+                padding: 15px;
+                background-color: colour(gray, 1);
+            }
+        }
+    }
+}
