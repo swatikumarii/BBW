@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="${URLUtils.staticURL('/css/marketingTiles.css').toString()}" />
-<isset name="cgid" value="${pdict.cgid}" scope="page" />
 <isloop items="${pdict.productSearch.productIds}" var="product" status="loopState">
     <isinclude template="search/components/customPlpPromotionTilesBefore" />
     <div class="col product-grid-item">
