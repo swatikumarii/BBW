@@ -15,6 +15,9 @@ var emailHelpers = require('*/cartridge/scripts/helpers/emailHelpers');
 var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
 var CustomObjectMgr = require('dw/object/CustomObjectMgr');
 var capillaryAPI = require('*/cartridge/scripts/service/capillaryApis');
+var Logger = require('dw/system/Logger');   
+var loggerReset = Logger.getLogger('ResetPasswordLogger');
+var loggerResetError = Logger.getLogger('ResetPasswordError');
 
 /**
  * Append Account-Show controller: Update breadcrumbs
@@ -530,7 +533,6 @@ server.replace(
                     delete formInfo.currentPassword;
                     delete formInfo.newPassword;
                     delete formInfo.profileForm;
-
                     res.json({
                         success: false,
                         fields: formErrors.getFormErrors(profileForm)
@@ -569,7 +571,6 @@ server.replace(
                     delete formInfo.currentPassword;
                     delete formInfo.newPassword;
                     delete formInfo.profileForm;
-
                     res.json({
                         success: true,
                         redirectUrl: URLUtils.url(
@@ -1064,6 +1065,7 @@ server.replace('SaveNewPassword', server.middleware.https, function (req, res, n
         passwordForm.newpassword.valid = false;
         passwordForm.newpasswordconfirm.valid = false;
         passwordForm.newpasswordconfirm.error = Resource.msg('error.message.mismatch.newpassword', 'forms', null);
+        loggerReset.info('Save reset password Password does not match');
     }
 
     if (passwordForm.valid) {
@@ -1095,6 +1097,9 @@ server.replace('SaveNewPassword', server.middleware.https, function (req, res, n
                 passwordForm.newpassword.valid = false;
                 passwordForm.newpasswordconfirm.valid = false;
                 passwordForm.newpasswordconfirm.error = Resource.msg('error.message.resetpassword.invalidformentry', 'forms', null);
+                loggerResetError.error(
+                    'Facing Error in Save reset password' + status.error
+                );
                 res.render('account/password/newPassword', {
                     passwordForm: passwordForm,
                     token: token
@@ -1125,6 +1130,7 @@ server.replace('SaveNewPassword', server.middleware.https, function (req, res, n
                 };
 
                 emailHelpers.sendEmail(emailObj, 'mail/account/password/passwordChangedEmail', objectForEmail);
+                loggerReset.info('Save reset password complete successfully');
                 res.redirect(URLUtils.url('Login-Show'));
                 accountHelpers.updateMigratedUsersPasswordChangeFlag(
                     resettingCustomer
@@ -1132,6 +1138,7 @@ server.replace('SaveNewPassword', server.middleware.https, function (req, res, n
             }
         });
     } else {
+        loggerReset.info('Save reset password found invalid field details');
         res.render('account/password/newPassword', {
             passwordForm: passwordForm,
             token: token
