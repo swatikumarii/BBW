@@ -533,6 +533,7 @@ server.replace(
                     delete formInfo.currentPassword;
                     delete formInfo.newPassword;
                     delete formInfo.profileForm;
+
                     res.json({
                         success: false,
                         fields: formErrors.getFormErrors(profileForm)
@@ -571,6 +572,7 @@ server.replace(
                     delete formInfo.currentPassword;
                     delete formInfo.newPassword;
                     delete formInfo.profileForm;
+                    
                     res.json({
                         success: true,
                         redirectUrl: URLUtils.url(
