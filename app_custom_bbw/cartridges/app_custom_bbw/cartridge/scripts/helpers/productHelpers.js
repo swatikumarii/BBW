@@ -37,13 +37,9 @@ function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
     var product;
     if (pid) {
         product = ProductMgr.getProduct(pid);
-        if (cgid) {
-            category = CatalogMgr.getCategory(cgid);
-        } else {
-            category = product.variant
-                ? product.masterProduct.primaryCategory
-                : product.primaryCategory;
-        }
+        category = product.variant
+            ? product.masterProduct.primaryCategory
+            : product.primaryCategory;
     } else if (cgid) {
         category = CatalogMgr.getCategory(cgid);
     }
@@ -78,7 +74,7 @@ function showProductPage(querystring, reqPageMetaData) {
     var addToCartUrl = URLUtils.url('Cart-AddProduct');
     var canonicalUrl = URLUtils.url('Product-Show', 'pid', product.id);
     var cgid = querystring && querystring.cgid ? querystring.cgid : null;
-    var breadcrumbs = getAllBreadcrumbs(cgid, product.id, []).reverse();
+    var breadcrumbs = getAllBreadcrumbs(cgid, cgid ? null : product.id, []).reverse();
     var productName = product.fragranceName ? product.fragranceName : product.productName;
     if (breadcrumbs && breadcrumbs.length) {
         breadcrumbs.push({
