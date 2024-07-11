@@ -39,6 +39,7 @@ function execute() {
                     if (crmOrderID) {
                         order.custom.capillaryOrderID = crmOrderID;
                         order.custom.capillaryResponse = '';
+                        order.custom.capillaryRequest = '';
                         order.custom.capillaryFailed = false;
                     } else {
                         sendFailedOrderFlag = true;
@@ -57,6 +58,7 @@ function execute() {
                         if (crmOrderID) {
                             order.custom.capillaryOrderID = crmOrderID;
                             order.custom.capillaryResponse = '';
+                            order.custom.capillaryRequest = '';
                             order.custom.capillaryFailed = false;
                         } else {
                             sendFailedOrderFlag = true;
