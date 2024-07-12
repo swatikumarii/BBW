@@ -101,6 +101,7 @@ function appendCategoryBreadcrum(req, res, next) {
     breadcrumbs = breadcrumbs.reverse();
 
     viewData.breadcrumbs = breadcrumbs;
+    viewData.cgid = req.querystring.cgid;
     res.setViewData(viewData);
     next();
 }
