@@ -16,7 +16,9 @@ server.append(
         var URLUtils = require('dw/web/URLUtils');
         var viewData = res.getViewData();
         if (req.querystring.cgid) {
-            viewData.urls.product = URLUtils.url('Product-Show', 'pid', viewData.product.id, 'cgid', req.querystring.cgid);
+            if (!viewData.product.isEgiftCard) {
+                viewData.urls.product = URLUtils.url('Product-Show', 'pid', viewData.product.id, 'cgid', req.querystring.cgid);
+            }
         }
         res.setViewData(viewData);
         next();
