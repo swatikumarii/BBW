@@ -3,7 +3,11 @@
     <isinclude template="search/components/customPlpPromotionTilesBefore" />
     <div class="col product-grid-item">
         <isobject object="${product.productSearchHit}" view="searchhit">
-            <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.productID, 'swatches', true, 'ratings', true, 'cgid', pdict.cgid)}" />
+            <isif condition="${pdict.cgid && pdict.cgid !== 'giftcards'}">
+                <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.productID, 'swatches', true, 'ratings', true, 'cgid', pdict.cgid)}" />
+            <iselse/>
+                <isinclude url="${URLUtils.url('Tile-Show', 'pid', product.productID, 'swatches', true, 'ratings', true)}" />
+            </isif>
         </isobject>
     </div>
     <isinclude template="search/components/customPlpPromotionTilesAfter" />
