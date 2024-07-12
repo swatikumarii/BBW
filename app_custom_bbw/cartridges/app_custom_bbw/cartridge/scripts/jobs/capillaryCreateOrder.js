@@ -21,7 +21,6 @@ function execute() {
         var orderList = OrderMgr.queryOrders('custom.capillaryFailed = {0}', 'lastModified desc', true);
         // Loop through the order and process them as needed
         Transaction.wrap(function () {
-            var sendFailedOrderFlag = false;
             var failedOrders = [];
             var emailObj = {
                 to: Site.current.getCustomPreferenceValue('capillaryOrderFailedEmail') || 'no-reply@salesforce.com',
@@ -33,6 +32,7 @@ function execute() {
                 var order = orderList.next();
                 var orderModel = new OrderModel(order, { containerView: 'order' });
                 var crmOrderID = '';
+                var sendFailedOrderFlag = false;
                 if (order.customerNo) {
                     // Capillary: create order
                     crmOrderID = capillaryAPI.createOrder(orderModel, order);
