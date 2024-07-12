@@ -64,7 +64,6 @@ function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
             htmlValue: Resource.msg('global.home', 'common', null),
             url: URLUtils.home().toString()
         });
-        
     }
     
     return breadcrumbs;
