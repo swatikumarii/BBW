@@ -34,6 +34,19 @@
     <isinclude template="checkout/orderDiscountsHtml" sf-toolkit="on" />
 </div>
 
+<iscomment> Adjusted Merchandise Total </iscomment>
+<div class="row">
+    <div class="col-7">
+        <p class="h-font-size--16 h-clr--black-1 h-line-height--20 merchandise-total b-text-letter-space-01">
+            ${Resource.msg('label.adjusted.merchandise.subtotal', 'cart', null)}</p>
+    </div>
+    <div class="col-5">
+        <p
+            class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold subtotal h-line-height--20 b-text-letter-space-01">
+            ${pdict.order.totals.miniCartSubTotal}</p>
+    </div>
+</div>
+
 <iscomment> Shipping Charge </iscomment>
 <isif condition="${!pdict.isGiftProductAvailable}">
     <isif condition="${shippingExclusiveTax}">
