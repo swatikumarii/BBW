@@ -30,6 +30,7 @@ function getResources() {
  */
 function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
     var URLUtils = require('dw/web/URLUtils');
+    var Resource = require('dw/web/Resource');
     var CatalogMgr = require('dw/catalog/CatalogMgr');
     var ProductMgr = require('dw/catalog/ProductMgr');
 
@@ -59,6 +60,11 @@ function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
         if (category.parent && category.parent.ID !== 'root') {
             return getAllBreadcrumbs(category.parent.ID, null, breadcrumbs);
         }
+        breadcrumbs.push({
+            htmlValue: Resource.msg('global.home', 'common', null),
+            url: URLUtils.home().toString()
+        });
+        
     }
     
     return breadcrumbs;
