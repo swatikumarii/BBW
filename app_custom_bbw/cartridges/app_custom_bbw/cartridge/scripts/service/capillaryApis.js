@@ -40,15 +40,33 @@ function encodeEmailExceptAt(email) {
 /**
  * Store to capillary erros in profile and order object
  * @param {any} systemObject profile/order
- * @param capillaryErrors
+ * @param {any} capillaryErrors capillary response
  */
 function storeErrorResponse(systemObject, capillaryErrors) {
-    var sysObject = systemObject;
     var Transaction = require('dw/system/Transaction');
+    var sysObject = systemObject;
+    var alreadyExistRes = sysObject.custom.capillaryResponse ? JSON.parse(sysObject.custom.capillaryResponse) : '';
+    var combineRes = alreadyExistRes ? [alreadyExistRes, capillaryErrors] : capillaryErrors;
     Transaction.wrap(function () {
-        sysObject.custom.capillaryResponse = capillaryErrors;
+        sysObject.custom.capillaryResponse = JSON.stringify(combineRes);
     });
 }
+
+/**
+ * Store to capillary request in profile and order object
+ * @param {any} systemObject profile/order
+ * @param {any} capillaryRequest capillary request data with endpoint
+ */
+function storeErrorRequest(systemObject, capillaryRequest) {
+    var Transaction = require('dw/system/Transaction');
+    var sysObject = systemObject;
+    var alreadyExistReq = sysObject.custom.capillaryRequest ? JSON.parse(sysObject.custom.capillaryRequest) : '';
+    var combineReq = alreadyExistReq ? [alreadyExistReq, capillaryRequest] : capillaryRequest;
+    Transaction.wrap(function () {
+        sysObject.custom.capillaryRequest = JSON.stringify(combineReq);
+    });
+}
+
 module.exports = {
     createCustomer: function (registrationForm, newCustomerprofile) {
         var gender;
@@ -101,7 +119,10 @@ module.exports = {
                 if (createStatus && createStatus.ok && 'object' in createStatus && createStatus.object) {
                     var createObject = JSON.parse(createStatus.object);
                     if ('errors' in createObject && createObject.errors && createObject.errors.length > 0) {
-                        storeErrorResponse(newCustomerprofile, JSON.stringify(createObject.errors));
+                        storeErrorResponse(newCustomerprofile, createObject.errors);
+                        var payloadData = requestObj;
+                        payloadData.endPoint = 'v2/customers';
+                        storeErrorRequest(newCustomerprofile, payloadData);
                         return '';
                     }
                     return createObject.createdId;
@@ -168,7 +189,10 @@ module.exports = {
             var createObject = JSON.parse(createStatus.object);
             if ('errors' in createObject && createObject.errors && createObject.errors.length > 0) {
                 logger.error('capillary create order: ' + JSON.stringify(createObject.errors));
-                storeErrorResponse(orderObject, JSON.stringify(createObject.errors));
+                storeErrorResponse(orderObject, createObject.errors);
+                var payloadData = requestObj;
+                payloadData.endPoint = endPoint;
+                storeErrorRequest(orderObject, payloadData);
                 return '';
             }
             return createObject.createdId;
@@ -198,6 +222,7 @@ module.exports = {
                 gender: gender
             }
         };
+        var payloadData = requestObj;
         if (profileForm.birthday) {
             var date = new Date(profileForm.birthday);
             var dob = date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear();
@@ -214,7 +239,9 @@ module.exports = {
                 var customerObj = JSON.parse(customerStatus.object);
                 if ('errors' in customerObj && customerObj.errors) {
                     logger.error('capillary update profile: get customer: ' + JSON.stringify(customerObj.errors));
-                    storeErrorResponse(profile, JSON.stringify(customerObj.errors));
+                    storeErrorResponse(profile, customerObj.errors);
+                    payloadData.endPoint = getCustomerEndPoint;
+                    storeErrorRequest(profile, payloadData);
                     return '';
                 }
                 if ('entity' in customerObj) {
@@ -229,7 +256,9 @@ module.exports = {
                 var createObject = JSON.parse(createStatus.object);
                 if ('errors' in createObject && createObject.errors && createObject.errors.length > 0) {
                     logger.error('capillary update customer: ' + JSON.stringify(createObject.errors));
-                    storeErrorResponse(profile, JSON.stringify(createObject.errors));
+                    storeErrorResponse(profile, createObject.errors);
+                    payloadData.endPoint = endPoint;
+                    storeErrorRequest(profile, payloadData);
                     return '';
                 }
                 return capillaryCustomerID;

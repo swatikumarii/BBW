@@ -91,12 +91,6 @@ function appendCategoryBreadcrum(req, res, next) {
             htmlValue: Resource.msgf('search.result.breadcrumb', 'search', null, viewData.productSearch.searchKeywords)
         });
     }
-    if (breadcrumbs.length > 0) {
-        breadcrumbs.push({
-            htmlValue: Resource.msg('global.home', 'common', null),
-            url: URLUtils.home().toString()
-        });
-    }
 
     breadcrumbs = breadcrumbs.reverse();
 

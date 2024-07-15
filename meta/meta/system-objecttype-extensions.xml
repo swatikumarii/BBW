@@ -573,6 +573,12 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="capillaryRequest">
+                <display-name xml:lang="x-default">Capillary Request</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Standard">
@@ -585,6 +591,7 @@
                 <attribute attribute-id="zipCode"/>
                 <attribute attribute-id="capillaryCustomerID"/>
                 <attribute attribute-id="capillaryResponse"/>
+                <attribute attribute-id="capillaryRequest"/>
                 <attribute attribute-id="capillaryFailed"/>
             </attribute-group>
             <attribute-group group-id="MigrationAttribute">
@@ -2676,6 +2683,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+
             <attribute-definition attribute-id="promotionTileRandom1">
                 <display-name xml:lang="x-default">Promotion Tile 1 Random Index</display-name>
                 <type>boolean</type>
@@ -2822,6 +2830,12 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="showCategoryInSlider">
+                <display-name xml:lang="x-default">Show Category in Slider</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="showInMenu">
                 <display-name xml:lang="x-default">Show in Menu Navigation</display-name>
                 <description xml:lang="x-default">Used to indicate that a category (such as Mens -&gt; Footwear -&gt; Boots) will display in the roll-over navigation. A sub-category only shows if also the parent category is marked as showInMenu. Up to three category levels are shown in roll-over navigation.</description>
@@ -2843,6 +2857,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="showInMenu"/>
                 <attribute attribute-id="hideFilter"/>
                 <attribute attribute-id="isEGiftCategory"/>
+                <attribute attribute-id="showCategoryInSlider"/>
             </attribute-group>
             <attribute-group group-id="seoPromotionContent">
                 <display-name xml:lang="x-default">Seo Promotion Content</display-name>
@@ -3158,6 +3173,12 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="capillaryRequest">
+                <display-name xml:lang="x-default">Capillary Request</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="AdyenPayments">
@@ -3193,6 +3214,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="capillaryOrderID"/>
                 <attribute attribute-id="capillaryResponse"/>
                 <attribute attribute-id="capillaryFailed"/>
+                <attribute attribute-id="capillaryRequest"/>
             </attribute-group>
         </group-definitions>
     </type-extension>
