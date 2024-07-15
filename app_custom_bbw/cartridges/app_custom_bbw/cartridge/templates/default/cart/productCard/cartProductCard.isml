@@ -83,6 +83,9 @@
                 </div>
                 <iscomment> wishlist </iscomment>
                 <isinclude template="wishlist/components/addToWishListButtonCart" sf-toolkit="on" />
+                <isif condition="${lineItem.isBonusProductLineItem}">
+                   <span class="change-bonus-product" data-uuid="${lineItem.bonusProductLineItemUUID}">Change Bonus Product</span>
+                </isif>
             </div>
             <div class="row">
                 <div class="col-lg-12 d-flex flex-row">
@@ -110,7 +113,7 @@
         </isif>
     </div>
     <isif condition="${lineItem.bonusProductLineItemUUID === 'bonus'}">
-        <div class="d-flex justify-content-between pt-3">
+        <div class="d-none justify-content-between pt-3">
             <div class="bonus-line-item-msg">${Resource.msg('text.lineitem.bonus.msg','cart',null)}:</div>
             <isloop items="${lineItem.discountLineItems}" var="discountLineItem">
                 <div class="bonus-product-button" data-duuid="${discountLineItem.uuid}" data-pliuuid="${discountLineItem.pliuuid}"

@@ -988,5 +988,44 @@ module.exports = $.extend({}, base, {
         $('button.delete-lineitem-deny-btn').on('click', function () {
             $('button.add-to-cart').prop('disabled', false);
         });
+    },
+    selectBonusProduct: function () {
+        $(document).on('click', '.select-bonus-product', function () {
+            if ($(this).is(':checked')) {
+                var $choiceOfBonusProduct = $(this).parents('.choice-of-bonus-product');
+                var pid = $(this).data('pid');
+                $choiceOfBonusProduct.parent().find('.select-bonus-product').each(function () {
+                    if ($(this).data('pid') !== pid) {
+                        $(this).prop('checked', false);
+                    }
+                });
+                var maxPids = $('.choose-bonus-product-dialog').data('total-qty');
+                var submittedQty = parseInt($choiceOfBonusProduct.find('.bonus-quantity-select').val(), 10);
+                var totalQty = 0;
+                totalQty += submittedQty;
+                var optionID = $choiceOfBonusProduct.find('.product-option').data('option-id');
+                var valueId = $choiceOfBonusProduct.find('.options-select option:selected').data('valueId');
+                if (totalQty <= maxPids) {
+                    var selectedBonusProductHtml = ''
+                    + '<div class="selected-pid row" '
+                    + 'data-pid="' + pid + '"'
+                    + 'data-qty="' + submittedQty + '"'
+                    + 'data-optionID="' + (optionID || '') + '"'
+                    + 'data-option-selected-value="' + (valueId || '') + '"'
+                    + '>'
+                    + '<div class="col-sm-11 col-9 bonus-product-name" >'
+                    + $choiceOfBonusProduct.find('.product-name').html()
+                    + '</div>'
+                    + '<div class="col-1"><i class="fa fa-times" aria-hidden="true"></i></div>'
+                    + '</div>';
+                    $('#chooseBonusProductModal .selected-bonus-products .selected-pid').remove();
+                    $('#chooseBonusProductModal .selected-bonus-products').append(selectedBonusProductHtml);
+                    $('.pre-cart-products').html(totalQty);
+                    $('.selected-bonus-products .bonus-summary').removeClass('alert-danger');
+                } else {
+                    $('.selected-bonus-products .bonus-summary').addClass('alert-danger');
+                }
+            }
+        });
     }
 });

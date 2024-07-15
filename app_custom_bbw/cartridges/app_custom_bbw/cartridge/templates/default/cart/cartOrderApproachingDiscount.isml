@@ -7,7 +7,7 @@
                 <iscomment> <progress class="w-100" value="${approachingDiscount.conditionThreshold - approachingDiscount.distanceFromConditionThreshold}" max="${approachingDiscount.conditionThreshold}"></progress> </iscomment>
             </div>
             <isif condition="${'image' in approachingDiscount}">
-                <div>
+                <div class="pl-3">
                     <img src="${approachingDiscount.image}" alt="product image" width="50" />
                 </div>
             </isif>

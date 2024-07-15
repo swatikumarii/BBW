@@ -2,7 +2,6 @@
 
 var base = require('../product/base');
 var focusHelper = require('base/components/focus');
-var location = window.location;
 
 /**
  * appends params to a url
@@ -366,6 +365,20 @@ function parseHtml(html) {
 }
 
 /**
+ * Parses the html for a modal window
+ * @param {string} html - representing the body and footer of the modal window
+ * @returns {object} - Object with properties body and footer.
+ */
+function parseBonusHtml(html) {
+    var $html = $('<div>').append($.parseHTML(html));
+
+    var body = $html.find('.choice-of-bonus-product');
+    var footer = $html.find('.modal-footer').children();
+
+    return { body: body, footer: footer };
+}
+
+/**
  * replaces the content in the modal window for product variation to be edited.
  * @param {string} editProductUrl - url to be used to retrieve a new product model
  */
@@ -411,6 +424,93 @@ function confirmDelete(actionUrl, productID, productName, uuid) {
     $deleteConfirmBtn.data('uuid', uuid);
 
     $productToRemoveSpan.empty().append(productName);
+}
+
+/**
+ * Retrieves url to use when adding a product to the cart
+ * @param {object} data - data object used to fill in dynamic portions of the html
+ */
+function chooseBonusProducts(data) {
+    $('.modal-body').spinner().start();
+
+    if ($('#chooseBonusProductModal').length !== 0) {
+        $('#chooseBonusProductModal').remove();
+    }
+    var bonusUrl;
+    if (data.bonusChoiceRuleBased) {
+        bonusUrl = data.showProductsUrlRuleBased;
+    } else {
+        bonusUrl = data.showProductsUrlListBased;
+    }
+
+    var htmlString =
+        '<!-- Modal -->' +
+        '<div class="modal fade" id="chooseBonusProductModal" tabindex="-1" role="dialog">' +
+        '<span class="enter-message sr-only" ></span>' +
+        '<div class="modal-dialog choose-bonus-product-dialog" ' +
+        'data-total-qty="' +
+        data.maxBonusItems +
+        '"' +
+        'data-UUID="' +
+        data.uuid +
+        '"' +
+        'data-pliUUID="' +
+        data.pliUUID +
+        '"' +
+        'data-addToCartUrl="' +
+        data.addToCartUrl +
+        '"' +
+        'data-pageStart="0"' +
+        'data-pageSize="' +
+        data.pageSize +
+        '"' +
+        'data-moreURL="' +
+        data.showProductsUrlRuleBased +
+        '"' +
+        'data-bonusChoiceRuleBased="' +
+        data.bonusChoiceRuleBased +
+        '">' +
+        '<!-- Modal content-->' +
+        '<div class="modal-content">' +
+        '<div class="modal-header">' +
+        '    <span class="">' +
+        data.labels.selectprods +
+        '</span>' +
+        '    <button type="button" class="close pull-right" data-dismiss="modal">' +
+        '        <span aria-hidden="true">&times;</span>' +
+        '        <span class="sr-only"> </span>' +
+        '    </button>' +
+        '</div>' +
+        '<div class="modal-body"></div>' +
+        '<div class="modal-footer"></div>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+    $('body').append(htmlString);
+    $('.modal-body').spinner().start();
+
+    $.ajax({
+        url: bonusUrl,
+        method: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            var parsedHtml = parseBonusHtml(response.renderedTemplate);
+            $('#chooseBonusProductModal .modal-body').empty();
+            $('#chooseBonusProductModal .enter-message').text(
+                response.enterDialogMessage
+            );
+            $('#chooseBonusProductModal .modal-header .close .sr-only').text(
+                response.closeButtonText
+            );
+            $('#chooseBonusProductModal .modal-body').html(parsedHtml.body);
+            $('#chooseBonusProductModal .modal-footer').html(parsedHtml.footer);
+            $('#chooseBonusProductModal').modal('show');
+            $.spinner().stop();
+        },
+        error: function () {
+            $.spinner().stop();
+        }
+    });
 }
 
 module.exports = function () {
@@ -579,7 +679,7 @@ module.exports = function () {
                 totalExistingQuantity += Number($(this).val());
             }
         });
-       
+
         quantity += 1;
         if (
             maxOrderQty &&
@@ -609,7 +709,7 @@ module.exports = function () {
         clearErrorNotification();
         var preSelectQty = $(this).data('pre-select-qty');
         var quantity = Number($(this).val());
-        var self = $(this); 
+        var self = $(this);
         var isMiniCartTrigger = $(this).parents('.popover').length > 0;
         var isCartPageTrigger = $(this).parents('.cart-page').length > 0;
         var productID = $(this).data('pid');
@@ -667,6 +767,7 @@ module.exports = function () {
                         self.closest('.line-item-quantity').find('.max-order-qty-error').hide();
                     }
                 }
+                console.log(JSON.stringify(data));
                 $('.coupons-and-promos')
                     .empty()
                     .append(data.totals.discountsHtml);
@@ -686,15 +787,21 @@ module.exports = function () {
                         .empty()
                         .append(data.refreshItemsTemplateMinicart);
                 }
-                $.spinner().stop();
                 if (
-                    $(this)
-                        .parents('.product-info')
-                        .hasClass('bonus-product-line-item') &&
-                    $('.cart-page').length
+                    data.newBonusDiscountLineItem &&
+                    Object.keys(data.newBonusDiscountLineItem).length !== 0
                 ) {
-                    location.reload();
+                    chooseBonusProducts(data.newBonusDiscountLineItem);
                 }
+                $.spinner().stop();
+                // if (
+                //     $(this)
+                //         .parents('.product-info')
+                //         .hasClass('bonus-product-line-item') &&
+                //     $('.cart-page').length
+                // ) {
+                //     location.reload();
+                // }
             },
             error: function (err) {
                 self.closest('.line-item-quantity')
@@ -1301,6 +1408,11 @@ module.exports = function () {
                 $('.dynamic-popup-promo-error').show();
             }
         });
+    });
+
+    $(document).on('click', '.change-bonus-product', function () {
+        var uuid = $(this).data('uuid');
+        $('.uuid-' + uuid).parent('.card').find('.bonus-product-button').click();
     });
 
     base.selectAttribute();

@@ -141,6 +141,7 @@ server.replace('UpdateQuantity', function (req, res, next) {
 
 
     var currentBasket = BasketMgr.getCurrentBasket();
+    var previousBonusDiscountLineItems = currentBasket.getBonusDiscountLineItems();
 
     if (!currentBasket) {
         res.setStatusCode(500);
@@ -208,7 +209,7 @@ server.replace('UpdateQuantity', function (req, res, next) {
             totalQtyRequested =
                 (updateQuantity - existingPliQty) +  qtyAlreadyInCartPID;
             // Case: User tries to change qty higher than the maxOrderQty
-            if (qtyAlreadyInCartPID < availableToSell && totalQtyRequested > availableToSell) 
+            if (qtyAlreadyInCartPID < availableToSell && totalQtyRequested > availableToSell)
             {
                 if (qtyAlreadyInCartUUID) {
                     // Case where more than one line item of same pid exist
@@ -267,8 +268,32 @@ server.replace('UpdateQuantity', function (req, res, next) {
         });
     }
 
+    var urlObject = {
+        url: URLUtils.url('Cart-ChooseBonusProducts').toString(),
+        configureProductstUrl: URLUtils.url('Product-ShowBonusProducts').toString(),
+        addToCartUrl: URLUtils.url('Cart-AddBonusProducts').toString()
+    };
+    var newBonusDiscountLineItem = cartHelper.getNewBonusDiscountLineItem(
+        currentBasket,
+        previousBonusDiscountLineItems,
+        urlObject,
+        matchingLineItem.UUID
+    );
+    if (newBonusDiscountLineItem) {
+        var allLineItems = currentBasket.allProductLineItems;
+        collections.forEach(allLineItems, function (pli) {
+            if (pli.UUID === matchingLineItem.UUID) {
+                Transaction.wrap(function () {
+                    pli.custom.bonusProductLineItemUUID = 'bonus'; // eslint-disable-line no-param-reassign
+                    pli.custom.preOrderUUID = pli.UUID; // eslint-disable-line no-param-reassign
+                });
+            }
+        });
+    }
+
     var basketModel = new CartModel(currentBasket);
     basketModel.maxProductQty = maxProductQty;
+    basketModel.newBonusDiscountLineItem = newBonusDiscountLineItem || {};
     basketModel.maxProductQtyLeft = maxProductQtyLeft;
     basketModel.updatedQty = matchingLineItem.quantityValue;
     maxProductQty = productValidationHelpers.getProductMaxOrderQty(matchingLineItem.product);

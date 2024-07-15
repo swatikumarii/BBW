@@ -27,6 +27,7 @@ function getApproachingDiscounts(basket, discountPlan) {
     var discountObject;
     var promotion;
     var appliedOrderDiscounts;
+    var appliedBonusDiscounts;
     var appliedShippingDiscounts;
 
     if (basket && basket.productLineItems) {
@@ -73,10 +74,11 @@ function getApproachingDiscounts(basket, discountPlan) {
 
         if (orderDiscountObject.length === 0) {
             appliedOrderDiscounts = discountPlan.getOrderDiscounts();
+            appliedBonusDiscounts = discountPlan.getBonusDiscounts();
+            var discountMsg;
+            var thresholdValue = 0;
+            var image;
             if (appliedOrderDiscounts.length > 0) {
-                var discountMsg;
-                var thresholdValue = 0;
-                var image;
                 collections.forEach(appliedOrderDiscounts, function (appliedOrderDiscount) {
                     if ('custom' in appliedOrderDiscount.promotion &&
                         'showProgressBar' in appliedOrderDiscount.promotion.custom &&
@@ -90,7 +92,35 @@ function getApproachingDiscounts(basket, discountPlan) {
                     ) {
                         thresholdValue = appliedOrderDiscount.promotion.custom.Buy[appliedOrderDiscount.promotion.custom.Buy.length - 1];
                         discountMsg = appliedOrderDiscount.promotion.custom.addFreeMessage.source;
-                        image = ProductMgr.getProduct(appliedOrderDiscount.promotion.custom.productToShowImage).getImage('large').absURL.toString();
+                        image = appliedOrderDiscount.promotion.custom && 'productToShowImage' in appliedOrderDiscount.promotion.custom ? ProductMgr.getProduct(appliedOrderDiscount.promotion.custom.productToShowImage).getImages('large')[0].absURL.toString() : '';
+                    }
+                });
+
+                if(discountMsg && discountMsg !== '') {
+                    orderDiscountObject = [];
+                    orderDiscountObject.push({
+                        discountMsg: discountMsg,
+                        conditionThreshold: thresholdValue,
+                        distanceFromConditionThreshold: 0,
+                        image: image
+                    });
+                }
+            }
+            if (appliedBonusDiscounts.length > 0) {
+                collections.forEach(appliedBonusDiscounts, function (appliedOrderDiscount) {
+                    if ('custom' in appliedOrderDiscount.promotion &&
+                        'showProgressBar' in appliedOrderDiscount.promotion.custom &&
+                        appliedOrderDiscount.promotion.custom.showProgressBar &&
+                        'Buy' in appliedOrderDiscount.promotion.custom &&
+                        appliedOrderDiscount.promotion.custom.Buy &&
+                        appliedOrderDiscount.promotion.custom.Buy.length > 0 &&
+                        'addFreeMessage' in appliedOrderDiscount.promotion.custom &&
+                        'productToShowImage' in appliedOrderDiscount.promotion.custom &&
+                        appliedOrderDiscount.promotion.custom.Buy[appliedOrderDiscount.promotion.custom.Buy.length - 1] > thresholdValue
+                    ) {
+                        thresholdValue = appliedOrderDiscount.promotion.custom.Buy[appliedOrderDiscount.promotion.custom.Buy.length - 1];
+                        discountMsg = appliedOrderDiscount.promotion.custom.addFreeMessage.source;
+                        image = appliedOrderDiscount.promotion.custom && 'productToShowImage' in appliedOrderDiscount.promotion.custom ? ProductMgr.getProduct(appliedOrderDiscount.promotion.custom.productToShowImage).getImages('large')[0].absURL.toString() : '';
                     }
                 });
 
