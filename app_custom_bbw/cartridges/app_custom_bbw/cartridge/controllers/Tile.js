@@ -17,7 +17,7 @@ server.append(
         var viewData = res.getViewData();
         if (req.querystring.cgid) {
             if (!viewData.product.isEgiftCard) {
-                viewData.urls.product = URLUtils.url('Product-Show', 'pid', viewData.product.id, 'cgid', req.querystring.cgid);
+                viewData.urls.product = URLUtils.url('Product-Show', 'pid', viewData.product.id, 'cat', req.querystring.cgid);
             }
         }
         res.setViewData(viewData);
