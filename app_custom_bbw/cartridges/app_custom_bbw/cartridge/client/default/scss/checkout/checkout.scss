@@ -683,12 +683,12 @@ input[type="tel"],
         }
 
         .payment-icon {
-            height: 36px;
-            width: 36px;
+            height: auto;
+            width: 60px;
 
             @include media-up(md) {
-                height: 40px;
-                width: 40px;
+                height: auto;
+                width: 65px;
             }
         }
     }
