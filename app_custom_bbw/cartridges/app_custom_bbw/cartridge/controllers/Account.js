@@ -400,6 +400,7 @@ server.replace(
                             profile.custom.capillaryCustomerID = crmCustomerID;
                             profile.custom.capillaryResponse = '';
                             profile.custom.capillaryFailed = false;
+                            profile.custom.capillaryRequest = '';
                         } else {
                             profile.custom.capillaryFailed = true;
                         }
@@ -1004,6 +1005,7 @@ server.replace(
                                 authenticatedCustomer.profile.custom.capillaryCustomerID = crmCustomerID;
                                 authenticatedCustomer.profile.custom.capillaryResponse = '';
                                 authenticatedCustomer.profile.custom.capillaryFailed = false;
+                                authenticatedCustomer.profile.custom.capillaryRequest = '';
                             } else {
                                 authenticatedCustomer.profile.custom.capillaryFailed = true;
                             }
