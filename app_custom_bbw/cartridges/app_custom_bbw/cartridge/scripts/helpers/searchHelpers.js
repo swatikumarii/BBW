@@ -229,7 +229,7 @@ function search(req, res) {
         result.categoryTemplate = categoryTemplate;
     }
 
-    if (!categoryTemplate || categoryTemplate === 'rendering/category/categoryproducthits') {
+    if (productSearch.productIds && productSearch.productIds.length && (!categoryTemplate || categoryTemplate === 'rendering/category/categoryproducthits')) {
         result.schemaData = schemaHelper.getListingPageSchema(productSearch.productIds);
     }
 
