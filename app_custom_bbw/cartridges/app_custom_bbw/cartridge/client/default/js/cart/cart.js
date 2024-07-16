@@ -2,7 +2,6 @@
 
 var base = require('../product/base');
 var focusHelper = require('base/components/focus');
-var location = window.location;
 
 /**
  * appends params to a url
@@ -155,10 +154,12 @@ function updateCartTotals(data) {
         var lineItemSavingDiv = $('.uuid-' + item.UUID + ' .line-item-savings');
         if (item.totalSavings && item.totalSavings !== '-') {
             totalSavingsHTML =
-                '<span class="d-inline d-md-none">'+
+                '<span class="d-inline d-md-none">' +
                 'Saved:' +
                 '</span>' +
-                '<span class="value">' + item.totalSavings + '</span>';
+                '<span class="value">' +
+                item.totalSavings +
+                '</span>';
             lineItemSavingDiv.empty().append(totalSavingsHTML);
         } else {
             totalSavingsHTML =
@@ -220,10 +221,12 @@ function updateApproachingDiscounts(
     var orderhtml = '';
     var shippinghtml = '';
     if (orderApproachingDiscounts && orderApproachingDiscounts.length) {
-        orderhtml = '<div class="d-flex w-auto align-items-center single-approaching-discount-wrap">\n';
-        orderhtml += '<div class="single-approaching-discount d-flex flex-column w-100 pl-3">\n'+
+        orderhtml =
+            '<div class="d-flex w-auto align-items-center single-approaching-discount-wrap">\n';
+        orderhtml +=
+            '<div class="single-approaching-discount d-flex flex-column w-100 pl-3">\n' +
             orderApproachingDiscounts[0].discountMsg +
-        // '<progress class="w-100" value="' + (orderApproachingDiscounts[0].conditionThreshold - orderApproachingDiscounts[0].distanceFromConditionThreshold) + '" max="' + orderApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
+            // '<progress class="w-100" value="' + (orderApproachingDiscounts[0].conditionThreshold - orderApproachingDiscounts[0].distanceFromConditionThreshold) + '" max="' + orderApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
             '</div>\n';
         if ('image' in orderApproachingDiscounts[0]) {
             orderhtml +=
@@ -233,25 +236,42 @@ function updateApproachingDiscounts(
                 '" alt="product image" width="50" />\n' +
                 '</div>';
         }
-        orderhtml +='</div>';
+        orderhtml += '</div>';
     }
 
-    if(shippingApproachingDiscounts && shippingApproachingDiscounts.length) {
-        shippinghtml = '<div class="row align-items-center">\n'+
-            '<div class="d-flex flex-column col-12 py-0">\n'+
-            '<p class="h-font-size--16 h-clr--pink h-fw--semibold m-0 text-center">' + shippingApproachingDiscounts[0].discountMsg + '</p>\n'+
-                '<div class="d-flex w-100 justify-content-around align-items-center progress-wrap">\n'+
-                    '<span class="pr-3 text-nowrap d-block h-font-size--16 h-fw--bold"> AU$ 0.00 </span>\n' +
-                '<span class="d-block w-100 h-pos--relative">\n'+
-                        '<progress class="w-100" value="' + (shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold) + '" max="' + shippingApproachingDiscounts[0].conditionThreshold + '"></progress>\n'+
-                        '<span class="free-shipping-progress" style="left: calc(' + (((shippingApproachingDiscounts[0].conditionThreshold - shippingApproachingDiscounts[0].distanceFromConditionThreshold)/shippingApproachingDiscounts[0].conditionThreshold)*100).toFixed(2) + '% - 25px );"></span>\n'+
-                    '</span>\n'+
-                    '<span class="pl-3 text-nowrap d-block h-font-size--16 h-fw--bold">\n'+
-                        shippingApproachingDiscounts[0].formattedConditionThreshold +
-                    '</span>\n'+
-                '</div>\n'+
-            '</div>\n'+
-        '</div>';
+    if (shippingApproachingDiscounts && shippingApproachingDiscounts.length) {
+        shippinghtml =
+            '<div class="row align-items-center">\n' +
+            '<div class="d-flex flex-column col-12 py-0">\n' +
+            '<p class="h-font-size--16 h-clr--pink h-fw--semibold m-0 text-center">' +
+            shippingApproachingDiscounts[0].discountMsg +
+            '</p>\n' +
+            '<div class="d-flex w-100 justify-content-around align-items-center progress-wrap">\n' +
+            '<span class="pr-3 text-nowrap d-block h-font-size--16 h-fw--bold"> AU$ 0.00 </span>\n' +
+            '<span class="d-block w-100 h-pos--relative">\n' +
+            '<progress class="w-100" value="' +
+            (shippingApproachingDiscounts[0].conditionThreshold -
+                shippingApproachingDiscounts[0]
+                    .distanceFromConditionThreshold) +
+            '" max="' +
+            shippingApproachingDiscounts[0].conditionThreshold +
+            '"></progress>\n' +
+            '<span class="free-shipping-progress" style="left: calc(' +
+            (
+                ((shippingApproachingDiscounts[0].conditionThreshold -
+                    shippingApproachingDiscounts[0]
+                        .distanceFromConditionThreshold) /
+                    shippingApproachingDiscounts[0].conditionThreshold) *
+                100
+            ).toFixed(2) +
+            '% - 25px );"></span>\n' +
+            '</span>\n' +
+            '<span class="pl-3 text-nowrap d-block h-font-size--16 h-fw--bold">\n' +
+            shippingApproachingDiscounts[0].formattedConditionThreshold +
+            '</span>\n' +
+            '</div>\n' +
+            '</div>\n' +
+            '</div>';
     }
     $('.shipping-approaching-discounts').empty().append(shippinghtml);
     $('.order-approaching-discounts').empty().append(orderhtml);
@@ -280,8 +300,7 @@ function updateAvailability(data, uuid) {
             if (lineItem.availability.messages) {
                 lineItem.availability.messages.forEach(function (message) {
                     var colorClass = lineItem.available ? '' : 'h-clr--red';
-                    messages +=
-                        `<p class="line-item-attributes ${colorClass}"> ${message} </p>`;
+                    messages += `<p class="line-item-attributes ${colorClass}"> ${message} </p>`;
                 });
             }
 
@@ -366,6 +385,20 @@ function parseHtml(html) {
 }
 
 /**
+ * Parses the html for a modal window
+ * @param {string} html - representing the body and footer of the modal window
+ * @returns {object} - Object with properties body and footer.
+ */
+function parseBonusHtml(html) {
+    var $html = $('<div>').append($.parseHTML(html));
+
+    var body = $html.find('.choice-of-bonus-product');
+    var footer = $html.find('.modal-footer').children();
+
+    return { body: body, footer: footer };
+}
+
+/**
  * replaces the content in the modal window for product variation to be edited.
  * @param {string} editProductUrl - url to be used to retrieve a new product model
  */
@@ -411,6 +444,93 @@ function confirmDelete(actionUrl, productID, productName, uuid) {
     $deleteConfirmBtn.data('uuid', uuid);
 
     $productToRemoveSpan.empty().append(productName);
+}
+
+/**
+ * Retrieves url to use when adding a product to the cart
+ * @param {object} data - data object used to fill in dynamic portions of the html
+ */
+function chooseBonusProducts(data) {
+    $('.modal-body').spinner().start();
+
+    if ($('#chooseBonusProductModal').length !== 0) {
+        $('#chooseBonusProductModal').remove();
+    }
+    var bonusUrl;
+    if (data.bonusChoiceRuleBased) {
+        bonusUrl = data.showProductsUrlRuleBased;
+    } else {
+        bonusUrl = data.showProductsUrlListBased;
+    }
+
+    var htmlString =
+        '<!-- Modal -->' +
+        '<div class="modal fade" id="chooseBonusProductModal" tabindex="-1" role="dialog">' +
+        '<span class="enter-message sr-only" ></span>' +
+        '<div class="modal-dialog choose-bonus-product-dialog" ' +
+        'data-total-qty="' +
+        data.maxBonusItems +
+        '"' +
+        'data-UUID="' +
+        data.uuid +
+        '"' +
+        'data-pliUUID="' +
+        data.pliUUID +
+        '"' +
+        'data-addToCartUrl="' +
+        data.addToCartUrl +
+        '"' +
+        'data-pageStart="0"' +
+        'data-pageSize="' +
+        data.pageSize +
+        '"' +
+        'data-moreURL="' +
+        data.showProductsUrlRuleBased +
+        '"' +
+        'data-bonusChoiceRuleBased="' +
+        data.bonusChoiceRuleBased +
+        '">' +
+        '<!-- Modal content-->' +
+        '<div class="modal-content">' +
+        '<div class="modal-header">' +
+        '    <span class="">' +
+        data.labels.selectprods +
+        '</span>' +
+        '    <button type="button" class="close pull-right" data-dismiss="modal">' +
+        '        <span aria-hidden="true">&times;</span>' +
+        '        <span class="sr-only"> </span>' +
+        '    </button>' +
+        '</div>' +
+        '<div class="modal-body"></div>' +
+        '<div class="modal-footer"></div>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+    $('body').append(htmlString);
+    $('.modal-body').spinner().start();
+
+    $.ajax({
+        url: bonusUrl,
+        method: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            var parsedHtml = parseBonusHtml(response.renderedTemplate);
+            $('#chooseBonusProductModal .modal-body').empty();
+            $('#chooseBonusProductModal .enter-message').text(
+                response.enterDialogMessage
+            );
+            $('#chooseBonusProductModal .modal-header .close .sr-only').text(
+                response.closeButtonText
+            );
+            $('#chooseBonusProductModal .modal-body').html(parsedHtml.body);
+            $('#chooseBonusProductModal .modal-footer').html(parsedHtml.footer);
+            $('#chooseBonusProductModal').modal('show');
+            $.spinner().stop();
+        },
+        error: function () {
+            $.spinner().stop();
+        }
+    });
 }
 
 module.exports = function () {
@@ -502,22 +622,44 @@ module.exports = function () {
                         data.toBeDeletedUUIDs.length > 0
                     ) {
                         for (var i = 0; i < data.toBeDeletedUUIDs.length; i++) {
-                            if ($('.uuid-' + data.toBeDeletedUUIDs[i]).parent('.card').length >= 1) {
-                                $('.uuid-' + data.toBeDeletedUUIDs[i]).parent('.card').remove();
+                            if (
+                                $('.uuid-' + data.toBeDeletedUUIDs[i]).parent(
+                                    '.card'
+                                ).length >= 1
+                            ) {
+                                $('.uuid-' + data.toBeDeletedUUIDs[i])
+                                    .parent('.card')
+                                    .remove();
                             } else {
-                                $('.uuid-' + data.toBeDeletedUUIDs[i] + '.card').remove();
+                                $(
+                                    '.uuid-' +
+                                        data.toBeDeletedUUIDs[i] +
+                                        '.card'
+                                ).remove();
                             }
                         }
                     }
-                    $('.uuid-' + uuid).parent('.card').remove();
+                    $('.uuid-' + uuid)
+                        .parent('.card')
+                        .remove();
                     $('.uuid-' + uuid + '.card').remove();
                     if (data.removeProducts && data.removeProducts.length > 0) {
                         for (var j = 0; j < data.removeProducts.length; j++) {
                             if ($('.uuid-' + data.removeProducts[j])) {
-                                if ($('.uuid-' + data.removeProducts[j]).parent('.card').length >= 1) {
-                                    $('.uuid-' + data.removeProducts[j]).parent('.card').remove();
+                                if (
+                                    $('.uuid-' + data.removeProducts[j]).parent(
+                                        '.card'
+                                    ).length >= 1
+                                ) {
+                                    $('.uuid-' + data.removeProducts[j])
+                                        .parent('.card')
+                                        .remove();
                                 } else {
-                                    $('.uuid-' + data.removeProducts[j] + '.card').remove();
+                                    $(
+                                        '.uuid-' +
+                                            data.removeProducts[j] +
+                                            '.card'
+                                    ).remove();
                                 }
                             }
                         }
@@ -574,16 +716,16 @@ module.exports = function () {
         var totalExistingQuantity = 0;
         var maxOrderQty = $(this).siblings('.quantity').data('max-order-qty');
         var allQuantityElements = $('input.quantity');
-        $.each(allQuantityElements,function () {
+        $.each(allQuantityElements, function () {
             if ($(this).data('pid') === pid && $(this).data('uuid') !== uuid) {
                 totalExistingQuantity += Number($(this).val());
             }
         });
-       
+
         quantity += 1;
         if (
             maxOrderQty &&
-            ((Number(maxOrderQty) - totalExistingQuantity) < quantity)
+            Number(maxOrderQty) - totalExistingQuantity < quantity
         ) {
             var errorElem = $(this)
                 .parents('.quantity-form')
@@ -609,7 +751,7 @@ module.exports = function () {
         clearErrorNotification();
         var preSelectQty = $(this).data('pre-select-qty');
         var quantity = Number($(this).val());
-        var self = $(this); 
+        var self = $(this);
         var isMiniCartTrigger = $(this).parents('.popover').length > 0;
         var isCartPageTrigger = $(this).parents('.cart-page').length > 0;
         var productID = $(this).data('pid');
@@ -643,7 +785,7 @@ module.exports = function () {
                     return;
                 }
                 $('.quantity[data-uuid="' + uuid + '"]').val(quantity);
-                var totalExistingQuantity=0;
+                var totalExistingQuantity = 0;
                 var allQuantityElements = $('input.quantity');
                 var pid = self.data('pid');
                 var UUID = self.data('uuid');
@@ -659,12 +801,21 @@ module.exports = function () {
                     self.data('pre-select-qty', data.updatedQty);
                     if (Number(self.val()) !== data.updatedQty) {
                         self.val(data.updatedQty);
-                        self.closest('.line-item-quantity').find('.max-order-qty-error').show();
-                        setTimeout(function() {
-                            self.closest('.line-item-quantity').find('.max-order-qty-error').hide();
+                        self.closest('.line-item-quantity')
+                            .find('.max-order-qty-error')
+                            .show();
+                        setTimeout(function () {
+                            self.closest('.line-item-quantity')
+                                .find('.max-order-qty-error')
+                                .hide();
                         }, 5000);
-                    } else if ((data.updatedQty + totalExistingQuantity) <= Number(self.data('max-order-qty'))) {
-                        self.closest('.line-item-quantity').find('.max-order-qty-error').hide();
+                    } else if (
+                        data.updatedQty + totalExistingQuantity <=
+                        Number(self.data('max-order-qty'))
+                    ) {
+                        self.closest('.line-item-quantity')
+                            .find('.max-order-qty-error')
+                            .hide();
                     }
                 }
                 $('.coupons-and-promos')
@@ -686,15 +837,21 @@ module.exports = function () {
                         .empty()
                         .append(data.refreshItemsTemplateMinicart);
                 }
-                $.spinner().stop();
                 if (
-                    $(this)
-                        .parents('.product-info')
-                        .hasClass('bonus-product-line-item') &&
-                    $('.cart-page').length
+                    data.newBonusDiscountLineItem &&
+                    Object.keys(data.newBonusDiscountLineItem).length !== 0
                 ) {
-                    location.reload();
+                    chooseBonusProducts(data.newBonusDiscountLineItem);
                 }
+                $.spinner().stop();
+                // if (
+                //     $(this)
+                //         .parents('.product-info')
+                //         .hasClass('bonus-product-line-item') &&
+                //     $('.cart-page').length
+                // ) {
+                //     location.reload();
+                // }
             },
             error: function (err) {
                 self.closest('.line-item-quantity')
@@ -801,7 +958,9 @@ module.exports = function () {
                     setTimeout(function () {
                         $('.coupon-error-message').empty();
                         $('.coupon-error-message').removeClass('d-block');
-                        $('.promo-code-form .form-control').removeClass('is-invalid');
+                        $('.promo-code-form .form-control').removeClass(
+                            'is-invalid'
+                        );
                     }, 3000);
                     $('body').trigger('promotion:error', data);
                 } else {
@@ -833,56 +992,64 @@ module.exports = function () {
         return false;
     });
 
-    $(document).on('click', '.checkout-promo-code-form .promo-code-form button', function () {
-        $.ajax({
-            url: $('.promo-code-form').attr('action'),
-            type: 'GET',
-            dataType: 'json',
-            data: $('.promo-code-form :input').serialize(),
-            success: function (data) {
-                if (data.error) {
-                    $('.promo-code-form .form-control').addClass('is-invalid');
-                    $('.promo-code-form .form-control').attr(
-                        'aria-describedby',
-                        'invalidCouponCode'
-                    );
-                    $('.coupon-error-message')
-                        .empty()
-                        .append(data.errorMessage);
-                    $('.coupon-error-message').addClass('d-block');
-                    setTimeout(function () {
-                        $('.coupon-error-message').empty();
+    $(document).on(
+        'click',
+        '.checkout-promo-code-form .promo-code-form button',
+        function () {
+            $.ajax({
+                url: $('.promo-code-form').attr('action'),
+                type: 'GET',
+                dataType: 'json',
+                data: $('.promo-code-form :input').serialize(),
+                success: function (data) {
+                    if (data.error) {
+                        $('.promo-code-form .form-control').addClass(
+                            'is-invalid'
+                        );
+                        $('.promo-code-form .form-control').attr(
+                            'aria-describedby',
+                            'invalidCouponCode'
+                        );
+                        $('.coupon-error-message')
+                            .empty()
+                            .append(data.errorMessage);
+                        $('.coupon-error-message').addClass('d-block');
+                        setTimeout(function () {
+                            $('.coupon-error-message').empty();
+                            $('.coupon-error-message').removeClass('d-block');
+                            $('.promo-code-form .form-control').removeClass(
+                                'is-invalid'
+                            );
+                        }, 3000);
+                        $('body').trigger('promotion:error', data);
+                    } else {
                         $('.coupon-error-message').removeClass('d-block');
-                        $('.promo-code-form .form-control').removeClass('is-invalid');
-                    }, 3000);
-                    $('body').trigger('promotion:error', data);
-                } else {
-                    $('.coupon-error-message').removeClass('d-block');
-                    $('.coupons-and-promos')
-                        .empty()
-                        .append(data.totals.discountsHtml);
-                    updateCartTotals(data);
-                    updateApproachingDiscounts(
-                        data.orderApproachingDiscounts,
-                        data.shippingApproachingDiscounts
-                    );
-                    validateBasket(data);
-                    $('body').trigger('promotion:success', data);
-                }
-                $('.coupon-code-field').val('');
-                $.spinner().stop();
-            },
-            error: function (err) {
-                $('body').trigger('promotion:error', err);
-                if (err.responseJSON.redirectUrl) {
-                    window.location.href = err.responseJSON.redirectUrl;
-                } else {
-                    createErrorNotification(err.errorMessage);
+                        $('.coupons-and-promos')
+                            .empty()
+                            .append(data.totals.discountsHtml);
+                        updateCartTotals(data);
+                        updateApproachingDiscounts(
+                            data.orderApproachingDiscounts,
+                            data.shippingApproachingDiscounts
+                        );
+                        validateBasket(data);
+                        $('body').trigger('promotion:success', data);
+                    }
+                    $('.coupon-code-field').val('');
                     $.spinner().stop();
+                },
+                error: function (err) {
+                    $('body').trigger('promotion:error', err);
+                    if (err.responseJSON.redirectUrl) {
+                        window.location.href = err.responseJSON.redirectUrl;
+                    } else {
+                        createErrorNotification(err.errorMessage);
+                        $.spinner().stop();
+                    }
                 }
-            }
-        });
-    });
+            });
+        }
+    );
 
     $('body').on('click', '.remove-coupon', function (e) {
         e.preventDefault();
@@ -1282,14 +1449,16 @@ module.exports = function () {
                     $('.dynamic-popup-promo-error').hide();
                     $('.dynamic-popup-dialog button.modal-close-icon').click();
                     if ($('.add-to-cart-messages').length === 0) {
-                        $('body').append('<div class="add-to-cart-messages"></div>');
+                        $('body').append(
+                            '<div class="add-to-cart-messages"></div>'
+                        );
                     }
 
                     $('.add-to-basket-alert').remove();
                     $('.add-to-cart-messages').append(
                         '<div class="alert add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
-                data.resources.couponApplied +
-                '</div>'
+                            data.resources.couponApplied +
+                            '</div>'
                     );
                     setTimeout(function () {
                         $('.add-to-basket-alert').remove();
@@ -1297,10 +1466,33 @@ module.exports = function () {
                 }
             },
             error: function () {
-                $('.dynamic-popup-promo-error').text($('.something-went-wrong').text());
+                $('.dynamic-popup-promo-error').text(
+                    $('.something-went-wrong').text()
+                );
                 $('.dynamic-popup-promo-error').show();
             }
         });
+    });
+    $(document).on('click', '.change-bonus-product', function () {
+        var uuid = $(this).data('uuid');
+        $('.uuid-' + uuid).parent('.card').find('.bonus-product-button').click();
+    });
+
+    // Hide responsve checkout button when scroll down
+    document.addEventListener('scroll', function () {
+        var myDiv = document.getElementById('secure-checkout-mbl-btn');
+        var targetElement = document.getElementById('cart-mobile-checkout');
+        var targetPosition = targetElement.getBoundingClientRect();
+        var windowHeight =
+            window.innerHeight || document.documentElement.clientHeight;
+
+        if (targetPosition.top <= windowHeight && targetPosition.top >= 0) {
+            myDiv.style.display = 'none';
+        } else if (targetPosition.top < 0) {
+            myDiv.style.display = 'none';
+        } else {
+            myDiv.style.display = 'block';
+        }
     });
 
     base.selectAttribute();

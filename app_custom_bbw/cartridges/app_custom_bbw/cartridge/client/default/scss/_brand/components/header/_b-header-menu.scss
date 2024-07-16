@@ -581,12 +581,14 @@
                                         color: colour(gray, 4);
                                         line-height: 1rem;
                                         letter-spacing: 0.015em;
+                                        width: 100%;
+                                        display: block;
                                     }
 
                                     .category-top-items {
                                         ul {
                                             padding: 0;
-                                            margin: 0;
+                                            margin: 8px 0;
                                             display: block;
                                             position: relative;
                                             border: 0;
@@ -599,7 +601,7 @@
                                                 list-style: none;
 
                                                 a {
-                                                    padding: 8px 15px 8px 30px;
+                                                    padding: 0px 15px 16px 30px;
                                                     font-weight: 400;
                                                     font-size: 14px;
                                                     line-height: 16px;

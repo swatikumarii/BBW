@@ -347,9 +347,12 @@ function getGiftWrapLineItemCart(currentBasket) {
             );
         }
     }
-    if (basketModel.giftWrapItem) {
+    var giftWrapItem = basketModel.items.filter(function (item) {
+        return item.isGiftWrapCategory;
+    });
+    if (giftWrapItem && giftWrapItem.length > 0) {
         var context = {
-            giftWrapItem: basketModel.giftWrapItem
+            giftWrapItem: giftWrapItem[0]
         };
         giftWrapProductCard = renderTemplateHelper.getRenderedHtml(
             context,

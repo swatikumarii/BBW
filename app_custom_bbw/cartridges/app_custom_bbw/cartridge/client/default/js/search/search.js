@@ -601,6 +601,7 @@ module.exports = {
                 success: function (response) {
                     parseResults(response);
                     searchAlphabetSort();
+                    $('#search-ingredient-div').addClass('d-none');
                     $.spinner().stop();
                     lazyload.lazyLoad();
                 },

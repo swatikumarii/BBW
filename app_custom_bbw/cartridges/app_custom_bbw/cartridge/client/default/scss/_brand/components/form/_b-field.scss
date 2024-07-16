@@ -54,6 +54,11 @@ textarea,
     }
 }
 
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
 // Invalid Message
 
 .invalid-feedback {

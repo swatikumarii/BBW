@@ -16,8 +16,6 @@ var Resource = require('dw/web/Resource');
  */
 function createProductLineItemsObject(allLineItems, view) {
     var lineItems = [];
-    var giftWrapLineItem = null;
-    var greetingCardLineItem = null;
     collections.forEach(allLineItems, function (item) {
         // when item's category is unassigned, return a lineItem with limited attributes
         if (!item.product) {
@@ -102,26 +100,21 @@ function createProductLineItemsObject(allLineItems, view) {
             newLineItem.bonusProductLineItemUUID === 'bonus' ||
             !newLineItem.bonusProductLineItemUUID
         ) {
-            if (newLineItem.isGiftWrapCategory) {
-                giftWrapLineItem = newLineItem;
-            } else if (newLineItem.isGreetingCardCategory) {
+            if (newLineItem.isGreetingCardCategory) {
                 if ('greetingCardMessage' in item.custom) {
                     newLineItem.greetingCardMessage =
                         item.custom.greetingCardMessage;
                 }
-                greetingCardLineItem = newLineItem;
-            } else {
-                if ('isWrapped' in item.custom && 'wrappedQuantity' in item.custom) {
-                    newLineItem.wrap = {
-                        isWrapped: item.custom.isWrapped,
-                        wrappedQuantity: item.custom.wrappedQuantity
-                    };
-                }
-                lineItems.push(newLineItem);
+            } else if ('isWrapped' in item.custom && 'wrappedQuantity' in item.custom) {
+                newLineItem.wrap = {
+                    isWrapped: item.custom.isWrapped,
+                    wrappedQuantity: item.custom.wrappedQuantity
+                };
             }
+            lineItems.push(newLineItem);
         }
     });
-    return [lineItems, giftWrapLineItem, greetingCardLineItem];
+    return lineItems;
 }
 
 /**
@@ -133,15 +126,10 @@ function createProductLineItemsObject(allLineItems, view) {
  */
 function ProductLineItems(productLineItems, view) {
     if (productLineItems) {
-        var allLineItems = createProductLineItemsObject(productLineItems, view);
-        this.items = allLineItems[0];
-        this.giftWrapItem = allLineItems[1];
-        this.greetingCardItem = allLineItems[2];
+        this.items = createProductLineItemsObject(productLineItems, view);
         this.totalQuantity = base.getTotalQuantity(productLineItems);
     } else {
         this.items = [];
-        this.giftWrapItem = null;
-        this.greetingCardItem = null;
         this.totalQuantity = 0;
     }
 }

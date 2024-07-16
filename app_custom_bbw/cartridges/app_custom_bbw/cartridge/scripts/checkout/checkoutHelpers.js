@@ -11,7 +11,6 @@ var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpe
 var ContentMgr = require('dw/content/ContentMgr');
 var Resource = require('dw/web/Resource');
 var Site = require('dw/system/Site');
-var Transaction = require('dw/system/Transaction');
 var OrderMgr = require('dw/order/OrderMgr');
 var HookMgr = require('dw/system/HookMgr');
 var Logger = require('dw/system/Logger');
@@ -113,7 +112,7 @@ function sendConfirmationEmail(order, locale) {
     };
 
     try {
-        var mailSent = emailHelpers.sendEmail(
+        emailHelpers.sendEmail(
             emailObj,
             'checkout/confirmation/confirmationEmail',
             orderObject
@@ -318,11 +317,53 @@ function copyBillingAddressToBasket(address) {
     });
 }
 
+/**
+ * Sends a confirmation to the current user
+ * @param {dw.order.Order} order - The current user's order
+ * @param {string} locale - the current request's locale id
+ * @returns {void}
+ */
+function sendFailedOrderEmail(order, locale) {
+    var OrderModel = require('*/cartridge/models/order');
+    var Locale = require('dw/util/Locale');
+    var emailMarkup = '';
+    var emailTopMarkup = '';
+    var emailContent = ContentMgr.getContent('email-order-confirmation'); // Payment Failed Email Content Asset Id
+    var emailTopContent = ContentMgr.getContent('email-good-to-konw-block'); // Payment Failed Top Content Email Content Asset Id
+    var currentLocale = Locale.getLocale(locale);
+
+    if (!empty(emailContent) && emailContent.online) {
+        emailMarkup = emailContent.custom.body.markup;
+    }
+
+    if (!empty(emailTopContent) && emailTopContent.online) {
+        emailTopMarkup = emailTopContent.custom.body.markup;
+    }
+    var orderModel = new OrderModel(order, { countryCode: currentLocale.country, containerView: 'order' });
+
+    var orderObject = {
+        order: orderModel,
+        markup: emailMarkup,
+        topmarkup:emailTopMarkup,
+        content: emailContentHelpers.getEmailContent('normal-footer','email-header')
+    };
+
+    var emailObj = {
+        to: order.customerEmail,
+        subject: Resource.msg('subject.order.fail.email', 'order', null),
+        from: Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com',
+        type: emailHelpers.emailTypes.orderConfirmation
+    };
+
+    emailHelpers.sendEmail(emailObj, 'checkout/failOrder/failOrderEmail', orderObject);
+}
+
 
 base.placeOrder = placeOrder;
 base.validatePayment = validatePayment;
 base.sendConfirmationEmail = sendConfirmationEmail;
 base.calculatePaymentTransaction = calculatePaymentTransaction;
 base.copyBillingAddressToBasket = copyBillingAddressToBasket;
+base.sendFailedOrderEmail = sendFailedOrderEmail;
 
 module.exports = base;
