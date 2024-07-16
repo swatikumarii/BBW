@@ -1,5 +1,5 @@
-<isif condition="${pdict.greetingCardItem}">
-    <isset name="lineItem" value="${pdict.greetingCardItem}" scope="page" />
+<isif condition="${greetingCardItem}">
+    <isset name="lineItem" value="${greetingCardItem}" scope="page" />
     <isset name="hasEmbeddedBonusProducts" value="${lineItem.bonusProductLineItemUUID === 'bonus'}" scope="page" />
     <isset name="bonusproductlineitem" value="${hasEmbeddedBonusProducts ? 'bonus-product-line-item' : ''}"
         scope="page" />
