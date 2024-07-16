@@ -26,7 +26,7 @@ function getEgiftCardDetails(item) {
     var eGiftScheduledDate;
     var month = qwikcilverHelpers.getIndexOfMonths(eGiftScheduledMonths);
     if (eGiftScheduledMonths && eGiftScheduledYear && eGiftScheduledDay) {
-        eGiftScheduledDate = month + '-' + eGiftScheduledDay + '-' + eGiftScheduledYear;
+        eGiftScheduledDate = month + '-' + Number(eGiftScheduledDay).toFixed(0) + '-' + eGiftScheduledYear;
     }
     var giftCardBarCode = '';
     var giftBarCodeNumber = '';
