@@ -77,6 +77,7 @@ $(document).ready(function () {
                     $('.giftcard-balance-status-wrap').empty();
                 } else if (data.addedCards && data.addedCards.length > 0) {
                     $('.js-gift-redeem-card-success').show();
+                    $('.add-giftcard-button').empty().text('Add another gift card');
                     setTimeout(function () {
                         $('.js-gift-redeem-card-success').hide();
                     }, 5000);
@@ -235,6 +236,7 @@ $(document).ready(function () {
                     }
                 } else {
                     $('.added-cards').empty();
+                    $('.add-giftcard-button').empty().text('Add a gift card');
                     $('.remaining-balance').empty();
                     if (!data.hideCreditCardForm) {
                         $('.giftcard-full-redemption')
