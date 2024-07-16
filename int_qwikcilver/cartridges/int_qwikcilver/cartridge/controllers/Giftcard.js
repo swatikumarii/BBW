@@ -68,7 +68,9 @@ server.get('RemoveLineItems', function (req, res, next) {
  */
 server.post('ValidateGiftCard', function (req, res, next) {
     var qwikcilverApis = require('*/cartridge/scripts/service/qwikcilver/apis');
+    var Money = require('dw/value/Money');
     var Site = require('dw/system/Site');
+    var site = Site.getCurrent();
     var paymentIterator;
     var addedCards = [];
     var hideCreditCardForm = true;
@@ -200,8 +202,9 @@ server.post('ValidateGiftCard', function (req, res, next) {
                 for (var k = 0; k < updatedPaymentInstruments.length; k++) {
                     var cardNo = updatedPaymentInstruments[k].custom.eGiftCardNumber;
                     var cardValue = updatedPaymentInstruments[k].paymentTransaction.amount;
+                    var balance = formatMoney(new Money(validateGiftCard.Cards[0].Balance, site.defaultCurrency).subtract(cardValue));
                     if (cardNo !== null) {
-                        addedCards.push({ cardNo: cardNo , amount: formatMoney(cardValue)});
+                        addedCards.push({ cardNo: cardNo , amount: formatMoney(cardValue), balance: balance});
                     }
                 }
                 var noPendingAmount = currentBasket.custom.eGiftTotalAmount === currentBasket.totalGrossPrice.value;
@@ -279,6 +282,9 @@ server.post('ValidateGiftCard', function (req, res, next) {
  */
 server.post('RemoveGiftCard', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
+    var Money = require('dw/value/Money');
+    var Site = require('dw/system/Site');
+    var site = Site.getCurrent();
     if (!currentBasket) {
         res.json({
             error: true,
@@ -307,8 +313,9 @@ server.post('RemoveGiftCard', function (req, res, next) {
         for (var k = 0; k < updatedPaymentInstruments.length; k++) {
             var cardNo = updatedPaymentInstruments[k].custom.eGiftCardNumber;
             var cardValue = updatedPaymentInstruments[k].paymentTransaction.amount;
+            var balance = formatMoney(new Money(updatedPaymentInstruments[k].custom.eGiftCardBalance, site.defaultCurrency).subtract(cardValue));
             if (cardNo !== null) {
-                remainingCards.push({ cardNo: cardNo, amount:formatMoney(cardValue) });
+                remainingCards.push({ cardNo: cardNo, amount:formatMoney(cardValue), balance: balance });
             }
         }
     }

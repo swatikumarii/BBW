@@ -382,6 +382,7 @@ function updatePaymentInstruments(basket, cardNumber, cardPin, cardsObj) {
                         if (giftPaymentInstruments[j].custom.eGiftCardNumber === null) {
                             giftPaymentInstruments[j].custom.eGiftCardNumber = cardNumber;
                             giftPaymentInstruments[j].custom.eGiftCardPin = encodeToBase64(cardPin);
+                            giftPaymentInstruments[j].custom.eGiftCardBalance = cardBalance;
                             break;
                         }
                     }

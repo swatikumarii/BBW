@@ -82,12 +82,18 @@ $(document).ready(function () {
                     }, 5000);
                     var cardArray = [];
                     var addedCardsHTML = '';
+                    var addedCardsBalanceHTML = '<div class="h-fw--semibold h-clr--black-1">Remaining Balance</div>';
                     var removeBtnLabel=$('.added-cards').data('btn-label');
                     for (var i = 0; i < data.addedCards.length; i++) {
                         var card = data.addedCards[i];
                         addedCardsHTML += '<span class="added-card d-flex justify-content-between py-2 border-bottom w-100"><span>' + card.cardNo + '</span><span class="h-clr--green-2 h-fw--semibold">' + card.amount + '</span><span class="remove-giftcard-btn b-link--underlined" data-cardno="' + card.cardNo + '">' + removeBtnLabel + '</span></span>';
                     }
                     $('.added-cards').empty().append(addedCardsHTML);
+                    for (var j = 0; j < data.addedCards.length; j++) {
+                        var cardBalance = data.addedCards[j];
+                        addedCardsBalanceHTML += '<span class="balance-card d-flex justify-content-between py-2 w-100"><span>' + cardBalance.cardNo + '</span><span class="h-clr--black-1 h-fw--semibold">' + cardBalance.balance + '</span></span>';
+                    }
+                    $('.remaining-balance').empty().append(addedCardsBalanceHTML);
                     $('#egift-number').val('');
                     $('#egift-pin').val('');
                     $('.giftcard-balance-text').empty();
@@ -189,12 +195,18 @@ $(document).ready(function () {
                     }
                     if (data.remainingCards) {
                         var addedCardsHTML = '';
+                        var addedCardsBalanceHTML = '<div class="h-fw--semibold h-clr--black-1">Remaining Balance</div>';
                         var removeBtnLabel=$('.added-cards').data('btn-label');
                         for (var i = 0; i < data.remainingCards.length; i++) {
                             var card = data.remainingCards[i];
                             addedCardsHTML += '<span class="added-card d-flex justify-content-between py-2 border-bottom w-100"><span>' + card.cardNo + '</span><span class="h-clr--green-2 h-fw--semibold">' + card.amount + '</span><span class="remove-giftcard-btn b-link--underlined" data-cardno="' + card.cardNo + '">' + removeBtnLabel + '</span></span>';
                         }
                         $('.added-cards').empty().append(addedCardsHTML);
+                        for (var j = 0; j < data.remainingCards.length; j++) {
+                            var cardBalance = data.remainingCards[j];
+                            addedCardsBalanceHTML += '<span class="balance-card d-flex justify-content-between py-2 w-100"><span>' + cardBalance.cardNo + '</span><span class="h-clr--black-1 h-fw--semibold">' + cardBalance.balance + '</span></span>';
+                        }
+                        $('.remaining-balance').empty().append(addedCardsBalanceHTML);
                         if (!data.hideCreditCardForm) {
                             $('.giftcard-full-redemption')
                                 .empty().removeClass('mt-4 p-2');
@@ -223,6 +235,7 @@ $(document).ready(function () {
                     }
                 } else {
                     $('.added-cards').empty();
+                    $('.remaining-balance').empty();
                     if (!data.hideCreditCardForm) {
                         $('.giftcard-full-redemption')
                             .empty().removeClass('mt-4 p-2');
