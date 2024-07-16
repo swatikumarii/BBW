@@ -46,11 +46,17 @@ function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
     }
 
     if (category) {
-        breadcrumbs.push({
-            htmlValue: category.displayName,
-            url: URLUtils.url('Search-Show', 'cgid', category.ID)
-        });
-
+        if(category.custom.alternativeUrl && category.custom.alternativeUrl !== '') {
+            breadcrumbs.push({
+                htmlValue: category.displayName,
+                url: category.custom.alternativeUrl
+            });
+        } else {
+            breadcrumbs.push({
+                htmlValue: category.displayName,
+                url: URLUtils.url('Search-Show', 'cgid', category.ID)
+            });
+        }
         if (category.parent && category.parent.ID !== 'root') {
             return getAllBreadcrumbs(category.parent.ID, null, breadcrumbs);
         }
@@ -59,7 +65,7 @@ function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
             url: URLUtils.home().toString()
         });
     }
-
+    
     return breadcrumbs;
 }
 
@@ -115,7 +121,8 @@ function showProductPage(querystring, reqPageMetaData) {
 }
 
 module.exports = {
-    showProductPage: showProductPage
+    showProductPage: showProductPage,
+    getAllBreadcrumbs: getAllBreadcrumbs
 };
 
 Object.keys(base).forEach(function (prop) {

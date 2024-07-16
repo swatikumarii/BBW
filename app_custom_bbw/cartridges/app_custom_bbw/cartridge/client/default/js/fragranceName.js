@@ -88,6 +88,12 @@ $(document).ready(function () {
                     hideAlphabets.push(hideAlphabet);
                 }
             }
+            if (!$('li.level-2:visible').length) {
+                $('#search-ingredient-div').addClass('d-none');
+            }else if(!$('li.level-2:hidden').length) {
+                $('#search-ingredient-div').addClass('d-none');
+            }
+
         });
 
         if (hideAlphabets.length) {
