@@ -179,7 +179,7 @@ function createProductLineItemsObject(allLineItems, view) {
             newLineItem.greetingCardMessage = item.custom.greetingCardMessage;
         }
 
-        newLineItem.bonusProducts = bonusProducts;
+        // newLineItem.bonusProducts = bonusProducts;
         if (enableQCeGift && 'custom' in item && 'isEgiftCard' in item.custom && item.custom.isEgiftCard) {
             newLineItem.giftCardDetails = getEgiftCardDetails(item);
             newLineItem.isEgiftCard = true;
@@ -193,27 +193,27 @@ function createProductLineItemsObject(allLineItems, view) {
         } else {
             newLineItem.customBundle = null;
         }
-        if (
-            newLineItem.bonusProductLineItemUUID === 'bonus' ||
-            !newLineItem.bonusProductLineItemUUID
-        ) {
-            if (newLineItem.isGiftWrapCategory) {
-                giftWrapLineItem = newLineItem;
-            } else if (newLineItem.isGreetingCardCategory) {
-                if ('greetingCardMessage' in item.custom) {
-                    newLineItem.greetingCardMessage =
-                        item.custom.greetingCardMessage;
-                }
-                greetingCardLineItem = newLineItem;
-            } else {
-                if ('isWrapped' in item.custom && 'wrappedQuantity' in item.custom) {
-                    newLineItem.wrap = {
-                        isWrapped: item.custom.isWrapped,
-                        wrappedQuantity: item.custom.wrappedQuantity
-                    };
-                }
-                lineItems.push(newLineItem);
+        // if (
+        //     newLineItem.bonusProductLineItemUUID === 'bonus' ||
+        //     !newLineItem.bonusProductLineItemUUID
+        // ) {
+        // }
+        if (newLineItem.isGiftWrapCategory) {
+            giftWrapLineItem = newLineItem;
+        } else if (newLineItem.isGreetingCardCategory) {
+            if ('greetingCardMessage' in item.custom) {
+                newLineItem.greetingCardMessage =
+                    item.custom.greetingCardMessage;
             }
+            greetingCardLineItem = newLineItem;
+        } else {
+            if ('isWrapped' in item.custom && 'wrappedQuantity' in item.custom) {
+                newLineItem.wrap = {
+                    isWrapped: item.custom.isWrapped,
+                    wrappedQuantity: item.custom.wrappedQuantity
+                };
+            }
+            lineItems.push(newLineItem);
         }
         if (!('available' in newLineItem)){
             newLineItem.available = 'available' in product ? product.available : false;
