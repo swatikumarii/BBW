@@ -818,7 +818,6 @@ module.exports = function () {
                             .hide();
                     }
                 }
-                console.log(JSON.stringify(data));
                 $('.coupons-and-promos')
                     .empty()
                     .append(data.totals.discountsHtml);
