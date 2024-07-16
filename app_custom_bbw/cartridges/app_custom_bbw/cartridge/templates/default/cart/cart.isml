@@ -99,13 +99,19 @@
                 </div>
                 <div class="cart-lineitems">
                     <isloop items="${pdict.items}" var="lineItem">
-                        <isif condition="${lineItem.productType === 'bundle'}">
-                            <isinclude template="cart/productCard/cartBundleCard" />
+                        <isif condition="${lineItem.isGiftWrapCategory}">
+                            <isset name="giftWrapItem" value="${lineItem}" scope="page" />
+                        <iselseif condition="${lineItem.isGreetingCardCategory}"/>
+                            <isset name="greetingCardItem" value="${lineItem}" scope="page" />
                         <iselse/>
-                            <isif condition="${lineItem.noProduct === true}">
-                                <isinclude template="cart/productCard/uncategorizedCartProductCard" />
+                            <isif condition="${lineItem.productType === 'bundle'}">
+                                <isinclude template="cart/productCard/cartBundleCard" />
                             <iselse/>
-                                <isinclude template="cart/productCard/cartProductCard" />
+                                <isif condition="${lineItem.noProduct === true}">
+                                    <isinclude template="cart/productCard/uncategorizedCartProductCard" />
+                                <iselse/>
+                                    <isinclude template="cart/productCard/cartProductCard" />
+                                </isif>
                             </isif>
                         </isif>
                     </isloop>
