@@ -18,6 +18,24 @@
             </run-once>
         </triggers>
     </job>
+    <job job-id="createCustomSitemap">
+        <description/>
+        <parameters/>
+        <flow>
+            <context site-id="bbw-aus"/>
+            <step step-id="productSiteMap" type="custom.createProductSiteMap" enforce-restart="false">
+                <description>Job to create custom sitemap of the site's product.</description>
+                <parameters/>
+            </step>
+        </flow>
+        <rules/>
+        <triggers>
+            <run-once enabled="false">
+                <date>2024-07-10Z</date>
+                <time>12:08:00.000Z</time>
+            </run-once>
+        </triggers>
+    </job>
     <job job-id="sendNotifyMeEmails">
         <description>Job to send back in stock mails to the user who subscribed .</description>
         <parameters/>

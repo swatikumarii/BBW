@@ -533,6 +533,7 @@ server.append(
                         order.custom.capillaryOrderID = crmOrderID;
                         order.custom.capillaryResponse = '';
                         order.custom.capillaryFailed = false;
+                        order.custom.capillaryRequest = '';
                     } else {
                         order.custom.capillaryFailed = true;
                     }
@@ -553,6 +554,7 @@ server.append(
                             order.custom.capillaryOrderID = crmOrderID;
                             order.custom.capillaryResponse = '';
                             order.custom.capillaryFailed = false;
+                            order.custom.capillaryRequest = '';
                         } else {
                             order.custom.capillaryFailed = true;
                         }

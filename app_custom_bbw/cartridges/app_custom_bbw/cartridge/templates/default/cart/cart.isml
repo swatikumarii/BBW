@@ -9,7 +9,7 @@
         assets.addCss('/css/notifyMe.css');
     </isscript>
     <isset name="miniCart" value="${false}" scope="page" />
-
+    <isinclude template="/components/modules" sf-toolkit="off" />
 
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
         <isinclude template="reporting/reportingUrls" />
@@ -140,6 +140,10 @@
                             </div>
                             <isinclude template="cart/cartTotals" />
                             <isinclude template="cart/checkoutButtons" />
+                            <iscomment> Payment Method Icons </iscomment>
+                            <div class="payment-options-wrapper">
+                                <iscontentasset aid="checkout-billing-payment-methods-icons" />
+                            </div>
                         </div>
                         <isslot id="cart-bottom-below-checkout-button" context="global"
                             description="This slot will be rendered on the bottom part of cart page below checkout buttons" />

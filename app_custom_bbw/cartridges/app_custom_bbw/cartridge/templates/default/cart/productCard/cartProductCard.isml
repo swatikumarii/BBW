@@ -19,7 +19,7 @@
                 </isif>
             </div>
             <div class="item-attributes d-flex flex-column">
-                <div class="social-badge-wrapper d-flex h-grid-gap--5 flex-wrap h-maxwidth--100">
+                <div class="social-badge-wrapper d-flex h-grid-gap--5 flex-wrap h-maxwidth--150">
                     <isif condition="${lineItem.badge1}">
                         <div class="b-product-tile__social-badge">
                             <div

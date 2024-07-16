@@ -168,6 +168,33 @@
               }
           },
           {
+              "@type-id": "custom.createProductSiteMap",
+              "@supports-parallel-execution": "true",
+              "@supports-site-context": "true",
+              "@supports-organization-context": "false",
+              "description": "Create custom sitemap of the product assigned to the site.",
+              "module": "app_custom_bbw/cartridge/scripts/jobs/sitemap.js",
+              "function": "createProductSitemap",
+              "transactional": "false",
+              "timeout-in-seconds": "900",
+              "status-codes": {
+                  "status": [
+                      {
+                          "@code": "ERROR",
+                          "description": "Used when the step failed with an error."
+                      },
+                      {
+                          "@code": "FINISHED",
+                          "description": "Used when the step finished successfully."
+                      },
+                      {
+                          "@code": "FINISHED_WITH_WARNINGS",
+                          "description": "Used when the step finished with warnings."
+                      }
+                  ]
+              }
+          },
+          {
             "@type-id": "custom.createFacebookFeed",
             "@supports-parallel-execution": "true",
             "@supports-site-context": "true",

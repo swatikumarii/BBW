@@ -30,6 +30,7 @@ function getResources() {
  */
 function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
     var URLUtils = require('dw/web/URLUtils');
+    var Resource = require('dw/web/Resource');
     var CatalogMgr = require('dw/catalog/CatalogMgr');
     var ProductMgr = require('dw/catalog/ProductMgr');
 
@@ -45,16 +46,26 @@ function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
     }
 
     if (category) {
-        breadcrumbs.push({
-            htmlValue: category.displayName,
-            url: URLUtils.url('Search-Show', 'cgid', category.ID)
-        });
-
+        if(category.custom.alternativeUrl && category.custom.alternativeUrl !== '') {
+            breadcrumbs.push({
+                htmlValue: category.displayName,
+                url: category.custom.alternativeUrl
+            });
+        } else {
+            breadcrumbs.push({
+                htmlValue: category.displayName,
+                url: URLUtils.url('Search-Show', 'cgid', category.ID)
+            });
+        }
         if (category.parent && category.parent.ID !== 'root') {
             return getAllBreadcrumbs(category.parent.ID, null, breadcrumbs);
         }
+        breadcrumbs.push({
+            htmlValue: Resource.msg('global.home', 'common', null),
+            url: URLUtils.home().toString()
+        });
     }
-
+    
     return breadcrumbs;
 }
 
@@ -73,7 +84,8 @@ function showProductPage(querystring, reqPageMetaData) {
     var product = ProductFactory.get(params);
     var addToCartUrl = URLUtils.url('Cart-AddProduct');
     var canonicalUrl = URLUtils.url('Product-Show', 'pid', product.id);
-    var breadcrumbs = getAllBreadcrumbs(null, product.id, []).reverse();
+    var cgid = querystring && querystring.cat ? querystring.cat : null;
+    var breadcrumbs = getAllBreadcrumbs(cgid, cgid ? null : product.id, []).reverse();
     var productName = product.fragranceName ? product.fragranceName : product.productName;
     if (breadcrumbs && breadcrumbs.length) {
         breadcrumbs.push({
@@ -109,7 +121,8 @@ function showProductPage(querystring, reqPageMetaData) {
 }
 
 module.exports = {
-    showProductPage: showProductPage
+    showProductPage: showProductPage,
+    getAllBreadcrumbs: getAllBreadcrumbs
 };
 
 Object.keys(base).forEach(function (prop) {
