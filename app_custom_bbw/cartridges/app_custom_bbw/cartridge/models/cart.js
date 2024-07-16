@@ -43,6 +43,7 @@ function getApproachingDiscounts(basket, discountPlan) {
             function (approachingOrderDiscount) {
                 promotion = approachingOrderDiscount.discount.promotion;
                 var qualificationMessage = promotion.custom && promotion.custom !== null && 'qualificationMessage' in promotion.custom && promotion.custom.qualificationMessage ? promotion.custom.qualificationMessage.source : false;
+                var motivatorHeading =  promotion.custom && promotion.custom !== null && 'orderMotivatorHeading' in promotion.custom && promotion.custom.orderMotivatorHeading ? promotion.custom.orderMotivatorHeading.source : '';
                 var buy = formatMoney(approachingOrderDiscount.getDistanceFromConditionThreshold());
                 var get = promotion.custom && promotion.custom !== null && 'Get' in promotion.custom && promotion.custom.Get.length > 0 ? promotion.custom.Get[0] : '';
                 var image = promotion.custom && 'productToShowImage' in promotion.custom ? ProductMgr.getProduct(promotion.custom.productToShowImage).getImage('large').absURL.toString() : '';
@@ -67,7 +68,8 @@ function getApproachingDiscounts(basket, discountPlan) {
                     discountMsg: discountMsg,
                     conditionThreshold: approachingOrderDiscount.conditionThreshold.value,
                     distanceFromConditionThreshold: approachingOrderDiscount.distanceFromConditionThreshold.value,
-                    image: image
+                    image: image,
+                    motivatorHeading: motivatorHeading
                 };
             }
         );
@@ -77,6 +79,7 @@ function getApproachingDiscounts(basket, discountPlan) {
             appliedBonusDiscounts = discountPlan.getBonusDiscounts();
             var discountMsg;
             var thresholdValue = 0;
+            var motivatorHeading;
             var image;
             if (appliedOrderDiscounts.length > 0) {
                 collections.forEach(appliedOrderDiscounts, function (appliedOrderDiscount) {
@@ -93,6 +96,7 @@ function getApproachingDiscounts(basket, discountPlan) {
                         thresholdValue = appliedOrderDiscount.promotion.custom.Buy[appliedOrderDiscount.promotion.custom.Buy.length - 1];
                         discountMsg = appliedOrderDiscount.promotion.custom.addFreeMessage.source;
                         image = appliedOrderDiscount.promotion.custom && 'productToShowImage' in appliedOrderDiscount.promotion.custom ? ProductMgr.getProduct(appliedOrderDiscount.promotion.custom.productToShowImage).getImages('large')[0].absURL.toString() : '';
+                        motivatorHeading =  appliedOrderDiscount.promotion.custom && appliedOrderDiscount.promotion.custom !== null && 'orderMotivatorHeading' in appliedOrderDiscount.promotion.custom && appliedOrderDiscount.promotion.custom.orderMotivatorHeading ? appliedOrderDiscount.promotion.custom.orderMotivatorHeading.source : '';
                     }
                 });
 
@@ -102,7 +106,8 @@ function getApproachingDiscounts(basket, discountPlan) {
                         discountMsg: discountMsg,
                         conditionThreshold: thresholdValue,
                         distanceFromConditionThreshold: 0,
-                        image: image
+                        image: image,
+                        motivatorHeading: motivatorHeading
                     });
                 }
             }
@@ -121,6 +126,7 @@ function getApproachingDiscounts(basket, discountPlan) {
                         thresholdValue = appliedOrderDiscount.promotion.custom.Buy[appliedOrderDiscount.promotion.custom.Buy.length - 1];
                         discountMsg = appliedOrderDiscount.promotion.custom.addFreeMessage.source;
                         image = appliedOrderDiscount.promotion.custom && 'productToShowImage' in appliedOrderDiscount.promotion.custom ? ProductMgr.getProduct(appliedOrderDiscount.promotion.custom.productToShowImage).getImages('large')[0].absURL.toString() : '';
+                        motivatorHeading =  appliedOrderDiscount.promotion.custom && appliedOrderDiscount.promotion.custom !== null && 'orderMotivatorHeading' in appliedOrderDiscount.promotion.custom && appliedOrderDiscount.promotion.custom.orderMotivatorHeading ? appliedOrderDiscount.promotion.custom.orderMotivatorHeading.source : '';
                     }
                 });
 
@@ -130,7 +136,8 @@ function getApproachingDiscounts(basket, discountPlan) {
                         discountMsg: discountMsg,
                         conditionThreshold: thresholdValue,
                         distanceFromConditionThreshold: 0,
-                        image: image
+                        image: image,
+                        motivatorHeading: motivatorHeading
                     });
                 }
             }

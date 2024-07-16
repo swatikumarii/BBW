@@ -2,7 +2,10 @@
     <isif condition="${pdict.orderApproachingDiscounts.length > 0}">
         <isset name="approachingDiscount" value="${pdict.orderApproachingDiscounts[0]}" scope="page" />
         <div class="d-flex w-auto align-items-center single-approaching-discount-wrap">
-            <div class="single-approaching-discount d-flex flex-column w-100 pl-3">
+            <div class="single-approaching-discount w-100 pl-3">
+                <div>
+                    <isprint value="${approachingDiscount.motivatorHeading}" encoding="off" />
+                </div>
                 <isprint value="${approachingDiscount.discountMsg}" encoding="off" />
                 <iscomment> <progress class="w-100" value="${approachingDiscount.conditionThreshold - approachingDiscount.distanceFromConditionThreshold}" max="${approachingDiscount.conditionThreshold}"></progress> </iscomment>
             </div>
