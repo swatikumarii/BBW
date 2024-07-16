@@ -46,11 +46,17 @@ function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
     }
 
     if (category) {
-        breadcrumbs.push({
-            htmlValue: category.displayName,
-            url: URLUtils.url('Search-Show', 'cgid', category.ID)
-        });
-
+        if(category.custom.alternativeUrl && category.custom.alternativeUrl !== '') {
+            breadcrumbs.push({
+                htmlValue: category.displayName,
+                url: category.custom.alternativeUrl
+            });
+        } else {
+            breadcrumbs.push({
+                htmlValue: category.displayName,
+                url: URLUtils.url('Search-Show', 'cgid', category.ID)
+            });
+        }
         if (category.parent && category.parent.ID !== 'root') {
             return getAllBreadcrumbs(category.parent.ID, null, breadcrumbs);
         }
@@ -59,7 +65,7 @@ function getAllBreadcrumbs(cgid, pid, breadcrumbs) {
             url: URLUtils.home().toString()
         });
     }
-
+    
     return breadcrumbs;
 }
 
@@ -78,7 +84,7 @@ function showProductPage(querystring, reqPageMetaData) {
     var product = ProductFactory.get(params);
     var addToCartUrl = URLUtils.url('Cart-AddProduct');
     var canonicalUrl = URLUtils.url('Product-Show', 'pid', product.id);
-    var cgid = querystring && querystring.cgid ? querystring.cgid : null;
+    var cgid = querystring && querystring.cat ? querystring.cat : null;
     var breadcrumbs = getAllBreadcrumbs(cgid, cgid ? null : product.id, []).reverse();
     var productName = product.fragranceName ? product.fragranceName : product.productName;
     if (breadcrumbs && breadcrumbs.length) {
@@ -115,7 +121,8 @@ function showProductPage(querystring, reqPageMetaData) {
 }
 
 module.exports = {
-    showProductPage: showProductPage
+    showProductPage: showProductPage,
+    getAllBreadcrumbs: getAllBreadcrumbs
 };
 
 Object.keys(base).forEach(function (prop) {

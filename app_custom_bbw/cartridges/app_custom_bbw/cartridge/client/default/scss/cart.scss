@@ -662,6 +662,24 @@
                     display: none;
                 }
             }
+
+            .payment-options-wrapper {
+                margin: 20px 0;
+
+                .payment-methods-label {
+                    display: none;
+                }
+
+                .payment-icon {
+                    height: auto;
+                    width: 60px;
+
+                    @include media-up(md) {
+                        height: auto;
+                        width: 65px;
+                    }
+                }
+            }
         }
     }
 }

@@ -482,6 +482,8 @@
         padding: 10px 25px;
 
         .single-approaching-discount {
+            max-width: fit-content;
+
             progress {
                 margin-top: 10px;
                 height: 10px;

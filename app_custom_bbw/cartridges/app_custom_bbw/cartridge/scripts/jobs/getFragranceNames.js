@@ -34,7 +34,13 @@ function getFragranceNames() {
 
         while (allProducts.hasNext()) {
             var product = allProducts.next();
-            if (product.availabilityModel.availabilityStatus === 'IN_STOCK' && product.online) {
+            var isEgiftCard =
+                'custom' in product &&
+                'isEgiftCard' in product.custom &&
+                product.custom.isEgiftCard
+                    ? product.custom.isEgiftCard
+                    : false;
+            if (product.availabilityModel.availabilityStatus === 'IN_STOCK' && product.online && !isEgiftCard) {
                 var productLevelReserveQty =
                 'custom' in product &&
                 'reserveQty' in product.custom &&
