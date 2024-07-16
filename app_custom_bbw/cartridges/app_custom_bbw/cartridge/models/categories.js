@@ -28,7 +28,8 @@ function categoryToObject(category) {
         url: getCategoryUrl(category),
         id: category.ID,
         slotId:
-            category.custom && 'slotId' in category.custom && category.custom.slotId ? category.custom.slotId : ''
+            category.custom && 'slotId' in category.custom && category.custom.slotId ? category.custom.slotId : '',
+        isDisabledForMobile: category.custom.isDisabledForMobile ? category.custom.isDisabledForMobile : false,
     };
     var subCategories = category.hasOnlineSubCategories()
         ? category.getOnlineSubCategories() : null;
