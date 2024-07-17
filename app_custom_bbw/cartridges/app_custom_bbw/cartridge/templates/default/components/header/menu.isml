@@ -23,7 +23,7 @@
                         <li class="nav-item" role="presentation">
                             <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
                             id="${category.id}" class="nav-link h-font-size--14 h-fw--semibold" role="link"
-                            tabindex="0">${category.name}Here</a>
+                            tabindex="0">${category.name}</a>
                         </li>
                     </isif>
                 </isloop>
