@@ -10,7 +10,7 @@
     <div class="pd-slick-wrapper">
         <isprint value="${pdict.regions.slides
                 .setClassName("pd-slick-slider js-slider arrow-"+ pdict.arrowStyle)
-                .setComponentClassName("slick-slide")
+                //.setComponentClassName("slick-slide-item")
                 .setAttribute('id',sliderId)
                 .setAttribute('style','--slides-gap-md: ' + pdict.gapDesktop + 'px; --slides-gap-sm: ' + pdict.gapMobile + 'px;')
                 .setAttribute('data-custom-indicator',pdict.displayControls)
@@ -19,6 +19,7 @@
                 .setAttribute('data-custom-dots',pdict.displayIndicators)
                 .setAttribute('data-slick-loop',pdict.infinityLoop)
                 .setAttribute('data-slide-animation',pdict.slideAnimation)
+                .setAttribute('data-variable-width',pdict.variableWidth)
                 .setAttribute('data-auto-play',pdict.autoplay)
                 .setAttribute('data-autoplay-speed',pdict.autoPlaySpeed)
                 .setAttribute('data-prev',Resource.msg('button.previous', 'common',null))
