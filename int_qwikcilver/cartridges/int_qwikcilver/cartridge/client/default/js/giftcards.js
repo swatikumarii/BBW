@@ -77,13 +77,13 @@ $(document).ready(function () {
                     $('.giftcard-balance-status-wrap').empty();
                 } else if (data.addedCards && data.addedCards.length > 0) {
                     $('.js-gift-redeem-card-success').show();
-                    $('.add-giftcard-button').empty().text('Add another gift card');
+                    $('.add-giftcard-button').empty().text(data.messages.addAnotherGiftcard);
                     setTimeout(function () {
                         $('.js-gift-redeem-card-success').hide();
                     }, 5000);
                     var cardArray = [];
                     var addedCardsHTML = '';
-                    var addedCardsBalanceHTML = '<div class="h-fw--semibold h-clr--black-1">Remaining Balance</div>';
+                    var addedCardsBalanceHTML = '<div class="h-fw--semibold h-clr--black-1">' + data.messages.remainingBalance + '</div>';
                     var removeBtnLabel=$('.added-cards').data('btn-label');
                     for (var i = 0; i < data.addedCards.length; i++) {
                         var card = data.addedCards[i];
@@ -196,7 +196,7 @@ $(document).ready(function () {
                     }
                     if (data.remainingCards) {
                         var addedCardsHTML = '';
-                        var addedCardsBalanceHTML = '<div class="h-fw--semibold h-clr--black-1">Remaining Balance</div>';
+                        var addedCardsBalanceHTML = '<div class="h-fw--semibold h-clr--black-1">' + data.messages.remainingBalance + '</div>';
                         var removeBtnLabel=$('.added-cards').data('btn-label');
                         for (var i = 0; i < data.remainingCards.length; i++) {
                             var card = data.remainingCards[i];
@@ -236,7 +236,7 @@ $(document).ready(function () {
                     }
                 } else {
                     $('.added-cards').empty();
-                    $('.add-giftcard-button').empty().text('Add a gift card');
+                    $('.add-giftcard-button').empty().text(data.messages.addAGiftcard);
                     $('.remaining-balance').empty();
                     if (!data.hideCreditCardForm) {
                         $('.giftcard-full-redemption')

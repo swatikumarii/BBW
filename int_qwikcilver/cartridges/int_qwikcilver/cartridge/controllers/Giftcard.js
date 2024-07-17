@@ -12,6 +12,23 @@ var Resource = require('dw/web/Resource');
 var collection = require('*/cartridge/scripts/util/collections');
 var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
 var formatMoney = require('dw/util/StringUtils').formatMoney;
+var messages = {
+    addAnotherGiftcard: Resource.msg(
+        'add.another.giftcard',
+        'giftcards',
+        null
+    ),
+    addAGiftcard: Resource.msg(
+        'add.a.giftcard',
+        'giftcards',
+        null
+    ),
+    remainingBalance: Resource.msg(
+        'giftcard.remaining.balance',
+        'giftcards',
+        null
+    )
+};
 
 server.get('Show', function (req, res, next) {
     var giftCardId = req.querystring.pid;
@@ -228,7 +245,8 @@ server.post('ValidateGiftCard', function (req, res, next) {
                     hideCreditCardForm: false,
                     addedCards: addedCards,
                     basketModel: basketModel,
-                    hideAfterPay: hideAfterPay
+                    hideAfterPay: hideAfterPay,
+                    messages: messages
                 });
                 return next();
             }
@@ -271,7 +289,8 @@ server.post('ValidateGiftCard', function (req, res, next) {
         cardNumber: cardNumber,
         hideCreditCardForm: hideCreditCardForm,
         addedCards: addedCards,
-        basketModel: basketModel
+        basketModel: basketModel,
+        messages: messages
     });
     return next();
 });
@@ -338,7 +357,8 @@ server.post('RemoveGiftCard', function (req, res, next) {
             'gift.cards.removed.success.message',
             'giftcards',
             null
-        )
+        ),
+        messages: messages
     });
     return next();
 });
