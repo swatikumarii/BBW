@@ -429,7 +429,9 @@ server.append('RemoveProductLineItem', function (req, res, next) {
  */
 server.prepend('AddProduct', function (req, res, next) {
     var Resource = require('dw/web/Resource');
+    var Transaction = require('dw/system/Transaction');
     var price = cartHelper.getProductPrice(req.form.pid);
+    var currentBasket = BasketMgr.getCurrentBasket();
     if (price === 0) {
         res.json({
             error: true,
@@ -439,6 +441,24 @@ server.prepend('AddProduct', function (req, res, next) {
                 'product',
                 null
             )
+        });
+        return this.emit('route:Complete', req, res);
+    }
+    var isFromPlp = req.form.plp === 'true';
+    if (isFromPlp) {
+        var productLineItems =
+            currentBasket && currentBasket.getAllProductLineItems(req.form.pid);
+        Transaction.wrap(function () {
+            for (var i = 0; i < productLineItems.length; i++) {
+                var item = productLineItems[i];
+                currentBasket.removeProductLineItem(item);
+            }
+        });
+    }
+    if (req.form.quantity === '0') {
+        res.json({
+            error: true,
+            errorCode: 'DELETE-LINEITEM',
         });
         return this.emit('route:Complete', req, res);
     }

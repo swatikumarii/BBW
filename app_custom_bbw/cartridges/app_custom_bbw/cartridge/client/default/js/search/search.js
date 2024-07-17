@@ -620,7 +620,7 @@ module.exports = {
 
         /**
          * Searches for an ingredient when the Enter key is pressed or the search icon is clicked.
-         * @param event
+         * @param {string} event - An event
          */
         function searchIngredient(event) {
             var inputValue = event.val();
@@ -674,10 +674,76 @@ module.exports = {
                 });
             }
         }
-        $('#ingredient-search-icon').on('click', () => searchIngredient($('#ingredient-search')));
+        $('#ingredient-search-icon').on('click', () =>
+            searchIngredient($('#ingredient-search'))
+        );
         $('#ingredient-search').on('keydown', (event) => {
             if (event.key === 'Enter' || event.which === 13) {
                 searchIngredient($('#ingredient-search'));
+            }
+        });
+    },
+    quantityUpdate: function () {
+        $(document).on('click', '.plp-increase', function () {
+            var maxOrderQty = Number($(this).siblings('input[name="maxorderqty"]').val());
+            var self = $(this);
+            var inputTag = $(this).siblings('input.quantity-select');
+            var quantity = Number(inputTag.val());
+            if (quantity >= maxOrderQty) {
+                $(this).addClass('disable');
+            } else {
+                quantity += 1;
+                $(this).removeClass('disable');
+                var productID = inputTag.data('pid');
+                var url = inputTag.data('action');
+                var urlParams = {
+                    pid: productID,
+                    quantity: quantity,
+                    plp: true
+                };
+                $.ajax({
+                    url: url,
+                    method: 'POST',
+                    data: urlParams,
+                    success: function (data) {
+                        $('.minicart').trigger('count:update', data);
+                        inputTag.val(quantity).trigger('change');
+                        if (quantity >= maxOrderQty) {
+                            self.addClass('disable');
+                        }
+                    }
+                });
+            }
+        });
+
+        $('body').on('click', '.quantity-field > .plp-decrease', function () {
+            var maxOrderQty = Number($(this).siblings('input[name="maxorderqty"]').val());
+            var increaseButton = $(this).siblings('.plp-increase');
+            var inputTag = $(this).siblings('input.quantity-select');
+            var quantity = Number(inputTag.val());
+            quantity -= 1;
+            var productID = inputTag.data('pid');
+            var url = inputTag.data('action');
+            var urlParams = {
+                pid: productID,
+                quantity: quantity,
+                plp: true
+            };
+            $.ajax({
+                url: url,
+                method: 'POST',
+                data: urlParams,
+                success: function (data) {
+                    $('.minicart').trigger('count:update', data);
+                    inputTag.val(quantity).trigger('change');
+                    if (quantity <= maxOrderQty) {
+                        increaseButton.removeClass('disable');
+                    }
+                }
+            });
+            if (quantity === 0) {
+                $(this).closest('.product-tile').find('button.add-to-cart').show();
+                $(this).closest('.plp-simple-quantity').hide();
             }
         });
     }
