@@ -4,7 +4,7 @@
         <ul class="nav navbar-nav justify-content-between level-1-ul" role="menu">
             <isif condition="${pdict.categories}">
                 <isloop items="${pdict.categories}" var="category">
-                    <isif condition="${category.subCategories}">
+                    <isif condition="${category.subCategories && category.isMobileSpecific === false}">
                         <li class="nav-item dropdown level-1-li" role="presentation">
                             <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
                             id="${category.id}" class="level-1-link nav-link h-fw--semibold text-capitalize
@@ -19,7 +19,7 @@
                                 <isinclude template="components/header/menuItem" />
                             </isif>
                         </li>
-                    <iselse/>
+                    <iselseif condition="${category.isMobileSpecific === false}"/>
                         <li class="nav-item" role="presentation">
                             <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
                             id="${category.id}" class="nav-link h-font-size--14 h-fw--semibold" role="link"
