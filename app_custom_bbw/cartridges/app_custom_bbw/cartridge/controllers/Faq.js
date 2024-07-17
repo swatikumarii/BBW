@@ -13,10 +13,18 @@ var seo = require('*/cartridge/scripts/middleware/seo');
 server.post('UpdateVote', function (req, res, next) {
     var CustomObjectMgr = require('dw/object/CustomObjectMgr');
     var Transaction = require('dw/system/Transaction');
-    var faq = CustomObjectMgr.getCustomObject(
-        'faqVotes',
-        req.form.currentContentId
-    );
+    var userEmail ;
+    if (
+        req.currentCustomer &&
+        req.currentCustomer.profile &&
+        req.currentCustomer.profile.email
+    ) {
+        userEmail = req.currentCustomer.profile.email;
+    }
+        var faq = CustomObjectMgr.getCustomObject(
+            'faqVotes',
+            req.form.currentContentId
+        );
     Transaction.wrap(function () {
         if (!faq) {
             // create custom object
@@ -26,17 +34,57 @@ server.post('UpdateVote', function (req, res, next) {
             );
         }
         if (faq) {
+            var articleHelpfulUsers = req.form.articleHelpful ? 1 : 0;
+            var increment = 1;
+            if (
+                !faq.custom.articleHelpfulUsers ||
+                !faq.custom.articleHelpfulUsers.length
+            ) {
+                var initialObject = {};
+                initialObject[userEmail] = articleHelpfulUsers;
+                faq.custom.articleHelpfulUsers = JSON.stringify(initialObject);
+            } else {
+                var jsonObject = JSON.parse(faq.custom.articleHelpfulUsers);
+                if (userEmail in jsonObject) {
+                    if (jsonObject[userEmail] && req.form.articleHelpful) {
+                        increment = 0;
+                    } else if (
+                        !jsonObject[userEmail] &&
+                        req.form.articleNotHelpful
+                    ) {
+                        increment = 0;
+                    } else if (
+                        jsonObject[userEmail] &&
+                        req.form.articleNotHelpful
+                    ) {
+                        faq.custom.articleHelpfulYes =
+                            (faq.custom && faq.custom.articleHelpfulYes
+                                ? faq.custom.articleHelpfulYes
+                                : 0) - 1;
+                    } else if (
+                        !jsonObject[userEmail] &&
+                        req.form.articleHelpful
+                    ) {
+                        faq.custom.articleHelpfulNo =
+                            (faq.custom && faq.custom.articleHelpfulNo
+                                ? faq.custom.articleHelpfulNo
+                                : 0) - 1;
+                    }
+                }
+                jsonObject[userEmail] = articleHelpfulUsers;
+                faq.custom.articleHelpfulUsers = JSON.stringify(jsonObject);
+            }
             if (req.form.articleHelpful) {
                 faq.custom.articleHelpfulYes =
                     (faq.custom && faq.custom.articleHelpfulYes
                         ? faq.custom.articleHelpfulYes
-                        : 0) + 1;
+                        : 0) + increment;
             } else if (req.form.articleNotHelpful) {
                 faq.custom.articleHelpfulNo =
                     (faq.custom && faq.custom.articleHelpfulNo
                         ? faq.custom.articleHelpfulNo
-                        : 0) + 1;
-            }
+                        : 0) + increment;
+            }    
         }
     });
     res.json({
