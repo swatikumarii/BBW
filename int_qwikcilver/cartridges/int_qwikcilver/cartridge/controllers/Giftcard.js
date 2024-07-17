@@ -12,6 +12,23 @@ var Resource = require('dw/web/Resource');
 var collection = require('*/cartridge/scripts/util/collections');
 var pageMetaData = require('*/cartridge/scripts/middleware/pageMetaData');
 var formatMoney = require('dw/util/StringUtils').formatMoney;
+var messages = {
+    addAnotherGiftcard: Resource.msg(
+        'add.another.giftcard',
+        'giftcards',
+        null
+    ),
+    addAGiftcard: Resource.msg(
+        'add.a.giftcard',
+        'giftcards',
+        null
+    ),
+    remainingBalance: Resource.msg(
+        'giftcard.remaining.balance',
+        'giftcards',
+        null
+    )
+};
 
 server.get('Show', function (req, res, next) {
     var giftCardId = req.querystring.pid;
@@ -68,7 +85,9 @@ server.get('RemoveLineItems', function (req, res, next) {
  */
 server.post('ValidateGiftCard', function (req, res, next) {
     var qwikcilverApis = require('*/cartridge/scripts/service/qwikcilver/apis');
+    var Money = require('dw/value/Money');
     var Site = require('dw/system/Site');
+    var site = Site.getCurrent();
     var paymentIterator;
     var addedCards = [];
     var hideCreditCardForm = true;
@@ -200,8 +219,9 @@ server.post('ValidateGiftCard', function (req, res, next) {
                 for (var k = 0; k < updatedPaymentInstruments.length; k++) {
                     var cardNo = updatedPaymentInstruments[k].custom.eGiftCardNumber;
                     var cardValue = updatedPaymentInstruments[k].paymentTransaction.amount;
+                    var balance = formatMoney(new Money(validateGiftCard.Cards[0].Balance, site.defaultCurrency).subtract(cardValue));
                     if (cardNo !== null) {
-                        addedCards.push({ cardNo: cardNo , amount: formatMoney(cardValue)});
+                        addedCards.push({ cardNo: cardNo , amount: formatMoney(cardValue), balance: balance});
                     }
                 }
                 var noPendingAmount = currentBasket.custom.eGiftTotalAmount === currentBasket.totalGrossPrice.value;
@@ -225,7 +245,8 @@ server.post('ValidateGiftCard', function (req, res, next) {
                     hideCreditCardForm: false,
                     addedCards: addedCards,
                     basketModel: basketModel,
-                    hideAfterPay: hideAfterPay
+                    hideAfterPay: hideAfterPay,
+                    messages: messages
                 });
                 return next();
             }
@@ -268,7 +289,8 @@ server.post('ValidateGiftCard', function (req, res, next) {
         cardNumber: cardNumber,
         hideCreditCardForm: hideCreditCardForm,
         addedCards: addedCards,
-        basketModel: basketModel
+        basketModel: basketModel,
+        messages: messages
     });
     return next();
 });
@@ -279,6 +301,9 @@ server.post('ValidateGiftCard', function (req, res, next) {
  */
 server.post('RemoveGiftCard', function (req, res, next) {
     var currentBasket = BasketMgr.getCurrentBasket();
+    var Money = require('dw/value/Money');
+    var Site = require('dw/system/Site');
+    var site = Site.getCurrent();
     if (!currentBasket) {
         res.json({
             error: true,
@@ -307,8 +332,9 @@ server.post('RemoveGiftCard', function (req, res, next) {
         for (var k = 0; k < updatedPaymentInstruments.length; k++) {
             var cardNo = updatedPaymentInstruments[k].custom.eGiftCardNumber;
             var cardValue = updatedPaymentInstruments[k].paymentTransaction.amount;
+            var balance = formatMoney(new Money(updatedPaymentInstruments[k].custom.eGiftCardBalance, site.defaultCurrency).subtract(cardValue));
             if (cardNo !== null) {
-                remainingCards.push({ cardNo: cardNo, amount:formatMoney(cardValue) });
+                remainingCards.push({ cardNo: cardNo, amount:formatMoney(cardValue), balance: balance });
             }
         }
     }
@@ -331,7 +357,8 @@ server.post('RemoveGiftCard', function (req, res, next) {
             'gift.cards.removed.success.message',
             'giftcards',
             null
-        )
+        ),
+        messages: messages
     });
     return next();
 });
