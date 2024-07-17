@@ -59,6 +59,26 @@
     }
 }
 
+.gift-wrap-modal {
+    .modal-dialog {
+        max-width: 400px;
+
+        .modal-content {
+            border-radius: 0;
+
+            .close {
+                margin: 0 0 0 auto;
+                padding: 3px 7px;
+                opacity: 1;
+
+                img {
+                    width: 17px;
+                }
+            }
+        }
+    }
+}
+
 .giftwrap-block {
     background-color: transparent;
     font-size: 14px;
@@ -121,17 +141,19 @@
     }
 
     input[type="checkbox"]:checked + label::before {
-        border-color: $clr-black;
+        border-color: colour(blue, 22);
         content: "";
-        background: url("../images/check-32.svg");
+        background: url("../images/check-box-checked.svg");
         background-size: contain;
-        background-color: $clr-black;
+        background-color: colour(blue, 22);
     }
 
     input[type="radio"]:checked + label::before {
         border-color: $clr-black;
         content: "";
-        background: url("../images/check-circle-fill-32.svg") 50% no-repeat;
+        background: url("../images/check-box-checked.svg") 50% no-repeat;
+        border-radius: 100%;
+        background-size: contain;
     }
 
     &.open-giftwrap {
@@ -207,10 +229,14 @@
 
                 input[type="radio"]:checked + label::before,
                 input[type="checkbox"]:checked + label::before {
-                    border-color: $clr-black;
                     content: "";
-                    background: url("../images/check-circle-fill-32.svg") 50%
+                    background: url("../images/check-box-checked.svg") 50%
                         no-repeat;
+                    border: 1px solid colour(blue, 22);
+                    border-radius: 100%;
+                    width: 24px;
+                    height: 24px;
+                    background-size: contain;
                 }
             }
 
@@ -309,10 +335,10 @@
                             height: 100%;
                             overflow: hidden auto;
                             width: 100%;
-                            padding: 15px 24px 30px 14px;
+                            padding: 15px 24px 30px;
 
                             @include media-breakpoint-up(sm) {
-                                padding: 15px 30px 30px 40px;
+                                padding: 15px 30px 30px;
                             }
 
                             .giftwrap-title {
@@ -420,7 +446,7 @@
                                     &::before {
                                         left: auto;
                                         right: 24px;
-                                        top: 22px;
+                                        top: 15%;
                                         border: 1px solid $clr-white-1;
                                         color: $clr-white;
                                         content: "";
@@ -464,7 +490,8 @@
                                     font-size: 14px;
 
                                     @include media-breakpoint-up(sm) {
-                                        font-size: 20px;
+                                        font-size: 16px;
+                                        color: $clr-black;
                                     }
                                 }
                             }
@@ -496,36 +523,6 @@
                     }
                 }
             }
-        }
-    }
-}
-
-.gift-wrap-modal {
-    position: fixed;
-    display: inline-block;
-    overflow-y: auto;
-    box-shadow: 0 0 25px -5px rgba(0, 0, 0, 14%);
-    background-color: $clr-white;
-    width: 100%;
-    color: $clr-black;
-    transition: right 0.5s ease-in-out;
-    max-width: 340px;
-    inset: 0 -100% 0 auto;
-
-    @include media-breakpoint-up(sm) {
-        max-width: 504px;
-    }
-
-    &.show {
-        right: 0;
-    }
-
-    .close {
-        margin: 0 0 0 14px;
-        padding: 2rem 0 0;
-
-        @include media-breakpoint-up(sm) {
-            margin: 0 0 0 40px;
         }
     }
 }
