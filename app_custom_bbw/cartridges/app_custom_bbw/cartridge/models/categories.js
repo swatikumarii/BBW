@@ -29,7 +29,7 @@ function categoryToObject(category) {
         id: category.ID,
         slotId:
             category.custom && 'slotId' in category.custom && category.custom.slotId ? category.custom.slotId : '',
-        isDisabledForMobile: category.custom.isDisabledForMobile ? category.custom.isDisabledForMobile : false,
+        isMobileSpecific: category.custom && 'isMobileSpecific' in category.custom && category.custom.isMobileSpecific ? category.custom.isMobileSpecific : false,
     };
     var subCategories = category.hasOnlineSubCategories()
         ? category.getOnlineSubCategories() : null;

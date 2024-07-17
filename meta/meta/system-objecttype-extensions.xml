@@ -2098,8 +2098,8 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-            <attribute-definition attribute-id="isDisabledForMobile">
-                <display-name xml:lang="x-default">Disable For Mobile</display-name>
+            <attribute-definition attribute-id="isMobileSpecific">
+                <display-name xml:lang="x-default">Display only on Mobile</display-name>
                 <type>boolean</type>
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
@@ -2864,7 +2864,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="hideFilter"/>
                 <attribute attribute-id="isEGiftCategory"/>
                 <attribute attribute-id="showCategoryInSlider"/>
-                <attribute attribute-id="isDisabledForMobile"/>
+                <attribute attribute-id="isMobileSpecific"/>
             </attribute-group>
             <attribute-group group-id="seoPromotionContent">
                 <display-name xml:lang="x-default">Seo Promotion Content</display-name>
