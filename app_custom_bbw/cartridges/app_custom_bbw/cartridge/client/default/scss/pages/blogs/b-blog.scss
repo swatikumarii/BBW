@@ -2195,3 +2195,69 @@
         }
     }
 }
+
+// ---lunar-new-year-----
+.lunar-new-year {
+    .main-bg-section {
+        .main-bg {
+            background: url("../images/blogs/details/Luminous-bg.webp")no-repeat left top;
+            height: 565px;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .fragrances-title {
+        background-color: colour(brown, 3);
+    }
+
+    .fragrances-title {
+        padding-bottom: 3rem;
+        padding-top: 2rem;
+    }
+
+    #fragrances_tabs {
+        background-color: colour(brown, 3);
+        padding-bottom: 3rem;
+    }
+
+    .fragrance-sections {
+        .fragrances_deatils {
+            margin-top: -21px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .list_wrap {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            position: absolute;
+            z-index: 1;
+
+            .product_row {
+                display: flex;
+                width: 55%;
+                margin-top: 10%;
+
+                .p-list {
+                    padding: 0 10px;
+
+                     img {
+                            width: 100%;
+                            max-width: 446px;
+                        }
+
+                    h2 {
+                        text-align: center;
+                        background-color: colour(white);
+                        padding: 5px 0;
+                        margin-top: 1rem;
+                        width: 150px;
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+    }
+}

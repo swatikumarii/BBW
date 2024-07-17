@@ -24,7 +24,7 @@
                 <div class="giftwrap-block-radio-wrapper">
                     <isif condition="${pdict.wrapItemMethod == constants.WRAP_TOGETHER_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == constants
                             .WRAP_INDIVIDUAL_TOGETHER_CUSTOM_PREFERENCE_VALUE}">
-                        <div id="giftwrap-block-radio" class="giftwrap-block-radio gift-wrap-toggle">
+                        <iscomment> <div id="giftwrap-block-radio" class="giftwrap-block-radio gift-wrap-toggle">
                             <isif condition="${pdict.isDisableTogetherOption}">
                                 <input type="radio" name="giftwrap-type" id="${constants.WRAP_TOGETHER_ID}"
                                     value="${constants.WRAP_TOGETHER_VALUE}" disabled />
@@ -38,7 +38,7 @@
                                 <span class="gift-wrap-price disabled"> (
                                     <span class="selected-giftwrap-product-price"></span> )</span>
                             </label>
-                        </div>
+                        </div> </iscomment>
                     </isif>
 
                     <isif condition="${pdict.wrapItemMethod == constants.WRAP_INDIVIDUAL_CUSTOM_PREFERENCE_VALUE || pdict.wrapItemMethod == constants
@@ -88,11 +88,11 @@
 
 
 
-                    <div class="modal fade  gift-wrap-modal" id="gift-wrap-modal" tabindex="-1" role="dialog"
+                    <div class="modal fade  gift-wrap-modal login-modal-fade" id="gift-wrap-modal" tabindex="-1" role="dialog"
                         aria-labelledby="gift-wrap-modal" aria-hidden="true">
-                        <div class="modal-dialog m-0" role="document">
+                        <div class="modal-dialog modal-dialog-bottom login-modal-view " role="document">
                             <div class="modal-content border-0">
-                                <div class="modal-header border-0 p-0">
+                                <div class="modal-header border-0 p-0 h-auto">
                                     <button type="button" class="close gift-wrap-model-close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">
                                             <img alt="image" src="${URLUtils.staticURL('/images/close-icon.svg')}" />
