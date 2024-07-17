@@ -361,8 +361,36 @@ $(document).on(
             .closest('.paymentMethod, .afterpay-tab')
             .find('.additionalFields')
             .css('display', 'block');
+        if (
+            $(
+                '#paymentMethodsList .paymentMethod [type="radio"]:checked'
+            ).val() === 'applepay' &&
+            !($('#contactEmail').val() || '').length
+        ) {
+            $('#component_applepay button').attr('disabled', 'disabled');
+            $('#contactEmail').trigger('change');
+            var element = $('#contactEmail');
+            var position = element && element.length ? element.offset().top : 0;
+            $('html, body').animate(
+                {
+                    scrollTop: position - 250
+                },
+                500
+            );
+        }
     }
 );
+$(document).on('change', '#contactEmail', function () {
+    if (
+        ($('#contactEmail').val() || '').length &&
+        (!$('#contactEmail').data('pattern') ||
+            ($('#contactEmail').data('pattern') || '').test(
+                $('#contactEmail').val()
+            ))
+    ) {
+        $('#component_applepay button').removeAttr('disabled');
+    }
+});
 
 $('button.submit-payment').on('click', function () {
     if ($('#selectedPaymentOption').val() === 'AdyenComponent') {
@@ -467,7 +495,7 @@ $('.shippingAddressCity').change(function () {
 });
 
 $('.shippingZipCode').change(function () {
-    var selectedZipCode = $(this).val(); 
+    var selectedZipCode = $(this).val();
     if (selectedZipCode === null) {
         $(this).val('').change();
     }
