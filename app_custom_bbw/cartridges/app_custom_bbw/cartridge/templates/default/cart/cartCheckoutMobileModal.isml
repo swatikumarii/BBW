@@ -59,7 +59,7 @@
           <isif condition="${afterpayExpressCheckoutEnabled}">
             <isset name="afterpayExpressCheckoutPage" value="cart" scope="page" />
             <isinclude template="product/components/afterpayexpresscheckout" />
-            <div class="mb-sm-3">
+            <div class="mb-sm-3 mt-2">
               <isif condition="${isExpressCheckoutFinalize}">
                 <a href="${URLUtils.url('AfterpayExpress-ContinueFinalize')}"
                   class="${checkoutButtonClass} btn btn-block checkout-btn ${pdict.valid.error ? 'disabled' : ''}">
