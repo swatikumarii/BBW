@@ -66,11 +66,12 @@ function checkFields(form) {
 
 $(document).ready(function () {
     processInclude(require('./checkout/checkout'));
+    var checkoutStage = $('#checkout-main').attr('data-checkout-stage');
     var name = 'paymentError';
     var error = new RegExp(
         '[?&]'.concat(encodeURIComponent(name), '=([^&]*)')
     ).exec(window.location.search);
-    if (error || paymentStage) {
+    if (error || paymentStage || checkoutStage === 'payment') {
         if (error) {
             $('.error-message').show();
             $('.error-message-text').text(decodeURIComponent(error[1]));
@@ -126,7 +127,6 @@ $(document).ready(function () {
         }
     });
 
-    var checkoutStage = $('#checkout-main').attr('data-checkout-stage');
     $('form.shipping-form input, form.shipping-form select').on(
         'input change',
         function () {
