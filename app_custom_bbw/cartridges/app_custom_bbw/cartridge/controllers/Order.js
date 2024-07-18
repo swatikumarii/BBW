@@ -414,7 +414,6 @@ server.get(
                         }
                     }
                 }
-
                 var isOrderBaseRemoveGiftCard = true;
                 var trackOrderShippingUrl = '';
                 if (orderModel.trackingNumber && orderModel.trackingUrl) {
