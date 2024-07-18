@@ -302,6 +302,17 @@
                                                         </tr>
                                                     </isloop>
                                                 </isif>
+
+                                                <iscomment> Adjusted Merchandise Subtotal </iscomment>
+                                                <tr>
+                                                    <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;">
+                                                        ${Resource.msg('email.order.adjusted.merchandise.subtotal', 'confirmation', null)}
+                                                    </td>
+                                                    <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                        ${pdict.order.totals.miniCartSubTotal}
+                                                    </td>
+                                                </tr>
+
                                                 <iscomment> Shipping Charge </iscomment>
                                                 <tr>
                                                     <isif condition="${shippingExclusiveTax}">

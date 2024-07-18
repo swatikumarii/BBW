@@ -788,7 +788,7 @@ module.exports = $.extend({}, base, {
                     pid: pid,
                     pidsObj: pidsObj,
                     childProducts: getChildProducts(),
-                    quantity: base.getQuantitySelected($(this)) || 1,
+                    quantity: parseInt(base.getQuantitySelected($(this)), 10) || 1,
                     egiftCardDetails: egiftCardDetailsObj
                 };
 
@@ -872,6 +872,12 @@ module.exports = $.extend({}, base, {
                             base.miniCartReportingUrl(data.reportingURL);
                             if ($('#quickViewModal')) {
                                 $('#quickViewModal').modal('hide');
+                            }
+                            if ($('#product-search-results').length > 0) {
+                                $button.hide();
+                                $button.siblings('.plp-simple-quantity').show();
+                                $button.siblings('.plp-simple-quantity').find('.quantity-select').attr('data-pid',pid);
+                                $button.siblings('.plp-simple-quantity').find('.quantity-select').val(1);
                             }
                             return true;
                         },

@@ -59,7 +59,7 @@
 </isloop>
 <div class="modal-footer border-0">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center justify-content-center pwp-modal-button-allign">
             <!--<div class="col-sm-3 hidden-xs-down"></div>-->
             <div class="selected-bonus-products d-none">
                 <div class="bonus-summary row">
@@ -78,12 +78,14 @@
                     </div>
                 </isloop>
             </div>
-            <button class="btn btn-primary add-bonus-products" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
-                ${Resource.msg('button.addtocart', 'common', null)}
-            </button>
-            <button class="btn btn-secondary" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
-                ${Resource.msg('button.cancel', 'cart', null)}
-            </button>
+            <div class="d-flex justify-content-center pwp-button-align">
+                <button class="btn btn-primary add-bonus-products h-minheight--30" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+                    ${Resource.msg('button.addtocart', 'common', null)}
+                </button>
+                <button class="btn btn-secondary h-minheight--30" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+                    ${Resource.msg('button.cancel', 'cart', null)}
+                </button>
+            </div>
             <div class="col-sm-3 hidden-xs-down"></div>
         </div>
     </div>

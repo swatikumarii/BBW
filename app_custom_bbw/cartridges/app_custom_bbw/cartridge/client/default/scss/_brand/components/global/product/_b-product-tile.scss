@@ -329,3 +329,43 @@
         display: none;
     }
 }
+
+.plp-simple-quantity {
+    display: none;
+    margin-right: 0.5rem;
+    border: 0.125rem solid colour(gray, 5);
+    @include media-down(sm) {
+        width: 50%;
+    }
+
+    .plp-quantity-button {
+        cursor: pointer;
+        height: 2.8125rem;
+        width: 20%;
+        letter-spacing: 0.01em;
+        color: colour(black, 1);
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+        user-select: none;
+
+        &:hover {
+            color: colour(white);
+            border-color: colour(black, 3);
+            background-color: colour(black, 3);
+        }
+
+        &.disable {
+            background-color: #ccc;
+            border-color: #ccc;
+            color: #666;
+            cursor: default;
+            opacity: 0.5;
+        }
+    }
+
+    input {
+        height: 2.8125rem;
+        width: 60%;
+        pointer-events: none;
+    }
+}

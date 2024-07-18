@@ -83,7 +83,7 @@ function showProductPage(querystring, reqPageMetaData) {
     var params = querystring;
     var product = ProductFactory.get(params);
     var addToCartUrl = URLUtils.url('Cart-AddProduct');
-    var canonicalUrl = URLUtils.url('Product-Show', 'pid', product.id);
+    var canonicalUrl = URLUtils.abs('Product-Show', 'pid', product.id);
     var cgid = querystring && querystring.cat ? querystring.cat : null;
     var breadcrumbs = getAllBreadcrumbs(cgid, cgid ? null : product.id, []).reverse();
     var productName = product.fragranceName ? product.fragranceName : product.productName;
