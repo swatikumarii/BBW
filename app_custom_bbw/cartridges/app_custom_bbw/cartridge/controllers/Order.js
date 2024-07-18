@@ -417,15 +417,12 @@ server.get(
 
                 var isOrderBaseRemoveGiftCard = true;
                 var trackOrderShippingUrl = '';
-                if(orderModel.trackingNumber){
-                    trackOrderShippingUrl = orderModel.trackingUrl ? orderModel.trackingUrl : false;
-                    var orderTrackingNumber = orderModel.trackingNumber ? orderModel.trackingNumber : '';
-                    if(trackOrderShippingUrl.includes('auspost')){
-                        trackOrderShippingUrl = trackOrderShippingUrl + 'details/' + orderTrackingNumber;
-                    }
-                    else if(trackOrderShippingUrl.includes('couriersplease')){
-                        trackOrderShippingUrl = trackOrderShippingUrl + '?no=' + orderTrackingNumber;
-                    }
+                if (orderModel.trackingNumber && orderModel.trackingUrl) {
+                    trackOrderShippingUrl = orderModel.trackingUrl
+                        ? orderModel.trackingUrl
+                        : '';
+                    var orderTrackingNumber = orderModel.trackingNumber;
+                    trackOrderShippingUrl += orderTrackingNumber;
                 }
 
                 res.render('account/orderDetails', {
