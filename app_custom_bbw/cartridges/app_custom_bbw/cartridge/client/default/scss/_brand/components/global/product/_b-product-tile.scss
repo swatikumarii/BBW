@@ -334,9 +334,6 @@
     display: none;
     margin-right: 0.5rem;
     border: 0.125rem solid colour(gray, 5);
-    @include media-down(sm) {
-        width: 50%;
-    }
 
     .plp-quantity-button {
         cursor: pointer;
