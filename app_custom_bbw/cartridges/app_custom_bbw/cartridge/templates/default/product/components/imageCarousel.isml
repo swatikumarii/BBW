@@ -17,7 +17,7 @@
             <isloop items="${product.images['mediumLarge']}" var="image" status="loopStatus">
                 <div class='carousel-item <isif condition="${loopStatus.index == 0}">active</isif>'>
                     <img src="${image.url}" srcset="${image.url} 1x, ${product.images['mediumLarge_2x'][loopStatus.index].url} 2x" class="d-block img-fluid" alt="${image.alt} ${product.titlePartB}"
-                        itemprop="image" />
+                        itemprop="image" width="350px" height="600px"/>
                 </div>
             </isloop>
             <div class="zoomImage-link position-absolute d-none d-md-block"></div>
