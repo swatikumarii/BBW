@@ -758,3 +758,18 @@
     max-height: 24px;
     height: 24px;
 }
+// ------giftcard-popup-------
+.soldout-detail {
+    &::after {
+        font-size: 0.875rem;
+        line-height: 1rem;
+        color: colour(gray, 4);
+        margin-top: 0.3125rem;
+        text-decoration: underline;
+        content: "More Info";
+    }
+
+    .popover-header {
+        display: none;
+    }
+}
