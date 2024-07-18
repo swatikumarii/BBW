@@ -27,6 +27,49 @@
             ${Resource.msg('button.checkout', 'cart', null)}
           </a>
 
+          <isscript>
+              var BrandUtilities = require("*/cartridge/scripts/util/afterpayUtilities.js").brandUtilities;
+              var countrycode = BrandUtilities.getCountryCode();
+              var sitePreferences = require("*/cartridge/scripts/util/afterpayUtilities.js").sitePreferencesUtilities;
+              var afterpayEnabled = sitePreferences.isAfterpayEnabled();
+              var afterpayExpressCheckoutEnabled = afterpayEnabled ? sitePreferences.isExpressCheckoutEnabled() : false;
+              var isExpressCheckoutFinalize = require('*/cartridge/scripts/util/afterpaySession').isExpressCheckoutFinalizeFlow();
+              var afterpayExpressCheckoutCartEnabled = sitePreferences.isExpressCheckoutCartEnabled();
+              var AfterpayCOHelpers = require('*/cartridge/scripts/checkout/afterpayCheckoutHelpers');
+              var afterpayExpressPickupEnabled = require('*/cartridge/scripts/checkout/afterpayRefArchCheckoutHelpers').shouldEnableExpressPickupMode();
+              var afterpayExpressCheckoutBuyNowEnabled = sitePreferences.isExpressCheckoutBuyNowEnabled();
+              var afterpayExpressCheckoutShippingStrategy = sitePreferences.getExpressCheckoutShippingStrategy() == 'integrated';
+              var disableAfterpayPaymentMethod = ! AfterpayCOHelpers.isBasketAmountWithinThreshold();
+
+              var checkoutButtonClass = 'afterpay-checkout-button';
+              if (countrycode === 'GB') {
+                  checkoutButtonClass = 'clearpay-checkout-button';
+              }
+
+              if (disableAfterpayPaymentMethod) {
+                  checkoutButtonClass += " afterpay-hide";
+              }
+          </isscript>
+          <iscomment>Start of Afterpay</iscomment>
+          <isif condition="${afterpayExpressCheckoutEnabled}">
+            <isset name="afterpayExpressCheckoutPage" value="cart" scope="page" />
+            <isinclude template="product/components/afterpayexpresscheckout" />
+            <div class="mb-sm-3 mt-2">
+              <isif condition="${isExpressCheckoutFinalize}">
+                <a href="${URLUtils.url('AfterpayExpress-ContinueFinalize')}"
+                  class="${checkoutButtonClass} btn btn-block checkout-btn ${pdict.valid.error ? 'disabled' : ''}">
+                  &nbsp;
+                </a>
+            <iselseif condition="${afterpayExpressCheckoutCartEnabled}" />
+                <a id="afterpay-express-button"
+                  class="${checkoutButtonClass} btn btn-block checkout-btn ${pdict.valid.error ? 'disabled' : ''}"
+                  role="button">
+                  &nbsp;
+                </a>
+              </isif>
+            </div>
+          </isif>
+          <iscomment>End of Afterpay</iscomment>
           <isslot id="responsive-secure-checkout-slot" description="Checkout Detail" context="global" />
         </div>
 

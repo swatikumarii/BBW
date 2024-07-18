@@ -142,156 +142,171 @@
                                             title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a>
                                                 <div class='popover-content pdp-pop-content ds-tooltip-content'>
                                                     <isprint value=" ${promotionDetails}" />
-                                        </div>
-                                        <div class='arrow-fill'></div>"
-                                        data-html="true" data-original-title="" aria-describedby="popover14574">
-                                        </button>
+                                    </div>
+                                    <div class='arrow-fill'></div>"
+                                    data-html="true" data-original-title="" aria-describedby="popover14574">
+                                    </button>
+                            </div>
+                            </isif>
+                            <isloop items="${product.promotions}" var="promotion" status="loopstatus">
+                                <isif condition="${promotion.motivator && promotion.motivator !== 'false' && !empty(promotion.motivator)}">
+                                    <div class="mb-1">
+                                        <isprint value="${promotion.motivator}" encoding="off" />
                                     </div>
                                 </isif>
-                                <isloop items="${product.promotions}" var="promotion" status="loopstatus">
-                                    <isif condition="${promotion.motivator && promotion.motivator !== 'false' && !empty(promotion.motivator)}">
-                                        <div class="mb-1">
-                                            <isprint value="${promotion.motivator}" encoding="off" />
-                                        </div>
-                                    </isif>
-                                </isloop>
-                            </div>
-
-                        <iscomment> Hiding Bopis Options for now </iscomment>
-                        <iscomment>
-                            <div class="bopis-delivery-options border-left-0 border-right-0">
-                                <fieldset>
-                                    <legend class="delivery-options h-clr--black-1 h-font-size--16 h-fw--semibold">
-                                        ${Resource.msg('bopis.heading', 'product', null)}</legend>
-
-                                    <div class="bopis-eligible-for-pickup">
-                                        <input class="bopis-shipping-option bopis-delivery-option-input" type="radio"
-                                            value="shipping" checked="" />
-                                        <label class="ship-it-msg mb-0 h-clr--black-1 h-fw--bold"
-                                            for="pdp-shippingOption">
-                                            <span class="ship-it-truck-icon"></span>
-                                            <span>${Resource.msg('bopis.label.ship', 'product', null)}</span>
-                                        </label>
-                                        <div class="availability-web">
-                                            <div class="availability-msg">
-                                                <div class="in-stock-msg h-clr--green-2">
-                                                    Available
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="bopis-pfs-with-store-container">
-                                            <div class="bopis-pfs-option-main-container">
-                                                <input class="bopis-pick-from-store-option bopis-delivery-option-input"
-                                                    type="radio" value="pickfromstore" />
-                                                <label
-                                                    class="bopis-pick-from-store-option-label h-fw--bold mb-0 h-clr--blue"
-                                                    for="pdp-pickFromStoreOption">
-                                                    <span class="pdp-pick-up-icon"></span>
-                                                    <span
-                                                        class="pick-up-in-store-msg ">${Resource.msg('bopis.label.pick', 'product', null)}</span>
-                                                </label>
-                                            </div>
-                                            <div class="bopis-set-store-container bopis-pdp-set-store">
-                                                <a href=""
-                                                    class="h-fw--semibold h-clr--black-1">${Resource.msg('bopis.label.set.store', 'product', null)}</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                            </div>
-                        </iscomment>
-
-                        <!-- Attributes and Quantity -->
-                        <isinclude template="product/components/mainAttributes" />
-
-                        <isset name="isBundle" value="${false}" scope="page" />
-                        <isset name="loopState" value="${{
-                                                       count: 1}}" scope="page" />
-                        <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
-                            <div class="row" data-attr="${attr.id}">
-                                <div class="col-8">
-                                    <isinclude template="product/components/variationAttribute" />
-                                </div>
-
-                                <isif condition="${attributeStatus.last && !isBundle}">
-                                    <!-- Quantity Drop Down Menu -->
-                                    <div class="attribute quantity col-4">
-                                        <isinclude template="product/components/quantity" />
-                                    </div>
-                                </isif>
-                            </div>
-                        </isloop>
-
-                        <!-- Product Availability -->
-                        <isinclude template="product/components/productAvailability" />
-
-                        <div class="row">
-                            <div class="quantity-cart-wrap w-100">
-                                <div class="d-flex">
-                                    <isif condition="${!product.variationAttributes}">
-                                        <isif condition="${product.available}">
-                                            <div class="simple-quantity">
-                                                <isinclude template="product/components/quantity" />
-                                            </div>
-                                        </isif>
-                                    </isif>
-                                    <!-- Cart and [Optionally] Apple Pay -->
-                                    <div class="js-add-to-cart-button">
-                                        <isif condition="${(!product.isMaster && !product.available)}">
-                                            <isinclude template="product/components/notifyMe" />
-                                        <iselse/>
-                                            <isinclude template="product/components/addToCartProduct" />
-                                        </isif>
-                                    </div>
-                                </div>
-                                <span class="add-to-cart-error-pdp d-block h-clr--red h-font-size--16"></span>
-                            </div>
+                            </isloop>
                         </div>
+                        <isif condition="${product.priceIfSoldSeparatly && product.giftContent}">
+                            <div class="row">
+                                <div class="ml-3 mr-1">
+                                    <isprint value="${product.priceIfSoldSeparatly}" encoding="off" />
+                                </div>
+                                <button type="button" data-placement="top"
+                                    class="soldout-detail p-0 btn-with-image ds-js-simple-tooltip ds-tooltip-button h-bg--white custom-button border-0 d-block"
+                                    data-toggle="popover" id="tooltip-footer_iroll_popover_emailcapture486"
+                                    title="<div class='pdp-title'></div>" data-content="<a href='#' class='close cursor-pointer'></a>
+                                        <div class='popover-content pdp-pop-content ds-tooltip-content'>
+                                            <isprint value=" ${pdict.giftPopupHTML}" />
+                                         </div>
+                                    <div class='arrow-fill'></div>" data-html="true" data-original-title="" aria-describedby="popover14574">
+                                 </button>
+                             </div>
+                        </isif>
+                    <iscomment> Hiding Bopis Options for now </iscomment>
+                    <iscomment>
+                        <div class="bopis-delivery-options border-left-0 border-right-0">
+                            <fieldset>
+                                <legend class="delivery-options h-clr--black-1 h-font-size--16 h-fw--semibold">
+                                    ${Resource.msg('bopis.heading', 'product', null)}</legend>
 
-                        <div class="reserve-stock mt-3 ${product.maxOrderQty > 0  || !product.available ? 'd-none' : ''} ">
-                            <p class="h-clr--red h-font-size--16 mb-0">
+                                <div class="bopis-eligible-for-pickup">
+                                    <input class="bopis-shipping-option bopis-delivery-option-input" type="radio"
+                                        value="shipping" checked="" />
+                                    <label class="ship-it-msg mb-0 h-clr--black-1 h-fw--bold"
+                                     for="pdp-shippingOption">
+                                        <span class="ship-it-truck-icon"></span>
+                                        <span>${Resource.msg('bopis.label.ship', 'product', null)}</span>
+                                    </label>
+                                    <div class="availability-web">
+                                        <div class="availability-msg">
+                                            <div class="in-stock-msg h-clr--green-2">
+                                                Available
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bopis-pfs-with-store-container">
+                                        <div class="bopis-pfs-option-main-container">
+                                            <input class="bopis-pick-from-store-option bopis-delivery-option-input"
+                                                type="radio" value="pickfromstore" />
+                                            <label
+                                                class="bopis-pick-from-store-option-label h-fw--bold mb-0 h-clr--blue"
+                                                for="pdp-pickFromStoreOption">
+                                                <span class="pdp-pick-up-icon"></span>
+                                                <span
+                                                 class="pick-up-in-store-msg ">${Resource.msg('bopis.label.pick', 'product', null)}</span>
+                                            </label>
+                                        </div>
+                                        <div class="bopis-set-store-container bopis-pdp-set-store">
+                                            <a href=""
+                                                class="h-fw--semibold h-clr--black-1">${Resource.msg('bopis.label.set.store', 'product', null)}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </iscomment>
+
+                    <!-- Attributes and Quantity -->
+                    <isinclude template="product/components/mainAttributes" />
+
+                    <isset name="isBundle" value="${false}" scope="page" />
+                    <isset name="loopState" value="${{
+                                                   count: 1}}" scope="page" />
+                    <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+                        <div class="row" data-attr="${attr.id}">
+                            <div class="col-8">
+                                <isinclude template="product/components/variationAttribute" />
+                            </div>
+
+                            <isif condition="${attributeStatus.last && !isBundle}">
+                                <!-- Quantity Drop Down Menu -->
+                                <div class="attribute quantity col-4">
+                                    <isinclude template="product/components/quantity" />
+                                </div>
+                            </isif>
+                        </div>
+                    </isloop>
+
+                    <!-- Product Availability -->
+                    <isinclude template="product/components/productAvailability" />
+
+                    <div class="row">
+                        <div class="quantity-cart-wrap w-100">
+                            <div class="d-flex">
+                                <isif condition="${!product.variationAttributes}">
+                                    <isif condition="${product.available}">
+                                        <div class="simple-quantity">
+                                            <isinclude template="product/components/quantity" />
+                                        </div>
+                                    </isif>
+                                </isif>
+                                <!-- Cart and [Optionally] Apple Pay -->
+                                <div class="js-add-to-cart-button">
+                                    <isif condition="${(!product.isMaster && !product.available)}">
+                                        <isinclude template="product/components/notifyMe" />
+                                    <iselse/>
+                                        <isinclude template="product/components/addToCartProduct" />
+                                    </isif>
+                                </div>
+                            </div>
+                            <span class="add-to-cart-error-pdp d-block h-clr--red h-font-size--16"></span>
+                        </div>
+                    </div>
+
+                    <div class="reserve-stock mt-3 ${product.maxOrderQty > 0  || !product.available ? 'd-none' : ''} ">
+                        <p class="h-clr--red h-font-size--16 mb-0">
                             <isif condition="${product.maxOrderQty > 0}">
                                 ${Resource.msgf('error.alert.selected.quantity.cannot.be.added.for.max', 'product', null, product.maxOrderQty);}
                             <iselse/>
                                 ${Resource.msgf('error.alert.selected.quantity.cannot.be.added.negative', 'product', null, product.maxOrderQty);}
                             </isif>
-                            </p>
-                        </div>
+                        </p>
+                    </div>
 
-                        <isinclude template="product/components/addToCartButtonExtension" />
+                    <isinclude template="product/components/addToCartButtonExtension" />
 
-                        <div class="product-options">
-                            <isif condition="${product.options && product.options.length > 0}">
-                                <isinclude template="product/components/options" />
-                            </isif>
-                        </div>
-
-                        <!-- Size Chart -->
-                        <isif condition="${product.variationAttributes && product.sizeChartId}">
-                            <div class="row">
-                                <div class="size-chart col-12">
-                                    <isinclude template="product/components/sizeChart" />
-                                </div>
-                            </div>
+                    <div class="product-options">
+                        <isif condition="${product.options && product.options.length > 0}">
+                            <isinclude template="product/components/options" />
                         </isif>
+                    </div>
 
-                        <iscomment> Product Description </iscomment>
-                        <isinclude template="product/components/descriptionAndDetails" />
-
-                        <!-- Social Sharing Icons -->
+                    <!-- Size Chart -->
+                    <isif condition="${product.variationAttributes && product.sizeChartId}">
                         <div class="row">
-                            <isinclude template="product/components/socialIcons" />
+                            <div class="size-chart col-12">
+                                <isinclude template="product/components/sizeChart" />
+                            </div>
                         </div>
+                    </isif>
+
+                    <iscomment> Product Description </iscomment>
+                    <isinclude template="product/components/descriptionAndDetails" />
+
+                    <!-- Social Sharing Icons -->
+                    <div class="row">
+                        <isinclude template="product/components/socialIcons" />
                     </div>
                 </div>
             </div>
-            <div class="recommendations w-100">
-                <isslot id="recently-viewed-product" description="Recently viewed product slot" context="global" context-object="${pdict.product.raw}" />
-            </div>
-           <div class="recommendations">
-                <isslot id="more-youll-adore" description="More You’ll Adore" context="global" context-object="${pdict.product.raw}" />
-            </div>
+        </div>
+        <div class="recommendations w-100">
+            <isslot id="recently-viewed-product" description="Recently viewed product slot" context="global" context-object="${pdict.product.raw}" />
+        </div>
+        <div class="recommendations">
+            <isslot id="more-youll-adore" description="More You’ll Adore" context="global" context-object="${pdict.product.raw}" />
+        </div>
         </div>
 
         <isset name="loopState" value="${{
@@ -304,5 +319,5 @@
         <input type="hidden" name="maxOrderQty" value="0" />
     </isif>
 
-<div id="notify-snackbar">${Resource.msg('restocked.notify.msg', 'common', null)}</div>
+    <div id="notify-snackbar">${Resource.msg('restocked.notify.msg', 'common', null)}</div>
 </isdecorate>

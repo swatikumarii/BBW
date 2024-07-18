@@ -32,5 +32,7 @@ module.exports = function fullProduct(product, apiProduct, options) {
     }
     decorators.isSearchableIfUnavailable(product, apiProduct);
     decorators.variantURL(product, apiProduct);
+    decorators.giftContent(product, apiProduct);
+    decorators.priceIfSoldSeparatly(product, apiProduct);
     return product;
 };
