@@ -1,6 +1,3 @@
-<isset name="AdyenHelper" value="${require('*/cartridge/scripts/util/adyenHelper')}" scope="pdict" />
-<isset name="AdyenConfigs" value="${require('*/cartridge/scripts/util/adyenConfigs')}" scope="page" />
-<script src="${pdict.AdyenHelper.getCheckoutUrl()}" type="text/javascript"></script>
 <div class="modal fade" id="mobile-cart-checkout" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-bottom" role="document">
