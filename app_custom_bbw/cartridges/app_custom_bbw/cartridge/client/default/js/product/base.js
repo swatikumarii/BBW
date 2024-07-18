@@ -873,7 +873,7 @@ module.exports = $.extend({}, base, {
                             if ($('#quickViewModal')) {
                                 $('#quickViewModal').modal('hide');
                             }
-                            if ($('#product-search-results')) {
+                            if ($('#product-search-results').length > 0) {
                                 $button.hide();
                                 $button.siblings('.plp-simple-quantity').show();
                                 $button.siblings('.plp-simple-quantity').find('.quantity-select').attr('data-pid',pid);
