@@ -552,6 +552,12 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="votedArticles">
+                <display-name xml:lang="x-default">Voted Articles</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="cartProducts">
                 <display-name xml:lang="x-default">Cart Products</display-name>
                 <description xml:lang="x-default">Cart Products</description>
@@ -605,6 +611,7 @@
                 <attribute attribute-id="capillaryResponse"/>
                 <attribute attribute-id="capillaryRequest"/>
                 <attribute attribute-id="capillaryFailed"/>
+                <attribute attribute-id="votedArticles"/>
             </attribute-group>
             <attribute-group group-id="MigrationAttribute">
                 <display-name xml:lang="x-default">Migration Attribute</display-name>
