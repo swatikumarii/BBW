@@ -385,6 +385,22 @@
                     </isif>
                 </isif>
 
+                <isif condition="${pdict.order.totals.miniCartSubTotal.length > 0}">
+                    <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                        <div class="col-md-10">
+                            <p class="h-font-size--16 h-clr--black-1"
+                                style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                <strong>${Resource.msg('label.adjusted.merchandise.subtotal', 'cart', null)}:</strong>
+                            </p>
+                        </div>
+                        <div class="col-md-2" style=" margin-left: 31px;">
+                            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sub-total"
+                                style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                ${pdict.order.totals.miniCartSubTotal}</p>
+                        </div>
+                    </div>
+                </isif>
+
                 <iscomment> Shipping Charge </iscomment>
                 <isif condition="${!pdict.isEgiftCard}">
                     <isif condition="${shippingExclusiveTax}">
