@@ -39,6 +39,7 @@
                 ${Resource.msg('button.add_bundle_to_bag', 'productBundle', null)}
             </button>
             <input type="hidden" id="add-to-cart-url" value="${URLUtils.url('ProductBundle-AddProduct')}" />
+            <input type="hidden" id="add-to-cart-toast-message" value="${Resource.msg('text.alert.addedtobasket', 'product', null)}" />
         <iselse/>
             <iscontentasset aid="${pdict.oosContetnt}" />
             <div class="bundle-unavailable">

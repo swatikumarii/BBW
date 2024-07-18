@@ -56,7 +56,7 @@
                                 <img src="${URLUtils.absStatic('/images/email/orders/status/icon-placed.png')}"
                                     alt="Progress" style="border:0;vertical-align:top;width:90%;" />
                             </p>
-                            <div style="margin:0 0 44px">
+                            <div style="margin:0 0 15px;">
                                 <!--[if mso]>
                                             <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${URLUtils.abs('Order-Details', 'orderID', pdict.order.orderNumber, 'orderFilter', pdict.orderFilter)}" style="height:40px;v-text-anchor:middle;width:200px;" strokecolor="#333" fillcolor="#333">
                                                 <w:anchorlock/>
@@ -343,6 +343,17 @@
                                                         </tr>
                                                     </isloop>
                                                 </isif>
+
+                                                <iscomment> Adjusted Merchandise Subtotal </iscomment>
+                                                <tr>
+                                                    <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;">
+                                                        ${Resource.msg('email.order.adjusted.merchandise.subtotal', 'confirmation', null)}
+                                                    </td>
+                                                    <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                        ${pdict.order.totals.miniCartSubTotal}
+                                                    </td>
+                                                </tr>
+
                                                 <iscomment> Shipping Charge </iscomment>
                                                 <isif condition="${pdict.order.items.items[0].isEgiftCard !== true}">
                                                     <tr>
