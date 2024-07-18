@@ -831,13 +831,6 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
-            <attribute-definition attribute-id="articleHelpfulUsers">
-                <display-name xml:lang="x-default">Article Helpful User Email</display-name>
-                <type>text</type>
-                <localizable-flag>false</localizable-flag>
-                <mandatory-flag>false</mandatory-flag>
-                <externally-managed-flag>false</externally-managed-flag>
-            </attribute-definition>
             <attribute-definition attribute-id="articleHelpfulYes">
                 <display-name xml:lang="x-default">Article Helpful (Yes)</display-name>
                 <description xml:lang="x-default">Article Helpful - Yes</description>
@@ -853,7 +846,6 @@
                 <attribute attribute-id="articleHelpfulNo"/>
                 <attribute attribute-id="articleHelpfulYes"/>
                 <attribute attribute-id="faqId"/>
-                <attribute attribute-id="articleHelpfulUsers"/>
             </attribute-group>
         </group-definitions>
     </custom-type>

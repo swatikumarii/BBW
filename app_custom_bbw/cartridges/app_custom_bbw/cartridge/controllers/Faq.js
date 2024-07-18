@@ -13,48 +13,39 @@ var seo = require('*/cartridge/scripts/middleware/seo');
 server.post('UpdateVote', function (req, res, next) {
     var CustomObjectMgr = require('dw/object/CustomObjectMgr');
     var Transaction = require('dw/system/Transaction');
-    var userEmail ;
-    if (
-        req.currentCustomer &&
-        req.currentCustomer.profile &&
-        req.currentCustomer.profile.email
-    ) {
-        userEmail = req.currentCustomer.profile.email;
-    }
-        var faq = CustomObjectMgr.getCustomObject(
-            'faqVotes',
-            req.form.currentContentId
-        );
+    var CustomerMgr = require('dw/customer/CustomerMgr');
+    var contentId = req.form.currentContentId;
+    var faq = CustomObjectMgr.getCustomObject('faqVotes', contentId);
+    var customer = CustomerMgr.getCustomerByCustomerNumber(
+        req.currentCustomer.profile.customerNo
+    );
+    var usersArticleHelpful = customer.profile.custom.usersArticleHelpful || "";
+    
     Transaction.wrap(function () {
         if (!faq) {
             // create custom object
-            faq = CustomObjectMgr.createCustomObject(
-                'faqVotes',
-                req.form.currentContentId
-            );
+            faq = CustomObjectMgr.createCustomObject('faqVotes', contentId);
         }
         if (faq) {
             var articleHelpfulUsers = req.form.articleHelpful ? 1 : 0;
             var increment = 1;
-            if (
-                !faq.custom.articleHelpfulUsers ||
-                !faq.custom.articleHelpfulUsers.length
-            ) {
+            if (!usersArticleHelpful.length) {
                 var initialObject = {};
-                initialObject[userEmail] = articleHelpfulUsers;
-                faq.custom.articleHelpfulUsers = JSON.stringify(initialObject);
+                initialObject[contentId] = articleHelpfulUsers;
+                customer.profile.custom.usersArticleHelpful =
+                    JSON.stringify(initialObject);
             } else {
-                var jsonObject = JSON.parse(faq.custom.articleHelpfulUsers);
-                if (userEmail in jsonObject) {
-                    if (jsonObject[userEmail] && req.form.articleHelpful) {
+                var jsonObject = JSON.parse(usersArticleHelpful);
+                if (contentId in jsonObject) {
+                    if (jsonObject[contentId] && req.form.articleHelpful) {
                         increment = 0;
                     } else if (
-                        !jsonObject[userEmail] &&
+                        !jsonObject[contentId] &&
                         req.form.articleNotHelpful
                     ) {
                         increment = 0;
                     } else if (
-                        jsonObject[userEmail] &&
+                        jsonObject[contentId] &&
                         req.form.articleNotHelpful
                     ) {
                         faq.custom.articleHelpfulYes =
@@ -62,7 +53,7 @@ server.post('UpdateVote', function (req, res, next) {
                                 ? faq.custom.articleHelpfulYes
                                 : 0) - 1;
                     } else if (
-                        !jsonObject[userEmail] &&
+                        !jsonObject[contentId] &&
                         req.form.articleHelpful
                     ) {
                         faq.custom.articleHelpfulNo =
@@ -71,8 +62,9 @@ server.post('UpdateVote', function (req, res, next) {
                                 : 0) - 1;
                     }
                 }
-                jsonObject[userEmail] = articleHelpfulUsers;
-                faq.custom.articleHelpfulUsers = JSON.stringify(jsonObject);
+                jsonObject[contentId] = articleHelpfulUsers;
+                customer.profile.custom.usersArticleHelpful =
+                    JSON.stringify(jsonObject);
             }
             if (req.form.articleHelpful) {
                 faq.custom.articleHelpfulYes =
@@ -84,7 +76,7 @@ server.post('UpdateVote', function (req, res, next) {
                     (faq.custom && faq.custom.articleHelpfulNo
                         ? faq.custom.articleHelpfulNo
                         : 0) + increment;
-            }    
+            }
         }
     });
     res.json({
