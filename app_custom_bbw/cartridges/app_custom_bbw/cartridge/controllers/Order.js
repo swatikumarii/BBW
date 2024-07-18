@@ -416,6 +416,17 @@ server.get(
                 }
 
                 var isOrderBaseRemoveGiftCard = true;
+                var trackOrderShippingUrl = '';
+                if(orderModel.trackingNumber){
+                    trackOrderShippingUrl = orderModel.trackingUrl ? orderModel.trackingUrl : false;
+                    var orderTrackingNumber = orderModel.trackingNumber ? orderModel.trackingNumber : '';
+                    if(trackOrderShippingUrl.includes('auspost')){
+                        trackOrderShippingUrl = trackOrderShippingUrl + 'details/' + orderTrackingNumber;
+                    }
+                    else if(trackOrderShippingUrl.includes('couriersplease')){
+                        trackOrderShippingUrl = trackOrderShippingUrl + '?no=' + orderTrackingNumber;
+                    }
+                }
 
                 res.render('account/orderDetails', {
                     order: orderModel,
@@ -423,6 +434,7 @@ server.get(
                     exitLinkUrl: exitLinkUrl,
                     isOrderBaseRemoveGiftCard: isOrderBaseRemoveGiftCard,
                     isEgiftCard: isEgiftCard,
+                    trackOrderShippingUrl: trackOrderShippingUrl,
                     breadcrumbs: breadcrumbs
                 });
             } else {
