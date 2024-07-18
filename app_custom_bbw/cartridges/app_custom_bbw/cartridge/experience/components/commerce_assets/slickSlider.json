@@ -23,6 +23,13 @@
           "default_value": true
         },
         {
+          "id": "variableWidth",
+          "name": "Variable Width",
+          "type": "boolean",
+          "required": false,
+          "default_value": false
+        },
+        {
           "id": "autoPlaySpeed",
           "name": "Auto Play Speed",
           "description": "Add Auto Play Speed in Seconds Here",

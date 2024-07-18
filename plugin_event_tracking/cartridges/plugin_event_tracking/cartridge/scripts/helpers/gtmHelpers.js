@@ -441,7 +441,6 @@ function addShipping(res) {
                     item_id: res.order.items.items[i].id,
                     item_brand: res.order.items.items[i].brand ? res.order.items.items[i].brand:'' ,
                     item_category: res.order.items.items[i].gtmData.item_category ? res.order.items.items[i].gtmData.item_category:'',
-                    item_categoryID: res.order.items.items[i].gtmData.item_categoryID ? res.order.items.items[i].gtmData.item_categoryID:'',
                     price: res.order.items.items[i].priceTotal.priceValue,
                     quantity: res.order.productQuantityTotal,
                 });
@@ -488,10 +487,6 @@ function addPayment(res) {
                     item_category: res.order.items.items[i].gtmData
                         .item_category
                         ? res.order.items.items[i].gtmData.item_category
-                        : '',
-                    item_categoryID: res.order.items.items[i].gtmData
-                        .item_categoryID
-                        ? res.order.items.items[i].gtmData.item_categoryID
                         : '',
                     price: res.order.items.items[i].price.sales.decimalPrice,
                     quantity: res.order.productQuantityTotal
