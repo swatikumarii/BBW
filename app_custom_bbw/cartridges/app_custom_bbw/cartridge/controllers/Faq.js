@@ -5,12 +5,13 @@ var server = require('server');
 var Resource = require('dw/web/Resource');
 var ContentMgr = require('dw/content/ContentMgr');
 var seo = require('*/cartridge/scripts/middleware/seo');
+var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 
 /**
  * Faq-UpdateVote : UpdateVote
  * @name Faq-UpdateVote
  */
-server.post('UpdateVote', function (req, res, next) {
+server.post('UpdateVote', userLoggedIn.validateLoggedIn, function (req, res, next) {
     var CustomObjectMgr = require('dw/object/CustomObjectMgr');
     var Transaction = require('dw/system/Transaction');
     var CustomerMgr = require('dw/customer/CustomerMgr');
@@ -19,7 +20,7 @@ server.post('UpdateVote', function (req, res, next) {
     var customer = CustomerMgr.getCustomerByCustomerNumber(
         req.currentCustomer.profile.customerNo
     );
-    var usersArticleHelpful = customer.profile.custom.usersArticleHelpful || "";
+    var votedArticles = customer.profile.custom.votedArticles || '';
     
     Transaction.wrap(function () {
         if (!faq) {
@@ -29,13 +30,13 @@ server.post('UpdateVote', function (req, res, next) {
         if (faq) {
             var articleHelpfulUsers = req.form.articleHelpful ? 1 : 0;
             var increment = 1;
-            if (!usersArticleHelpful.length) {
+            if (!votedArticles.length) {
                 var initialObject = {};
                 initialObject[contentId] = articleHelpfulUsers;
-                customer.profile.custom.usersArticleHelpful =
+                customer.profile.custom.votedArticles =
                     JSON.stringify(initialObject);
             } else {
-                var jsonObject = JSON.parse(usersArticleHelpful);
+                var jsonObject = JSON.parse(votedArticles);
                 if (contentId in jsonObject) {
                     if (jsonObject[contentId] && req.form.articleHelpful) {
                         increment = 0;
@@ -63,7 +64,7 @@ server.post('UpdateVote', function (req, res, next) {
                     }
                 }
                 jsonObject[contentId] = articleHelpfulUsers;
-                customer.profile.custom.usersArticleHelpful =
+                customer.profile.custom.votedArticles =
                     JSON.stringify(jsonObject);
             }
             if (req.form.articleHelpful) {
