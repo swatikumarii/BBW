@@ -15,7 +15,9 @@ server.prepend('SubmitPayment', function (req, res, next) {
     var BasketMgr = require('dw/order/BasketMgr');
     var COHelpers = require('*/cartridge/scripts/checkout/checkoutHelpers');
     var addressHelpers = require('*/cartridge/scripts/helpers/addressHelpers');
+    var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
     var currentBasket = BasketMgr.getCurrentBasket();
+    var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(currentBasket);
     if (currentBasket) {
         var paymentForm = server.forms.getForm('billing');
         var contactInfoFormErrors = COHelpers.validateFields(
@@ -30,6 +32,21 @@ server.prepend('SubmitPayment', function (req, res, next) {
                     paymentForm.contactInfoFields.email.value
                 );
             });
+        }
+        if (isGiftProductAvailable && paymentForm) {
+            COHelpers.copyShippingAddressToShipment({
+                address: {
+                    firstName: paymentForm.addressFields.firstName.value,
+                    lastName: paymentForm.addressFields.lastName.value,
+                    address1: paymentForm.addressFields.address1.value,
+                    address2: paymentForm.addressFields.address2.value,
+                    city: paymentForm.addressFields.city.value,
+                    postalCode: paymentForm.addressFields.postalCode.value,
+                    stateCode: paymentForm.addressFields.states.stateCode.value,
+                    countryCode: paymentForm.addressFields.country.value,
+                    phone: paymentForm.addressFields.phone.value,
+                }
+            }, null);
         }
         if (req.currentCustomer.addressBook && paymentForm.saveAddress.value) {
             if (currentBasket.billingAddress) {
