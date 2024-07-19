@@ -10,7 +10,7 @@
                 data-share="facebook"
                 aria-label="${Resource.msgf('label.social.facebook', 'product', null, product.productName)}"
                 class="share-icons" target="_blank">
-                <img alt="facebook" src="${URLUtils.staticURL('/images/social-icons/Social-fb-reverse.svg')}" />
+                <img width="18px" height="18px" alt="facebook" src="${URLUtils.staticURL('/images/social-icons/Social-fb-reverse.svg')}" />
             </a>
         </li>
         <li class="twitter d-flex justify-content-center align-items-center">
@@ -18,7 +18,7 @@
                 title="${Resource.msgf('label.social.twitter', 'product', null, product.productName)}"
                 aria-label="${Resource.msgf('label.social.twitter', 'product', null, product.productName)}"
                 class="share-icons" target="_blank">
-                <img alt="Twitter" src="${URLUtils.staticURL('/images/social-icons/social-x.svg')}" />
+                <img width="18px" height="18px" alt="Twitter" src="${URLUtils.staticURL('/images/social-icons/social-x.svg')}" />
             </a>
         </li>
         <li class="instagram d-flex justify-content-center align-items-center">
@@ -28,7 +28,7 @@
                 data-share="Instagram"
                 aria-label="${Resource.msgf('label.social.instagram', 'product', null, product.productName)}"
                 target="_blank">
-                <img alt="instagram" src="${URLUtils.staticURL('/images/social-icons/Social-ig-reverse.svg')}" />
+                <img width="18px" height="18px" alt="instagram" src="${URLUtils.staticURL('/images/social-icons/Social-ig-reverse.svg')}" />
             </a>
         </li>
         <li class="pinterest d-flex justify-content-center align-items-center">
@@ -36,7 +36,7 @@
                 title="${Resource.msgf('label.social.pinterest', 'product', null, product.productName)}"
                 aria-label="${Resource.msgf('label.social.pinterest', 'product', null, product.productName)}"
                 class="share-icons" target="_blank">
-                <img alt="instagram" src="${URLUtils.staticURL('/images/social-icons/Social-pinterest-reverse.svg')}" />
+                <img width="18px" height="18px" alt="pinterest" src="${URLUtils.staticURL('/images/social-icons/Social-pinterest-reverse.svg')}" />
             </a>
         </li>
 

@@ -56,12 +56,20 @@ server.append('Show', function (req, res, next) {
     ) {
         productPresentInNotifyList = true;
     }
+    
+    var Template = require('dw/util/Template');
+    var HashMap = require('dw/util/HashMap');
+    var giftPopupTemplate = new Template('product/giftpopup')
+    var context = new HashMap();
+    context.put('a',viewData.product.giftContent)
+    var giftPopupHTML = giftPopupTemplate.render(context).text;
 
     res.setViewData({
         productPresentInNotifyList:productPresentInNotifyList,
         itemExist: itemExist,
         CurrentPageMetaData: currentPageMeta,
-        removeLineItemURL: removeLineItemURL
+        removeLineItemURL: removeLineItemURL,
+        giftPopupHTML: giftPopupHTML
     });
     next();
 });
@@ -77,6 +85,7 @@ server.prepend('Show', function (req, res, next) {
     var removeLineItemURL = URLUtils.url('Giftcard-RemoveLineItems');
     var giftCard = ProductFactory.get({pid: req.querystring.pid});
 
+    
     res.setViewData({
         giftCard: giftCard,
         recepientForm: recepientForm,
@@ -104,6 +113,7 @@ server.append('ShowQuickView', function (req, res, next) {
         req: req,
         type: 10
     };
+
     var itemExist = productListHelper.itemExists(list, pid, config);
     res.setViewData({itemExist: itemExist});
     next();
