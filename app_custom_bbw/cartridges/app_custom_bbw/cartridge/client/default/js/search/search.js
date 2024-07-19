@@ -745,11 +745,6 @@ module.exports = {
             if (quantity === 0) {
                 $(this).closest('.product-tile').find('button.add-to-cart').show();
                 $(this).closest('.plp-simple-quantity').hide();
-                $('.minicart .minicart-quantity').text('0');
-                $('.minicart .minicart-link').attr({
-                    'aria-label': '0',
-                    title: '0'
-                });
             }
         });
     }

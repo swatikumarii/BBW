@@ -455,6 +455,7 @@ server.append('RemoveProductLineItem', function (req, res, next) {
 server.prepend('AddProduct', function (req, res, next) {
     var Resource = require('dw/web/Resource');
     var Transaction = require('dw/system/Transaction');
+    var ProductLineItemsModel = require('*/cartridge/models/productLineItems');
     var price = cartHelper.getProductPrice(req.form.pid);
     var currentBasket = BasketMgr.getCurrentBasket();
     if (price === 0) {
@@ -480,8 +481,12 @@ server.prepend('AddProduct', function (req, res, next) {
             }
         });
     }
-    if (req.form.quantity === '0') {
+    if (req.form.quantity === '0' && currentBasket) {
+        var quantityTotal = ProductLineItemsModel.getTotalQuantity(
+            currentBasket.productLineItems
+        );
         res.json({
+            quantityTotal: quantityTotal,
             error: true,
             errorCode: 'DELETE-LINEITEM',
         });
