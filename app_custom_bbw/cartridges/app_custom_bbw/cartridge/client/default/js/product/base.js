@@ -825,6 +825,21 @@ module.exports = $.extend({}, base, {
                                 $.spinner().stop();
                                 return true;
                             }
+                            if ($('input[name="pdpPage"]').length > 0) {
+                                var motivatorUrl = $('input[name="motivatorUrl"]').val();
+                                motivatorUrl += '?pid=' + $('input[name="pdpPage"]').val();
+                                $.get(motivatorUrl, function (dataMotivator) {
+                                    if (dataMotivator.motivator) {
+                                        $('.motivator').remove();
+                                        dataMotivator.motivator.promotions.forEach(function (promotion) {
+                                            if (promotion.motivator) {
+                                                var html = '<div class="mb-1 motivator">' + promotion.motivator + '</div>';
+                                                $('.promotions-wrap').append(html);
+                                            }
+                                        });
+                                    }
+                                });
+                            }
                             if ($('input[name="maxOrderQty"]').length) {
                                 if (!data.error && 'maxOrderQty' in data && data.maxOrderQty >= 0) {
                                     $('input[name="maxOrderQty"]').val(data.maxOrderQty);
