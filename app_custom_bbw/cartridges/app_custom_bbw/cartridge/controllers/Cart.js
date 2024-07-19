@@ -447,6 +447,34 @@ server.append('RemoveProductLineItem', function (req, res, next) {
     next();
 });
 
+/**
+ * 
+ * @param {object} order - Order or Current Basket Object
+ * @param {string} UUID - UUID of the lineItem
+ * @returns {string} - Prorated Price
+ */
+function getProratedPrice(order, UUID) {
+    var proratedPrice = 0;
+    for (var index = 0; index < order.allProductLineItems.length; index++) {
+        var product = order.allProductLineItems[index];
+        if (product.UUID === UUID) {
+            proratedPrice = (
+                product.proratedPrice.value / product.quantityValue
+            ).toFixed(2);
+            break;
+        }
+    }
+    return proratedPrice;
+}
+
+server.prepend('RemoveProductLineItem', function (req, res, next) {
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var viewData = res.getViewData();
+    var UUID = req.querystring.uuid;
+    viewData.proratedPrice = getProratedPrice(currentBasket, UUID);
+    res.setViewData(viewData);
+    next();
+});
 
 /**
  * Cart-AddProduct : The Cart-AddProduct endpoint check product price and retrun if price is zero
