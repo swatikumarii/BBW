@@ -1051,6 +1051,10 @@ module.exports = function () {
                         $('body').trigger('promotion:success', data);
                     }
                     $('.coupon-code-field').val('');
+                    if ($('.remove-giftcard-btn').length > 0) {
+                        $('.remove-giftcard-btn').click();
+                        $('.coupon-gc-error-wrap').removeClass('d-none');
+                    }
                     $.spinner().stop();
                 },
                 error: function (err) {
