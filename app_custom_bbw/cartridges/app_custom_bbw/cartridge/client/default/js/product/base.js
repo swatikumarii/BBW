@@ -891,8 +891,8 @@ module.exports = $.extend({}, base, {
                             if ($('#product-search-results').length > 0) {
                                 $button.hide();
                                 $button.siblings('.plp-simple-quantity').show();
-                                $button.siblings('.plp-simple-quantity').find('.quantity-select').attr('data-pid',pid);
-                                $button.siblings('.plp-simple-quantity').find('.quantity-select').val(1);
+                                $button.siblings('.plp-simple-quantity').find('.quantity-select-plp').attr('data-pid',pid);
+                                $button.siblings('.plp-simple-quantity').find('.quantity-select-plp').val(1);
                             }
                             return true;
                         },
