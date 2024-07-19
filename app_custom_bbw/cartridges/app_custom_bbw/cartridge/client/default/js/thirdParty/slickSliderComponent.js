@@ -20,6 +20,7 @@ if ($('body').find('.js-slider').length > 0) {
         var slideToShowMobile = slider.data('slide-to-show-mobile');
         var infiniteLoop = slider.data('slick-loop');
         var autoPlay = slider.data('auto-play');
+        var variableWidth = slider.data('variable-width');
         var autoPlaySpeed = slider.data('autoplay-speed') * 1000;
         var displayIndicators = slider.data('custom-indicator');
         var dotsNavigation = slider.data('custom-dots');
@@ -41,7 +42,7 @@ if ($('body').find('.js-slider').length > 0) {
             autoplay: autoPlay,
             slidesToShow: slideToShowDesktop,
             pauseOnHover: true,
-            variableWidth: false,
+            variableWidth: variableWidth,
             pauseOnFocus: true,
             pauseOnDotsHover: true,
             swipeToSlide: true,

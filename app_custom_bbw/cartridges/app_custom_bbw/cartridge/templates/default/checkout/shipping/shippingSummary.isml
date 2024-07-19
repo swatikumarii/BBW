@@ -9,10 +9,14 @@
             </isif>
             <div class="summary-details shipping h-font-size--16 h-clr--black-1">
                 <h2 class="h-clr--black-1 review-shipping-summary-content h-fw--bold h-line-height--20 b-text-letter-sapce-001 b-text-letter-space-01">${Resource.msg('label.order.shipping.address', 'order', null)}</h2>
-                <isinclude template="checkout/addressSummary" />
-                <div class="shipping-phone h-font-size--16 text-left">
-                    ${shippingModel.shippingAddress && shippingModel.shippingAddress.phone ? shippingModel.shippingAddress.phone : ''}
-                </div>
+                <isif condition="${pdict.isGiftProductAvailable}">
+                    <div class="pb-2">${Resource.msg('giftcard.will.be.delivered.by.email', 'order', null)}</div>
+                <iselse/>
+                    <isinclude template="checkout/addressSummary" />
+                    <div class="shipping-phone h-font-size--16 text-left">
+                        ${shippingModel.shippingAddress && shippingModel.shippingAddress.phone ? shippingModel.shippingAddress.phone : ''}
+                    </div>
+                </isif>
             </div>
 
             <!--- Shipping information --->
@@ -37,8 +41,10 @@
                 </div>
             </div>
             <isinclude template="checkout/shipping/giftMessageSummary" />
-            <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}" class="edit-button pull-right h-clr--black-1  review-shipping-summary-content"
-                aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</a>
+            <isif condition="${!pdict.isGiftProductAvailable}">
+                <a href="${URLUtils.url('Checkout-Begin', 'stage', 'shipping')}" class="edit-button pull-right h-clr--black-1  review-shipping-summary-content"
+                    aria-label="${Resource.msg('action.edit.step.msg.shipping', 'checkout', null)}">${Resource.msg('action.edit.step', 'checkout', null)}</a>
+            </isif>
         </div>
     </isif>
 </isloop>

@@ -16,6 +16,48 @@ function getProductPrice(pid) {
 }
 
 /**
+ * Filter all the product line items matching productId and
+ * has the same bundled items or options in the cart
+ * @param {dw.catalog.Product} product - Product object
+ * @param {string} productId - Product ID to match
+ * @param {dw.util.Collection<dw.order.ProductLineItem>} productLineItems - Collection of the Cart's product line items
+ * @param {string[]} childProducts - the products' sub-products
+ * @param {SelectedOption[]} options - product options
+ * @returns {dw.order.ProductLineItem[]} - Filtered all the product line item matching productId and has the same bundled items or options
+ */
+function getExistingProductLineItemsInCart(product, productId, productLineItems, childProducts, options) {
+    var matchingProductsObj = base.getMatchingProducts(productId, productLineItems);
+    var matchingProducts = matchingProductsObj.matchingProducts;
+    var productLineItemsInCart = matchingProducts.filter(function (matchingProduct) {
+        return product.bundle
+            ? base.allBundleItemsSame(matchingProduct.bundledProductLineItems, childProducts)
+            : base.hasSameOptions(matchingProduct.optionProductLineItems, options || [])
+                && !(
+                    'custom' in matchingProduct &&
+                    'customBundle' in matchingProduct.custom &&
+                    matchingProduct.custom.customBundle
+                );
+    });
+    return productLineItemsInCart;
+}
+
+/**
+ * Filter the product line item matching productId and
+ * has the same bundled items or options in the cart
+ * @param {dw.catalog.Product} product - Product object
+ * @param {string} productId - Product ID to match
+ * @param {dw.util.Collection<dw.order.ProductLineItem>} productLineItems - Collection of the Cart's
+ *     product line items
+ * @param {string[]} childProducts - the products' sub-products
+ * @param {SelectedOption[]} options - product options
+ * @returns {dw.order.ProductLineItem} - get the first product line item matching productId and
+ *     has the same bundled items or options
+ */
+function getExistingProductLineItemInCart(product, productId, productLineItems, childProducts, options) {
+    return getExistingProductLineItemsInCart(product, productId, productLineItems, childProducts, options)[0];
+}
+
+/**
  * Adds a product to the cart. If the product is already in the cart it increases the quantity of
  * that product.
  * @param {dw.order.Basket} currentBasket - Current users's basket
@@ -79,7 +121,7 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
         return result;
     }
 
-    productInCart = base.getExistingProductLineItemInCart(product, productId, productLineItems, childProducts, options);
+    productInCart = getExistingProductLineItemInCart(product, productId, productLineItems, childProducts, options);
     var isGiftCard =
         'custom' in product &&
         'isEgiftCard' in product.custom &&
@@ -635,4 +677,6 @@ base.addProductToCart = addProductToCart;
 base.getProductPrice = getProductPrice;
 base.mergeCart = mergeCart;
 base.getTopOffers = getTopOffers;
+base.getExistingProductLineItemsInCart = getExistingProductLineItemsInCart;
+base.getExistingProductLineItemInCart = getExistingProductLineItemInCart;
 module.exports = base;

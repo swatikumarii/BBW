@@ -113,6 +113,17 @@
                 <externally-defined-flag>false</externally-defined-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="priceIfSoldSeparatly">
+                <display-name xml:lang="x-default">Price If Sold Separatly</display-name>
+                <type>html</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="titlePartB">
                 <display-name xml:lang="x-default">Title Part B</display-name>
                 <type>string</type>
@@ -449,6 +460,7 @@
             <attribute-group group-id="customAttributes">
                 <display-name xml:lang="x-default">Custom Attributes</display-name>
                 <attribute attribute-id="SID"/>
+                <attribute attribute-id="priceIfSoldSeparatly"/>
             </attribute-group>
             <attribute-group group-id="oosAttributes">
                 <display-name xml:lang="x-default">Out Of Stock Attributes</display-name>
@@ -540,6 +552,12 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="votedArticles">
+                <display-name xml:lang="x-default">Voted Articles</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="cartProducts">
                 <display-name xml:lang="x-default">Cart Products</display-name>
                 <description xml:lang="x-default">Cart Products</description>
@@ -573,6 +591,12 @@
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="capillaryRequest">
+                <display-name xml:lang="x-default">Capillary Request</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="Standard">
@@ -585,7 +609,9 @@
                 <attribute attribute-id="zipCode"/>
                 <attribute attribute-id="capillaryCustomerID"/>
                 <attribute attribute-id="capillaryResponse"/>
+                <attribute attribute-id="capillaryRequest"/>
                 <attribute attribute-id="capillaryFailed"/>
+                <attribute attribute-id="votedArticles"/>
             </attribute-group>
             <attribute-group group-id="MigrationAttribute">
                 <display-name xml:lang="x-default">Migration Attribute</display-name>
@@ -2091,6 +2117,12 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="isMobileSpecific">
+                <display-name xml:lang="x-default">Display only on Mobile</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="isEGiftCategory">
                 <display-name xml:lang="x-default">Is E-Giftcard category</display-name>
                 <description xml:lang="x-default">Set this attribute true for Giftcard Category</description>
@@ -2676,6 +2708,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+
             <attribute-definition attribute-id="promotionTileRandom1">
                 <display-name xml:lang="x-default">Promotion Tile 1 Random Index</display-name>
                 <type>boolean</type>
@@ -2822,6 +2855,12 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="showCategoryInSlider">
+                <display-name xml:lang="x-default">Show Category in Slider</display-name>
+                <type>boolean</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="showInMenu">
                 <display-name xml:lang="x-default">Show in Menu Navigation</display-name>
                 <description xml:lang="x-default">Used to indicate that a category (such as Mens -&gt; Footwear -&gt; Boots) will display in the roll-over navigation. A sub-category only shows if also the parent category is marked as showInMenu. Up to three category levels are shown in roll-over navigation.</description>
@@ -2843,6 +2882,8 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="showInMenu"/>
                 <attribute attribute-id="hideFilter"/>
                 <attribute attribute-id="isEGiftCategory"/>
+                <attribute attribute-id="showCategoryInSlider"/>
+                <attribute attribute-id="isMobileSpecific"/>
             </attribute-group>
             <attribute-group group-id="seoPromotionContent">
                 <display-name xml:lang="x-default">Seo Promotion Content</display-name>
@@ -3158,6 +3199,12 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <mandatory-flag>false</mandatory-flag>
                 <externally-managed-flag>false</externally-managed-flag>
             </attribute-definition>
+            <attribute-definition attribute-id="capillaryRequest">
+                <display-name xml:lang="x-default">Capillary Request</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
         </custom-attribute-definitions>
         <group-definitions>
             <attribute-group group-id="AdyenPayments">
@@ -3193,6 +3240,7 @@ Logic: We will set Fast Seller whose inventory is less than set threshold.</desc
                 <attribute attribute-id="capillaryOrderID"/>
                 <attribute attribute-id="capillaryResponse"/>
                 <attribute attribute-id="capillaryFailed"/>
+                <attribute attribute-id="capillaryRequest"/>
             </attribute-group>
         </group-definitions>
     </type-extension>

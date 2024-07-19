@@ -23,6 +23,7 @@ module.exports.render = function (context, modelIn) {
     model.infinityLoop = content.infinityLoop ? 'true' : 'false';
 
     model.autoplay = content.autoplay ? 'true' : 'false';
+    model.variableWidth = content.variableWidth ? 'true' : 'false';
     model.autoPlaySpeed = content.autoPlaySpeed ? content.autoPlaySpeed : 3;
 
     model.slideAnimation = content.slideAnimation ? content.slideAnimation : '';

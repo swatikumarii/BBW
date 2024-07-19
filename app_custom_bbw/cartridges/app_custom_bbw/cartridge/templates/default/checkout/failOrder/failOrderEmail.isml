@@ -37,20 +37,20 @@
                             </tbody>
                         </table>
                         <iscomment> Order Customer Name</iscomment>
-                        <h1
+                        <iscomment> <h1
                             style="margin:35px 0 14px;font-size:28px;font-weight:normal;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
                             ${Resource.msgf('email.title.confirmation.sender.name', 'confirmation', null, pdict.order.billing.billingAddress.address
                             .firstName)}
-                        </h1>
+                        </h1> </iscomment>
                         <p
-                            style="margin:0 0 20px;font-size:22px;line-height:33px;padding-right:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
-                            <isprint value="${Resource.msg('canceled.order.email.body', 'email', null)}" encoding="off" />
+                            style="margin:35px 0 35px 20px;font-size:22px;line-height:33px;padding-right:20px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
+                            <span style="text-transform: capitalize;">${pdict.order.billing.billingAddress.address.firstName}</span><isprint value="${Resource.msg('payment.failed.email.body', 'email', null)}" encoding="off" />
                         </p>
                         <iscomment> Good To know Content </iscomment>
-                        <isprint value="${pdict.topmarkup}" encoding="off" />
+                        <iscomment> <isprint value="${pdict.topmarkup}" encoding="off" /> </iscomment>
                         <div
                             style="font-size:26px;border-bottom:1px solid #333;text-transform:uppercase;margin:0;padding-bottom:13px;margin-bottom:5px;font-family:'HelveticaNeue-Light','Helvetica Neue Light','Helvetica Neue',Helvetica,Arial,sans-serif">
-                            ${Resource.msg('email.order.cancel.item.label', 'email', null)}
+                            ${Resource.msg('email.order.youritem.label', 'confirmation', null)}
                         </div>
                         <iscomment> Normal Product Line Items </iscomment>
                         <table width="100%" cellpadding="0" cellspacing="0"
@@ -321,6 +321,17 @@
                                                         </tr>
                                                     </isloop>
                                                 </isif>
+
+                                                <iscomment> Adjusted Merchandise Subtotal </iscomment>
+                                                <tr>
+                                                    <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;">
+                                                        ${Resource.msg('email.order.adjusted.merchandise.subtotal', 'confirmation', null)}
+                                                    </td>
+                                                    <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                        ${pdict.order.totals.miniCartSubTotal}
+                                                    </td>
+                                                </tr>
+
                                                 <iscomment> Shipping Charge </iscomment>
                                                 <isif condition="${pdict.order.items.items[0].isEgiftCard !== true}">
                                                     <tr>

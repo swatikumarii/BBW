@@ -32,6 +32,7 @@ function execute() {
                 if (crmCustomerID) {
                     customerProfile.custom.capillaryCustomerID = crmCustomerID;
                     customerProfile.custom.capillaryResponse = '';
+                    customerProfile.custom.capillaryRequest = '';
                     customerProfile.custom.capillaryFailed = false;
                 }
             }

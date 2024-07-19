@@ -662,6 +662,24 @@
                     display: none;
                 }
             }
+
+            .payment-options-wrapper {
+                margin: 20px 0;
+
+                .payment-methods-label {
+                    display: none;
+                }
+
+                .payment-icon {
+                    height: auto;
+                    width: 60px;
+
+                    @include media-up(md) {
+                        height: auto;
+                        width: 65px;
+                    }
+                }
+            }
         }
     }
 }
@@ -951,5 +969,29 @@ footer {
                 background-color: colour(gray, 1);
             }
         }
+    }
+}
+
+.mobile-cart-checkout {
+    .modal-dialog-bottom {
+        animation: slide-out 0.3s cubic-bezier(0.2, 0.05, 0.55, 0.2);
+    }
+
+    @keyframes slide-out {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+    &.show {
+        .modal-dialog-bottom {
+            animation: slide-in 0.3s cubic-bezier(0.2, 0.05, 0.55, 0.2);
+        }
+
+        
     }
 }

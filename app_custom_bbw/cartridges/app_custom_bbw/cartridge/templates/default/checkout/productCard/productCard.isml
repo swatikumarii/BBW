@@ -5,13 +5,16 @@
             <div class="product-line-item-details d-flex flex-row">
                 <isif condition="${lineItem.isEgiftCard}">
                     <div class="item-image">
-                        <img class="product-image" src="${lineItem.images.small[0].url}" srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x" alt="${lineItem.images.small[0].alt}"
-                            title="${lineItem.images.small[0].title}" width="100" />
+                        <img class="product-image" src="${lineItem.images.small[0].url}"
+                            srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x"
+                            alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}"
+                            width="100" />
                     </div>
                 <iselse/>
                     <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
                         <div class="item-image">
-                            <img class="product-image" src="${lineItem.images.small[0].url}" srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x"
+                            <img class="product-image" src="${lineItem.images.small[0].url}"
+                                srcset="${lineItem.images.small[0].url} 1x, ${lineItem.images.small_2x[0].url} 2x"
                                 alt="${lineItem.images.small[0].alt}" title="${lineItem.images.small[0].title}"
                                 width="100" />
                         </div>
@@ -43,12 +46,15 @@
                 </div>
                 <isif condition="${'giftCardDetails' in lineItem && lineItem.giftCardDetails}">
                     <div class="giftcard-details">
-                        <span class="d-block giftcard-receipient-name h-font-size--14 pb-2 h-line-height--16">${Resource.msg('label.input.recipientsname', 'forms', null)}${': '} ${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails
-                                                                       .recipientName : ''}</span>
-                        <span class="d-block giftcard-receipient-email h-font-size--14 pb-2 h-line-height--16">${Resource.msg('label.input.sendername', 'forms', null)}${': '} ${lineItem.giftCardDetails.recipientEmail && lineItem.giftCardDetails.recipientEmail !== null ? lineItem.giftCardDetails
-                                                                        .recipientEmail : ''}</span>
-                        <span class="d-block giftcard-message h-font-size--14 pb-2 h-line-height--16">${Resource.msg('label.egift.message', 'forms', null)}${': '} ${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails
-                                                               .eGiftMessage : ''}</span>
+                        <span
+                            class="d-block giftcard-receipient-name h-font-size--14 pb-2 h-line-height--16">${Resource.msg('label.input.recipientsname', 'forms', null)}${': '} ${lineItem.giftCardDetails.recipientName && lineItem.giftCardDetails.recipientName !== null ? lineItem.giftCardDetails
+                                                                                                                                                                                .recipientName : ''}</span>
+                        <span
+                            class="d-block giftcard-receipient-email h-font-size--14 pb-2 h-line-height--16">${Resource.msg('label.input.sendername', 'forms', null)}${': '} ${lineItem.giftCardDetails.recipientEmail && lineItem.giftCardDetails.recipientEmail !== null ? lineItem.giftCardDetails
+                                                                                                                                                                             .recipientEmail : ''}</span>
+                        <span
+                            class="d-block giftcard-message h-font-size--14 pb-2 h-line-height--16">${Resource.msg('label.egift.message', 'forms', null)}${': '} ${lineItem.giftCardDetails.eGiftMessage && lineItem.giftCardDetails.eGiftMessage !== null ? lineItem.giftCardDetails
+                                                                                                                                                                 .eGiftMessage : ''}</span>
                     </div>
                 </isif>
                 <iscomment> Promotion callout </iscomment>
@@ -66,6 +72,11 @@
                                 <isinclude template="checkout/productCard/productCardQuantitySelector" />
                             <iselse/>
                                 <isinclude template="checkout/productCard/productCardQuantityDisplay" />
+                                <isif condition="${!lineItem.available}">
+                                    <p class="h-clr--red h-font-size--14 mb-2 h-line-height--16">
+                                        ${Resource.msg('label.outOfStock.message', 'checkout', null)}
+                                    </p>
+                                </isif>
                             </isif>
                         </div>
                         <iscomment> Price </iscomment>
@@ -87,6 +98,11 @@
                     </isif>
                     <iselse>
                         <isinclude template="checkout/productCard/productCardQuantityDisplay" />
+                        <isif condition="${!lineItem.available}">
+                            <p class="h-clr--red h-font-size--14 mb-2 h-line-height--16">
+                                ${Resource.msg('label.outOfStock.message', 'checkout', null)}
+                            </p>
+                        </isif>
                         <isinclude template="checkout/productCard/productCardProductPromotions" />
                         <isif condition="${pdict.containsDangerousGoods && lineItem.dangerousGoods}">
                             <div class="dangerous-goods-label">

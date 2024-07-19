@@ -9,7 +9,7 @@
         assets.addCss('/css/notifyMe.css');
     </isscript>
     <isset name="miniCart" value="${false}" scope="page" />
-
+    <isinclude template="/components/modules" sf-toolkit="off" />
 
     <isif condition="${pdict.reportingURLs && pdict.reportingURLs.length}">
         <isinclude template="reporting/reportingUrls" />
@@ -99,13 +99,19 @@
                 </div>
                 <div class="cart-lineitems">
                     <isloop items="${pdict.items}" var="lineItem">
-                        <isif condition="${lineItem.productType === 'bundle'}">
-                            <isinclude template="cart/productCard/cartBundleCard" />
+                        <isif condition="${lineItem.isGiftWrapCategory}">
+                            <isset name="giftWrapItem" value="${lineItem}" scope="page" />
+                        <iselseif condition="${lineItem.isGreetingCardCategory}"/>
+                            <isset name="greetingCardItem" value="${lineItem}" scope="page" />
                         <iselse/>
-                            <isif condition="${lineItem.noProduct === true}">
-                                <isinclude template="cart/productCard/uncategorizedCartProductCard" />
+                            <isif condition="${lineItem.productType === 'bundle'}">
+                                <isinclude template="cart/productCard/cartBundleCard" />
                             <iselse/>
-                                <isinclude template="cart/productCard/cartProductCard" />
+                                <isif condition="${lineItem.noProduct === true}">
+                                    <isinclude template="cart/productCard/uncategorizedCartProductCard" />
+                                <iselse/>
+                                    <isinclude template="cart/productCard/cartProductCard" />
+                                </isif>
                             </isif>
                         </isif>
                     </isloop>
@@ -140,6 +146,10 @@
                             </div>
                             <isinclude template="cart/cartTotals" />
                             <isinclude template="cart/checkoutButtons" />
+                            <iscomment> Payment Method Icons </iscomment>
+                            <div class="payment-options-wrapper">
+                                <iscontentasset aid="checkout-billing-payment-methods-icons" />
+                            </div>
                         </div>
                         <isslot id="cart-bottom-below-checkout-button" context="global"
                             description="This slot will be rendered on the bottom part of cart page below checkout buttons" />
