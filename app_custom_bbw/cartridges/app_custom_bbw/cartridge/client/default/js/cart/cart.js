@@ -639,6 +639,21 @@ module.exports = function () {
                             }
                         }
                     }
+                    if ($('input[name="pdpPage"]').length > 0) {
+                        var motivatorUrl = $('input[name="motivatorUrl"]').val();
+                        motivatorUrl += '?pid=' + $('input[name="pdpPage"]').val();
+                        $.get(motivatorUrl, function (dataMotivator) {
+                            $('.motivator').remove();
+                            if (dataMotivator.motivator) {
+                                dataMotivator.motivator.promotions.forEach(function (promotion) {
+                                    if (promotion.motivator) {
+                                        var html = '<div class="mb-1 motivator">' + promotion.motivator + '</div>';
+                                        $('.promotions-wrap').append(html);
+                                    }
+                                });
+                            }
+                        });
+                    }
                     $('.uuid-' + uuid)
                         .parent('.card')
                         .remove();

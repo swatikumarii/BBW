@@ -817,4 +817,17 @@ server.get('UpdateShippingMethod', function (req, res, next) {
     next();
 });
 
+server.get('CheckMotivator', function (req, res, next) {
+    var ProductMgr = require('dw/catalog/ProductMgr');
+    var PromotionMgr = require('dw/campaign/PromotionMgr');
+    var decorators = require('*/cartridge/models/product/decorators/index');
+    var pid = req.querystring.pid;
+    var product = ProductMgr.getProduct(pid);
+    var promotions = PromotionMgr.activeCustomerPromotions.getProductPromotions(product);
+    var motivator = {};
+    decorators.promotions(motivator, promotions);
+    res.json({motivator: motivator});
+    next();
+});
+
 module.exports = server.exports();
