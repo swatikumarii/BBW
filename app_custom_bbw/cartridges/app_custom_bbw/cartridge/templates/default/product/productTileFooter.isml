@@ -17,11 +17,11 @@
         </div>
     <iselse/>
         <button class="add-to-cart btn" data-toggle="modal" data-target="#chooseBonusProductModal" data-pid="${product.id}"
-            ${product.qtyAlreadyInCart ? "style='display: none;'" : ""}
+            ${product.qtyAlreadyInCart && pdict.isPlp ? "style='display: none;'" : ""}
             ${!product.available ? "disabled" : ""} >
             ${Resource.msg('button.addToBag', 'common', null)}
         </button>
-            <div class="plp-simple-quantity mr-0" ${product.qtyAlreadyInCart ? "style='display: block;'" : ""}>
+            <div class="plp-simple-quantity mr-0" ${product.qtyAlreadyInCart && pdict.isPlp ? "style='display: block;'" : ""}>
             <isinclude template="product/components/plpQuantity" />
         </div>
         <isinclude template="product/components/removeLineItem" />
