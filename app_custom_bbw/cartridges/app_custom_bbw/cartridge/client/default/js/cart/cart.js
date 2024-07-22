@@ -22,27 +22,6 @@ function appendToUrl(url, params) {
     return newUrl;
 }
 
-/**
- * Get params from a querystring
- * @param {string} name - paramtert name
- * @param {string} queryString - Querystring
- * @returns {string} value of the given parameter in the querystring.
- */
-function getParameterByName(name, queryString) {
-    if (queryString.startsWith('?')) {
-        queryString = queryString.substring(1);
-    }
-    var params = queryString.split('&');
-    // Iterate over the key-value pairs
-    for (var param of params) {
-        var [key, value] = param.split('=');
-
-        if (key === name) {
-            return decodeURIComponent(value || ''); 
-        }
-    }
-    return null; 
-}
 
 /**
  * Clear error notification
@@ -731,12 +710,33 @@ module.exports = function () {
                         $('.cart-error-messaging').addClass('d-none');
                     }
                 }
-                var pid = getParameterByName('pid', data.queryString);
                 if ($('#product-search-results').length > 0) {
-                    var selectorString = 'button.add-to-cart[data-pid="'+pid+'"]';
-                    var $button = $(selectorString);
-                    $button.show();
-                    $button.siblings('.plp-simple-quantity').hide();
+                    var qtyObj = {};
+                    for (var index = 0; index < data.basket.items.length; index++) {
+                        var item = data.basket.items[index];
+                        if (item.id in qtyObj) {
+                            qtyObj[item.id] += item.quantity;
+                        } else {
+                            qtyObj[item.id] = item.quantity;
+                        }
+                    }
+                    var qtySlectorElements = $('.plp-simple-quantity').filter(function () {
+                        return $(this).css('display') === 'block';
+                    });
+                    $.each(qtySlectorElements,function (a,element) {
+                        var pid = $(element).siblings('button.add-to-cart').data('pid');
+                        var selectorString = 'button.add-to-cart[data-pid="'+pid+'"]';
+                        if (Object.keys(qtyObj).indexOf(pid.toString()) !== -1) {
+                            $(element).find('.quantity-select-plp').val(qtyObj[pid]);
+                            if (qtyObj[pid] < parseInt($(element).find('input[name=maxorderqty]').val(),10)) {
+                                $(element).find('.plp-increase').removeClass('disable');
+                            }
+                        } else {
+                            var $button = $(selectorString);
+                            $button.show();
+                            $button.siblings('.plp-simple-quantity').hide();
+                        }
+                    });
                 }
                 $('body').trigger('cart:update', data);
 
