@@ -6,8 +6,7 @@
     <isloop items="${rowindex}" var="productRow" status="loopstatus">
         <tr style="padding: 0;">
             <isloop items="${productIds.slice(rowNo * 4, (rowNo + 1) * 4)}" var="productId" status="productLoop">
-                <isinclude url="${URLUtils.url('Tile-EmailShow', 'pid', productId, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView',
-                    false, 'wishlist', false)}" />
+                <isinclude url="${URLUtils.url('Tile-EmailShow', 'pid', productId, 'pview', 'tile')}" />
             </isloop>
         </tr>
         <isset name="rowNo" value="${rowNo + 1}" scope="page" />

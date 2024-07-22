@@ -72,17 +72,8 @@ server.get(
             product: product,
             urls: {
                 product: productUrl
-            },
-            display: {}
-        };
-
-        Object.keys(req.querystring).forEach(function (key) {
-            if (req.querystring[key] === 'true') {
-                context.display[key] = true;
-            } else if (req.querystring[key] === 'false') {
-                context.display[key] = false;
             }
-        });
+        };
 
         res.render('product/productEmailTile.isml', context);
 
