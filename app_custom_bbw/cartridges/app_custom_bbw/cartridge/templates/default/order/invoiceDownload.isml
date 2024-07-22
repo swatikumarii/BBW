@@ -318,6 +318,8 @@
                     scope="page" />
                 <isset name="showShippingHandlingTaxes"
                     value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingHandlingTaxes')}" scope="page" />
+                <isset name="showAdjustedMerchandizeSubtotal"
+                    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showAdjustedMerchandizeSubtotal')}" scope="page" />
 
                 <iscomment> Subtotal </iscomment>
                 <isif condition="${totalExclusiveTax}">
@@ -384,8 +386,7 @@
                         </isloop>
                     </isif>
                 </isif>
-
-                <isif condition="${pdict.order.totals.miniCartSubTotal.length > 0}">
+                <isif condition="${showAdjustedMerchandizeSubtotal && pdict.order.totals.miniCartSubTotal.length > 0}">
                     <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                         <div class="col-md-10">
                             <p class="h-font-size--16 h-clr--black-1"
