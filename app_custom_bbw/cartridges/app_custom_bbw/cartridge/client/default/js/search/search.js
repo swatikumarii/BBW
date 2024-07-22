@@ -712,6 +712,7 @@ module.exports = {
                         if (quantity >= maxOrderQty) {
                             self.addClass('disable');
                         }
+                        $('body').trigger('cart:update', data);
                     }
                 });
             }
@@ -740,6 +741,7 @@ module.exports = {
                     if (quantity <= maxOrderQty) {
                         increaseButton.removeClass('disable');
                     }
+                    $('body').trigger('cart:update', data);
                 }
             });
             if (quantity === 0) {
