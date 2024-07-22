@@ -6,6 +6,7 @@
             <preference preference-id="reserveQty">5</preference>
             <preference preference-id="notifyEmailThreshold">5</preference>
             <preference preference-id="mapAPI">AIzaSyAzRo8iHR1RuFsw-MuDf6sshGtsFW-HuDc</preference>
+            <preference preference-id="showAdjustedMerchandizeSubtotal">false</preference>
             <preference preference-id="AdyenBasketFieldsEnabled">true</preference>
             <preference preference-id="AdyenCardHolderName_enabled">true</preference>
             <preference preference-id="AdyenLevel23DataEnabled">true</preference>
@@ -175,6 +176,7 @@
             <preference preference-id="Adyen_notification_user">admin</preference>
             <preference preference-id="AmazonPayExpress_Enabled">false</preference>
             <preference preference-id="ApplePayExpress_Enabled">true</preference>
+            <preference preference-id="showAdjustedMerchandizeSubtotal">false</preference>
             <preference preference-id="ExpressPayments_enabled">true</preference>
             <preference preference-id="apBrandSettings">{
                 "GB": {
@@ -307,4 +309,3 @@
         <production/>
     </custom-preferences>
 </preferences>
-

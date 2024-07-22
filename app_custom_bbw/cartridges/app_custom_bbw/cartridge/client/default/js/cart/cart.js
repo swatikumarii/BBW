@@ -121,6 +121,7 @@ function updateCartTotals(data) {
     } else {
         $('.sub-total').empty().append(data.totals.subTotal);
     }
+    $('.adj-sub-total').empty().append(data.totals.miniCartSubTotal);
     $('.tax-total').empty().append(data.totals.totalTax);
     $('.grand-total').empty().append(data.totals.grandTotal);
     $('.minicart-quantity').empty().append(data.numItems);
