@@ -30,9 +30,9 @@ function appendToUrl(url, params) {
  */
 function getParameterByName(name, queryString) {
     if (queryString.startsWith('?')) {
-        queryStringA = queryString.substring(1);
+        queryString = queryString.substring(1);
     }
-    var params = queryStringA.split('&');
+    var params = queryString.split('&');
     // Iterate over the key-value pairs
     for (var param of params) {
         var [key, value] = param.split('=');
@@ -737,7 +737,6 @@ module.exports = function () {
                     $button.show();
                     $button.siblings('.plp-simple-quantity').hide();
                 }
-
                 $('body').trigger('cart:update', data);
 
                 $.spinner().stop();
