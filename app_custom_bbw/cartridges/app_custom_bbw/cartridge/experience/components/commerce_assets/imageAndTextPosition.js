@@ -37,7 +37,7 @@ function get2XImageString(
         if (image2X) {
             imageSrc +=
                 ' 1x, ' +
-                ImageTransformation.getScaledImage(image2X).src[type] +
+                ImageTransformation.getScaledImage(image2X).src[type + '2x'] +
                 ' 2x';
         }
     }

@@ -23,6 +23,28 @@ function appendToUrl(url, params) {
 }
 
 /**
+ * Get params from a querystring
+ * @param {string} name - paramtert name
+ * @param {string} queryString - Querystring
+ * @returns {string} value of the given parameter in the querystring.
+ */
+function getParameterByName(name, queryString) {
+    if (queryString.startsWith('?')) {
+        queryString = queryString.substring(1);
+    }
+    var params = queryString.split('&');
+    // Iterate over the key-value pairs
+    for (var param of params) {
+        var [key, value] = param.split('=');
+
+        if (key === name) {
+            return decodeURIComponent(value || ''); 
+        }
+    }
+    return null; 
+}
+
+/**
  * Clear error notification
  */
 function clearErrorNotification() {
@@ -639,6 +661,21 @@ module.exports = function () {
                             }
                         }
                     }
+                    if ($('input[name="pdpPage"]').length > 0) {
+                        var motivatorUrl = $('input[name="motivatorUrl"]').val();
+                        motivatorUrl += '?pid=' + $('input[name="pdpPage"]').val();
+                        $.get(motivatorUrl, function (dataMotivator) {
+                            $('.motivator').remove();
+                            if (dataMotivator.motivator) {
+                                dataMotivator.motivator.promotions.forEach(function (promotion) {
+                                    if (promotion.motivator) {
+                                        var html = '<div class="mb-1 motivator">' + promotion.motivator + '</div>';
+                                        $('.promotions-wrap').append(html);
+                                    }
+                                });
+                            }
+                        });
+                    }
                     $('.uuid-' + uuid)
                         .parent('.card')
                         .remove();
@@ -693,7 +730,13 @@ module.exports = function () {
                         $('.cart-error-messaging').addClass('d-none');
                     }
                 }
-
+                var pid = getParameterByName('pid', data.queryString);
+                if ($('#product-search-results').length > 0) {
+                    var selectorString = 'button.add-to-cart[data-pid="'+pid+'"]';
+                    var $button = $(selectorString);
+                    $button.show();
+                    $button.siblings('.plp-simple-quantity').hide();
+                }
                 $('body').trigger('cart:update', data);
 
                 $.spinner().stop();
@@ -1036,6 +1079,10 @@ module.exports = function () {
                         $('body').trigger('promotion:success', data);
                     }
                     $('.coupon-code-field').val('');
+                    if ($('.remove-giftcard-btn').length > 0) {
+                        $('.remove-giftcard-btn').click();
+                        $('.coupon-gc-error-wrap').removeClass('d-none');
+                    }
                     $.spinner().stop();
                 },
                 error: function (err) {

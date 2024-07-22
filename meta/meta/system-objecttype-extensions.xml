@@ -113,6 +113,17 @@
                 <externally-defined-flag>false</externally-defined-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="priceIfSoldSeparatly">
+                <display-name xml:lang="x-default">Price If Sold Separatly</display-name>
+                <type>html</type>
+                <localizable-flag>false</localizable-flag>
+                <site-specific-flag>false</site-specific-flag>
+                <mandatory-flag>false</mandatory-flag>
+                <visible-flag>false</visible-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+                <order-required-flag>false</order-required-flag>
+                <externally-defined-flag>false</externally-defined-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="titlePartB">
                 <display-name xml:lang="x-default">Title Part B</display-name>
                 <type>string</type>
@@ -449,6 +460,7 @@
             <attribute-group group-id="customAttributes">
                 <display-name xml:lang="x-default">Custom Attributes</display-name>
                 <attribute attribute-id="SID"/>
+                <attribute attribute-id="priceIfSoldSeparatly"/>
             </attribute-group>
             <attribute-group group-id="oosAttributes">
                 <display-name xml:lang="x-default">Out Of Stock Attributes</display-name>
@@ -540,6 +552,12 @@
                 <externally-managed-flag>false</externally-managed-flag>
                 <min-length>0</min-length>
             </attribute-definition>
+            <attribute-definition attribute-id="votedArticles">
+                <display-name xml:lang="x-default">Voted Articles</display-name>
+                <type>text</type>
+                <mandatory-flag>false</mandatory-flag>
+                <externally-managed-flag>false</externally-managed-flag>
+            </attribute-definition>
             <attribute-definition attribute-id="cartProducts">
                 <display-name xml:lang="x-default">Cart Products</display-name>
                 <description xml:lang="x-default">Cart Products</description>
@@ -593,6 +611,7 @@
                 <attribute attribute-id="capillaryResponse"/>
                 <attribute attribute-id="capillaryRequest"/>
                 <attribute attribute-id="capillaryFailed"/>
+                <attribute attribute-id="votedArticles"/>
             </attribute-group>
             <attribute-group group-id="MigrationAttribute">
                 <display-name xml:lang="x-default">Migration Attribute</display-name>

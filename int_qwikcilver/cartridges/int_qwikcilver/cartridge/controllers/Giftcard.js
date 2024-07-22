@@ -304,6 +304,8 @@ server.post('RemoveGiftCard', function (req, res, next) {
     var Money = require('dw/value/Money');
     var Site = require('dw/system/Site');
     var site = Site.getCurrent();
+    var currencyCode = session.currency.currencyCode;
+    var currency = currencyCode;
     if (!currentBasket) {
         res.json({
             error: true,
@@ -350,6 +352,7 @@ server.post('RemoveGiftCard', function (req, res, next) {
     var basketModel = new CartModel(currentBasket);
     res.json({
         error: false,
+        success: Resource.msgf('qwikcilver.card.pending', 'giftcards', null, currency, remainingAmount.toFixed(2)),
         basketModel: basketModel,
         remainingCards: remainingCards,
         hideCreditCardForm: hideCreditCardForm,

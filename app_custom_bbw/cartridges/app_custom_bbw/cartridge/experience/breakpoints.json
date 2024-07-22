@@ -1,0 +1,8 @@
+{
+    "mobile"  : 768,
+    "tablet"  : 1024,
+    "desktop" : 1440,
+    "mobile2x": 1536,
+    "tablet2x": 2048,
+    "desktop2x": 2880
+}

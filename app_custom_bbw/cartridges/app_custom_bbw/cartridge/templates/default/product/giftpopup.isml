@@ -1,0 +1,13 @@
+<isloop items="${pdict.a}" var="giftContent" status="loopstatus">
+    <div class="d-flex border-bottom">
+        <div class="mb-1">
+            <img src="${giftContent.images.mediumLarge[0].absURL}" alt="${giftContent.productName}" width="50">
+        </div>
+        <div class="mb-1 h-font-size--12 ">
+            ${giftContent.productName}
+        </div>
+        <div class="mb-1">
+            ${giftContent.price.sales.formatted}
+        </div>
+    </div>
+</isloop>
