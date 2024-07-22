@@ -454,7 +454,6 @@
                                 ${Resource.msg('slot.recommendation.picked.for.you', 'common', null)}
                             </h2>
                         </div>
-                        ${pdict.order.emailRecommendationProducts.shipmentEmailRecommendationPIDs}
                         <isset name="productIds" value="${pdict.order.emailRecommendationProducts.shipmentEmailRecommendationPIDs}" scope="page"/>
                         <isinclude template="/product/emailGridTile" />
                     </isif>
