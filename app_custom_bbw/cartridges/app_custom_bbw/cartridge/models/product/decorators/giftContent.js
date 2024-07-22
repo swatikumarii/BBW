@@ -38,7 +38,8 @@ function getGiftContentPrice(apiProduct) {
                     });
                 }
                 decorators.price(product1, apiProduct1, options.promotions, false, options.optionModel);
-                product1.productName = apiProduct1.custom.fragranceName;
+                var name = apiProduct1.name ? apiProduct1.name : '';
+                product1.productName = apiProduct1.custom.fragranceName ? apiProduct1.custom.fragranceName : name;
                 giftSetContents.push(product1);
             }
         }
