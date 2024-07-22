@@ -1,0 +1,21 @@
+<isset name="product" value="${pdict.product}" scope="page" />
+<div class="product" data-pid="${product.id}">
+    <div class="product-tile b-product-tile d-flex flex-column h-100 js-product-tile" itemscope
+        itemtype="http://schema.org/Product">
+        <isinclude template="product/components/productEmailTileImage" />
+        <div class="tile-body b-product-tile__body mt-auto">
+            <isinclude template="product/components/productTileName" />
+            <isset name="price" value="${product.price}" scope="page" />
+            <isif condition="${product.productType === 'set'}">
+                <isinclude template="product/components/pricing/setPrice" />
+            <iselse/>
+                <isinclude template="product/components/pricing/main" />
+            </isif>
+            <isif condition="${pdict.display.ratings !== false && !product.isEgiftCard}">
+                <a class="add-to-cart btn" href="${pdict.urls.product}">
+                    ${Resource.msg('button.addToBag', 'common', null)}
+                </a>
+            </isif>
+        </div>
+    </div>
+</div>

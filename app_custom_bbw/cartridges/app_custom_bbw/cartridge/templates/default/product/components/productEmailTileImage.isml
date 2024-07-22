@@ -1,0 +1,13 @@
+<div class="image-container b-product-tile__img-wrapper position-relative">
+    <isif condition="${product.images['medium'].length > 0}">
+        <a class="d-block"
+            href="${pdict.urls.product}">
+            <div class='img-inner-wrapper lazy-skeleton'>
+                <img class="tile-image b-product-tile__img mx-auto w-100 lazy"
+                    src="${product.images['medium'][0].absURL}"
+                    alt="${product.productName}" title="${product.images['medium'][0].title}" itemprop="image" width="202px"
+                    height="300px" />
+            </div>
+        </a>
+    </isif>
+</div>

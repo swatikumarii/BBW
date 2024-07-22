@@ -1,0 +1,17 @@
+<isset name="commonHelper" value="${require('*/cartridge/scripts/helpers/commonHelpers')}" scope="page" />
+<div class="row no-gutters picked-just-recomm ds-smooth-scroll js-picked-just-recomm">
+    <isloop items="${productIds}" var="productId"
+        status="loopState">
+        <isset name="checkAvailability" value="${commonHelper.checkProductAvailability(productId)}" scope="page" />
+        <isif condition="${checkAvailability.isAvailable === true || (checkAvailability
+                         .isSearchableIfUnavailable === true)}">
+            <div class="picked-just-recomm__item col js-picked-just-recomm-item">
+                <isobject object="${productId}" view="recommendation">
+                    <isinclude
+                        url="${URLUtils.url('Tile-EmailShow', 'pid', productId, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView',
+                             false, 'wishlist', false)}" />
+                </isobject>
+            </div>
+        </isif>
+    </isloop>
+</div>
