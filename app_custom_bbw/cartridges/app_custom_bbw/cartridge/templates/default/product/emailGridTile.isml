@@ -1,17 +1,15 @@
-<isset name="commonHelper" value="${require('*/cartridge/scripts/helpers/commonHelpers')}" scope="page" />
-<div class="row no-gutters picked-just-recomm ds-smooth-scroll js-picked-just-recomm">
-    <isloop items="${productIds}" var="productId"
-        status="loopState">
-        <isset name="checkAvailability" value="${commonHelper.checkProductAvailability(productId)}" scope="page" />
-        <isif condition="${checkAvailability.isAvailable === true || (checkAvailability
-                         .isSearchableIfUnavailable === true)}">
-            <div class="picked-just-recomm__item col js-picked-just-recomm-item">
-                <isobject object="${productId}" view="recommendation">
-                    <isinclude
-                        url="${URLUtils.url('Tile-EmailShow', 'pid', productId, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView',
-                             false, 'wishlist', false)}" />
-                </isobject>
-            </div>
-        </isif>
+<isset name="totalRows" value="${Math.ceil(productIds.length / 4)}" scope="page" />
+<table style="padding: 0 32px 35px; table-layout: fixed;" cellpadding="0" cellspacing="0" border="0" align="center"
+    width="100%">
+    <isset name="rowindex" value="${Array(totalRows).fill(0)}" scope="page" />
+    <isset name="rowNo" value="${0}" scope="page" />
+    <isloop items="${rowindex}" var="productRow" status="loopstatus">
+        <tr style="padding: 0;">
+            <isloop items="${productIds.slice(rowNo * 4, (rowNo + 1) * 4)}" var="productId" status="productLoop">
+                <isinclude url="${URLUtils.url('Tile-EmailShow', 'pid', productId, 'pview', 'tile', 'ratings', true, 'swatches', false, 'showQuickView',
+                    false, 'wishlist', false)}" />
+            </isloop>
+        </tr>
+        <isset name="rowNo" value="${rowNo + 1}" scope="page" />
     </isloop>
-</div>
+</table>
