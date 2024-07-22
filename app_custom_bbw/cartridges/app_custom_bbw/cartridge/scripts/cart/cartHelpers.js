@@ -167,6 +167,18 @@ function addProductToCart(currentBasket, productId, quantity, childProducts, opt
         if ('SID' in product.custom && product.custom.SID) {
             productLineItem.custom.SID = product.custom.SID;
         }
+        // add category tree in product lineitem custom attribute
+        var categoryTree = '';
+        if (productLineItem.product.primaryCategory !== null) {
+            categoryTree = productLineItem.product.primaryCategory.displayName;
+            if (productLineItem.product.primaryCategory.parent !== null) {
+                categoryTree += '>' + productLineItem.product.primaryCategory.parent.displayName;
+                if (productLineItem.product.primaryCategory.parent.parent !== null) {
+                    categoryTree += '>' + productLineItem.product.primaryCategory.parent.parent.displayName;
+                }
+            }
+            productLineItem.custom.categoryTree = categoryTree;
+        }
         result.uuid = productLineItem.UUID;
     }
 
