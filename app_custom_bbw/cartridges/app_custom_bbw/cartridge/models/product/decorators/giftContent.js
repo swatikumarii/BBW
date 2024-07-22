@@ -17,28 +17,30 @@ function getGiftContentPrice(apiProduct) {
             var pid = apiProduct.custom.giftsetContents[i];
             var product1 = Object.create(null);
             var apiProduct1 = ProductMgr.getProduct(pid);
-            var params = {
-                productid: pid,
-                quantity: 1,
-                variables: null,
-                pview: 'productLineItem',
-                options: options
-            };
-            options = productHelper.getConfig(apiProduct1, params);
-            if (options.variationModel) {
-                decorators.images(product1, options.variationModel, {
-                    types: ['mediumLarge', 'extraLarge', 'small', 'mediumLarge_2x', 'extraLarge_2x', 'small_2x'],
-                    quantity: 'all'
-                });
-            } else {
-                decorators.images(product1, apiProduct1, {
-                    types: ['mediumLarge', 'extraLarge', 'small', 'mediumLarge_2x', 'extraLarge_2x', 'small_2x'],
-                    quantity: 'all'
-                });
+            if (apiProduct1) {
+                var params = {
+                    productid: pid,
+                    quantity: 1,
+                    variables: null,
+                    pview: 'productLineItem',
+                    options: options
+                };
+                options = productHelper.getConfig(apiProduct1, params);
+                if (options.variationModel) {
+                    decorators.images(product1, options.variationModel, {
+                        types: ['mediumLarge', 'extraLarge', 'small', 'mediumLarge_2x', 'extraLarge_2x', 'small_2x'],
+                        quantity: 'all'
+                    });
+                } else {
+                    decorators.images(product1, apiProduct1, {
+                        types: ['mediumLarge', 'extraLarge', 'small', 'mediumLarge_2x', 'extraLarge_2x', 'small_2x'],
+                        quantity: 'all'
+                    });
+                }
+                decorators.price(product1, apiProduct1, options.promotions, false, options.optionModel);
+                product1.productName = apiProduct1.custom.fragranceName;
+                giftSetContents.push(product1);
             }
-            decorators.price(product1, apiProduct1, options.promotions, false, options.optionModel);
-            product1.productName = apiProduct1.name;
-            giftSetContents.push(product1);
         }
     }
     return giftSetContents;

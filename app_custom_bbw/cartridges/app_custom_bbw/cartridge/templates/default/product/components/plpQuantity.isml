@@ -7,6 +7,6 @@
             data-pid="${product.id}"/>
         <input type="hidden" name="maxorderqty" value="${product.maxOrderQty}"/>
         <span
-            class="plp-quantity-button plp-increase h-font-size--24 h-fw--normal d-flex align-items-center justify-content-center float-left ${product.maxOrderQty === product.qtyAlreadyInCart ? 'disable' : ''}">${Resource.msg('label.quantity.increase', 'product', null)}</span>
+            class="plp-quantity-button plp-increase h-font-size--24 h-fw--normal d-flex align-items-center justify-content-center float-right ${product.maxOrderQty === product.qtyAlreadyInCart ? 'disable' : ''}">${Resource.msg('label.quantity.increase', 'product', null)}</span>
     </div>
 </div>
