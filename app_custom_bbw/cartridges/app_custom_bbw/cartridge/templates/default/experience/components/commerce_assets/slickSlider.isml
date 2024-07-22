@@ -7,14 +7,24 @@
 <iscomment> Slick - Slider </iscomment>
 <isset name="sliderId" value="${'slider-' + String.split(Math.random(), '.')[1]}" scope="page" />
 <section class="pd-slick-slider-section js-slick-slider-section ${pdict.sliderCustomClass}">
+    <isif condition="${pdict.title !== null && pdict.title !== undefined && pdict.title.length > 0}">
+        <div class="top-offer__title text-center h-dsp--inline-block w-100">
+            <h2 class="h-pos--relative h-mx-md--auto h-mt-md--0 h-mb-md--0 h-fw--bold">
+                ${pdict.title}
+            </h2>
+        </div>
+    </isif>
     <div class="pd-slick-wrapper">
         <isprint value="${pdict.regions.slides
                 .setClassName("pd-slick-slider js-slider arrow-"+ pdict.arrowStyle)
                 //.setComponentClassName("slick-slide-item")
                 .setAttribute('id',sliderId)
-                .setAttribute('style','--slides-gap-md: ' + pdict.gapDesktop + 'px; --slides-gap-sm: ' + pdict.gapMobile + 'px;')
-                .setAttribute('data-custom-indicator',pdict.displayControls)
+                .setAttribute('style','--slides-gap-lg: ' + pdict.gapDesktop + 'px; --slides-gap-md: ' + pdict.gapTablet + 'px; --slides-gap-sm: ' + pdict.gapMobile + 'px;')
+                .setAttribute('data-custom-indicator-desktop',pdict.displayControlsDesktop)
+                .setAttribute('data-custom-indicator-tablet',pdict.displayControlsTablet)
+                .setAttribute('data-custom-indicator-mobile',pdict.displayControlsMobile)
                 .setAttribute('data-slide-to-show-dekstop',pdict.slideToShowDesktop)
+                .setAttribute('data-slide-to-show-tablet',pdict.slideToShowTablet)
                 .setAttribute('data-slide-to-show-mobile',pdict.slideToShowMobile)
                 .setAttribute('data-custom-dots',pdict.displayIndicators)
                 .setAttribute('data-slick-loop',pdict.infinityLoop)
