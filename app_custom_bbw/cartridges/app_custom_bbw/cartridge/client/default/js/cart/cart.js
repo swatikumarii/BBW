@@ -23,6 +23,28 @@ function appendToUrl(url, params) {
 }
 
 /**
+ * Get params from a querystring
+ * @param {string} name - paramtert name
+ * @param {string} queryString - Querystring
+ * @returns {string} value of the given parameter in the querystring.
+ */
+function getParameterByName(name, queryString) {
+    if (queryString.startsWith('?')) {
+        queryStringA = queryString.substring(1);
+    }
+    var params = queryStringA.split('&');
+    // Iterate over the key-value pairs
+    for (var param of params) {
+        var [key, value] = param.split('=');
+
+        if (key === name) {
+            return decodeURIComponent(value || ''); 
+        }
+    }
+    return null; 
+}
+
+/**
  * Clear error notification
  */
 function clearErrorNotification() {
@@ -707,6 +729,13 @@ module.exports = function () {
                     if (data.basket.valid.error === false) {
                         $('.cart-error-messaging').addClass('d-none');
                     }
+                }
+                var pid = getParameterByName('pid', data.queryString);
+                if ($('#product-search-results').length > 0) {
+                    var selectorString = 'button.add-to-cart[data-pid="'+pid+'"]';
+                    var $button = $(selectorString);
+                    $button.show();
+                    $button.siblings('.plp-simple-quantity').hide();
                 }
 
                 $('body').trigger('cart:update', data);
