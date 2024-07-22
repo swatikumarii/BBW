@@ -8,6 +8,9 @@
                 <p class="optional-promo">${Resource.msg('action.enter.promo.code', 'cart', null)}</p>
             </div>
         </div>
+        <div class="coupon-error coupon-gc-error-wrap d-none h-font-size--16 h-fw--semibold h-bg--red-10 my-3 h-clr--red h-maxwidth-perc-md--90 px-3 py-2">
+            <span class="coupon-gc-error" role="alert">${Resource.msg('gc.removed.promo.msg', 'cart', null)}</span>
+        </div>
         <div class="row">
             <div class="checkout-promo-code-form col-12">
                 <div action="${URLUtils.url('Cart-AddCoupon').toString()}" class="promo-code-form" method="GET"

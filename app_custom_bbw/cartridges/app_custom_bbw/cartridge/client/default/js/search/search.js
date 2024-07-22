@@ -688,7 +688,7 @@ module.exports = {
         $(document).on('click', '.plp-increase', function () {
             var maxOrderQty = Number($(this).siblings('input[name="maxorderqty"]').val());
             var self = $(this);
-            var inputTag = $(this).siblings('input.quantity-select');
+            var inputTag = $(this).siblings('input.quantity-select-plp');
             var quantity = Number(inputTag.val());
             if (quantity >= maxOrderQty) {
                 $(this).addClass('disable');
@@ -720,7 +720,7 @@ module.exports = {
         $('body').on('click', '.quantity-field > .plp-decrease', function () {
             var maxOrderQty = Number($(this).siblings('input[name="maxorderqty"]').val());
             var increaseButton = $(this).siblings('.plp-increase');
-            var inputTag = $(this).siblings('input.quantity-select');
+            var inputTag = $(this).siblings('input.quantity-select-plp');
             var quantity = Number(inputTag.val());
             quantity -= 1;
             var productID = inputTag.data('pid');
