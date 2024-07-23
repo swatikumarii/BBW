@@ -65,6 +65,38 @@ var config = {
 
 observerRec.observe(targetElement, config);
 
+/**
+ * lazyLoadSlotOnId
+ * @param {string} id - Slot id in which we want to load images with lazy load
+ */
+function lazyLoadSlotOnId(id) {
+
+    var element = document.getElementById(id);
+    if (element) {
+        var observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                var mutationId = $(mutation.target).attr('id');
+                // Check if the target element contains the specific element
+                if (
+                    $(mutation.target).find('[id^="cq_recomm_slot-"]').length >
+                        0 ||
+                    (mutationId &&
+                        mutationId !== 'undefined' &&
+                        mutationId.includes('cq_recomm_slot-'))
+                ) {
+                    init();
+                }
+            });
+        });
+
+        observer.observe(element, {
+            childList: true,
+            subtree: true
+        });
+    }
+}
+
 module.exports = {
-    lazyLoad: init
+    lazyLoad: init,
+    lazyLoadSlotOnId: lazyLoadSlotOnId
 };
