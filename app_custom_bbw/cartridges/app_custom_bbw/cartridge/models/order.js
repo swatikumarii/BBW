@@ -58,11 +58,9 @@ function OrderModel(lineItemContainer, options) {
                 'trackingNumber' in lineItemContainer.shipments[0] &&
                 lineItemContainer.shipments[0].trackingNumber
             ) {
-                var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
-                var trackOrderShippingUrl = orderHelpers.getTrackingUrl(
-                    lineItemContainer.shipments[0].custom.carrier
-                        .trim()
-                        .toString(),
+                var commonHelpers = require('*/cartridge/scripts/helpers/commonHelpers');
+                var trackOrderShippingUrl = commonHelpers.getTrackingUrl(
+                    lineItemContainer.shipments[0].custom.carrier.toString().trim(),
                     lineItemContainer.shipments[0].trackingNumber.toString()
                 );
                 this.trackOrderShippingUrl = trackOrderShippingUrl;

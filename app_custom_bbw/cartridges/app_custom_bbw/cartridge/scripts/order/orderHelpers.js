@@ -73,28 +73,9 @@ function validateTrackingData(orderNumber, orderEmail, billingZipCode) {
     return error;
 }
 
-/**
- * getTrackingUrl Returns Tracking Url using according ro carrier name
- * @param {string} carrier - Career Name of the tracking service
- * @param {string }trackingNumber - Tracking Number of the order
- * @returns {string} - returns a tracking URL or false
- */
-function getTrackingUrl(carrier, trackingNumber){
-    if(!carrier || !trackingNumber){
-        return false;
-    }
-    var Site = require('dw/system/Site');
-    var allTrackingUrls = Site.current.getCustomPreferenceValue('allTrackingUrls');
-    allTrackingUrls = JSON.parse(allTrackingUrls);
-    var trackingUrl = '';
-    trackingUrl = allTrackingUrls[carrier] + trackingNumber;
-    return trackingUrl;
-}
-
 module.exports = {
     validateTrackingData: validateTrackingData,
-    getOrderDetailsByID: getOrderDetailsByID,
-    getTrackingUrl: getTrackingUrl
+    getOrderDetailsByID: getOrderDetailsByID
 };
 
 Object.keys(base).forEach(function (prop) {
