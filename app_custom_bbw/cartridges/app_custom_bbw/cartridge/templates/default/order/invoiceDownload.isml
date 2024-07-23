@@ -363,7 +363,7 @@
                                 ${pdict.order.totals.totalDiscountFormatted}</p>
                         </div>
                     </div>
-                    <isif condition="${pdict.order.totals.allDiscounts.length > 0}">
+                    <iscomment> <isif condition="${pdict.order.totals.allDiscounts.length > 0}">
                         <isloop items="${pdict.order.totals.allDiscounts}" var="discount" status="loopstatus">
                             <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
                                 <div class="col-md-10">
@@ -382,7 +382,7 @@
                                 </div>
                             </div>
                         </isloop>
-                    </isif>
+                    </isif> </iscomment>
                 </isif>
 
                 <isif condition="${pdict.order.totals.miniCartSubTotal.length > 0}">
