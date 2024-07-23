@@ -66,10 +66,10 @@
                     <td class="table_detail left e s w" nowrap="nowrap"><label class="item-label" for="">${'quantityValue' in product ? product.quantityValue.toFixed(0): '1'}</label></td>
                     <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${'productID' in product ? product.productID : ''}</label></td>
                     <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${'productName' in product ? product.productName : product.lineItemText}</label></td>
-                    <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${product.custom.cardNumber}</label></td>
+                    <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${product.custom.eGiftCardNumber}</label></td>
                     <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${product.getNetPrice()}</label></td>
-                    <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${product.custom.recipientName}</label></td>
-                    <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${product.custom.recipientEmail}</label></td>
+                    <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${product.custom.eGiftReceiver}</label></td>
+                    <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">${product.custom.eGiftReceiverEmail}</label></td>
                     <td class="table_detail left e s" nowrap="nowrap"><label class="item-label" for="">
                         <isif condition="${new Date(product.custom.eGiftScheduledDate + ' ' + product.custom.eGiftScheduledMonths + ' ' + new Date().getFullYear()) > new Date()}">
                             ${Resource.msgf('order.product.resend.single.scheduled','resend',null, product.custom.eGiftScheduledDate + ' ' + product.custom.eGiftScheduledMonths)}

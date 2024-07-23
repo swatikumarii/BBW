@@ -18,6 +18,7 @@ server.append(
         var ProductMgr = require('dw/catalog/ProductMgr');
         var cartHelper = require('*/cartridge/scripts/cart/cartHelpers');
         var viewData = res.getViewData();
+        var isPlp = req.querystring.plp === 'true';
         if (req.querystring.cgid) {
             if (!viewData.product.isEgiftCard) {
                 viewData.urls.product = URLUtils.url('Product-Show', 'pid', viewData.product.id, 'cat', req.querystring.cgid);
@@ -37,6 +38,7 @@ server.append(
         var productValidationHelpers = require('*/cartridge/scripts/helpers/productValidationHelpers');
         var maxOrderQty = productValidationHelpers.getProductMaxOrderQty(product);
         viewData.product.maxOrderQty = maxOrderQty;
+        viewData.isPlp = isPlp;
         res.setViewData(viewData);
         next();
     }

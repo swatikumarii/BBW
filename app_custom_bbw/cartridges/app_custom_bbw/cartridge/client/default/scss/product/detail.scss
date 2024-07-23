@@ -147,6 +147,7 @@
     .product-name {
         line-height: 1.75rem;
         margin-bottom: 1.0625rem;
+        min-height: 48px;
 
         .small-title {
             line-height: 1.25rem;
@@ -217,6 +218,16 @@
             padding-bottom: 4px;
         }
 
+        @include media-down(sm) {
+            .promotions-wrap {
+                min-height: 52px;
+
+                .callout-message span {
+                    min-height: 23px;
+                }
+            }
+        }
+
         .promotion-callout {
             line-height: 1.25rem;
             letter-spacing: 0.005em;
@@ -231,6 +242,10 @@
                     margin-top: 0.3125rem;
                     text-decoration: underline;
                     content: "Details";
+
+                    @include media-down(sm) {
+                        min-height: 18px;
+                    }
                 }
 
                 .popover-header {
@@ -758,6 +773,7 @@
     max-height: 24px;
     height: 24px;
 }
+
 // ------giftcard-popup-------
 .soldout-detail {
     &::after {

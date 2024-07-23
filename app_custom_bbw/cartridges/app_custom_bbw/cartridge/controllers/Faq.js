@@ -5,37 +5,78 @@ var server = require('server');
 var Resource = require('dw/web/Resource');
 var ContentMgr = require('dw/content/ContentMgr');
 var seo = require('*/cartridge/scripts/middleware/seo');
+var userLoggedIn = require('*/cartridge/scripts/middleware/userLoggedIn');
 
 /**
  * Faq-UpdateVote : UpdateVote
  * @name Faq-UpdateVote
  */
-server.post('UpdateVote', function (req, res, next) {
+server.post('UpdateVote', userLoggedIn.validateLoggedIn, function (req, res, next) {
     var CustomObjectMgr = require('dw/object/CustomObjectMgr');
     var Transaction = require('dw/system/Transaction');
-    var faq = CustomObjectMgr.getCustomObject(
-        'faqVotes',
-        req.form.currentContentId
+    var CustomerMgr = require('dw/customer/CustomerMgr');
+    var contentId = req.form.currentContentId;
+    var faq = CustomObjectMgr.getCustomObject('faqVotes', contentId);
+    var customer = CustomerMgr.getCustomerByCustomerNumber(
+        req.currentCustomer.profile.customerNo
     );
+    var votedArticles = customer.profile.custom.votedArticles || '';
+    
     Transaction.wrap(function () {
         if (!faq) {
             // create custom object
-            faq = CustomObjectMgr.createCustomObject(
-                'faqVotes',
-                req.form.currentContentId
-            );
+            faq = CustomObjectMgr.createCustomObject('faqVotes', contentId);
         }
         if (faq) {
+            var articleHelpfulUsers = req.form.articleHelpful ? 1 : 0;
+            var increment = 1;
+            if (!votedArticles.length) {
+                var initialObject = {};
+                initialObject[contentId] = articleHelpfulUsers;
+                customer.profile.custom.votedArticles =
+                    JSON.stringify(initialObject);
+            } else {
+                var jsonObject = JSON.parse(votedArticles);
+                if (contentId in jsonObject) {
+                    if (jsonObject[contentId] && req.form.articleHelpful) {
+                        increment = 0;
+                    } else if (
+                        !jsonObject[contentId] &&
+                        req.form.articleNotHelpful
+                    ) {
+                        increment = 0;
+                    } else if (
+                        jsonObject[contentId] &&
+                        req.form.articleNotHelpful
+                    ) {
+                        faq.custom.articleHelpfulYes =
+                            (faq.custom && faq.custom.articleHelpfulYes
+                                ? faq.custom.articleHelpfulYes
+                                : 0) - 1;
+                    } else if (
+                        !jsonObject[contentId] &&
+                        req.form.articleHelpful
+                    ) {
+                        faq.custom.articleHelpfulNo =
+                            (faq.custom && faq.custom.articleHelpfulNo
+                                ? faq.custom.articleHelpfulNo
+                                : 0) - 1;
+                    }
+                }
+                jsonObject[contentId] = articleHelpfulUsers;
+                customer.profile.custom.votedArticles =
+                    JSON.stringify(jsonObject);
+            }
             if (req.form.articleHelpful) {
                 faq.custom.articleHelpfulYes =
                     (faq.custom && faq.custom.articleHelpfulYes
                         ? faq.custom.articleHelpfulYes
-                        : 0) + 1;
+                        : 0) + increment;
             } else if (req.form.articleNotHelpful) {
                 faq.custom.articleHelpfulNo =
                     (faq.custom && faq.custom.articleHelpfulNo
                         ? faq.custom.articleHelpfulNo
-                        : 0) + 1;
+                        : 0) + increment;
             }
         }
     });

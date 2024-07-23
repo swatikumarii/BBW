@@ -25,7 +25,7 @@
                     <isset name="headerImage"
                         value="${require('dw/system/Site').getCurrent().getCustomPreferenceValue('header_image')}"
                         scope="page" />
-                    <img src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/header/Logos-main.svg')}"
+                    <img width="100%" height="100%" src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/header/Logos-main.svg')}"
                         alt="${Resource.msg('global.storename', 'common', null)}" />
                 </a>
             </div>
@@ -54,7 +54,7 @@
                 <iscomment>Offers</iscomment>
                 <div class="offers d-md-none fa-pull-right m-0">
                     <a href="${URLUtils.url('Page-Show', 'cid', 'top-offers')}" title="offers">
-                        <img class="" src="${URLUtils.staticURL('/images/header/UI-Tag-v2.svg')}"
+                        <img class="" width="20px" height="29px" src="${URLUtils.staticURL('/images/header/UI-Tag-v2.svg')}"
                             alt="${Resource.msg('global.offers', 'common', null)}" />
                     </a>
                 </div>

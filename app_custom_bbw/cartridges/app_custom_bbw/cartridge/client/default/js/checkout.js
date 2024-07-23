@@ -66,11 +66,12 @@ function checkFields(form) {
 
 $(document).ready(function () {
     processInclude(require('./checkout/checkout'));
+    var checkoutStage = $('#checkout-main').attr('data-checkout-stage');
     var name = 'paymentError';
     var error = new RegExp(
         '[?&]'.concat(encodeURIComponent(name), '=([^&]*)')
     ).exec(window.location.search);
-    if (error || paymentStage) {
+    if (error || paymentStage || checkoutStage === 'payment') {
         if (error) {
             $('.error-message').show();
             $('.error-message-text').text(decodeURIComponent(error[1]));
@@ -126,7 +127,6 @@ $(document).ready(function () {
         }
     });
 
-    var checkoutStage = $('#checkout-main').attr('data-checkout-stage');
     $('form.shipping-form input, form.shipping-form select').on(
         'input change',
         function () {
@@ -365,7 +365,11 @@ $(document).on(
             $(
                 '#paymentMethodsList .paymentMethod [type="radio"]:checked'
             ).val() === 'applepay' &&
-            !($('#contactEmail').val() || '').length
+            (!($('#contactEmail').val() || '').length ||
+                !$('#contactEmail').attr('pattern') ||
+                !(new RegExp($('#contactEmail').attr('pattern') || '').test(
+                    $('#contactEmail').val() || ''
+                )))
         ) {
             $('#component_applepay button').attr('disabled', 'disabled');
             $('#contactEmail').trigger('change');
@@ -380,15 +384,20 @@ $(document).on(
         }
     }
 );
-$(document).on('change', '#contactEmail', function () {
+$(document).on('input', '#contactEmail', function () {
     if (
         ($('#contactEmail').val() || '').length &&
-        (!$('#contactEmail').data('pattern') ||
-            ($('#contactEmail').data('pattern') || '').test(
-                $('#contactEmail').val()
+        (!$('#contactEmail').attr('pattern') ||
+            new RegExp($('#contactEmail').attr('pattern') || '').test(
+                $('#contactEmail').val() || ''
             ))
     ) {
         $('#component_applepay button').removeAttr('disabled');
+    } else if (
+        $('#paymentMethodsList .paymentMethod [type="radio"]:checked').val() ===
+        'applepay'
+    ) {
+        $('#component_applepay button').attr('disabled', 'disabled');
     }
 });
 

@@ -219,12 +219,12 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
     var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
     var sentEmailRecipients = [];
     var giftCertificateLineItems = order.productLineItems;
+    var sendEmailNow = false;
     logger.info('Before updating order and shipping status for order id {0} is {1}', order.orderNo, order.status.displayValue);
     Transaction.wrap(function () {
         try {
             if (cardIssued && giftCertificateLineItems && giftCertificateLineItems.length > 0) {
                 var giftLineItem = giftCertificateLineItems[GCNumber];
-                var sendEmailNow = false;
                 if (giftLineItem.custom.eGiftEmailPending && getCurrentMonth() === giftLineItem.custom.eGiftCardScheduleMonth && giftLineItem.custom.eGiftCardScheduleDay <= getCurrentDate()) {
                     sendEmailNow = true;
                 }
@@ -308,7 +308,7 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
         }
     });
     logger.info('updated order and shipping status for order id {0} is {1}', order.orderNo, order.status.displayValue);
-    if (!sendPendingEmail && GCNumber === 0 && cardIssued) {
+    if (sendEmailNow && cardIssued) {
         var confirmationEmail = new Mail();
         confirmationEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
         confirmationEmail.setSubject(Resource.msg('subject.egift.delivered.confirmation.email', 'giftcards', null));

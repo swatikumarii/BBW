@@ -61,5 +61,18 @@
         padding: 8px;
         color: colour(black, 1);
         line-height: 20px;
+        min-height: 56px;
+
+        @include media-up(md) {
+            min-height: 56px;
+        }
+    }
+
+    &__image {
+        min-height: 156.66px;
+
+        @include media-up(md) {
+            min-height: 192.49px;
+        }
     }
 }
