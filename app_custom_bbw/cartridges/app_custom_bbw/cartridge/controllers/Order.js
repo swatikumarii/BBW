@@ -415,22 +415,12 @@ server.get(
                     }
                 }
                 var isOrderBaseRemoveGiftCard = true;
-                var trackOrderShippingUrl = '';
-                if (orderModel.trackingNumber && orderModel.trackingUrl) {
-                    trackOrderShippingUrl = orderModel.trackingUrl
-                        ? orderModel.trackingUrl
-                        : '';
-                    var orderTrackingNumber = orderModel.trackingNumber;
-                    trackOrderShippingUrl += orderTrackingNumber;
-                }
-
                 res.render('account/orderDetails', {
                     order: orderModel,
                     exitLinkText: exitLinkText,
                     exitLinkUrl: exitLinkUrl,
                     isOrderBaseRemoveGiftCard: isOrderBaseRemoveGiftCard,
                     isEgiftCard: isEgiftCard,
-                    trackOrderShippingUrl: trackOrderShippingUrl,
                     breadcrumbs: breadcrumbs
                 });
             } else {

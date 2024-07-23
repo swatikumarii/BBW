@@ -39,6 +39,7 @@ function OrderModel(lineItemContainer, options) {
         this.exportStatus = 'exportStatus' in lineItemContainer ? lineItemContainer.exportStatus : 0;
         this.invoiceDownloadUrl = URLUtils.https('Order-InvoiceDownload', 'token', encrptedOrderNumber).toString();
         this.trackingUrl = trackingUrl;
+        this.trackOrderShippingUrl='';        
         var currentSite = Site.getCurrent();
         var currency = new Money(0, currentSite.getDefaultCurrency());
         var currencyCode = currency.toFormattedString();
@@ -51,6 +52,22 @@ function OrderModel(lineItemContainer, options) {
             this.totals.hasFreeShipping = getFreeShippingStatus(lineItemContainer);
         }
         if (lineItemContainer.shipments && lineItemContainer.shipments.length > 0) {
+
+            if (
+                'carrier' in lineItemContainer.shipments[0].custom &&
+                'trackingNumber' in lineItemContainer.shipments[0] &&
+                lineItemContainer.shipments[0].trackingNumber
+            ) {
+                var orderHelpers = require('*/cartridge/scripts/order/orderHelpers');
+                var trackOrderShippingUrl = orderHelpers.getTrackingUrl(
+                    lineItemContainer.shipments[0].custom.carrier
+                        .trim()
+                        .toString(),
+                    lineItemContainer.shipments[0].trackingNumber.toString()
+                );
+                this.trackOrderShippingUrl = trackOrderShippingUrl;
+            }
+
             this.shippingStatus = 'shippingStatus' in lineItemContainer.shipments[0] ? lineItemContainer.shipments[0].shippingStatus : '';
             this.trackingNumber = 'trackingNumber' in lineItemContainer.shipments[0] ? lineItemContainer.shipments[0].trackingNumber : '';
         }

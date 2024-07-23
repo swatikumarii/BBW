@@ -114,9 +114,9 @@
                                 <span
                                     class="shipping-method-title text-capitalize h-font-size--16 h-fw--bold label h-clr--black-1">${shippingModel.selectedShippingMethod.shippingCost}</span>
                             </p>
-                            <isif condition="${pdict.trackOrderShippingUrl != ''}">
+                            <isif condition="${!(pdict.order.trackOrderShippingUrl === '' || pdict.order.trackOrderShippingUrl === null)}">
                                 <p class="shipping-method">
-                                    <a class="btn btn-hover btn-secondary h-fw--bold h-p h-pb--5 h-pt--5" href="${pdict.trackOrderShippingUrl}" target="_blank">${Resource.msg('msg.track.order', 'order', null)}</a>
+                                    <a class="btn btn-hover btn-secondary h-fw--bold h-p h-pb--5 h-pt--5" href="${pdict.order.trackOrderShippingUrl}" target="_blank">${Resource.msg('msg.track.order', 'order', null)}</a>
                                 </p>
                             </isif>
                         </div>
