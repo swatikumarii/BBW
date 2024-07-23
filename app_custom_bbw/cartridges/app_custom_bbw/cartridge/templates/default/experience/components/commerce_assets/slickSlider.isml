@@ -8,9 +8,9 @@
 <isset name="sliderId" value="${'slider-' + String.split(Math.random(), '.')[1]}" scope="page" />
 <section class="pd-slick-slider-section js-slick-slider-section ${pdict.sliderCustomClass}">
     <isif condition="${pdict.title !== null && pdict.title !== undefined && pdict.title.length > 0}">
-        <div class="top-offer__title text-center h-dsp--inline-block w-100">
+        <div class="pd-slick-slider__title text-center h-dsp--inline-block w-100">
             <h2 class="h-pos--relative h-mx-md--auto h-mt-md--0 h-mb-md--0 h-fw--bold">
-                ${pdict.title}
+                <isprint value="${pdict.title}" encoding="off" />
             </h2>
         </div>
     </isif>
