@@ -44,9 +44,9 @@ module.exports.render = function (context, modelIn) {
 
     model.sliderCustomClass = content.sliderCustomClass ? content.sliderCustomClass : '';
 
-    model.slideToShowMobile = content.slideToShowMobile ? content.slideToShowMobile : null;
-    model.slideToShowTablet = content.slideToShowTablet ? content.slideToShowTablet : null;
-    model.slideToShowDesktop = content.slideToShowDesktop ? content.slideToShowDesktop : null;
+    model.slideToShowMobile = content.slideToShowMobile ? content.slideToShowMobile : 1;
+    model.slideToShowTablet = content.slideToShowTablet ? content.slideToShowTablet : 1;
+    model.slideToShowDesktop = content.slideToShowDesktop ? content.slideToShowDesktop : 1;
     model.gapMobile = content.gapMobile ? content.gapMobile : 0;
     model.gapTablet = content.gapTablet ? content.gapTablet : 0;
     model.gapDesktop = content.gapDesktop ? content.gapDesktop : 0;
