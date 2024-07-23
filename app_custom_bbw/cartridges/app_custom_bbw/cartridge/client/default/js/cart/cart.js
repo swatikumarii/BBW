@@ -710,7 +710,7 @@ module.exports = function () {
                     updateApproachingDiscounts(
                         data.basket.orderApproachingDiscounts,
                         data.basket.shippingApproachingDiscounts,
-                        isMiniCart
+                        isPopupMinicart
                     );
                     $('body').trigger(
                         'setShippingMethodSelection',

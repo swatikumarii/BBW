@@ -414,9 +414,7 @@ server.get(
                         }
                     }
                 }
-
                 var isOrderBaseRemoveGiftCard = true;
-
                 res.render('account/orderDetails', {
                     order: orderModel,
                     exitLinkText: exitLinkText,

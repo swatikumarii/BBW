@@ -358,6 +358,24 @@ function sendFailedOrderEmail(order, locale) {
     emailHelpers.sendEmail(emailObj, 'checkout/failOrder/failOrderEmail', orderObject);
 }
 
+/**
+ * Attempts to create an order from the current basket
+ * @param {dw.order.Basket} currentBasket - The current basket
+ * @returns {dw.order.Order} The order object created from the current basket
+ */
+function createOrder(currentBasket) {
+    var order;
+    try {
+        order = Transaction.wrap(function () {
+            order = OrderMgr.createOrder(currentBasket);
+            order.custom.emailRecommendationPids = 'custom' in currentBasket && 'emailRecommendationPids' in currentBasket.custom && currentBasket.custom.emailRecommendationPids ? currentBasket.custom.emailRecommendationPids : null;
+            return order;
+        });
+    } catch (error) {
+        return error;
+    }
+    return order;
+}
 
 base.placeOrder = placeOrder;
 base.validatePayment = validatePayment;
@@ -365,5 +383,6 @@ base.sendConfirmationEmail = sendConfirmationEmail;
 base.calculatePaymentTransaction = calculatePaymentTransaction;
 base.copyBillingAddressToBasket = copyBillingAddressToBasket;
 base.sendFailedOrderEmail = sendFailedOrderEmail;
+base.createOrder = createOrder;
 
 module.exports = base;
