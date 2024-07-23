@@ -28,6 +28,8 @@
             </div>
 
             <div class="row mb-5">
+                <input type="hidden" name="pdpPage" value="${product.id}">
+                <input type="hidden" name="motivatorUrl" value="${URLUtils.url('Cart-CheckMotivator')}">
                 <!-- Product Images Carousel -->
                 <isinclude template="product/components/imageCarousel" />
 
@@ -150,7 +152,7 @@
                             </isif>
                             <isloop items="${product.promotions}" var="promotion" status="loopstatus">
                                 <isif condition="${promotion.motivator && promotion.motivator !== 'false' && !empty(promotion.motivator)}">
-                                    <div class="mb-1">
+                                    <div class="mb-1 motivator">
                                         <isprint value="${promotion.motivator}" encoding="off" />
                                     </div>
                                 </isif>

@@ -447,6 +447,34 @@ server.append('RemoveProductLineItem', function (req, res, next) {
     next();
 });
 
+/**
+ * 
+ * @param {object} order - Order or Current Basket Object
+ * @param {string} UUID - UUID of the lineItem
+ * @returns {string} - Prorated Price
+ */
+function getProratedPrice(order, UUID) {
+    var proratedPrice = 0;
+    for (var index = 0; index < order.allProductLineItems.length; index++) {
+        var product = order.allProductLineItems[index];
+        if (product.UUID === UUID) {
+            proratedPrice = (
+                product.proratedPrice.value / product.quantityValue
+            ).toFixed(2);
+            break;
+        }
+    }
+    return proratedPrice;
+}
+
+server.prepend('RemoveProductLineItem', function (req, res, next) {
+    var currentBasket = BasketMgr.getCurrentBasket();
+    var viewData = res.getViewData();
+    var UUID = req.querystring.uuid;
+    viewData.proratedPrice = getProratedPrice(currentBasket, UUID);
+    res.setViewData(viewData);
+    next();
+});
 
 /**
  * Cart-AddProduct : The Cart-AddProduct endpoint check product price and retrun if price is zero
@@ -455,6 +483,7 @@ server.append('RemoveProductLineItem', function (req, res, next) {
 server.prepend('AddProduct', function (req, res, next) {
     var Resource = require('dw/web/Resource');
     var Transaction = require('dw/system/Transaction');
+    var ProductLineItemsModel = require('*/cartridge/models/productLineItems');
     var price = cartHelper.getProductPrice(req.form.pid);
     var currentBasket = BasketMgr.getCurrentBasket();
     if (price === 0) {
@@ -480,8 +509,12 @@ server.prepend('AddProduct', function (req, res, next) {
             }
         });
     }
-    if (req.form.quantity === '0') {
+    if (req.form.quantity === '0' && currentBasket) {
+        var quantityTotal = ProductLineItemsModel.getTotalQuantity(
+            currentBasket.productLineItems
+        );
         res.json({
+            quantityTotal: quantityTotal,
             error: true,
             errorCode: 'DELETE-LINEITEM',
         });
@@ -809,6 +842,19 @@ server.get('UpdateShippingMethod', function (req, res, next) {
         }
     }
     res.json({success: true});
+    next();
+});
+
+server.get('CheckMotivator', function (req, res, next) {
+    var ProductMgr = require('dw/catalog/ProductMgr');
+    var PromotionMgr = require('dw/campaign/PromotionMgr');
+    var decorators = require('*/cartridge/models/product/decorators/index');
+    var pid = req.querystring.pid;
+    var product = ProductMgr.getProduct(pid);
+    var promotions = PromotionMgr.activeCustomerPromotions.getProductPromotions(product);
+    var motivator = {};
+    decorators.promotions(motivator, promotions);
+    res.json({motivator: motivator});
     next();
 });
 

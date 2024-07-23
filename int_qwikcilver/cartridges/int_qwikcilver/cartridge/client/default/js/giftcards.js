@@ -233,9 +233,15 @@ $(document).ready(function () {
                                 $('.afterpay-checkout-widget').find('square-placement').attr('data-amount', data.basketModel.totals.pendingTotal.pendingAmountValue);
                             }
                         }
+                        if (data.success) {
+                            $('.giftcard-partial-redemption')
+                                .empty()
+                                .append(data.success).addClass('mt-4 p-2');
+                        }
                     }
                 } else {
                     $('.added-cards').empty();
+                    $('.giftcard-partial-redemption').empty().removeClass('mt-4 p-2');;
                     $('.add-giftcard-button').empty().text(data.messages.addAGiftcard);
                     $('.remaining-balance').empty();
                     if (!data.hideCreditCardForm) {
