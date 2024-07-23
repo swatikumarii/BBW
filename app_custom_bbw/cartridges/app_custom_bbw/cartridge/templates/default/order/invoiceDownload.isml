@@ -7,7 +7,7 @@
                         <isset name="headerImage"
                             value="${require('dw/system/Site').getCurrent().getCustomPreferenceValue('header_image')}"
                             scope="page" />
-                        <img class="hidden-md-down img-fluid w-100"
+                        <img class="hidden-md-down img-fluid"
                             src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/bbw-logo-invoice.png')}"
                             alt="${Resource.msg('global.storename', 'common', null)}" style="width: 220px" />
                     </div>
@@ -318,6 +318,8 @@
                     scope="page" />
                 <isset name="showShippingHandlingTaxes"
                     value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingHandlingTaxes')}" scope="page" />
+                <isset name="showAdjustedMerchandizeSubtotal"
+                    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showAdjustedMerchandizeSubtotal')}" scope="page" />
 
                 <iscomment> Subtotal </iscomment>
                 <isif condition="${totalExclusiveTax}">
@@ -383,6 +385,21 @@
                             </div>
                         </isloop>
                     </isif>
+                </isif>
+                <isif condition="${showAdjustedMerchandizeSubtotal && pdict.order.totals.miniCartSubTotal.length > 0}">
+                    <div class="row" style="display:flex; justify-content: flex-end; font-family: SourceSansPro, Arial, sans-serif;">
+                        <div class="col-md-10">
+                            <p class="h-font-size--16 h-clr--black-1"
+                                style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                <strong>${Resource.msg('label.adjusted.merchandise.subtotal', 'cart', null)}:</strong>
+                            </p>
+                        </div>
+                        <div class="col-md-2" style=" margin-left: 31px;">
+                            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold sub-total"
+                                style=" margin-bottom: 0px; font-family: SourceSansPro, Arial, sans-serif;">
+                                ${pdict.order.totals.miniCartSubTotal}</p>
+                        </div>
+                    </div>
                 </isif>
 
                 <iscomment> Shipping Charge </iscomment>
@@ -576,7 +593,7 @@
             <tbody>
                 <tr style="vertical-align: baseline; display:flex;  margin-left: 40px;">
                     <td style="vertical-align:baseline; display:flex; align-items:center;">
-                        <img class=" img-fluid w-100"
+                        <img class=" img-fluid"
                             src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/InvoiceReports-revis-logo-01.png')}"
                             alt="${Resource.msg('global.storename', 'common', null)}" style="width: 50px" />
                         <p style="font-size:16px; margin-bottom: 20px; width: 227px; margin-left: 20px;">
@@ -584,7 +601,7 @@
                         </p>
                     </td>
                     <td style="vertical-align:baseline;  display:flex; align-items:center;">
-                        <img class=" img-fluid w-100"
+                        <img class=" img-fluid"
                             src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/InvoiceReports-revis-logo-02.png')}"
                             alt="${Resource.msg('global.storename', 'common', null)}" style="width: 50px" />
                         <p style="font-size:16px; margin-bottom: 20px; width: 176px; margin-left: 10px;">
@@ -592,7 +609,7 @@
                         </p>
                     </td>
                     <td style="vertical-align:baseline;  display:flex; align-items:center;">
-                        <img class="img-fluid w-100"
+                        <img class="img-fluid"
                             src="${headerImage ? headerImage.url : URLUtils.staticURL('/images/invoice/InvoiceReports-revis-logo-03.png')}"
                             alt="${Resource.msg('global.storename', 'common', null)}" style="width: 50px" />
                         <p style="font-size:16px; margin-bottom: 20px; width: 200px; margin-left: 20px;">

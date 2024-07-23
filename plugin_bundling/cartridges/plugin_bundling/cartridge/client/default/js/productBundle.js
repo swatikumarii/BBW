@@ -20,6 +20,28 @@ function checkIfBundleReady() {
     }
 }
 
+/**
+ * Updates the Mini-Cart quantity value after the customer has pressed the "Add to Cart" button
+ */
+function showSuccessToastMessage() {
+    var messageType = 'alert-success';
+    var toastMessage = $('#add-to-cart-toast-message').val();
+    if ($('.add-to-cart-messages').length === 0) {
+        $('body').append('<div class="add-to-cart-messages"></div>');
+    }
+
+    $('.add-to-cart-messages').append(
+        '<div class="alert ' +
+            messageType +
+            ' add-to-basket-alert text-left h-fw--semibold show" role="alert">' +
+            toastMessage +
+            '</div>'
+    );
+    setTimeout(function () {
+        $('.add-to-basket-alert').remove();
+    }, 5000);
+}
+
 $(document).ready(function () {
     var deviceWidth = $(window).innerWidth();
     var bundleName = $('.bundleName').val();
@@ -126,6 +148,7 @@ $(document).ready(function () {
             },
             complete: function () {
                 $('body').find('.loader').remove();
+                showSuccessToastMessage();
                 parent.find('.panel-collapse.in').collapse('hide');
                 $('body').css('overflow', '');
                 parent.find('#productbundle-modal .productDetail, #productbundle-modal .productbundle-dialog').toggleClass('show');

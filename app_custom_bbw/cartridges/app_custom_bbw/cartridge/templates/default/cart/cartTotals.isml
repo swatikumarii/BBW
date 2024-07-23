@@ -5,6 +5,8 @@
 <isset name="showSalesTaxes" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showSalesTaxes')}" scope="page" />
 <isset name="showShippingHandlingTaxes" value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingHandlingTaxes')}"
     scope="page" />
+<isset name="showAdjustedMerchandizeSubtotal"
+    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showAdjustedMerchandizeSubtotal')}" scope="page" />
 
 <iscomment> Subtotal </iscomment>
 <isif condition="${totalExclusiveTax}">
@@ -33,6 +35,16 @@
     <isinclude template="cart/cartDiscountsHtml" sf-toolkit="on" />
 </div>
 
+<isif condition="${showAdjustedMerchandizeSubtotal}">
+    <div class="row">
+        <div class="col-8">
+            <p class="h-font-size--16 h-clr--black-1">${Resource.msg('label.adjusted.merchandise.subtotal', 'cart', null)}</p>
+        </div>
+        <div class="col-4">
+            <p class="text-right h-font-size--16 h-clr--black-1 h-fw--semibold adj-sub-total">${pdict.totals.miniCartSubTotal}</p>
+        </div>
+    </div>
+</isif>
 
 <iscomment> Shipping Charge </iscomment>
 <isif condition="${!pdict.isGiftProductAvailable}">

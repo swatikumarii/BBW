@@ -21,7 +21,7 @@
         </div>
         <div class="col-9 pr-md-0">
             <div class="line-item-header flex-column">
-                <div class="social-badge-wrapper d-flex h-grid-gap--5 flex-wrap h-maxwidth--100">
+                <div class="social-badge-wrapper d-flex h-grid-gap--5 flex-wrap h-maxwidth--150">
                     <isif condition="${lineItem.badge1}">
                         <div class="b-product-tile__social-badge">
                             <div

@@ -1,0 +1,12 @@
+<div class="quantity">
+    <div class="quantity-field qty bundle-footer">
+        <span
+            class="plp-quantity-button plp-decrease h-font-size--24 h-fw--normal d-flex align-items-center justify-content-center float-left">${Resource.msg('label.quantity.decrease', 'product', null)}</span>
+        <input type="number" class="input-text text-center p-0 float-left border-0 h-fw--semibold quantity-select-plp"
+            name="Quantity" id="Quantity" value="${product.qtyAlreadyInCart ? product.qtyAlreadyInCart.toString() : '1'}" data-action="${URLUtils.url('Cart-AddProduct')}"
+            data-pid="${product.id}"/>
+        <input type="hidden" name="maxorderqty" value="${product.maxOrderQty}"/>
+        <span
+            class="plp-quantity-button plp-increase h-font-size--24 h-fw--normal d-flex align-items-center justify-content-center float-right ${product.maxOrderQty === product.qtyAlreadyInCart ? 'disable' : ''}">${Resource.msg('label.quantity.increase', 'product', null)}</span>
+    </div>
+</div>

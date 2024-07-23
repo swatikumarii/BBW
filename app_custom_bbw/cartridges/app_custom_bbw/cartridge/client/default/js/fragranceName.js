@@ -63,7 +63,7 @@ $(document).ready(function () {
 
     // search functionality for product ingredients
     $('#ingredient-search').on('change keyup', function (event) {
-        $('#search-ingredient-div').removeClass('d-md-none');
+        $('#search-ingredient-div').removeClass('d-none');
         var searchTerm = $(event.currentTarget);
         var searchPhrase = searchTerm.val();
         var liElements = $('li.level-2');
@@ -88,6 +88,12 @@ $(document).ready(function () {
                     hideAlphabets.push(hideAlphabet);
                 }
             }
+            if (!$('li.level-2:visible').length) {
+                $('#search-ingredient-div').addClass('d-none');
+            }else if(!$('li.level-2:hidden').length) {
+                $('#search-ingredient-div').addClass('d-none');
+            }
+
         });
 
         if (hideAlphabets.length) {

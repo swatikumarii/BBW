@@ -56,7 +56,7 @@
                                 <img src="${URLUtils.absStatic('/images/email/orders/status/icon-placed.png')}"
                                     alt="Progress" style="border:0;vertical-align:top;width:90%;" />
                             </p>
-                            <div>
+                            <div style="margin:0 0 15px;">
                                 <!--[if mso]>
                                             <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="${URLUtils.abs('Order-Details', 'orderID', pdict.order.orderNumber, 'orderFilter', pdict.orderFilter)}" style="height:40px;v-text-anchor:middle;width:200px;" strokecolor="#333" fillcolor="#333">
                                                 <w:anchorlock/>
@@ -65,6 +65,10 @@
                                         <![endif]--><a
                                     href="${URLUtils.abs('Order-Details', 'orderID', pdict.order.orderNumber, 'orderFilter', pdict.orderFilter)}"
                                     style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;">${Resource.msg('email.btn.view.order.status', 'confirmation', null)}</a>
+                            </div>
+                            <div>
+                                <a href="${pdict.order.invoiceDownloadUrl}"
+                                    style="font-size:14px;text-transform:uppercase;background-color:#333;border:1px solid #333;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;line-height:40px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;cursor: pointer;">${Resource.msg('email.btn.download.invoice', 'confirmation', null)}</a>
                             </div>
                         </div>
                         <p
@@ -278,6 +282,8 @@
                             scope="page" />
                         <isset name="showShippingHandlingTaxes"
                             value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingHandlingTaxes')}" scope="page" />
+                        <isset name="showAdjustedMerchandizeSubtotal"
+                            value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showAdjustedMerchandizeSubtotal')}" scope="page" />
                         <table width="100%" cellpadding="0" cellspacing="0">
                             <tbody>
                                 <tr>
@@ -339,6 +345,19 @@
                                                         </tr>
                                                     </isloop>
                                                 </isif>
+
+                                                <iscomment> Adjusted Merchandise Subtotal </iscomment>
+                                                <isif condition="${showAdjustedMerchandizeSubtotal}">
+                                                    <tr>
+                                                        <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;">
+                                                            ${Resource.msg('email.order.adjusted.merchandise.subtotal', 'confirmation', null)}
+                                                        </td>
+                                                        <td style="font-size:18px;text-transform:uppercase;vertical-align:top;padding:13px 0;text-align:right">
+                                                            ${pdict.order.totals.miniCartSubTotal}
+                                                        </td>
+                                                    </tr>
+                                                </isif>
+
                                                 <iscomment> Shipping Charge </iscomment>
                                                 <isif condition="${pdict.order.items.items[0].isEgiftCard !== true}">
                                                     <tr>

@@ -6,6 +6,7 @@ var gtmEvents = require('*/cartridge/config/gtmEvents');
 var ProductMgr = require('dw/catalog/ProductMgr');
 var Logger = require('dw/system/Logger');
 var Site = require('dw/system/Site');
+var getAllBreadcrumbs = require('*/cartridge/scripts/helpers/productHelpers').getAllBreadcrumbs;
 
 var gtmEnabled =
     Site.getCurrent().getCustomPreferenceValue('gtmScriptEnabled') || false;
@@ -18,6 +19,18 @@ var orderStatusMatrix = {
     6: 'Order Cancelled',
     5: 'Order Completed'
 };
+
+function getProratedPrice(order, UUID) {
+    var proratedPrice = 0;
+    for (var index = 0; index < order.allProductLineItems.length; index++) {
+        var product = order.allProductLineItems[index];
+        if (product.UUID === UUID) {
+            proratedPrice = (product.proratedPrice.value / product.quantityValue).toFixed(2);
+            break;
+        }
+    }
+    return proratedPrice;
+}
 
 /**
  * @param {object} res - current route response object
@@ -169,10 +182,10 @@ function getPdpData(res) {
             item_name: res.product.gtmData.item_name,
             item_id: res.product.gtmData.item_id,
             discount: res.product.tierPrice ? (res.product.tierPrice - res.product.price.sales.decimalPrice).toFixed(2) : '',
-            item_category: category[0] || '',
-            item_category2: category[1] || '',
-            item_category3: category[2] || '',
-            item_category4: category[3] || '',
+            item_category: category[1] || '',
+            item_category2: category[2] || '',
+            item_category3: category[3] || '',
+            item_category4: category[4] || '',
             price: res.product.price.sales.decimalPrice,
             quantity: 1
         });
@@ -235,14 +248,23 @@ function addToCart(res) {
                 break;
             }
         }
+        var breadcrumbs = getAllBreadcrumbs(false, lineItem.id, []).reverse();
         obj.push({
             item_name: lineItem.productName,
             item_id: lineItem.id,
-            discount: lineItem.tierPrice ? (lineItem.tierPrice - lineItem.price.sales.value).toFixed(2):'',
-            item_brand: lineItem.brand ? lineItem.brand:'',
-            item_category: lineItem.product ? lineItem.product:'',
-            price: lineItem.price.sales.decimalPrice ? lineItem.price.sales.decimalPrice : '',
-            quantity: lineItem.quantity,
+            discount: lineItem.tierPrice
+                ? (lineItem.tierPrice - lineItem.price.sales.value).toFixed(2)
+                : '',
+            item_brand: lineItem.brand ? lineItem.brand : '',
+            item_category: breadcrumbs[1] ? breadcrumbs[1].htmlValue : '',
+            item_category2: breadcrumbs[2] ? breadcrumbs[2].htmlValue : '',
+            item_category3: breadcrumbs[3] ? breadcrumbs[3].htmlValue : '',
+            item_category4: breadcrumbs[4] ? breadcrumbs[4].htmlValue : '',
+            item_category5: breadcrumbs[5] ? breadcrumbs[5].htmlValue : '',
+            price: lineItem.price.sales.decimalPrice
+                ? lineItem.price.sales.decimalPrice
+                : '',
+            quantity: lineItem.quantity
         });
 
 
@@ -270,24 +292,33 @@ function addToCart(res) {
 function removeFromCart(res) {
     var currentBasket = dw.order.BasketMgr.getCurrentBasket();
     var lineItem=res.itemToRemove;
+    var breadcrumbs = getAllBreadcrumbs(lineItem.category, lineItem.category ? null : lineItem.productID, []).reverse();
     var obj = [];
     obj.push({
         item_name: lineItem.productName,
         item_id: lineItem.productID,
-        discount: lineItem.product.priceModel.price.value && res.itemPrice ? (lineItem.product.priceModel.price.value - res.itemPrice).toFixed(2): '',
+        discount:
+            lineItem.product.priceModel.price.value && res.itemPrice
+                ? (
+                      lineItem.product.priceModel.price.value -
+                      res.proratedPrice
+                  ).toFixed(2)
+                : '',
         item_brand: lineItem.product.brand ? lineItem.product.brand : '',
-        item_category: lineItem.category ? lineItem.category : '',
+        item_category: breadcrumbs[1] ? breadcrumbs[1].htmlValue : '',
+        item_category2: breadcrumbs[2] ? breadcrumbs[2].htmlValue : '',
+        item_category3: breadcrumbs[3] ? breadcrumbs[3].htmlValue : '',
+        item_category4: breadcrumbs[4] ? breadcrumbs[4].htmlValue : '',
+        item_category5: breadcrumbs[5] ? breadcrumbs[5].htmlValue : '',
         quantity: lineItem.quantity.value,
-        price: res.itemPrice
+        price: res.proratedPrice
     });
     var object = {
         event: gtmEvents.REMOVE_PRODUCT_LINE_ITEM_FROM_CART,
         ecommerce: {
             items: obj,
             currency: currentBasket.currencyCode,
-            value: lineItem.product.priceModel.price
-                ? lineItem.product.priceModel.price.value
-                : '',
+            value: obj[0].price * obj[0].quantity
         }
     };
     return object;
@@ -304,6 +335,7 @@ function removeFromCart(res) {
 function addToWishlist(res) {
     var pid = res.pid;
     var productData = ProductMgr.getProduct(pid);
+    var breadcrumbs = getAllBreadcrumbs(false, productData.ID, []).reverse();
     var obj = {
         event: gtmEvents.ADD_TO_WISHLIST,
         ecommerce: {
@@ -313,7 +345,11 @@ function addToWishlist(res) {
                 item_id: pid,
                 item_name: productData.name,
                 item_brand: productData.brand ? productData.brand : '',
-                item_category: productData.allCategories[0].displayName ? productData.allCategories[0].displayName : '',
+                item_category: breadcrumbs[1] ? breadcrumbs[1].htmlValue : '',
+                item_category2: breadcrumbs[2] ? breadcrumbs[2].htmlValue : '',
+                item_category3: breadcrumbs[3] ? breadcrumbs[3].htmlValue : '',
+                item_category4: breadcrumbs[4] ? breadcrumbs[4].htmlValue : '',
+                item_category5: breadcrumbs[5] ? breadcrumbs[5].htmlValue : '',
                 price: productData.priceModel.price.value,
                 quantity:1
             }]
@@ -400,16 +436,28 @@ function getCheckoutData() {
         };
         for (var i = 0; i < currentBasket.productLineItems.length; i++) {
             var product = currentBasket.productLineItems[i];
+            var breadcrumbs = getAllBreadcrumbs(false, product.productID, []).reverse();
             obj.ecommerce.items.push({
                 item_name: product.productName,
                 item_id: product.productID,
-                item_brand: product.product.brand
-                    ? product.product.brand
-                    : '',
-                discount: product.basePrice && product.adjustedGrossPrice ? (product.basePrice.value - product.adjustedGrossPrice.value).toFixed(2): '',
-                item_category: product.category ? product.category : '',
+                item_brand: product.product.brand ? product.product.brand : '',
+                discount:
+                    product.basePrice && product.adjustedGrossPrice
+                        ? (
+                              product.basePrice.value -
+                              product.proratedPrice.value /
+                                  product.quantityValue
+                          ).toFixed(2)
+                        : '',
+                item_category: breadcrumbs[1] ? breadcrumbs[1].htmlValue : '',
+                item_category2: breadcrumbs[2] ? breadcrumbs[2].htmlValue : '',
+                item_category3: breadcrumbs[3] ? breadcrumbs[3].htmlValue : '',
+                item_category4: breadcrumbs[4] ? breadcrumbs[4].htmlValue : '',
+                item_category5: breadcrumbs[5] ? breadcrumbs[5].htmlValue : '',
                 quantity: product.quantity.value,
-                price: product.adjustedGrossPrice.value
+                price: (
+                    product.proratedPrice.value / product.quantityValue
+                ).toFixed(2)
             });
         }
     }
@@ -436,14 +484,18 @@ function addShipping(res) {
         };
         if ('order' in res) {
             for (var i = 0; i < res.order.items.items.length; i++) {
+                var breadcrumbs = getAllBreadcrumbs(false, res.order.items.items[i].id, []).reverse();
                 obj.ecommerce.items.push({
                     item_name: res.order.items.items[i].productName,
                     item_id: res.order.items.items[i].id,
                     item_brand: res.order.items.items[i].brand ? res.order.items.items[i].brand:'' ,
-                    item_category: res.order.items.items[i].gtmData.item_category ? res.order.items.items[i].gtmData.item_category:'',
-                    item_categoryID: res.order.items.items[i].gtmData.item_categoryID ? res.order.items.items[i].gtmData.item_categoryID:'',
-                    price: res.order.items.items[i].priceTotal.priceValue,
-                    quantity: res.order.productQuantityTotal,
+                    item_category: breadcrumbs[1] ? breadcrumbs[1].htmlValue : '',
+                    item_category2: breadcrumbs[2] ? breadcrumbs[2].htmlValue : '',
+                    item_category3: breadcrumbs[3] ? breadcrumbs[3].htmlValue : '',
+                    item_category4: breadcrumbs[4] ? breadcrumbs[4].htmlValue : '',
+                    item_category5: breadcrumbs[5] ? breadcrumbs[5].htmlValue : '',
+                    price: getProratedPrice(currentBasket,res.order.items.items[i].UUID),
+                    quantity: res.order.items.items[i].quantity,
                 });
             }
         }
@@ -473,29 +525,26 @@ function addPayment(res) {
                 currency: currentBasket.currencyCode,
                 value: currentBasket.totalGrossPrice.value.toFixed(2),
                 payment_type: paymentMethod,
-                add: {
-                    products: []
-                }
+                coupon: currentBasket.couponLineItems.length > 0 ? currentBasket.couponLineItems[0].couponCode : '',
+                items: []
             }
         };
         if ('order' in res) {
             for (var i = 0; i < res.order.items.items.length; i++) {
-                obj.ecommerce.add.products.push({
+                var breadcrumbs = getAllBreadcrumbs(false, res.order.items.items[i].id, []).reverse();
+                obj.ecommerce.items.push({
                     item_name: res.order.items.items[i].productName,
                     item_id: res.order.items.items[i].id,
                     item_brand: res.order.items.items[i].brand
                         ? res.order.items.items[i].brand
                         : '',
-                    item_category: res.order.items.items[i].gtmData
-                        .item_category
-                        ? res.order.items.items[i].gtmData.item_category
-                        : '',
-                    item_categoryID: res.order.items.items[i].gtmData
-                        .item_categoryID
-                        ? res.order.items.items[i].gtmData.item_categoryID
-                        : '',
-                    price: res.order.items.items[i].price.sales.decimalPrice,
-                    quantity: res.order.productQuantityTotal
+                    item_category: breadcrumbs[1] ? breadcrumbs[1].htmlValue : '',
+                    item_category2: breadcrumbs[2] ? breadcrumbs[2].htmlValue : '',
+                    item_category3: breadcrumbs[3] ? breadcrumbs[3].htmlValue : '',
+                    item_category4: breadcrumbs[4] ? breadcrumbs[4].htmlValue : '',
+                    item_category5: breadcrumbs[5] ? breadcrumbs[5].htmlValue : '',
+                    price: getProratedPrice(currentBasket,res.order.items.items[i].UUID),
+                    quantity: res.order.items.items[i].quantity
                 });
             }
 
@@ -534,7 +583,8 @@ function getConfirmationData(res) {
         };
         if ('order' in res) {
             for (var i = 0; i < res.order.items.items.length; i++) {
-                var unitBaseDiscountedPrice = (res.order.items.items[i].priceTotal.priceValue / res.order.items.items[i].quantity).toFixed(2);
+                var breadcrumbs = getAllBreadcrumbs(res.order.items.items[i].gtmData.item_category, res.order.items.items[i].id, []).reverse();
+                var proratedPrice = getProratedPrice(order, res.order.items.items[i].UUID);
                 obj.ecommerce.items.push({
                     item_name: res.order.items.items[i].productName,
                     item_id: res.order.items.items[i].id,
@@ -542,14 +592,17 @@ function getConfirmationData(res) {
                         ? res.order.items.items[i].brand
                         : '',
                     // coupon:res.order.totals.discounts[i].couponCode,
-                    item_category: res.order.items.items[i].gtmData
-                        .item_category
-                        ? res.order.items.items[i].gtmData.item_category
-                        : '',
-                    price: unitBaseDiscountedPrice,
+                    item_category: breadcrumbs[1] ? breadcrumbs[1].htmlValue : '',
+                    item_category2: breadcrumbs[2] ? breadcrumbs[2].htmlValue : '',
+                    item_category3: breadcrumbs[3] ? breadcrumbs[3].htmlValue : '',
+                    item_category4: breadcrumbs[4] ? breadcrumbs[4].htmlValue : '',
+                    item_category5: breadcrumbs[5] ? breadcrumbs[5].htmlValue : '',
+                    price: proratedPrice,
                     discount: res.order.items.items[i].basePrice.valueOrNull
-                        ? (res.order.items.items[i].basePrice.value -
-                          unitBaseDiscountedPrice).toFixed(2)
+                        ? (
+                              res.order.items.items[i].basePrice.value -
+                              proratedPrice
+                          ).toFixed(2)
                         : 0,
                     quantity: res.order.items.items[i].quantity
                 });

@@ -2,6 +2,8 @@
 
 var Site = require('dw/system/Site');
 var Resource = require('dw/web/Resource');
+var Logger = require('dw/system/Logger');
+var loggerOrderConfirmation = Logger.getLogger('AfterpayUpdateOrder');
 
 var afterpayUpdateOrderService = module.superModule;
 
@@ -11,6 +13,10 @@ afterpayUpdateOrderService.sendConfirmationEmail = function (order, containerVie
     var emailContentHelpers = require('*/cartridge/scripts/helpers/emailContentHelpers');
     var ContentMgr = require('dw/content/ContentMgr');
     var brandUtilities = require('*/cartridge/scripts/util/afterpayUtilities').brandUtilities;
+
+    loggerOrderConfirmation.info(
+        'Order Confirmation mail trigger for this ' + order.customerEmail
+    );
 
     var emailMarkup = '';
     var emailContent = ContentMgr.getContent('email-order-confirmation'); // Order Confirmation Email Content Asset Id
@@ -37,7 +43,21 @@ afterpayUpdateOrderService.sendConfirmationEmail = function (order, containerVie
         type: emailHelpers.emailTypes.orderConfirmation
     };
 
-    emailHelpers.sendEmail(emailObj, 'checkout/confirmation/confirmationEmail', orderObject);
+    try {
+        var mailSent = emailHelpers.sendEmail(
+            emailObj,
+            'checkout/confirmation/confirmationEmail',
+            orderObject
+        );
+    } catch (e) {
+        loggerOrderConfirmation.error(
+            'Error in Sending Order Confirmation mail ' + e.message
+        );
+    }
+    loggerOrderConfirmation.info(
+        'Order Confirmation mail successfully sended for this ' +
+            order.customerEmail
+    );
 };
 
 module.exports = afterpayUpdateOrderService;

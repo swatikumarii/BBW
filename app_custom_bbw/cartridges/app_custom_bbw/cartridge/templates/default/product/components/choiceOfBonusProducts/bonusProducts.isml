@@ -1,139 +1,91 @@
 <isset name="renderedQuantity" value="${false}" scope="page" />
 <isloop items="${pdict.products}" var="product" status="productLoopStatus">
-    <div class="col-12 bonus-product-item ready-to-order choice-of-bonus-product" data-pid="${product.id}" data-ready-to-order="${product.readyToOrder}" data-optionID="">
-        <div class="product-quickview product-${product.productType} col product-wrapper product-detail" data-pid="${product.id}">
-            <div class="row">
+    <div class="col-12 bonus-product-item ready-to-order choice-of-bonus-product border my-4" data-pid="${product.id}"
+        data-ready-to-order="${product.readyToOrder}" data-optionID="">
+        <div class="product-quickview product-${product.productType} col product-wrapper product-detail"
+            data-pid="${product.id}">
+            <div class="row align-items-center">
                 <!-- Product Images Carousel -->
                 <isinclude template="product/components/imageCarousel" />
                 <!-- Product Name and Number -->
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                     <div class="row">
                         <div class="col-12">
                             <isif condition="${product.brand}">
                                 <h3 class="brand-name h-font-size--10 h-clr--black-1 text-capitalize mb-0">
-                                ${product.brand}</h3>
+                                    ${product.brand}</h3>
                             </isif>
-                            <h1 class="product-name hidden-sm-down h-font-size--12 text-capitalize h-clr--black-1 h-fw--semibold mt-0">
+                            <p
+                                class="product-name hidden-sm-down h-font-size--18 text-capitalize h-clr--blue h-fw--normal my-0">
                                 ${product.fragranceName ? product.fragranceName : product.productName}
-                                <isif condition="${product.titlePartB}">
-                                    <div class="row">
-                                        <div class="col">
-                                            <span
-                                                class="titlePartB-name small-title h-font-size--12 h-fw--normal h-clr--gray-4 d-block">${product.titlePartB}</span>
-                                        </div>
-                                    </div>
-                                </isif>
-                            </h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="detail-panel">
-                                <!-- Attributes -->
-                                <section>
-                                    <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
-                                        <div data-attr="${attr.id}" class="swatch row">
-                                            <isif condition="${attributeStatus.last}">
-                                                <isset name="isQuickView" value="${false}" scope="page"/>
-                                                <div class="col-8">
-                                                    <isinclude template="product/components/choiceOfBonusProducts/variationAttributeBonusProducts" />
-                                                </div>
-                                                <!-- Quantity Drop Down Menu -->
-                                                <div class="col-4 quantity">
-                                                    <isinclude template="product/components/choiceOfBonusProducts/bonusProductsQuantity" />
-                                                    <isset name="renderedQuantity" value="${true}" scope="page" />
-                                                </div>
-                                                <isset name="isQuickView" value="${true}" scope="page"/>
-                                                <iselse>
-                                                <div class="col-8">
-                                                    <isinclude template="product/components/choiceOfBonusProducts/variationAttributeBonusProducts" />
-                                                </div>
-                                            </isif>
-                                        </div>
-                                    </isloop>
-                                </section>
-                                <isif condition="${product.productType !== 'bundle'}">
-                                    <!-- Options -->
-                                    <isif condition="${product.options && product.options.length > 0}">
-                                        <isset name="isQuickView" value="${false}" scope="page"/>
-                                        <isloop items="${product.options}" var="option" status="loopStatus">
-                                            <div class="row product-option" data-option-id="${option.id}">
-                                                <div class="bonus-option ${loopStatus.last && !isQuickView || isProductSet ? 'col-8' : 'col-12' }">
-                                                    <isinclude template="product/components/option" />
-                                                </div>
-                                                <!-- Quantity Drop Down Menu -->
-                                                <isif condition="${loopStatus.last && (!isQuickView || isProductSet)}">
-                                                    <div class="col-4 quantity">
-                                                        <isinclude template="product/components/choiceOfBonusProducts/bonusProductsQuantity" />
-                                                        <isset name="renderedQuantity" value="${true}" scope="page" />
-                                                    </div>
-                                                </isif>
-                                            </div>
-                                        </isloop>
-                                        <isset name="isQuickView" value="${true}" scope="page"/>
-                                    </isif>
-                                </isif>
-                                <isif condition="${!renderedQuantity}">
-                                    <div class="col-12 quantity">
-                                        <isinclude template="product/components/choiceOfBonusProducts/bonusProductsQuantity" />
-                                    </div>
-                                </isif>
+                            </p>
+                            <isif condition="${product.titlePartB}">
                                 <div class="row">
-                                    <div class="col-12 bonus-product-price">
-                                        ${product.bonusUnitPrice}
+                                    <div class="col">
+                                        <span
+                                            class="titlePartB-name small-title h-font-size--20 h-fw--semibold h-clr--black-1 d-block">${product.titlePartB}</span>
                                     </div>
                                 </div>
-                                <div class="row mt-3">
-                                    <div class="col-sm-12">
-                                        <button class="btn btn-block btn-outline-primary select-bonus-product"
-                                                data-pid="${product.id}"
-                                        ${!product.readyToOrder || !product.available ? "disabled" : ""}>
-                                        ${Resource.msg('button.choiceofbonus.select', 'product', null)}
-                                    </button>
+                            </isif>
+                            <isif condition="${product.volume}">
+                                <div class="row">
+                                    <div class="col">
+                                        <span
+                                            class="titlePartB-name small-title h-font-size--16 h-fw--normal h-clr--gray-4 d-block">${product.titlePartB}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            </isif>
                         </div>
                     </div>
+                    <input type="hidden"
+                        class="h-bg--gray-1 input-text text-center bonus-quantity-select p-0 float-left border-0 h-fw--semibold quantity-select w-50"
+                        name="Quantity" id="Quantity" value="1" />
                 </div>
+
+                <input type="checkbox" class="btn btn-block btn-outline-primary select-bonus-product"
+                    data-pid="${product.id}" ${!product.readyToOrder || !product.available ? "disabled" : ""} ${pdict.selectedBonusProducts && !(pdict.selectedBonusProducts.length < 0) && pdict.selectedBonusProducts[0].pid === product.id ? 'checked' : ''}>
+
             </div>
         </div>
-        <hr />
         <isif condition="${pdict.moreUrl && productLoopStatus.last && pdict.showMoreButton}">
             <div class="col-sm-12 text-center">
-                    <button class="btn btn-outline-primary col-12 col-sm-4 show-more-bonus-products" data-url="${pdict.moreUrl}">
-                        ${Resource.msg('button.more', 'search', null)}
-                  </button>
-              </div>
+                <button class="btn btn-outline-primary col-12 col-sm-4 show-more-bonus-products"
+                    data-url="${pdict.moreUrl}">
+                    ${Resource.msg('button.more', 'search', null)}
+                </button>
+            </div>
         </isif>
     </div>
 </isloop>
-<div class="modal-footer">
+<div class="modal-footer border-0">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center justify-content-center pwp-modal-button-allign">
             <!--<div class="col-sm-3 hidden-xs-down"></div>-->
-            <div class="selected-bonus-products">
+            <div class="selected-bonus-products d-none">
                 <div class="bonus-summary row">
                     <div class="col-12">
-                        <span class="pre-cart-products">${pdict.selectedBonusProducts.length}</span> ${Resource.msgf('label.choiceofbonus.selectproducts', 'product', null, pdict.maxPids)}
+                        <span class="pre-cart-products">${pdict.selectedBonusProducts.length}</span>
+                        ${Resource.msgf('label.choiceofbonus.selectproducts', 'product', null, pdict.maxPids)}
                     </div>
                 </div>
                 <isloop items="${pdict.selectedBonusProducts}" var="selectedProduct" status="productLoopStatus">
-                    <div class="selected-pid row"
-                        data-pid="${selectedProduct.pid}"
+                    <div class="selected-pid row" data-pid="${selectedProduct.pid}"
                         data-qty='<isprint value="${selectedProduct.submittedQty}" encoding="htmlsinglequote" formatter="#"/>'
                         data-optionid="${selectedProduct.option.optionid}"
-                        data-option-selected-value="${selectedProduct.option.selectedvalue}" >
+                        data-option-selected-value="${selectedProduct.option.selectedvalue}">
                         <div class="col-10 bonus-product-name">${selectedProduct.name}</div>
                         <div class="col-1"><i class="fa fa-times" aria-hidden="true"></i></div>
                     </div>
                 </isloop>
             </div>
-            <button class="btn btn-primary add-bonus-products"
-                ${!product.readyToOrder || !product.available ? "disabled" : ""}>
-                    <i class="fa fa-shopping-bag"></i>
+            <div class="d-flex justify-content-center pwp-button-align">
+                <button class="btn btn-primary add-bonus-products h-minheight--30" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
                     ${Resource.msg('button.addtocart', 'common', null)}
-            </button>
+                </button>
+                <button class="btn btn-secondary h-minheight--30" ${!product.readyToOrder || !product.available ? "disabled" : ""}>
+                    ${Resource.msg('button.cancel', 'cart', null)}
+                </button>
+            </div>
             <div class="col-sm-3 hidden-xs-down"></div>
         </div>
     </div>

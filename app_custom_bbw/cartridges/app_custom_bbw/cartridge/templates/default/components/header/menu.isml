@@ -4,7 +4,7 @@
         <ul class="nav navbar-nav justify-content-between level-1-ul" role="menu">
             <isif condition="${pdict.categories}">
                 <isloop items="${pdict.categories}" var="category">
-                    <isif condition="${category.subCategories}">
+                    <isif condition="${category.subCategories && category.isMobileSpecific === false}">
                         <li class="nav-item dropdown level-1-li" role="presentation">
                             <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
                             id="${category.id}" class="level-1-link nav-link h-fw--semibold text-capitalize
@@ -19,7 +19,7 @@
                                 <isinclude template="components/header/menuItem" />
                             </isif>
                         </li>
-                    <iselse/>
+                    <iselseif condition="${category.isMobileSpecific === false}"/>
                         <li class="nav-item" role="presentation">
                             <a href="<isprint value=" ${category.url}" encoding="htmldoublequote" />"
                             id="${category.id}" class="nav-link h-font-size--14 h-fw--semibold" role="link"
@@ -55,10 +55,10 @@
                     <input class="h-font-size--18 p-0" type="search" id="mobile-slide-search" value=""
                         placeholder="Search" name="q" />
                     <button type="submit" id="menusearch" class="position-absolute h-100 border-0 p-0 h-bg--white ">
-                        <img class="h-width--20 menu-sidebar-search black-search-icon"
+                        <img class="h-width--20 menu-sidebar-search black-search-icon" width="19px" height="29px"
                             src="${URLUtils.staticURL('/images/header/UI-Search.svg')}"
                             alt="${Resource.msg('global.close', 'common', null)}" />
-                        <img class="h-width--20 menu-sidebar-search blue-search-icon"
+                        <img class="h-width--20 menu-sidebar-search blue-search-icon" width="19px" height="29px"
                             src="${URLUtils.staticURL('/images/header/UI-Search-v2.svg')}"
                             alt="${Resource.msg('global.close', 'common', null)}" />
                     </button>

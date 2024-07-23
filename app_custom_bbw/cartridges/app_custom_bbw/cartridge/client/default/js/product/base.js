@@ -788,7 +788,7 @@ module.exports = $.extend({}, base, {
                     pid: pid,
                     pidsObj: pidsObj,
                     childProducts: getChildProducts(),
-                    quantity: base.getQuantitySelected($(this)) || 1,
+                    quantity: parseInt(base.getQuantitySelected($(this)), 10) || 1,
                     egiftCardDetails: egiftCardDetailsObj
                 };
 
@@ -824,6 +824,21 @@ module.exports = $.extend({}, base, {
                                 }
                                 $.spinner().stop();
                                 return true;
+                            }
+                            if ($('input[name="pdpPage"]').length > 0) {
+                                var motivatorUrl = $('input[name="motivatorUrl"]').val();
+                                motivatorUrl += '?pid=' + $('input[name="pdpPage"]').val();
+                                $.get(motivatorUrl, function (dataMotivator) {
+                                    if (dataMotivator.motivator) {
+                                        $('.motivator').remove();
+                                        dataMotivator.motivator.promotions.forEach(function (promotion) {
+                                            if (promotion.motivator) {
+                                                var html = '<div class="mb-1 motivator">' + promotion.motivator + '</div>';
+                                                $('.promotions-wrap').append(html);
+                                            }
+                                        });
+                                    }
+                                });
                             }
                             if ($('input[name="maxOrderQty"]').length) {
                                 if (!data.error && 'maxOrderQty' in data && data.maxOrderQty >= 0) {
@@ -872,6 +887,12 @@ module.exports = $.extend({}, base, {
                             base.miniCartReportingUrl(data.reportingURL);
                             if ($('#quickViewModal')) {
                                 $('#quickViewModal').modal('hide');
+                            }
+                            if ($('#product-search-results').length > 0) {
+                                $button.hide();
+                                $button.siblings('.plp-simple-quantity').show();
+                                $button.siblings('.plp-simple-quantity').find('.quantity-select-plp').attr('data-pid',pid);
+                                $button.siblings('.plp-simple-quantity').find('.quantity-select-plp').val(1);
                             }
                             return true;
                         },
@@ -922,6 +943,14 @@ module.exports = $.extend({}, base, {
                             $.spinner().stop();
                             base.miniCartReportingUrl(data.reportingURL);
                             $('button.add-to-cart').prop('disabled', false);
+                            if ($('#product-search-results').length > 0) {
+                                var selectorString = 'button.add-to-cart[data-pid="'+productID+'"]';
+                                var $button = $(selectorString);
+                                $button.hide();
+                                $button.siblings('.plp-simple-quantity').show();
+                                $button.siblings('.plp-simple-quantity').find('.quantity-select-plp').attr('data-pid',productID);
+                                $button.siblings('.plp-simple-quantity').find('.quantity-select-plp').val(1);
+                            }
                         },
                         error: function () {
                             $.spinner().stop();
@@ -987,6 +1016,45 @@ module.exports = $.extend({}, base, {
     denyDeleteItems: function () {
         $('button.delete-lineitem-deny-btn').on('click', function () {
             $('button.add-to-cart').prop('disabled', false);
+        });
+    },
+    selectBonusProduct: function () {
+        $(document).on('click', '.select-bonus-product', function () {
+            if ($(this).is(':checked')) {
+                var $choiceOfBonusProduct = $(this).parents('.choice-of-bonus-product');
+                var pid = $(this).data('pid');
+                $choiceOfBonusProduct.parent().find('.select-bonus-product').each(function () {
+                    if ($(this).data('pid') !== pid) {
+                        $(this).prop('checked', false);
+                    }
+                });
+                var maxPids = $('.choose-bonus-product-dialog').data('total-qty');
+                var submittedQty = parseInt($choiceOfBonusProduct.find('.bonus-quantity-select').val(), 10);
+                var totalQty = 0;
+                totalQty += submittedQty;
+                var optionID = $choiceOfBonusProduct.find('.product-option').data('option-id');
+                var valueId = $choiceOfBonusProduct.find('.options-select option:selected').data('valueId');
+                if (totalQty <= maxPids) {
+                    var selectedBonusProductHtml = ''
+                    + '<div class="selected-pid row" '
+                    + 'data-pid="' + pid + '"'
+                    + 'data-qty="' + submittedQty + '"'
+                    + 'data-optionID="' + (optionID || '') + '"'
+                    + 'data-option-selected-value="' + (valueId || '') + '"'
+                    + '>'
+                    + '<div class="col-sm-11 col-9 bonus-product-name" >'
+                    + $choiceOfBonusProduct.find('.product-name').html()
+                    + '</div>'
+                    + '<div class="col-1"><i class="fa fa-times" aria-hidden="true"></i></div>'
+                    + '</div>';
+                    $('#chooseBonusProductModal .selected-bonus-products .selected-pid').remove();
+                    $('#chooseBonusProductModal .selected-bonus-products').append(selectedBonusProductHtml);
+                    $('.pre-cart-products').html(totalQty);
+                    $('.selected-bonus-products .bonus-summary').removeClass('alert-danger');
+                } else {
+                    $('.selected-bonus-products .bonus-summary').addClass('alert-danger');
+                }
+            }
         });
     }
 });

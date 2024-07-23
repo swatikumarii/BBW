@@ -489,11 +489,13 @@ server.append(
         this.on('route:BeforeComplete', function () {
             // send email when order total 0
             var commonHelper = require('*/cartridge/scripts/helpers/commonHelpers');
-            var COHelpers = require('*/cartridge/scripts/checkout/checkoutHelpers');
             var dynamicBadgeHelpers = require('*/cartridge/scripts/helpers/dynamicBadgeHelpers');
+            var qwikcilverHelpers = require('*/cartridge/scripts/helpers/qwikcilverHelpers');
             var viewData = res.getViewData();
             var OrderMgr = require('dw/order/OrderMgr');
             var order = OrderMgr.getOrder(viewData.order.orderNumber);
+            var isGiftProductAvailable = qwikcilverHelpers.validateGiftProduct(order);
+            viewData.isGiftProductAvailable = isGiftProductAvailable;
             if (order && order.totalGrossPrice.value === 0) {
                 commonHelper.zeroOrderEmail(viewData.order);
             }
@@ -533,6 +535,7 @@ server.append(
                         order.custom.capillaryOrderID = crmOrderID;
                         order.custom.capillaryResponse = '';
                         order.custom.capillaryFailed = false;
+                        order.custom.capillaryRequest = '';
                     } else {
                         order.custom.capillaryFailed = true;
                     }
@@ -553,6 +556,7 @@ server.append(
                             order.custom.capillaryOrderID = crmOrderID;
                             order.custom.capillaryResponse = '';
                             order.custom.capillaryFailed = false;
+                            order.custom.capillaryRequest = '';
                         } else {
                             order.custom.capillaryFailed = true;
                         }

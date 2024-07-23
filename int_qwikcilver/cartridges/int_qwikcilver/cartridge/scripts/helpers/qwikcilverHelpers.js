@@ -219,12 +219,12 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
     var renderTemplateHelper = require('*/cartridge/scripts/renderTemplateHelper');
     var sentEmailRecipients = [];
     var giftCertificateLineItems = order.productLineItems;
+    var sendEmailNow = false;
     logger.info('Before updating order and shipping status for order id {0} is {1}', order.orderNo, order.status.displayValue);
     Transaction.wrap(function () {
         try {
             if (cardIssued && giftCertificateLineItems && giftCertificateLineItems.length > 0) {
                 var giftLineItem = giftCertificateLineItems[GCNumber];
-                var sendEmailNow = false;
                 if (giftLineItem.custom.eGiftEmailPending && getCurrentMonth() === giftLineItem.custom.eGiftCardScheduleMonth && giftLineItem.custom.eGiftCardScheduleDay <= getCurrentDate()) {
                     sendEmailNow = true;
                 }
@@ -289,6 +289,18 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
             logger.info('After updating order and shipping status for order id {0} is {1}', order.orderNo, order.status.displayValue);
             // If Card is not created, Set Email pending status and Sent email through Job
             if (!cardIssued) {
+                if(Site.getCurrent().getCustomPreferenceValue('merchantEmailforGiftCardFailure')){
+                    var contextFailure = {
+                        order: orderModel
+                    };
+                    var giftCardFailureEmail = new Mail();
+                    giftCardFailureEmail.addTo(Site.current.getCustomPreferenceValue('merchantEmailforGiftCardFailure'));
+                    giftCardFailureEmail.setSubject(Resource.msgf('subject.order.egift.failure.email', 'giftcards', null,orderModel.orderNumber));
+                    giftCardFailureEmail.setFrom(Site.current.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
+                    giftCardFailureEmail.setContent(renderTemplateHelper.getRenderedHtml(contextFailure, 'checkout/confirmation/eGiftFailureEmailToMerchant'), 'text/html', 'UTF-8');
+                    giftCardFailureEmail.send();
+                    logger.info('giftCardFailureEmail: GC failure email status, message and code of order id {0} is {1} {2} {3}',  orderModel.orderNumber, giftCardFailureEmail.status, giftCardFailureEmail.message, giftCardFailureEmail.code);
+                }
                 order.custom.eGiftEmailPending = true;
             }
         } catch (error) {
@@ -296,7 +308,7 @@ function sendGiftCardEmail(order, locale, sendPendingEmail, cardIssued, GCNumber
         }
     });
     logger.info('updated order and shipping status for order id {0} is {1}', order.orderNo, order.status.displayValue);
-    if (!sendPendingEmail && GCNumber === 0) {
+    if (sendEmailNow && cardIssued) {
         var confirmationEmail = new Mail();
         confirmationEmail.setFrom(Site.current.getCustomPreferenceValue('customerServiceEmail') || 'no-reply@testorganization.com');
         confirmationEmail.setSubject(Resource.msg('subject.egift.delivered.confirmation.email', 'giftcards', null));
@@ -370,6 +382,7 @@ function updatePaymentInstruments(basket, cardNumber, cardPin, cardsObj) {
                         if (giftPaymentInstruments[j].custom.eGiftCardNumber === null) {
                             giftPaymentInstruments[j].custom.eGiftCardNumber = cardNumber;
                             giftPaymentInstruments[j].custom.eGiftCardPin = encodeToBase64(cardPin);
+                            giftPaymentInstruments[j].custom.eGiftCardBalance = cardBalance;
                             break;
                         }
                     }

@@ -41,7 +41,7 @@ img:not([src]) {
         content: "";
         position: absolute;
         top: 0;
-        left: -100%;
+        left: 0;
         width: 100%;
         height: 100%;
         background: linear-gradient(
@@ -50,17 +50,17 @@ img:not([src]) {
             rgba(255, 255, 255, 80%),
             transparent
         );
-        animation: wave 1.5s infinite;
+        animation: wave 1.5s linear infinite;
     }
 }
 
 @keyframes wave {
     0% {
-        left: -100%;
+        transform: translateX(-100%); /* Move the gradient fully to the left */
     }
 
     100% {
-        left: 100%;
+        transform: translateX(100%); /* Move the gradient fully to the right */
     }
 }
 

@@ -15,6 +15,7 @@
 // API Includes
 var OrderMgr = require('dw/order/OrderMgr');
 var ArrayList = require('dw/util/ArrayList');
+var SystemObjMgr = require('dw/object/SystemObjectMgr');
 
 /**
  * Get orders
@@ -49,6 +50,21 @@ function getOrders(input) {
       startRow = 1;
       endRow = 1;
     }
+  } else { // all orders on pagination
+    orders = OrderMgr.searchOrders('custom.isEgiftOrder = {0}', 'creationDate desc', true);
+
+    orders.forward((pageNumber - 1) * pageSize, pageSize);
+
+    while (orders.hasNext()) {
+      result.push(orders.next());
+      rowCount++;
+    }
+
+    totalOrderCount = orders.count;
+    startRow = ((pageNumber - 1) * pageSize) + 1;
+    endRow = startRow + rowCount;
+    endRow--;
+    pageCount = Math.ceil(totalOrderCount / pageSize);
   }
   var pages = [];
   for (var index = 1; index <= pageCount; index += 1) {

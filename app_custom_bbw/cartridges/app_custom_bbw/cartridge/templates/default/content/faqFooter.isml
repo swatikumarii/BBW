@@ -8,14 +8,25 @@
     <input type="hidden" class="article-helpful-url" value="${URLUtils.url('Faq-UpdateVote')}" />
     <input type="hidden" class="current-content-id" value="${pdict.currentContentId}" />
     <div class="article-votes-controls" role="group" aria-labelledby="article-votes-label">
-        <button type="button" class="button article-vote article-vote-up"
-            aria-label="${Resource.msg('faq.article.helpful', 'faq', null)}" aria-pressed="false">
-            ${Resource.msg('label.faq.yes', 'faq', null)}
-        </button>
-        <button type="button" class="button article-vote article-vote-down"
-            aria-label="${Resource.msg('faq.article.not.helpful', 'faq', null)}" aria-pressed="false">
-            ${Resource.msg('label.faq.no', 'faq', null)}
-        </button>
+        <isif condition="${!session.isCustomerAuthenticated()}">
+            <button type="button" class="button article-vote loginPopupBtn"
+                aria-label="${Resource.msg('faq.article.helpful', 'faq', null)}" aria-pressed="false">
+                ${Resource.msg('label.faq.yes', 'faq', null)}
+            </button>
+            <button type="button" class="button article-vote loginPopupBtn"
+                aria-label="${Resource.msg('faq.article.not.helpful', 'faq', null)}" aria-pressed="false">
+                ${Resource.msg('label.faq.no', 'faq', null)}
+            </button>
+        <iselse/>
+            <button type="button" class="button article-vote article-vote-up"
+                aria-label="${Resource.msg('faq.article.helpful', 'faq', null)}" aria-pressed="false">
+                ${Resource.msg('label.faq.yes', 'faq', null)}
+            </button>
+            <button type="button" class="button article-vote article-vote-down"
+                aria-label="${Resource.msg('faq.article.not.helpful', 'faq', null)}" aria-pressed="false">
+                ${Resource.msg('label.faq.no', 'faq', null)}
+            </button>
+        </isif>
     </div>
     <small class="article-votes-count">
         <span class="article-vote-label">

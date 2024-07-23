@@ -66,11 +66,12 @@ function checkFields(form) {
 
 $(document).ready(function () {
     processInclude(require('./checkout/checkout'));
+    var checkoutStage = $('#checkout-main').attr('data-checkout-stage');
     var name = 'paymentError';
     var error = new RegExp(
         '[?&]'.concat(encodeURIComponent(name), '=([^&]*)')
     ).exec(window.location.search);
-    if (error || paymentStage) {
+    if (error || paymentStage || checkoutStage === 'payment') {
         if (error) {
             $('.error-message').show();
             $('.error-message-text').text(decodeURIComponent(error[1]));
@@ -126,7 +127,6 @@ $(document).ready(function () {
         }
     });
 
-    var checkoutStage = $('#checkout-main').attr('data-checkout-stage');
     $('form.shipping-form input, form.shipping-form select').on(
         'input change',
         function () {
@@ -361,8 +361,45 @@ $(document).on(
             .closest('.paymentMethod, .afterpay-tab')
             .find('.additionalFields')
             .css('display', 'block');
+        if (
+            $(
+                '#paymentMethodsList .paymentMethod [type="radio"]:checked'
+            ).val() === 'applepay' &&
+            (!($('#contactEmail').val() || '').length ||
+                !$('#contactEmail').attr('pattern') ||
+                !(new RegExp($('#contactEmail').attr('pattern') || '').test(
+                    $('#contactEmail').val() || ''
+                )))
+        ) {
+            $('#component_applepay button').attr('disabled', 'disabled');
+            $('#contactEmail').trigger('change');
+            var element = $('#contactEmail');
+            var position = element && element.length ? element.offset().top : 0;
+            $('html, body').animate(
+                {
+                    scrollTop: position - 250
+                },
+                500
+            );
+        }
     }
 );
+$(document).on('input', '#contactEmail', function () {
+    if (
+        ($('#contactEmail').val() || '').length &&
+        (!$('#contactEmail').attr('pattern') ||
+            new RegExp($('#contactEmail').attr('pattern') || '').test(
+                $('#contactEmail').val() || ''
+            ))
+    ) {
+        $('#component_applepay button').removeAttr('disabled');
+    } else if (
+        $('#paymentMethodsList .paymentMethod [type="radio"]:checked').val() ===
+        'applepay'
+    ) {
+        $('#component_applepay button').attr('disabled', 'disabled');
+    }
+});
 
 $('button.submit-payment').on('click', function () {
     if ($('#selectedPaymentOption').val() === 'AdyenComponent') {
@@ -467,7 +504,7 @@ $('.shippingAddressCity').change(function () {
 });
 
 $('.shippingZipCode').change(function () {
-    var selectedZipCode = $(this).val(); 
+    var selectedZipCode = $(this).val();
     if (selectedZipCode === null) {
         $(this).val('').change();
     }

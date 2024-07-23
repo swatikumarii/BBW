@@ -68,17 +68,29 @@
                 </a>
 
                 <a href="${URLUtils.https('Checkout-Begin')}"
-                    class="btn btn-block ml-1 h-bg--blue-1 h-fw--semibold h-font-size--13 checkout-btn ${pdict.valid.error ? 'disabled' : ''}" role="button">
+                    class="btn btn-block ml-1 h-bg--blue-1 h-fw--semibold h-font-size--13 checkout-btn ${pdict.valid.error ? 'disabled' : ''}"
+                    role="button">
                     ${Resource.msg('button.checkout', 'cart', null)}
                 </a>
             </div>
         <iselse/>
             <div class="mb-sm-3">
-                <a href="${URLUtils.https('Checkout-Begin')}" data-check-motivator="${URLUtils.https('Cart-MissingFree')}"
-                    class="btn btn-primary btn-block checkout-btn h-fw--semibold h-font-size--16 cart-checkout-btn ${pdict.valid.error ? 'disabled' : ''}" role="button">
+                <a href="${URLUtils.https('Checkout-Begin')}"
+                    data-check-motivator="${URLUtils.https('Cart-MissingFree')}"
+                    class="btn btn-primary btn-block checkout-btn h-fw--semibold h-font-size--16 cart-checkout-btn ${pdict.valid.error ? 'disabled' : ''}"
+                    role="button" id="cart-mobile-checkout">
                     <span class="checkout-button-lock"></span>
                     ${Resource.msg('button.checkout', 'cart', null)}
                 </a>
+
+                <!-- Responsive Checkout Button -->
+                <button type="button" id="secure-checkout-mbl-btn" class="btn btn-primary checkout-mobile-modal-btn" data-toggle="modal" data-target="#mobile-cart-checkout">
+                    ${Resource.msg('checkout.mobile.modal.btn', 'cart', null)}
+                    <span class="arrow"></span>
+                </button>
+
+                <!-- Responsive Checkout Modal -->
+                <isinclude template="cart/cartCheckoutMobileModal" />
             </div>
         </isif>
         <isif condition="${AdyenConfigs.areExpressPaymentsEnabled()}">
