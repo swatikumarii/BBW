@@ -38,4 +38,30 @@ server.append('Begin', function (req, res, next) {
     next();
 });
 
+/**
+ * Sets email recommendations in basket.
+ */
+server.post('SetEmailRecommendations', function (req, res, next) {
+    var Transaction = require('dw/system/Transaction');
+    var BasketMgr = require('dw/order/BasketMgr');
+    var confirmationEmailRecommendationPIDs = req.httpParameterMap.confirmationEmailRecommendationPIDs.value ? req.httpParameterMap.confirmationEmailRecommendationPIDs.value.split(',') : null;
+    var shipmentEmailRecommendationPIDs = req.httpParameterMap.shipmentEmailRecommendationPIDs.value ? req.httpParameterMap.shipmentEmailRecommendationPIDs.value.split(',') : null;
+    var deliveryEmailRecommendationPIDs = req.httpParameterMap.deliveryEmailRecommendationPIDs.value ? req.httpParameterMap.deliveryEmailRecommendationPIDs.value.split(',') : null;
+    var currentBasket = BasketMgr.getCurrentBasket();
+    if (currentBasket) {
+        var emailRecommendationPIDs = {
+            confirmationEmailRecommendationPIDs: confirmationEmailRecommendationPIDs,
+            shipmentEmailRecommendationPIDs: shipmentEmailRecommendationPIDs,
+            deliveryEmailRecommendationPIDs: deliveryEmailRecommendationPIDs
+        };
+        Transaction.wrap(function () {
+            currentBasket.custom.emailRecommendationPids = JSON.stringify(emailRecommendationPIDs);
+        });
+    }
+    res.json({
+        message: 'Success'
+    });
+    next();
+});
+
 module.exports = server.exports();
