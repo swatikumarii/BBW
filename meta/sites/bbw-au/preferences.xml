@@ -86,6 +86,13 @@
                     {"country":"Hong Kong", "site": "https://www.bathandbodyworks.hk"}
                 ]
             </preference>
+            <preference preference-id="allTrackingUrls">
+                {
+                    "APOST": "https://auspost.com.au/mypost/track/details/",
+                    "Courier Please": "https://www.couriersplease.com.au/tools-track?no=",
+                    "Australia Post": "https://auspost.com.au/mypost/track/details/"
+                }
+            </preference>
             <preference preference-id="gtmScriptEnabled">false</preference>
             <preference preference-id="openingTime">2</preference>
             <preference preference-id="closingTime">11</preference>
@@ -230,6 +237,13 @@
                     {"country":"Philippines", "site": "https://www.bathandbodyworks.ph"},
                     {"country":"Hong Kong", "site": "https://www.bathandbodyworks.hk"}
                 ]
+            </preference>
+            <preference preference-id="allTrackingUrls">
+                {
+                    "APOST": "https://auspost.com.au/mypost/track/details/",
+                    "Courier Please": "https://www.couriersplease.com.au/tools-track?no=",
+                    "Australia Post": "https://auspost.com.au/mypost/track/details/"
+                }
             </preference>
             <preference preference-id="openingTime">2</preference>
             <preference preference-id="closingTime">11</preference>

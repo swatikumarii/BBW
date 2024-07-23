@@ -513,8 +513,8 @@
 
         .add-to-wish-list.authenticated-user {
             &:hover {
-                background: url("../../images/pdp/PDP-Wishlist-3.svg") no-repeat
-                    50%;
+                background: url("../../images/pdp/PDP-Wishlist-3.svg") no-repeat 
+                50%;
             }
         }
 
@@ -530,7 +530,7 @@
 
             &:hover {
                 background: url("../../images/pdp/PDP-Wishlist-5.svg") no-repeat
-                    50%;
+                50%;
             }
         }
     }
@@ -775,17 +775,45 @@
 }
 
 // ------giftcard-popup-------
-.soldout-detail {
-    &::after {
-        font-size: 0.875rem;
-        line-height: 1rem;
-        color: colour(gray, 4);
-        margin-top: 0.3125rem;
-        text-decoration: underline;
-        content: "More Info";
+.giftset-details {
+    letter-spacing: .005em;
+    line-height: 1.25rem;
+    margin-bottom: .75rem;
+    width: 100%;
+
+    .soldout-detail {
+        &::after {
+            font-size: 0.875rem;
+            line-height: 1rem;
+            color: colour(gray, 4);
+            margin-top: 0.3125rem;
+            text-decoration: underline;
+            content: "More Info";
+        }
+
+        .popover-header {
+            display: block;
+            background: none;
+            border-bottom: none;
+        }
+
+        .popover-body {
+            padding: 0 15px 0 15px;
+        }
+    }
+}
+
+.giftcontent-popup {
+    gap: 10px;
+    align-items: center;
+    border-bottom: 1px solid colour(gray, 10);
+    padding-top: 4px;
+
+    &:last-child {
+        border-bottom: none;
     }
 
-    .popover-header {
-        display: none;
+    .product-name {
+        width: 48%;
     }
 }

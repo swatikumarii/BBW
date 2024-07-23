@@ -2,6 +2,7 @@
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addJs('/js/afterpay.js');
+        assets.addJs('/js/cartEinstein.js');
         assets.addJs('/js/productDetail.js');
         assets.addCss('/css/cart.css');
         assets.addCss('/css/afterpaystyle.css');
@@ -160,6 +161,13 @@
             <isinclude template="cart/cartRemoveProductModal" />
 
             <isinclude template="cart/cartRemoveCouponModal" />
+
+            <div class="d-none">
+                <input type="hidden" name="email-recommendations-url" value="${URLUtils.url('Checkout-SetEmailRecommendations')}" />
+                <isslot id="confirmation-email-recommendations" context="global" description="Recommendations for confirmation email" context-object="${dw.order.BasketMgr.getCurrentBasket()}"/>
+                <isslot id="shipment-email-recommendations" context="global" description="Recommendations for shipment email" context-object="${}"/>
+                <isslot id="delivery-email-recommendations" context="global" description="Recommendations for delivery email" context-object="${dw.order.BasketMgr.getCurrentBasket()}"/>
+            </div>
         </isif>
         <div class="container">
             <isslot id="cart-recommendations-m" description="Recommended products" context="global" />

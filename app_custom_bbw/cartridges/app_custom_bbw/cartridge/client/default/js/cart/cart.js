@@ -710,7 +710,7 @@ module.exports = function () {
                     updateApproachingDiscounts(
                         data.basket.orderApproachingDiscounts,
                         data.basket.shippingApproachingDiscounts,
-                        isMiniCart
+                        isPopupMinicart
                     );
                     $('body').trigger(
                         'setShippingMethodSelection',
@@ -1164,6 +1164,10 @@ module.exports = function () {
                     isMiniCart
                 );
                 validateBasket(data);
+                if ($('.remove-giftcard-btn').length > 0) {
+                    $('.remove-giftcard-btn').click();
+                    $('.coupon-gc-error-wrap').removeClass('d-none');
+                }
                 $.spinner().stop();
                 $('body').trigger('promotion:success', data);
             },
