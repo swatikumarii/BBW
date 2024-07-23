@@ -6,6 +6,8 @@
     scope="page" />
 <isset name="showShippingHandlingTaxes"
     value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showShippingHandlingTaxes')}" scope="page" />
+<isset name="showAdjustedMerchandizeSubtotal"
+    value="${dw.system.Site.getCurrent().getCustomPreferenceValue('showAdjustedMerchandizeSubtotal')}" scope="page" />
 <div class="account-profile">
     <div class="profile-heading">
         <h1>${Resource.msg('order.title.receipt', 'order', null)}</h1>
@@ -222,16 +224,18 @@
                         </isif>
                     </isif>
 
-                    <div class="row leading-lines subtotal-item">
-                        <div class="col-6 start-lines">
-                            <p class="order-receipt-label mb-0">
-                                <span>${Resource.msg('label.adjusted.merchandise.subtotal', 'cart', null)}</span>
-                            </p>
+                    <isif condition="${showAdjustedMerchandizeSubtotal}">
+                        <div class="row leading-lines subtotal-item">
+                            <div class="col-6 start-lines">
+                                <p class="order-receipt-label mb-0">
+                                    <span>${Resource.msg('label.adjusted.merchandise.subtotal', 'cart', null)}</span>
+                                </p>
+                            </div>
+                            <div class="col-6 end-lines">
+                                <p class="text-right"><span class="sub-total">${pdict.order.totals.miniCartSubTotal}</span></p>
+                            </div>
                         </div>
-                        <div class="col-6 end-lines">
-                            <p class="text-right"><span class="sub-total">${pdict.order.totals.miniCartSubTotal}</span></p>
-                        </div>
-                    </div>
+                    </isif>
 
                     <!--- Shipping Cost --->
                     <isif condition="${!pdict.isEgiftCard}">

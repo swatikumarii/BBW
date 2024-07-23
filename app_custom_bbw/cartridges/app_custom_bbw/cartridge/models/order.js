@@ -71,6 +71,7 @@ function OrderModel(lineItemContainer, options) {
             this.shippingStatus = 'shippingStatus' in lineItemContainer.shipments[0] ? lineItemContainer.shipments[0].shippingStatus : '';
             this.trackingNumber = 'trackingNumber' in lineItemContainer.shipments[0] ? lineItemContainer.shipments[0].trackingNumber : '';
         }
+        this.emailRecommendationProducts = 'emailRecommendationPids' in lineItemContainer.custom && lineItemContainer.custom.emailRecommendationPids ? JSON.parse(lineItemContainer.custom.emailRecommendationPids) : null;
     }
 }
 
