@@ -8,44 +8,48 @@
       "name": "Slick Slider Configuration",
       "description": "Infinity loop. Duplicate last and first items to get loop illusion.",
       "attribute_definitions": [
-        {
-          "id": "infinityLoop",
-          "name": "Infinity loop",
-          "type": "boolean",
-          "required": false,
-          "default_value": true
-        },
-        {
-          "id": "autoplay",
-          "name": "AutoPlay",
-          "type": "boolean",
-          "required": false,
-          "default_value": true
-        },
-        {
-          "id": "variableWidth",
-          "name": "Variable Width",
-          "type": "boolean",
-          "required": false,
-          "default_value": false
-        },
-        {
-          "id": "autoPlaySpeed",
-          "name": "Auto Play Speed",
-          "description": "Add Auto Play Speed in Seconds Here",
-          "type": "integer",
-          "required": false
-        },
-        {
-          "id": "slideAnimation",
-          "name": "Slides Animation",
-          "type": "enum",
-          "required": false,
-          "values": [
-            "Normal",
-            "Fade"
-          ]
-        }
+          {
+              "id": "title",
+              "name": "Title",
+              "description": "Add Swiper title",
+              "type": "text",
+              "required": false
+          },
+          {
+              "id": "infinityLoop",
+              "name": "Infinity loop",
+              "type": "boolean",
+              "required": false,
+              "default_value": true
+          },
+          {
+              "id": "autoplay",
+              "name": "AutoPlay",
+              "type": "boolean",
+              "required": false,
+              "default_value": true
+          },
+          {
+              "id": "variableWidth",
+              "name": "Variable Width",
+              "type": "boolean",
+              "required": false,
+              "default_value": false
+          },
+          {
+              "id": "autoPlaySpeed",
+              "name": "Auto Play Speed",
+              "description": "Add Auto Play Speed in Seconds Here",
+              "type": "integer",
+              "required": false
+          },
+          {
+              "id": "slideAnimation",
+              "name": "Slides Animation",
+              "type": "enum",
+              "required": false,
+              "values": ["Normal", "Fade"]
+          }
       ]
     },
     {
@@ -56,6 +60,13 @@
         {
           "id": "slideToShowMobile",
           "name": "Number of slides to display in Mobile Device",
+          "description": "Enter in this format (3 OR 3.5)",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": "slideToShowTablet",
+          "name": "Number of slides to display in Tablet Device",
           "description": "Enter in this format (3 OR 3.5)",
           "type": "string",
           "required": true
@@ -76,6 +87,13 @@
         {
           "id": "gapMobile",
           "name": "Gap Between slides Mobile Device",
+          "description": "Add Integer value in (PX)",
+          "type": "integer",
+          "required": false
+        },
+        {
+          "id": "gapTablet",
+          "name": "Gap Between slides Tablet Device",
           "description": "Add Integer value in (PX)",
           "type": "integer",
           "required": false
@@ -107,8 +125,20 @@
           "required": false
         },
         {
-          "id": "CarouselControls",
-          "name": "Display Slider controls",
+          "id": "DesktopCarouselControls",
+          "name": "Display Slider controls for desktop",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "id": "TabletCarouselControls",
+          "name": "Display Slider controls for tablet",
+          "type": "boolean",
+          "required": false
+        },
+        {
+          "id": "MobileCarouselControls",
+          "name": "Display Slider controls for mobile",
           "type": "boolean",
           "required": false
         },
