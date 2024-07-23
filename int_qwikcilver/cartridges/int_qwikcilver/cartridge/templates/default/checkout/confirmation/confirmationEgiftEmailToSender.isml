@@ -71,9 +71,9 @@
                                                 <td style="vertical-align:middle;padding-left: 32px;padding-right: 15px;width: 50%;">
                                                     <a style="display:block;text-align:left;"
                                                         href="${URLUtils.https('Product-Show', 'pid', lineItem.id)}">
-                                                        <img src="${lineItem.images.small[0].absURL}"
-                                                            alt="${lineItem.images.small[0].alt}"
-                                                            title="${lineItem.images.small[0].title}"
+                                                        <img src="${lineItem.images.small_2x[0].absURL}"
+                                                            alt="${lineItem.images.large[0].alt}"
+                                                            title="${lineItem.images.large[0].title}"
                                                             style="border:0;vertical-align:top;width:100%;max-height: 261px;height: 100%;max-width:261px;"
                                                             width="261" />
                                                     </a>
