@@ -1164,6 +1164,10 @@ module.exports = function () {
                     isMiniCart
                 );
                 validateBasket(data);
+                if ($('.remove-giftcard-btn').length > 0) {
+                    $('.remove-giftcard-btn').click();
+                    $('.coupon-gc-error-wrap').removeClass('d-none');
+                }
                 $.spinner().stop();
                 $('body').trigger('promotion:success', data);
             },
