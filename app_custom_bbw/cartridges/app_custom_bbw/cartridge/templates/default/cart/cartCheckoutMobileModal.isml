@@ -20,7 +20,7 @@
         </div>
 
         <div class="checkout-mobile-detail">
-          <a href="${URLUtils.https('Checkout-Begin')}" data-check-motivator="${URLUtils.https('Cart-MissingFree')}"
+          <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.https('Checkout-Begin')}" data-check-motivator="${URLUtils.https('Cart-MissingFree')}"
             class="btn btn-primary btn-block checkout-btn h-fw--semibold h-font-size--16 cart-checkout-btn ${pdict.valid.error ? 'disabled' : ''}"
             role="button">
             <span class="checkout-button-lock"></span>
@@ -56,7 +56,7 @@
             <isinclude template="product/components/afterpayexpresscheckout" />
             <div class="mb-sm-3 mt-2">
               <isif condition="${isExpressCheckoutFinalize}">
-                <a href="${URLUtils.url('AfterpayExpress-ContinueFinalize')}"
+                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('AfterpayExpress-ContinueFinalize')}"
                   class="${checkoutButtonClass} btn btn-block checkout-btn ${pdict.valid.error ? 'disabled' : ''}">
                   &nbsp;
                 </a>

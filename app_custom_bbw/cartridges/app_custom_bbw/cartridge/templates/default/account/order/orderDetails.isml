@@ -118,7 +118,7 @@
                             </p>
                             <isif condition="${!(pdict.order.trackOrderShippingUrl === '' || pdict.order.trackOrderShippingUrl === null)}">
                                 <p class="shipping-method">
-                                    <a class="btn btn-hover btn-secondary h-fw--bold h-p h-pb--5 h-pt--5" href="${pdict.order.trackOrderShippingUrl}" target="_blank">${Resource.msg('msg.track.order', 'order', null)}</a>
+                                    <a class="btn btn-hover btn-secondary h-fw--bold h-p h-pb--5 h-pt--5" hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.order.trackOrderShippingUrl}" target="_blank">${Resource.msg('msg.track.order', 'order', null)}</a>
                                 </p>
                             </isif>
                         </div>

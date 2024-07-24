@@ -146,7 +146,7 @@
                                     <span
                                         class="shipping-method-title h-font-size--16">${Resource.msg('label.shipping', 'order', null)} : ${shippingModel.selectedShippingMethod.ID} ${Resource.msg('label.shipping', 'order', null)}
                                         <isif condition="${pdict.order.trackingNumber}">
-                                            <a href="${pdict.order.trackingUrl + pdict.order.trackingNumber}" hreflang="${request.getLocale()}"
+                                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${pdict.order.trackingUrl + pdict.order.trackingNumber}" 
                                                 target="_blank">
                                                 <span>${pdict.order.trackingNumber}</span>
                                             </a>
@@ -240,7 +240,7 @@
                                 <div class="product-card-wrapper">
                                     <div class="product-image">
                                         <div class="product-line-item-details d-flex flex-row">
-                                            <a href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
+                                            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Product-Show', 'pid', lineItem.id)}">
                                                 <div class="item-image">
                                                     <img class="product-image" src="${lineItem.images.small[0].url}"
                                                         alt="${lineItem.images.small[0].alt}"

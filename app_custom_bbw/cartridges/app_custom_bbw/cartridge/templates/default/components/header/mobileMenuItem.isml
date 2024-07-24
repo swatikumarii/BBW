@@ -4,7 +4,7 @@
     <isloop items="${menuItem.subCategories}" var="category">
         <isif condition="${category.subCategories}">
             <li class="dropdown-item dropdown level-2-li p-0" role="presentation">
-                <a href="${category.url}" id="${category.id}"
+                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${category.url}" id="${category.id}"
                     class="level-2-link dropdown-link dropdown-toggle h-font-size--16 h-fw--semibold" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0">${category.name}</a>
                 <isset name="menuItem" value="${category}" scope="page" />
@@ -12,7 +12,7 @@
             </li>
         <iselse/>
             <li class="dropdown-item level-2-li p-0" role="presentation">
-                <a href="${category.url}" id="${category.id}" role="menuitem" class="dropdown-link level-2-link h-font-size--16 h-fw--semibold"
+                <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${category.url}" id="${category.id}" role="menuitem" class="dropdown-link level-2-link h-font-size--16 h-fw--semibold"
                     tabindex="0">${category.name}</a>
             </li>
         </isif>
@@ -25,7 +25,7 @@
         </div>
     </li>
     <li class="level-2-li explore-li" role="presentation">
-        <a href="<isprint value=" ${exploreCategory.url}" encoding="htmldoublequote" />"
+        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="<isprint value=" ${exploreCategory.url}" encoding="htmldoublequote" />"
         class="level-2-link h-font-size--16 h-fw--semibold h-clr--gray"
         role="button">${'Explore ' + exploreCategory.name}</a>
         <isset name="menuItem" value="${category}" scope="page" />

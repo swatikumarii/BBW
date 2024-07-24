@@ -267,14 +267,14 @@
         <label class="custom-control-label h-clr--black-1 h-font-size--16" for="add-to-email-list">
             
             <span class="h-clr--black-1 h-font-size--16 cursor-pointer"><isprint value="${pdict.profileForm.customer.addtoemaillist.label}" encoding="htmlcontent" /> ${Resource.msg('label.terms.contitions', 'forms', null)}</span>
-            <a href="${URLUtils.url('Page-Show', 'cid', 'terms-of-use')}"
+            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', 'terms-of-use')}"
                 class="h-clr--black-1 h-font-size--16 d-block text-left b-link--underlined">${Resource.msg('label.read.here', 'forms', null)}</a>
         </label>
     </div>
 
     <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}" />
     <div class="text-center register-privacy">
-        <a href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="h-font-size--12 h-clr--black-3">
+        <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${URLUtils.url('Page-Show', 'cid', 'privacy-policy')}" class="h-font-size--12 h-clr--black-3">
             ${Resource.msg('link.privacypolicy.registration', 'login', null)}
         </a>
     </div>
@@ -296,7 +296,7 @@
     <iscomment>
         <div class="privacy-policy">
             ${Resource.msg('description.privacypolicy.registration', 'registration', null)}
-            <a href="${'#'}">
+            <a hreflang="${request.getLocale().replace('_', '-').toLowerCase()}" href="${'#'}">
                 ${Resource.msg('link.privacypolicy.registration', 'registration', null)}
             </a>
         </div>
