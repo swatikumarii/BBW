@@ -588,6 +588,8 @@ module.exports = function () {
             $('.minicart .popover').removeClass('show');
         }
 
+        var isInMiniCart = !($('body').find('.cart-lineitems').length > 0);
+
         url = appendToUrl(url, urlParams);
 
         $('body > .modal-backdrop').remove();
@@ -710,7 +712,7 @@ module.exports = function () {
                     updateApproachingDiscounts(
                         data.basket.orderApproachingDiscounts,
                         data.basket.shippingApproachingDiscounts,
-                        isPopupMinicart
+                        isInMiniCart
                     );
                     $('body').trigger(
                         'setShippingMethodSelection',
